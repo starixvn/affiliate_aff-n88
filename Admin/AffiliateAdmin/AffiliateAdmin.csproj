@@ -1044,7 +1044,7 @@
     <Content Include="AppSettings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.12betadmin.sit.config" />
+    <Content Include="Web.n88admin.sit.config" />
     <Content Include="Areas\Portal\Views\Web.config" />
     <Content Include="AffiliateAdmin.ruleset" />
     <Content Include="Areas\Portal\www\source\js\layouts\AppLayout.jsx" />
@@ -1356,11 +1356,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Web.12betadmin.backupmnl.config" />
-    <Content Include="Web.12betadmin.local.config" />
-    <Content Include="Web.12betadmin.master.config" />
-    <Content Include="Web.12betadmin.production.config" />
-    <Content Include="Web.12betadmin.uat.config" />
+    <Content Include="Web.n88admin.backupmnl.config" />
+    <Content Include="Web.n88admin.local.config" />
+    <Content Include="Web.n88admin.master.config" />
+    <Content Include="Web.n88admin.production.config" />
+    <Content Include="Web.n88admin.uat.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
