@@ -1,0 +1,20 @@
+﻿import { maxWidth } from '../../../../modules/constants';
+import { globalResource } from '../../../../modules/globalResource';
+
+export { maxWidth }
+
+export const memberTypes = {
+    1: 'Non-Deposited',
+    2: 'Deposited'
+}
+
+export const resource = {
+    ...globalResource,
+    Member: 'Member',
+    UserName: 'User Name',
+    FirstName: 'First Name',
+    LastName: 'Last Name',
+    EmailAddress: 'Email Address',
+    Currency: 'Currency',
+    RegisterDate: 'Register Date'
+}
