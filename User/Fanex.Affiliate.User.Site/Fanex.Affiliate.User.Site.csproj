@@ -377,18 +377,18 @@
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.uat.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-asian.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.12betuser-euro.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.uat.config" />
     <Content Include="Configurations\AppSetting\Transform\asian.local.config" />
     <Content Include="Configurations\AppSetting\Transform\asian.sit.config" />
     <Content Include="Configurations\AppSetting\Transform\asian.uat.config" />
@@ -1283,6 +1283,42 @@
     <Content Include="Views\UserPanel\Marketing\MediaGallery\Index.cshtml" />
     <Content Include="Views\UserPanel\Marketing\TextBox\Index.cshtml" />
     <Content Include="www\source\styles\pages\oldmarketing.scss" />
+    <None Include="Configurations\Web\Web.n88user-asian.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-asian.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-asian.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-asian.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-asian.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-asian.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-euro.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1295,42 +1331,6 @@
     </None>
     <Content Include="ConnectionString.config">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.backupmnl.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.local.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.master.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.sit.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-asian.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.backupmnl.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.local.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.master.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.sit.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.12betuser-euro.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
     </Content>
     <Content Include="Fanex.Affiliate.User.Site.ruleset" />
     <Content Include="package.json" />
