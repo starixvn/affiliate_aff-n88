@@ -25,14 +25,14 @@
 }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
-    background: #fe2400;
+    background: $button-login-bg-color;
     font-size: 13px;
-    color: #fff;
+    color: $button-login-color;
     line-height: 22px;
 
     &:hover, &:focus {
-        color: #fff;
-        background: darken(#fe2400, 5%);
+        color: $button-login-color;
+        background: $button-login-bg-color-hover;
     }
 
     &:focus {
@@ -40,23 +40,21 @@
     }
 
     .icon {
-        color: #fff;
+        color: $button-login-color;
         line-height: 1;
         padding-right: 6px;
     }
 }
 
 .btn-submit {
-    $bg-submit: #b8491f, #ee6736;
-    @include background-gradient(top, $bg-submit);
+    background-color: $button-submit-bg-color;
     font-size: 13px;
-    color: #fff;
+    color: $button-submit-color;
     text-transform: capitalize;
 
     &:hover, &:focus {
-        color: #fff;
-        $bg-submit: #a8441d, #ee6736;
-        @include background-gradient(top, $bg-submit);
+        color: $button-submit-color;
+        background-color: $button-submit-bg-color-hover;
     }
 
     &:focus {
@@ -64,7 +62,7 @@
     }
 
     .icon {
-        color: #fff;
+        color: $button-submit-color;
         line-height: 1;
         padding-right: 6px;
     }

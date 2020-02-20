@@ -319,7 +319,7 @@ input[type="checkbox"], input[type="radio"] {
     background-position: -1564px 0; }
 
 .header-top {
-  background: #000 url(../../../source/styles/Images/header-bg.png) center top no-repeat; }
+  background-color: #010000; }
   .header-top .logo {
     padding: 1.7rem 0 1.7rem 3rem;
     display: inline-block; }
@@ -338,11 +338,9 @@ input[type="checkbox"], input[type="radio"] {
     margin-right: 0; }
 
 .navbar {
-  background: -ms-linear-gradient(top, #d43131, #ab0101);
-  background: -webkit-linear-gradient(top, #d43131, #ab0101);
-  background: -moz-linear-gradient(top, #d43131, #ab0101);
-  background: -o-linear-gradient(top, #d43131, #ab0101);
-  background: linear-gradient(top, #d43131, #ab0101);
+  /*$bg-navbr: #d43131, #ab0101;
+    @include background-gradient(top, $bg-navbr);*/
+  background: #c31d1d;
   -webkit-border-radius: 0;
   -khtml-border-radius: 0;
   -moz-border-radius: 0;
@@ -492,7 +490,7 @@ input[type="checkbox"], input[type="radio"] {
     border-radius: 2px;
     width: 120px;
     height: 26px;
-    border: 1px solid #fff;
+    border: 1px solid #000;
     vertical-align: middle;
     margin-left: 8px;
     padding-left: 5px;
@@ -1092,15 +1090,11 @@ label.require:after {
 .page-title {
   margin-bottom: 1.5rem;
   background: #f5f5f5;
-  border-top: 1px solid #e04f29;
+  border-top: 1px solid #a24627;
   margin-left: -1rem;
   margin-right: -1rem; }
   .page-title .text {
-    background: -ms-linear-gradient(top, #df4f29, #a24627);
-    background: -webkit-linear-gradient(top, #df4f29, #a24627);
-    background: -moz-linear-gradient(top, #df4f29, #a24627);
-    background: -o-linear-gradient(top, #df4f29, #a24627);
-    background: linear-gradient(top, #df4f29, #a24627);
+    background-color: #a24627;
     position: relative;
     display: inline-block;
     padding-left: 2rem;
@@ -1206,21 +1200,13 @@ label.require:after {
     padding-right: 6px; }
 
 .btn-submit {
-  background: -ms-linear-gradient(top, #b8491f, #ee6736);
-  background: -webkit-linear-gradient(top, #b8491f, #ee6736);
-  background: -moz-linear-gradient(top, #b8491f, #ee6736);
-  background: -o-linear-gradient(top, #b8491f, #ee6736);
-  background: linear-gradient(top, #b8491f, #ee6736);
+  background-color: #b8491f;
   font-size: 13px;
   color: #fff;
   text-transform: capitalize; }
   .btn-submit:hover, .btn-submit:focus {
     color: #fff;
-    background: -ms-linear-gradient(top, #a8441d, #ee6736);
-    background: -webkit-linear-gradient(top, #a8441d, #ee6736);
-    background: -moz-linear-gradient(top, #a8441d, #ee6736);
-    background: -o-linear-gradient(top, #a8441d, #ee6736);
-    background: linear-gradient(top, #a8441d, #ee6736); }
+    background-color: #a2401b; }
   .btn-submit:focus {
     outline: none; }
   .btn-submit .icon {
@@ -1261,7 +1247,7 @@ label.require:after {
   .table .numberId {
     width: 80px; }
   .table table {
-    border: 1px solid #c1c1c1;
+    border: 1px solid #cccccc;
     border-collapse: collapse;
     margin: 0;
     padding: 0;
@@ -1277,7 +1263,7 @@ label.require:after {
     .table table tr {
       background: #f5eaea;
       padding: .35em;
-      color: #333333;
+      color: #333;
       transition: background 0.2s ease; }
       .table table tr:hover {
         background: #fbe8e1; }

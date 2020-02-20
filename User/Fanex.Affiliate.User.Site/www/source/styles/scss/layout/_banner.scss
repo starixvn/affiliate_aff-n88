@@ -28,8 +28,6 @@
             }
         }
 
-
-
         @media (min-width: 1600px) {
             height: 500px;
         }
@@ -51,7 +49,7 @@
 }
 
 .banner-side {
-    background: #010187;
+    background: $banner-side-bg-color;
 
     > img {
         margin: 0;
@@ -59,11 +57,11 @@
 }
 
 .no-webp .banner-commission-structure {
-  background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.png");
 }
 
 .webp .banner-commission-structure {
-  background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.webp");
 }
 
 .banner-commission-structure {
@@ -92,15 +90,15 @@
             position: relative;
             display: inline-block;
             margin-left: 10px;
-            font-size: 60px;            
+            font-size: 60px;
             color: #FFFF28;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;             
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
         }
 
         .text-big-white {
             font-size: 25px;
             color: #fff;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;            
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-style: italic;
         }
 
@@ -108,7 +106,7 @@
             //margin-bottom: 0;
             font-size: 20px;
             color: #fff;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;            
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-style: italic;
         }
 
@@ -122,17 +120,16 @@
             display: inline-block;
             font-size: 40px;
             color: #FFFF28;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;                         
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-weight: 600;
             font-style: normal;
-
         }
     }
 
-     @media screen and (max-width: 767px) {
-         padding-left: 15px;
+    @media screen and (max-width: 767px) {
+        padding-left: 15px;
 
-         .text-content {
+        .text-content {
             .text-big-yellow {
                 font-size: 40px;
             }
@@ -148,32 +145,29 @@
             .text-yellow {
                 font-size: 30px;
             }
-         }
-              
-     }
+        }
+    }
 }
 
-
-
 .no-webp .banner-product-sport {
-  background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.jpg?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.jpg?v=000001");
 }
 
 .webp .banner-product-sport {
-  background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.webp?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.webp?v=000001");
 }
 
 .no-webp .banner-product-casino {
-  background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.jpg?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.jpg?v=000001");
 }
 
 .webp .banner-product-casino {
-  background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.webp?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.webp?v=000001");
 }
 
 .banner-product {
-    display: flex;  
-    max-width: 1120px;    
+    display: flex;
+    max-width: 1120px;
     height: 300px;
     margin: 0 auto;
     padding: 50px 10px;
@@ -184,7 +178,7 @@
     background-size: cover;
 
     .text-red {
-        color: #ff0000;        
+        color: #ff0000;
         font-size: 16px;
         font-weight: 600;
         line-height: 1.5;
@@ -204,16 +198,16 @@
         justify-content: center;
 
         .text-red {
-            margin-bottom: -260px  
+            margin-bottom: -260px
         }
 
         @media screen and (min-width: 768px) and (max-width: 1199px) {
             .text-red {
-                margin-bottom: -170px 
+                margin-bottom: -170px
             }
         }
 
-        @media screen and (max-width: 767px) {        
+        @media screen and (max-width: 767px) {
             .text-red {
                 margin-bottom: -30px;
             }
@@ -248,7 +242,7 @@
         }
 
         @media screen and (max-width: 374px) {
-               .text-red {
+            .text-red {
                 margin-top: -4.25rem;
                 margin-left: -1.75rem;
             }
@@ -257,19 +251,19 @@
 }
 
 .no-webp .banner-terms-condition {
-  background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.png");
 }
 
 .webp .banner-terms-condition {
-  background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.webp");
 }
 
 .no-webp .banner-faqs {
-  background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.png");
 }
 
 .webp .banner-faqs {
-  background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.webp");
 }
 
 .banner-terms-condition, .banner-faqs {
@@ -281,7 +275,7 @@
     margin: 0 auto;
     padding-left: 108px;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size: contain;
 
     p {
         margin: 0;
@@ -306,6 +300,6 @@
 
     @media screen and (max-width: 767px) {
         width: 330px;
-        padding-left: 80px;        
+        padding-left: 80px;
     }
 }

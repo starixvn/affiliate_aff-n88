@@ -1,4 +1,6 @@
-﻿.signup-block {
+﻿@import "../scss/abstracts/_variables.scss";
+
+.signup-block {
     margin-top: 15px;
     margin-bottom: 20px;
 
@@ -11,6 +13,7 @@
             background-color: #c11b00;
         }
     }
+
     @media screen and (max-width: 374px) {
         .btn-link {
             font-size: 11px;
@@ -24,7 +27,7 @@
             background: transparent;
 
             .game-name {
-                background-color: #ded5d5;
+                background-color: $table-game-name-bg;
                 border: 3px solid #fff;
                 width: 200px;
 
@@ -37,7 +40,7 @@
 
     .casino-table {
         tbody > tr:nth-of-type(even) {
-            background-color: #f9f4f4;
+            background-color: $table-row--even-bg-color;
         }
     }
 }

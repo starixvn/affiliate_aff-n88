@@ -1,0 +1,31 @@
+﻿@import "../abstracts/variables";
+
+.table table {
+    border: 1px solid $table-border-color;
+
+    tr {
+        background: $table-bg-color;
+        color: $table-color;
+
+        &:hover {
+            background: $table-row-bg-color-hover;
+        }
+    }
+
+    th, td {
+        border: 1px solid $table-header-border-color;
+    }
+
+    th {
+        background: $table-header-bg-color;
+        color: $table-header-color;
+    }
+
+    .non-transform {
+        text-transform: none;
+    }
+
+    td {
+        border: 1px solid $table-border-color;
+    }
+}

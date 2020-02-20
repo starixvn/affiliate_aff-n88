@@ -8,7 +8,7 @@
     }
 
     .page-container {
-        background: #a3a3a3;
+        background: $home-page-bg-color;
     }
 
     .content {
@@ -36,18 +36,18 @@
 }
 
 .card-content {
-    border: 1px solid #fff;
-    background: rgba(255,255,255,.2);
+    border: 1px solid $home-card-content-border-color;
+    background: $home-card-content-bg-color;
 
     .card-body {
         padding: 10px;
     }
 
     .card-title {
-        color: #2b2b2b;
+        color: $home-card-title-color;
         font-weight: 600;
         font-size: 16px;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $home-card-content-border-color;
         margin: 0;
         padding: 5px 10px;
 
@@ -68,7 +68,7 @@
 
     .text-content {
         font-size: 13px;
-        color: $second-color;
+        color: $home-card-content-color;
         line-height: 2.4rem;
         padding: 0 16px 16px;
     }
@@ -76,7 +76,6 @@
     .img-content {
         //text-align: center;
         //padding: 10px 0;
-
         .img-item {
             margin-left: auto;
             margin-right: auto;
@@ -92,11 +91,11 @@
         padding: 15px 0 10px;
 
         &:not(:last-child) {
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid $home-card-content-border-color;
         }
 
         > a {
-            color: #212121;
+            color: $home-card-content-color;
         }
     }
 

@@ -1,7 +1,8 @@
 ﻿@import "../components/flag";
 
 .header-top {
-    background: #000 url(../Images/header-bg.png) center top no-repeat;
+    //background: #000 url(../Images/header-bg.png) center top no-repeat;
+    background-color: $header-bg-color;
 
     .logo {
         padding: 1.7rem 0 1.7rem 3rem;
@@ -30,8 +31,9 @@
 }
 
 .navbar {
-    $bg-navbr: #d43131, #ab0101;
-    @include background-gradient(top, $bg-navbr);
+    /*$bg-navbr: #d43131, #ab0101;
+    @include background-gradient(top, $bg-navbr);*/
+    background: $nav-bg-color;
     @include border-radius(0);
     min-height: 30px;
     overflow: hidden;
@@ -52,7 +54,7 @@
 
             &:hover, &:focus, &:visited {
                 a {
-                    color: #fff;
+                    color: $nav-color-active;
                     transition: color 0.5s ease;
                     background: transparent;
                 }
@@ -62,7 +64,7 @@
 
     .nav > li > a:focus {
         background: transparent;
-        color: $primary-color;
+        color: $nav-color-focus;
         outline: none;
     }
 
@@ -93,8 +95,6 @@
     }
 }
 
-
-
 .menu {
     padding-left: 0;
     padding-right: 0;
@@ -103,7 +103,7 @@
         position: relative;
         padding: 0 10px;
         line-height: 30px;
-        color: #eb9b9b;
+        color: $nav-color;
         text-transform: uppercase;
         font-weight: 600;
 
@@ -246,15 +246,15 @@
     }
 
     .text-field {
-        background: #fff;
+        background: $user-login-control-bg-color;
         border-radius: 2px;
         width: 120px;
         height: 26px;
-        border: 1px solid #fff;
+        border: 1px solid $user-login-control-border-color;
         vertical-align: middle;
         margin-left: 8px;
         padding-left: 5px;
-        color: #000;
+        color: $user-login-control-color;
 
         &:first-child {
             margin-left: 0;
