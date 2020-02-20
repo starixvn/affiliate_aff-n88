@@ -179,6 +179,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AffiliateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Filters\GlobalExceptionFilter.cs" />
@@ -205,10 +206,6 @@
     <ProjectReference Include="..\..\Affiliate.N88.Infrastructure\Affiliate.N88.Infrastructure.csproj">
       <Project>{12e6b43b-573f-49bc-b926-83b94410d15c}</Project>
       <Name>Affiliate.N88.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Affiliate.N88.WebApi.Core\Affiliate.N88.WebApi.Core.csproj">
-      <Project>{f1ce8124-4e20-4814-b1de-b9da3ce7af54}</Project>
-      <Name>Affiliate.N88.WebApi.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

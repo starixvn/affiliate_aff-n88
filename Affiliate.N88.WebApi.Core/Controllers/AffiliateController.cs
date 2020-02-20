@@ -1,4 +1,5 @@
-﻿using Affiliate.N88.WebApi.Core.DataParams;
+﻿using Affiliate.N88.Infrastructure.ApiModels;
+using Affiliate.N88.WebApi.Core.DataParams;
 using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
@@ -19,11 +20,16 @@ namespace Affiliate.N88.WebApi.Core.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AffiliateParam>> Get()
+        public async Task<IEnumerable<AffiliateModel>> Get()
         {
             var leagues = await dynamicRepository.FetchAsync<AffiliateParam>(new GetAffiliatesCriteria());
 
-            return leagues;
+            return leagues.Select(l => new AffiliateModel 
+            {
+                AffiliateId = l.AffiliateId,
+                CustId = l.CustId,
+                SiteId = l.SiteId
+            });
         }
     }
 }

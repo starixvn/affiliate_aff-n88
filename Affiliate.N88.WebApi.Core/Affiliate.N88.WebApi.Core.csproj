@@ -126,12 +126,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Repository\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Affiliate.N88.Infrastructure\Affiliate.N88.Infrastructure.csproj">
+      <Project>{12E6B43B-573F-49BC-B926-83B94410D15C}</Project>
+      <Name>Affiliate.N88.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
