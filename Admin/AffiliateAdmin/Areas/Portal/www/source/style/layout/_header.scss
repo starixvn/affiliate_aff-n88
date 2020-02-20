@@ -1,17 +1,19 @@
 ﻿.headWrapper {
     width: 100%;
     min-width: 1007px;
-    height: 38px;
-    background: url(../assets/bg_top.jpg) repeat-x #d4d4d4;
+    height: 50px;
 
-    .logo {
-        background: url('../assets/banner_top.jpg') no-repeat left;
+    .logo {        
         width: 250px;
         height: 100%;
+        font-size: 22px;
+        font-weight: bold;
+        padding-left: 20px;
+        line-height: 2;
     }
 
     .user-info {
-        font-size: 11px;
+        padding-top: 10px;
         position: relative;
 
         .icon-top {

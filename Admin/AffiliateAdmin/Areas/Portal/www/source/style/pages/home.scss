@@ -54,7 +54,7 @@
                     background: #e4ebf5;
 
                     &-total {
-                        background: #d5d8dd url(../assets/home/tbl_m.jpg) repeat-x;
+                        background: #d5d8dd;
                     }
                 }
 
@@ -64,7 +64,7 @@
 
                     &-total {
                         text-align: right;
-                        background: #d5d8dd url(../assets/home/tbl_m.jpg) repeat-x;
+                        background: #d5d8dd;
                     }
                 }
             }
@@ -80,7 +80,7 @@
 
     .background-gray {
         height: 50px;
-        background: url(../assets/home/bg_home_top.jpg) repeat-x #e8effa;
+        background: #e8effa;
         display: flex;
         align-items: center;
         padding: 0px !important;

@@ -1,0 +1,19 @@
+body .login-header {
+  background: #FF855C; }
+
+body .bt-login {
+  background: #FF855C; }
+  body .bt-login:hover {
+    background: #ff6b39; }
+
+.headWrapper {
+  background: rgba(255, 133, 92, 0.2); }
+
+.main-menu-container {
+  background: #FF855C; }
+
+.headWrapper .logo {
+  color: #FF855C; }
+
+
+/*# sourceMappingURL=theme-coral.css.map*/

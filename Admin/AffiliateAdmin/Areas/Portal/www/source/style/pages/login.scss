@@ -16,8 +16,6 @@
   }
 
   .login-header {
-    background: rgb(133,187,244);
-    background: linear-gradient(180deg, #85bbf4, #69a0ef);
     padding: 30px 45px; 
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -76,7 +74,6 @@
 
   .bt-login {
     display: block;
-    background: #6CA3EF;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -86,7 +83,6 @@
 
     &:hover {
       text-decoration: none;
-      background: #3182f0;
     }
   }
 

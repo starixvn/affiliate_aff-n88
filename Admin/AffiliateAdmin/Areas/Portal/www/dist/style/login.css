@@ -11,8 +11,6 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 2px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   body .login-header {
-    background: #85bbf4;
-    background: linear-gradient(180deg, #85bbf4, #69a0ef);
     padding: 30px 45px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -55,7 +53,6 @@ body {
     border-color: #CED4DA; }
   body .bt-login {
     display: block;
-    background: #6CA3EF;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -63,8 +60,7 @@ body {
     border-radius: 3px;
     transition: all .2s ease; }
     body .bt-login:hover {
-      text-decoration: none;
-      background: #3182f0; }
+      text-decoration: none; }
   body .foot {
     color: #495057;
     text-align: center;

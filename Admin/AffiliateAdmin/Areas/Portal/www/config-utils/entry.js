@@ -63,4 +63,8 @@ module.exports = {
     [`${styleDist}/pages/administrator/administrator`]: clientRoot + "/style/pages/administrator/administrator.scss",
     [`${styleDist}/pages/administrator/department`]: clientRoot + "/style/pages/administrator/department.scss",
     [`${styleDist}/home`]: clientRoot + "/style/pages/home.scss",
+    [`${styleDist}/theme-blue`]: clientRoot + "/style/themes/theme-blue.scss",
+    [`${styleDist}/theme-violet`]: clientRoot + "/style/themes/theme-violet.scss",
+    [`${styleDist}/theme-coral`]: clientRoot + "/style/themes/theme-coral.scss",
+    [`${styleDist}/theme-green`]: clientRoot + "/style/themes/theme-green.scss",
 };
