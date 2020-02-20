@@ -1,0 +1,5 @@
+﻿<Functions>
+  <Function Name="affiliate1">
+    <Setting Key="N8G_AffiliateSel" SpName="N8G_AffiliateSel" DbName="affiliate" />
+  </Function>
+</Functions>

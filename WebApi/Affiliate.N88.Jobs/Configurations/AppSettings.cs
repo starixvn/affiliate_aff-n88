@@ -5,5 +5,7 @@
         public string SentryDsn { get; set; }
 
         public string LicenseeDataAPI { get; set; }
+
+        public string SpPath { get; set; }
     }
 }

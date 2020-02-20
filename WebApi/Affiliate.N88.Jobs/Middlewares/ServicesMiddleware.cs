@@ -1,6 +1,10 @@
-﻿using Affiliate.N88.Jobs.Apis;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Fanex.Data;
 using Fanex.Data.Repository;
+using Fanex.Data.SqlServer;
 using Fanex.Logging;
 using Fanex.Logging.Sentry;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +27,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddSingleton(RestService.For<ILicenseeApi>(appSettings.LicenseeDataAPI));
 
             InitLogging(services);
+            InitFanexData(configuration);
         }
 
         public static void InitLogging(IServiceCollection services)
@@ -35,6 +40,14 @@ namespace Affiliate.N88.Jobs.Middlewares
                     }));
 
             services.AddSingleton(Logger.Log);
+        }
+
+        public static void InitFanexData(IConfiguration configuration)
+        {
+            DbSettingProviderManager
+                .StartNewSession()
+                .WithSqlServer(resourcePath: appSettings.SpPath)
+                .Run();
         }
     }
 }
