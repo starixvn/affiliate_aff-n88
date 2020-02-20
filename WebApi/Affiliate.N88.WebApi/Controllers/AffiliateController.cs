@@ -4,7 +4,6 @@ using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -20,16 +19,11 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AffiliateModel>> Get()
+        public async Task<IEnumerable<AffiliateInfo>> Get()
         {
-            var leagues = await dynamicRepository.FetchAsync<AffiliateParam>(new GetAffiliatesCriteria());
+            var leagues = await dynamicRepository.FetchAsync<AffiliateInfo>(new GetAffiliatesCriteria());
 
-            return leagues.Select(l => new AffiliateModel 
-            {
-                AffiliateId = l.AffiliateId,
-                CustId = l.CustId,
-                SiteId = l.SiteId
-            });
+            return leagues;
         }
     }
 }
