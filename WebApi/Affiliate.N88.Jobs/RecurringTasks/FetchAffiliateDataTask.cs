@@ -1,5 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Affiliate.N88.Jobs.Apis;
+using Fanex.Logging;
+using Newtonsoft.Json;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
@@ -10,9 +12,20 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
     public class FetchAffiliateDataTask : IFetchAffiliateDataTask
     {
-        public Task FetchAffiliateData()
+        private readonly ILicenseeApi licenseeApi;
+        private readonly ILogger logger;
+
+        public FetchAffiliateDataTask(ILicenseeApi licenseeApi, ILogger logger)
         {
-            throw new NotImplementedException();
+            this.licenseeApi = licenseeApi;
+            this.logger = logger;
+        }
+
+        public async Task FetchAffiliateData()
+        {
+            var affiliates = await licenseeApi.GetAffiliates();
+
+            await logger.InfoAsync(JsonConvert.SerializeObject(affiliates));
         }
     }
 }
