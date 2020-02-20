@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Affiliate.N88.WebApi.Core.DataParams;
+using Fanex.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +11,17 @@ namespace Affiliate.N88.WebApi.Core.Controllers
 {
     public class AffiliateController : ApiController
     {
-        [HttpGet]
-        public async Task<IEnumerable<Affiliate>> TestMySql()
+        private readonly IDynamicRepository dynamicRepository;
+
+        public AffiliateController(IDynamicRepository dynamicRepository)
         {
-            var leagues = await dynamicRepository.FetchAsync<Affiliate>(new GetAffiliatesCriteria());
+            this.dynamicRepository = dynamicRepository;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<AffiliateParam>> Get()
+        {
+            var leagues = await dynamicRepository.FetchAsync<AffiliateParam>(new GetAffiliatesCriteria());
 
             return leagues;
         }

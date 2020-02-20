@@ -7,7 +7,7 @@ namespace Affiliate.N88.WebApi.Controllers
         public ActionResult Index() =>
             new ContentResult
             {
-                Content = $"Home Page <br/> <a href=\"{Url.Content("~/api/test/testmysql")}\" >Test My Sql</a>",
+                Content = $"Home Page <br/> <a href=\"{Url.Content("~/api/affiliate/get")}\" >Test My Sql</a>",
                 ContentType = "text/html"
             };
     }

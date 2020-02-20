@@ -15,7 +15,7 @@ namespace Affiliate.N88.WebApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional }                
             );
 
             var formaters = GlobalConfiguration.Configuration.Formatters;
