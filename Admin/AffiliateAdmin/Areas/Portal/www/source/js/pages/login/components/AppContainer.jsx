@@ -81,47 +81,53 @@ export default class AppContainer extends PureComponent {
         const { userName, password, isShowMessage, message, year } = this.state;
 
         return (
-            <div className="login-container">
-                <div className="lgRight"></div>
-                <div className="lgRp">
-                    <div className="logo"></div>
-                    <div className="war-box">
-                        <Alert color='danger' isOpen={isShowMessage}>
-                            <div dangerouslySetInnerHTML={{ __html: message }}></div>
-                        </Alert>
-                    </div>
-                    <Form tag="form" className="form-login pl-3" autocomplete="false">
-                        <FormGroup row className="mb-1">
-                            <span className="icUser">&nbsp;</span>
-                            <Label for="userName" sm={3} className="form-login-text">User Name</Label>
-                            <Col sm={6}>
-                                <Input type="text" name="userName" id="userName" value={userName}
-                                    onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                            </Col>
-                        </FormGroup>
+          <div className="login-container">
+          {/* <div className="lgRight"></div> */}
+          <div className="lgRp">
+              <div className="login-header">
+                <div>Welcome to <span>Login</span></div>
+                <p>Please sign in to continue to work</p>
+              </div>
+              <div className="war-box">
+                  <Alert color='danger' isOpen={isShowMessage}>
+                      <div dangerouslySetInnerHTML={{ __html: message }}></div>
+                  </Alert>
+              </div>
 
-                        <FormGroup row>
-                            <span className="icPass">&nbsp;</span>
-                            <Label for="passWord" sm={3} className="form-login-text">Password</Label>
-                            <Col sm={6}>
-                                <Input type="password" name="password" id="password" autocomplete="false"
-                                    value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                            </Col>
-                        </FormGroup>
-                    </Form>
-                    <div className="bt">
-                        <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
-                    </div>
-                    <div className="foot">
-                        <span className="foot-left">&nbsp;</span>
-                        <span className="foot-rp">{`© Copyright ${year} Pacific Sea Invests`}</span>
-                        <span className="foot-right">&nbsp;</span>
-                        <span className="foot-text">Best view in</span>
-                        <span className="foot-icIE">&nbsp;</span>
-                        <span className="foot-icFirefox">&nbsp;</span>
-                    </div>
-                </div>
-            </div>
+              <Form tag="form" className="form-login" autocomplete="false">
+                  <FormGroup>
+                      {/* <span className="icUser">&nbsp;</span> */}
+                      <Label for="userName" className="form-login-text">User Name</Label>
+                      <div>
+                          <Input type="text" name="userName" id="userName" value={userName}
+                              onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
+                      </div>
+                  </FormGroup>
+
+                  <FormGroup>
+                      {/* <span className="icPass">&nbsp;</span> */}
+                      <Label for="passWord" className="form-login-text">Password</Label>
+                      <div>
+                          <Input type="password" name="password" id="password" autocomplete="false"
+                              value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
+                      </div>
+                  </FormGroup>
+
+                  <div className="bt">
+                    <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
+                  </div>
+              </Form>
+          </div>
+
+          <div className="foot">
+              <span>&nbsp;</span>
+              <span className="foot-rp">{`© Copyright ${year} Pacific Sea Invests`}</span>
+              {/* <span className="foot-right">&nbsp;</span>
+              <span className="foot-text">Best view in</span>
+              <span className="foot-icIE">&nbsp;</span>
+              <span className="foot-icFirefox">&nbsp;</span> */}
+          </div>
+      </div>
         )
     }
 }
