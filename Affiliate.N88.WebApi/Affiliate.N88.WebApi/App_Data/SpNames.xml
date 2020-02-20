@@ -1,0 +1,5 @@
+﻿<Functions>
+  <Function Name="League">
+    <Setting Key="League_GetActive" SpName="League_GetActive" DbName="DefaultConnection" />
+  </Function>
+</Functions>
