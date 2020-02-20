@@ -15,40 +15,39 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<League>> TestMySql()
+        public async Task<IEnumerable<Affiliate>> TestMySql()
         {
-            var leagues = await dynamicRepository.FetchAsync<League>(new GetActiveLeaguesCriteria());
+            var leagues = await dynamicRepository.FetchAsync<Affiliate>(new GetAffiliatesCriteria());
 
             return leagues;
         }
     }
 
-    public class League
+    public class Affiliate
     {
-        public League()
+        public Affiliate(string affiliateId, int custId, int siteId)
         {
+            AffiliateId = affiliateId;
+            CustId = custId;
+            SiteId = siteId;
         }
 
-        public League(string id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
 
-        public string Id { get; private set; }
+        public string AffiliateId { get; }
 
-        public string Name { get; private set; }
+        public int CustId { get; }
+
+        public int SiteId { get; }
     }
 
-    public class GetActiveLeaguesCriteria : CriteriaBase
+
+    public class GetAffiliatesCriteria : CriteriaBase
     {
-        public GetActiveLeaguesCriteria()
+        public GetAffiliatesCriteria()
         {
         }
 
-        public string LanguageCode => "en-US";
-
-        public override string GetSettingKey() => "League_GetActive";
+        public override string GetSettingKey() => "N8G_AffiliateSel";
 
         public override bool IsValid() => true;
     }
