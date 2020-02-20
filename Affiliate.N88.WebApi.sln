@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi", "Affiliate.N88.WebApi\Affiliate.N88.WebApi.csproj", "{BB182B9A-9303-4BDE-8A17-6691D57187FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi", "WebApi\Affiliate.N88.WebApi\Affiliate.N88.WebApi.csproj", "{BB182B9A-9303-4BDE-8A17-6691D57187FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi.ConsoleTest", "Affiliate.N88.WebApi.ConsoleTest\Affiliate.N88.WebApi.ConsoleTest.csproj", "{11F56CB0-EC36-4845-BFF2-33F03DF03EBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi.ConsoleTest", "WebApi\Affiliate.N88.WebApi.ConsoleTest\Affiliate.N88.WebApi.ConsoleTest.csproj", "{11F56CB0-EC36-4845-BFF2-33F03DF03EBB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
