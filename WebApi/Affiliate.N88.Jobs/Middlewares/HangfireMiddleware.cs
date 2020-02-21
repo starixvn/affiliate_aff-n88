@@ -20,6 +20,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             });
 
             services.AddScoped<IFetchAffiliateDataTask, FetchAffiliateDataTask>();
+            services.AddFetchCustomerService();
         }
 
         public static void UseHangfire(this IApplicationBuilder app)
@@ -31,6 +32,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             app.UseHangfireServer();
 
             RegisterTask<IFetchAffiliateDataTask>("0 1 * * *", job => job.FetchAffiliateData());
+            RegisterTask<IFetchCustomerDataTask>("0 1 * * *", job => job.FetchCustomerData());
         }
 
         private static void RegisterTask<T>(string cronExpression, Expression<Func<T, Task>> methodCall)

@@ -14,6 +14,6 @@ namespace Affiliate.N88.Infrastructure.ApiModels
         public int AgentId { get; set; }
         public string AllAgentId { get; set; }
         public DateTime RegTime { get; set; }
-        public int Status { get; set; }
+        public bool Status { get; set; }
     }
 }

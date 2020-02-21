@@ -18,7 +18,7 @@ namespace Affiliate.N88.Infrastructure.DTO
             _prefix = new T();
         }
 
-        public override string GetSettingKey() => _prefix + _suffix;
+        public override string GetSettingKey() => $"{_prefix.GetCodePrefix()}_{_suffix}";
 
         public override bool IsValid() => true;
     }

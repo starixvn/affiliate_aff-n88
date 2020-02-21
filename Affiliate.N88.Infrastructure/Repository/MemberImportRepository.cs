@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Infrastructure.Repository
 {
-    public class MemberInfoImportRepository : IMemberImportRepository
+    public class MemberImportRepository : IMemberImportRepository
     {
         private readonly IDynamicRepository _dynamicRepository;
-        public MemberInfoImportRepository(IDynamicRepository dynamicRepository)
+        public MemberImportRepository(IDynamicRepository dynamicRepository)
         {
             _dynamicRepository = dynamicRepository;
         }

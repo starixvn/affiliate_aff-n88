@@ -32,6 +32,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Affiliate.N88.Infrastructure\Affiliate.N88.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
