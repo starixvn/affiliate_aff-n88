@@ -48,48 +48,44 @@
 </head>
 <body>
     <div class="header-top">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-12 col-sm-5 col-md-5 logo">
-                    <a href="@Url.Content("~")"><img src="~/www/build/styles/Images/logo.png" alt="logo" /><span class="logo-text">@Lang.Affiliate</span></a>
-                </div>
-                <div class="col-xs-12 col-sm-7 col-md-7 login">
-                    <div class="user-signup">
-                        @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
-                        {
-                            <a class="btn btn-login-mobile" id="mobileLogin">
-                                <span>@Lang.Login</span>
-                            </a>
-                            <div class="sign-up">
-                                <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup"><span class="icon glyphicon glyphicon-pencil"></span>@Lang.SignUpAffiliate</a>
-                            </div>
-                        }
+        <div class="col-xs-12 col-sm-5 col-md-5 logo">
+            <a href="@Url.Content("~")" class="logo-text"><span class="site-name">N88</span> Affiliate User</a>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-7 login">
+            <div class="user-signup">
+                @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
+                {
+                    <a class="btn btn-login-mobile" id="mobileLogin">
+                        <span>@Lang.Login</span>
+                    </a>
+                    <div class="sign-up">
+                        <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup"><span class="icon glyphicon glyphicon-pencil"></span>@Lang.SignUpAffiliate</a>
+                    </div>
+                }
 
-                        <div class="language-container">
-                            <div class="language-selection">
-                                <button class="select-language" id="selectedLanguage">
-                                    <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
-                                    <i class="caret"></i>
-                                </button>
+                <div class="language-container">
+                    <div class="language-selection">
+                        <button class="select-language" id="selectedLanguage">
+                            <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
+                            <i class="caret"></i>
+                        </button>
 
-                                <div class="language-list-wrapper" id="languageList">
-                                    <ul class="list-unstyled language-list">
-                                        @foreach (var language in languageList)
-                                        {
-                                            var shortedCode = SystemLanguage.SupportedLanguage.ContainsKey(language.Code) ? SystemLanguage.SupportedLanguage[language.Code] : language.ShortedCode;
-                                            <li>
-                                                <a href="javascript:;" class="language-item" data-option="@shortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
-                                            </li>
-                                        }
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="language-list-wrapper" id="languageList">
+                            <ul class="list-unstyled language-list">
+                                @foreach (var language in languageList)
+                                {
+                                    var shortedCode = SystemLanguage.SupportedLanguage.ContainsKey(language.Code) ? SystemLanguage.SupportedLanguage[language.Code] : language.ShortedCode;
+                                    <li>
+                                        <a href="javascript:;" class="language-item" data-option="@shortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                    </li>
+                                }
+                            </ul>
                         </div>
                     </div>
-
-                    @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
                 </div>
             </div>
+
+            @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
         </div>
     </div>
 

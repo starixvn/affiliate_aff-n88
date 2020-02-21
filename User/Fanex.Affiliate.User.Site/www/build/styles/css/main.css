@@ -316,23 +316,33 @@ input[type="checkbox"], input[type="radio"] {
   .flag-hi-IN {
     background-position: -1564px 0; }
 
-.header-top .logo {
-  padding: 1.7rem 0 1.7rem 3rem;
-  display: inline-block; }
-  .header-top .logo .logo-text, .header-top .logo img {
-    display: inline-block;
-    vertical-align: bottom; }
-  .header-top .logo .logo-text {
-    color: #fff;
-    font-weight: 500;
-    font-size: 20px;
-    padding-left: 10px; }
-  @media (max-width: 992px) {
-    .header-top .logo {
-      text-align: center; } }
-
-.header-top .btn {
-  margin-right: 0; }
+.header-top {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 767px) {
+    .header-top {
+      display: block; } }
+  .header-top .logo {
+    padding: 1.7rem 0 1.7rem 3rem;
+    display: inline-block; }
+    .header-top .logo .site-name {
+      font-weight: bold;
+      color: #FF0000; }
+    .header-top .logo .logo-text {
+      display: inline-block;
+      vertical-align: bottom;
+      padding-left: 10px;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 500;
+      font-size: 30px; }
+      .header-top .logo .logo-text:hover {
+        text-decoration: none; }
+    @media (max-width: 992px) {
+      .header-top .logo {
+        text-align: center; } }
+  .header-top .btn {
+    margin-right: 0; }
 
 .navbar {
   -webkit-border-radius: 0;
