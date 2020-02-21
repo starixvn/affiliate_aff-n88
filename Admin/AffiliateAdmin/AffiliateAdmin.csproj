@@ -1048,7 +1048,6 @@
     <Content Include="Areas\Portal\Views\Web.config" />
     <Content Include="AffiliateAdmin.ruleset" />
     <Content Include="Areas\Portal\www\source\js\layouts\AppLayout.jsx" />
-    <Content Include="Areas\Portal\www\source\style\abstracts\_variables.scss" />
     <Content Include="Areas\Portal\www\source\style\base\_base.scss" />
     <Content Include="Areas\Portal\www\source\style\components\_table.scss" />
     <Content Include="Areas\Portal\www\source\style\main.scss" />
@@ -1348,6 +1347,14 @@
     <Content Include="Areas\Portal\www\source\style\components\_department-popup.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\home.scss" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\player-detail\components\SortingCell.jsx" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-blue.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-coral.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-green.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-violet.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-blue.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-coral.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-green.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-violet.scss" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
