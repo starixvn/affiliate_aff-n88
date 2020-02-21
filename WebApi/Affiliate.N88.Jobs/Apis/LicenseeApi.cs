@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Affiliate.N88.Jobs.Models;
+using Affiliate.N88.Infrastructure.DTO;
 using Refit;
 
 namespace Affiliate.N88.Jobs.Apis
@@ -9,5 +10,6 @@ namespace Affiliate.N88.Jobs.Apis
     {
         [Get("/test/TestMySql")]
         Task<IEnumerable<AffiliateInfo>> GetAffiliates();
+        Task<IEnumerable<Customer>> GetCustomerAsync(DateTime regDate);
     }
 }
