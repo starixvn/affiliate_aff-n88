@@ -3,21 +3,21 @@
   background: #F5F5F5; }
 
 .header-top {
-  background-color: #060818; }
+  background-color: #381840; }
 
 .footer {
   background: #000; }
 
 .navbar {
-  background: #626ED4; }
+  background: #FF855C; }
   .navbar ul li:hover a, .navbar ul:focus a, .navbar ul:visited a {
-    color: #FFC926; }
+    color: #381840; }
   .navbar .nav > li > a:focus {
-    color: #FFC926; }
+    color: #381840; }
   .navbar .menu .menu-item {
-    color: #EFF2F7; }
+    color: #FFFFFF; }
     .navbar .menu .menu-item:hover, .navbar .menu .menu-item:focus, .navbar .menu .menu-item.active {
-      color: #FFC926; }
+      color: #381840; }
 
 .user-login .text-field {
   background: #fff;
@@ -25,20 +25,20 @@
   color: #000; }
 
 .hot-news {
-  background: #FFC000; }
+  background: #C9B005; }
   .hot-news .title {
-    background: #F8B425; }
+    background: #FFE325; }
     .hot-news .title:after {
-      border-left: 11px solid #F8B425; }
+      border-left: 11px solid #FFE325; }
   .hot-news .message {
     color: #d43131;
     background: #fff; }
 
 .page-title {
   background: #F5F5F5;
-  border-top: 1px solid #626ED4; }
+  border-top: 1px solid #FF855C; }
   .page-title .text {
-    background-color: #626ED4;
+    background-color: #FF855C;
     color: #fff; }
     .page-title .text:after {
       border-bottom: 18px solid #F5F5F5;
@@ -47,47 +47,47 @@
 .info-group .title {
   color: #060818; }
   .info-group .title:before {
-    background: #626ED4; }
+    background: #FF855C; }
   .info-group .title:after {
     background: #C7C7C7; }
 
 .table table {
   border: 1px solid #C7C7C7; }
   .table table tr {
-    background: #FCE9D8;
+    background: #FFF6EE;
     color: #404040; }
     .table table tr:hover {
       background: #fbe8e1; }
   .table table th, .table table td {
     border: 1px solid #c1c1c1; }
   .table table th {
-    background: #060818;
+    background: #381840;
     color: #fff; }
   .table table td {
     border: 1px solid #C7C7C7; }
 
 .login-dialog .modal-header {
-  background-color: #d43131;
+  background-color: #FF855C;
   color: #fff; }
 
 .form-control {
   border: 1px solid #adadad; }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
-  background: #fe2400;
+  background: #FF855C;
   color: #fff; }
   .btn-signup:hover, .btn-signup:focus, .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
     color: #fff;
-    background: #e52000; }
+    background: #ff7243; }
   .btn-signup .icon, .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #fff; }
 
 .btn-submit {
-  background-color: #626ED4;
+  background-color: #FF855C;
   color: #fff; }
   .btn-submit:hover, .btn-submit:focus {
     color: #fff;
-    background-color: #4e5ccf; }
+    background-color: #ff7243; }
   .btn-submit .icon {
     color: #fff; }
 
@@ -95,7 +95,7 @@
   background-color: #ded5d5; }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
-  background-color: #FBD3B3; }
+  background-color: #FFDEC3; }
 
 .main .page-container .home-page {
   background: #a3a3a3; }
@@ -140,7 +140,7 @@
     .content-menu .menu .menu-item {
       color: #1E1E1E; }
       .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
-        background-color: #060818;
+        background-color: #381840;
         color: #fff; }
   .content-menu .submenu-container {
     background: #FFFFFF; }
@@ -155,16 +155,16 @@
   background-color: #9e5613; }
 
 .summary-content .details-section-menu .menu {
-  border-bottom: 1px solid #626ED4; }
+  border-bottom: 1px solid #FF855C; }
 
 .summary-content .details-section-menu .menu-item {
   color: #6E6E6E; }
   .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
-    color: #626ED4;
-    border-bottom: 2px solid #626ED4; }
+    color: #FF855C;
+    border-bottom: 2px solid #FF855C; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total th {
-  background: #FFC926 !important;
+  background: #FFA688 !important;
   color: #404040; }
 
 .account-overview #account-overview-menu {
@@ -173,8 +173,8 @@
     color: #6E6E6E; }
     .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
       color: #fff;
-      background-color: #626ED4; }
+      background-color: #FF855C; }
 
 .account-overview .bg-orange {
-  background: #626ED4;
+  background: #FF855C;
   color: #fff; }
