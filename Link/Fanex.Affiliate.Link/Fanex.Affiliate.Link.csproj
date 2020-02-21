@@ -196,6 +196,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.n8b-go.master.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-go.production.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-go.uat.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -223,11 +232,23 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Fanex.Affiliate.Link.ruleset" />
-    <Content Include="Web.n88go.backupmnl.config" />
-    <Content Include="Web.n88go.local.config" />
-    <Content Include="Web.n88go.master.config" />
-    <Content Include="Web.n88go.production.config" />
-    <Content Include="Web.n88go.uat.config" />
+    <Content Include="Web.n8b-go.backupmnl.config">
+      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-go.local.config" />
+    <Content Include="Web.n8g-go.backupmnl.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-go.local.config" />
+    <Content Include="Web.n8g-go.master.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-go.production.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-go.uat.config">
+      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />

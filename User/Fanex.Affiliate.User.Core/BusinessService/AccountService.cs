@@ -78,35 +78,35 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var checkingResult = _accountRepository.CheckPlayerAccountIsActived(affId, language);
 
-            if (!checkingResult.IsOk)
-            {
-                return ActivePlayerAccount(checkingResult.PlayerUserName);
-            }
+            ////if (!checkingResult.IsOk)
+            ////{
+            ////    return ActivePlayerAccount(checkingResult.PlayerUserName);
+            ////}
 
             return checkingResult;
         }
 
-        private ResultInfo ActivePlayerAccount(string playerUserName)
-        {
-            var depositAccount = _accountRepository.GetDepositPlayerAccount(playerUserName);
+        ////private ResultInfo ActivePlayerAccount(string playerUserName)
+        ////{
+        ////    var depositAccount = _accountRepository.GetDepositPlayerAccount(playerUserName);
 
-            if (!depositAccount.IsValid)
-            {
-                return new ResultInfo
-                {
-                    IsOk = false,
-                    Message = Lang.errDepositDBConnectFailed
-                };
-            }
+        ////    if (!depositAccount.IsValid)
+        ////    {
+        ////        return new ResultInfo
+        ////        {
+        ////            IsOk = false,
+        ////            Message = Lang.errDepositDBConnectFailed
+        ////        };
+        ////    }
 
-            var insertingResult = _accountRepository.InsertPlayerAccountForIbc(depositAccount);
-            if (insertingResult.IsOk)
-            {
-                return UpdatePlayerAccountStatus(playerUserName, insertingResult.CustId, insertingResult.UserName);
-            }
+        ////    var insertingResult = _accountRepository.InsertPlayerAccountForIbc(depositAccount);
+        ////    if (insertingResult.IsOk)
+        ////    {
+        ////        return UpdatePlayerAccountStatus(playerUserName, insertingResult.CustId, insertingResult.UserName);
+        ////    }
 
-            return insertingResult;
-        }
+        ////    return insertingResult;
+        ////}
 
         private ResultInfo UpdatePlayerAccountStatus(string playerUserName, int custId, string ibcUserName)
         {

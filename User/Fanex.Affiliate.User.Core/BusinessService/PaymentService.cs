@@ -67,19 +67,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (resultInfo.IsOk)
             {
-                resultInfo = _accountService.CheckPlayerAccountIsActived(paymentCreationParam.AffId, paymentCreationParam.Language);
+                resultInfo = _paymentRepository.CreatePaymentRequest(paymentCreationParam);
+
                 if (resultInfo.IsOk)
                 {
-                    resultInfo = _paymentRepository.CreatePaymentRequest(paymentCreationParam);
+                    resultInfo.Message = Lang.RequestPayoutSucc;
 
-                    if (resultInfo.IsOk)
-                    {
-                        resultInfo.Message = Lang.RequestPayoutSucc;
-
-                        AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
-                        SendEmail(emailParam);
-                    }
+                    AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
+                    SendEmail(emailParam);
                 }
+                //resultInfo = _accountService.CheckPlayerAccountIsActived(paymentCreationParam.AffId, paymentCreationParam.Language);
+                //if (resultInfo.IsOk)
+                //{
+
+                //}
             }
 
             return resultInfo;
