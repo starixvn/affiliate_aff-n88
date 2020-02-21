@@ -21,9 +21,8 @@ export class TasksWaitingForApproval extends PureComponent {
 
         return (
             <div className="waiting-approval">
-                <Row>
-                    <span className="tbl-icon02"></span>
-                    <span className="text-blue">Tasks waiting for approval</span>
+                <Row>                    
+                    <span className="home-title">Tasks waiting for approval</span>
                     <Col sm={12} className="background-gray">
                         <Col sm={3} className="text-border">
                             <span><strong>Affiliate</strong></span>

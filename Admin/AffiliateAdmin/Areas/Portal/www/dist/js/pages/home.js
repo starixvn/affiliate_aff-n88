@@ -899,7 +899,7 @@ var AppContainer = function AppContainer(props) {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_layouts_AppLayout__WEBPACK_IMPORTED_MODULE_4__["default"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Loader__WEBPACK_IMPORTED_MODULE_5__["default"], {
     show: props.isShowLoader
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "ml-4 my-2 pl-3"
+    className: "pt-2 pb-2"
   }, "Below you see tasks that are waiting for your approval and overview of the affiliate program"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
     xl: 6,
     className: "home"
@@ -968,9 +968,7 @@ var BannerStatistics = function BannerStatistics(props) {
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "banner-statistics"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "tbl-icon01"
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
-    className: "text-blue"
+    className: "home-title"
   }, "Banner Statistics")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Row"], {
     className: "background-gray border"
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_3__["Col"], {
@@ -1691,11 +1689,7 @@ var Panel = function Panel(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
     className: "home-panel-header"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "home-panel-header-left"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: className
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "home-panel-header-right"
+    className: "home-panel-header-right home-title"
   }, heading)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_1__["Row"], {
     className: "home-panel-body"
   }, children));
@@ -1770,9 +1764,7 @@ function (_PureComponent) {
       return react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("div", {
         className: "waiting-approval"
       }, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Row"], null, react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", {
-        className: "tbl-icon02"
-      }), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement("span", {
-        className: "text-blue"
+        className: "home-title"
       }, "Tasks waiting for approval"), react__WEBPACK_IMPORTED_MODULE_6___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_9__["Col"], {
         sm: 12,
         className: "background-gray"

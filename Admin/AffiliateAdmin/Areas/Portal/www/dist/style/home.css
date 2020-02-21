@@ -1,6 +1,14 @@
 .home span {
   line-height: 1.5rem; }
 
+.home .home-title {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  color: #0058AA;
+  border-bottom: 1px solid #0058AA;
+  font-weight: bold; }
+
 .home-right {
   margin-left: 10px; }
 
@@ -24,13 +32,6 @@
       margin-right: 3px;
       padding-left: 3px;
       text-decoration: none; }
-    .home-panel-header-right {
-      font-weight: bold;
-      width: 240px;
-      line-height: 1.3rem !important;
-      background: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAUAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQAAgICAgICAgICAgMCAgIDBAMCAgMEBQQEBAQEBQYFBQUFBQUGBgcHCAcHBgkJCgoJCQwMDAwMDAwMDAwMDAwMDAEDAwMFBAUJBgYJDQsJCw0PDg4ODg8PDAwMDAwPDwwMDAwMDA8MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwM/8AAEQgAFgDjAwERAAIRAQMRAf/EAHYAAQEBAQAAAAAAAAAAAAAAAAAGBwkBAQEBAQAAAAAAAAAAAAAAAAACAwUQAAACCAYCAQMFAQAAAAAAAAABUQISAxNTBRaR0dKUBlYRFBUxIgRBMlIzpUYRAAEFAQEBAAMAAAAAAAAAAAABEVECEiHBgUFhE//aAAwDAQACEQMRAD8A6+W5xPrFJ2TjQOlmsIc/VpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUW5xPrFJ2TjQGawg1aVFucT6xSdk40BmsINWlRbnE+sUnZONAZrCDVpUmmnnv/ABnvfmwPet2N7DyL8V6PyfrNNTfsb8RIf2t/qMP5Vdv34b/0s3z0u4SyBsZsISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMISyADCEsgAwhLIAMQcNa4PHj/qPH+B5Gf5++Ftz56bWxTZxYHkIexfAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HAxTZxYHkD2HDN2fwrn/tJm7/AB58H+22vr9P5COv98K4x//Z) no-repeat right top;
-      padding-left: 15px;
-      margin-left: -15px; }
   .home-panel-body {
     padding: 7px;
     border: 1px #dee2e6 solid !important; }
