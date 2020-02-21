@@ -1,28 +1,30 @@
-﻿using Affiliate.N88.Infrastructure.ApiModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Affiliate.N88.Infrastructure.ApiModels;
 using Affiliate.N88.Infrastructure.DTO;
 using Affiliate.N88.Infrastructure.Licensee;
 using Affiliate.N88.Infrastructure.Repository;
 using Affiliate.N88.Jobs.Apis;
 using Fanex.Logging;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchCustomerDataTask
     {
         Task FetchCustomerData();
+
         Task FetchCustomerData(DateTime regTime);
     }
-    public sealed class FetchCustomerDataTask: IFetchCustomerDataTask
+
+    public sealed class FetchCustomerDataTask : IFetchCustomerDataTask
     {
         private readonly IMemberImportRepository _importerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
+
         public FetchCustomerDataTask(ILicenseeApi licenseeApi, IMemberImportRepository memberImportRepository, ILogger logger)
         {
             _importerRepository = memberImportRepository;
@@ -44,13 +46,18 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 _logger.Critical(ex.Message);
                 throw ex;
             }
-
-
         }
 
         public async Task FetchCustomerData(DateTime regTime)
         {
             var customerData = await _licenseeApi.GetCustomerAsync(regTime);
+
+            if (customerData == null
+                || !customerData.Any())
+            {
+                return;
+            }
+
             var members = GetImporterData(customerData);
             foreach (var member in members)
             {
@@ -64,7 +71,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var groupCustomer = customerData.GroupBy(c => c.SiteId)
                 .Select(g => GenerateMemberInfo(g.Key, g.ToList()));
             return groupCustomer;
-
         }
 
         private MemberInfo GenerateMemberInfo(int key, List<CustomerModel> customers)
@@ -86,29 +92,16 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private string BuildXml(List<CustomerModel> customers)
         {
-            var xml = new XDocument(new XElement("root"));
-            foreach (var customer in customers)
-            {
-                if (customer == null)
-                    continue;
-                
-                ReformatCustomer(customer);
-                var attributes = customer.GetType()
-                    .GetProperties()
-                    .Select(p => new XAttribute(p.Name, p.GetValue(customer, null)));
-                var row = new XElement("row", attributes);
-                xml.Root.Add(row);
-            }
-            return xml.ToString();
-        }
+            var customerXml = string.Join(
+                    string.Empty,
+                    customers.Select(customer =>
+                    {
+                        var agentIds = customer?.AllAgentId?.Replace("[", string.Empty).Replace("]", string.Empty);
 
-        private void ReformatCustomer(CustomerModel customer)
-        {
-            var ids = customer.AllAgentId;
-            if (!string.IsNullOrWhiteSpace(ids))
-            {
-                customer.AllAgentId = ids.Replace("[", string.Empty).Replace("]", string.Empty);
-            }
+                        return $"<row CustId=\"{customer?.CustId}\" Username=\"{customer?.UserName}\" AgentId=\"{customer?.AgentId}\" AllAgentId=\"{agentIds}\" />";
+                    }));
+
+                return $"<root>{customerXml}</root>";
         }
     }
 

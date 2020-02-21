@@ -25,7 +25,7 @@ namespace Affiliate.N88.Infrastructure.DTO
         {
         }
 
-        public override string GetSettingKey() => "N8G_AffiliateSel";
+        public override string GetSettingKey() => "N8B_AffiliateSel";
 
         public override bool IsValid() => true;
     }

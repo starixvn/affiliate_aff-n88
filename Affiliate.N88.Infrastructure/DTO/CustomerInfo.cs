@@ -42,7 +42,7 @@ namespace Affiliate.N88.Infrastructure.DTO
     {
         public GetCustomersCriteria(DateTime fromDate) => FromDate = fromDate;
 
-        public override string GetSettingKey() => "N8G_CustomerSel";
+        public override string GetSettingKey() => "N8B_CustomerSel";
 
         public override bool IsValid() => true;
 
