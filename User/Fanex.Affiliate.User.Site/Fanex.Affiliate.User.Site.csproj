@@ -633,6 +633,12 @@
     <Content Include="www\build\styles\css\theme1.min.css">
       <DependentUpon>theme1.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\theme2.css" />
+    <Content Include="www\build\styles\css\theme2.min.css" />
+    <Content Include="www\build\styles\css\theme3.css" />
+    <Content Include="www\build\styles\css\theme3.min.css" />
+    <Content Include="www\build\styles\css\theme4.css" />
+    <Content Include="www\build\styles\css\theme4.min.css" />
     <Content Include="www\build\styles\css\user-panel.css" />
     <Content Include="www\build\styles\css\user-panel.min.css">
       <DependentUpon>user-panel.css</DependentUpon>
@@ -1330,6 +1336,12 @@
     <Content Include="www\source\styles\scss\Themes\theme-default.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
     <Content Include="www\source\styles\scss\Themes\theme1.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme2.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme3.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme4.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables2.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables3.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables4.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
