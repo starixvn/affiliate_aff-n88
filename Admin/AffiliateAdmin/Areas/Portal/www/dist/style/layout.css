@@ -28,30 +28,31 @@
       .headWrapper .user-info .text-redlink:hover {
         color: #007bff; }
   .headWrapper .clock-container {
-    padding: 10px;
+    line-height: 50px;
     color: #131111;
     margin-right: 20px; }
     .headWrapper .clock-container .oi-clock {
       margin-right: 10px;
-      font-size: 15px;
-      color: #b79c28; }
+      margin-top: 3px;
+      font-size: 17px;
+      vertical-align: text-bottom; }
 
 .main-menu-container {
   font-size: 11px;
   height: 40px; }
-  .main-menu-container .menu-list {
-    margin-left: 1px; }
-    .main-menu-container .menu-list .nav-link {
-      padding: 10px 15px 10px 15px;
-      color: #fff;
-      font-size: 13px;
-      transition: all .3s ease;
-      text-transform: uppercase; }
-      .main-menu-container .menu-list .nav-link:hover {
-        background: rgba(0, 0, 0, 0.2); }
-      .main-menu-container .menu-list .nav-link.active {
-        background: rgba(0, 0, 0, 0.4);
-        font-weight: 500; }
+  .main-menu-container .menu-list .nav-link {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 15px;
+    color: #fff;
+    font-size: 13px;
+    transition: all .3s ease;
+    text-transform: uppercase; }
+    .main-menu-container .menu-list .nav-link:hover {
+      background: rgba(0, 0, 0, 0.2); }
+    .main-menu-container .menu-list .nav-link.active {
+      background: rgba(0, 0, 0, 0.4);
+      font-weight: 500; }
 
 .sub-menu-container {
   padding: 10px 0 0 10px; }

@@ -2,11 +2,12 @@
     font-size: 11px;
     height: 40px;
 
-    .menu-list {
-        margin-left: 1px;
+    .menu-list {       
 
         .nav-link {
-          padding: 10px 15px 10px 15px;
+          height: 40px;
+          line-height: 40px;
+          padding: 0 15px;
           color: #fff;
           font-size: 13px;
           transition: all .3s ease;
