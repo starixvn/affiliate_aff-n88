@@ -359,6 +359,10 @@
     <Content Include="Areas\Portal\www\dist\style\pages\message\message.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\payment\payment-request.css" />
     <Content Include="Areas\Portal\www\dist\style\portalmain.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-blue.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-coral.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-green.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-violet.css" />
     <Content Include="Areas\Portal\www\dist\style\under-maintenance.css" />
     <Content Include="Areas\Portal\www\dist\style\user-panel-layout.css" />
     <Content Include="Areas\Portal\www\dist\vendors\bootstrap.css" />
