@@ -1,7 +1,4 @@
 ﻿<Functions>
-  <Function Name="League">
-    <Setting Key="League_GetActive" SpName="League_GetActive" DbName="DefaultConnection" />
-  </Function>
   <Function Name="N88Licensee">
     <Setting Key="N8G_AffiliateSel" SpName="N8G_AffiliateSel" DbName="N88Licensee" />
     <Setting Key="N8G_CustomerSel" SpName="N8G_CustomerSel" DbName="N88Licensee" />
