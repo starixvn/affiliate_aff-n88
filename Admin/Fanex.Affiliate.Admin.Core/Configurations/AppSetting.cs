@@ -48,5 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         public int ImageSize => Convert.ToInt32(GetValue("imagesize"));
 
         public string ServerId => GetValue("ServerID");
+
+        public string SiteName => GetValue("SiteName");
     }
 }

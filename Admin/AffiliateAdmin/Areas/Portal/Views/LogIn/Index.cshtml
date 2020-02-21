@@ -1,6 +1,7 @@
-﻿
+﻿@using Fanex.Affiliate.Admin.Core.Configurations;
 @{
     Layout = null;
+    var appSetting = DependencyResolver.Current.GetService<IAppSetting>();
 }
 
 <!DOCTYPE html>
@@ -12,8 +13,17 @@
     <base href="@Url.Content("~")" />
     <link href="~/Areas/Portal/www/dist/vendors/bootstrap.css?v=4.3.1" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/login.css")" rel="stylesheet" />
-    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
-    
+    @{
+        if (string.Compare(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase) == 0)
+        {
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-green.css")" rel="stylesheet" />
+        }
+        else
+        {
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
+        }
+    }
+
 </head>
 <body>
     @Html.AntiForgeryToken()

@@ -46,5 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         int ImageSize { get; }
 
         string ServerId { get; }
+
+        string SiteName { get; }
     }
 }
