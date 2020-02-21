@@ -331,17 +331,11 @@
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\crystal-gpi.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\ebet.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\exchange-summary-transaction.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\gpi-lottery.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\imone-vrlottery.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\importqueue.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\isoftbet.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\lb-keno.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\opus.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\timetracker.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\under-maintenance.js" />
-    <Content Include="Areas\Portal\www\dist\style\assets\banner_top.jpg" />
-    <Content Include="Areas\Portal\www\dist\style\assets\lgLeft.jpg" />
-    <Content Include="Areas\Portal\www\dist\style\assets\lgLogo.jpg" />
     <Content Include="Areas\Portal\www\dist\style\assets\open-iconic.svg" />
     <Content Include="Areas\Portal\www\dist\style\assets\UnderMaintenance.gif" />
     <Content Include="Areas\Portal\www\dist\style\change-admin-password.css" />
@@ -1355,6 +1349,7 @@
     <Content Include="Areas\Portal\www\source\style\themes\theme-coral.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\theme-green.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\theme-violet.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
