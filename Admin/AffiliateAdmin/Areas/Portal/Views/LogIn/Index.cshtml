@@ -14,13 +14,13 @@
     <link href="~/Areas/Portal/www/dist/vendors/bootstrap.css?v=4.3.1" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/login.css")" rel="stylesheet" />
     @{
-        if (string.Compare(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase) == 0)
+        if (appSetting.IsN8B)
         {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-green.css")" rel="stylesheet" />
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
         }
         else
         {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-green.css")" rel="stylesheet" />
         }
     }
 

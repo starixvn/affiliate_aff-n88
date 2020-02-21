@@ -50,6 +50,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string SymmetricSalt => GetValue("SymmetricSalt");
 
+        public bool IsN8B => string.Compare(GetValue("SiteName"), "N8B", StringComparison.CurrentCultureIgnoreCase) == 0;
+
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
     }
 }

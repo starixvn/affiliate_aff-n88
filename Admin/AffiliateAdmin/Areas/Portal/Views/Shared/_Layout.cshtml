@@ -13,13 +13,13 @@
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/portalmain.css")" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/layout.css")" rel="stylesheet" />
     @{
-        if (string.Compare(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase) == 0)
+        if (appSetting.IsN8B)
         {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-green.css")" rel="stylesheet" />
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
         }
         else
         {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-coral.css")" rel="stylesheet" />
+            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/theme-green.css")" rel="stylesheet" />
         }
     }
 

@@ -36,7 +36,14 @@
     }
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/theme4.css")" rel="stylesheet" />
+    @if (settingService.IsN8B)
+    {
+        <link href="@Url.RenderLink("~/www/build/styles/css/theme2.css")" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="@Url.RenderLink("~/www/build/styles/css/theme4.css")" rel="stylesheet" />
+    }
     @RenderSection("styles", required: false)
 </head>
 <body>

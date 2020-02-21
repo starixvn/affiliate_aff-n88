@@ -6,7 +6,7 @@
 <#
 string projectPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"\User\Fanex.Affiliate.User.Site\";
 var environments = new string[] {"local", "sit", "uat", "production", "backupmnl", "master" };
-var sites = new string[] {"asian", "euro"};
+var sites = new string[] {"n8b", "n8g"};
 foreach(var environment in environments)
 {
 	foreach(var site in sites)
@@ -17,7 +17,7 @@ foreach(var environment in environments)
 			var document = new XmlDocument();
 			document.Load(projectPath + "AppSetting.config");
 			transform.Apply(document);
-			document.Save(projectPath + @"Configurations\AppSetting\AppSetting.12betuser-" + fileName);
+			document.Save(projectPath + @"Configurations\AppSetting\AppSetting.n88user-" + fileName);
 		}
 	}
 }

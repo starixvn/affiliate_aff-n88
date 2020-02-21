@@ -275,6 +275,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="App_Data\SpConfig\SpName.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -309,42 +345,6 @@
     <Content Include="App_Data\SpConfig\_SpNameOriginal.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.backupmnl.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.master.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.backupmnl.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.master.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
     <None Include="Configurations\AppSetting\AppSetting.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AppSetting.txt</LastGenOutput>
@@ -377,42 +377,14 @@
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.uat.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.uat.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.local.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.sit.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.uat.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.production.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.local.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.production.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.sit.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.uat.config" />
-    <Content Include="Configurations\Web\Transform\asian.local.config" />
-    <Content Include="Configurations\Web\Transform\asian.production.config" />
-    <Content Include="Configurations\Web\Transform\asian.sit.config" />
-    <Content Include="Configurations\Web\Transform\asian.uat.config" />
-    <Content Include="Configurations\Web\Transform\euro.local.config" />
-    <Content Include="Configurations\Web\Transform\euro.production.config" />
-    <Content Include="Configurations\Web\Transform\euro.sit.config" />
-    <Content Include="Configurations\Web\Transform\euro.uat.config" />
-    <Content Include="Configurations\Web\Transform\asian.master.config" />
-    <Content Include="Configurations\Web\Transform\asian.backupmnl.config" />
-    <Content Include="Configurations\Web\Transform\euro.master.config" />
-    <Content Include="Configurations\Web\Transform\euro.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.master.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.backupmnl.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
+    <Content Include="Configurations\Web\Transform\n8g.local.config" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.es-ES.cshtml" />
@@ -1297,42 +1269,7 @@
     <Content Include="Views\UserPanel\Marketing\MediaGallery\Index.cshtml" />
     <Content Include="Views\UserPanel\Marketing\TextBox\Index.cshtml" />
     <Content Include="www\source\styles\pages\oldmarketing.scss" />
-    <None Include="Configurations\Web\Web.n88user-asian.backupmnl.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.local.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.master.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.sit.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.backupmnl.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.local.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.master.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.production.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.sit.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.uat.config">
-      <DependentUpon>Web.tt</DependentUpon>
-    </None>
+    <Content Include="Configurations\Web\Transform\n8b.local.config" />
     <Content Include="www\source\styles\scss\Themes\theme-default.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
     <Content Include="www\source\styles\scss\Themes\theme1.scss" />
@@ -1342,6 +1279,69 @@
     <Content Include="www\source\styles\scss\abstracts\_variables2.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables3.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables4.scss" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.local.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.backupmnl.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.master.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.production.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.sit.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.uat.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.backupmnl.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.master.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.production.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.sit.config" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.uat.config" />
+    <Content Include="Configurations\Web\Transform\n8b.backupmnl.config" />
+    <Content Include="Configurations\Web\Transform\n8b.master.config" />
+    <Content Include="Configurations\Web\Transform\n8b.production.config" />
+    <Content Include="Configurations\Web\Transform\n8b.sit.config" />
+    <Content Include="Configurations\Web\Transform\n8b.uat.config" />
+    <Content Include="Configurations\Web\Transform\n8g.uat.config" />
+    <Content Include="Configurations\Web\Transform\n8g.backupmnl.config" />
+    <Content Include="Configurations\Web\Transform\n8g.master.config" />
+    <Content Include="Configurations\Web\Transform\n8g.production.config" />
+    <Content Include="Configurations\Web\Transform\n8g.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.sit.config" />
+    <None Include="Configurations\Web\Web.n88user-n8b.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
