@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Hangfire;
+using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,7 +24,10 @@ namespace Affiliate.N88.Jobs.Middlewares
 
         public static void UseHangfire(this IApplicationBuilder app)
         {
-            app.UseHangfireDashboard();
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new AllowedAnonymouseAuthorizationFilter() }
+            });
             app.UseHangfireServer();
 
             RegisterTask<IFetchAffiliateDataTask>("0 1 * * *", job => job.FetchAffiliateData());
@@ -40,6 +44,14 @@ namespace Affiliate.N88.Jobs.Middlewares
                             methodCall,
                             cronExpression);
             }
+        }
+    }
+
+    public class AllowedAnonymouseAuthorizationFilter : IDashboardAuthorizationFilter
+    {
+        public bool Authorize(DashboardContext context)
+        {
+            return true;
         }
     }
 }
