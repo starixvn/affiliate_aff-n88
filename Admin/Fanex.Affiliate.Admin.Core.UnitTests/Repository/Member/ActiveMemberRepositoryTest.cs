@@ -85,25 +85,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             Assert.Null(item.CreatedDateText);
         }
 
-        [Fact]
-        public void Get12BetPlayersDepositInfo_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+        //[Fact]
+        //public void Get12BetPlayersDepositInfo_WhenCall_ReturnCorrectData()
+        //{
+        //    // Arrange
+        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
+        //    var objectDb = new Mock<IObjectDb>();
+        //    var dataReader = new Mock<IDataReader>();
+        //    dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
-            ReaderHelper.MapReaderData(dataReader, Get12BetPlayersDepositInfo());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            repository.Setup(r => r.GetObjectDb("Deposit_GetCustDataForCreateIBCACByUserNames", 120)).Returns(objectDb.Object);
+        //    ReaderHelper.MapReaderData(dataReader, Get12BetPlayersDepositInfo());
+        //    objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+        //    repository.Setup(r => r.GetObjectDb("Deposit_GetCustDataForCreateIBCACByUserNames", 120)).Returns(objectDb.Object);
 
-            // Action
-            var result = repository.Object.Get12BetPlayersDepositInfo("abc");
+        //    // Action
+        //    var result = repository.Object.Get12BetPlayersDepositInfo("abc");
 
-            // Assert
-            Assert.Single(result);
-        }
+        //    // Assert
+        //    Assert.Single(result);
+        //}
 
         [Fact]
         public void Add12BetPlayerAccountToIBC_WhenCallWithValidParam_AddSuccessfully()
@@ -161,42 +161,42 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             // Assert
         }
 
-        [Fact]
-        public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateSuccessfully()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns(string.Empty);
-            repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
+        //[Fact]
+        //public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateSuccessfully()
+        //{
+        //    // Arrange
+        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
+        //    var objectDb = new Mock<IObjectDb>();
+        //    objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(DBNull.Value);
+        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns(string.Empty);
+        //    repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
 
-            // Action
-            var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
+        //    // Action
+        //    var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
 
-            // Assert
-            Assert.True(result.IsSuccessful);
-        }
+        //    // Assert
+        //    Assert.True(result.IsSuccessful);
+        //}
 
-        [Fact]
-        public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateIsFailed()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns("Update is failed");
-            repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
+        //[Fact]
+        //public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateIsFailed()
+        //{
+        //    // Arrange
+        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
+        //    var objectDb = new Mock<IObjectDb>();
+        //    objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(-999);
+        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns("Update is failed");
+        //    repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
 
-            // Action
-            var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
+        //    // Action
+        //    var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
 
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal("Update is failed", result.Message);
-        }
+        //    // Assert
+        //    Assert.False(result.IsSuccessful);
+        //    Assert.Equal("Update is failed", result.Message);
+        //}
 
         [Fact]
         public void WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully_WhenCallWithValidParam_ExcuteCorrectly()

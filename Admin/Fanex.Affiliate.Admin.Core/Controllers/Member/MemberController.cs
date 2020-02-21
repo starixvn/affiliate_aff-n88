@@ -51,30 +51,30 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Member
             };
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryHeader]
-        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
-        public ActionResult DeleteMember(DeleteMemberParam param)
-        {
-            if (ModelState.IsValid)
-            {
-                param.UserId = SessionService.UserId;
-                param.Ip = Request.UserHostAddress;
+        //[HttpPost]
+        //[ValidateAntiForgeryHeader]
+        //[FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
+        //public ActionResult DeleteMember(DeleteMemberParam param)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        param.UserId = SessionService.UserId;
+        //        param.Ip = Request.UserHostAddress;
 
-                return new JsonNetResult
-                {
-                    Data = _memberService.DeleteMember(param)
-                };
-            }
+        //        return new JsonNetResult
+        //        {
+        //            Data = _memberService.DeleteMember(param)
+        //        };
+        //    }
 
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = Code.GeneralErrorCode,
-                    Message = "No member specificed!"
-                }
-            };
-        }
+        //    return new JsonNetResult
+        //    {
+        //        Data = new ResultInfo
+        //        {
+        //            Code = Code.GeneralErrorCode,
+        //            Message = "No member specificed!"
+        //        }
+        //    };
+        //}
     }
 }

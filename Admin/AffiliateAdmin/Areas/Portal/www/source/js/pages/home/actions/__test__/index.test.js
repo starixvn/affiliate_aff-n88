@@ -1,7 +1,7 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import { defaultGeneralInfo, defaultDepositInfo} from '../../libs/constants';
+import { defaultGeneralInfo} from '../../libs/constants';
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -19,8 +19,6 @@ const runTestAction = ({ name, type, data }) => {
 
 const actionList = [
     { name: 'setGeneralInfo', type: types.SET_GENERAL_INFO, data: { PaymentRequestNumber: 1 } },
-    { name: 'setDepositInfo', type: types.SET_DEPOSIT_INFO, data: { AllMemberDepositUpToNow: 234 }},
-    { name: 'setPSPToday', type: types.SET_PSP_TODAY, data: 123 },
     { name: 'setOnlineList', type: types.SET_ONLINE_LIST, data: [{ UserName: 'sa' }] }
 ];
 
@@ -81,64 +79,6 @@ describe('home actions', () => {
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getOnlineList'](param)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Home/GetOnlineList', param);
-            expect(store.getActions()).toEqual(expectedAction)
-        })
-    })
-
-    it('should create action to getPSPToday with return correctly', async () => {
-        const expectedResponse = { data: 123, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-
-        const expectedAction = [
-            { type: types.SET_PSP_TODAY , data: 123 }
-        ];
-        
-        const store = mockStore({ todos: [] });
-        return store.dispatch(actions['getPSPToday']()).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Home/GetPSPToday');
-            expect(store.getActions()).toEqual(expectedAction)
-        })
-    })
-
-    it('should create action to getPSPToday with return error', async () => {
-        ajaxRequest.post = jest.fn();
-
-        const expectedAction = [
-            { type: types.SET_PSP_TODAY , data: 0 }
-        ];
-        
-        const store = mockStore({ todos: [] });
-        return store.dispatch(actions['getPSPToday']()).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Home/GetPSPToday');
-            expect(store.getActions()).toEqual(expectedAction)
-        })
-    })
-
-    it('should create action to getDepositInfo with return correctly', async () => {
-        const expectedResponse = { data: { AllMemberDepositUpToNow: 234 }, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-
-        const expectedAction = [
-            { type: types.SET_DEPOSIT_INFO , data: { AllMemberDepositUpToNow: 234 } }
-        ];
-        
-        const store = mockStore({ todos: [] });
-        return store.dispatch(actions['getDepositInfo']()).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Home/GetDepositInfo');
-            expect(store.getActions()).toEqual(expectedAction)
-        })
-    })
-
-    it('should create action to getDepositInfo with return error', async () => {
-        ajaxRequest.post = jest.fn();
-
-        const expectedAction = [
-            { type: types.SET_DEPOSIT_INFO , data: defaultDepositInfo }
-        ];
-        
-        const store = mockStore({ todos: [] });
-        return store.dispatch(actions['getDepositInfo']()).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Home/GetDepositInfo');
             expect(store.getActions()).toEqual(expectedAction)
         })
     })

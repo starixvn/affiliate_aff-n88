@@ -81,62 +81,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
         }
 
         [Fact]
-        public void GetPSPToday_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-
-            objectDb.Setup(obj => obj.GetParameterValue("PSP")).Returns(1.23m);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGetPSP", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetPSPToday();
-
-            // Assert
-            Assert.Equal(1.23m, result);
-        }
-
-        [Fact]
-        public void GetDepositInfo_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
-
-            ReaderHelper.MapReaderData(dataReader, GetDepositInfo());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGeneralInfo", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetDepositInfo();
-
-            // Assert
-            Assert.Equal(34, result.AllMemberDepositUpToNow);
-        }
-
-        [Fact]
-        public void GetDepositInfo_WhenCall_ReturnNull()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false);
-
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGeneralInfo", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetDepositInfo();
-
-            // Assert
-            Assert.Null(result);
-        }
-
-        [Fact]
         public void GetGeneralInfo_WhenCall_ReturnCorrectData()
         {
             // Arrange

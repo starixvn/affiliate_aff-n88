@@ -49,44 +49,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
             return result;
         }
 
-        public decimal GetPSPToday()
-        {
-            const string SpKey = "DEP_AffiliateGetPSP";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddOutParameter("PSP", DbType.Int32, Size.SizeOfCurrency);
-
-                objectDb.ExecuteNonQuery();
-
-                var psp = objectDb.GetParameterValue("PSP");
-                return Convert.ToDecimal(psp);
-            }
-        }
-
-        public DepositInfo GetDepositInfo()
-        {
-            const string SpKey = "DEP_AffiliateGeneralInfo";
-            DepositInfo result = null;
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                using (var reader = objectDb.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        result = new DepositInfo
-                        {
-                            AllMemberDepositUpToNow = reader.GetVal<int>("MemInProAllNum"),
-                            AllMemberDepositThisMonth = reader.GetVal<int>("MemInProMonthNum")
-                        };
-                    }
-                }
-            }
-
-            return result;
-        }
-
         public GeneralInfo GetGeneralInfo()
         {
             const string SpKey = "Aff_Admin_GeneralInfo_Sel";

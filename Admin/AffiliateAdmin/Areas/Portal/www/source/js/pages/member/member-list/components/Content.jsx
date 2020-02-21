@@ -82,7 +82,7 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={120} title={headerText.CurrentBalance}>{headerText.CurrentBalance}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.CreatedDate}>{headerText.CreatedDate}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.Affiliate}>{headerText.Affiliate}</Cell>
-                <Cell header={true} colWidth={30} title={headerText.Remove}>{headerText.Remove}</Cell>
+                {/* <Cell header={true} colWidth={30} title={headerText.Remove}>{headerText.Remove}</Cell> */}
             </Row>
         );
     }
@@ -125,11 +125,11 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={dataItem.CurrentBalance}>{dataItem.CurrentBalance}</Cell>
                 <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>
                 <Cell className="text-center" title={dataItem.AffName}>{dataItem.AffName}</Cell>
-                <Cell className="text-center" title="Remove Member">
+                {/* <Cell className="text-center" title="Remove Member">
                     <Button color="link p-0" onClick={() => this._handleDeleteMember(dataItem.MemberId)}>
                         <span className="oi oi-x text-danger"></span>
                     </Button>
-                </Cell>
+                </Cell> */}
             </Row>
         )
     }

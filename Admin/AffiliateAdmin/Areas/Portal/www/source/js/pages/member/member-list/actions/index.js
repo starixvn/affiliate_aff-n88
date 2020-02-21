@@ -48,8 +48,8 @@ export const fetchData = (param) => async (dispatch) => {
 }
 
 export const deleteMember = (memberId) => async () => {
-    const url = 'Portal/Member/Deletemember';
-    const response = await post(url, { memberId });
+    //const url = 'Portal/Member/Deletemember';
+    //const response = await post(url, { memberId });
 
-    return response && response.status === 200 ? response.data : null;
+    //return response && response.status === 200 ? response.data : null;
 }

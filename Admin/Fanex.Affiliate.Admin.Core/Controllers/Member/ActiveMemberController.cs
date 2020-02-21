@@ -6,7 +6,6 @@ using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Services.Member;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Member
@@ -41,32 +40,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Member
             return new JsonNetResult
             {
                 Data = _activeMemberService.GetAllMembers(userNames)
-            };
-        }
-
-        [FunctionAuthorize(FunctionName = Function.ActiveMembers, IsHost = true)]
-        [HttpPost]
-        [ValidateAntiForgeryHeader]
-        public ActionResult ActiveMember(ActiveMemberParam param)
-        {
-            if (ModelState.IsValid)
-            {
-                param.UserId = SessionService.UserId;
-                param.Ip = Request.UserHostAddress;
-
-                return new JsonNetResult
-                {
-                    Data = _activeMemberService.ActiveMember(param)
-                };
-            }
-
-            return new JsonNetResult
-            {
-                Data = new ResultInfo
-                {
-                    Code = Code.GeneralErrorCode,
-                    Message = "Deposit User Name(s) is required!"
-                }
             };
         }
     }

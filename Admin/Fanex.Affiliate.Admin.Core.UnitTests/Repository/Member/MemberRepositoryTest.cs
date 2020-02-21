@@ -15,7 +15,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
     {
         private const string SpKeyMemberListSel = "Aff_MemberListSel";
         private const string SpKeyMemberDel = "Aff_MemberDel";
-        private const string SpKeyAdminUpdAffID = "DEP_AdminUpdAffID";
         private const string SpKeyWriteLog = "Aff_WriteLog";
 
         [Fact]
@@ -126,44 +125,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
 
             // Action
             var result = repository.Object.DeleteMember(new DeleteMemberParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void DeleteMemberInDepositDB_WhenCallWithValidParam_DeleteSuccessfully()
-        {
-            // Arrange
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            repository.Setup(re => re.GetObjectDb(SpKeyAdminUpdAffID, 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.DeleteMemberInDepositDB(123456);
-
-            // Assert
-            Assert.True(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void DeleteMemberInDepositDB_WhenCallWithValidParam_DeleteIsFailed()
-        {
-            // Arrange
-            var message = "Delete deposit member is failed.";
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            repository.Setup(re => re.GetObjectDb(SpKeyAdminUpdAffID, 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.DeleteMemberInDepositDB(123456);
 
             // Assert
             Assert.False(result.IsSuccessful);

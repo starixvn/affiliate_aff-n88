@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using DNAide.Core;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
@@ -76,20 +75,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
                 param.AffId = affId == DBNull.Value ? 0 : Convert.ToInt32(affId);
                 param.DepositMemberId = depositMemberId == DBNull.Value ? 0 : Convert.ToInt32(depositMemberId);
-
-                return GetResultInfo(objectDb);
-            }
-        }
-
-        public ResultInfo DeleteMemberInDepositDB(int depositMemberId)
-        {
-            const string SpKey = "DEP_AdminUpdAffID";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("DepositCustID", DbType.Int32, depositMemberId);
-                AssignResultOutputParam(objectDb);
-                objectDb.ExecuteNonQuery();
 
                 return GetResultInfo(objectDb);
             }

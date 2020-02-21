@@ -53,7 +53,3 @@ export const defaultGeneralInfo = {
         PendingAffiliateNumber: 0,
         TextBannerNumber: 0
 }
-export const defaultDepositInfo = {
-    AllMemberDepositThisMonth: 0,
-    AllMemberDepositUpToNow: 0
-};

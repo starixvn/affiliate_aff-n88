@@ -26,24 +26,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetPSPToday()
-        {
-            return new JsonNetResult
-            {
-                Data = _homeService.GetPSPToday()
-            };
-        }
-
-        [HttpPost]
-        public ActionResult GetDepositInfo()
-        {
-            return new JsonNetResult
-            {
-                Data = _homeService.GetDepositInfo()
-            };
-        }
-
-        [HttpPost]
         public ActionResult GetGeneralInfo()
         {
             return new JsonNetResult

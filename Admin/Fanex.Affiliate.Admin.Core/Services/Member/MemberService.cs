@@ -19,21 +19,16 @@ namespace Fanex.Affiliate.Admin.Core.Services.Member
             return _memberRepository.GetMemberList(param);
         }
 
-        public ResultInfo DeleteMember(DeleteMemberParam param)
-        {
-            var result = _memberRepository.DeleteMember(param);
+        //public ResultInfo DeleteMember(DeleteMemberParam param)
+        //{
+        //    var result = _memberRepository.DeleteMember(param);
 
-            if(result.IsSuccessful)
-            {
-                result = _memberRepository.DeleteMemberInDepositDB(param.DepositMemberId);
+        //    if(result.IsSuccessful)
+        //    {
+        //        _memberRepository.WriteAfterDeleteSuccefully(param);
+        //    }
 
-                if(result.IsSuccessful)
-                {
-                    _memberRepository.WriteAfterDeleteSuccefully(param);
-                }
-            }
-
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

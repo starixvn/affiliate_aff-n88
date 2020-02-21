@@ -66,8 +66,8 @@ export const fetchData = (param) => async (dispatch) => {
 }
 
 export const activeMember = (param) => async () => {
-    const url = 'Portal/ActiveMember/ActiveMember';
-    const response = await post(url, param);
+    // const url = 'Portal/ActiveMember/ActiveMember';
+    // const response = await post(url, param);
 
-    return response && response.status === 200 ? response.data : null;
+    // return response && response.status === 200 ? response.data : null;
 }

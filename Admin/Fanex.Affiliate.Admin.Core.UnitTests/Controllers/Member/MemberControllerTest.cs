@@ -58,40 +58,40 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
             Assert.Equal(param, passedParam);
         }
 
-        [Fact]
-        public void DeleteMember_WhenCallWithValidParam_DeleteSuccessful()
-        {
-            // Arrange
-            var param = new DeleteMemberParam { MemberId = 123 };
-            DeleteMemberParam passedParam = null;
-            var memberService = new Mock<IMemberService>();
-            memberService.Setup(s => s.DeleteMember(param)).Returns(new ResultInfo()).Callback<DeleteMemberParam>(p => passedParam = p);
-            var controller = CreateMemberController(memberService: memberService.Object);
+        //[Fact]
+        //public void DeleteMember_WhenCallWithValidParam_DeleteSuccessful()
+        //{
+        //    // Arrange
+        //    var param = new DeleteMemberParam { MemberId = 123 };
+        //    DeleteMemberParam passedParam = null;
+        //    var memberService = new Mock<IMemberService>();
+        //    memberService.Setup(s => s.DeleteMember(param)).Returns(new ResultInfo()).Callback<DeleteMemberParam>(p => passedParam = p);
+        //    var controller = CreateMemberController(memberService: memberService.Object);
 
-            // Action
-            var result = controller.DeleteMember(param) as JsonNetResult;
-            var resultInfo = result.Data as ResultInfo;
+        //    // Action
+        //    var result = controller.DeleteMember(param) as JsonNetResult;
+        //    var resultInfo = result.Data as ResultInfo;
 
-            // Assert
-            Assert.True(resultInfo.IsSuccessful);
-            Assert.Equal(param, passedParam);
-        }
+        //    // Assert
+        //    Assert.True(resultInfo.IsSuccessful);
+        //    Assert.Equal(param, passedParam);
+        //}
 
-        [Fact]
-        public void DeleteMember_WhenCallWithInvalidParam_ReturnError()
-        {
-            // Arrange
-            var controller = CreateMemberController();
-            controller.ModelState.AddModelError("Error01", string.Empty);
+        //[Fact]
+        //public void DeleteMember_WhenCallWithInvalidParam_ReturnError()
+        //{
+        //    // Arrange
+        //    var controller = CreateMemberController();
+        //    controller.ModelState.AddModelError("Error01", string.Empty);
 
-            // Action
-            var result = controller.DeleteMember(new DeleteMemberParam()) as JsonNetResult;
-            var resultInfo = result.Data as ResultInfo;
+        //    // Action
+        //    var result = controller.DeleteMember(new DeleteMemberParam()) as JsonNetResult;
+        //    var resultInfo = result.Data as ResultInfo;
 
-            // Assert
-            Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("No member specificed!", resultInfo.Message);
-        }
+        //    // Assert
+        //    Assert.False(resultInfo.IsSuccessful);
+        //    Assert.Equal("No member specificed!", resultInfo.Message);
+        //}
 
         private MemberController CreateMemberController(
             ISessionService sessionService = null,

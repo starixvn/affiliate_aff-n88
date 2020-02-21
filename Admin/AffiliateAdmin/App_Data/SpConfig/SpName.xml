@@ -115,12 +115,9 @@
   <Function Name="Member">
     <Setting Key="Aff_MemberListSel" SpName="Aff_MemberListSel" DbName="affiliate_n88" />
     <Setting Key="Aff_MemberDel" SpName="Aff_MemberDel" DbName="affiliate_n88" />
-    <Setting Key="DEP_AdminUpdAffID" SpName="DEP_AdminUpdAffID" DbName="deposit" />
     <Setting Key="Aff_WriteLog" SpName="Aff_WriteLog" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="affiliate_n88" />
-    <Setting Key="Deposit_GetCustDataForCreateIBCACByUserNames" SpName="Deposit_GetCustDataForCreateIBCACByUserNames" DbName="deposit" />
     <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="custdb" />
-    <Setting Key="Deposit_MemberIBCDetail" SpName="Deposit_MemberIBCDetail" DbName="deposit" />
   </Function>
   <Function Name="ChangeAdminPassword">
     <Setting Key="Aff_Admin_ChangePassword" SpName="Aff_Admin_ChangePassword" DbName="affiliate_n88" />
@@ -157,8 +154,6 @@
     <Setting Key="Aff_Con_Batch_AdminPolicySel" SpName="Aff_Con_Batch_AdminPolicySel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Home">
-    <Setting Key="DEP_AffiliateGetPSP" SpName="DEP_AffiliateGetPSP" DbName="deposit" />
-    <Setting Key="DEP_AffiliateGeneralInfo" SpName="DEP_AffiliateGeneralInfo" DbName="deposit" />
     <Setting Key="Aff_UserOnlineList" SpName="Aff_UserOnlineList" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel" DbName="affiliate_n88" />
   </Function>

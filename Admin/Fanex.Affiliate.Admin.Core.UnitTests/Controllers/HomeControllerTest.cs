@@ -28,37 +28,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void GetPSPToday_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var homeService = new Mock<IHomeService>();
-            homeService.Setup(t => t.GetPSPToday()).Returns(1.23m);
-            var controller = CreateHomeController(homeService: homeService.Object);
-
-            // Action
-            var result = controller.GetPSPToday() as JsonNetResult;
-
-            // Assert
-            Assert.Equal(1.23m, result.Data);
-        }
-
-        [Fact]
-        public void GetDepositInfo_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var homeService = new Mock<IHomeService>();
-            homeService.Setup(t => t.GetDepositInfo()).Returns(new DepositInfo { AllMemberDepositUpToNow = 123 });
-            var controller = CreateHomeController(homeService: homeService.Object);
-
-            // Action
-            var result = controller.GetDepositInfo() as JsonNetResult;
-            var data = result.Data as DepositInfo;
-
-            // Assert
-            Assert.Equal(123, data.AllMemberDepositUpToNow);
-        }
-
-        [Fact]
         public void GetGeneralInfo_WhenCall_ReturnCorrectData()
         {
             // Arrange

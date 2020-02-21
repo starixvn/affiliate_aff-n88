@@ -33,14 +33,7 @@ describe('home - components - MemberStatistics', () => {
             PendingAffiliateNumber: 1024,
             TextBannerNumber: 13
         },
-        pSPToday: 0,
-        depositInfo: {
-            AllMemberDepositThisMonth: 0,
-            AllMemberDepositUpToNow: 17049
-        },
         isUpToNow: true,
-        getPSPToday: jest.fn(),
-        getDepositInfo: jest.fn()
     }
 
     it('render correctly', () => {
@@ -54,14 +47,5 @@ describe('home - components - MemberStatistics', () => {
         const result = shallow(<MemberStatistics {...props} />);
 
         expect(result).toMatchSnapshot();
-    });
-
-    it('_handleGetData - Should call getPSPToday and getDepositInfo', async () => {
-        const result = shallow(<MemberStatistics {...defaultProps} />);
-
-        await result.instance()._handleGetData();
-
-        expect(defaultProps.getPSPToday).toHaveBeenCalled();
-        expect(defaultProps.getDepositInfo).toHaveBeenCalled();
     });
 });
