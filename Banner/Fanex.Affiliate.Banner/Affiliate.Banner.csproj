@@ -146,6 +146,26 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.n8b-banner.production.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-banner.backupmnl.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-banner.master.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8b-banner.uat.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8b-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-banner.uat.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
@@ -161,21 +181,24 @@
     <Content Include="Deployment.ignore" />
     <Content Include="Affiliate.Banner.ruleset" />
     <None Include="Properties\PublishProfiles\a.pubxml" />
-    <Content Include="Web.n88banner.uat.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.n88banner.local.config">
+    <Content Include="Web.n8b-banner.local.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Home\Error.cshtml" />
-    <None Include="Web.n88banner.backupmnl.config">
+    <Content Include="Web.n8g-banner.backupmnl.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Web.n88banner.master.config">
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-banner.local.config">
       <SubType>Designer</SubType>
-    </None>
-    <Content Include="Web.n88banner.production.config">
+    </Content>
+    <Content Include="Web.n8g-banner.master.config">
       <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n8g-banner.production.config">
+      <SubType>Designer</SubType>
+      <DependentUpon>Web.n8g-banner.local.config</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -207,7 +230,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_StartDate="2014/3/28" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="True" BuildVersion_StartDate="2014/3/28" BuildVersion_BuildVersioningStyle="None.None.Increment.TimeStamp" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
