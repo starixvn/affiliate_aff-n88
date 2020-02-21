@@ -1,0 +1,84 @@
+$text-color: #2b2b2b;
+$bg-main-color: #F5F5F5;
+$bg-after-login-color: #fff;
+$footer-bg-color: #000;
+
+$header-bg-color: #060818;
+$header-icon-color: #fff;
+
+$user-login-control-color: #000;
+$user-login-control-border-color: #000;
+$user-login-control-bg-color: #fff;
+
+$nav-bg-color: #626ED4;
+$nav-color: #EFF2F7;
+$nav-color-active: #FFC926;
+$nav-color-focus: #FFC926;
+
+$sub-nav-bg-color: #FFFFFF;
+$sub-nav-menu-color: #1E1E1E;
+$sub-nav-menu-bg-color-active: #060818;
+$sub-nav-menu-color-active: #fff;
+
+$tab-bg-color: $bg-main-color;
+$tab-item-color: #6E6E6E;
+$tab-item-bg-color-active: #626ED4;
+$tab-item-color-active: #fff;
+
+$hot-news-bg-color: #FFC000;
+$hot-news-title-bg-color: #F8B425;
+$hot-news-content-bg-color: #fff;
+$hot-news-content-color: #d43131;
+
+$button-login-bg-color: #fe2400;
+$button-login-color: #fff;
+$button-login-bg-color-hover: darken($button-login-bg-color, 5%);
+$button-login-border-color: #fff;
+
+$button-submit-bg-color: #626ED4;
+$button-submit-color: #fff;
+$button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
+$button-submit-border-color: #fff;
+
+$page-title-color: #fff;
+$page-title-border-color: #626ED4;
+$page-title-bg-color: #626ED4;
+
+$group-title-color: #060818;
+$group-title-border-before-color: #626ED4;
+$group-title-border-after-color: #C7C7C7;
+
+$table-bg-color: #FCE9D8;
+$table-color: #404040;
+$table-header-bg-color: #060818;
+$table-header-color: #fff;
+$table-header-border-color: #c1c1c1;
+$table-border-color: #C7C7C7;
+$table-row-bg-color-hover: #fbe8e1;
+$table-row-even-bg-color: #FBD3B3;
+$table-row-total-bg-color: #FFC926;
+$table-game-name-bg: #ded5d5;
+
+$form-control-color: #000;
+$form-control-border-color: #adadad;
+$form-control-bg-color: #fff;
+
+$modal-header-bg-color: #d43131;
+$modal-header-color: #fff;
+
+// Home page
+$home-page-bg-color: #a3a3a3;
+$home-card-content-bg-color: rgba(255,255,255,.2);
+$home-card-content-border-color: #fff;
+$home-card-title-color: #2b2b2b;
+$home-card-content-color: #212121;
+
+// Contact Us page
+$date-time-info: #3f4f66;
+$languages-item-bg-color: #fff;
+$languages-item-border-color: #e7e7e7;
+
+// Account Overview
+$account-overview-group-one: #156e82;
+$account-overview-group-two: #1c56ad;
+$account-overview-group-three: #9e5613;

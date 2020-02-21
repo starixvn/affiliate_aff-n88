@@ -100,20 +100,16 @@ label {
 
 .page-title {
     margin-bottom: 1.5rem;
-    background: $bg-main-color;
-    border-top: 1px solid $page-title-border-color;
     margin-left: -1rem;
     margin-right: -1rem;
 
     .text {
-        background-color: $page-title-bg-color;
         position: relative;
         display: inline-block;
         padding-left: 2rem;
         padding-right: 6rem;
         line-height: 30px;
         font-size: 14px;
-        color: $page-title-color;
         text-transform: capitalize;
         text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.32);
 
@@ -125,8 +121,6 @@ label {
             height: 0;
             width: 0;
             border-left: 22px solid transparent;
-            border-bottom: 18px solid $bg-main-color;
-            border-right: 16px solid $bg-main-color;
             border-top: 12px solid transparent;
         }
     }
@@ -137,7 +131,6 @@ label {
 
     .title {
         position: relative;
-        color: $group-title-color;
         font-weight: 600;
         margin-bottom: 8px;
         padding-bottom: 5px;
@@ -148,7 +141,6 @@ label {
             bottom: 0;
             left: 0;
             display: inline-block;
-            background: $group-title-border-before-color;
             height: 3px;
             width: 36px;
         }
@@ -159,7 +151,6 @@ label {
             bottom: 0;
             right: 0;
             display: inline-block;
-            background: $group-title-border-after-color;
             height: 3px;
             width: calc(100% - 37px);
         }

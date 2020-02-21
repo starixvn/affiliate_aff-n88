@@ -1,6 +1,4 @@
-﻿@import "../scss/abstracts/_variables.scss";
-
-.signup-block {
+﻿.signup-block {
     margin-top: 15px;
     margin-bottom: 20px;
 
@@ -27,7 +25,6 @@
             background: transparent;
 
             .game-name {
-                background-color: $table-game-name-bg;
                 border: 3px solid #fff;
                 width: 200px;
 
@@ -35,12 +32,6 @@
                     width: 100px;
                 }
             }
-        }
-    }
-
-    .casino-table {
-        tbody > tr:nth-of-type(even) {
-            background-color: $table-row--even-bg-color;
         }
     }
 }

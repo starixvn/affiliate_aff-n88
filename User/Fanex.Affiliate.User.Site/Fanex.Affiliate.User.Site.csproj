@@ -625,6 +625,14 @@
     <Content Include="www\build\styles\css\signup.min.css">
       <DependentUpon>signup.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\theme-default.css" />
+    <Content Include="www\build\styles\css\theme-default.min.css">
+      <DependentUpon>theme-default.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\theme1.css" />
+    <Content Include="www\build\styles\css\theme1.min.css">
+      <DependentUpon>theme1.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\user-panel.css" />
     <Content Include="www\build\styles\css\user-panel.min.css">
       <DependentUpon>user-panel.css</DependentUpon>
@@ -1319,6 +1327,9 @@
     <None Include="Configurations\Web\Web.n88user-euro.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
     </None>
+    <Content Include="www\source\styles\scss\Themes\theme-default.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme1.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

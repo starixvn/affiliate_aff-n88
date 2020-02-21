@@ -1,14 +1,9 @@
-﻿@import "../scss/abstracts/variables";
-@import "../scss/abstracts/mixins";
+﻿@import "../scss/abstracts/mixins";
 
 .main {
     .home-page {
         padding-left: 0;
         padding-right: 0;
-    }
-
-    .page-container {
-        background: $home-page-bg-color;
     }
 
     .content {
@@ -36,18 +31,13 @@
 }
 
 .card-content {
-    border: 1px solid $home-card-content-border-color;
-    background: $home-card-content-bg-color;
-
     .card-body {
         padding: 10px;
     }
 
     .card-title {
-        color: $home-card-title-color;
         font-weight: 600;
         font-size: 16px;
-        border-bottom: 1px solid $home-card-content-border-color;
         margin: 0;
         padding: 5px 10px;
 
@@ -68,7 +58,6 @@
 
     .text-content {
         font-size: 13px;
-        color: $home-card-content-color;
         line-height: 2.4rem;
         padding: 0 16px 16px;
     }
@@ -89,14 +78,6 @@
     li {
         list-style: none;
         padding: 15px 0 10px;
-
-        &:not(:last-child) {
-            border-bottom: 1px solid $home-card-content-border-color;
-        }
-
-        > a {
-            color: $home-card-content-color;
-        }
     }
 
     .news-title {

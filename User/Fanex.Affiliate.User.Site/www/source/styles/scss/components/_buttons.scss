@@ -25,44 +25,28 @@
 }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
-    background: $button-login-bg-color;
     font-size: 13px;
-    color: $button-login-color;
     line-height: 22px;
-
-    &:hover, &:focus {
-        color: $button-login-color;
-        background: $button-login-bg-color-hover;
-    }
 
     &:focus {
         outline: none;
     }
 
     .icon {
-        color: $button-login-color;
         line-height: 1;
         padding-right: 6px;
     }
 }
 
 .btn-submit {
-    background-color: $button-submit-bg-color;
     font-size: 13px;
-    color: $button-submit-color;
     text-transform: capitalize;
-
-    &:hover, &:focus {
-        color: $button-submit-color;
-        background-color: $button-submit-bg-color-hover;
-    }
 
     &:focus {
         outline: none;
     }
 
     .icon {
-        color: $button-submit-color;
         line-height: 1;
         padding-right: 6px;
     }

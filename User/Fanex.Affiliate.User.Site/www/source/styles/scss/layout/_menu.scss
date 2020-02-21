@@ -1,14 +1,9 @@
-﻿$bg-menu: #ad6b2e;
-
-.content-menu {
+﻿.content-menu {
     .menu {
-        background: $bg-menu;
-        display: flex;        
-
+        display: flex;
         /*li {
             position: relative;
         }*/
-
         li:not(:last-child) {
             border-right: 1px solid #f9f9f9;
         }
@@ -18,7 +13,6 @@
             text-transform: capitalize;
             font-weight: 400;
             color: #fff;
-            text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.32);
             transition: all .2s ease;
 
             &:hover, &:focus {
@@ -39,9 +33,6 @@
             }
 
             &.active, &:hover {
-                $bg-active: #ff7a00, #ffea00;
-                @include background-gradient(top, $bg-active);
-                color: #2b2b2b;
                 text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.32);
             }
 
@@ -59,9 +50,8 @@
         //right: -1px;
         flex-direction: column;
         z-index: 16777271;
-        visibility:visible;
+        visibility: visible;
         width: 200px;
-        background: $bg-menu;
 
         li {
             border-right: 1px solid #f9f9f9;

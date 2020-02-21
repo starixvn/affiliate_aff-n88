@@ -15,7 +15,6 @@
 
     &.after-login {
         flex-direction: column;
-        background: $bg-main-color;
     }
 
     .content {
@@ -39,11 +38,10 @@ $height-hotnew: 26px;
 
 .hot-news {
     display: flex;
-    background: #ffc000;
+    margin: 12px 0;
 
     .title {
         position: relative;
-        background: #ec8225;
         color: #fff;
         padding: 0 10px;
         height: $height-hotnew;
@@ -60,7 +58,6 @@ $height-hotnew: 26px;
             position: absolute;
             right: -10px;
             top: 0;
-            border-left: 11px solid #ec8225;
         }
     }
 
@@ -70,8 +67,6 @@ $height-hotnew: 26px;
         flex-grow: 1;
         flex-basis: 0;
         max-width: 100%;
-        color: #d43131;
-        background: #fff;
         padding: 0 10px;
         line-height: $height-hotnew;
         font-size: 12px;
@@ -89,11 +84,11 @@ $height-hotnew: 26px;
 
 // --------------------------------- image responsive ------------------- //
 .no-webp .adv-contact {
-  background-image: url("../../../../www/build/styles/Images/bg-adv_contact.png");
+    background-image: url("../../../../www/build/styles/Images/bg-adv_contact.png");
 }
 
 .webp .adv-contact {
-  background-image: url("../../../../www/build/styles/Images/bg-adv_contact.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-adv_contact.webp");
 }
 
 .adv-contact {
@@ -108,7 +103,7 @@ $height-hotnew: 26px;
     text-align: left;
     color: #fff;
 
-    &:hover, &:focus{
+    &:hover, &:focus {
         text-decoration: none;
         color: #fff;
     }
