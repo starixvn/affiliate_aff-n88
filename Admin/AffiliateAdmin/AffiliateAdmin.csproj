@@ -1042,7 +1042,32 @@
     <Content Include="AppSettings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.n88admin.sit.config" />
+    <Content Include="Web.n88admin-n8b.backupmnl.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.local.config" />
+    <Content Include="Web.n88admin-n8b.master.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.production.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.sit.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.uat.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.backupmnl.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.local.config" />
+    <Content Include="Web.n88admin-n8g.sit.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.uat.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
     <Content Include="Areas\Portal\Views\Web.config" />
     <Content Include="AffiliateAdmin.ruleset" />
     <Content Include="Areas\Portal\www\source\js\layouts\AppLayout.jsx" />
@@ -1359,26 +1384,15 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="WebWorkbench.mswwsettings" />
-    <None Include="Web.n88admin-n8b.backupmnl.config" />
-    <None Include="Web.n88admin-n8g.local.config" />
-    <None Include="Web.n88admin-n8b.local.config" />
-    <None Include="Web.n88admin-n8g.master.config" />
-    <None Include="Web.n88admin-n8b.master.config" />
-    <None Include="Web.n88admin-n8g.production.config" />
-    <None Include="Web.n88admin-n8b.production.config" />
-    <None Include="Web.n88admin-n8g.sit.config" />
-    <None Include="Web.n88admin-n8b.sit.config" />
-    <None Include="Web.n88admin-n8g.uat.config" />
-    <None Include="Web.n88admin-n8b.uat.config" />
-    <None Include="Web.n88admin-n8g.backupmnl.config" />
+    <Content Include="Web.n88admin-n8g.master.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.production.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Web.n88admin.backupmnl.config" />
-    <Content Include="Web.n88admin.local.config" />
-    <Content Include="Web.n88admin.master.config" />
-    <Content Include="Web.n88admin.production.config" />
-    <Content Include="Web.n88admin.uat.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
