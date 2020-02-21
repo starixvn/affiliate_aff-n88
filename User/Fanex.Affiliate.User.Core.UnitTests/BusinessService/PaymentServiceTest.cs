@@ -156,7 +156,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             const string ErrorMessage = "Create Payment Failed";
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerAccountIsActived(param.AffId, param.Language)).Returns(new ResultInfo { IsOk = true });
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { Message = ErrorMessage });
@@ -179,7 +178,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var param = CreateValidPaymentCreationParam();
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerAccountIsActived(param.AffId, param.Language)).Returns(new ResultInfo { IsOk = true });
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { IsOk = true });

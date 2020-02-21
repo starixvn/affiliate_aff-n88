@@ -76,11 +76,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
                     SendEmail(emailParam);
                 }
-                //resultInfo = _accountService.CheckPlayerAccountIsActived(paymentCreationParam.AffId, paymentCreationParam.Language);
-                //if (resultInfo.IsOk)
-                //{
-
-                //}
             }
 
             return resultInfo;
