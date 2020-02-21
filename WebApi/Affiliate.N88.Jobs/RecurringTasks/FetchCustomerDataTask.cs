@@ -74,7 +74,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             switch (key)
             {
                 default:
-                    member = new MemberInfo<N8GLicensee>
+                    member = new MemberInfo<N8BLicensee>
                     {
                         SiteId = key,
                         XmlData = xml
@@ -91,7 +91,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 if (customer == null)
                     continue;
-
+                
                 ReformatCustomer(customer);
                 var attributes = customer.GetType()
                     .GetProperties()
@@ -105,7 +105,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private void ReformatCustomer(CustomerModel customer)
         {
             var ids = customer.AllAgentId;
-            customer.AllAgentId = String.IsNullOrEmpty(ids) ? String.Empty : ids.Substring(1, ids.Length - 2);
+            if (!string.IsNullOrWhiteSpace(ids))
+            {
+                customer.AllAgentId = ids.Replace("[", string.Empty).Replace("]", string.Empty);
+            }
         }
     }
 
