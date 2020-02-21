@@ -173,18 +173,6 @@
   <ItemGroup>
     <Content Include="12monitor.aspx" />
     <Content Include="App_Data\SpNames.xml" />
-    <Content Include="App_Data\SpNames.Pro.xml">
-      <DependentUpon>SpNames.xml</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpNames.Uat.xml">
-      <DependentUpon>SpNames.xml</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpNames.LocalPro.xml">
-      <DependentUpon>SpNames.xml</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpNames.Local.xml">
-      <DependentUpon>SpNames.xml</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
