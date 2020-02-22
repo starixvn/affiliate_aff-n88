@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 if(PaymentMethod.Player.Equals(param.PreferredPayment))
                 {
-                    var isValid = _userAccountRepository.CheckPlayerUserName(param.PlayerUsername);
+                    var isValid = _userAccountRepository.CheckPlayerUserName(param.AffId, param.PlayerUsername);
 
                     if(!isValid)
                     {
