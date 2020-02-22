@@ -8,7 +8,7 @@
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var permission = sessionService.UserPermissionList;
     var menus = new Dictionary<string, string>
-    {
+{
         {"Customer",Function.Affiliate },
         {"Affiliate",Function.Affiliate },
         {"Member",Function.Affiliate },
@@ -51,7 +51,7 @@
     {
         var active = "nav-link " + (controllerName == item ? "active" : string.Empty);
         <li class="nav-item">
-            <a class="@active" href="@Url.Content("~/Portal/"+item)">
+            <a class="@active @controllerName" href="@Url.Content("~/Portal/"+item)">
                 @GetMenuName(item)
             </a>
         </li>

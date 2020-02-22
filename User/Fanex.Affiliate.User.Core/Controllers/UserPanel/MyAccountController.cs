@@ -89,7 +89,7 @@
                 userAccount.PlayerUsername :
                 Server.HtmlEncode(model.PlayerUsername);
 
-            var validInfo = _accountRepository.GetPlayerUserNameValidInfo(model.PlayerUsername);
+            var validInfo = _accountRepository.GetPlayerUserNameValidInfo(model.PlayerUsername, model.AffId);
 
             if (!validInfo.IsValid)
             {
