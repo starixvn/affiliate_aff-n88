@@ -1972,9 +1972,6 @@
   <data name="Non_Deposit" xml:space="preserve">
     <value>Non-Deposit</value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>Bet List</value>
-  </data>
   <data name="result" xml:space="preserve">
     <value>Results</value>
   </data>

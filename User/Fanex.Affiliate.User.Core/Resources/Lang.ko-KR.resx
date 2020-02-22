@@ -1972,9 +1972,6 @@
   <data name="PCDevice" xml:space="preserve">
     <value>PC / 랜탑</value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>베팅 내역</value>
-  </data>
   <data name="result" xml:space="preserve">
     <value>결과</value>
   </data>

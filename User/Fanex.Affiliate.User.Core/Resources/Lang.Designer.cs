@@ -3034,15 +3034,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bet List.
-        /// </summary>
-        public static string lblBetLists {
-            get {
-                return ResourceManager.GetString("lblBetLists", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Security Question.
         /// </summary>
         public static string lblSecureQuestion {

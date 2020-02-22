@@ -1975,9 +1975,6 @@
   <data name="Non_Deposit" xml:space="preserve">
     <value>Chưa Gửi Tiền</value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>Danh Sách Vé Cược</value>
-  </data>
   <data name="result" xml:space="preserve">
     <value>Kết Quả</value>
   </data>
