@@ -69,6 +69,7 @@
                 paymentCreationParam.Ip = Request.UserHostAddress;
                 paymentCreationParam.IsInternal = SessionService.IsInternal;
                 paymentCreationParam.IsLocalTest = !_appSetting.IsProduction;
+                paymentCreationParam.TransDate = paymentCreationParam.TransDate ?? DateTime.Now;
 
                 var emailParam = new PaymentEmailParam
                 {

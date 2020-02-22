@@ -107,31 +107,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public PlayerAccountCheckingResult CheckPlayerAccountIsActived(int affId, string language)
-        {
-            var result = new PlayerAccountCheckingResult();
-            const string uSpKey = "Aff_CustomerCheck12BetPlayerAccountActivated";
-            var parameterSet = new
-            {
-                AffId = affId,
-                Language = language,
-                Result = false,
-                ErrCode = 0,
-                ErrMsg = string.Empty
-            };
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(parameterSet);
-
-                result.IsOk = parameterSet.Result;
-                result.Message = parameterSet.ErrMsg;
-                result.PlayerUserName = objectDb.DB.GetParameterValue("12BetPlayerUserName") as string;
-            }
-
-            return result;
-        }
-
 
         public IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo)
         {
@@ -168,22 +143,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
 
             return result;
-        }
-
-        public ResultInfo UpdatePlayerAccountStatusForDeposit(DepositPlayerAccountParam account)
-        {
-            const string uSpKey = "Deposit_MemberIBCDetail";
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(account);
-            }
-
-            return new ResultInfo
-            {
-                IsOk = account.ErrorCode == 0,
-                Message = account.ErrorMsg
-            };
         }
 
         public ResultInfo CreateAffiliate(UserSignUpParam signUpParam)

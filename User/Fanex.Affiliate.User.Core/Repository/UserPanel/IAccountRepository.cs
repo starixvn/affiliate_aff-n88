@@ -22,11 +22,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         UserInfo GetUserInfoById(int affId, bool isInternal);
 
-        PlayerAccountCheckingResult CheckPlayerAccountIsActived(int affId, string language);
-
         IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo);
-
-        ResultInfo UpdatePlayerAccountStatusForDeposit(DepositPlayerAccountParam account);
 
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
 

@@ -57,9 +57,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             };
         }
 
-        public ResultInfo CreatePaymentRequest(PaymentCreationParam paymentCreationParam)
+        public ResultInfo CreatePaymentRequest(PaymentRequestInfo paymentCreationParam)
         {
-            const string uSpKey = "Aff_PaymentRequestIns";
+            const string uSpKey = "Aff_User_PaymentRequest_Ins";
 
             using (var objectDb = new ObjectDBBuilder(uSpKey))
             {

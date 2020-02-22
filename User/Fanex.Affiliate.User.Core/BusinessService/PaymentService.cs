@@ -67,7 +67,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (resultInfo.IsOk)
             {
-                resultInfo = _paymentRepository.CreatePaymentRequest(paymentCreationParam);
+                resultInfo = _paymentRepository.CreatePaymentRequest(new PaymentRequestInfo 
+                {
+                    AffId = paymentCreationParam.AffId,
+                    Language = paymentCreationParam.Language,
+                    IpAddress = paymentCreationParam.Ip,
+                    Amount = paymentCreationParam.Amount,
+                    ErrCode = paymentCreationParam.ErrCode,
+                    ErrMsg = paymentCreationParam.ErrMsg
+                });
 
                 if (resultInfo.IsOk)
                 {
@@ -125,7 +133,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 emailParam.MailTo = userInfo.Email;
                 emailParam.TransId = paymentCreationParam.TransId;
                 emailParam.Amount = paymentCreationParam.Amount;
-                emailParam.RequestDate = paymentCreationParam.TransDate.Value;
+                emailParam.RequestDate = paymentCreationParam.TransDate ?? DateTime.Now;
             }
         }
 

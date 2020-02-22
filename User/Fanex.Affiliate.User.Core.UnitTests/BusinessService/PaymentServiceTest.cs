@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
@@ -153,12 +154,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             // Arrange
             var param = CreateValidPaymentCreationParam();
+            var paymentRequest = CreatePaymentRequest(param);
             const string ErrorMessage = "Create Payment Failed";
 
             var accountService = new Mock<IAccountService>();
 
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { Message = ErrorMessage });
+            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { Message = ErrorMessage });
 
             var service = CreatePaymentService(paymentRepository: paymentRepository.Object, accountService: accountService.Object);
 
@@ -170,17 +172,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             Assert.Equal(ErrorMessage, result.Message);
         }
 
+
         [Fact]
         public void CreatePaymentRequest_ValidParamAndSendEmail_ReturnCorrectResultAndEmailParamAssignCorrectly()
         {
             // Arrange
             PaymentEmailParam passedEmailParam = null;
             var param = CreateValidPaymentCreationParam();
+            var paymentRequest = CreatePaymentRequest(param);
 
             var accountService = new Mock<IAccountService>();
 
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { IsOk = true });
+            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { IsOk = true });
 
             var userInfo = new UserInfo
             {
@@ -231,6 +235,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 Language = Constant.DefaultLanguage,
                 TransId = 123,
                 TransDate = new System.DateTime(2018, 12, 28)
+            };
+        }
+
+        private PaymentRequestInfo CreatePaymentRequest(PaymentCreationParam param)
+        {
+            return new PaymentRequestInfo
+            {
+                AffId = param.AffId,
+                Amount = param.Amount,
+                ErrCode = param.ErrCode,
+                ErrMsg = param.ErrMsg,
+                IpAddress = param.Ip,
+                Language = param.Language
             };
         }
 
