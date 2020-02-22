@@ -117,7 +117,6 @@ export class AssignPrivateGroup extends React.Component {
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
-                <ExchangeRevenueShareSetting />
                 <DeductionSetting />
                 <QmTurnOverSetting />
                 <TierSetting />
