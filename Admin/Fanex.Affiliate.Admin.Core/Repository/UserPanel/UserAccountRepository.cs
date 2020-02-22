@@ -3,11 +3,27 @@ using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
+using Fanex.Affiliate.Admin.Core.Constants;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
     public class UserAccountRepository : BaseRepository, IUserAccountRepository
     {
+        public bool CheckPlayerUserName(string playerUserName)
+        {
+            const string SpKey = "Aff_PlayerUsername_CheckIsValid";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.AddInParameter("Player_Username", DbType.String, playerUserName);
+                objectDb.AddOutParameter("IsValid", DbType.Boolean, Size.SizeOfInt);
+
+                objectDb.ExecuteNonQuery();
+
+                return Convert.ToBoolean(objectDb.GetParameterValue("IsValid"));
+            }
+        }
+
         public UserAccount GetUserAccountInfo(int affId)
         {
             const string SpKey = "Aff_Admin_AffiliateInfo_Sel";

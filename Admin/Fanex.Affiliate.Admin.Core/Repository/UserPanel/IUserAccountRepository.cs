@@ -9,5 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
         UserAccount GetUserAccountInfo(int affId);
 
         ResultInfo UpdateUserAccount(UserAccountParam param);
+
+        bool CheckPlayerUserName(string playerUserName);
     }
 }

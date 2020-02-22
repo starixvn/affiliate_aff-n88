@@ -2,6 +2,7 @@
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
+using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Resources;
 
@@ -27,6 +28,19 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             if(isValidPaymentMethod)
             {
+                if(PaymentMethod.Player.Equals(param.PreferredPayment))
+                {
+                    var isValid = _userAccountRepository.CheckPlayerUserName(param.PlayerUsername);
+
+                    if(!isValid)
+                    {
+                        return new ResultInfo
+                        {
+                            Code = Code.GeneralErrorCode,
+                            Message = "N88 User Name is invalid!."
+                        };
+                    }
+                }
                 return _userAccountRepository.UpdateUserAccount(param);
             }
 
