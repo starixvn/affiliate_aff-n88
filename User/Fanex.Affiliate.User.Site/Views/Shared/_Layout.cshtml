@@ -15,14 +15,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@(string.IsNullOrEmpty(ViewBag.Title) ? Lang._12BET + " " + Lang.Affiliate : ViewBag.Title)</title>
+    <title>@(string.IsNullOrEmpty(ViewBag.Title) ? AppSetting.Instance.SiteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
     <link rel="icon" href="~/favicon.ico?v=1">
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
-    <meta name="description" content="@Lang.MetaDescription" />
-    <meta name="keywords" content="12BET, 12BET Affiliate Program, Sports Betting Affiliate, Casino Affiliate, betting affiliate programs, earn extra cash, top affiliate programs, asian casino affiliate programs, Asian betting affiliate programs, high payout affiliate programs" />
+    <meta name="description" content="@SiteFriendlyNameHelper.Replace12Bet(Lang.MetaDescription)" />
+    <meta name="keywords" content="@(AppSetting.Instance.SiteFriendlyName), @(AppSetting.Instance.SiteFriendlyName) Affiliate Program, Sports Betting Affiliate, Casino Affiliate, betting affiliate programs, earn extra cash, top affiliate programs, asian casino affiliate programs, Asian betting affiliate programs, high payout affiliate programs" />
     <meta name="robots" content="index,follow,archive" />
-    <meta name="title" content="@Lang.MetaTitle" />
+    <meta name="title" content="@SiteFriendlyNameHelper.Replace12Bet(Lang.MetaTitle)" />
 
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet" crossorigin="anonymous">
@@ -49,7 +49,7 @@
 <body>
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
-            <a href="@Url.Content("~")" class="logo-text"><span class="site-name">N88</span> Affiliate User</a>
+            <a href="@Url.Content("~")" class="logo-text"><span class="site-name">@AppSetting.Instance.SiteFriendlyName</span> Affiliate User</a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
@@ -181,7 +181,7 @@
             </div>
         </div>
         <div class="footer-text">
-            @Lang.Copyright
+            @SiteFriendlyNameHelper.Replace12Bet(Lang.Copyright)
         </div>
     </div>
 

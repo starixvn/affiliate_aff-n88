@@ -237,7 +237,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label require">@Lang.DescWebsite</label>
+                    <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.DescWebsite)</label>
                     <div class="col-sm-4">
                         @{
                             var textareaAttributes = new Dictionary<string, object>
@@ -283,7 +283,7 @@
                     <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" checked /> @Lang._12BETPlayerAcc
+                            <input type="radio" checked /> @SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc)
                         </label>
                     </div>
                 </div>
@@ -294,7 +294,7 @@
                         @if (string.IsNullOrEmpty(Model.PlayerUsername))
                         {
                             <input id="PlayerUsername" name="PlayerUsername" class="form-control" type="text" value=""
-                                   data-val="true" data-val-required="@Lang.BETUserNameIsRequired" />
+                                   data-val="true" data-val-required="@SiteFriendlyNameHelper.Replace12Bet(Lang.BETUserNameIsRequired)" />
                         }
                         else
                         {

@@ -7,25 +7,27 @@
 
 @{ 
     var viewName = "~/Views/Product/_Content." + Model.CurrentLanguage + ".cshtml";
+
+    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
 
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/products.css")
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.Product</span>
-    </div>
-
-    @{ Html.RenderPartial(viewName); }
-
-    @if (!Model.IsAuthenticated)
-    {
-        <div class="col-sm-offset-3 col-sm-6 signup-block">
-            <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@Lang.SignUpAffiliateProgramNow</a>
+    <div class="content">
+        <div class="page-title">
+            <span class="text">@Lang.Product</span>
         </div>
-    }
-    @RazorHelper.RenderMovingTopButton()
-</div>
+
+        @Html.Raw(htmlString)
+
+        @if (!Model.IsAuthenticated)
+        {
+            <div class="col-sm-offset-3 col-sm-6 signup-block">
+                <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.Replace12Bet(Lang.SignUpAffiliateProgramNow)</a>
+            </div>
+        }
+        @RazorHelper.RenderMovingTopButton()
+    </div>
 

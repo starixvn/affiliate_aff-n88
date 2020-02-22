@@ -78,7 +78,7 @@
             try
             {
                 var content = GetEmailContent(criteria);
-                const string Subject = "Affilite 12Bet testing";
+                var Subject = $"Affilite {AppSetting.Instance.SiteFriendlyName} testing";
 
                 _mailProcessor.Send(content, criteria.EmailAddress, Subject);
             }

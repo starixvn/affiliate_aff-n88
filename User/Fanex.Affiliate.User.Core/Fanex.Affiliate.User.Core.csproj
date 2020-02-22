@@ -321,6 +321,7 @@
     <Compile Include="Repository\UserPanel\IOldMarketingRepository.cs" />
     <Compile Include="Repository\UserPanel\OldMarketingRepository.cs" />
     <Compile Include="Utilities\OldMarketingHelper.cs" />
+    <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\OldMarketingViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\QrCodeLinkModel.cs" />
     <Compile Include="DTO\VerificationAccount\SendCodeResponse.cs" />

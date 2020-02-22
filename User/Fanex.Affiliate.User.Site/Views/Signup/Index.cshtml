@@ -35,14 +35,14 @@
 
     <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
         <p class="text-center">@Html.Raw(Lang.UnderReview)</p>
-        @Html.Raw(Lang.RegisSuccess)
+        @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.RegisSuccess))
     </div>
 
     <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>
 
     <div id="mainContent">
         <div>
-            <p>@Lang.CompleteForm</p>
+            <p>@SiteFriendlyNameHelper.Replace12Bet(Lang.CompleteForm)</p>
             <p>@Html.Raw(Lang.RequireInfo)</p>
         </div>
 
@@ -222,7 +222,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 control-label require">@Lang.DescWebsite</label>
+                        <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.DescWebsite)</label>
                         <div class="col-sm-4">
                             @Html.TextAreaFor(p => p.NoSiteDesc, new { @class = "form-control", @rows = 5, @disabled = "disabled" })
                         </div>
@@ -295,7 +295,7 @@
                         <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" name="Method" checked /> @Lang._12BETPlayerAcc
+                                <input type="radio" name="Method" checked /> @(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))
                             </label>
                             <div class="form-group col-sm-12">
                                 <label class="control-label require">@Lang.UsernameSignUp</label>
@@ -313,7 +313,7 @@
                     <div class="form-group">
                         <div class="checkbox col-sm-offset-3 chk-agree">
                             <label>
-                                <input type="checkbox" name="Agree" id="chkAgree" /> @Lang.IagreetotheTerm
+                                <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.Replace12Bet(Lang.IagreetotheTerm)
                             </label>
                         </div>
                     </div>

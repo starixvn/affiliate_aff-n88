@@ -1,4 +1,5 @@
-﻿using Fanex.Data;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.MetalModels
 {
@@ -30,5 +31,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         [SpParam(Ignored = true)]
         public string Captcha { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string SiteFiendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }

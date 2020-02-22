@@ -9,6 +9,7 @@
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels;
     using Newtonsoft.Json;
@@ -93,7 +94,7 @@
 
             if (!validInfo.IsValid)
             {
-                return Json(new ResultInfo { IsOk = false, Message = Lang.errDepositDBConnectFailed });
+                return Json(new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) });
             }
 
             var accountUpdateParam = new UpdateAccountParam

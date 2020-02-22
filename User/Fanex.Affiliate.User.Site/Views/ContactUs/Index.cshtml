@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
-    ViewBag.Title = "12BET Affiliate Program | Contact Us";
+    ViewBag.Title = $"{AppSetting.Instance.SiteFriendlyName} Affiliate Program | Contact Us";
 }
 
 @using Fanex.Affiliate.User.Core.Utilities
@@ -68,9 +68,9 @@
                             </div>
                             <div class="info">
                                 <p class="language">@Lang.EnglishSupport</p>
-                                <a class="contact-info" href="skype:affiliate12bet">
+                                <a class="contact-info" href="skype:affiliate@(AppSetting.Instance.SiteFriendlyName)">
                                     <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
-                                    <span>affiliate12bet</span>
+                                    <span>affiliate@(AppSetting.Instance.SiteFriendlyName)</span>
                                 </a>
                             </div>
                         </div>
@@ -119,9 +119,9 @@
                             </div>
                             <div class="info">
                                 <p class="language">@Lang.ThailandSupport</p>
-                                <a class="contact-info" href="skype:th.affiliate12bet">
+                                <a class="contact-info" href="skype:th.affiliate@(AppSetting.Instance.SiteFriendlyName)">
                                     <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
-                                    <span>th.affiliate12bet</span>
+                                    <span>th.affiliate@(AppSetting.Instance.SiteFriendlyName)</span>
                                 </a>
                                 <a class="contact-info info-line" href="https://line.me/ti/p/OpW0R6iD7X">
                                     <img class="im-line" src="~/www/build/styles/Images/contact-us/line.png" />
@@ -140,9 +140,9 @@
                             </div>
                             <div class="info">
                                 <p class="language">@Lang.IndonesiaSupport</p>
-                                <a class="contact-info" href="skype:live:aff.12betindo">
+                                <a class="contact-info" href="skype:live:aff.@(AppSetting.Instance.SiteFriendlyName)indo">
                                     <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
-                                    <span>live:aff.12betindo</span>
+                                    <span>live:aff.@(AppSetting.Instance.SiteFriendlyName)indo</span>
                                 </a>
                                 <a class="contact-info info-whats-app" href="https://api.whatsapp.com/send?phone=639276842457">
                                     <img class="im-whats-app" src="~/www/build/styles/Images/contact-us/whats_app.png" />
@@ -177,7 +177,7 @@
 
     <div class="contact-form">
         <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
-            @Html.Raw(Lang.MessageSentReview.Replace("{br}", "<br>"))
+            @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.MessageSentReview.Replace("{br}", "<br>")))
         </div>
 
         <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>

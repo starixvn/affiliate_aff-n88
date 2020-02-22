@@ -12,6 +12,7 @@
 @model string
 @{
     var viewName = "~/Views/TermAndCondition/_Content." + Model + ".cshtml";
+    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@
                         <span class="text">@Lang.TermAndCondition</span>
                     </div>
 
-                    @{ Html.RenderPartial(viewName); }
+                    @Html.Raw(htmlString)
 
                     @RazorHelper.RenderMovingTopButton()
                 </div>

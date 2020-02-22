@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -31,7 +32,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (!validInfo.IsValid)
             {
-                return new ResultInfo { IsOk = false, Message = Lang.errDepositDBConnectFailed };
+                return new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) };
             }
 
 

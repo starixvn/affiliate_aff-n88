@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.ViewModels
 {
@@ -15,5 +16,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels
         public string Title { get; set; }
 
         public string Content { get; set; }
+
+        public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }

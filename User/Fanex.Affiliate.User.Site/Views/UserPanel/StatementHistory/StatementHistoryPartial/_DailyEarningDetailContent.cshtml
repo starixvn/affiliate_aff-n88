@@ -25,8 +25,8 @@
                 var index = 1;
                 foreach (var item in Model.MainData)
                 {
-                    var userName = item.UserName.ToLowerInvariant().StartsWith("12bet$") ?
-                        item.UserName.Substring(6, item.UserName.Length - 6) :
+                    var userName = item.UserName.ToLowerInvariant().StartsWith($"{AppSetting.Instance.SiteName.ToLowerInvariant()}$") ?
+                        item.UserName.Substring(AppSetting.Instance.SiteName.Length, item.UserName.Length - AppSetting.Instance.SiteName.Length) :
                         item.UserName;
                     <tr>
                         <td>@index</td>

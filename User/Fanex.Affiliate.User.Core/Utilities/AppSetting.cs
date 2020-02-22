@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 {
     public class AppSetting : IAppSetting
     {
+        public static IAppSetting Instance { get; } = new AppSetting();
+
         public string Environment => GetValue("Environment");
 
         public bool IsLocal => Environment.Equals("Local", StringComparison.OrdinalIgnoreCase);
@@ -50,8 +52,12 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string SymmetricSalt => GetValue("SymmetricSalt");
 
-        public bool IsN8B => string.Compare(GetValue("SiteName"), "N8B", StringComparison.CurrentCultureIgnoreCase) == 0;
+        public bool IsN8B => string.Compare(SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase) == 0;
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
+
+        public string SiteName => GetValue("SiteName");
+
+        public string SiteFriendlyName => GetValue("SiteFriendlyName");
     }
 }
