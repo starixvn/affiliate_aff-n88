@@ -10,7 +10,7 @@ export const Sportsbook = 'Sportsbook';
 const defaultLanguage = 'Chinese Simplified';
 const defaultCurrency = 'EURO';
 const defaultImageType = 'Image';
-export const Asian = 2;
+export const Asian = 1;
 export const maxWidthHeight = 501;
 export const maxLength = 50;
 

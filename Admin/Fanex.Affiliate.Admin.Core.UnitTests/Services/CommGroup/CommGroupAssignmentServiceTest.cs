@@ -73,7 +73,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 4 };
+            var affInfo = new AffiliateBasicInfo { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -109,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             DependencyResolver.SetResolver(resolver);
 
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 4 };
+            var affInfo = new AffiliateBasicInfo { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();

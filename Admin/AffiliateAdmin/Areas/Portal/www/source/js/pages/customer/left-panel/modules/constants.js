@@ -35,9 +35,9 @@ export const resource = {
 }
 
 export const affType = {
-    2: 'Asian',
-    3: 'Media',
-    4: 'European'
+    1: 'Asian',
+    2: 'Media',
+    3: 'European'
 }
 
 export const messages = {
