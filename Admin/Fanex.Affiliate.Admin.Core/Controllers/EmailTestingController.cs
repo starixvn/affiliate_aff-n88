@@ -109,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var viewModel = new EmailTemplateViewModel
             {
                 RootUrl = domain,
-                UserSiteUrl = "https://ha.nexdev.net:7613/12BetUserAsianNew",
+                UserSiteUrl = "https://ha.nexdev.net:7634/N88User",
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = language,
                 Content = content,
