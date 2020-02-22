@@ -196,6 +196,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_PlayerUsername_CheckIsValid";
             var userInfo = new PlayerUserValidInfo
             {
+                AffId = affId,
                 PlayerUserName = userName,
                 IsValid = false
             };
