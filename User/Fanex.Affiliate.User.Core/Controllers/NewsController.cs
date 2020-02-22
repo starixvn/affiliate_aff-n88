@@ -73,19 +73,23 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             var hotNews = _newsService.GetLatestHotNews(isInternal);
             var preferredLanguage = userSession?.PreferredLanguage ?? SystemLanguage.DefaultLanguageCode;
-            var hotNewsList = hotNews.HotNewsList;
-
-            var viewModel = new LatestHotNewViewModel
+            var viewModel = new LatestHotNewViewModel();
+            if (hotNews != null)
             {
-                IsImportant = hotNews.IsImportant,
-                IsAuthenticated = HttpContext.User.Identity.IsAuthenticated && SessionService.UserSession != null
-            };
+                var hotNewsList = hotNews.HotNewsList;
 
-            if (hotNewsList.Any())
-            {
-                viewModel.SelectedHotNews = hotNewsList.ContainsKey(preferredLanguage) ?
-                                    hotNewsList[preferredLanguage] :
-                                    hotNewsList.First().Value;
+                viewModel = new LatestHotNewViewModel
+                {
+                    IsImportant = hotNews.IsImportant,
+                    IsAuthenticated = HttpContext.User.Identity.IsAuthenticated && SessionService.UserSession != null
+                };
+
+                if (hotNewsList !=null && hotNewsList.Any())
+                {
+                    viewModel.SelectedHotNews = hotNewsList.ContainsKey(preferredLanguage) ?
+                                        hotNewsList[preferredLanguage] :
+                                        hotNewsList.First().Value;
+                }
             }
 
             return PartialView("~/Views/News/_LatestHotNews.cshtml", viewModel);
