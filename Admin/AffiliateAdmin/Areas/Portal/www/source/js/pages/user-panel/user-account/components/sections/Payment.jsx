@@ -8,7 +8,7 @@ import { setUserAccountInfo } from '../../actions';
 import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPayment, nondeposited } from '../../modules/constants';
 
 const paymentMethodList = [
-    { key: playerMethod, value: 'N88 player account' },
+    { key: playerMethod, value: `${window.initialState.licenseeName} player account` },
     { key: netellerMethod, value: 'Neteller' },
     { key: moneybookersMethod, value: 'Moneybookers' },
     { key: wireMethod, value: 'Bank Transfer' }
@@ -34,7 +34,7 @@ export class Payment extends PureComponent {
 
     _renderFormByMethod(userAccountInfo) {
         return {
-            [playerMethod]: this._renderPaymentForm('playerUsername', 'N88 User Name', userAccountInfo.PlayerUsername, true, this.handleChange),
+            [playerMethod]: this._renderPaymentForm('playerUsername', `${window.initialState.licenseeName} User Name`, userAccountInfo.PlayerUsername, true, this.handleChange),
             [netellerMethod]: this._renderPaymentForm('netellerAccountId', 'Neteller Account ID', userAccountInfo.NetellerAccountId, true, this.handleChange),
             [moneybookersMethod]: this._renderPaymentForm('moneybookersEmail', 'Moneybookers Email', userAccountInfo.MoneybookersEmail, true, this.handleChange),
             [wireMethod]: this._renderWireForm(userAccountInfo)

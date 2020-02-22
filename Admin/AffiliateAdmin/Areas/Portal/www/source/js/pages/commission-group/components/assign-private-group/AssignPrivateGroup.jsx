@@ -9,7 +9,6 @@ import { messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/deduction';
 import ExchangeRevenueShareSetting from '../shared/exchange';
-import QmTurnOverSetting from '../shared/QmTurnOverSetting';
 import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
@@ -118,7 +117,6 @@ export class AssignPrivateGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <DeductionSetting />
-                <QmTurnOverSetting />
                 <TierSetting />
 
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
