@@ -302,6 +302,7 @@
     <Compile Include="DTO\LatestHotNews.cs" />
     <Compile Include="DTO\LoginResultInfo.cs" />
     <Compile Include="DTO\Payment.cs" />
+    <Compile Include="DTO\PlayerUserValidInfo.cs" />
     <Compile Include="DTO\ProductItem.cs" />
     <Compile Include="DTO\RsaKeyPair.cs" />
     <Compile Include="DTO\SecurityQuestion.cs" />
