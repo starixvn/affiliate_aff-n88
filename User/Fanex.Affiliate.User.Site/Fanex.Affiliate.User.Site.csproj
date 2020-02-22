@@ -377,12 +377,6 @@
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.uat.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8g.backupmnl.config" />
     <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
     <Content Include="Configurations\Web\Transform\n8g.local.config" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-GB.cshtml" />
@@ -1300,12 +1294,18 @@
     <Content Include="Configurations\Web\Transform\n8g.master.config" />
     <Content Include="Configurations\Web\Transform\n8g.production.config" />
     <Content Include="Configurations\Web\Transform\n8g.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.uat.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n8b.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.sit.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config" />
     <None Include="Configurations\Web\Web.n88user-n8b.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
     </None>
