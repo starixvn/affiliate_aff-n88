@@ -232,5 +232,20 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
+        public PlayerUserValidInfo GetPlayerUserNameValidInfo(string userName)
+        {
+            const string uSpKey = "Aff_PlayerUsername_CheckIsValid";
+            var userInfo = new PlayerUserValidInfo
+            {
+                PlayerUserName = userName,
+                IsValid = false
+            };
+
+            using(var objectDb = new ObjectDBBuilder(uSpKey))
+            {
+                objectDb.DB.ExecuteNonQuery(userInfo);
+            }
+            return userInfo;
+        }
     }
 }

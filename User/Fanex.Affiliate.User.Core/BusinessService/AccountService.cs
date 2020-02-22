@@ -27,9 +27,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam)
         {
-            var depositAccount = _accountRepository.GetDepositPlayerAccount(signUpParam.Player_UserName);
+            var validInfo = _accountRepository.GetPlayerUserNameValidInfo(signUpParam.Player_UserName);
 
-            if (!depositAccount.IsValid)
+            if (!validInfo.IsValid)
             {
                 return new ResultInfo { IsOk = false, Message = Lang.errDepositDBConnectFailed };
             }

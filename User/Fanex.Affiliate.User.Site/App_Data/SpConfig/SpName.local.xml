@@ -32,6 +32,7 @@
   <Function Name="DepositInformation">
     <Setting Key="Deposit_GetCustDataForCreateIBCACByUserName" SpName="Deposit_GetCustDataForCreateIBCACByUserName" DbName="deposit" />
     <Setting Key="Deposit_GetCustDataForCreateIBCACByUserName_view" SpName="Deposit_GetCustDataForCreateIBCACByUserName" DbName="deposit_view" />
+    <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName ="Aff_PlayerUsername_CheckIsValid" DbName ="affiliate_n88"/>
     
     <Setting Key="Deposit_MemberIBCDetail" SpName="Deposit_MemberIBCDetail" DbName="deposit" />   
   </Function>
