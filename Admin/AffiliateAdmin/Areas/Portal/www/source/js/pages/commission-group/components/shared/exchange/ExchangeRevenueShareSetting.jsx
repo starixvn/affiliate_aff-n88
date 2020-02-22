@@ -29,19 +29,20 @@ export class ExchangeRevenueShareSetting extends Component {
         const isCreating = GroupId === 0;
 
         return (
-            <fieldset>
-                <legend><h6 className="font-weight-bold">Exchange Revenue Share</h6></legend>
+            <span></span>
+            //<fieldset>
+            //    <legend><h6 className="font-weight-bold">Exchange Revenue Share</h6></legend>
 
-                <SharePercentSettingItem label="Win Loss Share%"
-                    onChangeCommission={this.handleSelectExchangeWinLossShare}
-                    data={ExchangeWinLossShare}
-                    isCreating={isCreating} />
+            //    <SharePercentSettingItem label="Win Loss Share%"
+            //        onChangeCommission={this.handleSelectExchangeWinLossShare}
+            //        data={ExchangeWinLossShare}
+            //        isCreating={isCreating} />
 
-                <SharePercentSettingItem label="Commission Share%"
-                    onChangeCommission={this.handleSelectExchangeCommissionShare}
-                    data={ExchangeCommissionShare}
-                    isCreating={isCreating} />
-            </fieldset>
+            //    <SharePercentSettingItem label="Commission Share%"
+            //        onChangeCommission={this.handleSelectExchangeCommissionShare}
+            //        data={ExchangeCommissionShare}
+            //        isCreating={isCreating} />
+            //</fieldset>
         )
     }
 }
