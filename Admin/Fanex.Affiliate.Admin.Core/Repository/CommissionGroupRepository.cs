@@ -167,7 +167,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     RowIdx = Convert.ToInt32(reader["RowIDX"]),
                     GroupId = Convert.ToInt32(reader[Field.GroupId]),
                     GroupName = reader[Field.GroupName].ToString(),
-                    CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                    CreatedDate = reader["CreatedDate"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["CreatedDate"]),
                     Creator = reader["Creator"].ToString(),
                     Description = reader["Description"].ToString(),
                     QmTurnover = Convert.ToDecimal(reader["QMTurnover"]),
