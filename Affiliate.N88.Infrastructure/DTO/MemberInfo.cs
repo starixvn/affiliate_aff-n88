@@ -1,11 +1,11 @@
 ﻿
-using Affiliate.N88.Infrastructure.Licensee;
+using Affiliate.N88.Licensee;
 using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Affiliate.N88.Infrastructure.DTO
+namespace Affiliate.N88.DTO
 {
     public class MemberInfo<T> : MemberInfo
         where T : class, ILicenseeCodePrefix, new()

@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Affiliate.Admin.Core.Utilities
 {
     using System.IO;
+    using Fanex.Affiliate.Admin.Core.Configurations;
     using Fanex.MailDeliver.MailClient.API;
     using MailDeliver.Model;
     using RazorEngine;
@@ -19,9 +20,9 @@
             var mailItem = new MailRecord
             {
                 MailTo = mailTo,
-                Subject = subject,
-                Title = subject,
-                Body = content,
+                Subject = SiteFriendlyNameHelper.Replace12Bet(subject),
+                Title = SiteFriendlyNameHelper.Replace12Bet(subject),
+                Body = SiteFriendlyNameHelper.Replace12Bet(content),
                 MailBcc = mailBcc,
                 MailCc = mailCc
             };

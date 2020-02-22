@@ -1,7 +1,7 @@
 ﻿using Fanex.Data.Repository;
 using System;
 
-namespace Affiliate.N88.Infrastructure.DTO
+namespace Affiliate.N88.DTO
 {
     public class CustomerInfo
     {

@@ -1,10 +1,10 @@
-﻿using Affiliate.N88.Infrastructure.DTO;
+﻿using Affiliate.N88.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Affiliate.N88.Infrastructure.Repository
+namespace Affiliate.N88.Repository
 {
     public interface IMemberImportRepository
     {

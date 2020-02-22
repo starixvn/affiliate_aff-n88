@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.Configurations;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
 {
@@ -119,7 +120,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                 objectDb.AddInParameter("IP", DbType.String, param.Ip);
                 objectDb.AddInParameter("Typename", DbType.String, "Member");
                 objectDb.AddInParameter("SPName", DbType.String, "Dot_Dep_CustomerInsMember_Ag_Cust");
-                objectDb.AddInParameter("Details", DbType.String, $"Add 12Bet player account to IBC DepositCustID={depositUserId}");
+                objectDb.AddInParameter("Details", DbType.String, $"Add {AppSetting.Instance.SiteFriendlyName} player account to IBC DepositCustID={depositUserId}");
 
                 objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
 
@@ -138,7 +139,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                 objectDb.AddInParameter("IP", DbType.String, param.Ip);
                 objectDb.AddInParameter("Typename", DbType.String, "Member");
                 objectDb.AddInParameter("SPName", DbType.String, "Deposit_MemberIBCDetail");
-                objectDb.AddInParameter("Details", DbType.String, $"Update 12Bet player status to deposit DepositCustID={ibcCustId}");
+                objectDb.AddInParameter("Details", DbType.String, $"Update {AppSetting.Instance.SiteFriendlyName} player status to deposit DepositCustID={ibcCustId}");
 
                 objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
 

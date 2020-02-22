@@ -85,7 +85,7 @@ export default class AppContainer extends PureComponent {
           {/* <div className="lgRight"></div> */}
           <div className="lgRp">
               <div className="login-header">
-                <div>Welcome to <span>Login</span></div>
+                        <div>Welcome to {window.initialState.licenseeName}<span> Login</span></div>
                 <p>Please sign in to continue to work</p>
               </div>
               <div className="war-box">

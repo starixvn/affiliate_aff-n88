@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Affiliate.N88.Infrastructure.DTO
+namespace Affiliate.N88.DTO
 {
     public class AffiliateInfo
     {

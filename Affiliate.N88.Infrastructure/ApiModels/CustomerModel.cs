@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Affiliate.N88.Infrastructure.ApiModels
+namespace Affiliate.N88.ApiModels
 {
     public class CustomerModel
     {

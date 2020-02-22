@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Affiliate.N88.Infrastructure.Licensee
+namespace Affiliate.N88.Licensee
 {
     public class N8BLicensee : ILicenseeCodePrefix
     {

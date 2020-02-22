@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Affiliate.N88.Infrastructure.ApiModels;
-using Affiliate.N88.Infrastructure.DTO;
-using Affiliate.N88.Infrastructure.Licensee;
-using Affiliate.N88.Infrastructure.Repository;
+using Affiliate.N88.ApiModels;
+using Affiliate.N88.DTO;
+using Affiliate.N88.Licensee;
+using Affiliate.N88.Repository;
 using Affiliate.N88.Jobs.Apis;
 using Fanex.Logging;
 using Microsoft.Extensions.DependencyInjection;

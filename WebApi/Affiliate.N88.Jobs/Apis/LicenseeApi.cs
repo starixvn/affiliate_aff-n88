@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Affiliate.N88.Infrastructure.ApiModels;
-using Affiliate.N88.Infrastructure.DTO;
+using Affiliate.N88.ApiModels;
+using Affiliate.N88.DTO;
 using Refit;
 
 namespace Affiliate.N88.Jobs.Apis

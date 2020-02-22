@@ -1,5 +1,5 @@
-﻿using Affiliate.N88.Infrastructure.ApiModels;
-using Affiliate.N88.Infrastructure.DTO;
+﻿using Affiliate.N88.ApiModels;
+using Affiliate.N88.DTO;
 using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;

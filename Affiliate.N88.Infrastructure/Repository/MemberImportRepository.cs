@@ -1,12 +1,12 @@
-﻿using Affiliate.N88.Infrastructure.DTO;
-using Affiliate.N88.Infrastructure.Exceptions;
+﻿using Affiliate.N88.DTO;
+using Affiliate.N88.Exceptions;
 using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Affiliate.N88.Infrastructure.Repository
+namespace Affiliate.N88.Repository
 {
     public class MemberImportRepository : IMemberImportRepository
     {

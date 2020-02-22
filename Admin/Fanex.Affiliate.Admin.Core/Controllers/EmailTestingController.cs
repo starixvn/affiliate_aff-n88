@@ -68,7 +68,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 _languageService.SetCulture(language);
                 var content = GetEmailContent(language, function, format);
 
-                _mailProcessor.Send(content, emailAddress, "Affilite 12Bet testing");
+                _mailProcessor.Send(content, emailAddress, $"Affilite {AppSetting.Instance.SiteFriendlyName} testing");
                 _languageService.SetCulture("en-US");
             }
             catch (Exception ex)

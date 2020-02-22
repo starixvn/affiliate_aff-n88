@@ -10,6 +10,7 @@ using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
+using Fanex.Affiliate.Admin.Core.Utilities;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
 {
@@ -30,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var subMenu = new List<SubMenu>
             {
                 new SubMenu { Name = Lang.AffiliateDomain, Url = Url.Content("~/Portal/Domain?isAffDomain=true"), IsActive = isAffDomain },
-                new SubMenu { Name = Lang.Text12BetDomains, Url = Url.Content("~/Portal/Domain?isAffDomain=false"), IsActive = !isAffDomain },
+                new SubMenu { Name = SiteFriendlyNameHelper.Replace12Bet(Lang.Text12BetDomains), Url = Url.Content("~/Portal/Domain?isAffDomain=false"), IsActive = !isAffDomain },
                 new SubMenu { Name = Lang.DomainControl, Url = Url.Content("~/Portal/DomainControl") }
             };
 

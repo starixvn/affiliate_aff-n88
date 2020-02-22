@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88.Jobs", "WebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi.ConsoleTest", "WebApi\Affiliate.N88.WebApi.ConsoleTest\Affiliate.N88.WebApi.ConsoleTest.csproj", "{65E7CBE9-EAF6-40F7-9B90-D46DB573B739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.Infrastructure", "Affiliate.N88.Infrastructure\Affiliate.N88.Infrastructure.csproj", "{12E6B43B-573F-49BC-B926-83B94410D15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88", "Affiliate.N88.Infrastructure\Affiliate.N88.csproj", "{12E6B43B-573F-49BC-B926-83B94410D15C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

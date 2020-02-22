@@ -3,9 +3,9 @@
 <div>
     Dear @Model.FirstName,<br /><br />
 
-    Congratulations, your application to become a 12BET Affiliates has been approved!<br /><br />
+    Congratulations, your application to become a @(Model.SiteFriendlyName) Affiliates has been approved!<br /><br />
 
-    We are glad to have you as part of our Affiliates family and we are looking forward to building a profitable business relationship with you.  Please use the below information to sign into your 12Bet affiliate account:<br /><br />
+    We are glad to have you as part of our Affiliates family and we are looking forward to building a profitable business relationship with you.  Please use the below information to sign into your @(Model.SiteFriendlyName) affiliate account:<br /><br />
 
     Text link: <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a><br />
     Username: @Model.UserName<br />
@@ -16,6 +16,6 @@
     If you have any questions and require any help please do not hesitate to contact us. <br /><br />
 
     Sincerely,<br /><br />
-    12BET Affiliates Team<br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

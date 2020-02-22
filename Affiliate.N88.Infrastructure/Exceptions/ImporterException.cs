@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Affiliate.N88.Infrastructure.Exceptions
+namespace Affiliate.N88.Exceptions
 {
     public class ImporterException : Exception
     {
