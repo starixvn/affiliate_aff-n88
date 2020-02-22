@@ -88,7 +88,7 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GenerateLink(string selectedLanguage, int selectedDomainId, string selectedPage)
+        public ActionResult GenerateLink(string selectedLanguage, string selectedPage, int selectedDomainId = 0)
         {
             var userSession = SessionService.UserSession;
             var selectedDomain = _oldMarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal)
