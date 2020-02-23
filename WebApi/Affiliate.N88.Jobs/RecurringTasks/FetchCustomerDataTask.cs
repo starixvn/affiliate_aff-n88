@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Affiliate.N88.ApiModels;
-using Affiliate.N88.DTO;
-using Affiliate.N88.Repository;
-using Affiliate.N88.Jobs.Apis;
-using Fanex.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using Affiliate.N88.Core;
-using Microsoft.Extensions.Options;
+using Affiliate.N88.DTO;
+using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Repository;
+using Fanex.Logging;
+using Microsoft.Extensions.Options;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
@@ -45,7 +44,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         {
             try
             {
-                if (SupportedSites == null 
+                if (SupportedSites == null
                     || !SupportedSites.Any())
                 {
                     return;
@@ -56,8 +55,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                _logger.Critical(ex.Message);
-                throw ex;
+                _logger.Error(ex.ToString());
             }
         }
 
@@ -77,13 +75,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 try
                 {
                     await _importerRepository.ImportMember(member);
-
+                    await _logger.InfoAsync($"Impored Data {regTime} for {member.GetSettingKey()}: {member.XmlData}");
                 }
                 catch (Exception ex)
                 {
-                    _logger.Critical($"{ex.Message} \n {member.XmlData}");
+                    _logger.Error($"{ex.Message} \n {member.XmlData}", ex);
                 }
-
             }
         }
 
@@ -132,12 +129,14 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 }
                 catch (Exception ex)
                 {
-                    _logger.Critical(ex.Message);
+                    _logger.Error(ex.Message, ex);
                 }
-
             }
+
             if (!dates.Any())
-                throw new Exception($"Can't find lasted importing member date");
+            {
+                throw new InvalidOperationException($"Can't find lasted importing member date");
+            }
 
             dates.Sort();
             return dates.First();

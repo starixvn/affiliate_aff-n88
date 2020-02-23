@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Affiliate.N88.Infrastructure\Affiliate.N88.csproj" />
   </ItemGroup>
 

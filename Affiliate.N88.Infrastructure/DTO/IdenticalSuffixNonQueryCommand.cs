@@ -14,8 +14,9 @@ namespace Affiliate.N88.DTO
 
         protected abstract string SuffixSettingKey { get; }
 
-        public override string GetSettingKey() => _prefixProvider == null || string.IsNullOrWhiteSpace(_prefixProvider.PrefixCode) 
-            ? SuffixSettingKey 
-            : $"{_prefixProvider.PrefixCode}_{SuffixSettingKey}";
+        public override string GetSettingKey() 
+            => _prefixProvider == null || string.IsNullOrWhiteSpace(_prefixProvider.PrefixCode) 
+                ? SuffixSettingKey 
+                : $"{_prefixProvider.PrefixCode}_{SuffixSettingKey}";
     }
 }

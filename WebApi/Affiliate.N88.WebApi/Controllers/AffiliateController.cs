@@ -21,9 +21,9 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<AffiliateInfo>> Get()
         {
-            var leagues = await dynamicRepository.FetchAsync<AffiliateInfo>(new GetAffiliatesCriteria());
+            var affiliates = await dynamicRepository.FetchAsync<AffiliateInfo>(new GetAffiliatesCriteria());
 
-            return leagues;
+            return affiliates;
         }
     }
 }

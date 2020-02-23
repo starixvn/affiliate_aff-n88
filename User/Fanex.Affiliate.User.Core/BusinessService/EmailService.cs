@@ -103,11 +103,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public void SendNoticeEmailToCsd(NoticeEmailParam emailParam)
         {
+            var prevLanguage = SetLanguage(languageService.GetCurrentLanguage());
+
             const string TemplateName = "Csd";
             var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.DefaultLanguageCode, emailParam);
 
             var subject = string.Format(Lang.CsdSubject, emailParam.UserName);
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         public void SendContactUsEmail(EmailBaseParam emailParam, ContactUsParam model)
