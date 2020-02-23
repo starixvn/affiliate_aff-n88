@@ -286,7 +286,7 @@
     <value>12BET 아이디</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>12BET 아이디가 필요합니다.</value>
+    <value>아이디가 필요합니다.</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>부탄</value>

@@ -298,7 +298,7 @@
                                 <input type="radio" name="Method" checked /> @(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))
                             </label>
                             <div class="form-group col-sm-12">
-                                <label class="control-label require">@Lang.UsernameSignUp</label>
+                                <label class="control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.UsernameSignUp)</label>
                                 <label class="text-red">(@Lang.NonDeposited)</label>
                                 <div class="">
                                     @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })

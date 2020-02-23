@@ -277,7 +277,7 @@
     <value>12BET 用户名</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>请填写12BET用户名</value>
+    <value>请填写用户名</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>不丹</value>

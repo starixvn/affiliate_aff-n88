@@ -291,7 +291,7 @@
     <value>12BET User Name</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>12BET User Name is required</value>
+    <value>User Name is required</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>Bhutan </value>

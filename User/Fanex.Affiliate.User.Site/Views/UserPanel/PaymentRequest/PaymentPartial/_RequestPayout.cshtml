@@ -14,7 +14,7 @@
             string method = string.IsNullOrEmpty(Model.PreferredPayment) ? string.Empty : Model.PreferredPayment.Replace("Wire", Lang.BankTransfer);
             if (!method.MatchWith("Player"))
             {
-                return Error.PaymentMethodInvalid.Replace("{0}", method)
+                return SiteFriendlyNameHelper.Replace12Bet(Error.PaymentMethodInvalid).Replace("{0}", method)
                             .Replace("{1}", Url.Content("~/UserPanel/Main/#MyAccount"));
             }
 
