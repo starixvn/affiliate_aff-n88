@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public string Status { get; set; }
 
-        public int UserId { get; set; }
+        public int AffId { get; set; }
 
         public string Ip { get; set; }
 
@@ -24,8 +24,5 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         [SpParam(Ignored = true)]
         public DateTime RequestDate { get; set; }
-
-        [SpParam(Ignored = true)]
-        public int AffId { get; set; }
     }
 }

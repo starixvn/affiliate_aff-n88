@@ -29,8 +29,8 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.MediaGallery
             stringBuilder.Append("CategoryMedia/");
             stringBuilder.Append(category);
             stringBuilder.Append("/");
-            if (string.Compare(category, Lang.Casino, StringComparison.CurrentCultureIgnoreCase) == 0
-                || string.Compare(category, Lang.Sportsbook, StringComparison.CurrentCultureIgnoreCase) == 0)
+            if (string.Equals(category, Lang.Casino, StringComparison.CurrentCultureIgnoreCase)
+                || string.Equals(category, Lang.Sportsbook, StringComparison.CurrentCultureIgnoreCase))
             {
                 stringBuilder.Append(subCategory);
                 stringBuilder.Append("/");

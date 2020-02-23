@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             {
                 result = _bannerListRepository.UpdateBanner(param);
 
-                if (result.IsSuccessful && string.Compare(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase) != 0)
+                if (result.IsSuccessful && !string.Equals(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase))
                 {
                     MoveFile(param.FilePath, oldFilePath);
                 }
@@ -213,7 +213,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             var result = _bannerValidationService.CheckFileInFolder(folder, param.FilePath);
 
-            if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Compare(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)
+            if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Equals(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase))
             {
                 return new ResultInfo();
             }

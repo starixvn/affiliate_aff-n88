@@ -162,7 +162,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { Message = ErrorMessage });
 
-            var service = CreatePaymentService(paymentRepository: paymentRepository.Object, accountService: accountService.Object);
+            var service = CreatePaymentService(paymentRepository: paymentRepository.Object);
 
             // Action
             var result = service.CreatePaymentRequest(param, new PaymentEmailParam());
@@ -180,8 +180,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             PaymentEmailParam passedEmailParam = null;
             var param = CreateValidPaymentCreationParam();
             var paymentRequest = CreatePaymentRequest(param);
-
-            var accountService = new Mock<IAccountService>();
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { IsOk = true });
@@ -201,7 +199,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,
                 paymentRepository: paymentRepository.Object,
-                accountService: accountService.Object,
                 emailService: emailService.Object);
 
             var expectedEmailParam = new PaymentEmailParam
@@ -253,16 +250,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
         private static PaymentService CreatePaymentService(
             IAccountRepository accountRepository = null,
-            IAccountService accountService = null,
             IPaymentRepository paymentRepository = null,
             IEmailService emailService = null)
         {
             var fakeAccountRepository = accountRepository ?? Mock.Of<IAccountRepository>();
-            var fakeAccountService = accountService ?? Mock.Of<IAccountService>();
             var fakePaymentRepository = paymentRepository ?? Mock.Of<IPaymentRepository>();
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
 
-            return new PaymentService(fakeAccountRepository, fakeAccountService, fakePaymentRepository, fakeEmailService);
+            return new PaymentService(fakeAccountRepository, fakePaymentRepository, fakeEmailService);
         }
     }
 

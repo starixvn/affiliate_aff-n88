@@ -191,7 +191,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var expectedResult = JsonConvert.SerializeObject(new PaymentCancelParam
             {
-                UserId = Constant.DefaultAffId,
+                AffId = Constant.DefaultAffId,
                 Language = Constant.DefaultLanguage,
                 TransId = TransId,
                 Ip = "::1"

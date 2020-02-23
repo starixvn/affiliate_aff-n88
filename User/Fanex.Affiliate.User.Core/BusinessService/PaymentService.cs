@@ -15,18 +15,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private const int EndDay = 15;
 
         private readonly IAccountRepository _accountRepository;
-        private readonly IAccountService _accountService;
         private readonly IPaymentRepository _paymentRepository;
         private readonly IEmailService _emailService;
 
         public PaymentService(
             IAccountRepository accountRepository,
-            IAccountService accountService,
             IPaymentRepository paymentRepository,
             IEmailService emailService)
         {
             _accountRepository = accountRepository;
-            _accountService = accountService;
             _paymentRepository = paymentRepository;
             _emailService = emailService;
         }
@@ -67,7 +64,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (resultInfo.IsOk)
             {
-                resultInfo = _paymentRepository.CreatePaymentRequest(new PaymentRequestInfo 
+                var param = new PaymentRequestInfo
                 {
                     AffId = paymentCreationParam.AffId,
                     Language = paymentCreationParam.Language,
@@ -75,10 +72,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     Amount = paymentCreationParam.Amount,
                     ErrCode = paymentCreationParam.ErrCode,
                     ErrMsg = paymentCreationParam.ErrMsg
-                });
+                };
+
+                resultInfo = _paymentRepository.CreatePaymentRequest(param);
 
                 if (resultInfo.IsOk)
                 {
+                    paymentCreationParam.TransId = param.TransId;
                     resultInfo.Message = Lang.RequestPayoutSucc;
 
                     AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);

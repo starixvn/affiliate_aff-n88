@@ -97,7 +97,7 @@
             }
             else
             {
-                cancelParam.UserId = SessionService.UserSession.AffId;
+                cancelParam.AffId = SessionService.UserSession.AffId;
                 cancelParam.Language = SessionService.CurrentLanguage;
                 cancelParam.Ip = Request.UserHostAddress;
 

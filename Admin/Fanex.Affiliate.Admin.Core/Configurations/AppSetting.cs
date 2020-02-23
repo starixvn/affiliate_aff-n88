@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string ServerId => GetValue("ServerID");
 
-        public bool IsN8B => string.Compare(GetValue("SiteName"), "N8B", StringComparison.CurrentCultureIgnoreCase) == 0;
+        public bool IsN8B => string.Equals(GetValue("SiteName"), "N8B", StringComparison.CurrentCultureIgnoreCase);
 
         public string SiteFriendlyName => GetValue("SiteFriendlyName");
     }
