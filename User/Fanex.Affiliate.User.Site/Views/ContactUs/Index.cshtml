@@ -183,7 +183,7 @@
         <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>
 
         <div id="mainContent">
-            <p class="intro">@Html.Raw(string.Format(Lang.PleaseDirectAnyComment, "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
+            <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyComment), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
             <form id="contactForm" class="form">
                 @Html.AntiForgeryToken()
                 <div class="form-group">
