@@ -7,6 +7,7 @@ namespace Affiliate.N88.ApiModels
     public class CustomerModel
     {
         public int SiteId { get; set; }
+        public string SiteName { get; set; }
         public int CustId { get; set; }
         public string UserName { get; set; }
         public int CurrencyId { get; set; }

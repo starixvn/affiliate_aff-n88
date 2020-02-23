@@ -1,8 +1,10 @@
 ﻿<Functions>
   <Function Name="Affiliate_N8G">
     <Setting Key="N8G_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N8G"/>
+    <Setting Key="N8G_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N8G" />
   </Function>
   <Function Name="Affiliate_N8B">
     <Setting Key="N8B_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N8B"/>
+    <Setting Key="N8B_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N8B" />
   </Function>
 </Functions>

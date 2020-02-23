@@ -27,6 +27,7 @@ namespace Affiliate.N88.WebApi.Controllers
             {
                 ActStatus = c.ActStatus,
                 AgentId = c.AgentId,
+                SiteName = c.SiteName,
                 AllAgentId = c.AllAgentId,
                 CurrencyId = c.CurrencyId,
                 CustId = c.CustId,

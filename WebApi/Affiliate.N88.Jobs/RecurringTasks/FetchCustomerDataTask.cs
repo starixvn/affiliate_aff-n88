@@ -4,19 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Affiliate.N88.ApiModels;
 using Affiliate.N88.DTO;
-using Affiliate.N88.Licensee;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Jobs.Apis;
 using Fanex.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Affiliate.N88.Core;
+using Microsoft.Extensions.Options;
+using Affiliate.N88.Jobs.Configurations;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchCustomerDataTask
     {
-        Task FetchCustomerData();
+        Task FetchCustomerDataAsync();
 
-        Task FetchCustomerData(DateTime regTime);
+        Task FetchCustomerDataAsync(DateTime regTime);
     }
 
     public sealed class FetchCustomerDataTask : IFetchCustomerDataTask
@@ -24,22 +26,33 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private readonly IMemberImportRepository _importerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
+        private readonly IOptions<LicenseeSiteSetting> _config;
 
-        public FetchCustomerDataTask(ILicenseeApi licenseeApi, IMemberImportRepository memberImportRepository, ILogger logger)
+        private IEnumerable<string> SupportedSites => _config.Value?.SupportedSites;
+
+        public FetchCustomerDataTask(ILicenseeApi licenseeApi
+            , IMemberImportRepository memberImportRepository
+            , ILogger logger
+            , IOptions<LicenseeSiteSetting> config)
         {
             _importerRepository = memberImportRepository;
             _licenseeApi = licenseeApi;
             _logger = logger;
+            _config = config;
         }
 
-        //Todo
-        //Need have time tracker for fetch user.
-        public async Task FetchCustomerData()
+        public async Task FetchCustomerDataAsync()
         {
             try
             {
-                var time = new DateTime(2019, 12, 1);
-                await FetchCustomerData(time);
+                if (SupportedSites == null 
+                    || !SupportedSites.Any())
+                {
+                    return;
+                }
+
+                var date = await GetMinLastedTimeAsync();
+                await FetchCustomerDataAsync(date);
             }
             catch (Exception ex)
             {
@@ -48,7 +61,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        public async Task FetchCustomerData(DateTime regTime)
+        public async Task FetchCustomerDataAsync(DateTime regTime)
         {
             var customerData = await _licenseeApi.GetCustomerAsync(regTime);
 
@@ -61,32 +74,35 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var members = GetImporterData(customerData);
             foreach (var member in members)
             {
-                await _importerRepository.ImportMember(member);
+                try
+                {
+                    await _importerRepository.ImportMember(member);
+
+                }
+                catch (Exception ex)
+                {
+                    _logger.Critical($"{ex.Message} \n {member.XmlData}");
+                }
+
             }
         }
 
         //Todo - need clean code
         private IEnumerable<MemberInfo> GetImporterData(IEnumerable<CustomerModel> customerData)
         {
-            var groupCustomer = customerData.GroupBy(c => c.SiteId)
-                .Select(g => GenerateMemberInfo(g.Key, g.ToList()));
+            var groupCustomer = customerData.GroupBy(c => c.SiteName)
+                .Select(g => GenerateImpotedDataBySiteName(g.Key, g.ToList()));
             return groupCustomer;
         }
 
-        private MemberInfo GenerateMemberInfo(int key, List<CustomerModel> customers)
+        private MemberInfo GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
         {
-            MemberInfo member = null;
+            var prefixSettingCode = GetSettingCodePrefix(siteName);
             var xml = BuildXml(customers);
-            switch (key)
+            var member = new MemberInfo(new PrefixProvider(prefixSettingCode))
             {
-                default:
-                    member = new MemberInfo<N8BLicensee>
-                    {
-                        SiteId = key,
-                        XmlData = xml
-                    };
-                    break;
-            }
+                XmlData = xml
+            };
             return member;
         }
 
@@ -98,20 +114,48 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     {
                         var agentIds = customer?.AllAgentId?.Replace("[", string.Empty).Replace("]", string.Empty);
 
-                        return $"<row CustId=\"{customer?.CustId}\" Username=\"{customer?.UserName}\" AgentId=\"{customer?.AgentId}\" AllAgentId=\"{agentIds}\" />";
+                        return $"<row CustId=\"{customer?.CustId}\" UserName=\"{customer?.UserName}\" AgentId=\"{customer?.AgentId}\" AllAgentId=\"{agentIds}\" />";
                     }));
 
-                return $"<root>{customerXml}</root>";
+            return $"<root>{customerXml}</root>";
         }
-    }
 
-    public static class FetchCustomerExtension
-    {
-        public static IServiceCollection AddFetchCustomerService(this IServiceCollection services)
+        private async Task<DateTime> GetMinLastedTimeAsync()
         {
-            services.AddScoped<IMemberImportRepository, MemberImportRepository>();
-            services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>();
-            return services;
+            var dates = new List<DateTime>();
+            foreach (var site in SupportedSites)
+            {
+                try
+                {
+                    var lastedDate = await GetLastedImportDate(site);
+                    dates.Add(lastedDate);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Critical(ex.Message);
+                }
+
+            }
+            if (!dates.Any())
+                throw new Exception($"Can't find lasted importing member date");
+
+            dates.Sort();
+            return dates.First();
+        }
+
+        private async Task<DateTime> GetLastedImportDate(string site)
+        {
+            var settingPrefixCode = GetSettingCodePrefix(site);
+
+            var prefixProvider = new PrefixProvider(settingPrefixCode);
+            return await _importerRepository.GetLastedMemberImportedTime(new MemberImportedTimeInfo(prefixProvider));
+        }
+
+        private string GetSettingCodePrefix(string siteName)
+        {
+            var configMapping = _config.Value?.LicenseeSiteMapping ?? new List<LicenseeSiteMapping>();
+            var prefixSettingCode = configMapping.FirstOrDefault(c => c.SiteName == siteName)?.SiteName ?? siteName;
+            return prefixSettingCode;
         }
     }
 }

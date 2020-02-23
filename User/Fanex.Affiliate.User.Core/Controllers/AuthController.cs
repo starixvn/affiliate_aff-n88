@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 return Json(requestValidation);
             }
-
+             
             userParam.LoginIp = RequestHelper.GetClientIPAddress(Request);
             userParam.Language = SessionService.CurrentLanguage;
             userParam.UserAgent = Request.UserAgent;

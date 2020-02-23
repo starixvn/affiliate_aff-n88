@@ -9,5 +9,6 @@ namespace Affiliate.N88.Repository
     public interface IMemberImportRepository
     {
         Task ImportMember(MemberInfo memberInfo);
+        Task<DateTime> GetLastedMemberImportedTime(SettingInfo settingInfo);
     }
 }

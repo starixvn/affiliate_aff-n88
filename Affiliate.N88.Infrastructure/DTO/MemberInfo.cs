@@ -1,33 +1,19 @@
-﻿
-using Affiliate.N88.Licensee;
-using Fanex.Data.Repository;
+﻿using Affiliate.N88.Core;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Affiliate.N88.DTO
 {
-    public class MemberInfo<T> : MemberInfo
-        where T : class, ILicenseeCodePrefix, new()
+    public class MemberInfo : IdenticalSuffixNonQueryCommand
     {
-        private readonly ILicenseeCodePrefix _prefix;
-        private const string _suffix = "Task_Aff_MemberInfo_Import";
+        public MemberInfo(IPrefixProvider prefixProvider) : base(prefixProvider)
+        { }
 
-        public MemberInfo()
-        {
-            _prefix = new T();
-        }
-
-        public override string GetSettingKey() => $"{_prefix.GetCodePrefix()}_{_suffix}";
-
-        public override bool IsValid() => true;
-    }
-
-    public abstract class MemberInfo : NonQueryCommand
-    {
-        public int SiteId { get; set; }
         public string XmlData { get; set; }
         public int ErrCode { get; set; } = 0;
         public string ErrMsg { get; set; } = String.Empty;
+
+        protected override string SuffixSettingKey => "Task_Aff_MemberInfo_Import";
+
+        public override bool IsValid() => true;
     }
 }
