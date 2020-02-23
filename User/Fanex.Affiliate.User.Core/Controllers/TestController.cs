@@ -106,7 +106,7 @@
 
         private string GetEmailTextContent(TestCriteria criteria)
         {
-            var language = criteria.Language;
+            var language = EmailService.MappingLanguage(criteria.Language);
             var function = criteria.Function;
 
             var viewPath = string.Format(TemplateString.EmailTemplatePath, function, language);
@@ -124,7 +124,7 @@
             {
                 RootUrl = domain,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = language,
+                Language = EmailService.MappingLanguage(language),
                 Content = content,
                 Title = "This is title"
             };

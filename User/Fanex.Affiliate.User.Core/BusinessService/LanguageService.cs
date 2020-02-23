@@ -8,6 +8,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
     {
+        public string GetCurrentLanguage()
+            => System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
         public string GetFavoriteLanguage()
         {
             var preferedUrlLang = HttpContext.Current.Request["lang"]?.Trim();

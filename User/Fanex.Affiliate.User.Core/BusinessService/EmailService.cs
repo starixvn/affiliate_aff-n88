@@ -12,14 +12,32 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     public class EmailService : IEmailService
     {
         private readonly IMailProcessor _mailProcessor;
+        private readonly ILanguageService languageService;
 
-        public EmailService(IMailProcessor mailProcessor)
+        public EmailService(IMailProcessor mailProcessor, ILanguageService languageService)
         {
             _mailProcessor = mailProcessor;
+            this.languageService = languageService;
+        }
+
+        private string SetLanguage(string language)
+        {
+            var currentLanguage = languageService.GetCurrentLanguage();
+
+            languageService.SetCulture(MappingLanguage(language));
+
+            return currentLanguage;
+        }
+
+        private void ResetLanguage(string language)
+        {
+            languageService.SetCulture(language);
         }
 
         public void SendRecoverPasswordEmail(RecoverPasswordEmailParam emailParam)
         {
+            var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+
             const string TemplateName = "RecoverPassword";
             var emailContent = GetEmailTextContent(TemplateName, emailParam.User.PreferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
@@ -28,10 +46,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.SubjectForgetPass, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         public void SendNewPasswordEmail(NewPasswordEmailParam emailParam)
         {
+            var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+
             const string TemplateName = "NewPassword";
             var emailContent = GetEmailTextContent(TemplateName, emailParam.User.PreferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
@@ -40,10 +62,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.SubjectNewPass, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         public void SendPaymentEmail(PaymentEmailParam emailParam)
         {
+            var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+
             var templateName = emailParam.PaymentType == PaymentRequestType.Cancel ? "PaymentCancel" : "PaymentRequest";
             var subject = Lang.CancelSubject.Replace("{transid}", emailParam.TransId.ToString());
 
@@ -55,10 +81,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         public void SendSignUpEmail(EmailBaseParam emailParam)
         {
+            var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+
             const string TemplateName = "Signup";
             var emailContent = GetEmailTextContent(TemplateName, emailParam.User.PreferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
@@ -67,6 +97,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.RegisSubject, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         public void SendNoticeEmailToCsd(NoticeEmailParam emailParam)
@@ -89,6 +121,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public void SendVerificationEmail(VerificationAccountEmailParam emailParam)
         {
+            var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+
             const string TemplateName = "VerificationAccount";
             var emailContent = GetEmailTextContent(TemplateName, emailParam.User.PreferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
@@ -97,11 +131,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.SubjectVerificationAccount, emailParam.MailBcc, emailParam.MailCc);
+
+            ResetLanguage(prevLanguage);
         }
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
-            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
+            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, MappingLanguage(prefrerredLanguage));
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
 
             return _mailProcessor.BuildTemplateContent(physicalPath, model);
@@ -113,13 +149,23 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 RootUrl = domain,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = language,
+                Language = MappingLanguage(language),
                 Content = content,
                 Title = title
             };
             var viewPath = HttpContext.Current.Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
 
             return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+        }
+
+        public static string MappingLanguage(string language)
+        {
+            if (language == "vi-VN")
+            {
+                return language;
+            }
+
+            return "en-US";
         }
     }
 }

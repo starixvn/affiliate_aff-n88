@@ -26,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendApprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             SendApprovedAffEmail(emailParam);
             SendAffInforEmail(emailParam);
             SendWithdrawalGuidanceEmail(emailParam);
@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
-            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
+            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, MappingLanguage(prefrerredLanguage));
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
 
             return _mailProcessor.BuildTemplateContent(physicalPath, model);
@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             {
                 RootUrl = domain,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = language,
+                Language = MappingLanguage(language),
                 Content = content,
                 Title = title
             };
@@ -117,7 +117,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendPaymentRequestUpdateEmail(PaymentRequestUpdateEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             emailParam.MailContact = _appSetting.MailContact;
 
             var TemplateName = emailParam.IsApproved ? "PaymentRequest/Approved" : "PaymentRequest/Rejected";
@@ -138,7 +138,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendDisapprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             SendDisapprovedAffiliateEmail(emailParam);
             _languageService.SetCulture(LanguageSystem.DefaultLanguage);
         }
@@ -160,6 +160,16 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 content;
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+        }
+
+        public static string MappingLanguage(string language)
+        {
+            if (language == "vi-VN")
+            {
+                return language;
+            }
+
+            return "en-US";
         }
     }
 }
