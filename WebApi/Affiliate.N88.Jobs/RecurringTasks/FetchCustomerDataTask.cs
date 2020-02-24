@@ -73,26 +73,30 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
 
             var members = GetImporterData(customerData);
-            foreach (var member in members)
+            foreach (var groupMember in members)
             {
+                var siteName = groupMember.Item1;
+                var member = groupMember.Item2;
                 try
                 {
                     //TODO : Need recheck import right database (check sitename)
                     await _importerRepository.ImportMember(member);
-                    await _logger.InfoAsync($"Impored Data {regTime} for {member.GetSettingKey()}: {member.XmlData}");
+                    await _logger.InfoAsync($"Site: {siteName}, Imported Data {regTime} by SP {member.GetSettingKey()}: {member.XmlData}");
                 }
                 catch (Exception ex)
                 {
-                    await _logger.ErrorAsync($"{ex.Message} \n {member.XmlData}", ex);
+                    await _logger.ErrorAsync($"Site: {siteName} {ex.Message} \n {member.XmlData}", ex);
                 }
             }
         }
 
         //Todo - need clean code
-        private IEnumerable<MemberInfo> GetImporterData(IEnumerable<CustomerModel> customerData)
+        private IEnumerable<(string, MemberInfo)> GetImporterData(IEnumerable<CustomerModel> customerData)
         {
-            var groupCustomer = customerData.GroupBy(c => c.SiteName)
-                .Select(g => GenerateImpotedDataBySiteName(g.Key, g.ToList()));
+            var groupCustomer = customerData
+                .GroupBy(c => c.SiteName)
+                .Select(g => (g.Key, GenerateImpotedDataBySiteName(g.Key, g.ToList())));
+
             return groupCustomer;
         }
 
