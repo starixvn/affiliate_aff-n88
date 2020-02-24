@@ -49,7 +49,17 @@
 <body>
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
-            <a href="@Url.Content("~")" class="logo-image"></a>
+            <a href="@Url.Content("~")">
+
+                @if (settingService.IsN8B)
+                {
+                    <img src="~/www/build/styles/Images/themes/n8b.png" alt="logo" class="logo-image" />
+                }
+                else
+                {
+                    <img src="~/www/build/styles/Images/themes/n8g.png" alt="logo" class="logo-image" />
+                }
+            </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
