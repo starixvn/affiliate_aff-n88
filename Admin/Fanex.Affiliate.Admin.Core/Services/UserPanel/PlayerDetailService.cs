@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 IbcUserName = Convert.ToString(reader["IbcUserName"]),
                 UserName = Convert.ToString(reader["UserName"]),
-                RegisteredDate = Convert.ToDateTime(reader["RegisteredDate"]),
+                RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"]),
                 Deposit = Convert.ToDecimal(reader["Deposit"]),
                 Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
                 BankingFee = Convert.ToDecimal(reader["BankingFee"]),

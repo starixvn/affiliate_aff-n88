@@ -120,9 +120,9 @@ export default class AppContainer extends PureComponent {
           </div>
 
           <div className="foot">
-              <span>&nbsp;</span>
+              {/* <span>&nbsp;</span>
               <span className="foot-rp">{`© Copyright ${year} Pacific Sea Invests`}</span>
-              {/* <span className="foot-right">&nbsp;</span>
+              <span className="foot-right">&nbsp;</span>
               <span className="foot-text">Best view in</span>
               <span className="foot-icIE">&nbsp;</span>
               <span className="foot-icFirefox">&nbsp;</span> */}
