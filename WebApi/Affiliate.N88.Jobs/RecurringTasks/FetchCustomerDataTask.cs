@@ -67,6 +67,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             if (customerData == null
                 || !customerData.Any())
             {
+                await _logger.InfoAsync($"No Data on date {regTime}");
+
                 return;
             }
 
@@ -81,7 +83,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 }
                 catch (Exception ex)
                 {
-                    _logger.Error($"{ex.Message} \n {member.XmlData}", ex);
+                    await _logger.ErrorAsync($"{ex.Message} \n {member.XmlData}", ex);
                 }
             }
         }
