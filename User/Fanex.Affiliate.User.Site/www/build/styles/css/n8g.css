@@ -5,7 +5,7 @@
 .header-top {
   background-color: #191919; }
   .header-top .logo-image {
-    background: url(/www/build/styles/Images/themes/n8g.png) no-repeat;
+    background: url(../Images/themes/n8g.png) no-repeat;
     width: 168px;
     height: 62px; }
 
