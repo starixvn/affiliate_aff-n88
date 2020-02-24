@@ -1507,7 +1507,7 @@ var ReferrerStatistics = (function ($) {
         UserPanel.datepicker.push(new Pikaday({
             field: document.getElementById(id),
             trigger: document.getElementById(triggerId),
-            yearRange: [2000, new Date().getFullYear()],
+            yearRange: [2020, new Date().getFullYear()],
             toString: function (date, format) {
                 var day = date.getDate();
                 var month = date.getMonth() + 1;

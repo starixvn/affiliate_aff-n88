@@ -4,11 +4,9 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
-import { logTypes, headerText, globalResource } from '../modules/constants';
+import { logTypes, headerText, globalResource, minDate } from '../modules/constants';
 import { setParam, setShowIdList } from '../actions';
 import { getDateRange } from '../../../../modules/utils';
-
-const minDate = new Date(2009, 11, 1);
 
 export class Filter extends React.Component {
     constructor(props) {
@@ -19,12 +17,12 @@ export class Filter extends React.Component {
 
         this.nowString = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
 
-        const sixMonthAgo = new Date(today);
+        let sixMonthAgo = new Date(today);
         sixMonthAgo.setMonth(sixMonthAgo.getMonth() - 6);
 
         this.state = {
             logType: 0,
-            fromDate: `${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
+            fromDate: sixMonthAgo < minDate ? '01/01/2020' :`${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
             toDate: this.nowString,
         }
     }

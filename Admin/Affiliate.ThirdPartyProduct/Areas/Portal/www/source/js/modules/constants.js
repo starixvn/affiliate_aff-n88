@@ -5,7 +5,7 @@ export const defaultPagingOption = {
     PageList: [10, 20, 50, 100, 500]
 };
 
-export const minMonthDate = { month: 12, year: 2009 };
+export const minMonthDate = { month: 1, year: 2020 };
 
 export const shortedMonthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 export const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -24,4 +24,4 @@ const maxUserPanelHeight = window.innerHeight - 234;
 export const spinnerLoaderWidth = (maxWidth / 2) - 32
 export const spinnerLoaderUserPanelHeight = (maxUserPanelHeight / 2) - 32
 
-export const minDate = new Date(2009, 11, 1);
+export const minDate = new Date(2019, 12, 31);

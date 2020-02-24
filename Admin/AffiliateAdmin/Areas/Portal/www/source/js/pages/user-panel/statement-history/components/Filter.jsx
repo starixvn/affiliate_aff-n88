@@ -4,11 +4,9 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
-import { globalResource } from '../modules/constants';
+import { globalResource, minDate } from '../modules/constants';
 import { getDateRange } from '../../../../modules/utils';
 import { setParam } from '../actions';
-
-const minDate = new Date(2009, 11, 1);
 
 export class Filter extends PureComponent {
     constructor(props) {
@@ -24,7 +22,7 @@ export class Filter extends PureComponent {
 
         this.state = {
             isGetAll: false,
-            fromDate: `${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
+            fromDate: sixMonthAgo < minDate ? '01/01/2020' : `${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
             toDate: this.nowString,
         }
     }

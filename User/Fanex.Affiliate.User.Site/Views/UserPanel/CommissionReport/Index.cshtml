@@ -17,7 +17,7 @@
                     <label>@Lang.Year</label>
                     <select class="form-control" id="year">
 
-                        @for (var i = currentYear; i >= 2018; i--)
+                        @for (var i = currentYear; i >= 2020; i--)
                         {
                             var temp = i == currentYear ? "selected='selected'" : string.Empty;
                             <option @temp value="@i">@i</option>
