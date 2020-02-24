@@ -59,7 +59,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-
         public async Task FetchCustomerDataAsync(DateTime regTime)
         {
             var customerData = await _licenseeApi.GetCustomerAsync(regTime);
@@ -72,7 +71,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 return;
             }
 
-            var members = GetImporterData(customerData);
+            var members = GetImportingData(customerData);
             foreach (var groupMember in members)
             {
                 var siteName = groupMember.Item1;
@@ -80,7 +79,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 try
                 {
                     //TODO : Need recheck import right database (check sitename)
-                    await _importerRepository.ImportMember(member);
+                    await _importerRepository.ImportMemberAsync(member);
                     await _logger.InfoAsync($"Site: {siteName}, Imported Data {regTime} by SP {member.GetSettingKey()}: {member.XmlData}");
                 }
                 catch (Exception ex)
@@ -91,7 +90,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         }
 
         //Todo - need clean code
-        private IEnumerable<(string, MemberInfo)> GetImporterData(IEnumerable<CustomerModel> customerData)
+        private IEnumerable<(string, MemberInfo)> GetImportingData(IEnumerable<CustomerModel> customerData)
         {
             var groupCustomer = customerData
                 .GroupBy(c => c.SiteName)
@@ -155,7 +154,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var settingPrefixCode = GetSettingCodePrefix(site);
 
             var prefixProvider = new PrefixProvider(settingPrefixCode);
-            return await _importerRepository.GetLastedMemberImportedTime(new MemberImportedTimeInfo(prefixProvider));
+            return await _importerRepository.GetLastedMemberImportedTimeAsync(new MemberImportedTimeInfo(prefixProvider));
         }
 
         private string GetSettingCodePrefix(string siteName)

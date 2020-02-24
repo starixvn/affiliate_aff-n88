@@ -16,8 +16,8 @@ export class AppContainer extends PureComponent {
         
         const { param } = this.props;
         this.monthDate = param && param.monthDate;
+        
         const date = new Date(this.monthDate);
-
         this.breadcrumbList = [
             { handleClick: () => this.props.setSelectedUserPanel(userPanelMenuKey.statementHistory), title: 'Statement History'},
             { title: `${monthNames[date.getMonth()]} ${date.getFullYear()}`}

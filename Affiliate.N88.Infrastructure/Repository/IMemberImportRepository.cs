@@ -8,7 +8,8 @@ namespace Affiliate.N88.Repository
 {
     public interface IMemberImportRepository
     {
-        Task ImportMember(MemberInfo memberInfo);
-        Task<DateTime> GetLastedMemberImportedTime(SettingInfo settingInfo);
+        Task ImportMemberAsync(MemberInfo memberInfo);
+
+        Task<DateTime> GetLastedMemberImportedTimeAsync(SettingInfo settingInfo);
     }
 }

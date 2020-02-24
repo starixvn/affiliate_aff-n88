@@ -15,13 +15,13 @@ namespace Affiliate.N88.Repository
             _dynamicRepository = dynamicRepository;
         }
 
-        public async Task<DateTime> GetLastedMemberImportedTime(SettingInfo settingInfo)
+        public async Task<DateTime> GetLastedMemberImportedTimeAsync(SettingInfo settingInfo)
         {
             var time = await _dynamicRepository.GetAsync<DateTime>(settingInfo);
             return time;
         }
 
-        public async Task ImportMember(MemberInfo memberInfo)
+        public async Task ImportMemberAsync(MemberInfo memberInfo)
         {
             await _dynamicRepository.ExecuteAsync(memberInfo); 
             if(memberInfo.ErrCode != 0)
