@@ -567,6 +567,14 @@
     <Content Include="www\build\styles\css\messagehistory.min.css">
       <DependentUpon>messagehistory.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\n8b.css" />
+    <Content Include="www\build\styles\css\n8b.min.css">
+      <DependentUpon>n8b.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n8g.css" />
+    <Content Include="www\build\styles\css\n8g.min.css">
+      <DependentUpon>n8g.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\notify.css" />
     <Content Include="www\build\styles\css\notify.min.css">
       <DependentUpon>notify.css</DependentUpon>
@@ -714,6 +722,8 @@
     <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.th-TH.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\term-and-condition\termcondition.jpg" />
+    <Content Include="www\build\styles\Images\themes\n8b.png" />
+    <Content Include="www\build\styles\Images\themes\n8g.png" />
     <Content Include="www\source\js\components\authhelper.js" />
     <Content Include="www\source\js\components\clipboard.js" />
     <Content Include="www\source\js\components\clipboard.min.js" />
@@ -982,6 +992,8 @@
     <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.zh-TW.jpg" />
     <Content Include="www\source\styles\Images\term-and-condition\termcondition.jpg" />
     <Content Include="www\source\styles\Images\adv_contact.jpg" />
+    <Content Include="www\source\styles\Images\themes\n8b.png" />
+    <Content Include="www\source\styles\Images\themes\n8g.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
     <Content Include="Views\Shared\Email\Signup\Content.en-GB.cshtml" />
@@ -1308,6 +1320,10 @@
     <None Include="Configurations\Web\Web.n88user-n8g.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
     </None>
+    <Content Include="www\source\styles\scss\Themes\n8g.scss" />
+    <Content Include="www\source\styles\scss\Themes\n8b.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n8b.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

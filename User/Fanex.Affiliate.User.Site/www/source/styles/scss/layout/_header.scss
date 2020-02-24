@@ -12,28 +12,13 @@
         padding: 1.7rem 0 1.7rem 3rem;
         display: inline-block;
 
-        .site-name {
-            font-weight: bold;
-            color: #FF0000;
-        }
-
-        .logo-text {
-            display: inline-block;
-            vertical-align: bottom;
-            padding-left: 10px;
-            text-transform: uppercase;
-            color: #fff;
-            font-weight: 500;
-            font-size: 30px;
-
-            &:hover {
-                text-decoration: none;
-            }
-        }
-
         @media (max-width: 992px) {
             text-align: center;
         }
+    }
+
+    .logo-image {
+        display: inline-block;
     }
 
     .btn {

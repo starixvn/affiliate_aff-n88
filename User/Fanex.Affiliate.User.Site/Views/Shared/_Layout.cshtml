@@ -38,18 +38,18 @@
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
     @if (settingService.IsN8B)
     {
-        <link href="@Url.RenderLink("~/www/build/styles/css/theme2.css")" rel="stylesheet" />
+        <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
     }
     else
     {
-        <link href="@Url.RenderLink("~/www/build/styles/css/theme4.css")" rel="stylesheet" />
+        <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
     }
     @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
-            <a href="@Url.Content("~")" class="logo-text"><span class="site-name">@AppSetting.Instance.SiteFriendlyName</span> Affiliate User</a>
+            <a href="@Url.Content("~")" class="logo-image"></a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">

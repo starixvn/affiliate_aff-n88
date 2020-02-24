@@ -4,7 +4,6 @@
 
 @using Fanex.Affiliate.User.Core.Utilities
 
-
 @{
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
 }
@@ -22,14 +21,14 @@
     {
         <!-- Google Analytics -->
         <!-- Global site tag (gtag.js) - Google Analytics -->
-            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5160706-44"></script>
-            <script type="text/javascript">
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                gtag('js', new Date());
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5160706-44"></script>
+        <script type="text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
 
-                gtag('config', 'UA-5160706-44');
-            </script>
+            gtag('config', 'UA-5160706-44');
+        </script>
         <!-- End Google Analytics -->
     }
 
@@ -84,7 +83,7 @@
                         <div class="col-md-6">
                             <h3 class="title-left">@Lang.NotAffiliateMemberYet</h3>
                             <p>@SiteFriendlyNameHelper.Replace12Bet(Lang.SignUpToAffiliateProgram)</p>
-                            <a href="@Url.Content("~/Signup/Index")" role="button" class="btn btn-submit btn-block text-uppercase">@Lang.JoinNow</a>
+                            <a href="@Url.Content("~/Signup/Index")" role="button" class="btn btn-signup btn-block text-uppercase">@Lang.JoinNow</a>
                         </div>
 
                         <div class="col-md-6 login-side" id="dialogUserInput">
@@ -98,10 +97,11 @@
                             <div class="form-group">
                                 <input type="text" id="dialogtxtValidation" class="form-control captcha-input" placeholder="@Lang.Validation" />
                                 <div class="validation-value">
-                                <img src="" alt="captcha" id="loginDialogcaptchaImg" /></div>
+                                    <img src="" alt="captcha" id="loginDialogcaptchaImg" />
+                                </div>
                             </div>
 
-                            <button type="button" id="btnDialogLogin" class="btn btn-submit btn-block text-uppercase">@Lang.Login</button>
+                            <button type="button" id="btnDialogLogin" class="btn btn-login-mobile btn-block text-uppercase">@Lang.Login</button>
                             <a href="@Url.Content("~/Password/Index")" class="link-login-popup">> @Lang.ForgotLoginDetail</a>
                         </div>
                     </div>

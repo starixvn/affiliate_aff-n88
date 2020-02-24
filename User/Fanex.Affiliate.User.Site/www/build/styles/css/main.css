@@ -325,22 +325,11 @@ input[type="checkbox"], input[type="radio"] {
   .header-top .logo {
     padding: 1.7rem 0 1.7rem 3rem;
     display: inline-block; }
-    .header-top .logo .site-name {
-      font-weight: bold;
-      color: #FF0000; }
-    .header-top .logo .logo-text {
-      display: inline-block;
-      vertical-align: bottom;
-      padding-left: 10px;
-      text-transform: uppercase;
-      color: #fff;
-      font-weight: 500;
-      font-size: 30px; }
-      .header-top .logo .logo-text:hover {
-        text-decoration: none; }
     @media (max-width: 992px) {
       .header-top .logo {
         text-align: center; } }
+  .header-top .logo-image {
+    display: inline-block; }
   .header-top .btn {
     margin-right: 0; }
 
@@ -595,14 +584,13 @@ input[type="checkbox"], input[type="radio"] {
   margin: 12px 0; }
   .hot-news .title {
     position: relative;
-    color: #fff;
     padding: 0 10px;
     height: 26px;
     line-height: 26px;
     margin-right: 22px;
     text-transform: uppercase;
     font-size: 12px;
-    font-weight: 600; }
+    font-weight: bold; }
     .hot-news .title:after {
       content: "";
       border-top: 13px solid transparent;
@@ -1081,7 +1069,7 @@ label.require:after {
     line-height: 30px;
     font-size: 14px;
     text-transform: capitalize;
-    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.32); }
+    font-weight: bold; }
     .page-title .text:after {
       content: "";
       position: absolute;
@@ -1096,7 +1084,7 @@ label.require:after {
   margin-top: 15px; }
   .info-group .title {
     position: relative;
-    font-weight: 600;
+    font-weight: bold;
     margin-bottom: 8px;
     padding-bottom: 5px; }
     .info-group .title:before {
@@ -1224,24 +1212,22 @@ label.require:after {
       padding: .35em;
       transition: background 0.2s ease; }
     .table table th, .table table td {
-      word-wrap: break-word; }
+      word-wrap: break-word;
+      line-height: 24px;
+      padding: 4px 5px; }
     .table table th {
       font-size: 15px;
       text-transform: capitalize;
       text-align: center;
-      padding: 4px 5px;
       font-weight: 500; }
     .table table .non-transform {
       text-transform: none; }
-    .table table td {
-      padding: 4px 5px;
-      line-height: 24px; }
-      .table table td.bg-sportsbook {
-        background: #f8d8d1;
-        font-weight: 600; }
-      .table table td.bg-casino {
-        background: #e1e1e1;
-        font-weight: 600; }
+    .table table td.bg-sportsbook {
+      background: #f8d8d1;
+      font-weight: 600; }
+    .table table td.bg-casino {
+      background: #e1e1e1;
+      font-weight: 600; }
     .table table .total {
       color: #fff;
       font-weight: 500; }

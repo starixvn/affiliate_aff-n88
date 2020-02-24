@@ -124,4 +124,3 @@ var UserPanel = (function ($) {
 })(jQuery);
 
 UserPanel.initialize();
-
