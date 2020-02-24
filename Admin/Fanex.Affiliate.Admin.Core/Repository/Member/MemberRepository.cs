@@ -13,7 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
     {
         public EntityResult<MemberInfo> GetMemberList(MemberParam param)
         {
-            const string Spkey = "Aff_MemberListSel";
+            const string Spkey = "Aff_Admin_MemberList_Sel";
             var result = new EntityResult<MemberInfo>();
             var dataList = new List<MemberInfo>();
 

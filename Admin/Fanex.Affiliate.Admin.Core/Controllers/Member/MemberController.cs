@@ -28,8 +28,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Member
         {
             var subMenu = new List<SubMenu>
             {
-                new SubMenu { Name = Lang.Member, Url = Url.Content("~/Portal/Member"), IsActive = true },
-                new SubMenu { Name = Lang.ActiveMember, Url = Url.Content("~/Portal/ActiveMember") }
+                new SubMenu { Name = Lang.Member, Url = Url.Content("~/Portal/Member"), IsActive = true }
+                //new SubMenu { Name = Lang.ActiveMember, Url = Url.Content("~/Portal/ActiveMember") }
             };
 
             var model = new MemberListViewModel
