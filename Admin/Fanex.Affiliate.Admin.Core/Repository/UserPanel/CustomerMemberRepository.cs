@@ -28,11 +28,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                         dataList.Add(new CustomerMember
                         {
                             UserName = Convert.ToString(reader["UserName"]),
-                            FirstName = Convert.ToString(reader["FirstName"]),
-                            LastName = Convert.ToString(reader["LastName"]),
-                            Email = param.CanViewMemberEmail ? Convert.ToString(reader["Email"]) : string.Empty,
-                            CurrencyName = Convert.ToString(reader["Currency"]),
-                            RegisteredDate = Convert.ToDateTime(reader["RegisteredDate"])
+                            FirstName = reader["FirstName"] == DBNull.Value ? string.Empty : Convert.ToString(reader["FirstName"]),
+                            LastName = reader["LastName"] == DBNull.Value ? string.Empty : Convert.ToString(reader["LastName"]),
+                            Email = (param.CanViewMemberEmail && reader["Email"] != DBNull.Value) ? Convert.ToString(reader["Email"]) : string.Empty,
+                            CurrencyName = reader["Currency"] == DBNull.Value ? string.Empty : Convert.ToString(reader["Currency"]),
+                            RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"])
                         });
                     }
                 }

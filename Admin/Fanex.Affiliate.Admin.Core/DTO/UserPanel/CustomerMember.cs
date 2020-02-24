@@ -14,8 +14,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string CurrencyName { get; set; }
 
-        public DateTime RegisteredDate { get; set; }
+        public DateTime? RegisteredDate { get; set; }
 
-        public string RegisteredDateString => RegisteredDate.ToString("MM/dd/yyyy hh:mm:ss tt");
+        public string RegisteredDateString => RegisteredDate?.ToString("MM/dd/yyyy hh:mm:ss tt");
     }
 }
