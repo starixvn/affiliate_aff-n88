@@ -96,7 +96,7 @@ var Layout = (function ($) {
                     var containerWith = $("#marqueeContainer").width();
                     var timeTaken = containerWith / DEFAULT_SPEED;
 
-                    $marquee.css("animation-duration", timeTaken + "s");
+                    $marquee.css("animation-duration", 20 + "s");
                 }
             });
         },

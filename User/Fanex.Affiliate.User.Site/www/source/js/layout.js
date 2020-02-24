@@ -1,5 +1,5 @@
 var Layout = (function ($) {
-    var DEFAULT_SPEED = 5;
+    var DEFAULT_SPEED = 20;
 
     function initSlider() {
         var $mainBanner = $('#mainBanner');
@@ -92,11 +92,8 @@ var Layout = (function ($) {
                 success: function (response) {
                     var $marquee = $("#marquee");
                     $marquee.html(response);
-                    // Time = Distance/Speed
-                    var containerWith = $("#marqueeContainer").width();
-                    var timeTaken = containerWith / DEFAULT_SPEED;
 
-                    $marquee.css("animation-duration", timeTaken + "s");
+                    $marquee.css("animation-duration", DEFAULT_SPEED + "s");
                 }
             });
         },
