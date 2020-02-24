@@ -174,6 +174,7 @@
                         }
                         else if (response.IsExpired) {
                             alert($("<div/>").html(resource.verificationFailed).text());
+                            _me.generateCaptcha();
                         }
                         else {
                             var message = response.Message || resource.general;
