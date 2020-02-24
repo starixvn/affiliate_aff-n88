@@ -79,18 +79,17 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2">No.Aff</Cell>
                 <Cell header={true} colWidth={150} rowSpan="2">Description</Cell>
                 <Cell header={true} colWidth={80} rowSpan="2">Creation</Cell>
-                <Cell header={true} colSpan="11">Policy</Cell>
+                <Cell header={true} colSpan="10">Policy</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2">Action</Cell>
             </Row>,
             <Row key="sub-theard">
                 <Cell header={true} colWidth={80}></Cell>
                 <Cell header={true} colWidth={80}>Tier</Cell>
-                <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min AM($)</Cell>
-                <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max AM($)</Cell>
-                <Cell header={true} colWidth={80} title="Minimum number of qualified members">Min QM</Cell>
-                <Cell header={true} colWidth={80} title="Maximum number of qualified members">Max QM</Cell>
+                <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min Amount</Cell>
+                <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
+                <Cell header={true} colWidth={80} title="Minimum number of qualified members">Min AM</Cell>
+                <Cell header={true} colWidth={80} title="Maximum number of qualified members">Max AM</Cell>
                 <Cell header={true} colWidth={80}>Comm Rate</Cell>
-                <Cell header={true} colWidth={80}>Exchg. Rev%</Cell>
                 <Cell header={true} colWidth={80}>Operational Fee</Cell>
                 <Cell header={true} colWidth={80}>Banking Fee</Cell>
                 <Cell header={true} colWidth={80}>QM Turnover</Cell>
@@ -141,10 +140,6 @@ export class GridData extends Component {
                             <Cell className="text-right cell-tier">{formatDecimal(tierSetting.Commission)}</Cell>
 
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                <p>WL: {ExchangeWinLossShare ? formatDecimal(ExchangeWinLossShare.DeductedPercentage) : 0}</p>
-                                <p>Comm: {ExchangeCommissionShare ? formatDecimal(ExchangeCommissionShare.DeductedPercentage) : 0}</p>
-                            </Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
                                 {OperationalFee && formatDecimal(OperationalFee.DeductedPercentage)}</Cell>)}
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
                                 {BankingFee && formatDecimal(BankingFee.DeductedPercentage)}</Cell>)}
@@ -185,7 +180,7 @@ export class GridData extends Component {
         }
         else {
             rows.push(<Row>
-                <Cell className="text-center" colSpan="16">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="15">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
