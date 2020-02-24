@@ -59,6 +59,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
+
         public async Task FetchCustomerDataAsync(DateTime regTime)
         {
             var customerData = await _licenseeApi.GetCustomerAsync(regTime);
@@ -74,6 +75,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
+                    //TODO : Need recheck import right database (check sitename)
                     await _importerRepository.ImportMember(member);
                     await _logger.InfoAsync($"Impored Data {regTime} for {member.GetSettingKey()}: {member.XmlData}");
                 }
@@ -153,7 +155,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private string GetSettingCodePrefix(string siteName)
         {
             var configMapping = _config.Value?.LicenseeSiteMapping ?? new List<LicenseeSiteMapping>();
-            var prefixSettingCode = configMapping.FirstOrDefault(c => c.SiteName == siteName)?.SiteName ?? siteName;
+            var prefixSettingCode = configMapping.FirstOrDefault(c => c.SiteName == siteName)?.SettingCodePrefix ?? siteName;
             return prefixSettingCode;
         }
     }
