@@ -85,7 +85,6 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={65} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</Cell>
                 <Cell header={true} colWidth={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.QualifiedMember}>{headerText.QualifiedMember}</Cell>
                 <Cell header={true} colSpan="9" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
                 <Cell header={true} colSpan={isMainView ? 5 : 4} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
                 {isMainView && (<Cell header={true} colWidth={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
@@ -158,7 +157,6 @@ export class GridData extends Component {
         const signup = format(dataItem.Signup);
         const fdm = format(dataItem.Fdm);
         const activeMember = format(dataItem.ActiveMember);
-        const qualifiedMember = format(dataItem.QualifiedMember);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const turnover = formatDecimal(dataItem.Turnover);
@@ -168,7 +166,6 @@ export class GridData extends Component {
         const operationalFee = formatDecimal(dataItem.OperationalFee);
         const bankingFee = formatDecimal(dataItem.BankingFee);
         const totalFee = formatDecimal(dataItem.TotalFee);
-
         const earning = formatDecimal(dataItem.Earning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
@@ -182,7 +179,6 @@ export class GridData extends Component {
                 <Cell className="text-right" title={signup}>{signup}</Cell>
                 <Cell className="text-right" title={fdm}>{fdm}</Cell>
                 <Cell className="text-right" title={activeMember}>{activeMember}</Cell>
-                <Cell className="text-right" title={qualifiedMember}>{qualifiedMember}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className={productColumnClassName} title={turnover}>{turnover}</Cell>

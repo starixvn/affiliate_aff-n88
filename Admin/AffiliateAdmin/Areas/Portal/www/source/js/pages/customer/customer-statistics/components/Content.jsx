@@ -109,17 +109,9 @@ export class Content extends PureComponent {
                         ),
                         resource.NA)
                 }
-                {this._buildRow(rowTitle.TotalQualified, format(data.QualifiedMemberByMonth), resource.NA)}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}
                 {this._buildRow(rowTitle.Winlost, WinlostByMonth, WinlostTotal)}
-                {
-                    this._buildRow(rowTitle.TrackingRate,
-                        (<a href="javascript:;" onClick={() => this.props.redirectToTrackingStatistics({ isClickLink: true })}>
-                            {format(data.UniqueClickByMonth)}/{format(data.TotalClickByMonth)}
-                        </a>),
-                        resource.NA)
-                }
                 {
                     this._buildRow(rowTitle.TrackingRatePC,
                         (<a href="javascript:;" onClick={() => this.props.redirectToReferrers({ fromDate: startMonthString, toDate: endMonthString, deviceType: deviceTypes[pcLaptop], isClickLink: true })}>

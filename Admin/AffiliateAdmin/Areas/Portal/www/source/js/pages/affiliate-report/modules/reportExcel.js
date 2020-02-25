@@ -37,7 +37,6 @@ const fields = {
     Signup: 'Signup',
     Fdm: 'Fdm',
     ActiveMember: 'ActiveMember',
-    QualifiedMember: 'QualifiedMember',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',

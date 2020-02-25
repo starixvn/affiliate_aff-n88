@@ -30,7 +30,7 @@ function handleResize() {
 var UserPanel = (function ($) {
     var DEFAULT_ACTION = 'AccountOverView';
     var allowedActionList = ["AccountOverView", "StatementHistory", "MyAccount", "PaymentRequest",
-        "OldMediaGallery", "TextBox", "TrackingStatistics", "ReferrersStatistics", "LandingPageStatistics",
+        "OldMediaGallery", "TextBox", "ReferrersStatistics", "LandingPageStatistics",
         "DailyEarning", "DailyEarningDetail", "BetList", "MessageHistory", "CommissionReport"];
 
     var _ajaxRequest = null;
