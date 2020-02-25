@@ -93,11 +93,6 @@
     <Setting Key="Aff_Admin_Banner_Sel" SpName="Aff_Admin_Banner_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_AffTypeSel" SpName="Aff_AffTypeSel" DbName="affiliate_n88" />
   </Function>
-  <Function Name="ThirdPartyProduct">
-    <Setting Key="Aff_3rdProduct_ImportQueueSel" SpName="Aff_3rdProduct_ImportQueueSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_3rdProduct_XmlDataByQueueIdSel" SpName="Aff_3rdProduct_XmlDataByQueueIdSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_3rdProduct_TimeTrackerSel" SpName="Aff_3rdProduct_TimeTrackerSel" DbName="affiliate_n88" />
-  </Function>
   <Function Name="EmailHistory">
     <Setting Key="Aff_Admin_EmailHistory_Sel" SpName="Aff_Admin_EmailHistory_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_EmailHistory_Detail_Sel" SpName="Aff_Admin_EmailHistory_Detail_Sel" DbName="affiliate_n88" />
