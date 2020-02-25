@@ -22,6 +22,7 @@ export const resource = {
     All: globalResource.All,
     Search: globalResource.Search,
     Product: globalResource.Product,
+    Currency: globalResource.Currency,
     Month: 'Month'
 }
 

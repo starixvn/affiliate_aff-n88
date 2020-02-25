@@ -5,7 +5,7 @@ import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import MonthPicker from '@9softstudio/react-monthpicker';
 
 import { resource, selectedAllProduct, shortedMonthNames, minMonthDate } from '../modules/constants';
-import { setParam, getProductList, exportExcel } from '../actions';
+import { setParam, getProductList, exportExcel, getCurrencies } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
@@ -20,13 +20,19 @@ export class Filter extends PureComponent {
         this.state = {
             selectedProduct: selectedAllProduct,
             monthDate: newMonthDate,
-            productList: null
+            selectedCurrencyId: 0,
+            productList: null,
+            currencies: null,
+
         }
     }
 
     componentDidMount() {
         if (!this.state.productList) {
             this.handleGetProductList();
+        }
+        if (!this.state.currencies) {
+            this.handleGetCurrencies();
         }
         if (this.props.param.isClickLink) {
             const { monthDate } = this.state;
@@ -49,6 +55,11 @@ export class Filter extends PureComponent {
         this.setState({ productList });
     }
 
+    handleGetCurrencies = async () => {
+        const currencies = await this.props.getCurrencies();
+        this.setState({currencies});
+    }
+
     handleSelectMonth = (month, year) => {
         this.setState({
             monthDate: new Date(year, month - 1)
@@ -63,15 +74,23 @@ export class Filter extends PureComponent {
         })
     }
 
+    handleChangeCurrency =(evnet) =>{
+        const selectedCurrencyId = Number(event.target.value);
+        this.setState({
+            selectedCurrencyId
+        })
+    }
+
     handleFormatMonthPicker = (month, year) => {
         return `${shortedMonthNames[month - 1]}-${year}`
     }
 
     handleSearch = (monthDate) => {
-        const { selectedProduct } = this.state;
+        const { selectedProduct, selectedCurrencyId } = this.state;
 
         const param = {
             productId: selectedProduct,
+            currencyId: selectedCurrencyId,
             monthDate: `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`,
         }
         this.props.setParam(param);
@@ -112,7 +131,7 @@ export class Filter extends PureComponent {
     }
 
     render() {
-        const { productList, selectedProduct, monthDate } = this.state;
+        const { productList, selectedProduct, selectedCurrencyId, monthDate, currencies } = this.state;
 
         return productList && (
             <div className="filter-container">
@@ -124,6 +143,18 @@ export class Filter extends PureComponent {
                             {
                                 productList.map(p => {
                                     return (<option value={p.ProductId} key={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
+                                })
+                            }
+                        </Input>
+                    </FormGroup>
+
+                    <FormGroup className="mr-sm-2">
+                        <Label className="mr-2">{resource.Currency}</Label>
+                        <Input type="select" name="Currency" id="Currency" value={selectedCurrencyId} onChange={this.handleChangeCurrency}>
+                            <option value="0">{resource.All}</option>
+                            {
+                                currencies && currencies.map(c => {
+                                    return(<option value={c.ExchangeId} key={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
                                 })
                             }
                         </Input>
@@ -164,7 +195,7 @@ function mapStateToProps({ today, affCommonInfo, playerDetail }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, exportExcel, getProductList }, dispatch);
+    return bindActionCreators({ setParam, exportExcel, getProductList, getCurrencies }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

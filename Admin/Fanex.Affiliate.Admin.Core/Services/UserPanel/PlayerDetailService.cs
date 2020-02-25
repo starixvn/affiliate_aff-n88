@@ -20,6 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignParam(param, objectDb);
+                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

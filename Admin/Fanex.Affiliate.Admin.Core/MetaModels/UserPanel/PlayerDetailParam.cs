@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 
         public byte ProductId { get; set; }
 
+        public int CurrencyId { get; set; } = 0;
+
         [Required]
         public DateTime MonthDate { get; set; }
 

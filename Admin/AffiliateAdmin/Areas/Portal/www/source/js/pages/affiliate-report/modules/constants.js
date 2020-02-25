@@ -13,6 +13,7 @@ export const sortByMonthOnMonthView = Object.assign({}, {
 }, sortByCommon);
 
 export const allProduct = '0';
+export const allCurrencies = '0';
 
 export const viewLevel = {
     main: 1,

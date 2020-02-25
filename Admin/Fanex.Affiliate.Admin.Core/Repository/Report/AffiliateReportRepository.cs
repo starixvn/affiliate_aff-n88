@@ -25,6 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             {
                 AssignCommonParam(objectDb, param);
                 objectDb.AddInParameter("PreferredLanguage", DbType.String, param.PreferredLanguage);
+                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -47,7 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             return result;
         }
 
-        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportMainParam param)
+        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportBaseParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateReport_Detail_Sel";
             var result = new EntityResult<AffiliateReport>();
@@ -101,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             return result;
         }
 
-        private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportMainParam param)
+        private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportBaseParam param)
         {
             objectDb.AddInParameter("Username", DbType.String, param.UserName);
             objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);

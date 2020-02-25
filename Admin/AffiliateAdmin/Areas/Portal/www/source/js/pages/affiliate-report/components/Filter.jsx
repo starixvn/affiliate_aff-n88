@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import AutoComplete from '../../../components/auto-complete';
-import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType } from '../modules/constants';
+import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, allCurrencies } from '../modules/constants';
 import { setReportTitle, setParam } from '../actions';
 import { formatUnit, resolveClientUrl } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
@@ -26,7 +26,8 @@ export class Filter extends Component {
             sortBy: defaultSortBy,
             isSortAscending: true,
             selectedProductList: allProduct,
-            isGetAll: false
+            isGetAll: false,
+            selectedCurrency: allCurrencies
         }
 
         this.cachedMainReportParam = null;
@@ -95,6 +96,10 @@ export class Filter extends Component {
         this.setState({ selectedLanguage: event.target.value });
     }
 
+    handleChangeCurrency = (event) => {
+        this.setState({selectedCurrency: event.target.value});
+    }
+
     handleSelectFromMonth = (month, year) => {
         const fromMonth = { month, year };
         if (!this._isMainView()) {
@@ -152,7 +157,7 @@ export class Filter extends Component {
             return;
         }
 
-        const { selectedLanguage, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedCurrency, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
         const { productList, pagingOption } = this.props;
 
         const isCheckedAllProduct = selectedProductList === allProduct || selectedProductList.split(',').length === productList.length;
@@ -164,6 +169,7 @@ export class Filter extends Component {
             FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
+            CurrencyId : Number(selectedCurrency),
             ProductIds: isCheckedAllProduct ? allProduct : selectedProductList,
             SortType: sortBy,
             SortDirectionType: isSortAscending ? sortDirectionType.ascending : sortDirectionType.descending,
@@ -258,8 +264,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
-        const { languageList } = this.props;
+        const { selectedLanguage, selectedCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
+        const { languageList, currencyList } = this.props;
 
         const productDataSource = this._getProductDataSource();
         const isValidSelectedProduct = selectedProductList.length > 0;
@@ -301,6 +307,16 @@ export class Filter extends Component {
                             </Input>
                         </FormGroup>
                     }
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                        <Input type="select" name="Currency" id="Currency" value={selectedCurrency} onChange={this.handleChangeCurrency}>
+                            <option key="0" value="0">All Currency</option>
+                            {
+                                currencyList && currencyList.map(c => {
+                                    return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
+                                })
+                            }
+                        </Input>
+                    </FormGroup>
                     <FormGroup className={"mb-2 mr-sm-2 mb-sm-0" + `${isValidSelectedProduct ? '' : ' multiple-select-wrapper is-invalid'}`}
                         style={{ width: 200 }}>
                         <MultipleSelect
@@ -370,8 +386,8 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ productList, pagingOption, languageList, today, currentViewLevel, param }) {
-    return Object.assign({}, { productList, pagingOption, languageList, today, currentViewLevel, param });
+function mapStateToProps({ productList, pagingOption, languageList, currencyList, today, currentViewLevel, param }) {
+    return Object.assign({}, { productList, pagingOption, languageList, currencyList, today, currentViewLevel, param });
 }
 
 function mapDispatchToProps(dispatch) {

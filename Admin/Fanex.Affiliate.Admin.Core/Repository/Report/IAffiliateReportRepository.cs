@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
     {
         EntityResult<AffiliateReport> GetMainReportData(AffiliateReportMainParam param);
 
-        EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportMainParam param);
+        EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportBaseParam param);
 
         IList<string> SearchAffiliateList(string userName);
     }
