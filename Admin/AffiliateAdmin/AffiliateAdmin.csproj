@@ -980,6 +980,8 @@
     <Content Include="Areas\Portal\www\source\style\assets\login\lgLogo.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\login\lgRight.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\login\lgRp.jpg" />
+    <Content Include="Areas\Portal\www\source\style\assets\theme\LOGO1.png" />
+    <Content Include="Areas\Portal\www\source\style\assets\theme\LOGO2.png" />
     <Content Include="Areas\Portal\www\source\style\assets\under-maintenance\UnderMaintenance.gif" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\a_bg.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\bg_box_tab.jpg" />
@@ -1328,6 +1330,10 @@
     <Content Include="Areas\Portal\www\source\style\themes\theme-coral.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\theme-green.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\theme-violet.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N8B.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N8G.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N8B.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
