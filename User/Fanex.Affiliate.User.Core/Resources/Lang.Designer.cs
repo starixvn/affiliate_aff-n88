@@ -1567,7 +1567,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please describe how you would like to promote 12Bet if you don’t have  the URL.
+        ///   Looks up a localized string similar to Please describe how you would like to promote if you don’t have  the URL.
         /// </summary>
         public static string DescWebsite {
             get {
