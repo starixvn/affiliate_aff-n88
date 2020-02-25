@@ -26,7 +26,7 @@ namespace Affiliate.N88.WebApi
             jsonFormater.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormater.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
 
-            // config.Filters.Add(new HmacAuthorizationFilter());
+            config.Filters.Add(new HmacAuthorizationFilter());
             config.Filters.Add(new GlobalExceptionFilter());
         }
     }

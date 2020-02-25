@@ -5,7 +5,9 @@ namespace Affiliate.N88.WebApi.Controllers
 {
     public class HomeController : Controller
     {
-        private string FromDate = new DateTime(2020, 02, 10).ToString("yyyy-MM-dd");
+        private static readonly string FromDate = new DateTime(2020, 02, 10).ToString("yyyy-MM-dd");
+
+
         public ActionResult Index() =>
             new ContentResult
             {

@@ -1,4 +1,7 @@
-﻿using Affiliate.N88.Jobs.Apis;
+﻿using System;
+using System.Net.Http;
+using Affiliate.N88.Helpers;
+using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Fanex.Data;
 using Fanex.Data.Repository;
@@ -22,7 +25,11 @@ namespace Affiliate.N88.Jobs.Middlewares
             configuration.GetSection("AppSettings").Bind(appSettings);
 
             services.AddSingleton<IDynamicRepository, DynamicRepository>();
-            services.AddSingleton(RestService.For<ILicenseeApi>(appSettings.LicenseeDataAPI));
+            services.AddSingleton(RestService.For<ILicenseeApi>(
+                new HttpClient(new AuthenticatedHttpClientHandler("U6BUFHtVcq5SPQcTl7tHLBG/LF6d5YVRKHrCHD9M+Vw=")) 
+                { 
+                    BaseAddress = new Uri(appSettings.LicenseeDataAPI)
+                }));
 
             InitLogging(services);
             InitFanexData(configuration);

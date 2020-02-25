@@ -68,7 +68,7 @@
 
         private void HandleUnauthorizedRequest(HttpActionContext actionContext)
         {
-            actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+            actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized, "Request is not authenticated");
         }
 
         private string[] GetAutherizationHeaderValues(string rawAuthzHeader)
