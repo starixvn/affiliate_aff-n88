@@ -20,7 +20,12 @@
     {
         private const long RequestMaxAgeInSeconds = 300;
         private const string TokenAuthenticationScheme = "amx";
-        private const string sharedKey = "U6BUFHtVcq5SPQcTl7tHLBG/LF6d5YVRKHrCHD9M+Vw=";
+        private readonly string sharedKey;
+
+        public HmacAuthorizationFilter(string sharedKey)
+        {
+            this.sharedKey = sharedKey;
+        }
 
         public override void OnAuthorization(HttpActionContext actionContext)
         {

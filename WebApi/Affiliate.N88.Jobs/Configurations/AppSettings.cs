@@ -7,5 +7,7 @@
         public string LicenseeDataAPI { get; set; }
 
         public string SpPath { get; set; }
+
+        public string AuthenticationKey { get; set; }
     }
 }

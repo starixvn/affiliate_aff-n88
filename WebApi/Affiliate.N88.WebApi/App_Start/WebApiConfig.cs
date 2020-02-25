@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Formatting;
+﻿using System.Configuration;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 using Affiliate.N88.WebApi.Filters;
 using Newtonsoft.Json;
@@ -15,7 +16,7 @@ namespace Affiliate.N88.WebApi
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }                
+                defaults: new { id = RouteParameter.Optional }
             );
 
             var formaters = GlobalConfiguration.Configuration.Formatters;
@@ -26,7 +27,7 @@ namespace Affiliate.N88.WebApi
             jsonFormater.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormater.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
 
-            config.Filters.Add(new HmacAuthorizationFilter());
+            config.Filters.Add(new HmacAuthorizationFilter(ConfigurationManager.AppSettings["AuthenticationKey"]));
             config.Filters.Add(new GlobalExceptionFilter());
         }
     }

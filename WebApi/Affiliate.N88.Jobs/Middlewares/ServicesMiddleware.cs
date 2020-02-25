@@ -26,7 +26,7 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             services.AddSingleton<IDynamicRepository, DynamicRepository>();
             services.AddSingleton(RestService.For<ILicenseeApi>(
-                new HttpClient(new AuthenticatedHttpClientHandler("U6BUFHtVcq5SPQcTl7tHLBG/LF6d5YVRKHrCHD9M+Vw=")) 
+                new HttpClient(new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)) 
                 { 
                     BaseAddress = new Uri(appSettings.LicenseeDataAPI)
                 }));
