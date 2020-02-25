@@ -1506,7 +1506,7 @@ var MessageHistory = (function ($) {
         new Pikaday({
             field: document.getElementById(id),
             trigger: document.getElementById(triggerId),
-            yearRange: [2000, new Date().getFullYear()],
+            yearRange: [2020, new Date().getFullYear()],
             toString: function (date, format) {
                 var day = date.getDate();
                 var month = date.getMonth() + 1;
@@ -1514,7 +1514,7 @@ var MessageHistory = (function ($) {
                 return formatDateUnit(month) + "/" + formatDateUnit(day) + "/" + year;
             },
             onOpen: function () {
-                if (!$("#chkSearchAll").prop("checked")) {
+                if ($("#chkSearchAll").prop("checked")) {
                     this.hide();
                 }
             }
@@ -1537,12 +1537,12 @@ var MessageHistory = (function ($) {
 
             $("#chkSearchAll").on("click", function () {
                 var isChecked = $(this).prop("checked");
-                _me.toggleDate(!isChecked);
+                _me.toggleDate(isChecked);
             });
         },
 
         getParams: function () {
-            var hasDateRange = $("#chkSearchAll").prop("checked");
+            var hasDateRange = !$("#chkSearchAll").prop("checked");
             var seachBy = $("#Search").val();
 
             return {
