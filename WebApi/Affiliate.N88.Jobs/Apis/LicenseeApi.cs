@@ -9,8 +9,6 @@ namespace Affiliate.N88.Jobs.Apis
 {
     public interface ILicenseeApi
     {
-        [Get("/test/TestMySql")]
-        Task<IEnumerable<AffiliateInfo>> GetAffiliates();
         [Get("/customer/getCustomers")]
         Task<IEnumerable<CustomerModel>> GetCustomerAsync(DateTime fromDate);
     }

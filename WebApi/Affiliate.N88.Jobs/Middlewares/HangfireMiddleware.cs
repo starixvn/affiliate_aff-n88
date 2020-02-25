@@ -23,7 +23,6 @@ namespace Affiliate.N88.Jobs.Middlewares
                 config.UseMemoryStorage();
             });
 
-            services.AddScoped<IFetchAffiliateDataTask, FetchAffiliateDataTask>();
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
             services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>();
             services.Configure<LicenseeSiteSetting>(configuration.GetSection("AppSettings:LicenseeSetting"));
@@ -37,7 +36,6 @@ namespace Affiliate.N88.Jobs.Middlewares
             });
             app.UseHangfireServer();
 
-            RegisterTask<IFetchAffiliateDataTask>("0 1 * * *", job => job.FetchAffiliateData());
             RegisterTask<IFetchCustomerDataTask>("0 1 * * *", job => job.FetchCustomerDataAsync());
         }
 
