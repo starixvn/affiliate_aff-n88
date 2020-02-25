@@ -302,6 +302,8 @@
     <Content Include="Areas\Portal\www\dist\style\home.css" />
     <Content Include="Areas\Portal\www\dist\style\layout.css" />
     <Content Include="Areas\Portal\www\dist\style\login.css" />
+    <Content Include="Areas\Portal\www\dist\style\N8B.css" />
+    <Content Include="Areas\Portal\www\dist\style\N8G.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\administrator\administrator.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\administrator\department.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\affiliate-info.css" />
