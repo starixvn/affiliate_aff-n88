@@ -1,4 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
@@ -11,10 +12,12 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
     public class UserAccountService : IUserAccountService
     {
         private readonly IUserAccountRepository _userAccountRepository;
+        private readonly IAppSetting _appSetting;
 
-        public UserAccountService(IUserAccountRepository userAccountRepository)
+        public UserAccountService(IUserAccountRepository userAccountRepository, IAppSetting appSetting)
         {
             _userAccountRepository = userAccountRepository;
+            _appSetting = appSetting;
         }
 
         public UserAccount GetUserAccountInfo(int affId)
@@ -24,8 +27,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         public ResultInfo UpdateUserAccount(UserAccountParam param)
         {
-            var isValidPaymentMethod = ValidatePaymentMethod(param);
+            var validateWebSite = ValidateWebSite(param);
+            if (!validateWebSite.IsSuccessful)
+            {
+                return validateWebSite;
+            }
 
+            var isValidPaymentMethod = ValidatePaymentMethod(param);
             if(isValidPaymentMethod)
             {
                 if(PaymentMethod.Player.Equals(param.PreferredPayment))
@@ -37,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                         return new ResultInfo
                         {
                             Code = Code.GeneralErrorCode,
-                            Message = "N88 User Name is invalid!."
+                            Message = $"{_appSetting.SiteFriendlyName} User Name is invalid!."
                         };
                     }
                 }
@@ -49,6 +57,29 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 Code = Code.GeneralErrorCode,
                 Message = Lang.UpdateIsFailed
             };
+        }
+
+        private ResultInfo ValidateWebSite(UserAccountParam param)
+        {
+            if(param.HasWebSite && string.IsNullOrEmpty(param.SiteUrl))
+            {
+                return new ResultInfo
+                {
+                    Code = Code.GeneralErrorCode,
+                    Message = "Website URL is required"
+                };
+            }
+
+            if (!param.HasWebSite && string.IsNullOrEmpty(param.NoSiteDescription))
+            {
+                return new ResultInfo
+                {
+                    Code = Code.GeneralErrorCode,
+                    Message = $"Please describe how you would like to promote {_appSetting.SiteFriendlyName} if you don't have the URL is required"
+                };
+            }
+
+            return new ResultInfo();
         }
 
         private static bool ValidatePaymentMethod(UserAccountParam param)

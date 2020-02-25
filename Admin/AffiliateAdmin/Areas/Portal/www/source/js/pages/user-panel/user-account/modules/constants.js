@@ -15,6 +15,7 @@ export const messageList = {
     Postcode: 'Postcode/Zip is required',
     Country: 'Please select country',
     SiteUrl: 'Website URL is required',
+    NoSiteDescription: `Please describe how you would like to promote ${window.initialState.licenseeName} if you don't have the URL is required`,
     PlayerUsername: '12BET User Name is required',
     NetellerAccountId: 'Neteller Account ID is required',
     MoneybookersEmail: 'Moneybookers Email is required',
@@ -24,7 +25,7 @@ export const messageList = {
     BankAccountNumber: 'Bank Account Number is required',
 }
 
-export const requiredFieldList = [ 'FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode', 'SiteUrl' ]
+export const requiredFieldList = [ 'FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode' ]
 
 export const requiredBankTranferList = [ 'BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber' ]
 

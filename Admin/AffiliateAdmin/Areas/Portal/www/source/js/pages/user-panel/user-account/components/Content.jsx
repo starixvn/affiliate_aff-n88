@@ -35,7 +35,7 @@ export class Content extends PureComponent {
     }
 
     handleTrimObject = (objectOriginal) => {
-        return Object.keys(objectOriginal).reduce((accumulator, key) => {
+        const newObject = Object.keys(objectOriginal).reduce((accumulator, key) => {
             let item = objectOriginal[key];
             if (typeof item === 'string') {
                 item = item.trim();
@@ -44,29 +44,41 @@ export class Content extends PureComponent {
 
             return accumulator;
         }, {});
+
+        if (newObject.HasWebSite) {
+            newObject.NoSiteDescription = '';
+        } else {
+            newObject.SiteUrl = '';
+        }
+
+        return newObject;
     }
 
     handleSubmit = async () => {
-        const { affName, userAccountInfo, moreSiteUrlsList } = this.props;
+        const { affId, affName, userAccountInfo, moreSiteUrlsList } = this.props;
         const userAccountInfoAfterTrim = this.handleTrimObject(userAccountInfo);
         const resultValidateUserAccount = validateUserAccount(userAccountInfoAfterTrim, moreSiteUrlsList);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         if (resultValidateUserAccount.isValid) {
-            const moreSiteUrls = this.handleGetMoreSiteUrls(moreSiteUrlsList);
+            const moreSiteUrls = userAccountInfo.HasWebSite ? this.handleGetMoreSiteUrls(moreSiteUrlsList) : '';
             const newUserAccountInfo = Object.assign({}, userAccountInfoAfterTrim, { MoreSiteUrls: moreSiteUrls });
-
             const result = await this.props.updateUserAccount(newUserAccountInfo);
 
             if (result) {
+                console.log(result);
                 this.setState({
                     isShowMessage: true,
                     isSuccess: result.IsSuccessful,
                     message: result.IsSuccessful ? `${userAccountInfo.AffName} has been updated successfully!` : result.Message,
                 }, () => window.setTimeout(() => {
                     this.hideMessage();
-                    result.IsSuccessful && this.props.getAffiliateInfo(affName, userPanelMenuKey.edit)
+                    if (result.IsSuccessful) {
+                        console.log(123);
+                        this.props.getUserAccountInfo(affId);
+                        this.props.getAffiliateInfo(affName, userPanelMenuKey.edit);
+                    }
                 }, 3000));
             }
             else {

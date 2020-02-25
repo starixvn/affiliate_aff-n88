@@ -39,7 +39,11 @@ export class WebSite extends PureComponent {
     }
 
     handleAddUrl = () => {
-        const { moreSiteUrlsList } = this.props;
+        const { moreSiteUrlsList, userAccountInfo } = this.props;
+        if (!userAccountInfo.SiteUrl.trim()) {
+            this.setState({ messageNotification: `Please input Website URL` });
+            return;
+        }
         const newMoreSiteUrlsList = moreSiteUrlsList.map(siteUrl => siteUrl.trim());
         const findIndex = newMoreSiteUrlsList.indexOf('');
 
@@ -61,13 +65,19 @@ export class WebSite extends PureComponent {
         this.props.setMoreSiteUrlsList(moreSiteUrlsList);
     }
 
+    handleChangeHasWebSite = (hasWebSite) => {
+        const newUserAccountInfo = Object.assign({}, this.props.userAccountInfo, { HasWebSite: hasWebSite });
+
+        this.props.setUserAccountInfo(newUserAccountInfo);
+    }
+
     _renderMoreSiteUrl(moreSiteUrlsList) {
         return (
             <React.Fragment>
                 {
                     moreSiteUrlsList.map((value, index) => {
                         return (
-                            <FormGroup row key={`siteUrl${index}`}>
+                            <FormGroup row key={`siteUrl${index} ${123}`}>
                                 <Label for={`${index}`} sm={3} xl={2} className="required">Website URL {index + 2}</Label>
                                 <Col sm={5} xl={6}>
                                     <input className="form-control" name={index} value={value} onChange={this.handleChangeMoreUrl} ref={this.moreSiteUrlRefs[index]} />
@@ -88,21 +98,35 @@ export class WebSite extends PureComponent {
         return (
             <React.Fragment>
                 <Form tag="div">
-                    <FormGroup row>
-                        <Label for="siteUrl" sm={3} xl={2} className="required">Website URL</Label>
-                        <Col sm={5} xl={6}>
-                            <Input type="text" name="siteUrl" value={userAccountInfo.SiteUrl} onChange={this.handleChange} />
-                        </Col>
-                        <Button outline color="secondary" className="mb-2" onClick={this.handleAddUrl}>Add Url</Button>
+                    <FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="radio" checked={userAccountInfo.HasWebSite} onChange={() => this.handleChangeHasWebSite(true)} />I have my own website
+                        </Label>
+                        </FormGroup>
+                        <FormGroup row className="pt-1">
+                            <Label for="siteUrl" sm={3} xl={2} className="required">Website URL</Label>
+                            <Col sm={5} xl={6}>
+                                <Input type="text" name="siteUrl" disabled={!userAccountInfo.HasWebSite} value={userAccountInfo.SiteUrl} onChange={this.handleChange} />
+                            </Col>
+                            <Button outline color="secondary" className="mb-2" onClick={this.handleAddUrl}>Add Url</Button>
+                        </FormGroup>
+                        {
+                            this._renderMoreSiteUrl(moreSiteUrlsList)
+                        }
                     </FormGroup>
-                    {
-                        this._renderMoreSiteUrl(moreSiteUrlsList)
-                    }
-                    <FormGroup row>
-                        <Label for="noSiteDescription" sm={3} xl={2}>I do not have a website Please describe how you would like to promote 12Bet if you do not have the URL .</Label>
-                        <Col sm={6} xl={7}>
-                            <Input type="textarea" style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
-                        </Col>
+                    <FormGroup className="pt-3">
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="radio" checked={!userAccountInfo.HasWebSite} onChange={() => this.handleChangeHasWebSite(false)} />I don't have a website
+                        </Label>
+                        </FormGroup>
+                        <FormGroup row className="pt-1">
+                            <Label for="noSiteDescription" sm={3} xl={2} className="required">{`Please describe how you would like to promote ${window.initialState.licenseeName} if you don't have the URL`}</Label>
+                            <Col sm={6} xl={7}>
+                                <Input type="textarea" disabled={userAccountInfo.HasWebSite} style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
+                            </Col>
+                        </FormGroup>
                     </FormGroup>
                 </Form>
                 {

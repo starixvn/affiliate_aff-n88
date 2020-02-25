@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         public string Country { get; set; }
 
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
-        [Required]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string SiteUrl { get; set; }
 
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
@@ -74,5 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         public bool MailOption { get; set; }
 
         public IEnumerable<ContactApp> ContactAppList { get; set; }
+
+        public bool HasWebSite { get; set; }
     }
 }
