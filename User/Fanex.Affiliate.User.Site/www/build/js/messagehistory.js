@@ -227,7 +227,7 @@
         pickWholeWeek: false,
 
         // used internally (don't config outside)
-        minYear: 0,
+        minYear: 2020,
         maxYear: 9999,
         minMonth: undefined,
         maxMonth: undefined,

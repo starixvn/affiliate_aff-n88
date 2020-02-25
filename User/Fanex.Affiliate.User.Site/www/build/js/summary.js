@@ -6,7 +6,7 @@
             ['Jul', 'Aug', 'Sep'],
             ['Oct', 'Nov', 'Dec']
         ],
-        range: [new Date(2000, 0, 1), new Date()],
+        range: [new Date(2020, 1, 1), new Date()],
         disableFutureMonth: true,
         closeOnSelected: true,
         triggerSelector: undefined,
