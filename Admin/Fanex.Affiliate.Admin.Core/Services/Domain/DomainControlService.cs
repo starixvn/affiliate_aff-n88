@@ -97,7 +97,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
         private static void AssignParam(IObjectDb objectDb, InsertUpdateDomainControlParam param)
         {
             objectDb.AddInParameter("AffDomainID", DbType.Int32, param.AffDomainId);
-            objectDb.AddInParameter("12BetDomainID", DbType.Int32, param.RedirectDomainId);
+            objectDb.AddInParameter("LicenseeDomainId", DbType.Int32, param.RedirectDomainId);
             objectDb.AddInParameter("MarketID", DbType.String, param.MarketId);
             objectDb.AddInParameter("Status", DbType.Int32, param.IsUsed);
             objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);

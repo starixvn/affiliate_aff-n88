@@ -58,9 +58,6 @@
     <Setting Key="Aff_Admin_AffiliateNote_Detail_Sel" SpName="Aff_Admin_AffiliateNote_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateNote_Ins" SpName="Aff_Admin_AffiliateNote_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateNote_Upd" SpName="Aff_Admin_AffiliateNote_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsDetailBySite" SpName="Aff_ClickStatisticsDetailBySite" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage" DbName="affiliate_n88" />
