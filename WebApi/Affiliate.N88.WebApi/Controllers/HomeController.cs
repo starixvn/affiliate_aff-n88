@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 using Affiliate.N88.DTO;
+using Affiliate.N88.SpParams;
 using Fanex.Data.Repository;
 
 namespace Affiliate.N88.WebApi.Controllers

@@ -21,7 +21,7 @@ namespace Affiliate.N88.Repository
             return time;
         }
 
-        public async Task ImportMemberAsync(MemberInfo memberInfo)
+        public async Task ImportMemberAsync(InsertMemberInfoCommand memberInfo)
         {
             await _dynamicRepository.ExecuteAsync(memberInfo); 
             if(memberInfo.ErrCode != 0)

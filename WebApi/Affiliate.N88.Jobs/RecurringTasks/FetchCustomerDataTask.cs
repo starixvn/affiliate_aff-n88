@@ -90,7 +90,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         }
 
         //Todo - need clean code
-        private IEnumerable<(string, MemberInfo)> GetImportingData(IEnumerable<CustomerModel> customerData)
+        private IEnumerable<(string, InsertMemberInfoCommand)> GetImportingData(IEnumerable<CustomerModel> customerData)
         {
             var groupCustomer = customerData
                 .GroupBy(c => c.SiteName)
@@ -99,11 +99,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return groupCustomer;
         }
 
-        private MemberInfo GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
+        private InsertMemberInfoCommand GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
         {
             var prefixSettingCode = GetSettingCodePrefix(siteName);
             var xml = BuildXml(customers);
-            var member = new MemberInfo(new PrefixProvider(prefixSettingCode))
+            var member = new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
             {
                 XmlData = xml
             };

@@ -3,13 +3,15 @@ using System;
 
 namespace Affiliate.N88.DTO
 {
-    public class MemberInfo : IdenticalSuffixNonQueryCommand
+    public class InsertMemberInfoCommand : IdenticalSuffixNonQueryCommand
     {
-        public MemberInfo(IPrefixProvider prefixProvider) : base(prefixProvider)
+        public InsertMemberInfoCommand(IPrefixProvider prefixProvider) : base(prefixProvider)
         { }
 
         public string XmlData { get; set; }
+
         public int ErrCode { get; set; } = 0;
+
         public string ErrMsg { get; set; } = String.Empty;
 
         protected override string SuffixSettingKey => "Task_Aff_MemberInfo_Import";
