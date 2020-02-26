@@ -3797,24 +3797,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Non-deposited account only.
-        /// </summary>
-        public static string NonDeposit {
-            get {
-                return ResourceManager.GetString("NonDeposit", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to non-deposited account only.
-        /// </summary>
-        public static string NonDeposited {
-            get {
-                return ResourceManager.GetString("NonDeposited", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to None.
         /// </summary>
         public static string none {

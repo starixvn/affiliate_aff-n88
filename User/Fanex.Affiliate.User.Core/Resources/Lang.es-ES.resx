@@ -1111,9 +1111,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>No hay información disponible</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Sólo cuenta sin depósito</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>ninguno</value>
   </data>

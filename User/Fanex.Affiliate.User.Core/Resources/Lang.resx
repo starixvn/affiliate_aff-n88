@@ -1187,9 +1187,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>No information is available</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Non-deposited account only</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>None</value>
   </data>
@@ -2150,9 +2147,6 @@
   <data name="ForgotLoginDetail" xml:space="preserve">
     <value>Forgot Login Details?</value>
     <comment>87923</comment>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>non-deposited account only</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>

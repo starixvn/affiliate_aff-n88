@@ -5,7 +5,7 @@ import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
-import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPayment, nondeposited } from '../../modules/constants';
+import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPayment } from '../../modules/constants';
 
 const paymentMethodList = [
     { key: playerMethod, value: `${window.initialState.licenseeName} player account` },
@@ -82,9 +82,6 @@ export class Payment extends PureComponent {
                     <p>{minimumPayment}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
-                {
-                    userAccountInfo.PreferredPayment === playerMethod && <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{nondeposited}</p>
-                }
             </Form>
         )
     }

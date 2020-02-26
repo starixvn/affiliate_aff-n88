@@ -1122,9 +1122,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>Tidak ada informasi yang tersedia</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Hanya rekening non setoran</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>Tidak ada</value>
   </data>
@@ -2019,9 +2016,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>Mobile</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>akun non-deposit - jika sudah pernah Deposit, silakan buat baru khusus Afiliasi</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>

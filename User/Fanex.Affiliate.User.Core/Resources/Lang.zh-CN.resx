@@ -1122,9 +1122,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>没有任何资料</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>仅未存款账户</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>无</value>
   </data>
@@ -2028,9 +2025,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>手机号码</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>仅限未存款玩家</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>12BET玩家账号</value>

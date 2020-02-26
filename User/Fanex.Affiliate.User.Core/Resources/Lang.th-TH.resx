@@ -1120,9 +1120,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>ไม่มีข้อมูลในขณะนี้</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>บัญชีนี้ไม่สามารถใช้ฝากเงินได้</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>ไม่มี</value>
   </data>
@@ -2020,9 +2017,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>มือถือ</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>ใช้ยูสเซอร์ที่ไม่เคยฝากเงินเท่านั้น</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>ยูสเซอร์เนมรับค่าคอมมิชชั่น</value>

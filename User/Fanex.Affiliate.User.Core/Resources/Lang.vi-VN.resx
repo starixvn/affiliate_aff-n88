@@ -1122,9 +1122,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>Không có thông tin nào</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Chỉ cho phép tài khoản không có tiền gửi</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>Không tên</value>
   </data>
@@ -2022,9 +2019,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>Di động</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>Tài khoản chưa từng gửi tiền</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Tên truy cập 12BET</value>

@@ -1138,9 +1138,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>정보를 볼수 없습니다.</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>입금한 적 없는 아이디를 입력하셔야 수익 분배금이 해당 아이디 계정으로 적립되고 출금하실 수 있습니다.</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>없음</value>
   </data>
@@ -2013,9 +2010,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>모바일</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>본사로 입금한 내역이 없는 계정</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>아이디</value>
