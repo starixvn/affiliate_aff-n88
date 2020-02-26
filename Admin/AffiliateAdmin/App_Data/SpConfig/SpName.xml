@@ -121,10 +121,10 @@
     <Setting Key="Aff_Admin_AffiliateDomain_Ins" SpName="Aff_Admin_AffiliateDomain_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateDomain_Upd" SpName="Aff_Admin_AffiliateDomain_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateDomain_Del" SpName="Aff_Admin_AffiliateDomain_Del" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Sel" SpName="Aff_Admin_12BETDomain_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Ins" SpName="Aff_Admin_12BETDomain_Ins" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Upd" SpName="Aff_Admin_12BETDomain_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Del" SpName="Aff_Admin_12BETDomain_Del" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Sel" SpName="Aff_Admin_LicenseeDomain_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Ins" SpName="Aff_Admin_LicenseeDomain_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Upd" SpName="Aff_Admin_LicenseeDomain_Upd" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Del" SpName="Aff_Admin_LicenseeDomain_Del" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Ins" SpName="Aff_Admin_DomainControl_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Upd" SpName="Aff_Admin_DomainControl_Upd" DbName="affiliate_n88" />

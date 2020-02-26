@@ -67,7 +67,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_12BETDomain_Sel", 120)).Returns(objectDb.Object);
+            service.Setup(r => r.GetObjectDb("Aff_Admin_LicenseeDomain_Sel", 120)).Returns(objectDb.Object);
 
             // Action
             var result = service.Object.GetDomainList(false);
@@ -104,7 +104,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_12BETDomain_Ins", 120)).Returns(objectDb.Object);
+            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Ins", 120)).Returns(objectDb.Object);
 
             // Action
             var result = service.Object.InsertDomain(new InsertUpdateDomainParam());
@@ -142,7 +142,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_12BETDomain_Upd", 120)).Returns(objectDb.Object);
+            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Upd", 120)).Returns(objectDb.Object);
 
             // Action
             var result = service.Object.UpdateDomain(new InsertUpdateDomainParam());
@@ -180,7 +180,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_12BETDomain_Del", 120)).Returns(objectDb.Object);
+            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Del", 120)).Returns(objectDb.Object);
 
             // Action
             var result = service.Object.DeleteDomain(new DeleteDomainParam());

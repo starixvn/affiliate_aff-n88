@@ -14,7 +14,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
     {
         public IEnumerable<DomainInfo> GetDomainList(bool isAffDomain)
         {
-            var spKey = isAffDomain ? "Aff_Admin_AffiliateDomain_Sel" : "Aff_Admin_12BETDomain_Sel";
+            var spKey = isAffDomain ? "Aff_Admin_AffiliateDomain_Sel" : "Aff_Admin_LicenseeDomain_Sel";
 
             var result = new List<DomainInfo>();
 
@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo InsertDomain(InsertUpdateDomainParam param)
         {
-            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Ins" : "Aff_Admin_12BETDomain_Ins";
+            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Ins" : "Aff_Admin_LicenseeDomain_Ins";
 
             using (var objectDb = GetObjectDb(spKey))
             {
@@ -48,7 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo UpdateDomain(InsertUpdateDomainParam param)
         {
-            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Upd" : "Aff_Admin_12BETDomain_Upd";
+            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Upd" : "Aff_Admin_LicenseeDomain_Upd";
 
             using (var objectDb = GetObjectDb(spKey))
             {
@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo DeleteDomain(DeleteDomainParam param)
         {
-            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Del" : "Aff_Admin_12BETDomain_Del";
+            var spKey = param.IsAffDomain ? "Aff_Admin_AffiliateDomain_Del" : "Aff_Admin_LicenseeDomain_Del";
 
             using (var objectDb = GetObjectDb(spKey))
             {
