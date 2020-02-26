@@ -28,7 +28,7 @@ export class AppContainer extends PureComponent {
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter />
+                <Filter/>
                 <Content />
             </AppLayout>
         );

@@ -1,6 +1,6 @@
 import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
-import { getProductList as productList } from '../../../customer/user-panel/modules/service';
+import { getProductList as productList, getCurrencies as currencyList } from '../../../customer/user-panel/modules/service';
 import { setSelectedUserPanel, redirectToDailyEarning } from '../../../customer/user-panel/actions';
 import { SET_PARAM } from './types';
 
@@ -14,6 +14,7 @@ export const setParam = (data) => {
 }
 
 export const getProductList = () => productList;
+export const getCurrencyList = () => currencyList;
 
 export const fetchData = (param) => async() => {
     const url = 'Portal/UserPanel/StatementHistory/GetDailyEarningDetail';

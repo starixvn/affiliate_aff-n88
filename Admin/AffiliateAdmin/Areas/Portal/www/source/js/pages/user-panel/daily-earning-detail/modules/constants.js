@@ -5,8 +5,8 @@ import { selectedAllProduct, maxWidth, monthNames } from '../../../../modules/co
 export { selectedAllProduct, globalResource, maxWidth, userPanelMenuKey, monthNames }
 
 export const resource = {
-    UserName12Bet: '12BET User Name',
-    IbcUserName: 'IBC User Name',
+    UserName: 'User Name',
+    SystemUserName: 'System User Name',
     Winlost: 'Winlost',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',

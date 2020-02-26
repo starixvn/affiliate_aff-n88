@@ -43,8 +43,8 @@ export class Content extends PureComponent {
         return (
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>
-                <Cell header={true} colWidth={100} title={resource.UserName12Bet}>{resource.UserName12Bet}</Cell>
-                <Cell header={true} colWidth={100} title={resource.IbcUserName}>{resource.IbcUserName}</Cell>
+                <Cell header={true} colWidth={100} title={resource.UserName}>{resource.UserName}</Cell>
+                <Cell header={true} colWidth={100} title={resource.SystemUserName}>{resource.SystemUserName}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Winlost}>{resource.Winlost}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>

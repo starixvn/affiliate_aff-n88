@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 
         [Required]
         public DateTime? MonthDate { get; set; }
+
+        public int CurrencyId { get; set; } = 0;
     }
 }

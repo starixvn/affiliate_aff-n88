@@ -65,6 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
                 objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
                 objectDb.AddInParameter("MonthDate", DbType.DateTime, param.MonthDate);
+                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -94,6 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
                 objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
                 objectDb.AddInParameter("MonthDate", DbType.DateTime, param.MonthDate);
+                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

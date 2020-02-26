@@ -11,5 +11,6 @@ export const resource = {
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
     BankingFee: 'Banking Fee',
-    Total: 'Total'
+    Total: 'Total',
+    AllCurrency: 0,
 }
