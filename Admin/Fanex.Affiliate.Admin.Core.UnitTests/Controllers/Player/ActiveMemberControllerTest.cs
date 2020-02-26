@@ -1,4 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.Controllers.Member;
+﻿using Fanex.Affiliate.Admin.Core.Controllers.Player;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
@@ -12,7 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using Xunit;
 
-namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
+namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
 {
     public class ActiveMemberControllerTest
     {
@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
             var controller = CreateActiveMemberController();
 
             var urlHelperMock = new Mock<UrlHelper>();
-            urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal/ActiveMember");
+            urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal/ActivePlayer");
 
             controller.Url = urlHelperMock.Object;
             // Action
@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
             var viewName = viewResult.ViewName;
 
             // Assert
-            Assert.Equal("~/Areas/Portal/Views/Member/ActiveMember.cshtml", viewName);
+            Assert.Equal("~/Areas/Portal/Views/Player/ActiveMember.cshtml", viewName);
         }
 
         [Fact]

@@ -180,8 +180,8 @@
     <Compile Include="Controllers\MediaGallery\LandingPageControllerTest.cs" />
     <Compile Include="Controllers\MediaGallery\MediaGalleryControllerTest.cs" />
     <Compile Include="Controllers\MediaGallery\TextListControllerTest.cs" />
-    <Compile Include="Controllers\Member\ActiveMemberControllerTest.cs" />
-    <Compile Include="Controllers\Member\MemberControllerTest.cs" />
+    <Compile Include="Controllers\Player\ActiveMemberControllerTest.cs" />
+    <Compile Include="Controllers\Player\PlayerControllerTest.cs" />
     <Compile Include="Controllers\Message\MessageControllerTest.cs" />
     <Compile Include="Controllers\ReportControllerTest.cs" />
     <Compile Include="Controllers\UnderMaintenanceControllerTest.cs" />

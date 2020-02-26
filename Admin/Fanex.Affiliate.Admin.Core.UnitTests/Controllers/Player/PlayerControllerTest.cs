@@ -1,4 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.Controllers.Member;
+﻿using Fanex.Affiliate.Admin.Core.Controllers.Player;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
@@ -13,9 +13,9 @@ using System.Web;
 using System.Web.Mvc;
 using Xunit;
 
-namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
+namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
 {
-    public class MemberControllerTest
+    public class PlayerControllerTest
     {
         [Fact]
         public void Index_WhenCall_ReturnView()
@@ -93,7 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
         //    Assert.Equal("No member specificed!", resultInfo.Message);
         //}
 
-        private MemberController CreateMemberController(
+        private PlayerController CreateMemberController(
             ISessionService sessionService = null,
             IMemberService memberService = null
             )
@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Member
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeMemberService = memberService ?? Mock.Of<IMemberService>();
 
-            var controller = new MemberController(fakeSessionService, fakeMemberService);
+            var controller = new PlayerController(fakeSessionService, fakeMemberService);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();
