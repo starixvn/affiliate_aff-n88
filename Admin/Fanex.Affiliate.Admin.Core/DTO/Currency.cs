@@ -1,7 +1,7 @@
 ﻿
 namespace Fanex.Affiliate.Admin.Core.DTO
 {
-    public class Currency
+    public class BaseCurrency
     {
         public int ExchangeId { get; set; }
 
