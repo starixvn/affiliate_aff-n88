@@ -76,6 +76,7 @@
             }
             else if (ModelState.IsValid)
             {
+                param.SubjectRaw = param.Subject;
                 param.Sender = Server.HtmlEncode(param.Sender);
                 param.Email = Server.HtmlEncode(param.Email);
                 param.Affiliate = Server.HtmlEncode(param.Affiliate);

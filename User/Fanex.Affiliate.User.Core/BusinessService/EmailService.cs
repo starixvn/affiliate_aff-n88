@@ -119,7 +119,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             const string TemplateName = "ContactUs";
             var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.DefaultLanguageCode, model);
 
-            var subject = $"{AppSetting.Instance.SiteFriendlyName} Affiliates - Contact Us - {model.Subject}";
+            var subject = $"{AppSetting.Instance.SiteFriendlyName} Affiliates - Contact Us - {model.SubjectRaw}";
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
         }
 

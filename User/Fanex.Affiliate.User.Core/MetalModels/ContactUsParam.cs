@@ -33,6 +33,9 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public string Captcha { get; set; }
 
         [SpParam(Ignored = true)]
+        public string SubjectRaw { get; set; }
+
+        [SpParam(Ignored = true)]
         public string SiteFiendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }
