@@ -29,7 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportBaseParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
             var item = result.MainData.FirstOrDefault();
 
             // Assert
@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportBaseParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
             var item = result.MainData.FirstOrDefault();
 
             // Assert
@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportBaseParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
 
             // Assert
             Assert.Empty(result.MainData);

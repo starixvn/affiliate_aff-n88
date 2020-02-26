@@ -2,7 +2,7 @@
     Statistics: "Statistics",
     UpToNow: "Up To Now",
     NewSignups: "New Signups/FDM",
-    TotalActive: "Total Active Members",
+    TotalActive: "Total Active Players",
     TotalDeposits: "Total Deposits",
     Turnover: "Turnover",
     Winlost: "Winlost",

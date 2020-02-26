@@ -1288,7 +1288,7 @@
   <data name="Qatar" xml:space="preserve">
     <value>การ์ต้า</value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
+  <data name="ActivePlayers" xml:space="preserve">
     <value>ผู้เล่นที่เข้าเกณฑ์</value>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1907,7 +1907,7 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>ค่าธรรมเนียมดำเนินการ</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
+  <data name="BankingFee" xml:space="preserve">
     <value>ค่าธรรมเนียมธุรกรรม</value>
   </data>
   <data name="CommRate" xml:space="preserve">

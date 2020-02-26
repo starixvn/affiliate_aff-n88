@@ -34,8 +34,8 @@ export const headerText = {
     UniqueClick: 'Unique Click',
     Signup: 'Signup',
     Fdm: 'FDM',
-    ActiveMember: 'Active Member',
-    QualifiedMember: 'Qualified Member',
+    ActiveMember: 'Active Player',
+    QualifiedMember: 'Qualified Player',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
@@ -50,7 +50,7 @@ export const headerText = {
     AffWithdrawal: 'Withdrawal',
     AffAdjustment: 'Adjustment',
     BalanceBf: 'Balance B/F',
-    MemberStatistics: 'Member Statistics',
+    MemberStatistics: 'Player Statistics',
     AffiliateStatistics: 'Affiliate Statistics',
     MonthOnMonth: 'Month on Month'
 }

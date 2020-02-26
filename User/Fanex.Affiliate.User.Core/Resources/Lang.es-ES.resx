@@ -1276,7 +1276,7 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
+  <data name="ActivePlayers" xml:space="preserve">
     <value>MIEMBROS DE CALIFICACION</value>
   </data>
   <data name="RecentPayment" xml:space="preserve">
@@ -1626,7 +1626,7 @@
     <value>Western Samoa </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Winlost</value>
+    <value>Win/Loss</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>

@@ -38,10 +38,10 @@ export class MemberStatistics extends PureComponent {
         const { isUpToNow, generalInfo } = this.props;
 
         return (
-            <Panel heading={`Member statistics (${isUpToNow ? 'up to now' : 'this month'})`} className={"icon-home02"}>
+            <Panel heading={`Player statistics (${isUpToNow ? 'up to now' : 'this month'})`} className={"icon-home02"}>
                 <Row>
                     <Col sm={12} className="pl-4">
-                        <span>We have <strong>0</strong> members in the program</span>
+                        <span>We have <strong>0</strong> players in the program</span>
                     </Col>
                     <Col sm={12} className="pl-4">
                         <span><strong>{format(isUpToNow ? generalInfo.AllMemberDepositNumber : generalInfo.AllMemberDepositMonthNumber)}</strong> Deposit / <strong>{format(isUpToNow ? (generalInfo.AllMemberDepositNumber) : (generalInfo.AllMemberDepositMonthNumber))}</strong> Non-Deposit</span>

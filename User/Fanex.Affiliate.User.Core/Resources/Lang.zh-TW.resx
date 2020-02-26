@@ -1287,7 +1287,7 @@
   <data name="Qatar" xml:space="preserve">
     <value>卡塔爾</value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
+  <data name="ActivePlayers" xml:space="preserve">
     <value>合格會員數</value>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1912,7 +1912,7 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>營運費</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
+  <data name="BankingFee" xml:space="preserve">
     <value>銀行手續費</value>
   </data>
   <data name="CommRate" xml:space="preserve">

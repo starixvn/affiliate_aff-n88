@@ -8,7 +8,7 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Services.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
 
-namespace Fanex.Affiliate.Admin.Core.Controllers.Member
+namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.ActiveMembers)]
     public class ActiveMemberController: BaseController
@@ -26,11 +26,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Member
         {
             var subMenu = new List<SubMenu>
             {
-                new SubMenu { Name = Lang.Member, Url = Url.Content("~/Portal/Member") },
-                new SubMenu { Name = Lang.ActiveMember, Url = Url.Content("~/Portal/ActiveMember"), IsActive = true }
+                new SubMenu { Name = Lang.Player, Url = Url.Content("~/Portal/Player") },
+                new SubMenu { Name = Lang.ActivePlayer, Url = Url.Content("~/Portal/ActiveMember"), IsActive = true }
             };
 
-            return View("~/Areas/Portal/Views/Member/ActiveMember.cshtml", subMenu);
+            return View("~/Areas/Portal/Views/Player/ActiveMember.cshtml", subMenu);
         }
 
         [HttpPost]

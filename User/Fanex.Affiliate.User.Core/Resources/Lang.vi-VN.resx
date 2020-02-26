@@ -289,7 +289,7 @@
     <value>Bolivia </value>
   </data>
   <data name="Bonus" xml:space="preserve">
-    <value>Thưởng</value>
+    <value>Tiền thưởng</value>
   </data>
   <data name="BosniaandHerzegovina" xml:space="preserve">
     <value>Bosnia và Herzegovina </value>
@@ -418,7 +418,7 @@
     <value>Nội dung</value>
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
-    <value>Nhận xét không hợp lệ</value>
+    <value>Nội dung không hợp lệ</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
     <value>Phần trăm hoa hồng</value>
@@ -1290,8 +1290,8 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
-    <value>Thành Viên Hợp Lệ Mỗi Tháng / Sản Phẩm</value>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Người chơi tích cực</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Đua Ngựa</value>
@@ -1477,7 +1477,7 @@
     <value>Hội viên 12BET - Chi tiết đăng nhập của bạn</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
-    <value>Chủ thể không hợp lệ</value>
+    <value>Tiêu đề không hợp lệ</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
     <value>Hội viên 12BET - Mật khẩu mới của bạn</value>
@@ -1550,7 +1550,7 @@
     <value>Togo </value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Tổng Cộng</value>
+    <value>Tổng</value>
   </data>
   <data name="TotalActive" xml:space="preserve">
     <value>Tổng số người chơi có giao dịch</value>
@@ -1586,7 +1586,7 @@
     <value>Thổ Nhĩ Kỳ </value>
   </data>
   <data name="Turnover" xml:space="preserve">
-    <value>Doanh Thu</value>
+    <value>Tiền cược</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Loại giao dịch</value>
@@ -1664,7 +1664,7 @@
     <value>Tây Samoa </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Tiền thắng thua của thành viên</value>
+    <value>Thắng/Thua</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Năm</value>
@@ -1906,8 +1906,8 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>Chi Phí Vận Hành</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Chi Phí Ngân Hàng</value>
+  <data name="BankingFee" xml:space="preserve">
+    <value>Phí Ngân Hàng</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>% Hoa Hồng</value>
@@ -2169,5 +2169,32 @@
   </data>
   <data name="SuffixProduct12AMBER" xml:space="preserve">
     <value>(BETSOFT)</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Thống Kê</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Lần đăng nhập cuối:</value>
+  </data>
+  <data name="LastLoginIpAddress" xml:space="preserve">
+    <value>IP lần đăng nhập cuối:</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>Hoa hồng</value>
+  </data>
+  <data name="BalanceBroughtFoward" xml:space="preserve">
+    <value>Số dư lũy kế</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Tổng tiền đặt cược</value>
+  </data>
+  <data name="DepositedPlayers" xml:space="preserve">
+    <value>Người chơi đã nộp tiền</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Tổng quan</value>
+  </data>
+  <data name="PlayersDetails" xml:space="preserve">
+    <value>Chi tiết người chơi</value>
   </data>
 </root>

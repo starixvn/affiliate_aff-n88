@@ -10,7 +10,7 @@ export const memberTypes = {
 
 export const resource = {
     ...globalResource,
-    Member: 'Member',
+    Member: 'Player',
     UserName: 'User Name',
     FirstName: 'First Name',
     LastName: 'Last Name',

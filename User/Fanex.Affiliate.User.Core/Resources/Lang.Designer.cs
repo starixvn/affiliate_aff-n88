@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -138,6 +138,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ActivatedTrackingCode {
             get {
                 return ResourceManager.GetString("ActivatedTrackingCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Players.
+        /// </summary>
+        public static string ActivePlayers {
+            get {
+                return ResourceManager.GetString("ActivePlayers", resourceCulture);
             }
         }
         
@@ -475,6 +484,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Balance Brought Foward.
+        /// </summary>
+        public static string BalanceBroughtFoward {
+            get {
+                return ResourceManager.GetString("BalanceBroughtFoward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance Brought Forward.
         /// </summary>
         public static string BalForward {
@@ -565,11 +583,11 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Banking Fees.
+        ///   Looks up a localized string similar to Banking Fee.
         /// </summary>
-        public static string BankingFees {
+        public static string BankingFee {
             get {
-                return ResourceManager.GetString("BankingFees", resourceCulture);
+                return ResourceManager.GetString("BankingFee", resourceCulture);
             }
         }
         
@@ -1204,6 +1222,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Commission.
+        /// </summary>
+        public static string Commission {
+            get {
+                return ResourceManager.GetString("Commission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission Report.
         /// </summary>
         public static string CommissionReport {
@@ -1549,11 +1576,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Deposit.
+        ///   Looks up a localized string similar to Deposited.
         /// </summary>
         public static string Deposit {
             get {
                 return ResourceManager.GetString("Deposit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposited Players.
+        /// </summary>
+        public static string DepositedPlayers {
+            get {
+                return ResourceManager.GetString("DepositedPlayers", resourceCulture);
             }
         }
         
@@ -3016,6 +3052,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Login:.
+        /// </summary>
+        public static string LastLogin {
+            get {
+                return ResourceManager.GetString("LastLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last Login IP Address:.
+        /// </summary>
+        public static string LastLoginIpAddress {
+            get {
+                return ResourceManager.GetString("LastLoginIpAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name is required.
         /// </summary>
         public static string LastNameIsRequired {
@@ -3959,6 +4013,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Overview {
+            get {
+                return ResourceManager.GetString("Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I have my own website.
         /// </summary>
         public static string OwnWebsite {
@@ -4243,6 +4306,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Player {
             get {
                 return ResourceManager.GetString("Player", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players Details.
+        /// </summary>
+        public static string PlayersDetails {
+            get {
+                return ResourceManager.GetString("PlayersDetails", resourceCulture);
             }
         }
         
@@ -4585,15 +4657,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Qatar {
             get {
                 return ResourceManager.GetString("Qatar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Qualifying Members.
-        /// </summary>
-        public static string QualifyingMem {
-            get {
-                return ResourceManager.GetString("QualifyingMem", resourceCulture);
             }
         }
         
@@ -5408,6 +5471,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string Summary {
+            get {
+                return ResourceManager.GetString("Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8).
         /// </summary>
         public static string SupportTime {
@@ -5711,6 +5783,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalQualifiedMembers {
             get {
                 return ResourceManager.GetString("TotalQualifiedMembers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Turnover.
+        /// </summary>
+        public static string TotalTurnover {
+            get {
+                return ResourceManager.GetString("TotalTurnover", resourceCulture);
             }
         }
         
@@ -6156,7 +6237,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Winlost.
+        ///   Looks up a localized string similar to Win/Loss.
         /// </summary>
         public static string Winlost {
             get {

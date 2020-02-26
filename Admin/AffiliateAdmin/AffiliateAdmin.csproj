@@ -714,8 +714,8 @@
     <Content Include="Areas\Portal\Views\MediaGallery\LandingPageList.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\Filter.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\Content.jsx" />
-    <Content Include="Areas\Portal\Views\Member\ActiveMember.cshtml" />
-    <Content Include="Areas\Portal\Views\Member\_MemberSubMenu.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\ActiveMember.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\_MemberSubMenu.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\login\index.jsx" />
@@ -1066,7 +1066,7 @@
     <Content Include="Areas\Portal\www\source\style\layout\main-layout.scss" />
     <Content Include="Areas\Portal\www\source\style\layout\_menu.scss" />
     <Content Include="Areas\Portal\Views\Customer\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\Member\Index.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\Index.cshtml" />
     <Content Include="Areas\Portal\Views\Report\Index.cshtml" />
     <Content Include="Areas\Portal\Views\MediaGallery\Index.cshtml" />
     <Content Include="Areas\Portal\Views\Message\Index.cshtml" />
@@ -1401,7 +1401,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties App_3Data_4EBetConfig_1json__JSONSchema="http://json.schemastore.org/apple-app-site-association" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

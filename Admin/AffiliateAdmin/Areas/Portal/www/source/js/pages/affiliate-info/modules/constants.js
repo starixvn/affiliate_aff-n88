@@ -19,7 +19,7 @@ export const sortByList = {
     'Registration Date': 2,
     'Approval Date': 3,
     'Balance B/F': 4,
-    'Member': 5
+    'Player': 5
 }
 
 export const headerText = {
@@ -39,7 +39,7 @@ export const headerText = {
     Currency: 'Aff. Currency',
     PlayerUserName: 'Aff. Player',
     PlayerCurrency: 'Aff. Player Currency',
-    Member: 'Member',
+    Member: 'Player',
     Password: 'Password',
 }
 

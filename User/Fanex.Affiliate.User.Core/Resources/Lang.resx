@@ -546,7 +546,7 @@
     <value>Denmark </value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>Deposit</value>
+    <value>Deposited</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -1373,8 +1373,8 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
-    <value>Qualifying Members</value>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Active Players</value>
     <comment>87923</comment>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1788,7 +1788,7 @@
     <value>Western Samoa </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Winlost</value>
+    <value>Win/Loss</value>
   </data>
   <data name="Withdrawal" xml:space="preserve">
     <value>Withdrawal</value>
@@ -1889,8 +1889,8 @@
     <value>Uncalculated</value>
     <comment>87923</comment>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Banking Fees</value>
+  <data name="BankingFee" xml:space="preserve">
+    <value>Banking Fee</value>
     <comment>87923</comment>
   </data>
   <data name="CommRate" xml:space="preserve">
@@ -2319,5 +2319,32 @@
   <data name="MKK" xml:space="preserve">
     <value>MMK</value>
     <comment>MMK</comment>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Last Login:</value>
+  </data>
+  <data name="LastLoginIpAddress" xml:space="preserve">
+    <value>Last Login IP Address:</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>Commission</value>
+  </data>
+  <data name="BalanceBroughtFoward" xml:space="preserve">
+    <value>Balance Brought Foward</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Total Turnover</value>
+  </data>
+  <data name="DepositedPlayers" xml:space="preserve">
+    <value>Deposited Players</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="PlayersDetails" xml:space="preserve">
+    <value>Players Details</value>
   </data>
 </root>

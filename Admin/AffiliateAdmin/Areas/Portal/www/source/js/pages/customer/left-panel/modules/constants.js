@@ -15,7 +15,7 @@ export const resource = {
     LastLogin: 'Last Login',
     LastLoginIp: 'Last Login IP',
     Password: 'Password',
-    MemberList: 'Member List',
+    MemberList: 'Player List',
     Commission: 'Commission',
     CommGroup: 'Comm Group',
     BalanceForward: 'Balance Brought Forward',

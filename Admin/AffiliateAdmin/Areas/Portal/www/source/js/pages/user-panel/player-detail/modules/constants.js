@@ -8,7 +8,7 @@ export { globalResource, maxWidth, selectedAllProduct, shortedMonthNames, minMon
 export const headerText = {
     Index: '#',
     UserName: 'User Name',
-    IbcUserName: 'IBC User Name',
+    IbcUserName: 'System User Name',
     RegisteredDate: 'Registered Date',
     Turnover: 'Turnover',
     Winloss: 'Winlost',

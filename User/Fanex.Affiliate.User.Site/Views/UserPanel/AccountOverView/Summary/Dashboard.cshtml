@@ -1,17 +1,17 @@
 ﻿@model Fanex.Affiliate.User.Core.DTO.UserPanel.OverviewSummary
 
-<span class="my-account">My Account</span>
+<span class="my-account">@Lang.MyAccount</span>
 <div class="group group-one">
     <div class="img-icon">
         <img class="img-responsive" src="~/www/build/styles/Images/account-overview/new-sign-up.png" />
     </div>
     <div class="info-panel">
-        <span class="info-panel-title">New Signups / Deposited</span>
+        <span class="info-panel-title">@Lang.NewSignup / @Lang.Deposit</span>
         <span class="info-panel-content">@($"{Model.Signups}/{Model.DepositedMembers}")</span>
     </div>
 
     <div class="info-panel">
-        <span class="info-panel-title">Active Members</span>
+        <span class="info-panel-title">@Lang.ActivePlayers</span>
         <span class="info-panel-content">@($"{Model.ActivePlayers}")</span>
     </div>
 </div>
@@ -20,11 +20,11 @@
         <img class="img-responsive" src="~/www/build/styles/Images/account-overview/commission.png" />
     </div>
     <div class="info-panel">
-        <span class="info-panel-title">Commission</span>
+        <span class="info-panel-title">@Lang.Commission</span>
         <span class="info-panel-content">@Model.Commission.ToStringMoneyWithSymbol()</span>
     </div>
     <div class="info-panel">
-        <span class="info-panel-title">Balance Brought Forward</span>
+        <span class="info-panel-title">@Lang.BalanceBroughtFoward</span>
         <span class="info-panel-content">@Model.BalanceBroughtForward.ToStringMoneyWithSymbol()</span>
     </div>
 </div>
@@ -33,11 +33,11 @@
         <img class="img-responsive" src="~/www/build/styles/Images/account-overview/total-deposit.png" />
     </div>
     <div class="info-panel">
-        <span class="info-panel-title">Total Deposits</span>
+        <span class="info-panel-title">@Lang.TotalDeposit</span>
         <span class="info-panel-content">@Model.Deposit.ToStringMoneyWithSymbol()</span>
     </div>
     <div class="info-panel">
-        <span class="info-panel-title">Total Turnover</span>
+        <span class="info-panel-title">@Lang.TotalTurnover</span>
         <span class="info-panel-content">@Model.Turnover.ToStringMoneyWithSymbol()</span>
     </div>
 </div>

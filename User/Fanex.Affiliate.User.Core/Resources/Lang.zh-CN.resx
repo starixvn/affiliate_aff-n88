@@ -1290,7 +1290,7 @@
   <data name="Qatar" xml:space="preserve">
     <value>卡塔尔</value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
+  <data name="ActivePlayers" xml:space="preserve">
     <value>合格会员数</value>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1915,7 +1915,7 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>营运费</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
+  <data name="BankingFee" xml:space="preserve">
     <value>银行手续费</value>
   </data>
   <data name="CommRate" xml:space="preserve">

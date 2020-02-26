@@ -206,8 +206,8 @@
     <Compile Include="Controllers\MediaGallery\LandingPageListController.cs" />
     <Compile Include="Controllers\MediaGallery\MediaGalleryController.cs" />
     <Compile Include="Controllers\MediaGallery\TextListController.cs" />
-    <Compile Include="Controllers\Member\ActiveMemberController.cs" />
-    <Compile Include="Controllers\Member\MemberController.cs" />
+    <Compile Include="Controllers\Player\ActiveMemberController.cs" />
+    <Compile Include="Controllers\Player\PlayerController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\Affiliate\PaymentRequestController.cs" />
     <Compile Include="Controllers\ReportController.cs" />

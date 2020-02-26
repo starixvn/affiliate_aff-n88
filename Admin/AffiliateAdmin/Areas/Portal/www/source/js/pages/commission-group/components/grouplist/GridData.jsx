@@ -87,8 +87,8 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={80}>Tier</Cell>
                 <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min Amount</Cell>
                 <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
-                <Cell header={true} colWidth={80} title="Minimum number of qualified members">Min AM</Cell>
-                <Cell header={true} colWidth={80} title="Maximum number of qualified members">Max AM</Cell>
+                <Cell header={true} colWidth={80} title="Minimum number of active players">Min AP</Cell>
+                <Cell header={true} colWidth={80} title="Maximum number of active players">Max AP</Cell>
                 <Cell header={true} colWidth={80}>Comm Rate</Cell>
                 <Cell header={true} colWidth={80}>Operational Fee</Cell>
                 <Cell header={true} colWidth={80}>Banking Fee</Cell>

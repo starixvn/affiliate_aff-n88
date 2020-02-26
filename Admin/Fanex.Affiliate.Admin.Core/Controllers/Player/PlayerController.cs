@@ -10,13 +10,13 @@ using Fanex.Affiliate.Admin.Core.Services.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
 
-namespace Fanex.Affiliate.Admin.Core.Controllers.Member
+namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    public class MemberController : BaseController
+    public class PlayerController : BaseController
     {
         private readonly IMemberService _memberService;
-        public MemberController(
+        public PlayerController(
             ISessionService sessionService,
             IMemberService memberService) : base(sessionService)
         {
@@ -28,8 +28,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Member
         {
             var subMenu = new List<SubMenu>
             {
-                new SubMenu { Name = Lang.Member, Url = Url.Content("~/Portal/Member"), IsActive = true }
-                //new SubMenu { Name = Lang.ActiveMember, Url = Url.Content("~/Portal/ActiveMember") }
+                new SubMenu { Name = Lang.Player, Url = Url.Content("~/Portal/Player"), IsActive = true }
+                //new SubMenu { Name = Lang.ActivePlayer, Url = Url.Content("~/Portal/ActiveMember") }
             };
 
             var model = new MemberListViewModel

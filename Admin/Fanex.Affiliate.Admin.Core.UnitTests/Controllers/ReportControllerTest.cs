@@ -42,10 +42,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void GetMainData_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = new AffiliateReportBaseParam();
-            AffiliateReportBaseParam passedParam = null;
+            var param = new AffiliateReportMainParam();
+            AffiliateReportMainParam passedParam = null;
             var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportBaseParam>(p => passedParam = p);
+            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportMainParam>(p => passedParam = p);
             var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
 
             // Action
@@ -99,15 +99,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             ISessionService sessionService = null,
             IProductRepository productRepository = null,
             ILanguageService languageService = null,
-            IAffiliateReportService affiliateReportService = null
+            IAffiliateReportService affiliateReportService = null,
+            ICurrencyRepository currencyRepository = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeAffiliateReportService = affiliateReportService ?? Mock.Of<IAffiliateReportService>();
+            var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
 
-            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService);
+            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService, fakeCurrencyRepository);
         }
     }
 }

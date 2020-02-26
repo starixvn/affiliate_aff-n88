@@ -61,11 +61,11 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active member.
+        ///   Looks up a localized string similar to Active Player.
         /// </summary>
-        public static string ActiveMember {
+        public static string ActivePlayer {
             get {
-                return ResourceManager.GetString("ActiveMember", resourceCulture);
+                return ResourceManager.GetString("ActivePlayer", resourceCulture);
             }
         }
         
@@ -394,15 +394,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Member.
-        /// </summary>
-        public static string Member {
-            get {
-                return ResourceManager.GetString("Member", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Message History.
         /// </summary>
         public static string MessageHistory {
@@ -453,6 +444,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string Pending {
             get {
                 return ResourceManager.GetString("Pending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player.
+        /// </summary>
+        public static string Player {
+            get {
+                return ResourceManager.GetString("Player", resourceCulture);
             }
         }
         

@@ -49,7 +49,7 @@ export default class AppContainer extends PureComponent {
         if (isValidAccount) {
             const param = { userName, password };
             const response = await post('Portal/Auth/Login', param);
-
+            console.log(response);
             if (response) {
                 const { data } = response;
 
@@ -81,48 +81,48 @@ export default class AppContainer extends PureComponent {
         const { userName, password, isShowMessage, message, year } = this.state;
 
         return (
-          <div className="login-container">
-          {/* <div className="lgRight"></div> */}
-          <div className="lgRp">
-              <div className="login-header">
+            <div className="login-container">
+                {/* <div className="lgRight"></div> */}
+                <div className="lgRp">
+                    <div className="login-header">
                         <div>Welcome to {window.initialState.licenseeName}<span> Login</span></div>
-                <p>Please sign in to continue to work</p>
-              </div>
-              <div className="war-box">
-                  <Alert color='danger' isOpen={isShowMessage}>
-                      <div dangerouslySetInnerHTML={{ __html: message }}></div>
-                  </Alert>
-              </div>
+                        <p>Please sign in to continue to work</p>
+                    </div>
+                    <div className="war-box">
+                        <Alert color='danger' isOpen={isShowMessage}>
+                            <div dangerouslySetInnerHTML={{ __html: message }}></div>
+                        </Alert>
+                    </div>
 
-              <Form tag="form" className="form-login" autocomplete="false">
-                  <FormGroup>
-                      {/* <span className="icUser">&nbsp;</span> */}
-                      <Label for="userName" className="form-login-text">User Name</Label>
-                      <div>
-                          <Input type="text" name="userName" id="userName" value={userName}
-                              onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                      </div>
-                  </FormGroup>
+                    <Form tag="form" className="form-login" autocomplete="false">
+                        <FormGroup>
+                            {/* <span className="icUser">&nbsp;</span> */}
+                            <Label for="userName" className="form-login-text">User Name</Label>
+                            <div>
+                                <Input type="text" name="userName" id="userName" value={userName}
+                                    onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
+                            </div>
+                        </FormGroup>
 
-                  <FormGroup>
-                      {/* <span className="icPass">&nbsp;</span> */}
-                      <Label for="passWord" className="form-login-text">Password</Label>
-                      <div>
-                          <Input type="password" name="password" id="password" autocomplete="false"
-                              value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                      </div>
-                  </FormGroup>
+                        <FormGroup>
+                            {/* <span className="icPass">&nbsp;</span> */}
+                            <Label for="passWord" className="form-login-text">Password</Label>
+                            <div>
+                                <Input type="password" name="password" id="password" autocomplete="false"
+                                    value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
+                            </div>
+                        </FormGroup>
 
-                  <div className="bt">
-                    <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
-                  </div>
-              </Form>
-          </div>
+                        <div className="bt">
+                            <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
+                        </div>
+                    </Form>
+                </div>
 
-          <div className="foot">
+                <div className="foot">
                     <span className="foot-rp">{`© Copyright 2020 ${window.initialState.licenseeName}`}</span>
-          </div>
-      </div>
+                </div>
+            </div>
         )
     }
 }

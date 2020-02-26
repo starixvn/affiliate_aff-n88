@@ -1290,7 +1290,7 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
+  <data name="ActivePlayers" xml:space="preserve">
     <value>Member Yang Memenuhi Syarat</value>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1664,7 +1664,7 @@
     <value>Samoa Barat </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Winlost</value>
+    <value>Win/Loss</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Tahun</value>
@@ -1903,8 +1903,8 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>Operational Fee</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Banking Fees</value>
+  <data name="BankingFee" xml:space="preserve">
+    <value>Banking Fee</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Comm. Rate</value>

@@ -7,10 +7,10 @@ export const headerText = {
     CheckStatus: 'Check Status',
     Index: '#',
     UserName: 'User Name',
-    IbcUserName: 'IBC User Name',
+    IbcUserName: 'System User Name',
     FirstName: 'First Name',
     LastName: 'Last Name',
-    IBCCustID: 'IBCCustID',
+    IBCCustID: 'System CustID',
     CreatedDate: 'Created Date',
     ActivateAll: 'Activate All'
 }
