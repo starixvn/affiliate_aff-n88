@@ -57,7 +57,8 @@ export class Filter extends PureComponent {
 
     handleGetCurrencies = async () => {
         const currencies = await this.props.getCurrencies();
-        this.setState({currencies});
+        const selectedCurrencyId = currencies && currencies.length && currencies[0].ExchangeId;
+        this.setState({currencies, selectedCurrencyId});
     }
 
     handleSelectMonth = (month, year) => {
@@ -149,9 +150,8 @@ export class Filter extends PureComponent {
                     </FormGroup>
 
                     <FormGroup className="mr-sm-2">
-                        <Label className="mr-2">{resource.Currency}</Label>
+                        <Label className="mr-2">{resource.BaseCurrency}</Label>
                         <Input type="select" name="Currency" id="Currency" value={selectedCurrencyId} onChange={this.handleChangeCurrency}>
-                            <option value="0">{resource.All}</option>
                             {
                                 currencies && currencies.map(c => {
                                     return(<option value={c.ExchangeId} key={c.ExchangeId}>{htmlDecode(c.Code)}</option>)

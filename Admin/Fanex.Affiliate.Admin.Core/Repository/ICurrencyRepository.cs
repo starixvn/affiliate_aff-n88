@@ -5,6 +5,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 {
     public interface ICurrencyRepository
     {
-        IEnumerable<Currency> GetBaseCurrencies();
+        IEnumerable<BaseCurrency> GetBaseCurrencies();
     }
 }

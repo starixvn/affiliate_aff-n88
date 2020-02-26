@@ -12,5 +12,8 @@ export const globalResource = {
     Delete: 'Delete',
     Cancel: 'Cancel',
     NoInfo: 'There is no information available',
-    Currency: 'Currency'
+    Currency: 'Currency',
+    BaseCurrency: 'Base Currency',
+    UserName: "User Name",
+    SystemUserName: "System Name"
 }

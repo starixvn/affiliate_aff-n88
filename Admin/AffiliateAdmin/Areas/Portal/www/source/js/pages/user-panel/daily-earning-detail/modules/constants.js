@@ -6,11 +6,12 @@ export { selectedAllProduct, globalResource, maxWidth, userPanelMenuKey, monthNa
 
 export const resource = {
     UserName: 'User Name',
-    SystemUserName: 'System User Name',
+    SystemUserName: globalResource.SystemUserName,
     Winlost: 'Winlost',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
     BankingFee: 'Banking Fee',
-    Total: 'Total'
+    Total: 'Total',
+    NoSelectedCurrency: 0
 }

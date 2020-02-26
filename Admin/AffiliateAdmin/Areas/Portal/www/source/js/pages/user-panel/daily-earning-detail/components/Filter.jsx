@@ -3,38 +3,29 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 
-import { selectedAllProduct, globalResource } from '../modules/constants';
-import { setParam, getProductList, getCurrencyList } from '../actions';
+import { selectedAllProduct, globalResource, resource } from '../modules/constants';
+import { setParam } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { param } = this.props;
+        const { param, currencyList } = this.props;
+        console.log(currencyList);
 
         this.state = {
-            productList: [],
             selectedProduct: param.productId || selectedAllProduct,
-            currencyList:[],
-            selectedCurrency: selectedAllProduct
+            selectedCurrency: param.currencyId || resource.NoSelectedCurrency
         }
     }
 
-    componentDidMount() {
-        this._fetchProductList();
-        this._fetchCurrencyList();
-        this.handleSetParam(this.state.selectedProduct);
-    }
-
-    async _fetchProductList() {
-        const productList = await this.props.getProductList();
-        this.setState({ productList });
-    }
-
-    async _fetchCurrencyList(){
-        const currencyList =  await this.props.getCurrencyList();
-        this.setState({currencyList});
+    componentWillReceiveProps(nextProps){
+        const currentSelectedCurrency = this.state.selectedCurrency;
+        if(nextProps.currencyList && nextProps.currencyList.length && !this.props.currencyList.length){
+            const selectedCurrency = currentSelectedCurrency === resource.NoSelectedCurrency ? nextProps.currencyList[0].ExchangeId : currentSelectedCurrency;
+            this.setState({selectedCurrency}, this.handleSetParam);
+        }
     }
 
     handleChangeProduct = (event) => {
@@ -44,17 +35,18 @@ export class Filter extends PureComponent {
 
     handleChangeCurrency = (event) => {
         const selectedCurrency = Number(event.target.value);
-        this.setState({selectedCurrency}, this.handleSetParam);
+        this.setState({ selectedCurrency }, this.handleSetParam);
     }
 
     handleSetParam() {
-        const {selectedProduct, selectedCurrency} = this.state;
-        const param = Object.assign(this.props.param, { productId: selectedProduct, currencyId : selectedCurrency });
+        const { selectedProduct, selectedCurrency } = this.state;
+        const param = Object.assign(this.props.param, { productId: selectedProduct, currencyId: selectedCurrency });
         this.props.setParam(param);
     }
 
     render() {
-        const { productList, selectedProduct, selectedCurrency, currencyList } = this.state;
+        const { selectedCurrency, selectedProduct } = this.state;
+        const { productList, currencyList } = this.props;
 
         return (
             <div className="filter-container">
@@ -70,18 +62,19 @@ export class Filter extends PureComponent {
                             }
                         </Input>
                     </FormGroup>
-
-                    <FormGroup className="mr-sm-2">
-                        <Label className="mr-2">{globalResource.Currency}</Label>
-                        <Input type="select" name="Product" id="Product" value={selectedCurrency} onChange={this.handleChangeCurrency}>
-                            <option value="0">{globalResource.All}</option>
-                            {
-                                currencyList && currencyList.map(c => {
-                                    return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
-                                })
-                            }
-                        </Input>
-                    </FormGroup>
+                    {
+                        currencyList && currencyList.length &&
+                        <FormGroup className="mr-sm-2">
+                            <Label className="mr-2">{globalResource.BaseCurrency}</Label>
+                            <Input type="select" name="Product" id="Product" value={selectedCurrency} onChange={this.handleChangeCurrency}>
+                                {
+                                    currencyList.map(c => {
+                                        return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
+                                    })
+                                }
+                            </Input>
+                        </FormGroup>
+                    }
                 </Form>
             </div>
         );
@@ -94,7 +87,7 @@ function mapStateToProps({ dailyEarningDetail }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, getProductList, getCurrencyList }, dispatch);
+    return bindActionCreators({ setParam }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

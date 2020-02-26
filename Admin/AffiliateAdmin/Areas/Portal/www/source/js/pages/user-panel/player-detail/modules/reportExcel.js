@@ -1,5 +1,6 @@
 ﻿import Excel from '../../../../modules/excel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
+import {globalResource} from '../../../../modules/globalResource';
 import {
     headerCellStyle,
     bodyCellStyle
@@ -18,7 +19,7 @@ const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const fields = {
     Index: 'Index',
     UserName: 'UserName',
-    IbcUserName: 'IbcUserName',
+    IbcUserName: globalResource.SystemUserName,
     RegisteredDate: 'RegisteredDate',
     Turnover: 'Turnover',
     Winloss: 'Winloss',

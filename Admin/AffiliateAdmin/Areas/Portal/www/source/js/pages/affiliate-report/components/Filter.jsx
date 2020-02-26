@@ -10,6 +10,7 @@ import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, view
 import { setReportTitle, setParam } from '../actions';
 import { formatUnit, resolveClientUrl } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
+import { globalResource } from '../../../modules/globalResource';
 
 export class Filter extends Component {
     constructor(props) {
@@ -17,6 +18,9 @@ export class Filter extends Component {
 
         this.now = new Date(this.props.today);
         const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
+        const defaultCurrency = (this.props.currencyList
+            && this.props.currencyList.length
+            && this.props.currencyList[0].ExchangeId) || allCurrencies;
 
         this.state = {
             userName: '',
@@ -27,7 +31,7 @@ export class Filter extends Component {
             isSortAscending: true,
             selectedProductList: allProduct,
             isGetAll: false,
-            selectedCurrency: allCurrencies
+            selectedCurrency: defaultCurrency
         }
 
         this.cachedMainReportParam = null;
@@ -97,7 +101,7 @@ export class Filter extends Component {
     }
 
     handleChangeCurrency = (event) => {
-        this.setState({selectedCurrency: event.target.value});
+        this.setState({ selectedCurrency: event.target.value });
     }
 
     handleSelectFromMonth = (month, year) => {
@@ -169,7 +173,7 @@ export class Filter extends Component {
             FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
-            CurrencyId : Number(selectedCurrency),
+            CurrencyId: Number(selectedCurrency),
             ProductIds: isCheckedAllProduct ? allProduct : selectedProductList,
             SortType: sortBy,
             SortDirectionType: isSortAscending ? sortDirectionType.ascending : sortDirectionType.descending,
@@ -295,6 +299,19 @@ export class Filter extends Component {
                         }
                     </FormGroup>
                     {
+                        currencyList && currencyList.length &&
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="Currency" className="mr-sm-2">{globalResource.BaseCurrency}</Label>
+                            <Input type="select" name="Currency" id="Currency" value={selectedCurrency} onChange={this.handleChangeCurrency}>
+                                {
+                                    currencyList && currencyList.map(c => {
+                                        return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
+                                    })
+                                }
+                            </Input>
+                        </FormGroup>
+                    }
+                    {
                         isMainView &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Input type="select" name="Language" id="Language" value={selectedLanguage} onChange={this.handleChangeLanguage}>
@@ -307,16 +324,6 @@ export class Filter extends Component {
                             </Input>
                         </FormGroup>
                     }
-                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                        <Input type="select" name="Currency" id="Currency" value={selectedCurrency} onChange={this.handleChangeCurrency}>
-                            <option key="0" value="0">All Currency</option>
-                            {
-                                currencyList && currencyList.map(c => {
-                                    return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
-                                })
-                            }
-                        </Input>
-                    </FormGroup>
                     <FormGroup className={"mb-2 mr-sm-2 mb-sm-0" + `${isValidSelectedProduct ? '' : ' multiple-select-wrapper is-invalid'}`}
                         style={{ width: 200 }}>
                         <MultipleSelect
