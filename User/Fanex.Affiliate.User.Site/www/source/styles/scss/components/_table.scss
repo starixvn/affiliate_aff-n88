@@ -65,8 +65,13 @@
         }
 
         .total {
-            color: #fff;
-            font-weight: 500;
+            background: #fbc763;
+            color: #000000;
+            font-weight: bold;
+
+            &:hover {
+                background: #fdeada;
+            }
         }
     }
 }

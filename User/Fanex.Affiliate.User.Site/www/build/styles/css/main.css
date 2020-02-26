@@ -1231,8 +1231,11 @@ label.require:after {
       background: #e1e1e1;
       font-weight: 600; }
     .table table .total {
-      color: #fff;
-      font-weight: 500; }
+      background: #fbc763;
+      color: #000000;
+      font-weight: bold; }
+      .table table .total:hover {
+        background: #fdeada; }
 
 .table-info {
   border: 1px solid #ccc;
