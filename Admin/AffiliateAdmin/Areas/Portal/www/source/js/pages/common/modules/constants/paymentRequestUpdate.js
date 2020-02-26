@@ -28,7 +28,7 @@ export const resource = {
     PaymentMethod: 'Payment Method',
     Amount: 'Amount',
     Status: 'Status',
-    UserName12Bet: '12BET User Name',
+    UserName12Bet: `${window.initialState.licenseeName || ''} User Name`,
     CompletedDate: 'Completed Date',
     UpdatedBy: 'Updated By',
 

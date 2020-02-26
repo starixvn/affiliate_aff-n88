@@ -135,7 +135,7 @@ export class Content extends PureComponent {
         return gridData && (
             <div className="data-content">
                 <div className="my-2">
-                    <Button outline type="button" onClick={() => this._handleEditDomain(0, selectedMarket || 'en-GB', affDomainList[0].DomainId, redirectDomainList[0].DomainId, false)}>Add New <span className="oi oi-plus ml-2"></span></Button>
+                    <Button outline type="button" onClick={() => this._handleEditDomain(0, selectedMarket || 'en-GB', affDomainList[0] ? affDomainList[0].DomainId : 0, redirectDomainList[0] ? redirectDomainList[0].DomainId : 0, false)}>Add New <span className="oi oi-plus ml-2"></span></Button>
                 </div>
                 <div className="domain-list-content table-responsive table-striped my-2">
                     <Table

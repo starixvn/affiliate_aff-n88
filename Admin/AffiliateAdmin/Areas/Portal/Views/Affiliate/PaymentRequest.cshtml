@@ -16,6 +16,7 @@
 @section pagejs{
     <script type="text/javascript">
         window.initialState = {
+            licenseeName: '@(AppSetting.Instance.SiteFriendlyName)',
             today: '@DateTime.Now.ToString("MM/dd/yyyy")',
             param: @Html.Raw(Json.Encode(Model))
         }

@@ -15,14 +15,14 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 21;
+const TOTAL_COLUMN = 20;
 
-const INDEX_MEMBER_STATISTICS_COLUMN = 7;
-const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
+const INDEX_MEMBER_STATISTICS_COLUMN = 6;
+const INDEX_AFFILIATE_STATISTICS_COLUMN = 7;
 
-const INDEX_DEPOSIT_COLUMN = 7;
+const INDEX_DEPOSIT_COLUMN = 6;
 const COLSPAN_MEMBER_STATISTICS = 9;
-const INDEX_COMM_COLUMN = 16;
+const INDEX_COMM_COLUMN = 15;
 const COLSPAN_AFFILIATE_STATISTICS = 5;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -320,11 +320,6 @@ export default class ReportExcel {
             },
             {
                 field: fields.ActiveMember,
-                [MAIN_SECTION_STYLE]: bodyCellStyle.number,
-                [TOTAL_SECTION_STYLE]: totalCellStyle.number
-            },
-            {
-                field: fields.QualifiedMember,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.number,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.number
             },
