@@ -1,19 +1,36 @@
 ﻿using System;
 using System.Web.Mvc;
+using Affiliate.N88.DTO;
+using Fanex.Data.Repository;
 
 namespace Affiliate.N88.WebApi.Controllers
 {
     public class HomeController : Controller
     {
-        private static readonly string FromDate = new DateTime(2020, 02, 10).ToString("yyyy-MM-dd");
+        private readonly IDynamicRepository dynamicRepository;
 
+        public HomeController(IDynamicRepository dynamicRepository)
+        {
+            this.dynamicRepository = dynamicRepository;
+        }
 
-        public ActionResult Index() =>
-            new ContentResult
+        public ActionResult Index()
+        {
+            var connectedMessage = "Database connects successfully";
+            try
             {
-                Content = $"Home Page <br/> <a href=\"{Url.Content("~/api/affiliate/get")}\" >Get Affiliate List</a>" +
-                $"<br /> <a href=\"{Url.Content($"~/api/customer/getCustomers?fromDate={FromDate}")}\" >Get Customer List</a>",
+                dynamicRepository.Fetch<CustomerInfo>(new GetCustomersCriteria(DateTime.Now));
+            }
+            catch (Exception ex)
+            {
+                connectedMessage = ex.ToString();
+            }
+
+            return new ContentResult
+            {
+                Content = $"Site is running <br/> {connectedMessage}",
                 ContentType = "text/html"
             };
+        }
     }
 }

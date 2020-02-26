@@ -19,11 +19,9 @@ namespace Affiliate.N88.Jobs.Middlewares
     {
         private static AppSettings appSettings;
 
-        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration)
+        public static void RegisterServices(this IServiceCollection services, IConfiguration configuration, AppSettings appSettings)
         {
-            appSettings = new AppSettings();
-            configuration.GetSection("AppSettings").Bind(appSettings);
-
+            ServicesMiddleware.appSettings = appSettings;
             services.AddSingleton<IDynamicRepository, DynamicRepository>();
             services.AddSingleton(RestService.For<ILicenseeApi>(
                 new HttpClient(new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)) 

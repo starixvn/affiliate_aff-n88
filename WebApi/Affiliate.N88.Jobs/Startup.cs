@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Middlewares;
 using Fanex.Logging;
 using Hangfire;
@@ -15,6 +16,8 @@ namespace Affiliate.N88.Jobs
 {
     public class Startup
     {
+        private AppSettings appSettings;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,15 +29,18 @@ namespace Affiliate.N88.Jobs
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            appSettings = new AppSettings();
+            Configuration.GetSection("AppSettings").Bind(appSettings);
+
             services.RegisterHangfire(Configuration);
-            services.RegisterServices(Configuration);
+            services.RegisterServices(Configuration, appSettings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Add This
-            app.UseHangfire();
+            app.UseHangfire(appSettings);
 
             if (env.IsDevelopment())
             {

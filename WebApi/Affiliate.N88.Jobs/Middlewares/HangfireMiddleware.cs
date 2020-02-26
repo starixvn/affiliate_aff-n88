@@ -28,7 +28,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.Configure<LicenseeSiteSetting>(configuration.GetSection("AppSettings:LicenseeSetting"));
         }
 
-        public static void UseHangfire(this IApplicationBuilder app)
+        public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
         {
             app.UseHangfireDashboard("/hangfire", new DashboardOptions
             {
@@ -36,7 +36,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             });
             app.UseHangfireServer();
 
-            RegisterTask<IFetchCustomerDataTask>("0 1 * * *", job => job.FetchCustomerDataAsync());
+            RegisterTask<IFetchCustomerDataTask>(appSettings.PullCustomerInfoCron, job => job.FetchCustomerDataAsync());
         }
 
         private static void RegisterTask<T>(string cronExpression, Expression<Func<T, Task>> methodCall)

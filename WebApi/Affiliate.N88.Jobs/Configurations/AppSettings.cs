@@ -9,5 +9,7 @@
         public string SpPath { get; set; }
 
         public string AuthenticationKey { get; set; }
+
+        public string PullCustomerInfoCron { get; set; }
     }
 }
