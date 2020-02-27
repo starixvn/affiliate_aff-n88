@@ -108,6 +108,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             const string TemplateName = "Csd";
             var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.DefaultLanguageCode, emailParam);
 
+            
+
             var subject = string.Format(Lang.CsdSubject, emailParam.UserName);
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
 
@@ -144,7 +146,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, MappingLanguage(prefrerredLanguage));
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
 
-            return _mailProcessor.BuildTemplateContent(physicalPath, model);
+            var encodedContent = _mailProcessor.BuildTemplateContent(physicalPath, model);
+            var decodedContent = HttpUtility.HtmlDecode(encodedContent);
+            return decodedContent;
         }
 
         private string GetEmailHtmlContent(string content, string title, string language, string domain)
@@ -159,7 +163,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             };
             var viewPath = HttpContext.Current.Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
 
-            return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            var encodedContent = _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            var decodedContent = HttpUtility.HtmlDecode(encodedContent);
+            return decodedContent;
         }
 
         public static string MappingLanguage(string language)
