@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 var assignParam = new CreateUpdateCommissionGroupParam
                 {
                     UserId = SessionService.UserId,
-                    GroupId = affInfo.AffId,
+                    GroupId = commGroup.GroupId,
                     GroupName = affInfo.UserName,
                     Description = PrivateGroupName,
                     QmTurnover = commGroup.QmTurnover,

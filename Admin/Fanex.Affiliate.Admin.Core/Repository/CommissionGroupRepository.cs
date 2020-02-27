@@ -39,10 +39,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
+                objectDb.AddInParameter("IsPrivate", DbType.Boolean, param.IsPrivate);
+                objectDb.AddOutParameter(Field.GroupId, DbType.Int32, Size.SizeOfInt);
 
                 objectDb.ExecuteNonQuery();
 
                 var code = objectDb.GetParameterValue(Field.ErrCode);
+                param.GroupId = Convert.ToInt32(objectDb.GetParameterValue(Field.GroupId));
 
                 return new ResultInfo
                 {
@@ -58,6 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
+                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -227,7 +231,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
             objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-            objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
             objectDb.AddInParameter(Field.GroupName, DbType.String, param.GroupName);
             objectDb.AddInParameter("Description", DbType.String, param.Description);
             objectDb.AddInParameter("DeductionList", DbType.Xml, param.DeductionList);

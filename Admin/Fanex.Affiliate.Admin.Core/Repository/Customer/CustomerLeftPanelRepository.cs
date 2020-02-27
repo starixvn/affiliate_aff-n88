@@ -43,7 +43,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             SiteUrl = Convert.ToString(reader["SiteUrl"]),
                             NoSiteDescription = Convert.ToString(reader["NoSiteDesc"]),
                             Status = Convert.ToString(reader["Status"]),
-                            Phone = Convert.ToString(reader["Phone"])
+                            Phone = Convert.ToString(reader["Phone"]),
+                            IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
                         };
                     }
                 }

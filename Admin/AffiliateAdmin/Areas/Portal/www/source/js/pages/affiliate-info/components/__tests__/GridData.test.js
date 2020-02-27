@@ -21,8 +21,7 @@ describe('affiliate info - GridData ', () => {
         IsFavorite: false,
         IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
-        ApprovalDateText: "05/22/2008 06:50:00",
-        CasinoDateText: "05/23/2014"
+        ApprovalDateText: "05/22/2008 06:50:00"
     };
     const index = 1;
     const dataList = [dataItem];
@@ -36,7 +35,6 @@ describe('affiliate info - GridData ', () => {
         { columnKey: "Email", columnName: "Email", checked: true },
         { columnKey: "RegistrationDateText", columnName: "Registration Date", checked: true },
         { columnKey: "ApprovalDateText", columnName: "Approval Date", checked: true },
-        { columnKey: "CasinoDateText", columnName: "Casino Date", checked: true },
         { columnKey: "CommissionGroup", columnName: "Commission Group", checked: true },
         { columnKey: "BalanceBf", columnName: "Balance B/F", checked: true },
         { columnKey: "Currency", columnName: "Aff. Currency", checked: true },
@@ -54,7 +52,6 @@ describe('affiliate info - GridData ', () => {
         Email: true,
         RegistrationDateText: true,
         ApprovalDateText: true,
-        CasinoDateText: true,
         CommissionGroup: true,
         BalanceBf: true,
         Currency: true,
@@ -330,8 +327,7 @@ describe('affiliate info - GridData ', () => {
             IsFavorite: true,
             IsClosed: false,
             RegistrationDateText: "05/22/2008 06:49:00",
-            ApprovalDateText: "05/22/2008 06:50:00",
-            CasinoDateText: "05/23/2014"
+            ApprovalDateText: "05/22/2008 06:50:00"
         };
 
         const componentInstance = new GridData(defaultProps);

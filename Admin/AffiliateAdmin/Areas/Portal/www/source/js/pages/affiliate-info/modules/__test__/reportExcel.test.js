@@ -15,7 +15,6 @@ describe('affiliate info - Report Excel ', () => {
         Email: true,
         RegistrationDateText: true,
         ApprovalDateText: true,
-        CasinoDateText: true,
         CommissionGroup: true,
         BalanceBf: true,
         Currency: true,
@@ -39,8 +38,7 @@ describe('affiliate info - Report Excel ', () => {
         IsFavorite: true,
         IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
-        ApprovalDateText: "05/22/2008 06:50:00",
-        CasinoDateText: "05/23/2014"
+        ApprovalDateText: "05/22/2008 06:50:00"
     };
     const itemHasNull = {
         AffId: 927841,
@@ -59,8 +57,7 @@ describe('affiliate info - Report Excel ', () => {
         IsFavorite: true,
         IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
-        ApprovalDateText: "05/22/2008 06:50:00",
-        CasinoDateText: "05/23/2014"
+        ApprovalDateText: "05/22/2008 06:50:00"
     };
     const dataHasNull = { MainData: [ itemHasNull]};
     const data = { MainData: [ item]};

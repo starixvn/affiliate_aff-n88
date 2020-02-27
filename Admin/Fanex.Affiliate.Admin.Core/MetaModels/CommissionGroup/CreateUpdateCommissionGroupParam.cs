@@ -32,5 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
         public DeductionSetting ExchangeWinLossShare { get; set; }
 
         public DeductionSetting ExchangeCommissionShare { get; set; }
+
+        public bool IsPrivate { get; set; }
     }
 }

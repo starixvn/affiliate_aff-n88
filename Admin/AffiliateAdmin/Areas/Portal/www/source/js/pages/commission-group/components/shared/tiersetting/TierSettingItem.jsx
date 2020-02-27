@@ -40,12 +40,12 @@ export default class TierSettingItem extends React.Component {
             <tr>
                 <td className="text-center">{TierId}</td>
                 <td>
-                    <Input type="text" name="MinAmount" id="MinAmount"
+                    <Input type="text" name="MinAmount"
                         value={format(MinAmount)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxAmount" id="MaxAmount" className="form-max" disabled={isDisabled}
+                        <Input type="text" name="MaxAmount" className="form-max" disabled={isDisabled}
                             value={isDisabled ? INFINITY_SYMBOL : format(MaxAmount)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
@@ -56,11 +56,11 @@ export default class TierSettingItem extends React.Component {
                     </Form>
                 </td>
                 <td>
-                    <Input type="text" name="MinQm" id="MinQm" value={format(MinQm)} onChange={this.handleChange} />
+                    <Input type="text" name="MinQm" value={format(MinQm)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxQm" id="MaxQm" className="form-max" disabled={isDisabled}
+                        <Input type="text" name="MaxQm" className="form-max" disabled={isDisabled}
                             value={isDisabled ? INFINITY_SYMBOL : format(MaxQm)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>

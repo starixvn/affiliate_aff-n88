@@ -75,7 +75,6 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell header={true} colWidth={400} title={headerText.Email}>{headerText.Email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell header={true} colWidth={300} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell header={true} colWidth={300} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</Cell>}
-                {selectedColumnList['CasinoDateText'] && <Cell header={true} colWidth={200} title={headerText.CasinoDateText}>{headerText.CasinoDateText}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={300} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell header={true} colWidth={200} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell header={true} colWidth={150} title={headerText.Currency}>{headerText.Currency}</Cell>}
@@ -129,13 +128,11 @@ export class GridData extends Component {
             </a>);
 
         const language = languageList[dataItem.Language];
-        const commissionGroup = dataItem.CommissionGroup ? (
-            commissionGroupName === dataItem.UserName ? (
+        const commissionGroup = dataItem.IsUsingPrivateCommGroup ? (
                 <Button color="link"
                     onClick={() => this.handleEditCommGroup(dataItem.AffId, dataItem.CommissionGroup)}>
                     {commissionGroupName}
-                </Button>) : commissionGroupName
-        ) : resource.NA;
+                </Button>) : commissionGroupName;
 
         const isFavorite = dataItem.IsFavorite
         const checkFavorite = isFavorite ? "favor-check" : "favor-uncheck";
@@ -159,7 +156,6 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
-                {selectedColumnList['CasinoDateText'] && <Cell title={dataItem.CasinoDateText}>{dataItem.CasinoDateText}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}

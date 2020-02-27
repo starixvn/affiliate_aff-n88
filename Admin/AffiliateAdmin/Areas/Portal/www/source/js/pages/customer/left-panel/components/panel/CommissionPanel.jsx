@@ -17,15 +17,8 @@ export class CommissionPanel extends PureComponent {
         const { affiliateInfo } = this.props;
 
         this.state = {
-            isChangingCommissionGroup: false,
-            isPrivateGroup: affiliateInfo.AffId === affiliateInfo.GroupId
+            isChangingCommissionGroup: false
         }
-    }
-
-    componentDidUpdate() {
-        const { affiliateInfo } = this.props;
-        const isPrivateGroup = affiliateInfo.AffId === affiliateInfo.GroupId;
-        this.setState({ isPrivateGroup });
     }
 
     toggleEditingCommissionPopup = (isChanging) => {
@@ -40,7 +33,7 @@ export class CommissionPanel extends PureComponent {
     }
 
     render() {
-        const { isChangingCommissionGroup, isPrivateGroup } = this.state;
+        const { isChangingCommissionGroup } = this.state;
         const { affiliateInfo } = this.props;
 
         return (
@@ -51,7 +44,7 @@ export class CommissionPanel extends PureComponent {
                         {this._renderCommGroup(affiliateInfo)}
                         <CommissionGroupPopup
                             showPopupCommGroup={isChangingCommissionGroup}
-                            isPrivateGroup={isPrivateGroup}
+                            isPrivateGroup={affiliateInfo.IsUsingPrivateCommGroup}
                             affName={affiliateInfo.AffName}
                             affId={affiliateInfo.AffId}
                             setShowPopupCommGroup={this.toggleEditingCommissionPopup}

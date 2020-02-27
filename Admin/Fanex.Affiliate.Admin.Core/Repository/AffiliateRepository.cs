@@ -77,7 +77,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 MailOption = Convert.ToBoolean(reader["MailOption"]),
                 PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
                 PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
-                AffType = Convert.ToByte(reader["AffType"])
+                AffType = Convert.ToByte(reader["AffType"]),
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])
             };
         }
     }

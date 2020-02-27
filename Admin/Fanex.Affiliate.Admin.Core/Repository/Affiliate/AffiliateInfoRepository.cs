@@ -95,16 +95,16 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 Email = Convert.ToString(reader["Email"]),
                 RegistrationDate = Convert.ToDateTime(reader["RegisteredDate"]),
                 ApprovalDate = reader["ApprovedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ApprovedDate"]),
-                CasinoDate = reader["CasinoJoinedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CasinoJoinedDate"]),
-                CommissionGroup = Convert.ToString(reader["GroupName"]),
                 BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(reader["BFF"]),
                 Member = reader["NoOfMember"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfMember"]),
+                CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : Convert.ToString(reader["GroupName"]),
                 IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
                 IsClosed = Convert.ToBoolean(reader["IsClosed"]),
                 Currency = Convert.ToString(reader["Currency"]),
                 PlayerCurrency = Convert.ToString(reader["PlayerCurrency"]),
                 Phone = Convert.ToString(reader["Phone"]),
-                PlayerUserName = Convert.ToString(reader["Player_Username"])
+                PlayerUserName = Convert.ToString(reader["Player_Username"]),
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])
             };
         }
 

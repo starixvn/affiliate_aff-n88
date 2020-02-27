@@ -25,9 +25,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         [JsonIgnore]
         public DateTime? ApprovalDate { get; set; }
 
-        [JsonIgnore]
-        public DateTime? CasinoDate { get; set; }
-
         public string CommissionGroup { get; set; }
 
         public decimal? BalanceBf { get; set; }
@@ -50,6 +47,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string ApprovalDateText => ApprovalDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "N/A";
 
-        public string CasinoDateText => CasinoDate?.ToString("MM/dd/yyyy") ?? "N/A";
+        public bool IsUsingPrivateCommGroup { get; set; }
     }
 }

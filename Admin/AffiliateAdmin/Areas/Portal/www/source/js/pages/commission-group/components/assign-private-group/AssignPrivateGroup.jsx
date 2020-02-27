@@ -13,6 +13,7 @@ import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
+import { affiliateInfo } from '../../../customer/left-panel/reducers';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -31,12 +32,12 @@ export class AssignPrivateGroup extends React.Component {
         const { deductionList, productList, affInfo } = this.props;
         const { GroupId } = affInfo;
 
-        if (GroupId === 0 || GroupId !== affInfo.AffId) {
-            const commGroup = productList && deductionList && buildDefaultCommGroup(deductionList, productList);
-            this.props.setSelectedGroup(commGroup);
+        if (affInfo.IsUsingPrivateCommGroup) {
+            this.props.getSelectedCommGroup({ GroupId });
         }
         else {
-            this.props.getSelectedCommGroup({ GroupId });
+            const commGroup = productList && deductionList && buildDefaultCommGroup(deductionList, productList);
+            this.props.setSelectedGroup(commGroup);
         }
         this.setState({ isShowLoader: false });
     }
@@ -109,6 +110,7 @@ export class AssignPrivateGroup extends React.Component {
     render() {
         const { isShowMessage, isSuccess, message, isShowLoader } = this.state;
         const { affInfo, selectedGroup } = this.props;
+        console.log(affInfo);
 
         return affInfo && selectedGroup && (
             <div className="comm-popup-container" style={{ padding: 10 }}>

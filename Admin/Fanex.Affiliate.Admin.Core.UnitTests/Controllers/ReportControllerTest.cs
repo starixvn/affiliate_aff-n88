@@ -42,10 +42,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void GetMainData_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = new AffiliateReportMainParam();
-            AffiliateReportMainParam passedParam = null;
+            var param = new AffiliateReportParam();
+            AffiliateReportParam passedParam = null;
             var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportMainParam>(p => passedParam = p);
+            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
             var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
 
             // Action

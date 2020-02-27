@@ -33,7 +33,6 @@ export const headerText = {
     Email: 'Email',
     RegistrationDateText: 'Registration Date',
     ApprovalDateText: 'Approval Date',
-    CasinoDateText: 'Casino Date',
     CommissionGroup: 'Commission Group',
     BalanceBf: 'Balance B/F',
     Currency: 'Aff. Currency',

@@ -10,7 +10,6 @@ const columnList = [
     {columnKey: "Email", columnName: "Email", checked: true},
     {columnKey: "RegistrationDateText", columnName: "Registration Date", checked: false},
     {columnKey: "ApprovalDateText", columnName: "Approval Date", checked: true},
-    {columnKey: "CasinoDateText", columnName: "Casino Date", checked: false},
     {columnKey: "CommissionGroup", columnName: "Commission Group", checked: false},
     {columnKey: "BalanceBf", columnName: "Balance B/F", checked: true},
     {columnKey: "Currency", columnName: "Aff. Currency", checked: false},

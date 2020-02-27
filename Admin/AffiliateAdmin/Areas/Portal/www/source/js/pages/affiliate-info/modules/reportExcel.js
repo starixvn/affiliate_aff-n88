@@ -18,7 +18,7 @@ const REPORT_TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 2;
 
-const TOTAL_COLUMN = 17;
+const TOTAL_COLUMN = 16;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -36,7 +36,6 @@ const fields = {
     Member: 'Member',
     RegistrationDateText: 'RegistrationDateText',
     ApprovalDateText: 'ApprovalDateText',
-    CasinoDateText: 'CasinoDateText',
     Currency: 'Currency',
     PlayerUserName: 'PlayerUserName',
     PlayerCurrency: 'PlayerCurrency',
@@ -220,10 +219,6 @@ export default class ReportExcel {
             width: 200
         }, {
             field: fields.ApprovalDateText,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
-            width: 200
-        }, {
-            field: fields.CasinoDateText,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 200
         }, {

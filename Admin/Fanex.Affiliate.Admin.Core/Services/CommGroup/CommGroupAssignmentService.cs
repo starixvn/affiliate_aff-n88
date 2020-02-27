@@ -49,9 +49,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             if (result.IsSuccessful)
             {
-                var isCreateNewPrivateGroup = affInfo.GroupId == 0 || param.GroupId != affInfo.GroupId;
+                param.IsPrivate = param.GroupId == 0;
 
-                var commGroupResult = isCreateNewPrivateGroup ? _commGroupCommonService.CreateCommissionGroup(param) :
+                var commGroupResult = param.IsPrivate ? _commGroupCommonService.CreateCommissionGroup(param) :
                                                                 _commGroupCommonService.UpdateCommissionGroup(param);
 
                 if (commGroupResult.IsSuccessful)

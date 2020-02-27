@@ -17,7 +17,6 @@ describe('affiliate info - Content ', () => {
         { columnKey: "Email", columnName: "Email", checked: true },
         { columnKey: "RegistrationDateText", columnName: "Registration Date", checked: true },
         { columnKey: "ApprovalDateText", columnName: "Approval Date", checked: true },
-        { columnKey: "CasinoDateText", columnName: "Casino Date", checked: true },
         { columnKey: "CommissionGroup", columnName: "Commission Group", checked: true },
         { columnKey: "BalanceBf", columnName: "Balance B/F", checked: true },
         { columnKey: "Currency", columnName: "Aff. Currency", checked: true },
