@@ -76,16 +76,29 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 var siteName = groupMember.Item1;
                 var member = groupMember.Item2;
-                try
+
+                if (SupportedSites.Any(supportSiteName => string.CompareOrdinal(supportSiteName, siteName) == 0))
                 {
-                    //TODO : Need recheck import right database (check sitename)
-                    await _importerRepository.ImportMemberAsync(member);
-                    await _logger.InfoAsync($"Site: {siteName}, Imported Data {regTime} by SP {member.GetSettingKey()}: {member.XmlData}");
+                    await InsertMembers(regTime, siteName, member);
                 }
-                catch (Exception ex)
+                else
                 {
-                    await _logger.ErrorAsync($"Site: {siteName} {ex.Message} \n {member.XmlData}", ex);
+                    await _logger.InfoAsync($"No Import Setting for Site: {siteName}, Imported Data {regTime}");
                 }
+            }
+        }
+
+        private async Task InsertMembers(DateTime regTime, string siteName, InsertMemberInfoCommand member)
+        {
+            try
+            {
+                //TODO : Need recheck import right database (check sitename)
+                await _importerRepository.ImportMemberAsync(member);
+                await _logger.InfoAsync($"Site: {siteName}, Imported Data {regTime} by SP {member.GetSettingKey()}: {member.XmlData}");
+            }
+            catch (Exception ex)
+            {
+                await _logger.ErrorAsync($"Site: {siteName} {ex.Message} \n {member.XmlData}", ex);
             }
         }
 

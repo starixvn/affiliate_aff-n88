@@ -32,7 +32,7 @@ namespace Affiliate.N88.Helpers
 
         public string Authenticate(HttpRequestMessage request)
         {
-            var requestUri = HttpUtility.UrlEncode(request.RequestUri.OriginalString.ToLowerInvariant().Replace("api//", "api/"));
+            var requestUri = HttpUtility.UrlEncode(request.RequestUri.PathAndQuery.ToLowerInvariant().Replace("api//", "api/"));
             string requestHttpMethod = request.Method.ToString();
 
             //Calculate UNIX time

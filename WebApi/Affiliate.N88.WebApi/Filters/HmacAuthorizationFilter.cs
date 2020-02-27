@@ -92,7 +92,7 @@
 
         private bool IsValidRequest(HttpRequestMessage req, string siteId, string incomingBase64Signature, string nonce, string requestTimeStamp)
         {
-            string requestUri = HttpUtility.UrlEncode(req.RequestUri.AbsoluteUri.ToLower());
+            string requestUri = HttpUtility.UrlEncode(req.RequestUri.PathAndQuery.ToLower());
             string requestHttpMethod = req.Method.Method;
 
             if (IsReplayRequest(nonce, requestTimeStamp))
