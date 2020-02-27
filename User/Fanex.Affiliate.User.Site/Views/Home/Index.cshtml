@@ -10,9 +10,11 @@
 
 @{ 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
+    var settingService = DependencyResolver.Current.GetService<IAppSetting>();
     var shortedLangCode = SystemLanguage.GetShortedCodeForTracking(sessionService.CurrentLanguage);
-    var sportBannerFileName = Url.Content("~/www/build/styles/Images/sports-banners/AFF-Home-banner-SB." + Model.Language);
-    var casinoBannerFileName = Url.Content("~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino." + Model.Language);
+    var siteName = settingService.IsN8B ? "N8B" : "N8G";
+    var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB." + Model.Language);
+    var casinoBannerFileName = Url.Content($"~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino." + Model.Language);
     var advFileName = Url.Content("~/www/build/styles/Images/apply12bet/3step." + Model.Language);
 }
 
