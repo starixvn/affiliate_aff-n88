@@ -12,9 +12,9 @@ export const headerText = {
     RegisteredDate: 'Registered Date',
     Turnover: 'Turnover',
     Winloss: 'Winlost',
-    Bonus: 'Bonus',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
+    Bonus: 'Bonus',
     BankingFee: 'Banking Fee'
 }
 
@@ -38,3 +38,8 @@ export const SortByIdList = {
     BankingFee: 8,
     IbcUsername: 9
 };
+
+export const SortingColumnDefault = {
+    IsSortAsc: false,
+    ColumnName: 'Turnover'
+}

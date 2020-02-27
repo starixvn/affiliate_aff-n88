@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import MonthPicker from '@9softstudio/react-monthpicker';
 
-import { resource, selectedAllProduct, shortedMonthNames, minMonthDate } from '../modules/constants';
-import { setParam, getProductList, exportExcel, getCurrencies } from '../actions';
+import { resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault } from '../modules/constants';
+import { setParam, getProductList, exportExcel, getCurrencies, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
@@ -95,17 +95,21 @@ export class Filter extends PureComponent {
             monthDate: `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`,
         }
         this.props.setParam(param);
+        this.props.setSortingColumn(SortingColumnDefault);
     }
 
     handleExportExcel = async () => {
-        const { selectedProduct, monthDate } = this.state;
-        const { affId } = this.props;
+        const { selectedProduct, monthDate, selectedCurrencyId } = this.state;
+        const { affId, sortingColumn } = this.props;
 
         const param = {
             IsExportExcel: true,
             productId: selectedProduct,
+            currencyId: selectedCurrencyId,
             monthDate: `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`,
-            affId
+            affId,
+            sortById: SortByIdList[sortingColumn.ColumnName],
+            isSortAsc: sortingColumn.IsSortAsc
         }
 
         const data = await this.props.exportExcel(param);
@@ -118,11 +122,12 @@ export class Filter extends PureComponent {
     }
 
     _getReportTitle() {
-        const { selectedProduct, monthDate } = this.state;
+        const { selectedProduct, monthDate, currencies, selectedCurrencyId } = this.state;
         const productTitle = selectedProduct === 0 ? 'All Products' : this._getSelectedProductName(selectedProduct);
         const selectedMonthTitle = this.handleFormatMonthPicker(monthDate.getMonth() + 1, monthDate.getFullYear());
+        const currency = currencies ? currencies.filter(x => x.ExchangeId == selectedCurrencyId) : [];
 
-        return `Player Detail - ${productTitle} - ${selectedMonthTitle}`;
+        return `Player Detail - Base Currency ${currency[0] && currency[0].Code} - ${productTitle} - ${selectedMonthTitle}`;
     }
 
     _getSelectedProductName(productId) {
@@ -184,18 +189,19 @@ export class Filter extends PureComponent {
 }
 
 function mapStateToProps({ today, affCommonInfo, playerDetail }) {
-    const { param } = playerDetail;
+    const { param, sortingColumn } = playerDetail;
     const { affId } = affCommonInfo;
 
     return Object.assign({}, {
         param,
         affId,
-        today
+        today,
+        sortingColumn
     });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, exportExcel, getProductList, getCurrencies }, dispatch);
+    return bindActionCreators({ setParam, exportExcel, getProductList, getCurrencies, setSortingColumn }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
-import { SET_PRODUCT_LIST, SET_PARAM } from '../actions/types';
+import { SET_PRODUCT_LIST, SET_PARAM, SET_SORTING_COLUMN } from '../actions/types';
 import createReducer from '../../../../modules/createReducer';
 
 import { pagingOption } from '../../../../reducers/pagingReducer';
+import { SortingColumnDefault } from '../modules/constants';
 
 export const productList = createReducer([], {
-    [SET_PRODUCT_LIST]: (preState, action) => {
+    [SET_PRODUCT_LIST]: (prevState, action) => {
         return [...action.data]
     }
 })
@@ -16,8 +17,15 @@ export const param = createReducer({}, {
     }
 })
 
+export const sortingColumn = createReducer(SortingColumnDefault, {
+    [SET_SORTING_COLUMN]: (prevState, action) => {
+        return Object.assign({}, prevState, action.data);
+    }
+})
+
 export default combineReducers({
     productList,
     param,
-    pagingOption
+    pagingOption,
+    sortingColumn
 })

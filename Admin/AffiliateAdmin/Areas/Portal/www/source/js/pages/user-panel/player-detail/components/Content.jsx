@@ -5,7 +5,7 @@ import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { formatDecimal } from '../../../../modules/numberFormat';
 import { headerText, globalResource, selectedAllProduct, maxWidth, SortByIdList } from '../modules/constants';
-import { setPagingOption, toggleLoaderUserPanel, fetchData } from '../actions';
+import { setPagingOption, toggleLoaderUserPanel, fetchData, setSortingColumn } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import SortingCell from './SortingCell';
 
@@ -14,9 +14,7 @@ export class Content extends PureComponent {
         super(props);
 
         this.state = {
-            data: null,
-            isSortAsc: false,
-            sortingColumn: 'Turnover'
+            data: null
         }
     }
 
@@ -48,34 +46,34 @@ export class Content extends PureComponent {
     }
 
     handleClickHeader = (selectedColumn) => {
-        const { isSortAsc, sortingColumn } = this.state;
-        const { param, pagingOption } = this.props;
-        const postParam = { ...param, pageIndex: pagingOption.PageIndex, pageSize: pagingOption.PageSize, sortById: SortByIdList[selectedColumn] };
+        const { param, pagingOption, sortingColumn } = this.props;
+        const postParam = { ...param, pageIndex: pagingOption.PageIndex, pageSize: pagingOption.PageSize, sortById: SortByIdList[sortingColumn.ColumnName] };
 
-        if (sortingColumn === selectedColumn) {
-            this.setState({ isSortAsc: !isSortAsc });
-            this._fetchData({ ...postParam, isSortAsc: !isSortAsc });
+        if (sortingColumn.ColumnName === selectedColumn) {
+            const newSortingColumn = Object.assign({}, sortingColumn, { IsSortAsc: !sortingColumn.IsSortAsc });
+            this.props.setSortingColumn(newSortingColumn);
+            this._fetchData({ ...postParam, isSortAsc: !sortingColumn.IsSortAsc });
 
         } else {
-            this.setState({ isSortAsc: false, sortingColumn: selectedColumn });
+            this.props.setSortingColumn({ IsSortAsc: false, ColumnName: selectedColumn });
             this._fetchData({ ...postParam, isSortAsc: false });
         }
     }
     _renderHeader() {
-        const { isSortAsc, sortingColumn } = this.state;
+        const { sortingColumn } = this.props;
 
         return (
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Username'} title={headerText.UserName} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'IbcUsername'} title={headerText.IbcUserName} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'RegisteredDate'} title={headerText.RegisteredDate} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Turnover'} title={headerText.Turnover} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Winloss'} title={headerText.Winloss} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Withdrawal'} title={headerText.Withdrawal} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'Bonus'} title={headerText.Bonus} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={isSortAsc} sortingColumn={sortingColumn} columnName={'BankingFee'} title={headerText.BankingFee} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Username'} title={headerText.UserName} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'IbcUsername'} title={headerText.IbcUserName} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'RegisteredDate'} title={headerText.RegisteredDate} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Turnover'} title={headerText.Turnover} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Winloss'} title={headerText.Winloss} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Withdrawal'} title={headerText.Withdrawal} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Bonus'} title={headerText.Bonus} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'BankingFee'} title={headerText.BankingFee} handleClickHeader={this.handleClickHeader} />
             </Row>
         )
     }
@@ -164,14 +162,14 @@ export class Content extends PureComponent {
 }
 
 function mapStateToProps({ affCommonInfo, playerDetail }) {
-    const { param, pagingOption } = playerDetail;
+    const { param, pagingOption, sortingColumn } = playerDetail;
     const { affId } = affCommonInfo;
 
-    return Object.assign({}, { param, pagingOption, affId });
+    return Object.assign({}, { param, pagingOption, affId, sortingColumn });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setSortingColumn }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

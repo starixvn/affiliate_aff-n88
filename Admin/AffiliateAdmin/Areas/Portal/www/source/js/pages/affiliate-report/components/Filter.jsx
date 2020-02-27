@@ -194,8 +194,8 @@ export class Filter extends Component {
     }
 
     _buildMainReportTitle(isCheckedAllProduct) {
-        const { languageList } = this.props;
-        const { selectedLanguage, fromMonth, toMonth, userName } = this.state;
+        const { languageList, currencyList } = this.props;
+        const { selectedLanguage, fromMonth, toMonth, userName, selectedCurrency } = this.state;
 
         const userNameTitle = `${userName && '- Username contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
@@ -205,12 +205,13 @@ export class Filter extends Component {
 
         const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'AFFILIATE REPORT ';
+        const currency = currencyList.filter(x => x.ExchangeId == selectedCurrency);
 
-        return `${reportName}${userNameTitle} ${'- ' + language} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${currency[0] && currency[0].Code} - ${language} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
-        const { fromMonth, toMonth, userName, isGetAll } = this.state;
+        const { fromMonth, toMonth, userName, isGetAll, selectedCurrency } = this.state;
 
         const userNameTitle = userName && '- ' + userName;
         const productList = this._getProductDataSource();
@@ -219,8 +220,9 @@ export class Filter extends Component {
         const fromToTitle = isGetAll ? 'Get All Dates' :
             `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'MONTH ON MONTH ';
+        const currency = this.props.currencyList.filter(x => x.ExchangeId == selectedCurrency);
 
-        return `${reportName}${userNameTitle} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${currency[0] && currency[0].Code} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _getProductDataSource = () => {

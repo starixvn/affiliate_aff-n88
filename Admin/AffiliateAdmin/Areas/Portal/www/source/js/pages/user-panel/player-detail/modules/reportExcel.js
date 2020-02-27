@@ -1,6 +1,5 @@
 ﻿import Excel from '../../../../modules/excel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
-import {globalResource} from '../../../../modules/globalResource';
 import {
     headerCellStyle,
     bodyCellStyle
@@ -19,13 +18,13 @@ const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const fields = {
     Index: 'Index',
     UserName: 'UserName',
-    IbcUserName: globalResource.SystemUserName,
+    IbcUserName: 'IbcUserName',
     RegisteredDate: 'RegisteredDate',
     Turnover: 'Turnover',
     Winloss: 'Winloss',
-    Bonus: 'Bonus',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
+    Bonus: 'Bonus',
     BankingFee: 'BankingFee'
 }
 
@@ -149,13 +148,13 @@ export default class ReportExcel {
             field: fields.Winloss,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
-            field: fields.Bonus,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
-        }, {
             field: fields.Deposit,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
             field: fields.Withdrawal,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
+        }, {
+            field: fields.Bonus,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
             field: fields.BankingFee,
