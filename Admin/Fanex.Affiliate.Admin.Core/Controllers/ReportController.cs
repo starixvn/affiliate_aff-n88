@@ -52,7 +52,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetMainData(AffiliateReportMainParam param)
+        public ActionResult GetMainData(AffiliateReportParam param)
         {
             return new JsonNetResult
             {
@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetDetailData(AffiliateReportBaseParam param)
+        public ActionResult GetDetailData(AffiliateReportParam param)
         {
             return new JsonNetResult
             {

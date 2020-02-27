@@ -2,7 +2,7 @@
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 {
-    public class AffiliateReportBaseParam
+    public class AffiliateReportParam
     {
         public string UserName { get; set; }
 
@@ -25,5 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
         public int PageSize { get; set; }
 
         public bool IsExportExcel { get; set; }
+
+        public int CurrencyId { get; set; }
     }
 }

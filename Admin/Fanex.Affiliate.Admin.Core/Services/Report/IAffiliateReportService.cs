@@ -7,9 +7,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
 {
     public interface IAffiliateReportService
     {
-        EntityResult<AffiliateReport> GetMainReportData(AffiliateReportMainParam param);
+        EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param);
 
-        EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportBaseParam param);
+        EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param);
 
         IList<string> SearchAffiliateList(string userName);
     }

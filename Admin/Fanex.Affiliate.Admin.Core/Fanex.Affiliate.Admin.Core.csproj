@@ -344,8 +344,7 @@
     <Compile Include="MetaModels\Payment\PaymentRequestParam.cs" />
     <Compile Include="MetaModels\Payment\PaymentRequestUpdateParam.cs" />
     <Compile Include="MetaModels\Payment\PaymentRequestParamFromHome.cs" />
-    <Compile Include="MetaModels\Report\AffiliateReportBaseParam.cs" />
-    <Compile Include="MetaModels\Report\AffiliateReportMainParam.cs" />
+    <Compile Include="MetaModels\Report\AffiliateReportParam.cs" />
     <Compile Include="MetaModels\UserInfoParam.cs" />
     <Compile Include="MetaModels\UserPanel\AdjustmentParam.cs" />
     <Compile Include="MetaModels\AffiliatePagingByDateParam.cs" />
