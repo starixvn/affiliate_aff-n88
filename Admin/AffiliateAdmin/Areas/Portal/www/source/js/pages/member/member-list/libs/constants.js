@@ -6,7 +6,7 @@ export const headerText = {
     Index: '#',
     Affiliate: 'Affiliate',
     UserName: 'User Name',
-    IbcUserName: 'System User Name',
+    IbcUserName: globalResource.SystemUserName,
     FirstName: 'First Name',
     LastName: 'Last Name',
     CurrentBalance: 'Current Balance Player',

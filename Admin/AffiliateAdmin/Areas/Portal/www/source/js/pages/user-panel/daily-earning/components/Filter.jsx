@@ -16,8 +16,6 @@ export class Filter extends PureComponent {
         this.state = {
             selectedProduct: param.productId || selectedAllProduct,
             selectedCurrency: param.currencyId || resource.NoSelectedCurrency,
-            productList: [],
-            currencyList: [],
         }
     }
 
