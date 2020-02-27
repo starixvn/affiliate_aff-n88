@@ -311,9 +311,22 @@
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
-    <Content Include="favicon-n8b.ico" />
-    <Content Include="favicon-n8g.ico" />
     <Content Include="favicon.ico" />
+    <Content Include="favicon.n88user-n8g.backupmnl.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
+    </Content>
+    <Content Include="favicon.n88user-n8g.local.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
+    </Content>
+    <Content Include="favicon.n88user-n8g.master.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
+    </Content>
+    <Content Include="favicon.n88user-n8g.production.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
+    </Content>
+    <Content Include="favicon.n88user-n8g.sit.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
+    </Content>
     <Content Include="App_Data\SpConfig\SpName.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -364,6 +377,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="favicon.n88user-n8g.uat.ico">
+      <DependentUpon>favicon.ico</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
