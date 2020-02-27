@@ -35,15 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="App.backupmnl.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="App.pro.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="App.uat.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
