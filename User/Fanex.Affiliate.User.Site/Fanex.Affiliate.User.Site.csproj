@@ -311,6 +311,8 @@
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
+    <Content Include="favicon-n8b.ico" />
+    <Content Include="favicon-n8g.ico" />
     <Content Include="favicon.ico" />
     <Content Include="App_Data\SpConfig\SpName.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
@@ -1284,42 +1286,42 @@
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.sit.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config" />
-    <Content Include="Configurations\Web\Web.n88user-n8b.backupmnl.config">
+    <None Include="Configurations\Web\Web.n88user-n8b.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.local.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.local.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.master.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.master.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.production.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.sit.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8b.uat.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8b.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.backupmnl.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.local.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.local.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.master.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.master.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.production.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.sit.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\Web\Web.n88user-n8g.uat.config">
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n8g.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </Content>
+    </None>
     <Content Include="www\source\styles\scss\Themes\n8g.scss" />
     <Content Include="www\source\styles\scss\Themes\n8b.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />

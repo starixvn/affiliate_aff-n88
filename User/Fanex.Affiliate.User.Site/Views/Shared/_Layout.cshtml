@@ -16,7 +16,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? AppSetting.Instance.SiteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    <link rel="icon" href="~/favicon.ico?v=1">
+    @if (settingService.IsN8B)
+    {
+        <link rel="icon" href="~/favicon-n8b.ico">
+    }
+    else
+    {
+        <link rel="icon" href="~/favicon-n8g.ico">
+    }
+
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
     <meta name="description" content="@SiteFriendlyNameHelper.Replace12Bet(Lang.MetaDescription)" />
