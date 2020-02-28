@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string DefaultLanguageCode = "vi-VN";
 
-        public const string VietNamLanguageCode = "vi-VN";
+        public const string EnglishLanguageCode = "en-US";
 
         public const string IndonesiaLanguageCode = "id-ID";
 
