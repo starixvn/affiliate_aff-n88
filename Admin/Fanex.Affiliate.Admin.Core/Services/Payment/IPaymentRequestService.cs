@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
     {
         EntityResult<PaymentRequest> GetPaymentRequestList(PaymentRequestParam param);
 
+        PaymentMethodInfo GetPaymentMethod();
+
         PaymentRequestDetail GetPaymentRequestDetail(long transId);
 
         ResultInfo UpdatePaymentRequest(PaymentRequestUpdateParam param, PaymentRequestUpdateEmail emailParam);

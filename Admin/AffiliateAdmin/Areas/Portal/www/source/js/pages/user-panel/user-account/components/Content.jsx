@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container, Button, Row, Col, Alert } from 'reactstrap';
 
-import { getUserAccountInfo, updateUserAccount, getAffiliateInfo } from '../actions';
+import { getUserAccountInfo, updateUserAccount, getAffiliateInfo, getPaymentMethod } from '../actions';
 import { validateUserAccount } from '../modules/validation';
 import { userPanelMenuKey } from '../modules/constants';
 
@@ -21,13 +21,16 @@ export class Content extends PureComponent {
         this.state = {
             isSuccess: true,
             isShowMessage: false,
-            message: ''
+            message: '',
+            paymentMethodList: [],
+            minimumPayment: 0
         }
     }
 
     componentDidMount() {
         const { affId } = this.props;
         affId && this.props.getUserAccountInfo(affId);
+        this._fetchPaymentMethodInfo();
     }
 
     handleGetMoreSiteUrls = (moreSiteUrlsList) => {
@@ -103,6 +106,17 @@ export class Content extends PureComponent {
         });
     }
 
+    _fetchPaymentMethodInfo = () =>{
+        this.props.getPaymentMethod()
+            .then((response) => {
+                console.log(response); 
+                const paymentMethodList = response.PaymentMethods;
+                const minimumPayment = response.MinAmount;
+                console.log(paymentMethodList);
+                this.setState({paymentMethodList, minimumPayment});
+            });
+    }
+
     render() {
         const { isSuccess, isShowMessage, message } = this.state;
 
@@ -145,7 +159,7 @@ export class Content extends PureComponent {
                 <Row>
                     <Col xs="12" className="px-0">
                         <Section title="Payment Information">
-                            <Payment />
+                            <Payment paymentMethodList={this.state.paymentMethodList} minimumPayment={this.state.minimumPayment}/>
                         </Section>
                     </Col>
                 </Row>
@@ -166,7 +180,7 @@ function mapStateToProps({ affCommonInfo, edit }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getUserAccountInfo, updateUserAccount, getAffiliateInfo }, dispatch);
+    return bindActionCreators({ getUserAccountInfo, updateUserAccount, getAffiliateInfo, getPaymentMethod }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

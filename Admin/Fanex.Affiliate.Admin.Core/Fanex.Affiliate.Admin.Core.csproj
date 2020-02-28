@@ -261,6 +261,7 @@
     <Compile Include="DTO\Member\DepositCustomerInfo.cs" />
     <Compile Include="DTO\Member\MemberInfo.cs" />
     <Compile Include="DTO\Member\InactiveMemberInfo.cs" />
+    <Compile Include="DTO\Payment\PaymentMethod.cs" />
     <Compile Include="MetaModels\Administrator\ChangeStatusParam.cs" />
     <Compile Include="MetaModels\Administrator\DeleteDepartmentParam.cs" />
     <Compile Include="MetaModels\Administrator\InsertExistedUserParam.cs" />

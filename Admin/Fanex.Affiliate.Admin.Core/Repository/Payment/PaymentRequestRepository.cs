@@ -112,5 +112,20 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                 return GetResultInfo(objectDb);
             }
         }
+
+        public PaymentMethodInfo GetPaymentMethod()
+        {
+            const string SpKey = "Aff_PaymentMethod_Sel";
+            var paymentMethod = new PaymentMethodInfo();
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                paymentMethod.PaymentMethods = objectDb.Query<string>();
+                paymentMethod.MinAmount = Convert.ToInt32(objectDb.GetParameterValue("MinAmount"));
+                return paymentMethod;
+            }
+        }
+
+
     }
 }

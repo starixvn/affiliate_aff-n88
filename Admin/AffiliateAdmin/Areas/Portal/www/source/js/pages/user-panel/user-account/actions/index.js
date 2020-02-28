@@ -41,3 +41,10 @@ export const updateUserAccount = (param) => async () => {
 
     return response && response.status === 200 ? response.data : null;
 }
+
+export const getPaymentMethod = () => async () => {
+    const url = 'Portal/PaymentRequest/GetPaymentMethod';
+    const response = await post(url);
+
+    return response && response.status === 200 ? response.data : null;
+}

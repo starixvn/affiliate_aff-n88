@@ -84,5 +84,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
 
             return message ?? "Update transaction failed!";
         }
+
+        public PaymentMethodInfo GetPaymentMethod()
+        {
+            return _paymentRequestRepository.GetPaymentMethod();
+        }
     }
 }

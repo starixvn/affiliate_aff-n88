@@ -107,5 +107,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 }
             };
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetPaymentMethod()
+        {
+            var result = new JsonNetResult
+            {
+                Data = _paymentRequestService.GetPaymentMethod()
+            };
+            return result;
+        }
     }
 }

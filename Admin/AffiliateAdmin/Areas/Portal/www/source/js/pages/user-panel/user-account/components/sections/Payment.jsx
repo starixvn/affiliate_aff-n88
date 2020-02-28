@@ -5,14 +5,7 @@ import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
-import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPayment } from '../../modules/constants';
-
-const paymentMethodList = [
-    { key: playerMethod, value: `${window.initialState.licenseeName} player account` },
-    { key: netellerMethod, value: 'Neteller' },
-    { key: moneybookersMethod, value: 'Moneybookers' },
-    { key: wireMethod, value: 'Bank Transfer' }
-]
+import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPaymentText } from '../../modules/constants';
 
 export class Payment extends PureComponent {
     constructor(props) {
@@ -65,9 +58,9 @@ export class Payment extends PureComponent {
     }
 
     render() {
-        const { userAccountInfo } = this.props;
+        const { userAccountInfo, paymentMethodList, minimumPayment } = this.props;
         const renderFormByMethod = userAccountInfo && this._renderFormByMethod(userAccountInfo);
-
+        console.log(userAccountInfo.PreferredPayment);
         return userAccountInfo && (
             <Form tag="div">
                 <FormGroup row>
@@ -75,11 +68,11 @@ export class Payment extends PureComponent {
                     <Col sm={5} xl={6}>
                         <Input type="select" id="preferredPayment" name="preferredPayment" onChange={this.handleChangePaymentMethod} value={userAccountInfo.PreferredPayment}>
                             {paymentMethodList.map(item => {
-                                return (<option key={item.key} value={item.key}>{item.value}</option>)
+                                return (<option key={item} value={item}>{item}</option>)
                             })}
                         </Input>
                     </Col>
-                    <p>{minimumPayment}</p>
+                    <p>{minimumPaymentText + " " + minimumPayment}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
             </Form>
