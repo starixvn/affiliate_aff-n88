@@ -12,7 +12,6 @@ export class Filter extends PureComponent {
         super(props);
 
         const { param, currencyList } = this.props;
-        console.log(currencyList);
 
         this.state = {
             selectedProduct: param.productId || selectedAllProduct,

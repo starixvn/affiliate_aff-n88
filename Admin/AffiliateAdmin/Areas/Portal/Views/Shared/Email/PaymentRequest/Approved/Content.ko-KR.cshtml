@@ -1,7 +1,7 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
 <div>
-    @(Model.FirstName)고객님께,  <br /><br />
+    @Raw(Model.FirstName)고객님께,  <br /><br />
 
     요청 확인 번호는  @(Model.TransId)이며 ,  @(Model.TransDate)에  요청하셨습니다. <br /><br />
 

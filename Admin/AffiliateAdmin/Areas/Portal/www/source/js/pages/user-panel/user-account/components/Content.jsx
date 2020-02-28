@@ -70,7 +70,6 @@ export class Content extends PureComponent {
             const result = await this.props.updateUserAccount(newUserAccountInfo);
 
             if (result) {
-                console.log(result);
                 this.setState({
                     isShowMessage: true,
                     isSuccess: result.IsSuccessful,
@@ -78,7 +77,6 @@ export class Content extends PureComponent {
                 }, () => window.setTimeout(() => {
                     this.hideMessage();
                     if (result.IsSuccessful) {
-                        console.log(123);
                         this.props.getUserAccountInfo(affId);
                         this.props.getAffiliateInfo(affName, userPanelMenuKey.edit);
                     }
@@ -109,10 +107,8 @@ export class Content extends PureComponent {
     _fetchPaymentMethodInfo = () =>{
         this.props.getPaymentMethod()
             .then((response) => {
-                console.log(response); 
                 const paymentMethodList = response.PaymentMethods;
                 const minimumPayment = response.MinAmount;
-                console.log(paymentMethodList);
                 this.setState({paymentMethodList, minimumPayment});
             });
     }

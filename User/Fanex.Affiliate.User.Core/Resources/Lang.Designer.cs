@@ -142,7 +142,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Players.
+        ///   Looks up a localized string similar to Number of Active Players (Min required).
         /// </summary>
         public static string ActivePlayers {
             get {
@@ -165,6 +165,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string AddressIsRequired {
             get {
                 return ResourceManager.GetString("AddressIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Address no more than 250 characters..
+        /// </summary>
+        public static string AddressMaxLength {
+            get {
+                return ResourceManager.GetString("AddressMaxLength", resourceCulture);
             }
         }
         
@@ -318,6 +327,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Anguilla {
             get {
                 return ResourceManager.GetString("Anguilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your Answer no more than 300 characters..
+        /// </summary>
+        public static string AnswerMaxLength {
+            get {
+                return ResourceManager.GetString("AnswerMaxLength", resourceCulture);
             }
         }
         
@@ -1186,6 +1204,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to City no more than 250 characters..
+        /// </summary>
+        public static string CityMaxLength {
+            get {
+                return ResourceManager.GetString("CityMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Colombia.
         /// </summary>
         public static string Colombia {
@@ -1734,6 +1761,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string EmailIsRequired {
             get {
                 return ResourceManager.GetString("EmailIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Address no more than 50 characters..
+        /// </summary>
+        public static string EmailMaxLength {
+            get {
+                return ResourceManager.GetString("EmailMaxLength", resourceCulture);
             }
         }
         
@@ -2422,6 +2458,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Name no more than 50 characters..
+        /// </summary>
+        public static string FirstNameMaxLength {
+            get {
+                return ResourceManager.GetString("FirstNameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Flash  .
         /// </summary>
         public static string Flash {
@@ -3079,6 +3124,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last Name no more than 50 characters..
+        /// </summary>
+        public static string LastNameMaxLength {
+            get {
+                return ResourceManager.GetString("LastNameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latvia .
         /// </summary>
         public static string Latvia {
@@ -3680,7 +3734,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company Net Win For The Month (CNW)($).
+        ///   Looks up a localized string similar to Company Net Win (VND).
         /// </summary>
         public static string NetWinLoss {
             get {
@@ -3820,6 +3874,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Norway {
             get {
                 return ResourceManager.GetString("Norway", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please describe how you would like to promote if you don’t have the URL no more than 250 characters..
+        /// </summary>
+        public static string NoSiteDescMaxLength {
+            get {
+                return ResourceManager.GetString("NoSiteDescMaxLength", resourceCulture);
             }
         }
         
@@ -4265,6 +4328,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact Number no more than 50 characters..
+        /// </summary>
+        public static string PhoneMaxLength {
+            get {
+                return ResourceManager.GetString("PhoneMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Plain Text.
         /// </summary>
         public static string PlainText {
@@ -4342,6 +4414,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Portugal {
             get {
                 return ResourceManager.GetString("Portugal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postcode/Zip no more than 50 characters..
+        /// </summary>
+        public static string PostalMaxLength {
+            get {
+                return ResourceManager.GetString("PostalMaxLength", resourceCulture);
             }
         }
         
@@ -4769,7 +4850,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Input Request Amount (USD).
+        ///   Looks up a localized string similar to Input Request Amount.
         /// </summary>
         public static string RequestAmt {
             get {
@@ -5093,7 +5174,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to 40% monthly commission!.
+        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to 50% monthly commission!.
         /// </summary>
         public static string SignUpToAffiliateProgram {
             get {
@@ -5116,6 +5197,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string SiteUrl {
             get {
                 return ResourceManager.GetString("SiteUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Website URL no more than 250 characters..
+        /// </summary>
+        public static string SiteUrlMaxLength {
+            get {
+                return ResourceManager.GetString("SiteUrlMaxLength", resourceCulture);
             }
         }
         
@@ -6030,6 +6120,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Name no more than 100 characters..
+        /// </summary>
+        public static string UserNameMaxLength {
+            get {
+                return ResourceManager.GetString("UserNameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string UsernameSignUp {
@@ -6269,6 +6368,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string YouCanNowLogInYourAffiliateAccount {
             get {
                 return ResourceManager.GetString("YouCanNowLogInYourAffiliateAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your Bwing.com player account..
+        /// </summary>
+        public static string YouCanRequest {
+            get {
+                return ResourceManager.GetString("YouCanRequest", resourceCulture);
             }
         }
         

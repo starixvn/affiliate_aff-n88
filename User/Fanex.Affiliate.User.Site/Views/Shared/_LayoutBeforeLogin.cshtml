@@ -6,6 +6,7 @@
 
 @{
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
+    var siteName = settingService.IsN8B ? "N8B" : "N8G";
     var gaID = AppSetting.Instance.IsN8B ? "UA-93927620-4" : "UA-93927620-5";
 }
 
@@ -70,7 +71,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-banner">
-                <img src="~/www/build/styles/Images/logo.png" alt="logo" />
+                <img src=@($"/www/build/styles/Images/themes/{siteName}.png") alt="logo" />
                 <h2 class="logo-text">@Lang.AffiliateProgram</h2>
             </div>
 

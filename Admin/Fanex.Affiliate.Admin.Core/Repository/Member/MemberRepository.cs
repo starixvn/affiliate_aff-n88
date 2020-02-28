@@ -38,8 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                             FirstName =  Convert.ToString(reader["FirstName"]),
                             LastName = Convert.ToString(reader["LastName"]),
                             CreatedDate = reader["CreatedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CreatedDate"]),
-                            AffName = Convert.ToString(reader["AffUserName"]),
-                            CurrentBalance = FormatNumber(reader["CurrBalance"])
+                            AffName = Convert.ToString(reader["AffUserName"])
                         });
                     }
                 }
@@ -97,14 +96,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
                 objectDb.ExecuteNonQuery();
             }
-        }
-
-        private static string FormatNumber(object Number)
-        {
-            decimal decimalNumber = CastAide.AsDecimal(Number, 0m);
-
-            return (decimalNumber >= 0 ? "$" : "-$") + Math.Abs(decimalNumber).ToString("N2");
-
         }
     }
 }

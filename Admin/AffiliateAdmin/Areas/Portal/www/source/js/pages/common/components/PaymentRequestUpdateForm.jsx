@@ -176,7 +176,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
                     <Label sm={6}><strong>{htmlDecode(paymentRequestInfo.Status)}</strong></Label>
                 </FormGroup>
                 <FormGroup row className="mb-2">
-                    <Label sm={6}>{globalResource.UserName}</Label>
+                    <Label sm={6}>{resource.UserNameN88}</Label>
                     <Label sm={6}><strong>{htmlDecode(paymentRequestInfo.PlayerUsername)}</strong></Label>
                 </FormGroup>
                 {

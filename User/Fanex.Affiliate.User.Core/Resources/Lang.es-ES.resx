@@ -412,7 +412,7 @@
     <value>El comentario no es válido</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Porcentaje de comisión</value>
+    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Fecha de finalización</value>
@@ -1082,7 +1082,7 @@
     <value>Netherlands </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>TOTAL NET EN GANA MES CIVIL (CNW)($)</value>
+    <value>Company Net Win (VND)</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>
@@ -1274,7 +1274,7 @@
     <value>Qatar </value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>MIEMBROS DE CALIFICACION</value>
+    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="RecentPayment" xml:space="preserve">
     <value>Pagos recientes</value>
@@ -1310,7 +1310,7 @@
     <value>Importe de la solicitud</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Especificar cantidad solicitada (USD)</value>
+    <value>Especificar cantidad solicitada</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Solicitar pago</value>

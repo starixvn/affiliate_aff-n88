@@ -5,6 +5,7 @@
 @{
     var from = ViewBag.UmTimeFrom as string;
     var to = ViewBag.UmTimeTo as string;
+    var siteName = AppSetting.Instance.IsN8B ? "n8b" : "n8g";
 }
 
 <!DOCTYPE html>
@@ -73,7 +74,7 @@
 <body>
     <div class="container">
         <header class="um-header-top">
-            <img class="logo" src="~/www/build/styles/Images/logo.png" />
+            <img class="logo" src=@($"/www/build/styles/Images/themes/{siteName}.png") />
         </header>
     </div>
     <div class="container main-container">

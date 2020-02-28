@@ -1,4 +1,7 @@
-﻿<div class="banner-commission-structure">
+﻿@{
+    var siteName = AppSetting.Instance.SiteFriendlyName;
+}
+<div class="banner-commission-structure">
     <div class="text-content">
         <p class="text-big-yellow">40%</p>
         <p class="text-big-white">업계 최고 커미션 지급!</p>
@@ -8,7 +11,7 @@
 </div>
 <div class="info-group">
     <p class="text">
-        12BET의 제휴 프로그램은 제휴자가 제공한 회원들이 12BET.COM에서 하는 배팅액수에 따라서 커미션을 받는 프로그램 입니다. 12BET.COM의 리포트 시스템은 24시간 매일 이용가능 합니다.<br>제휴사의 커미션 수익은 12BET사이트로 유입된 고객의 트랙픽에 의해 결정됩니다 12BET이 유입된 회원의 회원등록 및 첫 입금을 도와드리게 될것이며 , 12bet의 매력적인 보너스와 제안으로 비지니스에 대한 재 교육까지 제공해 드리게 될것입니다.
+        @(siteName)의 제휴 프로그램은 제휴자가 제공한 회원들이 @(siteName).COM에서 하는 배팅액수에 따라서 커미션을 받는 프로그램 입니다. @(siteName).COM의 리포트 시스템은 24시간 매일 이용가능 합니다.<br>제휴사의 커미션 수익은 @(siteName)사이트로 유입된 고객의 트랙픽에 의해 결정됩니다 @(siteName)이 유입된 회원의 회원등록 및 첫 입금을 도와드리게 될것이며 , @(siteName)의 매력적인 보너스와 제안으로 비지니스에 대한 재 교육까지 제공해 드리게 될것입니다.
     </p>
 </div>
 <div class="info-group">
@@ -19,7 +22,7 @@
         수익분배구조는 두가지로 구성되어 집니다. 카지노 수익분배 그리고 스포츠북 수익분배로 이루어지며, 아래와 같이 계산되어 집니다. 총 수익분배중 제휴자에게 지불가능한 금액은 수익분배 두개의 구성의 결과를 합친 금액입니다. <br>스포츠북 * 6명이하의 회원에 대해서는 정산되지 않습니다.
     </p>
     <p class="text">
-        저희 12BET은 스포츠북을 위한 수익분배를 제공해드리고 있습니다. 이 구조는 매 달 마다 스포츠북에 참여하고 있는 플레이어들의 수만큼 누적되는 구조 입니다.
+        저희 @(siteName)은 스포츠북을 위한 수익분배를 제공해드리고 있습니다. 이 구조는 매 달 마다 스포츠북에 참여하고 있는 플레이어들의 수만큼 누적되는 구조 입니다.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
     <p class="text" style="margin-top: 15px;">
@@ -42,10 +45,9 @@
         USD이외의 다른 통화로도 지불가능 합니다. 지급가능한 통화종류: 영국GBP,유럽 EUR, 중국RMB , 말레이시아MYR, 태국 THB, 인도네시아IDR. 지급날짜의 기준으로 환율이 적용됩니다.
     </p>
     <p class="text">저희는 여러가지의 출금 방법을 제공합니다: </p>
-    <p>1. 회원의 12bet 플레이어 계정을 통해</p>
+    <p>1. 회원의 @siteName 플레이어 계정을 통해</p>
     <p>2. Moneybookers *</p>
-    <p>3. Neteller *</p>
-    <p>4. 은행전신송금 *</p>
+    <p>3. 은행전신송금 *</p>
     <p class="text">
         * 제휴사는 한달에 한번에 한해서 출금신청이 가능합니다. 제휴사가 한달내에 두번째 출금 신청을 요구 하고자 하는경우, 요청은 관리자의 승인이 있어야 합니다. 본사에서 무료 출금요청을 제공할경우, 본사는 그에따른 금융기관 또는 electronic wallets 에서 부과하는 커미션을 부담 하지 않습니다.
         최소 출금가능 금액은USD$100입니다. <br>* 제휴아이디,동일아이피,동일계좌로 플레이된 것에 대해서는 지불되지 않습니다

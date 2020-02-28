@@ -421,7 +421,7 @@
     <value>Komentar tidak valid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Persentase Komisi</value>
+    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
@@ -1093,7 +1093,7 @@
     <value>Belanda </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Pendapatan Bersih Dalam Sebulan (Company Net Win For The Month) dalam USD</value>
+    <value>Company Net Win (VND)</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>Kaledonia Baru </value>
@@ -1288,7 +1288,7 @@
     <value>Qatar </value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>Member Yang Memenuhi Syarat</value>
+    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Buku balapan</value>
@@ -1327,7 +1327,7 @@
     <value>Nominal (USD)</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Isi Jumlah Penarikan (USD)</value>
+    <value>Isi Jumlah Penarikan</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Proseskan Penarikan Saya</value>
@@ -2000,7 +2000,7 @@
     <value>Belum Menjadi Member Afiliasi?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Daftar Afiliasi dan hasilkan komisi hingga 40%!</value>
+    <value>Daftar Afiliasi dan hasilkan komisi hingga 50%!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>DAFTAR SEKARANG!</value>

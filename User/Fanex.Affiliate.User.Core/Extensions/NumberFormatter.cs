@@ -12,7 +12,7 @@
             return value.ToString("#,##0");
         }
 
-        public static string ToStringMoneyWithSymbol(this decimal value, byte digit = 2, string symbol = "$")
+        public static string ToStringMoneyWithSymbol(this decimal value, byte digit = 2, string symbol = "")
         {
             return value < 0 ? $"-{symbol}{Math.Abs(value).FormatDecimal(digit)}" : $"{symbol}{value.FormatDecimal(digit)}";
         }

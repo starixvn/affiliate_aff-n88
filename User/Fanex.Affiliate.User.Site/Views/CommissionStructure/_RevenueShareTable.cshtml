@@ -6,7 +6,7 @@
                 <th width="8%">@Lang.Tier</th>
                 <th width="20%">@Lang.NetWinLoss</th>
                 <th width="20%">@Lang.ActivePlayers</th>
-                <th width="20%">@Lang.Comm</th>
+                <th width="20%">@Lang.CommPercent</th>
             </tr>
         </thead>
         <tbody>
@@ -16,21 +16,21 @@
                     <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
                 </td>
                 <td class="text-center">1</td>
-                <td class="text-center">$1 - $2,999</td>
+                <td class="text-center">0 - 130,000,000 </td>
                 <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
-                <td class="text-center">20%</td>
-            </tr>
-            <tr>
-                <td class="text-center">2</td>
-                <td class="text-center">$3,000.00 - $45,000</td>
-                
                 <td class="text-center">30%</td>
             </tr>
             <tr>
-                <td class="text-center">3</td>
-                <td class="text-center">$45,000+</td>
+                <td class="text-center">2</td>
+                <td class="text-center">130,001,000 – 1,990,000,000</td>
                 
-                <td class="text-center">40%</td>
+                <td class="text-center">50%</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td class="text-center">1,990,000,000 above</td>
+                
+                <td class="text-center">50%</td>
             </tr>
         </tbody>
     </table>

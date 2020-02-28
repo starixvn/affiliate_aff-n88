@@ -1093,7 +1093,7 @@
     <value>Hà Lan </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Lợi Nhuận Ròng Mỗi Tháng (CNW)($)</value>
+    <value>Lợi Nhuận Ròng Mỗi Tháng (VND)</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>
@@ -1288,7 +1288,7 @@
     <value>Qatar </value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>Người chơi tích cực</value>
+    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Đua Ngựa</value>
@@ -1327,7 +1327,7 @@
     <value>Số tiền yêu cầu</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Nhập số tiền yêu cầu (bằng USD)</value>
+    <value>Nhập số tiền yêu cầu</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Yêu cầu thanh toán</value>
@@ -2003,7 +2003,7 @@
     <value>Chưa là Hội Viên?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 40% Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 50% Hoa Hồng Mỗi Tháng!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>ĐĂNG KÝ</value>
@@ -2190,5 +2190,38 @@
   </data>
   <data name="PlayersDetails" xml:space="preserve">
     <value>Chi tiết người chơi</value>
+  </data>
+  <data name="FirstNameMaxLength" xml:space="preserve">
+    <value>Tên không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="LastNameMaxLength" xml:space="preserve">
+    <value>Họ không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="AnswerMaxLength" xml:space="preserve">
+    <value>Câu trả lời của bạn không được nhiều hơn 300 ký tự</value>
+  </data>
+  <data name="AddressMaxLength" xml:space="preserve">
+    <value>Địa chỉ không được nhiều hơn 250 ký tự</value>
+  </data>
+  <data name="CityMaxLength" xml:space="preserve">
+    <value>Thành phố không được nhiều hơn 250 ký tự</value>
+  </data>
+  <data name="EmailMaxLength" xml:space="preserve">
+    <value>Địa chỉ email không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="PhoneMaxLength" xml:space="preserve">
+    <value>Số liên hệ không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="UserNameMaxLength" xml:space="preserve">
+    <value>Tên truy cập không được nhiều hơn 100 ký tự</value>
+  </data>
+  <data name="PostalMaxLength" xml:space="preserve">
+    <value>Mã bưu điện/Mã zip không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="SiteUrlMaxLength" xml:space="preserve">
+    <value>Trang web URL không được nhiều hơn 100 ký tự</value>
+  </data>
+  <data name="NoSiteDescMaxLength" xml:space="preserve">
+    <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 100 ký tự</value>
   </data>
 </root>

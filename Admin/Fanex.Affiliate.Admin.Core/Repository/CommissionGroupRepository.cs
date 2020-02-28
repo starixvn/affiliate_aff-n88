@@ -45,7 +45,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 objectDb.ExecuteNonQuery();
 
                 var code = objectDb.GetParameterValue(Field.ErrCode);
-                param.GroupId = Convert.ToInt32(objectDb.GetParameterValue(Field.GroupId));
+                var groupId = objectDb.GetParameterValue(Field.GroupId);
+                param.GroupId = groupId == DBNull.Value ? 0 : Convert.ToInt32(groupId);
 
                 return new ResultInfo
                 {

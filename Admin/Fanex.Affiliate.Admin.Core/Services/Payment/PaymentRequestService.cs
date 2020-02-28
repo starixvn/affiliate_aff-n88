@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
 
         public static string GetErrMsg(int errCode)
         {
-            var message = Lang.ResourceManager.GetString("UpdatePaymentErr" + errCode);
+            var message = SiteFriendlyNameHelper.Replace12Bet(Lang.ResourceManager.GetString("UpdatePaymentErr" + errCode));
 
             return message ?? "Update transaction failed!";
         }

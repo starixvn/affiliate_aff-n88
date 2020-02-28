@@ -35,10 +35,6 @@ const validatePaymentMethod = (userAccountInfo) => {
             message = getMessage('PlayerUsername', userAccountInfo.PlayerUsername);
             isValid = userAccountInfo.PlayerUsername !== '';
             break;
-        case netellerMethod:
-            message = getMessage('NetellerAccountId', userAccountInfo.NetellerAccountId);
-            isValid = userAccountInfo.NetellerAccountId !== '';
-            break;
         case moneybookersMethod:
             message = getMessage('MoneybookersEmail', userAccountInfo.MoneybookersEmail);
             isValid = userAccountInfo.MoneybookersEmail !== '';

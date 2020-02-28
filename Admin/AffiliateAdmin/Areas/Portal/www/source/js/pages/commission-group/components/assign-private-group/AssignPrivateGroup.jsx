@@ -110,7 +110,6 @@ export class AssignPrivateGroup extends React.Component {
     render() {
         const { isShowMessage, isSuccess, message, isShowLoader } = this.state;
         const { affInfo, selectedGroup } = this.props;
-        console.log(affInfo);
 
         return affInfo && selectedGroup && (
             <div className="comm-popup-container" style={{ padding: 10 }}>

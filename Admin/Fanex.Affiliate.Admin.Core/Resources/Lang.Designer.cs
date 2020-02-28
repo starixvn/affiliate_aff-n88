@@ -574,7 +574,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12BET User Name is invalid.
+        ///   Looks up a localized string similar to 12Bet User Name is invalid.
         /// </summary>
         public static string UpdatePaymentErr1003 {
             get {

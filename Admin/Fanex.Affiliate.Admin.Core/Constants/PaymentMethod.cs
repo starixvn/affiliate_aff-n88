@@ -2,9 +2,9 @@
 {
     public static class PaymentMethod
     {
-        public const string Player = "Player";
-        public const string Neteller = "Neteller";
+        public const string BwingPlayer = "Bwing Player Account";
+        public const string Goal123Player = "Goal123 Player Account";
         public const string Moneybookers = "Moneybookers";
-        public const string Wire = "Wire";
+        public const string Wire = "Wire Transfe";
     }
 }

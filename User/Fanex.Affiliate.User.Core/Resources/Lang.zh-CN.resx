@@ -421,7 +421,7 @@
     <value>意见填写无效</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>佣金%</value>
+    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>完成日期</value>
@@ -1093,7 +1093,7 @@
     <value>荷兰</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>每月盈亏总额 (CNW)($)</value>
+    <value>Company Net Win (VND)</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亚</value>
@@ -1288,7 +1288,7 @@
     <value>卡塔尔</value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>合格会员数</value>
+    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>赛马</value>
@@ -1333,7 +1333,7 @@
     <value>提款金额</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>输入要求的金额 ($美金)</value>
+    <value>输入要求的金额</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>要求提款 </value>
@@ -2009,7 +2009,7 @@
     <value>还不是我们的合作伙伴？</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>注册合作伙伴计划，赚取每月高达40%的佣金！</value>
+    <value>注册合作伙伴计划，赚取每月高达50%的佣金！</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>立即加入！</value>

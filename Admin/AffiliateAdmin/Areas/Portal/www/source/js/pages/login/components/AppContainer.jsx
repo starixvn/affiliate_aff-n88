@@ -49,7 +49,7 @@ export default class AppContainer extends PureComponent {
         if (isValidAccount) {
             const param = { userName, password };
             const response = await post('Portal/Auth/Login', param);
-            console.log(response);
+
             if (response) {
                 const { data } = response;
 

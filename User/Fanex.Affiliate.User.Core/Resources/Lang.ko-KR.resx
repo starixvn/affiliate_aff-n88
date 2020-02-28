@@ -430,7 +430,7 @@
     <value>기입하신 정보가 바르지 않습니다.</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>커미션 퍼센테이지</value>
+    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>완료일</value>
@@ -1106,7 +1106,7 @@
     <value>네덜렌드</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>이달 회사의 넷 이익 (CNW)($)</value>
+    <value>Company Net Win (VND)</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>NEW!</value>
@@ -1310,7 +1310,7 @@
     <value>카타르</value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>공인회원</value>
+    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>레이스북</value>
@@ -1352,7 +1352,7 @@
     <value>요청금액</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>요청금액을 입력하세요(USD)</value>
+    <value>요청금액을 입력하세요</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>출금요청</value>
@@ -1997,7 +1997,7 @@
     <value>제휴 가입 전이신가요?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>제휴 프로그램에 가입하시고 최대 40% 커미션을 받으세요!</value>
+    <value>제휴 프로그램에 가입하시고 최대 50% 커미션을 받으세요!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>제휴 가입!</value>

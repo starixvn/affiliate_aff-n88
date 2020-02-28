@@ -79,7 +79,6 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={120} title={headerText.IbcUserName}>{headerText.IbcUserName}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.FirstName}>{headerText.FirstName}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.LastName}>{headerText.LastName}</Cell>
-                <Cell header={true} colWidth={120} title={headerText.CurrentBalance}>{headerText.CurrentBalance}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.CreatedDate}>{headerText.CreatedDate}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.Affiliate}>{headerText.Affiliate}</Cell>
                 {/* <Cell header={true} colWidth={30} title={headerText.Remove}>{headerText.Remove}</Cell> */}
@@ -122,7 +121,6 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={ibcUserName}>{ibcUserName}</Cell>
                 <Cell className="text-center" title={firstName}>{firstName}</Cell>
                 <Cell className="text-center" title={lastName}>{lastName}</Cell>
-                <Cell className="text-center" title={dataItem.CurrentBalance}>{dataItem.CurrentBalance}</Cell>
                 <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>
                 <Cell className="text-center" title={dataItem.AffName}>{dataItem.AffName}</Cell>
                 {/* <Cell className="text-center" title="Remove Member">

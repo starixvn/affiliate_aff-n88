@@ -1153,7 +1153,7 @@
     <value>Netherlands </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win For The Month (CNW)($)</value>
+    <value>Company Net Win (VND)</value>
     <comment>87923</comment>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
@@ -1371,7 +1371,7 @@
     <value>Qatar </value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>Active Players</value>
+    <value>Number of Active Players (Min required)</value>
     <comment>87923</comment>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1415,7 +1415,7 @@
     <value>Request Amount</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Input Request Amount (USD)</value>
+    <value>Input Request Amount</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Request Payout</value>
@@ -2133,7 +2133,7 @@
     <comment>87923</comment>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Sign up to affiliate program and earn up to 40% monthly commission!</value>
+    <value>Sign up to affiliate program and earn up to 50% monthly commission!</value>
     <comment>87923</comment>
   </data>
   <data name="JoinNow" xml:space="preserve">
@@ -2340,5 +2340,41 @@
   </data>
   <data name="PlayersDetails" xml:space="preserve">
     <value>Players Details</value>
+  </data>
+  <data name="YouCanRequest" xml:space="preserve">
+    <value>You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your Bwing.com player account.</value>
+  </data>
+  <data name="FirstNameMaxLength" xml:space="preserve">
+    <value>First Name no more than 50 characters.</value>
+  </data>
+  <data name="LastNameMaxLength" xml:space="preserve">
+    <value>Last Name no more than 50 characters.</value>
+  </data>
+  <data name="AnswerMaxLength" xml:space="preserve">
+    <value>Your Answer no more than 300 characters.</value>
+  </data>
+  <data name="EmailMaxLength" xml:space="preserve">
+    <value>Email Address no more than 50 characters.</value>
+  </data>
+  <data name="PhoneMaxLength" xml:space="preserve">
+    <value>Contact Number no more than 50 characters.</value>
+  </data>
+  <data name="AddressMaxLength" xml:space="preserve">
+    <value>Address no more than 250 characters.</value>
+  </data>
+  <data name="CityMaxLength" xml:space="preserve">
+    <value>City no more than 250 characters.</value>
+  </data>
+  <data name="PostalMaxLength" xml:space="preserve">
+    <value>Postcode/Zip no more than 50 characters.</value>
+  </data>
+  <data name="UserNameMaxLength" xml:space="preserve">
+    <value>User Name no more than 100 characters.</value>
+  </data>
+  <data name="SiteUrlMaxLength" xml:space="preserve">
+    <value>Website URL no more than 250 characters.</value>
+  </data>
+  <data name="NoSiteDescMaxLength" xml:space="preserve">
+    <value>Please describe how you would like to promote if you don’t have the URL no more than 250 characters.</value>
   </data>
 </root>

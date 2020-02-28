@@ -5,7 +5,8 @@ import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
-import { playerMethod, netellerMethod, moneybookersMethod, wireMethod, minimumPaymentText } from '../../modules/constants';
+import { playerMethod, youCanRequest, moneybookersMethod, wireMethod, minimumPaymentText } from '../../modules/constants';
+import { formatDecimal } from '../../../../../modules/numberFormat';
 
 export class Payment extends PureComponent {
     constructor(props) {
@@ -28,7 +29,6 @@ export class Payment extends PureComponent {
     _renderFormByMethod(userAccountInfo) {
         return {
             [playerMethod]: this._renderPaymentForm('playerUsername', `${window.initialState.licenseeName} User Name`, userAccountInfo.PlayerUsername, true, this.handleChange),
-            [netellerMethod]: this._renderPaymentForm('netellerAccountId', 'Neteller Account ID', userAccountInfo.NetellerAccountId, true, this.handleChange),
             [moneybookersMethod]: this._renderPaymentForm('moneybookersEmail', 'Moneybookers Email', userAccountInfo.MoneybookersEmail, true, this.handleChange),
             [wireMethod]: this._renderWireForm(userAccountInfo)
         }
@@ -48,11 +48,11 @@ export class Payment extends PureComponent {
     _renderWireForm(userAccountInfo) {
         return (
             <React.Fragment>
-                {this._renderPaymentForm('bankName', 'Bank Name', userAccountInfo.BankName, true, this.handleChange)}
-                {this._renderPaymentForm('bankAddress', 'Bank Address', userAccountInfo.BankAddress, true, this.handleChange)}
-                {this._renderPaymentForm('bankCode', 'Bank ABA/Swift/Sort Code', userAccountInfo.BankCode, false, this.handleChange)}
-                {this._renderPaymentForm('bankAccountName', 'Bank Account Name', userAccountInfo.BankAccountName, true, this.handleChange)}
-                {this._renderPaymentForm('bankAccountNumber', 'Bank Account Number', userAccountInfo.BankAccountNumber, true, this.handleChange)}
+                {this._renderPaymentForm('bankName', 'Wire Name', userAccountInfo.BankName, true, this.handleChange)}
+                {this._renderPaymentForm('bankAddress', 'Wire Address', userAccountInfo.BankAddress, true, this.handleChange)}
+                {this._renderPaymentForm('bankCode', 'Wire ABA/Swift/Sort Code', userAccountInfo.BankCode, false, this.handleChange)}
+                {this._renderPaymentForm('bankAccountName', 'Wire Account Name', userAccountInfo.BankAccountName, true, this.handleChange)}
+                {this._renderPaymentForm('bankAccountNumber', 'Wire Account Number', userAccountInfo.BankAccountNumber, true, this.handleChange)}
             </React.Fragment>
         )
     }
@@ -60,7 +60,10 @@ export class Payment extends PureComponent {
     render() {
         const { userAccountInfo, paymentMethodList, minimumPayment } = this.props;
         const renderFormByMethod = userAccountInfo && this._renderFormByMethod(userAccountInfo);
-        console.log(userAccountInfo.PreferredPayment);
+
+        console.log(userAccountInfo);
+        console.log(renderFormByMethod);
+
         return userAccountInfo && (
             <Form tag="div">
                 <FormGroup row>
@@ -72,9 +75,10 @@ export class Payment extends PureComponent {
                             })}
                         </Input>
                     </Col>
-                    <p>{minimumPaymentText + " " + minimumPayment}</p>
+                    <p>{minimumPaymentText + " " + formatDecimal(minimumPayment/1000)}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
+                <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{youCanRequest}</p>
             </Form>
         )
     }

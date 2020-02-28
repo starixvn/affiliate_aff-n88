@@ -10,6 +10,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Payment
     {
         public IEnumerable<string> PaymentMethods { get; set; }
 
-        public int MinAmount { get; set; }
+        public decimal MinAmount { get; set; }
     }
 }

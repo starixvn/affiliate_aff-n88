@@ -9,7 +9,6 @@ export const headerText = {
     IbcUserName: globalResource.SystemUserName,
     FirstName: 'First Name',
     LastName: 'Last Name',
-    CurrentBalance: 'Current Balance Player',
     CreatedDate: 'Created Date',
     Remove: 'Remove',
     AffType: 'Affiliate Type',

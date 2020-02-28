@@ -120,8 +120,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 
             using (var objectDb = GetObjectDb(SpKey))
             {
+                objectDb.AddOutParameter("MinAmount", DbType.Int32, Size.SizeOfInt);
+
                 paymentMethod.PaymentMethods = objectDb.Query<string>();
-                paymentMethod.MinAmount = Convert.ToInt32(objectDb.GetParameterValue("MinAmount"));
+                paymentMethod.MinAmount = Convert.ToDecimal(objectDb.GetParameterValue("MinAmount"));
+
                 return paymentMethod;
             }
         }
