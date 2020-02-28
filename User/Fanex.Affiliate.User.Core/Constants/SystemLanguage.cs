@@ -21,7 +21,7 @@ namespace Fanex.Affiliate.User.Core.Constants
         };
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;
 
-        public const string DefaultLanguageCode = "en-US";
+        public const string DefaultLanguageCode = "vi-VN";
 
         public const string VietNamLanguageCode = "vi-VN";
 
@@ -33,17 +33,13 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public static IEnumerable<Language> LanguageList => new List<Language>
         {
+            new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"},
             new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"},
             new Language { Code = "zh-CN", NativeName = "中文简体", DisplayName = "Chinese Simplified", EnglishName = "Chinese Simplified", ShortedCode = "cs"},
             new Language { Code = "zh-TW", NativeName = "中文繁体", DisplayName = "Chinese Traditional", EnglishName = "Chinese Traditional", ShortedCode = "ch"},
             new Language { Code = "id-ID", NativeName = "Indonesia", DisplayName = "Bahasa Indonesia", EnglishName = "Indonesian", ShortedCode = "id"},
-            new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"},
             new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"},
-            new Language { Code = "ko-KR", NativeName = "한국어", DisplayName = "Korean", EnglishName = "Korean", ShortedCode = "ko"},
-            new Language { Code = "es-ES", NativeName = "Español", DisplayName = "Spanish", EnglishName = "Spanish", ShortedCode = "es"},
-            new Language { Code = "ja-JP", NativeName = "日本", DisplayName = "Japanese", EnglishName = "Japanese", ShortedCode = "jp"},
-            new Language { Code = "hi-IN", NativeName = "English (India)", DisplayName = "English (India)", EnglishName = "English (India)", ShortedCode = "hien"},
-            new Language { Code = "en-GB", NativeName = "English (Europe)", DisplayName = "English (Europe)", EnglishName = "English (Europe)", ShortedCode = "eneuro"}
+            new Language { Code = "ko-KR", NativeName = "한국어", DisplayName = "Korean", EnglishName = "Korean", ShortedCode = "ko"}
         };
 
         public static string GetShortedCodeForTracking(string currentLanguage)
