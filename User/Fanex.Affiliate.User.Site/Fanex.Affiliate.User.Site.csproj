@@ -912,6 +912,20 @@
     <Content Include="www\source\styles\Images\apply12bet\3step.th-TH.png" />
     <Content Include="www\source\styles\Images\apply12bet\3step.zh-TW.png" />
     <Content Include="www\source\styles\Images\apply12bet\3step.vi-VN.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.en-US.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.id-ID.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.ko-KR.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.th-TH.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.vi-VN.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.zh-CN.png" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.zh-TW.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.en-US.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.id-ID.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.ko-KR.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.th-TH.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.vi-VN.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.zh-CN.png" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\source\styles\Images\banner-main-left.jpg" />
     <Content Include="www\source\styles\Images\banner-main-right.jpg" />
     <Content Include="www\source\styles\Images\bg-adv_contact.png" />
@@ -1361,6 +1375,20 @@
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.vi-VN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.zh-CN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.zh-TW.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.id-ID.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.ko-KR.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.th-TH.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.vi-VN.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.zh-CN.webp" />
+    <Content Include="www\source\styles\Images\apply\n8b\3step.zh-TW.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.en-US.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.id-ID.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.ko-KR.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.th-TH.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.vi-VN.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.zh-CN.webp" />
+    <Content Include="www\source\styles\Images\apply\n8g\3step.zh-TW.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
