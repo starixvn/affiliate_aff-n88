@@ -11,8 +11,6 @@ namespace Affiliate.N88.Jobs.Configurations
 
     public class LicenseeSiteMapping
     {
-        public string SiteName { get; set; }
-
         public string SettingCodePrefix { get; set; }
     }
 }

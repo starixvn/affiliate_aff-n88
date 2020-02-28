@@ -71,56 +71,62 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 return;
             }
 
-            var members = GetImportingData(customerData);
-            foreach (var groupMember in members)
+            var insertMemberCommands = await GetImportingData(customerData);
+            foreach (var command in insertMemberCommands)
             {
-                var siteName = groupMember.Item1;
-                var member = groupMember.Item2;
 
-                if (SupportedSites.Any(supportSiteName => string.CompareOrdinal(supportSiteName, siteName) == 0))
+                if (SupportedSites.Any(supportSiteCode => string.CompareOrdinal(supportSiteCode, command.SettingPrefix) == 0))
                 {
-                    await InsertMembers(regTime, siteName, member);
+                    await InsertMembers(regTime, command);
                 }
                 else
                 {
-                    await _logger.InfoAsync($"No Import Setting for Site: {siteName}, Imported Data {regTime}");
+                    await _logger.InfoAsync($"No Import Setting for Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime}");
                 }
             }
         }
 
-        private async Task InsertMembers(DateTime regTime, string siteName, InsertMemberInfoCommand member)
+        private async Task InsertMembers(DateTime regTime, InsertMemberInfoCommand command)
         {
             try
             {
                 //TODO : Need recheck import right database (check sitename)
-                await _importerRepository.ImportMemberAsync(member);
-                await _logger.InfoAsync($"Site: {siteName}, Imported Data {regTime} by SP {member.GetSettingKey()}: {member.XmlData}");
+                await _importerRepository.ImportMemberAsync(command);
+                await _logger.InfoAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime} by SP {command.GetSettingKey()}: {command.XmlData}");
             }
             catch (Exception ex)
             {
-                await _logger.ErrorAsync($"Site: {siteName} {ex.Message} \n {member.XmlData}", ex);
+                await _logger.ErrorAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName} {ex.Message} \n {command.XmlData}", ex);
             }
         }
 
         //Todo - need clean code
-        private IEnumerable<(string, InsertMemberInfoCommand)> GetImportingData(IEnumerable<CustomerModel> customerData)
+        private async Task<IEnumerable<InsertMemberInfoCommand>> GetImportingData(IEnumerable<CustomerModel> customerData)
         {
-            var groupCustomer = customerData
-                .GroupBy(c => c.SiteName)
-                .Select(g => (g.Key, GenerateImpotedDataBySiteName(g.Key, g.ToList())));
+            var commandList = new List<InsertMemberInfoCommand>();
+            var groupCustomers = customerData.GroupBy(c => c.SiteName);
 
-            return groupCustomer;
+            foreach (var group in groupCustomers)
+            {
+                var importData = await GenerateImpotedDataBySiteName(group.Key, group.ToList());
+
+                commandList.Add(importData);
+            }
+
+            return commandList;
         }
 
-        private InsertMemberInfoCommand GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
+        private async Task<InsertMemberInfoCommand> GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
         {
-            var prefixSettingCode = GetSettingCodePrefix(siteName);
+            var prefixSettingCode = await GetSettingCodePrefix(siteName);
             var xml = BuildXml(customers);
-            var member = new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
+
+            return new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
             {
+                SettingPrefix = prefixSettingCode,
+                SiteName = siteName,
                 XmlData = xml
             };
-            return member;
         }
 
         private string BuildXml(List<CustomerModel> customers)
@@ -162,19 +168,35 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return dates.First();
         }
 
-        private async Task<DateTime> GetLastedImportDate(string site)
+        private async Task<DateTime> GetLastedImportDate(string settingPrefixCode)
         {
-            var settingPrefixCode = GetSettingCodePrefix(site);
-
             var prefixProvider = new PrefixProvider(settingPrefixCode);
+
             return await _importerRepository.GetLastedMemberImportedTimeAsync(new MemberImportedTimeInfo(prefixProvider));
         }
 
-        private string GetSettingCodePrefix(string siteName)
+        private async Task<string> GetSiteName(string settingPrefixCode)
+        {
+            var prefixProvider = new PrefixProvider(settingPrefixCode);
+
+            return await _importerRepository.GetSiteNameAsync(new SiteNameInfo(prefixProvider));
+        }
+
+        private async Task<string> GetSettingCodePrefix(string site)
         {
             var configMapping = _config.Value?.LicenseeSiteMapping ?? new List<LicenseeSiteMapping>();
-            var prefixSettingCode = configMapping.FirstOrDefault(c => c.SiteName == siteName)?.SettingCodePrefix ?? siteName;
-            return prefixSettingCode;
+
+            foreach (var mappingItem in configMapping)
+            {
+                var siteNameMapping = await GetSiteName(mappingItem.SettingCodePrefix);
+
+                if(string.Compare(siteNameMapping, site, true) == 0)
+                {
+                    return mappingItem.SettingCodePrefix;
+                }
+            }
+
+            return site;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Affiliate.N88.DTO
         {
         }
 
-        public override string SName => "SiteName";
+        public override string SName => "BrandName";
     }
 }

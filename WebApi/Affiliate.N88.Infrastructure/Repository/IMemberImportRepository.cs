@@ -1,8 +1,6 @@
-﻿using Affiliate.N88.DTO;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
+using Affiliate.N88.DTO;
 
 namespace Affiliate.N88.Repository
 {
@@ -10,6 +8,8 @@ namespace Affiliate.N88.Repository
     {
         Task ImportMemberAsync(InsertMemberInfoCommand memberInfo);
 
-        Task<DateTime> GetLastedMemberImportedTimeAsync(SettingInfo settingInfo);
+        Task<DateTime> GetLastedMemberImportedTimeAsync(MemberImportedTimeInfo settingInfo);
+
+        Task<string> GetSiteNameAsync(SiteNameInfo settingInfo);
     }
 }

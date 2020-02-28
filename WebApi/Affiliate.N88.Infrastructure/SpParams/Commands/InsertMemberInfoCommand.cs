@@ -1,4 +1,5 @@
 ﻿using Affiliate.N88.Core;
+using Fanex.Data;
 using System;
 
 namespace Affiliate.N88.DTO
@@ -7,6 +8,12 @@ namespace Affiliate.N88.DTO
     {
         public InsertMemberInfoCommand(IPrefixProvider prefixProvider) : base(prefixProvider)
         { }
+
+        [SpParam(Ignored = true)]
+        public string SettingPrefix { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string SiteName { get; set; }
 
         public string XmlData { get; set; }
 
