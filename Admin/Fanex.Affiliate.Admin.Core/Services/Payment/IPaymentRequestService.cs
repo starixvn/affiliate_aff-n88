@@ -2,6 +2,7 @@
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Payment;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
@@ -9,7 +10,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
     {
         EntityResult<PaymentRequest> GetPaymentRequestList(PaymentRequestParam param);
 
-        PaymentMethodInfo GetPaymentMethod();
+        (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount) GetPaymentMethod();
 
         PaymentRequestDetail GetPaymentRequestDetail(long transId);
 

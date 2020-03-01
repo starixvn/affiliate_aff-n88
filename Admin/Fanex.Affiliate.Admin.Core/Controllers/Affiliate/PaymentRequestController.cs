@@ -8,7 +8,9 @@ using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Payment;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using Fanex.Affiliate.Admin.Core.ViewModels.Payment;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
@@ -112,9 +114,18 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [ValidateAntiForgeryHeader]
         public ActionResult GetPaymentMethod()
         {
+            var paymentInfo = _paymentRequestService.GetPaymentMethod();
+            var paymentMethods = paymentInfo.paymentMethods
+                .Select(m => new KeyValuePair<string, string>(m.PaymentId, m.PaymentName));
+            var vms = new PaymentMethodViewModel
+            {
+                MinAmount = paymentInfo.minAmount,
+                PaymentMethods = paymentMethods
+            };
+
             var result = new JsonNetResult
             {
-                Data = _paymentRequestService.GetPaymentMethod()
+                Data = vms
             };
             return result;
         }

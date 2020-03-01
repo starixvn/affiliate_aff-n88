@@ -8,8 +8,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Payment
 {
     public class PaymentMethodInfo
     {
-        public IEnumerable<string> PaymentMethods { get; set; }
+        public string PaymentId { get; set; }
 
-        public decimal MinAmount { get; set; }
+        public string PaymentName { get; set; }
     }
 }

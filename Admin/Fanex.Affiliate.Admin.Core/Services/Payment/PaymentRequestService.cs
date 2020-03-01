@@ -7,6 +7,7 @@ using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Resources;
 using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
@@ -85,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             return message ?? "Update transaction failed!";
         }
 
-        public PaymentMethodInfo GetPaymentMethod()
+        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount)  GetPaymentMethod()
         {
             return _paymentRequestRepository.GetPaymentMethod();
         }

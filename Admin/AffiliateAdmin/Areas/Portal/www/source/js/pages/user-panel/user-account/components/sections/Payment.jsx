@@ -63,6 +63,7 @@ export class Payment extends PureComponent {
 
         console.log(userAccountInfo);
         console.log(renderFormByMethod);
+        console.log(paymentMethodList);
 
         return userAccountInfo && (
             <Form tag="div">
@@ -71,11 +72,11 @@ export class Payment extends PureComponent {
                     <Col sm={5} xl={6}>
                         <Input type="select" id="preferredPayment" name="preferredPayment" onChange={this.handleChangePaymentMethod} value={userAccountInfo.PreferredPayment}>
                             {paymentMethodList.map(item => {
-                                return (<option key={item} value={item}>{item}</option>)
+                                return (<option key={item.Key} value={item.Key}>{item.Value}</option>)
                             })}
                         </Input>
                     </Col>
-                    <p>{minimumPaymentText + " " + formatDecimal(minimumPayment/1000)}</p>
+                    <p>{minimumPaymentText + " " + formatDecimal(minimumPayment)}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
                 <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{youCanRequest}</p>
