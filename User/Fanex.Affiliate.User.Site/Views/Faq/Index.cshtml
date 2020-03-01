@@ -11,7 +11,8 @@
 @{ 
     var contentView = "~/Views/Faq/_Content." + Model + ".cshtml";
 
-     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
+     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString())
+        .ReplaceHardcodeMailContact();
 }
 
     <div class="content">

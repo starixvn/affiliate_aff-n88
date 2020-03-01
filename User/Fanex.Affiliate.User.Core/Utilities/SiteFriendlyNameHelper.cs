@@ -14,5 +14,15 @@
                 .Replace("12bet", AppSetting.Instance.SiteFriendlyName)
                 .Replace("12BET", AppSetting.Instance.SiteFriendlyName);
         }
+
+        public static string ReplaceHardcodeMailContact(this string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return text;
+            }
+
+            return text.Replace("affiliates@12csd.com", AppSetting.Instance.MailContact);
+        }
     }
 }
