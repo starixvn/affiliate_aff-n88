@@ -154,7 +154,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    height: 70px;
     width: 570px;
     border-radius: 5px;
     margin-bottom: 10px; }
@@ -164,7 +163,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    height: 50px;
     text-align: center;
     color: #fff;
     border-left: 1px solid #f9f9f9;
