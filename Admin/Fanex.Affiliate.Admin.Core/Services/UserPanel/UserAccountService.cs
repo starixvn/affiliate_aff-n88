@@ -36,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             var isValidPaymentMethod = ValidatePaymentMethod(param);
             if(isValidPaymentMethod)
             {
-                if(PaymentMethod.BwingPlayer.Equals(param.PreferredPayment) || PaymentMethod.Goal123Player.Equals(param.PreferredPayment))
+                if(PaymentMethod.PlayerAccount.Equals(param.PreferredPayment))
                 {
                     var isValid = _userAccountRepository.CheckPlayerUserName(param.AffId, param.PlayerUsername);
 
@@ -84,7 +84,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static bool ValidatePaymentMethod(UserAccountParam param)
         {
-            var isPlayerUsername = (PaymentMethod.BwingPlayer.Equals(param.PreferredPayment) || PaymentMethod.Goal123Player.Equals(param.PreferredPayment))
+            var isPlayerUsername = (PaymentMethod.PlayerAccount.Equals(param.PreferredPayment))
                                         && !string.IsNullOrEmpty(param.PlayerUsername);
             var isMoneybookersEmail = PaymentMethod.Moneybookers.Equals(param.PreferredPayment) && !string.IsNullOrEmpty(param.MoneybookersEmail);
             var isBankTranfer = PaymentMethod.Wire.Equals(param.PreferredPayment) && IsValidWirePaymentMethod(param);
