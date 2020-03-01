@@ -1187,9 +1187,6 @@ label.require:after {
 .btn-login-mobile {
   display: inline-block;
   margin-right: 8px !important; }
-  @media (min-width: 992px) {
-    .btn-login-mobile {
-      display: none; } }
 
 .table-medium {
   width: 70%; }

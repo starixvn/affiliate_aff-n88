@@ -79,8 +79,4 @@
 .btn-login-mobile {
     display: inline-block;
     margin-right: 8px !important;
-
-    @media (min-width: 992px) {
-        display: none;
-    }
 }
