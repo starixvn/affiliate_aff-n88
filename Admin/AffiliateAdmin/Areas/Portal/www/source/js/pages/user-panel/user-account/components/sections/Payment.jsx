@@ -61,10 +61,6 @@ export class Payment extends PureComponent {
         const { userAccountInfo, paymentMethodList, minimumPayment } = this.props;
         const renderFormByMethod = userAccountInfo && this._renderFormByMethod(userAccountInfo);
 
-        console.log(userAccountInfo);
-        console.log(renderFormByMethod);
-        console.log(paymentMethodList);
-
         return userAccountInfo && (
             <Form tag="div">
                 <FormGroup row>

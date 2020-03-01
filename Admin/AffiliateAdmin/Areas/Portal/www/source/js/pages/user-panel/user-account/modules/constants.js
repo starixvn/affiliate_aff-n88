@@ -29,9 +29,9 @@ export const requiredFieldList = [ 'FirstName', 'LastName', 'Phone', 'Address', 
 
 export const requiredBankTranferList = [ 'BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber' ]
 
-export const playerMethod = `${ window.initialState.licenseeName || ''} Player Account`;
+export const playerMethod = 'Player';
 export const moneybookersMethod = 'Moneybookers';
-export const wireMethod = 'Wire Transfe';
+export const wireMethod = 'Wire';
 export const minimumPaymentText = 'Minimum payment amount is';
 export const youCanRequest = 'You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your Bwing.com player account.'
 
