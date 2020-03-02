@@ -1909,7 +1909,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12BET User Name is invalid.
+        ///   Looks up a localized string similar to User Name is invalid.
         /// </summary>
         public static string Err1003 {
             get {

@@ -33,7 +33,7 @@ export const playerMethod = 'Player';
 export const moneybookersMethod = 'Moneybookers';
 export const wireMethod = 'Wire';
 export const minimumPaymentText = 'Minimum payment amount is';
-export const youCanRequest = 'You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your Bwing.com player account.'
+export const youCanRequest = `You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your ${window.initialState.licenseeName}.com player account.`
 
 export const countriesList = {
     'Albania': 'Albania',

@@ -71,7 +71,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
 
             var templateName = emailParam.PaymentType == PaymentRequestType.Cancel ? "PaymentCancel" : "PaymentRequest";
-            var subject = Lang.CancelSubject.Replace("{transid}", emailParam.TransId.ToString());
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.CancelSubject.Replace("{transid}", emailParam.TransId.ToString()));
 
             var emailContent = GetEmailTextContent(templateName, emailParam.User.PreferredLanguage, emailParam);
 
@@ -96,7 +96,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 emailContent = GetEmailHtmlContent(emailContent, Lang.EmailTitleSignUp, emailParam.User.PreferredLanguage, emailParam.RootDomain);
             }
 
-            _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.RegisSubject, emailParam.MailBcc, emailParam.MailCc);
+            _mailProcessor.Send(emailContent, emailParam.MailTo, SiteFriendlyNameHelper.Replace12Bet(Lang.RegisSubject), emailParam.MailBcc, emailParam.MailCc);
 
             ResetLanguage(prevLanguage);
         }
@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             
 
-            var subject = string.Format(Lang.CsdSubject, emailParam.UserName);
+            var subject = string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.CsdSubject), emailParam.UserName);
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
 
             ResetLanguage(prevLanguage);

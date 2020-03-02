@@ -888,7 +888,7 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 560px;
+  max-width: 570px;
   height: 95px;
   margin: 0 auto;
   padding-left: 108px;
