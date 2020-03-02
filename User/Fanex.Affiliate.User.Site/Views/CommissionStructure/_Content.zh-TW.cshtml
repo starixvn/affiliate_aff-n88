@@ -2,53 +2,54 @@
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
 <div class="banner-commission-structure">
-    <div class="text-content cn">
-        <p class="text-small-white text-small">高達</p>
+    <div class="text-content english">
         <p class="text-big-yellow">40%</p>
-        <p class="text-small-white"><span class="text-yellow">體育 </span> 與 <span class="text-yellow">娛樂廳 </span></p>
-        <p class="text-big-white">每月佣金！</p>
+        <p class="text-big-white">commission for life</p>
+        <p class="text-small-white text-small">on</p>
+        <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
     </div>
 </div>
+
 <div class="info-group">
     <p class="text">
-        成為@(siteName)合作夥伴後，由您推薦到@(siteName)的每位玩家，只要使用帳戶就可以為您帶來即時的佣金。我們的線上匯報系統會7×24小時服務。<br>賺取的利潤多少，取決於合夥人的網站引導帶來的顧客瀏覽量，我們的任務是指導他們完成註冊和首存，用我們誘人的紅利和優惠留住他們。
+        As a @siteName Affiliates you will be paid commission on every player you referred to @siteName over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">佣金分成模式 </span>
+        <span class="text">Revenue share model</span>
     </div>
     <p class="text">
-        佣金分成模式根據不同的產品計算，具體的佣金計算如下所述。合作夥伴的總收入，是由所有產品佣金分成的組合。
+        The revenue share model is split in each @siteName product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
     </p>
     <p class="text">
-        @(siteName)提供所有產品的佣金分成。這是一個累積的模式，每月根據合作夥伴所推薦的玩家，在@(siteName)的投注活躍程度去賺取。
+        @siteName offers a revenue share model in all @siteName products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
     <p class="text" style="margin-top: 15px;">
-        就上表中所述，“淨收入”是指在相關月份中，下線會員的總投注額增減：(i)盈利；(ii)已領取的紅利數額；(iii)扣款和(iv)其他任何相關費用如補償或退款給會員。
+        For the purposes of the table above, "Net Revenue" shall mean the amount of stakes placed by Players in the relevant calendar month exclude (i) returned winnings; (ii) any bonuses paid; (iii) Chargebacks; and (iv) any other revenue returns, credits, compensations or refunds given to Players.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">負餘額</span>
+        <span class="text">Negative Balance</span>
     </div>
     <p class="text">
-        在其中某個月的任何負餘額，均會帶到下一個月。例如若您在1月合作夥件的戶口最終結餘為 -$2,555，這個餘額將會帶到二月。若您在2月合作 夥件的戶口最終結餘為$3,400，那麼您的戶口總結餘將為$ 845（$ 3,400扣掉$2,555）。不過若您的戶口在2月依然是負數，例如 - $1,600，這將會繼續累積之前的負結餘到下一個月，那麼帶到3月的結餘將會是 - $4,155。佣金收入將按相應的級別比例支付給合作夥伴。
+        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -$2,555, this amount will be carried forward to February. If at the end of February your affiliate account earns $3,400, the total balance will be $845 ($3,400 deduct -$2,555). However if your account is still making a loss at the end of February, for example -$1,600, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -$4,155. The commission earned shall then be paid according to the tier scale.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">提領佣金</span>
+        <span class="text">Commission Payment</span>
     </div>
     <p class="text">
-        您可以要求提取美金之外的其他貨幣，例如英鎊、歐元、人民幣、馬幣、泰銖或印尼盾。相關匯率將會以支出當日為準。
+        The currencies offered are RMB and MYR, THB, VND and IDR. Respective exchange rate on the payout date will be applied.
     </p>
-    <p class="text">我們提供以下幾種提款方法：</p>
-    <p>1.通過您的@(siteName)玩家賬戶</p>
-    <p>2. Moneybookers *</p>
-    <p>3. 電匯 *</p>
+    <p class="text">We offer several methods of withdrawal:</p>
+    <p>Through your @siteName player account</p>
+    <p>Moneybookers *</p>
+    <p>Wire Transfer *</p>
     <p class="text">
-        *合夥人每月最多可以申請一次提款，如果得到合作夥伴部門經理的批准，也可以在同一個月內申請第二次。目前我們給予大家的提款申請服務是免費的，但我們並不會負擔任何轉帳手續費或電子轉帳所需服務費用。<br>最低佣金提領要求是100美金
+        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())
     </p>
 </div>

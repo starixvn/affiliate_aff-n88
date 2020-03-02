@@ -1288,7 +1288,7 @@
     <value>Qatar </value>
   </data>
   <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
+    <value>Số lượng người chơi hoạt động (Yêu cầu tối thiểu)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Đua Ngựa</value>

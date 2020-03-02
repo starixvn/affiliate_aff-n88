@@ -49,6 +49,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         bool IsN8B { get; }
 
+        string SiteName { get; }
+
         string SiteFriendlyName { get; }
     }
 }

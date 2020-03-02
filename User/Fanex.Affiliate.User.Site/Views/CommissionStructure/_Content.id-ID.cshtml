@@ -2,53 +2,54 @@
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
 <div class="banner-commission-structure">
-    <div class="text-content">
+    <div class="text-content english">
         <p class="text-big-yellow">40%</p>
-        <p class="text-big-white">komisi seumur hidup</p>
-        <p class="text-small-white text-small">di</p>
-        <p class="text-small-white"><span class="text-yellow">Olahraga</span> dan <span class="text-yellow">Kasino</span></p>
+        <p class="text-big-white">commission for life</p>
+        <p class="text-small-white text-small">on</p>
+        <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
     </div>
 </div>
+
 <div class="info-group">
     <p class="text">
-        Sebagai Afiliasi @siteName, Anda akan memperoleh komisi atas setiap pemain yang Anda datangkan ke @siteName, selama akun pemain tersebut masih aktif. Untuk kemudahan Anda, sistem online kami bisa diakses kapan saja selama 24 jam.<br>Pendapatan yang Anda terima akan bergantung pada berapa member yang bisa Anda datangkan dari situs Anda ke website @siteName. Kami juga akan membantu untuk memastikan pendapatan Anda dengan memandu member melalui proses pendaftaran, melakukan deposit pertama serta memberikan bonus serta penawaran eksklusif untuk memastikan member terus bermain.
+        As a @siteName Affiliates you will be paid commission on every player you referred to @siteName over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Model Pembagian Hasil </span>
+        <span class="text">Revenue share model</span>
     </div>
     <p class="text">
-        Model pembagian hasil dibagi menjadi 2 komponen yaitu Model bagi hasil dibagi berdasarkan setiap komponen produk @siteName. Perhitungan untuk masing-masing produk dipaparkan dalam penjelasan di bawah. Total pendapatan yang dibayarkan kepada afiliasi adalah jumlah semua komponen tersebut.
+        The revenue share model is split in each @siteName product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
     </p>
     <p class="text">
-        @siteName menawarkan model bagi hasil yang menghitung semua pendapatan dari semua produk yang kami tawarkan. Model kumulatif ini akan didasarkan juga pada jumlah pemain aktif yang berhasil Anda rujukkan dalam waktu satu bulan kalender.
+        @siteName offers a revenue share model in all @siteName products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
     <p class="text" style="margin-top: 15px;">
-        Untuk tujuan dari tabel diatas “ Keuntungan bersih” berarti jumlah taruhan yang ditempatkan oleh pemain pada calendar bulanan dikurangi : (i) hasil (kemenangan) ; (ii) bonus yang dibayarkan, (iii) Chargebacks dan (iv) jenis pengembalian keuntungan yang dikreditkan, kompensasi atau pengembalian yang diberikan kepada pemain.
+        For the purposes of the table above, "Net Revenue" shall mean the amount of stakes placed by Players in the relevant calendar month exclude (i) returned winnings; (ii) any bonuses paid; (iii) Chargebacks; and (iv) any other revenue returns, credits, compensations or refunds given to Players.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Negatif Saldo</span>
+        <span class="text">Negative Balance</span>
     </div>
     <p class="text">
-        Semua negatif saldo untuk bulan tertentu akan dipindahkan pada bulan selanjutnya. Sebagai contoh, jika pada bulan Januari, akun afiliasi anda berakhir dengan -$2,555, jumlah ini akan dipindahkan ke bulan Februari. Jika pada akhir Februari, akun afiliasi anda menghasilkan $3,400, total saldo akan menjadi $845 ($3,400-$2,555). Namun jika akun anda masih rugi pada bulan Februari, sebagai contoh -$1,600, maka jumlah tersebut akan ditambahkan ke negatif saldo sebelumnya dan dipindahkan pada bulan Maret, sehingga saldo anda pada bulan Maret menjadi -$4,155. Komisi yang didapatkan akan dibayar sesuai dengan tingkatannya.
+        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -$2,555, this amount will be carried forward to February. If at the end of February your affiliate account earns $3,400, the total balance will be $845 ($3,400 deduct -$2,555). However if your account is still making a loss at the end of February, for example -$1,600, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -$4,155. The commission earned shall then be paid according to the tier scale.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Pemberian Bayaran</span>
+        <span class="text">Commission Payment</span>
     </div>
     <p class="text">
-        Anda dapat meminta pembayaran dengan jenis mata uang asing lain selain USD. Mata uang asing yang tersedia adalah GBP, EUR, RMB, MYR, THB, IDR dan VND. Rate pertukaran mata uang asing pada hari penarikan akan berlaku.
+        The currencies offered are RMB and MYR, THB, VND and IDR. Respective exchange rate on the payout date will be applied.
     </p>
-    <p class="text">Kami menawarkan beberapa metode penarikan: </p>
-    <p>1. Melalui @siteName account anda</p>
-    <p>2. Moneybookers *</p>
-    <p>3. Transfer Bank *</p>
+    <p class="text">We offer several methods of withdrawal:</p>
+    <p>Through your @siteName player account</p>
+    <p>Moneybookers *</p>
+    <p>Wire Transfer *</p>
     <p class="text">
-        * Afiliasi hanya diperbolehkan untuk memiliki satu permohonan penarikan setiap bulan. Untuk penarikan kedua di bulan yang sama, maka permohonan ini harus disetujui oleh Manager Afiliasi. Walaupun kami menawarkan permohonan penarikan gratis namun kami tidak bertanggungjawab akan adanya potongan dari institusi keuangan atau dompet elektronik pada akun anda. <br>Jumlah minimum permohonan penarikan adalah USD$100.
+        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())
     </p>
 </div>

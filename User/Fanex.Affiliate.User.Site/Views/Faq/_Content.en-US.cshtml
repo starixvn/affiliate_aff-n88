@@ -1,4 +1,7 @@
-﻿<div class="banner-faqs">
+﻿@{
+    var siteName = AppSetting.Instance.SiteFriendlyName;
+}
+<div class="banner-faqs">
     <p>Frequently Asked Questions</p>
 </div>
 
@@ -7,16 +10,16 @@
         <span class="text">General</span>
     </div>
     <div class="faq-group">
-        <p class="question">What is 12BET Affiliate Program?</p>
-        <p class="answer">12BET Affiliate Program is a partnership program where you will earn commissions based on the wagering activity of players that you refer to 12BET.com from your Website via online or offline via referrals.</p>
+        <p class="question">What is @(siteName).com Affiliate Program?</p>
+        <p class="answer">@(siteName).com Affiliate Program is a partnership program where you will earn commissions based on the wagering activity of players that you refer to @(siteName).com from your Website via online or offline via referrals.</p>
     </div>
     <div class="faq-group">
-        <p class="question">How do I sign up with 12BET Affiliate Program?</p>
-        <p class="answer">The 12BET Affiliate Program is free to join. Simply fill out our application form and you will be contacted within 3 business days regarding your acceptance into the program. If your application is accepted, you will receive an email containing your unique affiliate ID, giving you access to banners, text links, and other content and marketing tools to add to your website.</p>
+        <p class="question">How do I sign up with @(siteName).com Affiliate Program?</p>
+        <p class="answer">The @(siteName).com Affiliate Program is free to join. Simply fill out our application form and you will be contacted within 3 business days regarding your acceptance into the program. If your application is accepted, you will receive an email containing your unique affiliate ID, giving you access to banners, text links, and other content and marketing tools to add to your website.</p>
     </div>
     <div class="faq-group">
         <p class="question">What if I don't have a Website, can I still join?</p>
-        <p class="answer">Yes, now you can! If you think you have the contacts, you can easily create your own personalized page on our special Affiliate section and upload on it any of the approved marketing ideas or sports messages. Once done, you can immediately send the page link to any of your friends or contacts that are interested in sports or sports betting and when they click on the link, they become your referred members! For more details, please write to us at affiliates@12csd.com.</p>
+        <p class="answer">Yes, now you can! If you think you have the contacts, you can easily create your own personalized page on our special Affiliate section and upload on it any of the approved marketing ideas or sports messages. Once done, you can immediately send the page link to any of your friends or contacts that are interested in sports or sports betting and when they click on the link, they become your referred members! For more details, please contact CSD.</p>
     </div>
 </div>
 
@@ -30,15 +33,15 @@
     </div>
     <div class="faq-group">
         <p class="question">How does the system keep track of my players?</p>
-        <p class="answer">We employs state-of-the-art technology in our tracking system to ensure you receive credit for 100% of the traffic you send 12BET.com. Affiliates refer players by using their unique URL that is provided in the Media Gallery area. Through the use of cookies, visitors that click through an affiliate unique URL (banner, text link, email message etc) are tracked and credit is automatically given to the affiliate for players referred.</p>
+        <p class="answer">We employs state-of-the-art technology in our tracking system to ensure you receive credit for 100% of the traffic you send @(siteName).com. Affiliates refer players by using their unique URL that is provided in the Media Gallery area. Through the use of cookies, visitors that click through an affiliate unique URL (banner, text link, email message etc) are tracked and credit is automatically given to the affiliate for players referred.</p>
     </div>
     <div class="faq-group">
-        <p class="question">Will you track and give me credit for non-members that did not sign up on the first visit through my affiliate link but return to 12BET.com later and become a member?</p>
-        <p class="answer">Yes. We are able to track visitors from our affiliate's website that don't sign up right away but, return to 12BET.com at a later date & sign-up. We set our protection period for 90 days to cover the first referring affiliate. The technology used to manage this is based on cookies.</p>
+        <p class="question">Will you track and give me credit for non-members that did not sign up on the first visit through my affiliate link but return to @(siteName).com later and become a member?</p>
+        <p class="answer">Yes. We are able to track visitors from our affiliate's website that don't sign up right away but, return to @(siteName).com at a later date & sign-up. We set our protection period for 90 days to cover the first referring affiliate. The technology used to manage this is based on cookies.</p>
     </div>
     <div class="faq-group">
         <p class="question">What is a cookie?</p>
-        <p class="answer">Cookies are a general mechanism which server-side connections can use to both store and retrieve information on the client side of the connection. More specifically, they are small data files placed on the computers of visitors to 12BET.com from affiliated websites. These data files contain information 12BET.com use to track and credit its affiliates accurately for the traffic they send. Tracking via cookies can include, but is not limited to, lists of pages visited as well as date and time when certain pages were looked at.</p>
+        <p class="answer">Cookies are a general mechanism which server-side connections can use to both store and retrieve information on the client side of the connection. More specifically, they are small data files placed on the computers of visitors to @(siteName).com from affiliated websites. These data files contain information @(siteName).com use to track and credit its affiliates accurately for the traffic they send. Tracking via cookies can include, but is not limited to, lists of pages visited as well as date and time when certain pages were looked at.</p>
     </div>
     <div class="faq-group">
         <p class="question">Do you reward the First Affiliate or Last Affiliate for referring a customer?</p>
@@ -46,11 +49,11 @@
     </div>
     <div class="faq-group">
         <p class="question">How can I check how much I have earned?</p>
-        <p class="answer">You can login to your 12BET affiliate account to check your commission stats in real-time which is available to you 24 hours a day, 7 days a week and 365 days per year.</p>
+        <p class="answer">You can login to your @(siteName).com affiliate account to check your commission stats in real-time which is available to you 24 hours a day, 7 days a week and 365 days per year.</p>
     </div>
     <div class="faq-group">
         <p class="question">What is your policy on spamming?</p>
-        <p class="answer">We do not tolerate spamming of any kind by our affiliate partners. If spamming by an affiliate is brought to our attention we will give the affiliate one warning (if judged to be a minor case). If the spamming does not stop the affiliate partner will be permanently banned from our 12BET Affiliate Program.</p>
+        <p class="answer">We do not tolerate spamming of any kind by our affiliate partners. If spamming by an affiliate is brought to our attention we will give the affiliate one warning (if judged to be a minor case). If the spamming does not stop the affiliate partner will be permanently banned from our @(siteName).com Affiliate Program.</p>
     </div>
 </div>
 
@@ -60,15 +63,11 @@
     </div>
     <div class="faq-group">
         <p class="question">What are the withdrawal methods available to me?</p>
-        <p class="answer">You can request for a withdrawal through Moneybookers, Neteller, Wire Transfer or directly into your 12BET player account.</p>
-    </div>
-    <div class="faq-group">
-        <p class="question">Can I request for currency other than USD when withdrawing?</p>
-        <p class="answer">Yes, the currencies offered are GBP, EUR, RMB, MYR, THB, IDR and VND. Respective exchange rate on payout date will be applied.</p>
+        <p class="answer">You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your @(siteName).com player account.</p>
     </div>
     <div class="faq-group">
         <p class="question">What is the minimum withdrawal request amount?</p>
-        <p class="answer">The minimum amount of withdrawal request is USD$100.</p>
+        <p class="answer">The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())</p>
     </div>
     <div class="faq-group">
         <p class="question">Does negative balance carry over?</p>

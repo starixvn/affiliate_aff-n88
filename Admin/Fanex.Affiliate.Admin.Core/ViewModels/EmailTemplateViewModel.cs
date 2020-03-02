@@ -21,5 +21,8 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
         public string Content { get; set; }
 
         public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
+
+        public string SiteName => AppSetting.Instance.SiteName;
+
     }
 }

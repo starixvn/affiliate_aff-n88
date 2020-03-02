@@ -21,5 +21,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels
         public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
 
         public string Copyright => SiteFriendlyNameHelper.Replace12Bet(Lang.Copyright);
+
+        public string SiteName => AppSetting.Instance.SiteName;
     }
 }

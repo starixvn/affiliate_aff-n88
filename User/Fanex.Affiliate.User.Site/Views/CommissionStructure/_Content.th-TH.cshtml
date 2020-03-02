@@ -2,53 +2,54 @@
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
 <div class="banner-commission-structure">
-    <div class="text-content">
+    <div class="text-content english">
         <p class="text-big-yellow">40%</p>
-        <p class="text-big-white">คอมมิชชั่นตลอดไป</p>
-        <p class="text-small-white text-small">จาก</p>
-        <p class="text-small-white">รายได้ใน<span class="text-yellow">หน้ากีฬา </span> และ <span class="text-yellow">คาสิโน</span></p>
+        <p class="text-big-white">commission for life</p>
+        <p class="text-small-white text-small">on</p>
+        <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
     </div>
 </div>
+
 <div class="info-group">
     <p class="text">
-        ตามนโยบายการเป็นพันธมิตรคุณจะได้รับคอมมิชชั่นจากทุกผู้เล่นทุกคนที่มาจากการแนะนำของคุณตราบใดที่ผู้เล่นผู้นั้นยังคงเล่นอยู่ ระบบการรายงานผลทางอินเตอร์เนตของเราจะบริการคุณตลอด 24 ชั่วโมง 7 วันต่อสัปดาห์<br>รายได้จะมากน้อยขึ้นอยู่กับจำนวนลูกค้าที่สมัครกับเราผ่านทางเวบไซค์คุณ สำหรับหน้าที่อื่นในการแนะนำเกี่ยวกับการสมัคร การแนะนำการฝากเงิน และการให้โบนัสโปรโมชั่นกับลูกค้า จะเป็นหน้าที่ของเราทั้งหมด
+        As a @siteName Affiliates you will be paid commission on every player you referred to @siteName over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">หลักเกณฑ์รายได้ของพันธมิตร </span>
+        <span class="text">Revenue share model</span>
     </div>
     <p class="text">
-        รายได้ของพันธมิตรนั้นมาจากรายได้ที่พันธมิตรโปรโมทลูกค้าให้เข้ามาเดิมพันกับ@siteNameในทุกประเภทการเดิมพัน โดยเกณฑ์การคำนวณค่าคอมมิชชั่นในแต่ละส่วนสามารถอ้างอิงได้ตามตารางด้านล่างนี้ ยอดรายได้ค่าคอมมิชชั่นที่พันธมิตรจะได้รับนั้นคำนวนจาก”รายได้สุทธิ” รวมจากทุกประเภทเดิมพันนั่นเอง
+        The revenue share model is split in each @siteName product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
     </p>
     <p class="text">
-        @siteName เสนอค่าตอบแทนพันธมิตรครอบคลุมในทุกประเภทเดิมพันโดยนับจากการสะสมจำนวนผู้เล่นที่เดิมพันในแต่ละเดือนอ้างอิงรายได้จากทุกประเภทการเดิมพัน.
+        @siteName offers a revenue share model in all @siteName products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
     <p class="text" style="margin-top: 15px;">
-        จากตารางในเบื้องต้น “รายได้สุทธิ” หมายถึงจำนวนทุนเดิมพันของผู้เล่นในแต่ละเดือนหักลบด้วย (1).ยอดที่ลูกค้าเล่นได้ (2) ยอดโบนัสที่ลูกค้าได้รับ (3) ค่าดำเนินการ และ (4)ค่าตอบแทนรายได้, เครดิตฟรี, ค่าชดเชยหรือการคืนเงินให้กับลูกค้า หลังจากการหักลบค่าต่างๆ ดังกล่าวแล้วจึงจะสามารถคำนวณค่าคอมมิชชั่นได้
+        For the purposes of the table above, "Net Revenue" shall mean the amount of stakes placed by Players in the relevant calendar month exclude (i) returned winnings; (ii) any bonuses paid; (iii) Chargebacks; and (iv) any other revenue returns, credits, compensations or refunds given to Players.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">ยอดบัญชีติดลบ</span>
+        <span class="text">Negative Balance</span>
     </div>
     <p class="text">
-        ยอดติดลบของเดือนที่ให้จะถูกยกยอดไป ตัวอย่างเช่น บัญชีพันธมิตรของเดือนมกราคมของคุณ มียอดติดลบที่ -$2,555 โดยจำนวนนี้จะถูกยกยอดไปไว้ในเดือนกุมภาพันธ์ และตอนสิ้นเดือนกุมภาพันธ์บัญชีคุณมียอดรายรับเข้ามาที่ $3,400 โดยบัญชีคุณจะมียอดคงเหลือที่ $845 (มาจาก $3,400 ลบด้วย -$2,555). อย่างไรก็ตาม หากเดือนกุมภาพันธ์คุณยังมียอดติดลบอีก เช่น -$1,600 ทางเราจะนำยอดนี้ไปบวกเพิ่ม ในยอดติดลบก่อนหน้านี้ เพื่อยกยอดไปยังเดือนถัดไปคือ เดือนมีนาคม รวมเป็นยอดติดลบทั้งหมด -$4,155.
+        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -$2,555, this amount will be carried forward to February. If at the end of February your affiliate account earns $3,400, the total balance will be $845 ($3,400 deduct -$2,555). However if your account is still making a loss at the end of February, for example -$1,600, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -$4,155. The commission earned shall then be paid according to the tier scale.
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">การได้รับเงิน </span>
+        <span class="text">Commission Payment</span>
     </div>
     <p class="text">
-        คุณสามารถแจ้งถอนรายได้คุณโดยใช้สกุลเงินน USD อ้างอิงจากอัตราค่าแลกเปลี่ยนเงินตรา ของ GBP, EUR, RMB, MYR, THB, IDR และ VND จะขึ้นอยู่กับฝ่ายการจ่ายเงิน
+        The currencies offered are RMB and MYR, THB, VND and IDR. Respective exchange rate on the payout date will be applied.
     </p>
-    <p class="text">เราเสนอวิธีการถอนเงินที่หลากหลายให้แก่คุณ: </p>
-    <p>1. โอนรายได้ของพันธมิตรไปยังบัญชีเล่นของคุณในเวบ @siteName</p>
-    <p>2. โอนทาง Moneybookers  *</p>
-    <p>3. โอนทาง Wire transfer *</p>
+    <p class="text">We offer several methods of withdrawal:</p>
+    <p>Through your @siteName player account</p>
+    <p>Moneybookers *</p>
+    <p>Wire Transfer *</p>
     <p class="text">
-        * สมาชิกพันธมิตรอนุญาติให้แจ้งถอนเงินได้ 1 ครั้งต่อเดือน หากสมาชิกมีความต้องการถอนครั้งที่สอง คำร้องนั้นจะขึ้นอยู่กับความเห็นชอบของ ผู้จัดการฝ่ายพันธมิตร ขณะเดียวกันการแจ้งถอนกับเราไม่มีค่าบริการใดๆ เว้นเสียแต่ หน่วยงานกลางส่งเงินที่เกี่ยวข้อง หรือตัวแทนบริการด้านส่งเงินออนไลน์จะทำการเรียกเก็บค่าบริการจากคุณเป็นกรณีไป <br>ขั้นต่ำในการแจ้งถอนเงิน คือ USD$100.
+        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())
     </p>
 </div>

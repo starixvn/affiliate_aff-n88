@@ -42,7 +42,7 @@
                             </td>
                             <td class="text-center">@item.DisplayStatus</td>
                             <td>
-                                @if (item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment)
+                                @if (item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment || item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.Commission)
                                 {
                                     @Html.Raw(item.Description)
                                 }

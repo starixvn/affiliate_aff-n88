@@ -1,80 +1,80 @@
-﻿<div class="banner-faqs">
-    <p>常见问题</p>
+﻿@{
+    var siteName = AppSetting.Instance.SiteFriendlyName;
+}
+<div class="banner-faqs">
+    <p>Frequently Asked Questions</p>
 </div>
+
 <div class="info-group">
     <div class="title">
-        <span class="text">一般</span>
+        <span class="text">General</span>
     </div>
     <div class="faq-group">
-        <p class="question">12BET合作伙伴计划是甚么？ </p>
-        <p class="answer">12BET合作伙伴计划是一项合作关系计划，从您的网站线上或线下推荐到12BET.COM的玩家，您可以根据他的投注活跃程度来赚取佣金。</p>
+        <p class="question">What is @(siteName).com Affiliate Program?</p>
+        <p class="answer">@(siteName).com Affiliate Program is a partnership program where you will earn commissions based on the wagering activity of players that you refer to @(siteName).com from your Website via online or offline via referrals.</p>
     </div>
     <div class="faq-group">
-        <p class="question">如何加入12BET合作伙伴计划？ </p>
-        <p class="answer">12BET合作伙伴计划是免费参加的。简单来说只要填好申请表格，我们将会在三个工作天内审核您的申请。若申请通过的话，您将会收到电邮通知，包括独有的合作伙伴号码，让您可以在自己的网站上加上横幅广告、文字连接及其他内容与市场推广工具等。</p>
+        <p class="question">How do I sign up with @(siteName).com Affiliate Program?</p>
+        <p class="answer">The @(siteName).com Affiliate Program is free to join. Simply fill out our application form and you will be contacted within 3 business days regarding your acceptance into the program. If your application is accepted, you will receive an email containing your unique affiliate ID, giving you access to banners, text links, and other content and marketing tools to add to your website.</p>
     </div>
     <div class="faq-group">
-        <p class="question">若我没有网站，仍然可以加入吗？ </p>
-        <p class="answer">是的可以！如果您认为您有宣传对象，您可以在我们合作伙伴特色专栏里，轻易建立您的个性化网页，并且上传任何核实的营销思路或体育信息。一旦完成，您可以立即发送网页链接，给对体育或体育博彩有兴趣的任何朋友或联络人，当他们点击链接，他们就成为您的推荐会员。欲知更多详情，请电邮至 affiliates@12csd.com。</p>
+        <p class="question">What if I don't have a Website, can I still join?</p>
+        <p class="answer">Yes, now you can! If you think you have the contacts, you can easily create your own personalized page on our special Affiliate section and upload on it any of the approved marketing ideas or sports messages. Once done, you can immediately send the page link to any of your friends or contacts that are interested in sports or sports betting and when they click on the link, they become your referred members! For more details, please contact CSD.</p>
     </div>
 </div>
 
 <div class="info-group">
     <div class="title">
-        <span class="text">市场营销与追踪</span>
+        <span class="text">Marketing & Tracking</span>
     </div>
     <div class="faq-group">
-        <p class="question">如何取得横幅广告与及内容？</p>
-        <p class="answer">透过我们的媒体中心，您可以选取你偏爱的横幅广告，或者文字链接到您的网站。</p>
+        <p class="question">Where do I get banners and content?</p>
+        <p class="answer">By accessing our Media Gallery section you will be available to choose your preferred banners as well as text link for your Website.</p>
     </div>
     <div class="faq-group">
-        <p class="question">系统如何追踪我的下线玩家？ </p>
-        <p class="answer">我们在追踪系统上使用最先进的技术，确保从您网站过来12BET.COM的浏览量100%正确。合作伙伴所介绍的会员，会根据媒体中心提供的网址识别。访客通过cookies的使用、经由指定网址链接(横幅广告、文字链接、电子邮件等) 而成为会员，奖励将会自动给予。</p>
+        <p class="question">How does the system keep track of my players?</p>
+        <p class="answer">We employs state-of-the-art technology in our tracking system to ensure you receive credit for 100% of the traffic you send @(siteName).com. Affiliates refer players by using their unique URL that is provided in the Media Gallery area. Through the use of cookies, visitors that click through an affiliate unique URL (banner, text link, email message etc) are tracked and credit is automatically given to the affiliate for players referred.</p>
     </div>
     <div class="faq-group">
-        <p class="question">如果有会员首次浏览时是未注册的非会员，之后才透过我提供的会员链接到12BET.COM注册，是否会追踪到并发放奖励给我吗？ </p>
-        <p class="answer">是的，我们可以追踪来自合作伙伴的访客，即使没有立即注册、之后才注册的会员。我们将有关介绍链接网址追踪的复盖时效设定为90天，使用cookies技术来识别会员来访途径。</p>
+        <p class="question">Will you track and give me credit for non-members that did not sign up on the first visit through my affiliate link but return to @(siteName).com later and become a member?</p>
+        <p class="answer">Yes. We are able to track visitors from our affiliate's website that don't sign up right away but, return to @(siteName).com at a later date & sign-up. We set our protection period for 90 days to cover the first referring affiliate. The technology used to manage this is based on cookies.</p>
     </div>
     <div class="faq-group">
-        <p class="question">什么是cookies? </p>
-        <p class="answer">Cookies的服务器储存，可以用作从客户端储存及检索信息。更具体地说，会员通过合作伙伴链接到12BET.COM的访客，他们的电脑都会保存很多小数据档案，这些档案包括协助12BET.COM追踪及发放会员介绍奖励时的所需资料，以确保有关往来信息准确无误。Cookies包含追踪功能，但不会被限制，当某些网页有浏览历史记录，它可以查找出被浏览的网页、日期及时间。</p>
+        <p class="question">What is a cookie?</p>
+        <p class="answer">Cookies are a general mechanism which server-side connections can use to both store and retrieve information on the client side of the connection. More specifically, they are small data files placed on the computers of visitors to @(siteName).com from affiliated websites. These data files contain information @(siteName).com use to track and credit its affiliates accurately for the traffic they send. Tracking via cookies can include, but is not limited to, lists of pages visited as well as date and time when certain pages were looked at.</p>
     </div>
     <div class="faq-group">
-        <p class="question">会员介绍奖励会给予最初介绍链接的合作伙伴，还是最后那位？ </p>
-        <p class="answer">Cookies会不断更新，所以我们会向最后介绍链接的合作伙伴给予奖励。</p>
+        <p class="question">Do you reward the First Affiliate or Last Affiliate for referring a customer?</p>
+        <p class="answer">The cookies are overwritten to benefit the Last Affiliate when a Customer is referred.</p>
     </div>
     <div class="faq-group">
-        <p class="question">如何得知自己赚取了多少奖额？ </p>
-        <p class="answer">可以登录12BET.COM的合作伙伴账户，查核所赚取的回佣金额。12BET提供全年7X24小时查核服务。</p>
+        <p class="question">How can I check how much I have earned?</p>
+        <p class="answer">You can login to your @(siteName).com affiliate account to check your commission stats in real-time which is available to you 24 hours a day, 7 days a week and 365 days per year.</p>
     </div>
     <div class="faq-group">
-        <p class="question">你们的滥发广告政策定义是甚么？ </p>
-        <p class="answer">我们不容许合作伙伴做出任何形式的滥发广告行为，如果发现任何合作伙伴的滥发行为，我们会发出一次警告（如果只是较小的问题）；如果该合作伙伴仍然不停止其滥发行为，12BET.COM的会员介绍系统，会立即封停该名的会员介绍合伙关系。</p>
+        <p class="question">What is your policy on spamming?</p>
+        <p class="answer">We do not tolerate spamming of any kind by our affiliate partners. If spamming by an affiliate is brought to our attention we will give the affiliate one warning (if judged to be a minor case). If the spamming does not stop the affiliate partner will be permanently banned from our @(siteName).com Affiliate Program.</p>
     </div>
 </div>
 
 <div class="info-group">
     <div class="title">
-        <span class="text">提领佣金</span>
+        <span class="text">Commission Payment</span>
     </div>
     <div class="faq-group">
-        <p class="question">我可以透过哪几种方法提取佣金？ </p>
-        <p class="answer">你可以透过Moneybookers、Neteller, Wire Transfer提领佣金，也可以直接将佣金转入您的12BET玩家账号。</p>
+        <p class="question">What are the withdrawal methods available to me?</p>
+        <p class="answer">You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your @(siteName).com player account.</p>
     </div>
     <div class="faq-group">
-        <p class="question">可以申请美元以外的货币提领佣金吗？ </p>
-        <p class="answer">我们提供英镑、欧元、人民币、马币、泰铢及印尼盾等货币提款服务。有关的汇率计算，将根据付款操作当日的汇率而定。</p>
+        <p class="question">What is the minimum withdrawal request amount?</p>
+        <p class="answer">The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())</p>
     </div>
     <div class="faq-group">
-        <p class="question">最低的佣金提取金额是多少？ </p>
-        <p class="answer">最低佣金提取要求是100美元。</p>
+        <p class="question">Does negative balance carry over?</p>
+        <p class="answer">Yes, we rollover negative commission balances. In the event that you carry a negative commission balance at the end of a month, it will rollover until you have enough positive earnings to zero that balance out.</p>
     </div>
     <div class="faq-group">
-        <p class="question">负结余会带账滚存吗？ </p>
-        <p class="answer">我们会累积计算负数佣金结存。假如到月底结算有负佣金结余，有关账目将被带账到下期账单结算，直至你有足够的正收益，把负结余结存为零。</p>
-    </div>
-    <div class="faq-group">
-        <p class="question">每隔多久可以提出提款申请？ </p>
-        <p class="answer">每个月最多可以提出一次提款申请，假如得到会员介绍合作计划的经理批准，就可以在同一个月内做出第二次提款申请。目前我们给予大家的提款申请服务是免费的，但我们并不负担任何转帐时的手续费或电子转帐所需服务费用。</p>
+        <p class="question">How often can I request for withdrawal?</p>
+        <p class="answer">A maximum of one withdrawal request can be made for each calendar month. Affiliates can request for a second settlement in a month subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end.</p>
     </div>
 </div>

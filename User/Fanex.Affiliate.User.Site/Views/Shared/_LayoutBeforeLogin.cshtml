@@ -5,9 +5,9 @@
 @using Fanex.Affiliate.User.Core.Utilities
 
 @{
-    var settingService = DependencyResolver.Current.GetService<IAppSetting>();
-    var siteName = settingService.IsN8B ? "N8B" : "N8G";
-    var gaID = AppSetting.Instance.IsN8B ? "UA-93927620-4" : "UA-93927620-5";
+    var appSetting = AppSetting.Instance;
+    var siteName = appSetting.SiteName;
+    var gaID = appSetting.IsN8B ? "UA-93927620-4" : "UA-93927620-5";
 }
 
 @section styles{
@@ -19,7 +19,7 @@
 @section scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"></script>
 
-    @if (settingService.Environment.Equals("UAT", StringComparison.OrdinalIgnoreCase) || settingService.IsProduction)
+    @if (appSetting.Environment.Equals("UAT", StringComparison.OrdinalIgnoreCase) || appSetting.IsProduction)
     {
         <!-- Google Analytics -->
         <!-- Global site tag (gtag.js) - Google Analytics -->

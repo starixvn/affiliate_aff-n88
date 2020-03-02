@@ -107,7 +107,6 @@ export class Content extends PureComponent {
     _fetchPaymentMethodInfo = () =>{
         this.props.getPaymentMethod()
             .then((response) => {
-                console.log(response);
                 const paymentMethodList = response.PaymentMethods;
                 const minimumPayment = response.MinAmount;
                 this.setState({paymentMethodList, minimumPayment});

@@ -10,9 +10,8 @@
 
 @{ 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-    var settingService = DependencyResolver.Current.GetService<IAppSetting>();
     var shortedLangCode = SystemLanguage.GetShortedCodeForTracking(sessionService.CurrentLanguage);
-    var siteName = settingService.IsN8B ? "N8B" : "N8G";
+    var siteName = AppSetting.Instance.SiteName;
     var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB." + Model.Language);
     var casinoBannerFileName = Url.Content($"~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino." + Model.Language);
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/{siteName}/3step." + Model.Language);
@@ -89,7 +88,7 @@
                         <span class="text">@Lang.WhatNewInAffiliate</span>
                     </h4>
                     <div class="card-body">
-                        <a href="@Url.Content("~/ContactUs")" class="img-content adv-contact">
+                        <a href="@Url.Content("~/ContactUs")" class="img-content adv-contact @siteName">
                             <p class="text-1">@Lang.CannotGetEnough</p>
                             <p class="text-2">@Lang.YourCurrentCommision</p>
                             <span class="line"></span>

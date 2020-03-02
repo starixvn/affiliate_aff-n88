@@ -380,45 +380,29 @@
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
     <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
     <Content Include="Configurations\Web\Transform\n8g.local.config" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.vi-VN.cshtml" />
@@ -649,7 +633,8 @@
     <Content Include="www\build\styles\Images\ads-1\ads-1_392.jpg" />
     <Content Include="www\build\styles\Images\ads-1\ads-1_559.jpg" />
     <Content Include="www\build\styles\Images\ads-1\ads-1_644.jpg" />
-    <Content Include="www\build\styles\Images\adv_contact.jpg" />
+    <Content Include="www\build\styles\Images\adv-contact\n8b\bg-adv_contact.png" />
+    <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.id-ID.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.ko-KR.png" />
@@ -666,7 +651,6 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\banner-main-left.jpg" />
     <Content Include="www\build\styles\Images\banner-main-right.jpg" />
-    <Content Include="www\build\styles\Images\bg-adv_contact.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
@@ -928,7 +912,6 @@
     <Content Include="www\source\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\source\styles\Images\banner-main-left.jpg" />
     <Content Include="www\source\styles\Images\banner-main-right.jpg" />
-    <Content Include="www\source\styles\Images\bg-adv_contact.png" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.jpg" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.jpg" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.jpg" />
@@ -942,26 +925,16 @@
     <Content Include="www\source\styles\Images\contact-us\whats_app.png" />
     <Content Include="www\source\styles\Images\contact-us\zalo.png" />
     <Content Include="www\source\styles\Images\email\n8b\banner.png" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_en-GB.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_en-US.jpg" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_en.jpg" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_es-ES.jpg" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_hi-IN.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_id-ID.jpg" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_ja-JP.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_ko-KR.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_th-TH.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_vi-VN.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_zh-CN.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_zh-TW.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner.png" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_en-GB.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner_en-US.jpg" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_en.jpg" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_es-ES.jpg" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_hi-IN.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner_id-ID.jpg" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_ja-JP.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner_ko-KR.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner_th-TH.jpg" />
     <Content Include="www\source\styles\Images\email\n8g\banner_vi-VN.jpg" />
@@ -984,19 +957,6 @@
     <Content Include="www\source\styles\Images\contact-us\Support_girl.png" />
     <Content Include="www\source\styles\Images\contact-us\thailand_lang.png" />
     <Content Include="www\source\styles\Images\contact-us\vietnam_lang.png" />
-    <Content Include="www\source\styles\Images\email\banner.png" />
-    <Content Include="www\source\styles\Images\email\banner_en-GB.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_en-US.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_en.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_es-ES.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_hi-IN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_id-ID.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_ja-JP.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_ko-KR.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_th-TH.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_vi-VN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_zh-CN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_zh-TW.jpg" />
     <Content Include="www\source\styles\Images\email\bgMain.jpg" />
     <Content Include="www\source\styles\Images\email\button.png" />
     <Content Include="www\source\styles\Images\email\header.png" />
@@ -1050,17 +1010,12 @@
     <Content Include="www\source\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.zh-CN.jpg" />
     <Content Include="www\source\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.zh-TW.jpg" />
     <Content Include="www\source\styles\Images\term-and-condition\termcondition.jpg" />
-    <Content Include="www\source\styles\Images\adv_contact.jpg" />
     <Content Include="www\source\styles\Images\themes\n8b.png" />
     <Content Include="www\source\styles\Images\themes\n8g.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
-    <Content Include="Views\Shared\Email\Signup\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.vi-VN.cshtml" />
@@ -1115,9 +1070,6 @@
     <Content Include="Views\UserPanel\CommissionReport\Index.cshtml" />
     <Content Include="www\source\styles\pages\commissionreport.scss" />
     <Content Include="www\source\styles\scss\base\_media.scss" />
-    <Content Include="www\source\styles\Images\adv_contact.webp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="www\source\styles\Images\offers.webp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1141,9 +1093,7 @@
     <Content Include="Views\TermAndCondition\_Content.zh-TW.cshtml" />
     <Content Include="Views\Product\_CasinoProductTable.cshtml" />
     <Content Include="Views\Product\_Content.en-US.cshtml" />
-    <Content Include="Views\Product\_Content.hi-IN.cshtml" />
     <Content Include="Views\Product\_Content.id-ID.cshtml" />
-    <Content Include="Views\Product\_Content.ja-JP.cshtml" />
     <Content Include="Views\Product\_Content.ko-KR.cshtml" />
     <Content Include="Views\Product\_Content.th-TH.cshtml" />
     <Content Include="Views\Product\_Content.vi-VN.cshtml" />
@@ -1175,7 +1125,6 @@
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Bold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Italic.ttf" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Italic.ttf" />
-    <Content Include="www\source\styles\Images\bg-adv_contact.webp" />
     <Content Include="www\source\styles\Images\bg-Commission-Structure_Banner.webp" />
     <Content Include="www\source\styles\Images\bg-FAQ_banner.webp" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner.webp" />
@@ -1193,12 +1142,8 @@
     <Content Include="www\source\styles\Images\products\bg-casino_affiliate.webp" />
     <Content Include="Views\VerificationAccount\Index.cshtml" />
     <Content Include="www\source\styles\pages\verification-account.scss" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.vi-VN.cshtml" />
@@ -1207,10 +1152,8 @@
     <Content Include="Views\Signup\_SecurityQuestion.cshtml" />
     <Content Include="www\source\styles\Images\banner-main-left.webp" />
     <Content Include="www\source\styles\Images\products\bg-sports_affiliate.webp" />
-    <Content Include="www\build\styles\Images\adv_contact.webp" />
     <Content Include="www\build\styles\Images\banner-main-left.webp" />
     <Content Include="www\build\styles\Images\banner-main-right.webp" />
-    <Content Include="www\build\styles\Images\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.webp" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.webp" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.webp" />
@@ -1409,6 +1352,8 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.webp" />
     <Content Include="www\source\styles\Images\adv-contact\n8b\bg-adv_contact.webp" />
     <Content Include="www\source\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
+    <Content Include="www\build\styles\Images\adv-contact\n8b\bg-adv_contact.webp" />
+    <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
