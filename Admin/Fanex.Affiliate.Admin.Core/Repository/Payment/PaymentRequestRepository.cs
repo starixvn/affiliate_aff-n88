@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                         };
                     }
                 }
-            }
+            }            
 
             return result;
         }

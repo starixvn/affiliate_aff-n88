@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
@@ -32,6 +33,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             return _paymentRepository.GetPaymentList(paymentParam);
         }
+
+
 
         public ResultInfo CancelPaymentRequest(PaymentCancelParam cancelParam, PaymentEmailParam emailParam)
         {
@@ -143,6 +146,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 _emailService.SendPaymentEmail(emailParam);
             }
+        }
+
+        public IDictionary<string, string> GetPaymentMethods()
+        {
+            var paymentMethods = _paymentRepository.GetPaymentMethods()
+                .PaymentMethods
+                .ToDictionary(m => m.PaymentId, m => m.PaymentName);
+            return paymentMethods;
+        }
+
+        public decimal GetMinAmountPaymentMoney()
+        {
+            return _paymentRepository.GetPaymentMethods().MinAmount;
         }
     }
 }

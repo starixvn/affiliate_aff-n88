@@ -96,5 +96,17 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 AffDesc = Convert.ToString(reader["AffDesc"])
             };
         }
+
+        public (IEnumerable<PaymentMethodInfo> PaymentMethods, decimal MinAmount) GetPaymentMethods()
+        {
+            const string uSpKey = "Aff_PaymentMethod_Sel";
+            using (var objectDb = new ObjectDb(uSpKey))
+            {
+                var paymentMethods = objectDb.Query<PaymentMethodInfo>();
+                var minAmountParam = objectDb.GetParameterValue("MinAmount");
+                var minAmount = minAmountParam == null ? 0 : Convert.ToDecimal(minAmountParam);
+                return (paymentMethods, minAmount);
+            }
+        }
     }
 }
