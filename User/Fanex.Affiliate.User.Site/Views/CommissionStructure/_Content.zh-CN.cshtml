@@ -12,7 +12,7 @@
 
 <div class="info-group">
     <p class="text">
-        As a @siteName Affiliates you will be paid commission on every player you referred to @siteName over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
+        As a @(siteName).com Affiliates you will be paid commission on every player you referred to @(siteName).com over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
     </p>
 </div>
 <div class="info-group">
@@ -20,10 +20,10 @@
         <span class="text">Revenue share model</span>
     </div>
     <p class="text">
-        The revenue share model is split in each @siteName product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
+        The revenue share model is split in each @(siteName).com product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
     </p>
     <p class="text">
-        @siteName offers a revenue share model in all @siteName products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
+        @(siteName).com offers a revenue share model in all @(siteName).com products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
     <p class="text" style="margin-top: 15px;">
@@ -35,7 +35,7 @@
         <span class="text">Negative Balance</span>
     </div>
     <p class="text">
-        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -$2,555, this amount will be carried forward to February. If at the end of February your affiliate account earns $3,400, the total balance will be $845 ($3,400 deduct -$2,555). However if your account is still making a loss at the end of February, for example -$1,600, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -$4,155. The commission earned shall then be paid according to the tier scale.
+        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -VND58,000,000, this amount will be carried forward to February. If at the end of February your affiliate account earns VND78,000,000, the total balance will be VND20,000,000. However if your account is still making a loss at the end of February, for example -VND36,000,000, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -VND94,000,000. The commission earned shall then be paid according to the tier scale.
     </p>
 </div>
 <div class="info-group">
@@ -46,10 +46,8 @@
         The currencies offered are RMB and MYR, THB, VND and IDR. Respective exchange rate on the payout date will be applied.
     </p>
     <p class="text">We offer several methods of withdrawal:</p>
-    <p>Through your @siteName player account</p>
-    <p>Moneybookers *</p>
-    <p>Wire Transfer *</p>
+    <p>Through your @(siteName).com player account</p>
     <p class="text">
-        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())
+        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is VND@(AppSetting.Instance.MinWithdrawal)
     </p>
 </div>

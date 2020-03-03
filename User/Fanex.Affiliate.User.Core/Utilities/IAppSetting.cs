@@ -55,6 +55,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string SiteName { get; }
 
-        decimal MinWithdrawal { get; }
+        string MinWithdrawal { get; }
     }
 }

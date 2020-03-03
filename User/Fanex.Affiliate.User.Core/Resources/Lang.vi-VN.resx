@@ -273,9 +273,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>Tên truy cập 12BET</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>Tên người dùng là bắt buộc</value>
   </data>
@@ -1137,7 +1134,7 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>Tôi không có trang web</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
+  <data name="ProductNumberGame" xml:space="preserve">
     <value>Number Game</value>
   </data>
   <data name="October" xml:space="preserve">
@@ -1684,9 +1681,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>Tài khoản người chơi 12BET</value>
   </data>
@@ -1723,38 +1717,11 @@
   <data name="VideoPokerGames" xml:space="preserve">
     <value>Video Poker Games</value>
   </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>12EMERALD (PLAYTECH)</value>
+  <data name="ProductRNGCasino" xml:space="preserve">
+    <value>RNG CASINO</value>
   </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>12RUBY (12BET)</value>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND (OPUS)</value>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>12PEARL (ASIA GAMING) </value>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>12TOPAZ (MICRO GAMING, NETENT, FLOW GAMING)</value>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL (GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>12OPAL (EBET)</value>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST (GOLD DELUXE)</value>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>12ONYX (ALLBET)</value>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>12QUARZT (ISOFTBET, PRAGMATIC PLAY)</value>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>12AMBER (BETSOFT)</value>
+  <data name="ProductPragmaticPlay" xml:space="preserve">
+    <value>PRAGMATIC PLAY</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>Doanh Thu Thuần</value>
@@ -1798,13 +1765,13 @@
   <data name="Product" xml:space="preserve">
     <value>SẢN PHẨM</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
+  <data name="ProductVirtualSports" xml:space="preserve">
     <value>Thể Thao Ảo</value>
   </data>
   <data name="ESports" xml:space="preserve">
     <value>Esports</value>
   </data>
-  <data name="RngKeno" xml:space="preserve">
+  <data name="ProductRngKeno" xml:space="preserve">
     <value>RNG KENO</value>
   </data>
   <data name="Lottery" xml:space="preserve">
@@ -2044,14 +2011,11 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>Địa chỉ email</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12THỂ THAO</value>
+  <data name="ProductSportsBook" xml:space="preserve">
+    <value>SportsBook</value>
   </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi THỂ THAO</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12ESPORT</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
@@ -2116,53 +2080,8 @@
   <data name="GpiLottery" xml:space="preserve">
     <value>Xổ Số GPI</value>
   </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND</value>
-  </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>12EMERALD</value>
-  </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>12PEARL</value>
-  </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>12OPAL</value>
-  </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST</value>
-  </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>12ONYX</value>
-  </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL</value>
-  </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>12AMBER</value>
-  </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(OPUS GAMING)</value>
-  </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(Playtech)</value>
-  </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(ASIA GAMING)</value>
-  </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(EBET)</value>
-  </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(GOLD DELUXE)</value>
-  </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(ALLBET)</value>
-  </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(BETSOFT)</value>
+  <data name="ProductAllbet" xml:space="preserve">
+    <value>AllBET</value>
   </data>
   <data name="Summary" xml:space="preserve">
     <value>Thống Kê</value>

@@ -282,9 +282,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>버뮤다</value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET 아이디</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>아이디가 필요합니다.</value>
   </data>
@@ -1156,9 +1153,6 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>웹사이트가 없습니다.</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
-    <value>라이브 빙고 </value>
-  </data>
   <data name="October" xml:space="preserve">
     <value>10월</value>
   </data>
@@ -1723,9 +1717,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>짐바브웨</value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>12BET 플레이어 계정</value>
   </data>
@@ -1761,39 +1752,6 @@
   </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>비디오 포커 게임</value>
-  </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>12에메랄드  (플레이텍)</value>
-  </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>12루비 (12BET)</value>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>12다이아몬드 (오푸스)</value>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>12펄 (아시아 게이밍)</value>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>12토파즈 (마이크로 게이밍, NETENT, FLOW GAMING)</value>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>12크리스탈 (게임플레이 인터랙티브)</value>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>12오팔 (이벳)</value>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>12에머시스트 (골드 드럭스)</value>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>12오닉스 (올벳)</value>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>12쿼츠(아이소프트벳, PRAGMATIC PLAY)</value>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>12엠버(벳소프트)</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>수익 배분</value>
@@ -1840,14 +1798,8 @@
   <data name="Product" xml:space="preserve">
     <value>제공중인 게임사</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
-    <value>가상 스포츠 </value>
-  </data>
   <data name="ESports" xml:space="preserve">
     <value>E스포츠 </value>
-  </data>
-  <data name="RngKeno" xml:space="preserve">
-    <value>키노</value>
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>로또</value>
@@ -2035,14 +1987,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>이메일 주소</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12스포츠</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi 스포츠</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12E스포츠</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM E스포츠 (ESPORTS BULL)</value>
@@ -2106,53 +2052,5 @@
   </data>
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI 로또</value>
-  </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>12다이아몬드</value>
-  </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>12에메랄드</value>
-  </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>12펄</value>
-  </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>12오팔</value>
-  </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>12에머시스트</value>
-  </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>12오닉스</value>
-  </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>12크리스탈</value>
-  </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>12엠버</value>
-  </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(오푸스 게임)</value>
-  </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(플레이텍,PLAYTECH)</value>
-  </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(아시아 게이밍)</value>
-  </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(이벳)</value>
-  </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(골드 디럭스)</value>
-  </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(올벳)</value>
-  </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(게임플레이 인터렉티브)</value>
-  </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(벳소프트)</value>
   </data>
 </root>

@@ -60,6 +60,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string SiteFriendlyName => GetValue("SiteFriendlyName");
 
-        public decimal MinWithdrawal => Convert.ToDecimal(GetValue("MinWithdrawal"));
+        public string MinWithdrawal => GetValue("MinWithdrawal");
     }
 }

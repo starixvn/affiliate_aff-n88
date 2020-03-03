@@ -270,9 +270,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>百慕達</value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET 用戶名</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>請填寫用戶名</value>
   </data>
@@ -1134,9 +1131,6 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>我沒有網站</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
-    <value>百練賽</value>
-  </data>
   <data name="October" xml:space="preserve">
     <value>十月</value>
   </data>
@@ -1690,9 +1684,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>辛巴威</value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>12BET玩家帳戶</value>
   </data>
@@ -1728,39 +1719,6 @@
   </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>視頻撲克</value>
-  </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>PT翡翠廳 (PLAYTECH)</value>
-  </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>紅寶廳 (12BET)</value>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>鑽石廳 (OPUS)</value>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>珍珠廳 (ASIA GAMING)</value>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>黃玉廳 (MICRO GAMING, NETENT, FLOW GAMING)</value>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>水晶廳 (GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>歐泊廳 (EBET)</value>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>紫晶廳 (GOLD DELUXE)</value>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>瑪瑙廳 (ALLBET)</value>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>石英廳 (ISOFTBET、PRAGMATIC PLAY)</value>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>琥珀廳 (BETSOFT)</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>佣金分成</value>
@@ -1804,14 +1762,8 @@
   <data name="Product" xml:space="preserve">
     <value>產品</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
-    <value>虛擬運動</value>
-  </data>
   <data name="ESports" xml:space="preserve">
     <value>電子競技</value>
-  </data>
-  <data name="RngKeno" xml:space="preserve">
-    <value>快樂彩</value>
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>彩票</value>
@@ -2047,14 +1999,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>電郵地址</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12體育</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi體育</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12電競</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM電競牛</value>
@@ -2118,53 +2064,5 @@
   </data>
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI彩票</value>
-  </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>鑽石廳</value>
-  </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>PT翡翠廳</value>
-  </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>珍珠廳</value>
-  </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>歐泊廳</value>
-  </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>紫晶廳</value>
-  </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>瑪瑙廳</value>
-  </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>水晶廳 </value>
-  </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>琥珀廳</value>
-  </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(OPUS)</value>
-  </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(PLAYTECH)</value>
-  </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(ASIA GAMING)</value>
-  </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(EBET)</value>
-  </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(GOLD DELUXE)</value>
-  </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(ALLBET)</value>
-  </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(BETSOFT)</value>
   </data>
 </root>

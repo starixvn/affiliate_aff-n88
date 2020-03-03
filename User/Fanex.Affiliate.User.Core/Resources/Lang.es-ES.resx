@@ -270,9 +270,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET Nombre de usuario </value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>El nombre de usuario de es obligatorio</value>
   </data>
@@ -1645,9 +1642,6 @@
   </data>
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
-  </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>Cuenta de jugador de 12BET</value>

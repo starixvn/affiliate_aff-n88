@@ -34,7 +34,7 @@
         <span class="text">Số dư âm</span>
     </div>
     <p class="text">
-        Nếu Số dư của tháng là số âm, thì toàn bộ số dư đó sẽ được chuyển tiếp vào tháng sau. Ví dụ: nếu cuối tháng 1 sau khi tổng kết, số tiền trong tài khoản của hội viên là -$2,555, số tiền này sẽ chuyển tiếp vào tháng 2. Nếu tháng 2 số dư trong tài khoản là $3,400, thì số dư tài khoản sẽ là $845 ($3,400 trừ $2,555). Nhưng nếu tháng 2 số dư vẫn là số âm, ví dụ là -$1,600, thì sẽ tiếp tục tích lũy số âm của tháng trước đến tháng sau, vậy số tiền chuyển đến tháng 3 sẽ là -$4,155. Mỗi Đại Lý @siteName sẽ hưởng tỷ lệ hoa hồng thu nhập tương ứng với cấp bậc .
+        Nếu Số dư của tháng là số âm, thì toàn bộ số dư đó sẽ được chuyển tiếp vào tháng sau. Ví dụ: nếu cuối tháng 1 sau khi tổng kết, số tiền trong tài khoản của hội viên là -VND58,000,000, số tiền này sẽ chuyển tiếp vào tháng 2. Nếu tháng 2 số dư trong tài khoản là VND78,000,000, thì số dư tài khoản sẽ là VND20,000,000. Nhưng nếu tháng 2 số dư vẫn là số âm, ví dụ là -VND36,000,000, thì sẽ tiếp tục tích lũy số âm của tháng trước đến tháng sau, vậy số tiền chuyển đến tháng 3 sẽ là -VND94,000,000. Mỗi Đại Lý @siteName sẽ hưởng tỷ lệ hoa hồng thu nhập tương ứng với cấp bậc .
     </p>
 </div>
 <div class="info-group">
@@ -42,13 +42,11 @@
         <span class="text">Thanh Toán Hoa Hồng</span>
     </div>
     <p class="text">
-        Các loại tiền tệ được cung cấp là RMB, MYR, THB, IDR và VND. Tỷ lệ ngoại tệ sẽ được quy đổi dựa vào tỷ lệ ngày thanh toán hoa hồng.
+        Ngoài VND ra bạn có thể yêu cầu rút tiền bằng đơn vị tiền khác như USD, MYR, EUR, CNY. Tỷ lệ ngoại tệ sẽ được quy đổi dựa vào tỷ lệ ngày thanh toán hoa hồng.
     </p>
     <p class="text">Chúng tôi cung cấp những phương thức rút tiền hoa hồng đại lý sau: </p>
     <p>1. Thông qua tài khoản cá cược @siteName</p>
-    <p>2. Moneybookers *</p>
-    <p>3. Wire Transfer *</p>
     <p class="text">
-        * Mỗi tháng Đại lý @siteName chỉ có thể rút tiền 1 lần duy nhất. Nếu yêu cầu rút tiền nhiều hơn 1 lần trong tháng của bạn được @siteName chấp thuận, bạn cũng có thể yêu cầu rút 2 lần/ tháng. Hiện tại @siteName không tính phí giao dịch rút tiền hoa hồng mỗi tháng của Đại lý, nhưng chúng tôi sẽ không chi trả bất kỳ phí thủ tục hoặc phí phát sinh nào khác.<br>Số tiền yêu cầu rút tối thiểu là @(AppSetting.Instance.MinWithdrawal.ToStringMoneyWithSymbol())
+        * Mỗi tháng Đại lý @siteName chỉ có thể rút tiền 1 lần duy nhất. Nếu yêu cầu rút tiền nhiều hơn 1 lần trong tháng của bạn được @siteName chấp thuận, bạn cũng có thể yêu cầu rút 2 lần/ tháng. Hiện tại @siteName không tính phí giao dịch rút tiền hoa hồng mỗi tháng của Đại lý, nhưng chúng tôi sẽ không chi trả bất kỳ phí thủ tục hoặc phí phát sinh nào khác.<br>Số tiền yêu cầu rút tối thiểu là VND@(AppSetting.Instance.MinWithdrawal)
     </p>
 </div>
