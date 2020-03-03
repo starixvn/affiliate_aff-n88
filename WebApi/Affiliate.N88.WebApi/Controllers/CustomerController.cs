@@ -27,15 +27,15 @@ namespace Affiliate.N88.WebApi.Controllers
             return customerList.Select(c => new CustomerModel
             {
                 ActStatus = c.ActStatus,
-                AgentId = c.AgentId,
                 SiteName = c.SiteName,
-                AllAgentId = c.AllAgentId,
                 CurrencyId = c.CurrencyId,
                 CustId = c.CustId,
                 RegTime = c.RegTime,
                 SiteId = c.SiteId,
                 Status = c.Status,
-                UserName = c.UserName
+                UserName = c.UserName,
+                AffId = c.AffId,
+                FirstDepositDate = c.FirstDepositTime
             });
         }
     }

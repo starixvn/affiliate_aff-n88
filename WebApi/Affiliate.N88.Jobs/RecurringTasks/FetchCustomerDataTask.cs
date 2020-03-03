@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Affiliate.N88.ApiModels;
 using Affiliate.N88.Core;
@@ -90,7 +91,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         {
             try
             {
-                //TODO : Need recheck import right database (check sitename)
                 await _importerRepository.ImportMemberAsync(command);
                 await _logger.InfoAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime} by SP {command.GetSettingKey()}: {command.XmlData}");
             }
@@ -100,7 +100,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        //Todo - need clean code
         private async Task<IEnumerable<InsertMemberInfoCommand>> GetImportingData(IEnumerable<CustomerModel> customerData)
         {
             var commandList = new List<InsertMemberInfoCommand>();
@@ -108,7 +107,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
             foreach (var group in groupCustomers)
             {
-                var importData = await GenerateImpotedDataBySiteName(group.Key, group.ToList());
+                var importData = await GenerateImportedDataBySiteName(group.Key, group.ToList());
 
                 commandList.Add(importData);
             }
@@ -116,7 +115,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return commandList;
         }
 
-        private async Task<InsertMemberInfoCommand> GenerateImpotedDataBySiteName(string siteName, List<CustomerModel> customers)
+        private async Task<InsertMemberInfoCommand> GenerateImportedDataBySiteName(string siteName, List<CustomerModel> customers)
         {
             var prefixSettingCode = await GetSettingCodePrefix(siteName);
             var xml = BuildXml(customers);
@@ -135,9 +134,18 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     string.Empty,
                     customers.Select(customer =>
                     {
-                        var agentIds = customer?.AllAgentId?.Replace("[", string.Empty).Replace("]", string.Empty);
-
-                        return $"<row CustId=\"{customer?.CustId}\" UserName=\"{customer?.UserName}\" AgentId=\"{customer?.AgentId}\" AllAgentId=\"{agentIds}\" />";
+                        var builder = new StringBuilder();
+                        builder.AppendJoin(" ","< row"
+                            , $"CustId=\"{customer?.CustId}\""
+                            , $"UserName=\"{customer?.UserName}\""
+                            , $"CurrencyId=\"{customer?.CurrencyId}\""
+                            , $"ActStatus=\"{customer?.ActStatus}\""
+                            , $"AffId=\"{customer?.AffId}\""
+                            , $"RegTime=\"{customer?.RegTime}\""
+                            , $"FirstDepositDate=\"{customer?.FirstDepositDate}"
+                            , $"Status=\"{customer?.Status}"
+                            , "row />");
+                        return builder.ToString();
                     }));
 
             return $"<root>{customerXml}</root>";

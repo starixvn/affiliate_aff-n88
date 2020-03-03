@@ -10,6 +10,8 @@ namespace Affiliate.N88.DTO
 
         public string SiteName { get; set; }
 
+        public int? AffId { get; set; }
+
         public string UserName { get; set; }
 
         public string Userpwd { get; set; }
@@ -20,15 +22,13 @@ namespace Affiliate.N88.DTO
 
         public byte ActStatus { get; set; }
 
-        public int AgentId { get; set; }
-
-        public string AllAgentId { get; set; }
-
         public byte UserLevel { get; set; }
 
         public DateTime LastLoginTime { get; set; }
 
         public DateTime RegTime { get; set; }
+
+        public DateTime? FirstDepositTime { get; set; }
 
         public bool IsTest { get; set; }
 

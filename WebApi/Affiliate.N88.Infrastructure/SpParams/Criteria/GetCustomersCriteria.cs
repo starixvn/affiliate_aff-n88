@@ -7,7 +7,7 @@ namespace Affiliate.N88.SpParams
     {
         public GetCustomersCriteria(DateTime fromDate) => FromDate = fromDate;
 
-        public override string GetSettingKey() => "N88_CustomerSel";
+        public override string GetSettingKey() => "Aff_CustomerSel";
 
         public override bool IsValid() => true;
 

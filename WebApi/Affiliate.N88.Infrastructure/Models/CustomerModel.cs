@@ -16,12 +16,12 @@ namespace Affiliate.N88.ApiModels
 
         public int ActStatus { get; set; }
 
-        public int AgentId { get; set; }
-
-        public string AllAgentId { get; set; }
-
         public DateTime RegTime { get; set; }
 
+        public DateTime? FirstDepositDate { get; set; }
+
         public bool Status { get; set; }
+
+        public int? AffId { get; set; }
     }
 }
