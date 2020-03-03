@@ -408,9 +408,6 @@
   <data name="CommentsIsInvalid" xml:space="preserve">
     <value>El comentario no es válido</value>
   </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
-  </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Fecha de finalización</value>
   </data>
@@ -1078,9 +1075,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>Netherlands </value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
-  </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>
   </data>
@@ -1269,9 +1263,6 @@
   </data>
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
-  </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
   </data>
   <data name="RecentPayment" xml:space="preserve">
     <value>Pagos recientes</value>
@@ -1491,9 +1482,6 @@
   </data>
   <data name="Thisisasystemau" xml:space="preserve">
     <value>Este es un sistema de correo electrónico generado de forma automática; no responda a este correo electrónico directamente.</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>nivel</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Se le enviará una nueva contraseña a la dirección de correo electrónico que ha proporcionado.

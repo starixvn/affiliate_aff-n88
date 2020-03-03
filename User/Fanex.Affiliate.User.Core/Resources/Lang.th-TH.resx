@@ -204,9 +204,6 @@
   <data name="Azerbaijan" xml:space="preserve">
     <value>อาเซอร์ไบจัน</value>
   </data>
-  <data name="Baccarat" xml:space="preserve">
-    <value>บาคาร่า</value>
-  </data>
   <data name="Back" xml:space="preserve">
     <value>ย้อนกลับ</value>
   </data>
@@ -416,9 +413,6 @@
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
     <value>ความคิดเห็นไม่ถูกต้อง</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>วันที่เสร็จสมบูรณ์</value>
@@ -1087,9 +1081,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>เนเธอแลนด์</value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
-  </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>คาเลโดเนีย ใหม่</value>
   </data>
@@ -1279,9 +1270,6 @@
   <data name="Qatar" xml:space="preserve">
     <value>การ์ต้า</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
-  </data>
   <data name="Racebook" xml:space="preserve">
     <value>ม้าแข่ง</value>
   </data>
@@ -1386,9 +1374,6 @@
   </data>
   <data name="Seychelles" xml:space="preserve">
     <value>Seychelles </value>
-  </data>
-  <data name="Sicbo" xml:space="preserve">
-    <value>ซิคโบ</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
@@ -1525,9 +1510,6 @@
   </data>
   <data name="Thisisasystemau" xml:space="preserve">
     <value>อีเมลล์นี้ได้ถูกส่งโดยระบบ   กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>ระดับชั้น</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>พาสเวิดใหม่จะถูกส่งไปยังอีเมลล์ของคุณ.&lt;br /&gt; หากคุณไม่รับอีเมลล์ดังกล่าว กรุณา&lt;a href="{0}"&gt;ติดต่อเรา&lt;/a&gt;.</value>
@@ -1694,35 +1676,14 @@
   <data name="EmailTitleSignUp" xml:space="preserve">
     <value>เรื่อง   สถานะการสมัครของท่าน</value>
   </data>
-  <data name="CasinoClubs" xml:space="preserve">
-    <value>คาสิโนคลับต่างๆใน12BET</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>คาสิโนสด</value>
-  </data>
-  <data name="Dragon" xml:space="preserve">
-    <value>มังกร/พยัคฆ์</value>
-  </data>
   <data name="CasinoHold" xml:space="preserve">
     <value>คาสิโน โฮลเอ็ม</value>
   </data>
   <data name="Multiplayer" xml:space="preserve">
     <value>เล่นทีละหลายโต๊ะ</value>
   </data>
-  <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>เกมส์ขูดการ์ด/เกมส์ตู้</value>
-  </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>เกมส์วิดีโอโป๊กเกอร์</value>
-  </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>ส่วนแบ่งรายได้</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>ทุกผลิตภัณฑ์เดิมพัน</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>ข้อมูลเพิ่มเติมสำหรับผลิตภัณฑ์12BETทั้งหมด</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>วันจันทร์ - วันเสาร์&lt;br&gt;เวลา 08.00 น. - 17.00 น. (เวลาไทย)</value>
@@ -1762,9 +1723,6 @@
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>ล็อตเตอร์รี่</value>
-  </data>
-  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>สมัครร่วมโปรแกรมพันธมิตร12BETเลยสิคะ!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>สมัครร่วมเป็นพันธมิตร</value>
@@ -1973,9 +1931,6 @@
   <data name="UsernameSignUp" xml:space="preserve">
     <value>ยูสเซอร์เนมรับค่าคอมมิชชั่น</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>มากกว่าหรือเท่ากับ&lt;br /&gt;5</value>
-  </data>
   <data name="ProductType" xml:space="preserve">
     <value>ประเภทการเดิมพัน</value>
   </data>
@@ -1999,18 +1954,6 @@
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM อีสปอร์ต (อีสปอร์ตบลู)</value>
-  </data>
-  <data name="CasinoGame" xml:space="preserve">
-    <value>เกมส์คาสิโน</value>
-  </data>
-  <data name="SlotGames" xml:space="preserve">
-    <value>เกมส์สล็อต</value>
-  </data>
-  <data name="ProgressiveGames" xml:space="preserve">
-    <value>เกมส์โปรเกรสซีฟ</value>
-  </data>
-  <data name="TableCardGames" xml:space="preserve">
-    <value>เกมส์โต๊ะ/เกมส์ไพ่</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>เรียนสมาชิกพันธมิตร</value>

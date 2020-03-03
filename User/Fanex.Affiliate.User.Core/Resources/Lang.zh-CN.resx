@@ -204,9 +204,6 @@
   <data name="Azerbaijan" xml:space="preserve">
     <value>阿塞拜疆 </value>
   </data>
-  <data name="Baccarat" xml:space="preserve">
-    <value>百家乐</value>
-  </data>
   <data name="Back" xml:space="preserve">
     <value>返回</value>
   </data>
@@ -416,9 +413,6 @@
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
     <value>意见填写无效</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>完成日期</value>
@@ -1089,9 +1083,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>荷兰</value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
-  </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亚</value>
   </data>
@@ -1281,9 +1272,6 @@
   <data name="Qatar" xml:space="preserve">
     <value>卡塔尔</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
-  </data>
   <data name="Racebook" xml:space="preserve">
     <value>赛马</value>
   </data>
@@ -1394,9 +1382,6 @@
   </data>
   <data name="Seychelles" xml:space="preserve">
     <value>塞舌尔</value>
-  </data>
-  <data name="Sicbo" xml:space="preserve">
-    <value>骰宝</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>塞拉利昂</value>
@@ -1533,9 +1518,6 @@
   </data>
   <data name="Thisisasystemau" xml:space="preserve">
     <value>这是一封由系统自动发送的电子邮件，请勿直接回复此电子邮件。</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>等级 </value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>新的密码会发到您提供的注册邮箱。&lt;br /&gt;若您遇到任何困难，请 &lt;a href="{0}"&gt;联络我们。&lt;/a&gt;.</value>
@@ -1702,35 +1684,14 @@
   <data name="EmailTitleSignUp" xml:space="preserve">
     <value>您的加盟申请</value>
   </data>
-  <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET 娱乐城</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>真人娱乐城</value>
-  </data>
-  <data name="Dragon" xml:space="preserve">
-    <value>龙虎</value>
-  </data>
   <data name="CasinoHold" xml:space="preserve">
     <value>赌场 Hold'em</value>
   </data>
   <data name="Multiplayer" xml:space="preserve">
     <value>多人游戏</value>
   </data>
-  <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>刮刮乐/大型电游</value>
-  </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>视频扑克</value>
-  </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>佣金分成</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>所有产品</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>更多有关12BET产品信息</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>周一至周六上午 9 时至下午6 时（北京时间）</value>
@@ -1767,9 +1728,6 @@
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>彩票</value>
-  </data>
-  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>立即注册为合作伙伴！</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>立即注册</value>
@@ -1978,9 +1936,6 @@
   <data name="UsernameSignUp" xml:space="preserve">
     <value>12BET玩家账号</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
-  </data>
   <data name="ProductType" xml:space="preserve">
     <value>产品</value>
   </data>
@@ -2004,18 +1959,6 @@
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM电竞牛</value>
-  </data>
-  <data name="CasinoGame" xml:space="preserve">
-    <value>娱乐城</value>
-  </data>
-  <data name="SlotGames" xml:space="preserve">
-    <value>老虎机 游戏</value>
-  </data>
-  <data name="ProgressiveGames" xml:space="preserve">
-    <value>累积游戏</value>
-  </data>
-  <data name="TableCardGames" xml:space="preserve">
-    <value>桌面/纸牌游戏</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>敬爱的顾客，</value>

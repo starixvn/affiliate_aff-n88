@@ -207,9 +207,6 @@
   <data name="Azerbaijan" xml:space="preserve">
     <value>아제르바이잔</value>
   </data>
-  <data name="Baccarat" xml:space="preserve">
-    <value>바카라</value>
-  </data>
   <data name="Back" xml:space="preserve">
     <value>뒤로</value>
   </data>
@@ -425,9 +422,6 @@
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
     <value>기입하신 정보가 바르지 않습니다.</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>완료일</value>
@@ -1102,9 +1096,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>네덜렌드</value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
-  </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>NEW!</value>
   </data>
@@ -1303,9 +1294,6 @@
   <data name="Qatar" xml:space="preserve">
     <value>카타르</value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
-  </data>
   <data name="Racebook" xml:space="preserve">
     <value>레이스북</value>
   </data>
@@ -1416,9 +1404,6 @@
   </data>
   <data name="Seychelles" xml:space="preserve">
     <value>셰이셜</value>
-  </data>
-  <data name="Sicbo" xml:space="preserve">
-    <value>식 보</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>시에라리온</value>
@@ -1732,38 +1717,14 @@
   <data name="EmailTitleSignUp" xml:space="preserve">
     <value>회원등록 신청서</value>
   </data>
-  <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET 카지노 클럽</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>라이브 카지노</value>
-  </data>
-  <data name="Dragon" xml:space="preserve">
-    <value>드래곤/타이거</value>
-  </data>
   <data name="CasinoHold" xml:space="preserve">
     <value>카지노 홀덤</value>
   </data>
   <data name="Multiplayer" xml:space="preserve">
     <value>멀티 플레이어</value>
   </data>
-  <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>스크래치/아케이드 게임</value>
-  </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>비디오 포커 게임</value>
-  </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>수익 배분</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>Tier</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>제공중인 게임사</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>12BET 제공사 더보기</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>업무시간: 월요일~ 토요일 08:00~ 17:00 (한국시간기준)</value>
@@ -1803,9 +1764,6 @@
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>로또</value>
-  </data>
-  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>12BET 제휴 프로그램 가입!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>제휴사 가입</value>
@@ -1966,9 +1924,6 @@
   <data name="UsernameSignUp" xml:space="preserve">
     <value>아이디</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>5&lt;br /&gt;명 또는 그 이상</value>
-  </data>
   <data name="ProductType" xml:space="preserve">
     <value>게임제품 선택</value>
   </data>
@@ -1992,18 +1947,6 @@
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM E스포츠 (ESPORTS BULL)</value>
-  </data>
-  <data name="CasinoGame" xml:space="preserve">
-    <value>카지노 게임</value>
-  </data>
-  <data name="SlotGames" xml:space="preserve">
-    <value>슬롯 게임</value>
-  </data>
-  <data name="ProgressiveGames" xml:space="preserve">
-    <value>프로그래시브 게임</value>
-  </data>
-  <data name="TableCardGames" xml:space="preserve">
-    <value>테이블/카드 게임</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>xxx 제휴사님께,</value>

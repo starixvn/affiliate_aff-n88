@@ -7,8 +7,6 @@
 
 @{ 
     var viewName = "~/Views/Product/_Content." + Model.CurrentLanguage + ".cshtml";
-
-    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
 
 @section styles{
@@ -20,7 +18,7 @@
             <span class="text">@Lang.Product</span>
         </div>
 
-        @Html.Raw(htmlString)
+        @{ Html.RenderPartial(viewName); }
 
         @if (!Model.IsAuthenticated)
         {

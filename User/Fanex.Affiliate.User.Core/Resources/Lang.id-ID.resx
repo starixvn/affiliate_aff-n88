@@ -204,9 +204,6 @@
   <data name="Azerbaijan" xml:space="preserve">
     <value>Azerbaijan </value>
   </data>
-  <data name="Baccarat" xml:space="preserve">
-    <value>Bakarat</value>
-  </data>
   <data name="Back" xml:space="preserve">
     <value>Kembali</value>
   </data>
@@ -416,9 +413,6 @@
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
     <value>Komentar tidak valid</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
@@ -1089,9 +1083,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>Belanda </value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
-  </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>Kaledonia Baru </value>
   </data>
@@ -1281,9 +1272,6 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="ActivePlayers" xml:space="preserve">
-    <value>Number of Active Players (Min required)</value>
-  </data>
   <data name="Racebook" xml:space="preserve">
     <value>Buku balapan</value>
   </data>
@@ -1388,9 +1376,6 @@
   </data>
   <data name="Seychelles" xml:space="preserve">
     <value>Seychelles </value>
-  </data>
-  <data name="Sicbo" xml:space="preserve">
-    <value>Sic bo</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
@@ -1523,9 +1508,6 @@
   </data>
   <data name="Thisisasystemau" xml:space="preserve">
     <value>Ini adalah email yang dibuat otomatis oleh sistem, jangan membalas email ini secara langsung.</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>Level</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Kata sandi baru akan dikirim ke alamat email yang sudah Anda berikan.
@@ -1693,35 +1675,14 @@
   <data name="EmailTitleSignUp" xml:space="preserve">
     <value>Permohonan Anda</value>
   </data>
-  <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET CASINO CLUBS</value>
-  </data>
-  <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
-  </data>
-  <data name="Dragon" xml:space="preserve">
-    <value>Dragon/Tiger</value>
-  </data>
   <data name="CasinoHold" xml:space="preserve">
     <value>Casino Hold'em</value>
   </data>
   <data name="Multiplayer" xml:space="preserve">
     <value>Multiplayer</value>
   </data>
-  <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Scratch/Arcade Games</value>
-  </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>Video Poker Games</value>
-  </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>Pembagian Hasil</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>Semua Produk/Permainan</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Info Lengkap Mengenai Produk 12BET</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Senin - Sabtu&lt;br&gt;8:00 - 17:00 WIB</value>
@@ -1761,9 +1722,6 @@
   </data>
   <data name="Lottery" xml:space="preserve">
     <value>LOTERE</value>
-  </data>
-  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>DAFTAR PROGRAM AFILIASI 12BET SEKARANG!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>PENDAFTARAN AFILIASI</value>
@@ -1975,9 +1933,6 @@
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
-  </data>
   <data name="ProductType" xml:space="preserve">
     <value>Tipe Permainan</value>
   </data>
@@ -2007,18 +1962,6 @@
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
-  </data>
-  <data name="CasinoGame" xml:space="preserve">
-    <value>Casino Game</value>
-  </data>
-  <data name="SlotGames" xml:space="preserve">
-    <value>Slot Games</value>
-  </data>
-  <data name="ProgressiveGames" xml:space="preserve">
-    <value>Progressive Games</value>
-  </data>
-  <data name="TableCardGames" xml:space="preserve">
-    <value>Table/Card Games</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>YTH Member 12BET,</value>
