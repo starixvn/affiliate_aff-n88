@@ -20,7 +20,7 @@ namespace Affiliate.N88.ApiModels
 
         public DateTime? FirstDepositDate { get; set; }
 
-        public bool Status { get; set; }
+        public int Status { get; set; }
 
         public int? AffId { get; set; }
     }

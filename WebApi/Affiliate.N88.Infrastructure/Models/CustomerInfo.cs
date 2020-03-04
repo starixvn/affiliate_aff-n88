@@ -36,6 +36,6 @@ namespace Affiliate.N88.DTO
 
         public bool IsRisk { get; set; }
 
-        public bool Status { get; set; }
+        public int Status { get; set; }
     }
 }

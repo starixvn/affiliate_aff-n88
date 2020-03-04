@@ -135,16 +135,16 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     customers.Select(customer =>
                     {
                         var builder = new StringBuilder();
-                        builder.AppendJoin(" ","< row"
+                        builder.AppendJoin(" ","<row"
                             , $"CustId=\"{customer?.CustId}\""
                             , $"UserName=\"{customer?.UserName}\""
                             , $"CurrencyId=\"{customer?.CurrencyId}\""
                             , $"ActStatus=\"{customer?.ActStatus}\""
                             , $"AffId=\"{customer?.AffId}\""
                             , $"RegTime=\"{customer?.RegTime}\""
-                            , $"FirstDepositDate=\"{customer?.FirstDepositDate}"
-                            , $"Status=\"{customer?.Status}"
-                            , "row />");
+                            , $"FirstDepositDate=\"{customer?.FirstDepositDate}\""
+                            , $"Status=\"{customer?.Status}\""
+                            , "/>");
                         return builder.ToString();
                     }));
 
