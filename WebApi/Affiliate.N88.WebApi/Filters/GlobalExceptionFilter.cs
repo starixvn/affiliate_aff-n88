@@ -12,6 +12,7 @@ namespace Affiliate.N88.WebApi.Filters
             if (actionExecutedContext != null)
             {
                 ExceptionHandler.Handle(actionExecutedContext.Exception);
+                
             }
         }
     }

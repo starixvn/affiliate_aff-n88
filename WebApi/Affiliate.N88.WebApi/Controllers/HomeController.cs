@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Web.Mvc;
 using Affiliate.N88.DTO;
 using Affiliate.N88.SpParams;
@@ -27,9 +28,11 @@ namespace Affiliate.N88.WebApi.Controllers
                 connectedMessage = ex.ToString();
             }
 
+            var env = ConfigurationManager.AppSettings.Get("Enviroment");
+
             return new ContentResult
             {
-                Content = $"Site is running <br/> {connectedMessage}",
+                Content = $"Site is running {env} <br/> {connectedMessage}",
                 ContentType = "text/html"
             };
         }
