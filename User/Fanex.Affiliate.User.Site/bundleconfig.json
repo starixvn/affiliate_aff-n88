@@ -54,24 +54,7 @@
   {
     "outputFileName": "www/build/js/generated-qrcode.js",
     "inputFiles": [
-      //"www/source/js/components/clipboard.js",
       "www/source/js/pages/account-overview/marketingbase.js"
-    ]
-  },
-  {
-    "outputFileName": "www/build/js/oldmediagallery.js",
-    "inputFiles": [
-      "www/source/js/components/pager.js",
-      "www/source/js/pages/marketing/marketingbase.js",
-      "www/source/js/pages/marketing/mediagallery.js"
-    ]
-  },
-  {
-    "outputFileName": "www/build/js/textbox.js",
-    "inputFiles": [
-      "www/source/js/components/pager.js",
-      "www/source/js/pages/marketing/marketingbase.js",
-      "www/source/js/pages/marketing/textbox.js"
     ]
   },
   {
@@ -186,13 +169,6 @@
     "inputFiles": [
       "www/source/js/components/authhelper.js",
       "www/source/js/pages/changepassword.js"
-    ]
-  },
-  {
-    "outputFileName": "www/build/js/lib/require.js",
-    "inputFiles": [
-      "www/source/js/lib/require-2.3.6.min.js",
-      "www/source/js/config-require.js"
     ]
   }
 ]

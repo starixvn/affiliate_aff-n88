@@ -19,29 +19,9 @@
 
 @helper RenderDropdownForMarketing(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAllOption = true, bool isVisible = true)
 {
-    <div class="form-group @(isVisible ? string.Empty : "hide")">
-        <label class="col-sm-3 control-label">@label</label>
+    <div class="form-group flex-sm-boostrap flex-center @(isVisible ? string.Empty : "hide")">
+        <label class="col-sm-3 control-label ">@label</label>
         <div class="col-sm-9">
-            <select class="form-control" id="@id">
-                @if (hasAllOption)
-                {
-                    <option value="">@Fanex.Affiliate.User.Core.Resources.Lang.All</option>
-                }
-
-                @foreach (var item in dataList)
-                {
-                    <option value="@item.Value" @(item.Selected ? "selected" : string.Empty)>@item.Text</option>
-                }
-            </select>
-        </div>
-    </div>
-}
-
-@helper RenderDropdownForOldMarketing(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAllOption = true, bool isVisible = true)
-{
-    <div class="form-group @(isVisible ? string.Empty : "hide")">
-        <label class="col-sm-2 control-label">@label</label>
-        <div class="col-sm-4">
             <select class="form-control" id="@id">
                 @if (hasAllOption)
                 {
@@ -59,20 +39,20 @@
 
 @helper RenderAppContact(string language)
 {
-const string firstAppName = "Skype";
-var secondAppContactList = new Dictionary<string, string>
-{
-    ["en-US"] = "Facebook",
-    ["zh-CN"] = "QQ",
-    ["zh-TW"] = "QQ",
-    ["vi-VN"] = "Zalo",
-    ["th-TH"] = "Line",
-    ["id-ID"] = "WhatsApp",
-    ["hi-IN"] = "WhatsApp",
-    ["ko-KR"] = "Telegram",
-    ["ja-JP"] = "Facebook"
-};
-var hasTwoContactApp = secondAppContactList.ContainsKey(language);
+    const string firstAppName = "Skype";
+    var secondAppContactList = new Dictionary<string, string>
+    {
+        ["en-US"] = "Facebook",
+        ["zh-CN"] = "QQ",
+        ["zh-TW"] = "QQ",
+        ["vi-VN"] = "Zalo",
+        ["th-TH"] = "Line",
+        ["id-ID"] = "WhatsApp",
+        ["hi-IN"] = "WhatsApp",
+        ["ko-KR"] = "Telegram",
+        ["ja-JP"] = "Facebook"
+    };
+    var hasTwoContactApp = secondAppContactList.ContainsKey(language);
 
     <div class="form-group">
         <label class="col-sm-3 control-label @(hasTwoContactApp ? string.Empty : "require")">@firstAppName</label>
@@ -81,7 +61,7 @@ var hasTwoContactApp = secondAppContactList.ContainsKey(language);
             <div class="col-sm-4">
                 <input type="text" name="ContactAppList[0].Value" id="ContactAppList[0].Value" class="form-control" value=""
                        data-val="true" data-val-requiredifnullorempty-dependentprop="ContactAppList[1].Value"
-                        data-val-requiredifnullorempty="@Fanex.Affiliate.User.Core.Resources.Error.RequireIMAccount" />
+                       data-val-requiredifnullorempty="@Fanex.Affiliate.User.Core.Resources.Error.RequireIMAccount" />
             </div>
         }
         else
@@ -92,22 +72,22 @@ var hasTwoContactApp = secondAppContactList.ContainsKey(language);
             </div>
         }
         <div class="col-sm-offset-3 col-sm-9">
-            <span class="field-validation-valid help-block hide" 
+            <span class="field-validation-valid help-block hide"
                   data-valmsg-for="ContactAppList[@(hasTwoContactApp ? 0 : 1)].Value" data-valmsg-replace="true"></span>
         </div>
         <input type="hidden" name="ContactAppList[0].Name" value="@firstAppName" />
         <input type="hidden" name="ContactAppList[0].Order" value="1" />
     </div>
 
-if (secondAppContactList.ContainsKey(language))
-{
-    var secondAppName = secondAppContactList[language];
+    if (secondAppContactList.ContainsKey(language))
+    {
+        var secondAppName = secondAppContactList[language];
         <div class="form-group">
             <label class="col-sm-3 control-label">@secondAppName</label>
             <div class="col-sm-4">
                 <input type="text" name="ContactAppList[1].Value" id="ContactAppList[1].Value" class="form-control" value=""
                        data-val="true" data-val-requiredifnullorempty-dependentprop="ContactAppList[0].Value"
-                        data-val-requiredifnullorempty="@Fanex.Affiliate.User.Core.Resources.Error.RequireIMAccount" />
+                       data-val-requiredifnullorempty="@Fanex.Affiliate.User.Core.Resources.Error.RequireIMAccount" />
             </div>
             <div class="col-sm-offset-3 col-sm-9">
                 <span class="field-validation-valid help-block hide"
@@ -116,5 +96,5 @@ if (secondAppContactList.ContainsKey(language))
             <input type="hidden" name="ContactAppList[1].Name" value="@secondAppName" />
             <input type="hidden" name="ContactAppList[1].Order" value="2" />
         </div>
-}
+    }
 }

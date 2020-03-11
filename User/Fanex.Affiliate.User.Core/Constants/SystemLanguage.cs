@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Resources;
 
@@ -31,7 +34,36 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string ShortedEuroCode = "eneuro";
 
-        public static IEnumerable<Language> LanguageList => new List<Language>
+        public static IEnumerable<Language> LanguageList
+        {
+            get
+            {
+                IEnumerable<Language> languageList = DefaultLanguaList;
+
+                var service = DependencyResolver.Current.GetService<IMarketingService>();
+                var sessionService = DependencyResolver.Current.GetService<ISessionService>();
+                if (service != null && sessionService != null)
+                {
+                    try
+                    {
+                        languageList = service.GetLanguageList(sessionService.IsInternal)
+                            .Select(l => new Language
+                            {
+                                Code = l.MarketId,
+                                DisplayName = l.DisplayName,
+                                EnglishName = l.MarketName,
+                                NativeName = l.MarketNativeName,
+                                ShortedCode = l.ShortedCode
+                            });
+                    }
+                    catch { }
+                }
+
+                return languageList;
+            }
+        }
+
+        public static IEnumerable<Language> DefaultLanguaList => new List<Language>
         {
             new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"},
             new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"},
