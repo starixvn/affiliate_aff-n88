@@ -38,7 +38,7 @@ namespace Fanex.Affiliate.User.Core.Constants
         {
             get
             {
-                IEnumerable<Language> languageList = DefaultLanguaList;
+                IEnumerable<Language> languageList = DefaultLanguaList.Values;
 
                 var service = DependencyResolver.Current.GetService<IMarketingService>();
                 var sessionService = DependencyResolver.Current.GetService<ISessionService>();
@@ -50,11 +50,12 @@ namespace Fanex.Affiliate.User.Core.Constants
                             .Select(l => new Language
                             {
                                 Code = l.MarketId,
-                                DisplayName = l.DisplayName,
-                                EnglishName = l.MarketName,
-                                NativeName = l.MarketNativeName,
-                                ShortedCode = l.ShortedCode
-                            });
+                                DisplayName = l.DisplayName ?? DefaultLanguaList[l.MarketId].DisplayName,
+                                EnglishName = l.MarketName ?? DefaultLanguaList[l.MarketId].EnglishName,
+                                NativeName = l.MarketNativeName ?? DefaultLanguaList[l.MarketId].NativeName,
+                                ShortedCode = l.ShortedCode ?? DefaultLanguaList[l.MarketId].ShortedCode
+                            })
+                            .ToList();
                     }
                     catch { }
                 }
@@ -63,15 +64,15 @@ namespace Fanex.Affiliate.User.Core.Constants
             }
         }
 
-        public static IEnumerable<Language> DefaultLanguaList => new List<Language>
+        public static IDictionary<string,Language> DefaultLanguaList => new Dictionary<string, Language>
         {
-            new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"},
-            new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"},
-            new Language { Code = "zh-CN", NativeName = "中文简体", DisplayName = "Chinese Simplified", EnglishName = "Chinese Simplified", ShortedCode = "cs"},
-            new Language { Code = "zh-TW", NativeName = "中文繁体", DisplayName = "Chinese Traditional", EnglishName = "Chinese Traditional", ShortedCode = "ch"},
-            new Language { Code = "id-ID", NativeName = "Indonesia", DisplayName = "Bahasa Indonesia", EnglishName = "Indonesian", ShortedCode = "id"},
-            new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"},
-            new Language { Code = "ko-KR", NativeName = "한국어", DisplayName = "Korean", EnglishName = "Korean", ShortedCode = "ko"}
+            { "vi-VN", new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"} },
+            { "en-US", new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"} },
+            { "zh-CN", new Language { Code = "zh-CN", NativeName = "中文简体", DisplayName = "Chinese Simplified", EnglishName = "Chinese Simplified", ShortedCode = "cs"} },
+            { "zh-TW", new Language { Code = "zh-TW", NativeName = "中文繁体", DisplayName = "Chinese Traditional", EnglishName = "Chinese Traditional", ShortedCode = "ch"} },
+            { "id-ID", new Language { Code = "id-ID", NativeName = "Indonesia", DisplayName = "Bahasa Indonesia", EnglishName = "Indonesian", ShortedCode = "id"} },
+            { "th-TH", new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"} },
+            { "ko-KR", new Language { Code = "ko-KR", NativeName = "한국어", DisplayName = "Korean", EnglishName = "Korean", ShortedCode = "ko"} }
         };
 
         public static string GetShortedCodeForTracking(string currentLanguage)
