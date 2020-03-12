@@ -64,17 +64,6 @@ exports[`affiliate report - GridData  _buildCommonCell - should return correctly
     onClick={[Function]}
     sortable={false}
     sorting={false}
-    title="0"
-  >
-    0
-  </t>
-  <t
-    asc={true}
-    className="text-right"
-    header={false}
-    onClick={[Function]}
-    sortable={false}
-    sorting={false}
     title="0.00"
   >
     0.00
@@ -261,17 +250,6 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
       title="1"
     >
       1
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-      title="0"
-    >
-      0
     </t>
     <t
       asc={true}
@@ -547,17 +525,6 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="0"
-    >
-      0
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="0.00"
     >
       0.00
@@ -712,17 +679,6 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       title="Total (all pages)"
     >
       Total (all pages)
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-      title="0"
-    >
-      0
     </t>
     <t
       asc={true}
@@ -1003,17 +959,6 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="0"
-    >
-      0
-    </t>
-    <t
-      asc={true}
-      className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="0.00"
     >
       0.00
@@ -1176,17 +1121,6 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             12BETAFF001
           </t>
           <React.Fragment>
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="0"
-            >
-              0
-            </t>
             <t
               asc={true}
               className="text-right"
@@ -1489,17 +1423,6 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="0"
-            >
-              0
-            </t>
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="0.00"
             >
               0.00
@@ -1681,17 +1604,6 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             sorting={false}
           />
           <React.Fragment>
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title=""
-            >
-              
-            </t>
             <t
               asc={true}
               className="text-right"
@@ -1986,21 +1898,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             rowSpan="2"
             sortable={false}
             sorting={false}
-            title="Active Member"
+            title="Active Player"
           >
-            Active Member
-          </t>
-          <t
-            asc={true}
-            colWidth={60}
-            header={true}
-            onClick={[Function]}
-            rowSpan="2"
-            sortable={false}
-            sorting={false}
-            title="Qualified Member"
-          >
-            Qualified Member
+            Active Player
           </t>
           <t
             asc={true}
@@ -2009,9 +1909,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Member Statistics"
+            title="Player Statistics"
           >
-            Member Statistics
+            Player Statistics
           </t>
           <t
             asc={true}
@@ -2292,21 +2192,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       rowSpan="2"
       sortable={false}
       sorting={false}
-      title="Active Member"
+      title="Active Player"
     >
-      Active Member
-    </t>
-    <t
-      asc={true}
-      colWidth={60}
-      header={true}
-      onClick={[Function]}
-      rowSpan="2"
-      sortable={false}
-      sorting={false}
-      title="Qualified Member"
-    >
-      Qualified Member
+      Active Player
     </t>
     <t
       asc={true}
@@ -2315,9 +2203,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Member Statistics"
+      title="Player Statistics"
     >
-      Member Statistics
+      Player Statistics
     </t>
     <t
       asc={true}
@@ -2577,21 +2465,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       rowSpan="2"
       sortable={false}
       sorting={false}
-      title="Active Member"
+      title="Active Player"
     >
-      Active Member
-    </t>
-    <t
-      asc={true}
-      colWidth={60}
-      header={true}
-      onClick={[Function]}
-      rowSpan="2"
-      sortable={false}
-      sorting={false}
-      title="Qualified Member"
-    >
-      Qualified Member
+      Active Player
     </t>
     <t
       asc={true}
@@ -2600,9 +2476,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Member Statistics"
+      title="Player Statistics"
     >
-      Member Statistics
+      Player Statistics
     </t>
     <t
       asc={true}

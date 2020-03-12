@@ -81,7 +81,7 @@ exports[`Adjustment - components - Content render correctly with isValidAmount i
           ]
         }
       >
-        $0.00
+        0.00
       </Label>
     </FormGroup>
     <FormGroup
@@ -302,7 +302,7 @@ exports[`Adjustment - components - Content render correctly with isValidAmount i
           ]
         }
       >
-        $0.00
+        0.00
       </Label>
     </FormGroup>
     <FormGroup

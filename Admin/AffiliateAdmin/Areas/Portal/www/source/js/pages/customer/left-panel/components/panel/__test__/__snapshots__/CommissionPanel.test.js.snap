@@ -42,7 +42,6 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
       <CommissionGroupPopup
         affId={1219631}
         affName="12BETAFF016"
-        isPrivateGroup={false}
         setShowPopupCommGroup={[Function]}
         showPopupCommGroup={false}
       />
@@ -81,7 +80,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      $0.00
+      0.00
     </Col>
   </Row>
 </Memo(Panel)>
@@ -134,7 +133,6 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
       <CommissionGroupPopup
         affId={1271808}
         affName="12BETAFF226"
-        isPrivateGroup={false}
         setShowPopupCommGroup={[Function]}
         showPopupCommGroup={false}
       />
@@ -173,7 +171,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      $9,802,280.54
+      9,802,280.54
     </Col>
   </Row>
 </Memo(Panel)>

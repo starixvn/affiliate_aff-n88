@@ -8,10 +8,7 @@ exports[`home - components - BannerStatistics render correctly 1`] = `
     tag="div"
   >
     <span
-      className="tbl-icon01"
-    />
-    <span
-      className="text-blue"
+      className="home-title"
     >
       Banner Statistics
     </span>

@@ -46,10 +46,10 @@ exports[`left panel - components - general-info - ApprovedStatusInfo render corr
     </Col>
   </Row>
   <a
-    href="/Portal/Member?AffName=undefined"
-    target="fMain"
+    href="/Portal/Player?AffName=undefined"
+    target="_top"
   >
-    Member List
+    Player List
   </a>
 </Fragment>
 `;
@@ -105,10 +105,10 @@ exports[`left panel - components - general-info - ApprovedStatusInfo render corr
     </Col>
   </Row>
   <a
-    href="/Portal/Member?AffName=12BETAFF226"
-    target="fMain"
+    href="/Portal/Player?AffName=12BETAFF226"
+    target="_top"
   >
-    Member List
+    Player List
   </a>
 </Fragment>
 `;

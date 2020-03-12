@@ -29,16 +29,16 @@ exports[`commission group - TierSetting Should render correctly 1`] = `
           Tier
         </th>
         <th>
-          Min AM
+          Min Amount
         </th>
         <th>
-          Max AM
+          Max Amount
         </th>
         <th>
-          Min QM
+          Min AP
         </th>
         <th>
-          Max QM
+          Max AP
         </th>
         <th
           style={
@@ -140,16 +140,16 @@ exports[`commission group - TierSetting Should render correctly with TierSetting
           Tier
         </th>
         <th>
-          Min AM
+          Min Amount
         </th>
         <th>
-          Max AM
+          Max Amount
         </th>
         <th>
-          Min QM
+          Min AP
         </th>
         <th>
-          Max QM
+          Max AP
         </th>
         <th
           style={

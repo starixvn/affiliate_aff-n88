@@ -8,11 +8,10 @@ export const Baccarat = 'Baccarat';
 export const Sportsbook = 'Sportsbook';
 
 const defaultLanguage = 'Chinese Simplified';
-const defaultCurrency = 'EURO';
-const defaultImageType = 'Image';
 export const Asian = 1;
 export const maxWidthHeight = 501;
 export const maxLength = 50;
+export const regSpecialCharacters = '[\/\:\*\?\"\<\>\|]';
 
 export const headerText = {
     Index: '#',
@@ -36,15 +35,9 @@ export const messages = {
 }
 
 export const defaultState = {
-    file: null,
-    inputFileName: '',
-    category: Casino,
-    subCategory: Baccarat,
+    files: null,
+    inputFileNames: [''],
     language: defaultLanguage,
-    currency: defaultCurrency,
-    imageType: defaultImageType,
-    affType: Asian,
-    deviceType: 0,
     isInsert: true,
     isShowMessage: false,
     isSuccess: true,

@@ -214,10 +214,10 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
           Balance B/F
         </option>
         <option
-          key="sortBy-Member"
+          key="sortBy-Player"
           value={5}
         >
-          Member
+          Player
         </option>
       </Input>
     </FormGroup>

@@ -117,8 +117,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           />
         }
         isReadonly={true}
-        minMonth={12}
-        minYear={2009}
+        minMonth={1}
+        minYear={2020}
         onFormat={[Function]}
         onSelect={[Function]}
         open={false}
@@ -354,8 +354,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           />
         }
         isReadonly={true}
-        minMonth={12}
-        minYear={2009}
+        minMonth={1}
+        minYear={2020}
         onFormat={[Function]}
         onSelect={[Function]}
         open={false}

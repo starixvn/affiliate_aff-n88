@@ -63,23 +63,6 @@ exports[`active member - components - Unactivated  render correctly 1`] = `
             >
               ---
             </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Active"
-            >
-              <Button
-                color="link p-0"
-                onClick={[Function]}
-                tag="button"
-              >
-                Active
-              </Button>
-            </t>
           </t>,
         ]
       }
@@ -130,22 +113,6 @@ exports[`active member - components - Unactivated  render correctly 1`] = `
             title="Last Name"
           >
             Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={50}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-          >
-            <Button
-              color="link p-0"
-              onClick={[Function]}
-              tag="button"
-            >
-              Active All
-            </Button>
           </t>
         </t>
       }

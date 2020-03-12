@@ -8,7 +8,7 @@ describe('view log - components - Filter', () => {
         jest.resetAllMocks();
     });
 
-    const today = '12/27/2019';
+    const today = '03/12/2020';
     const defaultProps = {
         today
     };
@@ -36,25 +36,25 @@ describe('view log - components - Filter', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "6/28/2019")};
+        const monthDate = { format: jest.fn(() => "01/02/2020")};
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
         
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "6/28/2019", toDate: "12/27/2019" });
+        expect(wrapper.setState).toHaveBeenCalledWith({ "fromDate": "01/02/2020", "toDate": "3/12/2020" });
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "12/27/2019")};
+        const monthDate = { format: jest.fn(() => "3/11/2020")};
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
         
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "12/27/2019" });
+        expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "3/11/2020" });
     });
 
     it('handleSearch - should be called when click Search Button', () => {
@@ -64,7 +64,7 @@ describe('view log - components - Filter', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ fromDate: "6/27/2019", logType: 0, toDate: "12/27/2019" });
+        expect(props.setParam).toHaveBeenCalledWith({ "fromDate": "01/01/2020", "logType": 0, "toDate": "3/12/2020" });
         expect(props.setShowIdList).toHaveBeenCalledWith({});
     });
 });

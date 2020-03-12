@@ -14,6 +14,7 @@ using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using System.Web;
 using System.Linq;
+using System;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 {
@@ -21,8 +22,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
     public class MediaGalleryController : BaseController
     {
         private const int BannerListCategory = 1;
-        private const int CasinoCategoryId = 51;
-        private const int SportsbookCategoryId = 1;
+        private const string CasinoCategory = "Casino";
+        private const string SportsbookCategory = "Sportsbook";
         private readonly ILanguageService _languageService;
         private readonly ICommonMediaGalleryService _commonMediaGalleryService;
         private readonly IBannerListService _bannerListService;
@@ -57,10 +58,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 ImageType = param.ImageType
             };
+            var bannerListCategory = _commonMediaGalleryService.GetCategoryList(BannerListCategory);
 
             var model = new BannerListViewModel
             {
-                CategoryList = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => c.CategoryId == c.ParentCategoryId),
+                CategoryList = bannerListCategory.Where(c => string.IsNullOrEmpty(c.SubCategoryName)),
+                SubCategoryList = bannerListCategory.Where(c => !string.IsNullOrEmpty(c.SubCategoryName)),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 ImageTypeList = _commonMediaGalleryService.GetImageTypeList(),
@@ -79,7 +82,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             return new JsonNetResult
             {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => c.ParentCategoryId == CasinoCategoryId && c.CategoryId != c.ParentCategoryId)
+                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => string.Equals(c.CategoryName, CasinoCategory, StringComparison.CurrentCultureIgnoreCase) &&
+                        !string.IsNullOrEmpty(c.SubCategoryName))
             };
         }
 
@@ -89,7 +93,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             return new JsonNetResult
             {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => c.ParentCategoryId == SportsbookCategoryId && c.CategoryId != c.ParentCategoryId)
+                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase) &&
+                        !string.IsNullOrEmpty(c.SubCategoryName))
             };
         }
 
@@ -136,16 +141,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Media, IsHost = true)]
-        public ActionResult InsertBanner(HttpPostedFileBase file, InsertUpdateBannerParam param)
+        public ActionResult InsertBanner(HttpPostedFileBase[] files, InsertUpdateMultipleBannersParam param)
         {
-            if (ModelState.IsValid && file != null)
+            if (ModelState.IsValid && files != null)
             {
                 var encodeParam = EncodeParam(param);
                 GetUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
-                    Data = _bannerListService.InsertBanner(file, encodeParam)
+                    Data = _bannerListService.InsertBanner(files, encodeParam)
                 };
             }
 
@@ -162,17 +167,17 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         [HttpPost]
         [ValidateAntiForgeryHeader]
         [FunctionAuthorize(FunctionName = Function.Media, IsHost = true)]
-        public ActionResult UpdateBanner(HttpPostedFileBase file, InsertUpdateBannerParam param)
+        public ActionResult UpdateBanner(HttpPostedFileBase files, InsertUpdateMultipleBannersParam param)
         {
             var isValidBannerId = param.BannerId >= Validation.MinId;
-            if (ModelState.IsValid && isValidBannerId && !string.IsNullOrEmpty(param.InputFileName))
+            if (ModelState.IsValid && isValidBannerId && (!string.IsNullOrEmpty(param.InputFileNames) || files != null))
             {
                 var encodeParam = EncodeParam(param);
                 GetUserInfoParam(encodeParam);
 
                 return new JsonNetResult
                 {
-                    Data = _bannerListService.UpdateBanner(file, encodeParam)
+                    Data = _bannerListService.UpdateBanner(files, encodeParam)
                 };
             }
 
@@ -181,7 +186,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = !isValidBannerId ? "BannerId is invalid." : "You must enter a file name for banner."
+                    Message = !isValidBannerId ? "Banner Id is invalid." : Lang.PleaseEnterFileName
                 }
             };
         }
@@ -206,25 +211,23 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = "Please select Banners to delete."
+                    Message = "Please select Banner(s) to delete."
                 }
             };
         }
 
-        private InsertUpdateBannerParam EncodeParam(InsertUpdateBannerParam param)
+        private InsertUpdateMultipleBannersParam EncodeParam(InsertUpdateMultipleBannersParam param)
         {
-            return new InsertUpdateBannerParam
+            return new InsertUpdateMultipleBannersParam
             {
                 BannerId = param.BannerId,
-                InputFileName = Server.HtmlEncode(param.InputFileName?.Trim()),
-                Category = Server.HtmlEncode(param.Category),
-                SubCategory = Server.HtmlEncode(param.SubCategory),
+                InputFileNames = Server.HtmlEncode(param.InputFileNames),
+                Categories = Server.HtmlEncode(param.Categories),
+                SubCategories = Server.HtmlEncode(param.SubCategories),
                 Language = Server.HtmlEncode(param.Language),
-                Currency = Server.HtmlEncode(param.Currency),
-                Size = Server.HtmlEncode(param.Size),
-                ImageType = Server.HtmlEncode(param.ImageType),
-                AffType = param.AffType,
-                DeviceType = param.DeviceType
+                Currencies = Server.HtmlEncode(param.Currencies),
+                AffTypes = param.AffTypes,
+                DeviceTypes = param.DeviceTypes
             };
         }
 

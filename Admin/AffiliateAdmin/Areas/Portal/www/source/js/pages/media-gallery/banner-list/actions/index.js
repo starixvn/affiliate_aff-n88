@@ -117,14 +117,20 @@ export const getSizeList = (param) => async (dispatch) => {
     const url = 'Portal/MediaGallery/GetSizeList';
     const response = await post(url, param);
 
-    const data = response && response.status === 200 ? response.data : null;
+    const data = response && response.status === 200 ? response.data.map(item => {
+        return {
+            key: item.Id,
+            name: item.Name,
+            checked: false
+        };
+    }) : null;
 
     dispatch(setSizeList(data));
 }
 
 export const fetchData = (param) => async (dispatch) => {
     dispatch(toggleLoader(true));
-    
+
     const url = 'Portal/MediaGallery/GetBannerList';
     const response = await post(url, param);
 
@@ -169,8 +175,16 @@ export const updateBanner = (param) => async () => {
 
 const handleExcute = async (url, param) => {
     const formData = new FormData();
-    for (let key in param ) {
-        formData.append(key, param[key]);
+    for (let key in param) {
+        key !== 'files' && formData.append(key, param[key]);
+    }
+
+    const files = param['files'];
+
+    if (files) {
+        for (let i = 0; i < files.length; i++) {
+            formData.append('files', files[i]);
+        }
     }
 
     const response = await post(url, formData);

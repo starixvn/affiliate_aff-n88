@@ -145,7 +145,7 @@ describe('customer statistics - components - Content', () => {
         const setMonthDate = jest.fn();
         const fetchData = jest.fn(() => data);
         const redirectToTrackingStatistics = jest.fn()
-        const props = Object.assign({}, defaultProps, { setMonthDate, fetchData, redirectToTrackingStatistics });
+        const props = Object.assign({}, defaultProps, { setMonthDate, fetchData, redirectToTrackingStatistics, redirectToReferrers: jest.fn() });
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ data: dataHasPlayerActive });
 
@@ -162,7 +162,7 @@ describe('customer statistics - components - Content', () => {
         wrapper.setState({ data: dataHasPlayerActive });
 
         wrapper.find('a').at(2).simulate('click');
-        expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 0, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
+        expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 1, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
     });
 
     it('redirectToReferrers - should be called when click at referrers mobile link', () => {

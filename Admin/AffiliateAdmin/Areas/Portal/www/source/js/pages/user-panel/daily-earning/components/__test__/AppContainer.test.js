@@ -9,7 +9,9 @@ describe('daily earning - components - AppContainer', () => {
             affId: 1271808,
             monthDate: "Jan-2019",
             productId: 0
-        }
+        },
+        getCurrencyList: jest.fn(),
+        getProductList: jest.fn()
     }
     it('render correctly', () => {
         const result = shallow(<AppContainer {...defaultProps} />);

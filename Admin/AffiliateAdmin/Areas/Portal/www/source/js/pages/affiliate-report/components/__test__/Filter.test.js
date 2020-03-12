@@ -299,6 +299,7 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with currentMainView is Main view', () => {
         const param = {
+            CurrencyId: 0,
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -332,6 +333,7 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with currentMainView is Month on Month view', () => {
         const param = {
+            CurrencyId: 0,
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -370,6 +372,7 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with selectedProductList not equal productList', () => {
         const param = {
+            CurrencyId: 0,
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),

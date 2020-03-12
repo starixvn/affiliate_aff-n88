@@ -9,10 +9,15 @@ import {
 } from '../actions/types';
 
 export const categoryList = createReducer(null, {});
+export const subCategoryList = createReducer(null, {});
 export const languageList = createReducer(null, {});
 export const currencyList = createReducer(null, {});
 export const imageTypeList = createReducer(null, {});
 export const affTypeList = createReducer(null, {});
+export const deviceTypeList = createReducer([
+    {   key: 0, name: "PC / Laptop", checked: false    },
+    {   key: 1, name: "Mobile", checked: false }
+], {});
 
 export const bannerRootUrl = createReducer(null, {
     [SET_BANNER_ROOT_URL](prevState, action) {
@@ -82,6 +87,7 @@ export const gridData = createReducer(null, {
 
 export default combineReducers({
     categoryList,
+    subCategoryList,
     subCategoryCasinoList,
     subCategorySportsbookList,
     languageList,
@@ -89,6 +95,7 @@ export default combineReducers({
     imageTypeList,
     sizeList,
     affTypeList,
+    deviceTypeList,
     bannerRootUrl,
     param,
     paramFromHome,

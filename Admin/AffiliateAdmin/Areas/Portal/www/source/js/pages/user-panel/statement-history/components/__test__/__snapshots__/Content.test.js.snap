@@ -192,7 +192,7 @@ exports[`statement history - components - Content render correctly with have dat
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="$0.00"
+              title="0.00"
             >
               <Button
                 className="p-0"
@@ -200,7 +200,7 @@ exports[`statement history - components - Content render correctly with have dat
                 onClick={[Function]}
                 tag="button"
               >
-                $0.00
+                0.00
               </Button>
             </t>
             <t
@@ -279,7 +279,7 @@ exports[`statement history - components - Content render correctly with have dat
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="$125.00"
+              title="125.00"
             >
               <Button
                 className="p-0"
@@ -287,7 +287,7 @@ exports[`statement history - components - Content render correctly with have dat
                 onClick={[Function]}
                 tag="button"
               >
-                $125.00
+                125.00
               </Button>
             </t>
             <t
@@ -373,9 +373,9 @@ exports[`statement history - components - Content render correctly with have dat
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="-$100.00"
+              title="-100.00"
             >
-              -$100.00
+              -100.00
             </t>
             <t
               asc={true}
@@ -453,9 +453,9 @@ exports[`statement history - components - Content render correctly with have dat
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="$105.00"
+              title="105.00"
             >
-              $105.00
+              105.00
             </t>
             <t
               asc={true}

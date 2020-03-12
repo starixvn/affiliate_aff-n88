@@ -116,25 +116,9 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="05/23/2014"
-    >
-      05/23/2014
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="12BETAFF001"
     >
-      <Button
-        color="link"
-        onClick={[Function]}
-        tag="button"
-      >
-        12BETAFF001
-      </Button>
+      12BETAFF001
     </t>
     <t
       asc={true}
@@ -181,7 +165,7 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       title="6"
     >
       <a
-        href="/Portal/Member?AffName=12BETAFF001"
+        href="/Portal/Player?AffName=12BETAFF001"
         target="_top"
       >
         6
@@ -319,16 +303,6 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       title="05/22/2008 06:50:00"
     >
       05/22/2008 06:50:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-      title="05/23/2014"
-    >
-      05/23/2014
     </t>
     <t
       asc={true}
@@ -524,25 +498,9 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="05/23/2014"
-            >
-              05/23/2014
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="12BETAFF001"
             >
-              <Button
-                color="link"
-                onClick={[Function]}
-                tag="button"
-              >
-                12BETAFF001
-              </Button>
+              12BETAFF001
             </t>
             <t
               asc={true}
@@ -572,7 +530,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
               title="6"
             >
               <a
-                href="/Portal/Member?AffName=12BETAFF001"
+                href="/Portal/Player?AffName=12BETAFF001"
                 target="_top"
               >
                 6
@@ -716,17 +674,6 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Casino Date"
-          >
-            Casino Date
-          </t>
-          <t
-            asc={true}
             colWidth={300}
             header={true}
             onClick={[Function]}
@@ -765,9 +712,9 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Member"
+            title="Player"
           >
-            Member
+            Player
           </t>
           <t
             asc={true}
@@ -923,25 +870,9 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="05/23/2014"
-    >
-      05/23/2014
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="12BETAFF001"
     >
-      <Button
-        color="link"
-        onClick={[Function]}
-        tag="button"
-      >
-        12BETAFF001
-      </Button>
+      12BETAFF001
     </t>
     <t
       asc={true}
@@ -988,7 +919,7 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       title="6"
     >
       <a
-        href="/Portal/Member?AffName=12BETAFF001"
+        href="/Portal/Player?AffName=12BETAFF001"
         target="_top"
       >
         6
@@ -1134,17 +1065,6 @@ exports[`affiliate info - GridData  should render correctly with _renderHeader 1
     </t>
     <t
       asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-      title="Casino Date"
-    >
-      Casino Date
-    </t>
-    <t
-      asc={true}
       colWidth={300}
       header={true}
       onClick={[Function]}
@@ -1205,9 +1125,9 @@ exports[`affiliate info - GridData  should render correctly with _renderHeader 1
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Member"
+      title="Player"
     >
-      Member
+      Player
     </t>
     <t
       asc={true}

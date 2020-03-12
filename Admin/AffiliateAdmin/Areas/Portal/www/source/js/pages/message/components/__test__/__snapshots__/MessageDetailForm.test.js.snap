@@ -148,7 +148,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEn"
                 sm={2}
                 tag="label"
@@ -195,7 +195,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTw"
                 sm={2}
                 tag="label"
@@ -242,7 +242,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -289,7 +289,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -336,7 +336,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTh"
                 sm={2}
                 tag="label"
@@ -383,7 +383,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentVi"
                 sm={2}
                 tag="label"
@@ -430,7 +430,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -477,7 +477,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -524,7 +524,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentJp"
                 sm={2}
                 tag="label"
@@ -755,7 +755,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEn"
                 sm={2}
                 tag="label"
@@ -802,7 +802,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTw"
                 sm={2}
                 tag="label"
@@ -849,7 +849,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -896,7 +896,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -943,7 +943,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTh"
                 sm={2}
                 tag="label"
@@ -990,7 +990,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentVi"
                 sm={2}
                 tag="label"
@@ -1037,7 +1037,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -1084,7 +1084,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -1131,7 +1131,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentJp"
                 sm={2}
                 tag="label"
@@ -1344,7 +1344,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEn"
                 sm={2}
                 tag="label"
@@ -1391,7 +1391,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTw"
                 sm={2}
                 tag="label"
@@ -1438,7 +1438,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -1485,7 +1485,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -1532,7 +1532,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTh"
                 sm={2}
                 tag="label"
@@ -1579,7 +1579,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentVi"
                 sm={2}
                 tag="label"
@@ -1626,7 +1626,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -1673,7 +1673,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -1720,7 +1720,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentJp"
                 sm={2}
                 tag="label"
@@ -1951,7 +1951,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEn"
                 sm={2}
                 tag="label"
@@ -1998,7 +1998,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTw"
                 sm={2}
                 tag="label"
@@ -2045,7 +2045,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -2092,7 +2092,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -2139,7 +2139,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTh"
                 sm={2}
                 tag="label"
@@ -2186,7 +2186,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentVi"
                 sm={2}
                 tag="label"
@@ -2233,7 +2233,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -2280,7 +2280,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -2327,7 +2327,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentJp"
                 sm={2}
                 tag="label"
@@ -2558,7 +2558,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEn"
                 sm={2}
                 tag="label"
@@ -2605,7 +2605,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTw"
                 sm={2}
                 tag="label"
@@ -2652,7 +2652,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -2699,7 +2699,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -2746,7 +2746,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentTh"
                 sm={2}
                 tag="label"
@@ -2793,7 +2793,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentVi"
                 sm={2}
                 tag="label"
@@ -2840,7 +2840,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -2887,7 +2887,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -2934,7 +2934,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentJp"
                 sm={2}
                 tag="label"

@@ -3,161 +3,7 @@
 exports[`home - components - MemberStatistics render correctly 1`] = `
 <Memo(Panel)
   className="icon-home02"
-  heading="Member statistics (up to now)"
->
-  <Row
-    tag="div"
-  >
-    <Col
-      className="pl-4"
-      sm={12}
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <span>
-        We have 
-        <strong>
-          17,049
-        </strong>
-         members in the program
-      </span>
-    </Col>
-    <Col
-      className="pl-4"
-      sm={12}
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <span>
-        <strong>
-          8,847
-        </strong>
-         Deposit / 
-        <strong>
-          8,202
-        </strong>
-         Non-Deposit
-      </span>
-    </Col>
-    <Col
-      sm={12}
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <Table
-        className="member-statistics-table"
-        responsiveTag="div"
-        sm={12}
-        tag="table"
-      >
-        <tbody>
-          <tr
-            key="Total Deposits"
-          >
-            <td
-              className="title"
-            >
-              Total Deposits
-            </td>
-            <td
-              className="content"
-            >
-              $5,830,693.01
-            </td>
-          </tr>
-          <tr
-            key="Total PSP fees"
-          >
-            <td
-              className="title"
-            >
-              Total PSP fees
-            </td>
-            <td
-              className="content"
-            >
-              -$57.12
-            </td>
-          </tr>
-          <tr
-            key="Total Winlost"
-          >
-            <td
-              className="title"
-            >
-              Total Winlost
-            </td>
-            <td
-              className="content"
-            >
-              -$3,453,885.20
-            </td>
-          </tr>
-          <tr
-            key="Total Bonus"
-          >
-            <td
-              className="title"
-            >
-              Total Bonus
-            </td>
-            <td
-              className="content"
-            >
-              $509.19
-            </td>
-          </tr>
-          <tr>
-            <td
-              className="title-total"
-            >
-              <strong>
-                Total Net Winlost
-              </strong>
-            </td>
-            <td
-              className="content-total"
-            >
-              <strong>
-                $1,776,017.45
-              </strong>
-            </td>
-          </tr>
-        </tbody>
-      </Table>
-    </Col>
-  </Row>
-</Memo(Panel)>
-`;
-
-exports[`home - components - MemberStatistics render correctly with this month 1`] = `
-<Memo(Panel)
-  className="icon-home02"
-  heading="Member statistics (this month)"
+  heading="Player statistics (up to now)"
 >
   <Row
     tag="div"
@@ -181,7 +27,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
         <strong>
           0
         </strong>
-         members in the program
+         players in the program
       </span>
     </Col>
     <Col
@@ -200,11 +46,11 @@ exports[`home - components - MemberStatistics render correctly with this month 1
     >
       <span>
         <strong>
-          2,516
+          8,847
         </strong>
          Deposit / 
         <strong>
-          -2,516
+          8,847
         </strong>
          Non-Deposit
       </span>
@@ -240,7 +86,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              5,830,693.01
             </td>
           </tr>
           <tr
@@ -254,7 +100,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              -57.12
             </td>
           </tr>
           <tr
@@ -268,7 +114,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $58.33
+              -3,453,885.20
             </td>
           </tr>
           <tr
@@ -282,7 +128,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              509.19
             </td>
           </tr>
           <tr>
@@ -297,7 +143,161 @@ exports[`home - components - MemberStatistics render correctly with this month 1
               className="content-total"
             >
               <strong>
-                -$77.00
+                1,776,017.45
+              </strong>
+            </td>
+          </tr>
+        </tbody>
+      </Table>
+    </Col>
+  </Row>
+</Memo(Panel)>
+`;
+
+exports[`home - components - MemberStatistics render correctly with this month 1`] = `
+<Memo(Panel)
+  className="icon-home02"
+  heading="Player statistics (this month)"
+>
+  <Row
+    tag="div"
+  >
+    <Col
+      className="pl-4"
+      sm={12}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <span>
+        We have 
+        <strong>
+          0
+        </strong>
+         players in the program
+      </span>
+    </Col>
+    <Col
+      className="pl-4"
+      sm={12}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <span>
+        <strong>
+          2,516
+        </strong>
+         Deposit / 
+        <strong>
+          2,516
+        </strong>
+         Non-Deposit
+      </span>
+    </Col>
+    <Col
+      sm={12}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Table
+        className="member-statistics-table"
+        responsiveTag="div"
+        sm={12}
+        tag="table"
+      >
+        <tbody>
+          <tr
+            key="Total Deposits"
+          >
+            <td
+              className="title"
+            >
+              Total Deposits
+            </td>
+            <td
+              className="content"
+            >
+              0.00
+            </td>
+          </tr>
+          <tr
+            key="Total PSP fees"
+          >
+            <td
+              className="title"
+            >
+              Total PSP fees
+            </td>
+            <td
+              className="content"
+            >
+              0.00
+            </td>
+          </tr>
+          <tr
+            key="Total Winlost"
+          >
+            <td
+              className="title"
+            >
+              Total Winlost
+            </td>
+            <td
+              className="content"
+            >
+              58.33
+            </td>
+          </tr>
+          <tr
+            key="Total Bonus"
+          >
+            <td
+              className="title"
+            >
+              Total Bonus
+            </td>
+            <td
+              className="content"
+            >
+              0.00
+            </td>
+          </tr>
+          <tr>
+            <td
+              className="title-total"
+            >
+              <strong>
+                Total Net Winlost
+              </strong>
+            </td>
+            <td
+              className="content-total"
+            >
+              <strong>
+                -77.00
               </strong>
             </td>
           </tr>
