@@ -5,7 +5,6 @@
     requiredFieldList,
     requiredBankTranferList,
     playerMethod,
-    netellerMethod,
     moneybookersMethod,
     wireMethod
 } from './constants'
@@ -52,13 +51,13 @@ const validatePaymentMethod = (userAccountInfo) => {
     };
 }
 
-export const validateUserAccount = (userAccountInfo, moreSiteUrlsList) => {
+export const validateUserAccount = (userAccountInfo, moreSiteUrlsList, licenseeName) => {
     let message = '';
     const checkEmail = new RegExp(regexEmail);
     const isValidGender = userAccountInfo.Gender != null;
     const isValidEmail = checkEmail.test(userAccountInfo.Email);
     const country = countriesList[userAccountInfo.Country] === undefined ? "" : userAccountInfo.Country;
-    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : 'NoSiteDescription';
+    const selectedField = userAccountInfo.HasWebSite ? 'SiteUrl' : `NoSiteDescription${licenseeName}`;
 
     const newRequiredFieldList = [...requiredFieldList, selectedField];
     message = isValidGender ? message : message + messageList.Gender + "<br />";

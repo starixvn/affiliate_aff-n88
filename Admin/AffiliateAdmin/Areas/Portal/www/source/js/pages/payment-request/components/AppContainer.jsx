@@ -23,7 +23,7 @@ export class AppContainer extends PureComponent {
     }
 
     render() {
-        const { isShowLoader, transactionId } = this.props;
+        const { isShowLoader, transactionId, licenseeName } = this.props;
 
         return (
             <AppLayout>
@@ -31,6 +31,7 @@ export class AppContainer extends PureComponent {
                 <Filter />
                 <Content />
                 <PaymentRequestUpdateForm
+                    licenseeName={licenseeName}
                     transactionId={transactionId}
                     handleClosePopup={this.handleClosePopup}
                     handleFetchData={this.handleFetchData}
@@ -40,8 +41,8 @@ export class AppContainer extends PureComponent {
     }
 }
 
-function mapStateToProps({ isShowLoader, transactionId, param }) {
-    return Object.assign({}, { isShowLoader, transactionId, param });
+function mapStateToProps({ isShowLoader, transactionId, param, licenseeName }) {
+    return Object.assign({}, { isShowLoader, transactionId, param, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

@@ -5,7 +5,7 @@ import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo } from '../../actions';
-import { playerMethod, youCanRequest, moneybookersMethod, wireMethod, minimumPaymentText } from '../../modules/constants';
+import { playerMethod, moneybookersMethod, wireMethod, minimumPaymentText } from '../../modules/constants';
 import { formatDecimal } from '../../../../../modules/numberFormat';
 
 export class Payment extends PureComponent {
@@ -28,7 +28,7 @@ export class Payment extends PureComponent {
 
     _renderFormByMethod(userAccountInfo) {
         return {
-            [playerMethod]: this._renderPaymentForm('playerUsername', `${window.initialState.licenseeName} User Name`, userAccountInfo.PlayerUsername, true, this.handleChange),
+            [playerMethod]: this._renderPaymentForm('playerUsername', `${this.props.licenseeName} User Name`, userAccountInfo.PlayerUsername, true, this.handleChange),
             [moneybookersMethod]: this._renderPaymentForm('moneybookersEmail', 'Moneybookers Email', userAccountInfo.MoneybookersEmail, true, this.handleChange),
             [wireMethod]: this._renderWireForm(userAccountInfo)
         }
@@ -58,7 +58,7 @@ export class Payment extends PureComponent {
     }
 
     render() {
-        const { userAccountInfo, paymentMethodList, minimumPayment } = this.props;
+        const { userAccountInfo, paymentMethodList, minimumPayment, licenseeName } = this.props;
         const renderFormByMethod = userAccountInfo && this._renderFormByMethod(userAccountInfo);
 
         return userAccountInfo && (
@@ -75,15 +75,15 @@ export class Payment extends PureComponent {
                     <p>{minimumPaymentText + " " + formatDecimal(minimumPayment)}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
-                <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{youCanRequest}</p>
+                <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{`You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your ${licenseeName}.com player account.`}</p>
             </Form>
         )
     }
 }
 
-function mapStateToProps({ edit }) {
+function mapStateToProps({ edit, licenseeName }) {
     const { userAccountInfo } = edit;
-    return Object.assign({}, { userAccountInfo });
+    return Object.assign({}, { userAccountInfo, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

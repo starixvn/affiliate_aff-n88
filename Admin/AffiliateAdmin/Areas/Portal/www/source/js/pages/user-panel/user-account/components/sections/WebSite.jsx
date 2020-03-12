@@ -122,7 +122,7 @@ export class WebSite extends PureComponent {
                         </Label>
                         </FormGroup>
                         <FormGroup row className="pt-1">
-                            <Label for="noSiteDescription" sm={3} xl={2} className="required">{`Please describe how you would like to promote ${window.initialState.licenseeName} if you don't have the URL`}</Label>
+                            <Label for="noSiteDescription" sm={3} xl={2} className="required">{`Please describe how you would like to promote ${this.props.licenseeName} if you don't have the URL`}</Label>
                             <Col sm={6} xl={7}>
                                 <Input type="textarea" disabled={userAccountInfo.HasWebSite} style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
                             </Col>
@@ -141,9 +141,9 @@ export class WebSite extends PureComponent {
     }
 }
 
-function mapStateToProps({ edit }) {
+function mapStateToProps({ edit, licenseeName }) {
     const { userAccountInfo, moreSiteUrlsList } = edit;
-    return Object.assign({}, { userAccountInfo, moreSiteUrlsList });
+    return Object.assign({}, { userAccountInfo, moreSiteUrlsList, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

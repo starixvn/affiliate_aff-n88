@@ -15,7 +15,8 @@ export const messageList = {
     Postcode: 'Postcode/Zip is required',
     Country: 'Please select country',
     SiteUrl: 'Website URL is required',
-    NoSiteDescription: `Please describe how you would like to promote ${window.initialState.licenseeName} if you don't have the URL is required`,
+    NoSiteDescriptionOfBwing: `Please describe how you would like to promote Bwing if you don't have the URL is required`,
+    NoSiteDescriptionOfGoal123: `Please describe how you would like to promote Goal123 if you don't have the URL is required`,
     PlayerUsername: 'User Name is required',
     NetellerAccountId: 'Neteller Account ID is required',
     MoneybookersEmail: 'Moneybookers Email is required',
@@ -33,7 +34,6 @@ export const playerMethod = 'Player';
 export const moneybookersMethod = 'Moneybookers';
 export const wireMethod = 'Wire';
 export const minimumPaymentText = 'Minimum payment amount is';
-export const youCanRequest = `You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your ${window.initialState.licenseeName}.com player account.`
 
 export const countriesList = {
     'Albania': 'Albania',

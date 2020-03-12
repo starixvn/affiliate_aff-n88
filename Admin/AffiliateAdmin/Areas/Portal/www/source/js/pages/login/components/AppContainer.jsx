@@ -79,13 +79,14 @@ export default class AppContainer extends PureComponent {
 
     render() {
         const { userName, password, isShowMessage, message, year } = this.state;
+        const { licenseeName } = window.initialState;
 
         return (
             <div className="login-container">
                 {/* <div className="lgRight"></div> */}
                 <div className="lgRp">
                     <div className="login-header">
-                        <div>Welcome to {window.initialState.licenseeName}<span> Login</span></div>
+                        <div>Welcome to {licenseeName}<span> Login</span></div>
                         <p>Please sign in to continue to work</p>
                     </div>
                     <div className="war-box">
@@ -120,7 +121,7 @@ export default class AppContainer extends PureComponent {
                 </div>
 
                 <div className="foot">
-                    <span className="foot-rp">{`© Copyright 2020 ${window.initialState.licenseeName}`}</span>
+                    <span className="foot-rp">{`© Copyright 2020 ${licenseeName}`}</span>
                 </div>
             </div>
         )

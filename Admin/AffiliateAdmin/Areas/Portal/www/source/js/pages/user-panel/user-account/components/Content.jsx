@@ -58,9 +58,9 @@ export class Content extends PureComponent {
     }
 
     handleSubmit = async () => {
-        const { affId, affName, userAccountInfo, moreSiteUrlsList } = this.props;
+        const { affId, affName, userAccountInfo, moreSiteUrlsList, licenseeName } = this.props;
         const userAccountInfoAfterTrim = this.handleTrimObject(userAccountInfo);
-        const resultValidateUserAccount = validateUserAccount(userAccountInfoAfterTrim, moreSiteUrlsList);
+        const resultValidateUserAccount = validateUserAccount(userAccountInfoAfterTrim, moreSiteUrlsList, licenseeName);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -168,11 +168,11 @@ export class Content extends PureComponent {
     }
 }
 
-function mapStateToProps({ affCommonInfo, edit }) {
+function mapStateToProps({ affCommonInfo, edit, licenseeName }) {
     const { affId, affName } = affCommonInfo;
     const { userAccountInfo, moreSiteUrlsList } = edit;
 
-    return Object.assign({}, { affId, affName, userAccountInfo, moreSiteUrlsList });
+    return Object.assign({}, { affId, affName, userAccountInfo, moreSiteUrlsList, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

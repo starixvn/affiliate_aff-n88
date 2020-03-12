@@ -28,7 +28,6 @@ export const resource = {
     PaymentMethod: 'Payment Method',
     Amount: 'Amount',
     Status: 'Status',
-    UserNameN88: `${window.initialState.licenseeName || ''} User Name`,
     CompletedDate: 'Completed Date',
     UpdatedBy: 'Updated By',
 
