@@ -4,7 +4,6 @@ import { globalResource } from '../../../../modules/globalResource';
 export { deviceTypes, globalResource, pcLaptop, mobile };
 
 export const Casino = 'Casino';
-export const Baccarat = 'Baccarat';
 export const Sportsbook = 'Sportsbook';
 
 const defaultLanguage = 'Chinese Simplified';
@@ -35,7 +34,7 @@ export const messages = {
 }
 
 export const defaultState = {
-    files: null,
+    files: [],
     inputFileNames: [''],
     language: defaultLanguage,
     isInsert: true,

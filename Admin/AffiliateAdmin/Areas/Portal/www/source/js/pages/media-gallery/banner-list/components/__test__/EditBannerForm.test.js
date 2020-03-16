@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { EditBannerForm } from '../EditBannerForm';
 import { shallow } from 'enzyme';
-import MultipleSelect from '../../../../../components/multiple-select';
+import InputFile from '../../../common/components/InputFile';
 
 describe('banner list - components - EditBannerForm ', () => {
     const bannerInfo = {
@@ -204,25 +204,9 @@ describe('banner list - components - EditBannerForm ', () => {
 
         result.setState = jest.fn();
 
-        result.find('Input[type="file"][id="file"]').simulate('change', event);
+        result.find(InputFile).props().handleOnChangeFiles(event);
 
         expect(result.setState).toHaveBeenCalledWith({ "files": [{ "name": "test.jpg" }], "inputFileNames": ["test.jpg"], "isDisabled": false });
-    });
-
-    it('_handleFile should be called when change file but not chose', () => {
-        const event = {
-            target: {
-                files: null
-            }
-        };
-
-        const result = shallow(<EditBannerForm {...defaultProps} />);
-
-        result.setState = jest.fn();
-
-        result.find('Input[type="file"][id="file"]').simulate('change', event);
-
-        expect(result.setState).toHaveBeenCalledWith({ "file": null, "inputFileName": "", "isDisabled": true });
     });
 
     it('_handleFile should be called when change file but chose invalid file', () => {
@@ -237,7 +221,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         result.setState = jest.fn();
 
-        result.find('Input[type="file"][id="file"]').simulate('change', event);
+        result.find(InputFile).props().handleOnChangeFiles(event);
 
         expect(result.setState).toHaveBeenCalledWith({ "files": [{ "name": "abc.pdf" }], "inputFileNames": ["abc.pdf"], "isDisabled": true });
         expect(result.instance()._handleShowAlert).toHaveBeenCalledWith(false, "Sorry! We just support these file types : '.jpg', '.gif' , '.png','.jpeg'");
@@ -255,7 +239,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         result.setState = jest.fn();
 
-        result.find('Input[type="file"][id="file"]').simulate('change', event);
+        result.find(InputFile).props().handleOnChangeFiles(event);
 
         expect(result.setState).toHaveBeenCalledWith({ "files": [{ "name": "" }], "inputFileNames": [""], "isDisabled": true });
         expect(result.instance()._handleShowAlert).toHaveBeenCalledWith(false, "Sorry! We just support these file types : '.jpg', '.gif' , '.png','.jpeg'");
@@ -352,7 +336,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         instance._handleSubmit = jest.fn();
 
-        wrapper.find('Button').at(0).simulate('click');
+        wrapper.find('Button').at(1).simulate('click');
 
         expect(instance._handleSubmit).toHaveBeenCalledWith(false);
     });
@@ -634,7 +618,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await instance._save();
 
-        expect(props.insertBanner).toHaveBeenCalledWith({ "affTypes": "", "bannerId": 0, "categories": "", "currencies": "", "deviceTypes": "", "files": null, "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
+        expect(props.insertBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
         expect(instance._handleAfterSave).toHaveBeenCalledWith(true, expectedResult);
     });
 
@@ -648,7 +632,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await instance._save();
 
-        expect(props.updateBanner).toHaveBeenCalledWith({ "affTypes": "", "bannerId": 0, "categories": "", "currencies": "", "deviceTypes": "", "files": null, "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
+        expect(props.updateBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
         expect(instance._handleAfterSave).toHaveBeenCalledWith(false, expectedResult);
     });
 
@@ -675,7 +659,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(false);
 
-        expect(result).toEqual({ bannerId: 0, files: null, inputFileNames: '', categories: 'Casino', subCategories: '', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: '', categories: 'Casino', subCategories: '', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('_getParam - should return correct data with has SubCategory', () => {
@@ -691,7 +675,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(true);
 
-        expect(result).toEqual({ bannerId: 0, files: null, inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('_getParam - should return correct data with update', () => {
@@ -707,7 +691,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(true);
 
-        expect(result).toEqual({ bannerId: 0, files: null, inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('handleChangeCategory - should call setState', async () => {
@@ -730,7 +714,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await instance.handleChangeCategory(null, 'Casino, Number Game');
 
-        expect(instance.setState).toHaveBeenCalledWith({ "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot", "parentCategoryName": "Casino" }] });
+        expect(instance.setState).toHaveBeenCalledWith({ "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "subCategoryList": [{ "checked": true, "key": "Slot", "name": "Slot", "parentCategoryName": "Casino" }] });
     });
 
     it('handleChangeSubCategory - should call setState', async () => {
@@ -810,7 +794,8 @@ describe('banner list - components - EditBannerForm ', () => {
     it('_handleAfterSave - should call _handleShowAlert with add successfully', async () => {
         const result = { IsSuccessful: true, Message: '' };
 
-        const wrapper = shallow(<EditBannerForm {...defaultProps} />);
+        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn() });
+        const wrapper = shallow(<EditBannerForm {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -823,7 +808,8 @@ describe('banner list - components - EditBannerForm ', () => {
     it('_handleAfterSave - should call _handleShowAlert with update successfully', async () => {
         const result = { IsSuccessful: true, Message: '' };
 
-        const wrapper = shallow(<EditBannerForm {...defaultProps} />);
+        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn() });
+        const wrapper = shallow(<EditBannerForm {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -867,6 +853,8 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const instance = wrapper.instance();
         instance._hideMessage = jest.fn();
+        instance.modalRef.current = jest.fn();
+        instance.modalRef.current.scrollTo = jest.fn();
 
         instance._handleShowAlert(false, 'Updated failed!');
 
@@ -912,7 +900,7 @@ describe('banner list - components - EditBannerForm ', () => {
         instance._handleClosePopup();
 
         expect(props.setSelectedBannerId).toHaveBeenCalledWith(null);
-        expect(instance.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": false, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": false, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": false, "key": 1, "name": "Mobile" }], "files": null, "inputFileNames": [""], "isDisabled": true, "isInsert": true, "isShowMessage": false, "isSuccess": true, "language": "Chinese Simplified", "message": "", "messageNotificationPopup": "", "subCategoryList": null });
+        expect(instance.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": true, "key": "Asian", "name": "Asian" }, { "checked": true, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": true, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": true, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": true, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "subCategoryList": [{ "checked": true, "key": "Slot", "name": "Slot", "parentCategoryName": "Casino" }, { "checked": true, "key": "Basketball", "name": "Basketball", "parentCategoryName": "Sportsbook" }] });
     });
 
     it('_handleCloseNotificationPopup - should call setState, _getParam and _updateBanner', () => {

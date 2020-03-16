@@ -358,7 +358,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
               }
             >
               <strong>
-                $100.00
+                100.00
               </strong>
             </Label>
           </FormGroup>
@@ -418,7 +418,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
                 ]
               }
             >
-              12BET User Name
+              undefined User Name
             </Label>
             <Label
               sm={6}
@@ -988,7 +988,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
               }
             >
               <strong>
-                $100.00
+                100.00
               </strong>
             </Label>
           </FormGroup>
@@ -1048,7 +1048,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
                 ]
               }
             >
-              12BET User Name
+              undefined User Name
             </Label>
             <Label
               sm={6}

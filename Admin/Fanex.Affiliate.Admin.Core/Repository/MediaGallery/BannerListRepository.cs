@@ -30,6 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                 objectDb.AddInParameter("devicetype", DbType.Byte, param.DeviceType);
                 objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
                 objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.AddInParameter("BannerType", DbType.Byte, param.AffType);
 
                 objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
 
