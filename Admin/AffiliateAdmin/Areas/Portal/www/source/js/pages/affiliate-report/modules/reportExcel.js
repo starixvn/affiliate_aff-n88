@@ -15,15 +15,15 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 20;
+const TOTAL_COLUMN = 23;
 
-const INDEX_MEMBER_STATISTICS_COLUMN = 6;
-const INDEX_AFFILIATE_STATISTICS_COLUMN = 7;
+const INDEX_MEMBER_STATISTICS_COLUMN = 7;
+const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
 
-const INDEX_DEPOSIT_COLUMN = 6;
+const INDEX_DEPOSIT_COLUMN = 7;
 const COLSPAN_MEMBER_STATISTICS = 9;
-const INDEX_COMM_COLUMN = 15;
-const COLSPAN_AFFILIATE_STATISTICS = 5;
+const INDEX_COMM_COLUMN = 16;
+const COLSPAN_AFFILIATE_STATISTICS = 7;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
@@ -37,6 +37,7 @@ const fields = {
     Signup: 'Signup',
     Fdm: 'Fdm',
     ActiveMember: 'ActiveMember',
+    NoOfSubAff: 'NoOfSubAff',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
@@ -48,6 +49,8 @@ const fields = {
     TotalFee: 'TotalFee',
     CommissionRate: 'CommissionRate',
     Earning: 'Earning',
+    SubAffEarning: 'SubAffEarning',
+    TotalEarning: 'TotalEarning',
     AffWithdrawal: 'AffWithdrawal',
     AffAdjustment: 'AffAdjustment',
     BalanceBf: 'BalanceBf'
@@ -247,17 +250,17 @@ export default class ReportExcel {
         this.worksheet['!cols'] = [{
                 wpx: 150
             }, {
-                wpx: 80
-            }, {
-                wpx: 80
-            }, {
-                wpx: 80
-            }, {
-                wpx: 80
+                wpx: 100
             }, {
                 wpx: 100
             }, {
-                wpx: 120
+                wpx: 100
+            }, {
+                wpx: 100
+            }, {
+                wpx: 100
+            }, {
+                wpx: 100
             },
             {
                 wpx: 120
@@ -268,24 +271,28 @@ export default class ReportExcel {
             }, {
                 wpx: 120
             }, {
-                wpx: 80
-            }, {
                 wpx: 100
             }, {
-                wpx: 110
+                wpx: 120
             }, {
-                wpx: 100
+                wpx: 120
             }, {
-                wpx: 100
+                wpx: 120
+            }, {
+                wpx: 120
             },
             {
-                wpx: 80
-            }, {
                 wpx: 100
             }, {
-                wpx: 100
+                wpx: 120
             }, {
-                wpx: 100
+                wpx: 140
+            }, {
+                wpx: 120
+            }, {
+                wpx: 120
+            }, {
+                wpx: 120
             }, {
                 wpx: 120
             }
@@ -320,6 +327,11 @@ export default class ReportExcel {
             },
             {
                 field: fields.ActiveMember,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.number,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.number
+            },
+            {
+                field: fields.NoOfSubAff,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.number,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.number
             },
@@ -375,6 +387,16 @@ export default class ReportExcel {
             },
             {
                 field: fields.Earning,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+            },
+            {
+                field: fields.SubAffEarning,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+            },
+            {
+                field: fields.TotalEarning,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
             },
