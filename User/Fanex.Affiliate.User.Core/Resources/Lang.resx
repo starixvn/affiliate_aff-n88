@@ -2308,4 +2308,7 @@
   <data name="SubAffEarning" xml:space="preserve">
     <value>Sub-Affiliate Earining</value>
   </data>
+  <data name="MonthlyTotal" xml:space="preserve">
+    <value>Monthly Total</value>
+  </data>
 </root>

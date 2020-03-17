@@ -312,6 +312,7 @@
     <Compile Include="DTO\UserPanel\OverviewDetail.cs" />
     <Compile Include="DTO\UserPanel\OverviewSummary.cs" />
     <Compile Include="DTO\UserPanel\PlayerDetail.cs" />
+    <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\QrCodeLinkModel.cs" />
     <Compile Include="DTO\VerificationAccount\SendCodeResponse.cs" />

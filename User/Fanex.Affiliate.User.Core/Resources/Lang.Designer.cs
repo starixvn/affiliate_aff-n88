@@ -3572,6 +3572,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly Total.
+        /// </summary>
+        public static string MonthlyTotal {
+            get {
+                return ResourceManager.GetString("MonthlyTotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monthly Winlost.
         /// </summary>
         public static string MonthlyWinlost {

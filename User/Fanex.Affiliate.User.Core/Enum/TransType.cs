@@ -2,7 +2,7 @@
 {
     public enum TransType : byte
     {
-        GeneratedTotal = 0,
+        MonthlyTotal = 0,
         Commission = 201,
         Payment = 202,
         Adjustment = 203,

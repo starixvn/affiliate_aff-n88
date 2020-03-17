@@ -18,8 +18,6 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 
         public string Description { get; set; }
 
-        public int? ParentId { get; set; }
-
         public string DateString
         {
             get
@@ -77,10 +75,14 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                         return Resources.Lang.PaymentRequest;
                     case Constants.TransType.SubAffBonus:
                         return Resources.Lang.SubAffiliate;
+                    case Constants.TransType.MonthlyTotal:
+                        return Resources.Lang.MonthlyTotal;
                     default:
                         return Resources.Lang.Transaction;
                 }
             }
         }
+
+        public IEnumerable<StatementHistoryViewModel> Children { get; set; } = new List<StatementHistoryViewModel>();
     }
 }
