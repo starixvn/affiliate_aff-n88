@@ -20,9 +20,10 @@
 
                     foreach (var item in Model)
                     {
-                        var isLink = item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment &&
-                                            item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Adjustment &&
-                                            DateTime.Compare(item.MonthDate, ViewBag.AvailableFromDate) > 0;
+                        var isLink = item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment 
+                            && item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Adjustment
+                            && item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.GeneratedTotal
+                            && DateTime.Compare(item.MonthDate, ViewBag.AvailableFromDate) > 0;
 
                         <tr>
                             <td>@index</td>

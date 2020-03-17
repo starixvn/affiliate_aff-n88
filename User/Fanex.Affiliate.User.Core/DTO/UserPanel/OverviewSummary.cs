@@ -17,5 +17,9 @@
         public decimal Deposit { get; set; }
 
         public decimal Commission { get; set; }
+
+        public int NoOfSubAff { get; set; }
+
+        public decimal SubAffCommission { get; set; }
     }
 }

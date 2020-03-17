@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -165,6 +165,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Adjustment {
             get {
                 return ResourceManager.GetString("Adjustment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Affiliate Link.
+        /// </summary>
+        public static string AffilateLink {
+            get {
+                return ResourceManager.GetString("AffilateLink", resourceCulture);
             }
         }
         
@@ -3358,6 +3367,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Media Gallery.
+        /// </summary>
+        public static string MediaGallery {
+            get {
+                return ResourceManager.GetString("MediaGallery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Member withdrawal information.
         /// </summary>
         public static string MemberWithdrawalInfo {
@@ -5233,6 +5251,51 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliate Downline.
+        /// </summary>
+        public static string SubAffDownline {
+            get {
+                return ResourceManager.GetString("SubAffDownline", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliate Earining.
+        /// </summary>
+        public static string SubAffEarning {
+            get {
+                return ResourceManager.GetString("SubAffEarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliates.
+        /// </summary>
+        public static string SubAffiliate {
+            get {
+                return ResourceManager.GetString("SubAffiliate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub-Aff. Link.
+        /// </summary>
+        public static string SubAffiliateLink {
+            get {
+                return ResourceManager.GetString("SubAffiliateLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sub-Aff. Media Gallery.
+        /// </summary>
+        public static string SubAffiliateMediaGallery {
+            get {
+                return ResourceManager.GetString("SubAffiliateMediaGallery", resourceCulture);
             }
         }
         

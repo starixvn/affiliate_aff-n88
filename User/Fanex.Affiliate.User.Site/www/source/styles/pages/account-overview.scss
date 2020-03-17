@@ -75,6 +75,16 @@
         border-top: none;
 
         .dashboard-section {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -15px;
+            margin-right: -15px;
+
+            > * {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
             .my-account {
                 font-size: 2rem;
                 font-weight: bold;
@@ -238,7 +248,7 @@
             &-content {
                 .dashboard-section {
                     text-align: center;
-
+                    display: block;
                     .img-responsive {
                         display: inline;
                     }

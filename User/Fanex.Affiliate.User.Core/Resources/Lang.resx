@@ -2287,4 +2287,25 @@
   <data name="NoSiteDescMaxLength" xml:space="preserve">
     <value>Please describe how you would like to promote if you don’t have the URL no more than 250 characters.</value>
   </data>
+  <data name="AffilateLink" xml:space="preserve">
+    <value>Affiliate Link</value>
+  </data>
+  <data name="MediaGallery" xml:space="preserve">
+    <value>Media Gallery</value>
+  </data>
+  <data name="SubAffiliateLink" xml:space="preserve">
+    <value>Sub-Aff. Link</value>
+  </data>
+  <data name="SubAffiliateMediaGallery" xml:space="preserve">
+    <value>Sub-Aff. Media Gallery</value>
+  </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>Sub-Affiliates</value>
+  </data>
+  <data name="SubAffDownline" xml:space="preserve">
+    <value>Sub-Affiliate Downline</value>
+  </data>
+  <data name="SubAffEarning" xml:space="preserve">
+    <value>Sub-Affiliate Earining</value>
+  </data>
 </root>

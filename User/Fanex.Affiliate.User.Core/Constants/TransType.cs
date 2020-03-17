@@ -7,5 +7,7 @@
         public const int Payment = 202;
 
         public const int Adjustment = 203;
+
+        public const int SubAffBonus = 204;
     }
 }
