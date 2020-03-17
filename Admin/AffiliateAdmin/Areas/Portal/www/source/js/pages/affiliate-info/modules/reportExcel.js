@@ -18,12 +18,13 @@ const REPORT_TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 2;
 
-const TOTAL_COLUMN = 16;
+const TOTAL_COLUMN = 18;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
 const fields = {
     Index: 'Index',
+    ParentAffName: 'ParentAffName',
     UserName: 'UserName',
     Status: 'Status',
     FirstName: 'FirstName',
@@ -34,6 +35,7 @@ const fields = {
     CommissionGroup: 'CommissionGroup',
     BalanceBf: 'BalanceBf',
     Member: 'Member',
+    NoOfSubAff: 'NoOfSubAff',
     RegistrationDateText: 'RegistrationDateText',
     ApprovalDateText: 'ApprovalDateText',
     Currency: 'Currency',
@@ -66,7 +68,7 @@ export default class ReportExcel {
     }
 
     _canBindColumn(columnKey) {
-        return columnKey === fields.UserName || !!this.selectedColumnList[columnKey];
+        return columnKey === fields.UserName || columnKey === fields.ParentAffName || !!this.selectedColumnList[columnKey];
     }
 
     _createReportTitle() {
@@ -144,6 +146,8 @@ export default class ReportExcel {
             value = value === null ? resource.NA : formatDecimal(value);
         } else if (fieldName === fields.Member) {
             value = value === null ? resource.NA : format(value);
+        } else if (fieldName === fields.NoOfSubAff) {
+            value = value === null ? resource.NA : format(value);
         } else if (fieldName === fields.Language) {
             value = this.languageList[value] || '';
         } else if (!value && fieldName === fields.CommissionGroup) {
@@ -183,12 +187,16 @@ export default class ReportExcel {
     _getcolumnConfigs() {
         return [{
             field: fields.Index,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.center,
             width: 70
         }, {
+            field: fields.ParentAffName,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+            width: 150
+        },{
             field: fields.UserName,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
-            width: 200
+            width: 150
         }, {
             field: fields.Status,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
@@ -243,6 +251,10 @@ export default class ReportExcel {
             width: 140
         }, {
             field: fields.Member,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+            width: 150
+        }, {
+            field: fields.NoOfSubAff,
             [MAIN_SECTION_STYLE]: bodyCellStyle.right,
             width: 150
         }]

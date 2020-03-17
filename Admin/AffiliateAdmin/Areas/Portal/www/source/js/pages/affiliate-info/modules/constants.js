@@ -24,6 +24,7 @@ export const sortByList = {
 
 export const headerText = {
     Index: '#',
+    ParentAffName: 'Parent Affiliate',
     UserName: 'Username',
     Status: 'Status',
     FirstName: 'First Name',
@@ -39,6 +40,7 @@ export const headerText = {
     PlayerUserName: 'Aff. Player',
     PlayerCurrency: 'Aff. Player Currency',
     Member: 'Player',
+    NoOfSubAff: 'Sub-Affiliate',
     Password: 'Password',
 }
 

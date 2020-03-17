@@ -21,7 +21,7 @@ for (let i = 0; i < languageList.length; i++) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
-const filteredColumnList = Object.keys(headerText).filter(c => c !== 'UserName' && c !== 'Password')
+const filteredColumnList = Object.keys(headerText).filter(c => c !== 'UserName' && c !== 'Password' && c !== 'ParentAffName')
 const columnList = filteredColumnList.map(item => {
     return {
         columnKey: item,

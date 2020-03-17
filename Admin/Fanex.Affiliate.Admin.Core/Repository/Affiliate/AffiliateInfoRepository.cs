@@ -71,6 +71,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
             objectDb.AddInParameter("GroupID", DbType.Int32, param.GroupId);
             objectDb.AddInParameter("PreferredLanguage", DbType.String, param.Language);
             objectDb.AddInParameter("Status", DbType.String, param.Status);
+            objectDb.AddInParameter("ParentAffName", DbType.String, param.ParentAffName);
             objectDb.AddInParameter("UserName", DbType.String, param.UserName);
             objectDb.AddInParameter("Email", DbType.String, param.Email);
             objectDb.AddInParameter("SortType", DbType.Byte, param.SortBy);
@@ -104,7 +105,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 PlayerCurrency = Convert.ToString(reader["PlayerCurrency"]),
                 Phone = Convert.ToString(reader["Phone"]),
                 PlayerUserName = Convert.ToString(reader["Player_Username"]),
-                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
+                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
+                ParentAffName = Convert.ToString(reader["ParentAffName"]),
+                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfSubAff"]),
             };
         }
 

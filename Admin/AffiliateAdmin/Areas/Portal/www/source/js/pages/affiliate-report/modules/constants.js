@@ -35,7 +35,7 @@ export const headerText = {
     Signup: 'Signup',
     Fdm: 'FDM',
     ActiveMember: 'Active Player',
-    NoOfSubAff: 'Sub-Aff',
+    NoOfSubAff: 'Sub-Affiliate',
     QualifiedMember: 'Qualified Player',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',

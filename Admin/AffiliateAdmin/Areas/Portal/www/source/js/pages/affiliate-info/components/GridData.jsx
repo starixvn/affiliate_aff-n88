@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource } from '../modules/constants';
-import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup } from '../actions';
+import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { post } from '../../../modules/ajaxRequest';
 import { format, formatDecimal } from '../../../modules/numberFormat';
@@ -62,10 +62,18 @@ export class GridData extends Component {
         this.props.toggleLoader(false);
     }
 
+    _handleViewSubAff = (userName) => {
+        this.props.setParentAffName(userName);
+
+        const newParam = Object.assign({}, this.props.param, { ParentAffName: userName });
+
+        this.props.setParam(newParam);
+    }
     _renderHeader(selectedColumnList) {
         return (
             <Row key="theard">
                 {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
+                <Cell header={true} colWidth={250} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>
                 <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
                 {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
@@ -81,6 +89,7 @@ export class GridData extends Component {
                 {selectedColumnList['PlayerUserName'] && <Cell header={true} colWidth={200} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</Cell>}
                 {selectedColumnList['PlayerCurrency'] && <Cell header={true} colWidth={150} title={headerText.PlayerCurrency}>{headerText.PlayerCurrency}</Cell>}
                 {selectedColumnList['Member'] && <Cell header={true} colWidth={150} title={headerText.Member}>{headerText.Member}</Cell>}
+                {selectedColumnList['NoOfSubAff'] && <Cell header={true} colWidth={150} title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>}
                 <Cell header={true} colWidth={130} title={headerText.Password}>{headerText.Password}</Cell>
             </Row>
         );
@@ -122,11 +131,15 @@ export class GridData extends Component {
 
         const balanceBf = dataItem.BalanceBf === null ? resource.NA : formatDecimal(dataItem.BalanceBf);
         const formattedMemberValue = dataItem.Member === null ? resource.NA : format(dataItem.Member);
+        const formattedSubAffValue = dataItem.NoOfSubAff === null ? resource.NA : format(dataItem.NoOfSubAff);
         const member = dataItem.Member === null ? resource.NA : (
             <a href={resolveClientUrl(`Portal/Player?AffName=${dataItem.UserName}`)} target="_top">
                 {formattedMemberValue}
             </a>);
-
+        const noOfSubAff = dataItem.NoOfSubAff === null ? resource.NA : (
+            <Button color="link" className="p-0" onClick={() => this._handleViewSubAff(dataItem.UserName)}>
+                {formattedSubAffValue}
+            </Button>);
         const language = languageList[dataItem.Language];
         const commissionGroup = dataItem.IsUsingPrivateCommGroup ? (
                 <Button color="link"
@@ -140,14 +153,18 @@ export class GridData extends Component {
 
         return (
             <Row key={`dataRow-${index}`}>
-                {selectedColumnList['Index'] && <Cell className="text-right" title={index}>{index}</Cell>}
+                {selectedColumnList['Index'] && <Cell className="text-center" title={index}>{index}</Cell>}
+                <Cell title={dataItem.ParentAffName}>
+                    <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
+                        {dataItem.ParentAffName}
+                    </a>
+                </Cell>
                 <Cell title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}
                     </a>
                     <span className={classNameFavorite} onClick={() => this.handleToggleFavorite(dataItem.AffId, isFavorite)}></span>
                 </Cell>
-
                 {selectedColumnList['Status'] && <Cell title={dataItem.Status}>{dataItem.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell title={firstName}>{firstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell title={lastName}>{lastName}</Cell>}
@@ -162,6 +179,7 @@ export class GridData extends Component {
                 {selectedColumnList['PlayerUserName'] && <Cell title={playerUserName}>{playerUserName}</Cell>}
                 {selectedColumnList['PlayerCurrency'] && <Cell title={dataItem.PlayerCurrency}>{dataItem.PlayerCurrency}</Cell>}
                 {selectedColumnList['Member'] && <Cell className="text-right" title={formattedMemberValue}>{member}</Cell>}
+                {selectedColumnList['NoOfSubAff'] && <Cell className="text-right" title={formattedSubAffValue}>{noOfSubAff}</Cell>}
                 <Cell className="text-center" title="Change Password">
                     {
                         isApproved && (<Button color="link" onClick={() => this.handleChangePassword(dataItem.AffId)}>
@@ -266,7 +284,7 @@ function mapStateToProps({ pagingOption, languageList, param, columnList }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoader, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoader, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GridData);

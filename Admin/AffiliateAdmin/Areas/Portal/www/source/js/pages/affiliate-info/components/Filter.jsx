@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { statusList, sortByList, defaultSortBy, resource } from '../modules/constants';
-import { setReportTitle, setParam, setSelectedColumn } from '../actions';
+import { setReportTitle, setParam, setSelectedColumn, setParentAffName } from '../actions';
 import { htmlDecode } from '../../../modules/htmlHelper';
 
 export class Filter extends Component {
@@ -55,6 +55,7 @@ export class Filter extends Component {
             GroupId: selectedCommGroup,
             Language: selectedLanguage,
             Status: selectedStatus,
+            ParentAffName: this.props.parentAffName,
             UserName: userName,
             Email: email,
             SortBy: selectedSortBy,
@@ -98,8 +99,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending } = this.state;
-        const { commGroupList, languageList, columnList } = this.props;
+        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId } = this.state;
+        const { commGroupList, languageList, columnList, parentAffName } = this.props;
 
         return (
             <div className="filter-container">
@@ -143,19 +144,25 @@ export class Filter extends Component {
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="userName" id="Username" placeholder="Username"
+                        <Input type="text" name="parentAffName" id="parentAffName" value={parentAffName} placeholder="Parent Affiliate"
+                            onKeyPress={this.handlePressEnter}
+                            onChange={(e) => this.props.setParentAffName(e.target.value)} />
+                    </FormGroup>
+
+                    <FormGroup className="my-2 mr-sm-2">
+                        <Input type="text" name="userName" id="username" placeholder="Username" value={userName}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="email" name="email" id="Email" placeholder="Email"
+                        <Input type="email" name="email" id="email" placeholder="Email" value={email}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="affId" id="AffId" placeholder="Affiliate Id"
+                        <Input type="text" name="affId" id="AffId" placeholder="Affiliate Id" value={affId}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
@@ -199,12 +206,12 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ languageList, commGroupList, param, groupId, columnList }) {
-    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList });
+function mapStateToProps({ languageList, commGroupList, param, groupId, columnList, parentAffName }) {
+    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList, parentAffName });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn, setParentAffName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
