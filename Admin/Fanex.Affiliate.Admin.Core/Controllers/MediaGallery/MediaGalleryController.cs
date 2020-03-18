@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 ImageType = param.ImageType
             };
-            var bannerListCategory = _commonMediaGalleryService.GetCategoryList(BannerListCategory);
+            var bannerListCategory = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player);
 
             var model = new BannerListViewModel
             {
@@ -66,7 +66,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 SubCategoryList = bannerListCategory.Where(c => !string.IsNullOrEmpty(c.SubCategoryName)),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
-                ImageTypeList = _commonMediaGalleryService.GetImageTypeList(),
                 SizeList = _bannerListService.GetSizeList(sizeParam),
                 AffTypeList = _affTypeService.GetAffTypeList(),
                 SubMenuList = subMenu,
@@ -78,12 +77,22 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        public ActionResult GetCategoryList(byte userType)
+        {
+            return new JsonNetResult
+            {
+                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, userType).Where(c => string.IsNullOrEmpty(c.SubCategoryName))
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
         public ActionResult GetSubCategoryCasinoList()
         {
             return new JsonNetResult
             {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => string.Equals(c.CategoryName, CasinoCategory, StringComparison.CurrentCultureIgnoreCase) &&
-                        !string.IsNullOrEmpty(c.SubCategoryName))
+                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player)
+                        .Where(c => string.Equals(c.CategoryName, CasinoCategory, StringComparison.CurrentCultureIgnoreCase) && !string.IsNullOrEmpty(c.SubCategoryName))
             };
         }
 
@@ -93,8 +102,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
         {
             return new JsonNetResult
             {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory).Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase) &&
-                        !string.IsNullOrEmpty(c.SubCategoryName))
+                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player)
+                        .Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase) && !string.IsNullOrEmpty(c.SubCategoryName))
             };
         }
 
@@ -130,11 +139,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetBannerDetail(int selectedBannerId)
+        public ActionResult GetBannerDetail(int selectedBannerId, byte userType = UserType.Player)
         {
             return new JsonNetResult
             {
-                Data = _bannerListService.GetBannerDetail(selectedBannerId)
+                Data = _bannerListService.GetBannerDetail(selectedBannerId, userType)
             };
         }
 
@@ -227,7 +236,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 Language = Server.HtmlEncode(param.Language),
                 Currencies = Server.HtmlEncode(param.Currencies),
                 AffTypes = param.AffTypes,
-                DeviceTypes = param.DeviceTypes
+                DeviceTypes = param.DeviceTypes,
+                UserType = param.UserType
             };
         }
 

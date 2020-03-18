@@ -4,7 +4,8 @@ import { setPagingOption } from '../../../../actions/pagingAction';
 
 import {
     SET_PARAM, SET_PARAM_FROM_HOME, SET_BANNER_DETAIL_URL, SET_CHECKED_BANNERS, SET_SELECTED_BANNER_ID, SET_BANNER_ROOT_URL,
-    SET_SUBCATEGORY_CASINO_LIST, SET_SUBCATEGORY_SPORTSBOOK_LIST, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA, SET_SIZE_LIST
+    SET_SUBCATEGORY_CASINO_LIST, SET_SUBCATEGORY_SPORTSBOOK_LIST, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA, SET_SIZE_LIST,
+    SET_DISABLE_CURRENCY, SET_CATEGORY_LIST
 } from './types';
 
 export { toggleLoader, setPagingOption };
@@ -84,6 +85,38 @@ export const setSizeList = (data) => {
         type: SET_SIZE_LIST,
         data
     }
+}
+
+export const setDisableCurrency = (data) => {
+    return {
+        type: SET_DISABLE_CURRENCY,
+        data
+    }
+}
+
+export const setCategoryList = (data) => {
+    return {
+        type: SET_CATEGORY_LIST,
+        data
+    }
+}
+
+export const getCategoryList = (userType) => async (dispatch) => {
+    const url = 'Portal/MediaGallery/GetCategoryList';
+    const response = await post(url, { userType });
+
+    const data = response && response.status === 200 ? response.data : [];
+
+    const categoryList = data.map(item => {
+        return {
+            categoryName: item.CategoryName,
+            key: item.CategoryName,
+            name: item.CategoryName,
+            checked: false
+        };
+    });
+
+    dispatch(setCategoryList(categoryList));
 }
 
 export const getBannerRootUrl = () => async (dispatch) => {
@@ -192,9 +225,9 @@ const handleExcute = async (url, param) => {
     return response && response.status === 200 ? response.data : null;
 }
 
-export const deleteBanners = (BannerIdList) => async () => {
+export const deleteBanners = (param) => async () => {
     const url = 'Portal/MediaGallery/DeleteBanners';
-    const response = await post(url, { BannerIdList });
+    const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }

@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyBannerSelType, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetCategoryList(1);
+            var result = service.Object.GetCategoryList(1,1);
 
             // Assert
             Assert.Single(result);
@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyBannerSelType, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetCategoryList(1);
+            var result = service.Object.GetCategoryList(1,1);
 
             // Assert
             Assert.Empty(result);
@@ -91,44 +91,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             Assert.Empty(result);
         }
 
-        [Fact]
-        public void GetImageTypeList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var service = new Mock<CommonMediaGalleryService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
-
-            ReaderHelper.MapReaderData(dataReader, GetImageTypeList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_MediaType_Sel", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetImageTypeList();
-
-            // Assert
-            Assert.Single(result);
-        }
-
-        [Fact]
-        public void GetImageTypeList_WhenCall_ReturnNullData()
-        {
-            // Arrange
-            var service = new Mock<CommonMediaGalleryService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false);
-
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_MediaType_Sel", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetImageTypeList();
-
-            // Assert
-            Assert.Empty(result);
-        }
         private IDictionary<string, object> GetCategoryList()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)

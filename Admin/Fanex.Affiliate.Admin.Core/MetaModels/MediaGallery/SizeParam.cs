@@ -1,5 +1,4 @@
-﻿
-namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
+﻿namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
 {
     public class SizeParam
     {
@@ -13,8 +12,10 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
 
         public string ImageType { get; set; }
 
-        public byte AffType { get; set; } = Fanex.Affiliate.Admin.Core.Constants.AffType.Asian;
+        public byte AffType { get; set; } = Constants.AffType.Asian;
 
         public byte DeviceType { get; set; }
+
+        public byte UserType { get; set; } = Constants.UserType.Player;
     }
 }

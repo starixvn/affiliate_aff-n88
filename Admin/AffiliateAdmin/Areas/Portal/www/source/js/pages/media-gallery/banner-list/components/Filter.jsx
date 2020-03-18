@@ -3,24 +3,22 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList } from '../actions';
-import { headerText, globalResource, deviceTypes, pcLaptop, Asian, Casino, Sportsbook } from '../libs/constants';
+import { setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
+import { headerText, globalResource, deviceTypes, pcLaptop, Asian, Casino, Sportsbook, userTypeList, memberBanner } from '../libs/constants';
 
 export class Filter extends PureComponent {
     constructor(props) {
         super(props);
-
-        const { paramFromHome } = this.props;
 
         this.state = {
             category: '',
             subCategory: '',
             language: '',
             currency: '',
-            imageType: paramFromHome && paramFromHome.ImageType ? paramFromHome.ImageType : '',
             affType: Asian,
-            deviceType: pcLaptop,
-            size: ''
+            deviceType: deviceTypes[pcLaptop],
+            size: '',
+            userType: memberBanner
         }
     }
 
@@ -53,11 +51,22 @@ export class Filter extends PureComponent {
     _handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
+        let param = Object.assign({}, this.state, { [name]: value });
 
-        const param = Object.assign({}, this.state, { [name]: value });
+        this.setState({ [name]: value });
+
+        if (name === 'userType') {
+            param = { ...param, currency: '', category: '', subCategory: '' };
+
+            this.setState({ currency: '', category: '', subCategory: '' });
+            this.props.setDisableCurrency(value != memberBanner);
+            this.props.getCategoryList(value);
+
+            const { pagingOption } = this.props;
+            this.props.setParam(Object.assign({}, param, { PageIndex: 1, PageSize: pagingOption.PageSize }));
+        }
 
         this.props.getSizeList(param);
-        this.setState({ [name]: value });
     }
 
     _handleSearch = () => {
@@ -69,8 +78,8 @@ export class Filter extends PureComponent {
     }
 
     render() {
-        const { categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList, imageTypeList, sizeList, affTypeList } = this.props;
-        const { category, subCategory, language, currency, imageType, affType, deviceType, size } = this.state;
+        const { categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList, sizeList, affTypeList, isDisableCurrency } = this.props;
+        const { category, subCategory, language, currency, affType, deviceType, size, userType } = this.state;
         const isCategoryCasino = category === Casino;
         const hasSubCategory = isCategoryCasino || category === Sportsbook;
         const subCategoryList = hasSubCategory ? (isCategoryCasino ? subCategoryCasinoList : subCategorySportsbookList) : null;
@@ -78,6 +87,16 @@ export class Filter extends PureComponent {
         return (
             <div className="filter-container my-2 pb-0">
                 <Form inline tag="div">
+                    <FormGroup className="mr-sm-3 pb-2">
+                        <Label for="userType" className="mr-sm-2">{headerText.UserType}</Label>
+                        <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
+                            {
+                                Object.keys(userTypeList).map(key => {
+                                    return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
+                                })
+                            }
+                        </Input>
+                    </FormGroup>
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="category" className="mr-sm-2">{headerText.Category}</Label>
                         <Input type="select" name="category" id="category" value={category} onChange={this._handleChangeCategory}>
@@ -117,22 +136,11 @@ export class Filter extends PureComponent {
                     </FormGroup>
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="currency" className="mr-sm-2">{headerText.Currency}</Label>
-                        <Input type="select" name="currency" id="currency" value={currency} onChange={this._handleChange}>
+                        <Input type="select" name="currency" id="currency" value={currency} onChange={this._handleChange} disabled={isDisableCurrency}>
                             <option key={'currency-all'} value={''}>{globalResource.All}</option>
                             {
                                 currencyList && currencyList.map(item => {
                                     return (<option key={`currency-${item.name}`} value={item.name}>{item.name}</option>)
-                                })
-                            }
-                        </Input>
-                    </FormGroup>
-                    <FormGroup className="mr-sm-3 pb-2">
-                        <Label for="imageType" className="mr-sm-2">{headerText.Type}</Label>
-                        <Input type="select" name="imageType" id="imageType" value={imageType} onChange={this._handleChange}>
-                            <option key={'imageType-all'} value={''}>{globalResource.All}</option>
-                            {
-                                imageTypeList && imageTypeList.map(item => {
-                                    return (<option key={`imageType-${item.Name}`} value={item.Name}>{item.Name}</option>)
                                 })
                             }
                         </Input>
@@ -156,7 +164,7 @@ export class Filter extends PureComponent {
                         <Input type="select" name="deviceType" id="deviceType" value={deviceType} onChange={this._handleChange}>
                             {
                                 Object.keys(deviceTypes).map(key => {
-                                    return (<option key={`deviceType-${key}`} value={key}>{key}</option>)
+                                    return (<option key={`deviceType-${key}`} value={deviceTypes[key]}>{key}</option>)
                                 })
                             }
                         </Input>
@@ -181,12 +189,16 @@ export class Filter extends PureComponent {
     }
 }
 
-function mapStateToProps({ categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList, imageTypeList, sizeList, affTypeList, pagingOption, paramFromHome }) {
-    return Object.assign({}, { categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList, imageTypeList, sizeList, affTypeList, pagingOption, paramFromHome });
+function mapStateToProps({ categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList,
+    sizeList, affTypeList, pagingOption, paramFromHome, isDisableCurrency }) {
+    return Object.assign({}, {
+        categoryList, subCategoryCasinoList, subCategorySportsbookList, languageList, currencyList,
+        sizeList, affTypeList, pagingOption, paramFromHome, isDisableCurrency
+    });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList }, dispatch);
+    return bindActionCreators({ setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList, setDisableCurrency, getCategoryList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

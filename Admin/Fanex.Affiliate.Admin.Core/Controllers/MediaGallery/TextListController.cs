@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
             var model = new TextListViewModel
             {
-                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory),
+                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory, UserType.Player),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 SubMenuList = subMenu

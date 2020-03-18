@@ -5,14 +5,18 @@ import { pagingOption } from '../../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../../reducers/loaderReducer';
 import {
     SET_PARAM, SET_PARAM_FROM_HOME, SET_BANNER_DETAIL_URL, SET_CHECKED_BANNERS, SET_SELECTED_BANNER_ID, SET_BANNER_ROOT_URL,
-    SET_SUBCATEGORY_CASINO_LIST, SET_SUBCATEGORY_SPORTSBOOK_LIST, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA, SET_SIZE_LIST
+    SET_SUBCATEGORY_CASINO_LIST, SET_SUBCATEGORY_SPORTSBOOK_LIST, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA, SET_SIZE_LIST,
+    SET_DISABLE_CURRENCY, SET_CATEGORY_LIST
 } from '../actions/types';
 
-export const categoryList = createReducer(null, {});
+export const categoryList = createReducer(null, {
+    [SET_CATEGORY_LIST](prevState, action) {
+        return action.data;
+    }
+});
 export const subCategoryList = createReducer(null, {});
 export const languageList = createReducer(null, {});
 export const currencyList = createReducer(null, {});
-export const imageTypeList = createReducer(null, {});
 export const affTypeList = createReducer(null, {});
 export const deviceTypeList = createReducer([
     {   key: 0, name: "PC / Laptop", checked: false    },
@@ -85,6 +89,12 @@ export const gridData = createReducer(null, {
     }
 })
 
+export const isDisableCurrency = createReducer(false, {
+    [SET_DISABLE_CURRENCY](prevState, action) {
+        return action.data;
+    }
+})
+
 export default combineReducers({
     categoryList,
     subCategoryList,
@@ -92,7 +102,6 @@ export default combineReducers({
     subCategorySportsbookList,
     languageList,
     currencyList,
-    imageTypeList,
     sizeList,
     affTypeList,
     deviceTypeList,
@@ -105,5 +114,6 @@ export default combineReducers({
     checkedBanners,
     bannerDetailUrl,
     selectedBannerId,
-    shouldResetScrollPosition
+    shouldResetScrollPosition,
+    isDisableCurrency
 });

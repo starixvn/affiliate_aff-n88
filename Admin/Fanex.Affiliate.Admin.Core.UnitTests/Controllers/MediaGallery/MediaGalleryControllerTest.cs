@@ -26,9 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             // Arrange
             var param = new BannerParamFromHome { ImageType = "Image", IsFromHome = true };
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(c => c.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
             commonMediaGalleryService.Setup(c => c.GetCurrencyList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 234, Name = "Currency" } });
-            commonMediaGalleryService.Setup(c => c.GetImageTypeList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 345, Name = "Image" } });
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language { LanguageCode = "en", LanguageName = "English" } });
             var affTypeService = new Mock<IAffTypeService>();
@@ -65,7 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryName = "Casino", SubCategoryName = "Baccarat" } });
+            commonMediaGalleryService.Setup(t => t.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Casino", SubCategoryName = "Baccarat" } });
             var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
 
             // Action
@@ -80,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryName = "Sportsbook", SubCategoryName = "SB Bonus" } });
+            commonMediaGalleryService.Setup(t => t.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Sportsbook", SubCategoryName = "SB Bonus" } });
             var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
 
             // Action
@@ -148,9 +147,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var selectedBannerId = 123;
-            var passedParam = 0;
             var bannerListService = new Mock<IBannerListService>();
-            bannerListService.Setup(s => s.GetBannerDetail(selectedBannerId)).Returns(new BannerInfo { BannerId = 123 }).Callback<int>(p => passedParam = p);
+            bannerListService.Setup(s => s.GetBannerDetail(selectedBannerId, It.IsAny<byte>())).Returns(new BannerInfo { BannerId = 123 });
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
@@ -159,7 +157,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.Equal(selectedBannerId, bannerInfo.BannerId);
-            Assert.Equal(selectedBannerId, passedParam);
         }
 
         [Fact]

@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
         [Required]
         public string Language { get; set; }
 
-        [Required]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Currencies { get; set; }
 
         public List<string> Sizes { get; set; } = new List<string>();
@@ -33,5 +33,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
 
         [Required]
         public string DeviceTypes { get; set; }
+
+        public byte UserType { get; set; } = Constants.UserType.Player;
+
+        public string Folder => UserType == Constants.UserType.Player ? "Players" : "Sub-Affiliate";
     }
 }

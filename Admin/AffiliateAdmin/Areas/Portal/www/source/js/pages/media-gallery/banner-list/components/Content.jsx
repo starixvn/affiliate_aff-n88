@@ -48,7 +48,6 @@ export const Content = (props) => {
                 <Cell header={true} colWidth={60} title={headerText.Language}>{headerText.Language}</Cell>
                 <Cell header={true} colWidth={55} title={headerText.Currency}>{headerText.Currency}</Cell>
                 <Cell header={true} colWidth={50} title={headerText.Device}>{headerText.Device}</Cell>
-                <Cell header={true} colWidth={50} title={headerText.ImageType}>{headerText.ImageType}</Cell>
                 <Cell header={true} colWidth={50} title={headerText.Size}>{headerText.Size}</Cell>
                 <Cell header={true} colWidth={25} title={globalResource.Edit}>{globalResource.Edit}</Cell>
             </Row>
@@ -135,7 +134,6 @@ export const Content = (props) => {
                         })
                     }
                 </Cell>
-                <Cell className="text-center text-break" title={dataItem.ImageType}>{dataItem.ImageType}</Cell>
                 <Cell className="text-center text-break" title={size}>{size}</Cell>
                 <Cell className="text-center" title="Edit Banner">
                     <Button color="link" onClick={() => props.setSelectedBannerId(bannerId)}>

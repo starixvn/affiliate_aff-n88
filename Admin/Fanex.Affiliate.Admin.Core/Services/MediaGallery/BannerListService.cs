@@ -40,9 +40,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             return _bannerListRepository.GetBannerList(param);
         }
 
-        public BannerInfo GetBannerDetail(int selectedBannerId)
+        public BannerInfo GetBannerDetail(int selectedBannerId, byte userType)
         {
-            return _bannerListRepository.GetBannerDetail(selectedBannerId);
+            return _bannerListRepository.GetBannerDetail(selectedBannerId, userType);
         }
 
         private ResultInfo ValidateAllFiles(HttpPostedFileBase[] files)
@@ -162,6 +162,19 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             return resultCheckMultipleFilesInFolder;
         }
 
+        private ResultInfo ValidateCurrency(InsertUpdateMultipleBannersParam param)
+        {
+            if(param.UserType == UserType.Player && string.IsNullOrEmpty(param.Currencies))
+            {
+                return new ResultInfo {
+                    Code = Code.GeneralErrorCode,
+                    Message = "Please select Currency."
+                };
+            }
+
+            return new ResultInfo();
+        }
+
         private static void BuildFilesXml(InsertUpdateMultipleBannersParam param, string[] inputFileNames)
         {
             var result = new StringBuilder();
@@ -180,7 +193,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public ResultInfo InsertBanner(HttpPostedFileBase[] files, InsertUpdateMultipleBannersParam param)
         {
-            var result = ValidateAllFiles(files);
+            var result = ValidateCurrency(param);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            result = ValidateAllFiles(files);
             if (!result.IsSuccessful)
             {
                 return result;
@@ -206,7 +225,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 using (var bitmap = new Bitmap(file.InputStream))
                 {
                     var inputFileName = inputFileNames[i];
-                    var path = $"CategoryMedia/{inputFileName}";
+                    var path = $"CategoryMedia/{param.Folder}/{inputFileName}";
                     param.FilePaths.Add(path);
                     param.Sizes.Add(BannerHelper.GetSize(bitmap.Width, bitmap.Height));
                     UploadFile(bitmap, path);
@@ -250,13 +269,19 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public ResultInfo UpdateBanner(HttpPostedFileBase file, InsertUpdateMultipleBannersParam param)
         {
-            var result = ValidationInputFileName(file, param);
+            var result = ValidateCurrency(param);
             if (!result.IsSuccessful)
             {
                 return result;
             }
 
-            var oldBannerInfo = _bannerListRepository.GetBannerDetail(param.BannerId);
+            result = ValidationInputFileName(file, param);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            var oldBannerInfo = _bannerListRepository.GetBannerDetail(param.BannerId, param.UserType);
             var oldFilePath = oldBannerInfo.FileName;
 
             result = CheckFileInFolder(param, oldFilePath);
@@ -303,7 +328,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public ResultInfo DeleteBanners(DeleteBannerParam param)
         {
-            var fileNameList = GetFileNameList(param.BannerIdList);
+            var fileNameList = GetFileNameList(param.BannerIdList, param.UserType);
             var result = _bannerListRepository.DeleteBanners(param);
 
             if (result.IsSuccessful)
@@ -351,14 +376,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             }
         }
 
-        private List<string> GetFileNameList(string bannerIds)
+        private List<string> GetFileNameList(string bannerIds, byte userType)
         {
             var bannerIdList = bannerIds.Split(',');
             var fileNameList = new List<string>();
 
             foreach (var bannerId in bannerIdList)
             {
-                var bannerInfo = _bannerListRepository.GetBannerDetail(Convert.ToInt32(bannerId));
+                var bannerInfo = _bannerListRepository.GetBannerDetail(Convert.ToInt32(bannerId), userType);
                 fileNameList.Add(bannerInfo.FileName);
             }
 
@@ -367,8 +392,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         private ResultInfo CheckFileInFolder(InsertUpdateMultipleBannersParam param, string oldFilePath)
         {
-            var path = $"CategoryMedia/{param.InputFileNames}";
-            var result = _bannerValidationService.CheckFileInFolder("CategoryMedia/", path);
+            var path = $"CategoryMedia/{param.Folder}/{param.InputFileNames}";
+            var result = _bannerValidationService.CheckFileInFolder($"CategoryMedia/{param.Folder}/", path);
             param.FilePaths.Add(path);
 
             if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Compare(path, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)

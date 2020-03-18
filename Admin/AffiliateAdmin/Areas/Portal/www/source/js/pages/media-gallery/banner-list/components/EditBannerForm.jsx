@@ -37,7 +37,7 @@ export class EditBannerForm extends PureComponent {
     }
 
     componentDidUpdate(prevProps) {
-        const { selectedBannerId } = this.props;
+        const { selectedBannerId, categoryList } = this.props;
         if (prevProps.selectedBannerId !== selectedBannerId) {
             this.setState({ isInsert: selectedBannerId === defaultInsertId });
             if (selectedBannerId) {
@@ -46,6 +46,10 @@ export class EditBannerForm extends PureComponent {
             else {
                 this.resetToDefault();
             }
+        }
+
+        if (prevProps.categoryList !== categoryList) {
+            this.setState({ categoryList });
         }
     }
 
@@ -163,18 +167,18 @@ export class EditBannerForm extends PureComponent {
     }
 
     _getParam = (hasSubCategory) => {
+        const { selectedBannerId, param, isDisableCurrency } = this.props;
         const { files, inputFileNames, categoryList, subCategoryList, language, currencyList, affTypeList, deviceTypeList, isInsert } = this.state;
 
         const categories = categoryList.filter(item => item.checked).map(item => item.key).join(',');
         const subCategories = hasSubCategory ? subCategoryList.filter(item => item.checked).map(item => item.key).join(',') : '';
-        const currencies = currencyList.filter(item => item.checked).map(item => item.key).join(',');
+        const currencies = isDisableCurrency ? '' : currencyList.filter(item => item.checked).map(item => item.key).join(',');
         const affTypes = affTypeList.filter(item => item.checked).map(item => item.key).join(',');
         const deviceTypes = deviceTypeList.filter(item => item.checked).map(item => item.key).join(',');
-        const { selectedBannerId } = this.props;
 
         return Object.assign({}, {
             bannerId: selectedBannerId, files, inputFileNames: isInsert ? inputFileNames.map(item => item.trim()).join('|') : inputFileNames[0] && inputFileNames[0].trim(),
-            categories, subCategories, language, currencies, affTypes, deviceTypes
+            categories, subCategories, language, currencies, affTypes, deviceTypes, userType: param.userType
         });
     }
 
@@ -277,7 +281,7 @@ export class EditBannerForm extends PureComponent {
             this._handleShowAlert(false, "Please select Sub Category.");
             return;
         }
-        if (!currency.length) {
+        if (!this.props.isDisableCurrency && !currency.length) {
             this._handleShowAlert(false, "Please select Currency.");
             return;
         }
@@ -447,7 +451,7 @@ export class EditBannerForm extends PureComponent {
     }
 
     render() {
-        const { selectedBannerId, languageList } = this.props;
+        const { selectedBannerId, languageList, isDisableCurrency } = this.props;
         const { inputFileNames, language, isShowMessage, isSuccess, message, isInsert, isDisabled, messageNotificationPopup, categoryList,
             subCategoryList, currencyList, affTypeList, deviceTypeList, files } = this.state;
         const isShowPopup = selectedBannerId !== null;
@@ -528,19 +532,22 @@ export class EditBannerForm extends PureComponent {
                                             </Input>
                                         </Col>
                                     </FormGroup>
-                                    <FormGroup row className="mb-2">
-                                        <Label sm={3} for="currency" className="required">{headerText.Currency}</Label>
-                                        <Col sm={5}>
-                                            <MultipleSelect
-                                                dataSource={currencyList}
-                                                keyField="key"
-                                                valueField="name"
-                                                statusField="checked"
-                                                maxDisplayItemCount={1}
-                                                noneSelectedLabel="Please Select"
-                                                onChange={this.handleChangeCurrency} />
-                                        </Col>
-                                    </FormGroup>
+                                    {
+                                        !isDisableCurrency && (
+                                        <FormGroup row className="mb-2">
+                                            <Label sm={3} for="currency" className="required">{headerText.Currency}</Label>
+                                            <Col sm={5}>
+                                                <MultipleSelect
+                                                    dataSource={currencyList}
+                                                    keyField="key"
+                                                    valueField="name"
+                                                    statusField="checked"
+                                                    maxDisplayItemCount={1}
+                                                    noneSelectedLabel="Please Select"
+                                                    onChange={this.handleChangeCurrency} />
+                                            </Col>
+                                        </FormGroup>)
+                                    }
                                     <FormGroup row className="mb-2">
                                         <Label sm={3} for="affType" className="required">{headerText.AffType}</Label>
                                         <Col sm={5}>
@@ -623,10 +630,10 @@ export class EditBannerForm extends PureComponent {
 }
 
 function mapStateToProps({ selectedBannerId, param, categoryList, subCategoryCasinoList, subCategorySportsbookList,
-    languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList }) {
+    languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList, isDisableCurrency }) {
     return Object.assign({},
         {
-            selectedBannerId, param, categoryList, subCategoryCasinoList,
+            selectedBannerId, param, categoryList, subCategoryCasinoList, isDisableCurrency,
             subCategorySportsbookList, languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList
         });
 }

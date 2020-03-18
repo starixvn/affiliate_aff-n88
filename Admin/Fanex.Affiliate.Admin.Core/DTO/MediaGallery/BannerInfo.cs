@@ -19,8 +19,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.MediaGallery
 
         public string[] DeviceTypes { get; set; }
 
-        public string ImageType { get; set; }
-
         public string[] AffTypes { get; set; }
 
         public string Size { get; set; }

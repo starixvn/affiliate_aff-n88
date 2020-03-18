@@ -6,7 +6,7 @@ export { deviceTypes, globalResource, pcLaptop, mobile };
 export const Casino = 'Casino';
 export const Sportsbook = 'Sportsbook';
 
-const defaultLanguage = 'Chinese Simplified';
+const defaultLanguage = 'Vietnamese';
 export const Asian = 1;
 export const maxWidthHeight = 501;
 export const maxLength = 50;
@@ -14,17 +14,24 @@ export const regSpecialCharacters = '[\/\:\*\?\"\<\>\|]';
 
 export const headerText = {
     Index: '#',
+    UserType: 'User Type',
     Images: 'Images',
     FileName: 'File Name',
     Category: 'Category',
     SubCategory: 'Sub Category',
     Language: 'Language',
     Currency: 'Currency',
-    Type: 'Type',
     Size: 'Size',
     AffType: 'Affiliate Type',
-    Device: 'Device',
-    ImageType: 'Image Type'
+    Device: 'Device'
+}
+
+export const memberBanner = 1;
+const affiliateBanner = 2;
+
+export const userTypeList = {
+    [memberBanner]: 'Players',
+    [affiliateBanner]: 'Sub-Affiliate'
 }
 
 export const messages = {

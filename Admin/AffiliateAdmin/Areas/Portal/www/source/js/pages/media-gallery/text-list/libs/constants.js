@@ -4,7 +4,7 @@ import { globalResource } from '../../../../modules/globalResource';
 export { deviceTypes, globalResource, mobile };
 
 const defaultCategory = 'Basketball';
-const defaultLanguage = 'Chinese Simplified';
+const defaultLanguage = 'Vietnamese';
 const defaultCurrency = 'EURO';
 export const defaultDevice = pcLaptop;
 

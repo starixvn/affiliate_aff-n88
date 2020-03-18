@@ -10,7 +10,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
     {
         EntityResult<BannerInfo> GetBannerList(BannerParam param);
 
-        BannerInfo GetBannerDetail(int selectedBannerId);
+        BannerInfo GetBannerDetail(int selectedBannerId, byte userType);
 
         ResultInfo InsertBanner(HttpPostedFileBase[] files, InsertUpdateMultipleBannersParam param);
 
