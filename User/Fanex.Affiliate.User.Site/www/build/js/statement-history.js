@@ -233,8 +233,12 @@
     };
 })(jQuery)
 var StatementHistory = (function ($) {
-    var _pageSize = 20;
-    var _pageIndex = 0;
+    let _pageSize = 20;
+    let _pageIndex = 0;
+    let urlMapping = [
+        { transType: 201, url: "UserPanel/Main/#DailyEarning" },
+        { transType: 204, url: "UserPanel/Main/#SubAffEarning"}
+    ];
 
     function initPager() {
         $("#statementPager").pager({
@@ -252,6 +256,15 @@ var StatementHistory = (function ($) {
         });
     }
 
+    function toggleCollapseButton(btn) {
+        $(btn).children("span").toggleClass("glyphicon-chevron-right");
+        $(btn).children("span").toggleClass("glyphicon-chevron-down");
+    }
+
+    function toggleChildrenElem(children) {
+        $(children).toggleClass("display-none");
+    }
+
     var _me = {
         initialize: function () {
             initPager();
@@ -260,11 +273,20 @@ var StatementHistory = (function ($) {
 
         initEvent: function () {
             $("#statementDataList").on("click", ".amountItem", function () {
-                var params = {
+                let transtype = Number($(this).data("transtype"));
+                let url = urlMapping.find(elem => elem.transType === transtype).url;
+                let params = {
                     monthDate: $(this).data("date")
                 };
 
-                Site.redirect(Site.resolveRelativeUrl("UserPanel/Main/#DailyEarning?" + $.param(params)));
+                Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
+            });
+
+            $("#statementDataList").on("click", ".btn.btn-transparent", function () {
+                let id = $(this).parents("tr").data("id");
+                let children = $(this).parents("tr").siblings(`tr[data-parent='${id}']`);
+                toggleCollapseButton(this);
+                toggleChildrenElem(children);
             });
         },
 

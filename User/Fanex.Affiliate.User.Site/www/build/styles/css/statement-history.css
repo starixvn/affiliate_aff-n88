@@ -45,3 +45,9 @@
   .pager-container .page-info {
     float: right;
     padding: 3px; }
+
+#statementDataList .btn.btn-transparent {
+  margin-right: 5px; }
+
+#statementDataList .display-none {
+  display: none; }

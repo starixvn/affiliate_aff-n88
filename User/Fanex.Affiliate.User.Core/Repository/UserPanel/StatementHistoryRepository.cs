@@ -142,5 +142,17 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             return result;
         }
+
+        public IEnumerable<SubAffComInfo> GetSubAffCommission(SubAffComParam subAffParam)
+        {
+            const string uSpKey = "Aff_SubAffiliate_Commission_Sel";
+            var mode = subAffParam.IsInternal ? DBMode.View : DBMode.Main;
+
+            using (var objecDb = new ObjectDBBuilder(uSpKey, mode))
+            {
+                var result = objecDb.DB.Query<SubAffComInfo>(subAffParam);
+                return result;
+            }
+        }
     }
 }

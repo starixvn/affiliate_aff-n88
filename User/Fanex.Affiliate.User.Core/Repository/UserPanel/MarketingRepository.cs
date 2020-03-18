@@ -9,17 +9,14 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public class MarketingRepository : IMarketingRepository
     {
-        private const int AffiliateLink = 1;
-        private const int MediaGallery = 2;
-
-        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isInternal)
+        public IEnumerable<CategoryType> GetCategoryList(MediaCategoryParam param, bool isInternal)
         {
             const string uSpKey = "Aff_Admin_MediaCategory_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
             using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<CategoryType>(new { TypeId = isMediaPage ? AffiliateLink : MediaGallery });
+                return objectDb.DB.Query<CategoryType>(param);
             }
         }
 

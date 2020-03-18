@@ -7,7 +7,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public interface IMarketingRepository
     {
-        IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isInternal);
+        IEnumerable<CategoryType> GetCategoryList(MediaCategoryParam param, bool isInternal);
 
         IEnumerable<LanguageType> GetLanguageList(bool isInternal);
 

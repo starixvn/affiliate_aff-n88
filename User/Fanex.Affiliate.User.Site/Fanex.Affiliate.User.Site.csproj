@@ -1333,6 +1333,7 @@
     <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
     <Content Include="Views\UserPanel\AccountOverView\SubAffiliateLink\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\SubAffiliateMediaGallery\Index.cshtml" />
+    <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

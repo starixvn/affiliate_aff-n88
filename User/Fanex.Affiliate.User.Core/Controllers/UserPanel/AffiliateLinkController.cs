@@ -48,7 +48,7 @@
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
                 ScriptUrl = AppSetting.MediaScriptUrl,
-                TextLinkTemplate = AppSetting.TextLinkTemplate
+                TextLinkTemplate = AppSetting.TextLinkTemplate,
             };
 
             var viewModel = new MarketingViewModel

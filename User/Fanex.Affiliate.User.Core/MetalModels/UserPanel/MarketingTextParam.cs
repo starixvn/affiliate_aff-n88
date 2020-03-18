@@ -11,11 +11,13 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public string Currency { get; set; }
 
-        public byte? DeviceType { get; set; }
+        public string DeviceType { get; set; } = ((byte)Enum.DeviceType.PCDevice).ToString();
 
         public int? PageSize { get; set; }
 
         public int? PageIndex { get; set; }
+
+        public byte TargetId { get; set; } = 1;
 
         [SpParam(Ignored = true)]
         public int TotalPages { get; set; }

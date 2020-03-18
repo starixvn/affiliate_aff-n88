@@ -24,7 +24,6 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
             {
                 return TransType == (byte)Enum.TransType.Payment
                     || TransType == (byte)Enum.TransType.Adjustment
-                    || TransType == (byte)Enum.TransType.SubAffBonus
                     ? MonthDate.ToString("MM-dd-yyyy")
                     : MonthDate.ToString("MMMM-yyyy");
             }

@@ -1,20 +1,35 @@
 ﻿@model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.StatementHistoryViewModel>
 
-@helper RenderItem(Fanex.Affiliate.User.Core.ViewModels.UserPanel.StatementHistoryViewModel item, int? index = null)
+@helper RenderItem(Fanex.Affiliate.User.Core.ViewModels.UserPanel.StatementHistoryViewModel item, int id, int? parentId = null, int? index = null)
 {
     var isLink = item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment
     && item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Adjustment
     && item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.MonthlyTotal
     && DateTime.Compare(item.MonthDate, ViewBag.AvailableFromDate) > 0;
 
-    <tr>
+    var hasChildren = item.Children == null || item.Children.Count() > 0;
+    var displayClass = parentId != null ? "display-none" : "";
+
+    <tr data-id='@id' data-parent='@parentId' class='@displayClass'>
         <td>@index</td>
-        <td class="text-bold">@item.DateString</td>
+        <td class="text-bold">
+            <div class="flex">
+                <span class="flex-0">@item.DateString</span>
+                @if (hasChildren)
+                {
+                    <div class="flex-middle">
+                        <button class="btn btn-transparent">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                    </div>
+                }
+            </div>
+        </td>
         <td>@item.TransTypeString</td>
         <td class="text-right">
             @if (isLink)
             {
-                <a class="amountItem" data-date="@item.MonthDate.ToString("MM/dd/yyyy")" href="javascript:;">
+                <a class="amountItem" data-date="@item.MonthDate.ToString("MM/dd/yyyy")" data-transtype="@item.TransType" href="javascript:;">
                     @item.Amount.ToStringMoneyWithSymbol()
                 </a>
             }
@@ -35,6 +50,7 @@
         </td>
     </tr>
 }
+
 <div class="table table-responsive">
     <table>
         <thead>
@@ -52,19 +68,23 @@
                 if (Model != null && Model.Any())
                 {
                     var index = (int)ViewBag.StartRowNumber;
+                    var id = 1;
 
                     foreach (var item in Model)
                     {
-                        @RenderItem(item, index);
+                        @RenderItem(item, id, index: index);
                         if (item.Children != null)
                         {
+                            var parentId = id;
                             foreach (var child in item.Children)
                             {
-                                @RenderItem(child)
+                                id++;
+                                @RenderItem(child, id, parentId: parentId)
                             }
                         }
 
                         index++;
+                        id++;
                     }
                 }
                 else

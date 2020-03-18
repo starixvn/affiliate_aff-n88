@@ -19,6 +19,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private readonly IMemoryCacheService _cacheService;
 
+        private const int AffiliateLink = 1;
+        private const int MediaGallery = 2;
+
+        private const int TargetMember = 1;
+        private const int TargetAffiliate = 2;
+
         public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService)
         {
             _marketingRepository = marketingRepository;
@@ -28,10 +34,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isInternal)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
+
             var categoryList = _cacheService.Get<IEnumerable<CategoryType>>(cacheKey);
             if (categoryList == null)
             {
-                categoryList = _marketingRepository.GetCategoryList(isMediaPage, isInternal);
+                var mediaType = isMediaPage ? AffiliateLink : MediaGallery;
+                var param = new MediaCategoryParam
+                {
+                    TargetId = TargetMember,
+                    TypeId = mediaType
+                };
+                categoryList = _marketingRepository.GetCategoryList(param, isInternal);
 
                 _cacheService.Set(cacheKey, categoryList);
             }

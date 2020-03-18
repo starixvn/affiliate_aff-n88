@@ -6,7 +6,7 @@
     ]
   },
   {
-    "outputFileName": "www/build/js/user-panel.min.js",
+    "outputFileName": "www/build/js/user-panel.js",
     "inputFiles": [
       "www/source/js/pages/user-panel.js"
     ]
