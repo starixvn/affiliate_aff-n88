@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         }
         protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage)
         {
-            var categoryList = MarketingService.GetCategoryList(isMediaPage, SessionService.IsInternal).Where(c => c.CategoryId == c.ParentCategoryId);
+            var categoryList = MarketingService.GetCategoryList(isMediaPage, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
             var languageList = MarketingService.GetLanguageList(SessionService.IsInternal);
             var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal);
             var userSession = SessionService.UserSession;
@@ -42,9 +42,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             if (isMediaPage)
             {
                 var sizeList = MarketingService.GetSizeList(new SizeParam { AffType = userSession.AffType, Language = userSession.PreferredLanguage }, SessionService.IsInternal);
-                var bannerTypeList = MarketingService.GetBannerTypeList(SessionService.IsInternal);
-
-                viewModel.ImageTypeList = bannerTypeList.Select(i => new SelectListItem { Value = i.Type, Text = Lang.ResourceManager.GetString(i.Type.Trim()) ?? i.Type });
                 viewModel.SizeList = sizeList.Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
             }
 
