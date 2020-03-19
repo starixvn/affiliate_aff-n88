@@ -6,7 +6,8 @@ import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { resizeWidthHeight } from '../libs/utils';
-import { headerText, globalResource, maxWidthHeight, pcLaptop, mobile } from '../libs/constants';
+import { globalResource, pcLaptop, mobile } from '../../common/libs/constants';
+import { headerText, maxWidthHeight } from '../libs/constants';
 import { setSelectedBannerId, setPagingOption, fetchData, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl, getBannerRootUrl } from '../actions';
 
 export const Content = (props) => {

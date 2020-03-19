@@ -1,12 +1,6 @@
-﻿import { deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
-import { globalResource } from '../../../../modules/globalResource';
-
-export { deviceTypes, globalResource, pcLaptop, mobile };
-
-export const Casino = 'Casino';
+﻿export const Casino = 'Casino';
 export const Sportsbook = 'Sportsbook';
 
-const defaultLanguage = 'Vietnamese';
 export const Asian = 1;
 export const maxWidthHeight = 501;
 export const maxLength = 50;
@@ -26,14 +20,6 @@ export const headerText = {
     Device: 'Device'
 }
 
-export const memberBanner = 1;
-const affiliateBanner = 2;
-
-export const userTypeList = {
-    [memberBanner]: 'Players',
-    [affiliateBanner]: 'Sub-Affiliate'
-}
-
 export const messages = {
     PleaseSelect: 'Please select banner(s) to delete',
     AreYouSureDeleteItems: 'Are you sure to delete the selected banner(s)?',
@@ -43,7 +29,7 @@ export const messages = {
 export const defaultState = {
     files: [],
     inputFileNames: [''],
-    language: defaultLanguage,
+    language: 'Vietnamese',
     isInsert: true,
     isShowMessage: false,
     isSuccess: true,

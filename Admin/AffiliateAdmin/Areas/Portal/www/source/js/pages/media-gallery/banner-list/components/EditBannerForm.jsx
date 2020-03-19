@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { setSelectedBannerId, getBannerDetail, fetchData, insertBanner, updateBanner, toggleLoader, getSizeList } from '../actions/index';
-import { headerText, globalResource, defaultState, Casino, Sportsbook, regSpecialCharacters } from '../libs/constants';
-import { defaultInsertId } from '../../common/libs/constants';
+import { headerText, defaultState, Casino, Sportsbook, regSpecialCharacters } from '../libs/constants';
+import { globalResource, defaultInsertId } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import NotificationPopup from '../../../common/components/NotificationPopup';
 import { validateFileExtension, validateInputFile } from '../libs/utils';
@@ -54,7 +54,7 @@ export class EditBannerForm extends PureComponent {
     }
 
     _handleGetBannerDetail = async (selectedBannerId) => {
-        const bannerInfo = await this.props.getBannerDetail(selectedBannerId);
+        const bannerInfo = await this.props.getBannerDetail(selectedBannerId, this.props.param.userType);
 
         if (bannerInfo) {
             const { categoryList, subCategoryList, currencyList, affTypeList, deviceTypeList } = this.props;
@@ -315,7 +315,7 @@ export class EditBannerForm extends PureComponent {
             message,
             isSuccess,
             isShowMessage: true,
-        }, () => window.setTimeout(() => this._hideMessage(isSuccess), 3000));
+        }, () => window.setTimeout(() => this._hideMessage(isSuccess), 4000));
 
         this.props.toggleLoader(false);
     }

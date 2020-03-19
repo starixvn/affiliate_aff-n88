@@ -5,7 +5,8 @@ import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
-import { headerText, globalResource, defaultDevice, mobile } from '../libs/constants';
+import { headerText } from '../libs/constants';
+import { globalResource, pcLaptop, mobile } from '../../common/libs/constants';
 import { setSelectedTextId, setPagingOption, fetchData, setCheckedTexts, setShouldResetScrollPosition, setParam } from '../actions';
 
 export const Content = (props) => {
@@ -71,7 +72,7 @@ export const Content = (props) => {
 
     function _buildDataRow(dataItem, index) {
         const content = htmlDecode(dataItem.TextContent);
-        const deviceType = dataItem.DeviceType == 0 ? defaultDevice : mobile;
+        const deviceType = dataItem.DeviceType == 0 ? pcLaptop : mobile;
 
         return (
             <Row key={`dataRow-${index}`}>

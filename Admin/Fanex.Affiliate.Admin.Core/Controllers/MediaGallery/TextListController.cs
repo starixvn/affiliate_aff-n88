@@ -12,6 +12,7 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.Resources;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 {
@@ -46,13 +47,23 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
             var model = new TextListViewModel
             {
-                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory, UserType.Player),
+                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory, UserType.Player).Where(c => string.IsNullOrEmpty(c.SubCategoryName)),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 SubMenuList = subMenu
             };
 
             return View("~/Areas/Portal/Views/MediaGallery/TextList.cshtml", model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetCategoryList(byte userType)
+        {
+            return new JsonNetResult
+            {
+                Data = _commonMediaGalleryService.GetCategoryList(TextListCategory, userType).Where(c => string.IsNullOrEmpty(c.SubCategoryName))
+            };
         }
 
         [HttpPost]
@@ -79,11 +90,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetTextDetail(int selectedTextId)
+        public ActionResult GetTextDetail(int selectedTextId, byte userType = UserType.Player)
         {
             return new JsonNetResult
             {
-                Data = _textListService.GetTextDetail(selectedTextId)
+                Data = _textListService.GetTextDetail(selectedTextId, userType)
             };
         }
 
@@ -174,7 +185,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
                 Category = param.Category,
                 Language = param.Language,
                 Currency = param.Currency,
-                DeviceType = param.DeviceType
+                DeviceType = param.DeviceType,
+                UserType = param.UserType
             };
         }
 

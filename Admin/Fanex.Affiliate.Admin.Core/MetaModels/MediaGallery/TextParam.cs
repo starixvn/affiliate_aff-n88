@@ -13,5 +13,7 @@
         public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
+
+        public byte UserType { get; set; } = Constants.UserType.Player;
     }
 }

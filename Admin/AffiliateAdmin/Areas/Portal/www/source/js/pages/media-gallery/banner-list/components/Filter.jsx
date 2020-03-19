@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
-import { headerText, globalResource, deviceTypes, pcLaptop, Asian, Casino, Sportsbook, userTypeList, memberBanner } from '../libs/constants';
+import { headerText, Asian, Casino, Sportsbook } from '../libs/constants';
+import { globalResource, deviceTypes, pcLaptop, userTypeList, memberBanner } from '../../common/libs/constants';
 
 export class Filter extends PureComponent {
     constructor(props) {
@@ -53,12 +54,9 @@ export class Filter extends PureComponent {
         const value = event.target.value;
         let param = Object.assign({}, this.state, { [name]: value });
 
-        this.setState({ [name]: value });
-
         if (name === 'userType') {
             param = { ...param, currency: '', category: '', subCategory: '' };
 
-            this.setState({ currency: '', category: '', subCategory: '' });
             this.props.setDisableCurrency(value != memberBanner);
             this.props.getCategoryList(value);
 
@@ -66,6 +64,8 @@ export class Filter extends PureComponent {
             this.props.setParam(Object.assign({}, param, { PageIndex: 1, PageSize: pagingOption.PageSize }));
         }
 
+
+        this.setState(param);
         this.props.getSizeList(param);
     }
 

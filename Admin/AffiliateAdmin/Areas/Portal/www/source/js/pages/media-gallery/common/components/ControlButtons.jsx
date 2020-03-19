@@ -3,8 +3,7 @@ import { Button } from 'reactstrap';
 
 import SelectAll from '../../../common/components/SelectAll';
 import ButtonDeleteItems from '../../../common/components/ButtonDeleteItems';
-import { defaultInsertId } from '../libs/constants';
-import { globalResource } from '../../../../modules/globalResource';
+import { defaultInsertId, globalResource } from '../libs/constants';
 
 export const ControlButtons = (props) => {
 

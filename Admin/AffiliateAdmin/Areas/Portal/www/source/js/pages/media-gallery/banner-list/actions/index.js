@@ -187,9 +187,9 @@ function _convertCheckedBanners(dataList) {
     return checkedBanners;
 }
 
-export const getBannerDetail = (selectedBannerId) => async () => {
+export const getBannerDetail = (selectedBannerId, userType) => async () => {
     const url = 'Portal/MediaGallery/GetBannerDetail';
-    const response = await post(url, { selectedBannerId });
+    const response = await post(url, { selectedBannerId, userType });
 
     return response && response.status === 200 ? response.data : null;
 }

@@ -3,15 +3,17 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { setParam } from '../actions';
-import { headerText, globalResource, deviceTypes, defaultDevice } from '../libs/constants';
+import { setParam, getCategoryList, setDisableCurrency } from '../actions';
+import { headerText } from '../libs/constants';
+import { globalResource, deviceTypes, pcLaptop, userTypeList, memberBanner } from '../../common/libs/constants';
 
 export const Filter = (props) => {
-    const { categoryList, languageList, currencyList } = props;
+    const { categoryList, languageList, currencyList, isDisableCurrency } = props;
     const [category, setCategory] = useState('');
     const [language, setLanguage] = useState('');
     const [currency, setCurrency] = useState('');
-    const [deviceType, setDeviceType] = useState(deviceTypes[defaultDevice]);
+    const [deviceType, setDeviceType] = useState(deviceTypes[pcLaptop]);
+    const [userType, setUserType] = useState(memberBanner);
 
     const _handleSearch = () => {
         const { pagingOption } = props;
@@ -21,6 +23,7 @@ export const Filter = (props) => {
             language,
             currency,
             deviceType,
+            userType,
             PageIndex: 1,
             PageSize: pagingOption.PageSize
         })
@@ -28,9 +31,41 @@ export const Filter = (props) => {
         props.setParam(param);
     }
 
+    const _handleChange = (e) => {
+        const value = e.target.value;
+        setCategory('');
+        setCurrency('');
+        setUserType(value);
+
+        const { pagingOption } = props;
+        const param = Object.assign({}, {
+            category: '',
+            language,
+            currency: '',
+            deviceType,
+            userType: value,
+            PageIndex: 1,
+            PageSize: pagingOption.PageSize
+        })
+
+        props.setParam(param);
+        props.setDisableCurrency(value != memberBanner);
+        props.getCategoryList(value);
+    }
+
     return categoryList && languageList && currencyList && (
         <div className="filter-container my-2">
             <Form inline tag="div">
+                <FormGroup className="mr-sm-3">
+                    <Label for="userType" className="mr-sm-2">{headerText.UserType}</Label>
+                    <Input type="select" name="userType" id="userType" value={userType} onChange={_handleChange}>
+                        {
+                            Object.keys(userTypeList).map(key => {
+                                return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
+                            })
+                        }
+                    </Input>
+                </FormGroup>
                 <FormGroup className="mr-sm-3">
                     <Label for="category" className="mr-sm-2">{headerText.Category}</Label>
                     <Input type="select" name="category" id="category" value={category} onChange={(e) => setCategory(e.target.value)}>
@@ -55,7 +90,7 @@ export const Filter = (props) => {
                 </FormGroup>
                 <FormGroup className="mr-sm-3">
                     <Label for="currency" className="mr-sm-2">{headerText.Currency}</Label>
-                    <Input type="select" name="currency" id="currency" value={currency} onChange={(e) => setCurrency(e.target.value)}>
+                    <Input type="select" name="currency" id="currency" value={currency} disabled={isDisableCurrency} onChange={(e) => setCurrency(e.target.value)}>
                         <option key={'currency-all'} value={''}>{globalResource.All}</option>
                         {
                             currencyList.map(item => {
@@ -82,12 +117,12 @@ export const Filter = (props) => {
     )
 }
 
-function mapStateToProps({ categoryList, languageList, currencyList, pagingOption }) {
-    return Object.assign({}, { categoryList, languageList, currencyList, pagingOption });
+function mapStateToProps({ categoryList, languageList, currencyList, pagingOption, isDisableCurrency }) {
+    return Object.assign({}, { categoryList, languageList, currencyList, pagingOption, isDisableCurrency });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam }, dispatch);
+    return bindActionCreators({ setParam, getCategoryList, setDisableCurrency }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Filter));

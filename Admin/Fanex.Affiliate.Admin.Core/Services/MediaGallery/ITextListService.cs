@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
     {
         EntityResult<TextInfo> GetTextList(TextParam param);
 
-        TextInfo GetTextDetail(int selectedTextId);
+        TextInfo GetTextDetail(int selectedTextId, byte userType);
 
         ResultInfo InsertText(InsertUpdateTextParam param);
 

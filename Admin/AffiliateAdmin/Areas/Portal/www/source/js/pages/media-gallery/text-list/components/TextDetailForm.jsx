@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader } from '../actions/index';
-import { headerText, globalResource, deviceTypes, defaultState } from '../libs/constants';
-import { defaultInsertId } from '../../common/libs/constants';
+import { headerText, defaultState } from '../libs/constants';
+import { defaultInsertId, globalResource, deviceTypes } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class TextDetailForm extends PureComponent {
@@ -27,7 +27,7 @@ export class TextDetailForm extends PureComponent {
     }
 
     _handleGetTextDetail = async (selectedTextId) => {
-        const item = await this.props.getTextDetail(selectedTextId);
+        const item = await this.props.getTextDetail(selectedTextId, this.props.param.userType);
 
         item && this.setState({
             textContent: htmlDecode(item.TextContent),
@@ -52,9 +52,9 @@ export class TextDetailForm extends PureComponent {
 
         if (!!textContent) {
             const { category, language, currency, deviceType } = this.state;
-            const { selectedTextId } = this.props;
+            const { selectedTextId, isDisableCurrency, param } = this.props;
             const message = isInsert ? "Add Successfully!" : "Update Successfully!";
-            const textInfo = Object.assign({}, { TextId: selectedTextId, textContent, category, language, currency, deviceType });
+            const textInfo = Object.assign({}, { TextId: selectedTextId, textContent, category, language, currency: isDisableCurrency ? '' : currency, deviceType, userType: param.userType });
             const result = isInsert ? await this.props.insertText(textInfo) : await this.props.updateText(textInfo);
 
             if (result) {
@@ -95,7 +95,7 @@ export class TextDetailForm extends PureComponent {
     }
 
     render() {
-        const { selectedTextId, categoryList, languageList, currencyList } = this.props;
+        const { selectedTextId, categoryList, languageList, currencyList, isDisableCurrency } = this.props;
         const { textContent, category, language, currency, deviceType, isShowMessage, isSuccess, message, isInsert } = this.state;
         const isShowPopup = selectedTextId !== null;
         const title = isInsert ? "Add Text" : "Update Text";
@@ -143,18 +143,22 @@ export class TextDetailForm extends PureComponent {
                                         </Input>
                                     </Col>
                                 </FormGroup>
-                                <FormGroup row className="mb-2">
-                                    <Label sm={2} for="currency">{headerText.Currency}</Label>
-                                    <Col sm={5}>
-                                        <Input type="select" name="currency" id="currency" value={currency} onChange={this._handleChange}>
-                                            {
-                                                currencyList.map(item => {
-                                                    return (<option key={`currency-${item.Name}`} value={item.Name}>{item.Name}</option>)
-                                                })
-                                            }
-                                        </Input>
-                                    </Col>
-                                </FormGroup>
+                                {
+                                    !isDisableCurrency && (
+                                        <FormGroup row className="mb-2">
+                                            <Label sm={2} for="currency">{headerText.Currency}</Label>
+                                            <Col sm={5}>
+                                                <Input type="select" name="currency" id="currency" value={currency} onChange={this._handleChange}>
+                                                    {
+                                                        currencyList.map(item => {
+                                                            return (<option key={`currency-${item.Name}`} value={item.Name}>{item.Name}</option>)
+                                                        })
+                                                    }
+                                                </Input>
+                                            </Col>
+                                        </FormGroup>    
+                                    )
+                                }
                                 <FormGroup row className="mb-2">
                                     <Label sm={2}>Type</Label>
                                     <Label sm={5}>Text</Label>
@@ -183,8 +187,8 @@ export class TextDetailForm extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList }) {
-    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList });
+function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList, isDisableCurrency }) {
+    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList, isDisableCurrency });
 }
 
 function mapDispatchToProps(dispatch) {

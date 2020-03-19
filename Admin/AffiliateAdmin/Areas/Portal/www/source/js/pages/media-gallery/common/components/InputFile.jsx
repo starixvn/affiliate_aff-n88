@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Button, Label, Input } from 'reactstrap';
-import { globalResource } from '../../../../modules/globalResource';
-import { messages } from '../libs/constants';
+import { messages, globalResource } from '../libs/constants';
 
 export class InputFile extends React.PureComponent {
     constructor(props) {
