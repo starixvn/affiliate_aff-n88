@@ -31,7 +31,9 @@ export const resource = {
     Male: 'Male',
     Female: 'Female',
     Yes: 'Yes',
-    No: 'No'
+    No: 'No',
+    ParentAffiliate: 'Parent Affiliate',
+    SubAffiliateList: 'Sub-Affiliate List'
 }
 
 export const affType = {

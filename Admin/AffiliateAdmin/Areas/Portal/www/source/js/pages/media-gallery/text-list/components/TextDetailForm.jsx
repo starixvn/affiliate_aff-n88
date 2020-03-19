@@ -156,7 +156,7 @@ export class TextDetailForm extends PureComponent {
                                                     }
                                                 </Input>
                                             </Col>
-                                        </FormGroup>    
+                                        </FormGroup>
                                     )
                                 }
                                 <FormGroup row className="mb-2">

@@ -6,6 +6,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 {
     public class AffiliateInfoOnLeftPanel
     {
+        public int? ParentAffId { get; set; }
+
+        public string ParentAffName { get; set; }
+
         public int AffId { get; set; }
 
         public int GroupId { get; set; }

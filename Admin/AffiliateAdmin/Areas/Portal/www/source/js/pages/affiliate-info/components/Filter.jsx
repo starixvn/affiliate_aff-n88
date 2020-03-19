@@ -21,14 +21,27 @@ export class Filter extends Component {
             userName: '',
             email: '',
             affId: '',
+            parentAffName: '',
             selectedSortBy: defaultSortBy,
             isSortAscending: true
         }
     }
 
     componentDidMount() {
-        if (this.initialGroupId !== 0 || this.props.param.IsFromHome) {
+        const { param } = this.props;
+
+        if (this.initialGroupId !== 0 || param.IsFromHome) {
             this.handleClickSearch();
+        }
+
+        param.ParentAffName && this.handleClickSearch(param.ParentAffName);
+    }
+
+    componentDidUpdate(prevProps) {
+        const { parentAffName } = this.props;
+
+        if (parentAffName !== prevProps.parentAffName) {
+            this.setState({ parentAffName });
         }
     }
 
@@ -46,7 +59,7 @@ export class Filter extends Component {
         }
     }
 
-    handleClickSearch = () => {
+    handleClickSearch = (parentAffName) => {
         const { selectedCommGroup, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId } = this.state;
 
         const affIdInput = affId.trim();
@@ -55,7 +68,7 @@ export class Filter extends Component {
             GroupId: selectedCommGroup,
             Language: selectedLanguage,
             Status: selectedStatus,
-            ParentAffName: this.props.parentAffName,
+            ParentAffName: parentAffName || this.props.parentAffName,
             UserName: userName,
             Email: email,
             SortBy: selectedSortBy,
@@ -99,8 +112,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId } = this.state;
-        const { commGroupList, languageList, columnList, parentAffName } = this.props;
+        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId, parentAffName } = this.state;
+        const { commGroupList, languageList, columnList } = this.props;
 
         return (
             <div className="filter-container">

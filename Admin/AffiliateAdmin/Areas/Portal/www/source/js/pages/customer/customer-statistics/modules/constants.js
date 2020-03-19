@@ -3,6 +3,7 @@
     UpToNow: "Up To Now",
     NewSignups: "New Signups/FDM",
     TotalActive: "Total Active Players",
+    TotalSubAff: "Total Sub-Affiliate",
     TotalDeposits: "Total Deposits",
     Turnover: "Turnover",
     Winlost: "Winlost",

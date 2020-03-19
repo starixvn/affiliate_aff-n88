@@ -109,6 +109,7 @@ export class Content extends PureComponent {
                         ),
                         resource.NA)
                 }
+                {this._buildRow(rowTitle.TotalSubAff, format(data.NoOfSubAffByMonth), format(data.NoOfSubAffTotal))}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}
                 {this._buildRow(rowTitle.Winlost, WinlostByMonth, WinlostTotal)}

@@ -66,7 +66,16 @@ export class Content extends Component {
 
         return (
             <div className="data-content my-2">
-                {reportTitle && <ReportTitle content={this._buildReportTitle()} />}
+                {
+                    reportTitle && (
+                        <React.Fragment>
+                            <p className="affiliate-report-note">
+                                Notes: First Comm Rate and Earning will calculate at 5th July 2020
+                            </p>
+                            <ReportTitle content={this._buildReportTitle()} />
+                        </React.Fragment>
+                    )
+                }
                 <GridData />
             </div>
         );

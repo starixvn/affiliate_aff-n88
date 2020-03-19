@@ -21,6 +21,14 @@ export class SearchBox extends PureComponent {
         affName && this.props.getAffiliateInfo(affName);
     }
 
+    componentDidUpdate(prevProps) {
+        const { affName } = this.props;
+
+        if (affName !== prevProps.affName) {
+            this.setState({ affName });
+        }
+    }
+
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value.trim() });

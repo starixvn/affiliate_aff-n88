@@ -25,6 +25,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                     {
                         result = new AffiliateInfoOnLeftPanel
                         {
+                            ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
+                            ParentAffName = Convert.ToString(reader["ParentAffName"]),
                             AffId = Convert.ToInt32(reader[Field.AffId]),
                             GroupId = Convert.ToInt32(reader["GroupId"]),
                             AffName = Convert.ToString(reader["UserName"]),

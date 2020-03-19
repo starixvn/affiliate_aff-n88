@@ -534,19 +534,19 @@ export class EditBannerForm extends PureComponent {
                                     </FormGroup>
                                     {
                                         !isDisableCurrency && (
-                                        <FormGroup row className="mb-2">
-                                            <Label sm={3} for="currency" className="required">{headerText.Currency}</Label>
-                                            <Col sm={5}>
-                                                <MultipleSelect
-                                                    dataSource={currencyList}
-                                                    keyField="key"
-                                                    valueField="name"
-                                                    statusField="checked"
-                                                    maxDisplayItemCount={1}
-                                                    noneSelectedLabel="Please Select"
-                                                    onChange={this.handleChangeCurrency} />
-                                            </Col>
-                                        </FormGroup>)
+                                            <FormGroup row className="mb-2">
+                                                <Label sm={3} for="currency" className="required">{headerText.Currency}</Label>
+                                                <Col sm={5}>
+                                                    <MultipleSelect
+                                                        dataSource={currencyList}
+                                                        keyField="key"
+                                                        valueField="name"
+                                                        statusField="checked"
+                                                        maxDisplayItemCount={1}
+                                                        noneSelectedLabel="Please Select"
+                                                        onChange={this.handleChangeCurrency} />
+                                                </Col>
+                                            </FormGroup>)
                                     }
                                     <FormGroup row className="mb-2">
                                         <Label sm={3} for="affType" className="required">{headerText.AffType}</Label>
