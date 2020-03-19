@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -30,7 +31,13 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index()
+        public ActionResult Index(bool isForMemberSite = true)
+        {
+            ViewBag.IsForMemberSite = isForMemberSite;
+            return isForMemberSite ? GetViewForMemberSiteTextLink() : GetViewForSubAffSiteTextLink();
+        }
+
+        private ActionResult GetViewForMemberSiteTextLink()
         {
             var userSession = SessionService.UserSession;
 
@@ -41,6 +48,38 @@
             var selectedDomain = linkForm.DomainList.FirstOrDefault();
             var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
 
+            var textParam = new MarketingTextParam
+            {
+                AffId = userSession.AffId,
+                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
+                SelectedDomain = selectedDomain,
+                SelectedPage = selectedPage,
+                ScriptUrl = AppSetting.MediaScriptUrl,
+                TextLinkTemplate = AppSetting.TextLinkTemplate,
+            };
+
+            var viewModel = new MarketingViewModel
+            {
+                SearchForm = searchForm,
+                LinkForm = linkForm,
+                MarketingDataList = GetTextList(textParam)
+            };
+
+            ViewBag.TotalItem = textParam.Nrows;
+
+            return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", viewModel);
+        }
+
+        private ActionResult GetViewForSubAffSiteTextLink()
+        {
+            var userSession = SessionService.UserSession;
+
+            var searchForm = GetSearchFormViewModel(false, true);
+            var linkForm = GetLinkFormViewModel();
+
+            var selectedLanguage = userSession.PreferredLanguage;
+            var selectedDomain = linkForm.DomainList.FirstOrDefault();
+            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
             var textParam = new MarketingTextParam
             {
                 AffId = userSession.AffId,

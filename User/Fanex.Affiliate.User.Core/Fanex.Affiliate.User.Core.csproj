@@ -255,6 +255,7 @@
     <Compile Include="Controllers\UserPanel\ReferrersStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\LandingPageStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\SubAffEarningController.cs" />
+    <Compile Include="Controllers\UserPanel\SubAffLinkController.cs" />
     <Compile Include="Controllers\UserPanel\SummaryController.cs" />
     <Compile Include="Controllers\UserPanel\TrackingStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\AffiliateLinkController.cs" />

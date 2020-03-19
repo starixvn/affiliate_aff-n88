@@ -13,5 +13,9 @@
         public const string BannerTypeList = "Affiliate.12Bet.BannerTypeList";
 
         public const string LatestHotNews = "Affiliate.12Bet.LatestHotNews";
+
+        public const string SubAffTextCategoryList = "Affiliate.SubAffTextCategoryList";
+
+        public const string SubAffBannerCategoryList = "Affiliate.SubAffBannerCategoryList";
     }
 }

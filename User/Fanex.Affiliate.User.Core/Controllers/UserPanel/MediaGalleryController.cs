@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -24,7 +25,12 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index()
+        public ActionResult Index(bool isForMemberSite = true)
+        {
+            return isForMemberSite ? GetViewForMemberSite() : GetViewForAffiliateSite();
+        }
+
+        private ActionResult GetViewForMemberSite()
         {
             var userSession = SessionService.UserSession;
             var searchForm = GetSearchFormViewModel(true);
@@ -55,6 +61,11 @@
             ViewBag.TotalItem = bannerParam.Nrows;
 
             return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", viewModel);
+        }
+
+        private ActionResult GetViewForAffiliateSite()
+        {
+            throw new NotImplementedException();
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)

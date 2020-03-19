@@ -22,8 +22,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private const int AffiliateLink = 1;
         private const int MediaGallery = 2;
 
-        private const int TargetMember = 1;
-        private const int TargetAffiliate = 2;
+        private const int TargetToMember = 1;
+        private const int TargetToAffiliate = 2;
 
         public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService)
         {
@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _cacheService = cacheService;
         }
 
-        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isInternal)
+        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isForSubAffiliate = false,bool isInternal = false)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
 
@@ -39,9 +39,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             if (categoryList == null)
             {
                 var mediaType = isMediaPage ? AffiliateLink : MediaGallery;
+                var target = isForSubAffiliate ? TargetToAffiliate : TargetToMember;
                 var param = new MediaCategoryParam
                 {
-                    TargetId = TargetMember,
+                    TargetId = target,
                     TypeId = mediaType
                 };
                 categoryList = _marketingRepository.GetCategoryList(param, isInternal);
@@ -84,12 +85,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return currencyList ?? new List<CurrencyType>();
         }
 
-        public IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal)
+        public IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal = false)
         {
             return _marketingRepository.GetSizeList(param, isInternal);
         }
 
-        public IEnumerable<BannerType> GetBannerTypeList(bool isInternal)
+        public IEnumerable<BannerType> GetBannerTypeList(bool isInternal = false)
         {
             var bannerTypeList = _cacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList);
             if (bannerTypeList == null)
@@ -105,7 +106,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return bannerTypeList ?? new List<BannerType>();
         }
 
-        public IEnumerable<Domain> GetDomainList(int affId, bool isInternal)
+        public IEnumerable<Domain> GetDomainList(int affId, bool isInternal = false)
         {
             return _marketingRepository.GetDomainList(affId, isInternal);
         }
@@ -180,7 +181,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             foreach (var text in textList)
             {
                 text.Message = HttpContext.Current.Server.HtmlDecode(text.Message.Replace("\r\n", "<br/>"));
-                text.ScriptSrc = textParam.ScriptUrl + text.BannerId;
+                text.ScriptSrc = textParam.ScriptUrl + text.TextId;
                 var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
 
                 if (language != null)
@@ -193,7 +194,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return textList;
         }
 
-        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal)
+        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false)
         {
             return _marketingRepository.GetLandingPageList(isInternal);
         }

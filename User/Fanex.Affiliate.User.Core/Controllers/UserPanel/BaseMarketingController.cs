@@ -26,29 +26,34 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             MarketingService = marketingService;
             AppSetting = appSetting;
         }
-        protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage)
+        protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage, bool isForSubAff = false)
         {
-            var categoryList = MarketingService.GetCategoryList(isMediaPage, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
+            var categoryList = MarketingService.GetCategoryList(isMediaPage, isForSubAff, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
             var languageList = MarketingService.GetLanguageList(SessionService.IsInternal);
-            var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal);
+
             var userSession = SessionService.UserSession;
             var viewModel = new SearchFormViewModel
             {
                 CategoryList = categoryList.Select(i => new SelectListItem { Value = i.Category, Text = Lang.ResourceManager.GetString(i.Category.Trim()) ?? i.Category }),
-                LanguageList = MarketingHelper.GetLanguageList(languageList, userSession.PreferredLanguage),
-                CurrencyList = currencyList.Select(i => new SelectListItem { Value = i.Currency, Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency })
+                LanguageList = MarketingHelper.GetLanguageList(languageList, userSession.PreferredLanguage),         
             };
 
-            if (isMediaPage)
+            if (!isForSubAff)
             {
-                var sizeList = MarketingService.GetSizeList(new SizeParam { AffType = userSession.AffType, Language = userSession.PreferredLanguage }, SessionService.IsInternal);
-                viewModel.SizeList = sizeList.Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
-            }
+                var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal);
+                viewModel.CurrencyList = currencyList.Select(i => new SelectListItem { Value = i.Currency, Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency });
+                
+                if (isMediaPage)
+                {
+                    var sizeList = MarketingService.GetSizeList(new SizeParam { AffType = userSession.AffType, Language = userSession.PreferredLanguage }, SessionService.IsInternal);
+                    viewModel.SizeList = sizeList.Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
+                }
 
+            }
             return viewModel;
         }
 
-        protected LinkFormViewModel GetLinkFormViewModel()
+        protected LinkFormViewModel GetLinkFormViewModel(bool isForMemberSite = true)
         {
             var userSession = SessionService.UserSession;
             var isInternal = SessionService.IsInternal;
