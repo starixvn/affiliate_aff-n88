@@ -73,7 +73,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyTextSel, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetTextDetail(123);
+            var result = service.Object.GetTextDetail(123, 1);
 
             // Assert
             Assert.Equal(123, result.TextId);
@@ -92,7 +92,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             service.Setup(r => r.GetObjectDb(SpKeyTextSel, 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.GetTextDetail(123);
+            var result = service.Object.GetTextDetail(123, 1);
 
             // Assert
             Assert.Null(result);

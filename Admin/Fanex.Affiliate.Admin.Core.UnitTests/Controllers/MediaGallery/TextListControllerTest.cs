@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             var selectedTextId = 123;
             var passedParam = 0;
             var textListService = new Mock<ITextListService>();
-            textListService.Setup(s => s.GetTextDetail(selectedTextId)).Returns(new TextInfo { TextId = 123 }).Callback<int>(p => passedParam = p);
+            textListService.Setup(s => s.GetTextDetail(selectedTextId, 1)).Returns(new TextInfo { TextId = 123 }).Callback<int>(p => passedParam = p);
             var controller = CreateTextListController(textListService: textListService.Object);
 
             // Action

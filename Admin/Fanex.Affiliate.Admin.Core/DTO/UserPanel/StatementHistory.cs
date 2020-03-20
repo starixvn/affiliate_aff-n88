@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 {
@@ -22,8 +23,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Description { get; set; }
 
-        public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.Transaction) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
+        public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.Transaction || TransType == Code.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
 
         public string NormalizeDateText => Date.ToString("yyyy-MM-dd");
+
+        public IEnumerable<StatementHistory> Children { get; set; } = new List<StatementHistory>();
     }
 }
