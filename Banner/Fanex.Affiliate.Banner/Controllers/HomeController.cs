@@ -6,6 +6,7 @@
     using System.Web;
     using System.Web.Mvc;
     using Fanex.Data;
+    using System.Text;
 
     public class HomeController : Controller
     {
@@ -26,8 +27,9 @@
 
         public ActionResult MediaText(int textId)
         {
-            var message = GetMessageContent(textId);
-            return JavaScript("document.getElementById('_affMediaText').innerHTML ='" + HttpUtility.HtmlDecode(message).Replace("\r\n", "<br/>") + "';");
+            var encodedMessage = GetMessageContent(textId);
+            var message = HttpUtility.HtmlDecode(encodedMessage);
+            return JavaScript("document.getElementById('_affMediaText').innerHTML ='" + message.Replace("\r\n", "<br/>").Replace("\n", "<br/>") + "';");
         }
 
         public ActionResult Error()
