@@ -62,48 +62,38 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 }
                 else
                 {
-                    vms.Add(CreateViewModelFromStatementHistoryItem(item));
+                    vms.Add(item);
                 }
             }
 
-            return result;
+            return new EntityResult<StatementHistory> {
+                MainData = vms,
+                TotalItem = result.TotalItem
+            };
         }
      
         private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
-            var transItems = statementHistoryList.Where(s => s.Date == monthDate)
+            var children = statementHistoryList.Where(s => s.Date == monthDate)
                 .Where(s => s.TransType == Code.SubAffiliate || s.TransType == Code.MonthlyWinlost);
 
-            var monthlyCom = transItems.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
-            var children = transItems.Select(s => CreateViewModelFromStatementHistoryItem(s));
+            var monthlyCom = children.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
 
             var monthlyTotal = new StatementHistory
             {
-                Amount = transItems.Sum(s => s.Amount),
+                Amount = children.Sum(s => s.Amount),
                 Date = monthDate,
                 Description = monthlyCom?.Description ?? "Monthly Total",
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
-                TransType = 0
+                TransType = Code.MonthlyTotal
             };
             return monthlyTotal;
         }
 
         private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistory> vms)
         {
-            return vms.Any(m => m.Date == monthDate && m.TransType == 0);
-        }
-
-        private static StatementHistory CreateViewModelFromStatementHistoryItem(StatementHistory item)
-        {
-            return new StatementHistory
-            {
-                Amount = item.Amount,
-                Description = item.Description,
-                Date = item.Date,
-                Status = item.Status,
-                TransType = item.TransType
-            };
+            return vms.Any(m => m.Date == monthDate && m.TransType == Code.MonthlyTotal);
         }
     }
 }

@@ -86,7 +86,7 @@ export class EditBannerForm extends PureComponent {
     _handleChangeInputFileName = (event, index) => {
         const value = event.target.value;
 
-        if (regexSpecialCharacters.test(value) || value.includes('\\')) {
+        if (regexSpecialCharacters.test(value)) {
             this._handleShowAlert(false, `A File Name can't contain any of the following characters: \\/:*?"<>|`);
         } else {
             let inputFileNames = [...this.state.inputFileNames];
@@ -132,7 +132,22 @@ export class EditBannerForm extends PureComponent {
         inputFileNames = [...inputFileNames.slice(0, index), ...inputFileNames.slice(index + 1, inputFileNames.length)];
         files = [...files.slice(0, index), ...files.slice(index + 1, files.length)];
         if (files && files.length) {
-            this.setState({ inputFileNames, files });
+            let allResults = {
+                isOK: true,
+                message: ''
+            };
+
+            for (let i = 0; i < files.length; i++) {
+                let fileName = files[i].name;
+                let result = validateFileExtension(fileName);
+
+                if (!result.isOK) {
+                    allResults = result;
+                }
+            }
+
+            this.setState({ files, inputFileNames, isDisabled: !allResults.isOK });
+            !allResults.isOK && this._handleShowAlert(false, allResults.message);
         } else {
             this.setState({ inputFileNames: [''], files, isDisabled: true });
         }

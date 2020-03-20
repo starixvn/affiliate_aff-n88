@@ -4,7 +4,7 @@ export const Sportsbook = 'Sportsbook';
 export const Asian = 1;
 export const maxWidthHeight = 501;
 export const maxLength = 50;
-export const regSpecialCharacters = '[\/\:\*\?\"\<\>\|]';
+export const regSpecialCharacters = '[\\\\\/\:\*\?\"\<\>\|]';
 
 export const headerText = {
     Index: '#',

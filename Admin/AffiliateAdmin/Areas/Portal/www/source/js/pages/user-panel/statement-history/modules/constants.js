@@ -16,13 +16,13 @@ export const headerText = {
 export const MONTHLY_WINLOST = 201;
 export const PAYMENT_REQUEST = 202;
 export const ADJUSTMENT = 203;
-export const TRANSACTION = 0;
+export const SUBAFFILIATE = 204;
 
 export const transTypeList = {
     [MONTHLY_WINLOST]: 'Monthly Winlost',
     [PAYMENT_REQUEST]: 'Payment Request',
     [ADJUSTMENT]: 'Adjustment',
-    [TRANSACTION]: 'Transaction'
+    [SUBAFFILIATE]: 'Sub-Affiliate'
 }
 
 export const monthlyWinlost = 'Monthly Winlost'

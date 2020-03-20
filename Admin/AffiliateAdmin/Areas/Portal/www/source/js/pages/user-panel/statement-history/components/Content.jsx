@@ -7,7 +7,7 @@ import { Button } from 'reactstrap';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
 import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_WINLOST, PAYMENT_REQUEST, TRANSACTION, selectedAllProduct, maxWidth } from '../modules/constants';
+import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth } from '../modules/constants';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -95,7 +95,7 @@ export class Content extends PureComponent {
                 return this.handleSetTransactionId(dataItem.TransId);
             },
             [MONTHLY_WINLOST]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
-            [TRANSACTION]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem)
+            [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem)
         }
     }
 
@@ -111,24 +111,41 @@ export class Content extends PureComponent {
         const description = htmlDecode(dataItem.Description);
 
         return (
-            <Row key={`dataRow-${index}`} className={status && status.toLowerCase()}>
-                <Cell title={index} className="text-center">{index}</Cell>
-                <Cell title={dataItem.DateText} className="text-center">{dataItem.DateText}</Cell>
-                <Cell title={transType} className="text-center">{transTypeList[transType] || monthlyWinlost}</Cell>
-                <Cell title={amount} className="text-right">
-                    {clickHandler ?
-                        (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>
-                            {amount}
-                        </Button>) :
-                        amount}
-                </Cell>
-                <Cell title={status} className="text-center">{isPending ?
-                    <Button className="p-0" color="link" onClick={() => this.handleSetTransactionId(dataItem.TransId)}>
-                        {status}
+            <React.Fragment>
+                <Row key={`dataRow-${dataItem.TransId}`} className={status && status.toLowerCase()}>
+                    <Cell title={index} className="text-center">{index}</Cell>
+                    <Cell title={dataItem.DateText} className="text-center">{
+                        dataItem.Children && dataItem.Children[0] ? (
+                            <Button className="p-0 th-wrapper" color="link" onClick={() => props.handleClickHeader(columnName)}>
+                                <div className="icon-container">
+                                    <span className={`caret closed`}></span>
+                                    <span className={`caret collapsed current`}></span>
+                                </div>
+                                <span>{dataItem.DateText}</span>
+                            </Button>
+                        ) : dataItem.DateText
+                    }</Cell>
+                    <Cell title={transTypeList[transType] || monthlyWinlost} className="text-center">{transTypeList[transType] || monthlyWinlost}</Cell>
+                    <Cell title={amount} className="text-right">
+                        {clickHandler ?
+                            (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>
+                                {amount}
+                            </Button>) :
+                            amount}
+                    </Cell>
+                    <Cell title={status} className="text-center">{isPending ?
+                        <Button className="p-0" color="link" onClick={() => this.handleSetTransactionId(dataItem.TransId)}>
+                            {status}
                         </Button> : status}</Cell>
-                <Cell title={creator} className="text-center">{creator}</Cell>
-                <Cell title={description}>{description}</Cell>
-            </Row>
+                    <Cell title={creator} className="text-center">{creator}</Cell>
+                    <Cell title={description}>{description}</Cell>
+                </Row>
+                {
+                    dataItem.Children && dataItem.Children[0] && dataItem.Children.map(item => {
+                        return this._buildDataRow(item);
+                    })
+                }
+            </React.Fragment>
         )
     }
 

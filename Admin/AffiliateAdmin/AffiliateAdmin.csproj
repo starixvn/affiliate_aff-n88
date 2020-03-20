@@ -1314,6 +1314,7 @@
     <Content Include="Areas\Portal\www\source\style\abstracts\variables_N8G.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N8B.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
+    <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
