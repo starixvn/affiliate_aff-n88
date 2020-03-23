@@ -1,16 +1,16 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
 <div>
-    尊敬的 @Raw(Model.FirstName),  <br /><br />
+    Dear @Raw(Model.FirstName),  <br /><br />
 
-    提款單號@(Model.TransId), 日期@(Model.TransDate)。<br /><br />
+    Request reference number is @Model.TransId, dated @Model.TransDate.<br /><br />
 
-    很高興的通知您，您金額為$@(Model.Amount)的提款申請已被核准，相應的款項已成功轉入您用於佣金提取的玩家帳戶。 <br /><br />
+    We are pleased to inform that your payment request amount of $@Model.Amount has been completed successfully and money sent to your payment processor.<br /><br />
 
-    這是一封系統郵件，請不要在此郵件基礎上直接回复。 <br />
-    如有任何疑問，請隨時聯繫我們<a href="mailto:@Model.MailContact">@Model.MailContact</a><br /> <br />
+    This is a system auto generated email, please do not reply to this email directly. <br />
+    Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /> <br />
 
-    誠摯的,<br /><br />
-    @(Model.SiteFriendlyName)合作夥伴團隊<br />
-      <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    Sincerely,<br /><br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>
