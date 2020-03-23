@@ -4,21 +4,22 @@
     var recoverUrl = Model.RootDomain + "Password/RecoverPassword?uid=" + userInfo.AffId + "&vid=" + Model.Code;
 }
 <div>
-@(userInfo.FirstName)고객님께,<br /><br />
+    Dear @userInfo.FirstName,<br /><br />
 
-고객님께서는 아이디 또는 패스워드의 복구를 요청하셨습니다.  만약 고객님께서 이를 요청하시지 않으셨다면, 이 메일을 무시하셔도 좋습니다.<br />
-그렇지 않은경우, 다음의 링크를 클릭해 주십시요. 고객님의 이메일로 즉시 새 비밀번호가 전송됩니다:<br />
-<a href='@recoverUrl'>@recoverUrl</a><br /><br />
+    You have requested to recover your username or password. If you did not request it, please ignore this email.<br />
+    Otherwise please visit the following link, then your new password will be emailed to you shortly:<br />
+    <a href='@recoverUrl'>@recoverUrl</a><br /><br />
 
-다음을 확인해주시기 바랍니다.<br />
-* 아이디: @userInfo.UserName <br />
-*보안 상의 이유로, 고객님께 새 비밀번호를 제공합니다.( 추 후 변경가능)<br />
-*위 의 링크는 24시간안에 만료되어 사용하실 수없습니다.<br /><br />
+    Please note<br />
+    * Your username is: @userInfo.UserName <br />
+    * Due to security reason, we must provide you a new password (you can change this at anytime later).<br />
+    * The above link will be expired and become useless in 24 hours time.<br /><br />
 
-좋은 하루 되세요!<br /><br />
+    Have a great day!<br /><br />
 
-감사합니다.<br /><br />
+    Best regards,<br /><br />
 
- 12Bet 업무제휴 팀 <br />
-<a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    The team at 12Bet Affiliates<br />
+
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

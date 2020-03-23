@@ -1,18 +1,18 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
 <div>
-เรียน คุณ  Mr./Mrs. @Model.User.FirstName<br /><br />
+    Dear @Model.User.FirstName,<br /><br />
 
-ขอบคุณที่ได้ทำการแจ้งถอนเงินเข้ามา วันที่ @Model.RequestDate.ToString("MM/dd/yyyy") จำนวนเงิน @(Model.Amount)บาท<br /><br />
-หมายเลขอ้างอิงการถอนเงิน คือ @Model.TransId .<br /><br />
- 
-การทำรายการถอนเงินคุณจะได้รับการดำเนินการภายใน 7 วัน ซึ่งทุกรายการถอนเงินจะต้องได้รับการตรวจสอบก่อนทุกครั้งเพื่อป้องการการผิดพลาด<br /><br />
- 
-อีเมลล์นี้เป็นการอีเมลล์ที่ถูกส่งโดยระบบ  กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง<br /><br />
-หากมีข้อสงสัยกรุณาอย่าลังเลที่จะติดต่อเรา สำหรับคำถามหรือความคิดเห็นเพิ่มเติม ส่งมาที่ <a href="mailto:@Model.MailContact">@Model.MailContact</a> <br /><br />
- 
-ขอให้คุณโชคดี<br /><br />
- 
-ขอแสดงความนับถือ<br /><br />
- 
-ทีมงานพันธมิตร 12Bet
+    Thank you for your payment request dated @Model.RequestDate.ToString("MM/dd/yyyy") for the amount of $@Model.Amount .<br />
+    Your request reference number is @Model.TransId .<br /><br />
+
+    Your payment request will be processed within 7 working days. All requests are reviewed in the order in which they are received.<br /><br />
+
+    This is a system auto generated email, please do not reply to this email directly.<br />
+    Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
+
+    Have a great day!<br /><br />
+
+    Best regards,<br /><br />
+
+    The team at 12Bet Affiliates
 </div>

@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var marketingService = new Mock<IMarketingService>();
             var languageList = CreateFakeLanguageList();
             marketingService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal)).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(IsInternal, true)).Returns(new List<LandingPage>());
 
             var statisticsRepository = new Mock<IStatisticsRepository>();
             var landingPageStisticsList = CreateFakeLandingPageStatisticsList();
@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var marketingService = new Mock<IMarketingService>();
             var languageList = CreateFakeLanguageList();
             marketingService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal)).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(IsInternal, true)).Returns(new List<LandingPage>());
 
             var statisticsRepository = new Mock<IStatisticsRepository>();
             var landingPageStisticsList = CreateFakeLandingPageStatisticsList();
