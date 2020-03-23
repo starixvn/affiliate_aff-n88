@@ -61,5 +61,9 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SiteFriendlyName => GetValue("SiteFriendlyName");
 
         public string MinWithdrawal => GetValue("MinWithdrawal");
+
+        public IEnumerable<string> SubAffDomains => GetValue("SubAffDomains").Split(new[] { ',' } , StringSplitOptions.RemoveEmptyEntries);
+
+        public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
     }
 }

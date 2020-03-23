@@ -25,10 +25,12 @@
         },
 
         getLinkGenerationParam: function () {
+
             return {
                 selectedLanguage: $("#Language").val(),
                 selectedDomainId: $("#Domain").val(),
-                selectedPage: $("#MemberSitePage").val()
+                selectedPage: $("#MemberSitePage").val(),
+                isTargetToMemberSite: $('#TargetSite').prop("checked") ? true : false
             }
         },
 

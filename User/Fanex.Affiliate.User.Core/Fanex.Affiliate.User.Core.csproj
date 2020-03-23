@@ -241,6 +241,7 @@
     <Compile Include="Constants\Page.cs" />
     <Compile Include="Constants\PaymentStatus.cs" />
     <Compile Include="Constants\Product.cs" />
+    <Compile Include="Constants\TargetSite.cs" />
     <Compile Include="Constants\TransType.cs" />
     <Compile Include="Controllers\AuthBaseController.cs" />
     <Compile Include="Controllers\UnderMaintenanceController.cs" />
@@ -256,6 +257,7 @@
     <Compile Include="Controllers\UserPanel\LandingPageStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\SubAffEarningController.cs" />
     <Compile Include="Controllers\UserPanel\SubAffLinkController.cs" />
+    <Compile Include="Controllers\UserPanel\SubAffMediaGalleryController.cs" />
     <Compile Include="Controllers\UserPanel\SummaryController.cs" />
     <Compile Include="Controllers\UserPanel\TrackingStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\AffiliateLinkController.cs" />

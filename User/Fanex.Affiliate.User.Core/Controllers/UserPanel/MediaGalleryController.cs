@@ -25,15 +25,15 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index(bool isForMemberSite = true)
+        public ActionResult Index(bool isTargetToMemberSite = true)
         {
-            return isForMemberSite ? GetViewForMemberSite() : GetViewForAffiliateSite();
+            return isTargetToMemberSite ? GetViewForMemberSite() : GetViewForAffiliateSite();
         }
 
         private ActionResult GetViewForMemberSite()
         {
             var userSession = SessionService.UserSession;
-            var searchForm = GetSearchFormViewModel(true);
+            var searchForm = GetSearchFormViewModel(true, TargetSite.TargetToMember);
             var linkForm = GetLinkFormViewModel();
 
             var selectedLanguage = userSession.PreferredLanguage;
@@ -48,7 +48,7 @@
                 AffType = userSession.AffType,
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
-                TextLinkTemplate = AppSetting.TextLinkTemplate,
+                TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToMember),
                 BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain
             };
 
@@ -65,7 +65,35 @@
 
         private ActionResult GetViewForAffiliateSite()
         {
-            throw new NotImplementedException();
+            var userSession = SessionService.UserSession;
+            var searchForm = GetSearchFormViewModel(true, TargetSite.TargetToSubAff);
+            var linkForm = GetLinkFormViewModel(false);
+
+            var selectedLanguage = userSession.PreferredLanguage;
+            var selectedDomain = linkForm.DomainList.FirstOrDefault();
+            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
+            var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
+
+            var bannerParam = new MarketingBannerParam
+            {
+                AffId = userSession.AffId,
+                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
+                AffType = userSession.AffType,
+                SelectedDomain = selectedDomain,
+                SelectedPage = selectedPage,
+                TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToSubAff),
+                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain
+            };
+
+            var viewModel = new MarketingViewModel
+            {
+                SearchForm = searchForm,
+                MarketingDataList = GetBannerList(bannerParam)
+            };
+
+            ViewBag.TotalItem = bannerParam.Nrows;
+
+            return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", viewModel);
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)

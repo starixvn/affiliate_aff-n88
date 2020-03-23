@@ -31,10 +31,10 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index()
+        public ActionResult Index(bool isTargetToMemberSite = true)
         {
             var userSession = SessionService.UserSession;
-            var linkForm = GetLinkFormViewModel();
+            var linkForm = GetLinkFormViewModel(isTargetToMemberSite);
             var languageList = MarketingService.GetLanguageList(SessionService.IsInternal);
 
             var selectedLanguage = userSession.PreferredLanguage;
@@ -42,7 +42,10 @@
             var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
             var selectedLanguageList = MarketingHelper.GetLanguageList(languageList, SessionService.UserSession.PreferredLanguage);
 
-            var linkList = GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
+            var linkList = isTargetToMemberSite 
+                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
+                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
+
             var qrCodes = GetQrCodes(linkList);
 
             var marketingViewModel = new MarketingViewModel
@@ -50,15 +53,15 @@
                 QrCodeList = qrCodes,
                 LinkForm = linkForm
             };
-
+            ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
             return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", marketingViewModel);
         }
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GetSubCategory(string category)
+        public ActionResult GetSubCategory(string category, int targetId = TargetSite.TargetToMember)
         {
-            var subCategoryList = MarketingService.GetCategoryList(true, SessionService.IsInternal)
+            var subCategoryList = MarketingService.GetCategoryList(true, targetId, SessionService.IsInternal)
                 .Where(c => c.Category.MatchWith(category) && !string.IsNullOrEmpty(c.SubCategory));
 
             return Json(subCategoryList.Select(i => new SelectListItem 
@@ -66,7 +69,7 @@
                     Value = i.SubCategory, 
                     Text = Lang.ResourceManager.GetString(i.SubCategory.Trim()) ?? i.SubCategory 
                 }),
-                 JsonRequestBehavior.AllowGet);
+                JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -93,7 +96,7 @@
             bannerParam.AffId = userSession.AffId;
             bannerParam.AffType = userSession.AffType;
             bannerParam.SelectedDomain = selectedDomain;
-            bannerParam.TextLinkTemplate = AppSetting.TextLinkTemplate;
+            bannerParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(bannerParam.TargetId);
             bannerParam.BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ??
                 AppSetting.BannerDomain;
             bannerParam.Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(bannerParam.Language))?.EnglishName;
@@ -114,7 +117,7 @@
 
             textParam.AffId = userSession.AffId;
             textParam.SelectedDomain = selectedDomain;
-            textParam.TextLinkTemplate = AppSetting.TextLinkTemplate;
+            textParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(textParam.TargetId);
             textParam.ScriptUrl = AppSetting.MediaScriptUrl;
             textParam.Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(textParam.Language))?.EnglishName;
 
@@ -126,15 +129,20 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GenerateLink(string selectedLanguage, int selectedDomainId, string selectedPage)
+        public ActionResult GenerateLink(string selectedLanguage
+            , int selectedDomainId
+            , string selectedPage
+            , bool isTargetToMemberSite = true)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal, isTargetToMemberSite)
                                                     .FirstOrDefault(d => d.DomainId == selectedDomainId);
             var languageList = string.IsNullOrEmpty(selectedLanguage) ?
                 MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
 
-            var textLinkList = GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList);
+            var textLinkList = isTargetToMemberSite 
+                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
+                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
 
             var qrCodeParamsDic = GetQrCodes(textLinkList);
 

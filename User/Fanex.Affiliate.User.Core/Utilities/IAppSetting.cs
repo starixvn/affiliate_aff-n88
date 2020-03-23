@@ -56,5 +56,9 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string SiteName { get; }
 
         string MinWithdrawal { get; }
+
+        IEnumerable<string> SubAffDomains { get; }
+
+        string SubAffTextLinkTemplate { get; }
     }
 }

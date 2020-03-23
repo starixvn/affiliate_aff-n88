@@ -14,7 +14,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
             var dataList = languageList.Select(l => new SelectListItem
             { 
                 Value = l.MarketId,
-                Text = SystemLanguage.GetLanguageText(l.MarketName),
+                Text = l.MarketName,
                 Selected = l.MarketId.MatchWith(preferredLanguage)
             });
  

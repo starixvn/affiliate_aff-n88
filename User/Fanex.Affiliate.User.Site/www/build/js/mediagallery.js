@@ -403,6 +403,7 @@ var MediaGallery = (function ($) {
                 deviceType: $("#DeviceType").val(),
                 selectedDomainId: $("#Domain").val(),
                 selectedPage: $("#MemberSitePage").val(),
+                targetId: $("#TargetId").val(),
                 pageIndex: _pageIndex + 1,
                 pageSize: _pageSize
             };

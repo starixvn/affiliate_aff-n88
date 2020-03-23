@@ -22,7 +22,8 @@
         public AffiliateLinkController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService) : base(sessionService,
+            IMarketingService marketingService) 
+            : base(sessionService,
                 appSetting,
                 languageService,
                 marketingService)
@@ -31,17 +32,17 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index(bool isForMemberSite = true)
+        public ActionResult Index(bool isTargetToMemberSite = true)
         {
-            ViewBag.IsForMemberSite = isForMemberSite;
-            return isForMemberSite ? GetViewForMemberSiteTextLink() : GetViewForSubAffSiteTextLink();
+            ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
+            return isTargetToMemberSite ? GetViewForMemberSiteTextLink() : GetViewForSubAffSiteTextLink();
         }
 
         private ActionResult GetViewForMemberSiteTextLink()
         {
             var userSession = SessionService.UserSession;
 
-            var searchForm = GetSearchFormViewModel(false);
+            var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToMember);
             var linkForm = GetLinkFormViewModel();
 
             var selectedLanguage = userSession.PreferredLanguage;
@@ -56,6 +57,7 @@
                 SelectedPage = selectedPage,
                 ScriptUrl = AppSetting.MediaScriptUrl,
                 TextLinkTemplate = AppSetting.TextLinkTemplate,
+                TargetId = TargetSite.TargetToMember
             };
 
             var viewModel = new MarketingViewModel
@@ -74,8 +76,8 @@
         {
             var userSession = SessionService.UserSession;
 
-            var searchForm = GetSearchFormViewModel(false, true);
-            var linkForm = GetLinkFormViewModel();
+            var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToSubAff);
+            var linkForm = GetLinkFormViewModel(false);
 
             var selectedLanguage = userSession.PreferredLanguage;
             var selectedDomain = linkForm.DomainList.FirstOrDefault();
@@ -87,7 +89,8 @@
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
                 ScriptUrl = AppSetting.MediaScriptUrl,
-                TextLinkTemplate = AppSetting.TextLinkTemplate,
+                TextLinkTemplate = AppSetting.SubAffTextLinkTemplate,
+                TargetId = TargetSite.TargetToSubAff
             };
 
             var viewModel = new MarketingViewModel
