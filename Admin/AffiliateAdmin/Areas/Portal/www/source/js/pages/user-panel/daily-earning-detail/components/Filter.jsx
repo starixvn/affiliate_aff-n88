@@ -11,7 +11,7 @@ export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { param, currencyList } = this.props;
+        const { param } = this.props;
 
         this.state = {
             selectedProduct: param.productId || selectedAllProduct,

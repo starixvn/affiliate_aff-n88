@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
-import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning } from '../actions';
+import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setClosedIdList, redirectToSubAffiliate } from '../actions';
 import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth } from '../modules/constants';
 
 export class Content extends PureComponent {
@@ -89,17 +89,29 @@ export class Content extends PureComponent {
         return this.props.redirectToDailyEarning(dailyEarningParam);
     }
 
+    _handleRedirectToSubAffiliate = (dataItem) => {
+        const { affId } = this.props;
+        const subAffiliateParam = {
+            affId,
+            monthDate: dataItem.NormalizeDateText
+        }
+
+        return this.props.redirectToSubAffiliate(subAffiliateParam);
+    }
+
     _getClickHandlerByTransType() {
         return {
             [PAYMENT_REQUEST]: (dataItem) => () => {
                 return this.handleSetTransactionId(dataItem.TransId);
             },
             [MONTHLY_WINLOST]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
-            [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem)
+            [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToSubAffiliate(dataItem)
         }
     }
 
     _buildDataRow(dataItem, index) {
+        const { closedIdList } = this.props;
+        const isClosed = closedIdList[dataItem.TransId];
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
@@ -116,10 +128,9 @@ export class Content extends PureComponent {
                     <Cell title={index} className="text-center">{index}</Cell>
                     <Cell title={dataItem.DateText} className="text-center">{
                         dataItem.Children && dataItem.Children[0] ? (
-                            <Button className="p-0 th-wrapper" color="link" onClick={() => props.handleClickHeader(columnName)}>
+                            <Button className="p-0 th-wrapper" color="link" onClick={() => this.props.setClosedIdList({ ...closedIdList, [dataItem.TransId]: !isClosed })}>
                                 <div className="icon-container">
-                                    <span className={`caret closed`}></span>
-                                    <span className={`caret collapsed current`}></span>
+                                    <span className={`caret ${isClosed ? 'closed' : 'collapsed current' }`}></span>
                                 </div>
                                 <span>{dataItem.DateText}</span>
                             </Button>
@@ -141,7 +152,7 @@ export class Content extends PureComponent {
                     <Cell title={description}>{description}</Cell>
                 </Row>
                 {
-                    dataItem.Children && dataItem.Children[0] && dataItem.Children.map(item => {
+                    dataItem.Children && dataItem.Children[0] && !isClosed && dataItem.Children.map(item => {
                         return this._buildDataRow(item);
                     })
                 }
@@ -186,14 +197,14 @@ export class Content extends PureComponent {
 
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
-    const { pagingOption, param } = statementHistory;
+    const { pagingOption, param, closedIdList } = statementHistory;
     const { affId } = affCommonInfo;
 
-    return Object.assign({}, { affId, pagingOption, param });
+    return Object.assign({}, { affId, pagingOption, param, closedIdList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setClosedIdList, redirectToSubAffiliate }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

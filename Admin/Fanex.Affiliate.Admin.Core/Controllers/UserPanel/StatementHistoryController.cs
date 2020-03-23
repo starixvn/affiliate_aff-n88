@@ -38,6 +38,21 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
+        public ActionResult GetSubAffiliate(SubAffiliateParam param)
+        {
+            if (ModelState.IsValid)
+            {
+                return new JsonNetResult
+                {
+                    Data = _statementHistoryService.GetSubAffiliate(param)
+                };
+            }
+
+            return new JsonNetResult();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
         public ActionResult GetDailyEarning(DailyEarningParam param)
         {
             if (ModelState.IsValid)

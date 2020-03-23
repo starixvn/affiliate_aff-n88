@@ -900,6 +900,13 @@
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\modules\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\reducers\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\index.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\types.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\Filter.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\Content.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\AppContainer.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\libs\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\types.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\__test__\index.test.js" />

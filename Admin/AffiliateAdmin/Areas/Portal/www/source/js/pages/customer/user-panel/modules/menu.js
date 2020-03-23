@@ -4,6 +4,8 @@ import { withUserPanel } from '../modules/withUserPanel';
 
 const StatementHistory = React.lazy(() =>
     import ( /* webpackChunkName: "statementHistory" */ '../../../user-panel/statement-history/components/AppContainer'));
+const SubAffiliate = React.lazy(() =>
+    import( /* webpackChunkName: "subaffiliate" */ '../../../user-panel/sub-affiliate/components/AppContainer'));
 const DailyEarning = React.lazy(() =>
     import ( /* webpackChunkName: "dailyEarning" */ '../../../user-panel/daily-earning/components/AppContainer'));
 const DailyEarningDetail = React.lazy(() =>
@@ -29,6 +31,7 @@ const LandingPageStatistics = React.lazy(() =>
 
 export const userPanelMenuList = [
     { key: menuKey.statementHistory, name: 'Statement History', component: withUserPanel(StatementHistory, menuKey.statementHistory), parent: null },
+    { key: menuKey.subAffiliate, name: '', component: withUserPanel(SubAffiliate, menuKey.subAffiliate), parent: menuKey.statementHistory },
     { key: menuKey.dailyEarning, name: '', component: withUserPanel(DailyEarning, menuKey.dailyEarning), parent: menuKey.statementHistory },
     { key: menuKey.dailyEarningDetail, name: '', component: withUserPanel(DailyEarningDetail, menuKey.dailyEarningDetail), parent: menuKey.statementHistory },
     { key: menuKey.edit, name: 'Edit', component: withUserPanel(UserAccount, menuKey.edit), parent: null },

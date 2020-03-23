@@ -1,11 +1,11 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { setPagingOption } from '../../../../actions/pagingAction';
 import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
-import { redirectToDailyEarning } from '../../../customer/user-panel/actions';
+import { redirectToDailyEarning, redirectToSubAffiliate } from '../../../customer/user-panel/actions';
 import { getAffiliateInfo } from '../../../customer/mainpage/actions/loadingDataAction';
-import { SET_PARAM, TRANSACTION_ID } from '../actions/types';
+import { SET_PARAM, TRANSACTION_ID, SET_CLOSED_ID_LIST } from '../actions/types';
 
-export { setPagingOption, toggleLoaderUserPanel, getAffiliateInfo, redirectToDailyEarning };
+export { setPagingOption, toggleLoaderUserPanel, getAffiliateInfo, redirectToDailyEarning, redirectToSubAffiliate };
 
 export const setParam = (data) => {
     return {
@@ -17,6 +17,13 @@ export const setParam = (data) => {
 export const setTransactionId = (data) => {
     return {
         type: TRANSACTION_ID,
+        data
+    }
+}
+
+export const setClosedIdList = (data) => {
+    return {
+        type: SET_CLOSED_ID_LIST,
         data
     }
 }

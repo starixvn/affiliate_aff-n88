@@ -2,6 +2,7 @@ export const userPanelMenuKey = {
     statementHistory: 'statementHistory',
     dailyEarning: 'dailyEarning',
     dailyEarningDetail: 'dailyEarningDetail',
+    subAffiliate: 'subAffiliate',
     edit: 'edit',
     note: 'note',
     playerDetail: 'playerDetail',

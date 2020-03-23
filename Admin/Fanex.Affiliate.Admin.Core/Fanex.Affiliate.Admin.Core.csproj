@@ -266,6 +266,7 @@
     <Compile Include="DTO\Member\MemberInfo.cs" />
     <Compile Include="DTO\Member\InactiveMemberInfo.cs" />
     <Compile Include="DTO\Payment\PaymentMethod.cs" />
+    <Compile Include="DTO\UserPanel\SubAffiliate.cs" />
     <Compile Include="MetaModels\Administrator\ChangeStatusParam.cs" />
     <Compile Include="MetaModels\Administrator\DeleteDepartmentParam.cs" />
     <Compile Include="MetaModels\Administrator\InsertExistedUserParam.cs" />
@@ -361,6 +362,7 @@
     <Compile Include="MetaModels\UserPanel\PlayerDetailParam.cs" />
     <Compile Include="MetaModels\UserPanel\ReferrersDetailParam.cs" />
     <Compile Include="MetaModels\UserPanel\ReferrersParam.cs" />
+    <Compile Include="MetaModels\UserPanel\SubAffiliateParam.cs" />
     <Compile Include="MetaModels\UserPanel\TrackingStatisticsDetailParam.cs" />
     <Compile Include="MetaModels\UserPanel\TrackingStatisticsParam.cs" />
     <Compile Include="MetaModels\UserPanel\UserAccountParam.cs" />

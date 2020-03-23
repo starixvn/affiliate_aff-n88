@@ -20,13 +20,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
                 objectDb.AddInParameter("FDate", DbType.DateTime, param.FromDate);
                 objectDb.AddInParameter("TDate", DbType.DateTime, param.ToDate);
                 objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
                 objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter(Field.NRows, DbType.Int32, Size.SizeOfInt);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                         dataList.Add(new StatementHistory
                         {
                             TransId = Convert.ToInt64(reader["TransId"]),
-                            Date = Convert.ToDateTime(reader["MonthDate"]),
+                            Date = Convert.ToDateTime(reader[Field.MonthDate]),
                             TransType = Convert.ToInt32(reader["TransType"]),
                             Amount = Convert.ToDecimal(reader["Amount"]),
                             Status = Convert.ToString(reader["Status"]),
@@ -46,8 +46,45 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 }
 
                 result.MainData = dataList;
-                var totalRow = objectDb.GetParameterValue("NRows");
+                var totalRow = objectDb.GetParameterValue(Field.NRows);
                 result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+            }
+
+            return result;
+        }
+
+        public EntityResult<SubAffiliate> GetSubAffiliate(SubAffiliateParam param)
+        {
+            const string uSpKey = "Aff_SubAffiliate_Commission_Sel";
+
+            var result = new EntityResult<SubAffiliate>();
+            var dataList = new List<SubAffiliate>();
+
+            using (var objectDb = GetObjectDb(uSpKey))
+            {
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
+                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
+                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
+                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+
+                objectDb.AddOutParameter(Field.NRows, DbType.Int32, Size.SizeOfInt);
+
+                using (var reader = objectDb.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        dataList.Add(BuildSubAffilliateItem(reader));
+                    }
+                    result.MainData = dataList;
+                    var totalRow = objectDb.GetParameterValue(Field.NRows);
+                    result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+
+                    if (reader.NextResult() && reader.Read())
+                    {
+                        result.Total = BuildSubAffilliateItem(reader);
+                    }
+                }
             }
 
             return result;
@@ -62,9 +99,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(uSpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
                 objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
-                objectDb.AddInParameter("MonthDate", DbType.DateTime, param.MonthDate);
+                objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
                 objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
@@ -92,9 +129,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
                 objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
-                objectDb.AddInParameter("MonthDate", DbType.DateTime, param.MonthDate);
+                objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
                 objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
 
                 using (var reader = objectDb.ExecuteReader())
@@ -129,6 +166,16 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 MemberWinLost = Convert.ToDecimal(reader["MemberWinLost"]),
                 Bonus = Convert.ToDecimal(reader["Bonus"]),
                 BankingFee = reader["BankingFee"] == DBNull.Value ? 0m : Convert.ToDecimal(reader["BankingFee"])
+            };
+        }
+        private static SubAffiliate BuildSubAffilliateItem(IDataReader reader)
+        {
+            return new SubAffiliate
+            {
+                AffId = Convert.ToInt32(reader[Field.AffId]),
+                AffName = Convert.ToString(reader["UserName"]),
+                Commission = reader["Commission"] == DBNull.Value ? 0m : Convert.ToDecimal(reader["Commission"]),
+                SubAffCommission = reader["SubAffCommission"] == DBNull.Value ? 0m : Convert.ToDecimal(reader["SubAffCommission"])
             };
         }
     }

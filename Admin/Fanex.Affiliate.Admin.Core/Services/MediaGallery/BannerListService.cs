@@ -244,9 +244,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             }
 
             BuildFilesXml(param);
-            var resultInsert = _bannerListRepository.InsertBanner(param);
+            result = _bannerListRepository.InsertBanner(param);
 
-            if (!resultInsert.IsSuccessful)
+            if (!result.IsSuccessful)
             {
                 foreach (var path in param.FilePaths)
                 {

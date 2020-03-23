@@ -19,6 +19,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             _statementHistoryRepository = statementHistoryRepository;
         }
 
+        public EntityResult<SubAffiliate> GetSubAffiliate(SubAffiliateParam param)
+        {
+            return _statementHistoryRepository.GetSubAffiliate(param);
+        }
+
         public DailyEarningResult GetDailyEarning(DailyEarningParam param)
         {
             return _statementHistoryRepository.GetDailyEarning(param);
@@ -58,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                     {
                         continue;
                     }
-                    vms.Add(CreateMonthlyTotal(item.Date, result.MainData));
+                    vms.Add(CreateMonthlyTotal(item.TransId, result.MainData));
                 }
                 else
                 {
@@ -72,17 +77,19 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             };
         }
      
-        private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
+        private static StatementHistory CreateMonthlyTotal(long transId, IEnumerable<StatementHistory> statementHistoryList)
         {
-            var children = statementHistoryList.Where(s => s.Date == monthDate)
+            var children = statementHistoryList.Where(s => s.TransId == transId)
                 .Where(s => s.TransType == Code.SubAffiliate || s.TransType == Code.MonthlyWinlost);
 
             var monthlyCom = children.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
 
             var monthlyTotal = new StatementHistory
             {
+                TransId = transId,
+                Creator = monthlyCom.Creator,
                 Amount = children.Sum(s => s.Amount),
-                Date = monthDate,
+                Date = monthlyCom.Date,
                 Description = monthlyCom?.Description ?? "Monthly Total",
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,

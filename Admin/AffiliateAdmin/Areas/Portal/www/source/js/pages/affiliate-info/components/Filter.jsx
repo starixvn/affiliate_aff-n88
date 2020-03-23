@@ -21,7 +21,7 @@ export class Filter extends Component {
             userName: '',
             email: '',
             affId: '',
-            parentAffName: '',
+            parentAffName: this.props.param.ParentAffName || '',
             selectedSortBy: defaultSortBy,
             isSortAscending: true
         }
@@ -68,7 +68,7 @@ export class Filter extends Component {
             GroupId: selectedCommGroup,
             Language: selectedLanguage,
             Status: selectedStatus,
-            ParentAffName: parentAffName || this.props.parentAffName,
+            ParentAffName: parentAffName || this.state.parentAffName,
             UserName: userName,
             Email: email,
             SortBy: selectedSortBy,
@@ -210,7 +210,7 @@ export class Filter extends Component {
                             onChange={this.handleChangeColumn} />
                     </FormGroup>
 
-                    <Button className="my-2" outline color="primary" type="button" onClick={this.handleClickSearch} >
+                    <Button className="my-2" outline color="primary" type="button" onClick={() => this.handleClickSearch(parentAffName)} >
                         <span className="oi oi-magnifying-glass"></span> {resource.Search}
                     </Button>
                 </Form>
