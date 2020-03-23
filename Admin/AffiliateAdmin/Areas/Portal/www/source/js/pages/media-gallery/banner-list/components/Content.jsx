@@ -97,7 +97,7 @@ export const Content = (props) => {
                 <Cell className="text-center">
                     {
                         isValidWithHeight ? (
-                            <img id={`img${bannerId}`} src={src} alt="" height={realHeight} width={realWidth} />
+                            <img id={`img${bannerId}`} src={src} alt="Banner" height={realHeight} width={realWidth} />
                         ) : (
                                 <a href="javascript:;" id={`link${bannerId}`} onClick={() => props.setBannerDetailUrl({ src, bannerId, width: realWidth, height: realHeight })}>
                                     <img id={`img${bannerId}`} src={src} alt="Banner" height={resizeResult.height} width={resizeResult.width} />

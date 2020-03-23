@@ -338,7 +338,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 BuildFilesXml(param);
                 result = _bannerListRepository.UpdateBanner(param);
 
-                if (result.IsSuccessful && string.Compare(param.FilePaths[0], oldFilePath, StringComparison.CurrentCultureIgnoreCase) != 0)
+                if (result.IsSuccessful && !string.Equals(param.FilePaths[0], oldFilePath, StringComparison.CurrentCultureIgnoreCase))
                 {
                     MoveFile(param.FilePaths[0], oldFilePath);
                 }
