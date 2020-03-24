@@ -15,12 +15,12 @@
             return View();
         }
 
-        public ActionResult MediaScript(int textId)
+        public ActionResult MediaScript(int textId, int targetId = 1)
         {
             var content = System.IO.File.ReadAllText(Server.MapPath("~/Scripts/affiliate.text.js"));
             content = content.Replace("{requesttime}", ConfigurationManager.AppSettings["RequestTime"]);
             content = content.Replace("{url}", ConfigurationManager.AppSettings["BannerUrl"]);
-            content = content.Replace("{affid}", textId.ToString());
+            content = content.Replace("{affid}", textId.ToString()).Replace("{targetId}", targetId.ToString());
 
             return JavaScript(content);
         }
