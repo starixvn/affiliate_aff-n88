@@ -2314,4 +2314,22 @@
   <data name="TotalCommission" xml:space="preserve">
     <value>Total Commission</value>
   </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Copy Link</value>
+  </data>
+  <data name="CopyQRCode" xml:space="preserve">
+    <value>Copy QR Code</value>
+  </data>
+  <data name="SaveQRCode" xml:space="preserve">
+    <value>Save QR Code</value>
+  </data>
+  <data name="Dimension" xml:space="preserve">
+    <value>Dimension</value>
+  </data>
+  <data name="CopyBannerCode" xml:space="preserve">
+    <value>Copy Banner Code</value>
+  </data>
+  <data name="ShareBanner" xml:space="preserve">
+    <value>Share banner to your friends</value>
+  </data>
 </root>

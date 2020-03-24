@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -1369,6 +1369,33 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy Banner Code.
+        /// </summary>
+        public static string CopyBannerCode {
+            get {
+                return ResourceManager.GetString("CopyBannerCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Link.
+        /// </summary>
+        public static string CopyLink {
+            get {
+                return ResourceManager.GetString("CopyLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy QR Code.
+        /// </summary>
+        public static string CopyQRCode {
+            get {
+                return ResourceManager.GetString("CopyQRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright © 2020 | 12BET. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
@@ -1617,6 +1644,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Device {
             get {
                 return ResourceManager.GetString("Device", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dimension.
+        /// </summary>
+        public static string Dimension {
+            get {
+                return ResourceManager.GetString("Dimension", resourceCulture);
             }
         }
         
@@ -4877,6 +4913,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save QR Code.
+        /// </summary>
+        public static string SaveQRCode {
+            get {
+                return ResourceManager.GetString("SaveQRCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SB Bonus.
         /// </summary>
         public static string SBBonus {
@@ -4981,6 +5026,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Seychelles {
             get {
                 return ResourceManager.GetString("Seychelles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share banner to your friends.
+        /// </summary>
+        public static string ShareBanner {
+            get {
+                return ResourceManager.GetString("ShareBanner", resourceCulture);
             }
         }
         

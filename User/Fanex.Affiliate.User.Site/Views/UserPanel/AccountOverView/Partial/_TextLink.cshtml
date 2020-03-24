@@ -9,12 +9,12 @@
         <div class="flex flex-0 flex-lg-6">
             <label class="flex-3 control-label">@Model[key].Language</label>
             <div class="flex-9">
-                <button class="btn-copy-link" data-clipboard-text="@Model[key].Link">Copy Link</button>
-                <button class="btn-copy-qr">Copy QR Code</button>
+                <button class="btn-copy-link" data-clipboard-text="@Model[key].Link">@Lang.CopyLink</button>
+                <button class="btn-copy-qr">@Lang.CopyQRCode</button>
                 @{ 
                     var downloadName = Model[key].Language + "_qrcode";
                 }
-                <button class="btn-save-img" data-image-name="@downloadName">Save QR Code</button>
+                <button class="btn-save-img" data-image-name="@downloadName">@Lang.SaveQRCode</button>
                 <img class="qr-code" src="@Model[key].QrCode"/>
             </div>
         </div>

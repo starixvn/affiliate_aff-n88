@@ -2143,4 +2143,52 @@
   <data name="NoSiteDescMaxLength" xml:space="preserve">
     <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 100 ký tự</value>
   </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>Affiliate Phụ</value>
+  </data>
+  <data name="SubAffDownline" xml:space="preserve">
+    <value>Cấp Dưới của Affiliate Phụ</value>
+  </data>
+  <data name="SubAffEarning" xml:space="preserve">
+    <value>Thu Nhập của Affiliate Phụ</value>
+  </data>
+  <data name="SubAffiliateLink" xml:space="preserve">
+    <value>Đường Dẫn Affiliate Phụ</value>
+  </data>
+  <data name="SubAffiliateMediaGallery" xml:space="preserve">
+    <value>Thư viện ảnh Affiliate phụ</value>
+  </data>
+  <data name="AffilateLink" xml:space="preserve">
+    <value>Đường Dẫn Affiliate</value>
+  </data>
+  <data name="MediaGallery" xml:space="preserve">
+    <value>Thư viện ảnh</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Sao Chép Đường Dẫn</value>
+  </data>
+  <data name="CopyQRCode" xml:space="preserve">
+    <value>Sao Chép Mã QR</value>
+  </data>
+  <data name="SaveQRCode" xml:space="preserve">
+    <value>Lưu Mã QR</value>
+  </data>
+  <data name="Dimension" xml:space="preserve">
+    <value>Kích Thước</value>
+  </data>
+  <data name="CopyBannerCode" xml:space="preserve">
+    <value>Sao Chép Mã Biểu Ngữ</value>
+  </data>
+  <data name="ShareBanner" xml:space="preserve">
+    <value>Chia sẻ biểu ngữ cho bạn bè</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Người Chơi</value>
+  </data>
+  <data name="MonthlyTotal" xml:space="preserve">
+    <value>Tổng Hàng Tháng</value>
+  </data>
+  <data name="TotalCommission" xml:space="preserve">
+    <value>Tổng hoa hồng</value>
+  </data>
 </root>
