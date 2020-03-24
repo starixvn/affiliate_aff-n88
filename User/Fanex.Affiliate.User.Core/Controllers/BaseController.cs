@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 SessionService.CurrentLanguage = favoriteLanguage;
             }
             LanguageService.SetCulture(favoriteLanguage);
-        }
+        } 
 
     }
 }

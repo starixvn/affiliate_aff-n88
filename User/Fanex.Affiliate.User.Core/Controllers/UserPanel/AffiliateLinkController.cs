@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -22,7 +21,7 @@
         public AffiliateLinkController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService) 
+            IMarketingService marketingService)
             : base(sessionService,
                 appSetting,
                 languageService,

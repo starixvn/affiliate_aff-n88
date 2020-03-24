@@ -317,6 +317,8 @@
     <Compile Include="DTO\UserPanel\OverviewSummary.cs" />
     <Compile Include="DTO\UserPanel\PlayerDetail.cs" />
     <Compile Include="DTO\UserPanel\SubAffComInfo.cs" />
+    <Compile Include="Filters\JsonHandlerAttribute.cs" />
+    <Compile Include="Infrastructure\JsonNetResult.cs" />
     <Compile Include="MetalModels\UserPanel\MediaCategoryParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />

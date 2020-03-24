@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.Filters;
 
 namespace Fanex.Affiliate.User.Site
@@ -7,7 +8,12 @@ namespace Fanex.Affiliate.User.Site
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new GlobalErrorHandlerAttribute());
+            var env = ConfigurationManager.AppSettings["Environment"];
+            if (env != "LOCAL")
+            {
+                filters.Add(new GlobalErrorHandlerAttribute());
+            }
+            filters.Add(new JsonHandlerAttribute());
         }
     }
 }

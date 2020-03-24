@@ -16,14 +16,10 @@ namespace Fanex.Affiliate.User.Site
         [SuppressMessage("Sonar Code Smell", "S2325:Methods and properties should be static", Justification = "Reviewed.")]
         protected void Application_Start()
         {
-            var env = ConfigurationManager.AppSettings["Environment"];
             IoCConfig.Register();
             AreaRegistration.RegisterAllAreas();
 
-            if (env != "LOCAL")
-            {
-                FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            }
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             MvcHandler.DisableMvcResponseHeader = true;

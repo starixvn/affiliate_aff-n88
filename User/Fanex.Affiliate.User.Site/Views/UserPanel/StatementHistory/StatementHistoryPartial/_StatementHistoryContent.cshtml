@@ -29,7 +29,7 @@
         <td class="text-right">
             @if (isLink)
             {
-                <a class="amountItem" data-date="@item.MonthDate.ToString("MM/dd/yyyy")" data-transtype="@item.TransType" href="javascript:;">
+                <a class="amountItem" data-date="@item.MonthDate.ToString("yyyy-MM-dd")" data-transtype="@item.TransType" href="javascript:;">
                     @item.Amount.ToStringMoneyWithSymbol()
                 </a>
             }

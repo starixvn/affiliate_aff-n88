@@ -52,6 +52,17 @@
                     .nextUntil('.sumrow').toggleClass('expanded', !isExpanding);
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             });
+
+            $('#dataTable').on('click', '.amountItem', function () {
+                let url = "UserPanel/Main/#SubAffEarning";
+                let params = {
+                    monthDate: $(this).data("date")
+                };
+
+                Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
+            })
+
+
         },
 
         submit: function () {
@@ -65,6 +76,7 @@
                 contentType: "application/json; charset=UTF-8",
                 success: function (response) {
                     _reportData = response;
+                    console.log(response);
                     if (_reportData) {
                         _me.renderData();
                         _me.activeSortIcon($('#defaultSorting'));
@@ -80,6 +92,7 @@
         },
 
         renderData: function () {
+            console.log(1);
             if (_reportData.Data && _reportData.Data.length) {
                 var bodyHtml = _me.buildDataTable();
                 $('#reportData').html(bodyHtml);
@@ -117,8 +130,7 @@
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
 
-            var date = new Date(dataRow.MonthDate);
-            console.log(dataRow.MonthDate);
+            var date = dataRow.MonthDate;
 
             var iconHtml = '<span class="chevron toggleDetailRow ' + toggleIconClass + '" aria-hidden="true"></span>';
             var rowItems = [];
@@ -134,7 +146,7 @@
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
-                rowItems.push(_me.buildCell(formatDecimal(dataRow.SubAffCommission)));
+                rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
                 for (var i = 0; i < 8; i++) {
@@ -169,6 +181,10 @@
 
         buildCell: function (cellData) {
             return '<td class="text-right">' + cellData + '</td>';
+        },
+
+        buildSubAffCell: function (cellData, date) {
+            return `<td class="text-right"><a data-date=${date} href='javascript:;' class='amountItem'> ${cellData}</a></td>`;
         },
 
         processSorting: function ($element) {
