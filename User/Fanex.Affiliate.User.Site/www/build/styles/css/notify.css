@@ -14,8 +14,11 @@ body {
   width: 960px;
   height: 86px;
   margin: auto;
-  background: url(../../../source/styles/Images/notify/logo_e.png) top left no-repeat;
-  margin-bottom: 30px; }
+  margin-top: 20px; }
+  #top.N8B {
+    background: url(../../../source/styles/Images/themes/n8b.png) top left no-repeat; }
+  #top.N8G {
+    background: url(../../../source/styles/Images/themes/n8g.png) top left no-repeat; }
 
 #center {
   width: 850px;
