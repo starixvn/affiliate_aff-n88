@@ -52,41 +52,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             Assert.Single(model.CategoryList);
             Assert.Single(model.LanguageList);
             Assert.Single(model.CurrencyList);
-            Assert.Single(model.ImageTypeList);
             Assert.Single(model.SizeList);
             Assert.Single(model.AffTypeList);
             Assert.Equal(param, model.Param);
             Assert.Equal(param.ImageType, passedSizeParam.ImageType);
-        }
-
-        [Fact]
-        public void GetSubCategoryCasinoList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Casino", SubCategoryName = "Baccarat" } });
-            var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
-
-            // Action
-            var result = controller.GetSubCategoryCasinoList() as JsonNetResult;
-
-            // Assert
-            Assert.Single(result.Data as IEnumerable<Category>);
-        }
-
-        [Fact]
-        public void GetSubCategorySportsbookList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Sportsbook", SubCategoryName = "SB Bonus" } });
-            var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
-
-            // Action
-            var result = controller.GetSubCategorySportsbookList() as JsonNetResult;
-
-            // Assert
-            Assert.Single(result.Data as IEnumerable<Category>);
         }
 
         [Fact]

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader } from '../actions/index';
 import { headerText, defaultState } from '../libs/constants';
-import { defaultInsertId, globalResource, deviceTypes } from '../../common/libs/constants';
+import { defaultInsertId, globalResource, deviceTypes, memberBanner } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class TextDetailForm extends PureComponent {
@@ -18,11 +18,15 @@ export class TextDetailForm extends PureComponent {
     }
 
     componentDidUpdate(prevProps) {
-        const { selectedTextId } = this.props;
+        const { selectedTextId, param } = this.props;
         if (prevProps.selectedTextId !== selectedTextId) {
             this.setState({ isInsert: selectedTextId === defaultInsertId });
 
             selectedTextId && this._handleGetTextDetail(selectedTextId);
+        }
+
+        if (param !== prevProps.param) {
+            this.setState({ category: param.userType == memberBanner ? 'Basketball' : 'Sign up' })
         }
     }
 

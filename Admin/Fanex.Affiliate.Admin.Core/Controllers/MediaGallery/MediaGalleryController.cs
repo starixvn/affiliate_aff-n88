@@ -64,10 +64,15 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 CategoryList = bannerListCategory.Where(c => string.IsNullOrEmpty(c.SubCategoryName)),
                 SubCategoryList = bannerListCategory.Where(c => !string.IsNullOrEmpty(c.SubCategoryName)),
+                SubCategoryCasinoList = bannerListCategory.Where(c => string.Equals(c.CategoryName, CasinoCategory, StringComparison.CurrentCultureIgnoreCase)
+                                        && !string.IsNullOrEmpty(c.SubCategoryName)),
+                SubCategorySportsbookList = bannerListCategory.Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase)
+                                        && !string.IsNullOrEmpty(c.SubCategoryName)),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 SizeList = _bannerListService.GetSizeList(sizeParam),
                 AffTypeList = _affTypeService.GetAffTypeList(),
+                BannerRootUrl = _appSetting.BannerRootUrl,
                 SubMenuList = subMenu,
                 Param = param
             };
@@ -82,28 +87,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             return new JsonNetResult
             {
                 Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, userType).Where(c => string.IsNullOrEmpty(c.SubCategoryName))
-            };
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryHeader]
-        public ActionResult GetSubCategoryCasinoList()
-        {
-            return new JsonNetResult
-            {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player)
-                        .Where(c => string.Equals(c.CategoryName, CasinoCategory, StringComparison.CurrentCultureIgnoreCase) && !string.IsNullOrEmpty(c.SubCategoryName))
-            };
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryHeader]
-        public ActionResult GetSubCategorySportsbookList()
-        {
-            return new JsonNetResult
-            {
-                Data = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player)
-                        .Where(c => string.Equals(c.CategoryName, SportsbookCategory, StringComparison.CurrentCultureIgnoreCase) && !string.IsNullOrEmpty(c.SubCategoryName))
             };
         }
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-import { setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
+import { setParam, setParamFromHome, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
 import { headerText, Asian, Casino, Sportsbook } from '../libs/constants';
 import { globalResource, deviceTypes, pcLaptop, userTypeList, memberBanner } from '../../common/libs/constants';
 
@@ -24,19 +24,11 @@ export class Filter extends PureComponent {
     }
 
     componentDidMount() {
-        const { paramFromHome, subCategoryCasinoList, subCategorySportsbookList } = this.props;
+        const { paramFromHome } = this.props;
 
         if (paramFromHome && paramFromHome.IsFromHome) {
             this._handleSearch();
             this.props.setParamFromHome({ IsFromHome: false });
-        }
-
-        if (!subCategoryCasinoList) {
-            this.props.getSubCategoryCasinoList();
-        }
-
-        if (!subCategorySportsbookList) {
-            this.props.getSubCategorySportsbookList();
         }
     }
 
@@ -198,7 +190,7 @@ function mapStateToProps({ categoryList, subCategoryCasinoList, subCategorySport
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, setParamFromHome, getSubCategoryCasinoList, getSubCategorySportsbookList, getSizeList, setDisableCurrency, getCategoryList }, dispatch);
+    return bindActionCreators({ setParam, setParamFromHome, getSizeList, setDisableCurrency, getCategoryList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

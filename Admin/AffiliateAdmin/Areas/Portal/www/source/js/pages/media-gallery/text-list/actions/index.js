@@ -111,9 +111,9 @@ export const updateText = (param) => async () => {
     return response && response.status === 200 ? response.data : null;
 }
 
-export const deleteTexts = (textIdList) => async () => {
+export const deleteTexts = (param) => async () => {
     const url = 'Portal/TextList/DeleteTexts';
-    const response = await post(url, { textIdList });
+    const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }

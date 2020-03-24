@@ -8,16 +8,15 @@ import { htmlDecode } from '../../../../modules/htmlHelper';
 import { resizeWidthHeight } from '../libs/utils';
 import { globalResource, pcLaptop, mobile } from '../../common/libs/constants';
 import { headerText, maxWidthHeight } from '../libs/constants';
-import { setSelectedBannerId, setPagingOption, fetchData, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl, getBannerRootUrl } from '../actions';
+import { setSelectedBannerId, setPagingOption, fetchData, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl } from '../actions';
 
 export const Content = (props) => {
 
     useEffect(() => {
-        const { param, bannerRootUrl } = props;
+        const { param } = props;
 
         param && props.fetchData(param);
-        !bannerRootUrl && props.getBannerRootUrl();
-    }, [props.param, props.bannerRootUrl]);
+    }, [props.param]);
 
     const _onCheckItem = (isChecked, BannerId) => {
         const newCheckedBanners = Object.assign({}, props.checkedBanners, { [BannerId]: isChecked });
@@ -170,7 +169,7 @@ function mapStateToProps({ pagingOption, param, checkedBanners, bannerRootUrl, s
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedBannerId, fetchData, setPagingOption, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl, getBannerRootUrl }, dispatch);
+    return bindActionCreators({ setSelectedBannerId, fetchData, setPagingOption, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Content));
