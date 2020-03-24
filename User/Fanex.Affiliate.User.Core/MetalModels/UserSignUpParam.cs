@@ -89,6 +89,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ErrMsg { get; set; }
 
+        public int ParrentAffId { get; set; }
+
         [SpParam(Ignored = true)]
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 

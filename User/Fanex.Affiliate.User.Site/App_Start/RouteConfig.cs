@@ -47,6 +47,13 @@ namespace Fanex.Affiliate.User.Site
             );
 
             routes.MapRoute(
+                name: "SignUp",
+                url: "Signup/{refId}/{action}",
+                defaults: new { controller = "Signup", action = IndexAction, refId = UrlParameter.Optional },
+                namespaces: new[] { "Fanex.Affiliate.User.Core.Controllers"}
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = IndexAction, id = UrlParameter.Optional }

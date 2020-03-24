@@ -34,8 +34,10 @@
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(int refId = 0)
         {
+            var param = new UserSignUpParam();
+            param.ParrentAffId = refId;
             return View(new UserSignUpParam());
         }
 
