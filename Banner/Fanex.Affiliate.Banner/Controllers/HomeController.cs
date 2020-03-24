@@ -25,9 +25,9 @@
             return JavaScript(content);
         }
 
-        public ActionResult MediaText(int textId)
+        public ActionResult MediaText(int textId, int targetId)
         {
-            var encodedMessage = GetMessageContent(textId);
+            var encodedMessage = GetMessageContent(textId, targetId);
             var message = HttpUtility.HtmlDecode(encodedMessage);
             return JavaScript("document.getElementById('_affMediaText').innerHTML ='" + message.Replace("\r\n", "<br/>").Replace("\n", "<br/>") + "';");
         }
@@ -37,13 +37,14 @@
             return View();
         }
 
-        private static string GetMessageContent(int textId)
+        private static string GetMessageContent(int textId, int targetId = 1)
         {
-            using (var objectDb = new ObjectDb("Aff_TextSelDetail"))
+            using (var objectDb = new ObjectDb("Aff_Admin_Text_Sel"))
             {
                 var param = new Hashtable()
                 {
-                    { "textid", textId }
+                    { "textid", textId },
+                    { "targetId", targetId }
                 };
                 var reader = objectDb.ExecuteReader(param);
                 if (reader.Read())

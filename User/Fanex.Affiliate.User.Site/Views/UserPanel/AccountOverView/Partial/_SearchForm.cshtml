@@ -11,7 +11,7 @@
 
     <div class="search-container">
         <form class="form-horizontal">
-            @Html.HiddenFor(m => m.TargetId);
+            @Html.HiddenFor(m => m.TargetId)
 
             @RazorHelper.RenderDropdownForMarketing("Category", Lang.Category, Model.CategoryList)
 
