@@ -191,8 +191,7 @@
 
         private Image GetQrCodeIcon()
         {
-            var qrIconFileName = AppSetting.GetValue("QrCodeIcon");
-            var path = HttpContext.Server.MapPath($"~/www/build/styles/Images/{qrIconFileName}");
+            var path = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}.png");
             var img = new Bitmap(path);
             return img;
         }
