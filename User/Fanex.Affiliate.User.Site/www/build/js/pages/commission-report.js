@@ -1,12 +1,10 @@
-﻿"use strict";
-
 var commissionReport = (function ($) {
     var _reportData = null;
     var _sortingColumn = 'Month';
     var _isSortingAsc = false;
 
     function formatDecimal(value) {
-        return format(value, 2);
+        return format(value, 2)
     }
 
     function format(value, digits) {
@@ -28,11 +26,11 @@ var commissionReport = (function ($) {
     }
 
     var _me = {
-        initialize: function initialize() {
+        initialize: function () {
             _me.initEvent();
         },
 
-        initEvent: function initEvent() {
+        initEvent: function () {
             $('#dataTable').on('click', '.th', function () {
                 var $this = $(this);
                 _me.processSorting($this);
@@ -50,12 +48,13 @@ var commissionReport = (function ($) {
                 $this.toggleClass('bottom', !isExpanding);
                 $this.toggleClass('left', isExpanding);
 
-                $this.closest('.sumrow').toggleClass('active', !isExpanding).nextUntil('.sumrow').toggleClass('expanded', !isExpanding);
+                $this.closest('.sumrow').toggleClass('active', !isExpanding)
+                    .nextUntil('.sumrow').toggleClass('expanded', !isExpanding);
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             });
         },
 
-        submit: function submit() {
+        submit: function () {
             var year = $("#year").val();
             $.ajax({
                 type: "POST",
@@ -64,33 +63,34 @@ var commissionReport = (function ($) {
                 dataType: "json",
                 cache: false,
                 contentType: "application/json; charset=UTF-8",
-                success: function success(response) {
+                success: function (response) {
                     _reportData = response;
                     if (_reportData) {
                         _me.renderData();
                         _me.activeSortIcon($('#defaultSorting'));
                     }
                 },
-                beforeSend: function beforeSend() {
+                beforeSend: function () {
                     Site.showLoader();
                 },
-                complete: function complete() {
+                complete: function () {
                     Site.hideLoader();
                 }
             });
         },
 
-        renderData: function renderData() {
+        renderData: function () {
             if (_reportData.Data && _reportData.Data.length) {
                 var bodyHtml = _me.buildDataTable();
                 $('#reportData').html(bodyHtml);
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
-            } else {
+            }
+            else {
                 $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan="10">' + langResource.noInfo + '</td></tr>');
             }
         },
 
-        buildDataTable: function buildDataTable() {
+        buildDataTable: function () {
             var mainData = _reportData.Data;
             var htmlRowList = [];
 
@@ -111,11 +111,14 @@ var commissionReport = (function ($) {
             return htmlRowList.join("");
         },
 
-        buildRow: function buildRow(dataRow, isSummaryRow, index, title) {
+        buildRow: function (dataRow, isSummaryRow, index, title) {
             var isFirstSumRow = index === 0;
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
+
+            var date = new Date(dataRow.MonthDate);
+            console.log(dataRow.MonthDate);
 
             var iconHtml = '<span class="chevron toggleDetailRow ' + toggleIconClass + '" aria-hidden="true"></span>';
             var rowItems = [];
@@ -131,8 +134,10 @@ var commissionReport = (function ($) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.SubAffCommission)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < 8; i++) {
                     rowItems.push(_me.buildCell(""));
                 }
             }
@@ -141,20 +146,32 @@ var commissionReport = (function ($) {
             return rowItems.join("");
         },
 
-        buildTotalRow: function buildTotalRow() {
+        buildTotalRow: function () {
             var dataRow = _reportData.Total;
             if (dataRow) {
-                return '<tr class="total">' + '<td class="text-right" colspan="2">' + 'Total' + '</td>' + _me.buildCell(formatDecimal(dataRow.TurnOver)) + _me.buildCell(formatDecimal(dataRow.WinLoss)) + _me.buildCell(formatDecimal(dataRow.PlatformFee)) + _me.buildCell(formatDecimal(dataRow.OperationalFee)) + _me.buildCell(formatDecimal(dataRow.BankingFee)) + _me.buildCell(formatDecimal(dataRow.Bonus)) + _me.buildCell('') + _me.buildCell(formatDecimal(dataRow.Commission)) + '</tr>';
+                return '<tr class="total">' +
+                    '<td class="text-right" colspan="2">' + 'Total' + '</td>' +
+                    _me.buildCell(formatDecimal(dataRow.TurnOver)) +
+                    _me.buildCell(formatDecimal(dataRow.WinLoss)) +
+                    _me.buildCell(formatDecimal(dataRow.PlatformFee)) +
+                    _me.buildCell(formatDecimal(dataRow.OperationalFee)) +
+                    _me.buildCell(formatDecimal(dataRow.BankingFee)) +
+                    _me.buildCell(formatDecimal(dataRow.Bonus)) +
+                    _me.buildCell('') +
+                    _me.buildCell(formatDecimal(dataRow.Commission)) +
+                    _me.buildCell(formatDecimal(dataRow.SubAffCommission)) +
+                    _me.buildCell(formatDecimal(dataRow.TotalCommission)) +
+                    '</tr>';
             }
 
             return '';
         },
 
-        buildCell: function buildCell(cellData) {
+        buildCell: function (cellData) {
             return '<td class="text-right">' + cellData + '</td>';
         },
 
-        processSorting: function processSorting($element) {
+        processSorting: function ($element) {
             var columnName = $element.closest('.th').data('name');
             if (_reportData && _reportData.Data && _reportData.Data.length) {
                 if (columnName === _sortingColumn) {
@@ -172,25 +189,27 @@ var commissionReport = (function ($) {
             }
         },
 
-        activeSortIcon: function activeSortIcon($element) {
+        activeSortIcon: function ($element) {
             $('.th').find('.caret.current').removeClass('current');
             $element.addClass('current');
         },
 
-        sort: function sort() {
+        sort: function () {
             var mainDataList = _reportData.Data;
 
             mainDataList.sort(function (item, nextItem) {
                 if (_sortingColumn === 'Month') {
                     return _isSortingAsc ? item.Month - nextItem.Month : -(item.Month - nextItem.Month);
-                } else {
-                    return _isSortingAsc ? item.Data[_sortingColumn] - nextItem.Data[_sortingColumn] : -(item.Data[_sortingColumn] - nextItem.Data[_sortingColumn]);
+                }
+                else {
+                    return _isSortingAsc ?
+                        item.Data[_sortingColumn] - nextItem.Data[_sortingColumn] :
+                        -(item.Data[_sortingColumn] - nextItem.Data[_sortingColumn]);
                 }
             });
         }
-    };
+    }
     return _me;
 })(jQuery);
 
 commissionReport.initialize();
-

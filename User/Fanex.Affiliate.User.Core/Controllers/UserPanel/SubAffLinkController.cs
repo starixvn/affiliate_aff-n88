@@ -20,8 +20,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
         public ActionResult Index()
         {
-            var a = RedirectToRoute("UserPanel", new { controller = "AffiliateLink" , isTargetToMemberSite = false });
-            return a;
+            return RedirectToRoute("UserPanel", new { controller = "AffiliateLink", isTargetToMemberSite = false }); 
         }
     }
 }

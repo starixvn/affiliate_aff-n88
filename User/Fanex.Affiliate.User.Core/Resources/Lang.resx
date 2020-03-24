@@ -2306,9 +2306,12 @@
     <value>Sub-Affiliate Downline</value>
   </data>
   <data name="SubAffEarning" xml:space="preserve">
-    <value>Sub-Affiliate Earining</value>
+    <value>Sub-Affiliate Earning</value>
   </data>
   <data name="MonthlyTotal" xml:space="preserve">
     <value>Monthly Total</value>
+  </data>
+  <data name="TotalCommission" xml:space="preserve">
+    <value>Total Commission</value>
   </data>
 </root>

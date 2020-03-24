@@ -5273,7 +5273,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sub-Affiliate Earining.
+        ///   Looks up a localized string similar to Sub-Affiliate Earning.
         /// </summary>
         public static string SubAffEarning {
             get {
@@ -5666,6 +5666,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalClick {
             get {
                 return ResourceManager.GetString("TotalClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Commission.
+        /// </summary>
+        public static string TotalCommission {
+            get {
+                return ResourceManager.GetString("TotalCommission", resourceCulture);
             }
         }
         

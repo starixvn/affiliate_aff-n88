@@ -170,5 +170,9 @@
       "www/source/js/components/authhelper.js",
       "www/source/js/pages/changepassword.js"
     ]
+  },
+  {
+    "outputFileName": "www/build/js/pages/commission-report.js",
+    "inputFiles": [ "www/source/js/pages/commission-report.js" ]
   }
 ]

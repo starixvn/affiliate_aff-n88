@@ -117,6 +117,9 @@
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
 
+            var date = new Date(dataRow.MonthDate);
+            console.log(dataRow.MonthDate);
+
             var iconHtml = '<span class="chevron toggleDetailRow ' + toggleIconClass + '" aria-hidden="true"></span>';
             var rowItems = [];
             rowItems.push('<tr' + className + '>');
@@ -131,8 +134,10 @@
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.SubAffCommission)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < 8; i++) {
                     rowItems.push(_me.buildCell(""));
                 }
             }
@@ -154,6 +159,8 @@
                     _me.buildCell(formatDecimal(dataRow.Bonus)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
+                    _me.buildCell(formatDecimal(dataRow.SubAffCommission)) +
+                    _me.buildCell(formatDecimal(dataRow.TotalCommission)) +
                     '</tr>';
             }
 

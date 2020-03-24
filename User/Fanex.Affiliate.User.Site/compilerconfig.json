@@ -88,10 +88,6 @@
     "inputFile": "www/source/styles/pages/commissionreport.scss"
   },
   {
-    "outputFile": "www/build/js/pages/commission-report.js",
-    "inputFile": "www/source/js/pages/commission-report.js"
-  },
-  {
     "outputFile": "www/build/js/betlist.js",
     "inputFile": "www/source/js/pages/betlist.js"
   },
