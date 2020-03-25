@@ -98,10 +98,10 @@
             {
                 Amount = transItems.Sum(s => s.Amount),
                 MonthDate = monthDate,
-                Description = monthlyCom?.Description ?? Resources.Lang.MonthlyTotal,
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
-                TransType = (byte)TransType.MonthlyTotal
+                TransType = (byte)TransType.MonthlyTotal,
+                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault()?.CalculatedType
             };
             return monthlyTotal;
         }
@@ -119,7 +119,8 @@
                 Description = item.Description,
                 MonthDate = item.MonthDate,
                 Status = item.Status,
-                TransType = item.TransType
+                TransType = item.TransType,
+                CalculatedType = item.CalculatedType
             };
         }
     }

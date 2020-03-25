@@ -2332,4 +2332,28 @@
   <data name="ShareBanner" xml:space="preserve">
     <value>Share banner to your friends</value>
   </data>
+  <data name="MonthlyEarning" xml:space="preserve">
+    <value>Monthly Earning</value>
+  </data>
+  <data name="UncalculatedMonthlyEarning" xml:space="preserve">
+    <value>Uncalculated Monthly Earning</value>
+  </data>
+  <data name="CurrentMonthlyEarning" xml:space="preserve">
+    <value>Current Monthly Earning</value>
+  </data>
+  <data name="CommissionBonus" xml:space="preserve">
+    <value>Commission Bonus</value>
+  </data>
+  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+    <value>Uncalculated Commission Bonus</value>
+  </data>
+  <data name="CurrentCommissionBonus" xml:space="preserve">
+    <value>Current Commission Bonus</value>
+  </data>
+  <data name="CurrentMonthStatistics" xml:space="preserve">
+    <value>Current Month Statistics</value>
+  </data>
+  <data name="UncalculatedMonth" xml:space="preserve">
+    <value>Uncalculated Month</value>
+  </data>
 </root>

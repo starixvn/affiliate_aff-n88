@@ -30,6 +30,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                             Amount = reader["Amount"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["Amount"]),
                             Description = Convert.ToString(reader["Description"]),
                             Status = Convert.ToString(reader["Status"]),
+                            CalculatedType = reader["CalculatedType"] == DBNull.Value ? null : (byte?)(reader["CalculatedType"]),
                         });
                     }
                 }

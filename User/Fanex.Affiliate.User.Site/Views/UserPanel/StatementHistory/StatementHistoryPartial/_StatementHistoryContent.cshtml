@@ -40,12 +40,9 @@
         </td>
         <td class="text-center">@item.DisplayStatus</td>
         <td>
-            @if (item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.Payment
-                || item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.Commission
-                || item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.MonthlyTotal
-                || item.TransType == (byte)Fanex.Affiliate.User.Core.Enum.TransType.SubAffBonus)
+            @if (item.TransType != (byte)Fanex.Affiliate.User.Core.Enum.TransType.Adjustment)
             {
-                @Html.Raw(item.Description)
+                @Html.Raw(item.DescriptionDisplay)
             }
         </td>
     </tr>

@@ -18,6 +18,8 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 
         public string Description { get; set; }
 
+        public byte? CalculatedType { get; set; }
+
         public string DateString
         {
             get
@@ -82,6 +84,63 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
             }
         }
 
+        public string DescriptionDisplay
+        {
+            get
+            {
+                switch (TransType)
+                {
+                    case Constants.TransType.Commission:
+                        return GetCommissionDescription(CalculatedType);
+                    case Constants.TransType.SubAffBonus:
+                        return GetSubAffiliateDescription(CalculatedType);
+                    case Constants.TransType.MonthlyTotal:
+                        return GetMonthlyTotalDescription(CalculatedType);
+                    default:
+                        return Description;
+                }
+            }
+        }
+
         public IEnumerable<StatementHistoryViewModel> Children { get; set; } = new List<StatementHistoryViewModel>();
+
+        private static string GetCommissionDescription(byte? calculatedType)
+        {
+            switch (calculatedType)
+            {
+                case Constants.CalculatedType.CalculatedMonth:
+                    return Resources.Lang.MonthlyEarning;
+                case Constants.CalculatedType.UnCalculatedMonth:
+                    return Resources.Lang.UncalculatedMonthlyEarning;
+                default:
+                    return Resources.Lang.CurrentMonthlyEarning;
+            }
+        }
+
+        private static string GetSubAffiliateDescription(byte? calculatedType)
+        {
+            switch (calculatedType)
+            {
+                case Constants.CalculatedType.CalculatedMonth:
+                    return Resources.Lang.CommissionBonus;
+                case Constants.CalculatedType.UnCalculatedMonth:
+                    return Resources.Lang.UncalculatedCommissionBonus;
+                default:
+                    return Resources.Lang.CurrentCommissionBonus;
+            }
+        }
+
+        private static string GetMonthlyTotalDescription(byte? calculatedType)
+        {
+            switch (calculatedType)
+            {
+                case Constants.CalculatedType.CalculatedMonth:
+                    return Resources.Lang.MonthlyTotal;
+                case Constants.CalculatedType.UnCalculatedMonth:
+                    return Resources.Lang.UncalculatedMonth;
+                default:
+                    return Resources.Lang.CurrentMonthStatistics;
+            }
+        }
     }
 }

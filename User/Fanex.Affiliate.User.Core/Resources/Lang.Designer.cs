@@ -1231,6 +1231,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Commission Bonus.
+        /// </summary>
+        public static string CommissionBonus {
+            get {
+                return ResourceManager.GetString("CommissionBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Commission Report.
         /// </summary>
         public static string CommissionReport {
@@ -1486,11 +1495,38 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current Commission Bonus.
+        /// </summary>
+        public static string CurrentCommissionBonus {
+            get {
+                return ResourceManager.GetString("CurrentCommissionBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Commission Setting.
         /// </summary>
         public static string CurrentCommissiSetting {
             get {
                 return ResourceManager.GetString("CurrentCommissiSetting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Monthly Earning.
+        /// </summary>
+        public static string CurrentMonthlyEarning {
+            get {
+                return ResourceManager.GetString("CurrentMonthlyEarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Month Statistics.
+        /// </summary>
+        public static string CurrentMonthStatistics {
+            get {
+                return ResourceManager.GetString("CurrentMonthStatistics", resourceCulture);
             }
         }
         
@@ -3604,6 +3640,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string MonthlyCommission {
             get {
                 return ResourceManager.GetString("MonthlyCommission", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly Earning.
+        /// </summary>
+        public static string MonthlyEarning {
+            get {
+                return ResourceManager.GetString("MonthlyEarning", resourceCulture);
             }
         }
         
@@ -5873,6 +5918,33 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Uncalculated {
             get {
                 return ResourceManager.GetString("Uncalculated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncalculated Commission Bonus.
+        /// </summary>
+        public static string UncalculatedCommissionBonus {
+            get {
+                return ResourceManager.GetString("UncalculatedCommissionBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncalculated Month.
+        /// </summary>
+        public static string UncalculatedMonth {
+            get {
+                return ResourceManager.GetString("UncalculatedMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uncalculated Monthly Earning.
+        /// </summary>
+        public static string UncalculatedMonthlyEarning {
+            get {
+                return ResourceManager.GetString("UncalculatedMonthlyEarning", resourceCulture);
             }
         }
         
