@@ -13,6 +13,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         IEnumerable<PlayerDetail> GetPlayerDetailList(PlayerDetailParam param);
 
+        IEnumerable<SubAffDetail> GetSubAffDetails(SubAffDetailParam param);
+
         LastLoginInfo GetLastLoginInfo(int affId);
     }
 }

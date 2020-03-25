@@ -27,6 +27,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
+        public IEnumerable<SubAffDetail> GetSubAffDetails(SubAffDetailParam param)
+        {
+            const string uSpKey = "Aff_User_Overview_SubAffiliate_Sel";
+
+            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            {
+                return objectDb.DB.Query<SubAffDetail>(param);
+            }
+        }
+
         public IEnumerable<OverviewDetail> GetUserOverviewDetailList(int affId, DateTime monthDate)
         {
             const string uSpKey = "Aff_User_Overview_Detail_Sel";

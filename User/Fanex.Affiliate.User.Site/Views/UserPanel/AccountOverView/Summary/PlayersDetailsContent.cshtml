@@ -1,13 +1,13 @@
 ﻿@model List<Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerDetail>
 
 @{
-    var hasScroll = Model.Count() > 10;
+    var hasScroll = Model != null && Model.Count() > 10;
     var totalItem = ViewBag.TotalItem;
     var startRowNumber = ViewBag.StartRowNumber;
 }
 
 @{
-    if (Model.Any())
+    if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {

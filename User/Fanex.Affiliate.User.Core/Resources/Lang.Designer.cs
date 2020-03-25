@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -327,6 +327,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ApplyOneTwoBetAffiliate {
             get {
                 return ResourceManager.GetString("ApplyOneTwoBetAffiliate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approval Date.
+        /// </summary>
+        public static string ApprovalDate {
+            get {
+                return ResourceManager.GetString("ApprovalDate", resourceCulture);
             }
         }
         
@@ -4013,6 +4022,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of Active Players.
+        /// </summary>
+        public static string NumberOfActivePlayers {
+            get {
+                return ResourceManager.GetString("NumberOfActivePlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to October.
         /// </summary>
         public static string October {
@@ -4787,6 +4805,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Remove {
+            get {
+                return ResourceManager.GetString("Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Re-enter New Password.
         /// </summary>
         public static string RePass {
@@ -5363,6 +5390,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliate Details.
+        /// </summary>
+        public static string SubAffDetail {
+            get {
+                return ResourceManager.GetString("SubAffDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sub-Affiliate Downline.
         /// </summary>
         public static string SubAffDownline {
@@ -5503,6 +5539,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Suriname {
             get {
                 return ResourceManager.GetString("Suriname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspension Date.
+        /// </summary>
+        public static string SuspensionDate {
+            get {
+                return ResourceManager.GetString("SuspensionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspension Status.
+        /// </summary>
+        public static string SuspensionSatus {
+            get {
+                return ResourceManager.GetString("SuspensionSatus", resourceCulture);
             }
         }
         
@@ -5810,6 +5864,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalTurnover {
             get {
                 return ResourceManager.GetString("TotalTurnover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Win/Loss.
+        /// </summary>
+        public static string TotalWinLoss {
+            get {
+                return ResourceManager.GetString("TotalWinLoss", resourceCulture);
             }
         }
         

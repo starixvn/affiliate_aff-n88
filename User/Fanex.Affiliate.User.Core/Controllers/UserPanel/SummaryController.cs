@@ -85,5 +85,15 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetailsContent.cshtml", model);
         }
+
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult SubAffDetails(SubAffDetailParam param)
+        {
+            param.AffId = SessionService.UserSession.AffId;
+            var model = _accountOverviewRepository.GetSubAffDetails(param);
+
+            return PartialView("~/Views/UserPanel/AccountOverView/Summary/SubAffDetails.cshtml", model);
+        }
     }
 }

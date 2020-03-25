@@ -2356,4 +2356,25 @@
   <data name="UncalculatedMonth" xml:space="preserve">
     <value>Uncalculated Month</value>
   </data>
+  <data name="SubAffDetail" xml:space="preserve">
+    <value>Sub-Affiliate Details</value>
+  </data>
+  <data name="ApprovalDate" xml:space="preserve">
+    <value>Approval Date</value>
+  </data>
+  <data name="SuspensionDate" xml:space="preserve">
+    <value>Suspension Date</value>
+  </data>
+  <data name="SuspensionSatus" xml:space="preserve">
+    <value>Suspension Status</value>
+  </data>
+  <data name="TotalWinLoss" xml:space="preserve">
+    <value>Total Win/Loss</value>
+  </data>
+  <data name="NumberOfActivePlayers" xml:space="preserve">
+    <value>No. of Active Players</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
 </root>
