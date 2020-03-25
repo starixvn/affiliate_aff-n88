@@ -90,10 +90,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 Creator = monthlyCom.Creator,
                 Amount = children.Sum(s => s.Amount),
                 Date = monthlyCom.Date,
-                Description = monthlyCom?.Description ?? "Monthly Total",
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
-                TransType = Code.MonthlyTotal
+                TransType = Code.MonthlyTotal,
+                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault()?.CalculatedType
             };
             return monthlyTotal;
         }

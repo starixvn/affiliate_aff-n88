@@ -120,7 +120,7 @@ export class Content extends PureComponent {
 
         const status = isPending ? "Processing" : dataItem.Status;
         const creator = htmlDecode(dataItem.Creator);
-        const description = htmlDecode(dataItem.Description);
+        const description = htmlDecode(dataItem.DescriptionDisplay);
 
         return (
             <React.Fragment>
