@@ -110,10 +110,26 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return bannerTypeList ?? new List<BannerType>();
         }
 
+        public IEnumerable<Domain> GetAvailableDomainList(int affId, bool isInternal = false)
+        {
+            var domainList = _cacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList);
+            if (domainList == null)
+            {
+                domainList = _marketingRepository.GetDomainList(affId, isInternal);
+            }
+
+            if (domainList != null)
+            {
+                _cacheService.Set(CacheKey.DomainList, domainList, Number.Ten);
+            }
+
+            return domainList ?? new List<Domain>();
+        }
+
         public IEnumerable<Domain> GetDomainList(int affId, bool isInternal = false, bool isTargetToMember = true)
         {
             return isTargetToMember 
-                ? _marketingRepository.GetDomainList(affId, isInternal) 
+                ? GetAvailableDomainList(affId, isInternal) 
                 : GetAffiliateDomains();
         }
 
