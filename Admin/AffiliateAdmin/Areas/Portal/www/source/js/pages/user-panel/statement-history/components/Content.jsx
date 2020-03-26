@@ -7,7 +7,7 @@ import { Button } from 'reactstrap';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
 import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandIdList, redirectToSubAffiliate } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth } from '../modules/constants';
+import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -115,13 +115,15 @@ export class Content extends PureComponent {
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
+        const originalStatus = dataItem.Status;
 
-        const isPending = dataItem.Status && dataItem.Status.toLowerCase() === 'pending';
+        const isPending = originalStatus && originalStatus.toLowerCase() === 'pending';
 
-        const status = isPending ? "Processing" : dataItem.Status;
+        const status = isPending ? "Processing" : originalStatus;
         const creator = htmlDecode(dataItem.Creator);
         const description = htmlDecode(dataItem.DescriptionDisplay);
         const isTotalRow = transType === MONTHLY_TOTAL;
+        const transTypeString = isTotalRow && dataItem.CalculatedType == CalculatedMonth ? 'Monthly Total' : transTypeList[transType];
 
         return (
             <React.Fragment>
@@ -137,7 +139,7 @@ export class Content extends PureComponent {
                             </Button>
                         ) : dataItem.DateText
                     }</Cell>
-                    <Cell title={transTypeList[transType] || monthlyWinlost} className="text-center">{transTypeList[transType] || monthlyWinlost}</Cell>
+                    <Cell title={transTypeString || monthlyWinlost} className="text-center">{transTypeString || monthlyWinlost}</Cell>
                     <Cell title={amount} className="text-right">
                         {clickHandler ?
                             (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>

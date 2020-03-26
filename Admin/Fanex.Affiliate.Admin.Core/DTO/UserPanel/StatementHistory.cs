@@ -24,7 +24,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
         [JsonIgnore]
         public string Description { get; set; }
 
-        [JsonIgnore]
         public byte? CalculatedType { get; set; }
 
         public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.MonthlyTotal || TransType == Code.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");

@@ -13,6 +13,7 @@ export const headerText = {
     Description: 'Description',
 }
 
+export const CalculatedMonth = 2;
 export const MONTHLY_TOTAL = 0;
 export const MONTHLY_WINLOST = 201;
 export const PAYMENT_REQUEST = 202;
@@ -20,7 +21,7 @@ export const ADJUSTMENT = 203;
 export const SUBAFFILIATE = 204;
 
 export const transTypeList = {
-    [MONTHLY_TOTAL]: 'Monthly Total',
+    [MONTHLY_TOTAL]: 'Transaction',
     [MONTHLY_WINLOST]: 'Monthly Winlost',
     [PAYMENT_REQUEST]: 'Payment Request',
     [ADJUSTMENT]: 'Adjustment',
