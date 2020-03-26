@@ -73,7 +73,7 @@ export class GridData extends Component {
         return (
             <Row key="theard">
                 {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
-                <Cell header={true} colWidth={250} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>
+                {selectedColumnList['ParentAffName'] && <Cell header={true} colWidth={250} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>}
                 <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
                 {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
@@ -154,11 +154,16 @@ export class GridData extends Component {
         return (
             <Row key={`dataRow-${index}`}>
                 {selectedColumnList['Index'] && <Cell className="text-center" title={index}>{index}</Cell>}
-                <Cell title={dataItem.ParentAffName}>
-                    <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
-                        {dataItem.ParentAffName}
-                    </a>
+                {selectedColumnList['ParentAffName'] && <Cell title={dataItem.ParentAffName}>
+                    {
+                        dataItem.ParentAffName ? (
+                            <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
+                                {dataItem.ParentAffName}
+                            </a>
+                        ) : 'N/A'
+                    }
                 </Cell>
+                }
                 <Cell title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}

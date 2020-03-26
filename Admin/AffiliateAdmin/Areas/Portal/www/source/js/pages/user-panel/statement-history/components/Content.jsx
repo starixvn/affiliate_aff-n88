@@ -6,8 +6,8 @@ import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
-import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setClosedIdList, redirectToSubAffiliate } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth } from '../modules/constants';
+import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandIdList, redirectToSubAffiliate } from '../actions';
+import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth } from '../modules/constants';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -110,8 +110,8 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, index) {
-        const { closedIdList } = this.props;
-        const isClosed = closedIdList[dataItem.TransId];
+        const { expandIdList } = this.props;
+        const isExpand = expandIdList[dataItem.TransId];
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
@@ -121,16 +121,17 @@ export class Content extends PureComponent {
         const status = isPending ? "Processing" : dataItem.Status;
         const creator = htmlDecode(dataItem.Creator);
         const description = htmlDecode(dataItem.DescriptionDisplay);
+        const isTotalRow = transType === MONTHLY_TOTAL;
 
         return (
             <React.Fragment>
                 <Row key={`dataRow-${dataItem.TransId}`} className={status && status.toLowerCase()}>
                     <Cell title={index} className="text-center">{index}</Cell>
                     <Cell title={dataItem.DateText} className="text-center">{
-                        dataItem.Children && dataItem.Children[0] ? (
-                            <Button className="p-0 th-wrapper" color="link" onClick={() => this.props.setClosedIdList({ ...closedIdList, [dataItem.TransId]: !isClosed })}>
+                        isTotalRow ? (
+                            <Button className="p-0 th-wrapper" color="link" onClick={() => this.props.setExpandIdList({ ...expandIdList, [dataItem.TransId]: !isExpand })}>
                                 <div className="icon-container">
-                                    <span className={`caret ${isClosed ? 'closed' : 'collapsed current' }`}></span>
+                                    <span className={`caret ${isExpand ? 'expand' : 'collapsed current' }`}></span>
                                 </div>
                                 <span>{dataItem.DateText}</span>
                             </Button>
@@ -152,7 +153,7 @@ export class Content extends PureComponent {
                     <Cell title={description}>{description}</Cell>
                 </Row>
                 {
-                    dataItem.Children && dataItem.Children[0] && !isClosed && dataItem.Children.map(item => {
+                    isTotalRow && isExpand && dataItem.Children.map(item => {
                         return this._buildDataRow(item);
                     })
                 }
@@ -197,14 +198,14 @@ export class Content extends PureComponent {
 
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
-    const { pagingOption, param, closedIdList } = statementHistory;
+    const { pagingOption, param, expandIdList } = statementHistory;
     const { affId } = affCommonInfo;
 
-    return Object.assign({}, { affId, pagingOption, param, closedIdList });
+    return Object.assign({}, { affId, pagingOption, param, expandIdList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setClosedIdList, redirectToSubAffiliate }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandIdList, redirectToSubAffiliate }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

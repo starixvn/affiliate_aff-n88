@@ -4,9 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 import { Button } from 'reactstrap';
 
-import { htmlDecode } from '../../../../modules/htmlHelper';
 import { resizeWidthHeight } from '../libs/utils';
-import { globalResource, pcLaptop, mobile } from '../../common/libs/constants';
+import { globalResource, pcLaptop, mobile, userTypeList } from '../../common/libs/constants';
 import { headerText, maxWidthHeight } from '../libs/constants';
 import { setSelectedBannerId, setPagingOption, fetchData, setCheckedBanners, setShouldResetScrollPosition, setParam, setBannerDetailUrl } from '../actions';
 
@@ -41,6 +40,7 @@ export const Content = (props) => {
             <Row key="thead">
                 <Cell header={true} colWidth={20}></Cell>
                 <Cell header={true} colWidth={25} title={headerText.Index}>{headerText.Index}</Cell>
+                <Cell header={true} colWidth={50} title={headerText.UserType}>{headerText.UserType}</Cell>
                 <Cell header={true} colWidth={415} title={headerText.Images}>{headerText.Images}</Cell>
                 <Cell header={true} colWidth={190} title={headerText.FileName}>{headerText.FileName}</Cell>
                 <Cell header={true} colWidth={60} title={headerText.Category}>{headerText.Category}</Cell>
@@ -58,12 +58,12 @@ export const Content = (props) => {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption } = props;
+            const { pagingOption, param } = props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(_buildDataRow(dataItem, i + startIndex));
+                dataRows.push(_buildDataRow(dataItem, i + startIndex, param.userType));
             }
         }
         else {
@@ -75,7 +75,7 @@ export const Content = (props) => {
         return dataRows;
     }
 
-    function _buildDataRow(dataItem, index) {
+    function _buildDataRow(dataItem, index, userType) {
         const bannerId = dataItem.BannerId;
         const fileName = dataItem.FileName;
         const src = `${props.bannerRootUrl}/${fileName}?id=${dataItem.LastUpdateText}`;
@@ -93,6 +93,7 @@ export const Content = (props) => {
                         onChange={(e) => _onCheckItem(e.target.checked, bannerId)} />
                 </Cell>
                 <Cell className="text-center" title={index}>{index}</Cell>
+                <Cell className="text-center" title={userTypeList[userType]}>{userTypeList[userType]}</Cell>
                 <Cell className="text-center">
                     {
                         isValidWithHeight ? (

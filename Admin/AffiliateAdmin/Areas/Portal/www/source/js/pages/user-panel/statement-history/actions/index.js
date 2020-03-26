@@ -3,7 +3,7 @@ import { setPagingOption } from '../../../../actions/pagingAction';
 import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
 import { redirectToDailyEarning, redirectToSubAffiliate } from '../../../customer/user-panel/actions';
 import { getAffiliateInfo } from '../../../customer/mainpage/actions/loadingDataAction';
-import { SET_PARAM, TRANSACTION_ID, SET_CLOSED_ID_LIST } from '../actions/types';
+import { SET_PARAM, TRANSACTION_ID, SET_EXPAND_ID_LIST } from '../actions/types';
 
 export { setPagingOption, toggleLoaderUserPanel, getAffiliateInfo, redirectToDailyEarning, redirectToSubAffiliate };
 
@@ -21,9 +21,9 @@ export const setTransactionId = (data) => {
     }
 }
 
-export const setClosedIdList = (data) => {
+export const setExpandIdList = (data) => {
     return {
-        type: SET_CLOSED_ID_LIST,
+        type: SET_EXPAND_ID_LIST,
         data
     }
 }
