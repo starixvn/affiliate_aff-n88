@@ -2215,4 +2215,16 @@
   <data name="UncalculatedMonth" xml:space="preserve">
     <value>Tháng Đang Chờ Tính</value>
   </data>
+  <data name="SubAffDetail" xml:space="preserve">
+    <value>Chi Tiết Affiliate Phụ</value>
+  </data>
+  <data name="ApprovalDate" xml:space="preserve">
+    <value>Ngày Chấp Thuận</value>
+  </data>
+  <data name="TotalWinLoss" xml:space="preserve">
+    <value>Tổng Lợi Nhuận Ròng</value>
+  </data>
+  <data name="NumberOfActivePlayers" xml:space="preserve">
+    <value>Số lượng người chơi hoạt động</value>
+  </data>
 </root>
