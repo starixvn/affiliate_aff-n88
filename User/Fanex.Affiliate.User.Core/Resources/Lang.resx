@@ -2299,7 +2299,7 @@
   <data name="SubAffiliateMediaGallery" xml:space="preserve">
     <value>Sub-Aff. Media Gallery</value>
   </data>
-  <data name="SubAffiliate" xml:space="preserve">
+  <data name="SubAffiliates" xml:space="preserve">
     <value>Sub-Affiliates</value>
   </data>
   <data name="SubAffDownline" xml:space="preserve">
@@ -2376,5 +2376,8 @@
   </data>
   <data name="Remove" xml:space="preserve">
     <value>Remove</value>
+  </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>Sub-Affiliate</value>
   </data>
 </root>

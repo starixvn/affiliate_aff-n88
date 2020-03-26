@@ -49,7 +49,8 @@
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
                 TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToMember),
-                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain
+                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain,
+                TargetId = TargetSite.TargetToMember
             };
 
             var viewModel = new MarketingViewModel
@@ -82,7 +83,8 @@
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
                 TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToSubAff),
-                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain
+                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain,
+                TargetId = TargetSite.TargetToSubAff
             };
 
             var viewModel = new MarketingViewModel
