@@ -83,6 +83,7 @@
     <Setting Key="Aff_DailyEarning_Detail_Sel_view" SpName="Aff_DailyEarning_Detail_Sel" DbName="affiliate_n88_view" />
     
     <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88"/>
+    <Setting Key="Aff_SubAffiliate_Commission_Sel_view" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88"/>
   </Function>
 
   <Function Name="Commission">
