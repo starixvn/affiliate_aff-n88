@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _appSetting = appSetting;
         }
 
-        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId = TargetSite.TargetToMember, bool isInternal = false)
+        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId, bool isInternal = false)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
 
@@ -126,9 +126,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return domainList ?? new List<Domain>();
         }
 
-        public IEnumerable<Domain> GetDomainList(int affId, bool isInternal = false, bool isTargetToMember = true)
+        public IEnumerable<Domain> GetDomainList(int affId, int targetId, bool isInternal = false)
         {
-            return isTargetToMember 
+            return targetId == TargetSite.TargetToMember 
                 ? GetAvailableDomainList(affId, isInternal) 
                 : GetAffiliateDomains();
         }

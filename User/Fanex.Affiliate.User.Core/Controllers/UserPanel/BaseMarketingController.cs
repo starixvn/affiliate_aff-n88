@@ -72,10 +72,11 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         {
             var userSession = SessionService.UserSession;
             var isInternal = SessionService.IsInternal;
+            var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
 
             var viewModel = new LinkFormViewModel
             {
-                DomainList = MarketingService.GetDomainList(userSession.AffId, isInternal, isTargetToMemberSite),
+                DomainList = MarketingService.GetDomainList(userSession.AffId, targetId, isInternal),
                 MemberSitePageList = MarketingService.GetLandingPageList(isInternal, isTargetToMemberSite)
             };
 

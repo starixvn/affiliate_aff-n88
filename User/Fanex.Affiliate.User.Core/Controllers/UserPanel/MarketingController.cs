@@ -88,7 +88,7 @@
         public ActionResult GetBanner(MarketingBannerParam bannerParam)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, bannerParam.TargetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == bannerParam.SelectedDomainId);
 
             var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
@@ -112,7 +112,7 @@
         public ActionResult GetText(MarketingTextParam textParam)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, textParam.TargetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == textParam.SelectedDomainId);
 
             textParam.AffId = userSession.AffId;
@@ -135,7 +135,8 @@
             , bool isTargetToMemberSite = true)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, SessionService.IsInternal, isTargetToMemberSite)
+            var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
+            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == selectedDomainId);
             var languageList = string.IsNullOrEmpty(selectedLanguage) ?
                 MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;

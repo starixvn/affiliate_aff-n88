@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public interface IMarketingService
     {
-        IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId = TargetSite.TargetToMember, bool isInternal = false);
+        IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId, bool isInternal = false);
 
         IEnumerable<LanguageType> GetLanguageList(bool isInternal);
 
@@ -18,7 +18,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal = false);
 
-        IEnumerable<Domain> GetDomainList(int affId, bool isInternal = false, bool isTargetToMember = true);
+        IEnumerable<Domain> GetDomainList(int affId, int targetId, bool isInternal = false);
 
         IDictionary<string, string> GenerateLinkList(LinkGenerationParam linkGenerationParam);
 
