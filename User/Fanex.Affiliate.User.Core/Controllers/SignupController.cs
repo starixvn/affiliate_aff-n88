@@ -37,7 +37,7 @@
         public ActionResult Index(int refId = 0)
         {
             var param = new UserSignUpParam();
-            param.ParrentAffId = refId;
+            param.ParentAffId = refId;
             return View(new UserSignUpParam());
         }
 
