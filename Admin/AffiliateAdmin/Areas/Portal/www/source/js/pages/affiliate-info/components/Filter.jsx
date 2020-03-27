@@ -33,8 +33,6 @@ export class Filter extends Component {
         if (this.initialGroupId !== 0 || param.IsFromHome) {
             this.handleClickSearch();
         }
-
-        param.ParentAffName && this.handleClickSearch(param.ParentAffName);
     }
 
     componentDidUpdate(prevProps) {

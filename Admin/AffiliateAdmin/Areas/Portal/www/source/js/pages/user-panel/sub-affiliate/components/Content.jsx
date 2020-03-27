@@ -85,7 +85,7 @@ export class Content extends PureComponent {
                 <Cell className='text-center' title={dataItem.AffName} colSpan={!rowNumber && 2}>
                     {
                         rowNumber ? (
-                            <a href={resolveClientUrl(`Portal/Affiliate?ParentAffName=${dataItem.AffName}`)} target='_top'>{dataItem.AffName}</a>
+                            <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.AffName}`)} target='_top'>{dataItem.AffName}</a>
                         ) : dataItem.AffName
                     }
                 </Cell>
