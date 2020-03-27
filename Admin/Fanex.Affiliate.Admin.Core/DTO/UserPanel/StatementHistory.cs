@@ -8,8 +8,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
     [Serializable]
     public class StatementHistory
     {
-        public long TransId { get; set; }
-
         [JsonIgnore]
         public DateTime Date { get; set; }
 

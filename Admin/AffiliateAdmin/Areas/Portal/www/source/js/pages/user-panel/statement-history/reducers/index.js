@@ -1,5 +1,5 @@
 ﻿import { combineReducers } from 'redux';
-import { SET_PARAM, TRANSACTION_ID, SET_EXPAND_ID_LIST } from '../actions/types';
+import { SET_PARAM, TRANSACTION_ID, SET_EXPAND_MONTH_DATE_LIST } from '../actions/types';
 import createReducer from '../../../../modules/createReducer';
 
 import { pagingOption } from '../../../../reducers/pagingReducer';
@@ -16,8 +16,8 @@ export const transactionId = createReducer(null, {
     }
 });
 
-export const expandIdList = createReducer({}, {
-    [SET_EXPAND_ID_LIST](prevState, action) {
+export const expandMonthDateList = createReducer({}, {
+    [SET_EXPAND_MONTH_DATE_LIST](prevState, action) {
         return action.data;
     }
 });
@@ -26,5 +26,5 @@ export default combineReducers({
     pagingOption,
     param,
     transactionId,
-    expandIdList
+    expandMonthDateList
 });

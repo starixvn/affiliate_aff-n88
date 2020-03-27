@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
-import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandIdList, redirectToSubAffiliate } from '../actions';
+import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate } from '../actions';
 import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
 
 export class Content extends PureComponent {
@@ -26,6 +26,8 @@ export class Content extends PureComponent {
 
         if (param !== prevProps.param || affId !== prevProps.affId) {
             const newParam = Object.assign({}, param, { pageIndex: 1, pageSize: pagingOption.PageSize });
+
+            this.props.setExpandMonthDateList({});
             this.fetchData(newParam);
         }
     }
@@ -109,9 +111,16 @@ export class Content extends PureComponent {
         }
     }
 
+    _handleShow = (monthDate) => {
+        const { expandMonthDateList } = this.props;
+        this.setState({ shouldResetScrollPosition: false });
+
+        this.props.setExpandMonthDateList(Object.assign({}, expandMonthDateList, { [monthDate]: !expandMonthDateList[monthDate] }));
+    }
+
     _buildDataRow(dataItem, index) {
-        const { expandIdList } = this.props;
-        const isExpand = expandIdList[dataItem.TransId];
+        const { expandMonthDateList } = this.props;
+        const isExpand = expandMonthDateList[dataItem.NormalizeDateText];
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
@@ -131,9 +140,9 @@ export class Content extends PureComponent {
                     <Cell title={index} className="text-center">{index}</Cell>
                     <Cell title={dataItem.DateText} className="text-center">{
                         isTotalRow ? (
-                            <Button className="p-0 th-wrapper" color="link" onClick={() => this.props.setExpandIdList({ ...expandIdList, [dataItem.TransId]: !isExpand })}>
+                            <Button className="p-0 th-wrapper" color="link" onClick={() => this._handleShow(dataItem.NormalizeDateText)}>
                                 <div className="icon-container">
-                                    <span className={`caret ${isExpand ? 'expand' : 'collapsed current' }`}></span>
+                                    <span className={`caret ${isExpand ? 'expand current' : 'collapsed' }`}></span>
                                 </div>
                                 <span>{dataItem.DateText}</span>
                             </Button>
@@ -200,14 +209,14 @@ export class Content extends PureComponent {
 
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
-    const { pagingOption, param, expandIdList } = statementHistory;
+    const { pagingOption, param, expandMonthDateList } = statementHistory;
     const { affId } = affCommonInfo;
 
-    return Object.assign({}, { affId, pagingOption, param, expandIdList });
+    return Object.assign({}, { affId, pagingOption, param, expandMonthDateList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandIdList, redirectToSubAffiliate }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

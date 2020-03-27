@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                     {
                         continue;
                     }
-                    vms.Add(CreateMonthlyTotal(item.TransId, result.MainData));
+                    vms.Add(CreateMonthlyTotal(item.Date, result.MainData));
                 }
                 else
                 {
@@ -77,19 +77,18 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             };
         }
      
-        private static StatementHistory CreateMonthlyTotal(long transId, IEnumerable<StatementHistory> statementHistoryList)
+        private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
-            var children = statementHistoryList.Where(s => s.TransId == transId)
+            var children = statementHistoryList.Where(s => s.Date == monthDate)
                 .Where(s => s.TransType == Code.SubAffiliate || s.TransType == Code.MonthlyWinlost);
 
             var monthlyCom = children.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
 
             var monthlyTotal = new StatementHistory
             {
-                TransId = transId,
                 Creator = monthlyCom.Creator,
                 Amount = children.Sum(s => s.Amount),
-                Date = monthlyCom.Date,
+                Date = monthDate,
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
                 TransType = Code.MonthlyTotal,
