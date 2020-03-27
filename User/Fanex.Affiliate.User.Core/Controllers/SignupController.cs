@@ -93,7 +93,8 @@
                     Language = SessionService.CurrentLanguage,
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
-                    IsLocal = _appSetting.IsLocal
+                    IsLocal = _appSetting.IsLocal,
+                    ParentAffId = param.ParentAffId
                 };
 
                 var emailParam = new EmailBaseParam
