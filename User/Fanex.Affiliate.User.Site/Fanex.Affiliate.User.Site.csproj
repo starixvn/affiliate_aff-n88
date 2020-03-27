@@ -1326,8 +1326,6 @@
     <Content Include="www\source\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\adv-contact\n8b\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
-    <Content Include="Views\UserPanel\AccountOverView\SubAffiliateLink\Index.cshtml" />
-    <Content Include="Views\UserPanel\AccountOverView\SubAffiliateMediaGallery\Index.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\SubAffDetails.cshtml" />
   </ItemGroup>

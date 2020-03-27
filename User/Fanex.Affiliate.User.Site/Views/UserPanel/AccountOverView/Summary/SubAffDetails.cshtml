@@ -78,8 +78,8 @@
                         <tr>
                             <td class="text-center">@startRowNumber</td>
                             <td class="text-center break-all">@item.UserName</td>
-                            <td class="text-center">@item.FirstName</td>
-                            <td class="text-center">@item.LastName</td>
+                            <td class="text-center">@Html.Raw(item.FirstName)</td>
+                            <td class="text-center">@Html.Raw(item.LastName)</td>
                             <td class="text-center">@item.ApprovedDate.ToString("dd/MM/yyyy hh:mm:ss")</td>
                             <td class="text-center">@item.Turnover.FormatDecimal()</td>
                             <td class="text-center">@item.Winloss.FormatDecimal()</td>
