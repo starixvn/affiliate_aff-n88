@@ -55,5 +55,13 @@
         public decimal AllPSPFeeMonthNumber { get; set; }
 
         public decimal AllNetWinlostMonthNumber { get; set; }
+
+        public int MemAllNum { get; set; }
+
+        public int NonDepositMemAllNum { get; set; }
+
+        public int MemMonthNum { get; set; }
+
+        public int NonDepositMemMonthNum { get; set; }
     }
 }

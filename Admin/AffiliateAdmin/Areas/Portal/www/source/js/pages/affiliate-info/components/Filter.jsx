@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { statusList, sortByList, defaultSortBy, resource } from '../modules/constants';
+import { statusList, sortByList, defaultState, resource } from '../modules/constants';
 import { setReportTitle, setParam, setSelectedColumn, setParentAffName } from '../actions';
 import { htmlDecode } from '../../../modules/htmlHelper';
 
@@ -15,15 +15,10 @@ export class Filter extends Component {
         this.initialGroupId = this.props.groupId;
 
         this.state = {
+            ...defaultState,
             selectedCommGroup: this.initialGroupId,
-            selectedLanguage: '',
             selectedStatus: props.param.Status || '',
-            userName: '',
-            email: '',
-            affId: '',
             parentAffName: this.props.param.ParentAffName || '',
-            selectedSortBy: defaultSortBy,
-            isSortAscending: true
         }
     }
 
@@ -33,13 +28,15 @@ export class Filter extends Component {
         if (this.initialGroupId !== 0 || param.IsFromHome) {
             this.handleClickSearch();
         }
+
+        param.ParentAffName && this.handleClickSearch(param.ParentAffName);
     }
 
     componentDidUpdate(prevProps) {
         const { parentAffName } = this.props;
 
         if (parentAffName !== prevProps.parentAffName) {
-            this.setState({ parentAffName });
+            this.setState({ ...defaultState, parentAffName });
         }
     }
 

@@ -65,3 +65,15 @@ export const resource = {
 export const regExp = {
     CheckAffId: "(^[1-9])(\\d*)$"
 }
+
+export const defaultState = {
+    selectedCommGroup: 0,
+    selectedLanguage: '',
+    selectedStatus: '',
+    userName: '',
+    email: '',
+    affId: '',
+    parentAffName: '',
+    selectedSortBy: defaultSortBy,
+    isSortAscending: true
+}

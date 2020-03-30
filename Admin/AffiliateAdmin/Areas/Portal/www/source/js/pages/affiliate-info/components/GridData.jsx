@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
-import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource } from '../modules/constants';
+import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../modules/constants';
 import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { post } from '../../../modules/ajaxRequest';
@@ -65,7 +65,17 @@ export class GridData extends Component {
     _handleViewSubAff = (userName) => {
         this.props.setParentAffName(userName);
 
-        const newParam = Object.assign({}, this.props.param, { ParentAffName: userName });
+        const newParam = {
+            ParentAffName: userName,
+            GroupId: 0,
+            Language: '',
+            Status: '',
+            UserName: '',
+            Email: '',
+            SortBy: defaultSortBy,
+            SortDirectionType: false,
+            AffId: ''
+        };
 
         this.props.setParam(newParam);
     }

@@ -99,6 +99,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
                 AllBonusMonthNumber = reader.GetVal<decimal>("BonusMonth"),
                 AllPSPFeeMonthNumber = reader.GetVal<decimal>("PSPFeeMonth"),
                 AllNetWinlostMonthNumber = reader.GetVal<decimal>("NetWinlostMonth"),
+                MemAllNum = reader.GetVal<int>("MemAllNum"),
+                NonDepositMemAllNum = reader.GetVal<int>("NonDepositMemAllNum"),
+                MemMonthNum = reader.GetVal<int>("MemMonthNum"),
+                NonDepositMemMonthNum = reader.GetVal<int>("NonDepositMemMonthNum"),
             };
         }
     }

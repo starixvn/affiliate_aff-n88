@@ -41,10 +41,10 @@ export class MemberStatistics extends PureComponent {
             <Panel heading={`Player statistics (${isUpToNow ? 'up to now' : 'this month'})`} className={"icon-home02"}>
                 <Row>
                     <Col sm={12} className="pl-4">
-                        <span>We have <strong>0</strong> players in the program</span>
+                        <span>We have <strong>{format(isUpToNow ? generalInfo.MemAllNum : generalInfo.MemMonthNum)}</strong> players in the program</span>
                     </Col>
                     <Col sm={12} className="pl-4">
-                        <span><strong>{format(isUpToNow ? generalInfo.AllMemberDepositNumber : generalInfo.AllMemberDepositMonthNumber)}</strong> Deposit / <strong>{format(isUpToNow ? (generalInfo.AllMemberDepositNumber) : (generalInfo.AllMemberDepositMonthNumber))}</strong> Non-Deposit</span>
+                        <span><strong>{format(isUpToNow ? generalInfo.AllMemberDepositNumber : generalInfo.AllMemberDepositMonthNumber)}</strong> Deposit / <strong>{format(isUpToNow ? (generalInfo.NonDepositMemAllNum) : (generalInfo.NonDepositMemMonthNum))}</strong> Non-Deposit</span>
                     </Col>
                     <Col sm={12}>
                         <Table className="member-statistics-table" sm={12}>
