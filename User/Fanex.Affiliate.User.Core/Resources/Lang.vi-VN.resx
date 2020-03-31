@@ -2227,7 +2227,4 @@
   <data name="NumberOfActivePlayers" xml:space="preserve">
     <value>Số lượng người chơi hoạt động</value>
   </data>
-  <data name="SubAffiliates" xml:space="preserve">
-    <value>Các Affiliate phụ</value>
-  </data>
 </root>

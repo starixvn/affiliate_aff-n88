@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -5440,15 +5440,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string SubAffiliateMediaGallery {
             get {
                 return ResourceManager.GetString("SubAffiliateMediaGallery", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sub-Affiliates.
-        /// </summary>
-        public static string SubAffiliates {
-            get {
-                return ResourceManager.GetString("SubAffiliates", resourceCulture);
             }
         }
         

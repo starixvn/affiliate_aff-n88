@@ -14,7 +14,7 @@
             <tr>
                 <td class="text-center">@startRowNumber</td>
                 <td class="text-center break-all">@item.Username</td>
-                <td class="text-center">@item.RegisteredDate.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                <td class="text-center">@(item.RegisteredDate?.ToString("dd-MMM-yyyy hh:mm tt") ?? string.Empty)</td>
                 <td class="text-center">@item.Turnover.FormatDecimal()</td>
                 <td class="text-center">@item.Winloss.FormatDecimal()</td>
                 <td class="text-center">@item.Deposit.FormatDecimal()</td>

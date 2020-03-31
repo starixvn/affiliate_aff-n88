@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                     case Constants.TransType.Payment:
                         return Resources.Lang.PaymentRequest;
                     case Constants.TransType.SubAffBonus:
-                        return Resources.Lang.SubAffiliates;
+                        return Resources.Lang.SubAffiliate;
                     case Constants.TransType.MonthlyTotal:
                         {
                             if(CalculatedType == Constants.CalculatedType.CalculatedMonth)

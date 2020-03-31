@@ -2299,9 +2299,6 @@
   <data name="SubAffiliateMediaGallery" xml:space="preserve">
     <value>Sub-Aff. Media Gallery</value>
   </data>
-  <data name="SubAffiliates" xml:space="preserve">
-    <value>Sub-Affiliates</value>
-  </data>
   <data name="SubAffDownline" xml:space="preserve">
     <value>Sub-Affiliate Downline</value>
   </data>
