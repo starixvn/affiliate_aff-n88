@@ -8,6 +8,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
         [Required(ErrorMessage = "Please select texts to delete")]
         public string TextIdList { get; set; }
 
-        public byte UserType { get; set; } = Constants.UserType.Player;
+        public byte UserType { get; set; }
     }
 }

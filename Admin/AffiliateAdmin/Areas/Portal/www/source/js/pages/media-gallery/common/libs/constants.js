@@ -8,9 +8,10 @@ export const messages = {
     NoFileChoosen: 'No file choosen',
     Files: 'files'
 }
-
+export const UserType = "userType";
+export const allUserType = 0;
 export const memberBanner = 1;
-const affiliateBanner = 2;
+export const affiliateBanner = 2;
 
 export const userTypeList = {
     [memberBanner]: 'Players',

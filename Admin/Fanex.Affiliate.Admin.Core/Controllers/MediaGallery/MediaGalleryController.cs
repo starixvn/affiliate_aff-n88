@@ -56,9 +56,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
             var sizeParam = new SizeParam
             {
-                ImageType = param.ImageType
+                UserType = param.UserType
             };
-            var bannerListCategory = _commonMediaGalleryService.GetCategoryList(BannerListCategory, UserType.Player);
+            var bannerListCategory = _commonMediaGalleryService.GetCategoryList(BannerListCategory, param.UserType);
 
             var model = new BannerListViewModel
             {
@@ -122,7 +122,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetBannerDetail(int selectedBannerId, byte userType = UserType.Player)
+        public ActionResult GetBannerDetail(int selectedBannerId, byte userType)
         {
             return new JsonNetResult
             {

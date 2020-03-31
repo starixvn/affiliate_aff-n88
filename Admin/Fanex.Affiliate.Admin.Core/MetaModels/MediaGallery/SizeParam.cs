@@ -16,6 +16,6 @@
 
         public byte DeviceType { get; set; }
 
-        public byte UserType { get; set; } = Constants.UserType.Player;
+        public byte UserType { get; set; }
     }
 }

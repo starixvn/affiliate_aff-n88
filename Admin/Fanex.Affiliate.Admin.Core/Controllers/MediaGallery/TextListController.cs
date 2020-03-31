@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
             var model = new TextListViewModel
             {
-                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory, UserType.Player).Where(c => string.IsNullOrEmpty(c.SubCategoryName)),
+                CategoryList = _commonMediaGalleryService.GetCategoryList(TextListCategory, UserType.All).Where(c => string.IsNullOrEmpty(c.SubCategoryName)),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _commonMediaGalleryService.GetCurrencyList(),
                 SubMenuList = subMenu
@@ -90,7 +90,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetTextDetail(int selectedTextId, byte userType = UserType.Player)
+        public ActionResult GetTextDetail(int selectedTextId, byte userType)
         {
             return new JsonNetResult
             {

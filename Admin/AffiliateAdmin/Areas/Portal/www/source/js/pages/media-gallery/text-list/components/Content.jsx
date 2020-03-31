@@ -54,12 +54,12 @@ export const Content = (props) => {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption, param } = props;
+            const { pagingOption } = props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(_buildDataRow(dataItem, i + startIndex, param.userType));
+                dataRows.push(_buildDataRow(dataItem, i + startIndex));
             }
         }
         else {
@@ -71,9 +71,10 @@ export const Content = (props) => {
         return dataRows;
     }
 
-    function _buildDataRow(dataItem, index, userType) {
+    function _buildDataRow(dataItem, index) {
         const content = htmlDecode(dataItem.TextContent);
         const deviceType = dataItem.DeviceType == 0 ? pcLaptop : mobile;
+        const userType = userTypeList[dataItem.UserType] || '';
 
         return (
             <Row key={`dataRow-${index}`}>
@@ -82,7 +83,7 @@ export const Content = (props) => {
                         onChange={(e) => _onCheckItem(e.target.checked, dataItem.TextId)} />
                 </Cell>
                 <Cell className="text-center" title={index}>{index}</Cell>
-                <Cell className="text-center" title={userTypeList[userType]}>{userTypeList[userType]}</Cell>
+                <Cell className="text-center" title={userType}>{userType}</Cell>
                 <Cell className="text-content" title={content}>{content}</Cell>
                 <Cell className="text-center" title={dataItem.Category}>{dataItem.Category}</Cell>
                 <Cell className="text-center" title={dataItem.Language}>{dataItem.Language}</Cell>

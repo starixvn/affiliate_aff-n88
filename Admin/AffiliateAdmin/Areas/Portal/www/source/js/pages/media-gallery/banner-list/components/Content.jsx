@@ -58,12 +58,12 @@ export const Content = (props) => {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption, param } = props;
+            const { pagingOption } = props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(_buildDataRow(dataItem, i + startIndex, param.userType));
+                dataRows.push(_buildDataRow(dataItem, i + startIndex));
             }
         }
         else {
@@ -75,7 +75,7 @@ export const Content = (props) => {
         return dataRows;
     }
 
-    function _buildDataRow(dataItem, index, userType) {
+    function _buildDataRow(dataItem, index) {
         const bannerId = dataItem.BannerId;
         const fileName = dataItem.FileName;
         const src = `${props.bannerRootUrl}/${fileName}?id=${dataItem.LastUpdateText}`;
@@ -85,6 +85,7 @@ export const Content = (props) => {
         const realHeight = strSize[1];
         const isValidWithHeight = realWidth < maxWidthHeight && realHeight < maxWidthHeight;
         const resizeResult = !isValidWithHeight && resizeWidthHeight(realWidth, realHeight);
+        const userType = userTypeList[dataItem.UserType] || '';
 
         return (
             <Row key={`dataRow-${index}`}>
@@ -93,7 +94,7 @@ export const Content = (props) => {
                         onChange={(e) => _onCheckItem(e.target.checked, bannerId)} />
                 </Cell>
                 <Cell className="text-center" title={index}>{index}</Cell>
-                <Cell className="text-center" title={userTypeList[userType]}>{userTypeList[userType]}</Cell>
+                <Cell className="text-center" title={userType}>{userType}</Cell>
                 <Cell className="text-center">
                     {
                         isValidWithHeight ? (

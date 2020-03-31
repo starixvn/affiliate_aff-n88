@@ -182,7 +182,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                 Language = Convert.ToString(reader["Language"]),
                 Currencies = Convert.ToString(reader["Currencies"]).Split(','),
                 Size = Convert.ToString(reader["Size"]),
-                DeviceTypes = reader.GetVal<string>("DeviceTypes").Split(',')
+                DeviceTypes = reader.GetVal<string>("DeviceTypes").Split(','),
+                UserType = reader.GetVal<byte>("TargetId")
             };
         }
     }

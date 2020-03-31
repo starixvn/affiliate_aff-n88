@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
-import { setSelectedBannerId, getBannerDetail, fetchData, insertBanner, updateBanner, toggleLoader, getSizeList } from '../actions/index';
+import { setSelectedBannerId, getBannerDetail, fetchData, insertBanner, updateBanner, toggleLoader, getSizeList, getCategoryList } from '../actions/index';
 import { headerText, defaultState, Casino, Sportsbook, regSpecialCharacters } from '../libs/constants';
-import { globalResource, defaultInsertId } from '../../common/libs/constants';
+import { globalResource, defaultInsertId, userTypeList, UserType } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import NotificationPopup from '../../../common/components/NotificationPopup';
 import { validateFileExtension, validateInputFile } from '../libs/utils';
@@ -71,7 +71,8 @@ export class EditBannerForm extends PureComponent {
                 currencyList: this.handleChangeMultipleSelected(currencyList, bannerInfo.Currencies),
                 affTypeList: this.handleChangeMultipleSelected(affTypeList, bannerInfo.AffTypes),
                 deviceTypeList: this.handleChangeMultipleSelected(deviceTypeList, bannerInfo.DeviceTypes),
-                iniatalFileName: shortFileName
+                iniatalFileName: shortFileName,
+                userType: bannerInfo.UserType
             });
         }
     }
@@ -81,6 +82,10 @@ export class EditBannerForm extends PureComponent {
         const name = event.target.name;
 
         this.setState({ [name]: value });
+
+        if (name === UserType) {
+            this.props.getCategoryList(value);
+        }
     }
 
     _handleChangeInputFileName = (event, index) => {
@@ -468,7 +473,7 @@ export class EditBannerForm extends PureComponent {
     render() {
         const { selectedBannerId, languageList, isDisableCurrency } = this.props;
         const { inputFileNames, language, isShowMessage, isSuccess, message, isInsert, isDisabled, messageNotificationPopup, categoryList,
-            subCategoryList, currencyList, affTypeList, deviceTypeList, files } = this.state;
+            subCategoryList, currencyList, affTypeList, deviceTypeList, files, userType } = this.state;
         const isShowPopup = selectedBannerId !== null;
         const title = isInsert ? "Add Banner" : "Update Banner";
         const buttonLabel = isInsert ? "Upload" : "Update";
@@ -504,6 +509,18 @@ export class EditBannerForm extends PureComponent {
                                             <InputFile id="file" className={`border ${(isInsert && isDisabled) || files.length === 0 ? "text-danger" : "text-success"}`}
                                                 isMultiple={isInsert} files={files}
                                                 handleOnChangeFiles={this._handleFile}></InputFile>
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup row className="mb-2">
+                                        <Label sm={3} for="userType">{headerText.UserType}</Label>
+                                        <Col sm={5}>
+                                            <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
+                                                {
+                                                    Object.keys(userTypeList).map(key => {
+                                                        return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
+                                                    })
+                                                }
+                                            </Input>
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row className="mb-2">
@@ -655,7 +672,7 @@ function mapStateToProps({ selectedBannerId, param, categoryList, subCategoryCas
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedBannerId, getBannerDetail, fetchData, insertBanner, updateBanner, toggleLoader, getSizeList }, dispatch);
+    return bindActionCreators({ setSelectedBannerId, getBannerDetail, fetchData, insertBanner, updateBanner, toggleLoader, getSizeList, getCategoryList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBannerForm);

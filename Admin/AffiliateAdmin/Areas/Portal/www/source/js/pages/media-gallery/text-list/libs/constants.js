@@ -1,4 +1,6 @@
-﻿export const headerText = {
+﻿import { memberBanner } from "../../common/libs/constants";
+
+export const headerText = {
     Index: '#',
     UserType: 'User Type',
     Content: 'Content',
@@ -15,6 +17,7 @@ export const messages = {
 }
 
 export const defaultState = {
+    userType: memberBanner,
     textContent: '',
     category: 'Basketball',
     language: 'Vietnamese',

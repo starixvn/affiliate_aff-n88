@@ -79,13 +79,13 @@ export const setCategoryList = (data) => {
     }
 }
 
-export const getCategoryList = (userType) => async (dispatch) => {
+export const getCategories = (userType) => async () => {
     const url = 'Portal/MediaGallery/GetCategoryList';
     const response = await post(url, { userType });
 
     const data = response && response.status === 200 ? response.data : [];
 
-    const categoryList = data.map(item => {
+    return data.map(item => {
         return {
             categoryName: item.CategoryName,
             key: item.CategoryName,
@@ -93,6 +93,11 @@ export const getCategoryList = (userType) => async (dispatch) => {
             checked: false
         };
     });
+}
+
+export const getCategoryList = (userType) => async (dispatch) => {
+
+    const categoryList = await getCategories(userType);
 
     dispatch(setCategoryList(categoryList));
 }

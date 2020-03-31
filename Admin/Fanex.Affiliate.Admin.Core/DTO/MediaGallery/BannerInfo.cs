@@ -23,6 +23,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.MediaGallery
 
         public string Size { get; set; }
 
+        public byte UserType { get; set; }
+
         [JsonIgnore]
         public DateTime? LastUpdate { get; set; }
 

@@ -23,6 +23,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
 
         public int PageSize { get; set; }
 
-        public byte UserType { get; set; } = Constants.UserType.Player;
+        public byte UserType { get; set; }
     }
 }

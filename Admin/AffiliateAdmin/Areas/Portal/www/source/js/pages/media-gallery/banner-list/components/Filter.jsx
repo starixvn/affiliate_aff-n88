@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { setParam, setParamFromHome, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
 import { headerText, Asian, Casino, Sportsbook } from '../libs/constants';
-import { globalResource, deviceTypes, pcLaptop, userTypeList, memberBanner } from '../../common/libs/constants';
+import { globalResource, deviceTypes, pcLaptop, userTypeList, affiliateBanner, allUserType, UserType } from '../../common/libs/constants';
 
 export class Filter extends PureComponent {
     constructor(props) {
@@ -19,7 +19,7 @@ export class Filter extends PureComponent {
             affType: Asian,
             deviceType: deviceTypes[pcLaptop],
             size: '',
-            userType: memberBanner
+            userType: allUserType
         }
     }
 
@@ -27,7 +27,8 @@ export class Filter extends PureComponent {
         const { paramFromHome } = this.props;
 
         if (paramFromHome && paramFromHome.IsFromHome) {
-            this._handleSearch();
+            this.setState({ userType: paramFromHome.UserType }, this._handleSearch);
+            this.props.setDisableCurrency(paramFromHome.UserType == affiliateBanner);
             this.props.setParamFromHome({ IsFromHome: false });
         }
     }
@@ -46,14 +47,11 @@ export class Filter extends PureComponent {
         const value = event.target.value;
         let param = Object.assign({}, this.state, { [name]: value });
 
-        if (name === 'userType') {
+        if (name === UserType) {
             param = { ...param, currency: '', category: '', subCategory: '' };
 
-            this.props.setDisableCurrency(value != memberBanner);
+            this.props.setDisableCurrency(value == affiliateBanner);
             this.props.getCategoryList(value);
-
-            const { pagingOption } = this.props;
-            this.props.setParam(Object.assign({}, param, { PageIndex: 1, PageSize: pagingOption.PageSize }));
         }
 
 
@@ -82,6 +80,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="userType" className="mr-sm-2">{headerText.UserType}</Label>
                         <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
+                            <option key={'userType-all'} value={allUserType}>{globalResource.All}</option>
                             {
                                 Object.keys(userTypeList).map(key => {
                                     return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
@@ -92,7 +91,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="category" className="mr-sm-2">{headerText.Category}</Label>
                         <Input type="select" name="category" id="category" value={category} onChange={this._handleChangeCategory}>
-                            <option key={'category-all'} value={''}>{globalResource.All}</option>
+                            <option key={'category-all'} value="">{globalResource.All}</option>
                             {
                                 categoryList && categoryList.map(item => {
                                     return (<option key={`category-${item.name}`} value={item.name}>{item.name}</option>)
@@ -105,7 +104,7 @@ export class Filter extends PureComponent {
                             <FormGroup className="mr-sm-3 pb-2">
                                 <Label for="subCategory" className="mr-sm-2">{headerText.SubCategory}</Label>
                                 <Input type="select" name="subCategory" id="subCategory" value={subCategory} onChange={this._handleChange}>
-                                    <option key={'subCategory-all'} value={''}>{globalResource.All}</option>
+                                    <option key={'subCategory-all'} value="">{globalResource.All}</option>
                                     {
                                         subCategoryList.map(item => {
                                             return (<option key={`subCategory-${item.SubCategoryName}`} value={item.SubCategoryName}>{item.SubCategoryName}</option>)
@@ -118,7 +117,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="language" className="mr-sm-2">{headerText.Language}</Label>
                         <Input type="select" name="language" id="language" value={language} onChange={this._handleChange}>
-                            <option key={'language-all'} value={''}>{globalResource.All}</option>
+                            <option key={'language-all'} value="">{globalResource.All}</option>
                             {
                                 languageList && languageList.map(item => {
                                     return (<option key={`language-${item.LanguageName}`} value={item.LanguageName}>{item.LanguageName}</option>)
@@ -129,7 +128,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="currency" className="mr-sm-2">{headerText.Currency}</Label>
                         <Input type="select" name="currency" id="currency" value={currency} onChange={this._handleChange} disabled={isDisableCurrency}>
-                            <option key={'currency-all'} value={''}>{globalResource.All}</option>
+                            <option key={'currency-all'} value="">{globalResource.All}</option>
                             {
                                 currencyList && currencyList.map(item => {
                                     return (<option key={`currency-${item.name}`} value={item.name}>{item.name}</option>)
@@ -164,7 +163,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="size" className="mr-sm-2">{headerText.Size}</Label>
                         <Input type="select" name="size" id="size" value={size} onChange={(e) => this.setState({ size: e.target.value })}>
-                            <option key={'size-all'} value={''}>{globalResource.All}</option>
+                            <option key={'size-all'} value="">{globalResource.All}</option>
                             {
                                 sizeList && sizeList.map(item => {
                                     return (<option key={`size-${item.name}`} value={item.name}>{item.name}</option>)

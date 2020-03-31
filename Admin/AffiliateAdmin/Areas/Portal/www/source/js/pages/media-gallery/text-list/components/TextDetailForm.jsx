@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
-import { setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader } from '../actions/index';
+import { setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader, getCategoryList } from '../actions';
 import { headerText, defaultState } from '../libs/constants';
-import { defaultInsertId, globalResource, deviceTypes, memberBanner } from '../../common/libs/constants';
+import { defaultInsertId, globalResource, deviceTypes, affiliateBanner, userTypeList, UserType } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class TextDetailForm extends PureComponent {
@@ -26,7 +26,7 @@ export class TextDetailForm extends PureComponent {
         }
 
         if (param !== prevProps.param) {
-            this.setState({ category: param.userType == memberBanner ? 'Basketball' : 'Sign up' })
+            this.setState({ category: param.userType == affiliateBanner ? 'Sign up' : 'Basketball' })
         }
     }
 
@@ -38,7 +38,8 @@ export class TextDetailForm extends PureComponent {
             category: item.Category,
             language: item.Language,
             currency: item.Currency,
-            deviceType: item.DeviceType
+            deviceType: item.DeviceType,
+            userType: item.UserType
         });
     }
 
@@ -47,6 +48,10 @@ export class TextDetailForm extends PureComponent {
         const name = event.target.name;
 
         this.setState({ [name]: value });
+
+        if (name === UserType) {
+            this.props.getCategoryList(value);
+        }
     }
 
     _handleSubmit = async () => {
@@ -100,7 +105,7 @@ export class TextDetailForm extends PureComponent {
 
     render() {
         const { selectedTextId, categoryList, languageList, currencyList, isDisableCurrency } = this.props;
-        const { textContent, category, language, currency, deviceType, isShowMessage, isSuccess, message, isInsert } = this.state;
+        const { userType, textContent, category, language, currency, deviceType, isShowMessage, isSuccess, message, isInsert } = this.state;
         const isShowPopup = selectedTextId !== null;
         const title = isInsert ? "Add Text" : "Update Text";
         const buttonLabel = isInsert ? "Upload" : "Update";
@@ -122,7 +127,18 @@ export class TextDetailForm extends PureComponent {
                                             value={textContent} onChange={this._handleChange} />
                                     </Col>
                                 </FormGroup>
-
+                                <FormGroup row className="mb-2">
+                                    <Label sm={2} for="userType">{headerText.UserType}</Label>
+                                    <Col sm={5}>
+                                        <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
+                                            {
+                                                Object.keys(userTypeList).map(key => {
+                                                    return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
+                                                })
+                                            }
+                                        </Input>
+                                    </Col>
+                                </FormGroup>
                                 <FormGroup row className="mb-2">
                                     <Label sm={2} for="category">{headerText.Category}</Label>
                                     <Col sm={5}>
@@ -196,7 +212,7 @@ function mapStateToProps({ selectedTextId, param, categoryList, languageList, cu
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader }, dispatch);
+    return bindActionCreators({ setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader, getCategoryList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextDetailForm);

@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { setParam, getCategoryList, setDisableCurrency } from '../actions';
 import { headerText } from '../libs/constants';
-import { globalResource, deviceTypes, pcLaptop, userTypeList, memberBanner } from '../../common/libs/constants';
+import { globalResource, deviceTypes, pcLaptop, userTypeList, affiliateBanner, allUserType } from '../../common/libs/constants';
 
 export const Filter = (props) => {
     const { categoryList, languageList, currencyList, isDisableCurrency } = props;
@@ -13,7 +13,7 @@ export const Filter = (props) => {
     const [language, setLanguage] = useState('');
     const [currency, setCurrency] = useState('');
     const [deviceType, setDeviceType] = useState(deviceTypes[pcLaptop]);
-    const [userType, setUserType] = useState(memberBanner);
+    const [userType, setUserType] = useState(allUserType);
 
     const _handleSearch = () => {
         const { pagingOption } = props;
@@ -37,19 +37,7 @@ export const Filter = (props) => {
         setCurrency('');
         setUserType(value);
 
-        const { pagingOption } = props;
-        const param = Object.assign({}, {
-            category: '',
-            language,
-            currency: '',
-            deviceType,
-            userType: value,
-            PageIndex: 1,
-            PageSize: pagingOption.PageSize
-        })
-
-        props.setParam(param);
-        props.setDisableCurrency(value != memberBanner);
+        props.setDisableCurrency(value == affiliateBanner);
         props.getCategoryList(value);
     }
 
@@ -59,6 +47,7 @@ export const Filter = (props) => {
                 <FormGroup className="mr-sm-3">
                     <Label for="userType" className="mr-sm-2">{headerText.UserType}</Label>
                     <Input type="select" name="userType" id="userType" value={userType} onChange={_handleChange}>
+                        <option key={'userType-all'} value={allUserType}>{globalResource.All}</option>
                         {
                             Object.keys(userTypeList).map(key => {
                                 return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)

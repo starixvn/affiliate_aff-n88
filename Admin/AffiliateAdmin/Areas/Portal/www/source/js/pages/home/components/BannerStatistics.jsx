@@ -20,7 +20,7 @@ export const BannerStatistics = (props) => {
                 </Col>
                 <Col sm={12}>
                     <span>
-                        <a href={resolveClientUrl("Portal/MediaGallery?ImageType=Image&IsFromHome=true")}><strong>{format(generalInfo.PlayerBannerNum)}</strong></a> Players banners / <a href={resolveClientUrl("Portal/MediaGallery?ImageType=Flash&IsFromHome=true")}><strong>{generalInfo.AffiliateBannerNum}</strong></a> Sub-affiliate banners
+                        <a href={resolveClientUrl("Portal/MediaGallery?UserType=1&IsFromHome=true")}><strong>{format(generalInfo.PlayerBannerNum)}</strong></a> Players banners / <a href={resolveClientUrl("Portal/MediaGallery?UserType=2&IsFromHome=true")}><strong>{generalInfo.AffiliateBannerNum}</strong></a> Sub-affiliate banners
                     </span>
                 </Col>
             </Row>

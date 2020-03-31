@@ -1,4 +1,6 @@
-﻿export const Casino = 'Casino';
+﻿import { memberBanner } from "../../common/libs/constants";
+
+export const Casino = 'Casino';
 export const Sportsbook = 'Sportsbook';
 
 export const Asian = 1;
@@ -35,5 +37,6 @@ export const defaultState = {
     isSuccess: true,
     message: '',
     isDisabled: true,
-    messageNotificationPopup: ''
+    messageNotificationPopup: '',
+    userType: memberBanner
 }
