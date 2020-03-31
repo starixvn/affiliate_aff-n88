@@ -158,9 +158,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
             {
                 ["PaymentReqNum"] = 1,
                 ["BannerNum"] = 2,
-                ["ImageBannerNum"] = 3,
-                ["FlashBannerNum"] = 4,
-                ["TextBannerNum"] = 5,
+                ["PlayerBannerNum"] = 3,
+                ["AffiliateBannerNum"] = 4,
                 ["AffInProAllNum"] = 1,
                 ["PendingAllNum"] = 2,
                 ["ApprovedAllNum"] = 3,

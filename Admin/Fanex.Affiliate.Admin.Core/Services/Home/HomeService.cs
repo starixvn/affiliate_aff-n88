@@ -74,9 +74,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
             {
                 PaymentRequestNumber = reader.GetVal<int>("PaymentReqNum"),
                 BannerNumber = reader.GetVal<int>("BannerNum"),
-                ImageBannerNumber = reader.GetVal<int>("ImageBannerNum"),
-                FlashBannerNumber = reader.GetVal<int>("FlashBannerNum"),
-                TextBannerNumber = reader.GetVal<int>("TextBannerNum"),
+                PlayerBannerNum = reader.GetVal<int>("PlayerBannerNum"),
+                AffiliateBannerNum = reader.GetVal<int>("AffiliateBannerNum"),
                 AllAffiliateNumber = reader.GetVal<int>("AffInProAllNum"),
                 PendingAffiliateNumber = reader.GetVal<int>("PendingAllNum"),
                 ApprovedAffiliateNumber = reader.GetVal<int>("ApprovedAllNum"),
