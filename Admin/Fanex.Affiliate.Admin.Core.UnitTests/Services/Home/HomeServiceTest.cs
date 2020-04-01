@@ -181,7 +181,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
                 ["WinlostMonth"] = 4,
                 ["BonusMonth"] = 5,
                 ["PSPFeeMonth"] = 4,
-                ["NetWinlostMonth"] = 5
+                ["NetWinlostMonth"] = 5,
+                ["MemAllNum"] = 4,
+                ["NonDepositMemAllNum"] = 3,
+                ["MemMonthNum"] = 4,
+                ["NonDepositMemMonthNum"] = 3
             };
         }
     }

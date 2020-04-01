@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = 2 });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.Asian });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
@@ -83,7 +83,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = 4 });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.European });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action

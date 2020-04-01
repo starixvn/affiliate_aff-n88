@@ -208,7 +208,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            param.GroupId = 123;
             var affInfo = new AffiliateBasicInfo();
             var emailParam = new AffInformationEmail();
 
@@ -234,7 +233,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            param.GroupId = 123;
             var affInfo = new AffiliateBasicInfo();
             var emailParam = new AffInformationEmail();
 

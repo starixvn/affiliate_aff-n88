@@ -172,6 +172,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["AffWithdrawal"] = 123,
                 ["AffAdjustment"] = 123,
                 ["BFF"] = 123,
+                ["NoOfSubAff"] = 0,
+                ["SubAffEarning"] = 0
             };
         }
 
@@ -203,6 +205,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["AffWithdrawal"] = 123,
                 ["AffAdjustment"] = 123,
                 ["BFF"] = 123,
+                ["NoOfSubAff"] = 0,
+                ["SubAffEarning"] = 0
             };
         }
 

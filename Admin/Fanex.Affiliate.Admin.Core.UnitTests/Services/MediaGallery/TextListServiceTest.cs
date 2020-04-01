@@ -221,7 +221,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
                 ["Category"] = "Basketball",
                 ["Language"] = "English",
                 ["Currency"] = "EURO",
-                ["DeviceType"] = 1
+                ["DeviceType"] = 1,
+                ["TargetId"] = 1
             };
         }
     }

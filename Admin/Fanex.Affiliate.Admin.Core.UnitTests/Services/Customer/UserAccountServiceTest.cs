@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal("Update is failed!", result.Message);
+            Assert.Equal("Please describe how you would like to promote  if you don't have the URL is required", result.Message);
         }
 
         private static UserAccountService CreateUserAccountService(
@@ -69,7 +69,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var fakeUserAccountRepository = userAccountRepository ?? Mock.Of<IUserAccountRepository>();
             var fakeAppSetting = appSeting ?? Mock.Of<IAppSetting>();
 
-            return new UserAccountService(fakeUserAccountRepository, appSeting);
+            return new UserAccountService(fakeUserAccountRepository, fakeAppSetting);
         }
 
         private static UserAccountParam GetUserAccountParam()

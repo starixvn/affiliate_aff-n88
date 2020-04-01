@@ -190,13 +190,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["TransId"] = 37,
                 ["Amount"] = 100,
                 ["TransType"] = 123,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
                 ["Status"] = "Approved",
                 ["Creator"] = "sa",
-                ["Description"] = "abc"
+                ["Description"] = "abc",
+                ["CalculatedType"] = null
             };
         }
 
@@ -204,13 +204,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["TransId"] = 37,
                 ["Amount"] = 100,
                 ["TransType"] = 0,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
                 ["Status"] = "Approved",
                 ["Creator"] = "sa",
-                ["Description"] = "abc"
+                ["Description"] = "abc",
+                ["CalculatedType"] = DBNull.Value
             };
         }
 

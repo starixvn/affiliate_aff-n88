@@ -269,9 +269,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
+                ["ParentAffId"] = 0,
+                ["ParentAffName"] = "",
                 ["AffId"] = 1271808,
                 ["GroupId"] = 100,
-                ["UserName"] = "12BETAFF226",
+                ["UserName"] = "N8BAFF002",
                 ["FirstName"] = "Hubert",
                 ["LastName"] = "Duong",
                 ["PreferredLanguage"] = "en-US",
@@ -287,7 +289,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["SiteUrl"] = "test.com",
                 ["NoSiteDesc"] = "tét",
                 ["Status"] = "Approved",
-                ["Phone"] = "0123456789"
+                ["Phone"] = "0123456789",
+                ["IsPrivate"] = true
             };
         }
 
@@ -295,9 +298,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
+                ["ParentAffId"] = DBNull.Value,
+                ["ParentAffName"] = "",
                 ["AffId"] = 1271808,
                 ["GroupId"] = 100,
-                ["UserName"] = "12BETAFF226",
+                ["UserName"] = "N8BAFF002",
                 ["FirstName"] = "Hubert",
                 ["LastName"] = "Duong",
                 ["PreferredLanguage"] = "en-US",
@@ -313,7 +318,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["SiteUrl"] = "test.com",
                 ["NoSiteDesc"] = "tét",
                 ["Status"] = "Approved",
-                ["Phone"] = "0123456789"
+                ["Phone"] = "0123456789",
+                ["IsPrivate"] = true
             };
         }
 

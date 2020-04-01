@@ -95,9 +95,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["CategoryId"] = 123,
-                ["CategoryName"] = "test",
-                ["ParentCategoryId"] = 123
+                ["Category"] = "Casino",
+                ["SubCategory"] = "test",
+                ["TargetId"] = 1
             };
         }
 

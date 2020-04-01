@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam());
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { Currencies = "UERO" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void InsertBanner_WhenCallWithInputFileNamesMaxLenght_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "123test123test123test123test123test123test123test123test.png" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "123test123test123test123test123test123test123test123test.png", Currencies = "UERO" };
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
             var systemFile = new Mock<ISystemFile>();
@@ -124,7 +124,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void InsertBanner_WhenCallWithInvalidInputFileNames_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf", Currencies = "UERO" };
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
             var systemFile = new Mock<ISystemFile>();
@@ -143,7 +143,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void InsertBanner_WhenCallWithInvalidFileMaxLenght_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "UERO" };
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
@@ -168,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "" });
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "UERO" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -187,7 +187,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "" });
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "UERO" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -198,7 +198,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void UpdateBanner_WhenCallWithInvalidInputFileName_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf", Currencies = "UERO" };
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".pdf");
             var service = CreateBannerListService(systemFile: systemFile.Object);
@@ -215,7 +215,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void UpdateBanner_WhenCallWithInvalidFile_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "UERO" };
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
             var service = CreateBannerListService(systemFile: systemFile.Object);
@@ -241,7 +241,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png" });
+            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", Currencies = "UERO" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -257,12 +257,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.ErrTheFileNameAlreadyExists, Message = "The file name already exists." });
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), It.IsAny<byte>())).Returns(new BannerInfo { FileName = "CategoryMedia/abc.png" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), It.IsAny<byte>())).Returns(new BannerInfo { FileName = "CategoryMedia/Players/abc.png" });
             bannerListRepository.Setup(s => s.UpdateBanner(It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png" });
+            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = UserType.Player, Currencies = "UERO" });
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -285,7 +285,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "xyz.png" });
+            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "xyz.png", Currencies = "UERO" });
 
             // Assert
             Assert.True(result.IsSuccessful);
