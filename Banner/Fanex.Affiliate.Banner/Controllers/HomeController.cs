@@ -28,8 +28,12 @@
         public ActionResult MediaText(int textId, int targetId)
         {
             var encodedMessage = GetMessageContent(textId, targetId);
-            var message = HttpUtility.HtmlDecode(encodedMessage);
-            return JavaScript("document.getElementById('_affMediaText').innerHTML ='" + message.Replace("\r\n", "<br/>").Replace("\n", "<br/>") + "';");
+            var message = HttpUtility.HtmlDecode(encodedMessage)
+                .Replace("\r\n", "<br/>")
+                .Replace("\n", "<br/>")
+                .Replace("'","\\'");
+
+            return JavaScript($"document.getElementById('_affMediaText').innerHTML ='{message}';");
         }
 
         public ActionResult Error()
