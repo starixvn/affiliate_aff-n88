@@ -7,7 +7,7 @@
     /// </summary>
     public class TrackingSystemCriteria : CriteriaBase
     {
-        public int AffiliateID { get; set; }
+        public int AffId { get; set; }
 
         public string AffDomain { get; set; }
 
