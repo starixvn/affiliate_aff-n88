@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.Link.Controllers
                 var criteria = new TrackingSystemCriteria
                 {
                     AffDomain = affDomain,
-                    AffiliateID = affId,
+                    AffId = affId,
                     PageCode = pageId,
                     LanguageCode = lang,
                     DeviceType = GetDeviceType(),
