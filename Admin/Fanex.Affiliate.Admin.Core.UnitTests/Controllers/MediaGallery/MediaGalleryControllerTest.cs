@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         public void Index_WhenCall_ReturnView()
         {
             // Arrange
-            var param = new BannerParamFromHome { ImageType = "Image", IsFromHome = true };
+            var param = new BannerParamFromHome { UserType = 1, IsFromHome = true };
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
             commonMediaGalleryService.Setup(c => c.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
             commonMediaGalleryService.Setup(c => c.GetCurrencyList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 234, Name = "Currency" } });
@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             Assert.Single(model.SizeList);
             Assert.Single(model.AffTypeList);
             Assert.Equal(param, model.Param);
-            Assert.Equal(param.ImageType, passedSizeParam.ImageType);
+            Assert.Equal(param.UserType, passedSizeParam.UserType);
         }
 
         [Fact]
@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
-            var result = controller.GetBannerDetail(selectedBannerId) as JsonNetResult;
+            var result = controller.GetBannerDetail(selectedBannerId, 1) as JsonNetResult;
             var bannerInfo = result.Data as BannerInfo;
 
             // Assert

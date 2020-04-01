@@ -10,10 +10,10 @@ export const messages = {
 }
 export const UserType = "userType";
 export const allUserType = 0;
-export const memberBanner = 1;
+export const playerBanner = 1;
 export const affiliateBanner = 2;
 
 export const userTypeList = {
-    [memberBanner]: 'Players',
+    [playerBanner]: 'Players',
     [affiliateBanner]: 'Sub-Affiliate'
 }

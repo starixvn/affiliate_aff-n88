@@ -1,4 +1,4 @@
-﻿import { memberBanner } from "../../common/libs/constants";
+﻿import { playerBanner } from "../../common/libs/constants";
 
 export const headerText = {
     Index: '#',
@@ -17,13 +17,14 @@ export const messages = {
 }
 
 export const defaultState = {
-    userType: memberBanner,
+    userType: playerBanner,
     textContent: '',
     category: 'Basketball',
     language: 'Vietnamese',
     currency: 'EURO',
     deviceType: 0,
     isInsert: true,
+    isPlayer: true,
     isShowMessage: false,
     isSuccess: true,
     message: ''

@@ -1,4 +1,4 @@
-﻿import { memberBanner } from "../../common/libs/constants";
+﻿import { playerBanner } from "../../common/libs/constants";
 
 export const Casino = 'Casino';
 export const Sportsbook = 'Sportsbook';
@@ -37,6 +37,7 @@ export const defaultState = {
     isSuccess: true,
     message: '',
     isDisabled: true,
+    isDisableCurrency: false,
     messageNotificationPopup: '',
-    userType: memberBanner
+    userType: playerBanner
 }

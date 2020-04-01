@@ -5,28 +5,28 @@ import { bindActionCreators } from 'redux';
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { setSelectedTextId, getTextDetail, fetchData, insertText, updateText, toggleLoader, getCategoryList } from '../actions';
 import { headerText, defaultState } from '../libs/constants';
-import { defaultInsertId, globalResource, deviceTypes, affiliateBanner, userTypeList, UserType } from '../../common/libs/constants';
+import { defaultInsertId, globalResource, deviceTypes, affiliateBanner, userTypeList, UserType, playerBanner } from '../../common/libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 export class TextDetailForm extends PureComponent {
     constructor(props) {
         super(props)
 
+        const { categoryList } = this.props;
+
         this.state = {
-            ...defaultState
+            ...defaultState,
+            playerCategoryList: categoryList.filter(c => c.UserType === playerBanner),
+            subAffiliateCategoryList: categoryList.filter(c => c.UserType === affiliateBanner)
         }
     }
 
     componentDidUpdate(prevProps) {
-        const { selectedTextId, param } = this.props;
+        const { selectedTextId } = this.props;
         if (prevProps.selectedTextId !== selectedTextId) {
             this.setState({ isInsert: selectedTextId === defaultInsertId });
 
             selectedTextId && this._handleGetTextDetail(selectedTextId);
-        }
-
-        if (param !== prevProps.param) {
-            this.setState({ category: param.userType == affiliateBanner ? 'Sign up' : 'Basketball' })
         }
     }
 
@@ -39,7 +39,8 @@ export class TextDetailForm extends PureComponent {
             language: item.Language,
             currency: item.Currency,
             deviceType: item.DeviceType,
-            userType: item.UserType
+            userType: item.UserType,
+            isPlayer: item.UserType === playerBanner
         });
     }
 
@@ -50,7 +51,8 @@ export class TextDetailForm extends PureComponent {
         this.setState({ [name]: value });
 
         if (name === UserType) {
-            this.props.getCategoryList(value);
+            const isPlayer = value == playerBanner;
+            this.setState({ isPlayer, category: isPlayer ? 'Basketball' : 'Sign up', currency: 'EURO' });
         }
     }
 
@@ -60,10 +62,10 @@ export class TextDetailForm extends PureComponent {
         const { textContent, isInsert } = this.state;
 
         if (!!textContent) {
-            const { category, language, currency, deviceType } = this.state;
-            const { selectedTextId, isDisableCurrency, param } = this.props;
+            const { category, language, currency, deviceType, userType, isPlayer } = this.state;
+            const { selectedTextId } = this.props;
             const message = isInsert ? "Add Successfully!" : "Update Successfully!";
-            const textInfo = Object.assign({}, { TextId: selectedTextId, textContent, category, language, currency: isDisableCurrency ? '' : currency, deviceType, userType: param.userType });
+            const textInfo = Object.assign({}, { TextId: selectedTextId, textContent, category, language, currency: isPlayer ? currency : '', deviceType, userType });
             const result = isInsert ? await this.props.insertText(textInfo) : await this.props.updateText(textInfo);
 
             if (result) {
@@ -104,11 +106,12 @@ export class TextDetailForm extends PureComponent {
     }
 
     render() {
-        const { selectedTextId, categoryList, languageList, currencyList, isDisableCurrency } = this.props;
-        const { userType, textContent, category, language, currency, deviceType, isShowMessage, isSuccess, message, isInsert } = this.state;
+        const { selectedTextId, languageList, currencyList } = this.props;
+        const { userType, textContent, category, language, currency, deviceType, isShowMessage, isSuccess, message, isInsert, isPlayer, playerCategoryList, subAffiliateCategoryList } = this.state;
         const isShowPopup = selectedTextId !== null;
         const title = isInsert ? "Add Text" : "Update Text";
         const buttonLabel = isInsert ? "Upload" : "Update";
+        const categoryList = isPlayer ? playerCategoryList : subAffiliateCategoryList;
 
         return (
             <Modal isOpen={isShowPopup} toggle={this._handleClosePopup} backdrop='static'>
@@ -127,18 +130,20 @@ export class TextDetailForm extends PureComponent {
                                             value={textContent} onChange={this._handleChange} />
                                     </Col>
                                 </FormGroup>
-                                <FormGroup row className="mb-2">
-                                    <Label sm={2} for="userType">{headerText.UserType}</Label>
-                                    <Col sm={5}>
-                                        <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
-                                            {
-                                                Object.keys(userTypeList).map(key => {
-                                                    return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
-                                                })
-                                            }
-                                        </Input>
-                                    </Col>
-                                </FormGroup>
+                                {
+                                    isInsert && <FormGroup row className="mb-2">
+                                        <Label sm={2} for="userType">{headerText.UserType}</Label>
+                                        <Col sm={5}>
+                                            <Input type="select" name="userType" id="userType" value={userType} onChange={this._handleChange}>
+                                                {
+                                                    Object.keys(userTypeList).map(key => {
+                                                        return (<option key={`userType-${key}`} value={key}>{userTypeList[key]}</option>)
+                                                    })
+                                                }
+                                            </Input>
+                                        </Col>
+                                    </FormGroup>
+                                }
                                 <FormGroup row className="mb-2">
                                     <Label sm={2} for="category">{headerText.Category}</Label>
                                     <Col sm={5}>
@@ -164,7 +169,7 @@ export class TextDetailForm extends PureComponent {
                                     </Col>
                                 </FormGroup>
                                 {
-                                    !isDisableCurrency && (
+                                    isPlayer && (
                                         <FormGroup row className="mb-2">
                                             <Label sm={2} for="currency">{headerText.Currency}</Label>
                                             <Col sm={5}>
@@ -207,8 +212,8 @@ export class TextDetailForm extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList, isDisableCurrency }) {
-    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList, isDisableCurrency });
+function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList }) {
+    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList });
 }
 
 function mapDispatchToProps(dispatch) {

@@ -96,10 +96,12 @@ export const getCategories = (userType) => async () => {
 }
 
 export const getCategoryList = (userType) => async (dispatch) => {
+    const url = 'Portal/MediaGallery/GetCategoryList';
+    const response = await post(url, { userType });
 
-    const categoryList = await getCategories(userType);
+    const data = response && response.status === 200 ? response.data : [];
 
-    dispatch(setCategoryList(categoryList));
+    dispatch(setCategoryList(data));
 }
 
 export const getSizeList = (param) => async (dispatch) => {

@@ -13,20 +13,19 @@ export const categoryList = createReducer(null, {
         return action.data;
     }
 });
+export const playerCategoryList = createReducer(null, {});
+export const subAffiliateCategoryList = createReducer(null, {});
 export const subCategoryList = createReducer(null, {});
+export const bannerRootUrl = createReducer(null, {});
+export const subCategoryCasinoList = createReducer(null, {});
+export const subCategorySportsbookList = createReducer(null, {});
 export const languageList = createReducer(null, {});
 export const currencyList = createReducer(null, {});
 export const affTypeList = createReducer(null, {});
 export const deviceTypeList = createReducer([
-    {   key: 0, name: "PC / Laptop", checked: false    },
-    {   key: 1, name: "Mobile", checked: false }
+    {   key: 0, name: "PC / Laptop", checked: true },
+    {   key: 1, name: "Mobile", checked: true }
 ], {});
-
-export const bannerRootUrl = createReducer(null, {});
-
-export const subCategoryCasinoList = createReducer(null, {});
-
-export const subCategorySportsbookList = createReducer(null, {});
 
 export const sizeList = createReducer(null, {
     [SET_SIZE_LIST](prevState, action) {
@@ -102,5 +101,7 @@ export default combineReducers({
     bannerDetailUrl,
     selectedBannerId,
     shouldResetScrollPosition,
-    isDisableCurrency
+    isDisableCurrency,
+    playerCategoryList,
+    subAffiliateCategoryList
 });

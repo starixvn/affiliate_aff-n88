@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Repository;
 using System.Data;
+using Fanex.Affiliate.Admin.Core.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 {
@@ -25,7 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                         result.Add(new Category
                         {
                             CategoryName = Convert.ToString(reader["Category"]),
-                            SubCategoryName = Convert.ToString(reader["SubCategory"])
+                            SubCategoryName = Convert.ToString(reader["SubCategory"]),
+                            UserType = reader.GetVal<byte>("TargetId")
                         });
                     }
                 }

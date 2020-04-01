@@ -93,7 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             var controller = CreateTextListController(textListService: textListService.Object);
 
             // Action
-            var result = controller.GetTextDetail(selectedTextId) as JsonNetResult;
+            var result = controller.GetTextDetail(selectedTextId, 1) as JsonNetResult;
             var textInfo = result.Data as TextInfo;
 
             // Assert

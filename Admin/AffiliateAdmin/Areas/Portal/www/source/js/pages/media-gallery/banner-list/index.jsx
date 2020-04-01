@@ -6,16 +6,26 @@ import AppContainer from './components/AppContainer';
 
 import reducer from './reducers';
 import { configureStore } from '../../../modules/store';
+import { playerBanner, affiliateBanner } from '../common/libs/constants';
 
 const { categoryList, subCategoryList, languageList, currencyList, bannerRootUrl, sizeList, affTypeList,
         paramFromHome, subCategoryCasinoList, subCategorySportsbookList } = window.initialState;
 
-const newCategoryList = categoryList.map(item => {
+const playerCategoryList = categoryList.filter(c => c.UserType === playerBanner).map(item => {
     return {
         categoryName: item.CategoryName,
         key: item.CategoryName,
         name: item.CategoryName,
-        checked: false
+        checked: true
+    };
+});
+
+const subAffiliateCategoryList = categoryList.filter(c => c.UserType === affiliateBanner).map(item => {
+    return {
+        categoryName: item.CategoryName,
+        key: item.CategoryName,
+        name: item.CategoryName,
+        checked: true
     };
 });
 
@@ -24,7 +34,7 @@ const newSubCategoryList = subCategoryList.map(item => {
         key: item.SubCategoryName,
         name: item.SubCategoryName,
         parentCategoryName: item.CategoryName,
-        checked: false
+        checked: true
     };
 });
 
@@ -32,7 +42,7 @@ const newCurrencyList = currencyList.map(item => {
     return {
         key: item.Name,
         name: item.Name,
-        checked: false
+        checked: true
     };
 });
 
@@ -40,7 +50,7 @@ const newSizeList = sizeList.map(item => {
     return {
         key: item.Name,
         name: item.Name,
-        checked: false
+        checked: true
     };
 });
 
@@ -48,12 +58,12 @@ const newAffTypeList = affTypeList.map(item => {
     return {
         key: item.AffTypeId,
         name: item.AffTypeName,
-        checked: false
+        checked: true
     };
 });
 
 const store = configureStore({
-    languageList, paramFromHome, categoryList: newCategoryList, subCategoryList: newSubCategoryList,
+    languageList, paramFromHome, categoryList, playerCategoryList, subAffiliateCategoryList, subCategoryList: newSubCategoryList,
     currencyList: newCurrencyList, bannerRootUrl, sizeList: newSizeList, affTypeList: newAffTypeList,
     subCategoryCasinoList, subCategorySportsbookList
 }, reducer);
