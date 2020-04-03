@@ -130,24 +130,29 @@
         [HttpGet]
         [AjaxOnly]
         public ActionResult GenerateLink(string selectedLanguage
-            , int selectedDomainId
+            , int? selectedDomainId
             , string selectedPage
             , bool isTargetToMemberSite = true)
         {
-            var userSession = SessionService.UserSession;
-            var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
-                                                    .FirstOrDefault(d => d.DomainId == selectedDomainId);
-            var languageList = string.IsNullOrEmpty(selectedLanguage) ?
-                MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
+            IDictionary<string, QrCodeLinkModel> result = new Dictionary<string, QrCodeLinkModel>();
 
-            var textLinkList = isTargetToMemberSite 
-                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
-                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
+            if (selectedDomainId != null)
+            {
+                var userSession = SessionService.UserSession;
+                var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
+                var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
+                                                        .FirstOrDefault(d => d.DomainId == selectedDomainId);
+                var languageList = string.IsNullOrEmpty(selectedLanguage) ?
+                    MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
 
-            var qrCodeParamsDic = GetQrCodes(textLinkList);
+                var textLinkList = isTargetToMemberSite
+                    ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
+                    : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
 
-            return View("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", qrCodeParamsDic);
+                result = GetQrCodes(textLinkList);
+            }
+
+            return View("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result);
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
