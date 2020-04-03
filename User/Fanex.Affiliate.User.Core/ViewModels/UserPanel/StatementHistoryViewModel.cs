@@ -78,7 +78,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                         return Resources.Lang.SubAffiliate;
                     case Constants.TransType.MonthlyTotal:
                         {
-                            if(CalculatedType == Constants.CalculatedType.CalculatedMonth)
+                            if(CalculatedType == Constants.CalculatedType.CalculatedMonth || CalculatedType == Constants.CalculatedType.UnCalculatedMonth)
                             {
                                 return Resources.Lang.MonthlyTotal;
                             }

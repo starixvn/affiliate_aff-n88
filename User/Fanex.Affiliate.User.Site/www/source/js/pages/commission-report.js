@@ -212,7 +212,7 @@
 
         sort: function () {
             var mainDataList = _reportData.Data;
-
+            console.log(_sortingColumn);
             mainDataList.sort(function (item, nextItem) {
                 if (_sortingColumn === 'Month') {
                     return _isSortingAsc ? item.Month - nextItem.Month : -(item.Month - nextItem.Month);
