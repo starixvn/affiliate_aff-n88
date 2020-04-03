@@ -76,7 +76,6 @@
                 contentType: "application/json; charset=UTF-8",
                 success: function (response) {
                     _reportData = response;
-                    console.log(response);
                     if (_reportData) {
                         _me.renderData();
                         _me.activeSortIcon($('#defaultSorting'));
@@ -92,7 +91,6 @@
         },
 
         renderData: function () {
-            console.log(1);
             if (_reportData.Data && _reportData.Data.length) {
                 var bodyHtml = _me.buildDataTable();
                 $('#reportData').html(bodyHtml);
@@ -212,7 +210,6 @@
 
         sort: function () {
             var mainDataList = _reportData.Data;
-            console.log(_sortingColumn);
             mainDataList.sort(function (item, nextItem) {
                 if (_sortingColumn === 'Month') {
                     return _isSortingAsc ? item.Month - nextItem.Month : -(item.Month - nextItem.Month);
