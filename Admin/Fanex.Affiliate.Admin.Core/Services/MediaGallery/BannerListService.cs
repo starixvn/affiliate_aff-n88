@@ -134,7 +134,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             return result;
         }
 
-        private ResultInfo CheckMultipleFilesInFolder(string[] inputFileNames)
+        private ResultInfo CheckMultipleFilesInFolder(string[] inputFileNames, string folder)
         {
             var resultCheckMultipleFilesInFolder = new ResultInfo();
             var message = new StringBuilder();
@@ -142,8 +142,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             for (int i = 0; i < inputFileNames.Length; i++)
             {
                 var inputFileName = inputFileNames[i];
-                var filePath = $"CategoryMedia/{inputFileName}";
-                var result = _bannerValidationService.CheckFileInFolder("CategoryMedia/", filePath);
+                var filePath = $"CategoryMedia/{folder}/{inputFileName}";
+                var result = _bannerValidationService.CheckFileInFolder($"CategoryMedia/{folder}/", filePath);
 
                 if (!result.IsSuccessful)
                 {
@@ -223,7 +223,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 return result;
             }
 
-            result = CheckMultipleFilesInFolder(inputFileNames);
+            result = CheckMultipleFilesInFolder(inputFileNames, param.Folder);
             if (!result.IsSuccessful)
             {
                 return result;
