@@ -62,7 +62,7 @@ describe('member list actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/GetMemberList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Player/GetMemberList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -87,7 +87,7 @@ describe('member list actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/GetMemberList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Player/GetMemberList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })

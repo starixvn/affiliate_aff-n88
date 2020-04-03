@@ -47,6 +47,7 @@ describe('affiliate info - Filter - connect', () => {
         const expectedActionCreator = {
             setReportTitle: actions['setReportTitle'],
             setParam: actions['setParam'],
+            setParentAffName: actions['setParentAffName'],
             setSelectedColumn: actions['setSelectedColumn']
         }
 

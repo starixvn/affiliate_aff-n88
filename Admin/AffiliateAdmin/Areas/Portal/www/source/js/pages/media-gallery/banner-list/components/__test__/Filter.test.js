@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { Filter } from '../Filter';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { defaultPagingOption } from '../../../../../modules/constants';
 
@@ -85,35 +85,33 @@ describe('banner list - components - Filter ', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ "PageIndex": 1, "PageSize": 20, "affType": 1, "category": "", "currency": "", "deviceType": "PC / Laptop", "imageType": "", "language": "", "size": "", "subCategory": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "PageIndex": 1, "PageSize": 20, "affType": 1, "category": "", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", userType: 0 });
     });
 
     it('_handleChangeCategory - should change category when change category select', () => {
         const event = {
             target: { value: 'Casino' }
         };
-        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn(), getSubCategoryCasinoList: jest.fn(), subCategoryCasinoList: null });
+        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn() });
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.find('Input[type="select"][id="category"]').simulate('change', event);
 
         expect(wrapper.find('Input[type="select"][id="category"]').prop('value')).toEqual('Casino');
-        expect(props.getSubCategoryCasinoList).toHaveBeenCalled();
-        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "Casino", "currency": "", "deviceType": "PC / Laptop", "imageType": "", "language": "", "size": "", "subCategory": "" });
+        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "Casino", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", userType: 0 });
     });
 
     it('_handleChangeCategory - should change category when change category select', () => {
         const event = {
             target: { value: 'Sportsbook' }
         };
-        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn(), getSubCategorySportsbookList: jest.fn(), subCategorySportsbookList: null });
+        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn() });
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.find('Input[type="select"][id="category"]').simulate('change', event);
 
         expect(wrapper.find('Input[type="select"][id="category"]').prop('value')).toEqual('Sportsbook');
-        expect(props.getSubCategorySportsbookList).toHaveBeenCalled();
-        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "Sportsbook", "currency": "", "deviceType": "PC / Laptop", "imageType": "", "language": "", "size": "", "subCategory": "" });
+        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "Sportsbook", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", userType: 0 });
     });
 
     it("_handleChange - should call getSizeList and setState", () => {
@@ -125,8 +123,8 @@ describe('banner list - components - Filter ', () => {
         wrapper.setState = jest.fn();
 
         wrapper.instance()._handleChange(event)
-        expect(wrapper.setState).toHaveBeenCalledWith({ "currency": "USD" });
-        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "", "currency": "USD", "deviceType": "PC / Laptop", "imageType": "", "language": "", "size": "", "subCategory": "" });
+        expect(wrapper.setState).toHaveBeenCalledWith({ "affType": 1, "category": "", "currency": "USD", "deviceType": "", "language": "", "size": "", "subCategory": "", "userType": 0 });
+        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "", "currency": "USD", "deviceType": "", "language": "", "size": "", "subCategory": "", "userType": 0 });
     });
 
     it('setSize - should change category when change size select', () => {
@@ -142,7 +140,7 @@ describe('banner list - components - Filter ', () => {
     });
 
     it('componentDidMount - should call setParamFromHome amd _handleSearch', () => {
-        const props = Object.assign({}, defaultProps, { paramFromHome: { IsFromHome: true, ImageType: 'Flash' }, setParamFromHome: jest.fn(), setParam: jest.fn() });
+        const props = Object.assign({}, defaultProps, { paramFromHome: { IsFromHome: true, UserType: 1 }, setParamFromHome: jest.fn(), setParam: jest.fn(), setDisableCurrency: jest.fn() });
 
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
@@ -150,7 +148,7 @@ describe('banner list - components - Filter ', () => {
         instance.componentDidMount();
 
         expect(props.setParamFromHome).toHaveBeenCalledWith({ IsFromHome: false });
-        expect(props.setParam).toHaveBeenCalledWith({ "PageIndex": 1, "PageSize": 20, "affType": 1, "category": "", "currency": "", "deviceType": "PC / Laptop", "imageType": "Flash", "language": "", "size": "", "subCategory": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "PageIndex": 1, "PageSize": 20, "affType": 1, "category": "", "currency": "", deviceType: "", userType: 1, "language": "", "size": "", "subCategory": "" });
     });
 
     it('componentDidMount - should not call setParamFromHome and _handleSearch', () => {

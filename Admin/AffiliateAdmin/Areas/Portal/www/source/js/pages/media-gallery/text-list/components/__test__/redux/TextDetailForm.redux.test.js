@@ -45,6 +45,7 @@ describe('text list - TextDetailForm - connect', () => {
         const expectedActionCreator = {
             setSelectedTextId: actions['setSelectedTextId'],
             fetchData: actions['fetchData'],
+            getCategoryList: actions['getCategoryList'],
             getTextDetail: actions['getTextDetail'],
             insertText: actions['insertText'],
             updateText: actions['updateText'],

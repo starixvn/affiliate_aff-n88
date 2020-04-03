@@ -48,7 +48,9 @@ describe('affiliate info - GridData - connect', () => {
 			toggleLoader: toggleLoader,
 			setShowPopupPassword: actions['setShowPopupPassword'],
 			setShowPopupCommGroup: actions['setShowPopupCommGroup'],
-			setAffId: actions['setAffId'],
+            setAffId: actions['setAffId'],
+            setParam: actions['setParam'],
+            setParentAffName: actions['setParentAffName'],
 			setCommGroup: actions['setCommGroup']
 		}
 

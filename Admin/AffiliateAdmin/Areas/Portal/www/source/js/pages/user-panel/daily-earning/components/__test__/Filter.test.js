@@ -7,16 +7,6 @@ describe('daily earning - components - Filter', () => {
         jest.resetAllMocks();
     });
 
-    const defaultProps = {
-        param: {
-            affId: 1271808,
-            monthDate: "Jan-2019",
-            productId: 0
-        },
-        setParam: jest.fn(),
-        getProductList: jest.fn(() => productList)
-    }
-
     const productList = [
         {
             ProductId: 1,
@@ -32,6 +22,16 @@ describe('daily earning - components - Filter', () => {
         }
     ]
 
+    const defaultProps = {
+        param: {
+            affId: 1271808,
+            monthDate: "Jan-2019",
+            productId: 0
+        },
+        setParam: jest.fn(),
+        productList
+    }
+
     it('render correctly', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
 
@@ -44,18 +44,6 @@ describe('daily earning - components - Filter', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('componentDidMount - should call handleSetParam and _fetchProductList', () => {
-        const wrapper = shallow(<Filter {...defaultProps} />);
-        const instance = wrapper.instance();
-        instance.handleSetParam = jest.fn();
-        instance._fetchProductList = jest.fn();
-
-        instance.componentDidMount();
-
-        expect(instance.handleSetParam).toHaveBeenCalledWith(0);
-        expect(instance._fetchProductList).toHaveBeenCalled();
-    });
-
     it('handleChangeProduct - should call setState and handleSetParam when change product select', () => {
         const event = {
             target: {
@@ -63,13 +51,13 @@ describe('daily earning - components - Filter', () => {
             }
         }
         const wrapper = shallow(<Filter {...defaultProps} />);
-        wrapper.setState = jest.fn();
+        wrapper.setState = jest.fn((obj, func) => func && func());
         wrapper.instance().handleSetParam = jest.fn();
 
         wrapper.find('Input[type="select"][name="Product"][id="Product"]').simulate('change', event)
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ selectedProduct: 1 });
-        expect(wrapper.instance().handleSetParam).toHaveBeenCalledWith(1);
+        expect(wrapper.setState).toHaveBeenCalledWith({ selectedProduct: 1 }, expect.any(Function));
+        expect(wrapper.instance().handleSetParam).toHaveBeenCalled();
     });
 
     it('handleSetParam - should be called when From change', () => {
@@ -77,7 +65,6 @@ describe('daily earning - components - Filter', () => {
         
         wrapper.instance().handleSetParam(1);
 
-        expect(defaultProps.getProductList).toHaveBeenCalled();
-        expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jan-2019", productId: 1 });
+        expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jan-2019", productId: 0, currencyId: 0 });
     });
 });

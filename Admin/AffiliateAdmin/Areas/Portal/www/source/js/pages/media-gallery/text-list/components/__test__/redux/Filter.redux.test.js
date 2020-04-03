@@ -42,7 +42,9 @@ describe('text list - Filter - connect', () => {
         const mockBindAction = jest.fn();
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
-            setParam: actions['setParam']
+            setParam: actions['setParam'],
+            getCategoryList: actions['getCategoryList'],
+            setDisableCurrency: actions['setDisableCurrency']
         }
 
         const dispatch = {};

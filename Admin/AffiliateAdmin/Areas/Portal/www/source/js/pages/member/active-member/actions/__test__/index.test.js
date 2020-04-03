@@ -86,25 +86,25 @@ describe('active member actions', () => {
         })
     })
 
-    it('should create action to activeMember with correct parameter', async () => {
-        const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-        const param = { userNames: 'xyl157' };
+    //it('should create action to activeMember with correct parameter', async () => {
+    //    const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
+    //    ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+    //    const param = { userNames: 'xyl157' };
 
-        const result = await actions['activeMember'](param)();
+    //    const result = await actions['activeMember'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/ActiveMember/ActiveMember', param);
+    //    expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/ActiveMember/ActiveMember', param);
 
-        expect(result).toEqual({ IsSuccessful: true, Message: "" });
-    })
+    //    expect(result).toEqual({ IsSuccessful: true, Message: "" });
+    //})
 
-    it('should create action to activeMember with incorrect parameter', async () => {
-        ajaxRequest.post = jest.fn();
-        const param = { userNames: 'abc' };
+    //it('should create action to activeMember with incorrect parameter', async () => {
+    //    ajaxRequest.post = jest.fn();
+    //    const param = { userNames: 'abc' };
 
-        const result = await actions['activeMember'](param)();
+    //    const result = await actions['activeMember'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/ActiveMember/ActiveMember', param);
-        expect(result).toEqual(null);
-    })
+    //    expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/ActiveMember/ActiveMember', param);
+    //    expect(result).toEqual(null);
+    //})
 });

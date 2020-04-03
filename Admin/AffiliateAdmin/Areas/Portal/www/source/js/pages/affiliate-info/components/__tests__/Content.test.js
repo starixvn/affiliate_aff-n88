@@ -34,7 +34,6 @@ describe('affiliate info - Content ', () => {
         Email: true,
         RegistrationDateText: true,
         ApprovalDateText: true,
-        CasinoDateText: true,
         CommissionGroup: true,
         BalanceBf: true,
         Currency: true,

@@ -161,12 +161,12 @@ describe('affiliate info - Report Excel ', () => {
         expect(instance._buildDataRow).toHaveBeenCalledTimes(17);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[0][2]).toEqual({ field: "Index", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 70});
+        expect(instance._buildDataRow.mock.calls[0][2]).toEqual({ field: "Index", mainSectionStyle: { alignment: { horizontal: "center", vertical: "center" }}, width: 70});
         expect(instance._buildDataRow.mock.calls[0][3]).toBe(0);
 
         expect(instance._buildDataRow.mock.calls[1][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[1][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[1][2]).toEqual({ field: "UserName", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" }}, width: 200});
+        expect(instance._buildDataRow.mock.calls[1][2]).toEqual({ field: "ParentAffName", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" }}, width: 150});
         expect(instance._buildDataRow.mock.calls[1][3]).toBe(0);
 
         expect(instance._buildDataRow.mock.calls[16][0]).toBe(item);
@@ -277,7 +277,7 @@ describe('affiliate info - Report Excel ', () => {
         
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 17, "r": 2 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress with field incorrect.', () => {
@@ -289,6 +289,6 @@ describe('affiliate info - Report Excel ', () => {
         
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 17, "r": 2 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });
     });
 });

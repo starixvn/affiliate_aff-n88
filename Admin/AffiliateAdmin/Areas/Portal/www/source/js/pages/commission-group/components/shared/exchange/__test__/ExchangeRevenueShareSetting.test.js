@@ -20,23 +20,23 @@ describe('commission group - ExchangeRevenueShareSetting', () => {
         }
     };
 
-    it('handleSelectOperationalFee  - should call setSelectedGroup when change Win Loss Share%', () => {
-        const mockSetSelectedGroup = jest.fn();
-        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
-        const wrapper = shallow(<ExchangeRevenueShareSetting {...props} />);
+    //it('handleSelectOperationalFee  - should call setSelectedGroup when change Win Loss Share%', () => {
+    //    const mockSetSelectedGroup = jest.fn();
+    //    const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+    //    const wrapper = shallow(<ExchangeRevenueShareSetting {...props} />);
 
-        wrapper.find(SharePercentSettingItem).at(0).props().onChangeCommission();
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ ExchangeWinLossShare: { DeductedPercentage: 0.1, DeductionId: 13, ProductIds: 19 } });
-    });
+    //    wrapper.find(SharePercentSettingItem).at(0).props().onChangeCommission();
+    //    expect(props.setSelectedGroup).toHaveBeenCalledWith({ ExchangeWinLossShare: { DeductedPercentage: 0.1, DeductionId: 13, ProductIds: 19 } });
+    //});
 
-    it('handleSelectBankingFee  - should call setSelectedGroup when change Commission Share%', () => {
-        const mockSetSelectedGroup = jest.fn();
-        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
-        const wrapper = shallow(<ExchangeRevenueShareSetting {...props} />);
+    //it('handleSelectBankingFee  - should call setSelectedGroup when change Commission Share%', () => {
+    //    const mockSetSelectedGroup = jest.fn();
+    //    const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+    //    const wrapper = shallow(<ExchangeRevenueShareSetting {...props} />);
 
-        wrapper.find(SharePercentSettingItem).at(1).props().onChangeCommission();
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ ExchangeCommissionShare: { DeductedPercentage: 0.05, DeductionId: 14, ProductIds: 19 } });
-    });
+    //    wrapper.find(SharePercentSettingItem).at(1).props().onChangeCommission();
+    //    expect(props.setSelectedGroup).toHaveBeenCalledWith({ ExchangeCommissionShare: { DeductedPercentage: 0.05, DeductionId: 14, ProductIds: 19 } });
+    //});
 
     it('Should render correctly', () => {
         const wrapper = shallow(<ExchangeRevenueShareSetting {...defaultProps} />);

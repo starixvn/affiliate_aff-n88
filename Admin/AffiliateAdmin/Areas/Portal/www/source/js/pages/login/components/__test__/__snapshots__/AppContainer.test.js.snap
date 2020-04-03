@@ -5,14 +5,22 @@ exports[`Login - components - AppContainer render correctly 1`] = `
   className="login-container"
 >
   <div
-    className="lgRight"
-  />
-  <div
     className="lgRp"
   >
     <div
-      className="logo"
-    />
+      className="login-header"
+    >
+      <div>
+        Welcome to 
+        <Component />
+        <span>
+           Login
+        </span>
+      </div>
+      <p>
+        Please sign in to continue to work
+      </p>
+    </div>
     <div
       className="war-box"
     >
@@ -54,23 +62,15 @@ exports[`Login - components - AppContainer render correctly 1`] = `
     </div>
     <Form
       autocomplete="false"
-      className="form-login pl-3"
+      className="form-login"
       tag="form"
     >
       <FormGroup
-        className="mb-1"
-        row={true}
         tag="div"
       >
-        <span
-          className="icUser"
-        >
-           
-        </span>
         <Label
           className="form-login-text"
           for="userName"
-          sm={3}
           tag="label"
           widths={
             Array [
@@ -84,19 +84,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
         >
           User Name
         </Label>
-        <Col
-          sm={6}
-          tag="div"
-          widths={
-            Array [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "xl",
-            ]
-          }
-        >
+        <div>
           <Input
             id="userName"
             name="userName"
@@ -105,21 +93,14 @@ exports[`Login - components - AppContainer render correctly 1`] = `
             type="text"
             value=""
           />
-        </Col>
+        </div>
       </FormGroup>
       <FormGroup
-        row={true}
         tag="div"
       >
-        <span
-          className="icPass"
-        >
-           
-        </span>
         <Label
           className="form-login-text"
           for="passWord"
-          sm={3}
           tag="label"
           widths={
             Array [
@@ -133,19 +114,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
         >
           Password
         </Label>
-        <Col
-          sm={6}
-          tag="div"
-          widths={
-            Array [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "xl",
-            ]
-          }
-        >
+        <div>
           <Input
             autocomplete="false"
             id="password"
@@ -155,54 +124,31 @@ exports[`Login - components - AppContainer render correctly 1`] = `
             type="password"
             value=""
           />
-        </Col>
+        </div>
       </FormGroup>
+      <div
+        className="bt"
+      >
+        <a
+          class="bt-login"
+          href="javascript:;"
+          onClick={[Function]}
+        >
+          Log On
+        </a>
+      </div>
     </Form>
-    <div
-      className="bt"
+  </div>
+  <div
+    className="foot"
+  >
+    <span
+      className="foot-rp"
     >
-      <a
-        class="bt-login"
-        href="javascript:;"
-        onClick={[Function]}
-      >
-        Log On
-      </a>
-    </div>
-    <div
-      className="foot"
-    >
-      <span
-        className="foot-left"
-      >
-         
-      </span>
-      <span
-        className="foot-rp"
-      >
-        © Copyright 2019 Pacific Sea Invests
-      </span>
-      <span
-        className="foot-right"
-      >
-         
-      </span>
-      <span
-        className="foot-text"
-      >
-        Best view in
-      </span>
-      <span
-        className="foot-icIE"
-      >
-         
-      </span>
-      <span
-        className="foot-icFirefox"
-      >
-         
-      </span>
-    </div>
+      © Copyright 2020 function mockConstructor() {
+        return fn.apply(this, arguments);
+      }
+    </span>
   </div>
 </div>
 `;

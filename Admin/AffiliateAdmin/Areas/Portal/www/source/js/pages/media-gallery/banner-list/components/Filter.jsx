@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { setParam, setParamFromHome, getSizeList, setDisableCurrency, getCategoryList } from '../actions';
 import { headerText, Asian, Casino, Sportsbook } from '../libs/constants';
-import { globalResource, deviceTypes, pcLaptop, userTypeList, affiliateBanner, allUserType, UserType } from '../../common/libs/constants';
+import { globalResource, deviceTypes, userTypeList, affiliateBanner, allUserType, UserType } from '../../common/libs/constants';
 
 export class Filter extends PureComponent {
     constructor(props) {
