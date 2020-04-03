@@ -10,8 +10,6 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 
 const testCaseList = [
     { name: 'generalInfo', value: null, action: { type: types.SET_GENERAL_INFO, data: { PaymentRequestNumber: 1 } }, expectedResult: { PaymentRequestNumber: 1 } },
-    { name: 'depositInfo', value: null, action: { type: types.SET_DEPOSIT_INFO, data: { AllMemberDepositUpToNow: 234 } }, expectedResult: { AllMemberDepositUpToNow: 234 } },
-    { name: 'pSPToday', value: true, action: { type: types.SET_PSP_TODAY, data: 123 }, expectedResult: 123 },
     { name: 'onlineList', value: null, action: { type: types.SET_ONLINE_LIST, data: [{ UserName: 'sa' }] }, expectedResult: [{ UserName: 'sa' }] }
 ]
 

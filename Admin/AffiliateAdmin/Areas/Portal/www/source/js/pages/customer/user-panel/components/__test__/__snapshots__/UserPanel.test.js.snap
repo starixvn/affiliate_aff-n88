@@ -37,6 +37,18 @@ exports[`customer - user-panel - components - UserPanel Should render correctly 
             "displayName": "Connect(UserPanelItem)",
             "type": [Function],
           },
+          "key": "subAffiliate",
+          "name": "",
+          "parent": "statementHistory",
+        },
+        Object {
+          "component": Object {
+            "$$typeof": Symbol(react.memo),
+            "WrappedComponent": [Function],
+            "compare": null,
+            "displayName": "Connect(UserPanelItem)",
+            "type": [Function],
+          },
           "key": "dailyEarning",
           "name": "",
           "parent": "statementHistory",

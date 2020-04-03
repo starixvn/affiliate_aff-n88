@@ -4,6 +4,11 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
 <div
   className="data-content my-2"
 >
+  <p
+    className="affiliate-report-note"
+  >
+    Notes: First Comm Rate and Earning will calculate at 5th July 2020
+  </p>
   <ReportTitle
     content={
       <div
@@ -31,6 +36,11 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
 <div
   className="data-content my-2"
 >
+  <p
+    className="affiliate-report-note"
+  >
+    Notes: First Comm Rate and Earning will calculate at 5th July 2020
+  </p>
   <ReportTitle
     content={
       <div

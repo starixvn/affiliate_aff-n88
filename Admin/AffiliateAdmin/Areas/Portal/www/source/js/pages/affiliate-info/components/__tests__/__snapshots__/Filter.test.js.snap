@@ -128,12 +128,13 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Username"
-        name="userName"
+        id="parentAffName"
+        name="parentAffName"
         onChange={[Function]}
         onKeyPress={[Function]}
-        placeholder="Username"
+        placeholder="Parent Affiliate"
         type="text"
+        value=""
       />
     </FormGroup>
     <FormGroup
@@ -141,12 +142,27 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Email"
+        id="username"
+        name="userName"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Username"
+        type="text"
+        value=""
+      />
+    </FormGroup>
+    <FormGroup
+      className="my-2 mr-sm-2"
+      tag="div"
+    >
+      <Input
+        id="email"
         name="email"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Email"
         type="email"
+        value=""
       />
     </FormGroup>
     <FormGroup
@@ -160,6 +176,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
         onKeyPress={[Function]}
         placeholder="Affiliate Id"
         type="text"
+        value=""
       />
     </FormGroup>
     <FormGroup

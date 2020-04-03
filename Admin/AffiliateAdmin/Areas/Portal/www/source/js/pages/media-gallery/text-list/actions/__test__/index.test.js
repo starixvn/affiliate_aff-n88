@@ -214,7 +214,7 @@ describe('text list actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const textIdList = '2437,2438';
 
-        const result = await actions['deleteTexts'](textIdList)();
+        const result = await actions['deleteTexts']({ textIdList })();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/DeleteTexts', { textIdList });
 
@@ -225,7 +225,7 @@ describe('text list actions', () => {
         ajaxRequest.post = jest.fn();
         const textIdList = '123456';
         
-        const result = await actions['deleteTexts'](textIdList)();
+        const result = await actions['deleteTexts']({ textIdList })();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/DeleteTexts', { textIdList });
         expect(result).toEqual(null);

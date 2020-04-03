@@ -14,7 +14,7 @@
 
         public byte AffType { get; set; } = Constants.AffType.Asian;
 
-        public byte DeviceType { get; set; }
+        public string DeviceType { get; set; }
 
         public byte UserType { get; set; }
     }

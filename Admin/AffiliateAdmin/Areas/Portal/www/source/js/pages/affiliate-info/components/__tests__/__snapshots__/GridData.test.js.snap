@@ -7,7 +7,7 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
   >
     <t
       asc={true}
-      className="text-right"
+      className="text-center"
       header={false}
       onClick={[Function]}
       sortable={false}
@@ -201,7 +201,7 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
   >
     <t
       asc={true}
-      className="text-right"
+      className="text-center"
       header={false}
       onClick={[Function]}
       sortable={false}
@@ -387,7 +387,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
           <t>
             <t
               asc={true}
-              className="text-right"
+              className="text-center"
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -761,7 +761,7 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
   >
     <t
       asc={true}
-      className="text-right"
+      className="text-center"
       header={false}
       onClick={[Function]}
       sortable={false}

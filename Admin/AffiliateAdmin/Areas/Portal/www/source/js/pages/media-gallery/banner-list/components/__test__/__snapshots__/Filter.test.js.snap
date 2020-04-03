@@ -14,6 +14,53 @@ exports[`banner list - components - Filter  render correctly 1`] = `
     >
       <Label
         className="mr-sm-2"
+        for="userType"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        User Type
+      </Label>
+      <Input
+        id="userType"
+        name="userType"
+        onChange={[Function]}
+        type="select"
+        value={0}
+      >
+        <option
+          key="userType-all"
+          value={0}
+        >
+          All
+        </option>
+        <option
+          key="userType-1"
+          value="1"
+        >
+          Players
+        </option>
+        <option
+          key="userType-2"
+          value="2"
+        >
+          Sub-Affiliate
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-3 pb-2"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
         for="category"
         tag="label"
         widths={
@@ -42,17 +89,11 @@ exports[`banner list - components - Filter  render correctly 1`] = `
           All
         </option>
         <option
-          key="category-Casino"
-          value="Casino"
-        >
-          Casino
-        </option>
+          key="category-undefined"
+        />
         <option
-          key="category-Sportsbook"
-          value="Sportsbook"
-        >
-          Sportsbook
-        </option>
+          key="category-undefined"
+        />
       </Input>
     </FormGroup>
     <FormGroup
@@ -155,53 +196,6 @@ exports[`banner list - components - Filter  render correctly 1`] = `
     >
       <Label
         className="mr-sm-2"
-        for="imageType"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        Type
-      </Label>
-      <Input
-        id="imageType"
-        name="imageType"
-        onChange={[Function]}
-        type="select"
-        value=""
-      >
-        <option
-          key="imageType-all"
-          value=""
-        >
-          All
-        </option>
-        <option
-          key="imageType-Image"
-          value="Image"
-        >
-          Image
-        </option>
-        <option
-          key="imageType-Flash"
-          value="Flash"
-        >
-          Flash
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="mr-sm-3 pb-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
         for="affType"
         tag="label"
         widths={
@@ -262,17 +256,17 @@ exports[`banner list - components - Filter  render correctly 1`] = `
         name="deviceType"
         onChange={[Function]}
         type="select"
-        value="PC / Laptop"
+        value={0}
       >
         <option
           key="deviceType-PC / Laptop"
-          value="PC / Laptop"
+          value={0}
         >
           PC / Laptop
         </option>
         <option
           key="deviceType-Mobile"
-          value="Mobile"
+          value={1}
         >
           Mobile
         </option>
@@ -357,6 +351,53 @@ exports[`banner list - components - Filter  render correctly with Casino's subca
     >
       <Label
         className="mr-sm-2"
+        for="userType"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        User Type
+      </Label>
+      <Input
+        id="userType"
+        name="userType"
+        onChange={[Function]}
+        type="select"
+        value={0}
+      >
+        <option
+          key="userType-all"
+          value={0}
+        >
+          All
+        </option>
+        <option
+          key="userType-1"
+          value="1"
+        >
+          Players
+        </option>
+        <option
+          key="userType-2"
+          value="2"
+        >
+          Sub-Affiliate
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-3 pb-2"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
         for="category"
         tag="label"
         widths={
@@ -385,17 +426,11 @@ exports[`banner list - components - Filter  render correctly with Casino's subca
           All
         </option>
         <option
-          key="category-Casino"
-          value="Casino"
-        >
-          Casino
-        </option>
+          key="category-undefined"
+        />
         <option
-          key="category-Sportsbook"
-          value="Sportsbook"
-        >
-          Sportsbook
-        </option>
+          key="category-undefined"
+        />
       </Input>
     </FormGroup>
     <FormGroup
@@ -539,53 +574,6 @@ exports[`banner list - components - Filter  render correctly with Casino's subca
     >
       <Label
         className="mr-sm-2"
-        for="imageType"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        Type
-      </Label>
-      <Input
-        id="imageType"
-        name="imageType"
-        onChange={[Function]}
-        type="select"
-        value=""
-      >
-        <option
-          key="imageType-all"
-          value=""
-        >
-          All
-        </option>
-        <option
-          key="imageType-Image"
-          value="Image"
-        >
-          Image
-        </option>
-        <option
-          key="imageType-Flash"
-          value="Flash"
-        >
-          Flash
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="mr-sm-3 pb-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
         for="affType"
         tag="label"
         widths={
@@ -646,17 +634,17 @@ exports[`banner list - components - Filter  render correctly with Casino's subca
         name="deviceType"
         onChange={[Function]}
         type="select"
-        value="PC / Laptop"
+        value={0}
       >
         <option
           key="deviceType-PC / Laptop"
-          value="PC / Laptop"
+          value={0}
         >
           PC / Laptop
         </option>
         <option
           key="deviceType-Mobile"
-          value="Mobile"
+          value={1}
         >
           Mobile
         </option>
@@ -741,6 +729,53 @@ exports[`banner list - components - Filter  render correctly with Sportbook's su
     >
       <Label
         className="mr-sm-2"
+        for="userType"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        User Type
+      </Label>
+      <Input
+        id="userType"
+        name="userType"
+        onChange={[Function]}
+        type="select"
+        value={0}
+      >
+        <option
+          key="userType-all"
+          value={0}
+        >
+          All
+        </option>
+        <option
+          key="userType-1"
+          value="1"
+        >
+          Players
+        </option>
+        <option
+          key="userType-2"
+          value="2"
+        >
+          Sub-Affiliate
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-3 pb-2"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
         for="category"
         tag="label"
         widths={
@@ -769,17 +804,11 @@ exports[`banner list - components - Filter  render correctly with Sportbook's su
           All
         </option>
         <option
-          key="category-Casino"
-          value="Casino"
-        >
-          Casino
-        </option>
+          key="category-undefined"
+        />
         <option
-          key="category-Sportsbook"
-          value="Sportsbook"
-        >
-          Sportsbook
-        </option>
+          key="category-undefined"
+        />
       </Input>
     </FormGroup>
     <FormGroup
@@ -923,53 +952,6 @@ exports[`banner list - components - Filter  render correctly with Sportbook's su
     >
       <Label
         className="mr-sm-2"
-        for="imageType"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        Type
-      </Label>
-      <Input
-        id="imageType"
-        name="imageType"
-        onChange={[Function]}
-        type="select"
-        value=""
-      >
-        <option
-          key="imageType-all"
-          value=""
-        >
-          All
-        </option>
-        <option
-          key="imageType-Image"
-          value="Image"
-        >
-          Image
-        </option>
-        <option
-          key="imageType-Flash"
-          value="Flash"
-        >
-          Flash
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="mr-sm-3 pb-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
         for="affType"
         tag="label"
         widths={
@@ -1030,17 +1012,17 @@ exports[`banner list - components - Filter  render correctly with Sportbook's su
         name="deviceType"
         onChange={[Function]}
         type="select"
-        value="PC / Laptop"
+        value={0}
       >
         <option
           key="deviceType-PC / Laptop"
-          value="PC / Laptop"
+          value={0}
         >
           PC / Laptop
         </option>
         <option
           key="deviceType-Mobile"
-          value="Mobile"
+          value={1}
         >
           Mobile
         </option>

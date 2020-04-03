@@ -12,7 +12,7 @@ export const Filter = (props) => {
     const [category, setCategory] = useState('');
     const [language, setLanguage] = useState('');
     const [currency, setCurrency] = useState('');
-    const [deviceType, setDeviceType] = useState(deviceTypes[pcLaptop]);
+    const [deviceType, setDeviceType] = useState('');
     const [userType, setUserType] = useState(allUserType);
 
     const _handleSearch = () => {
@@ -91,6 +91,7 @@ export const Filter = (props) => {
                 <FormGroup className="mr-sm-3">
                     <Label for="deviceType" className="mr-sm-2">{headerText.Device}</Label>
                     <Input type="select" name="deviceType" id="deviceType" value={deviceType} onChange={(e) => setDeviceType(e.target.value)}>
+                        <option key={'deviceType-all'} value="">{globalResource.All}</option>
                         {
                             Object.keys(deviceTypes).map(key => {
                                 return (<option key={`deviceType-${deviceTypes[key]}`} value={deviceTypes[key]}>{key}</option>)

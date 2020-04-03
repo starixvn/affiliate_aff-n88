@@ -8,7 +8,7 @@
 
         public string Currency { get; set; }
 
-        public byte DeviceType { get; set; }
+        public string DeviceType { get; set; }
 
         public int PageIndex { get; set; }
 

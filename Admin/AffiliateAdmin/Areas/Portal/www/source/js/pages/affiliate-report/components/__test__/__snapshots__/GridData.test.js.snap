@@ -64,6 +64,15 @@ exports[`affiliate report - GridData  _buildCommonCell - should return correctly
     onClick={[Function]}
     sortable={false}
     sorting={false}
+    title=""
+  />
+  <t
+    asc={true}
+    className="text-right"
+    header={false}
+    onClick={[Function]}
+    sortable={false}
+    sorting={false}
     title="0.00"
   >
     0.00
@@ -185,6 +194,24 @@ exports[`affiliate report - GridData  _buildCommonCell - should return correctly
     onClick={[Function]}
     sortable={false}
     sorting={false}
+    title=""
+  />
+  <t
+    asc={true}
+    className="text-right"
+    header={false}
+    onClick={[Function]}
+    sortable={false}
+    sorting={false}
+    title=""
+  />
+  <t
+    asc={true}
+    className="text-right"
+    header={false}
+    onClick={[Function]}
+    sortable={false}
+    sorting={false}
     title="0.00"
   >
     0.00
@@ -284,6 +311,15 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
     >
       0
     </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
     <t
       asc={true}
       className="text-right"
@@ -412,6 +448,24 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="0.00"
     >
       0.00
@@ -525,6 +579,15 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="0.00"
     >
       0.00
@@ -639,6 +702,24 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
     >
       0.00
     </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
     <t
       asc={true}
       className="text-right"
@@ -742,6 +823,15 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="0.00"
     >
       0.00
@@ -856,6 +946,24 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
     >
       0.00
     </t>
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
     <t
       asc={true}
       className="text-right"
@@ -959,6 +1067,15 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="0.00"
     >
       0.00
@@ -1080,6 +1197,24 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title=""
+    />
+    <t
+      asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="0.00"
     >
       0.00
@@ -1175,6 +1310,17 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               title="0"
             >
               0
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
             </t>
             <t
               asc={true}
@@ -1296,6 +1442,28 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               title="0.00"
             >
               0.00
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
             </t>
             <t
               asc={true}
@@ -1423,6 +1591,17 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
               title="0.00"
             >
               0.00
@@ -1544,6 +1723,28 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
               title="0.00"
             >
               0.00
@@ -1604,6 +1805,17 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             sorting={false}
           />
           <React.Fragment>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
             <t
               asc={true}
               className="text-right"
@@ -1813,6 +2025,28 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             >
               
             </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
           </React.Fragment>
           <t
             asc={true}
@@ -1832,7 +2066,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
         <t>
           <t
             asc={true}
-            colWidth={120}
+            colWidth={105}
             header={true}
             onClick={[Function]}
             rowSpan="2"
@@ -1904,6 +2138,18 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
+            colWidth={60}
+            header={true}
+            onClick={[Function]}
+            rowSpan="2"
+            sortable={false}
+            sorting={false}
+            title="Sub-Affiliate"
+          >
+            Sub-Affiliate
+          </t>
+          <t
+            asc={true}
             colSpan="9"
             header={true}
             onClick={[Function]}
@@ -1915,7 +2161,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colSpan={5}
+            colSpan={7}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -1926,7 +2172,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={50}
+            colWidth={55}
             header={true}
             onClick={[Function]}
             rowSpan="2"
@@ -1951,7 +2197,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={75}
+            colWidth={85}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -1962,7 +2208,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={95}
+            colWidth={85}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -1973,7 +2219,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={95}
+            colWidth={85}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -2006,7 +2252,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={70}
+            colWidth={80}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -2066,13 +2312,35 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
+            title="Sub-Affiliate Earning"
+          >
+            Sub-Affiliate Earning
+          </t>
+          <t
+            asc={true}
+            colWidth={80}
+            header={true}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title="Total Earning"
+          >
+            Total Earning
+          </t>
+          <t
+            asc={true}
+            colWidth={80}
+            header={true}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
             title="Withdrawal"
           >
             Withdrawal
           </t>
           <t
             asc={true}
-            colWidth={70}
+            colWidth={80}
             header={true}
             onClick={[Function]}
             sortable={false}
@@ -2126,7 +2394,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
   >
     <t
       asc={true}
-      colWidth={120}
+      colWidth={105}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -2198,6 +2466,18 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
+      colWidth={60}
+      header={true}
+      onClick={[Function]}
+      rowSpan="2"
+      sortable={false}
+      sorting={false}
+      title="Sub-Affiliate"
+    >
+      Sub-Affiliate
+    </t>
+    <t
+      asc={true}
       colSpan="9"
       header={true}
       onClick={[Function]}
@@ -2209,7 +2489,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colSpan={5}
+      colSpan={7}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2220,7 +2500,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={50}
+      colWidth={55}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -2247,7 +2527,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={75}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2258,7 +2538,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={95}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2269,7 +2549,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={95}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2302,7 +2582,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={70}
+      colWidth={80}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2362,13 +2642,35 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
+      title="Sub-Affiliate Earning"
+    >
+      Sub-Affiliate Earning
+    </t>
+    <t
+      asc={true}
+      colWidth={80}
+      header={true}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title="Total Earning"
+    >
+      Total Earning
+    </t>
+    <t
+      asc={true}
+      colWidth={80}
+      header={true}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
       title="Withdrawal"
     >
       Withdrawal
     </t>
     <t
       asc={true}
-      colWidth={70}
+      colWidth={80}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2399,7 +2701,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
   >
     <t
       asc={true}
-      colWidth={120}
+      colWidth={105}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -2471,6 +2773,18 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
+      colWidth={60}
+      header={true}
+      onClick={[Function]}
+      rowSpan="2"
+      sortable={false}
+      sorting={false}
+      title="Sub-Affiliate"
+    >
+      Sub-Affiliate
+    </t>
+    <t
+      asc={true}
       colSpan="9"
       header={true}
       onClick={[Function]}
@@ -2482,7 +2796,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colSpan={4}
+      colSpan={6}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2508,7 +2822,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={75}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2519,7 +2833,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={95}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2530,7 +2844,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={95}
+      colWidth={85}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2563,7 +2877,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
     </t>
     <t
       asc={true}
-      colWidth={70}
+      colWidth={80}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -2615,6 +2929,28 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       title="Earning"
     >
       Earning
+    </t>
+    <t
+      asc={true}
+      colWidth={80}
+      header={true}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title="Sub-Affiliate Earning"
+    >
+      Sub-Affiliate Earning
+    </t>
+    <t
+      asc={true}
+      colWidth={80}
+      header={true}
+      onClick={[Function]}
+      sortable={false}
+      sorting={false}
+      title="Total Earning"
+    >
+      Total Earning
     </t>
     <t
       asc={true}

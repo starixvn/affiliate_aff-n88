@@ -17,7 +17,7 @@ export class Filter extends PureComponent {
             language: '',
             currency: '',
             affType: Asian,
-            deviceType: deviceTypes[pcLaptop],
+            deviceType: '',
             size: '',
             userType: allUserType
         }
@@ -153,6 +153,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-3 pb-2">
                         <Label for="deviceType" className="mr-sm-2">{headerText.Device}</Label>
                         <Input type="select" name="deviceType" id="deviceType" value={deviceType} onChange={this._handleChange}>
+                            <option key={'deviceType-all'} value="">{globalResource.All}</option>
                             {
                                 Object.keys(deviceTypes).map(key => {
                                     return (<option key={`deviceType-${key}`} value={deviceTypes[key]}>{key}</option>)

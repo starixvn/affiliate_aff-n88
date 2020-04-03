@@ -24,9 +24,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
     >
       <span>
         We have 
-        <strong>
-          0
-        </strong>
+        <strong />
          players in the program
       </span>
     </Col>
@@ -49,9 +47,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
           8,847
         </strong>
          Deposit / 
-        <strong>
-          8,847
-        </strong>
+        <strong />
          Non-Deposit
       </span>
     </Col>
@@ -178,9 +174,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
     >
       <span>
         We have 
-        <strong>
-          0
-        </strong>
+        <strong />
          players in the program
       </span>
     </Col>
@@ -203,9 +197,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
           2,516
         </strong>
          Deposit / 
-        <strong>
-          2,516
-        </strong>
+        <strong />
          Non-Deposit
       </span>
     </Col>

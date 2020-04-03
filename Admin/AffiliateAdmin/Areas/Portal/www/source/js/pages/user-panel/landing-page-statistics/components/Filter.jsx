@@ -11,12 +11,8 @@ import { htmlDecode } from '../../../../modules/htmlHelper';
 
 const shortCodeLanguageList = {};
 const shortCodeList = {
-    'en-GB': 'eneuro',
     'en-US': 'en',
-    'es-ES': 'es',
-    'hi-IN': 'hien',
     'id-ID': 'id',
-    'ja-JP': 'jp',
     'ko-KR': 'ko',
     'th-TH': 'th',
     'vi-VN': 'vn',

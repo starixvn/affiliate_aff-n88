@@ -92,25 +92,25 @@ describe('member list actions', () => {
         })
     })
 
-    it('should create action to deleteMember with correct parameter', async () => {
-        const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-        const memberId = 123;
+    //it('should create action to deleteMember with correct parameter', async () => {
+    //    const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
+    //    ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+    //    const memberId = 123;
 
-        const result = await actions['deleteMember'](memberId)();
+    //    const result = await actions['deleteMember'](memberId)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/Deletemember', { memberId });
+    //    expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/Deletemember', { memberId });
 
-        expect(result).toEqual({ IsSuccessful: true, Message: "" });
-    })
+    //    expect(result).toEqual({ IsSuccessful: true, Message: "" });
+    //})
 
-    it('should create action to deleteMember with incorrect parameter', async () => {
-        ajaxRequest.post = jest.fn();
-        const memberId = -234;
+    //it('should create action to deleteMember with incorrect parameter', async () => {
+    //    ajaxRequest.post = jest.fn();
+    //    const memberId = -234;
 
-        const result = await actions['deleteMember'](memberId)();
+    //    const result = await actions['deleteMember'](memberId)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/Deletemember', { memberId });
-        expect(result).toEqual(null);
-    })
+    //    expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Member/Deletemember', { memberId });
+    //    expect(result).toEqual(null);
+    //})
 });

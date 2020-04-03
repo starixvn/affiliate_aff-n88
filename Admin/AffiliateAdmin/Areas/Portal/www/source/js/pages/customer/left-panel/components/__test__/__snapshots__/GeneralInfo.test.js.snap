@@ -21,6 +21,46 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      />
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -354,6 +394,46 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
 >
   <Row
     className="border-0 py-1"
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      />
+    </Col>
+  </Row>
+  <Row
     tag="div"
   >
     <Col
@@ -709,6 +789,46 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      />
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -1042,6 +1162,46 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
 >
   <Row
     className="border-0 py-1"
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      />
+    </Col>
+  </Row>
+  <Row
     tag="div"
   >
     <Col

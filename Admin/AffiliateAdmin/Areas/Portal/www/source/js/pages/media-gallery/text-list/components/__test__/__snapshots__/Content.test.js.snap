@@ -41,6 +41,17 @@ exports[`text list - components - Content  render correctly 1`] = `
             </t>
             <t
               asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
               className="text-content"
               header={false}
               onClick={[Function]}
@@ -142,6 +153,17 @@ exports[`text list - components - Content  render correctly 1`] = `
             </t>
             <t
               asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
               className="text-content"
               header={false}
               onClick={[Function]}
@@ -239,6 +261,17 @@ exports[`text list - components - Content  render correctly 1`] = `
             title="#"
           >
             #
+          </t>
+          <t
+            asc={true}
+            colWidth={100}
+            header={true}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title="User Type"
+          >
+            User Type
           </t>
           <t
             asc={true}
@@ -384,6 +417,17 @@ exports[`text list - components - Content  render correctly with gridData is emp
             title="#"
           >
             #
+          </t>
+          <t
+            asc={true}
+            colWidth={100}
+            header={true}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title="User Type"
+          >
+            User Type
           </t>
           <t
             asc={true}

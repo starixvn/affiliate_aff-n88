@@ -92,6 +92,21 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
         </td>
       </tr>
       <tr
+        key="Total Sub-Affiliates"
+      >
+        <td
+          className="font-weight-bold"
+        >
+          Total Sub-Affiliates
+        </td>
+        <td
+          className="text-right"
+        />
+        <td
+          className="text-right"
+        />
+      </tr>
+      <tr
         key="Total Deposits"
       >
         <td
@@ -281,6 +296,21 @@ exports[`customer statistics - components - Content Should render correctly with
         >
           N/A
         </td>
+      </tr>
+      <tr
+        key="Total Sub-Affiliates"
+      >
+        <td
+          className="font-weight-bold"
+        >
+          Total Sub-Affiliates
+        </td>
+        <td
+          className="text-right"
+        />
+        <td
+          className="text-right"
+        />
       </tr>
       <tr
         key="Total Deposits"
@@ -493,6 +523,21 @@ exports[`customer statistics - components - Content Should render correctly with
         >
           N/A
         </td>
+      </tr>
+      <tr
+        key="Total Sub-Affiliates"
+      >
+        <td
+          className="font-weight-bold"
+        >
+          Total Sub-Affiliates
+        </td>
+        <td
+          className="text-right"
+        />
+        <td
+          className="text-right"
+        />
       </tr>
       <tr
         key="Total Deposits"
