@@ -132,20 +132,19 @@
         public ActionResult GenerateLink(string selectedLanguage
             , int? selectedDomainId
             , string selectedPage
-            , bool isTargetToMemberSite = true)
+            , int targetId = TargetSite.TargetToMember)
         {
             IDictionary<string, QrCodeLinkModel> result = new Dictionary<string, QrCodeLinkModel>();
 
             if (selectedDomainId != null)
             {
                 var userSession = SessionService.UserSession;
-                var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
                 var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
                                                         .FirstOrDefault(d => d.DomainId == selectedDomainId);
                 var languageList = string.IsNullOrEmpty(selectedLanguage) ?
                     MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
 
-                var textLinkList = isTargetToMemberSite
+                var textLinkList = targetId == TargetSite.TargetToMember
                     ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
                     : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
 

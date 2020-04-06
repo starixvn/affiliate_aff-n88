@@ -16,7 +16,7 @@
 
                 var searchParams = _me.getSearchParam();
                 _me.getTextList(searchParams);
-            }
+            },
         });
     }
 

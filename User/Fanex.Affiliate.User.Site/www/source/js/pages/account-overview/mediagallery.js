@@ -124,7 +124,8 @@
                 language: $("#Language").val(),
                 currency: $("#Currency").val(),
                 imageType: $("#ImageType").val(),
-                deviceType: $("#DeviceType").val()
+                deviceType: $("#DeviceType").val(),
+                targetId: $("#TargetId").val()
             };
 
             $.ajax({

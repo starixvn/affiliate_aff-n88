@@ -38,6 +38,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId, bool isInternal = false)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
+            cacheKey = $"{cacheKey}-{targetId}";
 
             var categoryList = _cacheService.Get<IEnumerable<CategoryType>>(cacheKey);
             if (categoryList == null)

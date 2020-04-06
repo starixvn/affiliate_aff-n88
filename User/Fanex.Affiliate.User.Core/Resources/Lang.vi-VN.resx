@@ -2192,7 +2192,7 @@
     <value>Tổng hoa hồng</value>
   </data>
   <data name="MonthlyEarning" xml:space="preserve">
-    <value>Thu Nhập Hàng Thángs</value>
+    <value>Thu Nhập Hàng Tháng</value>
   </data>
   <data name="UncalculatedMonthlyEarning" xml:space="preserve">
     <value>Thu Nhập Hàng Tháng Chưa Tính</value>

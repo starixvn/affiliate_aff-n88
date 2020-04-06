@@ -8,7 +8,7 @@ var MarketingBase = (function ($) {
                     let imgTag = $(trigger).nextAll("img")[0];
                     return imgTag.outerHTML;
                 }
-            })
+            });
 
             $('.btn-save-img').click(function () {
                 let base64Img = $(this).nextAll("img").attr("src");
@@ -17,7 +17,7 @@ var MarketingBase = (function ($) {
                 downloadTag.href = base64Img;
                 downloadTag.download = downloadName;
                 downloadTag.click();
-            })
+            });
         },
         generateTextLink: function () {
             var params = _me.getLinkGenerationParam();
@@ -30,8 +30,8 @@ var MarketingBase = (function ($) {
                 selectedLanguage: $("#Language").val(),
                 selectedDomainId: $("#Domain").val(),
                 selectedPage: $("#MemberSitePage").val(),
-                isTargetToMemberSite: $('#TargetSite').prop("checked") ? true : false
-            }
+                targetId: $("#TargetId").val()
+            };
         },
 
         getTextLink: function (params) {
