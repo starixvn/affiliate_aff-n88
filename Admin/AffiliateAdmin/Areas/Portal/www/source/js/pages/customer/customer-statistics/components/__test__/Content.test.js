@@ -141,18 +141,6 @@ describe('customer statistics - components - Content', () => {
         expect(props.redirectToPlayerDetail).toHaveBeenCalledWith({ isClickLink: true, monthDate: "7/1/2019", productId: 0 });
     });
 
-    it('redirectToTrackingStatistics - should be called when click at tracking statistics link', () => {
-        const setMonthDate = jest.fn();
-        const fetchData = jest.fn(() => data);
-        const redirectToTrackingStatistics = jest.fn()
-        const props = Object.assign({}, defaultProps, { setMonthDate, fetchData, redirectToTrackingStatistics, redirectToReferrers: jest.fn() });
-        const wrapper = shallow(<Content {...props} />);
-        wrapper.setState({ data: dataHasPlayerActive });
-
-        wrapper.find('a').at(1).simulate('click');
-        expect(props.redirectToTrackingStatistics).toHaveBeenCalledWith({ isClickLink: true });
-    });
-
     it('redirectToReferrers - should be called when click at referrers laptop link', () => {
         const setMonthDate = jest.fn();
         const fetchData = jest.fn(() => data);
@@ -161,8 +149,8 @@ describe('customer statistics - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ data: dataHasPlayerActive });
 
-        wrapper.find('a').at(2).simulate('click');
-        expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 1, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
+        wrapper.find('a').at(1).simulate('click');
+        expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 0, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
     });
 
     it('redirectToReferrers - should be called when click at referrers mobile link', () => {
@@ -173,7 +161,7 @@ describe('customer statistics - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ data: dataHasPlayerActive });
 
-        wrapper.find('a').at(3).simulate('click');
+        wrapper.find('a').at(2).simulate('click');
         expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 1, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
     });
 })

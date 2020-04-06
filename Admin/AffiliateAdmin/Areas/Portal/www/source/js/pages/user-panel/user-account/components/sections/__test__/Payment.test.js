@@ -35,7 +35,8 @@ describe('user account - components - sections - Payment', () => {
     };
     const defaultProps = {
         userAccountInfo,
-        setUserAccountInfo: jest.fn()
+        setUserAccountInfo: jest.fn(),
+        licenseeName: 'Bwing'
     }
 
     it('render correctly', () => {

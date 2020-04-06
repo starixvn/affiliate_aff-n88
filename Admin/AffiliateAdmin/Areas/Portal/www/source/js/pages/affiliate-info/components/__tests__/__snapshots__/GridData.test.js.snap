@@ -22,13 +22,13 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="12BETAFF001"
+      title="N8BAFF001"
     >
       <a
-        href="/Portal/Customer?user=12BETAFF001"
+        href="/Portal/Customer?user=N8BAFF001"
         target="_top"
       >
-        12BETAFF001
+        N8BAFF001
       </a>
       <span
         className="favor-uncheck"
@@ -116,9 +116,15 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="12BETAFF001"
+      title="N8BAFF001"
     >
-      12BETAFF001
+      <Button
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N8BAFF001
+      </Button>
     </t>
     <t
       asc={true}
@@ -165,7 +171,7 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       title="6"
     >
       <a
-        href="/Portal/Player?AffName=12BETAFF001"
+        href="/Portal/Player?AffName=N8BAFF001"
         target="_top"
       >
         6
@@ -216,13 +222,13 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="12BETAFF001"
+      title="N8BAFF001"
     >
       <a
-        href="/Portal/Customer?user=12BETAFF001"
+        href="/Portal/Customer?user=N8BAFF001"
         target="_top"
       >
-        12BETAFF001
+        N8BAFF001
       </a>
       <span
         className=""
@@ -402,13 +408,13 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF001"
+              title="N8BAFF001"
             >
               <a
-                href="/Portal/Customer?user=12BETAFF001"
+                href="/Portal/Customer?user=N8BAFF001"
                 target="_top"
               >
-                12BETAFF001
+                N8BAFF001
               </a>
               <span
                 className="favor-uncheck"
@@ -498,9 +504,15 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF001"
+              title="N8BAFF001"
             >
-              12BETAFF001
+              <Button
+                color="link"
+                onClick={[Function]}
+                tag="button"
+              >
+                N8BAFF001
+              </Button>
             </t>
             <t
               asc={true}
@@ -530,7 +542,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
               title="6"
             >
               <a
-                href="/Portal/Player?AffName=12BETAFF001"
+                href="/Portal/Player?AffName=N8BAFF001"
                 target="_top"
               >
                 6
@@ -776,13 +788,13 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="12BETAFF001"
+      title="N8BAFF001"
     >
       <a
-        href="/Portal/Customer?user=12BETAFF001"
+        href="/Portal/Customer?user=N8BAFF001"
         target="_top"
       >
-        12BETAFF001
+        N8BAFF001
       </a>
       <span
         className="favor-uncheck"
@@ -870,9 +882,15 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="12BETAFF001"
+      title="N8BAFF001"
     >
-      12BETAFF001
+      <Button
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N8BAFF001
+      </Button>
     </t>
     <t
       asc={true}
@@ -919,7 +937,7 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       title="6"
     >
       <a
-        href="/Portal/Player?AffName=12BETAFF001"
+        href="/Portal/Player?AffName=N8BAFF001"
         target="_top"
       >
         6

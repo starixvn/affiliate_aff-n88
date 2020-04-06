@@ -26,13 +26,13 @@ export const Unactivated = (props) => {
                 <Cell header={true} colWidth={100} title={headerText.UserName}>{headerText.UserName}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.FirstName}>{headerText.FirstName}</Cell>
                 <Cell header={true} colWidth={100} title={headerText.LastName}>{headerText.LastName}</Cell>
-                {/* {
+                {
                     unactivatedGridData && unactivatedGridData.length !== 0 && (<Cell header={true} colWidth={50} title={headerText.ActiveAll}>
                         <Button color="link p-0" onClick={() => _handleActive(userNames)}>
                             Active All
                     </Button>
                     </Cell>)
-                } */}
+                }
             </Row>
         );
     }
@@ -66,11 +66,11 @@ export const Unactivated = (props) => {
                 <Cell className="text-center" title={userName}>{userName}</Cell>
                 <Cell className="text-center" title={firstName}>{firstName || '---'}</Cell>
                 <Cell className="text-center" title={lastName}>{lastName || '---'}</Cell>
-                {/* <Cell className="text-center" title="Active">
+                <Cell className="text-center" title="Active">
                     <Button color="link p-0" onClick={() => _handleActive(dataItem.UserName)}>
                         Active
                     </Button>
-                </Cell> */}
+                </Cell>
             </Row>
         )
     }

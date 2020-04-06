@@ -29,7 +29,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
         Search By
       </Label>
       <Input
-        id="SearchBy"
+        id="searchBy"
         name="selectedCommGroup"
         onChange={[Function]}
         type="select"
@@ -54,7 +54,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Language"
+        id="language"
         name="selectedLanguage"
         onChange={[Function]}
         type="select"
@@ -79,7 +79,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Status"
+        id="status"
         name="selectedStatus"
         onChange={[Function]}
         type="select"
@@ -170,7 +170,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="AffId"
+        id="affId"
         name="affId"
         onChange={[Function]}
         onKeyPress={[Function]}

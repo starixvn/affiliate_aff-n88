@@ -25,7 +25,8 @@ describe('domain - components - Content ', () => {
         shouldResetScrollPosition: true,
         isAffDomain: true,
         gridData,
-        fetchData: jest.fn()
+        fetchData: jest.fn(),
+        licenseeName: 'Bwing'
     };
 
     it('render correctly', () => {
@@ -86,7 +87,7 @@ describe('domain - components - Content ', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ message: `Are you sure you want to delete this affiliate domain?`, isConfirmPopup: true, selectedDomainId: 2438 });
     });
 
-    it('_handleDeleteDomain - should be called when click delete button with 12bet domain', () => {
+    it('_handleDeleteDomain - should be called when click delete button with domain', () => {
         const props = Object.assign({}, defaultProps, { isAffDomain: false, setShouldResetScrollPosition: jest.fn() });
 
         const wrapper = shallow(<Content {...props} />);
@@ -96,7 +97,7 @@ describe('domain - components - Content ', () => {
         dataRow.find('Button').at(1).simulate('click');
 
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(wrapper.setState).toHaveBeenCalledWith({ message: `Are you sure you want to delete this 12bet domain?`, isConfirmPopup: true, selectedDomainId: 2438 });
+        expect(wrapper.setState).toHaveBeenCalledWith({ message: `Are you sure you want to delete this Bwing domain?`, isConfirmPopup: true, selectedDomainId: 2438 });
     });
 
     it('_handleEditDomain - should be called when click edit button', () => {
@@ -136,7 +137,7 @@ describe('domain - components - Content ', () => {
         expect(props.fetchData).toHaveBeenCalledWith(true);
     });
 
-    it('_deleteDomain - should call deleteDomain with delete successfully with 12bet domain', async () => {
+    it('_deleteDomain - should call deleteDomain with delete successfully with domain', async () => {
         const expectedResult = { IsSuccessful: true, Message: "" };
         const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), deleteDomain: jest.fn(() => expectedResult), isAffDomain: false });
         const wrapper = shallow(<Content {...props} />);

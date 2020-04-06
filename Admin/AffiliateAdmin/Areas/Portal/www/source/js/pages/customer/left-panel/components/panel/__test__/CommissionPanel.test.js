@@ -70,15 +70,6 @@ describe('left panel - components - panel - CommissionPanel', () => {
         expect(result).toMatchSnapshot();
     });
 
-    it('componentDidUpdate - should call setState', () => {
-        const wrapper = shallow(<CommissionPanel {...defaultProps} />);
-        wrapper.setState = jest.fn();
-
-        wrapper.instance().componentDidUpdate();
-
-        expect(wrapper.setState).toHaveBeenCalledWith({ isPrivateGroup: false });
-    });
-
     it('toggleEditingCommissionPopup - should call setState when CommGroupName button', () => {
         const wrapper = shallow(<CommissionPanel {...defaultProps} />);
         wrapper.setState = jest.fn();

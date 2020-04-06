@@ -41,6 +41,41 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       className="mb-2 mr-sm-2 mb-sm-0"
       tag="div"
     >
+      <Label
+        className="mr-sm-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="Currency"
+        name="Currency"
+        onChange={[Function]}
+        type="select"
+        value="0"
+      >
+        <option
+          key="0"
+          value={0}
+        >
+          VND
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
       <Input
         id="Language"
         name="Language"
@@ -298,6 +333,41 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
         url="/Portal/AffiliateReport/GetAffiliateList"
         value=""
       />
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="Currency"
+        name="Currency"
+        onChange={[Function]}
+        type="select"
+        value="0"
+      >
+        <option
+          key="0"
+          value={0}
+        >
+          VND
+        </option>
+      </Input>
     </FormGroup>
     <FormGroup
       className="mb-2 mr-sm-2 mb-sm-0"

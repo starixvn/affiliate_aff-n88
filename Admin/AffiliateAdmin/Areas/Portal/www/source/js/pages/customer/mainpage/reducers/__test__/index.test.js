@@ -20,6 +20,9 @@ describe('customer - mainpage reducer', () => {
             param: null,
         },
         dailyEarningDetail: {
+            param: {},
+        },
+        subAffiliate: {
             pagingOption: defaultPagingOption,
             param: {},
         },
@@ -60,13 +63,19 @@ describe('customer - mainpage reducer', () => {
             pagingOption: defaultPagingOption,
             param: {},
             productList: [],
+            sortingColumn: {
+                ColumnName: "Turnover",
+                IsSortAsc: false,
+            }
         },
         selectedUserPanel: null,
         statementHistory: {
+            expandMonthDateList: {},
             pagingOption: defaultPagingOption,
             param: {},
             transactionId: null,
         },
+        licenseeName: '',
         today: '6/27/2019',
         trackingStatistics: {
             param: {},

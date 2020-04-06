@@ -29,8 +29,8 @@ export class Payment extends PureComponent {
     _renderFormByMethod(userAccountInfo) {
         return {
             [playerMethod]: this._renderPaymentForm('playerUsername', `${this.props.licenseeName} User Name`, userAccountInfo.PlayerUsername, true, this.handleChange),
-            [moneybookersMethod]: this._renderPaymentForm('moneybookersEmail', 'Moneybookers Email', userAccountInfo.MoneybookersEmail, true, this.handleChange),
-            [wireMethod]: this._renderWireForm(userAccountInfo)
+            //[moneybookersMethod]: this._renderPaymentForm('moneybookersEmail', 'Moneybookers Email', userAccountInfo.MoneybookersEmail, true, this.handleChange),
+            //[wireMethod]: this._renderWireForm(userAccountInfo)
         }
     }
 
@@ -67,9 +67,10 @@ export class Payment extends PureComponent {
                     <Label for="preferredPayment" sm={3} xl={2}>Preferred Payment Method</Label>
                     <Col sm={5} xl={6}>
                         <Input type="select" id="preferredPayment" name="preferredPayment" onChange={this.handleChangePaymentMethod} value={userAccountInfo.PreferredPayment}>
-                            {paymentMethodList.map(item => {
+                            <option key='Player' value='Player'>Bwing Player Account</option>
+                            {/* {paymentMethodList.map(item => {
                                 return (<option key={item.Key} value={item.Key}>{item.Value}</option>)
-                            })}
+                            })} */}
                         </Input>
                     </Col>
                     <p>{minimumPaymentText + " " + formatDecimal(minimumPayment)}</p>

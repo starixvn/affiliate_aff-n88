@@ -19,7 +19,7 @@ const fields = {
     Index: 'Index',
     UserName: 'UserName',
     IbcUserName: 'IbcUserName',
-    RegisteredDate: 'RegisteredDate',
+    RegisteredDateText: 'RegisteredDateText',
     Turnover: 'Turnover',
     Winloss: 'Winloss',
     Deposit: 'Deposit',
@@ -52,6 +52,7 @@ export default class ReportExcel {
     _createHeader() {
         for (let i = 0; i < TOTAL_COLUMN; i++) {
             const fieldName = this.columnConfigs[i].field;
+
             let address = Excel.getCellAddress({
                 c: i,
                 r: HEADER_ROW_INDEX
@@ -66,6 +67,7 @@ export default class ReportExcel {
 
     _createBodyData() {
         const mainData = this.data.MainData;
+
         for (let i = 0; i < mainData.length; i++) {
             const item = mainData[i];
 
@@ -139,7 +141,7 @@ export default class ReportExcel {
             field: fields.IbcUserName,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left
         }, {
-            field: fields.RegisteredDate,
+            field: fields.RegisteredDateText,
             [MAIN_SECTION_STYLE]: bodyCellStyle.center
         }, {
             field: fields.Turnover,

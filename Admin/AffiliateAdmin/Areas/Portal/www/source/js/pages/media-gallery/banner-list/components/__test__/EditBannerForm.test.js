@@ -14,7 +14,8 @@ describe('banner list - components - EditBannerForm ', () => {
         FileName: "CategoryMedia/giphy.gif",
         ImageType: "Image",
         Language: "Chinese Simplified",
-        Size: "500x500"
+        Size: "500x500",
+        UserType: 1
     };
 
     const param = {
@@ -27,27 +28,31 @@ describe('banner list - components - EditBannerForm ', () => {
         PageIndex: 1,
         PageSize: 20,
         Size: "",
-        SubCategory: ""
+        SubCategory: "",
+        userType: ''
     };
     const deviceTypeList = [
         {
-            key: 0, name: "PC / Laptop", checked: false
+            key: 0, name: "PC / Laptop", checked: true
         },
         {
-            key: 1, name: "Mobile", checked: false
+            key: 1, name: "Mobile", checked: true
         }
     ];
 
     const defaultProps = {
         selectedBannerId: 0,
         param,
-        categoryList: [
-            { categoryName: "Casino", key: "Casino", name: "Casino", checked: false },
-            { categoryName: "Sportsbook", key: "Sportsbook", name: "Sportsbook", checked: false }
+        playerCategoryList: [
+            { categoryName: "Casino", key: "Casino", name: "Casino", checked: true },
+            { categoryName: "Sportsbook", key: "Sportsbook", name: "Sportsbook", checked: true }
+        ],
+        subAffCategoryList: [
+            { categoryName: "Sign up", key: "Sign up", name: "Sign up", checked: true }
         ],
         subCategoryList: [
-            { parentCategoryName: "Casino", key: "Slot", name: "Slot", checked: false },
-            { parentCategoryName: "Sportsbook", key: "Basketball", name: "Basketball", checked: false }
+            { parentCategoryName: "Casino", key: "Slot", name: "Slot", checked: true },
+            { parentCategoryName: "Sportsbook", key: "Basketball", name: "Basketball", checked: true }
         ],
         subCategoryCasinoList: [
             { CategoryName: "Casino Bonus" },
@@ -62,16 +67,16 @@ describe('banner list - components - EditBannerForm ', () => {
             { LanguageName: "Vietnamese" }
         ],
         currencyList: [
-            { key: "EURO", name: "EURO", checked: false },
-            { key: "VND", name: "VND", checked: false }
+            { key: "EURO", name: "EURO", checked: true },
+            { key: "VND", name: "VND", checked: true }
         ],
         sizeList: [
-            { key: "300x250", name: "300x250", checked: false },
-            { key: "500x350", name: "500x350", checked: false }
+            { key: "300x250", name: "300x250", checked: true },
+            { key: "500x350", name: "500x350", checked: true }
         ],
         affTypeList: [
-            { key: "Asian", name: "Asian", checked: false },
-            { key: "Media", name: "Media", checked: false }
+            { key: "Asian", name: "Asian", checked: true },
+            { key: "Media", name: "Media", checked: true }
         ],
         deviceTypeList
     };
@@ -148,8 +153,8 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await result.instance()._handleGetBannerDetail(selectedBannerId);
 
-        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId);
-        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }] });
+        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId, '');
+        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "isDisableCurrency": false, "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }], "userType": 1 });
     });
 
     it('_handleGetBannerDetail should call getBannerDetail and not call setState', async () => {
@@ -161,7 +166,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await result.instance()._handleGetBannerDetail(selectedBannerId);
 
-        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId);
+        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId, '');
         expect(result.setState).not.toHaveBeenCalled();
     });
 
@@ -175,8 +180,8 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await result.instance()._handleGetBannerDetail(selectedBannerId);
 
-        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId);
-        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }] });
+        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId, '');
+        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "isDisableCurrency": false, "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }], "userType": 1 });
     });
 
     it('_handleGetBannerDetail should call getBannerDetail and setState with sportsbook category', async () => {
@@ -189,8 +194,8 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await result.instance()._handleGetBannerDetail(selectedBannerId);
 
-        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId);
-        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }] });
+        expect(props.getBannerDetail).toHaveBeenCalledWith(selectedBannerId, '');
+        expect(result.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": false, "key": "Asian", "name": "Asian" }, { "checked": false, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": false, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": false, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": false, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "iniatalFileName": "giphy.gif", "inputFileNames": ["giphy.gif"], "isDisableCurrency": false, "language": "Chinese Simplified", "subCategoryList": [{ "checked": false, "key": "Slot", "name": "Slot" }], "userType": 1 });
     });
 
     it('_handleFile should be called when change file', () => {
@@ -338,7 +343,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         wrapper.find('Button').at(1).simulate('click');
 
-        expect(instance._handleSubmit).toHaveBeenCalledWith(false);
+        expect(instance._handleSubmit).toHaveBeenCalledWith(true);
     });
 
     it('_handleSubmit - should call toggleLoader and _handleShowAlert when not select category', async () => {
@@ -618,7 +623,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await instance._save();
 
-        expect(props.insertBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
+        expect(props.insertBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Vietnamese", userType: 1, "subCategories": "" });
         expect(instance._handleAfterSave).toHaveBeenCalledWith(true, expectedResult);
     });
 
@@ -632,7 +637,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         await instance._save();
 
-        expect(props.updateBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Chinese Simplified", "subCategories": "" });
+        expect(props.updateBanner).toHaveBeenCalledWith({ "affTypes": "Asian,Media", "bannerId": 0, "categories": "Casino,Sportsbook", "currencies": "EURO,VND", "deviceTypes": "0,1", "files": [], "inputFileNames": "", "language": "Vietnamese", userType: 1, "subCategories": "" });
         expect(instance._handleAfterSave).toHaveBeenCalledWith(false, expectedResult);
     });
 
@@ -659,7 +664,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(false);
 
-        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: '', categories: 'Casino', subCategories: '', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: '', categories: 'Casino', subCategories: '', language: 'Vietnamese', userType: 1, currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('_getParam - should return correct data with has SubCategory', () => {
@@ -675,7 +680,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(true);
 
-        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Vietnamese', userType: 1, currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('_getParam - should return correct data with update', () => {
@@ -691,7 +696,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
         const result = wrapper.instance()._getParam(true);
 
-        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Chinese Simplified', currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
+        expect(result).toEqual({ bannerId: 0, files: [], inputFileNames: 'abc', categories: 'Casino', subCategories: 'Slot', language: 'Vietnamese', userType: 1, currencies: 'EURO', affTypes: 'Asian', deviceTypes: '0' });
     });
 
     it('handleChangeCategory - should call setState', async () => {
@@ -859,7 +864,7 @@ describe('banner list - components - EditBannerForm ', () => {
         instance._handleShowAlert(false, 'Updated failed!');
 
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: 'Updated failed!' }, expect.any(Function)]);
-        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
+        expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 5000);
         expect(instance._hideMessage).toHaveBeenCalled();
     });
 
@@ -900,7 +905,7 @@ describe('banner list - components - EditBannerForm ', () => {
         instance._handleClosePopup();
 
         expect(props.setSelectedBannerId).toHaveBeenCalledWith(null);
-        expect(instance.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": true, "key": "Asian", "name": "Asian" }, { "checked": true, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": true, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": true, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": true, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "subCategoryList": [{ "checked": true, "key": "Slot", "name": "Slot", "parentCategoryName": "Casino" }, { "checked": true, "key": "Basketball", "name": "Basketball", "parentCategoryName": "Sportsbook" }] });
+        expect(instance.setState).toHaveBeenCalledWith({ "affTypeList": [{ "checked": true, "key": "Asian", "name": "Asian" }, { "checked": true, "key": "Media", "name": "Media" }], "categoryList": [{ "categoryName": "Casino", "checked": true, "key": "Casino", "name": "Casino" }, { "categoryName": "Sportsbook", "checked": true, "key": "Sportsbook", "name": "Sportsbook" }], "currencyList": [{ "checked": true, "key": "EURO", "name": "EURO" }, { "checked": true, "key": "VND", "name": "VND" }], "deviceTypeList": [{ "checked": true, "key": 0, "name": "PC / Laptop" }, { "checked": true, "key": 1, "name": "Mobile" }], "files": [], "inputFileNames": [""], "isDisableCurrency": false, "isDisabled": true, "isInsert": true, "isShowMessage": false, "isSuccess": true, "language": "Vietnamese", "message": "", "messageNotificationPopup": "", "subCategoryList": [{ "checked": true, "key": "Slot", "name": "Slot", "parentCategoryName": "Casino" }, { "checked": true, "key": "Basketball", "name": "Basketball", "parentCategoryName": "Sportsbook" }], "userType": 1 });
     });
 
     it('_handleCloseNotificationPopup - should call setState, _getParam and _updateBanner', () => {

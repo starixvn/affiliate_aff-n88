@@ -55,12 +55,24 @@ describe('domain control - components - Content ', () => {
                     }
     ];
 
+    const marketList = [
+        {
+            LanguageCode: "en-GB",
+            DomainName: "English (Euro)"
+        },
+        {
+            LanguageCode: "vi-VN",
+            DomainName: "VietNamese"
+        }
+    ]
+
     const defaultProps = {
         shouldResetScrollPosition: true,
         selectedMarket: '',
         gridData,
         affDomainList,
-        redirectDomainList
+        redirectDomainList,
+        marketList
     };
 
     it('render correctly', () => {

@@ -339,7 +339,7 @@ exports[`domain - components - Content  render correctly with gridData is empty 
       tag="button"
       type="button"
     >
-      Add undefined Domain
+      Add Bwing Domain
       <span
         className="oi oi-plus ml-2"
       />

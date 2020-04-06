@@ -9,7 +9,8 @@ describe('text list - components - TextDetailForm ', () => {
         DeviceType: 1,
         Language: "Japanese",
         TextContent: "anna 02",
-        TextId: 2437
+        TextId: 2437,
+        UserType: 1
     };
 
     const param = {
@@ -18,7 +19,8 @@ describe('text list - components - TextDetailForm ', () => {
         category: "",
         currency: "",
         deviceType: 0,
-        language: ""
+        language: "",
+        userType: ''
     };
 
     const defaultProps = {
@@ -106,13 +108,15 @@ describe('text list - components - TextDetailForm ', () => {
 
         await result.instance()._handleGetTextDetail(selectedTextId);
 
-        expect(props.getTextDetail).toHaveBeenCalledWith(selectedTextId);
+        expect(props.getTextDetail).toHaveBeenCalledWith(selectedTextId, '');
         expect(result.setState).toHaveBeenCalledWith({
             category: "Basketball",
             currency: "EURO",
             deviceType: 1,
             language: "Japanese",
-            textContent: "anna 02"
+            textContent: "anna 02",
+            isPlayer: true,
+            userType: 1
         });
     });
 
@@ -284,7 +288,7 @@ describe('text list - components - TextDetailForm ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(props.updateText).toHaveBeenCalledWith({ TextId: 2437, category: "Basketball", currency: "EURO", deviceType: 0, language: "Chinese Simplified", textContent: "test" });
+        expect(props.updateText).toHaveBeenCalledWith({ "TextId": 2437, "category": "Basketball", "currency": "EURO", "deviceType": 0, "language": "Vietnamese", "textContent": "test", "userType": 1 });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Update Failed!");
     });
 
@@ -303,7 +307,7 @@ describe('text list - components - TextDetailForm ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(props.updateText).toHaveBeenCalledWith({ TextId: 2437, category: "Basketball", currency: "EURO", deviceType: 0, language: "Chinese Simplified", textContent: "test" });
+        expect(props.updateText).toHaveBeenCalledWith({ "TextId": 2437, "category": "Basketball", "currency": "EURO", "deviceType": 0, "language": "Vietnamese", "textContent": "test", "userType": 1 });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Updating has a error");
     });
 
@@ -322,7 +326,7 @@ describe('text list - components - TextDetailForm ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(props.updateText).toHaveBeenCalledWith({ TextId: 2437, category: "Basketball", currency: "EURO", deviceType: 0, language: "Chinese Simplified", textContent: "test" });
+        expect(props.updateText).toHaveBeenCalledWith({ "TextId": 2437, "category": "Basketball", "currency": "EURO", "deviceType": 0, "language": "Vietnamese", "textContent": "test", "userType": 1 });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Update Successfully!");
     });
 
@@ -381,13 +385,15 @@ describe('text list - components - TextDetailForm ', () => {
         expect(instance.setState).toHaveBeenCalledWith({
             textContent: '',
             category: 'Basketball',
-            language: 'Chinese Simplified',
+            language: 'Vietnamese',
             currency: 'EURO',
             deviceType: 0,
             isInsert: true,
             isShowMessage: false,
             isSuccess: true,
-            message: ''
+            message: '',
+            isPlayer: true,
+            userType: 1
         });
     });
 })

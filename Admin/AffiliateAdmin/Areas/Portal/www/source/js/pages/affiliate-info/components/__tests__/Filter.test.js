@@ -29,7 +29,7 @@ describe('affiliate info - Filter ', () => {
 
         const wrapper = shallow(<Filter {...defaultProps} />);
 
-        wrapper.find('Input[type="text"][id="Username"]').simulate('change', mockedEvent);
+        wrapper.find('Input[type="text"][id="username"]').simulate('change', mockedEvent);
 
         expect(wrapper.state('userName')).toEqual("abc");
     });
@@ -39,7 +39,7 @@ describe('affiliate info - Filter ', () => {
 
         const wrapper = shallow(<Filter {...defaultProps} />);
 
-        wrapper.find('Input[type="email"][id="Email"]').simulate('change', mockedEvent);
+        wrapper.find('Input[type="email"][id="email"]').simulate('change', mockedEvent);
 
         expect(wrapper.state('email')).toEqual("abc@gmail.com");
     });
@@ -48,7 +48,7 @@ describe('affiliate info - Filter ', () => {
         const mockedEvent = { target: { name: 'selectedCommGroup', value: 1 } }
         const wrapper = shallow(<Filter {...defaultProps} />);
 
-        wrapper.find('Input[type="select"][id="SearchBy"]').simulate('change', mockedEvent);
+        wrapper.find('Input[type="select"][id="searchBy"]').simulate('change', mockedEvent);
 
         expect(wrapper.state('selectedCommGroup')).toBe(1);
     });
@@ -57,7 +57,7 @@ describe('affiliate info - Filter ', () => {
         const mockedEvent = { target: { name: 'language', value: 'English' } }
         const wrapper = shallow(<Filter {...defaultProps} />);
 
-        wrapper.find('Input[type="select"][id="Language"]').simulate('change', mockedEvent);
+        wrapper.find('Input[type="select"][id="language"]').simulate('change', mockedEvent);
 
         expect(wrapper.state('language')).toEqual('English');
     });
@@ -66,7 +66,7 @@ describe('affiliate info - Filter ', () => {
         const mockedEvent = { target: { name: 'status', value: 'Username' } }
         const wrapper = shallow(<Filter {...defaultProps} />);
 
-        wrapper.find('Input[type="select"][id="Status"]').simulate('change', mockedEvent);
+        wrapper.find('Input[type="select"][id="status"]').simulate('change', mockedEvent);
 
         expect(wrapper.state('status')).toEqual('Username');
     });
@@ -90,8 +90,10 @@ describe('affiliate info - Filter ', () => {
         const instance = wrapper.instance();
         instance.handleClickSearch = jest.fn();
 
-        wrapper.find('Input[type="text"][id="Username"]').simulate('keyPress', mockedEvent);
-        wrapper.find('Input[type="email"][id="Email"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="parentAffName"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="username"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="email"][id="email"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="affId"]').simulate('keyPress', mockedEvent);
 
         expect(instance.handleClickSearch).toHaveBeenCalled();
     });
@@ -106,8 +108,10 @@ describe('affiliate info - Filter ', () => {
         const instance = wrapper.instance();
         instance.handleClickSearch = jest.fn();
 
-        wrapper.find('Input[type="text"][id="Username"]').simulate('keyPress', mockedEvent);
-        wrapper.find('Input[type="email"][id="Email"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="parentAffName"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="username"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="email"][id="email"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="affId"]').simulate('keyPress', mockedEvent);
 
         expect(instance.handleClickSearch).not.toHaveBeenCalled();
     });
@@ -138,7 +142,8 @@ describe('affiliate info - Filter ', () => {
             UserName: '',
             Email: '',
             SortBy: 1,
-            SortDirectionType: false
+            SortDirectionType: false,
+            ParentAffName: ''
         }
         expect(props.setReportTitle).toHaveBeenCalledWith(reportTitle);
         expect(props.setParam).toHaveBeenCalledWith(param);

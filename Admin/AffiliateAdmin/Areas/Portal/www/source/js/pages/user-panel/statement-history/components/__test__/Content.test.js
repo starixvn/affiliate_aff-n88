@@ -11,7 +11,8 @@ describe('statement history - components - Content', () => {
             fromDate: "1/11/2019",
             isGetAll: false,
             toDate: "7/11/2019"
-        }
+        },
+        expandMonthDateList: {}
     }
 
     const gridData = [
@@ -22,7 +23,8 @@ describe('statement history - components - Content', () => {
             Description: "Monthly Earning",
             Status: "B/F",
             TransId: 0,
-            TransType: 201
+            TransType: 201,
+            NormalizeDateText: '2019-06-01'
         },
         {
             Amount: 125,
@@ -31,7 +33,8 @@ describe('statement history - components - Content', () => {
             Description: "Admin Note",
             Status: "Pending",
             TransId: 1262276211,
-            TransType: 202
+            TransType: 202,
+            NormalizeDateText: '2019-06-01'
         },
         {
             Amount: -100,
@@ -40,7 +43,8 @@ describe('statement history - components - Content', () => {
             Description: "",
             Status: "B/F",
             TransId: 1262276210,
-            TransType: 203
+            TransType: 203,
+            NormalizeDateText: '2019-06-01'
         },
         {
             Amount: 105,
@@ -49,7 +53,8 @@ describe('statement history - components - Content', () => {
             Description: "",
             Status: "Approved",
             TransId: 1262276209,
-            TransType: 200
+            TransType: 200,
+            NormalizeDateText: '2019-06-01'
         }
     ]
 
@@ -77,7 +82,7 @@ describe('statement history - components - Content', () => {
 
     it('componentDidUpdate - should call fetchData if param change', () => {
         const param = Object.assign({}, defaultProps.param, { toDate: "7/10/2019" });
-        const props = Object.assign({}, defaultProps, { param });
+        const props = Object.assign({}, defaultProps, { param, setExpandMonthDateList: jest.fn() });
         const componentInstance = new Content(props);
         componentInstance.fetchData = jest.fn();
         componentInstance.componentDidUpdate(defaultProps);
@@ -172,7 +177,7 @@ describe('statement history - components - Content', () => {
 
         dataRow.find('Button').at(0).simulate('click');
 
-        expect(props.redirectToDailyEarning).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jun-2019", productId: 0 });
+        expect(props.redirectToDailyEarning).toHaveBeenCalledWith({ affId: 1271808, monthDate: "2019-06-01", productId: 0 });
     });
 
     it('handlePaging - should call fetchData with correct parameters', () => {

@@ -2,6 +2,7 @@
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
+import { defaultFormat } from 'moment';
 
 describe('players detail - components - Content', () => {
     const param = {productId: 0, monthDate: "11/1/2019"};
@@ -37,7 +38,11 @@ describe('players detail - components - Content', () => {
         param,
         setPagingOption: jest.fn(),
         toggleLoaderUserPanel: jest.fn(),
-        fetchData: jest.fn(() => gridData)
+        fetchData: jest.fn(() => gridData),
+        sortingColumn: {
+            IsSortAsc: false,
+            ColumnName: 'Turnover'
+        }
     }
 
     it('render correctly', () => {
@@ -136,27 +141,27 @@ describe('players detail - components - Content', () => {
     });
 
     it('handleClickHeader - should call setState and _fetchData when sortingColumn === selectedColumn', async () => {
-        const wrapper = shallow(<Content {...defaultProps} />);
+        const props = Object.assign({}, defaultProps, { setSortingColumn: jest.fn() });
+        const wrapper = shallow(<Content {...props} />);
         const instance = wrapper.instance();
-        instance.setState = jest.fn();
         instance._fetchData = jest.fn();
 
         instance.handleClickHeader('Turnover');
 
         expect(instance._fetchData).toHaveBeenCalledWith({ ...param, isSortAsc: true, sortById: 5, pageIndex: 1, pageSize: 20 });
-        expect(instance.setState).toHaveBeenCalledWith({ isSortAsc: true });
+        expect(props.setSortingColumn).toHaveBeenCalledWith({ IsSortAsc: true, ColumnName: 'Turnover' });
     });
 
     it('handleClickHeader - should call setState and _fetchData when sortingColumn !== selectedColumn', async () => {
-        const wrapper = shallow(<Content {...defaultProps} />);
+        const props = Object.assign({}, defaultProps, { setSortingColumn: jest.fn() });
+        const wrapper = shallow(<Content {...props} />);
         const instance = wrapper.instance();
-        instance.setState = jest.fn();
         instance._fetchData = jest.fn();
 
         instance.handleClickHeader('Username');
 
-        expect(instance._fetchData).toHaveBeenCalledWith({ ...param, isSortAsc: false, sortById: 1, pageIndex: 1, pageSize: 20 });
-        expect(instance.setState).toHaveBeenCalledWith({ isSortAsc: false, sortingColumn: 'Username' });
+        expect(instance._fetchData).toHaveBeenCalledWith({ ...param, isSortAsc: false, sortById: 5, pageIndex: 1, pageSize: 20 });
+        expect(props.setSortingColumn).toHaveBeenCalledWith({ IsSortAsc: false, ColumnName: 'Username' });
     });
 
     it('handlePaging - should call fetchData with correct parameters', () => {

@@ -28,7 +28,8 @@ describe('banner list - EditBannerForm - connect', () => {
             }
         ];
         const expectedResult = {
-            categoryList: [{ 123: 'Bonus' }],
+            playerCategoryList: [{ Id: 123, Name: 'Slot' }],
+            subAffiliateCategoryList: [{ Id: 123, Name: 'SP Bonus' }],
             subCategoryCasinoList: [{ Id: 123, Name: 'Slot' }],
             subCategorySportsbookList: [{ Id: 123, Name: 'SP Bonus' }],
             languageList: [{ LanguageCode: 'en-US', LanguageName: 'English' }],
@@ -41,7 +42,8 @@ describe('banner list - EditBannerForm - connect', () => {
             selectedBannerId: 2448
         };
         const state = {
-            categoryList: [{ 123: 'Bonus' }],
+            playerCategoryList: [{ Id: 123, Name: 'Slot' }],
+            subAffiliateCategoryList: [{ Id: 123, Name: 'SP Bonus' }],
             subCategoryCasinoList: [{ Id: 123, Name: 'Slot' }],
             subCategorySportsbookList: [{ Id: 123, Name: 'SP Bonus' }],
             languageList: [{ LanguageCode: 'en-US', LanguageName: 'English' }],
@@ -66,6 +68,7 @@ describe('banner list - EditBannerForm - connect', () => {
         const expectedActionCreator = {
             setSelectedBannerId: actions['setSelectedBannerId'],
             fetchData: actions['fetchData'],
+            getCategoryList: actions['getCategoryList'],
             getBannerDetail: actions['getBannerDetail'],
             getSizeList: actions['getSizeList'],
             insertBanner: actions['insertBanner'],

@@ -28,7 +28,8 @@ describe('affiliate report - Filter ', () => {
         languageList: {},
         today: now.getMonth() + '/' + now.getDate() + '/' + now.getFullYear(),
         currentViewLevel: mainView,
-        param: {}
+        param: {},
+        currencyList: [{ Code: 'VND', ExchangeId: 0 }]
     };
 
     it('componentDidUpdate - should call setParam, setState and setReportTitle when currentViewLevel change to Main view', () => {
@@ -440,7 +441,7 @@ describe('affiliate report - Filter ', () => {
         const result = componentInstance._buildMainReportTitle(isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('AFFILIATE REPORT  - All languages - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual('AFFILIATE REPORT  - Base Currency VND - All languages - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMainReportTitle - return corrected value with incorrect parameter', () => {
@@ -449,13 +450,13 @@ describe('affiliate report - Filter ', () => {
         ]
 
         const componentInstance = new Filter(defaultProps);
-        componentInstance.state.userName = '12Bet';
+        componentInstance.state.userName = 'Bwing';
         componentInstance._getProductDataSource = jest.fn(() => productList);
 
         const result = componentInstance._buildMainReportTitle(!isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual("AFFILIATE REPORT - Username contains '12Bet' - All languages - Sportsbook - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual("AFFILIATE REPORT - Username contains 'Bwing' - Base Currency VND - All languages - Sportsbook - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMonthOnMonthReportTile - return corrected value with correct parameter', () => {
@@ -465,7 +466,7 @@ describe('affiliate report - Filter ', () => {
         const result = componentInstance._buildMonthOnMonthReportTile(isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('MONTH ON MONTH  - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual('MONTH ON MONTH  - Base Currency VND - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMonthOnMonthReportTile - return corrected value with incorrect parameter', () => {
@@ -473,14 +474,14 @@ describe('affiliate report - Filter ', () => {
             { ProductId: 1, ProductName: "Sportsbook", Checked: true }
         ]
         const componentInstance = new Filter(defaultProps);
-        componentInstance.state.userName = '12Bet';
+        componentInstance.state.userName = 'Bwing';
         componentInstance.state.isGetAll = true;
         componentInstance._getProductDataSource = jest.fn(() => productList);
 
         const result = componentInstance._buildMonthOnMonthReportTile(!isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('MONTH ON MONTH - 12Bet - Sportsbook - Get All Dates');
+        expect(result).toEqual('MONTH ON MONTH - Bwing - Base Currency VND - Sportsbook - Get All Dates');
     });
 
     it('_getProductDataSource - return corrected value with selected all products', () => {

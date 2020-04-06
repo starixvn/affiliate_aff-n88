@@ -75,7 +75,7 @@ export class Filter extends PureComponent {
         })
     }
 
-    handleChangeCurrency =(evnet) =>{
+    handleChangeCurrency = (event) =>{
         const selectedCurrencyId = Number(event.target.value);
         this.setState({
             selectedCurrencyId

@@ -139,6 +139,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
             >
               [Maximum files: 10]
             </Label>
+                                                
             <br />
             <FormGroup
               className="mb-2"
@@ -182,6 +183,62 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                   id="file"
                   isMultiple={true}
                 />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              row={true}
+              tag="div"
+            >
+              <Label
+                for="userType"
+                sm={3}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                User Type
+              </Label>
+              <Col
+                sm={5}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  id="userType"
+                  name="userType"
+                  onChange={[Function]}
+                  type="select"
+                  value={1}
+                >
+                  <option
+                    key="userType-1"
+                    value="1"
+                  >
+                    Players
+                  </option>
+                  <option
+                    key="userType-2"
+                    value="2"
+                  >
+                    Sub-Affiliate
+                  </option>
+                </Input>
               </Col>
             </FormGroup>
             <FormGroup
@@ -347,7 +404,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Chinese Simplified"
+                  value="Vietnamese"
                 >
                   <option
                     key="language-English"
@@ -767,6 +824,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
             >
               [Maximum files: 10]
             </Label>
+                                                
             <br />
             <FormGroup
               className="mb-2"
@@ -810,6 +868,62 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                   id="file"
                   isMultiple={true}
                 />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              row={true}
+              tag="div"
+            >
+              <Label
+                for="userType"
+                sm={3}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                User Type
+              </Label>
+              <Col
+                sm={5}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  id="userType"
+                  name="userType"
+                  onChange={[Function]}
+                  type="select"
+                  value={1}
+                >
+                  <option
+                    key="userType-1"
+                    value="1"
+                  >
+                    Players
+                  </option>
+                  <option
+                    key="userType-2"
+                    value="2"
+                  >
+                    Sub-Affiliate
+                  </option>
+                </Input>
               </Col>
             </FormGroup>
             <FormGroup
@@ -975,7 +1089,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Chinese Simplified"
+                  value="Vietnamese"
                 >
                   <option
                     key="language-English"
@@ -1385,21 +1499,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
             >
               [File Size Limit: 3MB]
             </Label>
-            <Label
-              className="d-block"
-              tag="label"
-              widths={
-                Array [
-                  "xs",
-                  "sm",
-                  "md",
-                  "lg",
-                  "xl",
-                ]
-              }
-            >
-              [Maximum files: 10]
-            </Label>
+                                                
             <br />
             <FormGroup
               className="mb-2"
@@ -1596,7 +1696,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Chinese Simplified"
+                  value="Vietnamese"
                 >
                   <option
                     key="language-English"

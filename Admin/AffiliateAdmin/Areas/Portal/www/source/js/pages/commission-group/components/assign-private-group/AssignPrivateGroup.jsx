@@ -30,9 +30,9 @@ export class AssignPrivateGroup extends React.Component {
     componentDidMount() {
         this.setState({ isShowLoader: true });
         const { deductionList, productList, affInfo } = this.props;
-        const { GroupId } = affInfo;
+        const { GroupId, IsUsingPrivateCommGroup } = affInfo;
 
-        if (affInfo.IsUsingPrivateCommGroup) {
+        if (IsUsingPrivateCommGroup) {
             this.props.getSelectedCommGroup({ GroupId });
         }
         else {

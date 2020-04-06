@@ -22,6 +22,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public decimal Winloss { get; set; }
 
-        public string RegisteredDateText => RegisteredDate?.ToString("MM/dd/yyyy HH:mm:ss");
+        public string RegisteredDateText => RegisteredDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty;
     }
 }

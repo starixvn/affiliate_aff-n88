@@ -115,7 +115,7 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="my-2 mr-sm-2">
                         <Label for="SearchBy" className="mr-sm-2">{resource.SearchBy}</Label>
-                        <Input type="select" name="selectedCommGroup" id="SearchBy" value={selectedCommGroup} onChange={this.handleChange} >
+                        <Input type="select" name="selectedCommGroup" id="searchBy" value={selectedCommGroup} onChange={this.handleChange} >
                             <option key="commGroup-all" value={0}>{resource.AllCommGroups}</option>
                             {
                                 Object.keys(commGroupList).map(commGroup => {
@@ -127,7 +127,7 @@ export class Filter extends Component {
 
                     <FormGroup className="my-2 mr-sm-2">
                         {
-                            <Input type="select" name="selectedLanguage" id="Language" value={selectedLanguage} onChange={this.handleChange}>
+                            <Input type="select" name="selectedLanguage" id="language" value={selectedLanguage} onChange={this.handleChange}>
                                 <option key="lang-all" value="">{resource.AllLanguages}</option>
                                 {
                                     Object.keys(languageList).map(lang => {
@@ -140,7 +140,7 @@ export class Filter extends Component {
 
                     <FormGroup className="my-2 mr-sm-2">
                         {
-                            <Input type="select" name="selectedStatus" id="Status" value={selectedStatus} onChange={this.handleChange}>
+                            <Input type="select" name="selectedStatus" id="status" value={selectedStatus} onChange={this.handleChange}>
                                 <option key="status-all" value="">{resource.AllStatuses}</option>
                                 {
                                     Object.keys(statusList).map(status => {
@@ -170,7 +170,7 @@ export class Filter extends Component {
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="affId" id="AffId" placeholder="Affiliate Id" value={affId}
+                        <Input type="text" name="affId" id="affId" placeholder="Affiliate Id" value={affId}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>

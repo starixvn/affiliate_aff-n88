@@ -9,7 +9,7 @@ export const headerText = {
     Index: '#',
     UserName: 'User Name',
     IbcUserName: globalResource.SystemUserName,
-    RegisteredDate: 'Registered Date',
+    RegisteredDateText: 'Registered Date',
     Turnover: 'Turnover',
     Winloss: 'Winlost',
     Deposit: 'Deposit',
