@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import MonthPicker from '@9softstudio/react-monthpicker';
 
-import { resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault } from '../modules/constants';
+import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault, defaultCurrency } from '../modules/constants';
 import { setParam, getProductList, exportExcel, getCurrencies, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
@@ -20,7 +20,7 @@ export class Filter extends PureComponent {
         this.state = {
             selectedProduct: selectedAllProduct,
             monthDate: newMonthDate,
-            selectedCurrencyId: 0,
+            selectedCurrencyId: defaultCurrency,
             productList: null,
             currencies: null,
 
@@ -45,8 +45,11 @@ export class Filter extends PureComponent {
         if (param.isClickLink && param !== prevProps.param) {
             const newMonthDate = new Date(param.monthDate);
 
-            this.setState({ monthDate: newMonthDate, selectedProduct: selectedAllProduct });
-            this.handleSearch(newMonthDate);
+            this.setState({
+                monthDate: newMonthDate,
+                selectedProduct: selectedAllProduct,
+                selectedCurrencyId: defaultCurrency
+            }, () => this.handleSearch(newMonthDate));
         }
     }
 
@@ -143,9 +146,9 @@ export class Filter extends PureComponent {
             <div className="filter-container">
                 <Form inline tag="div">
                     <FormGroup className="mr-sm-2">
-                        <Label className="mr-2">{resource.Product}</Label>
+                        <Label className="mr-2">{globalResource.Product}</Label>
                         <Input type="select" name="Product" id="Product" value={selectedProduct} onChange={this.handleChangeProduct}>
-                            <option value="0">{resource.All}</option>
+                            <option value="0">{globalResource.All}</option>
                             {
                                 productList.map(p => {
                                     return (<option value={p.ProductId} key={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
@@ -155,7 +158,7 @@ export class Filter extends PureComponent {
                     </FormGroup>
 
                     <FormGroup className="mr-sm-2">
-                        <Label className="mr-2">{resource.BaseCurrency}</Label>
+                        <Label className="mr-2">{globalResource.BaseCurrency}</Label>
                         <Input type="select" name="Currency" id="Currency" value={selectedCurrencyId} onChange={this.handleChangeCurrency}>
                             {
                                 currencies && currencies.map(c => {
@@ -176,7 +179,7 @@ export class Filter extends PureComponent {
                     </FormGroup>
 
                     <Button outline color="primary" type="button" onClick={() => this.handleSearch(monthDate)}>
-                        <span className="oi oi-magnifying-glass"></span> {resource.Search}
+                        <span className="oi oi-magnifying-glass"></span> {globalResource.Search}
                     </Button>
 
                     <Button color="link" type="button" className="ml-auto btn-excel" onClick={this.handleExportExcel} title="Export Excel">

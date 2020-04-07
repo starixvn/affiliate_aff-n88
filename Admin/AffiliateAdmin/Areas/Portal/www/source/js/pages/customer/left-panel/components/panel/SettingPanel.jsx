@@ -129,7 +129,7 @@ export class SettingPanel extends PureComponent {
                         </select>
                         <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffType ? 'none' : 'inline-block' }} onClick={() => this.toggleChangingAffType(true)}>
                             {
-                                affType.length && affType[0].AffTypeName
+                                affType.length ? affType[0].AffTypeName : affiliateInfo.AffType
                             }
                         </Button>
                     </Col>

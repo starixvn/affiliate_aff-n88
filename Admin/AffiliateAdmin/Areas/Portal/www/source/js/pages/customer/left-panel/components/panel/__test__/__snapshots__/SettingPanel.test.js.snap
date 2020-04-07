@@ -62,7 +62,7 @@ exports[`left panel - components - panel - SettingPanel render correctly 1`] = `
         }
         tag="button"
       >
-        0
+        2
       </Button>
     </Col>
   </Row>
@@ -214,7 +214,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         }
         tag="button"
       >
-        0
+        2
       </Button>
     </Col>
   </Row>

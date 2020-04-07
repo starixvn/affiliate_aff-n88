@@ -81,25 +81,25 @@ describe('players detail - components - Filter', () => {
         const props = Object.assign({}, defaultProps, { param: newParam });
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
-        instance.setState = jest.fn();
+        instance.setState = jest.fn((obj, func) => func && func());
         instance.handleSearch = jest.fn();
 
         instance.componentDidUpdate(defaultProps);
 
-        expect(instance.setState).toHaveBeenCalledWith({ monthDate: new Date('11/26/2019'), selectedProduct: 0 });
+        expect(instance.setState).toHaveBeenCalledWith({ monthDate: new Date('11/26/2019'), selectedProduct: 0, selectedCurrencyId: 0, }, expect.any(Function));
         expect(instance.handleSearch).toHaveBeenCalledWith(new Date('11/26/2019'));
     });
 
-    //it('handleGetProductList - should call setState and getProductList', async () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    const instance = wrapper.instance();
-    //    instance.setState = jest.fn();
+    it('handleGetProductList - should call setState and getProductList', async () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
 
-    //    await instance.handleGetProductList();
+        await instance.handleGetProductList();
 
-    //    expect(instance.setState).toHaveBeenCalledWith({ productList });
-    //    expect(defaultProps.getProductList).toHaveBeenCalled();
-    //});
+        expect(instance.setState).toHaveBeenCalledWith({ productList });
+        expect(defaultProps.getProductList).toHaveBeenCalled();
+    });
 
     it('handleSelectMonth - should call setState', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);

@@ -19,11 +19,6 @@ export const headerText = {
 }
 
 export const resource = {
-    All: globalResource.All,
-    Search: globalResource.Search,
-    Product: globalResource.Product,
-    Currency: globalResource.Currency,
-    BaseCurrency: globalResource.BaseCurrency,
     Month: 'Month'
 }
 
@@ -38,6 +33,8 @@ export const SortByIdList = {
     BankingFee: 8,
     IbcUsername: 9
 };
+
+export const defaultCurrency = 0;
 
 export const SortingColumnDefault = {
     IsSortAsc: false,
