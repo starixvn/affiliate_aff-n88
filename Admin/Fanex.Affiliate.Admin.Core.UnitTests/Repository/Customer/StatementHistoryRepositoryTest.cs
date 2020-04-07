@@ -190,6 +190,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
+                ["TransId"] = 123,
                 ["Amount"] = 100,
                 ["TransType"] = 123,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
@@ -204,6 +205,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
+                ["TransId"] = 123,
                 ["Amount"] = 100,
                 ["TransType"] = 0,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
