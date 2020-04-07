@@ -8,5 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.Customer
         public string AffName { get; set; }
 
         public IEnumerable<Language> LanguageList { get; set; }
+
+        public IEnumerable<AffTypeInfo> AffTypeList { get; set; }
     }
 }

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Panel from '../Panel';
 import { Row, Col, Button } from 'reactstrap';
 
-import { affType, resource, status, messages } from '../../modules/constants';
+import { resource, status, messages } from '../../modules/constants';
 import { updateAffType, updateClosedStatus, updateStatus, getAffiliateInfo } from '../../actions';
 import CommissionGroupPopup from '../../../../common/components/CommissionGroupPopup';
 import { NotificationPopup } from '../../../../common/components/NotificationPopup';
@@ -110,8 +110,9 @@ export class SettingPanel extends PureComponent {
     }
 
     render() {
-        const { affiliateInfo, isApproved } = this.props;
+        const { affiliateInfo, isApproved, affTypeList } = this.props;
         const { isChangingAffType, isChangingAffStatus, isAssignCommissionGroup, messageNotification, isConfirmPopup } = this.state;
+        const affType = affTypeList && affTypeList.filter(a => a.AffTypeId == affiliateInfo.AffType);
 
         return (
             <Panel heading={resource.Setting}>
@@ -121,13 +122,15 @@ export class SettingPanel extends PureComponent {
                         <select style={{ display: isChangingAffType ? 'inline-block' : 'none' }} value={affiliateInfo.AffType}
                             onChange={this.handleChangeAffType} onBlur={() => this.toggleChangingAffType(false)} ref={this.affTypeDropdown}>
                             {
-                                Object.keys(affType).map((key, index) => {
-                                    return (<option value={key} key={`affinfo-type-${index}`}>{affType[key]}</option>)
+                                affTypeList && affTypeList.map(item => {
+                                    return (<option value={item.AffTypeId} key={`affinfo-type-${item.AffTypeId}`}>{item.AffTypeName}</option>)
                                 })
                             }
                         </select>
                         <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffType ? 'none' : 'inline-block' }} onClick={() => this.toggleChangingAffType(true)}>
-                            {affType[affiliateInfo.AffType]}
+                            {
+                                affType.length && affType[0].AffTypeName
+                            }
                         </Button>
                     </Col>
                 </Row>
@@ -189,9 +192,9 @@ export class SettingPanel extends PureComponent {
 }
 
 function mapStateToProps({ leftPanel }) {
-    const { affiliateInfo, affName } = leftPanel;
+    const { affiliateInfo, affName, affTypeList } = leftPanel;
 
-    return Object.assign({}, { affiliateInfo, affName });
+    return Object.assign({}, { affiliateInfo, affName, affTypeList });
 };
 
 function mapDispatchToProps(dispatch) {

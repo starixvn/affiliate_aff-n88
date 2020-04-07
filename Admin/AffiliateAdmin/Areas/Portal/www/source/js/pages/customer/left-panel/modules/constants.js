@@ -36,12 +36,6 @@ export const resource = {
     SubAffiliateList: 'Sub-Affiliate List'
 }
 
-export const affType = {
-    1: 'Asian',
-    2: 'Media',
-    3: 'European'
-}
-
 export const messages = {
     areYouChangeStatus: 'Are you sure you want to change status for this affiliate?',
     statusUpdatedSuccess: 'The status has been updated successfully!',

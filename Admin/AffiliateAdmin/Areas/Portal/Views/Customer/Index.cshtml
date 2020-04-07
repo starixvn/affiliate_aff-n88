@@ -16,7 +16,8 @@
             selectedUserPanel: null,
             affCommonInfo: null,
             leftPanel: {
-                affName: '@Model.AffName'
+                affName: '@Model.AffName',
+                affTypeList: @Html.Raw(Json.Encode(Model.AffTypeList))
             },
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
             customerStatistics: {}

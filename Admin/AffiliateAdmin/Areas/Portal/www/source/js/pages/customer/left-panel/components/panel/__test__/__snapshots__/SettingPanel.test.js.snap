@@ -45,22 +45,10 @@ exports[`left panel - components - panel - SettingPanel render correctly 1`] = `
         value={2}
       >
         <option
-          key="affinfo-type-0"
-          value="1"
+          key="affinfo-type-1"
+          value={1}
         >
           Asian
-        </option>
-        <option
-          key="affinfo-type-1"
-          value="2"
-        >
-          Media
-        </option>
-        <option
-          key="affinfo-type-2"
-          value="3"
-        >
-          European
         </option>
       </select>
       <Button
@@ -74,7 +62,7 @@ exports[`left panel - components - panel - SettingPanel render correctly 1`] = `
         }
         tag="button"
       >
-        Media
+        0
       </Button>
     </Col>
   </Row>
@@ -209,22 +197,10 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         value={2}
       >
         <option
-          key="affinfo-type-0"
-          value="1"
+          key="affinfo-type-1"
+          value={1}
         >
           Asian
-        </option>
-        <option
-          key="affinfo-type-1"
-          value="2"
-        >
-          Media
-        </option>
-        <option
-          key="affinfo-type-2"
-          value="3"
-        >
-          European
         </option>
       </select>
       <Button
@@ -238,7 +214,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         }
         tag="button"
       >
-        Media
+        0
       </Button>
     </Col>
   </Row>

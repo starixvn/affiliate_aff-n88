@@ -42,6 +42,7 @@ describe('customer - mainpage reducer', () => {
         leftPanel: {
             affName: '',
             affiliateInfo: null,
+            affTypeList: null,
             isShowLoader: false,
             isValidUserName: true,
         },

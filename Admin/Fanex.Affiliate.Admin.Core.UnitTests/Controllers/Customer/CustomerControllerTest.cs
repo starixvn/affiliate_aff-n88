@@ -55,13 +55,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
         private CustomerController CreateCustomerController(
             ISessionService sessionService = null,
-            ILanguageService languageService = null
+            ILanguageService languageService = null,
+            IAffTypeService affTypeService = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
+            var fakeAffTypeService = affTypeService ?? Mock.Of<IAffTypeService>();
 
-            return new CustomerController(fakeSessionService, fakeLanguageService);
+            return new CustomerController(fakeSessionService, fakeLanguageService, fakeAffTypeService);
         }
     }
 }

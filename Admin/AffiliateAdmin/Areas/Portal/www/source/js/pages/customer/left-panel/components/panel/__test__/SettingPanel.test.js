@@ -57,7 +57,10 @@ describe('left panel - components - panel - SettingPanel', () => {
     const affName = '12BETAFF226';
     const defaultProps = {
         affiliateInfo: affInfoClosed,
-        affName
+        affName,
+        affTypeList: [
+            { AffTypeId: 1, AffTypeName: "Asian" }
+        ]
     }
 
     it('render correctly', () => {
