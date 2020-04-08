@@ -1,15 +1,19 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Resources;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.Constants
 {
     public static class RequestPage
     {
-        public const int StatementHistory = 1;
+        public const string StatementHistory = "StatementHistory";
 
-        public const int CommissionReport = 2;
+        public const string CommissionReport = "CommissionReport";
+
+        public static IDictionary<string, BreadcrumbViewModel> Links => new Dictionary<string, BreadcrumbViewModel>
+        {
+            { RequestPage.StatementHistory, new BreadcrumbViewModel { Name = Lang.StatementHistory, Url = "~/UserPanel/Main/#StatementHistory" } },
+            { RequestPage.CommissionReport, new BreadcrumbViewModel { Name = Lang.CommissionReport, Url = "~/UserPanel/Main/#CommissionReport" } }
+        };
     }
 }

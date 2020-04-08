@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Fanex.Data;
+using System;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {
@@ -13,5 +10,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         public DateTime? MonthDate { get; set; }
 
         public int BaseCurrency { get; set; }
+
+        [SpParam(Ignored =true)]
+        public string RequestPage { get; set; } = Constants.RequestPage.StatementHistory;
     }
 }

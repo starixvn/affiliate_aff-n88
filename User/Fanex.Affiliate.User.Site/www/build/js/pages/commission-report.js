@@ -2,6 +2,7 @@ var commissionReport = (function ($) {
     var _reportData = null;
     var _sortingColumn = 'Month';
     var _isSortingAsc = false;
+    const _currentPage = "CommissionReport";
 
     function formatDecimal(value) {
         return format(value, 2)
@@ -56,7 +57,8 @@ var commissionReport = (function ($) {
             $('#dataTable').on('click', '.amountItem', function () {
                 let url = "UserPanel/Main/#SubAffEarning";
                 let params = {
-                    monthDate: $(this).data("date")
+                    monthDate: $(this).data("date"),
+                    requestPage: _currentPage
                 };
 
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));

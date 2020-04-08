@@ -39,7 +39,15 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 SubAffUserName = s.UserName
             });
 
+            var requestPage = param.RequestPage;
+            BreadcrumbViewModel breadcrumb = null;
+            if(!Constants.RequestPage.Links.TryGetValue(requestPage, out breadcrumb))
+            {
+                breadcrumb = Constants.RequestPage.Links[Constants.RequestPage.StatementHistory];
+            }
+
             ViewBag.MonthDate = param.MonthDate;
+            ViewBag.Breadcrumb = breadcrumb;
 
             return View("~/Views/UserPanel/StatementHistory/SubAffEarning.cshtml", vms);
         }

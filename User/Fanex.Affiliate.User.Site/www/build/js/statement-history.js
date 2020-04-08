@@ -237,12 +237,14 @@
     };
 })(jQuery)
 var StatementHistory = (function ($) {
+    const _currentPage = "StatementHistory";
+    const urlMapping = [
+        { transType: 201, url: "UserPanel/Main/#DailyEarning" },
+        { transType: 204, url: "UserPanel/Main/#SubAffEarning" }
+    ];
+    
     let _pageSize = 20;
     let _pageIndex = 0;
-    let urlMapping = [
-        { transType: 201, url: "UserPanel/Main/#DailyEarning" },
-        { transType: 204, url: "UserPanel/Main/#SubAffEarning"}
-    ];
 
     function initPager() {
         $("#statementPager").pager({
@@ -280,7 +282,8 @@ var StatementHistory = (function ($) {
                 let transtype = Number($(this).data("transtype"));
                 let url = urlMapping.find(elem => elem.transType === transtype).url;
                 let params = {
-                    monthDate: $(this).data("date")
+                    monthDate: $(this).data("date"),
+                    requestPage: _currentPage
                 };
 
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));

@@ -24,7 +24,17 @@
                         </div>
                         <div class="flex-0 aff-link">
                             @{
-                                var encodedText = Html.Encode($"<a onclick='window.open(\"{@text.RedirectLink}?ref=\" + encodeURIComponent(window.location.href),\"_blank\"); return false;' href='javascript:;' target='_blank' id='_affMediaText'></a>"
+                                var uri = new Uri(text.RedirectLink);
+                                var url = text.RedirectLink;
+                                if (string.IsNullOrWhiteSpace(uri.Query))
+                                {
+                                    url = $"{text.RedirectLink}?ref=";
+                                }
+                                else
+                                {
+                                    url = $"{text.RedirectLink}&ref=";
+                                }
+                                var encodedText = Html.Encode($"<a onclick='window.open(\"{url}\" + encodeURIComponent(window.location.href),\"_blank\"); return false;' href='javascript:;' target='_blank' id='_affMediaText'></a>"
                                                     + $"<script src=\"{@text.ScriptSrc}\"></script>");
                                 @Html.Raw(encodedText);
                              }

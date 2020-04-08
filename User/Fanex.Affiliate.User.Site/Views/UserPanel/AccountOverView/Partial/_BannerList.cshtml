@@ -1,6 +1,7 @@
 ﻿@{ 
     Layout = null;
     var totalItem = ViewBag.TotalItem;
+
 }
 
 @model IEnumerable<Fanex.Affiliate.User.Core.DTO.UserPanel.MarketingItem>
@@ -15,8 +16,18 @@
         {
             foreach (var banner in Model)
             {
+                var uri = new Uri(banner.RedirectLink);
+                var url = banner.RedirectLink;
+                if(string.IsNullOrWhiteSpace(uri.Query))
+                {
+                    url = $"{banner.RedirectLink}?ref=";
+                }
+                else
+                {
+                    url = $"{banner.RedirectLink}&ref=";
+                }
                 <li class="banner-control">
-                    <a class="banner-link padding" onclick='window.open("@(banner.RedirectLink + "?ref=")" + encodeURIComponent(window.location.href),"_blank"); return false;' href="javascript:;">
+                    <a class="banner-link padding" onclick='window.open("@(url)" + encodeURIComponent(window.location.href),"_blank"); return false;' href="javascript:;">
                         <img class="banner-link-img"  src="@banner.FileName" alt="Affiliate @(AppSetting.Instance.SiteFriendlyName) Banner" />
                     </a>
                     <div class="banner-control-button">

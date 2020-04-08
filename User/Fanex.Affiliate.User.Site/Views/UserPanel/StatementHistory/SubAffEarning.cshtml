@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    Fanex.Affiliate.User.Core.ViewModels.UserPanel.BreadcrumbViewModel breadcrumb = ViewBag.Breadcrumb;
 }
 
 @model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.SubAffComViewModel>
@@ -9,10 +10,15 @@
 </div>
 
 <div>
-    <div class="breadcrumb-container">
-        <ol class="breadcrumb" id="dailyEarningBreadcrumb">
-            <li><a href="@Url.Content("~/UserPanel/Main/#StatementHistory")">@Lang.StatementHistory</a></li>
-        </ol>
-    </div>
+    @{
+        if (breadcrumb != null)
+        {
+            <div class="breadcrumb-container">
+                <ol class="breadcrumb" id="dailyEarningBreadcrumb">
+                    <li><a href="@Url.Content(breadcrumb.Url)">@breadcrumb.Name</a></li>
+                </ol>
+            </div>
+        }
+    }
     @Html.Partial("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", Model)
 </div>
