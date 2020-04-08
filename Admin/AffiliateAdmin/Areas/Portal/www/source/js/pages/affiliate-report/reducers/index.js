@@ -13,6 +13,8 @@ const languageList = createReducer({}, {});
 
 const currencyList = createReducer({}, {});
 
+const isN8B = createReducer(null, {});
+
 
 const today = createReducer('', {});
 
@@ -43,5 +45,6 @@ export default combineReducers({
     currencyList,
     isShowLoader,
     today,
-    currentViewLevel
+    currentViewLevel,
+    isN8B
 });

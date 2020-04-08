@@ -6,22 +6,19 @@ import reducer from './reducers';
 import AppContainer from "./components/AppContainer";
 import { configureStore } from '../../modules/store';
 
-const productList = window.initialState.productList.map(p => {
+const { productList, languageList, currencyList, today, isN8B } = window.initialState;
+
+const newProductList = productList.map(p => {
     return Object.assign({}, p, { Checked: true });
 })
 
-const languageList = [...window.initialState.languageList];
 const language = {};
 for(let i = 0; i < languageList.length; i++){
     const languageItem = languageList[i];
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
-const currencyList = [...window.initialState.currencyList];
-
-const today = window.initialState.today;
-
-const store = configureStore({ productList, languageList: language, today, currencyList }, reducer);
+const store = configureStore({ productList: newProductList, languageList: language, today, currencyList, isN8B }, reducer);
 
 export default class App extends React.Component {
     constructor(props) {

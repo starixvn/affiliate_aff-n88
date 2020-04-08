@@ -62,16 +62,21 @@ export class Content extends Component {
     }
 
     render() {
-        const { reportTitle } = this.props;
+        const { reportTitle, isN8B } = this.props;
+        console.log(isN8B);
 
         return (
             <div className="data-content my-2">
                 {
                     reportTitle && (
                         <React.Fragment>
-                            <p className="affiliate-report-note">
-                                Notes: First Comm Rate and Earning will calculate at 5th July 2020
-                            </p>
+                            {
+                                isN8B && (
+                                    <p className="affiliate-report-note">
+                                        Notes: First Comm Rate and Earning will calculate at 5th July 2020
+                                    </p>
+                                )
+                            }
                             <ReportTitle content={this._buildReportTitle()} />
                         </React.Fragment>
                     )
@@ -82,8 +87,8 @@ export class Content extends Component {
     }
 }
 
-function mapStateToProps({ reportTitle, currentViewLevel, param }) {
-    return Object.assign({}, { reportTitle, currentViewLevel, param });
+function mapStateToProps({ reportTitle, currentViewLevel, param, isN8B }) {
+    return Object.assign({}, { reportTitle, currentViewLevel, param, isN8B });
 }
 
 function mapDispatchToProps(dispatch) {

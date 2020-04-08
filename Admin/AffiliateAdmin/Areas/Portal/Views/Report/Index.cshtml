@@ -13,7 +13,8 @@
             productList: @Html.Raw(Json.Encode(Model.ProductList)),
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
             today: '@DateTime.Now.ToString("MM/dd/yyyy")',
-            currencyList: @Html.Raw(Json.Encode(Model.CurrencyList))
+            currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
+            isN8B: '@(AppSetting.Instance.IsN8B)'.toLowerCase() === 'true',
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report/affiliate-report.js")"></script>
