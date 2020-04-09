@@ -63,7 +63,6 @@ export class Content extends Component {
 
     render() {
         const { reportTitle, isN8B } = this.props;
-        console.log(isN8B);
 
         return (
             <div className="data-content my-2">
