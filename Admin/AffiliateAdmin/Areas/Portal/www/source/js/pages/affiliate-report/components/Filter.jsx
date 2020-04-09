@@ -5,10 +5,9 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
-import AutoComplete from '../../../components/auto-complete';
 import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, allCurrencies } from '../modules/constants';
 import { setReportTitle, setParam } from '../actions';
-import { formatUnit, resolveClientUrl } from '../../../modules/utils';
+import { formatUnit } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
 import { globalResource } from '../../../modules/globalResource';
 
@@ -285,20 +284,10 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                         <Label for="Affiliate" className="mr-sm-2">Affiliate</Label>
-                        {
-                            isMainView ?
-                                (<Input type="text" name="Affiliate" id="Affiliate"
+                        <Input type="text" name="Affiliate" id="Affiliate"
                                     onKeyPress={this.handlePressEnter}
                                     onChange={this.handleChangeAffiliate}
-                                    value={userName} />) :
-                                (
-                                    <AutoComplete url={resolveClientUrl('Portal/AffiliateReport/GetAffiliateList')}
-                                        onSelect={(value) => this.setState({ userName: value })}
-                                        onInput={(value) => this.setState({ userName: value })}
-                                        value={userName}
-                                        characterCountToSearch={2} />
-                                )
-                        }
+                                    value={userName} />
                     </FormGroup>
                     {
                         currencyList && currencyList.length &&
