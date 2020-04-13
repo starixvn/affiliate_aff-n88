@@ -393,4 +393,7 @@
   <data name="PleaseEnterFileName" xml:space="preserve">
     <value>You must either enter a file name for banner or browse other banner.</value>
   </data>
+  <data name="FileNameCanNotContain" xml:space="preserve">
+    <value>A File Name can't contain any of the following characters: \/:*?"&lt;&gt;|#%&amp;+</value>
+  </data>
 </root>

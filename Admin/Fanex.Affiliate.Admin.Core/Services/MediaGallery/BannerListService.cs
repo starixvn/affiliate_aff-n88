@@ -206,13 +206,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 return result;
             }
 
-            var regex = new Regex("[\\\\/:*?\"<>]");
+            var regex = new Regex("[\\\\/:*?\"<>#%&+]");
             if (regex.IsMatch(param.InputFileNames))
             {
                 return new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = "A File Name can't contain any of the following characters: \\/:*?\" <>|"
+                    Message = Lang.FileNameCanNotContain
                 };
             }
 
@@ -261,13 +261,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
         {
             if (!string.IsNullOrEmpty(param.InputFileNames))
             {
-                var regex = new Regex("[\\\\/:*?\"<>|]");
+                var regex = new Regex("[\\\\/:*?\"<>|#%&+]");
                 if (regex.IsMatch(param.InputFileNames))
                 {
                     return new ResultInfo
                     {
                         Code = Code.GeneralErrorCode,
-                        Message = "A File Name can't contain any of the following characters: \\/:*?\" <>|"
+                        Message = Lang.FileNameCanNotContain
                     };
                 }
 
