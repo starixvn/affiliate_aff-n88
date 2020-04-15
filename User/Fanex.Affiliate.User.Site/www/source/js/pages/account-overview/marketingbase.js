@@ -23,7 +23,6 @@
                 let param = getDownloadParam(this);
                 var query = $.param(param);
                 let url = `${Site.resolveRelativeUrl("UserPanel/Marketing/DownloadQrCode")}?${query}`;
-                console.log(url);
                 downloadTag.href = url;
                 downloadTag.click();
             });

@@ -72,6 +72,10 @@
     color: #fff; }
   .table table td {
     border: 1px solid #C7C7C7; }
+  .table table .overview-table-header, .table table .player-detail-table-header {
+    background: #282828 !important; }
+    .table table .overview-table-header th, .table table .player-detail-table-header th {
+      border: none; }
 
 .login-dialog .modal-header {
   background-color: #4D6316;

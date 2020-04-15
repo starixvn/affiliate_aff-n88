@@ -125,6 +125,14 @@ body {
     td {
         border: 1px solid $table-border-color;
     }
+
+    .overview-table-header, .player-detail-table-header {
+        background: #282828 !important;
+
+        th {
+            border: none;
+        }
+    }
 }
 
 // Login Dialog
