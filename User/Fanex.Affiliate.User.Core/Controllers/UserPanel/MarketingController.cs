@@ -14,6 +14,7 @@
     using MetalModels.UserPanel;
     using System.Drawing;
     using ViewModels.UserPanel.Marketing;
+    using System;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
@@ -46,7 +47,7 @@
                 ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
                 : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
 
-            var qrCodes = GetQrCodes(linkList);
+            var qrCodes = GetQrCodes(linkList, true);
 
             var marketingViewModel = new MarketingViewModel
             {
@@ -54,6 +55,9 @@
                 LinkForm = linkForm
             };
             ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
+            ViewBag.SelectedDomainId = selectedDomain.DomainId;
+            ViewBag.SeletedPage = selectedPage;
+
             return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", marketingViewModel);
         }
 
@@ -129,29 +133,32 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GenerateLink(string selectedLanguage
-            , int? selectedDomainId
-            , string selectedPage
-            , int targetId = TargetSite.TargetToMember)
+        public ActionResult GenerateLink(QrCodeParam param)
         {
-            IDictionary<string, QrCodeLinkModel> result = new Dictionary<string, QrCodeLinkModel>();
+            IDictionary<string, QrCodeLinkViewModel> result = new Dictionary<string, QrCodeLinkViewModel>();
 
-            if (selectedDomainId != null)
+            if (param.SelectedDomainId != null)
             {
-                var userSession = SessionService.UserSession;
-                var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
-                                                        .FirstOrDefault(d => d.DomainId == selectedDomainId);
-                var languageList = string.IsNullOrEmpty(selectedLanguage) ?
-                    MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
-
-                var textLinkList = targetId == TargetSite.TargetToMember
-                    ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
-                    : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
-
-                result = GetQrCodes(textLinkList);
+                result = GenerateQrCodeViewModel(param);
             }
 
+            ViewBag.SelectedDomainId = param.SelectedDomainId;
+            ViewBag.SeletedPage = param.SelectedPage;
+
             return View("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result);
+        }
+
+        [HttpGet]
+        public ActionResult DownloadQrCode(QrCodeParam param)
+        {
+            var qrCodes = GenerateQrCodeViewModel(param, false);
+            if (qrCodes.Count == 0)
+            {
+                return HttpNotFound();
+            }
+            var qrCode = qrCodes.First();
+            var imageFile = Convert.FromBase64String(qrCode.Value.QrCode);
+            return File(imageFile, "image/png", $"{param.SelectedLanguage}.png");
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
@@ -160,7 +167,6 @@
             {
                 return new List<MarketingItem>();
             }
-
             return MarketingService.GetBannerList(bannerParam);
         }
 
@@ -174,23 +180,46 @@
             return MarketingService.GetTextList(textParam);
         }
 
-        private IDictionary<string, QrCodeLinkModel> GetQrCodes(IDictionary<string, string> txtLinkList)
+        private IDictionary<string, QrCodeLinkViewModel> GenerateQrCodeViewModel(QrCodeParam param, bool includePrefix = true)
         {
-            var qrCodeLinks = txtLinkList.Select(link => GetQrCodeParam(link));
-            return qrCodeLinks.ToDictionary(itm => itm.Language);
+            var selectedLanguage = param.SelectedLanguage;
+            var selectedDomainId = param.SelectedDomainId;
+            var targetId = param.TargetId;
+            var selectedPage = param.SelectedPage;
+
+            IDictionary<string, QrCodeLinkViewModel> result;
+            var userSession = SessionService.UserSession;
+            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
+                                                    .FirstOrDefault(d => d.DomainId == selectedDomainId);
+            var languageList = string.IsNullOrEmpty(selectedLanguage) ?
+                MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
+
+            var textLinkList = targetId == TargetSite.TargetToMember
+                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
+                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
+
+            result = GetQrCodes(textLinkList, includePrefix);
+            return result;
         }
 
-        private QrCodeLinkModel GetQrCodeParam(KeyValuePair<string, string> link)
+        private IDictionary<string, QrCodeLinkViewModel> GetQrCodes(IDictionary<string, LanguageLinkViewModel> txtLinkList, bool includePrefix)
+        {
+            var qrCodeLinks = txtLinkList.Select(link => GetQrCodeParam(link, includePrefix));
+            return qrCodeLinks.ToDictionary(itm => itm.DisplayName);
+        }
+
+        private QrCodeLinkViewModel GetQrCodeParam(KeyValuePair<string, LanguageLinkViewModel> link, bool includePrefix)
         {
             var icon = GetQrCodeIcon();
-            var language = link.Key;
-            var textLink = link.Value;
-            var qrCode = _qrCodeGeneratorService.GenerateBase64QrCode(textLink, icon, true);
-            return new QrCodeLinkModel
+            var language = link.Value.Language;
+            var textLink = link.Value.Link;
+            var qrCode = _qrCodeGeneratorService.GenerateBase64QrCode(textLink, icon, includePrefix);
+            return new QrCodeLinkViewModel
             {
                 Language = language,
                 Link = textLink,
-                QrCode = qrCode
+                QrCode = qrCode,
+                DisplayName = link.Key
             };
         }
 

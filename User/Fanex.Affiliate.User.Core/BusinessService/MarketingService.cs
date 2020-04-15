@@ -12,6 +12,7 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -134,7 +135,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 : GetAffiliateDomains();
         }
 
-        public IDictionary<string, string> GenerateLinkList(LinkGenerationParam linkGenerationParam)
+        public IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGenerationParam linkGenerationParam)
         {
 
             var languages = GetLanguageUsedForGeneration(linkGenerationParam);
@@ -241,20 +242,26 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        private static IDictionary<string, string> GenerateLink(Dictionary<string, Language> languages, LinkGenerationParam param)
+        private static IDictionary<string, LanguageLinkViewModel> GenerateLink(Dictionary<string, Language> languages, LinkGenerationParam param)
         {
-            var linkDics = new Dictionary<string, string>();
+            var linkDics = new Dictionary<string, LanguageLinkViewModel>();
 
-            foreach (var language in languages)
+            foreach (var item in languages)
             {
-                var key = language.Key;
-                var value = language.Value;
-                if (language.Key.Equals(DEFAULT))
+                var key = item.Key;
+                var lang = item.Value;
+                var linkViewModel = new LanguageLinkViewModel
                 {
-                    linkDics.Add(key, GenerateLink(param, value.ShortedCode));
+                    Language = lang,
+                    Link = GenerateLink(param, lang.ShortedCode)
+                };
+
+                if (key.Equals(DEFAULT))
+                {
+                    linkDics.Add(key, linkViewModel);
                     continue;
                 }
-                linkDics.Add(value.NativeName, GenerateLink(param, value.ShortedCode));
+                linkDics.Add(lang.NativeName, linkViewModel);
             }
 
             return linkDics;

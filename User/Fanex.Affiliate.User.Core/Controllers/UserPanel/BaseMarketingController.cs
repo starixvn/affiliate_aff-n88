@@ -83,12 +83,12 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return viewModel;
         }
 
-        protected IDictionary<string, string> GetTextLinkList(string selectedLanguage, string selectedPage,
+        protected IDictionary<string, LanguageLinkViewModel> GetTextLinkList(string selectedLanguage, string selectedPage,
             Domain selectedDomain, IEnumerable<SelectListItem> languageList)
         {
             if (selectedDomain == null)
             {
-                return new Dictionary<string, string>();
+                return new Dictionary<string, LanguageLinkViewModel>();
             }
 
             var userSession = SessionService.UserSession;
@@ -107,12 +107,12 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return MarketingService.GenerateLinkList(linkGenerationParam);
         }
 
-        protected IDictionary<string, string> GetAffLinks(string selectedLanguage, string selectedPage,
+        protected IDictionary<string, LanguageLinkViewModel> GetAffLinks(string selectedLanguage, string selectedPage,
             Domain selectedDomain, IEnumerable<SelectListItem> languageList)
         {
             if (selectedDomain == null)
             {
-                return new Dictionary<string, string>();
+                return new Dictionary<string, LanguageLinkViewModel>();
             }
 
             var userSession = SessionService.UserSession;

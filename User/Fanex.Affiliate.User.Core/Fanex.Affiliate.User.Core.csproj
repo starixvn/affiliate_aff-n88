@@ -323,9 +323,11 @@
     <Compile Include="Filters\JsonHandlerAttribute.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
     <Compile Include="MetalModels\UserPanel\MediaCategoryParam.cs" />
+    <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Marketing\LanguageLinkViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\QrCodeLinkModel.cs" />

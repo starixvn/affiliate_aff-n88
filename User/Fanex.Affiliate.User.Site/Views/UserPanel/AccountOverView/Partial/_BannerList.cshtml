@@ -27,8 +27,8 @@
                     url = $"{banner.RedirectLink}&ref=";
                 }
                 <li class="banner-control">
-                    <a class="banner-link padding" onclick='window.open("@(url)" + encodeURIComponent(window.location.href),"_blank"); return false;' href="javascript:;">
-                        <img class="banner-link-img"  src="@banner.FileName" alt="Affiliate @(AppSetting.Instance.SiteFriendlyName) Banner" />
+                    <a class="banner-link padding" onclick='window.open("@url" + encodeURIComponent(window.location.href),"_blank"); return false;' href="javascript:;">
+                        <img class="banner-link-img"  src="@Server.UrlPathEncode(banner.FileName)" alt="Affiliate @(AppSetting.Instance.SiteFriendlyName) Banner" />
                     </a>
                     <div class="banner-control-button">
                         <div class="banner-code padding">

@@ -3,6 +3,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -20,7 +21,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<Domain> GetDomainList(int affId, int targetId, bool isInternal = false);
 
-        IDictionary<string, string> GenerateLinkList(LinkGenerationParam linkGenerationParam);
+        IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGenerationParam linkGenerationParam);
 
         IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam);
 
