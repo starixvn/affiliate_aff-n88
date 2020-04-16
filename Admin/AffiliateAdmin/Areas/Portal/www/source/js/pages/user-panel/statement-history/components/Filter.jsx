@@ -35,8 +35,8 @@ export class Filter extends PureComponent {
         const { isGetAll, fromDate, toDate } = this.state;
         const newParam = Object.assign({}, {
             isGetAll,
-            fromDate: isGetAll ? `${minDate.getMonth() + 1}/${minDate.getDate()}/${minDate.getFullYear()}` : fromDate,
-            toDate: isGetAll ? this.nowString : toDate
+            fromDate: isGetAll ? null : fromDate,
+            toDate: isGetAll ? null : toDate
         });
         this.props.setParam(newParam);
     }
