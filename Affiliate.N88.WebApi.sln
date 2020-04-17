@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.WebApi.Consol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88", "WebApi\Affiliate.N88.Infrastructure\Affiliate.N88.csproj", "{12E6B43B-573F-49BC-B926-83B94410D15C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{74A5E082-FAF6-4FF7-857F-8C0709F5281B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88.UnitTests", "WebApi\Test\Affiliate.N88.UnitTests\Affiliate.N88.UnitTests.csproj", "{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,9 +37,16 @@ Global
 		{12E6B43B-573F-49BC-B926-83B94410D15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12E6B43B-573F-49BC-B926-83B94410D15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12E6B43B-573F-49BC-B926-83B94410D15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DB2E6D3D-BDC1-4C7D-9798-4509068AE061} = {74A5E082-FAF6-4FF7-857F-8C0709F5281B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D665D0D5-5F87-4D61-9A16-B91FEB6F358B}
