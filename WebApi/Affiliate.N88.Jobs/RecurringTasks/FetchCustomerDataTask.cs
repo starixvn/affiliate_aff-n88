@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Affiliate.N88.ApiModels;
 using Affiliate.N88.Core;
 using Affiliate.N88.DTO;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchCustomerDataTask
+    public interface IFetchCustomerDataTask : IFetchDataTask 
     {
-        Task FetchCustomerDataAsync();
-
-        Task FetchCustomerDataAsync(DateTime regTime);
+        Task FetchDataAsync(DateTime regDate);
     }
-
+    
     public sealed class FetchCustomerDataTask : IFetchCustomerDataTask
     {
         private readonly IMemberImportRepository _importerRepository;
@@ -41,7 +39,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             _config = config;
         }
 
-        public async Task FetchCustomerDataAsync()
+        public async Task FetchDataAsync()
         {
             try
             {
@@ -52,7 +50,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 }
 
                 var date = await GetMinLastedTimeAsync();
-                await FetchCustomerDataAsync(date);
+                await FetchDataAsync(date);
             }
             catch (Exception ex)
             {
@@ -60,7 +58,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        public async Task FetchCustomerDataAsync(DateTime regTime)
+        public async Task FetchDataAsync(DateTime regTime)
         {
             var customerData = await _licenseeApi.GetCustomerAsync(regTime);
 

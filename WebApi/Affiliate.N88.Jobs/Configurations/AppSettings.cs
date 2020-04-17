@@ -1,4 +1,6 @@
-﻿namespace Affiliate.N88.Jobs.Configurations
+﻿using System;
+
+namespace Affiliate.N88.Jobs.Configurations
 {
     public class AppSettings
     {
@@ -8,8 +10,12 @@
 
         public string SpPath { get; set; }
 
+        public string SaveConfigPath { get; set; }
+
         public string AuthenticationKey { get; set; }
 
         public string PullCustomerInfoCron { get; set; }
+
+        public FetchServiceSetting PullBetRecordSetting { get; set; }
     }
 }
