@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Affiliate.N88.ApiModels;
 using Affiliate.N88.DTO;
+using Affiliate.N88.Models;
 using Affiliate.N88.SpParams;
 using Fanex.Data.Repository;
 

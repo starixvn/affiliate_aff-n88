@@ -180,6 +180,7 @@
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BetReportController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\GlobalExceptionFilter.cs" />
@@ -204,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\BetReport\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Affiliate.N88.Infrastructure\Affiliate.N88.csproj">
