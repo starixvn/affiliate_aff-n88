@@ -32,8 +32,9 @@
 
         private ActionResult GetViewForMemberSite()
         {
+            SessionService.SelectedSubMenu = "MediaGallery";
             var userSession = SessionService.UserSession;
-            var searchForm = GetSearchFormViewModel(true, TargetSite.TargetToMember);
+            var searchForm = GetSearchFormViewModel(true);
             var linkForm = GetLinkFormViewModel();
 
             var selectedLanguage = userSession.PreferredLanguage;
@@ -69,6 +70,7 @@
 
         private ActionResult GetViewForAffiliateSite()
         {
+            SessionService.SelectedSubMenu = "SubAffMediaGallery";
             var userSession = SessionService.UserSession;
             var searchForm = GetSearchFormViewModel(true, TargetSite.TargetToSubAff);
             var linkForm = GetLinkFormViewModel(false);

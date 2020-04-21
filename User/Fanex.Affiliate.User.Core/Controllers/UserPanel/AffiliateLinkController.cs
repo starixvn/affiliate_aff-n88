@@ -34,11 +34,13 @@
         public ActionResult Index(bool isTargetToMemberSite = true)
         {
             ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
+
             return isTargetToMemberSite ? GetViewForMemberSiteTextLink() : GetViewForSubAffSiteTextLink();
         }
 
         private ActionResult GetViewForMemberSiteTextLink()
         {
+            SessionService.SelectedSubMenu = "AffiliateLink";
             var userSession = SessionService.UserSession;
 
             var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToMember);
@@ -73,6 +75,7 @@
 
         private ActionResult GetViewForSubAffSiteTextLink()
         {
+            SessionService.SelectedSubMenu = "SubAffLink";
             var userSession = SessionService.UserSession;
 
             var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToSubAff);

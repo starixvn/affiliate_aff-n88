@@ -28,6 +28,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
+            SessionService.SelectedSubMenu = "Summary";
+
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml");
         }
 
