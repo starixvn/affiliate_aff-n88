@@ -99,6 +99,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     var xml = BuildXml(page);
                     await InsertBetRecordAsync(fromDate, toDate, xml);
                 }
+                await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, toDate);
             }
         }
 
@@ -138,7 +139,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             };
 
             await _repo.ImportBetRecordAsync(param);
-            await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, toDate);
         }
 
 
