@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 
 namespace Affiliate.N88.Jobs
 {
@@ -51,6 +52,8 @@ namespace Affiliate.N88.Jobs
             });
 
             Logger.Log.Info("Affiliate N88 Job started!");
+            Logger.Log.Info($"Directory {Directory.GetCurrentDirectory()}");
+            Logger.Log.Info($"{System.AppDomain.CurrentDomain.BaseDirectory}");
         }
     }
 }
