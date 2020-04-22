@@ -27,7 +27,9 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             var appSettings = new AppSettings();
             configuration.GetSection("AppSettings").Bind(appSettings);
-            var saveConfigPath = Path.Combine(Directory.GetCurrentDirectory(), appSettings.SaveConfigPath);
+
+            var directory = System.AppDomain.CurrentDomain.BaseDirectory;
+            var saveConfigPath = Path.Combine(directory, appSettings.SaveConfigPath);
 
             //FetchCustomerDataTask
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
