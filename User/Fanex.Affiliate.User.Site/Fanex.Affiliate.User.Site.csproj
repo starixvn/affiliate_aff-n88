@@ -294,6 +294,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.backupmnl.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
     </Content>
@@ -388,6 +406,42 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="karma.conf.js" />
+    <Content Include="Configurations\AppSetting\Transform\n88.uat.config" />
+    <Content Include="Configurations\AppSetting\Transform\n88.backupmnl.config" />
+    <Content Include="Configurations\AppSetting\Transform\n88.local.config" />
+    <Content Include="Configurations\AppSetting\Transform\n88.master.config" />
+    <Content Include="Configurations\AppSetting\Transform\n88.production.config" />
+    <Content Include="Configurations\AppSetting\Transform\n88.sit.config" />
+    <Content Include="Configurations\Web\Transform\n88.backupmnl.config" />
+    <Content Include="Configurations\Web\Transform\n88.local.config" />
+    <Content Include="Configurations\Web\Transform\n88.master.config" />
+    <Content Include="Configurations\Web\Transform\n88.production.config" />
+    <Content Include="Configurations\Web\Transform\n88.sit.config" />
+    <Content Include="Configurations\Web\Transform\n88.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.uat.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.backupmnl.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.master.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.production.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.sit.config" />
+    <None Include="Configurations\Web\Web.n88user-n88.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n88.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n88.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n88.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n88.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
+    <None Include="Configurations\Web\Web.n88user-n88.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

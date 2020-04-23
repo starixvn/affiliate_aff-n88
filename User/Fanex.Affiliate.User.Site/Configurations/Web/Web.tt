@@ -6,7 +6,7 @@
 <#
 string projectPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"\User\Fanex.Affiliate.User.Site\";
 var environments = new string[] {"local", "sit", "uat", "production", "backupmnl", "master" };
-var sites = new string[] {"n8b", "n8g"};
+var sites = new string[] {"n8b", "n8g", "n88"};
 foreach(var environment in environments)
 {
 	foreach(var site in sites)
