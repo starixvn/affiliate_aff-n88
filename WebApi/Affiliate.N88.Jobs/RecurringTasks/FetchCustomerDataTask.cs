@@ -156,7 +156,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
-                    var lastedDate = await GetLastedImportDate(site);
+                    var lastedDate = await GetLastedImportDate(await GetSettingCodePrefix(site));
                     dates.Add(lastedDate);
                 }
                 catch (Exception ex)
@@ -194,7 +194,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
             foreach (var mappingItem in configMapping)
             {
-                var siteNameMapping = await GetSiteName(mappingItem.SiteName);
+                var siteNameMapping = await GetSiteName(mappingItem.SettingCodePrefix);
 
                 if(string.Compare(siteNameMapping, site, true) == 0)
                 {
