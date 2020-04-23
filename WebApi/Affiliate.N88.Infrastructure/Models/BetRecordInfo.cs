@@ -18,9 +18,9 @@ namespace Affiliate.N88.Models
 
         public string UserName { get; set; }
 
-        public int CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
 
-        public int SiteId { get; set; }
+        public int? SiteId { get; set; }
 
         public string TpUserName { get; set; }
 
@@ -28,18 +28,18 @@ namespace Affiliate.N88.Models
 
         public DateTime SettledTime { get; set; }
 
-        public decimal Stake { get; set; }
+        public decimal? Stake { get; set; }
 
-        public decimal WinlostAmount { get; set; }
+        public decimal? WinlostAmount { get; set; }
 
-        public int SettlementType { get; set; }
+        public int? SettlementType { get; set; }
 
-        public int TicketStatus { get; set; }
+        public int? TicketStatus { get; set; }
 
         public string OriginalState { get; set; }
 
-        public int TicketKey { get; set; }
+        public int? TicketKey { get; set; }
 
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
     }
 }

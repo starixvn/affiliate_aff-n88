@@ -12,15 +12,15 @@ namespace Affiliate.N88.Models
 
         public string UserName { get; set; }
 
-        public int CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
 
-        public int ActStatus { get; set; }
+        public int? ActStatus { get; set; }
 
-        public DateTime RegTime { get; set; }
+        public DateTime? RegTime { get; set; }
 
         public DateTime? FirstDepositDate { get; set; }
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         public int? AffId { get; set; }
     }

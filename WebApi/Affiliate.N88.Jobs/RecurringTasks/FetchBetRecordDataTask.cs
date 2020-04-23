@@ -60,7 +60,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                _logger.Error("Exception when fetch BetRecord data", ex);
+                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
             }            
         }
 
@@ -94,13 +94,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var dataPaging = PagingHelper.PagingData(data, Constant.MAX_PAGING_SIZE);
             foreach (var page in dataPaging)
             {
-                if (page.Count() > 0)
+                if (page?.Count() > 0)
                 {
                     var xml = BuildXml(page);
                     await InsertBetRecordAsync(fromDate, toDate, xml);
                 }
-                await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, toDate);
             }
+            await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, toDate);
         }
 
 
@@ -110,6 +110,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var root = xmlDoc.Root;
             foreach (var item in data)
             {
+                if (item == null)
+                { 
+                    throw new ArgumentNullException($"Have null item in insert data");
+                }
                 var elem = new XElement("trans");
                 InsertAttribute(elem, item);
                 root.Add(elem);
@@ -137,10 +141,18 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 EndDate = toDate,
                 XmlData = xml
             };
+            try
+            {
+                await _repo.ImportBetRecordAsync(param);
+            }
+            catch (Exception ex)
+            {
 
-            await _repo.ImportBetRecordAsync(param);
+                await _logger.ErrorAsync($"Import {xml} error");
+                throw ex;
+            }
+
         }
-
 
         private TimeSpan GetApiMaxTimeRange()
         {
