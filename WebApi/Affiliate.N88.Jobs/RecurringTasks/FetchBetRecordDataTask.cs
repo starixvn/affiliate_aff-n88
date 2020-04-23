@@ -5,9 +5,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.Utitlities;
-using Cronos;
 using Fanex.Logging;
-using Hangfire;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -16,7 +14,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {

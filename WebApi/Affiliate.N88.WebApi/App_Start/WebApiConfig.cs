@@ -11,6 +11,8 @@ namespace Affiliate.N88.WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+            var isTest = bool.Parse(ConfigurationManager.AppSettings["IsTest"]);
+
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
@@ -27,7 +29,10 @@ namespace Affiliate.N88.WebApi
             jsonFormater.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormater.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
 
-            config.Filters.Add(new HmacAuthorizationFilter(ConfigurationManager.AppSettings["AuthenticationKey"]));
+            if (!isTest)
+            {
+                config.Filters.Add(new HmacAuthorizationFilter(ConfigurationManager.AppSettings["AuthenticationKey"]));
+            }
             config.Filters.Add(new GlobalExceptionFilter());
         }
     }

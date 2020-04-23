@@ -10,7 +10,7 @@ namespace Affiliate.N88.DTO
 
         public string SiteName { get; set; }
 
-        public int? AffId { get; set; }
+        public string AffId { get; set; }
 
         public string UserName { get; set; }
 
