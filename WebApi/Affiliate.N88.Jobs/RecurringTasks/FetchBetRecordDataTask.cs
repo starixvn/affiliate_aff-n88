@@ -24,7 +24,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
     public class FetchBetRecordDataTask : IFetchBetRecordDataTask
     {
         private const string SAVE_TIME_ELEMENT_NAME = "BetRecordFetchTime";
-        private const int API_SERVER_TIME_OFFSET = 8;
+        private const int API_SERVER_TIME_OFFSET = 0;
 
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
