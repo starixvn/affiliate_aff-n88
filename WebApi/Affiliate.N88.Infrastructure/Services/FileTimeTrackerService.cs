@@ -61,6 +61,16 @@ namespace Affiliate.N88.Services
                 elem.SetValue(date.ToString());
             }
 
+            SaveXml(xmlDoc);
+        }
+
+        private void SaveXml(XDocument xmlDoc)
+        {
+            var directory = Path.GetDirectoryName(_filePath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
             xmlDoc.Save(_filePath);
         }
 
