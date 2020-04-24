@@ -104,8 +104,8 @@ export class Content extends PureComponent {
         });
     }
 
-    _fetchPaymentMethodInfo = () =>{
-        const response = this.props.getPaymentMethod();
+    _fetchPaymentMethodInfo = async () =>{
+        const response = await this.props.getPaymentMethod();
 
         if (response) {
             const paymentMethodList = response.PaymentMethods;
@@ -115,7 +115,7 @@ export class Content extends PureComponent {
     }
 
     render() {
-        const { isSuccess, isShowMessage, message } = this.state;
+        const { isSuccess, isShowMessage, message, paymentMethodList, minimumPayment } = this.state;
 
         return this.props.userAccountInfo && (
             <Container fluid={true} className="user-account-container">
@@ -156,7 +156,7 @@ export class Content extends PureComponent {
                 <Row>
                     <Col xs="12" className="px-0">
                         <Section title="Payment Information">
-                            <Payment paymentMethodList={this.state.paymentMethodList} minimumPayment={this.state.minimumPayment}/>
+                            <Payment paymentMethodList={paymentMethodList} minimumPayment={minimumPayment}/>
                         </Section>
                     </Col>
                 </Row>
