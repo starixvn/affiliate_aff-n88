@@ -7,7 +7,8 @@
 @{
     var appSetting = AppSetting.Instance;
     var siteName = appSetting.SiteName;
-    var gaID = appSetting.IsN8B ? "UA-93927620-4" : "UA-93927620-5";
+    var gaID = string.Equals(siteName, "N8B", StringComparison.CurrentCultureIgnoreCase) ? "UA-93927620-4" : (
+                string.Equals(siteName, "N8G", StringComparison.CurrentCultureIgnoreCase) ? "UA-93927620-5" : "UA-93927620-6");
 }
 
 @section styles{

@@ -16,13 +16,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? AppSetting.Instance.SiteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    @if (settingService.IsN8B)
+    @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
     {
         <link rel="icon" href="~/favicon-n8b.ico">
     }
     else
     {
-        <link rel="icon" href="~/favicon-n8g.ico">
+        if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+        {
+            <link rel="icon" href="~/favicon-n8g.ico">
+        }
+        else
+        {
+            <link rel="icon" href="~/favicon-n88.ico">
+        }
     }
 
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
@@ -44,13 +51,20 @@
     }
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    @if (settingService.IsN8B)
+    @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
     {
         <link href="@Url.RenderLink("~/www/build/styles/css/n8b.css")" rel="stylesheet" />
     }
     else
     {
-        <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
+        if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+        {
+            <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
+        }
+        else
+        {
+            <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
+        }
     }
     @RenderSection("styles", required: false)
 </head>
@@ -59,13 +73,20 @@
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
 
-                @if (settingService.IsN8B)
+                @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
                 {
                     <img src="~/www/build/styles/Images/themes/n8b.png" alt="logo" class="logo-image" />
                 }
                 else
                 {
-                    <img src="~/www/build/styles/Images/themes/n8g.png" alt="logo" class="logo-image" />
+                    if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        <img src="~/www/build/styles/Images/themes/n8g.png" alt="logo" class="logo-image" />
+                    }
+                    else
+                    {
+                        <img src="~/www/build/styles/Images/themes/n88.png" alt="logo" class="logo-image" />
+                    }
                 }
             </a>
         </div>

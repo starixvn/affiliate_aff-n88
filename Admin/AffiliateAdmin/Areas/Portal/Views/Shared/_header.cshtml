@@ -5,17 +5,23 @@
 
 <div class="headWrapper">
     <div class="float-left logo">
-      @{
-        if (appSetting.IsN8B)
+        @if (string.Equals(appSetting.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
         {
-            
+
             <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO1.png" />
         }
         else
         {
-           <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO2.png" />
+            if (string.Equals(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+            {
+
+                <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO2.png" />
+            }
+            else
+            {
+                <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO3.png" />
+            }
         }
-      }
     </div>
     <div class="float-left user-info">
         <span class="font-weight-bold icon-top">

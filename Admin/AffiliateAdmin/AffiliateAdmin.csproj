@@ -256,6 +256,7 @@
     <Content Include="Areas\Portal\www\dist\imgs\i_media1.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_member.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_report.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO3.png" />
     <Content Include="Areas\Portal\www\dist\jquery-3.3.1.min.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\adjustment.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\customer-statistics.chunk.js" />
@@ -305,6 +306,7 @@
     <Content Include="Areas\Portal\www\dist\style\home.css" />
     <Content Include="Areas\Portal\www\dist\style\layout.css" />
     <Content Include="Areas\Portal\www\dist\style\login.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88.css" />
     <Content Include="Areas\Portal\www\dist\style\N8B.css" />
     <Content Include="Areas\Portal\www\dist\style\N8G.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\administrator\administrator.css" />
@@ -1323,6 +1325,7 @@
     <Content Include="Areas\Portal\www\source\style\themes\N8B.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1334,6 +1337,22 @@
     </Content>
     <Content Include="Web.n88admin-n8g.production.config">
       <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.backupmnl.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.local.config" />
+    <Content Include="Web.n88admin-n88.master.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.production.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.sit.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.uat.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

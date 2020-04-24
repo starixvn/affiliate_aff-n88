@@ -59,4 +59,5 @@ module.exports = {
     [`${styleDist}/theme-green`]: clientRoot + "/style/themes/theme-green.scss",
     [`${styleDist}/N8G`]: clientRoot + "/style/themes/N8G.scss",
     [`${styleDist}/N8B`]: clientRoot + "/style/themes/N8B.scss",
+    [`${styleDist}/N88`]: clientRoot + "/style/themes/N88.scss",
 };

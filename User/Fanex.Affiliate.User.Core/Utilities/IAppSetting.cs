@@ -49,8 +49,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string SymmetricSalt { get; }
 
-        bool IsN8B { get; }
-
         string SiteFriendlyName { get; }
 
         string SiteName { get; }
