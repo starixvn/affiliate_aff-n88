@@ -125,7 +125,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             foreach (var prop in props)
             {
                 var propName = prop.Name;
-                var value = type.GetProperty(propName).GetValue(item, null);
+                var value = type.GetProperty(propName).GetValue(item, null) ?? "";
                 elem.Add(new XAttribute(propName, value));
             }
         }
