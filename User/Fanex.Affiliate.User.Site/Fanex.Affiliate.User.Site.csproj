@@ -1580,6 +1580,7 @@
     <Content Include="www\source\styles\Images\apply\n88\3step.zh-TW.webp" />
     <Content Include="www\source\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n88-lightmode.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

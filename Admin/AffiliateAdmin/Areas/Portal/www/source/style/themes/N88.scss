@@ -1,8 +1,9 @@
-@import "../abstracts/variables_N8G.scss";
+@import "../abstracts/variables_N88-lightmode.scss";
 
 //------- Login page --------- //
 body .login-header {
   background: $bg-login-header;
+  color: #f00;
 }
 
 body .bt-login {

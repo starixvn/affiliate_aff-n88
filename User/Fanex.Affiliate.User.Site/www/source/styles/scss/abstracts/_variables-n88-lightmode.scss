@@ -1,0 +1,98 @@
+﻿$light-button: #FF5D00;
+$light-mode-bg: #001942;
+$light-color-text: #001942;
+
+$text-color: #2b2b2b;
+$bg-main-color: #E5E5E5;
+$bg-after-login-color: #e5e5e5;
+$footer-bg-color: #000;
+
+$header-bg-color: $light-mode-bg;
+$header-icon-color: #fff;
+$header-bottom-border-color: $light-button;
+
+$user-login-control-color: #000;
+$user-login-control-border-color: #000;
+$user-login-control-bg-color: #fff;
+
+$nav-bg-color: $light-mode-bg;
+$nav-color: #FFFFFF;
+$nav-color-active: $light-button;
+$nav-color-focus: $light-button;
+
+$sub-nav-bg-color: #FFFFFF;
+$sub-nav-menu-color: $light-color-text;
+$sub-nav-menu-bg-color-active: $light-mode-bg;
+$sub-nav-menu-color-active: #fff;
+
+$tab-bg-color: #E5E5E5;
+$tab-item-color: $light-color-text;
+$tab-item-bg-color-active: $light-mode-bg;
+$tab-item-color-active: #fff;
+
+$subtab-item-bg-color-active: $light-button;
+
+$hot-news-bg-color: #FFAE80;
+$hot-news-title-color: #fff;
+$hot-news-title-bg-color: $light-button;
+$hot-news-content-bg-color: #fff;
+$hot-news-content-color: #D43311;
+
+$button-signup-bg-color: #fff;
+$button-signup-color: $light-button;
+$button-signup-bg-color-hover: darken($button-signup-bg-color, 5%);
+$button-signup-border-color: #fff;
+
+$button-login-bg-color: $light-button;
+$button-login-color: #fff;
+$button-login-bg-color-hover: darken($button-login-bg-color, 5%);
+$button-login-border-color: #fff;
+
+$button-submit-bg-color: $light-button;
+$button-submit-color: #fff;
+$button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
+$button-submit-border-color: #fff;
+
+$page-title-color: #fff;
+$page-title-border-color: $light-button;
+$page-title-bg-color: $light-button;
+
+$group-title-color: #060818;
+$group-title-border-before-color: $light-button;
+$group-title-border-after-color: #C7C7C7;
+
+$table-bg-color: #FFF9F3;
+$table-color: $light-color-text;
+$table-header-bg-color: $light-mode-bg;
+$table-header-color: #fff;
+$table-header-border-color: #c1c1c1;
+$table-border-color: #C7C7C7;
+$table-row-bg-color-hover: #fbe8e1;
+$table-row-even-bg-color: #E2E2E2;
+$table-row-total-bg-color: #FFE8BC;
+$table-game-name-bg: #ded5d5;
+
+$form-control-color: #000;
+$form-control-border-color: #adadad;
+$form-control-bg-color: #fff;
+
+$modal-header-bg-color: $light-mode-bg;
+$modal-header-color: #fff;
+
+// Home page
+$home-page-bg-color: #a3a3a3;
+$home-card-content-bg-color: rgba(255,255,255,.2);
+$home-card-content-border-color: #fff;
+$home-card-title-color: #2b2b2b;
+$home-card-content-color: #212121;
+
+// Contact Us page
+$date-time-info: #3f4f66;
+$languages-item-bg-color: #fff;
+$languages-item-border-color: #e7e7e7;
+
+// Account Overview
+$account-overview-group-one: #156e82;
+$account-overview-group-two: #1c56ad;
+$account-overview-group-three: #9e5613;
+$account-overview-group-four: #158469;
