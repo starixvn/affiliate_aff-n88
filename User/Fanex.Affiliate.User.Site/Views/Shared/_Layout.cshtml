@@ -7,6 +7,7 @@
     var userSession = sessionService.UserSession;
     var languageList = SystemLanguage.LanguageList.Where(l => !l.Code.Equals("en-GB") && !l.Code.Equals("es-ES"));
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
+    var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
 }
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@(string.IsNullOrEmpty(ViewBag.Title) ? AppSetting.Instance.SiteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
+    <title>@(string.IsNullOrEmpty(ViewBag.Title) ? siteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
     @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
     {
         <link rel="icon" href="~/favicon-n8b.ico">
@@ -35,7 +36,7 @@
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
     <meta name="description" content="@SiteFriendlyNameHelper.Replace12Bet(Lang.MetaDescription)" />
-    <meta name="keywords" content="@(AppSetting.Instance.SiteFriendlyName), @(AppSetting.Instance.SiteFriendlyName) Affiliate Program, Sports Betting Affiliate, Casino Affiliate, betting affiliate programs, earn extra cash, top affiliate programs, asian casino affiliate programs, Asian betting affiliate programs, high payout affiliate programs" />
+    <meta name="keywords" content="@(siteFriendlyName), @(siteFriendlyName) Affiliate Program, Sports Betting Affiliate, Casino Affiliate, betting affiliate programs, earn extra cash, top affiliate programs, asian casino affiliate programs, Asian betting affiliate programs, high payout affiliate programs" />
     <meta name="robots" content="index,follow,archive" />
     <meta name="title" content="@SiteFriendlyNameHelper.Replace12Bet(Lang.MetaTitle)" />
 

@@ -99,7 +99,7 @@ var commissionReport = (function ($) {
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan="10">' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan="12">' + langResource.noInfo + '</td></tr>');
             }
         },
 
