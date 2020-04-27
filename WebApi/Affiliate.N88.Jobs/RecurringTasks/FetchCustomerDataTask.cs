@@ -74,7 +74,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             foreach (var command in insertMemberCommands)
             {
 
-                if (SupportedSites.Any(supportSiteCode => string.CompareOrdinal(supportSiteCode, command.SiteName) == 0))
+                if (SupportedSites.Any(supportSiteCode => string.Compare(supportSiteCode, command.SiteName, StringComparison.OrdinalIgnoreCase) == 0))
                 {
                     await InsertMembers(regTime, command);
                 }
