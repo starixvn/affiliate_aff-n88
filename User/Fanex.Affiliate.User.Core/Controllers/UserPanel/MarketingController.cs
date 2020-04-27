@@ -143,7 +143,7 @@
             }
 
             ViewBag.SelectedDomainId = param.SelectedDomainId;
-            ViewBag.SeletedPage = param.SelectedPage;
+            ViewBag.SelectedPage = param.SelectedPage;
 
             return View("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result);
         }
