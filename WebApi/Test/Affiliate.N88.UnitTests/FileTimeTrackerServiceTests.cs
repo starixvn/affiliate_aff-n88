@@ -15,6 +15,7 @@ namespace Affiliate.N88.UnitTests
         public const string FILE_NOT_CORRECT_FORMAT = "file_not_xml_format.xml";
         public const string FILE_ELEM_NAME_NOT_EXIST = "file_elem_name_not_exist.xml";
         public const string FILE_CORRECT_FORMAT = "file_good_format.xml";
+        public const string FILE_WITH_SUBDIRECTORY = "directory/file_good_format.xml";
         public const string ELEM_TEST_PASS_NAME = "pass";
         public const string ELEM_TEST_NOT_PASS_NAME = "notpass";
         private const string ANY_NAME = "random";
@@ -85,6 +86,43 @@ namespace Affiliate.N88.UnitTests
 
             var time = await tracker.GetTimeAsync(ELEM_TEST_PASS_NAME);
             Assert.Equal(dateTime, time);
+        }
+
+        [Fact]
+        public async Task SaveTimeAsync_WhenCallWithSavedFileNotYetExist_ReturnTrue()
+        {
+            var path = GetFilePath(FILE_WITH_SUBDIRECTORY);
+            var directory = Path.GetDirectoryName(path);
+            if (Directory.Exists(directory))
+            {
+                Directory.Delete(directory, true);
+            }
+
+            var saveDate = new DateTime(2020, 4, 17);
+            var category = "tests";
+            var _trackerService = new FileTimeTrackerService(path);
+            await _trackerService.SaveTimeAsync(category, saveDate);
+
+            var loadDate = await _trackerService.GetTimeAsync(category);
+
+            Assert.Equal(saveDate, loadDate);
+        }
+
+        [Fact]
+        public async Task SaveTimeAsync_WhenCallWithSavedFileExisted_ReturnTrue()
+        {
+            var category = "tests";
+            var savedDate = new DateTime(2020, 4, 17);
+            var xml = FileTimeTrackerServiceHelper.GeneratePassXmlDoc(category, DateTime.Now);
+            var path = GetFilePath(FILE_CORRECT_FORMAT);
+            WriteToFile(path, xml);
+
+            var _trackerService = new FileTimeTrackerService(path);
+            await _trackerService.SaveTimeAsync(category, savedDate);
+
+            var loadDate = await _trackerService.GetTimeAsync(category);
+
+            Assert.Equal(savedDate, loadDate);
         }
 
         private void WriteToFile(string path, string content)
