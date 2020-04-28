@@ -56,7 +56,7 @@
             };
             ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
             ViewBag.SelectedDomainId = selectedDomain?.DomainId;
-            ViewBag.SeletedPage = selectedPage;
+            ViewBag.SelectedPage = selectedPage;
 
             return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", marketingViewModel);
         }
