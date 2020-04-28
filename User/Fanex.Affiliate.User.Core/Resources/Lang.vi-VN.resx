@@ -2227,4 +2227,7 @@
   <data name="NumberOfActivePlayers" xml:space="preserve">
     <value>Số lượng người chơi hoạt động</value>
   </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
 </root>
