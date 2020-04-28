@@ -2,32 +2,36 @@
     const DEFAULT_ACTION = "Summary";
     const PARENT_PAGE_HASHTAG = "#AccountOverView";
 
-    let _currentActionPage = DEFAULT_ACTION;
-
     function genarateRelativePath(action) {
         let relativePath = window.location.pathname;
         return `${relativePath}${PARENT_PAGE_HASHTAG}#${action}`;
     }
 
     function saveBrowserHistory(action) {
-        if (action !== _currentActionPage) {
+        if (action !== getActionTab()) {
             var relativePath = genarateRelativePath(action);
             window.history.pushState("Action", null, relativePath);
             _currentActionPage = action;
         }
     }
 
+    function getActionTab() {
+        let hashtag = location.hash;
+        let splitTag = hashtag.split("#");
+        return splitTag.length < 3 ? DEFAULT_ACTION : splitTag[2];
+    }
+
     var _me = {
         initialize: function () {
             _me.initEvent();
-            let action = _me.getActionTab();
+            let action = getActionTab();
             _me.renderView(action);
         },
 
         initEvent: function () {
             $('#account-overview-menu').on('click', '.account-overview-menu-item', function () {
                 let action = $(this).data('name');
-                saveBrowserHistory(action)
+                saveBrowserHistory(action);
                 _me.renderView(action);
             });
         },
@@ -59,12 +63,6 @@
                 }
             });
         },
-
-        getActionTab: function () {
-            let hashtag = location.hash;
-            let splitTag = hashtag.split("#");
-            return splitTag.length < 3 ? DEFAULT_ACTION : splitTag[2];
-        }
     };
 
     return _me;
