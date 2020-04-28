@@ -1,14 +1,35 @@
 var AccountOverview = (function ($) {
+    const DEFAULT_ACTION = "Summary";
+    const PARENT_PAGE_HASHTAG = "#AccountOverView";
+    const DEFAULT_RELATIVE_PATH = "/UserPanel/Main/"
+
+    let _currentActionPage = DEFAULT_ACTION;
+
+    function genarateRelativePath(action) {
+        return `${DEFAULT_RELATIVE_PATH}/${PARENT_PAGE_HASHTAG}#${action}`;
+    }
+
+    function saveBrowserHistory(action) {
+        if (action !== _currentActionPage) {
+            var relativePath = genarateRelativePath(action);
+            window.history.pushState("Action", null, relativePath);
+            _currentActionPage = action;
+        }
+    }
+
     var _me = {
         initialize: function () {
             _me.initEvent();
-            _me.renderView("Summary");
+            let action = _me.getActionTab();
+            console.log(action);
+            _me.renderView(action);
         },
 
         initEvent: function () {
             $('#account-overview-menu').on('click', '.account-overview-menu-item', function () {
-                var name = $(this).data('name');
-                _me.renderView(name);
+                let action = $(this).data('name');
+                saveBrowserHistory(action)
+                _me.renderView(action);
             });
         },
 
@@ -39,6 +60,13 @@ var AccountOverview = (function ($) {
                 }
             });
         },
+
+        getActionTab: function () {
+            let hashtag = location.hash;
+            let splitTag = hashtag.split("#");
+            console.log(splitTag);
+            return splitTag.length < 3 ? DEFAULT_ACTION : splitTag[2];
+        }
     };
 
     return _me;
