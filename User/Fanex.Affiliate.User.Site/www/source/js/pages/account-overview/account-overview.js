@@ -1,38 +1,24 @@
 ﻿var AccountOverview = (function ($) {
-    const DEFAULT_ACTION = "Summary";
-    const PARENT_PAGE_HASHTAG = "#AccountOverView";
-
-    function genarateRelativePath(action) {
-        let relativePath = window.location.pathname;
-        return `${relativePath}${PARENT_PAGE_HASHTAG}#${action}`;
-    }
-
-    function saveBrowserHistory(action) {
-        if (action !== getActionTab()) {
-            var relativePath = genarateRelativePath(action);
-            window.history.pushState("Action", null, relativePath);
-            _currentActionPage = action;
-        }
-    }
-
-    function getActionTab() {
-        let hashtag = location.hash;
-        let splitTag = hashtag.split("#");
-        return splitTag.length < 3 ? DEFAULT_ACTION : splitTag[2];
-    }
+    var DEFAULT_ACTION_OF_ACCOUNT_OVERVIEW = 'Summary';
+    var allowedActionListOfAccountOverview = ["Summary", "AffiliateLink", "MediaGallery", "SubAffLink", "SubAffMediaGallery"];
 
     var _me = {
         initialize: function () {
+            var hash = window.location.hash;
+            var actionUrl = hash.split('#')[2];
+
             _me.initEvent();
-            let action = getActionTab();
-            _me.renderView(action);
+            _me.renderView(actionUrl);
         },
 
         initEvent: function () {
             $('#account-overview-menu').on('click', '.account-overview-menu-item', function () {
-                let action = $(this).data('name');
-                saveBrowserHistory(action);
-                _me.renderView(action);
+                var name = $(this).data('name');
+                history.pushState({
+                    actionName: name
+                }, null, '#AccountOverview#' + name);
+
+                _me.renderView(name);
             });
         },
 
@@ -43,6 +29,10 @@
         },
 
         renderView: function (actionName) {
+            if (allowedActionListOfAccountOverview.indexOf(actionName) === -1) {
+                actionName = DEFAULT_ACTION_OF_ACCOUNT_OVERVIEW;
+            }
+
             _me.activeMenu(actionName);
             window.removeEventListener("scroll", handleScroll);
             window.removeEventListener("resize", handleResize);

@@ -127,7 +127,7 @@
                                 PageTracking.addTrackingForMediaPage();
 
                                 setTimeout(function () {
-                                    Site.redirect(Site.resolveRelativeUrl("UserPanel/Main/#MediaGallery"));
+                                    Site.redirect(Site.resolveRelativeUrl("UserPanel/Main/#AccountOverview#MediaGallery"));
                                 }, 10);
                             }
                             else {

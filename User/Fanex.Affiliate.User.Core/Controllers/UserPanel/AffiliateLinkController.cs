@@ -40,10 +40,9 @@
 
         private ActionResult GetViewForMemberSiteTextLink()
         {
-            SessionService.SelectedSubMenu = "AffiliateLink";
             var userSession = SessionService.UserSession;
 
-            var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToMember);
+            var searchForm = GetSearchFormViewModel(false);
             var linkForm = GetLinkFormViewModel();
 
             var selectedLanguage = userSession.PreferredLanguage;
@@ -75,7 +74,6 @@
 
         private ActionResult GetViewForSubAffSiteTextLink()
         {
-            SessionService.SelectedSubMenu = "SubAffLink";
             var userSession = SessionService.UserSession;
 
             var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToSubAff);
