@@ -127,8 +127,6 @@
                 Year = year
             };
             var paymentList = _paymentService.GetPaymentList(paymentParam);
-            var paymentMethods = _paymentService.GetPaymentMethods();
-            var pmMethod = paymentMethods.ContainsKey(paymentParam.PreferredPayment) ? paymentMethods[paymentParam.PreferredPayment] : paymentParam.PreferredPayment;
 
             var viewModel = new PaymentViewModel
             {
@@ -136,7 +134,6 @@
                 BalBroughtForward = paymentParam.BalBroughtForward,
                 MinAmount = paymentParam.MinAmount,
                 PreferredPayment = paymentParam.PreferredPayment,
-                PaymentMethod = pmMethod,
                 PendingPayment = paymentList.FirstOrDefault(p => p.Status.MatchWith(PaymentStatus.Pending)),
                 IsValidDate = _paymentService.IsInDateRange() || !_appSetting.IsProduction
             };

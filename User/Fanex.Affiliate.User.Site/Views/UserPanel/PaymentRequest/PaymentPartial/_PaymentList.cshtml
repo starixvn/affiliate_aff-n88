@@ -8,7 +8,7 @@
     var paymentList = Model.PaymentList;
     var hasData = paymentList != null && paymentList.Any();
     var preferredPayment = Model.PreferredPayment ?? string.Empty;
-    var paymentMethod = Model.PaymentMethod.Replace("Wire Transfer", Lang.BankTransfer);
+    var paymentMethod = preferredPayment.Replace("Wire", Lang.BankTransfer);
 }
 
 @functions {
@@ -36,7 +36,7 @@
         switch (paymentMethod)
         {
             case "Player":
-                return Lang.Player;
+                return SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc);
             default:
                 return paymentMethod;
         }
