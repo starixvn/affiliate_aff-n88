@@ -1,7 +1,7 @@
 var AccountOverview = (function ($) {
     const DEFAULT_ACTION = "Summary";
+    const DEFAULT_RELATIVE_PATH = "/UserPanel/Main/";
     const PARENT_PAGE_HASHTAG = "#AccountOverView";
-    const DEFAULT_RELATIVE_PATH = "/UserPanel/Main/"
 
     let _currentActionPage = DEFAULT_ACTION;
 
@@ -21,7 +21,6 @@ var AccountOverview = (function ($) {
         initialize: function () {
             _me.initEvent();
             let action = _me.getActionTab();
-            console.log(action);
             _me.renderView(action);
         },
 
@@ -64,7 +63,6 @@ var AccountOverview = (function ($) {
         getActionTab: function () {
             let hashtag = location.hash;
             let splitTag = hashtag.split("#");
-            console.log(splitTag);
             return splitTag.length < 3 ? DEFAULT_ACTION : splitTag[2];
         }
     };
