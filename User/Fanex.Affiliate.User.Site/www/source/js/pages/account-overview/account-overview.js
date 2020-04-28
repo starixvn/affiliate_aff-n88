@@ -6,7 +6,7 @@
 
     function genarateRelativePath(action) {
         let relativePath = window.location.pathname;
-        return `${relativePath}/${PARENT_PAGE_HASHTAG}#${action}`;
+        return `${relativePath}${PARENT_PAGE_HASHTAG}#${action}`;
     }
 
     function saveBrowserHistory(action) {
