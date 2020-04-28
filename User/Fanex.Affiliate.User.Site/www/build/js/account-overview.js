@@ -1,12 +1,12 @@
 var AccountOverview = (function ($) {
     const DEFAULT_ACTION = "Summary";
-    const DEFAULT_RELATIVE_PATH = "/UserPanel/Main/";
     const PARENT_PAGE_HASHTAG = "#AccountOverView";
 
     let _currentActionPage = DEFAULT_ACTION;
 
     function genarateRelativePath(action) {
-        return `${DEFAULT_RELATIVE_PATH}/${PARENT_PAGE_HASHTAG}#${action}`;
+        let relativePath = window.location.pathname;
+        return `${relativePath}/${PARENT_PAGE_HASHTAG}#${action}`;
     }
 
     function saveBrowserHistory(action) {
