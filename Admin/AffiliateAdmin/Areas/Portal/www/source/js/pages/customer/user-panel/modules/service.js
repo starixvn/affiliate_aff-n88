@@ -1,13 +1,7 @@
 import { post } from '../../../../modules/ajaxRequest';
-import { exportExcel } from '../../../user-panel/player-detail/actions';
 
 export const isActiveMenu = (selectedMenu, menuItem) => {
     return selectedMenu && (selectedMenu.key === menuItem.key || selectedMenu.parent === menuItem.key);
-}
-
-export const getProductList = async() => {
-    const response = await post('Portal/CommonSetting/GetProductList');
-    return response && response.status === 200 ? response.data : [];
 }
 
 export const getPageList = async() => {
@@ -18,9 +12,4 @@ export const getPageList = async() => {
 export const getTrackingCodeList = async(affId) => {
 	const response = await post('Portal/CommonSetting/GetTrackingCodeList', { affId });
 	return response && response.status === 200 ? response.data : [];
-}
-
-export const getCurrencies = async () => {
-    const response = await post('Portal/Report/GetBaseCurrencies');
-    return response && response.status === 200 ? response.data : [];
 }

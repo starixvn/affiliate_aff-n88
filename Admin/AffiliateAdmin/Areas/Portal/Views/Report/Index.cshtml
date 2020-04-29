@@ -14,7 +14,9 @@
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
             today: '@DateTime.Now.ToString("MM/dd/yyyy")',
             currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
-            isN8B: '@(string.Equals(AppSetting.Instance.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))'.toLowerCase() === 'true',
+            baseCurrencyList: @Html.Raw(Json.Encode(Model.BaseCurrencyList)),
+            isProduction: '@(AppSetting.Instance.Environment)'.toLowerCase() === 'production',
+            isN8B: '@AppSetting.Instance.SiteName'.toLowerCase() === 'n8b',
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report/affiliate-report.js")"></script>

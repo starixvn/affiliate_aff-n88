@@ -112,7 +112,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
             objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
             objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
+            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
         }
 

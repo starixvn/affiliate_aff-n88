@@ -8,7 +8,7 @@ import Filter from './Filter';
 import Content from './Content';
 
 import { monthNames, userPanelMenuKey } from '../modules/constants';
-import { setSelectedUserPanel, getProductList, getCurrencyList } from '../actions';
+import { setSelectedUserPanel } from '../actions';
 
 export class AppContainer extends PureComponent {
     constructor(props) {
@@ -16,10 +16,6 @@ export class AppContainer extends PureComponent {
         
         const { param } = this.props;
         this.monthDate = param && param.monthDate;
-        this.state = {
-            currencyList : [],
-            productList: []
-        }
         
         const date = new Date(this.monthDate);
         this.breadcrumbList = [
@@ -28,35 +24,25 @@ export class AppContainer extends PureComponent {
         ];
     }
 
-    componentDidMount(){
-        this._fetchFilterInfo();
-    }
-
-    async _fetchFilterInfo () {
-        var currencyList = await this.props.getCurrencyList();
-        var productList = await this.props.getProductList();
-        this.setState({productList, currencyList});
-    }
-
     render() {
-        var {productList, currencyList} = this.state;
+        var { productList, currencyList, baseCurrencyList } = this.props;
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter productList={productList} currencyList={currencyList}/>
+                <Filter productList={productList} currencyList={currencyList} baseCurrencyList={baseCurrencyList} />
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ dailyEarning }) {
+function mapStateToProps({ dailyEarning, productList, currencyList, baseCurrencyList }) {
     const { param } = dailyEarning;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, productList, currencyList, baseCurrencyList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedUserPanel, getCurrencyList, getProductList }, dispatch);
+    return bindActionCreators({ setSelectedUserPanel }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

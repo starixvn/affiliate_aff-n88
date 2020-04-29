@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 
         public byte ProductId { get; set; }
 
-        public int CurrencyId { get; set; } = 0;
+        public int BaseCurrencyId { get; set; }
 
         [Required]
         public DateTime MonthDate { get; set; }
@@ -19,5 +19,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         public bool IsSortAsc { get; set; }
 
         public int SortById { get; set; } = Turnover;
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string CurrencyIds { get; set; }
     }
 }

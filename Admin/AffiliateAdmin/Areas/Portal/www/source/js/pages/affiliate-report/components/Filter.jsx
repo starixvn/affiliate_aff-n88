@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
-import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, allCurrencies } from '../modules/constants';
+import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, defaultBaseCurrency } from '../modules/constants';
 import { setReportTitle, setParam } from '../actions';
 import { formatUnit } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
@@ -15,11 +15,9 @@ export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        this.now = new Date(this.props.today);
+        const { today, baseCurrencyList } = this.props;
+        this.now = new Date(today);
         const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
-        const defaultCurrency = (this.props.currencyList
-            && this.props.currencyList.length
-            && this.props.currencyList[0].ExchangeId) || allCurrencies;
 
         this.state = {
             userName: '',
@@ -30,7 +28,8 @@ export class Filter extends Component {
             isSortAscending: true,
             selectedProductList: allProduct,
             isGetAll: false,
-            selectedCurrency: defaultCurrency
+            selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
+            selectedCurrencyList: ''
         }
 
         this.cachedMainReportParam = null;
@@ -49,7 +48,7 @@ export class Filter extends Component {
             }
 
             if (this._isMainView()) {
-                const { UserName, PreferredLanguage, FromDate, ToDate, SortType, SortDirectionType, ProductIds } = this.cachedMainReportParam;
+                const { UserName, PreferredLanguage, FromDate, ToDate, SortType, SortDirectionType, ProductIds, CurrencyIds, BaseCurrencyId } = this.cachedMainReportParam;
                 const from = new Date(FromDate);
                 const to = new Date(ToDate);
 
@@ -61,6 +60,8 @@ export class Filter extends Component {
                     sortBy: SortType,
                     isSortAscending: SortDirectionType === sortDirectionType.ascending,
                     selectedProductList: ProductIds,
+                    selectedBaseCurrency: BaseCurrencyId,
+                    selectedCurrencyList: CurrencyIds,
                     isGetAll: false
                 }, callback);
 
@@ -99,8 +100,8 @@ export class Filter extends Component {
         this.setState({ selectedLanguage: event.target.value });
     }
 
-    handleChangeCurrency = (event) => {
-        this.setState({ selectedCurrency: event.target.value });
+    handleChangeBaseCurrency = (event) => {
+        this.setState({ selectedBaseCurrency: event.target.value });
     }
 
     handleSelectFromMonth = (month, year) => {
@@ -133,6 +134,10 @@ export class Filter extends Component {
         this.setState({ toMonth: { month, year } });
     }
 
+    handleChangeCurrency = (item, selectedCurrencyList) => {
+        this.setState({ selectedCurrencyList });
+    }
+
     handleChangeProduct = (item, selectedProductList) => {
         this.setState({ selectedProductList: selectedProductList });
     }
@@ -160,7 +165,7 @@ export class Filter extends Component {
             return;
         }
 
-        const { selectedLanguage, selectedCurrency, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedBaseCurrency, selectedCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
         const { productList, pagingOption } = this.props;
 
         const isCheckedAllProduct = selectedProductList === allProduct || selectedProductList.split(',').length === productList.length;
@@ -172,7 +177,8 @@ export class Filter extends Component {
             FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
-            CurrencyId: Number(selectedCurrency),
+            BaseCurrencyId: Number(selectedBaseCurrency),
+            CurrencyIds: selectedCurrencyList,
             ProductIds: isCheckedAllProduct ? allProduct : selectedProductList,
             SortType: sortBy,
             SortDirectionType: isSortAscending ? sortDirectionType.ascending : sortDirectionType.descending,
@@ -193,8 +199,8 @@ export class Filter extends Component {
     }
 
     _buildMainReportTitle(isCheckedAllProduct) {
-        const { languageList, currencyList } = this.props;
-        const { selectedLanguage, fromMonth, toMonth, userName, selectedCurrency } = this.state;
+        const { languageList, baseCurrencyList } = this.props;
+        const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
 
         const userNameTitle = `${userName && '- Username contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
@@ -204,13 +210,13 @@ export class Filter extends Component {
 
         const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'AFFILIATE REPORT ';
-        const currency = currencyList.filter(x => x.ExchangeId == selectedCurrency);
+        const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency);
 
-        return `${reportName}${userNameTitle} - Base Currency ${currency[0] && currency[0].Code} - ${language} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency[0] && baseCurrency[0].Code} - ${language} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
-        const { fromMonth, toMonth, userName, isGetAll, selectedCurrency } = this.state;
+        const { fromMonth, toMonth, userName, isGetAll, selectedBaseCurrency } = this.state;
 
         const userNameTitle = userName && '- ' + userName;
         const productList = this._getProductDataSource();
@@ -219,9 +225,9 @@ export class Filter extends Component {
         const fromToTitle = isGetAll ? 'Get All Dates' :
             `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'MONTH ON MONTH ';
-        const currency = this.props.currencyList.filter(x => x.ExchangeId == selectedCurrency);
+        const baseCurrency = this.props.baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency);
 
-        return `${reportName}${userNameTitle} - Base Currency ${currency[0] && currency[0].Code} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency[0] && baseCurrency[0].Code} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _getProductDataSource = () => {
@@ -269,8 +275,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, selectedCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
-        const { languageList, currencyList } = this.props;
+        const { selectedLanguage, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
+        const { languageList, currencyList, baseCurrencyList, isProduction } = this.props;
 
         const productDataSource = this._getProductDataSource();
         const isValidSelectedProduct = selectedProductList.length > 0;
@@ -290,16 +296,33 @@ export class Filter extends Component {
                                     value={userName} />
                     </FormGroup>
                     {
-                        currencyList && currencyList.length &&
+                        baseCurrencyList && baseCurrencyList.length &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label for="Currency" className="mr-sm-2">{globalResource.BaseCurrency}</Label>
-                            <Input type="select" name="Currency" id="Currency" value={selectedCurrency} onChange={this.handleChangeCurrency}>
+                            <Label for="BaseCurrency" className="mr-sm-2">{globalResource.BaseCurrency}</Label>
+                            <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeBaseCurrency}>
                                 {
-                                    currencyList && currencyList.map(c => {
+                                    baseCurrencyList && baseCurrencyList.map(c => {
                                         return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
                                     })
                                 }
+                                {
+                                    !isProduction && <option value="20">UUS</option>
+                                }
                             </Input>
+                        </FormGroup>
+                    }
+                    {
+                        !isProduction && currencyList &&
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="Currency" className="mr-sm-2">{globalResource.Currency}</Label>
+                            <MultipleSelect
+                                dataSource={currencyList}
+                                keyField="key"
+                                valueField="name"
+                                statusField="checked"
+                                maxDisplayItemCount={1}
+                                noneSelectedLabel="None Select"
+                                onChange={this.handleChangeCurrency} />
                         </FormGroup>
                     }
                     {
@@ -384,8 +407,8 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ productList, pagingOption, languageList, currencyList, today, currentViewLevel, param }) {
-    return Object.assign({}, { productList, pagingOption, languageList, currencyList, today, currentViewLevel, param });
+function mapStateToProps({ productList, pagingOption, languageList, currencyList, baseCurrencyList, isProduction, today, currentViewLevel, param }) {
+    return Object.assign({}, { productList, pagingOption, languageList, currencyList, baseCurrencyList, isProduction, today, currentViewLevel, param });
 }
 
 function mapDispatchToProps(dispatch) {

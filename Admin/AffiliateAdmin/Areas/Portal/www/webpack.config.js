@@ -43,7 +43,7 @@ module.exports = env => {
                     use: [{
                         loader: "url-loader",
                         options: {
-                            limit: 4096,
+                            limit: 6144,
                             name: "[name].[ext]",
                             outputPath: relativeOutputPath + "/style/assets/",
                             publicPath: "assets/"

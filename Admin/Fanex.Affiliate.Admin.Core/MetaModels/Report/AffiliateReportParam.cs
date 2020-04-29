@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 {
@@ -14,6 +15,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         public bool IsGetAll { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string ProductIds { get; set; }
 
         public byte SortType { get; set; }
@@ -26,6 +28,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         public bool IsExportExcel { get; set; }
 
-        public int CurrencyId { get; set; }
+        public int BaseCurrencyId { get; set; }
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string CurrencyIds { get; set; }
     }
 }

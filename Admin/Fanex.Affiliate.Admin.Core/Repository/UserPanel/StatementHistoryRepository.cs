@@ -7,6 +7,7 @@ using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Data;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
@@ -100,10 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(uSpKey))
             {
-                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
-                objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
-                objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
-                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
+                AssignCommonParam(objectDb, param);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -130,10 +128,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
-                objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
-                objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
-                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.CurrencyId);
+                AssignCommonParam(objectDb, param);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -155,6 +150,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             }
 
             return result;
+        }
+        private static void AssignCommonParam(IObjectDb objectDb, DailyEarningParam param)
+        {
+            objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
+            objectDb.AddInParameter("ProductId", DbType.Int16, param.ProductId);
+            objectDb.AddInParameter(Field.MonthDate, DbType.DateTime, param.MonthDate);
+            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
         }
 
         private static DailyEarning BuildDailyEarningItem(IDataReader reader)

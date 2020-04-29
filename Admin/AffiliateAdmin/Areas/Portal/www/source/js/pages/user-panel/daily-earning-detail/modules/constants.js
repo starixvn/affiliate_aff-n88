@@ -1,8 +1,8 @@
 import { globalResource } from '../../../../modules/globalResource';
 import { userPanelMenuKey } from '../../../customer/common/modules/constants';
-import { selectedAllProduct, maxWidth, monthNames } from '../../../../modules/constants';
+import { selectedAllProduct, maxWidth, monthNames, defaultBaseCurrency } from '../../../../modules/constants';
 
-export { selectedAllProduct, globalResource, maxWidth, userPanelMenuKey, monthNames }
+export { selectedAllProduct, globalResource, maxWidth, userPanelMenuKey, monthNames, defaultBaseCurrency }
 
 export const resource = {
     UserName: 'User Name',
@@ -12,6 +12,5 @@ export const resource = {
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
     BankingFee: 'Banking Fee',
-    Total: 'Total',
-    NoSelectedCurrency: 0
+    Total: 'Total'
 }

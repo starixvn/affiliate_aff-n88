@@ -14,22 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
     public class CommonSettingControllerTest
     {
         [Fact]
-        public void GetProductList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var productRepository = new Mock<IProductRepository>();
-            productRepository.Setup(s => s.GetProductList()).Returns(new List<Product> { new Product() });
-            var controller = CreateCommonSettingController(productRepository: productRepository.Object);
-
-            // Action
-            var result = controller.GetProductList() as JsonNetResult;
-            var data = result.Data as List<Product>;
-
-            // Assert
-            Assert.Single(data);
-        }
-
-        [Fact]
         public void GetPageList_WhenCall_ReturnCorrectData()
         {
             // Arrange
@@ -70,11 +54,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             ITrackingStatisticsService trackingStatisticsService = null
             )
         {
-            var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
             var fakeLandingPageRepository = landingPageRepository ?? Mock.Of<ILandingPageRepository>();
             var faketrackingStatisticsService = trackingStatisticsService ?? Mock.Of<ITrackingStatisticsService>();
 
-            return new CommonSettingController(fakeProductRepository, fakeLandingPageRepository, faketrackingStatisticsService);
+            return new CommonSettingController(fakeLandingPageRepository, faketrackingStatisticsService);
         }
     }
 }

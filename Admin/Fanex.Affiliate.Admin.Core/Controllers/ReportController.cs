@@ -43,7 +43,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 ProductList = _productRepository.GetProductList(),
                 LanguageList = _languageService.GetLanguageList(),
-                CurrencyList = _currencyRepository.GetBaseCurrencies()
+                CurrencyList = _currencyRepository.GetCurrencies(),
+                BaseCurrencyList = _currencyRepository.GetBaseCurrencies()
             };
 
             return View(viewModel);
@@ -74,13 +75,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         public ActionResult GetAffiliateList(string query)
         {
             return Json(_affiliateReportService.SearchAffiliateList(query.Trim()), JsonRequestBehavior.AllowGet);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryHeader]
-        public ActionResult GetBaseCurrencies()
-        {
-            return Json(_currencyRepository.GetBaseCurrencies(),JsonRequestBehavior.AllowGet);
         }
     }
 }

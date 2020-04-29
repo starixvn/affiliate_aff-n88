@@ -10,5 +10,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
         public IEnumerable<Language> LanguageList { get; set; }
 
         public IEnumerable<BaseCurrency> CurrencyList { get; set; }
+
+        public IEnumerable<BaseCurrency> BaseCurrencyList { get; set; }
     }
 }

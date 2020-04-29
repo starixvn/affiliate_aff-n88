@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import MonthPicker from '@9softstudio/react-monthpicker';
 
-import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault, defaultCurrency } from '../modules/constants';
-import { setParam, getProductList, exportExcel, getCurrencies, setSortingColumn } from '../actions';
+import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault, defaultBaseCurrency } from '../modules/constants';
+import { setParam, exportExcel, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
@@ -13,27 +13,19 @@ export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { today, param } = this.props;
+        const { today, param, baseCurrencyList } = this.props;
         const monthDate = param.isClickLink ? (param.monthDate || today) : today;
         const newMonthDate = new Date(monthDate);
 
         this.state = {
             selectedProduct: selectedAllProduct,
             monthDate: newMonthDate,
-            selectedCurrencyId: defaultCurrency,
-            productList: null,
-            currencies: null,
-
+            selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
+            selectedCurrencyList: ''
         }
     }
 
     componentDidMount() {
-        if (!this.state.productList) {
-            this.handleGetProductList();
-        }
-        if (!this.state.currencies) {
-            this.handleGetCurrencies();
-        }
         if (this.props.param.isClickLink) {
             const { monthDate } = this.state;
             this.handleSearch(monthDate);
@@ -41,27 +33,16 @@ export class Filter extends PureComponent {
     }
 
     componentDidUpdate(prevProps) {
-        const { param } = this.props;
+        const { param, baseCurrencyList } = this.props;
         if (param.isClickLink && param !== prevProps.param) {
             const newMonthDate = new Date(param.monthDate);
 
             this.setState({
                 monthDate: newMonthDate,
                 selectedProduct: selectedAllProduct,
-                selectedCurrencyId: defaultCurrency
+                selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency
             }, () => this.handleSearch(newMonthDate));
         }
-    }
-
-    handleGetProductList = async () => {
-        const productList = await this.props.getProductList();
-        this.setState({ productList });
-    }
-
-    handleGetCurrencies = async () => {
-        const currencies = await this.props.getCurrencies();
-        const selectedCurrencyId = currencies && currencies.length && currencies[0].ExchangeId;
-        this.setState({currencies, selectedCurrencyId});
     }
 
     handleSelectMonth = (month, year) => {
@@ -78,11 +59,15 @@ export class Filter extends PureComponent {
         })
     }
 
-    handleChangeCurrency = (event) =>{
-        const selectedCurrencyId = Number(event.target.value);
+    handleChangeBaseCurrency = (event) =>{
+        const selectedBaseCurrency = Number(event.target.value);
         this.setState({
-            selectedCurrencyId
+            selectedBaseCurrency
         })
+    }
+
+    handleChangeCurrency = (item, selectedCurrencyList) => {
+        this.setState({ selectedCurrencyList });
     }
 
     handleFormatMonthPicker = (month, year) => {
@@ -90,11 +75,12 @@ export class Filter extends PureComponent {
     }
 
     handleSearch = (monthDate) => {
-        const { selectedProduct, selectedCurrencyId } = this.state;
+        const { selectedProduct, selectedBaseCurrency, selectedCurrencyList } = this.state;
 
         const param = {
             productId: selectedProduct,
-            currencyId: selectedCurrencyId,
+            baseCurrencyId: selectedBaseCurrency,
+            currencyIds: selectedCurrencyList,
             monthDate: `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`,
         }
         this.props.setParam(param);
@@ -102,13 +88,14 @@ export class Filter extends PureComponent {
     }
 
     handleExportExcel = async () => {
-        const { selectedProduct, monthDate, selectedCurrencyId } = this.state;
+        const { selectedProduct, monthDate, selectedBaseCurrency, selectedCurrencyList } = this.state;
         const { affId, sortingColumn } = this.props;
 
         const param = {
             IsExportExcel: true,
             productId: selectedProduct,
-            currencyId: selectedCurrencyId,
+            baseCurrencyId: selectedBaseCurrency,
+            currencyIds: selectedCurrencyList,
             monthDate: `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`,
             affId,
             sortById: SortByIdList[sortingColumn.ColumnName],
@@ -125,22 +112,24 @@ export class Filter extends PureComponent {
     }
 
     _getReportTitle() {
-        const { selectedProduct, monthDate, currencies, selectedCurrencyId } = this.state;
+        const { baseCurrencyList } = this.props;
+        const { selectedProduct, monthDate, selectedBaseCurrency } = this.state;
         const productTitle = selectedProduct === 0 ? 'All Products' : this._getSelectedProductName(selectedProduct);
         const selectedMonthTitle = this.handleFormatMonthPicker(monthDate.getMonth() + 1, monthDate.getFullYear());
-        const currency = currencies ? currencies.filter(x => x.ExchangeId == selectedCurrencyId) : [];
+        const currency = baseCurrencyList ? baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency) : [];
 
         return `Player Detail - Base Currency ${currency[0] && currency[0].Code} - ${productTitle} - ${selectedMonthTitle}`;
     }
 
     _getSelectedProductName(productId) {
-        const selectedProduct = this.state.productList.find(p => p.ProductId === productId);
+        const selectedProduct = this.props.productList.find(p => p.ProductId === productId);
 
         return selectedProduct ? selectedProduct.ProductName : '';
     }
 
     render() {
-        const { productList, selectedProduct, selectedCurrencyId, monthDate, currencies } = this.state;
+        const { selectedProduct, selectedBaseCurrency, monthDate } = this.state;
+        const { productList, currencyList, baseCurrencyList, isProduction } = this.props;
 
         return productList && (
             <div className="filter-container">
@@ -154,19 +143,38 @@ export class Filter extends PureComponent {
                                     return (<option value={p.ProductId} key={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
                                 })
                             }
-                        </Input>
-                    </FormGroup>
-
-                    <FormGroup className="mr-sm-2">
-                        <Label className="mr-2">{globalResource.BaseCurrency}</Label>
-                        <Input type="select" name="Currency" id="Currency" value={selectedCurrencyId} onChange={this.handleChangeCurrency}>
                             {
-                                currencies && currencies.map(c => {
-                                    return(<option value={c.ExchangeId} key={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
-                                })
+                                !isProduction && <option value="20">UUS</option>
                             }
                         </Input>
                     </FormGroup>
+                    {
+                        baseCurrencyList && baseCurrencyList.length &&
+                        <FormGroup className="mr-sm-2">
+                            <Label className="mr-2">{globalResource.BaseCurrency}</Label>
+                            <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeCurrency}>
+                                {
+                                    baseCurrencyList.map(c => {
+                                        return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
+                                    })
+                                }
+                            </Input>
+                        </FormGroup>
+                    }
+                    {
+                        !isProduction && currencyList &&
+                        <FormGroup className="mr-sm-2">
+                            <Label for="Currency" className="mr-2">{globalResource.Currency}</Label>
+                            <MultipleSelect
+                                dataSource={currencyList}
+                                keyField="key"
+                                valueField="name"
+                                statusField="checked"
+                                maxDisplayItemCount={1}
+                                noneSelectedLabel="None Select"
+                                onChange={this.handleChangeCurrency} />
+                        </FormGroup>
+                    }
 
                     <FormGroup className="mr-sm-2">
                         <Label className="mr-sm-2">{resource.Month}</Label>
@@ -191,7 +199,7 @@ export class Filter extends PureComponent {
     }
 }
 
-function mapStateToProps({ today, affCommonInfo, playerDetail }) {
+function mapStateToProps({ today, affCommonInfo, playerDetail, productList, currencyList, baseCurrencyList, isProduction }) {
     const { param, sortingColumn } = playerDetail;
     const { affId } = affCommonInfo;
 
@@ -199,12 +207,13 @@ function mapStateToProps({ today, affCommonInfo, playerDetail }) {
         param,
         affId,
         today,
-        sortingColumn
+        sortingColumn,
+        productList, currencyList, baseCurrencyList, isProduction
     });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, exportExcel, getProductList, getCurrencies, setSortingColumn }, dispatch);
+    return bindActionCreators({ setParam, exportExcel, setSortingColumn }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

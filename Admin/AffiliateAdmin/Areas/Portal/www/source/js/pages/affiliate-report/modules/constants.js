@@ -1,3 +1,7 @@
+import { defaultBaseCurrency } from '../../../modules/constants';
+
+export { defaultBaseCurrency };
+
 const sortByCommon = {
     Turnover: 2,
     Winloss: 3,
@@ -13,7 +17,6 @@ export const sortByMonthOnMonthView = Object.assign({}, {
 }, sortByCommon);
 
 export const allProduct = '0';
-export const allCurrencies = '0';
 
 export const viewLevel = {
     main: 1,

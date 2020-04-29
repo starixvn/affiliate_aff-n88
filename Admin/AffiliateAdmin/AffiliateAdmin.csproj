@@ -996,6 +996,8 @@
     <Content Include="Areas\Portal\www\source\style\assets\login\lgRp.jpg" />
     <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO1.png" />
     <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO2.png" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\darkmode.svg" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\lightmode.svg" />
     <Content Include="Areas\Portal\www\source\style\assets\under-maintenance\UnderMaintenance.gif" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\a_bg.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\bg_box_tab.jpg" />
@@ -1327,6 +1329,8 @@
     <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
     <Content Include="Areas\Portal\www\source\style\abstracts\variables_N88-lightmode.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\_darkmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\_lightmode-N88.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

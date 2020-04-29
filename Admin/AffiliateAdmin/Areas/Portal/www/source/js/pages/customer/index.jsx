@@ -6,7 +6,17 @@ import reducer from './mainpage/reducers';
 import AppContainer from './mainpage/components/AppContainer';
 import { configureStore } from '../../modules/store';
 
-const store = configureStore(window.initialState, reducer);
+const { currencyList } = window.initialState;
+
+const newCurrencyList = currencyList.map(item => {
+    return {
+        key: item.ExchangeId,
+        name: item.Code,
+        checked: false
+    };
+});
+
+const store = configureStore(Object.assign({}, window.initialState, { currencyList: newCurrencyList }), reducer);
 
 export default class App extends React.PureComponent {
     constructor(props) {

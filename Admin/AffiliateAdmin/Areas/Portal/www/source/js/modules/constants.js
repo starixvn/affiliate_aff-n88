@@ -16,6 +16,7 @@ export const money = {
 }
 
 export const selectedAllProduct = 0;
+export const defaultBaseCurrency = 0;
 
 export const maxWidth = window.innerWidth - 282;
 

@@ -14,6 +14,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         [Required]
         public DateTime? MonthDate { get; set; }
 
-        public int CurrencyId { get; set; }
+        public int BaseCurrencyId { get; set; }
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string CurrencyIds { get; set; }
     }
 }

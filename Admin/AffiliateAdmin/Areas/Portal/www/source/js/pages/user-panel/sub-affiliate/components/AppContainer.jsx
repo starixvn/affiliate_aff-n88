@@ -8,7 +8,7 @@ import Filter from './Filter';
 import Content from './Content';
 
 import { monthNames, userPanelMenuKey } from '../libs/constants';
-import { setSelectedUserPanel, getCurrencyList } from '../actions';
+import { setSelectedUserPanel } from '../actions';
 
 export class AppContainer extends PureComponent {
     constructor(props) {
@@ -16,9 +16,6 @@ export class AppContainer extends PureComponent {
         
         const { param } = this.props;
         this.monthDate = param && param.monthDate;
-        this.state = {
-            currencyList : []
-        }
         
         const date = new Date(this.monthDate);
         this.breadcrumbList = [
@@ -27,35 +24,24 @@ export class AppContainer extends PureComponent {
         ];
     }
 
-    componentDidMount(){
-        this._fetchFilterInfo();
-    }
-
-    async _fetchFilterInfo () {
-        var currencyList = await this.props.getCurrencyList();
-
-        this.setState({ currencyList});
-    }
-
     render() {
-        var {currencyList} = this.state;
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter currencyList={currencyList}/>
+                <Filter currencyList={this.props.currencyList}/>
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ subAffiliate }) {
+function mapStateToProps({ subAffiliate, currencyList }) {
     const { param } = subAffiliate;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, currencyList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedUserPanel, getCurrencyList }, dispatch);
+    return bindActionCreators({ setSelectedUserPanel }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

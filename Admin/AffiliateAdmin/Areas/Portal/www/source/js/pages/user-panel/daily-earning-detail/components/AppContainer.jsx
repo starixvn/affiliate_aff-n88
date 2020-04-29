@@ -7,7 +7,7 @@ import UserPanelBreadcrumb from '../../../common/components/UserPanelBreadcrumb'
 import Filter from './Filter';
 import Content from './Content';
 
-import { setSelectedUserPanel, redirectToDailyEarning, getProductList, getCurrencyList } from '../actions';
+import { setSelectedUserPanel, redirectToDailyEarning } from '../actions';
 import { monthNames, userPanelMenuKey } from '../modules/constants';
 
 export class AppContainer extends PureComponent {
@@ -17,24 +17,10 @@ export class AppContainer extends PureComponent {
         const { param } = this.props;
         this.monthDate = param && param.monthDate;
         this.date = new Date(this.monthDate);
-        this.state = {
-            productList : [],
-            currencyList : []
-        }
-    }
-
-    componentDidMount(){
-        this._fetchFilterInfo();
-    }
-
-    async _fetchFilterInfo () {
-        var productList = await this.props.getProductList();
-        var currencyList = await this.props.getCurrencyList();
-        this.setState({productList, currencyList});
     }
 
     render() {
-        const { param } = this.props;
+        const { param, productList, currencyList, baseCurrencyList } = this.props;
         const dailyEarningParam = Object.assign({}, param, { monthDate: this.monthDate });
 
         const breadcrumbList = [
@@ -46,20 +32,20 @@ export class AppContainer extends PureComponent {
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={breadcrumbList} />
-                <Filter productList={this.state.productList} currencyList={this.state.currencyList}/>
+                <Filter productList={productList} currencyList={currencyList} baseCurrencyList={baseCurrencyList} />
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ dailyEarningDetail }) {
+function mapStateToProps({ dailyEarningDetail, productList, currencyList, baseCurrencyList }) {
     const { param } = dailyEarningDetail;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, productList, currencyList, baseCurrencyList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setSelectedUserPanel, redirectToDailyEarning, getProductList, getCurrencyList }, dispatch);
+    return bindActionCreators({ setSelectedUserPanel, redirectToDailyEarning }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

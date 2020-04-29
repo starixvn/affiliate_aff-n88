@@ -1,9 +1,7 @@
-﻿import { maxWidth } from '../../../../modules/constants';
-import { selectedAllProduct } from '../../../../modules/constants';
+﻿import { selectedAllProduct, defaultBaseCurrency, shortedMonthNames, minMonthDate, maxWidth } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
-import { shortedMonthNames, minMonthDate } from '../../../../modules/constants';
 
-export { globalResource, maxWidth, selectedAllProduct, shortedMonthNames, minMonthDate };
+export { globalResource, maxWidth, selectedAllProduct, shortedMonthNames, minMonthDate, defaultBaseCurrency };
 
 export const headerText = {
     Index: '#',
@@ -33,8 +31,6 @@ export const SortByIdList = {
     BankingFee: 8,
     IbcUsername: 9
 };
-
-export const defaultCurrency = 0;
 
 export const SortingColumnDefault = {
     IsSortAsc: false,

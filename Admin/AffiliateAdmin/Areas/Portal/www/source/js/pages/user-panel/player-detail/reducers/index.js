@@ -5,12 +5,6 @@ import createReducer from '../../../../modules/createReducer';
 import { pagingOption } from '../../../../reducers/pagingReducer';
 import { SortingColumnDefault } from '../modules/constants';
 
-export const productList = createReducer([], {
-    [SET_PRODUCT_LIST]: (prevState, action) => {
-        return [...action.data]
-    }
-})
-
 export const param = createReducer({}, {
     [SET_PARAM]: (prevState, action) => {
         return { ...action.data };
@@ -24,7 +18,6 @@ export const sortingColumn = createReducer(SortingColumnDefault, {
 })
 
 export default combineReducers({
-    productList,
     param,
     pagingOption,
     sortingColumn
