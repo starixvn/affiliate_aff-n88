@@ -134,14 +134,15 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     {
                         var builder = new StringBuilder();
                         builder.AppendJoin(" ","<row"
-                            , $"CustId=\"{customer?.CustId}\""
-                            , $"UserName=\"{customer?.UserName}\""
-                            , $"CurrencyId=\"{customer?.CurrencyId}\""
-                            , $"ActStatus=\"{customer?.ActStatus}\""
-                            , $"AffId=\"{customer?.AffId}\""
-                            , $"RegTime=\"{customer?.RegTime}\""
-                            , $"FirstDepositDate=\"{customer?.FirstDepositDate}\""
-                            , $"Status=\"{customer?.Status}\""
+                            , $"custid=\"{customer?.CustId}\""
+                            , $"username=\"{customer?.UserName}\""
+                            , $"currencyid=\"{customer?.CurrencyId}\""
+                            , $"actstatus=\"{customer?.ActStatus}\""
+                            , $"affid=\"{customer?.AffId}\""
+                            , $"regtime=\"{customer?.RegTime}\""
+                            , $"firstdepositdate=\"{customer?.FirstDepositDate}\""
+                            , $"status=\"{customer?.Status}\""
+                            , $"istest=\"{customer.IsTest}\""
                             , "/>");
                         return builder.ToString();
                     }));

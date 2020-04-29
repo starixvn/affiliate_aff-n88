@@ -35,7 +35,8 @@ namespace Affiliate.N88.WebApi.Controllers
                 Status = c.Status,
                 UserName = c.UserName,
                 AffId = c.AffId,
-                FirstDepositDate = c.FirstDepositTime
+                FirstDepositDate = c.FirstDepositTime,
+                IsTest = c.IsTest
             });
         }
     }
