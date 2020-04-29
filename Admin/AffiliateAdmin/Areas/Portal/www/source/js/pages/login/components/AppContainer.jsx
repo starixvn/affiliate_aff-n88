@@ -86,8 +86,13 @@ export default class AppContainer extends PureComponent {
                 {/* <div className="lgRight"></div> */}
                 <div className="lgRp">
                     <div className="login-header">
-                        <div>Welcome to {licenseeName}<span> Login</span></div>
-                        <p>Please sign in to continue to work</p>
+                        <div>
+                            <div>Welcome to {licenseeName}<span> Login</span></div>
+                            <p>Please sign in to continue to work</p>
+                        </div>
+                        <div class="switch-mode-theme">
+                            <input type="checkbox" id="switch" /><label for="switch"></label>
+                        </div>
                     </div>
                     <div className="war-box">
                         <Alert color='danger' isOpen={isShowMessage}>
