@@ -93,6 +93,9 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
+                <div class="switch-mode-theme">
+                    <input type="checkbox" id="switch" /><label for="switch"></label>
+                </div>
                 @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
                 {
                     <a class="btn btn-login-mobile" id="mobileLogin">
