@@ -1,4 +1,4 @@
-﻿import { SET_REPORT_TITLE, SET_PARAM, SET_VIEW_LEVEL } from './types';
+﻿import { SET_REPORT_TITLE, SET_PARAM, SET_VIEW_LEVEL, SET_CURRENCY_LIST } from './types';
 import { setPagingOption } from '../../../actions/pagingAction';
 
 export { setPagingOption };
@@ -20,6 +20,13 @@ export const setParam = (data) => {
 export const setViewLevel = (data) => {
     return {
         type: SET_VIEW_LEVEL,
+        data
+    }
+}
+
+export const setCurrencyList = (data) => {
+    return {
+        type: SET_CURRENCY_LIST,
         data
     }
 }

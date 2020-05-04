@@ -1,4 +1,6 @@
-﻿.player-detail {
+﻿@import "../../components/multiple-select";
+
+.player-detail {
     .th {
         cursor: pointer;
         padding: 0 5px !important;

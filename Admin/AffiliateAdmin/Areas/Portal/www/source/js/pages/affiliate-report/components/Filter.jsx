@@ -6,8 +6,8 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, defaultBaseCurrency } from '../modules/constants';
-import { setReportTitle, setParam } from '../actions';
-import { formatUnit } from '../../../modules/utils';
+import { setReportTitle, setParam, setCurrencyList } from '../actions';
+import { formatUnit, handleChangeMultipleSelected } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
 import { globalResource } from '../../../modules/globalResource';
 
@@ -136,6 +136,8 @@ export class Filter extends Component {
 
     handleChangeCurrency = (item, selectedCurrencyList) => {
         this.setState({ selectedCurrencyList });
+
+        this.props.setCurrencyList(handleChangeMultipleSelected(this.props.currencyList, selectedCurrencyList));
     }
 
     handleChangeProduct = (item, selectedProductList) => {
@@ -412,7 +414,7 @@ function mapStateToProps({ productList, pagingOption, languageList, currencyList
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setCurrencyList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

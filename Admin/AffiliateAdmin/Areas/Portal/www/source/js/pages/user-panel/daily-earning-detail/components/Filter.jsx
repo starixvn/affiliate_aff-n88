@@ -6,18 +6,25 @@ import { Form, FormGroup, Input, Label } from 'reactstrap';
 import { selectedAllProduct, globalResource, defaultBaseCurrency } from '../modules/constants';
 import { setParam } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
+import MultipleSelect from '../../../../components/multiple-select';
+import { handleChangeMultipleSelected } from '../../../../modules/utils';
 
 export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { param, baseCurrencyList } = this.props;
+        const { param, baseCurrencyList, currencyList } = this.props;
 
         this.state = {
             selectedProduct: param.productId || selectedAllProduct,
             selectedBaseCurrency: param.baseCurrencyId || (baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId) || defaultBaseCurrency,
-            selectedCurrencyList: param.currencyIds || ''
+            selectedCurrencyList: param.currencyIds || '',
+            currencyList: !!param.currencyIds ? handleChangeMultipleSelected(currencyList, param.currencyIds) : currencyList
         }
+    }
+
+    componentDidMount() {
+        this.handleSetParam();
     }
 
     handleChangeProduct = (event) => {
@@ -31,7 +38,9 @@ export class Filter extends PureComponent {
     }
 
     handleChangeCurrency = (item, selectedCurrencyList) => {
-        this.setState({ selectedCurrencyList });
+        const currencyList = handleChangeMultipleSelected(this.state.currencyList, selectedCurrencyList);
+
+        this.setState({ selectedCurrencyList, currencyList }, this.handleSetParam);
     }
 
     handleSetParam() {
@@ -41,8 +50,8 @@ export class Filter extends PureComponent {
     }
 
     render() {
-        const { selectedBaseCurrency, selectedProduct } = this.state;
-        const { productList, currencyList, baseCurrencyList, isProduction } = this.props;
+        const { selectedBaseCurrency, selectedProduct, currencyList } = this.state;
+        const { productList, baseCurrencyList, isProduction } = this.props;
 
         return (
             <div className="filter-container">
@@ -56,9 +65,6 @@ export class Filter extends PureComponent {
                                     return (<option key={`product-${p.ProductId}`} value={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
                                 })
                             }
-                            {
-                                !isProduction && <option value="20">UUS</option>
-                            }
                         </Input>
                     </FormGroup>
                     {
@@ -70,6 +76,9 @@ export class Filter extends PureComponent {
                                     baseCurrencyList.map(c => {
                                         return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
                                     })
+                                }
+                                {
+                                    !isProduction && <option value="20">UUS</option>
                                 }
                             </Input>
                         </FormGroup>
@@ -94,9 +103,9 @@ export class Filter extends PureComponent {
     }
 }
 
-function mapStateToProps({ dailyEarningDetail }) {
+function mapStateToProps({ dailyEarningDetail, isProduction }) {
     const { param } = dailyEarningDetail;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, isProduction });
 }
 
 function mapDispatchToProps(dispatch) {

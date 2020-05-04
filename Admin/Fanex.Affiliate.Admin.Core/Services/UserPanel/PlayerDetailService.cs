@@ -20,8 +20,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignParam(param, objectDb);
-                objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
-                objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -66,6 +64,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
             objectDb.AddInParameter("IsSortAsc", DbType.Boolean, param.IsSortAsc);
             objectDb.AddInParameter("SortById", DbType.Int32, param.SortById);
+            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
 
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
         }

@@ -77,3 +77,18 @@ export const isValidNumber = (inputValue) => {
     const regex = /^\d*$/;
     return regex.test(inputValue);
 }
+
+export const handleChangeMultipleSelected = (initialList, selectedKey) => {
+    const selectedList = typeof (selectedKey) === "string" ? selectedKey.split(',').filter(p => !!p) : selectedKey;
+
+    return initialList && initialList.map(item => {
+        const { key, name } = item;
+        const checked = selectedList.indexOf(key.toString()) !== -1;
+
+        return {
+            key,
+            name,
+            checked
+        };
+    });
+}

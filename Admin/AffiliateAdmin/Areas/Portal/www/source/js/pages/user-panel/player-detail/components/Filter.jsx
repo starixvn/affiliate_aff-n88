@@ -8,12 +8,14 @@ import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMon
 import { setParam, exportExcel, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
+import MultipleSelect from '../../../../components/multiple-select';
+import { handleChangeMultipleSelected } from '../../../../modules/utils';
 
 export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { today, param, baseCurrencyList } = this.props;
+        const { today, param, baseCurrencyList, currencyList } = this.props;
         const monthDate = param.isClickLink ? (param.monthDate || today) : today;
         const newMonthDate = new Date(monthDate);
 
@@ -21,7 +23,8 @@ export class Filter extends PureComponent {
             selectedProduct: selectedAllProduct,
             monthDate: newMonthDate,
             selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
-            selectedCurrencyList: ''
+            selectedCurrencyList: '',
+            currencyList
         }
     }
 
@@ -67,7 +70,9 @@ export class Filter extends PureComponent {
     }
 
     handleChangeCurrency = (item, selectedCurrencyList) => {
-        this.setState({ selectedCurrencyList });
+        const currencyList = handleChangeMultipleSelected(this.state.currencyList, selectedCurrencyList);
+
+        this.setState({ selectedCurrencyList, currencyList });
     }
 
     handleFormatMonthPicker = (month, year) => {
@@ -128,10 +133,10 @@ export class Filter extends PureComponent {
     }
 
     render() {
-        const { selectedProduct, selectedBaseCurrency, monthDate } = this.state;
-        const { productList, currencyList, baseCurrencyList, isProduction } = this.props;
+        const { selectedProduct, selectedBaseCurrency, monthDate, currencyList } = this.state;
+        const { productList, baseCurrencyList, isProduction } = this.props;
 
-        return productList && (
+        return (
             <div className="filter-container">
                 <Form inline tag="div">
                     <FormGroup className="mr-sm-2">
@@ -139,12 +144,9 @@ export class Filter extends PureComponent {
                         <Input type="select" name="Product" id="Product" value={selectedProduct} onChange={this.handleChangeProduct}>
                             <option value="0">{globalResource.All}</option>
                             {
-                                productList.map(p => {
+                                productList && productList.map(p => {
                                     return (<option value={p.ProductId} key={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
                                 })
-                            }
-                            {
-                                !isProduction && <option value="20">UUS</option>
                             }
                         </Input>
                     </FormGroup>
@@ -157,6 +159,9 @@ export class Filter extends PureComponent {
                                     baseCurrencyList.map(c => {
                                         return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
                                     })
+                                }
+                                {
+                                    !isProduction && <option value="20">UUS</option>
                                 }
                             </Input>
                         </FormGroup>
