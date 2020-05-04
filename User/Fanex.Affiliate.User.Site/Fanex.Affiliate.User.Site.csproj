@@ -1147,6 +1147,14 @@
     <Content Include="www\source\styles\Images\contact-us\line.png" />
     <Content Include="www\source\styles\Images\contact-us\whats_app.png" />
     <Content Include="www\source\styles\Images\contact-us\zalo.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_en-US.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_id-ID.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_ko-KR.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_th-TH.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_vi-VN.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_zh-CN.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner_zh-TW.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner.png" />
     <Content Include="www\source\styles\Images\email\n8b\banner_en-US.jpg" />
     <Content Include="www\source\styles\Images\email\n8b\banner_id-ID.jpg" />
