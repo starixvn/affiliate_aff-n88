@@ -40,6 +40,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
             services.AddScoped<IFetchBetRecordDataTask, FetchBetRecordDataTask>();
             services.AddScoped<ITimeTrackerService>(provider => new FileTimeTrackerService(saveConfigPath));
+            services.Configure<FetchServiceSetting>(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING, configuration.GetSection("AppSettings:PullBetRecordSetting"));
             
         }
 

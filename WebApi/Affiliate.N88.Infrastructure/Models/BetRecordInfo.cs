@@ -24,9 +24,9 @@ namespace Affiliate.N88.Models
 
         public string TpUserName { get; set; }
 
-        public DateTime TransTime { get; set; }
+        public DateTime? TransTime { get; set; }
 
-        public DateTime SettledTime { get; set; }
+        public DateTime? SettledTime { get; set; }
 
         public decimal? Stake { get; set; }
 

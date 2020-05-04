@@ -54,7 +54,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                _logger.Error(ex.ToString());
+                _logger.Error(ex.ToString(), ex);
             }
         }
 

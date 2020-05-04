@@ -7,6 +7,7 @@ using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,20 +32,20 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private readonly ITimeTrackerService _timeTrackerService;
         private readonly IThirdPartyImportRepository _repo;
 
-        private readonly FetchServiceSetting AppSettings = new FetchServiceSetting(); 
+        private readonly FetchServiceSetting Settings = new FetchServiceSetting(); 
 
         public FetchBetRecordDataTask(ILicenseeApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
             ILogger logger, 
             ITimeTrackerService timeTrackerService, 
-            IConfiguration configuration)
+            IOptionsSnapshot<FetchServiceSetting> configuration)
         {
             _licenseeApi = licenseeApi;
             _logger = logger;
             _timeTrackerService = timeTrackerService;
             _repo = _thirdPartyRepo;
 
-            configuration.GetSection("AppSettings:PullBetRecordSetting").Bind(AppSettings);
+            Settings = configuration.Get(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING);
         }
 
         public async Task FetchDataAsync()
@@ -82,7 +83,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task FetchAndInsertDataAsync(DateTime fromDate, DateTime toDate)
         {
             var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
-            if (data.Count() == 0)
+            if (data == null || data.Count() == 0)
             {
                 _logger.Info($"No betrecord data from {fromDate} to {toDate}");
                 return;
@@ -124,9 +125,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var props = type.GetProperties();
             foreach (var prop in props)
             {
-                var propName = prop.Name.ToLowerInvariant();
+                var propName = prop.Name;
                 var value = type.GetProperty(propName).GetValue(item, null) ?? "";
-                elem.Add(new XAttribute(propName, value));
+                elem.Add(new XAttribute(propName.ToLowerInvariant(), value));
             }
         }
 
@@ -153,7 +154,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private TimeSpan GetApiMaxTimeRange()
         {
-           return TimeSpan.FromMinutes(AppSettings.MaxTimeRange);
+           return TimeSpan.FromMinutes(Settings.MaxTimeRange);
         }
 
         private async Task<DateTime> GetLastTimeFetchDateAsync()
@@ -175,7 +176,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
             if (isUseDefaultDate)
             {
-                lastFetchDate = AppSettings.DefaultPullDate;
+                lastFetchDate = Settings.DefaultPullDate;
             }
 
             return lastFetchDate;
@@ -184,7 +185,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private DateTime GetAdjustmentApiServerDate()
         {
             var date = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(API_SERVER_TIME_OFFSET));
-            var adjustmentMin = AppSettings.AdjustmentTime;
+            var adjustmentMin = Settings.AdjustmentTime;
             var adjustDate = date.AddMinutes(adjustmentMin);
             return adjustDate.DateTime;
         }
