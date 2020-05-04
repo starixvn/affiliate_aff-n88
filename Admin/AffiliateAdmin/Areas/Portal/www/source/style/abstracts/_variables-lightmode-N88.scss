@@ -1,7 +1,7 @@
-﻿$color-primary: #06F6F1;
+﻿$light-mode-bg: #001942;
+$light-button: #FF5D00;
 
-$bg-changePassword: #06F6F1;
-$bg-logout: #410DED;
-
-$bg-login-header: #001942;
-$bg-btn-login: #410DED;
+$bg-login-header: $light-mode-bg;
+$color-login-header: #fff;
+$bg-btn-login: $light-button;
+$color-text-login: $light-mode-bg;

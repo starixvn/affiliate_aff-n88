@@ -172,7 +172,11 @@
     "inputFile": "www/source/styles/scss/Themes/n8b.scss"
   },
   {
-    "outputFile": "www/build/styles/css/n88.css",
-    "inputFile": "www/source/styles/scss/Themes/n88.scss"
+    "outputFile": "www/build/styles/css/n88-darkmode.css",
+    "inputFile": "www/source/styles/scss/Themes/n88-darkmode.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n88-lightmode.css",
+    "inputFile": "www/source/styles/scss/Themes/n88-lightmode.scss"
   }
 ]

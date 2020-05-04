@@ -753,6 +753,10 @@
     <Content Include="www\build\styles\css\messagehistory.min.css">
       <DependentUpon>messagehistory.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\n88-darkmode.css" />
+    <Content Include="www\build\styles\css\n88-darkmode.min.css" />
+    <Content Include="www\build\styles\css\n88-lightmode.css" />
+    <Content Include="www\build\styles\css\n88-lightmode.min.css" />
     <Content Include="www\build\styles\css\n88.css" />
     <Content Include="www\build\styles\css\n88.min.css">
       <DependentUpon>n88.css</DependentUpon>
@@ -900,6 +904,8 @@
     <Content Include="www\build\styles\Images\icon-1.png" />
     <Content Include="www\build\styles\Images\icon-2.png" />
     <Content Include="www\build\styles\Images\icon-3.png" />
+    <Content Include="www\build\styles\Images\mode\darkmode.svg" />
+    <Content Include="www\build\styles\Images\mode\lightmode.svg" />
     <Content Include="www\build\styles\Images\notify\bgMain.jpg" />
     <Content Include="www\build\styles\Images\notify\icon.png" />
     <Content Include="www\build\styles\Images\notify\iconnf.png" />
@@ -1160,6 +1166,8 @@
     <Content Include="www\source\styles\Images\footer\cr-21.png" />
     <Content Include="www\source\styles\Images\footer\cr-pagcor.png" />
     <Content Include="www\source\styles\Images\footer\cr-westbrom.png" />
+    <Content Include="www\source\styles\Images\mode\darkmode.svg" />
+    <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\themes\n88.png" />
     <Content Include="www\source\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\source\styles\Images\bg-Commission-Structure_Banner.png" />
@@ -1545,7 +1553,6 @@
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="www\source\styles\scss\Themes\n88.scss" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.en-US.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.hi-IN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.id-ID.webp" />
@@ -1581,9 +1588,9 @@
     <Content Include="www\source\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-lightmode.scss" />
-    <Content Include="www\source\styles\scss\Themes\_n88-darkmode.scss" />
+    <Content Include="www\source\styles\scss\Themes\n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
-    <Content Include="www\source\styles\scss\Themes\_n88-lightmode.scss" />
+    <Content Include="www\source\styles\scss\Themes\n88-lightmode.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

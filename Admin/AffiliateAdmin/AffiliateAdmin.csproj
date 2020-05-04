@@ -306,6 +306,8 @@
     <Content Include="Areas\Portal\www\dist\style\home.css" />
     <Content Include="Areas\Portal\www\dist\style\layout.css" />
     <Content Include="Areas\Portal\www\dist\style\login.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88-darkmode.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88-lightmode.css" />
     <Content Include="Areas\Portal\www\dist\style\N88.css" />
     <Content Include="Areas\Portal\www\dist\style\N8B.css" />
     <Content Include="Areas\Portal\www\dist\style\N8G.css" />
@@ -1329,11 +1331,12 @@
     <Content Include="Areas\Portal\www\source\style\themes\N8B.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
-    <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
-    <Content Include="Areas\Portal\www\source\style\abstracts\variables-lightmode-N88.scss" />
-    <Content Include="Areas\Portal\www\source\style\themes\_darkmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88-darkmode.scss" />
     <Content Include="Areas\Portal\www\source\style\abstracts\_variables-darkmode-N88.scss" />
-    <Content Include="Areas\Portal\www\source\style\themes\_lightmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88-lightmode.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-lightmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N88.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

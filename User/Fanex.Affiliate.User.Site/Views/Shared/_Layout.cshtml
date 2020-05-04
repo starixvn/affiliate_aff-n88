@@ -64,7 +64,7 @@
         }
         else
         {
-            <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
+            <link id="n88-link" href="@Url.RenderLink("~/www/build/styles/css/n88-lightmode.css")" rel="stylesheet" />
         }
     }
     @RenderSection("styles", required: false)
@@ -93,9 +93,12 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
-                <div class="switch-mode-theme desktop">
-                    <input type="checkbox" id="switch-desktop" /><label for="switch-desktop"></label>
-                </div>
+                @if (string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    <div class="switch-mode-theme desktop">
+                        <input type="checkbox" id="switch-desktop" /><label class="switch-desktop" for="switch-desktop"></label>
+                    </div>
+                }
                 @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
                 {
                     <a class="btn btn-login-mobile" id="mobileLogin">

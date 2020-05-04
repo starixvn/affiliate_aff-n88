@@ -4,6 +4,12 @@ export const resolveClientUrl = (relativeUrl) => {
     return _rootUrl + relativeUrl;
 }
 
+export const changeMode = (isLightMode) => {
+    const n88Link = document.getElementById('n88-link');
+
+    n88Link.setAttribute('href', resolveClientUrl(`Areas/Portal/www/dist/style/N88-${isLightMode ? 'lightmode' : 'darkmode'}.css`))
+}
+
 export const formatUnit = (value) => {
     return value < 10 ? '0' + value : value;
 }

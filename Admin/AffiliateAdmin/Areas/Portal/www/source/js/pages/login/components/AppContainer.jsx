@@ -1,8 +1,8 @@
 ﻿import React, { PureComponent } from 'react';
-import { Alert, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Alert, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { post } from '../../../modules/ajaxRequest';
-import { resolveClientUrl } from '../../../modules/utils';
+import { resolveClientUrl, changeMode } from '../../../modules/utils';
 
 export default class AppContainer extends PureComponent {
     constructor(props) {
@@ -14,7 +14,8 @@ export default class AppContainer extends PureComponent {
             password: '',
             isShowMessage: false,
             message: '',
-            year: now.getFullYear()
+            year: now.getFullYear(),
+            isLightMode: true
         }
     }
 
@@ -77,6 +78,13 @@ export default class AppContainer extends PureComponent {
         this.setState({ [target.name]: target.value });
     }
 
+    _handleChangeMode = () => {
+        const { isLightMode } = this.state;
+
+        changeMode(!isLightMode);
+        this.setState({ isLightMode: !isLightMode });
+    }
+
     render() {
         const { userName, password, isShowMessage, message, year } = this.state;
         const { licenseeName } = window.initialState;
@@ -90,9 +98,11 @@ export default class AppContainer extends PureComponent {
                             <div>Welcome to {licenseeName}<span> Login</span></div>
                             <p>Please sign in to continue to work</p>
                         </div>
-                        <div class="switch-mode-theme">
-                            <input type="checkbox" id="switch" /><label for="switch"></label>
-                        </div>
+                        {
+                            licenseeName.toLowerCase() === 'nova88' && <div class="switch-mode-theme">
+                                <input type="checkbox" id="switch" onChange={this._handleChangeMode} /><label for="switch"></label>
+                            </div>
+                        }
                     </div>
                     <div className="war-box">
                         <Alert color='danger' isOpen={isShowMessage}>
@@ -126,7 +136,7 @@ export default class AppContainer extends PureComponent {
                 </div>
 
                 <div className="foot">
-                    <span className="foot-rp">{`© Copyright 2020 ${licenseeName}`}</span>
+                    <span className="foot-rp">{`© Copyright ${year} ${licenseeName}`}</span>
                 </div>
             </div>
         )

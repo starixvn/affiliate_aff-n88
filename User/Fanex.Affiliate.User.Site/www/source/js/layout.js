@@ -1,5 +1,6 @@
 var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
+    var isLightMode = false;
 
     function initSlider() {
         var $mainBanner = $('#mainBanner');
@@ -32,6 +33,14 @@ var Layout = (function ($) {
         initEvent: function () {
             $("#selectedLanguage").on("click", function () {
                 $(this).focus();
+            });
+
+            $(".switch-mode-theme").on("click", ".switch-desktop", function () {
+                var n88Link = $('#n88-link');
+
+                n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${isLightMode ? 'lightmode' : 'darkmode'}.css`));
+
+                isLightMode = !isLightMode;
             });
 
             $("#languageList").on("click", ".language-item", function () {
