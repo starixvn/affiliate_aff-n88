@@ -339,6 +339,8 @@
     <Content Include="Areas\Portal\www\index.html" />
     <Content Include="Areas\Portal\www\config-utils\constant.js" />
     <Content Include="Areas\Portal\www\config-utils\entry.js" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\darkmode.svg" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\lightmode.svg" />
     <Content Include="Areas\Portal\www\source\js\actions\actionTypes.js" />
     <Content Include="Areas\Portal\www\source\js\actions\loaderAction.js" />
     <Content Include="Areas\Portal\www\source\js\actions\pagingAction.js" />
@@ -1328,8 +1330,9 @@
     <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
-    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N88-lightmode.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables-lightmode-N88.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\_darkmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-darkmode-N88.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\_lightmode-N88.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -1378,6 +1381,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Portal\www\source\images\" />
     <Folder Include="Areas\Portal\www\source\js\pages\customer\mainpage\modules\" />
     <Folder Include="Areas\Portal\www\source\js\pages\user-panel\user-account\modules\__test__\" />
   </ItemGroup>
