@@ -20,7 +20,7 @@ body {
 
     label {
         cursor: pointer;
-        text-indent: -9999px;
+        //text-indent: -9999px;
         width: 50px;
         height: 25px;
         background: #C8C2C2;
@@ -32,9 +32,12 @@ body {
     label:after {
         content: url(../assets/mode/lightmode.svg);
         position: absolute;
-        top: 3px;
-        left: 25px;
+        top: 2px;
+        left: 6px;
         transition: 0.3s;
+        width: 19px;
+        height: 19px;
+        border-radius: 10px;
     }
 
     input:checked + label {
