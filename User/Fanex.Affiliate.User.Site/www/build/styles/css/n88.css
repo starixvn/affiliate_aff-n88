@@ -68,7 +68,7 @@
     background: #191919;
     color: #fff; }
     .table table tr:hover {
-      background: #fbe8e1; }
+      background: #121212; }
   .table table th, .table table td {
     border: 1px solid #000; }
   .table table th {
@@ -118,7 +118,8 @@
     color: #fff; }
 
 .table .game-list tr .game-name {
-  background-color: #ded5d5; }
+  background-color: #191919;
+  border-color: #000 !important; }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
   background-color: #2E2E2E; }

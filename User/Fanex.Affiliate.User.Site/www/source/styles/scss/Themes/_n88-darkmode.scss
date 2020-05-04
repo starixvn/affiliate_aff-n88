@@ -203,6 +203,7 @@ body {
 .table {
     .game-list tr .game-name {
         background-color: $table-game-name-bg;
+        border-color: #000 !important;
     }
 
     .casino-table tbody > tr:nth-of-type(even) {
