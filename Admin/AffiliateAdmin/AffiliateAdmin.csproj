@@ -1392,7 +1392,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Portal\www\source\images\" />
     <Folder Include="Areas\Portal\www\source\js\pages\customer\mainpage\modules\" />
     <Folder Include="Areas\Portal\www\source\js\pages\user-panel\user-account\modules\__test__\" />
   </ItemGroup>

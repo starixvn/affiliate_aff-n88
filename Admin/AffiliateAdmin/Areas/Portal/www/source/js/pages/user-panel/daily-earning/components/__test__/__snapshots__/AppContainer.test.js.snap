@@ -15,10 +15,7 @@ exports[`daily earning - components - AppContainer render correctly 1`] = `
       ]
     }
   />
-  <Connect(Filter)
-    currencyList={Array []}
-    productList={Array []}
-  />
+  <Connect(Filter) />
   <Connect(Content) />
 </AppLayout>
 `;
@@ -38,10 +35,7 @@ exports[`daily earning - components - AppContainer render correctly with monthDa
       ]
     }
   />
-  <Connect(Filter)
-    currencyList={Array []}
-    productList={Array []}
-  />
+  <Connect(Filter) />
   <Connect(Content) />
 </AppLayout>
 `;

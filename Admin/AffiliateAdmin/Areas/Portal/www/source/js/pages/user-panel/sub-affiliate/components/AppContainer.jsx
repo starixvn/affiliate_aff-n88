@@ -28,16 +28,16 @@ export class AppContainer extends PureComponent {
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter currencyList={this.props.currencyList}/>
+                <Filter currencyList={this.props.baseCurrencyList}/>
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ subAffiliate, currencyList }) {
+function mapStateToProps({ subAffiliate, baseCurrencyList }) {
     const { param } = subAffiliate;
-    return Object.assign({}, { param, currencyList });
+    return Object.assign({}, { param, baseCurrencyList });
 }
 
 function mapDispatchToProps(dispatch) {

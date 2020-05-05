@@ -55,22 +55,25 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
       >
-        Base Currency
+        Currency
       </Label>
-      <Input
-        id="Currency"
-        name="Currency"
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "Code": "VND",
+              "ExchangeId": 0,
+            },
+          ]
+        }
+        hasAllOption={true}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
         onChange={[Function]}
-        type="select"
-        value="0"
-      >
-        <option
-          key="0"
-          value={0}
-        >
-          VND
-        </option>
-      </Input>
+        statusField="checked"
+        valueField="name"
+      />
     </FormGroup>
     <FormGroup
       className="mb-2 mr-sm-2 mb-sm-0"
@@ -324,13 +327,12 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       >
         Affiliate
       </Label>
-      <AutoComplete
-        cache={true}
-        characterCountToSearch={2}
-        onInput={[Function]}
-        onSelect={[Function]}
-        queryParamName="query"
-        url="/Portal/AffiliateReport/GetAffiliateList"
+      <Input
+        id="Affiliate"
+        name="Affiliate"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        type="text"
         value=""
       />
     </FormGroup>
@@ -352,22 +354,25 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
       >
-        Base Currency
+        Currency
       </Label>
-      <Input
-        id="Currency"
-        name="Currency"
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "Code": "VND",
+              "ExchangeId": 0,
+            },
+          ]
+        }
+        hasAllOption={true}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
         onChange={[Function]}
-        type="select"
-        value="0"
-      >
-        <option
-          key="0"
-          value={0}
-        >
-          VND
-        </option>
-      </Input>
+        statusField="checked"
+        valueField="name"
+      />
     </FormGroup>
     <FormGroup
       className="mb-2 mr-sm-2 mb-sm-0"

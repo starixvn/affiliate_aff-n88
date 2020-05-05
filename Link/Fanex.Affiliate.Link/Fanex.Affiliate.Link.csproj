@@ -237,6 +237,19 @@
     <Content Include="Web.n8g-go.uat.config">
       <DependentUpon>Web.n8g-go.local.config</DependentUpon>
     </Content>
+    <Content Include="Web.n88-go.backupmnl.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88-go.local.config" />
+    <Content Include="Web.n88-go.master.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88-go.production.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88-go.uat.config">
+      <DependentUpon>Web.n88-go.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />

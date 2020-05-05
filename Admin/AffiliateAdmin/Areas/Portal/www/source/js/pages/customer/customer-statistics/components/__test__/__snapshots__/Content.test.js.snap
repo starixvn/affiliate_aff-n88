@@ -511,12 +511,7 @@ exports[`customer statistics - components - Content Should render correctly with
         <td
           className="text-right"
         >
-          <a
-            href="javascript:;"
-            onClick={[Function]}
-          >
-            2
-          </a>
+          2
         </td>
         <td
           className="text-right"

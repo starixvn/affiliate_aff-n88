@@ -154,13 +154,8 @@ exports[`user account - components - Content render correctly 1`] = `
         title="Payment Information"
       >
         <Connect(Payment)
-          minimumPayment={23000}
-          paymentMethodList={
-            Object {
-              "Key": "Player",
-              "Value": "Bwing Player Account",
-            }
-          }
+          minimumPayment={0}
+          paymentMethodList={Array []}
         />
       </Memo(Section)>
     </Col>
@@ -334,13 +329,8 @@ exports[`user account - components - Content render correctly with isSuccess is 
         title="Payment Information"
       >
         <Connect(Payment)
-          minimumPayment={23000}
-          paymentMethodList={
-            Object {
-              "Key": "Player",
-              "Value": "Bwing Player Account",
-            }
-          }
+          minimumPayment={0}
+          paymentMethodList={Array []}
         />
       </Memo(Section)>
     </Col>
