@@ -59,11 +59,89 @@ exports[`daily earning detail - components - Filter render correctly 1`] = `
         </option>
       </Input>
     </FormGroup>
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-2"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          UUS
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Currency
+      </Label>
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
+            },
+          ]
+        }
+        hasAllOption={true}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
+        onChange={[Function]}
+        statusField="checked"
+        valueField="name"
+      />
+    </FormGroup>
   </Form>
 </div>
 `;
 
-exports[`daily earning detail - components - Filter render correctly with has productList 1`] = `
+exports[`daily earning detail - components - Filter render correctly with empty 1`] = `
 <div
   className="filter-container"
 >
@@ -101,24 +179,6 @@ exports[`daily earning detail - components - Filter render correctly with has pr
           value="0"
         >
           All
-        </option>
-        <option
-          key="product-1"
-          value={1}
-        >
-          Sportsbook
-        </option>
-        <option
-          key="product-3"
-          value={3}
-        >
-          Playtech Casino
-        </option>
-        <option
-          key="product-4"
-          value={4}
-        >
-          Number Game
         </option>
       </Input>
     </FormGroup>

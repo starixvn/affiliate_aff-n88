@@ -62,7 +62,7 @@ export class Filter extends PureComponent {
                         <Input type="select" name="Product" id="Product" value={selectedProduct} onChange={this.handleChangeProduct}>
                             <option value="0">{globalResource.All}</option>
                             {
-                                productList.map(p => {
+                                productList && productList.map(p => {
                                     return (<option key={`product-${p.ProductId}`} value={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
                                 })
                             }
@@ -85,7 +85,7 @@ export class Filter extends PureComponent {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList &&
+                        !isProduction && currencyList && currencyList.length &&
                         <FormGroup className="mr-sm-2">
                             <Label for="Currency" className="mr-2">{globalResource.Currency}</Label>
                             <MultipleSelect

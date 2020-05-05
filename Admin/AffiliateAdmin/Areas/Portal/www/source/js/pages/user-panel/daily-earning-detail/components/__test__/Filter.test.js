@@ -22,24 +22,45 @@ describe('daily earning detail - components - Filter', () => {
         }
     ]
 
+    const baseCurrencyList = [
+        {
+            ExchangeId: 20,
+            Code: 'UUS'
+        }
+    ]
+
+    const currencyList = [
+        {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        }
+    ]
+
     const defaultProps = {
         param: {
             affId: 1271808,
             monthDate: "06 January 2019",
             productId: 0
         },
-        productList
+        setParam: jest.fn(),
+        productList,
+        currencyList,
+        baseCurrencyList
     }
 
     it('render correctly', () => {
-        const props = Object.assign({}, defaultProps, { setParam: jest.fn(), getProductList: jest.fn(() => []) });
-        const wrapper = shallow(<Filter {...props} />);
+        const wrapper = shallow(<Filter {...defaultProps} />);
 
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('render correctly with has productList', async () => {
-        const props = Object.assign({}, defaultProps, { setParam: jest.fn(), getProductList: jest.fn(() => productList) });
+    it('render correctly with empty', async () => {
+        const props = Object.assign({}, defaultProps, {
+            productList: null,
+            currencyList: null,
+            baseCurrencyList: null
+        })
         const wrapper = await shallow(<Filter {...props} />);
 
         expect(wrapper).toMatchSnapshot();
@@ -68,6 +89,6 @@ describe('daily earning detail - components - Filter', () => {
         
         wrapper.instance().handleSetParam(1);
 
-        expect(props.setParam).toHaveBeenCalledWith({ "affId": 1271808, "currencyId": 0, "monthDate": "06 January 2019", "productId": 0 });
+        expect(props.setParam).toHaveBeenCalledWith({ "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "monthDate": "06 January 2019", "productId": 0 });
     });
 });

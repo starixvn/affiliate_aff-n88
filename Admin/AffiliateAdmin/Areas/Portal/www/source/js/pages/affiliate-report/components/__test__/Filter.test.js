@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { shallow } from 'enzyme'
 import { Filter } from '../Filter';
-import AutoComplete from '../../../../components/auto-complete';
 
 import MonthPicker from '@9softstudio/react-monthpicker';
 import MultipleSelect from '../../../../components/multiple-select';
@@ -17,6 +16,20 @@ describe('affiliate report - Filter ', () => {
         year: now.getFullYear()
     };
 
+    const baseCurrencyList = [
+        {
+            ExchangeId: 20,
+            Code: 'VND'
+        }
+    ]
+
+    const currencyList = [
+        {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        }
+    ]
     const defaultProps = {
         productList: [],
         pagingOption: {
@@ -29,7 +42,8 @@ describe('affiliate report - Filter ', () => {
         today: now.getMonth() + '/' + now.getDate() + '/' + now.getFullYear(),
         currentViewLevel: mainView,
         param: {},
-        currencyList: [{ Code: 'VND', ExchangeId: 0 }]
+        currencyList,
+        baseCurrencyList
     };
 
     it('componentDidUpdate - should call setParam, setState and setReportTitle when currentViewLevel change to Main view', () => {
@@ -244,7 +258,7 @@ describe('affiliate report - Filter ', () => {
 
         instance.setState = jest.fn();
 
-        wrapper.find(MultipleSelect).simulate('change', item, selectedProductList);
+        wrapper.find(MultipleSelect).at(1).simulate('change', item, selectedProductList);
 
         expect(instance.setState).toHaveBeenCalledWith({ selectedProductList });
     });
@@ -300,7 +314,8 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with currentMainView is Main view', () => {
         const param = {
-            CurrencyId: 0,
+            BaseCurrencyId: 20,
+            CurrencyIds: '20',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -334,7 +349,8 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with currentMainView is Month on Month view', () => {
         const param = {
-            CurrencyId: 0,
+            BaseCurrencyId: 20,
+            CurrencyIds: '20',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -373,7 +389,8 @@ describe('affiliate report - Filter ', () => {
 
     it('should call handleClickSearch when click Search button with selectedProductList not equal productList', () => {
         const param = {
-            CurrencyId: 0,
+            BaseCurrencyId: 20,
+            CurrencyIds: '20',
             UserName: '',
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
@@ -575,19 +592,6 @@ describe('affiliate report - Filter ', () => {
         const result = shallow(<Filter {...props} />);
 
         expect(result).toMatchSnapshot();
-    });
-
-    it('should call setState when select and input on AutoComplete', () => {
-        const props = Object.assign({}, defaultProps, { currentViewLevel: monthOnMonth });
-        const wrapper = shallow(<Filter {...props} />);
-        wrapper.instance().setState = jest.fn();
-
-        wrapper.find(AutoComplete).props().onSelect('selected value');
-        wrapper.find(AutoComplete).props().onInput('inputed value');
-
-        expect(wrapper.instance().setState).toHaveBeenCalledTimes(2);
-        expect(wrapper.instance().setState.mock.calls[0][0]).toEqual({ userName: "selected value" });
-        expect(wrapper.instance().setState.mock.calls[1][0]).toEqual({ userName: "inputed value" });
     });
 
     it('should render correctly when currentMainView is Month on Month view', () => {

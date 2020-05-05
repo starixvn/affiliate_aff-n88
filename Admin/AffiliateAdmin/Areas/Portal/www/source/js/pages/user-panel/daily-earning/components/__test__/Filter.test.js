@@ -22,6 +22,21 @@ describe('daily earning - components - Filter', () => {
         }
     ]
 
+    const baseCurrencyList = [
+        {
+            ExchangeId: 20,
+            Code: 'UUS'
+        }
+    ]
+
+    const currencyList = [
+        {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        }
+    ]
+
     const defaultProps = {
         param: {
             affId: 1271808,
@@ -29,7 +44,9 @@ describe('daily earning - components - Filter', () => {
             productId: 0
         },
         setParam: jest.fn(),
-        productList
+        productList,
+        currencyList,
+        baseCurrencyList
     }
 
     it('render correctly', () => {
@@ -38,8 +55,12 @@ describe('daily earning - components - Filter', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('render correctly with has productList', async () => {
-        const wrapper = await shallow(<Filter {...defaultProps} />);
+    it('render correctly with empty', async () => {
+        const props = Object.assign({}, defaultProps, {
+            productList: null,
+            currencyList: null,
+            baseCurrencyList: null })
+        const wrapper = await shallow(<Filter {...props} />);
 
         expect(wrapper).toMatchSnapshot();
     });
@@ -65,6 +86,6 @@ describe('daily earning - components - Filter', () => {
         
         wrapper.instance().handleSetParam(1);
 
-        expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jan-2019", productId: 0, currencyId: 0 });
+        expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jan-2019", productId: 0, baseCurrencyId: 20, currencyIds: '20' });
     });
 });

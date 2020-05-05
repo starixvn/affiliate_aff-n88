@@ -14,16 +14,10 @@ const actionList = [
     { name: 'setParam', type: types.SET_PARAM, data: { param: 'param' } },
 ]
 
-describe('customer member actions', () => {
+describe('daily earning actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
-
-    it('getProductList - should return correct data', async () => {
-        const getProductList = actions['getProductList']();
-
-        expect(getProductList).toEqual(expect.any(Function));
-    })
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {

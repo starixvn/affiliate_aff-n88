@@ -11,15 +11,29 @@ exports[`Login - components - AppContainer render correctly 1`] = `
       className="login-header"
     >
       <div>
-        Welcome to 
-        <Component />
-        <span>
-           Login
-        </span>
+        <div>
+          Welcome to 
+          Nova88
+          <span>
+             Login
+          </span>
+        </div>
+        <p>
+          Please sign in to continue to work
+        </p>
       </div>
-      <p>
-        Please sign in to continue to work
-      </p>
+      <div
+        class="switch-mode-theme"
+      >
+        <input
+          id="switch"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          for="switch"
+        />
+      </div>
     </div>
     <div
       className="war-box"
@@ -145,9 +159,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
     <span
       className="foot-rp"
     >
-      © Copyright 2020 function mockConstructor() {
-        return fn.apply(this, arguments);
-      }
+      © Copyright 2019 Nova88
     </span>
   </div>
 </div>

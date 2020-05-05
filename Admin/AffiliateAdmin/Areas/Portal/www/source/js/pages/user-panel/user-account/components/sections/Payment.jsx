@@ -67,7 +67,7 @@ export class Payment extends PureComponent {
                     <Label for="preferredPayment" sm={3} xl={2}>Preferred Payment Method</Label>
                     <Col sm={5} xl={6}>
                         <Input type="select" id="preferredPayment" name="preferredPayment" onChange={this.handleChangePaymentMethod} value={userAccountInfo.PreferredPayment}>
-                            {paymentMethodList.map(item => {
+                            {paymentMethodList && paymentMethodList.map(item => {
                                 return (<option key={item.Key} value={item.Key}>{item.Value}</option>)
                             })}
                         </Input>
@@ -75,7 +75,7 @@ export class Payment extends PureComponent {
                     <p>{minimumPaymentText + " " + formatDecimal(minimumPayment)}</p>
                 </FormGroup>
                 {renderFormByMethod[userAccountInfo.PreferredPayment]}
-                <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{`You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your ${licenseeName}.com player account.`}</p>
+                {/* <p className="text-danger offset-sm-3 offset-xl-2 pl-1">{`You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your ${licenseeName}.com player account.`}</p> */}
             </Form>
         )
     }

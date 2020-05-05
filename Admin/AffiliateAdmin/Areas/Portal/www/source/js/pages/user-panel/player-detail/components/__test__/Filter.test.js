@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Filter } from '../Filter';
 import { shallow } from 'enzyme';
-import { DatePicker } from '@9softstudio/react-datepicker';
 import ReportExcel from '../../modules/reportExcel';
 jest.mock('../../modules/reportExcel');
 
@@ -20,7 +19,20 @@ describe('players detail - components - Filter', () => {
         {ProductId: 4, ProductName: "Number Game"}
     ];
     const setParam = jest.fn();
-    const getProductList = jest.fn(() => productList);
+    const baseCurrencyList = [
+        {
+            ExchangeId: 20,
+            Code: 'VND'
+        }
+    ]
+
+    const currencyList = [
+        {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        }
+    ]
     const param = {
         productId: 0,
         monthDate: "11/26/2019",
@@ -31,13 +43,14 @@ describe('players detail - components - Filter', () => {
         param,
         affId,
         setParam,
-        getProductList,
         sortingColumn: {
             IsSortAsc: false,
             ColumnName: 'Turnover'
         },
         setSortingColumn: jest.fn(),
-        getCurrencies: jest.fn()
+        productList,
+        currencyList,
+        baseCurrencyList
     };
 
     it('render correctly', () => {
@@ -46,59 +59,15 @@ describe('players detail - components - Filter', () => {
         expect(result).toMatchSnapshot();
     });
 
-    it('componentDidMount - should call handleSearch and handleGetProductList', () => {
-        const newParam = Object.assign({}, param, { isClickLink: true });
-        const props = Object.assign({}, defaultProps, { param: newParam });
-        const wrapper = shallow(<Filter {...props} />);
-        const instance = wrapper.instance();
-        instance.handleGetProductList = jest.fn();
-        instance.handleSearch = jest.fn();
-        instance.setState({ monthDate: new Date('11/26/2019') });
+    it('render correctly with empty', async () => {
+        const props = Object.assign({}, defaultProps, {
+            productList: null,
+            currencyList: null,
+            baseCurrencyList: null
+        })
+        const wrapper = await shallow(<Filter {...props} />);
 
-        instance.componentDidMount();
-
-        expect(instance.handleGetProductList).toHaveBeenCalled();
-        expect(instance.handleSearch).toHaveBeenCalledWith(new Date('11/26/2019'));
-    });
-
-    it('componentDidMount - should only call handleSearch', () => {
-        const newParam = Object.assign({}, param, { isClickLink: true, monthDate: null });
-        const props = Object.assign({}, defaultProps, { param: newParam });
-        const wrapper = shallow(<Filter {...props} />);
-        const instance = wrapper.instance();
-        instance.setState({ productList, monthDate: new Date('11/26/2019') });
-        instance.handleGetProductList = jest.fn();
-        instance.handleSearch = jest.fn();
-
-        instance.componentDidMount();
-
-        expect(instance.handleGetProductList).not.toHaveBeenCalled();
-        expect(instance.handleSearch).toHaveBeenCalledWith(new Date('11/26/2019'));
-    });
-
-    it('componentDidUpdate - should call setState and handleSearch', () => {
-        const newParam = Object.assign({}, param, { isClickLink: true });
-        const props = Object.assign({}, defaultProps, { param: newParam });
-        const wrapper = shallow(<Filter {...props} />);
-        const instance = wrapper.instance();
-        instance.setState = jest.fn((obj, func) => func && func());
-        instance.handleSearch = jest.fn();
-
-        instance.componentDidUpdate(defaultProps);
-
-        expect(instance.setState).toHaveBeenCalledWith({ monthDate: new Date('11/26/2019'), selectedProduct: 0, selectedCurrencyId: 0, }, expect.any(Function));
-        expect(instance.handleSearch).toHaveBeenCalledWith(new Date('11/26/2019'));
-    });
-
-    it('handleGetProductList - should call setState and getProductList', async () => {
-        const wrapper = shallow(<Filter {...defaultProps} />);
-        const instance = wrapper.instance();
-        instance.setState = jest.fn();
-
-        await instance.handleGetProductList();
-
-        expect(instance.setState).toHaveBeenCalledWith({ productList });
-        expect(defaultProps.getProductList).toHaveBeenCalled();
+        expect(wrapper).toMatchSnapshot();
     });
 
     it('handleSelectMonth - should call setState', () => {
@@ -121,85 +90,106 @@ describe('players detail - components - Filter', () => {
         expect(instance.setState).toHaveBeenCalledWith({ selectedProduct: 1 });
     });
 
-    //it('handleFormatMonthPicker - should return correctly', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
+    it('handleChangeBaseCurrency - should call setState', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
 
-    //    const result = wrapper.instance().handleFormatMonthPicker(12, 2019);
+        instance.handleChangeBaseCurrency({ target: { value: 1 } });
 
-    //    expect(result).toEqual('Dec-2019');
-    //});
+        expect(instance.setState).toHaveBeenCalledWith({ selectedBaseCurrency: 1 });
+    });
 
-    //it('handleSearch - should be called when click Search Button', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    wrapper.setState({ productList });
+    it('handleChangeCurrency - should call setState', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
 
-    //    wrapper.find('Button').at(0).simulate('click');
+        instance.handleChangeCurrency(null, '20');
 
-    //    expect(defaultProps.setParam).toHaveBeenCalledWith({ "currencyId": 0, "monthDate": "12/1/2019", "productId": 0 });
-    //});
+        expect(instance.setState).toHaveBeenCalledWith({ selectedCurrencyList: '20', currencyList });
+    });
 
-    //it('handleExportExcel - should call exportExcel', async() => {
-    //    const props = Object.assign({}, defaultProps, { exportExcel: jest.fn() })
-    //    const wrapper = shallow(<Filter {...props} />);
+    it('handleFormatMonthPicker - should return correctly', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
 
-    //    await wrapper.instance().handleExportExcel();
+        const result = wrapper.instance().handleFormatMonthPicker(12, 2019);
 
-    //    expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, "currencyId": 0, "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
-    //});
+        expect(result).toEqual('Dec-2019');
+    });
 
-    //it('handleExportExcel - should call exportExcel, _getReportTitle and ReportExcel', async() => {
-    //    const expectedResponse = { data: ['data 1', 'data 2'] };
-    //    const props = Object.assign({}, defaultProps, { exportExcel: jest.fn(() => expectedResponse.data) })
-    //    const wrapper = shallow(<Filter {...props} />);
-    //    const instance = wrapper.instance();
-    //    instance._getReportTitle = jest.fn(() => "ABC");
+    it('handleSearch - should be called when click Search Button', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState({ productList });
 
-    //    await instance.handleExportExcel();
+        wrapper.find('Button').at(0).simulate('click');
 
-    //    expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, "currencyId": 0, "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
-    //    expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, "ABC");
-    //});
+        expect(defaultProps.setParam).toHaveBeenCalledWith({ baseCurrencyId: 20, currencyIds: '20', "monthDate": "12/1/2019", "productId": 0 });
+    });
 
-    //it('_getReportTitle - should call handleFormatMonthPicker', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    const instance = wrapper.instance();
-    //    instance.setState({ currencies: [{ Code: 'VND', ExchangeId: 0 }]});
-    //    instance.handleFormatMonthPicker = jest.fn(() => "ABC");
+    it('handleExportExcel - should call exportExcel', async() => {
+        const props = Object.assign({}, defaultProps, { exportExcel: jest.fn() })
+        const wrapper = shallow(<Filter {...props} />);
 
-    //    const result = instance._getReportTitle();
+        await wrapper.instance().handleExportExcel();
 
-    //    expect(result).toEqual("Player Detail - Base Currency VND - All Products - ABC");
-    //    expect(instance.handleFormatMonthPicker).toHaveBeenCalled();
-    //});
+        expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
+    });
 
-    //it('_getReportTitle - should call _getSelectedProductName and handleFormatMonthPicker', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    const instance = wrapper.instance();
-    //    instance.setState({ selectedProduct: 1, currencies: [{ Code: 'VND', ExchangeId: 0 }] });
-    //    instance._getSelectedProductName = jest.fn(() => "Sportsbook");
-    //    instance.handleFormatMonthPicker = jest.fn(() => "ABC");
+    it('handleExportExcel - should call exportExcel, _getReportTitle and ReportExcel', async() => {
+        const expectedResponse = { data: ['data 1', 'data 2'] };
+        const props = Object.assign({}, defaultProps, { exportExcel: jest.fn(() => expectedResponse.data) })
+        const wrapper = shallow(<Filter {...props} />);
+        const instance = wrapper.instance();
+        instance._getReportTitle = jest.fn(() => "ABC");
 
-    //    const result = instance._getReportTitle();
+        await instance.handleExportExcel();
 
-    //    expect(result).toEqual("Player Detail - Base Currency VND - Sportsbook - ABC");
-    //    expect(instance.handleFormatMonthPicker).toHaveBeenCalled();
-    //});
+        expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
+        expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, "ABC");
+    });
 
-    //it('_getSelectedProductName - should return correctly', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    wrapper.setState({ productList });
+    it('_getReportTitle - should call handleFormatMonthPicker', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState({ currencies: [{ Code: 'VND', ExchangeId: 0 }]});
+        instance.handleFormatMonthPicker = jest.fn(() => "ABC");
 
-    //    const result = wrapper.instance()._getSelectedProductName(1);
+        const result = instance._getReportTitle();
 
-    //    expect(result).toEqual("Sportsbook");
-    //});
+        expect(result).toEqual("Player Detail - Base Currency VND - All Products - ABC");
+        expect(instance.handleFormatMonthPicker).toHaveBeenCalled();
+    });
 
-    //it('_getSelectedProductName - should return empty', () => {
-    //    const wrapper = shallow(<Filter {...defaultProps} />);
-    //    wrapper.setState({ productList });
+    it('_getReportTitle - should call _getSelectedProductName and handleFormatMonthPicker', () => {
+        const props = Object.assign({}, defaultProps, { baseCurrencyList: null });
+        const wrapper = shallow(<Filter {...props} />);
+        const instance = wrapper.instance();
+        instance.setState({ selectedProduct: 1, currencies: [{ Code: 'VND', ExchangeId: 0 }] });
+        instance._getSelectedProductName = jest.fn(() => "Sportsbook");
+        instance.handleFormatMonthPicker = jest.fn(() => "ABC");
 
-    //    const result = wrapper.instance()._getSelectedProductName(2);
+        const result = instance._getReportTitle();
 
-    //    expect(result).toEqual("");
-    //});
+        expect(result).toEqual("Player Detail - Sportsbook - ABC");
+        expect(instance.handleFormatMonthPicker).toHaveBeenCalled();
+    });
+
+    it('_getSelectedProductName - should return correctly', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState({ productList });
+
+        const result = wrapper.instance()._getSelectedProductName(1);
+
+        expect(result).toEqual("Sportsbook");
+    });
+
+    it('_getSelectedProductName - should return empty', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState({ productList });
+
+        const result = wrapper.instance()._getSelectedProductName(2);
+
+        expect(result).toEqual("");
+    });
 });

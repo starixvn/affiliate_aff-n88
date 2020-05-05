@@ -99,7 +99,7 @@ export default class AppContainer extends PureComponent {
                             <p>Please sign in to continue to work</p>
                         </div>
                         {
-                            licenseeName.toLowerCase() === 'nova88' && <div class="switch-mode-theme">
+                            licenseeName === 'Nova88' && <div class="switch-mode-theme">
                                 <input type="checkbox" id="switch" onChange={this._handleChangeMode} /><label for="switch"></label>
                             </div>
                         }

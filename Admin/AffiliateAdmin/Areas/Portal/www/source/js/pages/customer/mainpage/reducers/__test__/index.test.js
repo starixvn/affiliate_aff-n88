@@ -8,11 +8,13 @@ describe('customer - mainpage reducer', () => {
             affInfo: {},
         },
         affCommonInfo: null,
+        baseCurrencyList: null,
         clickStatistics: {
             pagingOption: defaultPagingOption,
             param: {},
             selectedSiteUrl: null,
         },
+        currencyList: null,
         customerStatistics: {
             monthDate: null,
         },
@@ -30,6 +32,7 @@ describe('customer - mainpage reducer', () => {
             moreSiteUrlsList: null,
             userAccountInfo: null,
         },
+        isProduction: false,
         isShowLoaderUserPanel: false,
         landingPageStatistics: {
             pageList: [],
@@ -63,12 +66,12 @@ describe('customer - mainpage reducer', () => {
         playerDetail: {
             pagingOption: defaultPagingOption,
             param: {},
-            productList: [],
             sortingColumn: {
                 ColumnName: "Turnover",
                 IsSortAsc: false,
             }
         },
+        productList: null,
         selectedUserPanel: null,
         statementHistory: {
             expandMonthDateList: {},

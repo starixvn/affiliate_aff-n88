@@ -43,6 +43,46 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
     >
       <Label
         className="mr-sm-2"
+        for="BaseCurrency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          VND
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
         for="Currency"
         tag="label"
         widths={
@@ -61,8 +101,9 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
         dataSource={
           Array [
             Object {
-              "Code": "VND",
-              "ExchangeId": 0,
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
             },
           ]
         }
@@ -342,6 +383,46 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
     >
       <Label
         className="mr-sm-2"
+        for="BaseCurrency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          VND
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
         for="Currency"
         tag="label"
         widths={
@@ -360,8 +441,9 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
         dataSource={
           Array [
             Object {
-              "Code": "VND",
-              "ExchangeId": 0,
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
             },
           ]
         }

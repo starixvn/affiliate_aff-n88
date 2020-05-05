@@ -8,7 +8,7 @@ import * as utils from '../../../../modules/utils';
 describe('Login - components - AppContainer', () => {
     beforeEach(() => {
         window.initialState = jest.fn();
-        window.initialState.licenseeName = jest.fn(() => 'Bwing');
+        window.initialState.licenseeName = 'Nova88';
     })
 
     it('render correctly', () => {

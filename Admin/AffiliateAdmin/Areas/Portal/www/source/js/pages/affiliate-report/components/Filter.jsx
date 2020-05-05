@@ -314,7 +314,7 @@ export class Filter extends Component {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList &&
+                        !isProduction && currencyList && currencyList.length &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="Currency" className="mr-sm-2">{globalResource.Currency}</Label>
                             <MultipleSelect

@@ -39,6 +39,202 @@ exports[`players detail - components - Filter render correctly 1`] = `
         >
           All
         </option>
+        <option
+          key="1"
+          value={1}
+        >
+          Sportsbook
+        </option>
+        <option
+          key="4"
+          value={4}
+        >
+          Number Game
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-2"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          VND
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Currency
+      </Label>
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
+            },
+          ]
+        }
+        hasAllOption={true}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
+        onChange={[Function]}
+        statusField="checked"
+        valueField="name"
+      />
+    </FormGroup>
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Month
+      </Label>
+      <t
+        enable={true}
+        iconElement={
+          <span
+            className="oi oi-calendar icon-calendar ml-1"
+          />
+        }
+        isReadonly={true}
+        minMonth={1}
+        minYear={2020}
+        onFormat={[Function]}
+        onSelect={[Function]}
+        open={false}
+        selectedDropdownYear={2019}
+        selectedMonth={12}
+      />
+    </FormGroup>
+    <Button
+      color="primary"
+      onClick={[Function]}
+      outline={true}
+      tag="button"
+      type="button"
+    >
+      <span
+        className="oi oi-magnifying-glass"
+      />
+       
+      Search
+    </Button>
+    <Button
+      className="ml-auto btn-excel"
+      color="link"
+      onClick={[Function]}
+      tag="button"
+      title="Export Excel"
+      type="button"
+    >
+      <span
+        className="oi icon-excel"
+      />
+    </Button>
+  </Form>
+</div>
+`;
+
+exports[`players detail - components - Filter render correctly with empty 1`] = `
+<div
+  className="filter-container"
+>
+  <Form
+    inline={true}
+    tag="div"
+  >
+    <FormGroup
+      className="mr-sm-2"
+      tag="div"
+    >
+      <Label
+        className="mr-2"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Product
+      </Label>
+      <Input
+        id="Product"
+        name="Product"
+        onChange={[Function]}
+        type="select"
+        value={0}
+      >
+        <option
+          value="0"
+        >
+          All
+        </option>
       </Input>
     </FormGroup>
     <FormGroup

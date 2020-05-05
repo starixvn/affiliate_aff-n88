@@ -62,35 +62,6 @@ describe('user panel services', () => {
         expect(result).toEqual(null);
     })
 
-    it('getProductList - should return correct data', async () => {
-        const expectedResponse = {
-            data: [
-                { ProductId: 1, ProductName: "Sportsbook" },
-                { ProductId: 4, ProductName: "Number Game" },
-                { ProductId: 6, ProductName: "RNG Keno" },
-                { ProductId: 8, ProductName: "Lottery" }
-            ],
-            status: 200
-        };
-
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-        
-        const result = await services['getProductList']();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommonSetting/GetProductList');
-        expect(result).toEqual(expectedResponse.data);
-    })
-
-    it('getProductList - should return empty data', async () => {
-        ajaxRequest.post = jest.fn();
-
-        const result = await services['getProductList']();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommonSetting/GetProductList');
-
-        expect(result).toEqual([]);
-    })
-
     it('getPageList - should return correct data', async () => {
         const expectedResponse = {
             data: [

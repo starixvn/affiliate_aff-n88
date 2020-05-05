@@ -15,36 +15,15 @@ export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { today, param, baseCurrencyList, currencyList } = this.props;
-        const monthDate = param.isClickLink ? (param.monthDate || today) : today;
-        const newMonthDate = new Date(monthDate);
+        const { today, baseCurrencyList, currencyList } = this.props;
+        const monthDate = new Date(today);
 
         this.state = {
             selectedProduct: selectedAllProduct,
-            monthDate: newMonthDate,
+            monthDate,
             selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
             selectedCurrencyList: currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             currencyList
-        }
-    }
-
-    componentDidMount() {
-        if (this.props.param.isClickLink) {
-            const { monthDate } = this.state;
-            this.handleSearch(monthDate);
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        const { param, baseCurrencyList } = this.props;
-        if (param.isClickLink && param !== prevProps.param) {
-            const newMonthDate = new Date(param.monthDate);
-
-            this.setState({
-                monthDate: newMonthDate,
-                selectedProduct: selectedAllProduct,
-                selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency
-            }, () => this.handleSearch(newMonthDate));
         }
     }
 
@@ -123,7 +102,7 @@ export class Filter extends PureComponent {
         const selectedMonthTitle = this.handleFormatMonthPicker(monthDate.getMonth() + 1, monthDate.getFullYear());
         const currency = baseCurrencyList ? baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency) : [];
 
-        return `Player Detail - Base Currency ${currency[0] && currency[0].Code} - ${productTitle} - ${selectedMonthTitle}`;
+        return `Player Detail - ${currency[0] && `Base Currency ${currency[0].Code} - ` || ''}${productTitle} - ${selectedMonthTitle}`;
     }
 
     _getSelectedProductName(productId) {
@@ -167,7 +146,7 @@ export class Filter extends PureComponent {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList &&
+                        !isProduction && currencyList && currencyList.length &&
                         <FormGroup className="mr-sm-2">
                             <Label for="Currency" className="mr-2">{globalResource.Currency}</Label>
                             <MultipleSelect
