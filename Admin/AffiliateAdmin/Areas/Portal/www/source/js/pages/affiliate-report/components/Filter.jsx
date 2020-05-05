@@ -15,7 +15,7 @@ export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        const { today, baseCurrencyList } = this.props;
+        const { today, baseCurrencyList, currencyList } = this.props;
         this.now = new Date(today);
         const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
 
@@ -29,7 +29,7 @@ export class Filter extends Component {
             selectedProductList: allProduct,
             isGetAll: false,
             selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
-            selectedCurrencyList: ''
+            selectedCurrencyList: currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || ''
         }
 
         this.cachedMainReportParam = null;

@@ -23,7 +23,7 @@ export class Filter extends PureComponent {
             selectedProduct: selectedAllProduct,
             monthDate: newMonthDate,
             selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
-            selectedCurrencyList: '',
+            selectedCurrencyList: currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             currencyList
         }
     }

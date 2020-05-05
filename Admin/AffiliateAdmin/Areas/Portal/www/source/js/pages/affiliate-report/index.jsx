@@ -22,7 +22,7 @@ const newCurrencyList = currencyList.map(item => {
     return {
         key: item.ExchangeId,
         name: item.Code,
-        checked: false
+        checked: true
     };
 });
 

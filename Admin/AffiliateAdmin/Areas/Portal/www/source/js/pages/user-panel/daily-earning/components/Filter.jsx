@@ -18,7 +18,7 @@ export class Filter extends PureComponent {
         this.state = {
             selectedProduct: param.productId || selectedAllProduct,
             selectedBaseCurrency: param.currencyId || (baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId) || defaultBaseCurrency,
-            selectedCurrencyList: param.currencyIds || '',
+            selectedCurrencyList: param.currencyIds || currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
             currencyList: !!param.currencyIds ? handleChangeMultipleSelected(currencyList, param.currencyIds) : currencyList
         }
     }

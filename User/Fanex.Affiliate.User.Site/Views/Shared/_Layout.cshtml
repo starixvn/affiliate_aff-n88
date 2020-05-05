@@ -8,6 +8,8 @@
     var languageList = SystemLanguage.LanguageList.Where(l => !l.Code.Equals("en-GB") && !l.Code.Equals("es-ES"));
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
+    var isN8B = string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase);
+    var isN8G = string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase);
 }
 
 <!DOCTYPE html>
@@ -17,13 +19,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? siteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
+    @if (isN8B)
     {
         <link rel="icon" href="~/favicon-n8b.ico">
     }
     else
     {
-        if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+        if (isN8G)
         {
             <link rel="icon" href="~/favicon-n8g.ico">
         }
@@ -52,13 +54,13 @@
     }
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
+    @if (isN8B)
     {
         <link href="@Url.RenderLink("~/www/build/styles/css/n8b.css")" rel="stylesheet" />
     }
     else
     {
-        if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+        if (isN8G)
         {
             <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
         }
@@ -74,13 +76,13 @@
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
 
-                @if (string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
+                @if (isN8B)
                 {
                     <img src="~/www/build/styles/Images/themes/n8b.png" alt="logo" class="logo-image" />
                 }
                 else
                 {
-                    if (string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
+                    if (isN8G)
                     {
                         <img src="~/www/build/styles/Images/themes/n8g.png" alt="logo" class="logo-image" />
                     }
