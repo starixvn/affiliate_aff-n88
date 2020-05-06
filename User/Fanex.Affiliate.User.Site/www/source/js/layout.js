@@ -56,6 +56,8 @@ var Layout = (function ($) {
 
                 var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
 
+                _me.setCheckedForInput(mode);
+
                 var n88Link = $('#n88-link');
                 n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));
 
@@ -94,12 +96,23 @@ var Layout = (function ($) {
         handleSwitchMode: function () {
             var mode = getCookie("mode");
 
+            _me.setCheckedForInput(mode);
+
             var n88Link = $('#n88-link');
             n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${mode || 'lightmode'}.css`));
 
             if (!mode) {
                 document.cookie = "mode=lightmode; path=/";
             }
+        },
+
+        setCheckedForInput: function (mode) {
+            var isChecked = mode === "darkmode";
+            var inputDesktop = $('#switch-desktop');
+            var inputMobile = $('#switch-mobile');
+
+            inputDesktop.attr('checked', isChecked);
+            inputMobile.attr('checked', isChecked);
         },
         registerAjaxHandlerError: function () {
             $(document).ajaxError(function (event, jqXHR) {

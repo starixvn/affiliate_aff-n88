@@ -10,6 +10,7 @@
     var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
     var isN8B = string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase);
     var isN8G = string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase);
+    var isN88 = string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase);
 }
 
 <!DOCTYPE html>
@@ -95,7 +96,7 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
-                @if (string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase))
+                @if (isN88)
                 {
                     <div class="switch-mode-theme desktop">
                         <input type="checkbox" id="switch-desktop" /><label class="switch-desktop" for="switch-desktop"></label>
@@ -149,9 +150,12 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <div class="switch-mode-theme mobile">
-                                <input type="checkbox" id="switch-mobile" /><label for="switch-mobile"></label>
-                            </div>
+                            @if (isN88)
+                            {
+                                <div class="switch-mode-theme mobile">
+                                    <input type="checkbox" id="switch-mobile" /><label for="switch-mobile"></label>
+                                </div>
+                            }
                         </div>
                         <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
