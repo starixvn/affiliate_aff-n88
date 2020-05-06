@@ -120,7 +120,7 @@
             content: url(../assets/mode/lightmode.svg);
             position: absolute;
             top: 2px;
-            left: 6px;
+            left: 4px;
             transition: 0.3s;
             width: 19px;
             height: 19px;
@@ -132,7 +132,7 @@
         }
 
         input:checked + label:after {
-            left: calc(100% - 5px);
+            left: calc(100% - 4px);
             transform: translateX(-100%);
             background: #0A0A0A;
             content: url(../assets/mode/darkmode.svg);

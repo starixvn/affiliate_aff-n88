@@ -81,10 +81,12 @@ $modal-header-color: #fff;
 
 // Home page
 $home-page-bg-color: #a3a3a3;
-$home-card-content-bg-color: rgba(255,255,255,.2);
-$home-card-content-border-color: #fff;
-$home-card-title-color: #2b2b2b;
-$home-card-content-color: #212121;
+$home-card-content-bg-color: #1A1A1A;
+$home-card-header-content-bg-color: $dark-mode-bg;
+$home-card-content-border-color: #000;
+$home-card-title-color: #fff;
+$home-card-content-color: #fff;
+$news-bg-color: #1F2022;
 
 // Contact Us page
 $date-time-info: #3f4f66;
