@@ -68,7 +68,7 @@ export class Filter extends PureComponent {
                         </Input>
                     </FormGroup>
                     {
-                        baseCurrencyList && baseCurrencyList.length &&
+                        baseCurrencyList && baseCurrencyList.length !== 0 &&
                         <FormGroup className="mr-sm-2">
                             <Label className="mr-2">{globalResource.BaseCurrency}</Label>
                             <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeCurrency}>
@@ -84,7 +84,7 @@ export class Filter extends PureComponent {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList && currencyList.length &&
+                        !isProduction && currencyList && currencyList.length !== 0 &&
                         <FormGroup className="mr-sm-2">
                             <Label for="Currency" className="mr-2">{globalResource.Currency}</Label>
                             <MultipleSelect

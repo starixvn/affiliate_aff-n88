@@ -298,7 +298,7 @@ export class Filter extends Component {
                                     value={userName} />
                     </FormGroup>
                     {
-                        baseCurrencyList && baseCurrencyList.length &&
+                        baseCurrencyList && baseCurrencyList.length !== 0 &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="BaseCurrency" className="mr-sm-2">{globalResource.BaseCurrency}</Label>
                             <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeBaseCurrency}>
@@ -314,7 +314,7 @@ export class Filter extends Component {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList && currencyList.length &&
+                        !isProduction && currencyList && currencyList.length !== 0 &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <Label for="Currency" className="mr-sm-2">{globalResource.Currency}</Label>
                             <MultipleSelect
