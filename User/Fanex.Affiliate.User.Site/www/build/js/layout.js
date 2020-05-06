@@ -1,6 +1,5 @@
 var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
-    var isLightMode = false;
 
     function initSlider() {
         var $mainBanner = $('#mainBanner');
@@ -23,9 +22,26 @@ var Layout = (function ($) {
         }
     }
 
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
     var _me = {
         initialize: function () {
             initSlider();
+            _me.handleSwitchMode();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
@@ -36,11 +52,14 @@ var Layout = (function ($) {
             });
 
             $(".switch-mode-theme").on("click", ".switch-desktop", function () {
+                var mode = getCookie("mode");
+
+                var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
+
                 var n88Link = $('#n88-link');
+                n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));
 
-                n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${isLightMode ? 'lightmode' : 'darkmode'}.css`));
-
-                isLightMode = !isLightMode;
+                document.cookie = "mode=" + newMode + "; path=/";
             });
 
             $("#languageList").on("click", ".language-item", function () {
@@ -71,6 +90,16 @@ var Layout = (function ($) {
                     $('#moveToTop').fadeOut(200);
                 }
             });
+        },
+        handleSwitchMode: function () {
+            var mode = getCookie("mode");
+
+            var n88Link = $('#n88-link');
+            n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${mode || 'lightmode'}.css`));
+
+            if (!mode) {
+                document.cookie = "mode=lightmode; path=/";
+            }
         },
         registerAjaxHandlerError: function () {
             $(document).ajaxError(function (event, jqXHR) {

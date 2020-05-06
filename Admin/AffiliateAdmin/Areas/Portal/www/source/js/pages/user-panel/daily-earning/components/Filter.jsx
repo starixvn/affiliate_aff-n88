@@ -72,7 +72,7 @@ export class Filter extends PureComponent {
                         baseCurrencyList && baseCurrencyList.length !== 0 &&
                         <FormGroup className="mr-sm-2">
                             <Label className="mr-2">{globalResource.BaseCurrency}</Label>
-                            <Input type="select" name="Currrency" id="Currrency" value={selectedBaseCurrency} onChange={this.handleChangeCurrency}>
+                            <Input type="select" name="Currrency" id="Currrency" value={selectedBaseCurrency} onChange={this.handleChangeBaseCurrency}>
                                 {
                                     baseCurrencyList.map(c => {
                                         return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
