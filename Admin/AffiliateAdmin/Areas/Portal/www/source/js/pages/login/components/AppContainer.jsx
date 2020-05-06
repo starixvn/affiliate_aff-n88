@@ -2,7 +2,7 @@
 import { Alert, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { post } from '../../../modules/ajaxRequest';
-import { resolveClientUrl, changeMode } from '../../../modules/utils';
+import { resolveClientUrl, changeMode, renderMode } from '../../../modules/utils';
 
 export default class AppContainer extends PureComponent {
     constructor(props) {
@@ -17,6 +17,12 @@ export default class AppContainer extends PureComponent {
             year: now.getFullYear(),
             isLightMode: true
         }
+    }
+
+    componentDidMount() {
+        const isLightMode = renderMode();
+
+        this.setState({ isLightMode });
     }
 
     _handleShowAlert = (isSuccess, message) => {
@@ -79,14 +85,15 @@ export default class AppContainer extends PureComponent {
     }
 
     _handleChangeMode = () => {
+        console.log("click");
         const { isLightMode } = this.state;
 
-        changeMode(!isLightMode);
+        changeMode(isLightMode);
         this.setState({ isLightMode: !isLightMode });
     }
 
     render() {
-        const { userName, password, isShowMessage, message, year } = this.state;
+        const { userName, password, isShowMessage, message, year, isLightMode } = this.state;
         const { licenseeName } = window.initialState;
 
         return (
@@ -100,7 +107,7 @@ export default class AppContainer extends PureComponent {
                         </div>
                         {
                             licenseeName === 'Nova88' && <div class="switch-mode-theme">
-                                <input type="checkbox" id="switch" onChange={this._handleChangeMode} /><label for="switch"></label>
+                                <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label for="switch"></label>
                             </div>
                         }
                     </div>

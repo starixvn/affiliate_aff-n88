@@ -4,10 +4,42 @@ export const resolveClientUrl = (relativeUrl) => {
     return _rootUrl + relativeUrl;
 }
 
-export const changeMode = (isLightMode) => {
-    const n88Link = document.getElementById('n88-link');
+const getCookie = (cname) => {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-    n88Link.setAttribute('href', resolveClientUrl(`Areas/Portal/www/dist/style/N88-${isLightMode ? 'lightmode' : 'darkmode'}.css`))
+export const renderMode = () => {
+    const mode = getCookie("mode");
+
+    const n88Link = document.getElementById('n88-link');
+    n88Link && n88Link.setAttribute('href', resolveClientUrl(`Areas/Portal/www/dist/style/N88-${mode || 'lightmode'}.css`));
+
+    if (!mode) {
+        document.cookie = "mode=lightmode; path=/";
+    }
+
+    return !(mode === 'darkmode');
+}
+
+export const changeMode = (isLightMode) => {
+    const mode = isLightMode ? 'darkmode' : 'lightmode';
+
+    const n88Link = document.getElementById('n88-link');
+    n88Link && n88Link.setAttribute('href', resolveClientUrl(`Areas/Portal/www/dist/style/N88-${mode}.css`));
+
+    document.cookie = "mode=" + mode + "; path=/";
 }
 
 export const formatUnit = (value) => {
