@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 
-import { globalResource, resource } from '../libs/constants';
+import { globalResource, defaultBaseCurrency } from '../libs/constants';
 import { setParam } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
@@ -11,19 +11,15 @@ export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { param } = this.props;
+        const { currencyList } = this.props;
 
         this.state = {
-            selectedCurrency: param.currencyId || resource.NoSelectedCurrency
+            selectedCurrency: (currencyList && currencyList.length && currencyList[0].ExchangeId) || defaultBaseCurrency
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        const currentSelectedCurrency = this.state.selectedCurrency;
-        if (nextProps.currencyList && nextProps.currencyList.length && !this.props.currencyList.length) {
-            const selectedCurrency = currentSelectedCurrency === resource.NoSelectedCurrency ? nextProps.currencyList[0].ExchangeId : currentSelectedCurrency;
-            this.setState({ selectedCurrency }, this.handleSetParam);
-        }
+    componentDidMount() {
+        this.handleSetParam();
     }
 
     handleChangeCurrency = (event) => {

@@ -1,6 +1,8 @@
 ﻿body {
   color: #fff;
   background: #1E1F21; }
+  body .pager-container {
+    color: #FF8660; }
 
 .header-top {
   background: #282828; }
@@ -43,7 +45,7 @@
     .hot-news .message:before {
       border-color: #080308 #080308 #080308 transparent; }
     .hot-news .message .marquee-content a {
-      color: #ff8660 !important; }
+      color: #FF8660 !important; }
 
 .page-title {
   background: #1E1F21;

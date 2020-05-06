@@ -1,6 +1,7 @@
 ﻿@using Fanex.Affiliate.Admin.Core.Configurations;
 @{
     var appSetting = DependencyResolver.Current.GetService<IAppSetting>();
+    var siteName = appSetting.SiteName;
 }
 <!DOCTYPE html>
 
@@ -12,21 +13,7 @@
     <link href="~/Areas/Portal/www/dist/vendors/bootstrap.css?v=4.3.1" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/portalmain.css")" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/layout.css")" rel="stylesheet" />
-    @if (string.Equals(appSetting.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
-    {
-        <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N8B.css")" rel="stylesheet" />
-    }
-    else
-    {
-        if (string.Equals(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
-        {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N8G.css")" rel="stylesheet" />
-        }
-        else
-        {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N88.css")" rel="stylesheet" />
-        }
-    }
+    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/"+siteName+".css")" rel="stylesheet" />
 
     @RenderSection("vendorcss", required: false)
     <title>Affiliate Admin</title>

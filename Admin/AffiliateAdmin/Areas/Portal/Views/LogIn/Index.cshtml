@@ -13,20 +13,13 @@
     <base href="@Url.Content("~")" />
     <link href="~/Areas/Portal/www/dist/vendors/bootstrap.css?v=4.3.1" rel="stylesheet" />
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/login.css")" rel="stylesheet" />
-    @if (string.Equals(appSetting.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
+    @if (string.Equals(appSetting.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase))
     {
-        <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N8B.css")" rel="stylesheet" />
+        <link id="n88-link" rel="stylesheet" />
     }
     else
     {
-        if (string.Equals(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
-        {
-            <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N8G.css")" rel="stylesheet" />
-        }
-        else
-        {
-            <link id="n88-link" href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/N88-lightmode.css")" rel="stylesheet" />
-        }
+        <link href="@Url.VersionedLink("~/www/build/styles/css/" + appSetting.SiteName + ".css")" rel="stylesheet" />
     }
 
 </head>

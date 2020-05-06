@@ -41,7 +41,7 @@ var Layout = (function ($) {
     var _me = {
         initialize: function () {
             initSlider();
-            _me.handleSwitchMode();
+            _me.renderMode();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
@@ -51,17 +51,12 @@ var Layout = (function ($) {
                 $(this).focus();
             });
 
-            $(".switch-mode-theme").on("click", ".switch-desktop", function () {
-                var mode = getCookie("mode");
+            $(".desktop").on("click", ".switch-desktop", function () {
+                _me.handleSwitchMode();
+            });
 
-                var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
-
-                _me.setCheckedForInput(mode);
-
-                var n88Link = $('#n88-link');
-                n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));
-
-                document.cookie = "mode=" + newMode + "; path=/";
+            $(".mobile").on("click", ".switch-mobile", function () {
+                _me.handleSwitchMode();
             });
 
             $("#languageList").on("click", ".language-item", function () {
@@ -93,7 +88,7 @@ var Layout = (function ($) {
                 }
             });
         },
-        handleSwitchMode: function () {
+        renderMode: function () {
             var mode = getCookie("mode");
 
             _me.setCheckedForInput(mode);
@@ -104,6 +99,18 @@ var Layout = (function ($) {
             if (!mode) {
                 document.cookie = "mode=lightmode; path=/";
             }
+        },
+        handleSwitchMode: function () {
+            var mode = getCookie("mode");
+
+            var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
+
+            _me.setCheckedForInput(mode);
+
+            var n88Link = $('#n88-link');
+            n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));
+
+            document.cookie = "mode=" + newMode + "; path=/";
         },
 
         setCheckedForInput: function (mode) {

@@ -8,8 +8,7 @@
     var languageList = SystemLanguage.LanguageList.Where(l => !l.Code.Equals("en-GB") && !l.Code.Equals("es-ES"));
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
-    var isN8B = string.Equals(settingService.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase);
-    var isN8G = string.Equals(settingService.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase);
+    var siteName = settingService.SiteName.ToLower();
     var isN88 = string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase);
 }
 
@@ -20,21 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? siteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    @if (isN8B)
-    {
-        <link rel="icon" href="~/favicon-n8b.ico">
-    }
-    else
-    {
-        if (isN8G)
-        {
-            <link rel="icon" href="~/favicon-n8g.ico">
-        }
-        else
-        {
-            <link rel="icon" href="~/favicon-n88.ico">
-        }
-    }
+    <link rel="icon" href=@("~/favicon-" + siteName + ".ico")>
 
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
@@ -55,20 +40,13 @@
     }
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    @if (isN8B)
+    @if (isN88)
     {
-        <link href="@Url.RenderLink("~/www/build/styles/css/n8b.css")" rel="stylesheet" />
+        <link id="n88-link" rel="stylesheet" />
     }
     else
     {
-        if (isN8G)
-        {
-            <link href="@Url.RenderLink("~/www/build/styles/css/n8g.css")" rel="stylesheet" />
-        }
-        else
-        {
-            <link id="n88-link" rel="stylesheet" />
-        }
+        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
     }
     @RenderSection("styles", required: false)
 </head>
@@ -76,22 +54,7 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-
-                @if (isN8B)
-                {
-                    <img src="~/www/build/styles/Images/themes/n8b.png" alt="logo" class="logo-image" />
-                }
-                else
-                {
-                    if (isN8G)
-                    {
-                        <img src="~/www/build/styles/Images/themes/n8g.png" alt="logo" class="logo-image" />
-                    }
-                    else
-                    {
-                        <img src="~/www/build/styles/Images/themes/n88.png" alt="logo" class="logo-image" />
-                    }
-                }
+            <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">

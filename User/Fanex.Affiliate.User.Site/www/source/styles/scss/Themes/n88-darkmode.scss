@@ -3,6 +3,10 @@
 body {
     color: $text-color;
     background: $bg-main-color;
+
+    .pager-container {
+        color: $text-color-high-light;
+    }
 }
 
 // Header
@@ -75,7 +79,7 @@ body {
         }
 
         .marquee-content a {
-            color: #ff8660 !important;
+            color: $text-color-high-light !important;
         }
     }
 }
