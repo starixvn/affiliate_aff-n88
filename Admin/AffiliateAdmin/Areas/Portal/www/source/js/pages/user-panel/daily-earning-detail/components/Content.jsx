@@ -58,7 +58,7 @@ export class Content extends PureComponent {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const isTotalRow = dataList.length === 1 && !dataList[0].IbcUserName;
+            const isTotalRow = dataList.length === 1 && !dataList[0].UserName;
 
             if (isTotalRow) {
                 dataList[0].IbcUserName = resource.Total;
