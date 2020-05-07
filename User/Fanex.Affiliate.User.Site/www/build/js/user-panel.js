@@ -1,17 +1,19 @@
+﻿'use strict';
+
 var SUPPORT_MIN_WITDH = 716;
 var SUB_MENU_HEIGHT = 43;
 var DETAILS_SECTION_MENU_HEIGHT = 33;
 
 function handleSetTop() {
-    let headerHeight = $('#overview-table-header').height();
-    $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight}px` });
+    var headerHeight = $('#overview-table-header').height();
+    $('#overview-table-total > th').css({ top: SUB_MENU_HEIGHT + headerHeight + 'px' });
 }
 
 function handleScroll() {
     if (window.innerWidth < SUPPORT_MIN_WITDH) {
         $("#details-section-menu").removeClass("details-section-sticky");
     } else {
-        let stickyPoint = $("#details-section").offset().top;
+        var stickyPoint = $("#details-section").offset().top;
 
         if (window.pageYOffset >= stickyPoint) {
             $("#details-section-menu").addClass("details-section-sticky");
@@ -24,38 +26,36 @@ function handleScroll() {
 
 function handleResize() {
     handleScroll();
-    handleSetTop()
+    handleSetTop();
 }
 
 var UserPanel = (function ($) {
     var DEFAULT_ACTION = 'AccountOverview';
-    var allowedActionList = ["AccountOverview", "StatementHistory", "MyAccount", "PaymentRequest",
-        "TrackingStatistics", "ReferrersStatistics", "LandingPageStatistics", "SubAffEarning",
-        "DailyEarning", "DailyEarningDetail", "BetList", "MessageHistory", "CommissionReport"];
+    var allowedActionList = ["AccountOverview", "StatementHistory", "MyAccount", "PaymentRequest", "TrackingStatistics", "ReferrersStatistics", "LandingPageStatistics", "SubAffEarning", "DailyEarning", "DailyEarningDetail", "BetList", "MessageHistory", "CommissionReport"];
 
     var _ajaxRequest = null;
 
     var _me = {
         datepicker: [],
-        initialize: function () {
+        initialize: function initialize() {
             _me.renderView();
             UserPanel.initEvent();
         },
 
-        initEvent: function () {
+        initEvent: function initEvent() {
             $(window).on('hashchange', function (event) {
                 event.stopPropagation();
                 _me.renderView();
             });
         },
 
-        activeMenu: function (actionName) {
+        activeMenu: function activeMenu(actionName) {
             var activeClassName = "active";
             $("#mainMenu .menu-item").removeClass(activeClassName);
             $("#menu" + actionName).addClass(activeClassName);
         },
 
-        renderView: function () {
+        renderView: function renderView() {
             _me.clearEventListener();
             $("#mainPanel").html("");
             var actionUrl = _me.getActionUrl(false);
@@ -73,19 +73,19 @@ var UserPanel = (function ($) {
                 dataType: "html",
                 cache: false,
                 url: url,
-                success: function (response) {
+                success: function success(response) {
                     $("#mainPanel").html(response);
                 },
-                beforeSend: function () {
+                beforeSend: function beforeSend() {
                     Site.showLoader();
                 },
-                complete: function () {
+                complete: function complete() {
                     Site.hideLoader();
                 }
             });
         },
 
-        clearEventListener: function(){
+        clearEventListener: function clearEventListener() {
             $("#mainPanel *").off();
             if (_me.datepicker) {
                 for (var i = 0; i < _me.datepicker.length; i++) {
@@ -100,7 +100,7 @@ var UserPanel = (function ($) {
             window.removeEventListener("resize", handleResize);
         },
 
-        getActionUrl: function (onlyAction) {
+        getActionUrl: function getActionUrl(onlyAction) {
             var hash = window.location.hash;
             var actionUrl = hash.split('#')[1];
             if (!actionUrl) {
@@ -114,7 +114,7 @@ var UserPanel = (function ($) {
                 actionName = DEFAULT_ACTION;
             }
 
-            var queryString = (!onlyAction && urlPartList[1]) ? '?' + urlPartList[1] : '';
+            var queryString = !onlyAction && urlPartList[1] ? '?' + urlPartList[1] : '';
 
             return actionName + queryString;
         }
@@ -124,3 +124,4 @@ var UserPanel = (function ($) {
 })(jQuery);
 
 UserPanel.initialize();
+

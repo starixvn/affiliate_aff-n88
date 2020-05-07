@@ -9,10 +9,12 @@
     var userSession = sessionService.UserSession;
 }
 
-@model string
+@model Fanex.Affiliate.User.Core.ViewModels.PopupViewModel
 @{
-    var viewName = "~/Views/TermAndCondition/_Content." + Model + ".cshtml";
+    var viewName = "~/Views/TermAndCondition/_Content." + Model.CurrentLanguage + ".cshtml";
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
+    var siteName = AppSetting.Instance.SiteName.ToLower();
+    var isN88 = string.Equals(siteName, "N88", StringComparison.CurrentCultureIgnoreCase);
 }
 
 <!DOCTYPE html>
@@ -33,6 +35,14 @@
         <link href="@Url.RenderLink("~/www/build/styles/fonts/Montserrat/font.css")" rel="stylesheet" />
     }
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
+    @if (isN88)
+    {
+        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName +"-" + Model.Mode + ".css")" rel="stylesheet" />
+    }
+    else
+    {
+        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
+    }
 </head>
 <body>
     <div class="main-container">

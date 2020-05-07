@@ -4,6 +4,8 @@ import { Alert, Form, FormGroup, Label, Input } from 'reactstrap';
 import { post } from '../../../modules/ajaxRequest';
 import { resolveClientUrl, changeMode, renderMode } from '../../../modules/utils';
 
+const nova88 = 'Nova88';
+
 export default class AppContainer extends PureComponent {
     constructor(props) {
         super(props);
@@ -15,14 +17,17 @@ export default class AppContainer extends PureComponent {
             isShowMessage: false,
             message: '',
             year: now.getFullYear(),
-            isLightMode: true
+            isLightMode: true,
+            isClicked: false
         }
     }
 
     componentDidMount() {
-        const isLightMode = renderMode();
+        if (window.initialState.licenseeName === nova88) {
+            const isLightMode = renderMode();
 
-        this.setState({ isLightMode });
+            this.setState({ isLightMode });
+        }
     }
 
     _handleShowAlert = (isSuccess, message) => {
@@ -48,7 +53,11 @@ export default class AppContainer extends PureComponent {
         this._handleShowAlert(false, !isValidUserName ? 'User Name is empty. Please check!' : 'Password is empty. Please check!');
         return false;
     }
-    _handleLogin = async () => {
+    _handleLogin = () => {
+        this.setState({ isClicked: true }, this._login);
+    }
+
+    _login = async () => {
         const { userName, password } = this.state;
 
         const isValidAccount = this._validateAccount(userName, password);
@@ -69,6 +78,8 @@ export default class AppContainer extends PureComponent {
                 this._handleShowAlert(false, "An error occurred while processing your request");
             }
         }
+
+        this.setState({ isClicked: false });
     }
 
     _handlePressEnter = (event) => {
@@ -85,7 +96,6 @@ export default class AppContainer extends PureComponent {
     }
 
     _handleChangeMode = () => {
-        console.log("click");
         const { isLightMode } = this.state;
 
         changeMode(isLightMode);
@@ -93,7 +103,7 @@ export default class AppContainer extends PureComponent {
     }
 
     render() {
-        const { userName, password, isShowMessage, message, year, isLightMode } = this.state;
+        const { userName, password, isShowMessage, message, year, isLightMode, isClicked } = this.state;
         const { licenseeName } = window.initialState;
 
         return (
@@ -106,7 +116,7 @@ export default class AppContainer extends PureComponent {
                             <p>Please sign in to continue to work</p>
                         </div>
                         {
-                            licenseeName === 'Nova88' && <div class="switch-mode-theme">
+                            licenseeName === nova88 && <div class="switch-mode-theme">
                                 <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label for="switch"></label>
                             </div>
                         }
@@ -137,13 +147,13 @@ export default class AppContainer extends PureComponent {
                         </FormGroup>
 
                         <div className="bt">
-                            <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
+                            <a href="javascript:;" class="bt-login" onClick={!isClicked && this._handleLogin} >Log On</a>
                         </div>
                     </Form>
                 </div>
 
                 <div className="foot">
-                    <span className="foot-rp">{`© Copyright ${year} ${licenseeName}`}</span>
+                    <span className="foot-rp">{`© Copyright ${year} ${licenseeName}. All Rights Reserved | 21+`}</span>
                 </div>
             </div>
         )

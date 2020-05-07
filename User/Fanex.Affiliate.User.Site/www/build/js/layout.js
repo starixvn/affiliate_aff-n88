@@ -22,26 +22,10 @@ var Layout = (function ($) {
         }
     }
 
-    function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-
     var _me = {
         initialize: function () {
             initSlider();
-            _me.renderMode();
+            Site.isN88 && _me.renderMode();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
@@ -89,7 +73,7 @@ var Layout = (function ($) {
             });
         },
         renderMode: function () {
-            var mode = getCookie("mode");
+            var mode = Site.getCookie("mode");
 
             _me.setCheckedForInput(mode);
 
@@ -101,7 +85,7 @@ var Layout = (function ($) {
             }
         },
         handleSwitchMode: function () {
-            var mode = getCookie("mode");
+            var mode = Site.getCookie("mode");
 
             var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
 

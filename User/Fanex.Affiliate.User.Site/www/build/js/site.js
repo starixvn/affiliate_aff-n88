@@ -39,7 +39,23 @@ var Site = (function ($) {
             $result.toggleClass("alert-danger", !isSuccess);
             $result.html(message);
             $result.show();
-        }
+        },
+        getCookie: function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        },
+        isN88: $("#SiteName").val() === 'n88'
     };
 
     return _me;

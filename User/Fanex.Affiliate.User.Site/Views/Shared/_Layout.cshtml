@@ -7,7 +7,7 @@
     var userSession = sessionService.UserSession;
     var languageList = SystemLanguage.LanguageList.Where(l => !l.Code.Equals("en-GB") && !l.Code.Equals("es-ES"));
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
-    var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
+    var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
     var isN88 = string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase);
 }
@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? siteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    <link rel="icon" href=@("~/favicon-" + siteName + ".ico")>
+    <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
 
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
@@ -54,7 +54,7 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-            <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
+                <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
@@ -169,35 +169,35 @@
 
     <div class="footer">
         @*<div class="footer-img">
-            <div class="img-top">
-                <a class="item">
-                    <img src="~/www/build/styles/Images/footer/cr-westbrom.png" alt="sponsors" />
-                </a>
-            </div>
-            <div class="img-bottom">
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-21.png")" alt="cr-21-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-gamleaware.png")" alt="cr-gamleaware-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-pagcor.png")" alt="cr-cagayan-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-tst.png")" alt="cr-tst-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-thawte.png")" alt="cr-thawte-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-playtech.png")" alt="cr-playtech-logo" />
-                </a>
-                <a class="item">
-                    <img src="@Url.Content("~/www/build/styles/Images/footer/cr-safe&secure.png")" alt="cr-safe&secure-logo" />
-                </a>
-            </div>
-        </div>*@
+                <div class="img-top">
+                    <a class="item">
+                        <img src="~/www/build/styles/Images/footer/cr-westbrom.png" alt="sponsors" />
+                    </a>
+                </div>
+                <div class="img-bottom">
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-21.png")" alt="cr-21-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-gamleaware.png")" alt="cr-gamleaware-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-pagcor.png")" alt="cr-cagayan-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-tst.png")" alt="cr-tst-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-thawte.png")" alt="cr-thawte-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-playtech.png")" alt="cr-playtech-logo" />
+                    </a>
+                    <a class="item">
+                        <img src="@Url.Content("~/www/build/styles/Images/footer/cr-safe&secure.png")" alt="cr-safe&secure-logo" />
+                    </a>
+                </div>
+            </div>*@
         <div class="footer-text">
             @SiteFriendlyNameHelper.Replace12Bet(Lang.Copyright)
         </div>
@@ -219,6 +219,7 @@
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@sessionService.CurrentLanguage" />
+    <input type="hidden" id="SiteName" value="@siteName" />
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>

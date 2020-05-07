@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                     while (reader.Read())
                     {
                         dataList.Add(new MemberInfo {
-                            MemberId = Convert.ToInt32(reader["IBCCustID"]),
+                            MemberId = Convert.ToInt32(reader["CustID"]),
                             UserName = Convert.ToString(reader["UserName"]),
                             IbcUserName = Convert.ToString(reader["IBCUserName"]),
                             FirstName =  Convert.ToString(reader["FirstName"]),
@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("ibccustid", DbType.Int32, param.MemberId);
+                objectDb.AddInParameter("custid", DbType.Int32, param.MemberId);
                 objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
                 objectDb.AddInParameter("IP", DbType.String, param.Ip);
 

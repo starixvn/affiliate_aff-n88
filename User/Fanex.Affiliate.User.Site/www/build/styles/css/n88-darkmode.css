@@ -1,8 +1,20 @@
 ﻿body {
   color: #fff;
   background: #1E1F21; }
+  body input, body select, body textarea, body .marketing-action, body .pager-container, body .banner-control, body .custom-panel, body .languages-item {
+    background: #282828 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important; }
   body .pager-container {
-    color: #FF8660; }
+    color: #FF8660 !important; }
+    body .pager-container select {
+      color: #FF8660 !important; }
+    body .pager-container .icon {
+      color: #fff; }
+    body .pager-container .disable {
+      color: #4c6375; }
+    body .pager-container a:focus {
+      outline: none; }
 
 .header-top {
   background: #282828; }
@@ -26,11 +38,6 @@
     color: #FFFFFF; }
     .navbar .menu .menu-item:hover, .navbar .menu .menu-item:focus, .navbar .menu .menu-item.active {
       color: #FF6D3E; }
-
-.user-login .text-field {
-  background: #fff;
-  border: 1px solid #000;
-  color: #000; }
 
 .hot-news {
   background: rgba(255, 174, 128, 0.5); }
@@ -83,10 +90,29 @@
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: 1px solid #000; }
 
+#dataTable td {
+  background: #191919;
+  color: #fff; }
+
+#dataTable .sumrow td {
+  background: #282828; }
+
+#dataTable .total td {
+  background: #000000; }
+
 .login-dialog .modal-header {
   background-color: #282828;
   color: #fff;
   border-bottom: none; }
+
+.login-dialog .btn-signup {
+  border: 1px solid #000; }
+
+.login-dialog .modal-main-content {
+  background-color: #1A1A1A; }
+  .login-dialog .modal-main-content #dialogUserInput .form-control {
+    background-color: #282828;
+    border: 1px solid #000; }
 
 .form-control {
   border: 1px solid #adadad; }
@@ -223,28 +249,23 @@
   background: #282828;
   color: #fff; }
 
-.login-dialog .btn-signup {
-  border: 1px solid #000; }
+.user-login .text-field::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #fff; }
 
-.user-login .text-field {
-  background: #282828;
-  color: #fff;
-  border: 1px solid #000; }
-  .user-login .text-field::-webkit-input-placeholder {
+.user-login .text-field::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #fff; }
+
+.user-login .text-field.validation {
+  color: #FF6D3E;
+  font-weight: 500; }
+  .user-login .text-field.validation::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: #fff; }
-  .user-login .text-field::-moz-placeholder {
+    color: #FF6D3E; }
+  .user-login .text-field.validation::-moz-placeholder {
     /* Firefox 19+ */
-    color: #fff; }
-  .user-login .text-field.validation {
-    color: #FF6D3E;
-    font-weight: 500; }
-    .user-login .text-field.validation::-webkit-input-placeholder {
-      /* Chrome/Opera/Safari */
-      color: #FF6D3E; }
-    .user-login .text-field.validation::-moz-placeholder {
-      /* Firefox 19+ */
-      color: #FF6D3E; }
+    color: #FF6D3E; }
 
 .summary-content .details-section-content .table table tr:nth-child(even) {
   background-color: #2E2E2E !important; }
@@ -300,12 +321,6 @@
     transform: translateX(-100%);
     background: #0A0A0A;
     content: url("../../../source/styles/Images/mode/darkmode.svg"); }
-
-.login-dialog .modal-main-content {
-  background-color: #1A1A1A; }
-  .login-dialog .modal-main-content #dialogUserInput .form-control {
-    background-color: #282828;
-    border: 1px solid #000; }
 
 .webp .adv-contact.N88 {
   background-image: url(../../../source/styles/Images/adv-contact/n88/bg-adv_contact.webp); }

@@ -105,7 +105,7 @@ describe('Login - components - AppContainer', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isShowMessage: false });
     });
 
-    it('_handleLogin - should call _validateAccount, post and _handleShowAlert', async () => {
+    it('_login - should call _validateAccount, post and _handleShowAlert', async () => {
         const expectedResult = { data: { Message: "Wrong user name or password" }};
         const wrapper = shallow(<AppContainer />);
         wrapper.setState({ userName: 'abc', password: '123'});
@@ -117,14 +117,14 @@ describe('Login - components - AppContainer', () => {
         instance._handleShowAlert = jest.fn();
         ajaxRequest.post = jest.fn(() => expectedResult);
 
-        await instance._handleLogin();
+        await instance._login();
 
         expect(instance._validateAccount).toHaveBeenCalledWith('abc', '123');
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Auth/Login', { "password": "123", "userName": "abc" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Wrong user name or password");
     });
 
-    it('_handleLogin - should call _validateAccount, post and resolveClientUrl with Portal/Home', async () => {
+    it('_login - should call _validateAccount, post and resolveClientUrl with Portal/Home', async () => {
         const expectedResult = { data: { IsSuccessful: true, Message: "OK" }};
         const wrapper = shallow(<AppContainer />);
         wrapper.setState({ userName: 'sa', password: '1234aa'});
@@ -136,14 +136,14 @@ describe('Login - components - AppContainer', () => {
         utils.resolveClientUrl = jest.fn();
         ajaxRequest.post = jest.fn(() => expectedResult);
 
-        await instance._handleLogin();
+        await instance._login();
 
         expect(instance._validateAccount).toHaveBeenCalledWith('sa', '1234aa');
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Auth/Login', { "password": "1234aa", "userName": "sa" });
         expect(utils.resolveClientUrl).toHaveBeenCalledWith("Portal/Home");
     });
 
-    it('_handleLogin - should call _validateAccount, post and _handleShowAlert with response is error', async () => {
+    it('_login - should call _validateAccount, post and _handleShowAlert with response is error', async () => {
         const wrapper = shallow(<AppContainer />);
         wrapper.setState({ userName: 'sa', password: '1234aa'});
 
@@ -152,23 +152,32 @@ describe('Login - components - AppContainer', () => {
         instance._handleShowAlert = jest.fn();
         ajaxRequest.post = jest.fn(() => null);
 
-        await instance._handleLogin();
+        await instance._login();
 
         expect(instance._validateAccount).toHaveBeenCalledWith('sa', '1234aa');
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Auth/Login', { "password": "1234aa", "userName": "sa" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "An error occurred while processing your request");
     });
 
-    it('_handleLogin - should only call _validateAccount', async () => {
+    it('_login - should only call _validateAccount', async () => {
         const wrapper = shallow(<AppContainer />);
         wrapper.setState({ userName: '', password: '1234aa'});
 
         const instance = wrapper.instance();
         instance._validateAccount = jest.fn(() => false);
 
-        await instance._handleLogin();
+        await instance._login();
 
         expect(instance._validateAccount).toHaveBeenCalledWith('', '1234aa');
+    });
+
+    it('_handleLogin - should only call setState', () => {
+        const wrapper = shallow(<AppContainer />);
+        wrapper.setState = jest.fn();
+
+        wrapper.instance()._handleLogin();
+
+        expect(wrapper.setState).toHaveBeenCalled();
     });
 
     it('_validateAccount - should return true', () => {

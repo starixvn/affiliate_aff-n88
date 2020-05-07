@@ -4,8 +4,30 @@ body {
     color: $text-color;
     background: $bg-main-color;
 
+    input, select, textarea, .marketing-action, .pager-container, .banner-control, .custom-panel, .languages-item {
+        background: $dark-mode-bg !important;
+        color: #fff !important;
+        border: 1px solid #000 !important;
+    }
+
     .pager-container {
-        color: $text-color-high-light;
+        color: $text-color-high-light !important;
+
+        select {
+            color: $text-color-high-light !important;
+        }
+
+        .icon {
+            color: $text-color;
+        }
+
+        .disable {
+            color: #4c6375;
+        }
+
+        a:focus {
+            outline: none;
+        }
     }
 }
 
@@ -50,12 +72,6 @@ body {
             color: $nav-color-active;
         }
     }
-}
-
-.user-login .text-field {
-    background: $user-login-control-bg-color;
-    border: 1px solid $user-login-control-border-color;
-    color: $user-login-control-color;
 }
 
 .hot-news {
@@ -147,11 +163,45 @@ body {
     }
 }
 
+#dataTable {
+    td {
+        background: $table-bg-color;
+        color: $table-color;
+    }
+
+    .sumrow {
+        td {
+            background: $dark-mode-bg;
+        }
+    }
+
+    .total {
+        td {
+            background: $table-row-total-bg-color;
+        }
+    }
+}
+
 // Login Dialog
-.login-dialog .modal-header {
-    background-color: $modal-header-bg-color;
-    color: $modal-header-color;
-    border-bottom: none;
+.login-dialog {
+    .modal-header {
+        background-color: $modal-header-bg-color;
+        color: $modal-header-color;
+        border-bottom: none;
+    }
+
+    .btn-signup {
+        border: 1px solid #000;
+    }
+
+    .modal-main-content {
+        background-color: #1A1A1A;
+
+        #dialogUserInput .form-control {
+            background-color: $dark-mode-bg;
+            border: 1px solid #000;
+        }
+    }
 }
 
 // form-control
@@ -307,6 +357,7 @@ body {
 
     .submenu-container {
         background: $sub-nav-bg-color;
+
         li {
             border-right: none;
             border-bottom: none;
@@ -378,18 +429,10 @@ body {
     .bg-orange {
         background: $tab-item-bg-color-active;
         color: $tab-item-color-active;
-    }    
-}
-
-.login-dialog {
-    .btn-signup {
-        border: 1px solid #000;
     }
 }
+
 .user-login .text-field {
-    background: $dark-mode-bg;
-    color: #fff;
-    border: 1px solid #000;
 
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: #fff;
@@ -416,13 +459,16 @@ body {
 .summary-content .details-section-content .table table tr:nth-child(even) {
     background-color: $table-row-even-bg-color !important;
 }
+
 .bg-orange, #account-overview-content {
     border: 1px solid #000;
     border-top: none;
 }
+
 .bg-orange {
     border-bottom: none;
 }
+
 #account-overview-content {
     .form-group, .summary-content {
         border: none;
@@ -487,14 +533,6 @@ body {
         transform: translateX(-100%);
         background: #0A0A0A;
         content: url("../../Images/mode/darkmode.svg");
-    }
-}
-
-.login-dialog .modal-main-content {
-    background-color: #1A1A1A;
-    #dialogUserInput .form-control {
-        background-color: $dark-mode-bg;
-        border: 1px solid #000;
     }
 }
 
