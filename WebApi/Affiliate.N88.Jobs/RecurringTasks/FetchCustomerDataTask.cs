@@ -24,9 +24,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private readonly IMemberImportRepository _importerRepository;
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
-        private readonly IOptions<LicenseeSiteSetting> _config;
+        private readonly LicenseeSiteSetting _setting;
 
-        private IEnumerable<string> SupportedSites => _config.Value?.SupportedSites;
+        private IEnumerable<string> SupportedSites => _setting?.SupportedSites;
+
 
         public FetchCustomerDataTask(ILicenseeApi licenseeApi
             , IMemberImportRepository memberImportRepository
@@ -36,7 +37,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             _importerRepository = memberImportRepository;
             _licenseeApi = licenseeApi;
             _logger = logger;
-            _config = config;
+            _setting = config.Value ?? throw new NullReferenceException(nameof(_setting));
         }
 
         public async Task FetchDataAsync()
@@ -54,7 +55,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                _logger.Error(ex.ToString(), ex);
+                await _logger.ErrorAsync(ex.ToString(), ex);
             }
         }
 
@@ -70,7 +71,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 return;
             }
 
-            var insertMemberCommands = await GetImportingData(customerData);
+            var insertMemberCommands = GetImportingData(customerData);
             foreach (var command in insertMemberCommands)
             {
 
@@ -98,14 +99,14 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        private async Task<IEnumerable<InsertMemberInfoCommand>> GetImportingData(IEnumerable<CustomerModel> customerData)
+        private IEnumerable<InsertMemberInfoCommand> GetImportingData(IEnumerable<CustomerModel> customerData)
         {
             var commandList = new List<InsertMemberInfoCommand>();
             var groupCustomers = customerData.GroupBy(c => c.SiteName);
 
             foreach (var group in groupCustomers)
             {
-                var importData = await GenerateImportedDataBySiteName(group.Key, group.ToList());
+                var importData = GenerateImportedDataBySiteName(group.Key, group.ToList());
 
                 commandList.Add(importData);
             }
@@ -113,9 +114,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return commandList;
         }
 
-        private async Task<InsertMemberInfoCommand> GenerateImportedDataBySiteName(string siteName, List<CustomerModel> customers)
+        private InsertMemberInfoCommand GenerateImportedDataBySiteName(string siteName, List<CustomerModel> customers)
         {
-            var prefixSettingCode = await GetSettingCodePrefix(siteName);
+            var prefixSettingCode = _setting.GetCodePrefix(siteName);
             var xml = BuildXml(customers);
 
             return new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
@@ -157,12 +158,19 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
-                    var lastedDate = await GetLastedImportDate(await GetSettingCodePrefix(site));
+                    var siteCode = _setting.GetCodePrefix(site);
+                    var siteNameInStore = await GetSiteNameAsync(siteCode);
+                    if (string.Compare(site, siteNameInStore, StringComparison.OrdinalIgnoreCase) != 0)
+                    {
+                        await _logger.WarnAsync($"Site name in web config {site} isn't having same site name in database {siteNameInStore}");
+                    }
+
+                    var lastedDate = await GetLastedImportDate(siteCode);
                     dates.Add(lastedDate);
                 }
                 catch (Exception ex)
                 {
-                    _logger.Error(ex.Message, ex);
+                    await _logger.ErrorAsync(ex.Message, ex);
                 }
             }
 
@@ -182,28 +190,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return await _importerRepository.GetLastedMemberImportedTimeAsync(new MemberImportedTimeInfo(prefixProvider));
         }
 
-        private async Task<string> GetSiteName(string settingPrefixCode)
+        private async Task<string> GetSiteNameAsync(string settingPrefixCode)
         {
             var prefixProvider = new PrefixProvider(settingPrefixCode);
 
             return await _importerRepository.GetSiteNameAsync(new SiteNameInfo(prefixProvider));
-        }
-
-        private async Task<string> GetSettingCodePrefix(string site)
-        {
-            var configMapping = _config.Value?.LicenseeSiteMapping ?? new List<LicenseeSiteMapping>();
-
-            foreach (var mappingItem in configMapping)
-            {
-                var siteNameMapping = await GetSiteName(mappingItem.SettingCodePrefix);
-
-                if(string.Compare(siteNameMapping, site, true) == 0)
-                {
-                    return mappingItem.SettingCodePrefix;
-                }
-            }
-
-            return site;
         }
     }
 }

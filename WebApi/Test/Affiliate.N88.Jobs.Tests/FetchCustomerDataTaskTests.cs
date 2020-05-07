@@ -2,12 +2,16 @@
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.RecurringTasks;
+using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
+using Affiliate.N88.SpParams;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -30,7 +34,17 @@ namespace Affiliate.N88.Jobs.UnitTests
 
         private FetchCustomerDataTask CreateFetchTask()
         {
+            Config.Value.Returns(FetchCustomerDataTaskTestsHelper.Setting);
             return new FetchCustomerDataTask(Api, Repo, Logger, Config);
+        }
+
+        private void SetUpRepoReturnSiteName(LicenseeSiteSetting setting)
+        {
+            foreach (var site in setting.SupportedSites)
+            {
+                var prefix = setting.GetCodePrefix(site);
+                Repo.GetSiteNameAsync(Arg.Is<SiteNameInfo>(s => s.GetSettingKey().StartsWith(prefix))).Returns(site);
+            }
         }
 
         [Theory]
@@ -44,17 +58,90 @@ namespace Affiliate.N88.Jobs.UnitTests
         }
 
         [Fact]
+        public async Task TaskFetchDataAsync_WhenCall_RepositoryQueryLastedTimeRecieveCorrectPrefixSetting()
+        {
+            var setting = FetchCustomerDataTaskTestsHelper.Setting;
+            var fetchTask = CreateFetchTask();
+            Config.Value.Returns(setting);
+            SetUpRepoReturnSiteName(setting);
+
+            await fetchTask.FetchDataAsync();
+
+            foreach (var site in setting.SupportedSites)
+            {
+                LicenseeSiteMapping map = setting.LicenseeSiteMapping.FirstOrDefault(m => m.SiteName.Equals(site, StringComparison.InvariantCultureIgnoreCase));
+                var prefix = map == null ? site : map.SettingCodePrefix;
+
+                await Repo.Received().GetLastedMemberImportedTimeAsync(Arg.Is<MemberImportedTimeInfo>(i => i.GetSettingKey().Contains(prefix)));
+            }
+
+        }
+
+        [Fact]
         public async Task FetchDataAsync_WhenCallWithNoLastedDateQueryFromRepo_LoggerLogInvalidOperationException()
         {
             var fetchTask = CreateFetchTask();
-            Config.Value.Returns(FetchCustomerDataTaskTestsHelper.ConfigurationSetting);
             Repo.When(r => r.GetLastedMemberImportedTimeAsync(Arg.Any<MemberImportedTimeInfo>()))
-                .Do(x =>  throw new Exception("test"));
+                .Do(x => throw new Exception("test"));
             await fetchTask.FetchDataAsync();
 
-
-            Logger.Received().Error(Arg.Is<string>(s => s.Contains("Can't find lasted importing member date"))
+            await Logger.Received().ErrorAsync(Arg.Is<string>(s => s.Contains("Can't find lasted importing member date"))
                 , Arg.Is<Exception>(ex => ex.GetType() == typeof(InvalidOperationException)));
+        }
+
+        [Fact]
+        public async Task FetchDataAsync_WhenCallWithAtLeastOneSuccessQueryLastedTime_ApiCall()
+        {
+            var date = new DateTime(2020, 2, 2);
+            var fetchTask = CreateFetchTask();
+            Repo.When(r => r.GetLastedMemberImportedTimeAsync(Arg.Is<MemberImportedTimeInfo>(m => m.GetSettingKey().Contains("N8B") || m.GetSettingKey().Contains("Bet88"))))
+                .Do(x => throw new Exception());
+            Repo.GetLastedMemberImportedTimeAsync(Arg.Is<MemberImportedTimeInfo>(m => m.GetSettingKey().Contains("N8G")))
+                .Returns(date);
+
+            await fetchTask.FetchDataAsync();
+
+            await Repo.ReceivedWithAnyArgs(3).GetLastedMemberImportedTimeAsync(Arg.Any<MemberImportedTimeInfo>());
+            await Logger.ReceivedWithAnyArgs(2).ErrorAsync(Arg.Any<string>(), Arg.Any<Exception>());
+            await Api.Received(1).GetCustomerAsync(date);
+        }
+
+        [Fact]
+        public async Task FetchDataAsync_WhenCall_ApiReceiveMinDate()
+        {
+            var minDate = new DateTime(2020, 2, 2);
+            var anotherDate = new DateTime[] { minDate.AddDays(1), minDate.AddHours(2) };
+            var fetchTask = CreateFetchTask();
+            Repo.GetLastedMemberImportedTimeAsync(Arg.Any<MemberImportedTimeInfo>()).Returns(anotherDate[0], minDate, anotherDate[1]);
+
+            await fetchTask.FetchDataAsync();
+
+            await Api.Received().GetCustomerAsync(minDate);
+        }
+
+        [Fact]
+        public async Task FetchDataAsync_WhenApiReturnNothing_LogNoData()
+        {
+            var date = new DateTime(2020, 2, 2);
+            var fetchTask = CreateFetchTask();
+            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(new List<CustomerModel>());
+            await fetchTask.FetchDataAsync(date);
+
+            await Logger.Received().InfoAsync(Arg.Is<string>(s => s.Contains($"No Data on date {date}")));
+        }
+
+        [Fact]
+        public async Task FetchDataAsync_WhenApiReturnCustomersThatNotBelongConfigurableSite_LogError()
+        {
+            var date = new DateTime(2020, 2, 2);
+            var siteNotInConfig = FetchCustomerDataTaskTestsHelper.SiteNotInConfigSetting;
+            var fetchTask = CreateFetchTask();
+            var customers = FetchCustomerDataTaskTestsHelper.GetSiteCustomer(siteNotInConfig);
+            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(customers);
+
+            await fetchTask.FetchDataAsync(date);
+
+            await Logger.Received().InfoAsync(Arg.Is<string>(s => s.Contains($"No Import Setting for Prefix")));
         }
     }
 
@@ -66,14 +153,34 @@ namespace Affiliate.N88.Jobs.UnitTests
             new object[] { new LicenseeSiteSetting { SupportedSites = new List<string> ()} }
         };
 
-        public static LicenseeSiteSetting ConfigurationSetting => new LicenseeSiteSetting
+        public static LicenseeSiteSetting Setting => new LicenseeSiteSetting
         {
-            SupportedSites = new List<string> { "Bwing", "Goal123" },
+            SupportedSites = new List<string> { "Bwing", "Goal123", "Bet88" },
             LicenseeSiteMapping = new List<LicenseeSiteMapping>
                 {
                     new LicenseeSiteMapping { SettingCodePrefix = "N8B", SiteName = "Bwing" },
                     new LicenseeSiteMapping { SettingCodePrefix = "N8G", SiteName = "Goal123"}
                 }
         };
+
+        public static IEnumerable<CustomerModel> Customers => new List<CustomerModel>
+        {
+            new CustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
+            new CustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
+        };
+
+        public static string SiteNotInConfigSetting => "abc";
+
+        public static IEnumerable<CustomerModel> GetSiteCustomer(string siteName) =>
+            Customers.Where(c => c.SiteName.Equals(siteName, StringComparison.InvariantCultureIgnoreCase));
     }
 }

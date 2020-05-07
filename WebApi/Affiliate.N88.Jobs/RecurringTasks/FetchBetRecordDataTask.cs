@@ -85,7 +85,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
             if (data == null || data.Count() == 0)
             {
-                _logger.Info($"No betrecord data from {fromDate} to {toDate}");
                 return;
             }
 
