@@ -4,6 +4,10 @@ body {
     color: $text-color;
     background: $bg-main-color;
 
+    a:focus {
+        outline: none !important;
+    }
+
     input, select, textarea, .marketing-action, .pager-container, .banner-control, .custom-panel, .languages-item {
         background: $dark-mode-bg !important;
         color: #fff !important;
@@ -23,10 +27,6 @@ body {
 
         .disable {
             color: #4c6375;
-        }
-
-        a:focus {
-            outline: none;
         }
     }
 }

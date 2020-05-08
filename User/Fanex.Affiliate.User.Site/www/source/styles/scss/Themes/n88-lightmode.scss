@@ -3,6 +3,10 @@
 body {
     color: $text-color;
     background: $bg-main-color;
+
+    a:focus {
+        outline: none !important;
+    }
 }
 
 // Header

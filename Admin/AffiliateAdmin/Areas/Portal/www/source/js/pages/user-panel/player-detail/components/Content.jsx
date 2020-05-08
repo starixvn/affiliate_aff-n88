@@ -46,6 +46,7 @@ export class Content extends PureComponent {
     }
 
     handleClickHeader = (selectedColumn) => {
+
         const { param, pagingOption, sortingColumn } = this.props;
         const postParam = { ...param, pageIndex: pagingOption.PageIndex, pageSize: pagingOption.PageSize, sortById: SortByIdList[sortingColumn.ColumnName] };
 
@@ -56,7 +57,7 @@ export class Content extends PureComponent {
 
         } else {
             this.props.setSortingColumn({ IsSortAsc: false, ColumnName: selectedColumn });
-            this._fetchData({ ...postParam, isSortAsc: false });
+            this._fetchData({ ...postParam, isSortAsc: false, sortById: SortByIdList[selectedColumn] });
         }
     }
     _renderHeader() {

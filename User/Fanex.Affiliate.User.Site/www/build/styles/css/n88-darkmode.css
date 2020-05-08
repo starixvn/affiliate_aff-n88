@@ -1,6 +1,8 @@
 ﻿body {
   color: #fff;
   background: #1E1F21; }
+  body a:focus {
+    outline: none !important; }
   body input, body select, body textarea, body .marketing-action, body .pager-container, body .banner-control, body .custom-panel, body .languages-item {
     background: #282828 !important;
     color: #fff !important;
@@ -13,8 +15,6 @@
       color: #fff; }
     body .pager-container .disable {
       color: #4c6375; }
-    body .pager-container a:focus {
-      outline: none; }
 
 .header-top {
   background: #282828; }
