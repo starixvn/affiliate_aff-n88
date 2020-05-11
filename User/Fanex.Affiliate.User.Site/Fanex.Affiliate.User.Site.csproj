@@ -545,24 +545,24 @@
     <Content Include="Configurations\AppSetting\Transform\n88.local.config" />
     <Content Include="Configurations\Web\Transform\n88.local.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.local.config" />
-    <None Include="Configurations\Web\Web.n88user-n88.backupmnl.config">
+    <Content Include="Configurations\Web\Web.n88user-n88.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n88.local.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.local.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n88.master.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.master.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n88.production.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n88.sit.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-n88.uat.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
