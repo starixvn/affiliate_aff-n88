@@ -150,7 +150,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["IBCCustID"] = 123,
+                ["CustID"] = 123,
                 ["UserName"] = "12betaff226",
                 ["IBCUserName"] = "12betaff226",
                 ["FirstName"] = "12Bet",
@@ -165,7 +165,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["IBCCustID"] = 123,
+                ["CustID"] = 123,
                 ["UserName"] = "12betaff226",
                 ["IBCUserName"] = "12betaff226",
                 ["FirstName"] = "12Bet",
