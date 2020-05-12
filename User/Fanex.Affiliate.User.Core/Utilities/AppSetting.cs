@@ -63,5 +63,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public IEnumerable<string> SubAffDomains => GetValue("SubAffDomains").Split(new[] { ',' } , StringSplitOptions.RemoveEmptyEntries);
 
         public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
+
+        public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
     }
 }

@@ -5,6 +5,7 @@ using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Resources;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.Constants
 {
@@ -22,9 +23,13 @@ namespace Fanex.Affiliate.User.Core.Constants
             ["ko-KR"] = "ko",
             ["ja-JP"] = "jp"
         };
+
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;
 
-        public const string DefaultLanguageCode = "vi-VN";
+        public static string DefaultLanguageCode
+        {
+            get { return AppSetting.Instance.DefaultLanguageCode; }
+        }
 
         public const string EnglishLanguageCode = "en-US";
 

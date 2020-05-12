@@ -58,5 +58,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         IEnumerable<string> SubAffDomains { get; }
 
         string SubAffTextLinkTemplate { get; }
+
+        string DefaultLanguageCode { get; }
     }
 }
