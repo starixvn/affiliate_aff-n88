@@ -7,6 +7,10 @@
     <Setting Key="N8B_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N8B"/>
     <Setting Key="N8B_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N8B" />
   </Function>
+  <Function Name="Affiliate_N88">
+    <Setting Key="N88_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N88"/>
+    <Setting Key="N88_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N88" />
+  </Function>
   <Funtion Name="Playtech_CS">
     <Setting Key="Task_Product3rd_ImportQueue" SpName="Task_Product3rd_ImportQueue" DbName="Playtech_CS"/>
   </Funtion>
