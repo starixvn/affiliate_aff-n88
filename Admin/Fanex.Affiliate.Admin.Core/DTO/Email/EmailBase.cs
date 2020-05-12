@@ -19,6 +19,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Email
 
         public bool IsHtml { get; set; }
 
-        public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
+        public static string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }
