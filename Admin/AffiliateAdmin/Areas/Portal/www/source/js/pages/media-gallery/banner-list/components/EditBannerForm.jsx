@@ -18,10 +18,11 @@ export class EditBannerForm extends PureComponent {
     constructor(props) {
         super(props)
 
-        const { playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList } = this.props;
+        const { playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList, defaultLanguage } = this.props;
 
         this.state = {
             ...defaultState,
+            language: defaultLanguage || 'English',
             categoryList: playerCategoryList,
             subCategoryList,
             currencyList,
@@ -348,8 +349,8 @@ export class EditBannerForm extends PureComponent {
     _handleClosePopup = () => {
         this.props.setSelectedBannerId(null);
 
-        const { playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList } = this.props;
-        this.setState({ ...defaultState, categoryList: playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList });
+        const { playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList, defaultLanguage } = this.props;
+        this.setState({ ...defaultState, categoryList: playerCategoryList, subCategoryList, currencyList, affTypeList, deviceTypeList, language: defaultLanguage || 'English' });
     }
 
     handleCloseNotificationPopup = (confirmResult, hasSubCategory) => {
@@ -644,10 +645,10 @@ export class EditBannerForm extends PureComponent {
 }
 
 function mapStateToProps({ selectedBannerId, param, playerCategoryList, subAffiliateCategoryList, subCategoryCasinoList, subCategorySportsbookList,
-    languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList }) {
+    languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList, defaultLanguage }) {
     return Object.assign({},
         {
-            selectedBannerId, param, playerCategoryList, subAffiliateCategoryList, subCategoryCasinoList,
+            selectedBannerId, param, playerCategoryList, subAffiliateCategoryList, subCategoryCasinoList, defaultLanguage,
             subCategorySportsbookList, languageList, currencyList, sizeList, affTypeList, deviceTypeList, subCategoryList
         });
 }

@@ -31,7 +31,6 @@ export const messages = {
 export const defaultState = {
     files: [],
     inputFileNames: [''],
-    language: 'Vietnamese',
     isInsert: true,
     isShowMessage: false,
     isSuccess: true,

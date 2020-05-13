@@ -9,7 +9,7 @@ import { configureStore } from '../../../modules/store';
 import { playerBanner, affiliateBanner } from '../common/libs/constants';
 
 const { categoryList, subCategoryList, languageList, currencyList, bannerRootUrl, sizeList, affTypeList,
-        paramFromHome, subCategoryCasinoList, subCategorySportsbookList } = window.initialState;
+    paramFromHome, subCategoryCasinoList, subCategorySportsbookList, defaultLanguage } = window.initialState;
 
 const playerCategoryList = categoryList.filter(c => c.UserType === playerBanner).map(item => {
     return {
@@ -65,7 +65,7 @@ const newAffTypeList = affTypeList.map(item => {
 const store = configureStore({
     languageList, paramFromHome, categoryList, playerCategoryList, subAffiliateCategoryList, subCategoryList: newSubCategoryList,
     currencyList: newCurrencyList, bannerRootUrl, sizeList: newSizeList, affTypeList: newAffTypeList,
-    subCategoryCasinoList, subCategorySportsbookList
+    subCategoryCasinoList, subCategorySportsbookList, defaultLanguage
 }, reducer);
 
 export default class App extends React.PureComponent {
