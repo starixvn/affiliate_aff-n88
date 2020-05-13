@@ -12,6 +12,7 @@ export const categoryList = createReducer(null, {
 });
 export const languageList = createReducer(null, {});
 export const currencyList = createReducer(null, {});
+export const defaultLanguage = createReducer(null, {});
 
 export const param = createReducer(null, {
     [SET_PARAM](prevState, action) {
@@ -53,6 +54,7 @@ export default combineReducers({
     categoryList,
     languageList,
     currencyList,
+    defaultLanguage,
     param,
     gridData,
     pagingOption,

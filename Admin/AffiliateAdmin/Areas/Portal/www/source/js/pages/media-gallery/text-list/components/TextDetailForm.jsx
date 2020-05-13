@@ -12,10 +12,11 @@ export class TextDetailForm extends PureComponent {
     constructor(props) {
         super(props)
 
-        const { categoryList } = this.props;
+        const { categoryList, defaultLanguage } = this.props;
 
         this.state = {
             ...defaultState,
+            defaultLanguage: defaultLanguage || 'English',
             playerCategoryList: categoryList.filter(c => c.UserType === playerBanner),
             subAffiliateCategoryList: categoryList.filter(c => c.UserType === affiliateBanner)
         }
@@ -102,7 +103,7 @@ export class TextDetailForm extends PureComponent {
     _handleClosePopup = () => {
         this.props.setSelectedTextId(null);
 
-        this.setState({ ...defaultState });
+        this.setState({ ...defaultState, defaultLanguage: this.props.defaultLanguage || 'English', });
     }
 
     render() {
@@ -212,8 +213,8 @@ export class TextDetailForm extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList }) {
-    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList });
+function mapStateToProps({ selectedTextId, param, categoryList, languageList, currencyList, defaultLanguage }) {
+    return Object.assign({}, { selectedTextId, param, categoryList, languageList, currencyList, defaultLanguage });
 }
 
 function mapDispatchToProps(dispatch) {

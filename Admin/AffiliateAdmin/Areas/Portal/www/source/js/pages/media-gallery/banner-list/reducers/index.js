@@ -104,5 +104,6 @@ export default combineReducers({
     shouldResetScrollPosition,
     isDisableCurrency,
     playerCategoryList,
-    subAffiliateCategoryList
+    subAffiliateCategoryList,
+    defaultLanguage
 });

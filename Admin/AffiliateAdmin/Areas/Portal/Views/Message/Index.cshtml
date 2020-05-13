@@ -2,6 +2,7 @@
     Layout = "~/Areas/Portal/Views/Shared/_ReactPageLayout.cshtml";
 }
 
+@model IEnumerable<Fanex.Affiliate.Admin.Core.DTO.Language>
 
 @section pagecss{
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/message/message.css")" rel="stylesheet" />
@@ -10,7 +11,8 @@
 @section pagejs{
     <script type="text/javascript">
         window.initialState = {
-            today: '@DateTime.Now.ToString("MM/dd/yyyy")'
+            today: '@DateTime.Now.ToString("MM/dd/yyyy")',
+            languageList: @Html.Raw(Json.Encode(Model))
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/message/message.js")"></script>

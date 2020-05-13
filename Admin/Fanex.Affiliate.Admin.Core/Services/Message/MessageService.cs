@@ -71,15 +71,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
                         {
                             MessageId = Convert.ToInt32(reader[Field.MessageId]),
                             Important = Convert.ToBoolean(reader["Important"]),
-                            MessageContentEn = Convert.ToString(reader["message_en"]),
-                            MessageContentCn = Convert.ToString(reader["message_cn"]),
-                            MessageContentTw = Convert.ToString(reader["message_tw"]),
-                            MessageContentEs = Convert.ToString(reader["message_es"]),
-                            MessageContentTh = Convert.ToString(reader["message_th"]),
-                            MessageContentVi = Convert.ToString(reader["message_vi"]),
-                            MessageContentId = Convert.ToString(reader["message_id"]),
-                            MessageContentKr = Convert.ToString(reader["message_kr"]),
-                            MessageContentJp = Convert.ToString(reader["message_jp"])
+                            MessageContenten = Convert.ToString(reader["message_en"]),
+                            MessageContentcs = Convert.ToString(reader["message_cn"]),
+                            MessageContentch = Convert.ToString(reader["message_tw"]),
+                            MessageContentes = Convert.ToString(reader["message_es"]),
+                            MessageContentth = Convert.ToString(reader["message_th"]),
+                            MessageContentvn = Convert.ToString(reader["message_vi"]),
+                            MessageContentid = Convert.ToString(reader["message_id"]),
+                            MessageContentko = Convert.ToString(reader["message_kr"]),
+                            MessageContentjp = Convert.ToString(reader["message_jp"])
                         };
                     }
                 }
@@ -138,15 +138,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
         private static void AssignParam(IObjectDb objectDb, InsertUpdateMessageParam param)
         {
             objectDb.AddInParameter("IsImportant", DbType.Boolean, param.Important);
-            objectDb.AddInParameter("msgen", DbType.String, param.MessageContentEn);
-            objectDb.AddInParameter("msgcn", DbType.String, param.MessageContentCn);
-            objectDb.AddInParameter("msgtw", DbType.String, param.MessageContentTw);
-            objectDb.AddInParameter("msges", DbType.String, param.MessageContentEs);
-            objectDb.AddInParameter("msgth", DbType.String, param.MessageContentTh);
-            objectDb.AddInParameter("msgvi", DbType.String, param.MessageContentVi);
-            objectDb.AddInParameter("msgid", DbType.String, param.MessageContentId);
-            objectDb.AddInParameter("msgkr", DbType.String, param.MessageContentKr);
-            objectDb.AddInParameter("msgjp", DbType.String, param.MessageContentJp);
+            objectDb.AddInParameter("msgen", DbType.String, param.MessageContenten);
+            objectDb.AddInParameter("msgcn", DbType.String, param.MessageContentcs);
+            objectDb.AddInParameter("msgtw", DbType.String, param.MessageContentch);
+            objectDb.AddInParameter("msges", DbType.String, param.MessageContentes);
+            objectDb.AddInParameter("msgth", DbType.String, param.MessageContentth);
+            objectDb.AddInParameter("msgvi", DbType.String, param.MessageContentvn);
+            objectDb.AddInParameter("msgid", DbType.String, param.MessageContentid);
+            objectDb.AddInParameter("msgkr", DbType.String, param.MessageContentko);
+            objectDb.AddInParameter("msgjp", DbType.String, param.MessageContentjp);
             objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
             objectDb.AddInParameter("IP", DbType.String, param.Ip);
 

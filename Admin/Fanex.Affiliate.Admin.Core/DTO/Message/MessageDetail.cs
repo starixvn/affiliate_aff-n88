@@ -6,22 +6,22 @@
 
         public bool Important { get; set; }
 
-        public string MessageContentEn { get; set; }
+        public string MessageContenten { get; set; }
 
-        public string MessageContentCn { get; set; }
+        public string MessageContentcs { get; set; }
 
-        public string MessageContentTw { get; set; }
+        public string MessageContentch { get; set; }
 
-        public string MessageContentEs { get; set; }
+        public string MessageContentes { get; set; }
 
-        public string MessageContentTh { get; set; }
+        public string MessageContentth { get; set; }
 
-        public string MessageContentVi { get; set; }
+        public string MessageContentvn { get; set; }
 
-        public string MessageContentId { get; set; }
+        public string MessageContentid { get; set; }
 
-        public string MessageContentKr { get; set; }
+        public string MessageContentko { get; set; }
 
-        public string MessageContentJp { get; set; }
+        public string MessageContentjp { get; set; }
     }
 }

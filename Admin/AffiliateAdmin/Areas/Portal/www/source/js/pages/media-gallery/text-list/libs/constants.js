@@ -20,7 +20,6 @@ export const defaultState = {
     userType: playerBanner,
     textContent: '',
     category: 'Basketball',
-    language: 'Vietnamese',
     currency: 'EURO',
     deviceType: 0,
     isInsert: true,
