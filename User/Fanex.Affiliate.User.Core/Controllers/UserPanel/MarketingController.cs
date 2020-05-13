@@ -225,7 +225,9 @@
 
         private Image GetQrCodeIcon()
         {
-            var path = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}.png");
+            var logoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}.png");
+            var qrLogoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}-qrcode.png");
+            var path = System.IO.File.Exists(qrLogoPath) ? qrLogoPath : logoPath;
             var img = new Bitmap(path);
             return img;
         }
