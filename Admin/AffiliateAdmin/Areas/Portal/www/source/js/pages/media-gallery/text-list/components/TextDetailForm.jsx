@@ -16,7 +16,7 @@ export class TextDetailForm extends PureComponent {
 
         this.state = {
             ...defaultState,
-            defaultLanguage: defaultLanguage || 'English',
+            language: defaultLanguage || 'English',
             playerCategoryList: categoryList.filter(c => c.UserType === playerBanner),
             subAffiliateCategoryList: categoryList.filter(c => c.UserType === affiliateBanner)
         }

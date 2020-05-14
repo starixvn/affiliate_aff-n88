@@ -26,6 +26,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
         class="switch-mode-theme"
       >
         <input
+          checked={false}
           id="switch"
           onChange={[Function]}
           type="checkbox"
@@ -159,7 +160,7 @@ exports[`Login - components - AppContainer render correctly 1`] = `
     <span
       className="foot-rp"
     >
-      © Copyright 2019 Nova88
+      © Copyright 2019 Nova88. All Rights Reserved | 21+
     </span>
   </div>
 </div>

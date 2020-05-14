@@ -166,14 +166,14 @@ export class EditBannerForm extends PureComponent {
     }
 
     _save = async (hasSubCategory) => {
-        const { inputFileNames, isInsert, iniatalFileName } = this.state;
+        const { inputFileNames, isInsert, iniatalFileName, files } = this.state;
         const bannerInfo = this._getParam(hasSubCategory);
 
         if (isInsert) {
             const result = await this.props.insertBanner(bannerInfo);
             this._handleAfterSave(isInsert, result);
         } else {
-            if (inputFileNames[0] === iniatalFileName) {
+            if (inputFileNames[0] === iniatalFileName && !!files.length) {
                 this.setState({ messageNotificationPopup: 'This file name exists already. Do you want to overwrite the current file?' });
             } else {
                 this._updateBanner(bannerInfo);

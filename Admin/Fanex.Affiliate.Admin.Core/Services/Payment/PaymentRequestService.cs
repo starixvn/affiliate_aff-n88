@@ -69,21 +69,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
 
                         _emailService.SendPaymentRequestUpdateEmail(emailParam);
                     }
-                    else
-                    {
-                        result.Message = GetErrMsg(result.Code);
-                    }
                 }
                 return result;
             }
             return null;
-        }
-
-        public static string GetErrMsg(int errCode)
-        {
-            var message = SiteFriendlyNameHelper.Replace12Bet(Lang.ResourceManager.GetString("UpdatePaymentErr" + errCode));
-
-            return message ?? "Update transaction failed!";
         }
 
         public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount)  GetPaymentMethod()

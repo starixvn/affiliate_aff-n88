@@ -404,7 +404,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Vietnamese"
+                  value="English"
                 >
                   <option
                     key="language-English"
@@ -1089,7 +1089,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Vietnamese"
+                  value="English"
                 >
                   <option
                     key="language-English"
@@ -1696,7 +1696,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                   name="language"
                   onChange={[Function]}
                   type="select"
-                  value="Vietnamese"
+                  value="English"
                 >
                   <option
                     key="language-English"

@@ -75,25 +75,25 @@ export class SettingPanel extends PureComponent {
         }
     }
 
-    _handleOpenCloseAff = () => {
-        const { affiliateInfo } = this.props;
-        const isClosed = !affiliateInfo.IsClosed;
+    // _handleOpenCloseAff = () => {
+    //     const { affiliateInfo } = this.props;
+    //     const isClosed = !affiliateInfo.IsClosed;
 
-        this.setState({ messageNotification: `Are you sure you want to ${isClosed ? 'close' : 'open'} this affiliate?`, isConfirmPopup: true, isConfirmStatus: false, isClosed });
-    }
+    //     this.setState({ messageNotification: `Are you sure you want to ${isClosed ? 'close' : 'open'} this affiliate?`, isConfirmPopup: true, isConfirmStatus: false, isClosed });
+    // }
 
-    _openCloseAff = async (isClosed) => {
-        const param = { AffId: this.props.affiliateInfo.AffId, IsClosed: isClosed };
-        const result = await this.props.updateClosedStatus(param);
+    // _openCloseAff = async (isClosed) => {
+    //     const param = { AffId: this.props.affiliateInfo.AffId, IsClosed: isClosed };
+    //     const result = await this.props.updateClosedStatus(param);
 
-        if (result.IsSuccessful) {
-            this.setState({ messageNotification: messages.statusUpdatedSuccess, isConfirmPopup: false });
-            this.props.getAffiliateInfo(this.props.affName);
-        }
-        else {
-            this.setState({ messageNotification: result.Message, isConfirmPopup: false });
-        }
-    }
+    //     if (result.IsSuccessful) {
+    //         this.setState({ messageNotification: messages.statusUpdatedSuccess, isConfirmPopup: false });
+    //         this.props.getAffiliateInfo(this.props.affName);
+    //     }
+    //     else {
+    //         this.setState({ messageNotification: result.Message, isConfirmPopup: false });
+    //     }
+    // }
 
     handleChangeAffType = async (event) => {
         const affType = event.target.value;
@@ -168,7 +168,7 @@ export class SettingPanel extends PureComponent {
                         />
                     </Col>
                 </Row>
-                {
+                {/* {
                     isApproved && (
                         <Row>
                             <Col>{resource.Closed}</Col>
@@ -178,7 +178,7 @@ export class SettingPanel extends PureComponent {
                                 </Button>
                             </Col>
                         </Row>)
-                }
+                } */}
                 {
                     !!messageNotification && <NotificationPopup
                         message={messageNotification}
