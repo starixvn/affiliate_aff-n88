@@ -103,7 +103,7 @@ export class TextDetailForm extends PureComponent {
     _handleClosePopup = () => {
         this.props.setSelectedTextId(null);
 
-        this.setState({ ...defaultState, defaultLanguage: this.props.defaultLanguage || 'English', });
+        this.setState({ ...defaultState, language: this.props.defaultLanguage || 'English', });
     }
 
     render() {

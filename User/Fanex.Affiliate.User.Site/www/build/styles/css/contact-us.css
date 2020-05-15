@@ -130,8 +130,6 @@
     margin-left: 100px; }
   .form .help-block {
     margin-bottom: 0; }
-  .form #Affiliate {
-    border-color: #adadad !important; }
   @media (max-width: 767px) {
     .form .form-group {
       flex-wrap: wrap; }

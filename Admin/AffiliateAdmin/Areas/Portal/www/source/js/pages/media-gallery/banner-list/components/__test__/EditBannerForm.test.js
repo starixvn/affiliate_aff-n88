@@ -78,7 +78,8 @@ describe('banner list - components - EditBannerForm ', () => {
             { key: "Asian", name: "Asian", checked: true },
             { key: "Media", name: "Media", checked: true }
         ],
-        deviceTypeList
+        deviceTypeList,
+        defaultLanguage: 'Vietnamese'
     };
 
     it('render correctly with insert', () => {
@@ -643,7 +644,7 @@ describe('banner list - components - EditBannerForm ', () => {
 
     it('_save - should call setState', async () => {
         const wrapper = shallow(<EditBannerForm {...defaultProps} />);
-        wrapper.setState({ isInsert: false, inputFileNames: ["abc.png"], iniatalFileName: "abc.png" });
+        wrapper.setState({ isInsert: false, inputFileNames: ["abc.png"], iniatalFileName: "abc.png", files: [{ name: "abc.png"}] });
         const instance = wrapper.instance();
         instance.setState = jest.fn();
 

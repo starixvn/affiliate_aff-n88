@@ -140,7 +140,7 @@ export class MessageDetailForm extends PureComponent {
         const isCurrentMessage = selectedMessageId === messageCurrentId;
         const title = isInsert ? popupTitle.Add : (isCurrentMessage ? popupTitle.Current : `${popupTitle.Detail} (ID=${selectedMessageId})`);
         const isDisabled = !isInsert && !isClickedEdit;
-        console.log(messageContentList);
+
         return (
             <React.Fragment>
                 <Modal isOpen={isShowPopup} size="lg" toggle={this._handleClosePopup} backdrop='static' innerRef={this.modalRef}>
@@ -160,7 +160,6 @@ export class MessageDetailForm extends PureComponent {
                                     </FormGroup>
                                     {
                                         Object.keys(messageContentList).map(key => {
-                                            console.log(key);
                                             return key === 'MessageId' ? null : (
                                                 <FormGroup row className="mb-2" key={key}>
                                                     <Label for={key} sm={2} className="d-flex justify-content-end align-items-center text-right">{languages[key]}</Label>

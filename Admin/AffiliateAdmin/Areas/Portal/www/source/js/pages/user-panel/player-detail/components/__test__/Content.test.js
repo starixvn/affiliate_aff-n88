@@ -2,7 +2,6 @@
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
-import { defaultFormat } from 'moment';
 
 describe('players detail - components - Content', () => {
     const param = {productId: 0, monthDate: "11/1/2019"};
@@ -160,7 +159,7 @@ describe('players detail - components - Content', () => {
 
         instance.handleClickHeader('Username');
 
-        expect(instance._fetchData).toHaveBeenCalledWith({ ...param, isSortAsc: false, sortById: 5, pageIndex: 1, pageSize: 20 });
+        expect(instance._fetchData).toHaveBeenCalledWith({ ...param, isSortAsc: false, sortById: 1, pageIndex: 1, pageSize: 20 });
         expect(props.setSortingColumn).toHaveBeenCalledWith({ IsSortAsc: false, ColumnName: 'Username' });
     });
 

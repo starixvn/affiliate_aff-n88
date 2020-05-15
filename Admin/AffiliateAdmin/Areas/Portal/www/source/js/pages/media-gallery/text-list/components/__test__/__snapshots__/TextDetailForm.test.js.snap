@@ -273,6 +273,7 @@ exports[`text list - components - TextDetailForm  render correctly with insert 1
                 name="language"
                 onChange={[Function]}
                 type="select"
+                value="Vietnamese"
               >
                 <option
                   key="language-English"
@@ -734,6 +735,7 @@ exports[`text list - components - TextDetailForm  render correctly with not show
                 name="language"
                 onChange={[Function]}
                 type="select"
+                value="Vietnamese"
               >
                 <option
                   key="language-English"
@@ -1195,6 +1197,7 @@ exports[`text list - components - TextDetailForm  render correctly with update 1
                 name="language"
                 onChange={[Function]}
                 type="select"
+                value="Vietnamese"
               >
                 <option
                   key="language-English"

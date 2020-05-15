@@ -49,9 +49,9 @@ export class SettingPanel extends PureComponent {
             this._changeStatus(selectedStatus);
         }
 
-        if (!isConfirmStatus && confirmResult) {
-            this._openCloseAff(isClosed);
-        }
+        //if (!isConfirmStatus && confirmResult) {
+        //    this._openCloseAff(isClosed);
+        //}
     }
 
     _handleChangeStatus = (event) => {

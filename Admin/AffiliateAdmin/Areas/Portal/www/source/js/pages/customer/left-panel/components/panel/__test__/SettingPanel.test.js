@@ -179,52 +179,52 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "The status has been updated successfully!", isConfirmPopup: false });
     });
 
-    it('_handleOpenCloseAff - should call setState with open status', async () => {
-        const wrapper = shallow(<SettingPanel {...defaultProps} isApproved={true}/>);
-        wrapper.setState = jest.fn();
+    //it('_handleOpenCloseAff - should call setState with open status', async () => {
+    //    const wrapper = shallow(<SettingPanel {...defaultProps} isApproved={true}/>);
+    //    wrapper.setState = jest.fn();
 
-        await wrapper.find('Button').at(1).simulate('click');
+    //    await wrapper.find('Button').at(1).simulate('click');
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to open this affiliate?", isConfirmPopup: true, isConfirmStatus: false, isClosed: false});
-    });
+    //    expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to open this affiliate?", isConfirmPopup: true, isConfirmStatus: false, isClosed: false});
+    //});
 
-    it('_handleOpenCloseAff - should call wrapper.setState with close status', async () => {
-        const props = Object.assign({}, defaultProps, { affiliateInfo });
-        const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
-        wrapper.setState = jest.fn();
+    //it('_handleOpenCloseAff - should call wrapper.setState with close status', async () => {
+    //    const props = Object.assign({}, defaultProps, { affiliateInfo });
+    //    const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
+    //    wrapper.setState = jest.fn();
 
-        await wrapper.find('Button').at(1).simulate('click');
+    //    await wrapper.find('Button').at(1).simulate('click');
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to close this affiliate?", isConfirmPopup: true, isConfirmStatus: false, isClosed: true});
-    });
+    //    expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to close this affiliate?", isConfirmPopup: true, isConfirmStatus: false, isClosed: true});
+    //});
 
-    it('_openCloseAff - should call updateClosedStatus and setState', async () => {
-        const data = { IsSuccessful: false, Message: 'Update status is failed!' };
-        const updateClosedStatus = jest.fn(() => data);
-        const props = Object.assign({}, defaultProps, { updateClosedStatus });
-        const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
-        wrapper.setState = jest.fn();
+    //it('_openCloseAff - should call updateClosedStatus and setState', async () => {
+    //    const data = { IsSuccessful: false, Message: 'Update status is failed!' };
+    //    const updateClosedStatus = jest.fn(() => data);
+    //    const props = Object.assign({}, defaultProps, { updateClosedStatus });
+    //    const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
+    //    wrapper.setState = jest.fn();
 
-        await wrapper.instance()._openCloseAff(false);
+    //    await wrapper.instance()._openCloseAff(false);
 
-        expect(props.updateClosedStatus).toHaveBeenCalledWith({ AffId: 1219631, IsClosed: false });
-        expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Update status is failed!', isConfirmPopup: false });
-    });
+    //    expect(props.updateClosedStatus).toHaveBeenCalledWith({ AffId: 1219631, IsClosed: false });
+    //    expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Update status is failed!', isConfirmPopup: false });
+    //});
 
-    it('_openCloseAff - should call updateClosedStatus, getAffiliateInfo and setState', async () => {
-        const data = { IsSuccessful: true, Message: '' };
-        const updateClosedStatus = jest.fn(() => data);
-        const getAffiliateInfo = jest.fn();
-        const props = Object.assign({}, defaultProps, { updateClosedStatus, getAffiliateInfo });
-        const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
-        wrapper.setState = jest.fn();
+    //it('_openCloseAff - should call updateClosedStatus, getAffiliateInfo and setState', async () => {
+    //    const data = { IsSuccessful: true, Message: '' };
+    //    const updateClosedStatus = jest.fn(() => data);
+    //    const getAffiliateInfo = jest.fn();
+    //    const props = Object.assign({}, defaultProps, { updateClosedStatus, getAffiliateInfo });
+    //    const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
+    //    wrapper.setState = jest.fn();
 
-        await wrapper.instance()._openCloseAff(false);
+    //    await wrapper.instance()._openCloseAff(false);
 
-        expect(props.updateClosedStatus).toHaveBeenCalledWith({ AffId: 1219631, IsClosed: false });
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith(affName);
-        expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "The status has been updated successfully!", isConfirmPopup: false });
-    });
+    //    expect(props.updateClosedStatus).toHaveBeenCalledWith({ AffId: 1219631, IsClosed: false });
+    //    expect(props.getAffiliateInfo).toHaveBeenCalledWith(affName);
+    //    expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "The status has been updated successfully!", isConfirmPopup: false });
+    //});
 
     it('handleChangeAffType - should call updateAffType and wrapper.setState', async () => {
         const event = {
@@ -282,12 +282,12 @@ describe('left panel - components - panel - SettingPanel', () => {
         wrapper.setState({ selectedStatus: '', isConfirmStatus: false });
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
-        instance._openCloseAff = jest.fn();
+        //instance._openCloseAff = jest.fn();
 
         await instance.handleCloseNotificationPopup(true);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: '' });
-        expect(instance._openCloseAff).toHaveBeenCalledWith(false);
+        //expect(instance._openCloseAff).toHaveBeenCalledWith(false);
     });
 
     it('handleCloseNotificationPopup - should call setState but not call _changeStatus and _openCloseAff', async () => {
@@ -295,12 +295,12 @@ describe('left panel - components - panel - SettingPanel', () => {
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
         instance._changeStatus = jest.fn();
-        instance._openCloseAff = jest.fn();
+        //instance._openCloseAff = jest.fn();
 
         await instance.handleCloseNotificationPopup(false);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: '' });
         expect(instance._changeStatus).not.toHaveBeenCalled();
-        expect(instance._openCloseAff).not.toHaveBeenCalled();
+        //expect(instance._openCloseAff).not.toHaveBeenCalled();
     });
 });

@@ -349,6 +349,8 @@
     <Content Include="Areas\Portal\www\index.html" />
     <Content Include="Areas\Portal\www\config-utils\constant.js" />
     <Content Include="Areas\Portal\www\config-utils\entry.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\reducers\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\style\assets\mode\darkmode.svg" />
     <Content Include="Areas\Portal\www\source\style\assets\mode\lightmode.svg" />
     <Content Include="Areas\Portal\www\source\js\actions\actionTypes.js" />
@@ -796,7 +798,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\message\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\reducers\__test__\index.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\message\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\types.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\__test__\index.test.js" />

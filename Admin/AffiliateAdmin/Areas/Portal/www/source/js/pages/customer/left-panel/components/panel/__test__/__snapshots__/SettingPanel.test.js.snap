@@ -259,45 +259,5 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
       />
     </Col>
   </Row>
-  <Row
-    tag="div"
-  >
-    <Col
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      Closed
-    </Col>
-    <Col
-      className="text-right text-primary"
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <Button
-        className="left-panel-btn-link btn-closed"
-        color="link"
-        onClick={[Function]}
-        tag="button"
-      >
-        No
-      </Button>
-    </Col>
-  </Row>
 </Memo(Panel)>
 `;

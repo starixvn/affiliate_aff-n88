@@ -37,7 +37,8 @@ describe('text list - components - TextDetailForm ', () => {
         currencyList: [
             { Name: "EURO" },
             { Name: "VND" }
-        ]
+        ],
+        defaultLanguage: 'Vietnamese'
     };
 
     it('render correctly with insert', () => {
