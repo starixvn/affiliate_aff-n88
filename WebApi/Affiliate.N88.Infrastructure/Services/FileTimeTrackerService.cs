@@ -10,6 +10,7 @@ namespace Affiliate.N88.Services
     public class FileTimeTrackerService : ITimeTrackerService
     {
         private readonly string _filePath;
+        private readonly object _locker = new object();
 
         public FileTimeTrackerService(string filePath)
         {
@@ -23,7 +24,14 @@ namespace Affiliate.N88.Services
             if (!CheckFileIsXmlFormat())
                 throw new XmlException($"{_filePath} is not xml format");
 
-            var xmlDoc = XDocument.Load(_filePath);
+            XDocument xmlDoc = null;
+            lock (_locker)
+            {
+                xmlDoc = XDocument.Load(_filePath);
+            }
+            if (xmlDoc == null)
+                throw new NullReferenceException(nameof(xmlDoc));
+
             var elem = xmlDoc.Root?.Element(category);
             if (elem == null)
                 throw new XmlElementNotFoundException($"Not Found {elem}");
@@ -71,7 +79,10 @@ namespace Affiliate.N88.Services
             {
                 Directory.CreateDirectory(directory);
             }
-            xmlDoc.Save(_filePath);
+            lock (_locker)
+            {
+                xmlDoc.Save(_filePath);
+            }
         }
 
         private bool CheckFileIsXmlFormat()
