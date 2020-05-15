@@ -47,7 +47,8 @@ namespace Affiliate.N88.Jobs
 
             return WebHost.CreateDefaultBuilder(args)
                 .UseConfiguration(configuration)
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .UseUrls($"http://0.0.0.0:{configuration["Port"]}");
         }
     }
 }
