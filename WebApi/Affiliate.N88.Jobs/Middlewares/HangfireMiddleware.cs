@@ -59,7 +59,7 @@ namespace Affiliate.N88.Jobs.Middlewares
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", "0 0 */1 * *", job => job.FetchFromAdjusmentDay(3));
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(5), job => job.FetchLastMonth());
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4), job => job.FetchLastMonth());
             }
         }
 
