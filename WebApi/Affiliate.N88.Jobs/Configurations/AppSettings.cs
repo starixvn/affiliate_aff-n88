@@ -19,5 +19,7 @@ namespace Affiliate.N88.Jobs.Configurations
         public FetchServiceSetting PullBetRecordSetting { get; set; }
 
         public bool IsRunFetchTask { get; set; }
+
+        public bool RunAsService { get; set; }
     }
 }
