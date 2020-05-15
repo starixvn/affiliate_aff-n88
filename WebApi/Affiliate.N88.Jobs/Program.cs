@@ -22,8 +22,8 @@ namespace Affiliate.N88.Jobs
             Directory.SetCurrentDirectory(pathToContentRoot);
 
             var builder = CreateWebHostBuilder(args.Where(arg => arg != "--console").ToArray());
-
             var host = builder.Build();
+
             var config = host.Services.GetService<IConfiguration>();
             var appSetting = new AppSettings();
             config.GetSection("AppSettings").Bind(appSetting);
