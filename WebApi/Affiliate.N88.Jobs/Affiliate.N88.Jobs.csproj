@@ -9,11 +9,15 @@
 
   <ItemGroup>
     <None Remove="App_Data\SpNames.xml" />
+    <None Remove="Deployment.ignore" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="App_Data\SpNames.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Deployment.ignore">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
