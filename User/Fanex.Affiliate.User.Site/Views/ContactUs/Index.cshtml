@@ -9,23 +9,9 @@
     var name = Model != null ? $"{Model?.FirstName} {Model?.LastName}" : string.Empty;
     var affiliate = Model?.UserName;
     var email = Model?.Email;
-    var appSetting = new AppSetting();
+    var appSetting = AppSetting.Instance;
     var mailContact = appSetting.MailContact;
-    var isMobile = Request.Browser.IsMobileDevice;
-    var imLink = "tencent://message/?uin=1806412043&Site=qq&Menu=yes";
-
-    if (isMobile)
-    {
-        var userAgent = Request.UserAgent.ToLower();
-        if (userAgent.Contains("android"))
-        {
-            imLink = "https://play.google.com/store/apps/details?id=com.tencent.mobileqqi";
-        }
-        else if (userAgent.Contains("iphone") || userAgent.Contains("ipad") || userAgent.Contains("ipod"))
-        {
-            imLink = "https://itunes.apple.com/cn/app/qq-guo-ji-ban/id710380093?mt=8";
-        }
-    }
+    var isN88 = string.Equals(appSetting.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase);
 }
 
 @section styles{
@@ -58,43 +44,45 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-sm-9">
-                <div class="flex flex-wrap">
-                    <div class="flex-sm-6 flex-0 language-wrap-item">
-                        <div class="languages-item">
-                            <div class="single-flag">
-                                <img src="~/www/build/styles/Images/contact-us/english_lang.png" />
-                            </div>
-                            <div class="info">
-                                <p class="language">@Lang.EnglishSupport</p>
-                                <a class="contact-info" href="skype:affiliate@(AppSetting.Instance.SiteFriendlyName)">
-                                    <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
-                                    <span>affiliate@(AppSetting.Instance.SiteFriendlyName)</span>
-                                </a>
+            @if (!isN88)
+            {
+                <div class="col-sm-9">
+                    <div class="flex flex-wrap">
+                        <div class="flex-sm-6 flex-0 language-wrap-item">
+                            <div class="languages-item">
+                                <div class="single-flag">
+                                    <img src="~/www/build/styles/Images/contact-us/english_lang.png" />
+                                </div>
+                                <div class="info">
+                                    <p class="language">@Lang.EnglishSupport</p>
+                                    <a class="contact-info" href="skype:affiliate@(AppSetting.Instance.SiteFriendlyName)">
+                                        <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
+                                        <span>affiliate@(AppSetting.Instance.SiteFriendlyName)</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex-sm-6 flex-0 language-wrap-item">
-                        <div class="languages-item">
-                            <div class="single-flag">
-                                <img src="~/www/build/styles/Images/contact-us/vietnam_lang.png" />
-                            </div>
-                            <div class="info">
-                                <p class="language">@Lang.VietnamSupport</p>
-                                <a class="contact-info" href="skype:crmsupport.1">
-                                    <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
-                                    <span>crmsupport.1</span>
-                                </a>
-                                <span class="contact-info info-zalo">
-                                    <img class="im-zalo" src="~/www/build/styles/Images/contact-us/zalo.png" />
-                                    <span>+63 927 684 2457</span>
-                                </span>
+                        <div class="flex-sm-6 flex-0 language-wrap-item">
+                            <div class="languages-item">
+                                <div class="single-flag">
+                                    <img src="~/www/build/styles/Images/contact-us/vietnam_lang.png" />
+                                </div>
+                                <div class="info">
+                                    <p class="language">@Lang.VietnamSupport</p>
+                                    <a class="contact-info" href="skype:crmsupport.1">
+                                        <img class="im-icon" src="~/www/build/styles/Images/contact-us/skype_icon.png" />
+                                        <span>crmsupport.1</span>
+                                    </a>
+                                    <span class="contact-info info-zalo">
+                                        <img class="im-zalo" src="~/www/build/styles/Images/contact-us/zalo.png" />
+                                        <span>+63 927 684 2457</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 
