@@ -7,6 +7,7 @@ using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Hangfire;
+using Hangfire.Common;
 using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
@@ -52,18 +53,22 @@ namespace Affiliate.N88.Jobs.Middlewares
             });
             app.UseHangfireServer();
 
-            RegisterTask<IFetchCustomerDataTask>(appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
-            RegisterTask<IFetchBetRecordDataTask>(appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
+            if (appSettings.IsRunFetchTask)
+            {
+                RegisterTask<IFetchCustomerDataTask>(typeof(IFetchCustomerDataTask).Name ,appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-EveryThreeDay", "0 0 */3 * *", job => job.FetchFromAdjusmentDay(3));
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(5), job => job.FetchLastMonth());
+            }
         }
 
-        private static void RegisterTask<T>(string cronExpression, Expression<Func<T, Task>> methodCall)
+        private static void RegisterTask<T>(string serviceId, string cronExpression, Expression<Func<T, Task>> methodCall)
         {
             if (!string.IsNullOrWhiteSpace(cronExpression))
             {
-                var info = (MethodCallExpression)methodCall.Body;
-
                 RecurringJob.AddOrUpdate(
-                            typeof(T).Name,
+                            serviceId,
                             methodCall,
                             cronExpression);
             }

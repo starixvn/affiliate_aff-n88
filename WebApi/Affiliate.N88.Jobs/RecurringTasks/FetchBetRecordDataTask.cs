@@ -20,6 +20,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchBetRecordDataTask : IFetchDataTask 
     {
+        Task FetchLastMonth();
+
+        Task FetchFromAdjusmentDay(int day);
+
         Task FetchDataAsync(DateTime fromDate, DateTime toDate);
     }
     public class FetchBetRecordDataTask : IFetchBetRecordDataTask
@@ -54,12 +58,43 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 var fromDate = await GetLastTimeFetchDateAsync();
                 var toDate = GetAdjustmentApiServerDate();
-                await FetchDataAsync(fromDate, toDate);
+                await FetchDataAndTrackTimeAsync(fromDate, toDate);
             }
             catch (Exception ex)
             {
                 _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
             }            
+        }
+
+        public async Task FetchLastMonth()
+        {
+            try
+            {
+                var now = DateTime.Now;
+                var dayLastMonth = now.AddMonths(-1);
+                var firstDayLastMonth = new DateTime(dayLastMonth.Year, dayLastMonth.Month, 1);
+                var firstDayThisMonth = new DateTime(now.Year, now.Month, 1);
+                await FetchDataAsync(firstDayLastMonth, firstDayThisMonth);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
+            } 
+        }
+
+        public async Task FetchFromAdjusmentDay(int day)
+        {
+            try
+            {
+                var lastFetchDate = await GetLastTimeFetchDateAsync();
+                var fromDate = lastFetchDate.AddDays(-day);
+                var toDate = GetAdjustmentApiServerDate();
+                await FetchDataAsync(fromDate, toDate);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
+            }
         }
 
         public async Task FetchDataAsync(DateTime fromDate, DateTime toDate)
@@ -71,6 +106,25 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 try
                 {
                     await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                }
+                catch (Exception ex)
+                {
+                    _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                    throw ex;
+                }
+            }
+        }
+
+        private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)
+        {
+            var intervalTime = GetApiMaxTimeRange();
+            var timeRanges = DateTimeHelper.GetProportionTimeRange(fromDate, toDate, intervalTime);
+            foreach (var range in timeRanges)
+            {
+                try
+                {
+                    await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                    await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, range.ToDate);
                 }
                 catch (Exception ex)
                 {
@@ -97,9 +151,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     await InsertBetRecordAsync(fromDate, toDate, xml);
                 }
             }
-            await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, toDate);
         }
-
 
         private string BuildXml(IEnumerable<BetRecordInfo> data)
         {

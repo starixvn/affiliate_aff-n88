@@ -17,5 +17,7 @@ namespace Affiliate.N88.Jobs.Configurations
         public string PullCustomerInfoCron { get; set; }
 
         public FetchServiceSetting PullBetRecordSetting { get; set; }
+
+        public bool IsRunFetchTask { get; set; }
     }
 }

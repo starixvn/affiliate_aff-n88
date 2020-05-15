@@ -4,6 +4,7 @@ using Fanex.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.IO;
@@ -28,9 +29,10 @@ namespace Affiliate.N88.Jobs
             appSettings = new AppSettings();
             Configuration.GetSection("AppSettings").Bind(appSettings);
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.RegisterHangfire(Configuration);
             services.RegisterServices(Configuration, appSettings);
-            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +40,7 @@ namespace Affiliate.N88.Jobs
         {
             // Add This
             app.UseHangfire(appSettings);
+
 
             if (env.IsDevelopment())
             {
@@ -52,8 +55,6 @@ namespace Affiliate.N88.Jobs
             });
 
             Logger.Log.Info("Affiliate N88 Job started!");
-            Logger.Log.Info($"Directory {Directory.GetCurrentDirectory()}");
-            Logger.Log.Info($"{System.AppDomain.CurrentDomain.BaseDirectory}");
         }
     }
 }
