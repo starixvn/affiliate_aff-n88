@@ -9,7 +9,8 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 }
 
 const testCaseList = [
-    { name: 'param', value: {}, action: { type: types.SET_PARAM, data: { productId: 123, content: 'abc' } }, expectedResult: { productId: 123, content: 'abc' } }
+    { name: 'param', value: {}, action: { type: types.SET_PARAM, data: { productId: 123, content: 'abc' } }, expectedResult: { productId: 123, content: 'abc' } },
+    { name: 'sortingColumn', value: {}, action: { type: types.SET_SORTING_COLUMN, data: { sortedBy: 123 } }, expectedResult: { sortedBy: 123 } }
 ]
 
 describe('player detail reducers', () => {

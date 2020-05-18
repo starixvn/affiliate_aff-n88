@@ -124,11 +124,10 @@ export class Content extends PureComponent {
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
-        const originalStatus = dataItem.Status;
+        const status = dataItem.Status;
 
-        const isPending = originalStatus && originalStatus.toLowerCase() === 'pending';
+        const isProcessing = status && status.toLowerCase() === 'processing';
 
-        const status = isPending ? "Processing" : originalStatus;
         const creator = htmlDecode(dataItem.Creator);
         const description = htmlDecode(dataItem.DescriptionDisplay);
         const isTotalRow = transType === MONTHLY_TOTAL;
@@ -156,7 +155,7 @@ export class Content extends PureComponent {
                             </Button>) :
                             amount}
                     </Cell>
-                    <Cell title={status} className="text-center">{isPending ?
+                    <Cell title={status} className="text-center">{isProcessing ?
                         <Button className="p-0" color="link" onClick={() => this.handleSetTransactionId(dataItem.TransId)}>
                             {status}
                         </Button> : status}</Cell>

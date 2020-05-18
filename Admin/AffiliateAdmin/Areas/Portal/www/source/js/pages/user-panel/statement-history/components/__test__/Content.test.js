@@ -31,7 +31,7 @@ describe('statement history - components - Content', () => {
             Creator: "AAwalter",
             DateText: "Jun-2019",
             Description: "Admin Note",
-            Status: "Pending",
+            Status: "Processing",
             TransId: 1262276211,
             TransType: 202,
             NormalizeDateText: '2019-06-01'

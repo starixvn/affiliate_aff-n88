@@ -123,7 +123,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
             {
                 ["Username"] = "12BetAff226",
                 ["Transid"] = 123,
-                ["Status"] = "Pending",
+                ["Status"] = "Processing",
                 ["Amount"] = 100m,
                 ["Transdate"] = new DateTime(2020, 04, 15),
                 ["Completeddate"] = new DateTime(2020, 04, 15),
@@ -137,7 +137,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
             {
                 ["username"] = "12BetAff226",
                 ["Transid"] = 123,
-                ["Status"] = "Pending",
+                ["Status"] = "Processing",
                 ["Amount"] = 100m,
                 ["Transdate"] = new DateTime(2020, 04, 15),
                 ["Completeddate"] = new DateTime(2020, 04, 15),

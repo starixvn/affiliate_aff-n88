@@ -172,4 +172,32 @@ describe('user account actions', () => {
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/UserAccount/updateUserAccount', param);
         expect(result).toEqual(null);
     })
+
+    it('should create action to getPaymentMethod', async () => {
+        const paymentMethod = {
+            PaymentMethods: [
+                { Key: 'Player', Value: 'Bwing Player Account' },
+                { key: 'Moneybookers', value: 'Moneybookers' },
+                { key: 'Wire', value: 'Bank Transfer' }
+            ],
+            MinAmount: 23000
+        };
+        const expectedResponse = { data: paymentMethod, status: 200 };
+        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+
+        const result = await actions['getPaymentMethod']()();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/PaymentRequest/GetPaymentMethod');
+
+        expect(result).toEqual(paymentMethod);
+    })
+
+    it('should create action to getPaymentMethod with incorrect response', async () => {
+        ajaxRequest.post = jest.fn();
+
+        const result = await actions['getPaymentMethod']()();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/PaymentRequest/GetPaymentMethod');
+        expect(result).toEqual(null);
+    })
 });

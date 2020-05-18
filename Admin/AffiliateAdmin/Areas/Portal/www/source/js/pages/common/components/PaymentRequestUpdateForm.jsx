@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Modal, ModalHeader, ModalBody, Alert, Button, Form, Row, Col, FormGroup, Label, Input } from 'reactstrap';
 
-import { resource, globalResource, statusList, errorList, pending } from '../modules/constants/paymentRequestUpdate';
+import { resource, globalResource, statusList, errorList, processing } from '../modules/constants/paymentRequestUpdate';
 import { formatDecimalWithCurrencySymbol } from '../../../modules/numberFormat';
 import { getPaymentRequestDetail, updatePaymentRequest } from '../actions/paymentRequestUpdate';
 import { htmlDecode } from '../../../modules/htmlHelper';
 
-const pendingStatus = pending.toLowerCase();
+const processingStatus = processing.toLowerCase();
 const approvedStatus = statusList.Approved.toLowerCase();
 const rejectedStatus = statusList.Rejected.toLowerCase();
 
@@ -47,7 +47,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
         const { paymentRequestInfo, originalStatus } = this.state;
         const selectedStatus = paymentRequestInfo.Status;
 
-        if (originalStatus && originalStatus.toLowerCase() === pendingStatus &&
+        if (originalStatus && originalStatus.toLowerCase() === processingStatus &&
             selectedStatus && (selectedStatus.toLowerCase() === approvedStatus || selectedStatus.toLowerCase() === rejectedStatus)) {
 
             const paymentInfo = Object.assign({}, {
@@ -157,7 +157,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
         );
     }
 
-    _renderPaymentInformation(paymentRequestInfo, isPending) {
+    _renderPaymentInformation(paymentRequestInfo, isProcessing) {
         return (
             <fieldset>
                 <legend>
@@ -172,6 +172,10 @@ export class PaymentRequestUpdateForm extends PureComponent {
                     <Label sm={6}><strong>{formatDecimalWithCurrencySymbol(paymentRequestInfo.Amount)}</strong></Label>
                 </FormGroup>
                 <FormGroup row className="mb-2">
+                    <Label sm={6}>{resource.TransAmount}</Label>
+                    <Label sm={6}><strong>{`${formatDecimalWithCurrencySymbol(paymentRequestInfo.TransAmount)} (${paymentRequestInfo.TransCurrencyCode})`}</strong></Label>
+                </FormGroup>
+                <FormGroup row className="mb-2">
                     <Label sm={6}>{resource.Status}</Label>
                     <Label sm={6}><strong>{htmlDecode(paymentRequestInfo.Status)}</strong></Label>
                 </FormGroup>
@@ -180,13 +184,13 @@ export class PaymentRequestUpdateForm extends PureComponent {
                     <Label sm={6}><strong>{htmlDecode(paymentRequestInfo.PlayerUsername)}</strong></Label>
                 </FormGroup>
                 {
-                    isPending ? this._renderOptionalStatus() : this._renderPaymentCompletionInfo(paymentRequestInfo)
+                    isProcessing ? this._renderOptionalStatus() : this._renderPaymentCompletionInfo(paymentRequestInfo)
                 }
             </fieldset>
         );
     }
 
-    _renderNote(paymentRequestInfo, isPending) {
+    _renderNote(paymentRequestInfo, isProcessing) {
         const { AdminDesc, AffDesc } = paymentRequestInfo;
 
         return (
@@ -198,7 +202,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
                         </legend>
                         <FormGroup>
                             <Label for="AdminDesc">{resource.VisibleAdmin}</Label>
-                            <Input type="textarea" name="AdminDesc" rows="6" disabled={!isPending} value={htmlDecode(AdminDesc)} onChange={this.handleChange} />
+                            <Input type="textarea" name="AdminDesc" rows="6" disabled={!isProcessing} value={htmlDecode(AdminDesc)} onChange={this.handleChange} />
                         </FormGroup>
                     </fieldset>
                 </Col>
@@ -209,7 +213,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
                         </legend>
                         <FormGroup>
                             <Label for="AffDesc">{resource.VisibleAffiliate}</Label>
-                            <Input type="textarea" name="AffDesc" rows="6" disabled={!isPending} value={htmlDecode(AffDesc)} onChange={this.handleChange} />
+                            <Input type="textarea" name="AffDesc" rows="6" disabled={!isProcessing} value={htmlDecode(AffDesc)} onChange={this.handleChange} />
                         </FormGroup>
                     </fieldset>
                 </Col>
@@ -225,7 +229,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
     render() {
         const { transactionId } = this.props;
         const { paymentRequestInfo, originalStatus, isSuccess, isShowMessage, message } = this.state;
-        const isPending = originalStatus && originalStatus.toLowerCase() === pendingStatus;
+        const isProcessing = originalStatus && originalStatus.toLowerCase() === processingStatus;
 
         return paymentRequestInfo && (
             <Modal isOpen={transactionId} toggle={this.handleClosePopup} backdrop='static'>
@@ -237,9 +241,9 @@ export class PaymentRequestUpdateForm extends PureComponent {
                                 <div dangerouslySetInnerHTML={{ __html: message }}></div>
                             </Alert>
                             {this._renderAccountInformation(paymentRequestInfo)}
-                            {this._renderPaymentInformation(paymentRequestInfo, isPending)}
-                            {this._renderNote(paymentRequestInfo, isPending)}
-                            <Button type="button" color="success" className="mr-3" disabled={!isPending} onClick={this.handleSave}>{globalResource.Update}</Button>
+                            {this._renderPaymentInformation(paymentRequestInfo, isProcessing)}
+                            {this._renderNote(paymentRequestInfo, isProcessing)}
+                            <Button type="button" color="success" className="mr-3" disabled={!isProcessing} onClick={this.handleSave}>{globalResource.Update}</Button>
                             <Button type="button" color="info" onClick={this.handleClosePopup}>{globalResource.Cancel}</Button>
                         </Form>
                     </div>

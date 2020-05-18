@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
-import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('daily earning detail - components - Content', () => {
     const param ={

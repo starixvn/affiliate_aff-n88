@@ -20,7 +20,7 @@ describe('user account - components - Content', () => {
         State: "700000",
         Postcode: "700000",
         Country: "Viet Nam",
-        SiteUrl: "",
+        SiteUrl: "nova88.com",
         MoreSiteUrls: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
         NoSiteDescription: "",
         PreferredPayment: "Player",
@@ -35,11 +35,16 @@ describe('user account - components - Content', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }],
+        HasWebSite: true
     };
 
     const paymentMethod = {
-        PaymentMethods: { Key: 'Player', Value: 'Bwing Player Account' },
+        PaymentMethods: [
+            { Key: 'Player', Value: 'Bwing Player Account' },
+            { key: 'Moneybookers', value: 'Moneybookers' },
+            { key: 'Wire', value: 'Bank Transfer' }
+        ],
         MinAmount: 23000
     };
 
@@ -49,7 +54,8 @@ describe('user account - components - Content', () => {
         userAccountInfo,
         moreSiteUrlsList: [ "www.sportsbookie.com", "www.gzyyy.com", "www.123.com" ],
         getUserAccountInfo: jest.fn(() => userAccountInfo),
-        getPaymentMethod: jest.fn(() => paymentMethod, () => paymentMethod)
+        getPaymentMethod: jest.fn(() => paymentMethod, () => paymentMethod),
+        licenseeName: 'Bwing'
     }
 
     it('render correctly', () => {
@@ -105,10 +111,7 @@ describe('user account - components - Content', () => {
         expect(instance.setState).toHaveBeenCalledTimes(3);
         expect(instance.setState.mock.calls[0][0]).toEqual({
             "minimumPayment": 23000,
-            "paymentMethodList": {
-                "Key": "Player",
-                "Value": "Bwing Player Account",
-            }
+            "paymentMethodList": paymentMethod.PaymentMethods
         });
         expect(instance.setState.mock.calls[0][1]).toEqual();
 
@@ -128,14 +131,8 @@ describe('user account - components - Content', () => {
         await instance.handleSubmit();
 
         expect(instance.setState).toHaveBeenCalledTimes(3);
-        expect(instance.setState.mock.calls[0][0]).toEqual({
-            "minimumPayment": 23000,
-            "paymentMethodList": {
-                "Key": "Player",
-                "Value": "Bwing Player Account",
-            }
-        });
-        //expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Failed!' });
+        expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
 
         expect(props.updateUserAccount).toHaveBeenCalled();
         expect(props.getAffiliateInfo).not.toHaveBeenCalled();
@@ -152,14 +149,8 @@ describe('user account - components - Content', () => {
         await instance.handleSubmit();
 
         expect(instance.setState).toHaveBeenCalledTimes(3);
-        expect(instance.setState.mock.calls[0][0]).toEqual({
-            "minimumPayment": 23000,
-            "paymentMethodList": {
-                "Key": "Player",
-                "Value": "Bwing Player Account",
-            }
-        });
-        //expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Update is failed!' });
+        expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
 
         expect(props.updateUserAccount).toHaveBeenCalled();
     });
@@ -176,65 +167,47 @@ describe('user account - components - Content', () => {
         await instance.handleSubmit();
 
         expect(instance.setState).toHaveBeenCalledTimes(3);
-        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Gender is empty, Please Check!<br />Email Address is invalid<br />Please select country<br />User Name is required<br />' });
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Gender is empty, Please Check!<br />Email Address is invalid<br />Please select country<br />Website URL 3 is required<br />User Name is required<br />' });
         expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 
         expect(props.updateUserAccount).not.toHaveBeenCalled();
     });
 
-    //it('handleSubmit - invalid Neteller PreferredPayment', async () => {
-    //    const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Neteller', NetellerAccountId: "" });
-    //    const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: null });
-    //    const result = shallow(<Content {...props} />);
-    //    const instance = result.instance();
-    //    instance.setState = jest.fn((obj, fn) => fn && fn());
-    //    window.setTimeout = jest.fn((fn, time) => fn && fn());
-    //    window.scrollTo = jest.fn();
+    it('handleSubmit - invalid Moneybookers PreferredPayment', async () => {
+        const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Moneybookers', MoneybookersEmail: "" });
+        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: null  });
+        const result = shallow(<Content {...props} />);
+        const instance = result.instance();
+        instance.setState = jest.fn((obj, fn) => fn && fn());
+        window.setTimeout = jest.fn((fn, time) => fn && fn());
+        window.scrollTo = jest.fn();
 
-    //    await instance.handleSubmit();
+        await instance.handleSubmit();
 
-    //    expect(instance.setState).toHaveBeenCalledTimes(2);
-    //    expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Neteller Account ID is required<br />' });
-    //    expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Moneybookers Email is required<br />' });
+        expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 
-    //    expect(props.updateUserAccount).not.toHaveBeenCalled();
-    //});
+        expect(props.updateUserAccount).not.toHaveBeenCalled();
+    });
 
-    //it('handleSubmit - invalid Moneybookers PreferredPayment', async () => {
-    //    const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Moneybookers', MoneybookersEmail: "" });
-    //    const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo });
-    //    const result = shallow(<Content {...props} />);
-    //    const instance = result.instance();
-    //    instance.setState = jest.fn((obj, fn) => fn && fn());
-    //    window.setTimeout = jest.fn((fn, time) => fn && fn());
-    //    window.scrollTo = jest.fn();
+    it('handleSubmit - invalid Wire PreferredPayment', async () => {
+        const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Wire', BankAccountNumber: "", });
+        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo });
+        const result = shallow(<Content {...props} />);
+        const instance = result.instance();
+        instance.setState = jest.fn((obj, fn) => fn && fn());
+        window.setTimeout = jest.fn((fn, time) => fn && fn());
+        window.scrollTo = jest.fn();
 
-    //    await instance.handleSubmit();
+        await instance.handleSubmit();
 
-    //    expect(instance.setState).toHaveBeenCalledTimes(2);
-    //    expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Moneybookers Email is required<br />' });
-    //    expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState).toHaveBeenCalledTimes(3);
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Bank Account Number is required<br />' });
+        expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
 
-    //    expect(props.updateUserAccount).not.toHaveBeenCalled();
-    //});
-
-    //it('handleSubmit - invalid Moneybookers PreferredPayment', async () => {
-    //    const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Wire', BankAccountNumber: "", });
-    //    const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo });
-    //    const result = shallow(<Content {...props} />);
-    //    const instance = result.instance();
-    //    instance.setState = jest.fn((obj, fn) => fn && fn());
-    //    window.setTimeout = jest.fn((fn, time) => fn && fn());
-    //    window.scrollTo = jest.fn();
-
-    //    await instance.handleSubmit();
-
-    //    expect(instance.setState).toHaveBeenCalledTimes(2);
-    //    expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Bank Account Number is required<br />' });
-    //    expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
-
-    //    expect(props.updateUserAccount).not.toHaveBeenCalled();
-    //});
+        expect(props.updateUserAccount).not.toHaveBeenCalled();
+    });
 
     it('hideMessage - should call setState', () => {
         const result = shallow(<Content {...defaultProps} />);

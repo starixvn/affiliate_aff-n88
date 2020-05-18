@@ -73,17 +73,19 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                         {
                             TransId = Convert.ToInt64(reader["Transid"]),
                             AffId = Convert.ToInt32(reader["AffId"]),
-                            AffName = Convert.ToString(reader["username"]),
+                            AffName = Convert.ToString(reader["AffName"]),
                             TransDate = Convert.ToDateTime(reader["Transdate"]),
                             Email = Convert.ToString(reader["email"]),
                             FirstName = Convert.ToString(reader["firstname"]),
                             LastName = Convert.ToString(reader["lastname"]),
                             PaymentMethod = Convert.ToString(reader["PreferredPayment"]),
                             Amount = Convert.ToDecimal(reader["Amount"]),
+                            TransAmount = Convert.ToDecimal(reader["TransAmount"]),
+                            TransCurrencyCode = Convert.ToString(reader["TransCurrencyCode"]),
                             Status = Convert.ToString(reader[Field.Status]),
-                            PlayerUsername = Convert.ToString(reader["Username2"]),
+                            PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
                             CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
-                            Creator = Convert.ToString(reader["adminname"]),
+                            Creator = Convert.ToString(reader["Creator"]),
                             AdminDesc = Convert.ToString(reader["AdminDesc"]),
                             AffDesc = Convert.ToString(reader["AffDesc"])
                         };

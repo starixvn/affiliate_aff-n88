@@ -1,6 +1,6 @@
-﻿import { globalResource, resource, statusList, pending } from '../../common/modules/constants/paymentRequestUpdate';
+﻿import { globalResource, resource, statusList, processing } from '../../common/modules/constants/paymentRequestUpdate';
 
-export { globalResource, statusList, pending, resource }
+export { globalResource, statusList, processing, resource }
 
 export const headerText = {
     Index: '#',

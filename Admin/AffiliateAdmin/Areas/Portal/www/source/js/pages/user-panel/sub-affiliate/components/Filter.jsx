@@ -11,10 +11,10 @@ export class Filter extends PureComponent {
     constructor(props) {
         super(props);
 
-        const { currencyList } = this.props;
+        const { baseCurrencyList } = this.props;
 
         this.state = {
-            selectedCurrency: (currencyList && currencyList.length && currencyList[0].ExchangeId) || defaultBaseCurrency
+            selectedBaseCurrency: (baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId) || defaultBaseCurrency
         }
     }
 
@@ -22,31 +22,31 @@ export class Filter extends PureComponent {
         this.handleSetParam();
     }
 
-    handleChangeCurrency = (event) => {
-        const selectedCurrency = Number(event.target.value);
-        this.setState({ selectedCurrency }, this.handleSetParam);
+    handleChangeBaseCurrency = (event) => {
+        const selectedBaseCurrency = Number(event.target.value);
+        this.setState({ selectedBaseCurrency }, this.handleSetParam);
     }
 
     handleSetParam() {
-        const { selectedCurrency } = this.state;
-        const param = Object.assign(this.props.param, { currencyId: selectedCurrency });
+        const { selectedBaseCurrency } = this.state;
+        const param = Object.assign(this.props.param, { currencyId: selectedBaseCurrency });
         this.props.setParam(param);
     }
 
     render() {
-        const { selectedCurrency } = this.state;
-        const { currencyList } = this.props;
+        const { selectedBaseCurrency } = this.state;
+        const { baseCurrencyList } = this.props;
 
         return (
             <div className="filter-container">
                 <Form inline tag="div">
                     {
-                        currencyList && currencyList.length &&
+                        baseCurrencyList && baseCurrencyList.length &&
                         <FormGroup className="mr-sm-2">
                             <Label className="mr-2">{globalResource.BaseCurrency}</Label>
-                            <Input type="select" name="Product" id="Product" value={selectedCurrency} onChange={this.handleChangeCurrency}>
+                            <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeBaseCurrency}>
                                 {
-                                    currencyList.map(c => {
+                                    baseCurrencyList.map(c => {
                                         return (<option key={c.ExchangeId} value={c.ExchangeId}>{htmlDecode(c.Code)}</option>)
                                     })
                                 }

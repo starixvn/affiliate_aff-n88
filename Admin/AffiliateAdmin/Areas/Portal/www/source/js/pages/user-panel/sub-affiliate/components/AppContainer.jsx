@@ -28,7 +28,7 @@ export class AppContainer extends PureComponent {
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter currencyList={this.props.baseCurrencyList}/>
+                <Filter baseCurrencyList={this.props.baseCurrencyList}/>
                 <Content />
             </AppLayout>
         );

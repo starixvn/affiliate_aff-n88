@@ -15,7 +15,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         TransDateText: "08/09/2019 03:43:17 AM",
         CompletedDateText: "08/16/2019 02:52:48 AM",
         TransId: 1262276212,
-        Status: "Pending",
+        Status: "Processing",
         AffName: "12BETAFF226",
         Amount: 100,
         Creator: "AAwalter"
@@ -23,12 +23,12 @@ describe('common - components - PaymentRequestUpdateForm', () => {
 
     it('render correctly', () => {
         const result = shallow(<PaymentRequestUpdateForm />);
-        result.setState({ paymentRequestInfo, originalStatus: 'pending' });
+        result.setState({ paymentRequestInfo, originalStatus: 'processing' });
 
         expect(result).toMatchSnapshot();
     });
 
-    it('render correctly with not pending', () => {
+    it('render correctly with not Processing', () => {
         const result = shallow(<PaymentRequestUpdateForm />);
         result.setState({ paymentRequestInfo, originalStatus: 'approved', isSuccess: false });
 
@@ -87,7 +87,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         await instance.handleGetPaymentRequestInfo(1271808);
 
         expect(props.getPaymentRequestDetail).toHaveBeenCalledWith({ transId: 1271808});
-        expect(instance.setState).toHaveBeenCalledWith({ paymentRequestInfo, originalStatus: 'Pending' });
+        expect(instance.setState).toHaveBeenCalledWith({ paymentRequestInfo, originalStatus: 'Processing' });
     });
 
     it('handleSave - should call updatePaymentRequest, handleFetchData, handleClosePopup and setState', async () => {
@@ -96,7 +96,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const props = { updatePaymentRequest: jest.fn(() => expectedResponse), handleFetchData: jest.fn(), handleClosePopup: jest.fn() };
         const result = shallow(<PaymentRequestUpdateForm {...props}/>);
         const instance = result.instance();
-        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Pending' });
+        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
@@ -119,7 +119,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const props = { updatePaymentRequest: jest.fn(() => expectedResponse), handleFetchData: jest.fn(), handleClosePopup: jest.fn() };
         const result = shallow(<PaymentRequestUpdateForm {...props}/>);
         const instance = result.instance();
-        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Pending' });
+        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
@@ -141,7 +141,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         const props = { updatePaymentRequest: jest.fn(), handleFetchData: jest.fn(), handleClosePopup: jest.fn() };
         const result = shallow(<PaymentRequestUpdateForm {...props}/>);
         const instance = result.instance();
-        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Pending' });
+        instance.setState({ paymentRequestInfo: paymentRequest, originalStatus: 'Processing' });
         instance.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, time) => fn && fn());
         instance.hideMessage = jest.fn();
