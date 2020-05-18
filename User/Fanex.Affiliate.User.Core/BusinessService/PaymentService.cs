@@ -102,11 +102,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var resultInfo = new ResultInfo { IsOk = false };
 
-            if (!IsInDateRange() && !paymentCreationParam.IsLocalTest)
-            {
-                resultInfo.Message = Lang.PayoutTime;
-            }
-            else if (!IsValidAmount(paymentCreationParam))
+            //if (!IsInDateRange() && !paymentCreationParam.IsLocalTest)
+            //{
+            //    resultInfo.Message = Lang.PayoutTime;
+            //}
+            if (!IsValidAmount(paymentCreationParam))
             {
                 resultInfo.Message = Error.PaymentAmountInvalid;
             }
