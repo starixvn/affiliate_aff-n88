@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             var paymentRequestDetail = GetPaymentRequestDetail(param.TransId);
 
             if (paymentRequestDetail != null &&
-                string.Equals(AffStatus.Pending, paymentRequestDetail.Status, StringComparison.InvariantCultureIgnoreCase))
+                string.Equals(AffStatus.Processing, paymentRequestDetail.Status, StringComparison.InvariantCultureIgnoreCase))
             {
                 param.AffId = paymentRequestDetail.AffId;
                 param.Amount = paymentRequestDetail.Amount;
