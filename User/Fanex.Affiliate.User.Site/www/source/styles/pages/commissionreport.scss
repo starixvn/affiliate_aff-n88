@@ -99,9 +99,6 @@
     tbody {
         tr {
             > td {
-                background: #fff;
-                color: #000;
-
                 .row-wrapper {
                     position: relative;
 
@@ -140,8 +137,6 @@
                 display: table-row;
 
                 > td {
-                    background: #F8D8D1;
-                    color: #000;
                     font-weight: bold;
                 }
             }

@@ -194,9 +194,6 @@
     .summary-content .details-section-content .player-detail-pager {
       z-index: 2;
       top: 43px; }
-      .summary-content .details-section-content .player-detail-pager .pager-container {
-        border: none !important;
-        background-color: #f5f5f5 !important; }
     .summary-content .details-section-content .table {
       z-index: 1;
       margin-bottom: 10px; }

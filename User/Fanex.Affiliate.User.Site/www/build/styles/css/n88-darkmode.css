@@ -3,7 +3,7 @@
   background: #1E1F21; }
   body a:focus {
     outline: none !important; }
-  body input, body select, body textarea, body .marketing-action, body .pager-container, body .banner-control, body .custom-panel, body .languages-item {
+  body input, body select, body textarea, body .marketing-action, body .pager-container, body .banner-control, body .custom-panel, body .languages-item, body .breadcrumb {
     background: #282828 !important;
     color: #fff !important;
     border: 1px solid #000 !important; }
@@ -90,15 +90,8 @@
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: 1px solid #000; }
 
-#dataTable td {
-  background: #191919;
-  color: #fff; }
-
 #dataTable .sumrow td {
-  background: #282828; }
-
-#dataTable .total td {
-  background: #000000; }
+  background: #282828 !important; }
 
 .login-dialog .modal-header {
   background-color: #282828;
@@ -174,9 +167,6 @@
 .news-content li > a {
   color: #fff; }
 
-/*.date-time-info {
-    background: $date-time-info;
-}*/
 .languages-item {
   background: #fff; }
   .languages-item .info {
@@ -231,8 +221,8 @@
     border-bottom: 2px solid #FF6D3E; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total th {
-  background: #000000 !important;
-  color: #fff; }
+  background: #fbc763 !important;
+  color: #000; }
 
 .account-overview #account-overview-menu {
   background: transparent;
