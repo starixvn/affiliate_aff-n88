@@ -9,7 +9,7 @@
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
-    var isN88 = string.Equals(settingService.SiteName, "N88", StringComparison.CurrentCultureIgnoreCase);
+    var isN88 = string.Equals(settingService.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 
 <!DOCTYPE html>

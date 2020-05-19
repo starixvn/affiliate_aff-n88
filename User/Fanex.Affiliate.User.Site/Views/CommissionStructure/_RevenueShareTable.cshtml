@@ -1,10 +1,15 @@
-﻿<div class="table table-responsive">
+﻿@using Fanex.Affiliate.User.Core.Constants
+@{
+    var appSetting = AppSetting.Instance;
+    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+}
+<div class="table table-responsive">
     <table>
         <thead>
             <tr>
                 <th width="20%">@Lang.RevenueShare</th>
                 <th width="8%">@Lang.Tier</th>
-                <th width="20%">@Lang.NetWinLoss</th>
+                <th width="20%">@string.Format(Lang.NetWinLoss, appSetting.DefaultCurrency)</th>
                 <th width="20%">@Lang.ActivePlayers</th>
                 <th width="20%">@Lang.CommPercent</th>
             </tr>
@@ -16,20 +21,20 @@
                     <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
                 </td>
                 <td class="text-center">1</td>
-                <td class="text-center">0 - 130,000,000 </td>
+                <td class="text-center">@(isN88 ? "0 - 5,600" : "0 - 130,000,000")</td>
                 <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
                 <td class="text-center">30%</td>
             </tr>
             <tr>
                 <td class="text-center">2</td>
-                <td class="text-center">130,001,000 – 1,990,000,000</td>
-                
+                <td class="text-center">@(isN88 ? "5,601 - 86,000" : "130,001,000 – 1,990,000,000")</td>
+
                 <td class="text-center">40%</td>
             </tr>
             <tr>
                 <td class="text-center">3</td>
-                <td class="text-center">1,990,000,000 above</td>
-                
+                <td class="text-center">@(isN88 ? "86,000 above" : "1,990,000,000 above")</td>
+
                 <td class="text-center">50%</td>
             </tr>
         </tbody>

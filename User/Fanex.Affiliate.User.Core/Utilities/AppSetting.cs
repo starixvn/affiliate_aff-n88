@@ -65,5 +65,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
 
         public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
+
+        public string DefaultCurrency => GetValue("DefaultCurrency");
     }
 }

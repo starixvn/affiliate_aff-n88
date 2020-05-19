@@ -243,6 +243,7 @@
     <Compile Include="Constants\PaymentStatus.cs" />
     <Compile Include="Constants\Product.cs" />
     <Compile Include="Constants\RequestPage.cs" />
+    <Compile Include="Constants\SiteName.cs" />
     <Compile Include="Constants\TargetSite.cs" />
     <Compile Include="Constants\TransType.cs" />
     <Compile Include="Controllers\AuthBaseController.cs" />

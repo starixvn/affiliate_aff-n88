@@ -1,5 +1,9 @@
-﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+﻿@using Fanex.Affiliate.User.Core.Constants
+@{
+    var appSetting = AppSetting.Instance;
+    var siteName = appSetting.SiteFriendlyName;
+    var defaultCurrency = appSetting.DefaultCurrency;
+    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 <div class="banner-commission-structure">
     <div class="text-content english">
@@ -35,7 +39,7 @@
         <span class="text">Negative Balance</span>
     </div>
     <p class="text">
-        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -VND58,000,000, this amount will be carried forward to February. If at the end of February your affiliate account earns VND78,000,000, the total balance will be VND20,000,000. However if your account is still making a loss at the end of February, for example -VND36,000,000, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -VND94,000,000. The commission earned shall then be paid according to the tier scale.
+        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -@(defaultCurrency)58,000,000, this amount will be carried forward to February. If at the end of February your affiliate account earns @(defaultCurrency)78,000,000, the total balance will be @(defaultCurrency)20,000,000. However if your account is still making a loss at the end of February, for example -@(defaultCurrency)36,000,000, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -@(defaultCurrency)94,000,000. The commission earned shall then be paid according to the tier scale.
     </p>
 </div>
 <div class="info-group">
@@ -43,11 +47,11 @@
         <span class="text">Commission Payment</span>
     </div>
     <p class="text">
-        You can request payout in other currencies other than VND. The currencies offered are USD, MYR, EUR, CNY. Respective exchange rate on the payout date will be applied.
+        You can request payout in other currencies other than @(isN88 ? "USD. The currencies offered are" : "VND. The currencies offered are USD,") MYR, EUR, CNY. Respective exchange rate on the payout date will be applied.
     </p>
     <p class="text">We offer several methods of withdrawal:</p>
     <p>Through your @siteName player account</p>
     <p class="text">
-        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is VND@(AppSetting.Instance.MinWithdrawal)
+        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(defaultCurrency)@(AppSetting.Instance.MinWithdrawal)
     </p>
 </div>

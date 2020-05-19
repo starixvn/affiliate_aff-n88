@@ -3824,7 +3824,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Company Net Win (VND).
+        ///   Looks up a localized string similar to Company Net Win ({0}).
         /// </summary>
         public static string NetWinLoss {
             get {

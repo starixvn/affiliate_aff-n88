@@ -1090,7 +1090,7 @@
     <value>Hà Lan </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Lợi Nhuận Ròng Mỗi Tháng (VND)</value>
+    <value>Lợi Nhuận Ròng Mỗi Tháng ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>

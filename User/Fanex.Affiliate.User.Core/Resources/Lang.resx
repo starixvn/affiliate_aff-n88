@@ -1150,7 +1150,7 @@
     <value>Netherlands </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win (VND)</value>
+    <value>Company Net Win ({0})</value>
     <comment>87923</comment>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">

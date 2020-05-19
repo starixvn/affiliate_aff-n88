@@ -137,9 +137,9 @@
 .news-content li > a {
   color: #212121; }
 
-.date-time-info {
-  background: #3f4f66; }
-
+/*.date-time-info {
+    background: $date-time-info;
+}*/
 .languages-item {
   background: #fff; }
   .languages-item .info {
