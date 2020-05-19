@@ -29,7 +29,7 @@
     <div id="mainBanner" class="carousel slide banner-center" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverView") : Url.Content("~/Signup/Index"))">
+                <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index"))">
                     <picture>
                         <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
                         <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />

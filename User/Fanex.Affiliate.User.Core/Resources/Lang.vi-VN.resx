@@ -142,7 +142,7 @@
     <value>Điều chỉnh</value>
   </data>
   <data name="Affiliate" xml:space="preserve">
-    <value>CHƯƠNG TRÌNH ĐẠI LÝ</value>
+    <value>Chương Trình Đại Lý</value>
   </data>
   <data name="AffiliateID" xml:space="preserve">
     <value>Mã Số Đại Lý </value>
@@ -1961,7 +1961,7 @@
     <value>Thống Kê</value>
   </data>
   <data name="AffiliateProgram" xml:space="preserve">
-    <value>Chương Trình Đại Lý</value>
+    <value>CHƯƠNG TRÌNH ĐẠI LÝ</value>
   </data>
   <data name="AffiliateLogin" xml:space="preserve">
     <value>ĐĂNG NHẬP TÀI KHOẢN ĐẠI LÝ</value>

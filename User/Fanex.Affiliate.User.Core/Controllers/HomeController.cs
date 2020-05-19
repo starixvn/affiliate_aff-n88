@@ -27,8 +27,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 IsAuthenticated = isAuthenticated,
                 Language = SessionService.CurrentLanguage,
-                SignUpLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverView") : Url.Content("~/SignUp"),
-                BannerLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#MediaGallery") : "javascript:;",
+                SignUpLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/SignUp"),
+                BannerLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview#MediaGallery") : "javascript:;",
                 Promotion12BetLink = GetPromotionLink()
             };
 
