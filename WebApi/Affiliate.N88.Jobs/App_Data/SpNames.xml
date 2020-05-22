@@ -11,7 +11,12 @@
     <Setting Key="N88_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N88"/>
     <Setting Key="N88_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N88" />
   </Function>
-  <Funtion Name="Playtech_CS">
-    <Setting Key="Task_Product3rd_ImportQueue" SpName="Task_Product3rd_ImportQueue" DbName="Playtech_CS"/>
+  <Funtion Name="ThirdPartyImport">
+    <Setting Key="Master_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_LatestCalledTime" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_LatestCalledTime" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Slave_bodb_N88"/>
   </Funtion>
 </Functions>
