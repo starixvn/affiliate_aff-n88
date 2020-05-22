@@ -12,6 +12,7 @@ using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using Xunit;
@@ -25,6 +26,8 @@ namespace Affiliate.N88.Jobs.Tests
         private readonly ILogger Logger;
         private readonly IOptionsSnapshot<FetchServiceSetting> Configuration;
         private readonly IThirdPartyImportRepository Repo;
+
+        private FetchServiceSetting Settings => Configuration.Get(ServiceConfigName.PULL_BET_RECORD_SETTING);
 
         public FetchBetRecordTaskTests()
         {
@@ -103,13 +106,13 @@ namespace Affiliate.N88.Jobs.Tests
             var toDate = new DateTime(2020, 2, 2, 0, 30, 0);
 
             SetUpStubConfiguration();
+            var numberOfRepo = Settings.SupportedPrefix.Count();
             Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>()).Returns(data);
             var fetchTask = CreateFetchTask();
 
             await fetchTask.FetchDataAsync(fromDate, toDate);
 
-            await Repo.Received(2).ImportBetRecordAsync(Arg.Is<InsertBetRecodInfoCommand>(r => CheckXmlElementIsLowerString(r.XmlData)));
-            await TimeTrackerService.Received().SaveTimeAsync(Arg.Any<string>(), toDate);
+            await Repo.Received(2 * numberOfRepo).ImportRecordAsync(Arg.Is<InsertThirdPartyRecodInfoCommand>(r => CheckXmlElementIsLowerString(r.XmlData)));
         }
 
         private bool CheckXmlElementIsLowerString(string xmlData)
@@ -158,6 +161,8 @@ namespace Affiliate.N88.Jobs.Tests
             DefaultPullDate = new DateTime(2020, 2, 2, 0, 0, 0),
             MaxTimeRange = 30,
             PullInfoCron = "*/30 * * * *",
+            DataSource = "Table",
+            SupportedPrefix = new[] {"test1", "test2"}
         };
 
         public static IEnumerable<BetRecordInfo> GenerateApiResponse(int count = 1)

@@ -32,10 +32,10 @@ namespace Affiliate.N88.Jobs.UnitTests
             Config = Substitute.For<IOptions<LicenseeSiteSetting>>();
         }
 
-        private FetchCustomerDataTask CreateFetchTask()
+        private FetchAffCustomerDataTask CreateFetchTask()
         {
             Config.Value.Returns(FetchCustomerDataTaskTestsHelper.Setting);
-            return new FetchCustomerDataTask(Api, Repo, Logger, Config);
+            return new FetchAffCustomerDataTask(Api, Repo, Logger, Config);
         }
 
         private void SetUpRepoReturnSiteName(LicenseeSiteSetting setting)
@@ -124,7 +124,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         {
             var date = new DateTime(2020, 2, 2);
             var fetchTask = CreateFetchTask();
-            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(new List<CustomerModel>());
+            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(new List<AffCustomerModel>());
             await fetchTask.FetchDataAsync(date);
 
             await Logger.Received().InfoAsync(Arg.Is<string>(s => s.Contains($"No Data on date {date}")));
@@ -163,24 +163,24 @@ namespace Affiliate.N88.Jobs.UnitTests
                 }
         };
 
-        public static IEnumerable<CustomerModel> Customers => new List<CustomerModel>
+        public static IEnumerable<AffCustomerModel> Customers => new List<AffCustomerModel>
         {
-            new CustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
-            new CustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 1, SiteName = "BWing", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 2, SiteName = "Goal123", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 3, SiteName = "Bet88", CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
+            new AffCustomerModel{ SiteId = 4, SiteName = SiteNotInConfigSetting, CustId = new Random().Next() },
         };
 
         public static string SiteNotInConfigSetting => "abc";
 
-        public static IEnumerable<CustomerModel> GetSiteCustomer(string siteName) =>
+        public static IEnumerable<AffCustomerModel> GetSiteCustomer(string siteName) =>
             Customers.Where(c => c.SiteName.Equals(siteName, StringComparison.InvariantCultureIgnoreCase));
     }
 }
