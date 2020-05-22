@@ -1,0 +1,27 @@
+﻿using Affiliate.N88.Core;
+using Fanex.Data.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Affiliate.N88.SpParams.Criteria
+{
+    public abstract class IdenticalSurfixCriteriaBase : CriteriaBase
+    {
+        protected readonly IPrefixProvider _prefixProvider;
+
+        public IdenticalSurfixCriteriaBase(IPrefixProvider prefixProvider = null)
+        {
+            _prefixProvider = prefixProvider;
+        }
+
+        protected abstract string SuffixSettingKey { get; }
+
+        public override string GetSettingKey()
+            => _prefixProvider == null || string.IsNullOrWhiteSpace(_prefixProvider.PrefixCode)
+                ? SuffixSettingKey
+                : $"{_prefixProvider.PrefixCode}_{SuffixSettingKey}";
+    }
+}
