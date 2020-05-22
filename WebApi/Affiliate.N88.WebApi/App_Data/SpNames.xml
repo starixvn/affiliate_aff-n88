@@ -3,5 +3,8 @@
     <Setting Key="N8G_AffiliateSel" SpName="N8G_AffiliateSel" DbName="N88Licensee" />
     <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee" />
     <Setting Key="N88_Get_TpBetRecord" SpName="N88_Get_TpBetRecord" DbName="N88Licensee" />
+    <Setting Key="N88_Get_TpGameType" SpName="N88_Get_TpGameType" DbName="N88Licensee"/>
+    <Setting Key="N88_Get_Customer" SpName="N88_Get_Customer" DbName="N88Licensee"/>
+    <Setting Key="N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee"/>
   </Function>
 </Functions>

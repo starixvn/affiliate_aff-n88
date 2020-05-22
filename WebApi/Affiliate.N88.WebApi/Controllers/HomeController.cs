@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Web.Mvc;
 using Affiliate.N88.DTO;
-using Affiliate.N88.SpParams;
+using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 
 namespace Affiliate.N88.WebApi.Controllers
@@ -21,7 +21,7 @@ namespace Affiliate.N88.WebApi.Controllers
             var connectedMessage = "Database connects successfully";
             try
             {
-                dynamicRepository.Fetch<CustomerInfo>(new GetCustomersCriteria(DateTime.Now));
+                dynamicRepository.Fetch<AffCustomerInfo>(new GetAffCustomersCriteria(DateTime.Now));
             }
             catch (Exception ex)
             {

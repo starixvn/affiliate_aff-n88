@@ -6,6 +6,7 @@ using System.Web.Http;
 using Affiliate.N88.DTO;
 using Affiliate.N88.Models;
 using Affiliate.N88.SpParams;
+using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 
 namespace Affiliate.N88.WebApi.Controllers
@@ -20,11 +21,11 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CustomerModel>> GetCustomers(DateTime fromDate)
+        public async Task<IEnumerable<AffCustomerModel>> GetAffCustomers(DateTime fromDate)
         {
-            var customerList = await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate));
+            var customerList = await dynamicRepository.FetchAsync<AffCustomerInfo>(new GetAffCustomersCriteria(fromDate));
 
-            return customerList.Select(c => new CustomerModel
+            return customerList.Select(c => new AffCustomerModel
             {
                 ActStatus = c.ActStatus,
                 SiteName = c.SiteName,
@@ -38,6 +39,12 @@ namespace Affiliate.N88.WebApi.Controllers
                 FirstDepositDate = c.FirstDepositTime,
                 IsTest = c.IsTest
             });
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<CustomerInfo>> GetCustomers(DateTime fromDate)
+        {
+            return await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Affiliate.N88.Exceptions
@@ -12,6 +13,11 @@ namespace Affiliate.N88.Exceptions
 
         public ImporterException(string message)
             : base(message)
+        {
+        }
+
+        public ImporterException(int errorCode, string errMessage)
+            : base($"Import fail - {errorCode} - {errMessage}")
         {
         }
 
