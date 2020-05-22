@@ -1,10 +1,6 @@
 ﻿using Affiliate.N88.Exceptions;
 using Affiliate.N88.SpParams.Commands;
 using Fanex.Data.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
@@ -18,7 +14,7 @@ namespace Affiliate.N88.Repository
             _dynamicRepository = dynamicRepository;
         }
 
-        public async Task ImportBetRecordAsync(InsertBetRecodInfoCommand betRecord)
+        public async Task ImportRecordAsync(InsertThirdPartyRecodInfoCommand betRecord)
         {
             await _dynamicRepository.ExecuteAsync(betRecord);
             if (betRecord.ErrCode != 0)

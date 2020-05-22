@@ -29,9 +29,9 @@ namespace Affiliate.N88.Jobs.Controllers
         }
 
         [HttpGet("GetCustomers")]
-        public async Task<IEnumerable<CustomerModel>> GetCustomers(DateTime date)
+        public async Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime date)
         {
-            return await _licenseeApi.GetCustomerAsync(date);
+            return await _licenseeApi.GetAffCustomerAsync(date);
         }
 
         [HttpGet("GetBetRecord")]

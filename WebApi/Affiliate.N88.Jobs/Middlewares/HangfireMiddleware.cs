@@ -1,16 +1,20 @@
 ﻿using System;
 using System.IO;
 using System.Linq.Expressions;
+using System.Security.Authentication.ExtendedProtection;
 using System.Threading.Tasks;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.RecurringTasks;
+using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
+using Affiliate.N88.Utitlities;
 using Hangfire;
 using Hangfire.Common;
 using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -34,15 +38,38 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             //FetchCustomerDataTask
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
-            services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>();
+            services.AddScoped<IFetchAffCustomerDataTask, FetchAffCustomerDataTask>();
             services.Configure<LicenseeSiteSetting>(configuration.GetSection("AppSettings:LicenseeSetting"));
-            
+
+            //TimeTrackerService
+            services.AddScoped<ITimeTrackerRepository, TimeTrackerRespository>();
+            services.AddScoped<ITimeTrackerService, TimeTrackerService>();
+            services.Configure<TimeTrackerSetting>(configuration.GetSection("AppSettings:TimeTrackerSetting"));
+
             //FetchBetRecordDataTask
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
             services.AddScoped<IFetchBetRecordDataTask, FetchBetRecordDataTask>();
-            services.AddScoped<ITimeTrackerService>(provider => new FileTimeTrackerService(saveConfigPath));
-            services.Configure<FetchServiceSetting>(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING, configuration.GetSection("AppSettings:PullBetRecordSetting"));
-            
+            services.Configure<FetchServiceSetting>(
+                Constants.ServiceConfigName.PULL_BET_RECORD_SETTING, 
+                configuration.GetSection("AppSettings:PullBetRecordSetting"));
+
+            //FetchCustomerDataTask
+            services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>()
+                .Configure<FetchServiceSetting>(
+                    Constants.ServiceConfigName.PULL_CUSTOMER_SETTING,
+                    configuration.GetSection("AppSettings:PullCustomerSetting"));
+
+            //FetchServerInfoDataTask
+            services.AddScoped<IFetchServerInfoDataTask, FetchServerInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    Constants.ServiceConfigName.PULL_SERVER_INFO_SETTING,
+                    configuration.GetSection("AppSettings:PullServerInfoSetting"));
+
+            //FetchTpGameTypeDataTask
+            services.AddScoped<IFetchGameTypeDataTask, FetchGameTypeDataTask>()
+                .Configure<FetchServiceSetting>(
+                    Constants.ServiceConfigName.PULL_GAME_TYPE_SETTING,
+                    configuration.GetSection("AppSettings:PullGameTypeSetting"));
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -55,11 +82,18 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             if (appSettings.IsRunFetchTask)
             {
-                RegisterTask<IFetchCustomerDataTask>(typeof(IFetchCustomerDataTask).Name ,appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name ,appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", "0 0 */1 * *", job => job.FetchFromAdjusmentDay(3));
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4), job => job.FetchLastMonth());
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(12), job => job.FetchFromAdjusmentDay(3));
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonth());
+
+                RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+
+                RegisterTask<IFetchServerInfoDataTask>($"{typeof(IFetchServerInfoDataTask).Name}", appSettings.PullServerInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchGameTypeDataTask>($"{typeof(IFetchGameTypeDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

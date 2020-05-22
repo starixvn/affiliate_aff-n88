@@ -3,10 +3,8 @@ using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
-using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -14,45 +12,36 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Linq;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchBetRecordDataTask : IFetchDataTask 
+    public interface IFetchBetRecordDataTask : IFetchDataTask, IFetchDataByTimeRange
     {
         Task FetchLastMonth();
 
         Task FetchFromAdjusmentDay(int day);
-
-        Task FetchDataAsync(DateTime fromDate, DateTime toDate);
     }
-    public class FetchBetRecordDataTask : IFetchBetRecordDataTask
+    public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<BetRecordInfo>, IFetchBetRecordDataTask
     {
-        private const string SAVE_TIME_ELEMENT_NAME = "BetRecordFetchTime";
         private const int API_SERVER_TIME_OFFSET = 0;
 
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
         private readonly ITimeTrackerService _timeTrackerService;
-        private readonly IThirdPartyImportRepository _repo;
-
-        private readonly FetchServiceSetting Settings = new FetchServiceSetting(); 
 
         public FetchBetRecordDataTask(ILicenseeApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
-            ILogger logger, 
-            ITimeTrackerService timeTrackerService, 
+            ILogger logger,
+            ITimeTrackerService timeTrackerService,
             IOptionsSnapshot<FetchServiceSetting> configuration)
+            : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING))
         {
             _licenseeApi = licenseeApi;
             _logger = logger;
             _timeTrackerService = timeTrackerService;
-            _repo = _thirdPartyRepo;
-
-            Settings = configuration.Get(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING);
         }
 
-        public async Task FetchDataAsync()
+        public override async Task FetchDataAsync()
         {
             try
             {
@@ -62,7 +51,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
+                await _logger.ErrorAsync($"Exception when fetch BetRecord data: {ex.ToString()}", ex);
             }            
         }
 
@@ -124,7 +113,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 try
                 {
                     await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
-                    await _timeTrackerService.SaveTimeAsync(SAVE_TIME_ELEMENT_NAME, range.ToDate);
+                    await _timeTrackerService.SaveTimeAsync(TableName, range.ToDate);
                 }
                 catch (Exception ex)
                 {
@@ -142,66 +131,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 return;
             }
 
-            var dataPaging = PagingHelper.PagingData(data, Constant.MAX_PAGING_SIZE);
-            foreach (var page in dataPaging)
-            {
-                if (page?.Count() > 0)
-                {
-                    var xml = BuildXml(page);
-                    await InsertBetRecordAsync(fromDate, toDate, xml);
-                }
-            }
+            await ImportDataToMultipleRepoAsync(data);
         }
 
-        private string BuildXml(IEnumerable<BetRecordInfo> data)
-        {
-            var xmlDoc = new XDocument(new XElement("transaction"));
-            var root = xmlDoc.Root;
-            foreach (var item in data)
-            {
-                if (item == null)
-                { 
-                    throw new ArgumentNullException($"Have null item in insert data");
-                }
-                var elem = new XElement("trans");
-                InsertAttribute(elem, item);
-                root.Add(elem);
-            }
-            return xmlDoc.ToString();
-        }
-
-        private void InsertAttribute(XElement elem, BetRecordInfo item)
-        {
-            var type = typeof(BetRecordInfo);
-            var props = type.GetProperties();
-            foreach (var prop in props)
-            {
-                var propName = prop.Name;
-                var value = type.GetProperty(propName).GetValue(item, null) ?? "";
-                elem.Add(new XAttribute(propName.ToLowerInvariant(), value));
-            }
-        }
-
-        private async Task InsertBetRecordAsync(DateTime fromDate, DateTime toDate, string xml)
-        {
-            var param = new InsertBetRecodInfoCommand
-            {
-                StartDate = fromDate,
-                EndDate = toDate,
-                XmlData = xml
-            };
-            try
-            {
-                await _repo.ImportBetRecordAsync(param);
-            }
-            catch (Exception ex)
-            {
-
-                await _logger.ErrorAsync($"Import {xml} error");
-                throw ex;
-            }
-
-        }
 
         private TimeSpan GetApiMaxTimeRange()
         {
@@ -214,7 +146,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var lastFetchDate = new DateTime();
             try
             {
-                lastFetchDate = await _timeTrackerService.GetTimeAsync(SAVE_TIME_ELEMENT_NAME);
+                lastFetchDate = await _timeTrackerService.GetTimeAsync(TableName);
             }
             catch (FileNotFoundException)
             {
@@ -240,5 +172,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var adjustDate = date.AddMinutes(adjustmentMin);
             return adjustDate.DateTime;
         }
+
+        protected override IEnumerable<string> GetSupportedRepoPrefix() 
+            => Settings.SupportedPrefix;
+
+        protected override string BuildXml(IEnumerable<BetRecordInfo> data)
+            => XmlHelper.BuildXml(data, "trasaction", "trans");
+        
     }
 }
