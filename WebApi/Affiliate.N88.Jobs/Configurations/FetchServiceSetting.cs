@@ -14,5 +14,9 @@ namespace Affiliate.N88.Jobs.Configurations
         public int AdjustmentTime { get; set; }
 
         public int MaxTimeRange { get; set; }
+
+        public IEnumerable<string> SupportedPrefix { get; set; }
+
+        public string DataSource { get; set; }
     }
 }
