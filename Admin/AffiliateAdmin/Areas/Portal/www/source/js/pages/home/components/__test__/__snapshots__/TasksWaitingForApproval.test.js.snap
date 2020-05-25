@@ -103,7 +103,7 @@ exports[`home - components - TasksWaitingForApproval render correctly 1`] = `
         }
       >
         <a
-          href="/Portal/PaymentRequest?SearchBy=2&Status=Pending&FromDate=01/01/2020&IsFromHome=true"
+          href="/Portal/PaymentRequest?SearchBy=2&Status=Processing&FromDate=01/01/2020&IsFromHome=true"
         >
           <strong>
             1

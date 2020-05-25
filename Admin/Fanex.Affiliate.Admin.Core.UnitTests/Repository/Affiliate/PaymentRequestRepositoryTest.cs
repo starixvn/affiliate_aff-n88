@@ -135,10 +135,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["username"] = "12BetAff226",
+                ["AffName"] = "N88AFF001",
                 ["Transid"] = 123,
                 ["Status"] = "Processing",
                 ["Amount"] = 100m,
+                ["TransAmount"] = 100m,
                 ["Transdate"] = new DateTime(2020, 04, 15),
                 ["Completeddate"] = new DateTime(2020, 04, 15),
                 ["Creator"] = "abc",
@@ -147,10 +148,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["firstname"] = "abc",
                 ["lastname"] = "123",
                 ["PreferredPayment"] = "vi-VN",
-                ["Username2"] = "xyz",
-                ["adminname"] = "abc123",
-                ["Username2"] = "",
-                ["adminname"] = ""
+                ["TransCurrencyCode"] = "UUS",
+                ["PlayerUsername"] = "abc123",
+                ["AdminDesc"] = "",
+                ["AffDesc"] = ""
             };
         }
     }

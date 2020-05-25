@@ -80,8 +80,8 @@ exports[`payment request - components - Filter  render correctly with SearchBy O
           All
         </option>
         <option
-          key="status-Pending"
-          value="Pending"
+          key="status-Processing"
+          value="Processing"
         >
           Processing
         </option>
