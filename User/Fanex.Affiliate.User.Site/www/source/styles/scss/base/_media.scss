@@ -3,21 +3,75 @@ $tablet: "(min-width: 768px) and (max-width: 1023px)";
 $tablet-horizontal: "(min-width: 1024px) and (max-width: 1199px)";
 $desktop: "(min-width: 1024px)";
 
+@media (min-width: 1366px) {
+    .banner-text {
+        h2 {
+            font-size: 80px;
+        }
+
+        h5 {
+            font-size: 40px;
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .banner-text {
+        left: 150px;
+        h2 {
+            font-size: 40px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+    }
+}
+@media (min-width: 1280px) and (max-width: 1366px) {
+    .banner-text {
+        left: 200px;
+        top: 40px;
+
+        h2 {
+            font-size: 48px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+    }
+}
+
 @media #{$desktop} {
-    .news {
+    .content .news {
+        padding-top: 32px;
+        padding-bottom: 32px;
+        margin: 0 -16px;
+
         .item-wrapper {
             flex-basis: 33.333%;
             max-width: 33.333%;
-
-            &.first {
+            padding-left: 16px;
+            padding-right: 16px;
+            /*&.first {
                 padding-left: 10px;
             }
 
             &.last {
                 padding-right: 10px;
-            }
+            }*/
         }
     }
+    .carousel.slide .carousel-control {
+        &.left {
+            left: 8px;
+        }
+
+        &.right {
+            right: 8px;
+        }
+    }
+    
 }
 
 @media #{$tablet-horizontal} {
@@ -29,10 +83,26 @@ $desktop: "(min-width: 1024px)";
             width: 150px;
         }
     }
-
     .page-container {
-        max-width: calc(100% - 300px);
-        flex-basis: calc(100% - 300px);
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .banner-text {
+        left: 36px;
+        top: 50px;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        .nounderline {
+            margin-top: 20px;
+            padding: 12px 36px;
+        }
     }
 }
 
@@ -64,6 +134,24 @@ $desktop: "(min-width: 1024px)";
         -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
         &::-webkit-scrollbar {
             display: none;
+        }
+    }
+
+    .banner-text {
+        left: 32px;
+        top: 50px;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        .nounderline {
+            margin-top: 20px;
+            padding: 12px 36px;
         }
     }
 }
@@ -121,5 +209,26 @@ $desktop: "(min-width: 1024px)";
         /*&::-webkit-scrollbar {
             display: none;
         }*/
+    }
+
+    .banner-text {
+        left: 32px;
+        top: 24px;
+        width: 150px;
+
+        h2 {
+            font-size: 24px;
+        }
+
+        h5 {
+            font-size: 14px;
+            padding-top: 10px;
+        }
+
+        .nounderline {
+            padding: 8px 24px;
+            font-size: 12px;
+            margin-top: 12px;
+        }
     }
 }

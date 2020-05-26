@@ -1,4 +1,7 @@
-﻿.main {
+﻿body {
+    overflow-x: hidden;
+}
+.main {
     display: flex;
     flex: 1 1 auto;
     min-height: 1px;
@@ -9,7 +12,10 @@
     flex-basis: calc(100% - 400px);
     margin: 0 auto;
 }
-
+#mainBanner {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
 .main {
     $bg-main: #660000, #00008e;
 

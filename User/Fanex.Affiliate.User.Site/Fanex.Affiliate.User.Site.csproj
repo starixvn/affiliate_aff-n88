@@ -902,6 +902,7 @@
     <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.id-ID.jpg" />
@@ -1571,6 +1572,7 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

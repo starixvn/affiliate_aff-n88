@@ -19,7 +19,9 @@ body {
         height: 62px;
     }
 }
-
+.news {
+    background: $bg-main-color;
+}
 .header-bottom {
     border-top: 2px solid $header-bottom-border-color;
 }

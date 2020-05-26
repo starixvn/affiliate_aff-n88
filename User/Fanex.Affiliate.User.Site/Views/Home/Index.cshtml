@@ -12,7 +12,7 @@
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var shortedLangCode = SystemLanguage.GetShortedCodeForTracking(sessionService.CurrentLanguage);
     var siteName = AppSetting.Instance.SiteName;
-    var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB." + Model.Language);
+    var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB");
     var casinoBannerFileName = Url.Content($"~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino." + Model.Language);
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/{siteName}/3step." + Model.Language);
 }
@@ -28,16 +28,23 @@
 <div class="content home-page">
     <div id="mainBanner" class="carousel slide banner-center" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index"))">
-                    <picture>
-                        <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
-                        <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
-                        <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
-                    </picture>
-                </a>
+            <div class="item active">                
+                <picture>
+                    <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
+                    <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
+                    <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
+                </picture>
+                <div class="banner-text">
+                    <h2 class="txt-lang">
+                        EARN UP TO <br/>50% COMMISSION
+                    </h2>
+                    <h5 class="txt-lang">JOIN IN THE BEST AFFILIATE PROGRAM</h5>
+                    <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index"))">Register now!</a>
+                </div>
+                    
+                
             </div>
-            <div class="item">
+            @*<div class="item">
                 <a id="casinoBanner" class="nounderline" href="@Url.Content("~/Product/Index")">
                     <picture>
                         <source srcset="@(casinoBannerFileName + ".webp")" type="image/webp" />
@@ -45,7 +52,7 @@
                         <img class="img-item img-responsive" src="@(casinoBannerFileName + ".jpg")" alt="Casino Banner" />
                     </picture>
                 </a>
-            </div>
+            </div>*@
         </div>
         <a class="left carousel-control" href="#mainBanner" role="button" data-slide="prev">
             <span class="chevron left" aria-hidden="true"></span>
