@@ -177,7 +177,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             => Settings.SupportedPrefix;
 
         protected override string BuildXml(IEnumerable<BetRecordInfo> data)
-            => XmlHelper.BuildXml(data, "trasaction", "trans");
+            => XmlHelper.BuildXml(data, "transaction", "trans");
         
     }
 }
