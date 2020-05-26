@@ -7,14 +7,11 @@ jest.mock('../../../modules/constant');
 describe('commission group - assign private group', () => {
     const expectParam = {
         BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
-        ExchangeCommissionShare: { DeductedPercentage: 0, DeductionId: 14, ProductIds: 19 },
-        ExchangeWinLossShare: { DeductedPercentage: 0, DeductionId: 13, ProductIds: 19 },
         Description: "",
         GroupId: 0,
         GroupName: "",
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
-        QmTurnover: 100,
         TierSettingList: []
     };
 
@@ -25,7 +22,6 @@ describe('commission group - assign private group', () => {
         GroupName: "",
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
-        QmTurnover: 100,
         TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
     };
 
@@ -45,9 +41,7 @@ describe('commission group - assign private group', () => {
         deductionList: [
             { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17 },
             { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07 },
-            { DeductionId: 12, DeductionName: "Banking Fee", DeductedPercentage: 0.02 },
-            { DeductionId: 13, DeductionName: "Exchange Win Loss Share", DeductedPercentage: 0 },
-            { DeductionId: 14, DeductionName: "Exchange Commission Share", DeductedPercentage: 0 }
+            { DeductionId: 12, DeductionName: "Banking Fee", DeductedPercentage: 0.02 }
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
@@ -201,16 +195,6 @@ describe('commission group - assign private group', () => {
         const result = wrapper.instance()._validate();
 
         expect(result).toEqual({ isValid: true, messageList: [] });
-    })
-
-    it('_validate - QmTurnover is NaN', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { QmTurnover: 'abc' })
-        const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
-        const wrapper = shallow(<AssignPrivateGroup {...props} />);
-
-        const result = wrapper.instance()._validate();
-
-        expect(result).toEqual({ isValid: false, messageList: ["QM Turnover value is required"] });
     })
 
     it('_validate - TierSettingList is not MaxAmount', () => {

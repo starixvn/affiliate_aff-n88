@@ -22,7 +22,7 @@ export default class PlatformFeeItem extends React.Component {
     render() {
         const { data, handleClick, btnText, isInserting } = this.props;
 
-        const { productList, commission, nextCommission } = data;
+        const { productList, commission } = data;
         const isValid = productList.filter(p => !p.Checked).length < productList.length;
 
         return (
@@ -58,15 +58,15 @@ export default class PlatformFeeItem extends React.Component {
                             <Col sm={5} className="select-comm">
                                 <Form inline>
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <Label className="mr-sm-2">Current: {formatDecimal(commission || 0)} | Next month: </Label>
+                                        <Label className="mr-sm-2">New Revenue Share </Label>
                                     </FormGroup>
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <select name="NextDeductedPercentage" className="form-control"
-                                            value={formatDecimal(nextCommission || 0)}
+                                        <select name="DeductedPercentage" className="form-control"
+                                            value={formatDecimal(commission || 0)}
                                             onChange={this.handleChangeComm} style={{ width: 60 }}>
                                             {
                                                 commissionValueList.map((item, i) => {
-                                                    return (<option key={`platformfee-nextmonth-comm-${i}`} value={item}>{item}</option>);
+                                                    return (<option key={`platformfee-comm-${i}`} value={item}>{item}</option>);
                                                 })
                                             }
                                         </select>

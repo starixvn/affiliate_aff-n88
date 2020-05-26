@@ -14,7 +14,6 @@ import { htmlDecode } from '../../../../../modules/htmlHelper';
 export class CommissionPanel extends PureComponent {
     constructor(props) {
         super(props);
-        const { affiliateInfo } = this.props;
 
         this.state = {
             isChangingCommissionGroup: false

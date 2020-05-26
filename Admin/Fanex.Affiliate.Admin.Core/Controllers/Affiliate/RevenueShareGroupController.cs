@@ -18,7 +18,7 @@ using Fanex.Affiliate.Admin.Core.Resources;
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     [FunctionAuthorize(FunctionName = Function.CommissionGroup)]
-    public class CommissionGroupController : BaseController
+    public class RevenueShareGroupController : BaseController
     {
         private const int MaxLength = 100;
 
@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private readonly IProductRepository _productRepository;
 
-        public CommissionGroupController(
+        public RevenueShareGroupController(
             ISessionService sessionService,
             ICommissionGroupService commissionService,
             IProductRepository productRepository,
@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate") },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest") },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/CommissionGroup"), IsActive = true },
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueShareGroup"), IsActive = true },
                 new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory") }
             };
 
@@ -129,13 +129,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     Ip = Request.UserHostAddress,
                     GroupName = Server.HtmlEncode(commGroup.GroupName.Trim()),
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
-                    QmTurnover = commGroup.QmTurnover,
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
-                    BankingFee = commGroup.BankingFee,
-                    ExchangeWinLossShare = commGroup.ExchangeWinLossShare,
-                    ExchangeCommissionShare = commGroup.ExchangeCommissionShare
+                    BankingFee = commGroup.BankingFee
                 };
 
                 return new JsonNetResult
@@ -176,13 +173,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     GroupName = Server.HtmlEncode(commGroup.GroupName.Trim()),
                     Ip = Request.UserHostAddress,
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
-                    QmTurnover = commGroup.NextQmTurnover,
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
-                    BankingFee = commGroup.BankingFee,
-                    ExchangeWinLossShare = commGroup.ExchangeWinLossShare,
-                    ExchangeCommissionShare = commGroup.ExchangeCommissionShare
+                    BankingFee = commGroup.BankingFee
                 };
 
                 return new JsonNetResult

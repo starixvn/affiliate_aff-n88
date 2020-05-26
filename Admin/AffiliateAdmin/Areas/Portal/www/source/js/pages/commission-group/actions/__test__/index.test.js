@@ -33,9 +33,9 @@ const actionList = [
 ];
 
 const actionListReturnPost = [
-    { name: 'insertCommissionGroup', url: 'Portal/CommissionGroup/CreateCommissionGroup' },
-    { name: 'updateCommissionGroup', url: 'Portal/CommissionGroup/UpdateCommissionGroup' },
-    { name: 'deleteCommGroup', url: 'Portal/CommissionGroup/DeleteCommissionGroup' }
+    { name: 'insertCommissionGroup', url: 'Portal/RevenueShareGroup/CreateCommissionGroup' },
+    { name: 'updateCommissionGroup', url: 'Portal/RevenueShareGroup/UpdateCommissionGroup' },
+    { name: 'deleteCommGroup', url: 'Portal/RevenueShareGroup/DeleteCommissionGroup' }
 ];
 
 describe('commission group actions', () => {
@@ -43,7 +43,7 @@ describe('commission group actions', () => {
         ajaxRequest.post = jest.fn();
         actions['fetchGroupSettingData'](defaultPagingOption);
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroupList', defaultPagingOption);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', defaultPagingOption);
     })
 
     actionList.forEach(item => {
@@ -64,7 +64,6 @@ describe('commission group actions', () => {
                             DeductionId: 12,
                             DeductionName: "Banking Fee",
                             GroupId: 133,
-                            NextDeductedPercentage: 0.02,
                             ProductIds: "0"
                         },
                         CreatedDate: "2018-08-13T04:57:37.803",
@@ -73,14 +72,12 @@ describe('commission group actions', () => {
                         Description: "testing",
                         GroupId: 133,
                         GroupName: "NewGroup",
-                        NextQmTurnover: 100,
                         NoAffs: 8,
                         OperationalFee: {
                             DeductedPercentage: 0.15,
                             DeductionId: 11,
                             DeductionName: "Operational Fee",
                             GroupId: 133,
-                            NextDeductedPercentage: 0.15,
                             ProductIds: "0"
                         },
                         PlatformFeeList: [
@@ -89,11 +86,9 @@ describe('commission group actions', () => {
                                 DeductionId: 10,
                                 DeductionName: "Platform Fee",
                                 GroupId: 133,
-                                NextDeductedPercentage: 0.17,
                                 ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
                             }
                         ],
-                        QmTurnover: 100,
                         RowIdx: 1,
                         TierSettingList: [
                             {
@@ -138,7 +133,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -164,7 +159,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -184,7 +179,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -198,7 +193,6 @@ describe('commission group actions', () => {
                 GroupName: "",
                 OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
                 PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
-                QmTurnover: 100,
                 TierSettingList: []
             },
             status: 200
@@ -212,7 +206,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getSelectedCommGroup'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroup', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroup', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -227,7 +221,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getSelectedCommGroup'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CommissionGroup/GetCommissionGroup', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroup', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })

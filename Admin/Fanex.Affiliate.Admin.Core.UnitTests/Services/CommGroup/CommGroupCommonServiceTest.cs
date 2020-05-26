@@ -114,18 +114,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     DeductionId = 12,
                     ProductIds = "0"
                 },
-                ExchangeCommissionShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.10m,
-                    DeductionId = 14,
-                    ProductIds = "19"
-                },
-                ExchangeWinLossShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.15m,
-                    DeductionId = 13,
-                    ProductIds = "19"
-                },
                 OperationalFee = new DeductionSetting
                 {
                     DeductedPercentage = 0.07m,

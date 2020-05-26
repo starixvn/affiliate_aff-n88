@@ -19,13 +19,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
         [MaxLength(Validation.MaxLengthCommGroupDescription, ErrorMessage = "Description should shorter than 100 characters!")]
         public string Description { get; set; }
 
-        [Range(0, (double)Money.MaxValue, ErrorMessage = "QmTurnover not valid!")]
-        public decimal QmTurnover { get; set; }
-
-        [Range(0, (double)Money.MaxValue, ErrorMessage = "NextQmTurnover not valid!")]
-        public decimal NextQmTurnover { get; set; }
-
-        [Range(0, Validation.MaxId, ErrorMessage = "NextQmTurnover not valid!")]
         public int NoAffs { get; set; }
 
         public string CreatedDateText => CreatedDate.ToString("MM/dd/yyyy HH:mm:ss");

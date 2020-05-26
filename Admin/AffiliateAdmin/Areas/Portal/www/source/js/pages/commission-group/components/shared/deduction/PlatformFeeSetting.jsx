@@ -19,8 +19,7 @@ export class PlatformFeeSetting extends Component {
         this.defaultItem = {
             DeductionId: defaultPlatformSetting.deductionId,
             ProductIds: '',
-            DeductedPercentage: defaultPlatformSetting.commission,
-            NextDeductedPercentage: defaultPlatformSetting.commission
+            DeductedPercentage: defaultPlatformSetting.commission
         }
     }
 
@@ -101,8 +100,7 @@ export class PlatformFeeSetting extends Component {
         const platformFeeData = PlatformFeeList.map(item => {
             return {
                 productList: convertProductList(productList, item.ProductIds),
-                commission: item.DeductedPercentage,
-                nextCommission: item.NextDeductedPercentage
+                commission: item.DeductedPercentage
             }
         });
 

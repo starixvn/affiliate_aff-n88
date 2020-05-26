@@ -15,28 +15,56 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td rowspan="3" class="text-center">
-                    <p>@Lang.AllProducts</p>
-                    <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
-                </td>
-                <td class="text-center">1</td>
-                <td class="text-center">@(isN88 ? "0 - 5,600" : "0 - 130,000,000")</td>
-                <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
-                <td class="text-center">30%</td>
-            </tr>
-            <tr>
-                <td class="text-center">2</td>
-                <td class="text-center">@(isN88 ? "5,601 - 86,000" : "130,001,000 – 1,990,000,000")</td>
+            @if (isN88)
+            {
+                <tr>
+                    <td rowspan="3" class="text-center">
+                        <p>@Lang.AllProducts</p>
+                        <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">0 - 2,500</td>
+                    <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
+                    <td class="text-center">25%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-center">2,501 - 40,000</td>
 
-                <td class="text-center">40%</td>
-            </tr>
-            <tr>
-                <td class="text-center">3</td>
-                <td class="text-center">@(isN88 ? "86,000 above" : "1,990,000,000 above")</td>
+                    <td class="text-center">35%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-center">40,000 above</td>
 
-                <td class="text-center">50%</td>
-            </tr>
+                    <td class="text-center">45%</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td rowspan="3" class="text-center">
+                        <p>@Lang.AllProducts</p>
+                        <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">0 - 130,000,000"</td>
+                    <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
+                    <td class="text-center">30%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-center">130,001,000 – 1,990,000,000</td>
+
+                    <td class="text-center">40%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-center">1,990,000,000 above</td>
+
+                    <td class="text-center">50%</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

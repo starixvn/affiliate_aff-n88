@@ -22,14 +22,14 @@ describe('commission group - FeeSettingItem', () => {
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
 
-    it('handleChangeComm - should call onChangeCommission when change NextDeductedPercentage', () => {
-        const mockEvent = { target: { name: 'NextDeductedPercentage', value: '0.15' } };
+    it('handleChangeComm - should call onChangeCommission when change DeductedPercentage when update', () => {
+        const mockEvent = { target: { name: 'DeductedPercentage', value: '0.15' } };
         const props = Object.assign({}, defaultProps, { isCreating: false });
         const wrapper = shallow(<FeeSettingItem {...props} />);
 
-        wrapper.find('Input[type="select"][name="NextDeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find('Input[type="select"][name="DeductedPercentage"]').simulate('change', mockEvent);
 
-        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ NextDeductedPercentage: 0.15 });
+        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
 
     it('Should render correctly', () => {

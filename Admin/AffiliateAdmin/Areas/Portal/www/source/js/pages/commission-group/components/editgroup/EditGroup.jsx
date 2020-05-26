@@ -6,7 +6,6 @@ import { Alert } from 'reactstrap';
 import { getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup } from '../../actions';
 
 import DeductionSetting from '../shared/deduction';
-import ExchangeRevenueShareSetting from '../shared/exchange';
 import TierSetting from '../shared/tiersetting';
 import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
@@ -80,7 +79,7 @@ export class EditGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
-                <ExchangeRevenueShareSetting />
+                <p className="text-danger">{message.note}</p>
                 <DeductionSetting />
                 <TierSetting />
 

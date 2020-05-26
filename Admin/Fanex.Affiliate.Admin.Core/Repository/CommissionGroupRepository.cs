@@ -175,8 +175,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     CreatedDate = reader["CreatedDate"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["CreatedDate"]),
                     Creator = reader["Creator"].ToString(),
                     Description = reader["Description"].ToString(),
-                    QmTurnover = Convert.ToDecimal(reader["QMTurnover"]),
-                    NextQmTurnover = Convert.ToDecimal(reader["NextQMTurnover"]),
                     NoAffs = Convert.ToInt32(reader["NoAffs"])
                 });
             }
@@ -220,8 +218,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         DeductionId = Convert.ToInt32(reader["DeductionId"]),
                         DeductionName = reader["DeductionName"].ToString(),
                         ProductIds = reader["ProductIds"].ToString(),
-                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"]),
-                        NextDeductedPercentage = reader["NextDeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["NextDeductedPercentage"])
+                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"])
                     });
                 }
             }
@@ -236,7 +233,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             objectDb.AddInParameter("Description", DbType.String, param.Description);
             objectDb.AddInParameter("DeductionList", DbType.Xml, param.DeductionList);
             objectDb.AddInParameter("TierList", DbType.Xml, param.TierList);
-            objectDb.AddInParameter("QMTurnover", DbType.Decimal, param.QmTurnover);
             objectDb.AddInParameter("IP", DbType.String, param.Ip);
 
             AssignResultOutputParam(objectDb);

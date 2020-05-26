@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             if (result.IsSuccessful)
             {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee, param.ExchangeWinLossShare, param.ExchangeCommissionShare });
+                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
                 param.DeductionList = BuildDeductionSettingXml(deductionSettingList, true);
 
@@ -40,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             if (result.IsSuccessful)
             {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee, param.ExchangeWinLossShare, param.ExchangeCommissionShare });
+                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
                 param.DeductionList = BuildDeductionSettingXml(deductionSettingList, false);
 
@@ -78,8 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in deductionSettingList)
             {
-                var percent = isInsert ? item.DeductedPercentage : item.NextDeductedPercentage;
-                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{percent}\" />";
+                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\" />";
                 result.Append(row);
             }
 

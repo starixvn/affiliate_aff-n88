@@ -88,7 +88,7 @@ export class TierSetting extends Component {
                             <th>Max Amount</th>
                             <th>Min AP</th>
                             <th>Max AP</th>
-                            <th style={{ width: 85 }}>Commission</th>
+                            <th style={{ width: 85 }}>Revenue Share</th>
                             <th style={{ width: 50 }}>Action</th>
                         </tr>
                     </thead>

@@ -4,16 +4,14 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, setSelectedGroup } from '../../actions';
-import { buildDefaultCommGroup, validateQmTurnover, validateTierSettingList, validatePlatformFeeList } from '../../modules/service';
+import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/deduction';
-import ExchangeRevenueShareSetting from '../shared/exchange';
 import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
-import { affiliateInfo } from '../../../customer/left-panel/reducers';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -94,15 +92,12 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { QmTurnover, TierSettingList, PlatformFeeList } = this.props.selectedGroup;
-        const qmTurnoverValidation = validateQmTurnover(QmTurnover);
+        const { TierSettingList, PlatformFeeList } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
         const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
 
-        const isValid = qmTurnoverValidation.isValid && tierSettingValidation.isValid && platformFeeListValidation.isValid;
-        const messageList = [...qmTurnoverValidation.messageList, ...tierSettingValidation.messageList,
-        ...platformFeeListValidation.messageList
-        ];
+        const isValid = tierSettingValidation.isValid && platformFeeListValidation.isValid;
+        const messageList = [...tierSettingValidation.messageList, ...platformFeeListValidation.messageList];
 
         return { isValid, messageList };
     }
@@ -117,6 +112,7 @@ export class AssignPrivateGroup extends React.Component {
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
+                <p className="text-danger">{message.note}</p>
                 <DeductionSetting />
                 <TierSetting />
 

@@ -37,15 +37,15 @@ export default class FeeSettingItem extends React.Component {
                             <Col sm={5} className="select-comm">
                                 <Form inline>
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <Label className="mr-sm-2">Current: {formatDecimal((data && data.DeductedPercentage) || 0)} | Next month: </Label>
+                                        <Label className="mr-sm-2">New Revenue Share </Label>
                                     </FormGroup>
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <Input type="select" name="NextDeductedPercentage" className="form-control" 
-                                            defaultValue={formatDecimal((data && data.NextDeductedPercentage) || 0)}
+                                        <Input type="select" name="DeductedPercentage" className="form-control" 
+                                            defaultValue={formatDecimal((data && data.DeductedPercentage) || 0)}
                                             onChange={this.handleChangeComm} style={{ width: 60 }}>
                                             {
                                                 commissionValueList.map((item, i) => {
-                                                    return (<option key={`platformfee-nextmonth-comm-${i}`} value={item}>{item}</option>);
+                                                    return (<option key={`operational-fee-comm-${i}`} value={item}>{item}</option>);
                                                 })
                                             }
                                         </Input>

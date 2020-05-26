@@ -124,13 +124,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     GroupId = commGroup.GroupId,
                     GroupName = affInfo.UserName,
                     Description = PrivateGroupName,
-                    QmTurnover = commGroup.QmTurnover,
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
                     BankingFee = commGroup.BankingFee,
-                    ExchangeWinLossShare = commGroup.ExchangeWinLossShare,
-                    ExchangeCommissionShare = commGroup.ExchangeCommissionShare,
                     Ip = Request.UserHostAddress
                 };
 

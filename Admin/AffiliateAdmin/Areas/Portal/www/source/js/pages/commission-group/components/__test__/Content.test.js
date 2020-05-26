@@ -13,7 +13,6 @@ describe('commission group - Content', () => {
             DeductionId: 12,
             DeductionName: "Banking Fee",
             GroupId: 133,
-            NextDeductedPercentage: 0.02,
             ProductIds: "0"
         },
         CreatedDate: "2018-08-13T04:57:37.803",
@@ -22,14 +21,12 @@ describe('commission group - Content', () => {
         Description: "testing",
         GroupId: 133,
         GroupName: "NewGroup",
-        NextQmTurnover: 100,
         NoAffs: 8,
         OperationalFee: {
             DeductedPercentage: 0.15,
             DeductionId: 11,
             DeductionName: "Operational Fee",
             GroupId: 133,
-            NextDeductedPercentage: 0.15,
             ProductIds: "0"
         },
         PlatformFeeList: [{
@@ -37,10 +34,8 @@ describe('commission group - Content', () => {
             DeductionId: 10,
             DeductionName: "Platform Fee",
             GroupId: 133,
-            NextDeductedPercentage: 0.17,
             ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
         }],
-        QmTurnover: 100,
         RowIdx: 1,
         TierSettingList: [{
             Commission: 0,

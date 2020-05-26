@@ -50,7 +50,7 @@ export class GridData extends Component {
     }
 
     _handleDeleteCommGroup = (selectedGroupId, groupName) => {
-        this.setState({ messageNotification: `Are you sure you want to delete the commission group ${groupName} ?`, isConfirmPopup: true, selectedGroupId, shouldResetScrollPosition: false });
+        this.setState({ messageNotification: `Are you sure you want to delete the Revenue Share group ${groupName} ?`, isConfirmPopup: true, selectedGroupId, shouldResetScrollPosition: false });
     }
 
     _deleteCommGroup = async (groupId) => {
@@ -63,7 +63,7 @@ export class GridData extends Component {
                 const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName });
                 this.props.getGroupSettingList(gettingParam);
 
-                this.setState({ messageNotification: "Delete Commission Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
+                this.setState({ messageNotification: "Delete Revenue Share group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
             }
             else {
                 this.setState({ messageNotification: result.Message, isConfirmPopup: false, shouldResetScrollPosition: true });
@@ -89,7 +89,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
                 <Cell header={true} colWidth={80} title="Minimum number of active players">Min AP</Cell>
                 <Cell header={true} colWidth={80} title="Maximum number of active players">Max AP</Cell>
-                <Cell header={true} colWidth={80}>Comm Rate</Cell>
+                <Cell header={true} colWidth={80}>Revenue Share Rate</Cell>
                 <Cell header={true} colWidth={80}>Operational Fee</Cell>
                 <Cell header={true} colWidth={80}>Banking Fee</Cell>
             </Row>
@@ -104,7 +104,7 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, PlatformFeeList, OperationalFee, BankingFee, ExchangeWinLossShare, ExchangeCommissionShare, ...group } = item;
+                const { TierSettingList, PlatformFeeList, OperationalFee, BankingFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const rowSpan = tierSettingRowSpan + platformFeeRowSpan;

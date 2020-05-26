@@ -194,7 +194,7 @@
     <Compile Include="Controllers\Affiliate\AffiliateController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\Affiliate\CommissionGroupController.cs" />
+    <Compile Include="Controllers\Affiliate\RevenueShareGroupController.cs" />
     <Compile Include="Controllers\Affiliate\CommGroupAssignmentController.cs" />
     <Compile Include="Controllers\ChangeAdminPasswordController.cs" />
     <Compile Include="Controllers\CommonSettingController.cs" />
