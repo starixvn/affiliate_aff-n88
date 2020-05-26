@@ -27,5 +27,7 @@ namespace Affiliate.N88.Jobs.Configurations
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
+
+        public ProxySetting ProxySetting { get; set; }
     }
 }
