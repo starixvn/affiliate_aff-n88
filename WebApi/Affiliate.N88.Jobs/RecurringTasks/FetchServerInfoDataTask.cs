@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchServerInfoDataTask: IFetchDataTask { }
+    public interface IFetchServerInfoDataTask : IFetchDataTask { }
     public class FetchServerInfoDataTask : FetchDataForMultipleRepositoryTaskBase<ServerInfo>, IFetchServerInfoDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
@@ -21,7 +21,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         public FetchServerInfoDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
             , ILogger logger
-            , IOptionsSnapshot<FetchServiceSetting> setting) 
+            , IOptionsSnapshot<FetchServiceSetting> setting)
             : base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_SERVER_INFO_SETTING))
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));

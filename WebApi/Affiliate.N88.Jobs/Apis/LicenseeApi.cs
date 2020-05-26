@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Affiliate.N88.Models;
+using Refit;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Affiliate.N88.Models;
-using Hangfire.MemoryStorage.Database;
-using Refit;
 
 namespace Affiliate.N88.Jobs.Apis
 {

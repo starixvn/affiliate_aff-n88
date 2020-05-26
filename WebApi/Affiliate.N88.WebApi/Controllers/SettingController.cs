@@ -15,10 +15,10 @@ namespace Affiliate.N88.WebApi.Controllers
         {
             _dynamicRepository = dynamicRepository;
         }
-           
+
         [HttpGet]
         public async Task<IEnumerable<ServerInfo>> GetServerInfo()
-            => await _dynamicRepository.FetchAsync<ServerInfo>(new GetServerInfoCriteria());       
+            => await _dynamicRepository.FetchAsync<ServerInfo>(new GetServerInfoCriteria());
 
         [HttpGet]
         public async Task<IEnumerable<TpGameTypeInfo>> GetTpGameType()

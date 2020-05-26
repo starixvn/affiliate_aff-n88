@@ -1,10 +1,10 @@
 ﻿namespace Affiliate.N88.WebApi.ConsoleTest
 {
+    using Newtonsoft.Json;
+    using Refit;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using Refit;
 
     public class Program
     {

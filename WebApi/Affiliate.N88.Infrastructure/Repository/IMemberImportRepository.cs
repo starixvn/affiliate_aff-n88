@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Affiliate.N88.DTO;
+using System;
 using System.Threading.Tasks;
-using Affiliate.N88.DTO;
 
 namespace Affiliate.N88.Repository
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Affiliate.N88.Jobs.Configurations
+﻿namespace Affiliate.N88.Jobs.Configurations
 {
     public class AppSettings
     {

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Affiliate.N88.DTO;
+﻿using Affiliate.N88.DTO;
 using Affiliate.N88.Exceptions;
 using Fanex.Data.Repository;
+using System;
+using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
 {

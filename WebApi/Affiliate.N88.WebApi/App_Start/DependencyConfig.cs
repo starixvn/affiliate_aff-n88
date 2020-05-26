@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using System.Reflection;
-using System.Web.Http;
-using System.Web.Mvc;
-using Fanex.Data;
+﻿using Fanex.Data;
 using Fanex.Data.MySql;
 using Fanex.Data.Repository;
 using Fanex.Logging;
@@ -12,6 +8,10 @@ using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjector.Integration.WebApi;
+using System.Configuration;
+using System.Reflection;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Affiliate.N88.WebApi.App_Start
 {

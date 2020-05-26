@@ -4,13 +4,11 @@ using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
-using Affiliate.N88.SpParams.Criteria;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
@@ -30,8 +28,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         public FetchCustomerDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
             , ILogger logger
-            , ITimeTrackerService timeTrackerService        
-            , IOptionsSnapshot<FetchServiceSetting> setting) 
+            , ITimeTrackerService timeTrackerService
+            , IOptionsSnapshot<FetchServiceSetting> setting)
             : base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_CUSTOMER_SETTING))
         {
             _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
@@ -50,7 +48,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
             }
-         
+
         }
 
         public async Task FetchDataAsync(DateTime fromDate)

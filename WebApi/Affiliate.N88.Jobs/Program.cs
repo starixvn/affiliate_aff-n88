@@ -1,13 +1,12 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.ServiceProcess;
-using Affiliate.N88.Jobs.Configurations;
+﻿using Affiliate.N88.Jobs.Configurations;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.WindowsServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace Affiliate.N88.Jobs
 {

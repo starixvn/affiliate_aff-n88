@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Affiliate.N88.Jobs.Apis;
+﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.Controllers
 {

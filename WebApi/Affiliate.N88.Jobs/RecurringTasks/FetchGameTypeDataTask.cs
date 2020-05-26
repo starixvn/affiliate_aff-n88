@@ -8,7 +8,6 @@ using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
@@ -23,7 +22,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         public FetchGameTypeDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
             , ILogger logger
-            , IOptionsSnapshot<FetchServiceSetting> setting) 
+            , IOptionsSnapshot<FetchServiceSetting> setting)
             : base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_GAME_TYPE_SETTING))
         {
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));

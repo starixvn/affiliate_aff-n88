@@ -10,7 +10,7 @@ namespace Affiliate.N88.Utitlities
             var result = new List<IEnumerable<T>>();
             result.Add(datas.Take(max));
             var remain = datas.Skip(max);
-            while(remain.Count() > 0)
+            while (remain.Count() > 0)
             {
                 result.Add(remain.Take(max));
                 remain = remain.Skip(max);

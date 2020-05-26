@@ -27,7 +27,7 @@ namespace Affiliate.N88.Jobs.Services
         {
             _timeTrackerRepository = timeTrackerRepository ?? throw new ArgumentNullException(nameof(timeTrackerRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            Setting = optionsSnapshot.Value ?? throw new ArgumentNullException(nameof(optionsSnapshot.Value));
+            Setting = optionsSnapshot?.Value ?? throw new ArgumentNullException($"{nameof(optionsSnapshot)}.Value");
 
         }
 
@@ -50,7 +50,7 @@ namespace Affiliate.N88.Jobs.Services
                     }
                     lstTime.Add(time);
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     await _logger.WarnAsync(ex.Message);
                 }

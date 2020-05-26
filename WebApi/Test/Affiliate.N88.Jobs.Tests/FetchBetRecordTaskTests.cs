@@ -97,7 +97,7 @@ namespace Affiliate.N88.Jobs.Tests
             await fetchTask.FetchDataAsync(fromDate, toDate);
             await TimeTrackerService.DidNotReceiveWithAnyArgs().SaveTimeAsync(Arg.Any<string>(), Arg.Any<DateTime>());
         }
-        
+
         [Fact]
         public async Task FetchDataAsync_WhenCallWithApiReturnDataNeedPaging_InsertPagingDataMultipleTime()
         {
@@ -162,7 +162,7 @@ namespace Affiliate.N88.Jobs.Tests
             MaxTimeRange = 30,
             PullInfoCron = "*/30 * * * *",
             DataSource = "Table",
-            SupportedPrefix = new[] {"test1", "test2"}
+            SupportedPrefix = new[] { "test1", "test2" }
         };
 
         public static IEnumerable<BetRecordInfo> GenerateApiResponse(int count = 1)

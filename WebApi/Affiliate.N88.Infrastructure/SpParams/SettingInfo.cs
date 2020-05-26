@@ -3,7 +3,7 @@ using Affiliate.N88.SpParams.Criteria;
 
 namespace Affiliate.N88.DTO
 {
-    public  class SettingInfo : IdenticalSurfixCriteriaBase
+    public class SettingInfo : IdenticalSurfixCriteriaBase
     {
         public SettingInfo(IPrefixProvider prefixProvider) : base(prefixProvider)
         {

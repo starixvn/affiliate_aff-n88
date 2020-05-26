@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Affiliate.N88.Core;
+﻿using Affiliate.N88.Core;
 using Affiliate.N88.DTO;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
@@ -11,10 +6,15 @@ using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
-{   
-    public interface IFetchAffCustomerDataTask : IFetchDataTask 
+{
+    public interface IFetchAffCustomerDataTask : IFetchDataTask
     {
         Task FetchDataAsync(DateTime fromDate);
     }
@@ -134,7 +134,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     customers.Select(customer =>
                     {
                         var builder = new StringBuilder();
-                        builder.AppendJoin(" ","<row"
+                        builder.AppendJoin(" ", "<row"
                             , $"custid=\"{customer?.CustId}\""
                             , $"username=\"{customer?.UserName}\""
                             , $"currencyid=\"{customer?.CurrencyId}\""

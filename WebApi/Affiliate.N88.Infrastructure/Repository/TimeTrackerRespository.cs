@@ -2,9 +2,6 @@
 using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
@@ -17,11 +14,24 @@ namespace Affiliate.N88.Repository
         {
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
         }
-        public async Task<DateTime> GetLastedTimeAsync(GetLastedImportTimeCriteria timeInfo)       
+        public async Task<DateTime> GetLastedTimeAsync(GetLastedImportTimeCriteria timeInfo)
+
+/* Unmerged change from project 'Affiliate.N88 (netstandard2.0)'
+Before:
             => await _repo.GetAsync<DateTime>(timeInfo);
         
 
         public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
-            => await _repo.ExecuteAsync(timeInfo);        
+After:
+            => await _repo.GetAsync<DateTime>(timeInfo);
+
+
+        public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
+*/
+            => await _repo.GetAsync<DateTime>(timeInfo);
+
+
+        public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
+            => await _repo.ExecuteAsync(timeInfo);
     }
 }

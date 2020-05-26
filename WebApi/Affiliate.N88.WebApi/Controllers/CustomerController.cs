@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Affiliate.N88.DTO;
+using Affiliate.N88.Models;
+using Affiliate.N88.SpParams.Criteria;
+using Fanex.Data.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
-using Affiliate.N88.DTO;
-using Affiliate.N88.Models;
-using Affiliate.N88.SpParams;
-using Affiliate.N88.SpParams.Criteria;
-using Fanex.Data.Repository;
 
 namespace Affiliate.N88.WebApi.Controllers
 {

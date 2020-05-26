@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Fanex.Logging.Extensions.Web;
+using System;
 using System.Configuration;
 using System.Net.Http;
 using System.Web.Http.Filters;
-using Fanex.Logging.Extensions.Web;
 
 namespace Affiliate.N88.WebApi.Filters
 {

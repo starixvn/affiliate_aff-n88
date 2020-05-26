@@ -33,7 +33,7 @@ namespace Affiliate.N88.UnitTests
                 File.Delete(path);
 
             var tracker = new FileTimeTrackerService(path);
-            await Assert.ThrowsAsync<FileNotFoundException>(() =>  tracker.GetTimeAsync(ANY_NAME));
+            await Assert.ThrowsAsync<FileNotFoundException>(() => tracker.GetTimeAsync(ANY_NAME));
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace Affiliate.N88.UnitTests
 
             WriteToFile(path, content);
 
-            await Assert.ThrowsAsync<XmlElementNotFoundException>(() => 
+            await Assert.ThrowsAsync<XmlElementNotFoundException>(() =>
                 tracker.GetTimeAsync(ELEM_TEST_PASS_NAME));
         }
 
@@ -70,7 +70,7 @@ namespace Affiliate.N88.UnitTests
 
             WriteToFile(path, content);
 
-            await Assert.ThrowsAsync<FormatException>(() 
+            await Assert.ThrowsAsync<FormatException>(()
                 => tracker.GetTimeAsync(ELEM_TEST_PASS_NAME));
         }
 
@@ -127,7 +127,7 @@ namespace Affiliate.N88.UnitTests
 
         private void WriteToFile(string path, string content)
         {
-            if(!Directory.Exists(Path.GetDirectoryName(path)))
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
             File.WriteAllText(path, content);
         }

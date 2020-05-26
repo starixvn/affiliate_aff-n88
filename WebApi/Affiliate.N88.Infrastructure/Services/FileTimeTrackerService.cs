@@ -43,7 +43,7 @@ namespace Affiliate.N88.Services
         public async Task SaveTimeAsync(string category, DateTime date)
         {
             XDocument xmlDoc;
-            if(!File.Exists(_filePath) || !CheckFileIsXmlFormat())
+            if (!File.Exists(_filePath) || !CheckFileIsXmlFormat())
             {
                 xmlDoc = new XDocument();
             }
@@ -52,7 +52,7 @@ namespace Affiliate.N88.Services
                 xmlDoc = XDocument.Load(_filePath);
             }
 
-            if(xmlDoc.Root == null)
+            if (xmlDoc.Root == null)
             {
                 xmlDoc.AddFirst(new XElement("root"));
             }

@@ -64,7 +64,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         }
 
         protected InsertThirdPartyRecodInfoCommand CreateInsertRecord(
-            string prefix, 
+            string prefix,
             IEnumerable<TData> data)
         {
             var xml = BuildXml(data);

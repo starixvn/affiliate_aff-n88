@@ -1,22 +1,18 @@
-﻿using System;
-using System.IO;
-using System.Linq.Expressions;
-using System.Security.Authentication.ExtendedProtection;
-using System.Threading.Tasks;
-using Affiliate.N88.Jobs.Configurations;
+﻿using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
-using Affiliate.N88.Utitlities;
 using Hangfire;
-using Hangfire.Common;
 using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Connections.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.IO;
+using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -50,7 +46,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
             services.AddScoped<IFetchBetRecordDataTask, FetchBetRecordDataTask>();
             services.Configure<FetchServiceSetting>(
-                Constants.ServiceConfigName.PULL_BET_RECORD_SETTING, 
+                Constants.ServiceConfigName.PULL_BET_RECORD_SETTING,
                 configuration.GetSection("AppSettings:PullBetRecordSetting"));
 
             //FetchCustomerDataTask
@@ -82,7 +78,7 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             if (appSettings.IsRunFetchTask)
             {
-                RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name ,appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(12), job => job.FetchFromAdjusmentDay(3));

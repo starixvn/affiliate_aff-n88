@@ -52,7 +52,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             catch (Exception ex)
             {
                 await _logger.ErrorAsync($"Exception when fetch BetRecord data: {ex.ToString()}", ex);
-            }            
+            }
         }
 
         public async Task FetchLastMonth()
@@ -68,7 +68,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             catch (Exception ex)
             {
                 _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
-            } 
+            }
         }
 
         public async Task FetchFromAdjusmentDay(int day)
@@ -137,7 +137,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private TimeSpan GetApiMaxTimeRange()
         {
-           return TimeSpan.FromMinutes(Settings.MaxTimeRange);
+            return TimeSpan.FromMinutes(Settings.MaxTimeRange);
         }
 
         private async Task<DateTime> GetLastTimeFetchDateAsync()
@@ -173,11 +173,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             return adjustDate.DateTime;
         }
 
-        protected override IEnumerable<string> GetSupportedRepoPrefix() 
+        protected override IEnumerable<string> GetSupportedRepoPrefix()
             => Settings.SupportedPrefix;
 
         protected override string BuildXml(IEnumerable<BetRecordInfo> data)
             => XmlHelper.BuildXml(data, "transaction", "trans");
-        
+
     }
 }
