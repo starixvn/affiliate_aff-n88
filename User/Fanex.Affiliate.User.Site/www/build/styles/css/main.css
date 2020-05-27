@@ -770,10 +770,10 @@ body {
     margin: 0;
     line-height: 1.2; }
   .banner-text h2 {
-    font-size: 80px;
+    font-size: 48px;
     font-weight: bold; }
   .banner-text h5 {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: normal; }
   .banner-text .nounderline {
     background: linear-gradient(180deg, #FFA470 0%, #FF5D00 65.83%);
@@ -783,8 +783,9 @@ body {
     text-align: center;
     display: inline-block;
     border-radius: 8px;
-    padding: 16px 48px;
-    margin-top: 35px; }
+    padding: 12px 36px;
+    margin-top: 24px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
 
 .banner-side {
   background: #010187; }
@@ -1439,12 +1440,6 @@ input[type="radio"], input[type="checkbox"] {
     /* Firefox bug fix */
     transform: translateX(-100%); } }
 
-@media (min-width: 1366px) {
-  .banner-text h2 {
-    font-size: 80px; }
-  .banner-text h5 {
-    font-size: 40px; } }
-
 @media (min-width: 1024px) and (max-width: 1279px) {
   .banner-text {
     left: 150px; }
@@ -1456,11 +1451,7 @@ input[type="radio"], input[type="checkbox"] {
 @media (min-width: 1280px) and (max-width: 1366px) {
   .banner-text {
     left: 200px;
-    top: 40px; }
-    .banner-text h2 {
-      font-size: 48px; }
-    .banner-text h5 {
-      font-size: 20px; } }
+    top: 40px; } }
 
 @media (min-width: 1024px) {
   .content .news {
@@ -1471,14 +1462,7 @@ input[type="radio"], input[type="checkbox"] {
       flex-basis: 33.333%;
       max-width: 33.333%;
       padding-left: 16px;
-      padding-right: 16px;
-      /*&.first {
-                padding-left: 10px;
-            }
-
-            &.last {
-                padding-right: 10px;
-            }*/ }
+      padding-right: 16px; }
   .carousel.slide .carousel-control.left {
     left: 8px; }
   .carousel.slide .carousel-control.right {
