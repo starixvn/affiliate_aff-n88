@@ -93,7 +93,7 @@
 .form-control {
   border: 1px solid #adadad; }
 
-.btn-signup {
+.btn-signup, .btn.btn-submit[type="reset"] {
   background: #ffefb9;
   background: -moz-linear-gradient(top, #ffefb9 0%, #cea100 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffefb9), color-stop(100%, #cea100));
@@ -108,15 +108,15 @@
   color: #333333;
   font-weight: 600;
   border: 0; }
-  .btn-signup:hover, .btn-signup:focus {
+  .btn-signup:hover, .btn.btn-submit[type="reset"]:hover, .btn-signup:focus, .btn.btn-submit[type="reset"]:focus {
     color: #333333; }
-  .btn-signup .icon {
+  .btn-signup .icon, .btn.btn-submit[type="reset"] .icon {
     color: #333333; }
 
-.btn-signup, .btn-login, .btn-link, .btn-login-mobile {
+.btn-signup, .btn.btn-submit[type="reset"], .btn-login, .btn-link, .btn-login-mobile, .btn.btn-submit[type="submit"] {
   line-height: 25px; }
 
-.btn-login, .btn-link, .btn-login-mobile {
+.btn-login, .btn-link, .btn-login-mobile, .btn.btn-submit[type="submit"] {
   background: #ffefb9;
   background: -moz-linear-gradient(top, #69B7FF 0%, rgba(206, 161, 0, 0.58) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #69B7FF), color-stop(100%, rgba(0, 84, 160, 0.58)));
@@ -131,9 +131,9 @@
   border: 0;
   font-weight: 600;
   color: #fff; }
-  .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
+  .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn.btn-submit[type="submit"]:hover, .btn-login-mobile:focus, .btn.btn-submit[type="submit"]:focus {
     color: #fff; }
-  .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
+  .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon, .btn.btn-submit[type="submit"] .icon {
     color: #fff; }
 
 .btn-submit {
@@ -150,9 +150,6 @@
 
 .table .casino-table tbody > tr:nth-of-type(even) {
   background-color: #FBD3B3; }
-
-#mainBanner {
-  margin: 0 -200px; }
 
 .home-page .news {
   margin: 0 10px;
@@ -208,9 +205,10 @@
 .news-content li > a {
   color: #212121; }
 
-/*.date-time-info {
-    background: $date-time-info;
-}*/
+.form .form-group .field {
+  background: #ffffff !important;
+  color: #000000 !important; }
+
 .languages-item {
   background: #fff; }
   .languages-item .info {
@@ -279,7 +277,21 @@
   border: 2px solid #3391F6;
   padding: 0 18px 10px;
   background: #111111;
-  margin: 0 10px; }
+  margin: 0 10px 20px; }
+
+.webp .banner-commission-structure {
+  max-width: 100%;
+  height: 240px; }
+  .webp .banner-commission-structure .text-content {
+    transform: rotate(0deg);
+    max-width: 400px;
+    margin: 0 auto; }
+
+.webp .banner-terms-condition {
+  background-size: cover;
+  text-align: center;
+  max-width: 100%;
+  padding: 0; }
 
 .main-container .banner-side {
   display: none; }
@@ -294,40 +306,17 @@
 @media only screen and (max-width: 1023px) {
   #mainBanner {
     margin: 0; }
+  .hot-news {
+    margin: 12px 0; }
   .home-page .news .item-wrapper {
     max-width: 100%;
     flex-basis: 100%;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-bottom: 5px; }
-  .line-border {
-    padding: 10px; }
-  .banner-top {
-    margin: 0 -10px;
-    background: url("../../../source/styles/Images/banner-commissionctructure.jpg") no-repeat center center/cover;
-    margin-bottom: 60px; }
-    .banner-top .page-container {
-      height: 250px;
-      padding: 0 19px 24px; }
-      .banner-top .page-container .line-text01 {
-        margin-bottom: 7px; }
-      .banner-top .page-container .line-text02 {
-        font-size: 24px;
-        margin-bottom: 5px; }
-      .banner-top .page-container .line-text03 {
-        font-size: 28px;
-        font-weight: 600; }
-      .banner-top .page-container .text-medium {
-        position: relative;
-        top: -4px;
-        display: inline-block;
-        vertical-align: text-bottom; }
-      .banner-top .page-container .text-big {
-        width: 121px; }
-      .banner-top .page-container .text-medium {
-        height: 39px;
-        top: -2px;
-        margin: 0 5px; }
-      .banner-top .page-container > * {
-        width: 100%; } }
+    margin-bottom: 10px; }
+  .main .content.sub-page {
+    padding: 0 10px 10px;
+    margin: 0 10px 20px; }
+  .webp .banner-commission-structure {
+    height: 200px; }
+  .page-title {
+    margin-left: -1rem;
+    margin-right: -1rem; } }

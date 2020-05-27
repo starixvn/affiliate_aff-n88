@@ -256,9 +256,7 @@ body {
 }
 
 // Home
-#mainBanner{
-    margin: 0 -200px;
-}
+
 // news
 .home-page {
     .news {
@@ -355,9 +353,20 @@ body {
 }
 
 // Contact Us
-/*.date-time-info {
-    background: $date-time-info;
-}*/
+.btn.btn-submit[type="submit"] {
+    @extend .btn-login-mobile;
+}
+.btn.btn-submit[type="reset"] {
+    @extend .btn-signup;
+}
+.form {
+    .form-group {
+        .field {
+            background: $background-field-white !important;
+            color: $color-field-white!important;
+        }
+    }
+}
 
 .languages-item {
     background: $languages-item-bg-color;
@@ -475,15 +484,26 @@ body {
         border: 2px solid $border-content;
         padding: 0 18px 10px;
         background: $background-content;
-        margin: 0 10px;
+        margin: 0 10px 20px;
     }
 }
-.line-border {
-    
-}
+.webp .banner-commission-structure {
+    max-width: 100%;
+    height: 240px;
+    .text-content {
+        transform: rotate(0deg);
+        max-width: 400px;
+        margin: 0 auto;
 
+    }
+}
 //Terms And Conditions
- 
+.webp .banner-terms-condition {
+    background-size: cover;
+    text-align: center;
+    max-width: 100%;
+    padding: 0;
+}
 // update css
 .main-container {
     .banner-side {
@@ -506,65 +526,28 @@ body {
     #mainBanner {
         margin: 0;
     }
-  
+    .hot-news {
+        margin: 12px 0;
+    }
     .home-page .news {
         .item-wrapper {
             max-width: 100%;
             flex-basis: 100%;
             margin-bottom: 10px;
-            padding-left: 5px;
-            padding-right: 5px;
-            margin-bottom: 5px; 
         }
     }
-    .line-border {
-        padding: 10px; 
+    .main .content.sub-page {
+        padding: 0 10px 10px;
+        margin: 0 10px 20px;
+    }
+    .webp .banner-commission-structure{
+        height: 200px;
+    }
+    .page-title {
+        margin-left: -1rem;
+        margin-right: -1rem;
     }
 
-    .banner-top {
-        margin: 0 -10px;
-        background: url('../../Images/banner-commissionctructure.jpg') no-repeat center center / cover;
-        margin-bottom: 60px;
-
-        .page-container {
-            height: 250px;
-            padding: 0 19px 24px;
-
-            .line-text01 {
-                margin-bottom: 7px;
-            }
-
-            .line-text02 {
-                font-size: 24px;
-                margin-bottom: 5px;
-            }
-
-            .line-text03 {
-                font-size: 28px;
-                font-weight: 600;
-            }
-
-            .text-medium {
-                position: relative;
-                top: -4px;
-                display: inline-block;
-                vertical-align: text-bottom;
-            }
-
-            .text-big {
-                width: 121px;
-            }
-
-            .text-medium {
-                height: 39px;
-                top: -2px;
-                margin: 0 5px;
-            }
-
-            > * {
-                width: 100%;
-            }
-        }
-    }
+    
 }
 
