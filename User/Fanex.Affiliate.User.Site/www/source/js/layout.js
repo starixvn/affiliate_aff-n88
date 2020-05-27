@@ -71,6 +71,12 @@ var Layout = (function ($) {
                     $('#moveToTop').fadeOut(200);
                 }
             });
+
+            $(window).resize(function () {
+                var mode = Site.getCookie("mode");
+
+                _me.setCheckedForInput(mode);
+            });
         },
         renderMode: function () {
             var mode = Site.getCookie("mode");

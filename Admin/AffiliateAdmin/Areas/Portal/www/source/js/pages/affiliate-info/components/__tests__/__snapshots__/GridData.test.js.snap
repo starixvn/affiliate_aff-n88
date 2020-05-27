@@ -691,9 +691,9 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Commission Group"
+            title="Revenue Share Group"
           >
-            Commission Group
+            Revenue Share Group
           </t>
           <t
             asc={true}
@@ -1088,9 +1088,9 @@ exports[`affiliate info - GridData  should render correctly with _renderHeader 1
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Commission Group"
+      title="Revenue Share Group"
     >
-      Commission Group
+      Revenue Share Group
     </t>
     <t
       asc={true}

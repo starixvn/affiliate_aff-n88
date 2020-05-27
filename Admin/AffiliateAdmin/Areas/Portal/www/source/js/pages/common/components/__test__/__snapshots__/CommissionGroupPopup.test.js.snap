@@ -47,7 +47,7 @@ exports[`common - components - CommissionGroupPopup render correctly 1`] = `
       <span
         className="iconpopup"
       />
-      Assign Commission Group For New Affiliate
+      Assign Revenue Share Group For New Affiliate
     </ModalHeader>
     <ModalBody
       tag="div"
@@ -120,7 +120,7 @@ exports[`common - components - CommissionGroupPopup render correctly with Privat
       <span
         className="iconpopup"
       />
-      Edit Commission Group for 12BETAFF226
+      Edit Revenue Share Group for 12BETAFF226
     </ModalHeader>
     <ModalBody
       tag="div"

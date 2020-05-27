@@ -133,7 +133,7 @@ describe('affiliate info - Filter ', () => {
         const wrapper = shallow(<Filter {...props} />);
         wrapper.find('Button').simulate('click');
 
-        const reportTitle = 'AFFILIATE REPORT - ALL COMM GROUPS - ALL LANGUAGES - ALL STATUSES';
+        const reportTitle = 'AFFILIATE REPORT - ALL REVENUE SHARE GROUPS - ALL LANGUAGES - ALL STATUSES';
         const param = {
             AffId: '',
             GroupId: 0,
@@ -176,14 +176,14 @@ describe('affiliate info - Filter ', () => {
         const componentInstance = new Filter(defaultProps);
         const result = componentInstance._buildReportTitle('', '', '', '', '', '');
 
-        expect(result).toEqual('AFFILIATE REPORT - ALL COMM GROUPS - ALL LANGUAGES - ALL STATUSES');
+        expect(result).toEqual('AFFILIATE REPORT - ALL REVENUE SHARE GROUPS - ALL LANGUAGES - ALL STATUSES');
     });
 
     it('buildReportTitle - should return correct string with correct parameter', () => {
         const componentInstance = new Filter(defaultProps);
         const result = componentInstance._buildReportTitle('', '', '', '12BETAFF001', 'walter.tran1@starixsoft.com', 927841);
 
-        expect(result).toEqual(`AFFILIATE REPORT - ALL COMM GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS '12BETAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841'`);
+        expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE SHARE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS '12BETAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841'`);
     });
 
     it('should render correctly', () => {

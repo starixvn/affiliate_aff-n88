@@ -158,7 +158,7 @@
     <Compile Include="Controllers\Administrator\AdministratorControllerTest.cs" />
     <Compile Include="Controllers\Administrator\DepartmentControllerTest.cs" />
     <Compile Include="Controllers\Affiliate\AffiliateControllerTest.cs" />
-    <Compile Include="Controllers\Affiliate\CommissionGroupControllerTest.cs" />
+    <Compile Include="Controllers\Affiliate\RevenueShareGroupControllerTest.cs" />
     <Compile Include="Controllers\Affiliate\CommGroupAssignmentControllerTest.cs" />
     <Compile Include="Controllers\Affiliate\EmailHistoryControllerTest.cs" />
     <Compile Include="Controllers\Affiliate\PaymentRequestControllerTest.cs" />

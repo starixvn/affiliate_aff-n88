@@ -47,6 +47,9 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     />
   </Alert>
+  <p
+    className="text-danger"
+  />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <button
@@ -106,6 +109,9 @@ exports[`commission group - assign private group should render correctly with is
       }
     />
   </Alert>
+  <p
+    className="text-danger"
+  />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <button

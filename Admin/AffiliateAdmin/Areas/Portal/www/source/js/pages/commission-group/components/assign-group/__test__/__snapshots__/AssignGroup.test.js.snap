@@ -111,7 +111,7 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
       <h6
         className="font-weight-bold"
       >
-        Comm Group
+        Revenue Share Group
       </h6>
     </legend>
     <FormGroup
@@ -132,7 +132,7 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
         }
         xs="4"
       >
-        New Comm Group: 
+        New Revenue Share Group: 
       </Label>
       <Col
         className="select-comm"
@@ -236,6 +236,9 @@ exports[`commission group - AssignGroup Should render correctly with isSuccess s
       </Col>
     </FormGroup>
   </fieldset>
+  <p
+    className="text-danger"
+  />
   <Button
     className="my-2 btn btn-success"
     color="secondary"

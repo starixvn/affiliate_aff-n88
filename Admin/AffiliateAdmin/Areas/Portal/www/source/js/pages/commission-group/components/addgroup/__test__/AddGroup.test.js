@@ -7,8 +7,6 @@ jest.mock('../../../modules/constant');
 describe('commission group - AddGroup', () => {
     const expectParam = {
         BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
-        ExchangeCommissionShare: { DeductedPercentage: 0, DeductionId: 14, ProductIds: 19 },
-        ExchangeWinLossShare: { DeductedPercentage: 0, DeductionId: 13, ProductIds: 19 },
         Description: "",
         GroupId: 0,
         GroupName: "",
@@ -111,7 +109,7 @@ describe('commission group - AddGroup', () => {
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
-        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Add Commission Group Successfully"] });
+        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Add Revenue Share Group Successfully"] });
     });
 
     it('handleSave - should call toggleLoader,  when click button SAVE with correct respone but not success', async () => {

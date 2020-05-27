@@ -14,7 +14,6 @@ exports[`commission group - assign private group should render correctly 1`] = `
     data={
       Object {
         "commission": 0.17,
-        "nextCommission": undefined,
         "productList": Array [
           Object {
             "Checked": true,
@@ -55,7 +54,6 @@ exports[`commission group - assign private group should render correctly 1`] = `
     data={
       Object {
         "commission": 0.12,
-        "nextCommission": undefined,
         "productList": Array [
           Object {
             "Checked": true,

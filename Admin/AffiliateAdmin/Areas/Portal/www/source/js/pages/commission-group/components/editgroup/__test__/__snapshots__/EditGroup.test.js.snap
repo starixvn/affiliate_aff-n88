@@ -40,7 +40,9 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
     />
   </Alert>
   <Connect(CommGroupInfo) />
-  <Connect(ExchangeRevenueShareSetting) />
+  <p
+    className="text-danger"
+  />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <button
@@ -93,7 +95,9 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
     />
   </Alert>
   <Connect(CommGroupInfo) />
-  <Connect(ExchangeRevenueShareSetting) />
+  <p
+    className="text-danger"
+  />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <button

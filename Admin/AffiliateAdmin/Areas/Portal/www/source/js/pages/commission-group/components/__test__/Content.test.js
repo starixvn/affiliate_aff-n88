@@ -62,7 +62,7 @@ describe('commission group - Content', () => {
 
         const expectedState = {
             Popup: <AddGroup onClose={instance.handleHide} onSave={instance.handleSave} />,
-            popupTitle: "Add a Commission Group"
+            popupTitle: "Add a Revenue Share group"
         }
         wrapper.find('Button').simulate('click');
 
@@ -78,7 +78,7 @@ describe('commission group - Content', () => {
 
         const expectedState = {
             Popup: <EditGroup onClose={instance.handleHide} itemId={123} onSave={instance.handleSave} />,
-            popupTitle: "Edit Commission Group"
+            popupTitle: "Edit the Revenue Share group"
         }
 
         wrapper.find(GridData).props().onEdit(123);

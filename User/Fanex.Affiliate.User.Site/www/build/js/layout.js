@@ -71,6 +71,12 @@ var Layout = (function ($) {
                     $('#moveToTop').fadeOut(200);
                 }
             });
+
+            $(window).resize(function () {
+                var mode = Site.getCookie("mode");
+
+                _me.setCheckedForInput(mode);
+            });
         },
         renderMode: function () {
             var mode = Site.getCookie("mode");
@@ -98,7 +104,8 @@ var Layout = (function ($) {
         },
 
         setCheckedForInput: function (mode) {
-            var isChecked = mode === "darkmode";
+            var isChecked = mode === "lightmode";
+            console.log(isChecked);
             var inputDesktop = $('#switch-desktop');
             var inputMobile = $('#switch-mobile');
 

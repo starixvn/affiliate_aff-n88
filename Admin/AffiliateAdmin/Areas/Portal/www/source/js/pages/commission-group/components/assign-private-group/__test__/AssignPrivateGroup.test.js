@@ -121,7 +121,7 @@ describe('commission group - assign private group', () => {
 
         expect(wrapper.setState).toHaveBeenCalledTimes(3);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowLoader: true });
-        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: ["Update Commission Group Successfully"], isShowLoader: false });
+        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Share Group Successfully"], isShowLoader: false });
         expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
         expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 3000);
         expect(parent.postMessage).toHaveBeenCalledWith("updatePrivateGroupSuccessfully", "http://localhost");
@@ -143,7 +143,7 @@ describe('commission group - assign private group', () => {
 
         expect(wrapper.setState).toHaveBeenCalledTimes(2);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowLoader: true });
-        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: ["Assign affiliate to commission group successfully"], isShowLoader: false });
+        expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: ["Assign affiliate to Revenue Share group successfully"], isShowLoader: false });
         expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" })
     })
 

@@ -2,7 +2,7 @@
 
 exports[`left panel - components - panel - CommissionPanel render correctly with status is closed 1`] = `
 <Memo(Panel)
-  heading="Commission"
+  heading="Revenue Share"
 >
   <Row
     tag="div"
@@ -20,7 +20,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      Comm Group
+      Revenue Share Group
     </Col>
     <Col
       className="text-right text-break pl-0"
@@ -88,7 +88,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
 
 exports[`left panel - components - panel - CommissionPanel render correctly with status is not closed 1`] = `
 <Memo(Panel)
-  heading="Commission"
+  heading="Revenue Share"
 >
   <Row
     tag="div"
@@ -106,7 +106,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      Comm Group
+      Revenue Share Group
     </Col>
     <Col
       className="text-right text-break pl-0"

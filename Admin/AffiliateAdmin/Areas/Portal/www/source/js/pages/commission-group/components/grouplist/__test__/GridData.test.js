@@ -81,7 +81,7 @@ describe('commission group - GridData ', () => {
 
         await componentInstance._handleDeleteCommGroup(153, "CG22125");
 
-        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to delete the commission group CG22125 ?", isConfirmPopup: true, selectedGroupId: 153, shouldResetScrollPosition: false });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to delete the Revenue Share group CG22125 ?", isConfirmPopup: true, selectedGroupId: 153, shouldResetScrollPosition: false });
     });
 
     it('_deleteCommGroup - delete Commission Group Successfully', async () => {
@@ -97,7 +97,7 @@ describe('commission group - GridData ', () => {
 
         expect(props.deleteCommGroup).toHaveBeenCalledWith({ "groupId": 153 });
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
-        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Delete Commission Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Delete Revenue Share group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
     });
 
     it('_deleteCommGroup - delete Commission Group Failed', async () => {

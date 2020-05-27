@@ -2290,9 +2290,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Comm%"
+            title="Revenue Share%"
           >
-            Comm%
+            Revenue Share%
           </t>
           <t
             asc={true}
@@ -2620,9 +2620,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Comm%"
+      title="Revenue Share%"
     >
-      Comm%
+      Revenue Share%
     </t>
     <t
       asc={true}
@@ -2915,9 +2915,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Comm%"
+      title="Revenue Share%"
     >
-      Comm%
+      Revenue Share%
     </t>
     <t
       asc={true}
