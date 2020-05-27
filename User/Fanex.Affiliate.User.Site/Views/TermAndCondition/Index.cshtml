@@ -10,32 +10,13 @@
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
 
-    <div class="content">
-        <div class="banner-top terms-and-conditions">
-            <div class="page-container">
-                <div class="cover">
-                    <p class="line-text01">
-                        <img class="text-big" src="~/www/build/styles/Images/apply/n8b/text01.png" alt="45%" />
-                    </p>
-                    <p class="line-text02">
-                        doanh thu trọn đời
-                    </p>
-                    <p class="line-text03">
-                        với
-                        <img class="text-medium" src="~/www/build/styles/Images/apply/n8b/text02.png" alt="thể thao" />
-                        và
-                        <img class="text-medium" src="~/www/build/styles/Images/apply/n8b/text03.png" alt="casino" />
-                    </p>
-                </div>
-            </div>
+    <div class="content sub-page">
+        <div class="page-title">
+            <span class="text">@Lang.TermAndCondition</span>
         </div>
-        <div class="line-border">
-            <div class="page-title">
-                <span class="text">@Lang.TermAndCondition</span>
-            </div>
 
-            @Html.Raw(htmlString)
+        @Html.Raw(htmlString)
 
-            @RazorHelper.RenderMovingTopButton()
-        </div>
+        @RazorHelper.RenderMovingTopButton()
+
     </div>
