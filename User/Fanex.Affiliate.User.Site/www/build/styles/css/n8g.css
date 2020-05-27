@@ -2,6 +2,9 @@
   color: #2b2b2b;
   background: #F5F5F5; }
 
+.news {
+  background: #F5F5F5; }
+
 .header-top {
   background-color: #191919; }
   .header-top .logo-image {
@@ -121,16 +124,16 @@
   background: #a3a3a3; }
 
 .card-content {
-  border: 1px solid #fff;
-  background: rgba(255, 255, 255, 0.2); }
+  border: 1px solid #C7C7C7;
+  background: #E5E5E5; }
   .card-content .card-title {
     color: #2b2b2b;
-    border-bottom: 1px solid #fff; }
+    border-bottom: 1px solid #C7C7C7; }
   .card-content .text-content {
     color: #212121; }
 
 .news-content li:not(:last-child) {
-  border-bottom: 1px solid #fff; }
+  border-bottom: 1px solid #C7C7C7; }
 
 .news-content li > a {
   color: #212121; }
