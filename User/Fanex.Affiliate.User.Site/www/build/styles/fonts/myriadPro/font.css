@@ -6,6 +6,12 @@
          url('MYRIADPROREGULAR.ttf') format('truetype');
     font-weight: 400;
 }
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('Myriad-Pro-Semibold.ttf');
+    src: url('Myriad-Pro-Semibold.ttf') format('truetype');
+    font-weight: 500;
+}
 
 @font-face {
   font-family: 'Myriad Pro';

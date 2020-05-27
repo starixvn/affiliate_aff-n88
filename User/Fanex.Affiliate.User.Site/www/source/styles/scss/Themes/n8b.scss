@@ -3,6 +3,7 @@
 body {
     color: $text-color;
     background: $bg-main-color;
+    font-family: 'Myriad Pro';
 }
 
 // Header
@@ -10,18 +11,23 @@ body {
 .header-top {
     background-color: $header-bg-color;
 
+    .logo {
+        padding: 1rem 1rem 1.7rem 1rem;
+    }
+
     .logo-image {
-        width: 168px;
-        height: 62px;
+        width: 180px;
+        height: 65px;
     }
 }
 
 .header-bottom {
-    border-top: 2px solid $header-bottom-border-color;
+    //border-top: 2px solid $header-bottom-border-color;
 }
 
 .footer {
-    background: $footer-bg-color;
+    //background: $footer-bg-color;
+    border-top: 2px solid $footer-border-color;
 }
 
 .navbar {
@@ -55,7 +61,9 @@ body {
 }
 
 .hot-news {
-    background: $hot-news-bg-color;
+    background: rgba(255,93,0,0.5);
+    //max-width: calc(100% - 400px);
+    margin: 12px auto;
 
     .title {
         background: $hot-news-title-bg-color;
@@ -69,12 +77,23 @@ body {
     .message {
         color: $hot-news-content-color;
         background: $hot-news-content-bg-color;
+        background: $hot-news-bg-color;
+
+        &:before {
+            border-color: #000 #fff #000 transparent;
+        }
     }
 }
-// Common
+.marquee-content {
+    a {
+        color: $hot-news-content-color!important;
+    }
+}
 
+
+// Common
 .page-title {
-    background: $bg-main-color;
+    background: $page-title-background;
     border-top: 1px solid $page-title-border-color;
 
     .text {
@@ -82,11 +101,13 @@ body {
         color: $page-title-color;
 
         &:after {
-            border-bottom: 18px solid $bg-main-color;
-            border-right: 16px solid $bg-main-color;
+            border-bottom: 18px solid $page-title-background;
+            border-right: 16px solid $page-title-background;
         }
     }
 }
+
+
 
 .info-group .title {
     color: $group-title-color;
@@ -97,6 +118,7 @@ body {
 
     &:after {
         background: $group-title-border-after-color;
+        opacity: 0.5;
     }
 }
 
@@ -105,16 +127,20 @@ body {
     border: 1px solid $table-border-color;
 
     tr {
-        background: $table-bg-color;
+        background: transparent;
         color: $table-color;
 
         &:hover {
-            background: $table-row-bg-color-hover;
+            //background: $table-row-bg-color-hover;
         }
     }
 
     th, td {
         border: 1px solid $table-header-border-color;
+
+        a {
+            color: $table-color-link;
+        }
     }
 
     th {
@@ -148,26 +174,53 @@ body {
 
 // Button
 .btn-signup {
-    background: $button-signup-bg-color;
+    //background: $button-signup-bg-color;
+    background: rgba(255,239,185,1);
+    background: -moz-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,239,185,1)), color-stop(100%, rgba(206,161,0,1)));
+    background: -webkit-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefb9', endColorstr='#cea100', GradientType=0 );
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
     color: $button-signup-color;
+    font-weight: 600;
+    border: 0;
 
     &:hover, &:focus {
         color: $button-signup-color;
-        background: $button-signup-bg-color-hover;
+        //background: $button-signup-bg-color-hover;
     }
 
     .icon {
         color: $button-signup-color;
     }
 }
-
+.btn-signup, .btn-login, .btn-link, .btn-login-mobile{
+    line-height: 25px;
+}
 .btn-login, .btn-link, .btn-login-mobile {
-    background: $button-login-bg-color;
+    background: rgba(255,239,185,1);
+    background: -moz-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, #69B7FF), color-stop(100%, rgba(0,84,160,0.58)));
+    background: -webkit-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,1) 100%);
+    background: -o-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
+    background: -ms-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
+    background: linear-gradient(to bottom, #69B7FF 0%, rgba(0,84,160,0.58) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefb9', endColorstr='#cea100', GradientType=0 );
+    -webkit-box-shadow: $button-shadow-color;
+    -moz-box-shadow: $button-shadow-color;
+    box-shadow: $button-shadow-color;
+    border: 0;
+    font-weight: 600;
     color: $button-login-color;
 
     &:hover, &:focus {
         color: $button-login-color;
-        background: $button-login-bg-color-hover;
+        //background: $button-login-bg-color-hover;
     }
 
     .icon {
@@ -201,19 +254,85 @@ body {
 }
 
 // Home
-.main {
-    .page-container .home-page {
-        background: $home-page-bg-color;
+#mainBanner{
+    margin: 0 -200px;
+}
+// news
+.home-page {
+    .news {
+        margin: 0 auto;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+
+        .item-wrapper {
+            margin-bottom: 0;
+            padding: 0;
+            max-width: 32%;
+            flex-basis: 32%;
+
+            &.first {
+                position: relative;
+
+                a.nounderline {
+                    display: block;
+                    padding-top: 15px;
+                    position: relative;
+                    z-index: 10;
+
+                    .text-content {
+                        color: $home-card-text-color;
+                        padding: 10px 16px;
+                    }
+                }
+
+                &:hover {
+                    &:after {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        position: absolute;
+                        left: 0;
+                        background: url('../../Images/img-hover-news.png') no-repeat center center / 100% 100%;
+                    }
+                }
+            }
+
+            &.last {
+                .text-content {
+                    .news-content {
+                        li {
+                            a {
+                                display: block;
+
+                                span {
+                                    color: $home-card-text-color;
+
+                                    .text-red {
+                                        text-decoration: none !important;
+                                        color: $home-card-text-color-red !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
-
 .card-content {
-    border: 1px solid $home-card-content-border-color;
-    background: $home-card-content-bg-color;
+    border: 2px solid $home-card-content-border-color;
+    background-color: $home-card-background-content;
+
 
     .card-title {
         color: $home-card-title-color;
-        border-bottom: 1px solid $home-card-content-border-color;
+        background-color: $home-card-background-title;
+        border-bottom: 2px solid $home-card-content-border-color;
+        -webkit-box-shadow: $title-shadow-color;
+        box-shadow: $title-shadow-color;
     }
 
     .text-content {
@@ -347,3 +466,139 @@ body {
         color: $tab-item-color-active;
     }
 }
+
+//CommissionStructure
+.banner-commission-structure{
+    display: none;
+}
+.banner-top {
+    margin: 0 -210px;
+    background: url('../../Images/banner-commissionctructure.jpg') no-repeat center center / cover;
+    margin-bottom: 60px;
+
+    .page-container {
+        height: 500px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 30px 0 0;
+
+        .line-text01 {
+            margin-bottom: 10px;
+        }
+
+        .line-text02 {
+            font-size: 60px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            margin-bottom: 19px;
+        }
+
+        .line-text03 {
+            font-size: 60px;
+            font-weight: 600;
+        }
+
+        .text-medium {
+            position: relative;
+            top: -4px;
+            display: inline-block;
+            vertical-align: text-bottom;
+        }
+
+        > * {
+            width: 100%;
+        }
+    }
+}
+.line-border {
+    border: 2px solid $border-content;
+    padding: 10px 18px;
+    background: $background-content;
+}
+// update css
+.main-container {
+    .banner-side {
+        display: none;
+    }
+
+    .page-container {
+        //max-width: 100%;
+        //flex-basis: 100%;
+        color: $text-color-white;
+    }
+}
+
+@media only screen and (max-width: 1199px ){
+
+    .banner-top {
+        margin: 0 -160px;
+    }
+    
+}
+@media only screen and (max-width: 1023px ) {
+    #mainBanner {
+        margin: 0;
+    }
+  
+    .home-page .news {
+        .item-wrapper {
+            max-width: 100%;
+            flex-basis: 100%;
+            margin-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-bottom: 5px;
+        }
+    }
+    .line-border {
+        padding: 10px; 
+    }
+
+    .banner-top {
+        margin: 0 -10px;
+        background: url('../../Images/banner-commissionctructure.jpg') no-repeat center center / cover;
+        margin-bottom: 60px;
+
+        .page-container {
+            height: 250px;
+            padding: 0 19px 24px;
+
+            .line-text01 {
+                margin-bottom: 7px;
+            }
+
+            .line-text02 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .line-text03 {
+                font-size: 28px;
+                font-weight: 600;
+            }
+
+            .text-medium {
+                position: relative;
+                top: -4px;
+                display: inline-block;
+                vertical-align: text-bottom;
+            }
+
+            .text-big {
+                width: 121px;
+            }
+
+            .text-medium {
+                height: 39px;
+                top: -2px;
+                margin: 0 5px;
+            }
+
+            > * {
+                width: 100%;
+            }
+        }
+    }
+}
+

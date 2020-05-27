@@ -854,6 +854,9 @@
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.zh-TW.png" />
+    <Content Include="www\build\styles\Images\apply\n8b\text01.png" />
+    <Content Include="www\build\styles\Images\apply\n8b\text02.png" />
+    <Content Include="www\build\styles\Images\apply\n8b\text03.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.ko-KR.png" />
@@ -861,10 +864,13 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
+    <Content Include="www\build\styles\Images\banner-commissionctructure.jpg" />
     <Content Include="www\build\styles\Images\banner-main-left.jpg" />
     <Content Include="www\build\styles\Images\banner-main-right.jpg" />
+    <Content Include="www\build\styles\Images\banner01.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\bg-footer-1.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\bootstrap-formhelpers-countries.flags.png" />
     <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-TW.jpg" />
@@ -891,6 +897,7 @@
     <Content Include="www\build\styles\Images\icon-1.png" />
     <Content Include="www\build\styles\Images\icon-2.png" />
     <Content Include="www\build\styles\Images\icon-3.png" />
+    <Content Include="www\build\styles\Images\img-hover-news.png" />
     <Content Include="www\build\styles\Images\mode\darkmode.svg" />
     <Content Include="www\build\styles\Images\mode\lightmode.svg" />
     <Content Include="www\build\styles\Images\notify\bgMain.jpg" />
@@ -1120,8 +1127,11 @@
     <Content Include="www\source\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\source\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\source\styles\Images\apply\n8g\3step.zh-TW.png" />
+    <Content Include="www\source\styles\Images\banner-commissionctructure.jpg" />
     <Content Include="www\source\styles\Images\banner-main-left.jpg" />
     <Content Include="www\source\styles\Images\banner-main-right.jpg" />
+    <Content Include="www\source\styles\Images\banner01.png" />
+    <Content Include="www\source\styles\Images\bg-footer-1.png" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.jpg" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.jpg" />
     <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.jpg" />
@@ -1160,6 +1170,7 @@
     <Content Include="www\source\styles\Images\footer\cr-pagcor.png" />
     <Content Include="www\source\styles\Images\footer\cr-westbrom.png" />
     <Content Include="www\source\styles\Images\icon-1.png" />
+    <Content Include="www\source\styles\Images\img-hover-news.png" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\themes\n88-qrcode.png" />
@@ -1573,6 +1584,8 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
+    <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
+    <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
