@@ -255,8 +255,6 @@ body {
     }
 }
 
-// Home
-
 // news
 .home-page {
     .news {
@@ -283,18 +281,6 @@ body {
                     .text-content {
                         color: $home-card-text-color;
                         padding: 10px 16px;
-                    }
-                }
-
-                &:hover {
-                    &:after {
-                        content: "";
-                        width: 100%;
-                        height: 100%;
-                        top: 0;
-                        position: absolute;
-                        left: 0;
-                        background: url('../../Images/img-hover-news.png') no-repeat center center / 100% 100%;
                     }
                 }
             }

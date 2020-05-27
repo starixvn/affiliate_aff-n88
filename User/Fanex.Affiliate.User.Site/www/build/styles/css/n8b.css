@@ -171,14 +171,6 @@
         .home-page .news .item-wrapper.first a.nounderline .text-content {
           color: #ffffff;
           padding: 10px 16px; }
-      .home-page .news .item-wrapper.first:hover:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        top: 0;
-        position: absolute;
-        left: 0;
-        background: url("../../../source/styles/Images/img-hover-news.png") no-repeat center center/100% 100%; }
     .home-page .news .item-wrapper.last .text-content .news-content li a {
       display: block; }
       .home-page .news .item-wrapper.last .text-content .news-content li a span {
