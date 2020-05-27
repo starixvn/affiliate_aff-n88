@@ -96,10 +96,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
                 }
-                catch (Exception ex)
+                catch
                 {
                     _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
-                    throw ex;
+                    throw;
                 }
             }
         }
@@ -115,10 +115,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
                     await _timeTrackerService.SaveTimeAsync(TableName, range.ToDate);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
-                    throw ex;
+                    throw;
                 }
             }
         }
@@ -126,7 +126,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task FetchAndInsertDataAsync(DateTime fromDate, DateTime toDate)
         {
             var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
-            if (data == null || data.Count() == 0)
+            if (data == null || !data.Any())
             {
                 return;
             }
@@ -143,7 +143,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task<DateTime> GetLastTimeFetchDateAsync()
         {
             var isUseDefaultDate = false;
-            var lastFetchDate = new DateTime();
+            DateTime lastFetchDate = new DateTime();
             try
             {
                 lastFetchDate = await _timeTrackerService.GetTimeAsync(TableName);
