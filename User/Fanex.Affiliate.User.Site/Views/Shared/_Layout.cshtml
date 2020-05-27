@@ -55,7 +55,7 @@
                 @if (isN88)
                 {
                     <div class="switch-mode-theme desktop">
-                        <input type="checkbox" id="switch-desktop" /><label class="switch-desktop" for="switch-desktop"></label>
+                        <label id="switch-desktop" class="switch-desktop"></label>
                     </div>
                 }
                 @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
@@ -109,7 +109,7 @@
                             @if (isN88)
                             {
                                 <div class="switch-mode-theme mobile">
-                                    <input type="checkbox" id="switch-mobile" /><label class="switch-mobile" for="switch-mobile"></label>
+                                    <label id="switch-mobile" class="switch-mobile"></label>
                                 </div>
                             }
                         </div>

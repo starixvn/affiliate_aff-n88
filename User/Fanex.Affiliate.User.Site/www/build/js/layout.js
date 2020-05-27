@@ -94,8 +94,7 @@ var Layout = (function ($) {
             var mode = Site.getCookie("mode");
 
             var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
-
-            _me.setCheckedForInput(mode);
+            _me.setCheckedForInput(newMode);
 
             var n88Link = $('#n88-link');
             n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));
@@ -104,12 +103,18 @@ var Layout = (function ($) {
         },
 
         setCheckedForInput: function (mode) {
-            var isChecked = mode === "darkmode";
+            var isDarkMode = mode !== "lightmode";
+
             var inputDesktop = $('#switch-desktop');
             var inputMobile = $('#switch-mobile');
 
-            inputDesktop.attr('checked', isChecked);
-            inputMobile.attr('checked', isChecked);
+            if (isDarkMode) {
+                inputDesktop.addClass('dark-mode');
+                inputMobile.addClass('dark-mode');
+            } else {
+                inputDesktop.removeClass('dark-mode');
+                inputMobile.removeClass('dark-mode');
+            }
         },
         registerAjaxHandlerError: function () {
             $(document).ajaxError(function (event, jqXHR) {

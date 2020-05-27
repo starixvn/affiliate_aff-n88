@@ -479,7 +479,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             yield return new object[]
             {
-                new List<Payment> { new Payment { Status = PaymentStatus.Pending } },
+                new List<Payment> { new Payment { Status = PaymentStatus.Processing } },
                 true
             };
 
@@ -494,7 +494,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 new List<Payment>
                 {
                     new Payment { Status = PaymentStatus.Approved },
-                    new Payment { Status = PaymentStatus.Pending }
+                    new Payment { Status = PaymentStatus.Processing }
                 },
                 true
             };

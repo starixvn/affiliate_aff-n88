@@ -428,11 +428,11 @@ body {
         border-radius: 10px;
     }
 
-    input:checked + label {
+    label.dark-mode {
         background: #676767;
     }
 
-    input:checked + label:after {
+    label.dark-mode:after {
         left: calc(100% - 4px);
         transform: translateX(-100%);
         background: #0A0A0A;

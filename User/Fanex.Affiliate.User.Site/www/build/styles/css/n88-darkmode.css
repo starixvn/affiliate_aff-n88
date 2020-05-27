@@ -304,9 +304,9 @@
     width: 19px;
     height: 19px;
     border-radius: 10px; }
-  .switch-mode-theme input:checked + label {
+  .switch-mode-theme label.dark-mode {
     background: #676767; }
-  .switch-mode-theme input:checked + label:after {
+  .switch-mode-theme label.dark-mode:after {
     left: calc(100% - 4px);
     transform: translateX(-100%);
     background: #0A0A0A;
