@@ -149,7 +149,7 @@
   background-color: #ded5d5; }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
-  background-color: #FBD3B3; }
+  background-color: #2d2d2d; }
 
 .home-page .news {
   margin: 0 10px;
@@ -273,11 +273,16 @@
   background: #4D6316;
   color: #fff; }
 
-.main .content.sub-page {
+.main .content {
   border: 2px solid #3391F6;
   padding: 0 18px 10px;
   background: #111111;
   margin: 0 10px 20px; }
+  .main .content.home-page {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    margin: 0; }
 
 .webp .banner-commission-structure {
   max-width: 100%;
@@ -293,7 +298,11 @@
   max-width: 100%;
   padding: 0;
   background-image: url("../../../source/styles/Images/bg-Terms_&_conditions_banner-bwing.png");
-  background-position: bottom -120px center; }
+  background-position: bottom center; }
+
+.table .game-list tr .game-name {
+  border: 1px solid #4F5254 !important;
+  background: #303537; }
 
 .main-container .banner-side {
   display: none; }
@@ -314,7 +323,7 @@
     max-width: 100%;
     flex-basis: 100%;
     margin-bottom: 10px; }
-  .main .content.sub-page {
+  .main .content {
     padding: 0 10px 10px;
     margin: 0 10px 20px; }
   .webp .banner-commission-structure {

@@ -480,12 +480,17 @@ body {
 
 //CommissionStructure
 .main .content {
-    &.sub-page {
-        border: 2px solid $border-content;
-        padding: 0 18px 10px;
-        background: $background-content;
-        margin: 0 10px 20px;
+    &.home-page {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        margin: 0;
     }
+
+    border: 2px solid $border-content;
+    padding: 0 18px 10px;
+    background: $background-content;
+    margin: 0 10px 20px;
 }
 .webp .banner-commission-structure {
     max-width: 100%;
@@ -504,7 +509,12 @@ body {
     max-width: 100%;
     padding: 0;
     background-image: url('../../Images/bg-Terms_&_conditions_banner-bwing.png');
-    background-position: bottom -120px center;
+    background-position: bottom center;
+}
+//product
+.table .game-list tr .game-name {
+    border: 1px solid $table-border-color !important;
+    background: $table-header-bg-color;
 }
 // update css
 .main-container {
@@ -538,9 +548,12 @@ body {
             margin-bottom: 10px;
         }
     }
-    .main .content.sub-page {
+    .main .content {
         padding: 0 10px 10px;
         margin: 0 10px 20px;
+        &.home-page{
+
+        }
     }
     .webp .banner-commission-structure{
         height: 200px;
