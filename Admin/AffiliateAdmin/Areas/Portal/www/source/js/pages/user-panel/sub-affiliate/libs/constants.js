@@ -6,7 +6,7 @@ export { globalResource, maxWidth, userPanelMenuKey, monthNames, defaultBaseCurr
 
 export const resource = {
     SubAffiliateName: 'Sub-Affiliate Name',
-    Commission: 'Commission',
+    Commission: 'Revenue Share',
     SubAffiliateEarning: 'Sub-Affiliate Earning',
     Total: 'Total'
 }

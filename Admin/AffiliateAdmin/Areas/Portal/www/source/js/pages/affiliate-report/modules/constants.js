@@ -47,7 +47,7 @@ export const headerText = {
     Bonus: 'Bonus',
     PlatformFee: 'Platform Fee',
     OperationalFee: 'Operational Fee',
-    BankingFee: 'Banking Fees',
+    BankingFee: 'Banking Fee',
     TotalFee: 'Total Fee',
     CommissionRate: 'Revenue Share%',
     Earning: 'Earning',

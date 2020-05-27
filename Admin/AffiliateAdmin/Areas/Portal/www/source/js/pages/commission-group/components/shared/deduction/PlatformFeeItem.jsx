@@ -41,41 +41,24 @@ export default class PlatformFeeItem extends React.Component {
                         <FormFeedback>At least 1 product must be selected per group</FormFeedback>
                     </div>
                 </Col>
-                {
-                    isInserting ? (
-                        <Col sm={2} className="select-comm">
-                            <select name="DeductedPercentage" className="form-control" value={formatDecimal(commission)}
-                                onChange={this.handleChangeComm}>
+                <Col sm={5} className="select-comm">
+                    <Form inline>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label className="mr-sm-2">New Revenue Share </Label>
+                        </FormGroup>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <select name="DeductedPercentage" className="form-control"
+                                value={formatDecimal(commission || 0)}
+                                onChange={this.handleChangeComm} style={{ width: 60 }}>
                                 {
                                     commissionValueList.map((item, i) => {
                                         return (<option key={`platformfee-comm-${i}`} value={item}>{item}</option>);
                                     })
                                 }
                             </select>
-                        </Col>
-                    ) :
-                        (
-                            <Col sm={5} className="select-comm">
-                                <Form inline>
-                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <Label className="mr-sm-2">New Revenue Share </Label>
-                                    </FormGroup>
-                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <select name="DeductedPercentage" className="form-control"
-                                            value={formatDecimal(commission || 0)}
-                                            onChange={this.handleChangeComm} style={{ width: 60 }}>
-                                            {
-                                                commissionValueList.map((item, i) => {
-                                                    return (<option key={`platformfee-comm-${i}`} value={item}>{item}</option>);
-                                                })
-                                            }
-                                        </select>
-                                    </FormGroup>
-                                </Form>
-                            </Col>
-                        )
-                }
-
+                        </FormGroup>
+                    </Form>
+                </Col>
                 <Col sm={2}>
                     <Input plaintext tag="p">| Gross Win Loss |</Input>
                 </Col>

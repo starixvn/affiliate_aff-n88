@@ -121,7 +121,7 @@ export default class AssignGroup extends Component {
                         </Col>
                     </FormGroup>
                 </fieldset>
-                <p className="text-danger">{message.note}</p>
+                <p className="text-danger">{messages.note}</p>
                 <Button type="button" className="my-2 btn btn-success" onClick={this.handleSave}>SAVE</Button>
             </div>
         );

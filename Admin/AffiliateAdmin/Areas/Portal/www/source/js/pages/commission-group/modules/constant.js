@@ -35,7 +35,7 @@ export const messages = {
     assignGroupSuccessfully: 'Assign affiliate to Revenue Share group successfully',
     addGroupSuccessfully: 'Add Revenue Share Group Successfully',
     updateGroupSuccessfully: 'Update Revenue Share Group Successfully',
-    note: "Note: Change only affect Monthly calculation if it made before end of month."
+    note: "Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)"
 }
 
 const _deductionNameList = {

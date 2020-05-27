@@ -1747,6 +1747,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to EARN UP TO.
+        /// </summary>
+        public static string EarnUpTo {
+            get {
+                return ResourceManager.GetString("EarnUpTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ecuador .
         /// </summary>
         public static string Ecuador {
@@ -3048,6 +3057,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Japanese {
             get {
                 return ResourceManager.GetString("Japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JOIN IN THE BEST AFFILIATE PROGRAM.
+        /// </summary>
+        public static string JoinIn {
+            get {
+                return ResourceManager.GetString("JoinIn", resourceCulture);
             }
         }
         
@@ -4900,6 +4918,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string RevenueShare {
             get {
                 return ResourceManager.GetString("RevenueShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 45% REVENUE SHARE.
+        /// </summary>
+        public static string RevenueSharePercent {
+            get {
+                return ResourceManager.GetString("RevenueSharePercent", resourceCulture);
             }
         }
         
