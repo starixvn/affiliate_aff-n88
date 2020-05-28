@@ -17,14 +17,15 @@ $nav-color-active: #ffffff;
 $nav-color-focus: #ffffff;
 
 $sub-nav-bg-color: #FFFFFF;
-$sub-nav-menu-color: #1E1E1E;
-$sub-nav-menu-bg-color-active: #282828;
-$sub-nav-menu-color-active: #fff;
+$sub-nav-menu-color: #ffffff;
+$sub-nav-menu-bg-color-active: #ffffff;
+$sub-nav-menu-color-active: #333333;
+$sub-border-menu: #333333;
 
-$tab-bg-color: $bg-main-color;
-$tab-item-color: #6E6E6E;
-$tab-item-bg-color-active: #4D6316;
-$tab-item-color-active: #fff;
+$tab-bg-color: rgba(51, 145, 246, 0.3);
+$tab-item-color: #3391F6;
+$tab-item-bg-color-active: #3391F6;
+$tab-item-color-active: #ffffff;
 
 $hot-news-bg-color: #000000;
 $hot-news-title-color: #fff;
@@ -63,8 +64,9 @@ $table-header-color: #ffffff;
 $table-header-border-color: #4F5254;
 $table-border-color: #4F5254;
 $table-row-bg-color-hover: #fbe8e1;
-$table-row-even-bg-color: #2d2d2d;
-$table-row-total-bg-color: #FBC763;
+$table-row-even-bg-color: #1a1a1a;
+$table-row-total-bg-color: #0A223D;
+$table-row-total-bg-color-head: #303537;
 $table-game-name-bg: #ded5d5;
 $table-color-link: #3391F6;
 
@@ -108,5 +110,11 @@ $account-overview-group-four: #158469;
 //CommissionStructure page
 $border-content: #3391F6;
 $background-content: #111111;
+
 //footer
 $footer-border-color: #3391F6;
+
+//after login
+$background-form-white: #ffffff;
+$color-white: #ffffff;
+$color-black: #000000;

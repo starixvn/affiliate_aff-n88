@@ -84,9 +84,10 @@ body {
         }
     }
 }
+
 .marquee-content {
     a {
-        color: $hot-news-content-color!important;
+        color: $hot-news-content-color !important;
     }
 }
 
@@ -175,7 +176,7 @@ body {
 }
 
 // Button
-.btn-signup {
+.btn-signup, .btn-submit {
     //background: $button-signup-bg-color;
     background: rgba(255,239,185,1);
     background: -moz-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
@@ -201,9 +202,11 @@ body {
         color: $button-signup-color;
     }
 }
-.btn-signup, .btn-login, .btn-link, .btn-login-mobile{
+
+.btn-signup, .btn-login, .btn-link, .btn-login-mobile {
     line-height: 25px;
 }
+
 .btn-login, .btn-link, .btn-login-mobile {
     background: rgba(255,239,185,1);
     background: -moz-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
@@ -231,10 +234,10 @@ body {
 }
 
 .btn-submit {
-    background-color: $button-submit-bg-color;
-    color: $button-submit-color;
+    //background-color: $button-submit-bg-color;
+    //color: $button-submit-color;
 
-    &:hover, &:focus {
+    &:focus {
         color: $button-submit-color;
         background-color: $button-submit-bg-color-hover;
     }
@@ -308,6 +311,7 @@ body {
         }
     }
 }
+
 .card-content {
     border: 2px solid $home-card-content-border-color;
     background-color: $home-card-background-content;
@@ -342,14 +346,16 @@ body {
 .btn.btn-submit[type="submit"] {
     @extend .btn-login-mobile;
 }
+
 .btn.btn-submit[type="reset"] {
     @extend .btn-signup;
 }
+
 .form {
     .form-group {
         .field {
             background: $background-field-white !important;
-            color: $color-field-white!important;
+            color: $color-field-white !important;
         }
     }
 }
@@ -369,8 +375,7 @@ body {
 // After login
 
 .main.after-login {
-    background: $bg-after-login-color;
-
+    //background: $bg-after-login-color;
     .page-title {
         background: $bg-after-login-color;
 
@@ -385,7 +390,10 @@ body {
     background-color: $bg-main-color;
 
     .menu {
-        background: $sub-nav-bg-color;
+        //background: $sub-nav-bg-color;
+        li:not(:last-child) {
+            border-color: $sub-border-menu;
+        }
 
         .menu-item {
             color: $sub-nav-menu-color;
@@ -404,6 +412,22 @@ body {
 
 .summary-content {
     .dashboard-section {
+        .my-account {
+            color: $color-white !important;
+        }
+
+        .info-panel {
+            width: 255px !important;
+
+            .info-panel-title {
+                padding: 0 15px;
+            }
+        }
+
+        .group {
+            padding: 5px 0 5px;
+        }
+
         .group-one {
             background-color: $account-overview-group-one;
         }
@@ -419,6 +443,10 @@ body {
         .group-four {
             background-color: $account-overview-group-four;
         }
+
+        .info-panel {
+            min-height: 70px;
+        }
     }
 
     .details-section-menu {
@@ -428,27 +456,65 @@ body {
 
         .menu-item {
             color: $tab-item-color;
+            opacity: 0.5;
+            font-weight: 500;
 
             &.active, &:hover {
+                opacity: 1;
                 color: $tab-item-bg-color-active;
                 border-bottom: 2px solid $tab-item-bg-color-active;
             }
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total th {
-        background: $table-row-total-bg-color !important;
-        color: $table-color;
+    .details-section-content {
+        .table {
+            table {
+                thead {
+                    tr {
+                        th {
+                            border: 1px solid #4F5254;
+                        }
+                    }
+
+                    tr.overview-table-header {
+                        th {
+                            background: $table-row-total-bg-color-head;
+                        }
+                    }
+
+                    tr.overview-table-total {
+                        th {
+                            background: $table-row-total-bg-color !important;
+                            color: $table-color;
+                        }
+                    }
+                }
+
+                tbody {
+                    tr:nth-child(even) {
+                        background: $table-row-even-bg-color;
+                    }
+                }
+            }
+        }
     }
 }
 
 .account-overview {
     #account-overview-menu {
-        background: $tab-bg-color;
+        //background: $tab-bg-color;
+        .menu li:not(:last-child) {
+            border: 0 !important;
+            margin-right: 1px;
+        }
 
         .menu {
+
             &-item {
                 color: $tab-item-color;
+                background-color: $tab-bg-color;
+
 
                 &.active, &:hover {
                     color: $tab-item-color-active;
@@ -461,6 +527,103 @@ body {
     .bg-orange {
         background: $tab-item-bg-color-active;
         color: $tab-item-color-active;
+    }
+}
+//user panel
+.sub-content {
+    border: 1px solid $border-content;
+    padding: 0 10px;
+    background: $background-content;
+
+    a {
+        color: $nav-color;
+    }
+
+    .page-title {
+        background: none !important;
+        margin: 0 -10px;
+
+        .text {
+            &:after {
+                border-bottom: 18px solid $background-content !important;
+                border-right: 16px solid $background-content !important;
+            }
+        }
+    }
+}
+#account-overview-content {
+    border: 1px solid $border-content !important;
+
+    #dataContainerList {
+        padding: 0 15px 15px;
+    }
+
+    .marketing-text {
+        color: $color-white;
+    }
+}
+
+.account-information, .form-horizontal, .form-filter {
+    .form-group {
+        color: $color-white;
+
+        .glyphicon.glyphicon-calendar {
+            color: #ffffff;
+            margin: 0 4px 0 3px;
+        }
+    }
+}
+.content-menu {
+    .menu {
+        li {
+
+            .submenu-container {
+                li {
+                    border-right: 0 !important;
+
+                    a.menu-item {
+                        color: $color-black !important;
+                    } 
+                }
+            }
+        }
+
+        .menu-item {
+            &:hover {
+                + .submenu-container {
+                    li {
+
+                        a {
+                            color: $color-black !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// update css
+.summary {
+    .form-group, .summary-content {
+        border: 0 !important;
+    }
+
+    .form-group {
+        .form-wrapper {
+
+            .form-control {
+                margin: 0;
+                background: $background-form-white;
+                border: 0;
+                border-radius: 0;
+                height: 25px !important;
+            }
+
+            .glyphicon.glyphicon-calendar {
+                color: #ffffff;
+                margin: 0 4px 0 3px;
+            }
+        }
     }
 }
 
@@ -478,14 +641,15 @@ body {
     background: $background-content;
     margin: 0 10px 20px;
 }
+
 .webp .banner-commission-structure {
     max-width: 100%;
     height: 240px;
+
     .text-content {
         transform: rotate(0deg);
         max-width: 400px;
         margin: 0 auto;
-
     }
 }
 //Terms And Conditions
@@ -513,42 +677,44 @@ body {
     }
 }
 
-@media only screen and (max-width: 1199px ){
+@media only screen and (max-width: 1199px ) {
 
     .banner-top {
         margin: 0 -160px;
     }
-    
 }
+
 @media only screen and (max-width: 1023px ) {
     #mainBanner {
         margin: 0;
     }
+
     .hot-news {
         margin: 12px 0;
     }
+
     .home-page .news {
         .item-wrapper {
             max-width: 100%;
-            flex-basis: 100%;
+            flex-basis: 100%; 
             margin-bottom: 10px;
         }
     }
+
     .main .content {
         padding: 0 10px 10px;
         margin: 0 10px 20px;
-        &.home-page{
 
+        &.home-page {
         }
     }
-    .webp .banner-commission-structure{
+
+    .webp .banner-commission-structure {
         height: 200px;
     }
+
     .page-title {
         margin-left: -1rem;
         margin-right: -1rem;
     }
-
-    
 }
-

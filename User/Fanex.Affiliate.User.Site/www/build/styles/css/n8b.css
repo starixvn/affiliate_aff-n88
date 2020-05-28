@@ -93,7 +93,7 @@
 .form-control {
   border: 1px solid #adadad; }
 
-.btn-signup, .btn.btn-submit[type="reset"] {
+.btn-signup, .btn.btn-submit[type="reset"], .btn-submit {
   background: #ffefb9;
   background: -moz-linear-gradient(top, #ffefb9 0%, #cea100 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffefb9), color-stop(100%, #cea100));
@@ -108,9 +108,9 @@
   color: #333333;
   font-weight: 600;
   border: 0; }
-  .btn-signup:hover, .btn.btn-submit[type="reset"]:hover, .btn-signup:focus, .btn.btn-submit[type="reset"]:focus {
+  .btn-signup:hover, .btn.btn-submit[type="reset"]:hover, .btn-signup:focus, .btn.btn-submit[type="reset"]:focus, .btn-submit:hover, .btn-submit:focus {
     color: #333333; }
-  .btn-signup .icon, .btn.btn-submit[type="reset"] .icon {
+  .btn-signup .icon, .btn.btn-submit[type="reset"] .icon, .btn-submit .icon {
     color: #333333; }
 
 .btn-signup, .btn.btn-submit[type="reset"], .btn-login, .btn-link, .btn-login-mobile, .btn.btn-submit[type="submit"] {
@@ -136,20 +136,18 @@
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon, .btn.btn-submit[type="submit"] .icon {
     color: #fff; }
 
-.btn-submit {
-  background-color: #7D8C6B;
+.btn-submit:focus {
+  color: #fff;
+  background-color: #707e60; }
+
+.btn-submit .icon {
   color: #fff; }
-  .btn-submit:hover, .btn-submit:focus {
-    color: #fff;
-    background-color: #707e60; }
-  .btn-submit .icon {
-    color: #fff; }
 
 .table .game-list tr .game-name {
   background-color: #ded5d5; }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
-  background-color: #2d2d2d; }
+  background-color: #1a1a1a; }
 
 .home-page .news {
   margin: 0 10px;
@@ -208,25 +206,34 @@
     .languages-item .info .language {
       border-bottom: 1px solid #e7e7e7; }
 
-.main.after-login {
+.main.after-login .page-title {
   background: #fff; }
-  .main.after-login .page-title {
-    background: #fff; }
-    .main.after-login .page-title .text:after {
-      border-bottom: 18px solid #fff;
-      border-right: 16px solid #fff; }
+  .main.after-login .page-title .text:after {
+    border-bottom: 18px solid #fff;
+    border-right: 16px solid #fff; }
 
 .content-menu {
   background-color: #000000; }
-  .content-menu .menu {
-    background: #FFFFFF; }
-    .content-menu .menu .menu-item {
-      color: #1E1E1E; }
-      .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
-        background-color: #282828;
-        color: #fff; }
+  .content-menu .menu li:not(:last-child) {
+    border-color: #333333; }
+  .content-menu .menu .menu-item {
+    color: #ffffff; }
+    .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
+      background-color: #ffffff;
+      color: #333333; }
   .content-menu .submenu-container {
     background: #FFFFFF; }
+
+.summary-content .dashboard-section .my-account {
+  color: #ffffff !important; }
+
+.summary-content .dashboard-section .info-panel {
+  width: 255px !important; }
+  .summary-content .dashboard-section .info-panel .info-panel-title {
+    padding: 0 15px; }
+
+.summary-content .dashboard-section .group {
+  padding: 5px 0 5px; }
 
 .summary-content .dashboard-section .group-one {
   background-color: #156e82; }
@@ -240,30 +247,96 @@
 .summary-content .dashboard-section .group-four {
   background-color: #158469; }
 
+.summary-content .dashboard-section .info-panel {
+  min-height: 70px; }
+
 .summary-content .details-section-menu .menu {
-  border-bottom: 1px solid #4D6316; }
+  border-bottom: 1px solid #3391F6; }
 
 .summary-content .details-section-menu .menu-item {
-  color: #6E6E6E; }
+  color: #3391F6;
+  opacity: 0.5;
+  font-weight: 500; }
   .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
-    color: #4D6316;
-    border-bottom: 2px solid #4D6316; }
+    opacity: 1;
+    color: #3391F6;
+    border-bottom: 2px solid #3391F6; }
+
+.summary-content .details-section-content .table table thead tr th {
+  border: 1px solid #4F5254; }
+
+.summary-content .details-section-content .table table thead tr.overview-table-header th {
+  background: #303537; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total th {
-  background: #FBC763 !important;
+  background: #0A223D !important;
   color: #ffffff; }
 
-.account-overview #account-overview-menu {
-  background: #000000; }
-  .account-overview #account-overview-menu .menu-item {
-    color: #6E6E6E; }
-    .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-      color: #fff;
-      background-color: #4D6316; }
+.summary-content .details-section-content .table table tbody tr:nth-child(even) {
+  background: #1a1a1a; }
+
+.account-overview #account-overview-menu .menu li:not(:last-child) {
+  border: 0 !important;
+  margin-right: 1px; }
+
+.account-overview #account-overview-menu .menu-item {
+  color: #3391F6;
+  background-color: rgba(51, 145, 246, 0.3); }
+  .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
+    color: #ffffff;
+    background-color: #3391F6; }
 
 .account-overview .bg-orange {
-  background: #4D6316;
-  color: #fff; }
+  background: #3391F6;
+  color: #ffffff; }
+
+.sub-content {
+  border: 1px solid #3391F6;
+  padding: 0 10px;
+  background: #111111; }
+  .sub-content a {
+    color: #3391F6; }
+  .sub-content .page-title {
+    background: none !important;
+    margin: 0 -10px; }
+    .sub-content .page-title .text:after {
+      border-bottom: 18px solid #111111 !important;
+      border-right: 16px solid #111111 !important; }
+
+#account-overview-content {
+  border: 1px solid #3391F6 !important; }
+  #account-overview-content #dataContainerList {
+    padding: 0 15px 15px; }
+  #account-overview-content .marketing-text {
+    color: #ffffff; }
+
+.account-information .form-group, .form-horizontal .form-group, .form-filter .form-group {
+  color: #ffffff; }
+  .account-information .form-group .glyphicon.glyphicon-calendar, .form-horizontal .form-group .glyphicon.glyphicon-calendar, .form-filter .form-group .glyphicon.glyphicon-calendar {
+    color: #ffffff;
+    margin: 0 4px 0 3px; }
+
+.content-menu .menu li .submenu-container li {
+  border-right: 0 !important; }
+  .content-menu .menu li .submenu-container li a.menu-item {
+    color: #000000 !important; }
+
+.content-menu .menu .menu-item:hover + .submenu-container li a {
+  color: #000000 !important; }
+
+.summary .form-group, .summary .summary-content {
+  border: 0 !important; }
+
+.summary .form-group .form-wrapper .form-control {
+  margin: 0;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  height: 25px !important; }
+
+.summary .form-group .form-wrapper .glyphicon.glyphicon-calendar {
+  color: #ffffff;
+  margin: 0 4px 0 3px; }
 
 .main .content {
   border: 2px solid #3391F6;
