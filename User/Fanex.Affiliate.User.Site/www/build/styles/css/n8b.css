@@ -59,6 +59,34 @@
       border-bottom: 18px solid #111111;
       border-right: 16px solid #111111; }
 
+.control-label {
+  color: #ffffff; }
+
+.banner-control {
+  background: #333333 !important;
+  color: #ffffff !important;
+  border: 0 !important; }
+  .banner-control + .banner-control {
+    border-top: 1px solid #666666 !important;
+    border-radius: 0; }
+
+.pager-container {
+  background: transparent !important;
+  border: 0 !important;
+  color: #ffffff; }
+  .pager-container .pagesize-select {
+    color: #ffffff !important;
+    background: #333333 !important;
+    border: 1px solid #000000 !important; }
+
+.marketing-action {
+  background: #ffffff22 !important;
+  border-color: #666666 !important;
+  color: #cccccc !important; }
+
+.btn-marketing-copy {
+  color: #000000 !important; }
+
 .info-group .title {
   color: #ffffff; }
   .info-group .title:before {
@@ -91,7 +119,18 @@
   color: #fff; }
 
 .form-control {
-  border: 1px solid #adadad; }
+  border: 1px solid #adadad !important;
+  background: #333333 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important; }
+
+label {
+  font-weight: 500 !important; }
+
+.custom-panel {
+  background: #333333 !important;
+  color: #ffffff !important;
+  border: 0 !important; }
 
 .btn-signup, .btn.btn-submit[type="reset"], .btn-submit {
   background: #ffefb9;
@@ -293,18 +332,19 @@
 .sub-content {
   border: 1px solid #3391F6;
   padding: 0 10px;
-  background: #111111; }
+  background: #222222; }
   .sub-content a {
     color: #3391F6; }
   .sub-content .page-title {
     background: none !important;
     margin: 0 -10px; }
     .sub-content .page-title .text:after {
-      border-bottom: 18px solid #111111 !important;
-      border-right: 16px solid #111111 !important; }
+      border-bottom: 18px solid #222222 !important;
+      border-right: 16px solid #222222 !important; }
 
 #account-overview-content {
-  border: 1px solid #3391F6 !important; }
+  border: 1px solid #3391F6 !important;
+  background: #222222; }
   #account-overview-content #dataContainerList {
     padding: 0 15px 15px; }
   #account-overview-content .marketing-text {
@@ -338,13 +378,10 @@
   color: #ffffff;
   margin: 0 4px 0 3px; }
 
-.custom-panel .form-filter .form-group label {
-  color: #000000; }
-
 .main .content {
   border: 2px solid #3391F6;
   padding: 0 18px 10px;
-  background: #111111;
+  background: #222222;
   margin: 0 10px 20px; }
   .main .content.home-page {
     padding: 0;

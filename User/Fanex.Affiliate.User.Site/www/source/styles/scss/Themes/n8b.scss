@@ -109,9 +109,38 @@ body {
         }
     }
 }
+.control-label {
+    color: $color-white;
+}
+.banner-control {
+    background: $background-dark-gray !important;
+    color: $color-white !important;
+    border: 0 !important;
 
+    + .banner-control {
+        border-top: 1px solid $border-color-gray !important;
+        border-radius: 0;
+    }
+}
+.pager-container {
+    background: transparent !important;
+    border: 0 !important;
+    color: $color-white;
 
-
+    .pagesize-select {
+        color: $color-white !important;
+        background: $background-dark-gray !important;
+        border: 1px solid $border-color-black !important;
+    }
+}
+.marketing-action {
+    background: $background-light-gray !important;
+    border-color: $border-color-gray !important;
+    color: $color-gray !important;
+}
+.btn-marketing-copy {
+    color: $color-black!important;
+}
 .info-group .title {
     color: $group-title-color;
 
@@ -172,9 +201,22 @@ body {
 
 // form-control
 .form-control {
-    border: 1px solid $form-control-border-color;
+    border: 1px solid $form-control-border-color !important;
+    background: $background-dark-gray !important;
+    border-color: $border-color-black !important;
+    color: $color-white !important;
 }
+label{
+    font-weight: 500!important;
+}
+.custom-panel {
+    background: $background-dark-gray !important;
+    color: $color-white !important;
+    border: 0 !important;
 
+    .panel-body {
+    }
+}
 // Button
 .btn-signup, .btn-submit {
     //background: $button-signup-bg-color;
@@ -553,6 +595,7 @@ body {
 }
 #account-overview-content {
     border: 1px solid $border-content !important;
+    background: $background-content;
 
     #dataContainerList {
         padding: 0 15px 15px;
@@ -626,15 +669,7 @@ body {
         }
     }
 }
-.custom-panel {
-    .form-filter {
-        .form-group {
-            label {
-                color: $color-black;
-            }
-        }
-    }
-}
+
 //CommissionStructure
 .main .content {
     &.home-page {
