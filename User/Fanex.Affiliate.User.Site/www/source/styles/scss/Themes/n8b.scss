@@ -626,7 +626,15 @@ body {
         }
     }
 }
-
+.custom-panel {
+    .form-filter {
+        .form-group {
+            label {
+                color: $color-black;
+            }
+        }
+    }
+}
 //CommissionStructure
 .main .content {
     &.home-page {
@@ -682,6 +690,9 @@ body {
     .banner-top {
         margin: 0 -160px;
     }
+    .table-medium{
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 1023px ) {
@@ -717,4 +728,43 @@ body {
         margin-left: -1rem;
         margin-right: -1rem;
     }
+    .form-filter .form-group {
+        margin: 0;
+
+
+
+        .date-wrapper {
+            display: flex;
+
+            .glyphicon {
+                margin: 6px 4px 0 3px;
+            }
+        }
+    }
+    .account-overview .summary-content .dashboard-section .info-panel {
+        width: 100% !important;
+    }
+    .summary-content .details-section-content .table table thead tr.overview-table-header th,
+    .summary-content .details-section-content .table #player-detail-table .th,
+    .summary-content .details-section-content .player-detail-table table thead tr th {
+        height: 80px;
+    }
+    .summary-content .details-section-content .table table thead tr.overview-table-total {
+        padding: 0;
+        margin: 0 5px;
+    }
+    .summary-content .details-section-content .player-detail-table table{
+        width: 1300px;
+    }
+    .table-responsive {
+        table {
+            width: 900px !important;
+        }
+    }
+    .commission-report{
+        table{
+            width: 1500px;
+        }
+    }
+
 }
