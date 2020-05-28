@@ -143,7 +143,7 @@
 
                 .player-detail-pager {
                     z-index: 2;
-                    top: 43px;
+                    top: 42px;
                 }
 
                 .table {
@@ -158,7 +158,7 @@
                             tr {
                                 th {
                                     position: sticky;
-                                    top: 43px;
+                                    top: 42px;
                                 }
 
                                 &.overview-table-total th {
@@ -312,6 +312,7 @@
                         flex-basis: 100%;
                         align-self: center;
                         position: static !important;
+                        border: none;
                     }
                 }
             }

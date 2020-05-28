@@ -193,7 +193,7 @@
     z-index: 1; }
     .summary-content .details-section-content .player-detail-pager {
       z-index: 2;
-      top: 43px; }
+      top: 42px; }
     .summary-content .details-section-content .table {
       z-index: 1;
       margin-bottom: 10px; }
@@ -202,7 +202,7 @@
         border: none !important; }
         .summary-content .details-section-content .table table thead tr th {
           position: sticky;
-          top: 43px; }
+          top: 42px; }
         .summary-content .details-section-content .table table thead tr.overview-table-total th {
           font-weight: bold; }
         .summary-content .details-section-content .table table tr {
@@ -285,4 +285,5 @@
       .details-section-content .table table tr td, .details-section-content .table table tr th {
         flex-basis: 100%;
         align-self: center;
-        position: static !important; } }
+        position: static !important;
+        border: none; } }

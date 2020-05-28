@@ -166,7 +166,7 @@ body {
 #dataTable {
     .sumrow {
         td {
-            background: $dark-mode-bg!important;
+            background: $dark-mode-bg !important;
         }
     }
 }
@@ -385,9 +385,17 @@ body {
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total th {
+    .details-section-content .table table thead tr.overview-table-total {
         background: $table-row-total-bg-color !important;
-        color: $table-border-color;
+
+        th {
+            background: $table-row-total-bg-color !important;
+            color: $table-border-color;
+        }
+    }
+
+    .details-section-sticky {
+        background: $bg-main-color !important;
     }
 }
 

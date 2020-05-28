@@ -19,9 +19,11 @@ body {
         height: 62px;
     }
 }
+
 .news {
     background: $bg-main-color;
 }
+
 .header-bottom {
     border-top: 2px solid $header-bottom-border-color;
 }
@@ -282,7 +284,6 @@ body {
                 color: $sub-nav-menu-color-active;
             }
         }
-        
     }
 
     .submenu-container {
@@ -324,9 +325,13 @@ body {
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total th {
+    .details-section-content .table table thead tr.overview-table-total {
         background: $table-row-total-bg-color !important;
-        color: $table-color;
+
+        th {
+            background: $table-row-total-bg-color !important;
+            color: $table-color;
+        }
     }
 }
 

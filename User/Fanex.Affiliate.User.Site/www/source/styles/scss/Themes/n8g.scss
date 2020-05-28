@@ -324,9 +324,13 @@ body {
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total th {
+    .details-section-content .table table thead tr.overview-table-total {
         background: $table-row-total-bg-color !important;
-        color: $table-color;
+
+        th {
+            background: $table-row-total-bg-color !important;
+            color: $table-color;
+        }
     }
 }
 

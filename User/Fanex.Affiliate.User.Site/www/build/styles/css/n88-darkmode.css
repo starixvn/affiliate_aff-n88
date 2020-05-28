@@ -220,9 +220,14 @@
     color: #fff;
     border-bottom: 2px solid #FF6D3E; }
 
-.summary-content .details-section-content .table table thead tr.overview-table-total th {
-  background: #fbc763 !important;
-  color: #000; }
+.summary-content .details-section-content .table table thead tr.overview-table-total {
+  background: #fbc763 !important; }
+  .summary-content .details-section-content .table table thead tr.overview-table-total th {
+    background: #fbc763 !important;
+    color: #000; }
+
+.summary-content .details-section-sticky {
+  background: #1E1F21 !important; }
 
 .account-overview #account-overview-menu {
   background: transparent;

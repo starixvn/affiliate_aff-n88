@@ -1,10 +1,10 @@
 ﻿var SUPPORT_MIN_WITDH = 716;
-var SUB_MENU_HEIGHT = 43;
+var SUB_MENU_HEIGHT = 42;
 var DETAILS_SECTION_MENU_HEIGHT = 33;
 
 function handleSetTop() {
     let headerHeight = $('#overview-table-header').height();
-    $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight}px` });
+    $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight + 8}px` });
 }
 
 function handleScroll() {

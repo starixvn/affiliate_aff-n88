@@ -189,9 +189,11 @@
     color: #0CF3E6;
     border-bottom: 2px solid #0CF3E6; }
 
-.summary-content .details-section-content .table table thead tr.overview-table-total th {
-  background: #FFE771 !important;
-  color: #404040; }
+.summary-content .details-section-content .table table thead tr.overview-table-total {
+  background: #FFE771 !important; }
+  .summary-content .details-section-content .table table thead tr.overview-table-total th {
+    background: #FFE771 !important;
+    color: #404040; }
 
 .account-overview #account-overview-menu {
   background: #F5F5F5; }
