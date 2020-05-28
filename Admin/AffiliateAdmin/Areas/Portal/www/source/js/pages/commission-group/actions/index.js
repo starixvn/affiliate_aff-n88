@@ -7,7 +7,7 @@ import { SET_GRIDDATA, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME } from './type
 export { toggleLoader, setPagingOption };
 
 export const fetchGroupSettingData = (param) => {
-    const url = 'Portal/RevenueShareGroup/GetCommissionGroupList';
+    const url = 'Portal/RevenueGroup/GetCommissionGroupList';
 
     return post(url, param);
 }
@@ -58,19 +58,19 @@ export const setSearchedGroupName = (data) => {
 }
 
 export const insertCommissionGroup = (param) => {
-    const url = 'Portal/RevenueShareGroup/CreateCommissionGroup';
+    const url = 'Portal/RevenueGroup/CreateCommissionGroup';
 
     return () => post(url, param);
 }
 
 export const updateCommissionGroup = (param) => {
-    const url = 'Portal/RevenueShareGroup/UpdateCommissionGroup';
+    const url = 'Portal/RevenueGroup/UpdateCommissionGroup';
 
     return () => post(url, param);
 }
 
 export const getSelectedCommGroup = (param) => async (dispatch) => {
-    const url = 'Portal/RevenueShareGroup/GetCommissionGroup';
+    const url = 'Portal/RevenueGroup/GetCommissionGroup';
 
     const response = await post(url, param);
 
@@ -80,7 +80,7 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
 }
 
 export const deleteCommGroup = (param) => {
-    const url = 'Portal/RevenueShareGroup/DeleteCommissionGroup';
+    const url = 'Portal/RevenueGroup/DeleteCommissionGroup';
 
     return () => post(url, param);
 }

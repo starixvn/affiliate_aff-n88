@@ -49,7 +49,7 @@ export const headerText = {
     OperationalFee: 'Operational Fee',
     BankingFee: 'Banking Fee',
     TotalFee: 'Total Fee',
-    CommissionRate: 'Revenue Share%',
+    CommissionRate: 'Share%',
     Earning: 'Earning',
     SubAffEarning: 'Sub-Affiliate Earning',
     TotalEarning: 'Total Earning',

@@ -33,9 +33,9 @@ const actionList = [
 ];
 
 const actionListReturnPost = [
-    { name: 'insertCommissionGroup', url: 'Portal/RevenueShareGroup/CreateCommissionGroup' },
-    { name: 'updateCommissionGroup', url: 'Portal/RevenueShareGroup/UpdateCommissionGroup' },
-    { name: 'deleteCommGroup', url: 'Portal/RevenueShareGroup/DeleteCommissionGroup' }
+    { name: 'insertCommissionGroup', url: 'Portal/RevenueGroup/CreateCommissionGroup' },
+    { name: 'updateCommissionGroup', url: 'Portal/RevenueGroup/UpdateCommissionGroup' },
+    { name: 'deleteCommGroup', url: 'Portal/RevenueGroup/DeleteCommissionGroup' }
 ];
 
 describe('commission group actions', () => {
@@ -43,7 +43,7 @@ describe('commission group actions', () => {
         ajaxRequest.post = jest.fn();
         actions['fetchGroupSettingData'](defaultPagingOption);
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', defaultPagingOption);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroupList', defaultPagingOption);
     })
 
     actionList.forEach(item => {
@@ -133,7 +133,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -159,7 +159,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -179,7 +179,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getGroupSettingList'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroupList', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroupList', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -206,7 +206,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getSelectedCommGroup'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroup', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroup', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -221,7 +221,7 @@ describe('commission group actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getSelectedCommGroup'](param)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueShareGroup/GetCommissionGroup', param);
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/RevenueGroup/GetCommissionGroup', param);
             expect(store.getActions()).toEqual(expectedAction)
         })
     })

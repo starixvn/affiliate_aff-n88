@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.TestHelper
                     new UserPermission
                     {
                         IsHost = true,
-                        FunctionName = Function.CommissionGroup
+                        FunctionName = Function.RevenueGroup
                     }
                 }
             );

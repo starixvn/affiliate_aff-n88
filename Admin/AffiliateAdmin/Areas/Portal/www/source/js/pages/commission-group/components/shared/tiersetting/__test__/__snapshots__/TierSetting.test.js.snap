@@ -47,7 +47,7 @@ exports[`commission group - TierSetting Should render correctly 1`] = `
             }
           }
         >
-          Revenue Share
+          Revenue Rate
         </th>
         <th
           style={
@@ -158,7 +158,7 @@ exports[`commission group - TierSetting Should render correctly with TierSetting
             }
           }
         >
-          Revenue Share
+          Revenue Rate
         </th>
         <th
           style={

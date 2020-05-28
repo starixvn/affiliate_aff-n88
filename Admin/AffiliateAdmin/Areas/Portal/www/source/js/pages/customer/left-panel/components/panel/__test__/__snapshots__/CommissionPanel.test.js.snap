@@ -20,7 +20,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      Revenue Share Group
+      Revenue Group
     </Col>
     <Col
       className="text-right text-break pl-0"
@@ -106,7 +106,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
         ]
       }
     >
-      Revenue Share Group
+      Revenue Group
     </Col>
     <Col
       className="text-right text-break pl-0"

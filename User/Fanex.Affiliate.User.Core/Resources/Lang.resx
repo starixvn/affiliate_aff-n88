@@ -430,11 +430,11 @@
     <value>Colombia</value>
   </data>
   <data name="Comm" xml:space="preserve">
-    <value>Commission</value>
+    <value>Revenue</value>
     <comment>87923</comment>
   </data>
   <data name="CommShorted" xml:space="preserve">
-    <value>Comm.</value>
+    <value>Revenue</value>
     <comment>87923</comment>
   </data>
   <data name="Comment" xml:space="preserve">
@@ -445,7 +445,7 @@
     <value>Comment is invalid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
+    <value>Revenue Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Completed Date</value>
@@ -507,7 +507,7 @@
     <value>Current</value>
   </data>
   <data name="CurrentCommissiSetting" xml:space="preserve">
-    <value>Current Commission Setting</value>
+    <value>Current Revenue Share Setting</value>
   </data>
   <data name="Cyprus" xml:space="preserve">
     <value>Cyprus </value>
@@ -1308,7 +1308,7 @@
     <value>Pending</value>
   </data>
   <data name="PendingComm" xml:space="preserve">
-    <value>Pending Commission</value>
+    <value>Pending Revenue Share</value>
   </data>
   <data name="PendingRequest" xml:space="preserve">
     <value>Pending Request</value>
@@ -1817,7 +1817,7 @@
     <value>12BET Player Account</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
-    <value>Commission Structure</value>
+    <value>Revenue Sharing Structure</value>
     <comment>87923</comment>
   </data>
   <data name="Product" xml:space="preserve">
@@ -1869,7 +1869,7 @@
     <value>Your Application</value>
   </data>
   <data name="CommissionReport" xml:space="preserve">
-    <value>Commission Report</value>
+    <value>Revenue Report</value>
     <comment>87923</comment>
   </data>
   <data name="Temporary" xml:space="preserve">
@@ -1885,7 +1885,7 @@
     <comment>87923</comment>
   </data>
   <data name="CommRate" xml:space="preserve">
-    <value>Comm. Rate</value>
+    <value>Revenue. Rate</value>
     <comment>87923</comment>
   </data>
   <data name="GrossWinLoss" xml:space="preserve">
@@ -1901,7 +1901,7 @@
     <comment>87923</comment>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Commission = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Comm. Rate</value>
+    <value>Revenue = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue. Rate</value>
     <comment>87923</comment>
   </data>
   <data name="ServerError" xml:space="preserve">
@@ -1985,7 +1985,7 @@
     <comment>87923</comment>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>As affiliates, you will earn commission on every player you referred to 12BET  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
+    <value>As affiliates, you will earn revenue share on every player you referred to 12BET  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
     <comment>87923</comment>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
@@ -2009,17 +2009,17 @@
     <comment>87923</comment>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
-    <value>Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and commission!</value>
+    <value>Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and revenue share!</value>
     <comment>87923</comment>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
     <value>Can't Get Enough!</value>
   </data>
   <data name="YourCurrentCommision" xml:space="preserve">
-    <value>YOUR CURRENT COMMISSION?</value>
+    <value>YOUR CURRENT REVENUE SHARE?</value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>Contact your affiliates support team for exclusive commission rate to growth bigger revenue in your monthly earning</value>
+    <value>Contact your affiliates support team for exclusive revenue rate to growth bigger revenue in your monthly earning</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
     <value>CONTACT NOW!</value>
@@ -2041,7 +2041,7 @@
     <value>And Post Promotions in Your Websites</value>
   </data>
   <data name="ToBeatTheBestCommission" xml:space="preserve">
-    <value>to Beat The Best Commission!</value>
+    <value>to Beat The Best Revenue Share!</value>
   </data>
   <data name="GetBannerNow" xml:space="preserve">
     <value>GET BANNER NOW!</value>
@@ -2050,7 +2050,7 @@
     <value>&lt;span class="up-to-group"&gt;&lt;span class="up"&gt;Up&lt;/span&gt;&lt;span class="to"&gt;To&lt;/span&gt;&lt;/span&gt;</value>
   </data>
   <data name="MonthlyCommission" xml:space="preserve">
-    <value> &lt;p class="text-big-white"&gt;MONTHLY COMMISSION!&lt;/p&gt;</value>
+    <value> &lt;p class="text-big-white"&gt;MONTHLY REVENUE SHARE!&lt;/p&gt;</value>
   </data>
   <data name="OnSportandCasino" xml:space="preserve">
     <value>&lt;p class="text-white"&gt;ON &lt;span class="text-red"&gt;SPORTS &lt;/span&gt;&amp; &lt;span class="text-red"&gt;CASINO&lt;/span&gt; REVENUE&lt;/p&gt;</value>
@@ -2091,7 +2091,7 @@
     <comment>87923</comment>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Sign up to affiliate program and earn up to 50% monthly commission!</value>
+    <value>Sign up to affiliate program and earn up to 45% monthly revenue share!</value>
     <comment>87923</comment>
   </data>
   <data name="JoinNow" xml:space="preserve">
@@ -2131,7 +2131,7 @@
     <value>Be A Business Partner of 12BET | Affiliate Program - 12BET</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly commission from customers brought from your websites.</value>
+    <value>Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly revenue share from customers brought from your websites.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>Email Address</value>
@@ -2234,7 +2234,7 @@
     <value>Last Login IP Address:</value>
   </data>
   <data name="Commission" xml:space="preserve">
-    <value>Commission</value>
+    <value>Revenue Share</value>
   </data>
   <data name="BalanceBroughtFoward" xml:space="preserve">
     <value>Balance Brought Foward</value>
@@ -2309,7 +2309,7 @@
     <value>Monthly Total</value>
   </data>
   <data name="TotalCommission" xml:space="preserve">
-    <value>Total Commission</value>
+    <value>Total Revenue</value>
   </data>
   <data name="CopyLink" xml:space="preserve">
     <value>Copy Link</value>
@@ -2339,13 +2339,13 @@
     <value>Current Monthly Earning</value>
   </data>
   <data name="CommissionBonus" xml:space="preserve">
-    <value>Commission Bonus</value>
+    <value>Revenue Share</value>
   </data>
   <data name="UncalculatedCommissionBonus" xml:space="preserve">
-    <value>Uncalculated Commission Bonus</value>
+    <value>Uncalculated Revenue Share</value>
   </data>
   <data name="CurrentCommissionBonus" xml:space="preserve">
-    <value>Current Commission Bonus</value>
+    <value>Current Revenue Share</value>
   </data>
   <data name="CurrentMonthStatistics" xml:space="preserve">
     <value>Current Month Statistics</value>

@@ -58,9 +58,9 @@ exports[`customer member - components - Content render correctly 1`] = `
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Commission"
+          title="Revenue Share"
         >
-          Commission
+          Revenue Share
         </t>
         <t
           asc={true}
@@ -287,9 +287,9 @@ exports[`customer member - components - Content render correctly with have data 
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Commission"
+          title="Revenue Share"
         >
-          Commission
+          Revenue Share
         </t>
         <t
           asc={true}

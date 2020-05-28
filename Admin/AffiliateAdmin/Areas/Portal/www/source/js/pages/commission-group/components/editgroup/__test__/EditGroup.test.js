@@ -93,7 +93,7 @@ describe('commission group - EditGroup', () => {
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
-        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Share Group Successfully"] });
+        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Group Successfully"] });
     });
 
     it('handleSave - should call toggleLoader,  when click button SAVE with correct respone but not success', async () => {

@@ -598,7 +598,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
       sortable={false}
       sorting={false}
     >
-      Revenue Share Rate
+      Revenue Rate
     </t>
     <t
       asc={true}
@@ -1003,7 +1003,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              Revenue Share Rate
+              Revenue Rate
             </t>
             <t
               asc={true}
@@ -1215,7 +1215,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
               sortable={false}
               sorting={false}
             >
-              Revenue Share Rate
+              Revenue Rate
             </t>
             <t
               asc={true}
@@ -1632,7 +1632,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              Revenue Share Rate
+              Revenue Rate
             </t>
             <t
               asc={true}

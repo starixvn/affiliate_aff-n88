@@ -95,9 +95,9 @@ export default class AssignGroup extends Component {
                     <p>{affInfo.UserName}</p>
                 </fieldset>
                 <fieldset>
-                    <legend><h6 className="font-weight-bold">Revenue Share Group</h6></legend>
+                    <legend><h6 className="font-weight-bold">Revenue Group</h6></legend>
                     <FormGroup row>
-                        <Label xs="4" className="font-weight-bold">New Revenue Share Group: </Label>
+                        <Label xs="4" className="font-weight-bold">New Revenue Group: </Label>
 
                         <Col xs="5" className="select-comm">
                             <select name="SelectedGroup" className="form-control" onChange={this.handleChange} value={selectedGroup.toString()}>

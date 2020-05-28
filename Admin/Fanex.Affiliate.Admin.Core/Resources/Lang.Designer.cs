@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue Share Group.
+        ///   Looks up a localized string similar to Revenue Group.
         /// </summary>
         public static string CommGroup {
             get {

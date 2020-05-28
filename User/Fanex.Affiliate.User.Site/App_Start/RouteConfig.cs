@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Site
                     @"/index.aspx",new UrlSchema{Controller="Home",Action=IndexAction }
                 },
                 {
-                    @"/programdetails.aspx",new UrlSchema{Controller="CommissionStructure",Action=IndexAction}
+                    @"/programdetails.aspx",new UrlSchema{Controller="RevenueSharingStructure",Action=IndexAction}
                 },
                 {
                     @"/condition.aspx",new UrlSchema{Controller="TermAndCondition",Action=IndexAction}

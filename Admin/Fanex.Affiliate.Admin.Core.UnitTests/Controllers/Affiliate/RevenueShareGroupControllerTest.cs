@@ -508,7 +508,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.True(resultInfo.IsSuccessful);
         }
 
-        private static RevenueShareGroupController CreateCommissionGroupController(
+        private static RevenueGroupController CreateCommissionGroupController(
             ISessionService sessionService = null,
             ICommissionGroupService commissionGroupService = null,
             IProductRepository productRepository = null,
@@ -519,7 +519,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var fakeCommissionGroupService = commissionGroupService ?? Mock.Of<ICommissionGroupService>();
             var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
             var fakecommGroupCommonService = commGroupCommonService ?? Mock.Of<ICommGroupCommonService>();
-            var controller = new RevenueShareGroupController(fakeSessionService, fakeCommissionGroupService, fakeProductRepository, fakecommGroupCommonService);
+            var controller = new RevenueGroupController(fakeSessionService, fakeCommissionGroupService, fakeProductRepository, fakecommGroupCommonService);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

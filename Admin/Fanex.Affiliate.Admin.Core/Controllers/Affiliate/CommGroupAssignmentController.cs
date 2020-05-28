@@ -18,7 +18,7 @@ using Fanex.Affiliate.Admin.Core.ViewModels;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
-    [FunctionAuthorize(FunctionName = Function.CommissionGroup)]
+    [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
     public class CommGroupAssignmentController : BaseController
     {
         private const string PrivateGroupName = "[None]";
@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             return View("~/Areas/Portal/Views/Affiliate/AssignGroup.cshtml", viewModel);
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult AssignGroup(AssignGroupParam assignParam, AffiliateBasicInfo affInfo)
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             return View("~/Areas/Portal/Views/Affiliate/AssignPrivateGroup.cshtml", viewModel);
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult AssignPrivateGroup(CommissionGroupSetting commGroup, AffiliateBasicInfo affInfo)

@@ -14,7 +14,7 @@
 
         public const string HotNews = "[HotNews]";
 
-        public const string CommissionGroup = "[CommissionGroup]";
+        public const string RevenueGroup = "[RevenueGroup]";
 
         public const string AffReport = "[AffReport]";
 

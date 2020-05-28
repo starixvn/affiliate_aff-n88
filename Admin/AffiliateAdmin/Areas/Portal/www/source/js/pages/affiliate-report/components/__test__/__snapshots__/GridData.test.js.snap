@@ -2268,9 +2268,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Banking Fees"
+            title="Banking Fee"
           >
-            Banking Fees
+            Banking Fee
           </t>
           <t
             asc={true}
@@ -2290,9 +2290,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Revenue Share%"
+            title="Share%"
           >
-            Revenue Share%
+            Share%
           </t>
           <t
             asc={true}
@@ -2598,9 +2598,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Banking Fees"
+      title="Banking Fee"
     >
-      Banking Fees
+      Banking Fee
     </t>
     <t
       asc={true}
@@ -2620,9 +2620,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Revenue Share%"
+      title="Share%"
     >
-      Revenue Share%
+      Share%
     </t>
     <t
       asc={true}
@@ -2893,9 +2893,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Banking Fees"
+      title="Banking Fee"
     >
-      Banking Fees
+      Banking Fee
     </t>
     <t
       asc={true}
@@ -2915,9 +2915,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Revenue Share%"
+      title="Share%"
     >
-      Revenue Share%
+      Share%
     </t>
     <t
       asc={true}

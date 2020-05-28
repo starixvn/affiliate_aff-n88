@@ -2,7 +2,7 @@
     var _reportData = null;
     var _sortingColumn = 'Month';
     var _isSortingAsc = false;
-    const _currentPage = "CommissionReport";
+    const _currentPage = "RevenueReport";
 
     function formatDecimal(value) {
         return format(value, 2)
@@ -71,7 +71,7 @@
             var year = $("#year").val();
             $.ajax({
                 type: "POST",
-                url: Site.resolveRelativeUrl("UserPanel/CommissionReport"),
+                url: Site.resolveRelativeUrl("UserPanel/RevenueReport"),
                 data: JSON.stringify({ "year": year }),
                 dataType: "json",
                 cache: false,

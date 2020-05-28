@@ -8,12 +8,12 @@ namespace Fanex.Affiliate.User.Core.Constants
     {
         public const string StatementHistory = "StatementHistory";
 
-        public const string CommissionReport = "CommissionReport";
+        public const string CommissionReport = "RevenueReport";
 
         public static IDictionary<string, BreadcrumbViewModel> Links => new Dictionary<string, BreadcrumbViewModel>
         {
             { RequestPage.StatementHistory, new BreadcrumbViewModel { Name = Lang.StatementHistory, Url = "~/UserPanel/Main/#StatementHistory" } },
-            { RequestPage.CommissionReport, new BreadcrumbViewModel { Name = Lang.CommissionReport, Url = "~/UserPanel/Main/#CommissionReport" } }
+            { RequestPage.CommissionReport, new BreadcrumbViewModel { Name = Lang.CommissionReport, Url = "~/UserPanel/Main/#RevenueReport" } }
         };
     }
 }

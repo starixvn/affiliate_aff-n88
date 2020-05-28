@@ -39,7 +39,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
           key="commGroup-all"
           value={0}
         >
-          All Revenue Share Groups
+          All Revenue Groups
         </option>
         <option
           key="commGroup-en-US"

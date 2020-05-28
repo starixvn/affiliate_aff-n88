@@ -4,10 +4,10 @@
     using CoreService;
     using Fanex.Affiliate.User.Core.BusinessService;
 
-    public class CommissionStructureController : BaseController
+    public class RevenueSharingStructureController : BaseController
     {
 
-        public CommissionStructureController(ISessionService sessionService,
+        public RevenueSharingStructureController(ISessionService sessionService,
             ILanguageService languageService) : base(sessionService, languageService)
         {
         }

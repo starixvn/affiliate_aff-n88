@@ -8,11 +8,11 @@
     using Filters;
 
     [CustomAuthorize]
-    public class CommissionReportController : BaseController
+    public class RevenueReportController : BaseController
     {
         private readonly ICommissionReportService _commissionReportService;
 
-        public CommissionReportController(
+        public RevenueReportController(
             ISessionService sessionService,
             ILanguageService languageService,
             ICommissionReportService commissionReportService

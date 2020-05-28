@@ -17,7 +17,7 @@ export const resource = {
     Password: 'Password',
     MemberList: 'Player List',
     Commission: 'Revenue Share',
-    CommGroup: 'Revenue Share Group',
+    CommGroup: 'Revenue Group',
     BalanceForward: 'Balance Brought Forward',
     Setting: 'Setting',
     AffiliateType: 'Affiliate Type',

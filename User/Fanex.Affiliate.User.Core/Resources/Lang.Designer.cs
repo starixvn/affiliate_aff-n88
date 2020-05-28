@@ -385,7 +385,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to As affiliates, you will earn commission on every player you referred to 12BET  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
+        ///   Looks up a localized string similar to As affiliates, you will earn revenue share on every player you referred to 12BET  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
         /// </summary>
         public static string AsAOneTwoBetYouWillEarnCommission {
             get {
@@ -1204,7 +1204,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission.
+        ///   Looks up a localized string similar to Revenue.
         /// </summary>
         public static string Comm {
             get {
@@ -1231,7 +1231,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission.
+        ///   Looks up a localized string similar to Revenue Share.
         /// </summary>
         public static string Commission {
             get {
@@ -1240,7 +1240,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission Bonus.
+        ///   Looks up a localized string similar to Revenue Share.
         /// </summary>
         public static string CommissionBonus {
             get {
@@ -1249,7 +1249,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission Report.
+        ///   Looks up a localized string similar to Revenue Report.
         /// </summary>
         public static string CommissionReport {
             get {
@@ -1258,7 +1258,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission Structure.
+        ///   Looks up a localized string similar to Revenue Sharing Structure.
         /// </summary>
         public static string CommissionStructure {
             get {
@@ -1267,7 +1267,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission Percentage.
+        ///   Looks up a localized string similar to Revenue Percentage.
         /// </summary>
         public static string CommPercent {
             get {
@@ -1276,7 +1276,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comm. Rate.
+        ///   Looks up a localized string similar to Revenue. Rate.
         /// </summary>
         public static string CommRate {
             get {
@@ -1285,7 +1285,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Comm..
+        ///   Looks up a localized string similar to Revenue.
         /// </summary>
         public static string CommShorted {
             get {
@@ -1369,7 +1369,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Contact your affiliates support team for exclusive commission rate to growth bigger revenue in your monthly earning.
+        ///   Looks up a localized string similar to Contact your affiliates support team for exclusive revenue rate to growth bigger revenue in your monthly earning.
         /// </summary>
         public static string ContactYourAffilliateSupportTeam {
             get {
@@ -1513,7 +1513,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current Commission Bonus.
+        ///   Looks up a localized string similar to Current Revenue Share.
         /// </summary>
         public static string CurrentCommissionBonus {
             get {
@@ -1522,7 +1522,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current Commission Setting.
+        ///   Looks up a localized string similar to Current Revenue Share Setting.
         /// </summary>
         public static string CurrentCommissiSetting {
             get {
@@ -2692,7 +2692,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and commission!.
+        ///   Looks up a localized string similar to Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and revenue share!.
         /// </summary>
         public static string GetToKnowHotPromotion {
             get {
@@ -3536,7 +3536,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly commission from customers brought from your websites..
+        ///   Looks up a localized string similar to Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly revenue share from customers brought from your websites..
         /// </summary>
         public static string MetaDescription {
             get {
@@ -3671,7 +3671,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  &lt;p class=&quot;text-big-white&quot;&gt;MONTHLY COMMISSION!&lt;/p&gt;.
+        ///   Looks up a localized string similar to  &lt;p class=&quot;text-big-white&quot;&gt;MONTHLY REVENUE SHARE!&lt;/p&gt;.
         /// </summary>
         public static string MonthlyCommission {
             get {
@@ -4022,7 +4022,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Commission = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Comm. Rate.
+        ///   Looks up a localized string similar to Revenue = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue. Rate.
         /// </summary>
         public static string NoteCommissionCalculation {
             get {
@@ -4400,7 +4400,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pending Commission.
+        ///   Looks up a localized string similar to Pending Revenue Share.
         /// </summary>
         public static string PendingComm {
             get {
@@ -5201,7 +5201,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to 50% monthly commission!.
+        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to 45% monthly revenue share!.
         /// </summary>
         public static string SignUpToAffiliateProgram {
             get {
@@ -5814,7 +5814,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to to Beat The Best Commission!.
+        ///   Looks up a localized string similar to to Beat The Best Revenue Share!.
         /// </summary>
         public static string ToBeatTheBestCommission {
             get {
@@ -5859,7 +5859,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Commission.
+        ///   Looks up a localized string similar to Total Revenue.
         /// </summary>
         public static string TotalCommission {
             get {
@@ -6021,7 +6021,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uncalculated Commission Bonus.
+        ///   Looks up a localized string similar to Uncalculated Revenue Share.
         /// </summary>
         public static string UncalculatedCommissionBonus {
             get {
@@ -6444,7 +6444,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to YOUR CURRENT COMMISSION?.
+        ///   Looks up a localized string similar to YOUR CURRENT REVENUE SHARE?.
         /// </summary>
         public static string YourCurrentCommision {
             get {

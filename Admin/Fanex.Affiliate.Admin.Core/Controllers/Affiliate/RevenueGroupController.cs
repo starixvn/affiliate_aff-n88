@@ -17,8 +17,8 @@ using Fanex.Affiliate.Admin.Core.Resources;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
-    [FunctionAuthorize(FunctionName = Function.CommissionGroup)]
-    public class RevenueShareGroupController : BaseController
+    [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
+    public class RevenueGroupController : BaseController
     {
         private const int MaxLength = 100;
 
@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private readonly IProductRepository _productRepository;
 
-        public RevenueShareGroupController(
+        public RevenueGroupController(
             ISessionService sessionService,
             ICommissionGroupService commissionService,
             IProductRepository productRepository,
@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate") },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest") },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueShareGroup"), IsActive = true },
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), IsActive = true },
                 new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory") }
             };
 
@@ -108,7 +108,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             };
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult CreateCommissionGroup(CommissionGroupSetting commGroup)
@@ -151,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             };
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult UpdateCommissionGroup(CommissionGroupSetting commGroup)
@@ -195,7 +195,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             };
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult DeleteCommissionGroup(DeleteCommissionGroupParam param)

@@ -65,25 +65,25 @@ export default class CommissionGroupPopup extends PureComponent {
         const { showPopupCommGroup, affName, affId, isPrivateGroup, isNewAffiliate } = this.props;
 
         const isPrivate = isPrivateGroup || isUsingPrivateGroup;
-        const assignTitle = isNewAffiliate ? 'Assign Revenue Share Group For New Affiliate' : `Change Revenue Share Group For ${affName}`;
-        const title = isPrivateGroup ? `Edit Revenue Share Group for ${affName}` : assignTitle;
+        const assignTitle = isNewAffiliate ? 'Assign Revenue Group For New Affiliate' : `Change Revenue Group For ${affName}`;
+        const title = isPrivateGroup ? `Edit the Revenue Group for ${affName}` : assignTitle;
 
         const url = isPrivate ? resolveClientUrl(`Portal/CommGroupAssignment/AssignPrivateGroup?affId=${affId}`) : resolveClientUrl(`Portal/CommGroupAssignment/AssignGroup?affId=${affId}`);
         const size = isPrivate ? 'lg' : '';
-        const maxWidth = isPrivate ? '' : 570;
+        const maxWidth = isPrivate ? '' : 610;
 
         return (
             <div className="data-content">
                 <Modal isOpen={showPopupCommGroup} toggle={this.handleClosePopup} backdrop='static' size={size} style={{ maxWidth }}>
                     <ModalHeader toggle={this.handleClosePopup}>
-                        <span className="iconpopup"></span>{isUsingPrivateGroup ? `Approve affiliate ${affName} with a private Revenue Share group` : title}
+                        <span className="iconpopup"></span>{isUsingPrivateGroup ? `Approve affiliate ${affName} with a private Revenue group` : title}
                     </ModalHeader>
                     <ModalBody>
                         {
                             isPrivate ? (<div className="modal-body-wrapper embed-responsive embed-responsive-4by3" style={{ height: 635 }}>
                                 <iframe className="embed-responsive-item" src={url}></iframe>
                             </div>) : (
-                                    <div className="modal-body-wrapper" style={{ height: 280, padding: 0 }}>
+                                    <div className="modal-body-wrapper" style={{ height: 300, padding: 0 }}>
                                         <iframe src={url} width="100%" height="100%" frameBorder="0"></iframe>
                                     </div>
                                 )
