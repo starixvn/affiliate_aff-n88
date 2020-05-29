@@ -1901,7 +1901,7 @@
     <comment>87923</comment>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Revenue = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue. Rate</value>
+    <value>Revenue Share = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue Rate</value>
     <comment>87923</comment>
   </data>
   <data name="ServerError" xml:space="preserve">

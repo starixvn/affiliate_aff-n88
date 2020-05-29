@@ -1880,7 +1880,7 @@
     <value>Hoa Hồng</value>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x % Hoa Hồng</value>
+    <value>Hoa Hồng = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x % Hoa Hồng</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Tạm Thời</value>
