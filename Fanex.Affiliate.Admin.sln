@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Affiliate.Admin.Core", "Admin\Fanex.Affiliate.Admin.Core\Fanex.Affiliate.Admin.Core.csproj", "{C1C3E2F9-CC94-41A2-96E5-776B9F67E840}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Affiliate.ThirdPartyProduct", "Admin\Fanex.Affiliate.ThirdPartyProduct\Fanex.Affiliate.ThirdPartyProduct.csproj", "{118A9AA1-C33A-413A-A685-3495CF30C15F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AffiliateAdmin", "Admin\AffiliateAdmin\AffiliateAdmin.csproj", "{CB6C1C24-FB59-4A4F-B546-8C37556DE109}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{D075715C-26B5-43A3-8B8C-E3062E6B1DBC}"
@@ -21,10 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\12betAFFUserCSharp.ruleset = SonarQube\12betAFFUserCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Affiliate.ThirdPartyProduct.Site", "Admin\Affiliate.ThirdPartyProduct\Fanex.Affiliate.ThirdPartyProduct.Site.csproj", "{B5F45C51-B07A-45F7-9277-F341D6DAB5D5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestAPI", "TestAPI", "{6FB3E84D-1227-4DED-98E1-5D24E3F927E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
