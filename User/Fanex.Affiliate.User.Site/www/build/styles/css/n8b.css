@@ -49,15 +49,15 @@
   color: #ffffff !important; }
 
 .page-title {
-  background: #111111;
+  background: #222222;
   margin-left: -1.8rem;
   margin-right: -1.8rem; }
   .page-title .text {
     background-color: #3391F6;
     color: #fff; }
     .page-title .text:after {
-      border-bottom: 18px solid #111111;
-      border-right: 16px solid #111111; }
+      border-bottom: 18px solid #222222;
+      border-right: 16px solid #222222; }
 
 .control-label {
   color: #ffffff; }
@@ -98,7 +98,7 @@
 .table table {
   border: 1px solid #4F5254; }
   .table table tbody tr:hover {
-    background: #111 !important; }
+    background: #222222 !important; }
   .table table tr {
     background: transparent;
     color: #ffffff; }
@@ -246,8 +246,10 @@ label {
   color: #212121; }
 
 .form .form-group .field {
-  background: #ffffff !important;
-  color: #000000 !important; }
+  border: 1px solid #adadad !important;
+  background: #333333 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important; }
 
 .languages-item {
   background: #fff; }
@@ -432,6 +434,19 @@ label {
 
 .table .table {
   background-color: transparent; }
+
+.form-horizontal .form-group {
+  margin: 0; }
+
+.flex-sm-boostrap.flex-center label {
+  text-align: left;
+  padding-left: 0; }
+
+#linkForm {
+  padding-left: 0; }
+
+.intro a {
+  color: #3391F6; }
 
 @media only screen and (max-width: 1199px) {
   .banner-top {
