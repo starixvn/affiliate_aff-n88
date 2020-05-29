@@ -113,6 +113,15 @@
     background: #282828 !important; }
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: none; }
+  .table table .total {
+    background-color: #0A223D; }
+    .table table .total:hover {
+      background-color: #0A223D; }
+    .table table .total td {
+      color: #ffffff; }
+
+.table tbody tr.sumrow > td {
+  background-color: transparent !important; }
 
 .login-dialog .modal-header {
   background-color: #4D6316;
@@ -414,6 +423,13 @@ label {
 
 .main-container .page-container {
   color: #ffffff; }
+
+.btn-copy-link, .btn-copy-qr, .btn-save-img {
+  color: #3391F6 !important;
+  font-size: 14px; }
+
+.table .table {
+  background-color: transparent; }
 
 @media only screen and (max-width: 1199px) {
   .banner-top {

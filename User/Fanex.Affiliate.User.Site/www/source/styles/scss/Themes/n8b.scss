@@ -191,8 +191,22 @@ body {
             border: none;
         }
     }
-}
 
+    .total {
+        background-color: $table-row-total-bg-color;
+
+        &:hover {
+            background-color: $table-row-total-bg-color;
+        }
+
+        td {
+            color: $color-white;
+        }
+    }
+}
+.table tbody tr.sumrow > td{
+    background-color: transparent!important;
+}
 // Login Dialog
 .login-dialog .modal-header {
     background-color: $modal-header-bg-color;
@@ -717,15 +731,23 @@ label{
 
     .page-container {
         color: $text-color-white;
+        
     }
 }
-
+.btn-copy-link, .btn-copy-qr, .btn-save-img {
+    color: $color-primary !important;
+    font-size: 14px;
+}
+.table .table {
+    background-color: transparent;
+}
 @media only screen and (max-width: 1199px ) {
 
     .banner-top {
         margin: 0 -160px;
     }
-    .table-medium{
+
+    .table-medium {
         width: 100%;
     }
 }

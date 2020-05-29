@@ -4,21 +4,22 @@
 }
 
 @model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.SubAffComViewModel>
-
-<div class="page-title">
-    <span class="text">@Lang.SubAffEarning</span>
-</div>
-
-<div>
-    @{
-        if (breadcrumb != null)
-        {
-            <div class="breadcrumb-container">
-                <ol class="breadcrumb" id="dailyEarningBreadcrumb">
-                    <li><a href="@Url.Content(breadcrumb.Url)">@breadcrumb.Name</a></li>
-                </ol>
-            </div>
-        }
-    }
-    @Html.Partial("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", Model)
-</div>
+    <div class="sub-content">
+        <div class="page-title">
+            <span class="text">@Lang.SubAffEarning</span>
+        </div>
+        <br >
+        <div>
+            @{
+                if (breadcrumb != null)
+                {
+                    <div class="breadcrumb-container">
+                        <ol class="breadcrumb" id="dailyEarningBreadcrumb">
+                            <li><a href="@Url.Content(breadcrumb.Url)">@breadcrumb.Name</a></li>
+                        </ol>
+                    </div>
+                }
+            }
+            @Html.Partial("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", Model)
+        </div>
+    </div>
