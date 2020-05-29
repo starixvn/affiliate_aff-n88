@@ -394,6 +394,43 @@ label {
   color: #ffffff;
   margin: 0 4px 0 3px; }
 
+.radio-inline {
+  padding-left: 0; }
+  .radio-inline input[type=radio] {
+    display: none; }
+  .radio-inline input[type=radio]:checked + span:before {
+    display: block; }
+  .radio-inline span {
+    position: relative;
+    padding-left: 20px; }
+    .radio-inline span:after {
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      content: "";
+      top: 2px;
+      left: 0;
+      border-radius: 30px;
+      background: #ffffff;
+      z-index: 1; }
+    .radio-inline span:before {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      content: "";
+      top: 4px;
+      left: 2px;
+      border-radius: 30px;
+      background: #3391F6;
+      z-index: 3;
+      display: none; }
+
+input[type="radio"], input[type="checkbox"] {
+  margin: 3px 0 0 0; }
+
+input[type=radio][disabled] + span {
+  opacity: 0.5; }
+
 .main .content {
   border: 2px solid #3391F6;
   padding: 0 18px 10px;

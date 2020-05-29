@@ -46,10 +46,10 @@
                     <label class="col-sm-3 control-label">@Lang.Gender</label>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" name="Gender" id="male" value="True" @(Model.Gender ? "checked" : string.Empty) disabled /> @Lang.Male
+                            <input type="radio" name="Gender" id="male" value="True" @(Model.Gender ? "checked" : "disabled")  /><span> @Lang.Male</span>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="Gender" id="female" value="False" @(!Model.Gender ? "checked" : string.Empty) disabled /> @Lang.Female
+                            <input type="radio" name="Gender" id="female" value="False" @(!Model.Gender ? "checked" : "disabled")  /><span> @Lang.Female</span>
                         </label>
                     </div>
                 </div>
@@ -165,8 +165,8 @@
                 <div class="form-group">
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" name="HasWebSite" id="hasWebSite" value="True" @(string.IsNullOrEmpty(Model.SiteUrl) ? string.Empty : "checked") /> @Lang.OwnWebsite
-                        </label>
+                            <input type="radio" name="HasWebSite" id="hasWebSite" value="True" @(string.IsNullOrEmpty(Model.SiteUrl) ? string.Empty : "checked") /><span> @Lang.OwnWebsite</span>
+</label>
                     </div>
                 </div>
 
@@ -231,8 +231,8 @@
                 <div class="form-group">
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" name="HasWebSite" id="hasNoWebSite" value="False" @(string.IsNullOrEmpty(Model.SiteUrl) ? "checked" : string.Empty)> @Lang.NoWebsite
-                        </label>
+                            <input type="radio" name="HasWebSite" id="hasNoWebSite" value="False" @(string.IsNullOrEmpty(Model.SiteUrl) ? "checked" : string.Empty)><span> @Lang.NoWebsite</span>
+</label>
                     </div>
                 </div>
 
@@ -284,7 +284,7 @@
                     <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" checked /> @SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc)
+                            <input type="radio" checked /> <span>@SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc)</span>
                         </label>
                     </div>
                 </div>

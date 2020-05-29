@@ -695,7 +695,55 @@ label{
         }
     }
 }
+.radio-inline {
+    input[type=radio] {
+        display: none;
+    }
 
+    padding-left: 0;
+
+    input[type=radio]:checked + span {
+        &:before{
+            display: block;
+        }
+    }
+
+    span {
+        position: relative;
+        padding-left: 20px;
+
+        &:after {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            content: "";
+            top: 2px;
+            left: 0;
+            border-radius: 30px;
+            background: $background-white;
+            z-index: 1;
+        }
+
+        &:before {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            content: "";
+            top: 4px;
+            left: 2px;
+            border-radius: 30px;
+            background: $background-primary;
+            z-index: 3;
+            display: none;
+        }
+    }
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 3px 0 0 0;
+}
+input[type=radio][disabled] + span{
+    opacity: 0.5;
+}
 //CommissionStructure
 .main .content {
     &.home-page {
