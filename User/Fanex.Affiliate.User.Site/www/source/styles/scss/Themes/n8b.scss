@@ -84,7 +84,9 @@ body {
         }
     }
 }
-
+.language-container .language-list-wrapper .language-list .language-item{
+    font-weight: 400;
+}
 .marquee-content {
     a {
         color: $hot-news-content-color !important;

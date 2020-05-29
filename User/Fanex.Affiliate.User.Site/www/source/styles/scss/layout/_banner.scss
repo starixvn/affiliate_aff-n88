@@ -54,23 +54,27 @@
 .banner-text {
     position: absolute;
     left: 208px;
-    top: 97px;
+    top: 122px;
 
     .txt-lang {
         text-transform: uppercase;
         color: #fff;
         margin: 0;
-        line-height: 1.2;
+        line-height: 1.2; 
     }
 
     h2 {
-        font-size: 48px;
+        font-size: 56px;
         font-weight: bold;
+        letter-spacing: 0.04em;
+        margin-bottom: 11px!important;
     }
 
     h5 {
         font-size: 20px;
         font-weight: normal;
+        letter-spacing: 0.02em;
+        margin-bottom: 12px;
     }
 
     .nounderline {

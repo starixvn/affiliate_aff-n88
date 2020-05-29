@@ -45,6 +45,9 @@
     .hot-news .message:before {
       border-color: #000 #fff #000 transparent; }
 
+.language-container .language-list-wrapper .language-list .language-item {
+  font-weight: 400; }
+
 .marquee-content a {
   color: #ffffff !important; }
 

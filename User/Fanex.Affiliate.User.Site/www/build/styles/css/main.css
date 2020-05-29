@@ -763,18 +763,22 @@ body {
 .banner-text {
   position: absolute;
   left: 208px;
-  top: 97px; }
+  top: 122px; }
   .banner-text .txt-lang {
     text-transform: uppercase;
     color: #fff;
     margin: 0;
     line-height: 1.2; }
   .banner-text h2 {
-    font-size: 48px;
-    font-weight: bold; }
+    font-size: 56px;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    margin-bottom: 11px !important; }
   .banner-text h5 {
     font-size: 20px;
-    font-weight: normal; }
+    font-weight: normal;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px; }
   .banner-text .nounderline {
     background: linear-gradient(180deg, #FFA470 0%, #FF5D00 65.83%);
     color: #fff;
