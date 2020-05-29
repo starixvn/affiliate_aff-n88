@@ -1724,7 +1724,7 @@
     <value>PRAGMATIC PLAY</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>Doanh Thu Thuần</value>
+    <value>Hoa Hồng</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>Tất Cả Sản Phẩm</value>
@@ -1760,7 +1760,7 @@
     <value>ĐIỀU KHOẢN &amp; ĐIỀU KIỆN</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý</value>
+    <value>Cấu Trúc Hoa Hồng</value>
   </data>
   <data name="Product" xml:space="preserve">
     <value>SẢN PHẨM</value>
@@ -1859,7 +1859,7 @@
     <value>ĐĂNG KÝ NGAY!</value>
   </data>
   <data name="CommissionReport" xml:space="preserve">
-    <value>Báo Cáo Hoa Hồng Đại Lý</value>
+    <value>Báo Cáo Hoa Hồng</value>
   </data>
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Tổng Thắng Thua</value>
@@ -1877,7 +1877,7 @@
     <value>% Hoa Hồng</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý</value>
+    <value>Hoa Hồng</value>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
     <value>Hoa Hồng Đại Lý = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x % Hoa Hồng</value>
@@ -2201,13 +2201,13 @@
     <value>Thu Nhập Tháng Này</value>
   </data>
   <data name="CommissionBonus" xml:space="preserve">
-    <value>Hoa Hồng Của Affiliate Phụ</value>
+    <value>Hoa Hồng</value>
   </data>
   <data name="UncalculatedCommissionBonus" xml:space="preserve">
-    <value>Hoa Hồng Chưa Tính Của Affiliate Phụ</value>
+    <value>Hoa Hồng Chưa Xử Lý</value>
   </data>
   <data name="CurrentCommissionBonus" xml:space="preserve">
-    <value>Hoa Hồng Hiện Tại Của Affiliate Phụ</value>
+    <value>Hoa Hồng Hiện Tại</value>
   </data>
   <data name="CurrentMonthStatistics" xml:space="preserve">
     <value>Thống Kê Tháng Hiện Tại</value>
@@ -2229,5 +2229,17 @@
   </data>
   <data name="Copy" xml:space="preserve">
     <value>Sao chép</value>
+  </data>
+  <data name="RevenueSharePercent" xml:space="preserve">
+    <value>LÊN ĐẾN 45% </value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>HOA HỒNG</value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>THAM GIA VÀO CHƯƠNG TRÌNH AFFILIATE TỐT NHẤT HIỆN NAY</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Tham gia ngay!</value>
   </data>
 </root>

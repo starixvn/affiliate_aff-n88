@@ -3,6 +3,7 @@
     using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
     using Filters;
     using Repository.UserPanel;
 
@@ -22,7 +23,13 @@
         [AjaxOnly]
         public ActionResult Index()
         {
-            var model = _accountOverviewRepository.GetLastLoginInfo(SessionService.UserSession.AffId);
+            var lastLoginInfo = _accountOverviewRepository.GetLastLoginInfo(SessionService.UserSession.AffId);
+
+            var model = new AccountOverviewViewModel
+            {
+                LastLoginInfo = lastLoginInfo,
+                IsMaxLevel = false
+            };
 
             return View("~/Views/UserPanel/AccountOverView/Index.cshtml", model);
         }

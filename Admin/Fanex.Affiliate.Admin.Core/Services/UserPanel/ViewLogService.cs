@@ -11,6 +11,16 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
     public class ViewLogService : BaseRepository, IViewLogService
     {
+        public IEnumerable<LogType> GetLogTypeList()
+        {
+            const string spKey = "Aff_Admin_LogType_Sel";
+
+            using (var objectDb = GetObjectDb(spKey))
+            {
+                return objectDb.Query<LogType>();
+            }
+        }
+
         public EntityResult<ViewLog> GetViewLogList(ViewLogParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateLog_Sel";

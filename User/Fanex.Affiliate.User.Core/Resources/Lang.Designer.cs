@@ -1276,7 +1276,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue. Rate.
+        ///   Looks up a localized string similar to Revenue Rate.
         /// </summary>
         public static string CommRate {
             get {
@@ -4823,6 +4823,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Register now!.
+        /// </summary>
+        public static string RegisterNow {
+            get {
+                return ResourceManager.GetString("RegisterNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rejected.
         /// </summary>
         public static string Rejected {
@@ -5859,7 +5868,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Revenue.
+        ///   Looks up a localized string similar to Total Revenue Share.
         /// </summary>
         public static string TotalCommission {
             get {
