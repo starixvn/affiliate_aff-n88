@@ -97,6 +97,8 @@
 
 .table table {
   border: 1px solid #4F5254; }
+  .table table tbody tr:hover {
+    background: #111 !important; }
   .table table tr {
     background: transparent;
     color: #ffffff; }
