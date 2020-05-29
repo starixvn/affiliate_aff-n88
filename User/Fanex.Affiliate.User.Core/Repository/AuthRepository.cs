@@ -43,7 +43,8 @@ namespace Fanex.Affiliate.User.Core.Repository
                         AffType = Convert.ToString(reader["AffType"]),
                         IsClosed = Convert.ToBoolean(reader["IsClosed"]),
                         Status = Convert.ToString(reader["Status"]),
-                        PreferredLanguage = Convert.ToString(reader["PreferredLanguage"])
+                        PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
+                        IsMaxSubLevel = Convert.ToBoolean(reader["IsMaxSubLevel"])
                     } : null;
                 }
             }

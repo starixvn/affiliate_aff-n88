@@ -81,7 +81,8 @@ namespace Fanex.Affiliate.User.Core.CoreService
                                         authorizedUser.PreferredLanguage,
                 OnUserId = authorizedUser.OnUserId,
                 AffType = authorizedUser.AffType,
-                GroupName = authorizedUser.GroupName
+                GroupName = authorizedUser.GroupName,
+                IsMaxSubLevel = authorizedUser.IsMaxSubLevel
             };
 
             HttpContext.Current.Session[UserSessionKey] = userSession;

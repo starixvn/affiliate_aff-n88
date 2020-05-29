@@ -19,5 +19,7 @@
         public int OnUserId { get; set; }
 
         public string GroupName { get; set; }
+
+        public bool IsMaxSubLevel { get; set; }
     }
 }
