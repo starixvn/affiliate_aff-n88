@@ -488,6 +488,11 @@ input[type=radio][disabled] + span {
 .intro a {
   color: #3391F6; }
 
+.pager-container .icon {
+  color: #ffffff !important; }
+  .pager-container .icon.disable {
+    opacity: 0.4; }
+
 @media only screen and (max-width: 1199px) {
   .banner-top {
     margin: 0 -160px; }

@@ -819,6 +819,13 @@ input[type=radio][disabled] + span{
         color: $color-primary;
     }
 }
+.pager-container .icon {
+    color: $color-white !important;
+
+    &.disable {
+        opacity: 0.4;
+    }
+}
 @media only screen and (max-width: 1199px ) {
 
     .banner-top {
