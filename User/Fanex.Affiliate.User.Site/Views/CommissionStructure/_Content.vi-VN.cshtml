@@ -6,51 +6,117 @@
     var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 <div class="banner-commission-structure">
-    <div class="text-content">
+    <div class="text-content english">
         <p class="text-big-yellow">@(isN88 ? "45%" : "50%")</p>
-        <p class="text-big-white">Thưởng Hoa Hồng</p>
-        <p class="text-small-white text-small">Cho</p>
-        <p class="text-small-white"><span class="text-yellow">Thể Thao </span> và <span class="text-yellow">Casino</span></p>
+        <p class="text-big-white">revenue share for life</p>
+        <p class="text-small-white text-small">on</p>
+        <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
     </div>
 </div>
+
 <div class="info-group">
+    <div class="title">
+        <span class="text">What we have</span>
+    </div>
+    <ul>
+        <li class="text">
+            Top-notch gaming and online betting products such as Sports, Live Casino, Virtual Sports, Keno, Slot games, plus a wide selection of games.
+        </li>
+        <li class="text">
+            Renowned brand with over 5 languages so it is easier for you to attract members.
+        </li>
+        <li class="text">
+            Strategic Marketing tools ensuring high member conversion and retention rate.
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">What we offer</span>
+    </div>
+    <ul>
+        <li class="text">
+            Up to 45% revenue share rate .
+        </li>
+        <li class="text">
+            An additional of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!
+        </li>
+        <li class="text">
+            Effective and easy-to-use management system for your performance tracking.
+        </li>
+        <li class="text">
+            Friendly and professional affiliate team always ready to assist you.
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">Our Plan</span>
+    </div>
     <p class="text">
-        Là hội viên của @siteName, mỗi tháng, bạn sẽ nhận hoa hồng dựa trên số lượng Thành viên bạn giới thiệu chơi @siteName trong tháng. Hệ thống báo cáo trực tuyến của @siteName hoạt động 24 giờ/ngày, 7 ngày/tuần giúp bạn cập nhật tình hình hoạt động đại lý của mình.<br>Số tiền bạn kiếm được tùy thuộc vào lượng lưu lượng bạn có thể gửi tới từ trang web của mình. @siteName sẽ hỗ trợ Thành viên thực hiện gửi tiền, đăng ký khuyến mãi; bên cạnh đó, những ưu đãi đặc biệt dành riêng cho từng tài khoản sẽ thu hút Thành viên tham gia lâu dài tại @siteName.
+        Your revenue share consists of two parts: (i) from your referred player’s betting losses and (ii) from your referred affiliate’s revenue share:
+    </p>
+    <ol type="i">
+        <li class="text-block">
+            <strong>Multi-tier Revenue Share Structure:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <ul>
+                <li class="text" style="margin-top: 15px;">
+                    Company Net Win: the monthly net loss of all players recommended by you to @siteName.
+                </li>
+                <li class="text">
+                    Active Players: members that have placed at least one (1) bet in the month.
+                </li>
+                <li class="text">
+                    Negative revenue share for any given month will be carried forward to the following month.
+                </li>
+            </ul>
+        </li>
+        <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
+    </ol>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text"><i>Revenue Share Payout Example</i></span>
+    </div>
+    <p class="text">
+        <i>Figure 1:</i> An example to show you how your revenue share earned from your referred players is calculated
+    </p>
+    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    <p class="text">
+        <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
+    </p>
+    <div class="img-support" style="max-width: 600px; margin: 15px auto;">
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/revenue_share_hierarchy.png" />
+    </div>
+    <p class="text">
+        Your revenue share earned from the referred affiliates:
+    </p>
+    <div style="padding-left: 30px;">
+        <p class="text">
+            = [B1+ ((C1 + C2) * 10%)] + [B2 * 10%]
+        </p>
+        <p class="text">
+            = [0 + (50,000 + 30,000) * 10%)] + [70,000 * 10%]
+        </p>
+        <p class="text">
+            = 15,000 @defaultCurrency
+        </p>
+    </div>
+    <p class="text">
+        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 15,000 = <strong>73,050 @defaultCurrency</strong>
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Mô Hình Chia Sẻ Doanh Thu</span>
+        <span class="text">How we pay</span>
     </div>
-    <p class="text">
-        Mô hình này dựa trên việc tính toán tổng Doanh thu cược tại tất cả các sản phẩm @siteName.
-    </p>
-    <p class="text">
-        @siteName cung cấp một mô hình chia sẻ doanh thu của tất cả sản phẩm. Đây là một mô hình tích lũy dựa trên số lượng các thành viên hoạt động mỗi tháng, mang đến doanh thu cược của từng loại sản phẩm.
-    </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
-    <p class="text" style="margin-top: 15px;">
-        Theo mục đích của bảng trên, “Doanh Thu Thuần" có nghĩa là tổng tiền cược của các thành viên trong tháng trừ : (i) phần tiền thanh toán các cược thắng, (ii) bất kỳ tiền thưởng khuyến mãi; (iii) Khoản bồi hoàn; và (iv) bất kỳ lợi nhuận  khác, các khoản tín dụng, tiền bồi thường hoặc tiền hoàn lại cho thành viên.
-    </p>
-</div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Số dư âm</span>
-    </div>
-    <p class="text">
-        Nếu Số dư của tháng là số âm, thì toàn bộ số dư đó sẽ được chuyển tiếp vào tháng sau. Ví dụ: nếu cuối tháng 1 sau khi tổng kết, số tiền trong tài khoản của hội viên là -@(defaultCurrency)58,000,000, số tiền này sẽ chuyển tiếp vào tháng 2. Nếu tháng 2 số dư trong tài khoản là @(defaultCurrency)78,000,000, thì số dư tài khoản sẽ là @(defaultCurrency)20,000,000. Nhưng nếu tháng 2 số dư vẫn là số âm, ví dụ là -@(defaultCurrency)36,000,000, thì sẽ tiếp tục tích lũy số âm của tháng trước đến tháng sau, vậy số tiền chuyển đến tháng 3 sẽ là -@(defaultCurrency)94,000,000. Mỗi Đại Lý @siteName sẽ hưởng tỷ lệ hoa hồng thu nhập tương ứng với cấp bậc .
-    </p>
-</div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Thanh Toán Hoa Hồng</span>
-    </div>
-    <p class="text">
-        Ngoài @(isN88 ? "USD ra bạn có thể yêu cầu rút tiền bằng đơn vị tiền khác như" : "VND ra bạn có thể yêu cầu rút tiền bằng đơn vị tiền khác như USD,") MYR, EUR, CNY. Tỷ lệ ngoại tệ sẽ được quy đổi dựa vào tỷ lệ ngày thanh toán hoa hồng.
-    </p>
-    <p class="text">Chúng tôi cung cấp những phương thức rút tiền hoa hồng đại lý sau: </p>
-    <p>1. Thông qua tài khoản cá cược @siteName</p>
-    <p class="text">
-        * Mỗi tháng Đại lý @siteName chỉ có thể rút tiền 1 lần duy nhất. Nếu yêu cầu rút tiền nhiều hơn 1 lần trong tháng của bạn được @siteName chấp thuận, bạn cũng có thể yêu cầu rút 2 lần/ tháng. Hiện tại @siteName không tính phí giao dịch rút tiền hoa hồng mỗi tháng của Đại lý, nhưng chúng tôi sẽ không chi trả bất kỳ phí thủ tục hoặc phí phát sinh nào khác.<br>Số tiền yêu cầu rút tối thiểu là @(defaultCurrency)@(AppSetting.Instance.MinWithdrawal)
-    </p>
+    <ul>
+        <li class="text">
+            Once a month, through your Nova88 player account (in MYR, IDR, THB & CNY) and the minimum withdrawal amount is @defaultCurrency 100 (or in equivalent currencies). For others currency need to request from @siteName.ToUpperInvariant() Affiliates teams.
+        </li>
+        <li class="text">
+            Any 2nd withdrawal request in the same month shall be subject to Nova88 Affiliates team’s approval.
+        </li>
+    </ul>
 </div>

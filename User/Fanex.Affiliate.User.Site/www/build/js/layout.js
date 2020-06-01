@@ -103,7 +103,7 @@ var Layout = (function ($) {
         },
 
         setCheckedForInput: function (mode) {
-            var isDarkMode = mode !== "lightmode";
+            var isDarkMode = mode === "darkmode";
 
             var inputDesktop = $('#switch-desktop');
             var inputMobile = $('#switch-mobile');

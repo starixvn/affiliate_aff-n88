@@ -2392,4 +2392,7 @@
   <data name="RegisterNow" xml:space="preserve">
     <value>Register now!</value>
   </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Your Revenue Share</value>
+  </data>
 </root>

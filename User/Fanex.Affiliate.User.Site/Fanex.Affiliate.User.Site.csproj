@@ -910,6 +910,7 @@
     <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy.png" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.hi-IN.jpg" />
@@ -1177,6 +1178,7 @@
     <Content Include="www\source\styles\Images\img-hover-news.png" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy.png" />
     <Content Include="www\source\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
@@ -1600,6 +1602,7 @@
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="Views\CommissionStructure\_ExampleTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

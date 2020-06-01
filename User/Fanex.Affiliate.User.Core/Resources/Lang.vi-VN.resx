@@ -2242,4 +2242,7 @@
   <data name="RegisterNow" xml:space="preserve">
     <value>Tham gia ngay!</value>
   </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Hoa Hồng Của Bạn</value>
+  </data>
 </root>

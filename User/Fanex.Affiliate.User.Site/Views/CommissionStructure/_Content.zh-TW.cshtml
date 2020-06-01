@@ -15,43 +15,108 @@
 </div>
 
 <div class="info-group">
+    <div class="title">
+        <span class="text">What we have</span>
+    </div>
+    <ul>
+        <li class="text">
+            Top-notch gaming and online betting products such as Sports, Live Casino, Virtual Sports, Keno, Slot games, plus a wide selection of games.
+        </li>
+        <li class="text">
+            Renowned brand with over 5 languages so it is easier for you to attract members.
+        </li>
+        <li class="text">
+            Strategic Marketing tools ensuring high member conversion and retention rate.
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">What we offer</span>
+    </div>
+    <ul>
+        <li class="text">
+            Up to 45% revenue share rate .
+        </li>
+        <li class="text">
+            An additional of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!
+        </li>
+        <li class="text">
+            Effective and easy-to-use management system for your performance tracking.
+        </li>
+        <li class="text">
+            Friendly and professional affiliate team always ready to assist you.
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">Our Plan</span>
+    </div>
     <p class="text">
-        As a @siteName Affiliates you will be paid revenue share on every player you referred to @siteName over the course of the player's account life. Our online reporting system will be available 24 hours a day 7 days a week for your usage. <br>How much you earn will depend on how much traffic you can send over from your website. It is our job to guide them through the registration process, having them make their first deposit, and retain their business with our attractive bonuses and offerings.
+        Your revenue share consists of two parts: (i) from your referred player’s betting losses and (ii) from your referred affiliate’s revenue share:
+    </p>
+    <ol type="i">
+        <li class="text-block">
+            <strong>Multi-tier Revenue Share Structure:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <ul>
+                <li class="text" style="margin-top: 15px;">
+                    Company Net Win: the monthly net loss of all players recommended by you to @siteName.
+                </li>
+                <li class="text">
+                    Active Players: members that have placed at least one (1) bet in the month.
+                </li>
+                <li class="text">
+                    Negative revenue share for any given month will be carried forward to the following month.
+                </li>
+            </ul>
+        </li>
+        <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
+    </ol>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text"><i>Revenue Share Payout Example</i></span>
+    </div>
+    <p class="text">
+        <i>Figure 1:</i> An example to show you how your revenue share earned from your referred players is calculated
+    </p>
+    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    <p class="text">
+        <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
+    </p>
+    <div class="img-support" style="max-width: 600px; margin: 15px auto;">
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/revenue_share_hierarchy.png" />
+    </div>
+    <p class="text">
+        Your revenue share earned from the referred affiliates:
+    </p>
+    <div style="padding-left: 30px;">
+        <p class="text">
+            = [B1+ ((C1 + C2) * 10%)] + [B2 * 10%]
+        </p>
+        <p class="text">
+            = [0 + (50,000 + 30,000) * 10%)] + [70,000 * 10%]
+        </p>
+        <p class="text">
+            = 15,000 @defaultCurrency
+        </p>
+    </div>
+    <p class="text">
+        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 15,000 = <strong>73,050 @defaultCurrency</strong>
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Revenue share model</span>
+        <span class="text">How we pay</span>
     </div>
-    <p class="text">
-        The revenue share model is split in each @siteName product components. The calculation of each of which product is described below. The total revenue share payable to the affiliate shall be the sum of all components of the revenue share model.
-    </p>
-    <p class="text">
-        @siteName offers a revenue share model in all @siteName products.This is a cumulative model based on the number of active players referred per calendar month in relation to each product revenue.
-    </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
-    <p class="text" style="margin-top: 15px;">
-        For the purposes of the table above, "Net Revenue" shall mean the amount of stakes placed by Players in the relevant calendar month exclude (i) returned winnings; (ii) any bonuses paid; (iii) Chargebacks; and (iv) any other revenue returns, credits, compensations or refunds given to Players.
-    </p>
-</div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Negative Balance</span>
-    </div>
-    <p class="text">
-        Any negative balance for a given month will be carried forward to the next. For example if for the month of January your affiliate account ends with -@(defaultCurrency)58,000,000, this amount will be carried forward to February. If at the end of February your affiliate account earns @(defaultCurrency)78,000,000, the total balance will be @(defaultCurrency)20,000,000. However if your account is still making a loss at the end of February, for example -@(defaultCurrency)36,000,000, then it will be added to the previous negative balance and be carried forward to March resulting in your March balance brought forward to be -@(defaultCurrency)94,000,000. The revenue share earned shall then be paid according to the tier scale.
-    </p>
-</div>
-<div class="info-group">
-    <div class="title">
-        <span class="text">Revenue Share Payment</span>
-    </div>
-    <p class="text">
-        You can request payout in other currencies other than @(isN88 ? "USD. The currencies offered are" : "VND. The currencies offered are USD,") MYR, EUR, CNY. Respective exchange rate on the payout date will be applied.
-    </p>
-    <p class="text">We offer several methods of withdrawal:</p>
-    <p>Through your @siteName player account</p>
-    <p class="text">
-        * Affiliates are only allowed to have one withdrawal request for each calendar month. Should the Affiliates intend to request for a second withdrawal in any month, such request shall be subject to Affiliate Manager's approval. While we offer free withdrawal request however we will not be held responsible if the receiving financial institution or electronic wallets impose a fee of any kind at their end. The minimum amount of withdrawal request is @(defaultCurrency)@(AppSetting.Instance.MinWithdrawal)
-    </p>
+    <ul>
+        <li class="text">
+            Once a month, through your Nova88 player account (in MYR, IDR, THB & CNY) and the minimum withdrawal amount is @defaultCurrency 100 (or in equivalent currencies). For others currency need to request from @siteName.ToUpperInvariant() Affiliates teams.
+        </li>
+        <li class="text">
+            Any 2nd withdrawal request in the same month shall be subject to Nova88 Affiliates team’s approval.
+        </li>
+    </ul>
 </div>
