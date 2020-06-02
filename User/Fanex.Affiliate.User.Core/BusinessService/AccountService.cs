@@ -67,5 +67,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             return result;
         }
+
+        public MaxLevelInfo GetLevelAffiliate(int affId)
+        {
+            return _accountRepository.GetLevelAffiliate(affId) ?? new MaxLevelInfo();
+        }
     }
 }

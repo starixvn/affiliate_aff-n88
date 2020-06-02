@@ -304,6 +304,7 @@
     <Compile Include="DTO\Language.cs" />
     <Compile Include="DTO\LatestHotNews.cs" />
     <Compile Include="DTO\LoginResultInfo.cs" />
+    <Compile Include="DTO\MaxLevelInfo.cs" />
     <Compile Include="DTO\Payment.cs" />
     <Compile Include="DTO\PaymentMethodInfo.cs" />
     <Compile Include="DTO\PaymentRequestInfo.cs" />

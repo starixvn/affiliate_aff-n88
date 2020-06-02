@@ -19,6 +19,7 @@
     {
         private const int DefaultPageSize = 20;
         private readonly IAppSetting _appSetting;
+        private readonly ISessionService _sessionService;
         private readonly IStatementHistoryRepository _statementHistoryRepository;
 
         public StatementHistoryController(ISessionService sessionService,
@@ -28,6 +29,7 @@
             : base(sessionService, languageService)
         {
             _appSetting = appSetting;
+            _sessionService = sessionService;
             _statementHistoryRepository = statementHistoryRepository;
         }
         [HttpGet]
@@ -67,6 +69,16 @@
         {
             var vms = new List<StatementHistoryViewModel>();
             var statementHistoryList = _statementHistoryRepository.GetStatementHistory(param);
+            if(_sessionService.UserSession.IsMaxSubLevel)
+            {
+                foreach (var item in statementHistoryList)
+                {
+                    vms.Add(CreateViewModelFromStatementHistoryItem(item));
+                }
+
+                return vms;
+            }
+
             foreach (var item in statementHistoryList)
             {
                 if (item.TransType == (byte)TransType.Commission || item.TransType == (byte)TransType.SubAffBonus)

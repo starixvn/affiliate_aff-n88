@@ -43,21 +43,24 @@
         </div>
     </div>
 </div>
-<div>
-    <span class="my-account">@Lang.SubAffiliate</span>
-    <div class="group group-four">
-        <div class="img-icon">
-            <img class="img-responsive" src="~/www/build/styles/Images/account-overview/icon-subaff.png" />
-        </div>
-        <div class="info-panel">
-            <span class="info-panel-title">@Lang.SubAffDownline</span>
-            <span class="info-panel-content">@Model.NoOfSubAff</span>
-        </div>
+@if (!Model.IsMaxSubLevel)
+{
+    <div>
+        <span class="my-account">@Lang.SubAffiliate</span>
+        <div class="group group-four">
+            <div class="img-icon">
+                <img class="img-responsive" src="~/www/build/styles/Images/account-overview/icon-subaff.png" />
+            </div>
+            <div class="info-panel">
+                <span class="info-panel-title">@Lang.SubAffDownline</span>
+                <span class="info-panel-content">@Model.NoOfSubAff</span>
+            </div>
 
-        <div class="info-panel">
-            <span class="info-panel-title">@Lang.SubAffEarning </span>
-            <span class="info-panel-content">@Model.SubAffCommission.ToStringMoneyWithSymbol()</span>
+            <div class="info-panel">
+                <span class="info-panel-title">@Lang.SubAffEarning </span>
+                <span class="info-panel-content">@Model.SubAffCommission.ToStringMoneyWithSymbol()</span>
+            </div>
         </div>
     </div>
-</div>
+}
 

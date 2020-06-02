@@ -3,6 +3,8 @@
     var currentYear = DateTime.Now.Year;
 }
 
+@model bool
+
 @Html.InlineStyles("~/www/build/styles/css/pages/commissionreport.css")
     <div class="sub-content">
         <div class="page-title">
@@ -119,15 +121,18 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th class="th" data-name="SubAffCommission">
-                                    <div class="th-wrapper col-comm">
-                                        <span>@(Lang.SubAffEarning)</span>
-                                        <div class="icon-container">
-                                            <span class="caret asc"></span>
-                                            <span class="caret desc"></span>
+                                @if (!Model)
+                                {
+                                    <th class="th" data-name="SubAffCommission">
+                                        <div class="th-wrapper col-comm">
+                                            <span>@(Lang.SubAffEarning)</span>
+                                            <div class="icon-container">
+                                                <span class="caret asc"></span>
+                                                <span class="caret desc"></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </th>
+                                    </th>
+                                }
                                 <th class="th" data-name="TotalCommission">
                                     <div class="th-wrapper col-comm">
                                         <span>@(Lang.TotalCommission)</span>

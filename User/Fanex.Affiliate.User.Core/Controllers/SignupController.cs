@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -34,10 +35,24 @@
         }
 
         [HttpGet]
-        public ActionResult Index(int refId = 0)
+        public ActionResult Index(string refId = null)
         {
+            if(string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return View(new UserSignUpParam { IsValidParentId = true });
+            }
+
+            bool isParsable = int.TryParse(refId, out int parentAffId);
+
             var vm = new UserSignUpParam();
-            vm.ParentAffId = refId;
+            vm.ParentAffId = parentAffId;
+
+            if (isParsable)
+            {
+                var result = _accountService.GetLevelAffiliate(parentAffId);
+                vm.IsValidParentId = result.IsValidAffId;
+            }
+
             return View(vm);
         }
 

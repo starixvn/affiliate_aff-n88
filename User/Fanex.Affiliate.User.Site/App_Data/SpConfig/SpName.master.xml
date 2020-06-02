@@ -144,4 +144,7 @@
     <Setting Key="Aff_Admin_Text_Sel_view" SpName="Aff_Admin_Text_Sel" DbName="affiliate_n88_view" />
     <Setting Key="Aff_Admin_Banner_Sel_view" SpName="Aff_Admin_Banner_Sel" DbName="affiliate_n88_view" />
   </Function>
+  <Function Name="CheckMaxSubAffiliateLevel">
+    <Setting Key="Aff_CheckMaxSubAffLevel" SpName="Aff_CheckMaxSubAffLevel" DbName="affiliate_n88" />
+  </Function>
 </Functions>

@@ -31,5 +31,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         IEnumerable<CommissionSetting> GetCommissionSettingList(int affId, bool isInternal);
 
+        MaxLevelInfo GetLevelAffiliate(int affId);
+
     }
 }

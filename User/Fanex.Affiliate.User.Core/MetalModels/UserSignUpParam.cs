@@ -108,5 +108,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         [SpParam(Ignored = true)]
         public bool HasWebSite { get; set; } = true;
+
+        [SpParam(Ignored = true)]
+        public bool IsValidParentId { get; set; }
     }
 }

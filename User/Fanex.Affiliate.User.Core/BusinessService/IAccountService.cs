@@ -7,5 +7,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     public interface IAccountService
     {
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam);
+
+        MaxLevelInfo GetLevelAffiliate(int affId);
     }
 }

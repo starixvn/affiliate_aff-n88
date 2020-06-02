@@ -1213,6 +1213,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to click here..
+        /// </summary>
+        public static string ClickHere {
+            get {
+                return ResourceManager.GetString("ClickHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Colombia.
         /// </summary>
         public static string Colombia {
@@ -2404,6 +2413,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry! The payment via {method} is not available. At the moment, only &apos;12Bet Player Account&apos; method is supported. Please &lt;a href=&apos;MyAccount.aspx?ispay=1#payment&apos;&gt;click here&lt;/a&gt; to make a change..
         /// </summary>
         public static string ErrPaymentMethod {
@@ -2976,6 +2994,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string IndonesiaSupport {
             get {
                 return ResourceManager.GetString("IndonesiaSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The link you has entered is not valid.&lt;br /&gt;Please contact Customer Service Department or.
+        /// </summary>
+        public static string InvalidLink {
+            get {
+                return ResourceManager.GetString("InvalidLink", resourceCulture);
             }
         }
         

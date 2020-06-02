@@ -2401,4 +2401,13 @@
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>Active Players</value>
   </data>
+  <data name="InvalidLink" xml:space="preserve">
+    <value>The link you has entered is not valid.&lt;br /&gt;Please contact Customer Service Department or</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>click here.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

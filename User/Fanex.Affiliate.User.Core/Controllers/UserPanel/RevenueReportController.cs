@@ -10,6 +10,7 @@
     [CustomAuthorize]
     public class RevenueReportController : BaseController
     {
+        private readonly ISessionService _sessionService;
         private readonly ICommissionReportService _commissionReportService;
 
         public RevenueReportController(
@@ -18,6 +19,7 @@
             ICommissionReportService commissionReportService
           ) : base(sessionService, languageService)
         {
+            _sessionService = sessionService;
             _commissionReportService = commissionReportService;
         }
 
@@ -26,7 +28,7 @@
         [AjaxOnly]
         public ActionResult Index()
         {
-            return View("~/Views/UserPanel/CommissionReport/Index.cshtml");
+            return View("~/Views/UserPanel/CommissionReport/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]
