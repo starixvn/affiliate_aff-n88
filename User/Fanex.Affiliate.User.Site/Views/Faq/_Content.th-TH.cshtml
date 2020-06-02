@@ -1,5 +1,6 @@
 ﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+    var appSetting = AppSetting.Instance;
+    var siteName = appSetting.SiteFriendlyName;
 }
 <div class="banner-faqs">
     <p>Frequently Asked Questions</p>
@@ -67,7 +68,7 @@
     </div>
     <div class="faq-group">
         <p class="question">What is the minimum withdrawal request amount?</p>
-        <p class="answer">The minimum amount of withdrawal request is @(AppSetting.Instance.DefaultCurrency)@(AppSetting.Instance.MinWithdrawal)</p>
+        <p class="answer">The minimum amount of withdrawal request is @(appSetting.DefaultCurrency)@(appSetting.MinWithdrawal)</p>
     </div>
     <div class="faq-group">
         <p class="question">Does negative balance carry over?</p>

@@ -7,7 +7,7 @@
 }
 <div class="banner-commission-structure">
     <div class="text-content english">
-        <p class="text-big-yellow">@(isN88 ? "45%" : "50%")</p>
+        <p class="text-big-yellow">45%</p>
         <p class="text-big-white">revenue share for life</p>
         <p class="text-small-white text-small">on</p>
         <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
@@ -16,81 +16,81 @@
 
 <div class="info-group">
     <div class="title">
-        <span class="text">What we have</span>
+        <span class="text">Chúng Tôi Sở Hữu</span>
     </div>
     <ul>
         <li class="text">
-            Top-notch gaming and online betting products such as Sports, Live Casino, Virtual Sports, Keno, Slot games, plus a wide selection of games.
+            Những sản phẩm cá cược hàng đầu như Thể Thao, Casino Trực Tiếp, Thể Thao Ảo, Keno, Trò chơi Xèng, và vô số các trò chơi trực tuyến khác
         </li>
         <li class="text">
-            Renowned brand with over 5 languages so it is easier for you to attract members.
+            Thương hiệu danh tiếng, hỗ trợ hơn 5 ngôn ngữ khác nhau, dễ dàng thu hút khách hàng tham gia
         </li>
         <li class="text">
-            Strategic Marketing tools ensuring high member conversion and retention rate.
+            Chiến lược tiếp thị uy tín, đảm bảo tỷ lệ chuyển đổi và duy trì thành viên luôn ở mức cao nhất
         </li>
     </ul>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">What we offer</span>
+        <span class="text">Quyền Lợi Khi Tham Gia</span>
     </div>
     <ul>
         <li class="text">
-            Up to 45% revenue share rate .
+            Chiết khấu hoa hồng lên đến 45%
         </li>
         <li class="text">
-            An additional of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!
+            Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Affiliate tuyến dưới
         </li>
         <li class="text">
-            Effective and easy-to-use management system for your performance tracking.
+            Hệ thống quản lý hiệu quả và dễ sử dụng để theo dõi hiệu suất kinh doanh của bạn
         </li>
         <li class="text">
-            Friendly and professional affiliate team always ready to assist you.
+            Đội ngũ tư vấn thân thiện và chuyên nghiệp luôn sẵn sàng hỗ trợ bạn
         </li>
     </ul>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">Our Plan</span>
+        <span class="text">Chương Trình Affiliate</span>
     </div>
     <p class="text">
-        Your revenue share consists of two parts: (i) from your referred player’s betting losses and (ii) from your referred affiliate’s revenue share:
+        Bạn có thể nhận tiền hoa hồng từ cả hai (2) cách: (i) tiền thua cược của người chơi mà bạn giới thiệu và (ii) hoa hồng của các Affiliate tuyến dưới do bạn giới thiệu:
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Multi-tier Revenue Share Structure:</strong>
+            <strong>Cấu trúc tiền hoa hồng từ người chơi:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    Company Net Win: the monthly net loss of all players recommended by you to @siteName.
+                    <strong>Lãi Thực Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho @siteName.
                 </li>
                 <li class="text">
-                    Active Players: members that have placed at least one (1) bet in the month.
+                    <strong>Người Chơi Đủ Điều Kiện:</strong> người chơi có ít nhất một (1) cược trong tháng đó.
                 </li>
                 <li class="text">
-                    Negative revenue share for any given month will be carried forward to the following month.
+                    Khoản tiền hoa hồng bị âm trong tháng sẽ được cộng dồn cho tháng tiếp theo.
                 </li>
             </ul>
         </li>
-        <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
+        <li class="text-block"><strong>Cấu trúc tiền hoa hồng từ Affiliate tuyến dưới:</strong> bạn sẽ nhận được 10% doanh thu của các Affiliate tuyến dưới do bạn giới thiệu, và nếu họ lại tiếp tục giới thiệu thành công các Affiliate khác tham gia vào chương trình, bạn sẽ được nhận thêm một khoản doanh thu từ đó!</li>
     </ol>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text"><i>Revenue Share Payout Example</i></span>
+        <span class="text"><i>Ví dụ về cách tính tiền hoa hồng</i></span>
     </div>
     <p class="text">
-        <i>Figure 1:</i> An example to show you how your revenue share earned from your referred players is calculated
+        <i>Hình 1:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ người chơi được bạn giới thiệu
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
     <p class="text">
-        <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
+        <i>Hình 2:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Affiliate được bạn giới thiệu, và từ Affiliate tuyến dưới của họ
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/revenue_share_hierarchy.png" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/revenue_share_hierarchy-vn.png" />
     </div>
     <p class="text">
-        Your revenue share earned from the referred affiliates:
+        Tiền hoa hồng bạn nhận được:
     </p>
     <div style="padding-left: 30px;">
         <p class="text">
@@ -104,19 +104,19 @@
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 15,000 = <strong>73,050 @defaultCurrency</strong>
+        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 58,050 + 15,000 = <strong>73,050 @defaultCurrency</strong>
     </p>
 </div>
 <div class="info-group">
     <div class="title">
-        <span class="text">How we pay</span>
+        <span class="text">Phương Thức Thanh Toán</span>
     </div>
     <ul>
         <li class="text">
-            Once a month, through your Nova88 player account (in MYR, IDR, THB & CNY) and the minimum withdrawal amount is @defaultCurrency 100 (or in equivalent currencies). For others currency need to request from @siteName.ToUpperInvariant() Affiliates teams.
+            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @siteName (bằng tiền MYR, IDR, THB hoặc CBY) và số tiền rút tối thiểu phải tương đương @appSetting.MinWithdrawal @defaultCurrency. Đối với những loại tiền tệ khác, cần phải gửi yêu cầu cho nhóm Affiliate @siteName.
         </li>
         <li class="text">
-            Any 2nd withdrawal request in the same month shall be subject to Nova88 Affiliates team’s approval.
+            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Affiliate @siteName.
         </li>
     </ul>
 </div>

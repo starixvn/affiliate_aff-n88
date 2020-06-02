@@ -418,7 +418,7 @@
     <value>Nội dung không hợp lệ</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Phần trăm hoa hồng</value>
+    <value>Phần trăm</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Ngày hoàn thành</value>
@@ -1090,7 +1090,7 @@
     <value>Hà Lan </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Lợi Nhuận Ròng Mỗi Tháng ({0})</value>
+    <value>Lãi Thực Công Ty ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>
@@ -1528,7 +1528,7 @@
     <value>Đây là email do hệ thống tạo tự động, vui lòng không trả lời trực tiếp email này.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Cấp Bậc</value>
+    <value>Cấp</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Mật khẩu mới sẽ được gửi tới địa chỉ email mà bạn đã cung cấp.
@@ -1874,7 +1874,7 @@
     <value>Phí Ngân Hàng</value>
   </data>
   <data name="CommRate" xml:space="preserve">
-    <value>% Hoa Hồng</value>
+    <value>Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
     <value>Hoa Hồng</value>
@@ -2244,5 +2244,11 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Hoa Hồng Của Bạn</value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Người Chơi Đủ Điều Kiện</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Người Chơi Đủ Điều Kiện</value>
   </data>
 </root>

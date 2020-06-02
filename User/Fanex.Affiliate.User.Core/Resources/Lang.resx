@@ -445,7 +445,7 @@
     <value>Comment is invalid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Revenue Percentage</value>
+    <value>Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Completed Date</value>
@@ -2394,5 +2394,11 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Your Revenue Share</value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Active Referred Players</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Active Players</value>
   </data>
 </root>

@@ -124,6 +124,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active Players.
+        /// </summary>
+        public static string ActivePlayersRevenue {
+            get {
+                return ResourceManager.GetString("ActivePlayersRevenue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Referred Players.
+        /// </summary>
+        public static string ActiveReferredPlayers {
+            get {
+                return ResourceManager.GetString("ActiveReferredPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -1267,7 +1285,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue Percentage.
+        ///   Looks up a localized string similar to Percentage.
         /// </summary>
         public static string CommPercent {
             get {
