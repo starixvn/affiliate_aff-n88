@@ -801,8 +801,19 @@ input[type=radio][disabled] + span{
 .table .table {
     background-color: transparent;
 }
-
-.form-horizontal .form-group{
+.carousel-inner {
+    &:after {
+        position: absolute;
+        z-index: 0;
+        content: "";
+        width: 360px;
+        height: 100%;
+        background: url('../../Images/shadown.png') repeat-x left center;
+        top: 0;
+        left: 0;
+    }
+}
+.form-horizontal .form-group {
     margin: 0;
 }
 .flex-sm-boostrap.flex-center {
@@ -908,5 +919,12 @@ input[type=radio][disabled] + span{
             width: 1500px;
         }
     }
-
+    .carousel-inner {
+        &:after {
+            display: none;
+        }
+    }
+    .banner-text{
+        width: 160px;
+    }
 }

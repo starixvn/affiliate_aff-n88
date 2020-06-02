@@ -475,6 +475,16 @@ input[type=radio][disabled] + span {
 .table .table {
   background-color: transparent; }
 
+.carousel-inner:after {
+  position: absolute;
+  z-index: 0;
+  content: "";
+  width: 360px;
+  height: 100%;
+  background: url("../../../source/styles/Images/shadown.png") repeat-x left center;
+  top: 0;
+  left: 0; }
+
 .form-horizontal .form-group {
   margin: 0; }
 
@@ -536,4 +546,8 @@ input[type=radio][disabled] + span {
   .table-responsive table {
     width: 900px !important; }
   .commission-report table {
-    width: 1500px; } }
+    width: 1500px; }
+  .carousel-inner:after {
+    display: none; }
+  .banner-text {
+    width: 160px; } }
