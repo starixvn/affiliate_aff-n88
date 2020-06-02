@@ -910,8 +910,8 @@
     <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy.png" />
+    <Content Include="www\build\styles\Images\shadown.png" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.hi-IN.jpg" />
@@ -1179,8 +1179,8 @@
     <Content Include="www\source\styles\Images\img-hover-news.png" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
-    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
-    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy.png" />
+    <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
