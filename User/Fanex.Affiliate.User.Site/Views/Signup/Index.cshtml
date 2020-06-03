@@ -194,7 +194,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="HasWebSite" value="True" checked="checked" id="hasWebSite" /> @Lang.OwnWebsite
+                                    <input type="radio" name="HasWebSite" value="True" checked="checked" id="hasWebSite" /> <span>@Lang.OwnWebsite</span>
                                 </label>
                             </div>
                         </div>
@@ -219,7 +219,7 @@
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="HasWebSite" value="False" /> @Lang.NoWebsite
+                                    <input type="radio" name="HasWebSite" value="False" /> <span>@Lang.NoWebsite</span>
                                 </label>
                             </div>
                         </div>
@@ -298,7 +298,7 @@
                             <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="Method" checked /> @(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))
+                                    <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))</span>
                                 </label>
                                 <div class="form-group col-sm-12">
                                     <label class="control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.UsernameSignUp)</label>
