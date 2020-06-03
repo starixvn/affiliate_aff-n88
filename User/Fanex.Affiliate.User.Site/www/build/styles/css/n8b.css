@@ -506,6 +506,9 @@ input[type=radio][disabled] + span {
   .pager-container .icon.disable {
     opacity: 0.4; }
 
+.p-l-0 {
+  padding-left: 0 !important; }
+
 @media only screen and (max-width: 1199px) {
   .banner-top {
     margin: 0 -160px; }

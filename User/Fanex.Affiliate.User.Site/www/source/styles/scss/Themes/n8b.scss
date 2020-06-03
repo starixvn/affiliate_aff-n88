@@ -697,7 +697,7 @@ label{
 }
 .radio-inline {
     input[type=radio] {
-        display: none;
+       display: none;
     }
 
     padding-left: 0;
@@ -839,6 +839,9 @@ input[type=radio][disabled] + span{
     &.disable {
         opacity: 0.4;
     }
+}
+.p-l-0{
+    padding-left: 0!important;
 }
 @media only screen and (max-width: 1199px ) {
 
