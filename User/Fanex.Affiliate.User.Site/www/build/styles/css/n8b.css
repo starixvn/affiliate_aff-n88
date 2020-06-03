@@ -475,6 +475,9 @@ input[type=radio][disabled] + span {
 .table .table {
   background-color: transparent; }
 
+.color-white {
+  color: #ffffff; }
+
 .carousel-inner:after {
   position: absolute;
   z-index: 0;

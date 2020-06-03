@@ -801,6 +801,9 @@ input[type=radio][disabled] + span{
 .table .table {
     background-color: transparent;
 }
+.color-white {
+    color: $color-white;
+}
 .carousel-inner {
     &:after {
         position: absolute;
