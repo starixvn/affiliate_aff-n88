@@ -3,7 +3,7 @@
 body {
     color: $text-color;
     background: $bg-main-color;
-    font-family: 'Myriad Pro';
+    font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
 }
 
 // Header
@@ -255,7 +255,7 @@ label{
     -webkit-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
     box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
-    color: $button-signup-color;
+    color: $button-signup-color!important;
     font-weight: 600;
     border: 0;
 
@@ -410,7 +410,7 @@ label{
 
 // Contact Us
 .btn.btn-submit[type="submit"] {
-    @extend .btn-login-mobile;
+    @extend .btn-signup;
 }
 
 .btn.btn-submit[type="reset"] {
