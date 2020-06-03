@@ -60,7 +60,6 @@ var UserPanel = (function ($) {
             $("#mainPanel").html("");
             var actionUrl = _me.getActionUrl(false);
             var actionName = actionUrl.split('?')[0];
-            console.log(actionName);
             _me.activeMenu(actionName);
 
             var url = Site.resolveRelativeUrl("UserPanel/" + actionUrl);

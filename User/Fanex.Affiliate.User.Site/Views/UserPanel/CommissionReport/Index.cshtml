@@ -111,7 +111,7 @@
                                 </th>
                                 <th class="th" data-name="Commission">
                                     <div class="th-wrapper col-comm">
-                                        <span>@(Lang.CommShorted)</span>
+                                        <span>@(Lang.Commission)</span>
                                         <div class="info-container">
                                             <span title="@Lang.NoteCommissionCalculation" class="glyphicon glyphicon-info-sign"></span>
                                         </div>
@@ -150,11 +150,12 @@
             </div>
         </div>
 
-        <script>
-    var langResource = {
-        noInfo: '@Lang.NoInfo'
-    }
-        </script>
+    <script>
+        var langResource = {
+            noInfo: '@Lang.NoInfo',
+            isMaxLevel: '@Model'.toLowerCase() === 'true'
+        }
+    </script>
 
-        <script src="@Url.RenderLink("~/www/build/js/pages/commission-report.js")"></script>
-    </div>
+    <script src="@Url.RenderLink("~/www/build/js/pages/commission-report.js")"></script>
+</div>

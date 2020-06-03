@@ -429,14 +429,6 @@
   <data name="Colombia" xml:space="preserve">
     <value>Colombia</value>
   </data>
-  <data name="Comm" xml:space="preserve">
-    <value>Revenue</value>
-    <comment>87923</comment>
-  </data>
-  <data name="CommShorted" xml:space="preserve">
-    <value>Revenue</value>
-    <comment>87923</comment>
-  </data>
   <data name="Comment" xml:space="preserve">
     <value>Comment</value>
     <comment>87923</comment>

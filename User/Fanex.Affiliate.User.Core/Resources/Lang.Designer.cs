@@ -1231,15 +1231,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue.
-        /// </summary>
-        public static string Comm {
-            get {
-                return ResourceManager.GetString("Comm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Comment.
         /// </summary>
         public static string Comment {
@@ -1308,15 +1299,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string CommRate {
             get {
                 return ResourceManager.GetString("CommRate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Revenue.
-        /// </summary>
-        public static string CommShorted {
-            get {
-                return ResourceManager.GetString("CommShorted", resourceCulture);
             }
         }
         
