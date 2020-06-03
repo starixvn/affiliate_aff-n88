@@ -1,7 +1,7 @@
 ﻿@import "../abstracts/variables-n8b";
 
 body {
-    color: $text-color;
+    color: $color-white;
     background: $bg-main-color;
     font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
 }
@@ -801,9 +801,7 @@ input[type=radio][disabled] + span{
 .table .table {
     background-color: transparent;
 }
-.color-white {
-    color: $color-white;
-}
+
 .carousel-inner {
     &:after {
         position: absolute;
