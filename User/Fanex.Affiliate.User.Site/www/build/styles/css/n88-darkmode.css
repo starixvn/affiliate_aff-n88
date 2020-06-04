@@ -234,7 +234,7 @@
 
 .account-overview #account-overview-menu {
   background: transparent;
-  border-bottom: 1px solid #FF6D3E; }
+  border-bottom: 1px solid #000; }
   .account-overview #account-overview-menu .menu-item {
     color: #fff;
     border: 1px solid transparent;
@@ -242,7 +242,7 @@
     .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
       color: #FF6D3E;
       background-color: #282828;
-      border: 1px solid #FF6D3E; }
+      border: 1px solid #000; }
       .account-overview #account-overview-menu .menu-item.active:after, .account-overview #account-overview-menu .menu-item:hover:after {
         position: absolute;
         content: '';
@@ -280,7 +280,7 @@
   background-color: #2E2E2E !important; }
 
 .bg-orange, #account-overview-content {
-  border: 1px solid #FF6D3E;
+  border: 1px solid #000;
   border-top: none; }
 
 .bg-orange {

@@ -401,12 +401,12 @@ body {
 
 .account-overview {
     .menu {
-        overflow: unset!important;
+        overflow: unset !important;
     }
 
     #account-overview-menu {
         background: $tab-bg-color;
-        border-bottom: 1px solid #FF6D3E;
+        border-bottom: 1px solid #000;
 
         .menu {
             &-item {
@@ -417,7 +417,7 @@ body {
                 &.active, &:hover {
                     color: $tab-item-color-active-menu;
                     background-color: $tab-item-bg-color-active;
-                    border: 1px solid #FF6D3E;
+                    border: 1px solid #000;
 
                     &:after {
                         position: absolute;
@@ -472,7 +472,7 @@ body {
 }
 
 .bg-orange, #account-overview-content {
-    border: 1px solid #FF6D3E;
+    border: 1px solid #000;
     border-top: none;
 }
 
