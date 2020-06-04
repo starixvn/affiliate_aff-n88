@@ -229,14 +229,28 @@
 .summary-content .details-section-sticky {
   background: #1E1F21 !important; }
 
+.account-overview .menu {
+  overflow: unset !important; }
+
 .account-overview #account-overview-menu {
   background: transparent;
-  border-bottom: 1px solid #000; }
+  border-bottom: 1px solid #FF6D3E; }
   .account-overview #account-overview-menu .menu-item {
-    color: #fff; }
+    color: #fff;
+    border: 1px solid transparent;
+    position: relative; }
     .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-      color: #fff;
-      background-color: #282828; }
+      color: #FF6D3E;
+      background-color: #282828;
+      border: 1px solid #FF6D3E; }
+      .account-overview #account-overview-menu .menu-item.active:after, .account-overview #account-overview-menu .menu-item:hover:after {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 4px;
+        bottom: -3px;
+        left: 0;
+        background-color: #282828; }
   .account-overview #account-overview-menu .menu li:not(:last-child) {
     border-right: none !important; }
 
@@ -266,7 +280,7 @@
   background-color: #2E2E2E !important; }
 
 .bg-orange, #account-overview-content {
-  border: 1px solid #000;
+  border: 1px solid #FF6D3E;
   border-top: none; }
 
 .bg-orange {
