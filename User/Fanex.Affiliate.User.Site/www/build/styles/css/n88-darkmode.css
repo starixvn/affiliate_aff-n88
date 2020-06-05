@@ -243,7 +243,7 @@
 .account-overview #account-overview-menu {
   background: transparent;
   position: relative;
-  top: 1px; }
+  top: 1.5px; }
   .account-overview #account-overview-menu .menu-item {
     color: #fff;
     border: 1px solid transparent;
@@ -251,15 +251,8 @@
     .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
       color: #FF6D3E;
       background-color: #282828;
-      border: 1px solid #000; }
-      .account-overview #account-overview-menu .menu-item.active:after, .account-overview #account-overview-menu .menu-item:hover:after {
-        position: absolute;
-        content: '';
-        width: 100%;
-        height: 4px;
-        bottom: -3px;
-        left: 0;
-        background-color: #282828; }
+      border: 1px solid #000;
+      border-bottom-color: transparent; }
   .account-overview #account-overview-menu .menu li:not(:last-child) {
     border-right: none !important; }
 
