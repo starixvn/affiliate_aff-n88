@@ -54,7 +54,19 @@
     color: #fff; }
     .page-title .text:after {
       border-bottom: 18px solid #E5E5E5;
-      border-right: 16px solid #E5E5E5; }
+      border-right: 16px solid #E5E5E5;
+      z-index: 1; }
+    .page-title .text:before {
+      content: "";
+      position: absolute;
+      right: -1px;
+      bottom: -2px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 32px 40px;
+      border-color: transparent transparent #E5E5E5 transparent;
+      z-index: 2; }
 
 .info-group .title {
   color: #060818; }

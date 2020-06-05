@@ -400,13 +400,11 @@ body {
 }
 
 .account-overview {
-    .menu {
-        overflow: unset !important;
-    }
 
     #account-overview-menu {
         background: $tab-bg-color;
-        border-bottom: 1px solid #000;
+        position: relative;
+        top: 1px;
 
         .menu {
             &-item {
@@ -478,6 +476,7 @@ body {
 
 .bg-orange {
     border-bottom: none;
+    border-top: 1px solid #000;
 }
 
 #account-overview-content {
