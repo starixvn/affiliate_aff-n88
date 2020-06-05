@@ -562,3 +562,8 @@ body {
 .webp .adv-contact.N88 {
     background-image: url(../../Images/adv-contact/n88/bg-adv_contact.webp);
 }
+@media (min-width: 1024px) {
+    .content .news {
+        margin: 0;
+    }
+}

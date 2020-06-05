@@ -61,6 +61,17 @@
     .page-title .text:after {
       border-bottom: 18px solid #222222;
       border-right: 16px solid #222222; }
+    .page-title .text:before {
+      content: "";
+      position: absolute;
+      right: -1px;
+      bottom: -2px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0 32px 40px;
+      border-color: transparent transparent #222222 transparent;
+      z-index: 2; }
 
 .control-label {
   color: #ffffff; }
