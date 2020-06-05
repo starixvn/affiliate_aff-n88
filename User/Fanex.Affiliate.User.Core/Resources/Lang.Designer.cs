@@ -115,7 +115,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number of Active Players (Min required).
+        ///   Looks up a localized string similar to Number of Active Players&lt;br/&gt;(Min required).
         /// </summary>
         public static string ActivePlayers {
             get {
