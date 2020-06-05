@@ -551,6 +551,4 @@ input[type=radio][disabled] + span {
   .commission-report table {
     width: 1500px; }
   .carousel-inner:after {
-    display: none; }
-  .banner-text {
-    width: 160px; } }
+    display: none; } }

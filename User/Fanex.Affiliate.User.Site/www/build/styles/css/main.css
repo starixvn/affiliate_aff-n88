@@ -1562,8 +1562,8 @@ input[type="radio"], input[type="checkbox"] {
         }*/ }
   .banner-text {
     left: 32px;
-    top: 24px;
-    width: 150px; }
+    top: 20px;
+    width: 160px; }
     .banner-text h2 {
       font-size: 24px; }
     .banner-text h5 {
