@@ -24,22 +24,21 @@
     <div id="mainContent">
         <p>@Html.Raw(Lang.TitelForgetPass.Replace("{0}", Url.Content("~/ContactUs")))</p>
 
-        <form id="forgotPasswordForm" class="form-horizontal" style="margin-top:30px;">
+        <form id="forgotPasswordForm" class="form-horizontal">
             @Html.AntiForgeryToken()
             <div class="form-group" id="emailInputGroup">
+                <div class="col-sm-offset-2 col-sm-10" style="height: 25px;">
+                    <span class="field-validation-valid help-block hide" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                </div>
                 <label class="col-sm-2 control-label require">@Lang.YourEmail</label>
                 <div class="col-sm-4">
                     <input class="form-control" name="Email" id="Email" type="text" autocomplete="off"
                            data-val="true" data-val-email="@Lang.EmailAddressIsInvalid" data-val-required="@Lang.EmailAddressIsRequired" />
                 </div>
-                <div class="col-sm-offset-2 col-sm-10">
-                    <span class="field-validation-valid help-block hide" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-                </div>
             </div>
 
             <div class="form-group">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-4">
+                <div class="col-sm-offset-2 col-sm-4">
                     <button id="btnSubmit" class="btn btn-submit" type="submit">@Lang.Submit</button>
                     <button id="btnReset" class="btn btn-submit" type="button">@Lang.Reset</button>
                 </div>
