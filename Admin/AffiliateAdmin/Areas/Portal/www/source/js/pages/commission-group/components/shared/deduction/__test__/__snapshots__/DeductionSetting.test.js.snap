@@ -20,7 +20,7 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
       }
     }
     isCreating={true}
-    label="Operational Fee%"
+    label="Operational Fee"
     onChangeCommission={[Function]}
   />
   <FeeSettingItem
@@ -33,7 +33,7 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
       }
     }
     isCreating={true}
-    label="Banking Fee%"
+    label="Banking Fee"
     onChangeCommission={[Function]}
   />
 </fieldset>

@@ -57,7 +57,7 @@ export class Filter extends React.Component {
 
     render() {
         const { logType, fromDate, toDate, logTypeList } = this.state;
-        console.log(logTypeList);
+
         return (
             <div className="filter-container">
                 <Form inline tag="div">

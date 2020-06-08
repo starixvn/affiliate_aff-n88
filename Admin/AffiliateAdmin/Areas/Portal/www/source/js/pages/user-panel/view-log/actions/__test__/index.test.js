@@ -22,7 +22,7 @@ describe('customer member actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         Action: "Setting for Commission Group",
@@ -57,7 +57,7 @@ describe('customer member actions', () => {
             pageSize: 20,
             toDate: "07/03/2019"
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/ViewLog/GetViewLogList', param);
@@ -78,6 +78,30 @@ describe('customer member actions', () => {
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/ViewLog/GetViewLogList', param);
+
+        expect(result).toEqual(null);
+    })
+
+    it('should create action to getLogTypeList with correct parameter', async () => {
+        const expectedResponse = {
+            data: [{ TypeId: 1, TypeName: 'RevenueGroup' }],
+            status: 200
+        };
+
+        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+
+        const result = await actions['getLogTypeList']()();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/ViewLog/GetLogTypeList');
+        expect(result).toEqual(expectedResponse.data);
+    })
+
+    it('should create action to getLogTypeList with error response', async () => {
+        ajaxRequest.post = jest.fn();
+
+        const result = await actions['getLogTypeList']()();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/ViewLog/GetLogTypeList');
 
         expect(result).toEqual(null);
     })

@@ -25,7 +25,7 @@
         public StatementHistoryController(ISessionService sessionService,
             ILanguageService languageService,
             IAppSetting appSetting,
-            IStatementHistoryRepository statementHistoryRepository) 
+            IStatementHistoryRepository statementHistoryRepository)
             : base(sessionService, languageService)
         {
             _appSetting = appSetting;

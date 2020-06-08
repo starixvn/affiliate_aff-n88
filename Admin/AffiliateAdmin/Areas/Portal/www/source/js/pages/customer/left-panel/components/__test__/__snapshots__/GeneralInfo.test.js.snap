@@ -42,7 +42,9 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         color="link"
         onClick={[Function]}
         tag="button"
-      />
+      >
+        N88AFF001
+      </Button>
     </Col>
   </Row>
   <Row
@@ -81,7 +83,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF226
+        N88AFF002
       </a>
        
       [
@@ -430,7 +432,9 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
         color="link"
         onClick={[Function]}
         tag="button"
-      />
+      >
+        N88AFF001
+      </Button>
     </Col>
   </Row>
   <Row
@@ -466,7 +470,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
       }
     >
       <span>
-        12BETAFF016
+        N88AFF002
       </span>
        
       [
@@ -810,7 +814,9 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         color="link"
         onClick={[Function]}
         tag="button"
-      />
+      >
+        N88AFF001
+      </Button>
     </Col>
   </Row>
   <Row
@@ -849,7 +855,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF001
+        N88AFF002
       </a>
        
       [
@@ -1198,7 +1204,9 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         color="link"
         onClick={[Function]}
         tag="button"
-      />
+      >
+        N88AFF001
+      </Button>
     </Col>
   </Row>
   <Row
@@ -1237,7 +1245,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF001
+        N88AFF002
       </a>
        
       [

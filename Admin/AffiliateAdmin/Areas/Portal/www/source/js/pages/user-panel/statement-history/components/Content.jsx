@@ -134,8 +134,8 @@ export class Content extends PureComponent {
         const transTypeString = isTotalRow && dataItem.CalculatedType == CalculatedMonth ? 'Monthly Total' : transTypeList[transType];
 
         return (
-            <React.Fragment>
-                <Row key={`dataRow-${dataItem.TransId}`} className={status && status.toLowerCase()}>
+            <React.Fragment key={`dataRow-${dataItem.TransId}-${dataItem.DateText}-${dataItem.TransType}`}>
+                <Row className={status && status.toLowerCase()}>
                     <Cell title={index} className="text-center">{index}</Cell>
                     <Cell title={dataItem.DateText} className="text-center">{
                         isTotalRow ? (

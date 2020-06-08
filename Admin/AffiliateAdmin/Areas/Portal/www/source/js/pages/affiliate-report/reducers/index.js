@@ -9,7 +9,7 @@ import { viewLevel } from '../modules/constants';
 
 const productList = createReducer([], {});
 const languageList = createReducer({}, {});
-const currencyList = createReducer(null, {
+export const currencyList = createReducer(null, {
     [SET_CURRENCY_LIST](prevState, action) {
         return action.data;
     }
