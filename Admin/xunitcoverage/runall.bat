@@ -1,2 +1,2 @@
 @echo off
-coveragerunner.bat 12BetAffAdmin
+coveragerunner.bat N88AffAdmin
