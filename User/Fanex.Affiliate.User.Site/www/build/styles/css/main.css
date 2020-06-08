@@ -764,6 +764,9 @@ body {
   position: absolute;
   left: 208px;
   top: 122px; }
+  @media only screen and (max-width: 1023px) {
+    .banner-text {
+      max-width: 300px; } }
   .banner-text .txt-lang {
     text-transform: uppercase;
     color: #fff;
@@ -965,6 +968,12 @@ body {
     .banner-faqs {
       width: 330px;
       padding-left: 80px; } }
+  @media screen and (max-width: 375px) {
+    .banner-faqs {
+      width: 280px;
+      padding-left: 80px;
+      justify-content: flex-start;
+      padding-top: 17px; } }
 
 .footer {
   text-align: center;
@@ -1199,6 +1208,9 @@ label.require:after {
 .button-block {
   padding-bottom: 20px;
   padding-top: 20px; }
+  @media (max-width: 768px) {
+    .button-block {
+      padding-left: 15px; } }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
   font-size: 13px;

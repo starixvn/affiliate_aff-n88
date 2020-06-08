@@ -23,7 +23,7 @@ $sub-nav-menu-color-active: #333333;
 $sub-border-menu: #333333;
 
 $tab-bg-color: rgba(51, 145, 246, 0.3);
-$tab-item-color: #3391F6;
+$tab-item-color: #ffffff;
 $tab-item-bg-color-active: #3391F6;
 $tab-item-color-active: #ffffff;
 
@@ -53,7 +53,7 @@ $page-title-color: #fff;
 $page-title-border-color: #3391F6;
 $page-title-bg-color: #3391F6;
 
-$group-title-color: #ffffff;
+$group-title-color: #3391F6;
 $group-title-border-before-color: #3391F6;
 $group-title-border-after-color: #3391F6;
 
@@ -74,8 +74,9 @@ $form-control-color: #000;
 $form-control-border-color: #adadad;
 $form-control-bg-color: #fff;
 
-$modal-header-bg-color: #4D6316;
+$modal-header-bg-color: #3391F6;
 $modal-header-color: #fff;
+$modal-body-bg-color: #111111;
 //common
 $text-color-white: #ffffff;
 
@@ -109,7 +110,7 @@ $account-overview-group-four: #158469;
 
 //CommissionStructure page
 $border-content: #3391F6;
-$background-content: #222222;
+$background-content: #000000;
 
 //footer
 $footer-border-color: #3391F6;
@@ -117,7 +118,7 @@ $footer-border-color: #3391F6;
 //after login
 
 $background-form-white: #ffffff;
-$background-table-dark: #222222;
+$background-table-dark: #000000;
 $background-gray: #222222;
 $background-dark-gray: #333333;
 $background-light-gray: #ffffff22;
@@ -130,4 +131,5 @@ $color-gray: #cccccc;
 $color-primary: #3391F6;
 
 $border-color-gray: #666666;
-$border-color-black: #000000; 
+$border-color-black: #000000;
+$border-color-primary: #3391F6;

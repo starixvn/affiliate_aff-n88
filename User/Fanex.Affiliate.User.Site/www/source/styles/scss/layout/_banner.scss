@@ -55,6 +55,9 @@
     position: absolute;
     left: 208px;
     top: 122px;
+    @media only screen and (max-width: 1023px ) {
+        max-width: 300px;
+    }
 
     .txt-lang {
         text-transform: uppercase;
@@ -344,4 +347,11 @@
         width: 330px;
         padding-left: 80px;
     }
-}
+
+    @media screen and (max-width: 375px) {
+        width: 280px;
+        padding-left: 80px;
+        justify-content: flex-start;
+        padding-top: 17px;
+    }
+}  
