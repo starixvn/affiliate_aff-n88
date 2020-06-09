@@ -36,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             SizeParam passedSizeParam = null;
             var bannerListService = new Mock<IBannerListService>();
             bannerListService.Setup(t => t.GetSizeList(It.IsAny<SizeParam>())).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 456, Name = "320x250" } }).Callback<SizeParam>(p => passedSizeParam = p);
-            var controller = CreateMediaGalleryController(languageService: languageService.Object, commonMediaGalleryService: commonMediaGalleryService.Object, bannerListService: bannerListService.Object, affTypeService: affTypeService.Object);
+            var controller = CreateMediaGalleryController(null, languageService.Object, commonMediaGalleryService.Object, bannerListService.Object, affTypeService.Object);
 
             var urlHelperMock = new Mock<UrlHelper>();
             urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal/MediaGallery");
@@ -56,6 +56,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             Assert.Single(model.AffTypeList);
             Assert.Equal(param, model.Param);
             Assert.Equal(param.UserType, passedSizeParam.UserType);
+        }
+
+        [Fact]
+        public void GetCategoryList_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(1, 1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+
+            var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
+
+            // Action
+            var result = controller.GetCategoryList(1) as JsonNetResult;
+
+            // Assert
+            Assert.Single(result.Data as IEnumerable<Category>);
         }
 
         [Fact]

@@ -46,6 +46,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         }
 
         [Fact]
+        public void GetCategoryList_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(2, 1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+
+            var controller = CreateTextListController(commonMediaGalleryService: commonMediaGalleryService.Object);
+
+            // Action
+            var result = controller.GetCategoryList(1) as JsonNetResult;
+
+            // Assert
+            Assert.Single(result.Data as IEnumerable<Category>);
+        }
+
+        [Fact]
         public void GetTextList_WhenCallWithValidParam_ExcuteWithCorrectData()
         {
             // Arrange

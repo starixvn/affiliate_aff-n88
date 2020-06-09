@@ -15,6 +15,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
     public class ViewLogControllerTest
     {
         [Fact]
+        public void GetLogTypeList_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var viewLogService = new Mock<IViewLogService>();
+            viewLogService.Setup(s => s.GetLogTypeList()).Returns(new List<LogType> { new LogType() });
+            var controller = CreateController(viewLogService: viewLogService.Object);
+
+            // Action
+            var result = controller.GetLogTypeList() as JsonNetResult;
+            var logTypes = result.Data as IEnumerable<LogType>;
+
+            // Assert
+            Assert.Single(logTypes);
+        }
+
+        [Fact]
         public void GetViewLogList_WhenCallWithValidParam_ExcuteWithCorrectData()
         {
             // Arrange

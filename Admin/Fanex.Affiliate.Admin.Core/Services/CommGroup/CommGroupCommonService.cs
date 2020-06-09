@@ -26,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             {
                 var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList, true);
+                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
                 return _commGroupRepository.CreateCommissionGroup(param);
             }
@@ -42,7 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             {
                 var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList, false);
+                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
                 return _commGroupRepository.UpdateCommissionGroup(param);
             }
@@ -71,7 +71,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return result.ToString();
         }
 
-        private static string BuildDeductionSettingXml(IEnumerable<DeductionSetting> deductionSettingList, bool isInsert)
+        private static string BuildDeductionSettingXml(IEnumerable<DeductionSetting> deductionSettingList)
         {
             var result = new StringBuilder();
             result.Append("<root>");

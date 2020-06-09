@@ -132,29 +132,17 @@
   <data name="AffiliateInfo" xml:space="preserve">
     <value>Affiliate Info</value>
   </data>
-  <data name="AffiliateReport" xml:space="preserve">
-    <value>Affiliate Report</value>
-  </data>
   <data name="AmountIsInvalid" xml:space="preserve">
     <value>The amount is invalid</value>
   </data>
-  <data name="Approved" xml:space="preserve">
-    <value>Approved</value>
-  </data>
   <data name="BannerList" xml:space="preserve">
     <value>Banner List</value>
-  </data>
-  <data name="Closed" xml:space="preserve">
-    <value>Closed</value>
   </data>
   <data name="CommGroup" xml:space="preserve">
     <value>Revenue Group</value>
   </data>
   <data name="DeptList" xml:space="preserve">
     <value>Dept List</value>
-  </data>
-  <data name="Disapproved" xml:space="preserve">
-    <value>Disapproved</value>
   </data>
   <data name="DomainControl" xml:space="preserve">
     <value>Domain Control</value>
@@ -183,38 +171,14 @@
   <data name="EmailTitleWithdrawalGuidance" xml:space="preserve">
     <value>Affiliate Withdrawal Guidance</value>
   </data>
-  <data name="ExRate" xml:space="preserve">
-    <value>Ex.Rate</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Home</value>
-  </data>
-  <data name="LandingPages" xml:space="preserve">
-    <value>Landing Pages</value>
-  </data>
   <data name="Player" xml:space="preserve">
     <value>Player</value>
-  </data>
-  <data name="MessageHistory" xml:space="preserve">
-    <value>Message History</value>
   </data>
   <data name="MsgKickout" xml:space="preserve">
     <value>Another session has logged in or your session is expired. Forced to logout!</value>
   </data>
-  <data name="MyFavorite" xml:space="preserve">
-    <value>My Favorite</value>
-  </data>
   <data name="PaymentRequest" xml:space="preserve">
     <value>Payment Request</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Pending</value>
-  </data>
-  <data name="Referrers" xml:space="preserve">
-    <value>Referrers</value>
-  </data>
-  <data name="ReportDetails" xml:space="preserve">
-    <value>Report Details</value>
   </data>
   <data name="Text12BetDomains" xml:space="preserve">
     <value>12Bet Domains</value>
@@ -266,9 +230,6 @@
   </data>
   <data name="InvalidBannerSize" xml:space="preserve">
     <value>Your upload file size must be &lt;= 3 MB.&lt;br /&gt;</value>
-  </data>
-  <data name="InvalidBannerAlready" xml:space="preserve">
-    <value>The file name already exists.&lt;br /&gt;</value>
   </data>
   <data name="Casino" xml:space="preserve">
     <value>Casino</value>

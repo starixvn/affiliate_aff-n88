@@ -185,7 +185,6 @@
     <Compile Include="Constants\PaymentMethod.cs" />
     <Compile Include="Constants\Size.cs" />
     <Compile Include="Constants\TemplateString.cs" />
-    <Compile Include="Constants\UserPanelConstant.cs" />
     <Compile Include="Constants\UserType.cs" />
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Controllers\AccessDeniedController.cs" />
