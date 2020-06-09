@@ -146,6 +146,7 @@ body {
     color: $color-white;
 
     .pagesize-select {
+        outline: none;
         color: $color-white !important;
         background: $background-dark-gray !important;
         border: 1px solid $border-color-black !important;
@@ -836,6 +837,7 @@ input[type=radio][disabled] + span{
 .signup-block{
     margin-top: 32px!important;
 }
+
 //CommissionStructure
 .main .content {
     &.home-page {
@@ -916,7 +918,12 @@ input[type=radio][disabled] + span{
         padding-left: 0;
     }
 }
-#linkForm{
+#websiteInfo .btn-submit .glyphicon {
+    top: 0 !important;
+    left: 0 !important;
+}
+
+#linkForm {
     padding-left: 0;
 }
 .intro {

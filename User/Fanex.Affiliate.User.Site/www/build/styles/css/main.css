@@ -765,10 +765,12 @@ body {
 .banner-text {
   position: absolute;
   left: 208px;
-  top: 122px; }
+  top: 50%;
+  transform: translate(0, -50%);
+  max-width: 430px; }
   @media only screen and (max-width: 1023px) {
     .banner-text {
-      max-width: 300px; } }
+      max-width: 310px; } }
   .banner-text .txt-lang {
     text-transform: uppercase;
     color: #fff;
@@ -1209,10 +1211,8 @@ label.require:after {
 
 .button-block {
   padding-bottom: 20px;
-  padding-top: 20px; }
-  @media (max-width: 768px) {
-    .button-block {
-      padding-left: 15px; } }
+  padding-top: 20px;
+  padding-left: 15px; }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
   font-size: 13px;
@@ -1468,8 +1468,7 @@ input[type="radio"], input[type="checkbox"] {
 
 @media (min-width: 1280px) and (max-width: 1366px) {
   .banner-text {
-    left: 200px;
-    top: 40px; } }
+    left: 200px; } }
 
 @media (min-width: 1024px) {
   .content .news {
@@ -1496,8 +1495,7 @@ input[type="radio"], input[type="checkbox"] {
     max-width: 100%;
     flex-basis: 100%; }
   .banner-text {
-    left: 36px;
-    top: 50px; }
+    left: 36px; }
     .banner-text h2 {
       font-size: 40px; }
     .banner-text h5 {
@@ -1529,8 +1527,7 @@ input[type="radio"], input[type="checkbox"] {
     .content-menu #mainMenu::-webkit-scrollbar {
       display: none; }
   .banner-text {
-    left: 32px;
-    top: 50px; }
+    left: 32px; }
     .banner-text h2 {
       font-size: 40px; }
     .banner-text h5 {
@@ -1576,7 +1573,6 @@ input[type="radio"], input[type="checkbox"] {
         }*/ }
   .banner-text {
     left: 32px;
-    top: 20px;
     width: 160px; }
     .banner-text h2 {
       font-size: 24px; }
