@@ -529,13 +529,22 @@ label {
     .menu {
         //background: $sub-nav-bg-color;
         li:not(:last-child) {
-            border-color: $sub-border-menu; 
+            border-color: $sub-border-menu;
+        }
+
+        .parent {
+            &:hover {
+                > a {
+                    background-color: $sub-nav-menu-bg-color-active;
+                    color: $sub-nav-menu-color-active;
+                }
+            }
         }
 
         .menu-item {
             color: $sub-nav-menu-color;
             padding: 0 2rem;
-            
+
 
             &.active, &:hover {
                 background-color: $sub-nav-menu-bg-color-active;

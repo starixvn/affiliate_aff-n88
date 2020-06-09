@@ -325,6 +325,9 @@ label {
   background-color: #000000; }
   .content-menu .menu li:not(:last-child) {
     border-color: #333333; }
+  .content-menu .menu .parent:hover > a {
+    background-color: #ffffff;
+    color: #333333; }
   .content-menu .menu .menu-item {
     color: #ffffff;
     padding: 0 2rem; }
