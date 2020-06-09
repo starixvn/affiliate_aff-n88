@@ -118,6 +118,9 @@
     background-color: #282828;
     border: 1px solid #000; }
 
+.login-dialog .modal-content .login-side {
+  border-left: none; }
+
 .form-control {
   border: 1px solid #adadad; }
 
