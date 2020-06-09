@@ -48,7 +48,7 @@ body {
 
     .menu .menu-item {
         color: $nav-color;
-       padding: 0 2rem;
+       padding: 0 1rem;
 
         &:hover, &:focus, &.active {
             color: $nav-color-active;
@@ -280,22 +280,25 @@ body {
             color: #FF5757;
         }
     }
-
-    .form-control {
-        border: 1px solid $border-color-primary !important;
-        background: transparent !important;
-    }
 }
 // form-control
-.form-control {
+.form-control, .text-field {
     border: 1px solid $form-control-border-color !important;
     background: $background-dark-gray !important;
     border-color: $border-color-black !important;
     color: $color-white !important;
     font-size: 1.4rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
-label{
-    font-weight: 500!important;
+select.form-control {
+    background: $background-dark-gray url(../../Images/arrow_drop_down.png) no-repeat right 10px center / 10px auto !important;
+}
+label {
+    font-weight: 500 !important;
 }
 .custom-panel {
     background: $background-dark-gray !important;
@@ -484,12 +487,12 @@ label{
 .form {
     .form-group {
         .field {
+            border: 1px solid $form-control-border-color !important;
+            background: $background-dark-gray !important;
+            border-color: $border-color-black !important;
             color: $color-white !important;
-            border: 1px solid $border-color-primary !important;
-            background: transparent !important;
-            outline: none;
-
-          
+            font-size: 1.4rem;
+            outline: none
         }
     }
 }
@@ -850,7 +853,7 @@ input[type=radio][disabled] + span{
     border-top: 1px solid $border-content;
     padding: 0 0 10px;
     //background: $background-content;
-    margin: 0 10px 20px;
+    margin: 0 0 20px;
 }
 
 .webp .banner-commission-structure {
@@ -941,7 +944,12 @@ input[type=radio][disabled] + span{
 .p-l-0{
     padding-left: 0!important;
 }
-
+.table-responsive {
+    border: 1px solid $table-border-color;
+}
+.banner-faqs {
+    color: $color-white;
+}
 @media only screen and (max-width: 1199px ) {
 
     .banner-top {
@@ -1005,7 +1013,7 @@ input[type=radio][disabled] + span{
     .summary-content .details-section-content .table table thead tr.overview-table-header th,
     .summary-content .details-section-content .table #player-detail-table .th,
     .summary-content .details-section-content .player-detail-table table thead tr th {
-        height: 80px;
+        height: 105px;
     }
     .summary-content .details-section-content .table table thead tr.overview-table-total {
         padding: 0;

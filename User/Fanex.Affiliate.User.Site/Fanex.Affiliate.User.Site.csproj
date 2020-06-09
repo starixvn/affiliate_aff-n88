@@ -865,6 +865,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
+    <Content Include="www\build\styles\Images\arrow_drop_down.png" />
     <Content Include="www\build\styles\Images\banner-commissionctructure.jpg" />
     <Content Include="www\build\styles\Images\banner-main-left.jpg" />
     <Content Include="www\build\styles\Images\banner-main-right.jpg" />
@@ -1136,6 +1137,7 @@
     <Content Include="www\source\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\source\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\source\styles\Images\apply\n8g\3step.zh-TW.png" />
+    <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\banner-commissionctructure.jpg" />
     <Content Include="www\source\styles\Images\banner-main-left.jpg" />
     <Content Include="www\source\styles\Images\banner-main-right.jpg" />
