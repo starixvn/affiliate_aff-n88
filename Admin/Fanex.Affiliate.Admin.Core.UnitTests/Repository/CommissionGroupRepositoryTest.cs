@@ -126,6 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
+            objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(DBNull.Value);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupIns, 120)).Returns(objectDb.Object);
 
             // Action
@@ -145,6 +146,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Create Commission Group is failed!");
+            objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(1);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupIns, 120)).Returns(objectDb.Object);
 
             // Action

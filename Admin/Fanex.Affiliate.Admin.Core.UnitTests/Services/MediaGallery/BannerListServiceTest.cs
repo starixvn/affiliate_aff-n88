@@ -85,6 +85,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         }
 
         [Fact]
+        public void InsertBanner_WhenCallWithInvalidCurrency_ReturnError()
+        {
+            // Arrange
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { UserType = 1 });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Please select Currency.", result.Message);
+        }
+
+        [Fact]
         public void InsertBanner_WhenCallWithInvalidFile_ReturnError()
         {
             // Arrange
@@ -232,6 +248,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         }
 
         [Fact]
+        public void UpdateBanner_WhenCallWithInvalidCurrency_ReturnError()
+        {
+            // Arrange
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
+
+            // Action
+            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { UserType = 1 });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Please select Currency.", result.Message);
+        }
+
+        [Fact]
         public void UpdateBanner_WhenCallWithSpecialCharacter_ReturnError()
         {
             // Arrange
@@ -313,7 +345,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "CategoryMedia/abc.png" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "CategoryMedia/Players/abc.png" });
             bannerListRepository.Setup(s => s.UpdateBanner(It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 

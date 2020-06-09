@@ -209,6 +209,7 @@
     <Compile Include="Repository\MediaGallery\LandingPageRepositoryTest.cs" />
     <Compile Include="Repository\Member\ActiveMemberRepositoryTest.cs" />
     <Compile Include="Repository\Member\MemberRepositoryTest.cs" />
+    <Compile Include="Repository\CurrencyRepositoryTest.cs" />
     <Compile Include="Repository\ProductRepositoryTest.cs" />
     <Compile Include="Repository\Report\ReportRepositoryTest.cs" />
     <Compile Include="Services\Administrator\AdministratorServiceTest.cs" />
@@ -250,6 +251,8 @@
     <Compile Include="TestHelper\MockingHelper.cs" />
     <Compile Include="TestHelper\ReaderHelper.cs" />
     <Compile Include="TestHelper\SimpleLifetimeScopeProvider.cs" />
+    <Compile Include="Utilities\BannerHelperTest.cs" />
+    <Compile Include="Utilities\SiteFriendlyNameHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

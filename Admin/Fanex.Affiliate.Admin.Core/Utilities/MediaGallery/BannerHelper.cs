@@ -23,22 +23,6 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.MediaGallery
             return string.Format("{0}x{1}", width, height);
         }
 
-        public static string GeneralFolder(string category, string subCategory)
-        {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.Append("CategoryMedia/");
-            stringBuilder.Append(category);
-            stringBuilder.Append("/");
-            if (string.Equals(category, Lang.Casino, StringComparison.CurrentCultureIgnoreCase)
-                || string.Equals(category, Lang.Sportsbook, StringComparison.CurrentCultureIgnoreCase))
-            {
-                stringBuilder.Append(subCategory);
-                stringBuilder.Append("/");
-            }
-
-            return stringBuilder.ToString();
-        }
-
         public static ResultInfo CreateErrorResult()
         {
             return new ResultInfo

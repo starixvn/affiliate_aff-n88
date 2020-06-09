@@ -1,4 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
+﻿using Fanex.Affiliate.Admin.Core.DTO.Payment;
+using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
 using Fanex.Affiliate.Admin.Core.Repository.Payment;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;
@@ -115,6 +116,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
 
             // Assert
             Assert.True(result.IsSuccessful);
+        }
+
+        [Fact]
+        public void GetPaymentMethod_WhenCall_ExcuteSucceed()
+        {
+            // Arrange
+            var repository = new Mock<PaymentRequestRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+
+            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.GetParameterValue("MinAmount")).Returns(100m);
+            repository.Setup(re => re.GetObjectDb("Aff_PaymentMethod_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetPaymentMethod();
+
+            // Assert
+            objectDb.Verify(obj => obj.Query<PaymentMethodInfo>(null, null, true, 120), Times.Once);
+            Assert.Equal(100m, result.minAmount);
         }
 
         private IDictionary<string, object> GetExpectedPaymentRequestList()
