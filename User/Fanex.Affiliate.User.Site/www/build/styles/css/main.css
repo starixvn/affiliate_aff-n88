@@ -1583,7 +1583,11 @@ input[type="radio"], input[type="checkbox"] {
     .banner-text .nounderline {
       padding: 8px 24px;
       font-size: 12px;
-      margin-top: 12px; } }
+      margin-top: 12px; }
+  .login-dialog .modal-content .modal-banner {
+    text-align: center; }
+  .header-top .logo {
+    padding: 1.7rem 0; } }
 
 .login-dialog .modal-content {
   background-color: #000;
