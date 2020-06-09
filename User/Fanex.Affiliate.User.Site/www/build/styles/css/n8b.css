@@ -1,11 +1,11 @@
 ﻿body {
   color: #ffffff;
-  background: #000000;
+  background: #111111;
   font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
   font-size: 1.4rem; }
 
 .header-top {
-  background-color: #0E0E0E; }
+  background-color: #111111; }
   .header-top .logo {
     padding: 1rem 1rem 1.7rem 1rem; }
   .header-top .logo-image {
@@ -43,10 +43,9 @@
       border-left: 11px solid #FF6D3E; }
   .hot-news .message {
     color: #ffffff;
-    background: #fff;
-    background: #000000; }
+    background: #111111; }
     .hot-news .message:before {
-      border-color: #000 #fff #000 transparent; }
+      border-color: #111111 #fff #111111 transparent; }
 
 .language-container .language-list-wrapper .language-list .language-item {
   font-weight: 400; }
@@ -55,15 +54,15 @@
   color: #ffffff !important; }
 
 .page-title {
-  background: #000000;
+  background: #111111;
   margin-left: 0;
   margin-right: 0; }
   .page-title .text {
     background-color: #3391F6;
     color: #fff; }
     .page-title .text:after {
-      border-bottom: 18px solid #000000;
-      border-right: 16px solid #000000; }
+      border-bottom: 18px solid #111111;
+      border-right: 16px solid #111111; }
     .page-title .text:before {
       content: "";
       position: absolute;
@@ -73,7 +72,7 @@
       height: 0;
       border-style: solid;
       border-width: 0 0 32px 40px;
-      border-color: transparent transparent #000000 transparent;
+      border-color: transparent transparent #111111 transparent;
       z-index: 2; }
 
 .control-label {
@@ -284,7 +283,7 @@ label {
 
 .card-content {
   border: 2px solid #3391F6;
-  background-color: #111111; }
+  background-color: #222222; }
   .card-content .card-title {
     color: #3391F6;
     background-color: #000000;
@@ -322,7 +321,7 @@ label {
     border-right: 16px solid #fff; }
 
 .content-menu {
-  background-color: #000000; }
+  background-color: #111111; }
   .content-menu .menu li:not(:last-child) {
     border-color: #333333; }
   .content-menu .menu .parent:hover > a {
@@ -414,7 +413,7 @@ label {
 
 .sub-content {
   border-top: 1px solid #3391F6;
-  background: #000000; }
+  background: #111111; }
   .sub-content a {
     color: #3391F6; }
   .sub-content .page-title {
@@ -423,11 +422,11 @@ label {
     margin-left: 0;
     margin-right: 0; }
     .sub-content .page-title .text:after {
-      border-bottom: 18px solid #000000 !important;
-      border-right: 16px solid #000000 !important; }
+      border-bottom: 18px solid #111111 !important;
+      border-right: 16px solid #111111 !important; }
 
 #account-overview-content {
-  background: #000000; }
+  background: #111111; }
   #account-overview-content #dataContainerList {
     padding: 0 0 15px; }
   #account-overview-content .marketing-text {
