@@ -963,6 +963,11 @@ body {
       width: 350px; }
       .banner-terms-condition p, .banner-faqs p {
         font-size: 13px; } }
+  @media screen and (max-width: 320px) {
+    .banner-terms-condition, .banner-faqs {
+      height: 52px;
+      width: 100%;
+      padding-left: 60px; } }
 
 .banner-faqs {
   padding-left: 130px; }
@@ -972,10 +977,10 @@ body {
       padding-left: 80px; } }
   @media screen and (max-width: 375px) {
     .banner-faqs {
-      width: 280px;
-      padding-left: 80px;
+      width: 100%;
       justify-content: flex-start;
-      padding-top: 17px; } }
+      padding-top: 17px;
+      height: 55px; } }
 
 .footer {
   text-align: center;
