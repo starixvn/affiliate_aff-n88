@@ -53,7 +53,15 @@
             }
             return "";
         },
-        isN88: $("#SiteName").val() === 'n88'
+
+        isN88: $("#SiteName").val() === 'n88',
+
+        emailValidationPattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+
+        toggleErrorMessage: function ($container, isValid) {
+            $container.toggleClass("has-error", !isValid);
+            $container.find(".help-block").toggleClass("hide", isValid);
+        }
     };
 
     return _me;
