@@ -235,7 +235,6 @@
     <Compile Include="DTO\Currency.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
-    <Compile Include="DTO\Home\DepositInfo.cs" />
     <Compile Include="DTO\Home\GeneralInfo.cs" />
     <Compile Include="DTO\Home\OnlineListInfo.cs" />
     <Compile Include="DTO\MediaGallery\BannerInfo.cs" />
@@ -248,7 +247,6 @@
     <Compile Include="DTO\Customer\AffiliateInfoOnLeftPanel.cs" />
     <Compile Include="DTO\Customer\CustomerStatistics.cs" />
     <Compile Include="DTO\Customer\OnlineList.cs" />
-    <Compile Include="DTO\DepositAccountInfo.cs" />
     <Compile Include="DTO\EmailHistory\EmailHistoryDetailInfo.cs" />
     <Compile Include="DTO\EmailHistory\EmailHistoryInfo.cs" />
     <Compile Include="DTO\Email\AffInformationEmail.cs" />

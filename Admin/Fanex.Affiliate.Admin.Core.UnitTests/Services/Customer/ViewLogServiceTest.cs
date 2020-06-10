@@ -1,4 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
+﻿using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
+using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;
@@ -13,6 +14,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 {
     public class ViewLogServiceTest
     {
+        [Fact]
+        public void GetLogTypeList_WhenCall_CallCorrectMethodOfObjectDb()
+        {
+            // Arrange
+            var objectDb = new Mock<IObjectDb>();
+            var repository = new Mock<ViewLogService> { CallBase = true };
+            repository.Setup(r => r.GetObjectDb("Aff_Admin_LogType_Sel", It.IsAny<int>())).Returns(objectDb.Object);
+
+            // Action
+            repository.Object.GetLogTypeList();
+
+            // Assert
+            objectDb.Verify(obj => obj.Query<LogType>(null, null, true, 120), Times.Once);
+        }
+
         [Fact]
         public void GetViewLogList_WhenCall_ReturnCorrectData()
         {

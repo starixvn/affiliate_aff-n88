@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         {
             // Arrange
             var viewLogService = new Mock<IViewLogService>();
-            viewLogService.Setup(s => s.GetLogTypeList()).Returns(new List<LogType> { new LogType() });
+            viewLogService.Setup(s => s.GetLogTypeList()).Returns(new List<LogType> { new LogType { TypeId = 1, TypeName = "abc" } });
             var controller = CreateController(viewLogService: viewLogService.Object);
 
             // Action

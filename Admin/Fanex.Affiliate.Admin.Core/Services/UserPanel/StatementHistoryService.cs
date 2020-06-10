@@ -76,7 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 TotalItem = result.TotalItem
             };
         }
-     
+
         private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
             var children = statementHistoryList.Where(s => s.Date == monthDate)
@@ -86,13 +86,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             var monthlyTotal = new StatementHistory
             {
-                Creator = monthlyCom.Creator,
+                Creator = monthlyCom?.Creator ?? children.FirstOrDefault().Creator,
                 Amount = children.Sum(s => s.Amount),
                 Date = monthDate,
                 Children = children,
-                Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
+                Status = monthlyCom?.Status ?? children.FirstOrDefault().Status,
                 TransType = Code.MonthlyTotal,
-                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault()?.CalculatedType
+                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault().CalculatedType
             };
             return monthlyTotal;
         }

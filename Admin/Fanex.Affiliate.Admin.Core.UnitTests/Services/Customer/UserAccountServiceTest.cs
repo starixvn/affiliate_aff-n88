@@ -49,7 +49,41 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalid_ReturnError()
+        public void UpdateUserAccount_WhenCallWithValidPlayerAccount_ExcuteSuccessfully()
+        {
+            // Arrange
+            var repository = new Mock<IUserAccountRepository>();
+            repository.Setup(comm => comm.CheckPlayerUserName(It.IsAny<int>(), "123")).Returns(true);
+            repository.Setup(comm => comm.UpdateUserAccount(It.IsAny<UserAccountParam>())).Returns(new ResultInfo());
+            var service = CreateUserAccountService(repository.Object);
+
+            // Action
+            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+        }
+
+        [Fact]
+        public void UpdateUserAccount_WhenCallWithInvalidPlayerAccount_ReturnError()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(ap => ap.SiteFriendlyName).Returns("N88");
+            var repository = new Mock<IUserAccountRepository>();
+            repository.Setup(comm => comm.CheckPlayerUserName(It.IsAny<int>(), "123")).Returns(false);
+            var service = CreateUserAccountService(repository.Object, appSetting.Object);
+
+            // Action
+            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("N88 User Name is invalid!.", result.Message);
+        }
+
+        [Fact]
+        public void UpdateUserAccount_WhenCallWithInvalidNoSiteDescription_ReturnError()
         {
             // Arrange
             var service = CreateUserAccountService();
@@ -60,6 +94,34 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Assert
             Assert.False(result.IsSuccessful);
             Assert.Equal("Please describe how you would like to promote  if you don't have the URL is required", result.Message);
+        }
+
+        [Fact]
+        public void UpdateUserAccount_WhenCallWithInvalidSiteUrl_ReturnError()
+        {
+            // Arrange
+            var service = CreateUserAccountService();
+
+            // Action
+            var result = service.UpdateUserAccount(new UserAccountParam { HasWebSite = true });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Website URL is required", result.Message);
+        }
+
+        [Fact]
+        public void UpdateUserAccount_WhenCallWithInvalidPaymentMethod_ReturnError()
+        {
+            // Arrange
+            var service = CreateUserAccountService();
+
+            // Action
+            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Wire", NoSiteDescription = "abc" });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Update is failed!", result.Message);
         }
 
         private static UserAccountService CreateUserAccountService(

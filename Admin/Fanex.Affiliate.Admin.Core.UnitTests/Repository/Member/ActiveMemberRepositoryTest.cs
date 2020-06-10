@@ -156,7 +156,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Setup(re => re.GetObjectDb("Aff_WriteLog", 120)).Returns(objectDb.Object);
 
             // Action
-            repository.Object.WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully(new ActiveMemberParam(), 123);
+            repository.Object.WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully(new ActiveMemberParam { UserNames = "ABC" }, 123);
 
             // Assert
         }

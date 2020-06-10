@@ -267,7 +267,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void UpdateBanner_WhenCallWithSpecialCharacter_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc*.png", Currencies = "USD" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc*.png", Currencies = "USD", UserType = 2 };
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
             var systemFile = new Mock<ISystemFile>();
@@ -279,6 +279,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
 
             // Assert
             Assert.False(result.IsSuccessful);
+            Assert.Equal("Sub-Affiliate", param.Folder);
             Assert.Equal("A File Name can't contain any of the following characters: \\/:*?\"<>|#%&+", result.Message);
         }
 
@@ -296,6 +297,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
 
             // Assert
             Assert.False(result.IsSuccessful);
+            Assert.Equal("Players", param.Folder);
             Assert.Equal("Sorry! We just support these file types : .jpg, .gif, .png, .jpeg<br />", result.Message);
         }
 

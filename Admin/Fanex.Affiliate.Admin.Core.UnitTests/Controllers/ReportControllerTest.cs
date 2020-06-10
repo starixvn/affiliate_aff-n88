@@ -26,6 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             productRepository.Setup(s => s.GetProductList()).Returns(new List<Product> { new Product()});
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(s => s.GetLanguageList()).Returns(new List<Language> { new Language() });
+            var currencyRepository = new Mock<ICurrencyRepository>();
+            currencyRepository.Setup(s => s.GetCurrencies()).Returns(new List<Currency> { new Currency { ExchangeId = 123, Code = "ABC" }});
             var controller = CreateReportController(productRepository: productRepository.Object, languageService: languageService.Object);
 
             // Action

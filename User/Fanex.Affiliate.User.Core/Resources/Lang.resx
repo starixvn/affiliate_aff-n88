@@ -2228,8 +2228,8 @@
   <data name="Commission" xml:space="preserve">
     <value>Revenue Share</value>
   </data>
-  <data name="BalanceBroughtFoward" xml:space="preserve">
-    <value>Balance Brought Foward</value>
+  <data name="BalanceBroughtForward" xml:space="preserve">
+    <value>Balance Brought Forward</value>
   </data>
   <data name="TotalTurnover" xml:space="preserve">
     <value>Total Turnover</value>

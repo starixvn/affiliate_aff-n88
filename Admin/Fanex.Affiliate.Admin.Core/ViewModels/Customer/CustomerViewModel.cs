@@ -11,9 +11,9 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.Customer
 
         public IEnumerable<Product> ProductList { get; set; }
 
-        public IEnumerable<BaseCurrency> CurrencyList { get; set; }
+        public IEnumerable<Currency> CurrencyList { get; set; }
 
-        public IEnumerable<BaseCurrency> BaseCurrencyList { get; set; }
+        public IEnumerable<Currency> BaseCurrencyList { get; set; }
 
         public IEnumerable<AffTypeInfo> AffTypeList { get; set; }
     }
