@@ -765,7 +765,7 @@ body {
   left: 208px;
   top: 50%;
   transform: translate(0, -50%);
-  max-width: 430px; }
+  max-width: 650px; }
   @media only screen and (max-width: 1023px) {
     .banner-text {
       max-width: 310px; } }
@@ -1535,9 +1535,9 @@ input[type="radio"], input[type="checkbox"] {
   .banner-text {
     left: 32px; }
     .banner-text h2 {
-      font-size: 40px; }
+      font-size: 24px; }
     .banner-text h5 {
-      font-size: 20px; }
+      font-size: 14px; }
     .banner-text .nounderline {
       margin-top: 20px;
       padding: 12px 36px; } }
