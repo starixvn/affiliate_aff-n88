@@ -1,6 +1,5 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 
 import configureMockStore from 'redux-mock-store';
@@ -18,7 +17,7 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setSelectedDomain', type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 }},
+    { name: 'setSelectedDomain', type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' }
 ];
@@ -40,12 +39,12 @@ describe('domain actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: expectedResponse.data },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: expectedResponse.data },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](false)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/GetDomainList', { isAffDomain: false });
@@ -57,12 +56,12 @@ describe('domain actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: [] },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: [] },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](false)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/GetDomainList', { isAffDomain: false });
@@ -93,7 +92,7 @@ describe('domain actions', () => {
             DomainName: "abc.com",
             IsAffDomain: false
         };
-        
+
         const result = await actions['insertDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/InsertDomain', param);
@@ -123,7 +122,7 @@ describe('domain actions', () => {
             DomainName: "abc.com",
             IsAffDomain: false
         };
-        
+
         const result = await actions['updateDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/UpdateDomain', param);
@@ -151,7 +150,7 @@ describe('domain actions', () => {
             DomainId: 123,
             IsAffDomain: false
         };
-        
+
         const result = await actions['deleteDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/DeleteDomain', param);

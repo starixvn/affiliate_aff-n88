@@ -13,7 +13,7 @@ describe('adjustment actions', () => {
         const param = {
             affId: 1271808
         }
-        
+
         const result = await getBalanceBroughtForward(param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Adjustment/GetBalanceBroughtForward', param);
@@ -35,7 +35,7 @@ describe('adjustment actions', () => {
 
     it('should create action to handleSubmit with correct parameter', async () => {
         const expectedResponse = {
-            data: { IsSuccessful: true, Message: ''},
+            data: { IsSuccessful: true, Message: '' },
             status: 200
         };
 
@@ -46,7 +46,7 @@ describe('adjustment actions', () => {
             amount: 100,
             content: ''
         }
-        
+
         const result = await handleSubmit(param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Adjustment/InsertAdjustment', param);

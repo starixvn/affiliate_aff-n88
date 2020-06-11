@@ -12,7 +12,7 @@ export const setParam = (data) => {
     }
 }
 
-export const fetchData = (param) => async() => {
+export const fetchData = (param) => async () => {
     const url = 'Portal/UserPanel/StatementHistory/GetDailyEarningDetail';
     const response = await post(url, param);
 

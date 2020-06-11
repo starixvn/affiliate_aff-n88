@@ -246,7 +246,7 @@ describe('MultipleSelect ', () => {
                 { key: "RC", value: "Value RC", checked: true }
             ];
 
-            const props = Object.assign({}, defaultProps, {dataSource});
+            const props = Object.assign({}, defaultProps, { dataSource });
 
             const component = renderer.create(<MultipleSelect {...props} />);
             const instance = component.getInstance();

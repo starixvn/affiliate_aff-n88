@@ -20,8 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 {
     public class CommGroupAssignmentServiceTest
     {
-        private IDependencyResolver _originalResolver;
-        private ILifetimeScopeProvider _scopeProvider;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void GetNormalCommGroupList_WhenCall_ReturnCorrectData()
@@ -103,9 +102,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = new AssignGroupParam();
@@ -123,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             emailService.Setup(e => e.SendApprovedEmail(It.IsAny<AffInformationEmail>()));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, emailService.Object);
-            
+
             // Action
             var result = service.AssignGroup(param, affInfo, emailParam);
 
@@ -268,9 +266,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = CreateValidCreateUpdateCommissionGroupParam();

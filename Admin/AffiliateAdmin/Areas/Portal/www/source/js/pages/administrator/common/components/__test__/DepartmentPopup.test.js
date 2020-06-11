@@ -116,7 +116,7 @@ describe('administrator - common - components - DepartmentPopup ', () => {
 
         wrapper.instance().handleSetParam({ userName: '' });
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ param: { groupId: 120, userName: '' }});
+        expect(wrapper.setState).toHaveBeenCalledWith({ param: { groupId: 120, userName: '' } });
     });
 
     it('handleFetchData - should call getData', () => {
@@ -130,7 +130,7 @@ describe('administrator - common - components - DepartmentPopup ', () => {
     });
 
     it('getData - should call fetchData and setState', async () => {
-        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(() => expectResult) }) 
+        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(() => expectResult) })
         const wrapper = shallow(<DepartmentPopup {...props} />);
         wrapper.setState = jest.fn();
 

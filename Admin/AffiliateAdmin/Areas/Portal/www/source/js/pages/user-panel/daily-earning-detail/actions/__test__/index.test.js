@@ -21,7 +21,7 @@ describe('daily earning detail actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         BankingFee: 0,
@@ -65,7 +65,7 @@ describe('daily earning detail actions', () => {
             monthDate: "06 January 2019",
             productId: 0
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/StatementHistory/GetDailyEarningDetail', param);

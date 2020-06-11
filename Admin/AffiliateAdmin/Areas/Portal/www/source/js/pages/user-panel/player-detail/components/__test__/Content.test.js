@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('players detail - components - Content', () => {
-    const param = {productId: 0, monthDate: "11/1/2019"};
+    const param = { productId: 0, monthDate: "11/1/2019" };
     const gridData = [
         {
             IbcUserName: "12BETUS$02002",
@@ -46,7 +46,7 @@ describe('players detail - components - Content', () => {
 
     it('render correctly', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.setState({ data: gridData });
 
         expect(result).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('players detail - components - Content', () => {
         const newParam = Object.assign({}, defaultProps.param, { productId: 1 });
         const props = Object.assign({}, defaultProps, { param: newParam });
         const result = shallow(<Content {...props} />);
-        
+
         result.setState({ data: gridData });
 
         expect(result).toMatchSnapshot();
@@ -64,7 +64,7 @@ describe('players detail - components - Content', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.setState({ data: [] });
 
         expect(result).toMatchSnapshot();

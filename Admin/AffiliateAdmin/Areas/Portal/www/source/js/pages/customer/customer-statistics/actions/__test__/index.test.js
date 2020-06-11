@@ -21,7 +21,7 @@ describe('customer statistics actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 ActivePlayerByMonth: 0,
                 DepositByMonth: 0,
                 DepositTotal: 951.435,
@@ -50,7 +50,7 @@ describe('customer statistics actions', () => {
             affId: 1271808,
             monthDate: "07/01/2019"
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerStatistics/GetCustomerStatistics', param);

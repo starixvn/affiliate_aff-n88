@@ -126,7 +126,7 @@ export class InsertUpdateNoteForm extends PureComponent {
                                     <Col sm={9}>
                                         <Input type="textarea" className="input-required" name="noteContent" id="noteContent" rows="8"
                                             value={htmlDecode(this.state.noteContent)} onChange={this.handleChange} invalid={isClickedSubmit && !validationResult.isValid} />
-                                {validationResult.message &&
+                                        {validationResult.message &&
                                             <FormFeedback><div dangerouslySetInnerHTML={{ __html: validationResult.message }} /></FormFeedback>}
                                     </Col>
                                 </FormGroup>

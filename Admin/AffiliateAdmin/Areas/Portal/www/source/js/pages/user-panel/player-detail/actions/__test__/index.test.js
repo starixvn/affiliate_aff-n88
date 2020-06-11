@@ -64,7 +64,7 @@ describe('player detail actions', () => {
             pageSize: 20,
             productId: 0
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', param);
@@ -97,7 +97,7 @@ describe('player detail actions', () => {
             monthDate: "1/1/2019",
             productId: 0
         }
-        
+
         const result = await actions['exportExcel'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });

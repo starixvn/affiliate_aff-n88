@@ -16,7 +16,7 @@ var PageLayout = (function ($) {
             });
         },
 
-        initClock: function(){
+        initClock: function () {
             $('#clock').jclock({
                 utc: true,
                 utcOffset: -4,

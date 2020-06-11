@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Filter } from '../Filter';
 import { shallow } from 'enzyme';
-import * as ajaxRequest from '../../../../modules/ajaxRequest';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
 describe('payment request - components - Filter ', () => {
@@ -39,7 +38,7 @@ describe('payment request - components - Filter ', () => {
 
         shallow(<Filter {...props} />);
 
-        expect(props.setParam).toHaveBeenCalledWith({"FromDate": "6/26/2019", "IsFromHome": true, "IsGetAll": false, "SearchBy": 1, "Status": undefined, "ToDate": "6/27/2019", "Username": null});
+        expect(props.setParam).toHaveBeenCalledWith({ "FromDate": "6/26/2019", "IsFromHome": true, "IsGetAll": false, "SearchBy": 1, "Status": undefined, "ToDate": "6/27/2019", "Username": null });
     });
 
     it('handleSearch - should be called when click Search Button', () => {
@@ -96,7 +95,7 @@ describe('payment request - components - Filter ', () => {
     });
 
     it('handleChange - should be called when click checkbox Get All', () => {
-        const event = { target: { type: 'checkbox', name: 'isGetAll', checked: true }}
+        const event = { target: { type: 'checkbox', name: 'isGetAll', checked: true } }
         const props = Object.assign({}, defaultProps, { param })
         const wrapper = shallow(<Filter {...props} />);
         wrapper.setState = jest.fn();
@@ -107,24 +106,24 @@ describe('payment request - components - Filter ', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "6/25/2019")};
+        const monthDate = { format: jest.fn(() => "6/25/2019") };
         const props = Object.assign({}, defaultProps, { param })
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "6/25/2019", toDate: "6/27/2019" });
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "6/26/2019")};
+        const monthDate = { format: jest.fn(() => "6/26/2019") };
         const props = Object.assign({}, defaultProps, { param })
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "6/26/2019" });

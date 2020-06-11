@@ -56,7 +56,7 @@ export default class ReportExcel {
         this.columnConfigs = this._getcolumnConfigs();
     }
 
-    export () {
+    export() {
         Excel.process(() => {
             this._createReportTitle();
             this._createHeader();
@@ -195,7 +195,7 @@ export default class ReportExcel {
             field: fields.ParentAffName,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 150
-        },{
+        }, {
             field: fields.UserName,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 150

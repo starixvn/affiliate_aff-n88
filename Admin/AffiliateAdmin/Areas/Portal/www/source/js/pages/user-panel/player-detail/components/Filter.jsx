@@ -41,7 +41,7 @@ export class Filter extends PureComponent {
         })
     }
 
-    handleChangeBaseCurrency = (event) =>{
+    handleChangeBaseCurrency = (event) => {
         const selectedBaseCurrency = Number(event.target.value);
         this.setState({
             selectedBaseCurrency

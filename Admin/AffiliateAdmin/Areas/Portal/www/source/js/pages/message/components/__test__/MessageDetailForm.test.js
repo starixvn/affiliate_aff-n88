@@ -37,7 +37,7 @@ describe('message - components - MessageDetailForm ', () => {
         selectedMessageId: 37,
         param,
         defaultMessageContentList: messageContentList,
-        languages 
+        languages
     };
 
     it('render correctly with update', () => {

@@ -21,7 +21,7 @@ export const AffiliateStatistics = (props) => {
                         isUpToNow ? (
                             <span>
                                 <a href={resolveClientUrl("Portal/Affiliate?Status=Pending&IsFromHome=true")}><strong>{format(generalInfo.PendingAffiliateNumber)}</strong></a> Pending / <a href={resolveClientUrl("Portal/Affiliate?Status=Approved&IsFromHome=true")}><strong>{format(generalInfo.ApprovedAffiliateNumber)}</strong></a> Approved / <a href={resolveClientUrl("Portal/Affiliate?Status=Disapproved&IsFromHome=true")}><strong>{format(generalInfo.DisapprovedAffiliateNumber)}</strong></a> Disapproved / <a href={resolveClientUrl("Portal/Affiliate?Status=Closed&IsFromHome=true")}><strong>{format(generalInfo.ClosedAffiliateNumber)}</strong></a> Closed
-                                </span>
+                            </span>
                         ) : (
                                 <span>
                                     <strong>{format(generalInfo.PendingAffiliateMonthNumber)}</strong> Pending / <strong>{format(generalInfo.ApprovedAffiliateMonthNumber)}</strong> Approved / <strong>{format(generalInfo.DisapprovedAffiliateMonthNumber)}</strong> Disapproved / <strong>{format(generalInfo.ClosedAffiliateMonthNumber)}</strong> Closed

@@ -54,7 +54,7 @@ describe('daily earning - components - Filter', () => {
 
     it('handleSetParam - should be called when From change', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
-        
+
         wrapper.instance().handleSetParam(1);
 
         expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "May-2020", currencyId: 20 });

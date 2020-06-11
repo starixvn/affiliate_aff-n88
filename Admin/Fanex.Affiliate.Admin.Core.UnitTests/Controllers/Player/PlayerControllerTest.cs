@@ -58,6 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
             Assert.Equal(param, passedParam);
         }
 
+
         //[Fact]
         //public void DeleteMember_WhenCallWithValidParam_DeleteSuccessful()
         //{
@@ -93,6 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
         //    Assert.Equal("No member specificed!", resultInfo.Message);
         //}
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         private PlayerController CreateMemberController(
             ISessionService sessionService = null,
             IMemberService memberService = null

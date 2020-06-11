@@ -47,7 +47,7 @@ describe('payment request - components - Content ', () => {
 
     it('render correctly with have gridData', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData });
 
         expect(result).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe('payment request - components - Content ', () => {
 
     it('render correctly with have gridData is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: {} });
 
         expect(result).toMatchSnapshot();

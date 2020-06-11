@@ -200,7 +200,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.insertLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.insertLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Add Failed!");
     });
 
@@ -219,7 +219,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.insertLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.insertLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Adding has a error");
     });
 
@@ -238,7 +238,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.insertLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.insertLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Add Successfully!");
     });
 
@@ -257,7 +257,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.updateLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.updateLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Update Failed!");
     });
 
@@ -277,7 +277,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.updateLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.updateLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Updating has a error");
     });
 
@@ -297,7 +297,7 @@ describe('landing page list - components - InsertUpdateForm ', () => {
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(instance.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
-        expect(props.updateLandingPage).toHaveBeenCalledWith({"pageCode": "", "pageId": 22, "pageName": ""});
+        expect(props.updateLandingPage).toHaveBeenCalledWith({ "pageCode": "", "pageId": 22, "pageName": "" });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Update Successfully!");
     });
 

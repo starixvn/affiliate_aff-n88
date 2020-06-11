@@ -21,7 +21,7 @@ describe('sub-affiliate actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         AffId: 3,
@@ -45,7 +45,7 @@ describe('sub-affiliate actions', () => {
         const param = {
             currency: 1
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/StatementHistory/GetSubAffiliate', param);

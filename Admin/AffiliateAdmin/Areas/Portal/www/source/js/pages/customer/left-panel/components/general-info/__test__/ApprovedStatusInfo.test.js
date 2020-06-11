@@ -48,7 +48,7 @@ describe('left panel - components - general-info - ApprovedStatusInfo', () => {
     });
 
     it('toggleChangingPassword - should call setChangingPassword when button change', () => {
-        const wrapper = shallow(<ApprovedStatusInfo {...props}/>);
+        const wrapper = shallow(<ApprovedStatusInfo {...props} />);
 
         wrapper.find('Button').simulate('click', true);
 

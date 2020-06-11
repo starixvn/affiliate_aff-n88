@@ -42,7 +42,7 @@ export class MessageDetailForm extends PureComponent {
     _handleGetMessageDetail = async (selectedMessageId) => {
         const item = await this.props.getMessageDetail(selectedMessageId);
 
-        if(item) {
+        if (item) {
             const messageContentList = {};
 
             Object.keys(this.state.messageContentList).map(key => {

@@ -4,7 +4,7 @@ import { SET_AFF_COMMON_INFO } from '../actions/types';
 
 const affCommonInfo = createReducer(null, {
     [SET_AFF_COMMON_INFO](prevState, action) {
-        return {...action.data };
+        return { ...action.data };
     }
 });
 

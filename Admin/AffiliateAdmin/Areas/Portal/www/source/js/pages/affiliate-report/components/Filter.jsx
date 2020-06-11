@@ -293,9 +293,9 @@ export class Filter extends Component {
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                         <Label for="Affiliate" className="mr-sm-2">Affiliate</Label>
                         <Input type="text" name="Affiliate" id="Affiliate"
-                                    onKeyPress={this.handlePressEnter}
-                                    onChange={this.handleChangeAffiliate}
-                                    value={userName} />
+                            onKeyPress={this.handlePressEnter}
+                            onChange={this.handleChangeAffiliate}
+                            value={userName} />
                     </FormGroup>
                     {
                         baseCurrencyList && baseCurrencyList.length !== 0 &&

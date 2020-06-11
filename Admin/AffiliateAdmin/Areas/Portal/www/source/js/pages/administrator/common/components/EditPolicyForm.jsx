@@ -1,8 +1,7 @@
 ﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Table } from 'reactstrap';
-import { Button, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
+import { Table, Button, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 
 import { globalResource } from '../libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';

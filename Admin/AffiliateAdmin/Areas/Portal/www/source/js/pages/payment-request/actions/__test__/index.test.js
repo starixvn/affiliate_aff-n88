@@ -22,8 +22,9 @@ describe('payment request actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
-                MainData: [{AffName: "12BETAFF226",
+            data: {
+                MainData: [{
+                    AffName: "12BETAFF226",
                     Amount: 125,
                     CompletedDateText: "06/20/2019 22:45:23",
                     Creator: "AAwalter",
@@ -49,7 +50,7 @@ describe('payment request actions', () => {
             ToDate: "6/26/2019",
             Username: null
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/PaymentRequest/GetPaymentRequestList', param);

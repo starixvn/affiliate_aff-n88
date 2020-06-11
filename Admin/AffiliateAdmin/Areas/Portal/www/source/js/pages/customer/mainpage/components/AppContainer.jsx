@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Row, Spinner } from 'reactstrap';
+import { Row } from 'reactstrap';
 
 import AppLayout from '../../../../layouts/AppLayout';
 import LeftPanel from '../../left-panel/components/AppContainer';

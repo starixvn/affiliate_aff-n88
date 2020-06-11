@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MultipleSelectLabel from './MultipleSelectLabel'
-import MultipleSelectOptionList from './MultipleSelectOptionList'
-import OptionAll from './OptionAll'
+import MultipleSelectLabel from './MultipleSelectLabel';
+import MultipleSelectOptionList from './MultipleSelectOptionList';
+import OptionAll from './OptionAll';
 
 const KEY_NAME = "key";
 const VALUE_NAME = "value";

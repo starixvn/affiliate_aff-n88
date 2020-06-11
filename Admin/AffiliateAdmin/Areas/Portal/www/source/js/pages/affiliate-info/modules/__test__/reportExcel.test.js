@@ -6,7 +6,8 @@ describe('affiliate info - Report Excel ', () => {
     const HEADER_ROW_INDEX = 1;
     const DATA_ROW_INDEX = 2;
     const MAIN_SECTION_STYLE = 'mainSectionStyle';
-    const selectedColumnList = { Index: true,
+    const selectedColumnList = {
+        Index: true,
         Status: true,
         FirstName: true,
         LastName: true,
@@ -20,7 +21,8 @@ describe('affiliate info - Report Excel ', () => {
         Currency: true,
         PlayerUserName: true,
         PlayerCurrency: true,
-        Member: true };
+        Member: true
+    };
     const item = {
         AffId: 927841,
         UserName: "12BETAFF001",
@@ -59,15 +61,15 @@ describe('affiliate info - Report Excel ', () => {
         RegistrationDateText: "05/22/2008 06:49:00",
         ApprovalDateText: "05/22/2008 06:50:00"
     };
-    const dataHasNull = { MainData: [ itemHasNull]};
-    const data = { MainData: [ item]};
+    const dataHasNull = { MainData: [itemHasNull] };
+    const data = { MainData: [item] };
     const title = 'AFFILIATE INFO Report Excel';
     const languageList = { EN: 'English' };
 
     it('contrustor - should call _getcolumnConfigs', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         instance._getcolumnConfigs = jest.fn();
-        
+
         instance.constructor(data, title, languageList);
 
         expect(instance._getcolumnConfigs).toHaveBeenCalled();
@@ -97,7 +99,7 @@ describe('affiliate info - Report Excel ', () => {
     it('_createReportTitle - should call Excel.getCellAddress', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellAddress = jest.fn();
-        
+
         instance._createReportTitle();
 
         expect(Excel.getCellAddress).toHaveBeenCalledWith({ c: 0, r: REPORT_TITLE_ROW_INDEX });
@@ -143,12 +145,12 @@ describe('affiliate info - Report Excel ', () => {
 
     it('_createBodyData - should call _buildDataRow, Excel.getCellAddress', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
-        
+
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
 
         instance._createBodyData();
-        
+
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(17);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 2 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 2 });
@@ -161,17 +163,17 @@ describe('affiliate info - Report Excel ', () => {
         expect(instance._buildDataRow).toHaveBeenCalledTimes(17);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[0][2]).toEqual({ field: "Index", mainSectionStyle: { alignment: { horizontal: "center", vertical: "center" }}, width: 70});
+        expect(instance._buildDataRow.mock.calls[0][2]).toEqual({ field: "Index", mainSectionStyle: { alignment: { horizontal: "center", vertical: "center" } }, width: 70 });
         expect(instance._buildDataRow.mock.calls[0][3]).toBe(0);
 
         expect(instance._buildDataRow.mock.calls[1][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[1][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[1][2]).toEqual({ field: "ParentAffName", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" }}, width: 150});
+        expect(instance._buildDataRow.mock.calls[1][2]).toEqual({ field: "ParentAffName", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" } }, width: 150 });
         expect(instance._buildDataRow.mock.calls[1][3]).toBe(0);
 
         expect(instance._buildDataRow.mock.calls[16][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[16][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[16][2]).toEqual({ field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 150});
+        expect(instance._buildDataRow.mock.calls[16][2]).toEqual({ field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 150 });
         expect(instance._buildDataRow.mock.calls[16][3]).toBe(0);
     });
 
@@ -182,7 +184,7 @@ describe('affiliate info - Report Excel ', () => {
         Excel.getCellAddress = jest.fn();
 
         instance._createBodyData();
-        
+
         expect(Excel.getCellAddress).not.toHaveBeenCalled();
 
         expect(instance._buildDataRow).not.toHaveBeenCalled();
@@ -191,81 +193,81 @@ describe('affiliate info - Report Excel ', () => {
     it('_buildDataRow - should call Excel.getCellType with field Index', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "Index", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 70};
+        const columnConfig = { field: "Index", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 70 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: '1' });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: '1' });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field BalanceBF', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "BalanceBf", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "BalanceBf", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: "-4,439.00" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "-4,439.00" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field BalanceBF is Null', () => {
         const instance = new ReportExcel(dataHasNull, title, languageList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "BalanceBf", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "BalanceBf", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: "N/A" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "N/A" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field Language', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "Language", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "Language", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" }}, t: undefined, v: "English" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" } }, t: undefined, v: "English" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field Language incorrect', () => {
         const instance = new ReportExcel(dataHasNull, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "Language", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "Language", mainSectionStyle: { alignment: { horizontal: "left", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" }}, t: undefined, v: "" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" } }, t: undefined, v: "" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field Member', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: "6" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "6" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field Member is Null', () => {
         const instance = new ReportExcel(dataHasNull, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: "N/A" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "N/A" });
     });
 
     it('_buildDataRow - should call Excel.getCellType with field CommissionGroup with Null', () => {
         const instance = new ReportExcel(data, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
-        const columnConfig = { field: "CommissionGroup", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" }}, width: 200};
+        const columnConfig = { field: "CommissionGroup", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" }}, t: undefined, v: "N/A" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "N/A" });
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress', () => {
@@ -274,7 +276,7 @@ describe('affiliate info - Report Excel ', () => {
         Excel.getCellAddress = jest.fn();
 
         instance._createExcelConfig();
-        
+
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });
@@ -286,7 +288,7 @@ describe('affiliate info - Report Excel ', () => {
         Excel.getCellAddress = jest.fn();
         instance._canBindColumn = jest.fn(() => false);
         instance._createExcelConfig();
-        
+
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });

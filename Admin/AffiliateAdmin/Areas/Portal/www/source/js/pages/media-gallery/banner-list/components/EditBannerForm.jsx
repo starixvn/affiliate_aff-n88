@@ -330,7 +330,7 @@ export class EditBannerForm extends PureComponent {
             message,
             isSuccess,
             isShowMessage: true,
-        }, () => window.setTimeout(() => this._hideMessage(isSuccess), isSuccess? 3000 : 5000));
+        }, () => window.setTimeout(() => this._hideMessage(isSuccess), isSuccess ? 3000 : 5000));
 
         this.props.toggleLoader(false);
     }

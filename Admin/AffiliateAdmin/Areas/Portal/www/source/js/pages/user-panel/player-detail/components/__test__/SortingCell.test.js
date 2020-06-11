@@ -14,7 +14,7 @@ describe('players detail - components - SortingCell', () => {
 
         const result = shallow(<SortingCell {...props} />);
 
-    expect(result).toMatchSnapshot();
+        expect(result).toMatchSnapshot();
     });
 
     it('render correctly with sort DESC', () => {
@@ -43,7 +43,7 @@ describe('players detail - components - SortingCell', () => {
         const result = shallow(<SortingCell {...props} />);
 
         result.find('Button').simulate('click');
-    
+
         expect(props.handleClickHeader).toHaveBeenCalledWith('Turnover');
     });
 });

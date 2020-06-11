@@ -50,7 +50,7 @@ describe('referrers actions', () => {
             fromDate: "07/01/2016",
             toDate: "7/3/2019"
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Referrers/GetReferrersList', param);
@@ -109,7 +109,7 @@ describe('referrers actions', () => {
             selectedSiteUrl: "ha.nexdev.net",
             toDate: "7/3/2019"
         }
-        
+
         const result = await actions['fetchDetailData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Referrers/GetReferrersDetailList', param);

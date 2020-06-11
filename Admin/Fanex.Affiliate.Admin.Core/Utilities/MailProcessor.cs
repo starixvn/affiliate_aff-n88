@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Affiliate.Admin.Core.Utilities
 {
     using System.IO;
-    using Fanex.Affiliate.Admin.Core.Configurations;
     using Fanex.MailDeliver.MailClient.API;
     using MailDeliver.Model;
     using RazorEngine;

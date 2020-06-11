@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import { Table, Spinner } from 'reactstrap';
 import { rowTitle, resource } from '../modules/constants';
-import { shortedMonthNames, minMonthDate, selectedAllProduct, deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
+import { shortedMonthNames, minMonthDate, deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
 import { formatDecimalWithCurrencySymbol, format } from '../../../../modules/numberFormat';
 
 import { redirectToPlayerDetail, redirectToTrackingStatistics, redirectToReferrers } from '../../user-panel/actions';
@@ -76,7 +76,7 @@ export class Content extends PureComponent {
                 </tr>
             </thead>
         )
-                                }
+    }
 
     _renderData(monthDate, data) {
         data = data || {};

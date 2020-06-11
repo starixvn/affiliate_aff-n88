@@ -21,7 +21,7 @@ export class TasksWaitingForApproval extends PureComponent {
 
         return (
             <div className="waiting-approval">
-                <Row>                    
+                <Row>
                     <span className="home-title">Tasks waiting for approval</span>
                     <Col sm={12} className="background-gray">
                         <Col sm={3} className="text-border">

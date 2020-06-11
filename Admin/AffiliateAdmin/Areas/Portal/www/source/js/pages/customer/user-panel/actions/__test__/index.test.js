@@ -1,8 +1,8 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
 
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
@@ -34,7 +34,7 @@ describe('user panel actions', () => {
         };
         const expectedAction = [
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'dailyEarning' },
-            { type: 'USER_PANEL/DAILY_EARNING/SET_PARAM', data: param}
+            { type: 'USER_PANEL/DAILY_EARNING/SET_PARAM', data: param }
         ];
 
         const store = mockStore({ todos: [] });
@@ -50,9 +50,9 @@ describe('user panel actions', () => {
         }
         const expectedAction = [
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'dailyEarningDetail' },
-            { type: 'USER_PANEL/DAILY_EARNING_DETAIL/SET_PARAM', data: param},
+            { type: 'USER_PANEL/DAILY_EARNING_DETAIL/SET_PARAM', data: param },
         ];
-        
+
         const store = mockStore({ todos: [] });
         store.dispatch(actions['redirectToDailyEarningDetail'](param));
         expect(store.getActions()).toEqual(expectedAction)
@@ -66,9 +66,9 @@ describe('user panel actions', () => {
         }
         const expectedAction = [
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'playerDetail' },
-            { type: 'PLAYER_DETAIL/SET_PARAM', data: param},
+            { type: 'PLAYER_DETAIL/SET_PARAM', data: param },
         ];
-        
+
         const store = mockStore({ todos: [] });
         store.dispatch(actions['redirectToPlayerDetail'](param));
         expect(store.getActions()).toEqual(expectedAction);
@@ -80,9 +80,9 @@ describe('user panel actions', () => {
         }
         const expectedAction = [
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'trackingStatistics' },
-            { type: 'USER_PANEL/TRACKING_STATISTICS/SET_PARAM', data: param},
+            { type: 'USER_PANEL/TRACKING_STATISTICS/SET_PARAM', data: param },
         ];
-        
+
         const store = mockStore({ todos: [] });
         store.dispatch(actions['redirectToTrackingStatistics'](param));
         expect(store.getActions()).toEqual(expectedAction)
@@ -97,9 +97,9 @@ describe('user panel actions', () => {
         }
         const expectedAction = [
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'clickStatistics' },
-            { type: 'SET_PARAM', data: param},
+            { type: 'SET_PARAM', data: param },
         ];
-        
+
         const store = mockStore({ todos: [] });
         store.dispatch(actions['redirectToReferrers'](param));
         expect(store.getActions()).toEqual(expectedAction);

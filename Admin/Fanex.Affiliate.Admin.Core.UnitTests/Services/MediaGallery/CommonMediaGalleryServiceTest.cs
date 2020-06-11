@@ -109,14 +109,5 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
                 ["Currency"] = "USD"
             };
         }
-
-        private IDictionary<string, object> GetImageTypeList()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["TypeId"] = 123,
-                ["Type"] = "Image"
-            };
-        }
     }
 }

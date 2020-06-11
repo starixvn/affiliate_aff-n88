@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('customer member - components - Content', () => {
-    const param ={
+    const param = {
         affId: 1271808,
         monthDate: "18 May 2020"
     };
@@ -46,7 +46,7 @@ describe('customer member - components - Content', () => {
         const pagingOption = Object.assign({}, defaultProps.pagingOption, { TotalItem: 2 });
         const props = Object.assign({}, defaultProps, { pagingOption });
         const result = shallow(<Content {...props} />);
-        
+
         result.instance().setState({ gridData, total });
 
         expect(result).toMatchSnapshot();

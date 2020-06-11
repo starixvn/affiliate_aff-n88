@@ -3,7 +3,7 @@
 import createReducer from '../../../modules/createReducer';
 import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
-import { defaultGeneralInfo, defaultDepositInfo} from '../libs/constants';
+import { defaultGeneralInfo } from '../libs/constants';
 import { SET_ONLINE_LIST, SET_GENERAL_INFO } from '../actions/types';
 
 export const onlineList = createReducer([], {

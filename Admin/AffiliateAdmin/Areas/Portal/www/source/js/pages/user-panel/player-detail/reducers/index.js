@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_PRODUCT_LIST, SET_PARAM, SET_SORTING_COLUMN } from '../actions/types';
+import { SET_PARAM, SET_SORTING_COLUMN } from '../actions/types';
 import createReducer from '../../../../modules/createReducer';
 
 import { pagingOption } from '../../../../reducers/pagingReducer';

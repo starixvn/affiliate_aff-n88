@@ -1,8 +1,6 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
-import { getDomainList } from '../../../domain/actions/index';
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -19,10 +17,10 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setSelectedDomain', type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 }},
+    { name: 'setSelectedDomain', type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' },
-    { name: 'setSelectedMarket', type: types.SET_SELECTED_MARKET, data: { marketId: 234 }},
+    { name: 'setSelectedMarket', type: types.SET_SELECTED_MARKET, data: { marketId: 234 } },
     { name: 'setAffDomainList', type: types.SET_AFF_DOMAIN_LIST, data: [{ domainName: "abc.com" }] },
     { name: 'setRedirectDomainList', type: types.SET_REDIRECT_DOMAIN, data: [{ domainName: "123.com" }] }
 ];
@@ -44,12 +42,12 @@ describe('domain control actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: expectedResponse.data },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: expectedResponse.data },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData']("en-GB")).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/DomainControl/GetDomainControlList', { market: "en-GB" });
@@ -61,12 +59,12 @@ describe('domain control actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: [] },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: [] },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData']("en-GB")).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/DomainControl/GetDomainControlList', { market: "en-GB" });
@@ -76,10 +74,10 @@ describe('domain control actions', () => {
 
     it('should create action to fetchDomain with insert successfully', () => {
         const expectedAction = [
-            { type: types.SET_AFF_DOMAIN_LIST , data: [] },
-            { type: types.SET_REDIRECT_DOMAIN , data: [] },
+            { type: types.SET_AFF_DOMAIN_LIST, data: [] },
+            { type: types.SET_REDIRECT_DOMAIN, data: [] },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchDomain']()).then(() => {
             expect(store.getActions()).toEqual(expectedAction)
@@ -113,7 +111,7 @@ describe('domain control actions', () => {
             RedirectDomain: 0,
             Status: true
         };
-        
+
         const result = await actions['insertDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/DomainControl/InsertDomainControl', param);
@@ -147,7 +145,7 @@ describe('domain control actions', () => {
             RedirectDomain: 24,
             Status: true
         };
-        
+
         const result = await actions['updateDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/DomainControl/UpdateDomainControl', param);
@@ -173,7 +171,7 @@ describe('domain control actions', () => {
         const param = {
             DomainId: 123456
         };
-        
+
         const result = await actions['deleteDomain'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/DomainControl/DeleteDomainControl', param);

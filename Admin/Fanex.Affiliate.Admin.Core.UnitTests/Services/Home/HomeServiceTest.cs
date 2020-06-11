@@ -143,15 +143,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
             };
         }
 
-        private IDictionary<string, object> GetDepositInfo()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["MemInProAllNum"] = 34,
-                ["MemInProMonthNum"] = 12
-            };
-        }
-
         private IDictionary<string, object> GetGeneralInfo()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)

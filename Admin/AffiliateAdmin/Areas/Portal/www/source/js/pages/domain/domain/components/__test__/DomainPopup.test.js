@@ -65,7 +65,7 @@ describe('domain - components - DomainPopup ', () => {
 
         result.find('Input[type="text"][name="domainName"]').simulate('change', event);
 
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({"domainId": 123, "domainName": "123", "isSSL": true});
+        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "123", "isSSL": true });
     });
 
     it('_handleChange should be called when change checkbox', () => {
@@ -82,7 +82,7 @@ describe('domain - components - DomainPopup ', () => {
 
         result.find('input[type="checkbox"][name="isSSL"]').simulate('change', event);
 
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({"domainId": 123, "domainName": "abc.com", "isSSL": false});
+        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "abc.com", "isSSL": false });
     });
 
     it('_handleSubmit - should be called toggleLoader and _handleShowAlert with domain is empty', async () => {

@@ -41,8 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [HttpGet]
         public ActionResult Preview(string language, string function, string format)
         {
-            var result = string.Empty;
-
+            string result;
             try
             {
                 _languageService.SetCulture(language);

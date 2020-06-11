@@ -52,7 +52,7 @@ describe('user account - components - Content', () => {
         affId: 1271808,
         affName: "N8BAFF226",
         userAccountInfo,
-        moreSiteUrlsList: [ "www.sportsbookie.com", "www.gzyyy.com", "www.123.com" ],
+        moreSiteUrlsList: ["www.sportsbookie.com", "www.gzyyy.com", "www.123.com"],
         getUserAccountInfo: jest.fn(() => userAccountInfo),
         getPaymentMethod: jest.fn(() => paymentMethod, () => paymentMethod),
         licenseeName: 'Bwing'
@@ -73,7 +73,7 @@ describe('user account - components - Content', () => {
 
     it('componentDidMount - should call getUserAccountInfo', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().componentDidMount();
 
         expect(defaultProps.getUserAccountInfo).toHaveBeenCalledWith(1271808);
@@ -81,7 +81,7 @@ describe('user account - components - Content', () => {
 
     it('handleGetMoreSiteUrls - should return correct data', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         const siteUrlList = result.instance().handleGetMoreSiteUrls(defaultProps.moreSiteUrlsList);
 
         expect(siteUrlList).toEqual('www.sportsbookie.com;www.gzyyy.com;www.123.com');
@@ -91,7 +91,7 @@ describe('user account - components - Content', () => {
         const newUserAccountInfo = Object.assign({}, userAccountInfo, { AffName: "    N8BAFF226    " });
         const props = Object.assign({}, defaultProps, { userAccountInfo: newUserAccountInfo });
         const result = shallow(<Content {...props} />);
-        
+
         const objectAfterTrim = result.instance().handleTrimObject(newUserAccountInfo);
 
         expect(objectAfterTrim).toEqual(userAccountInfo);
@@ -157,7 +157,7 @@ describe('user account - components - Content', () => {
 
     it('handleSubmit - invalid data', async () => {
         const newUserAccountInfo = Object.assign({}, userAccountInfo, { Country: 'abc', Gender: null, Email: "abc", PlayerUsername: "" });
-        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: [ "www.sportsbookie.com", "", "www.123.com" ] });
+        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: ["www.sportsbookie.com", "", "www.123.com"] });
         const result = shallow(<Content {...props} />);
         const instance = result.instance();
         instance.setState = jest.fn((obj, fn) => fn && fn());
@@ -175,7 +175,7 @@ describe('user account - components - Content', () => {
 
     it('handleSubmit - invalid Moneybookers PreferredPayment', async () => {
         const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Moneybookers', MoneybookersEmail: "" });
-        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: null  });
+        const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: null });
         const result = shallow(<Content {...props} />);
         const instance = result.instance();
         instance.setState = jest.fn((obj, fn) => fn && fn());

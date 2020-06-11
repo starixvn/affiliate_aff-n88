@@ -26,9 +26,9 @@ export const messageList = {
     BankAccountNumber: 'Bank Account Number is required',
 }
 
-export const requiredFieldList = [ 'FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode' ]
+export const requiredFieldList = ['FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode']
 
-export const requiredBankTranferList = [ 'BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber' ]
+export const requiredBankTranferList = ['BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber']
 
 export const playerMethod = 'Player';
 export const moneybookersMethod = 'Moneybookers';

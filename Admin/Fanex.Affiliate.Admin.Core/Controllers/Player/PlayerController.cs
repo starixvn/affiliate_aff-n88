@@ -13,6 +13,7 @@ using Fanex.Affiliate.Admin.Core.Extensions;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
     public class PlayerController : BaseController
     {
         private readonly IMemberService _memberService;

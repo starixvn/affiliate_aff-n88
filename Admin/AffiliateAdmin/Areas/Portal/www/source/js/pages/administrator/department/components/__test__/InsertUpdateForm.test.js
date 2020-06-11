@@ -76,7 +76,7 @@ describe('department list - components - InsertUpdateForm ', () => {
 
         result.find('Input[type="text"][name="departmentName"]').simulate('change', event);
 
-        expect(result.setState).toHaveBeenCalledWith({"departmentName": "123"});
+        expect(result.setState).toHaveBeenCalledWith({ "departmentName": "123" });
     });
 
     it('_handleChange - should call _handleShowAlert ', () => {

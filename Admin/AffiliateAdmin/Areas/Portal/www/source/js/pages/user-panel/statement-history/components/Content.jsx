@@ -141,7 +141,7 @@ export class Content extends PureComponent {
                         isTotalRow ? (
                             <Button className="p-0 th-wrapper" color="link" onClick={() => this._handleShow(dataItem.NormalizeDateText)}>
                                 <div className="icon-container">
-                                    <span className={`caret ${isExpand ? 'expand current' : 'collapsed' }`}></span>
+                                    <span className={`caret ${isExpand ? 'expand current' : 'collapsed'}`}></span>
                                 </div>
                                 <span>{dataItem.DateText}</span>
                             </Button>

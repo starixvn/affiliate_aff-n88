@@ -56,7 +56,7 @@ describe('view log - components - Filter', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "01/02/2020")};
+        const monthDate = { format: jest.fn(() => "01/02/2020") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
@@ -67,7 +67,7 @@ describe('view log - components - Filter', () => {
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "3/11/2020")};
+        const monthDate = { format: jest.fn(() => "3/11/2020") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();

@@ -1,8 +1,6 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
-import { getDepartmentList } from '../../../Department/actions/index';
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -41,9 +39,9 @@ describe('admin list actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: expectedResponse.data },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: expectedResponse.data },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
         const param = {
@@ -62,9 +60,9 @@ describe('admin list actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: [] },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: [] },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
         const param = {
@@ -100,7 +98,7 @@ describe('admin list actions', () => {
             userId: 123,
             isOpen: false
         };
-        
+
         const result = await actions['changeStatus'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Administrator/ChangeStatus', param);

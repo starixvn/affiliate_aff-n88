@@ -1,6 +1,5 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 
 import configureMockStore from 'redux-mock-store';
@@ -18,9 +17,9 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setParam', type: types.SET_PARAM, data: { Id: 123 }},
+    { name: 'setParam', type: types.SET_PARAM, data: { Id: 123 } },
     { name: 'setSelectedTextId', type: types.SET_SELECTED_TEXT_ID, data: 123456 },
-    { name: 'setCheckedTexts', type: types.SET_CHECKED_TEXTS, data: { 123456: false }},
+    { name: 'setCheckedTexts', type: types.SET_CHECKED_TEXTS, data: { 123456: false } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' }
 ];
@@ -58,11 +57,11 @@ describe('text list actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: expectedResponse.data.MainData },
-            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 2 }},
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
-            { type: types.SET_CHECKED_TEXTS , data: { 2438: false, 2437: false } },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: expectedResponse.data.MainData },
+            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 2 } },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
+            { type: types.SET_CHECKED_TEXTS, data: { 2438: false, 2437: false } },
             { type: 'TOGGLE_LOADER', data: false },
         ];
         const param = {
@@ -73,7 +72,7 @@ describe('text list actions', () => {
             deviceType: 0,
             language: ""
         }
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](param)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/GetTextList', param);
@@ -85,11 +84,11 @@ describe('text list actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: [] },
-            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 0 }},
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
-            { type: types.SET_CHECKED_TEXTS , data: {} },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: [] },
+            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 0 } },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
+            { type: types.SET_CHECKED_TEXTS, data: {} },
             { type: 'TOGGLE_LOADER', data: false },
         ];
         const param = {
@@ -100,7 +99,7 @@ describe('text list actions', () => {
             deviceType: 0,
             language: "English"
         }
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](param)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/GetTextList', param);
@@ -109,14 +108,16 @@ describe('text list actions', () => {
     })
 
     it('should create action to getTextDetail with correct parameter', async () => {
-        const expectedResponse = { data: {
-            Category: "Basketball",
-            Currency: "EURO",
-            DeviceType: 1,
-            Language: "Japanese",
-            TextContent: "anna 02",
-            TextId: 2437
-        }, status: 200 };
+        const expectedResponse = {
+            data: {
+                Category: "Basketball",
+                Currency: "EURO",
+                DeviceType: 1,
+                Language: "Japanese",
+                TextContent: "anna 02",
+                TextId: 2437
+            }, status: 200
+        };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const selectedTextId = 2437;
 
@@ -130,7 +131,7 @@ describe('text list actions', () => {
     it('should create action to getTextDetail with incorrect parameter', async () => {
         ajaxRequest.post = jest.fn();
         const selectedTextId = 123456;
-        
+
         const result = await actions['getTextDetail'](selectedTextId)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/GetTextDetail', { selectedTextId: 123456 });
@@ -166,7 +167,7 @@ describe('text list actions', () => {
             language: "Japanese",
             textContent: ""
         };
-        
+
         const result = await actions['insertText'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/insertText', param);
@@ -202,7 +203,7 @@ describe('text list actions', () => {
             TextContent: "",
             TextId: 2437
         };
-        
+
         const result = await actions['updateText'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/UpdateText', param);
@@ -224,7 +225,7 @@ describe('text list actions', () => {
     it('should create action to deleteTexts with incorrect parameter', async () => {
         ajaxRequest.post = jest.fn();
         const textIdList = '123456';
-        
+
         const result = await actions['deleteTexts']({ textIdList })();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/DeleteTexts', { textIdList });

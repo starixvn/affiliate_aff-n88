@@ -1,5 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.DTO;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Repository.Member;
@@ -27,6 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
             // Assert
             Assert.Single(result.MainData);
         }
+
 
         //[Fact]
         //public void DeleteMember_WhenCall_ReturnCorrectData()
@@ -62,6 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
         //    Assert.Equal("Delete Member is failed", result.Message);
         //}
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         private static MemberService CreateMemberService(IMemberRepository memberRepository = null)
         {
             var fakeMemberRepository = memberRepository ?? Mock.Of<IMemberRepository>();

@@ -24,8 +24,8 @@ export const currencyList = createReducer(null, {});
 export const affTypeList = createReducer(null, {});
 export const defaultLanguage = createReducer(null, {});
 export const deviceTypeList = createReducer([
-    {   key: 0, name: "PC / Laptop", checked: true },
-    {   key: 1, name: "Mobile", checked: true }
+    { key: 0, name: "PC / Laptop", checked: true },
+    { key: 1, name: "Mobile", checked: true }
 ], {});
 
 export const sizeList = createReducer(null, {

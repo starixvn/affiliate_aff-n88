@@ -13,7 +13,7 @@ const newProductList = productList.map(p => {
 })
 
 const language = {};
-for(let i = 0; i < languageList.length; i++){
+for (let i = 0; i < languageList.length; i++) {
     const languageItem = languageList[i];
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }

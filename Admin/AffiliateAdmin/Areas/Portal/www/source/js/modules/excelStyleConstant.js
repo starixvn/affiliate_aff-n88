@@ -70,17 +70,20 @@ const bodyDecimalStyle = {
 export const bodyCellStyle = {
     rowspan: bodyTextStyle,
     center: {
-        alignment: {...bodyTextStyle.alignment,
+        alignment: {
+            ...bodyTextStyle.alignment,
             horizontal: "center"
         }
     },
     left: {
-        alignment: {...bodyTextStyle.alignment,
+        alignment: {
+            ...bodyTextStyle.alignment,
             horizontal: "left"
         }
     },
     right: {
-        alignment: {...bodyTextStyle.alignment,
+        alignment: {
+            ...bodyTextStyle.alignment,
             horizontal: "right"
         }
     },
@@ -88,7 +91,8 @@ export const bodyCellStyle = {
         numFmt: "#,##0"
     },
     decimal: bodyDecimalStyle,
-    negativeDecimal: {...bodyDecimalStyle,
+    negativeDecimal: {
+        ...bodyDecimalStyle,
         font: {
             color: {
                 rgb: "FF0000"
@@ -111,34 +115,40 @@ const totalTextStyle = {
         }
     }
 };
-const totalDecimalStyle = {...totalTextStyle,
+const totalDecimalStyle = {
+    ...totalTextStyle,
     numFmt: "#,##0.00"
 };
 export const totalCellStyle = {
     default: totalTextStyle,
-    rowspan: {...totalTextStyle,
+    rowspan: {
+        ...totalTextStyle,
         alignment: {
             horizontal: "center",
             vertical: "center"
         }
     },
-    center: {...totalTextStyle,
+    center: {
+        ...totalTextStyle,
         alignment: {
             vertical: "center",
             horizontal: "center"
         }
     },
-    right: {...totalTextStyle,
+    right: {
+        ...totalTextStyle,
         alignment: {
             vertical: "center",
             horizontal: "right"
         }
     },
-    number: {...totalTextStyle,
+    number: {
+        ...totalTextStyle,
         numFmt: "#,##0"
     },
     decimal: totalDecimalStyle,
-    negativeDecimal: {...totalDecimalStyle,
+    negativeDecimal: {
+        ...totalDecimalStyle,
         font: {
             bold: true,
             color: {

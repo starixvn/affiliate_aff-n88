@@ -22,7 +22,7 @@ describe('Adjustment - components - Content', () => {
 
     it('render correctly with isValidAmount is true', () => {
         const result = shallow(<Content {...defaultProps} />);
-        result.setState({ amount: '123456'});
+        result.setState({ amount: '123456' });
 
         expect(result).toMatchSnapshot();
     });

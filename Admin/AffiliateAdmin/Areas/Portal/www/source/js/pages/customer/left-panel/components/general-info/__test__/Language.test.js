@@ -87,7 +87,7 @@ describe('left panel - components - general-info - Language', () => {
         wrapper.setState({ isChangingLanguage: true });
         wrapper.setState = jest.fn();
 
-        wrapper.find('select').simulate('change', { target: { value: 'en-US' }});
+        wrapper.find('select').simulate('change', { target: { value: 'en-US' } });
 
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to change language for this affiliate?", isConfirmPopup: true, preferredLanguage: 'en-US' });
     });
@@ -125,7 +125,7 @@ describe('left panel - components - general-info - Language', () => {
 
     it('handleCloseNotificationPopup - should call setState and _changeLanguage', async () => {
         const wrapper = shallow(<Language {...defaultProps} />);
-        wrapper.setState({ preferredLanguage: 'en-US'});
+        wrapper.setState({ preferredLanguage: 'en-US' });
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
         instance._changeLanguage = jest.fn();

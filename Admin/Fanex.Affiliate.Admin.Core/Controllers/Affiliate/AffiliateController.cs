@@ -66,8 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [ValidateAntiForgeryHeader]
         public ActionResult GetAffiliateList(AffiliateInfoParam param)
         {
-            int affId;
-            if (int.TryParse(param.AffId, out affId) || string.IsNullOrEmpty(param.AffId))
+            if (int.TryParse(param.AffId, out int affId) || string.IsNullOrEmpty(param.AffId))
             {
                 param.AffIdNumber = affId;
                 param.UserId = SessionService.UserId;

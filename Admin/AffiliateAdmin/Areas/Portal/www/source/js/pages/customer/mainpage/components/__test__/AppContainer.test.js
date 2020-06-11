@@ -13,14 +13,14 @@ describe('customer - mainpage - components - AppContainer', () => {
     }
 
     it('Should render correctly with status pending', () => {
-        const wrapper = shallow(<AppContainer {...defaultProps}/>);
+        const wrapper = shallow(<AppContainer {...defaultProps} />);
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('Should render correctly with status approved', async () => {
         const props = Object.assign({}, defaultProps, { affId: 1271808, status: 'Approved' })
-        const wrapper = shallow(<AppContainer {...props}/>);
+        const wrapper = shallow(<AppContainer {...props} />);
 
         await CustomerStatistics;
 

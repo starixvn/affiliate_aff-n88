@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import axios from 'axios';
-import SuggestionList from './SuggestionList'
+import SuggestionList from './SuggestionList';
 
 const DELAY_TIME_MILLISECOND = 300;
 

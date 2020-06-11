@@ -20,7 +20,7 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText, isInserting } = this.props;
+        const { data, handleClick, btnText } = this.props;
 
         const { productList, commission } = data;
         const isValid = productList.filter(p => !p.Checked).length < productList.length;

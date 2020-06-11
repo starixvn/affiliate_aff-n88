@@ -3,8 +3,8 @@ import * as types from '../types';
 import { defaultPagingOption } from '../../../../modules/constants';
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
 
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)

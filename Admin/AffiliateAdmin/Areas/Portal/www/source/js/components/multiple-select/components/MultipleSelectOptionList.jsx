@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Option from './Option'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Option from './Option';
 
 const MultipleSelectOptionList = (props) => {
     const { dataSource, onChange, id } = props;

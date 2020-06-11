@@ -19,6 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Email
 
         public bool IsHtml { get; set; }
 
+        [SuppressMessage("Minor Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>")]
         public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }

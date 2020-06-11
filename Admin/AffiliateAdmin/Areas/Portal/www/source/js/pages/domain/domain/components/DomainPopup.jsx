@@ -39,7 +39,7 @@ export class DomainPopup extends PureComponent {
 
         const { selectedDomain, isAffDomain } = this.props;
 
-        if(selectedDomain.domainName) {
+        if (selectedDomain.domainName) {
             const { isInsert } = this.state;
             const domainInfo = Object.assign({}, selectedDomain, { isAffDomain })
             const message = isInsert ? "Add Successfully!" : "Update Successfully!";

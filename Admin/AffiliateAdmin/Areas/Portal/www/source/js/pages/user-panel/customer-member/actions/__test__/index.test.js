@@ -21,7 +21,7 @@ describe('customer member actions', () => {
 
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         CurrencyName: "GBP",
@@ -59,7 +59,7 @@ describe('customer member actions', () => {
             pageSize: 20,
             toDate: "7/2/2019"
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/CustomerMember/GetCustomerMember', param);

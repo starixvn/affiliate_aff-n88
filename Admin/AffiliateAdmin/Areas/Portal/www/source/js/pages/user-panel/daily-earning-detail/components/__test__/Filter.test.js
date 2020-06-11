@@ -86,7 +86,7 @@ describe('daily earning detail - components - Filter', () => {
     it('handleSetParam - should be called when From change', () => {
         const props = Object.assign({}, defaultProps, { setParam: jest.fn() });
         const wrapper = shallow(<Filter {...props} />);
-        
+
         wrapper.instance().handleSetParam(1);
 
         expect(props.setParam).toHaveBeenCalledWith({ "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "monthDate": "06 January 2019", "productId": 0 });

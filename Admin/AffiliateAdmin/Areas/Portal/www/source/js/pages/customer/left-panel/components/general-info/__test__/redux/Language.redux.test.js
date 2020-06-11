@@ -1,6 +1,5 @@
 ﻿jest.mock('redux');
 jest.mock('react-redux');
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../../actions/index';
@@ -21,13 +20,13 @@ describe('left panel - Language - connect', () => {
     it('props should be mapped correctly', () => {
         const expectedResult = {
             affName: '12BETAFF226',
-            affiliateInfo : { AffId: 1271808 },
+            affiliateInfo: { AffId: 1271808 },
             languageList: { 'en-US': 'English' }
         };
 
         const state = {
-            affCommonInfo : { affName: '12BETAFF226' },
-            leftPanel: { affiliateInfo : { AffId: 1271808 } },
+            affCommonInfo: { affName: '12BETAFF226' },
+            leftPanel: { affiliateInfo: { AffId: 1271808 } },
             languageList: { 'en-US': 'English' },
             anotherProp: "Not included"
         };

@@ -1,6 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Member;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
+﻿using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.Repository.Member;
 using Fanex.Affiliate.Admin.Core.Services.Member;
 using Moq;
@@ -35,6 +33,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
             Assert.Equal("", result.MemberNotExist);
             Assert.Equal(userNames, passedParam);
         }
+
 
         //[Fact]
         //public void ActiveMember_WhenCall_ReturnCorrectData()
@@ -128,6 +127,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
         //    Assert.Equal("Deposit User Name(s) is incorrect", result.Message);
         //}
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         private static ActiveMemberService CreateActiveMemberService(IActiveMemberRepository activeMemberRepository = null)
         {
             var fakeActiveMemberRepository = activeMemberRepository ?? Mock.Of<IActiveMemberRepository>();

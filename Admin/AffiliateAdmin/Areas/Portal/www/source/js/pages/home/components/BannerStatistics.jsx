@@ -11,7 +11,7 @@ export const BannerStatistics = (props) => {
 
     return (
         <div className="banner-statistics">
-            <Row>                
+            <Row>
                 <span className="home-title">Banner Statistics</span>
             </Row>
             <Row className="background-gray border">

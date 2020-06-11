@@ -31,7 +31,7 @@ describe('user account - components - sections - EmailFormat', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }]
     };
     const defaultProps = {
         userAccountInfo,
@@ -46,7 +46,7 @@ describe('user account - components - sections - EmailFormat', () => {
 
     it('handleChange - should be called when check Plain Text Format', () => {
         const result = shallow(<EmailFormat {...defaultProps} />);
-        
+
         result.find('Input[type="radio"]').at(0).simulate('change');
 
         expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, MailOption: true });
@@ -54,7 +54,7 @@ describe('user account - components - sections - EmailFormat', () => {
 
     it('handleChange - should be called when check Html Format', () => {
         const result = shallow(<EmailFormat {...defaultProps} />);
-        
+
         result.find('Input[type="radio"]').at(1).simulate('change');
 
         expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, MailOption: false });

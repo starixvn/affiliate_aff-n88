@@ -152,10 +152,10 @@ export class GridData extends Component {
             </Button>);
         const language = languageList[dataItem.Language];
         const commissionGroup = dataItem.IsUsingPrivateCommGroup ? (
-                <Button color="link"
-                    onClick={() => this.handleEditCommGroup(dataItem.AffId, dataItem.CommissionGroup)}>
-                    {commissionGroupName}
-                </Button>) : commissionGroupName;
+            <Button color="link"
+                onClick={() => this.handleEditCommGroup(dataItem.AffId, dataItem.CommissionGroup)}>
+                {commissionGroupName}
+            </Button>) : commissionGroupName;
 
         const isFavorite = dataItem.IsFavorite
         const checkFavorite = isFavorite ? "favor-check" : "favor-uncheck";

@@ -1,9 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Resources;
-using System;
 using System.Linq;
-using System.Text;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.MediaGallery
 {

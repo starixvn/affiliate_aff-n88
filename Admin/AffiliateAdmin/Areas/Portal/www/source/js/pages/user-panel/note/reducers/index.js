@@ -17,9 +17,9 @@ export const isShowPopup = createReducer(false, {
 });
 
 const defaultNote = { noteId: 0, noteContent: '' };
-export const noteInfo = createReducer({...defaultNote }, {
+export const noteInfo = createReducer({ ...defaultNote }, {
     [SET_NOTE_INFO](prevState, action) {
-        return {...action.data };
+        return { ...action.data };
     }
 });
 

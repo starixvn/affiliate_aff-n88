@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Unactivated } from '../Unactivated';
 import { shallow, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 
 describe('active member - components - Unactivated ', () => {
     const unactivatedGridData = [

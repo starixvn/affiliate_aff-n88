@@ -1,5 +1,5 @@
-﻿import * as actions from '../index'
-import * as types from '../types'
+﻿import * as actions from '../index';
+import * as types from '../types';
 
 const runTestAction = ({ name, type, data }) => {
     it(`should create action to ${name}`, () => {

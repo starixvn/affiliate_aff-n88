@@ -2,7 +2,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
-import { Button } from 'reactstrap';
 import { NotificationPopup } from '../../../common/components/NotificationPopup';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
@@ -22,7 +21,7 @@ export class Content extends PureComponent {
 
     componentDidUpdate(prevProps) {
         const { param } = this.props;
-        if(param && param !== prevProps.param) {
+        if (param && param !== prevProps.param) {
             this.props.fetchData(param);
         }
     }

@@ -29,7 +29,7 @@ describe('customer - user-panel - components - UserPanelMenu', () => {
     }
 
     it('Should render correctly', () => {
-        const wrapper = shallow(<UserPanelMenu {...defaultProps}/>);
+        const wrapper = shallow(<UserPanelMenu {...defaultProps} />);
 
         expect(wrapper).toMatchSnapshot();
     });

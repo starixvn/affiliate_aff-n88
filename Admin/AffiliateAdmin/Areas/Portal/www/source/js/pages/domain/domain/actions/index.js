@@ -58,7 +58,7 @@ export const updateDomain = (param) => async () => {
 
 export const deleteDomain = (param) => async () => {
     const url = 'Portal/Domain/DeleteDomain';
-    const response = await post(url, param );
+    const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }

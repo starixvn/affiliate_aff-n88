@@ -59,7 +59,8 @@ describe('daily earning - components - Filter', () => {
         const props = Object.assign({}, defaultProps, {
             productList: null,
             currencyList: null,
-            baseCurrencyList: null })
+            baseCurrencyList: null
+        })
         const wrapper = await shallow(<Filter {...props} />);
 
         expect(wrapper).toMatchSnapshot();
@@ -83,7 +84,7 @@ describe('daily earning - components - Filter', () => {
 
     it('handleSetParam - should be called when From change', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
-        
+
         wrapper.instance().handleSetParam(1);
 
         expect(defaultProps.setParam).toHaveBeenCalledWith({ affId: 1271808, monthDate: "Jan-2019", productId: 0, baseCurrencyId: 20, currencyIds: '20' });

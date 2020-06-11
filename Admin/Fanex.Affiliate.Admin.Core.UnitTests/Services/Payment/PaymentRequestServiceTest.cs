@@ -19,8 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
 {
     public class PaymentRequestServiceTest
     {
-        private IDependencyResolver _originalResolver;
-        private ILifetimeScopeProvider _scopeProvider;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void GetPaymentRequestList_WhenCall_ReturnCorrectData()
@@ -117,9 +116,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
@@ -148,9 +146,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
@@ -177,11 +174,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             var controller = CreatePaymentRequestService(paymentRequestRepository: paymentRequestRepository.Object);
 
             // Action
-            var result = controller.GetPaymentMethod();
+            var (paymentMethods, minAmount) = controller.GetPaymentMethod();
 
             // Assert
-            Assert.Single(result.paymentMethods);
-            Assert.Equal(100m, result.minAmount);
+            Assert.Single(paymentMethods);
+            Assert.Equal(100m, minAmount);
         }
 
         private static PaymentRequestService CreatePaymentRequestService(

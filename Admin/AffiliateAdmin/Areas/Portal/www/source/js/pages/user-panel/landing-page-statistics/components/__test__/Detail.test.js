@@ -55,7 +55,7 @@ describe('landing page statistics - components - Detail', () => {
 
     it('render correctly with have data', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: data.MainData });
 
         expect(result).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe('landing page statistics - components - Detail', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: {} });
 
         expect(result).toMatchSnapshot();

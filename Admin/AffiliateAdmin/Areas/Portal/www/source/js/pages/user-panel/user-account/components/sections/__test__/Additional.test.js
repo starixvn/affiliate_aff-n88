@@ -31,7 +31,7 @@ describe('user account - components - sections - Additional', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }]
     };
     const defaultProps = {
         userAccountInfo,
@@ -46,9 +46,9 @@ describe('user account - components - sections - Additional', () => {
 
     it('handleChange - should call setUserAccountInfo', () => {
         const result = shallow(<Additional {...defaultProps} />);
-        
-        result.instance().handleChange({ target: { name: 'address', value: '123' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Address: '123'});
+        result.instance().handleChange({ target: { name: 'address', value: '123' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Address: '123' });
     });
 });

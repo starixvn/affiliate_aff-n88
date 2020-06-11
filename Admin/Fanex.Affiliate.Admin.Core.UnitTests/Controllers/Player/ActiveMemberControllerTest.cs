@@ -1,8 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Controllers.Player;
-using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Member;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
@@ -59,6 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
             Assert.Equal(userNames, passedParam);
         }
 
+
         //[Fact]
         //public void ActiveMember_WhenCallWithValidParam_ActiveSuccessful()
         //{
@@ -94,6 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
         //    Assert.Equal("Deposit User Name(s) is required!", resultInfo.Message);
         //}
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         private ActiveMemberController CreateActiveMemberController(
         ISessionService sessionService = null,
         IActiveMemberService activeMemberService = null

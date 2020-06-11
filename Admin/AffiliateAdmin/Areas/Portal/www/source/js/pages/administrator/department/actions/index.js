@@ -32,7 +32,7 @@ export const setGridData = (data) => {
     }
 }
 
-export const getDepartmentList = () => async() => {
+export const getDepartmentList = () => async () => {
     const url = 'Portal/Department/GetDepartmentList';
     const response = await post(url);
 

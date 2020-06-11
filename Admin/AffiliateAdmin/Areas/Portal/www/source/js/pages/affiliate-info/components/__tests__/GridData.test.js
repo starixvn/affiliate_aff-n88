@@ -217,7 +217,7 @@ describe('affiliate info - GridData ', () => {
 
         await componentInstance.saveToggleFavorite(param);
 
-        expect(componentInstance.setState).toHaveBeenCalledWith({"messageNotification": "Toggle favorite is failed!"});
+        expect(componentInstance.setState).toHaveBeenCalledWith({ "messageNotification": "Toggle favorite is failed!" });
     });
 
     it('saveToggleFavorite - not call setState with incorrect parameter', async () => {

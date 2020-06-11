@@ -15,8 +15,8 @@ describe('players detail - components - Filter', () => {
     const today = '12/26/2019';
     const affId = 1271808;
     const productList = [
-        {ProductId: 1, ProductName: "Sportsbook"},
-        {ProductId: 4, ProductName: "Number Game"}
+        { ProductId: 1, ProductName: "Sportsbook" },
+        { ProductId: 4, ProductName: "Number Game" }
     ];
     const setParam = jest.fn();
     const baseCurrencyList = [
@@ -85,7 +85,7 @@ describe('players detail - components - Filter', () => {
         const instance = wrapper.instance();
         instance.setState = jest.fn();
 
-        instance.handleChangeProduct({ target: { value: 1 }});
+        instance.handleChangeProduct({ target: { value: 1 } });
 
         expect(instance.setState).toHaveBeenCalledWith({ selectedProduct: 1 });
     });
@@ -127,7 +127,7 @@ describe('players detail - components - Filter', () => {
         expect(defaultProps.setParam).toHaveBeenCalledWith({ baseCurrencyId: 20, currencyIds: '20', "monthDate": "12/1/2019", "productId": 0 });
     });
 
-    it('handleExportExcel - should call exportExcel', async() => {
+    it('handleExportExcel - should call exportExcel', async () => {
         const props = Object.assign({}, defaultProps, { exportExcel: jest.fn() })
         const wrapper = shallow(<Filter {...props} />);
 
@@ -136,7 +136,7 @@ describe('players detail - components - Filter', () => {
         expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
     });
 
-    it('handleExportExcel - should call exportExcel, _getReportTitle and ReportExcel', async() => {
+    it('handleExportExcel - should call exportExcel, _getReportTitle and ReportExcel', async () => {
         const expectedResponse = { data: ['data 1', 'data 2'] };
         const props = Object.assign({}, defaultProps, { exportExcel: jest.fn(() => expectedResponse.data) })
         const wrapper = shallow(<Filter {...props} />);
@@ -152,7 +152,7 @@ describe('players detail - components - Filter', () => {
     it('_getReportTitle - should call handleFormatMonthPicker', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
         const instance = wrapper.instance();
-        instance.setState({ currencies: [{ Code: 'VND', ExchangeId: 0 }]});
+        instance.setState({ currencies: [{ Code: 'VND', ExchangeId: 0 }] });
         instance.handleFormatMonthPicker = jest.fn(() => "ABC");
 
         const result = instance._getReportTitle();

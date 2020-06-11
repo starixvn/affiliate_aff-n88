@@ -38,11 +38,11 @@ axios.interceptors.response.use(response => Promise.resolve(response),
 export const post = (relativeUrl, params, options) => {
     const url = resolveClientUrl(relativeUrl);
     return axios.post(url, params, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                '__RequestVerificationToken': getXsrfToken()
-            }
-        })
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            '__RequestVerificationToken': getXsrfToken()
+        }
+    })
         .then(response => response)
         .catch(err => {
             options && options.onError && options.onError(err);

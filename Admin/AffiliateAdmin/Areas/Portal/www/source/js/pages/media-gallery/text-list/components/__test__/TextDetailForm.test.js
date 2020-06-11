@@ -211,7 +211,7 @@ describe('text list - components - TextDetailForm ', () => {
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
-        instance.setState({ textContent: 'test'});
+        instance.setState({ textContent: 'test' });
         instance.setState = jest.fn();
 
         await instance._handleSubmit();
@@ -229,7 +229,7 @@ describe('text list - components - TextDetailForm ', () => {
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
-        instance.setState({ textContent: 'test'});
+        instance.setState({ textContent: 'test' });
         instance.setState = jest.fn();
 
         await instance._handleSubmit();
@@ -247,7 +247,7 @@ describe('text list - components - TextDetailForm ', () => {
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
-        instance.setState({ textContent: 'test'});
+        instance.setState({ textContent: 'test' });
         instance.setState = jest.fn();
 
         await instance._handleSubmit();

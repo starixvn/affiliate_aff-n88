@@ -21,7 +21,7 @@ describe('note - InsertUpdateNoteForm - connect', () => {
         const expectedResult = {
             pagingOption: { PageSize: 10 },
             isShowPopup: true,
-            noteInfo: { NoteId: 123},
+            noteInfo: { NoteId: 123 },
             affId: 1271808
         };
         const state = {
@@ -31,7 +31,7 @@ describe('note - InsertUpdateNoteForm - connect', () => {
             note: {
                 pagingOption: { PageSize: 10 },
                 isShowPopup: true,
-                noteInfo: { NoteId: 123}
+                noteInfo: { NoteId: 123 }
             },
             anotherProp: "Not included"
         };

@@ -1,6 +1,5 @@
 ﻿jest.mock('redux');
 jest.mock('react-redux');
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../../actions/index';
@@ -20,11 +19,11 @@ describe('left panel - CommissionPanel - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            affiliateInfo : { AffId: 1271808 }
+            affiliateInfo: { AffId: 1271808 }
         };
 
         const state = {
-            leftPanel: { affiliateInfo : { AffId: 1271808 } },
+            leftPanel: { affiliateInfo: { AffId: 1271808 } },
             anotherProp: "Not included"
         };
 

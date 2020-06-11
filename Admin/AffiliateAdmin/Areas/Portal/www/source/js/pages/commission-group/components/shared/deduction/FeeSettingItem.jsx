@@ -25,7 +25,7 @@ export default class FeeSettingItem extends React.Component {
                             <Label className="mr-sm-2">New Revenue Share </Label>
                         </FormGroup>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Input type="select" name="DeductedPercentage" className="form-control" 
+                            <Input type="select" name="DeductedPercentage" className="form-control"
                                 defaultValue={formatDecimal((data && data.DeductedPercentage) || 0)}
                                 onChange={this.handleChangeComm} style={{ width: 60 }}>
                                 {

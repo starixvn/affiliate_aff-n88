@@ -104,7 +104,7 @@ export class Content extends PureComponent {
         });
     }
 
-    _fetchPaymentMethodInfo = async () =>{
+    _fetchPaymentMethodInfo = async () => {
         const response = await this.props.getPaymentMethod();
 
         if (response) {
@@ -156,7 +156,7 @@ export class Content extends PureComponent {
                 <Row>
                     <Col xs="12" className="px-0">
                         <Section title="Payment Information">
-                            <Payment paymentMethodList={paymentMethodList} minimumPayment={minimumPayment}/>
+                            <Payment paymentMethodList={paymentMethodList} minimumPayment={minimumPayment} />
                         </Section>
                     </Col>
                 </Row>

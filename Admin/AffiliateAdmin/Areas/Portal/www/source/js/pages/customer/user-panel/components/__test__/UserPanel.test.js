@@ -14,14 +14,14 @@ describe('customer - user-panel - components - UserPanel', () => {
     }
 
     it('Should render correctly with is pending', () => {
-        const wrapper = shallow(<UserPanel {...defaultProps}/>);
+        const wrapper = shallow(<UserPanel {...defaultProps} />);
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('Should render correctly with not pending', () => {
         const props = Object.assign({}, defaultProps, { isPending: true });
-        const wrapper = shallow(<UserPanel {...props}/>);
+        const wrapper = shallow(<UserPanel {...props} />);
 
         expect(wrapper).toMatchSnapshot();
     });

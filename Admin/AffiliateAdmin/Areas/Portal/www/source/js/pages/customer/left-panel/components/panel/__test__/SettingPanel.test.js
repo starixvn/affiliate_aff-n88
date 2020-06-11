@@ -235,7 +235,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         const data = { IsSuccessful: false, Message: 'Update afftype is failed!' };
         const updateAffType = jest.fn(() => data);
         const props = Object.assign({}, defaultProps, { updateAffType });
-        const wrapper = shallow(<SettingPanel {...props}/>);
+        const wrapper = shallow(<SettingPanel {...props} />);
         wrapper.setState = jest.fn();
 
         await wrapper.find('select').at(0).simulate('change', event);
@@ -254,7 +254,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         const updateAffType = jest.fn(() => data);
         const getAffiliateInfo = jest.fn();
         const props = Object.assign({}, defaultProps, { updateAffType, getAffiliateInfo });
-        const wrapper = shallow(<SettingPanel {...props}/>);
+        const wrapper = shallow(<SettingPanel {...props} />);
         wrapper.setState = jest.fn();
 
         await wrapper.find('select').at(0).simulate('change', event);

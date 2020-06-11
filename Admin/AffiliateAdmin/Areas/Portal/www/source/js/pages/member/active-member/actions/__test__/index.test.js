@@ -34,18 +34,18 @@ describe('active member actions', () => {
     it('should create action to fetchData with correct parameter', () => {
         const expectedResponse = {
             data: {
-                    InactiveMemberList: [
-                        {
-                            UserName: 'xyl157'
-                        }
-                    ],
-                    ActivedMemeberList: [
-                        {
-                            UserName: 'xyl157'
-                        }
-                    ],
-                    MemberNotExist: ''
-                },
+                InactiveMemberList: [
+                    {
+                        UserName: 'xyl157'
+                    }
+                ],
+                ActivedMemeberList: [
+                    {
+                        UserName: 'xyl157'
+                    }
+                ],
+                MemberNotExist: ''
+            },
             status: 200
         };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));

@@ -63,7 +63,6 @@ namespace Fanex.EmailHistory.Admin.Core.UnitTests.Controllers.EmailHistory
 
             // Action
             var result = controller.GetEmailHistoryList(new EmailHistoryParam()) as JsonNetResult;
-            var entityResult = result.Data as EntityResult<EmailHistoryInfo>;
 
             // Assert
             Assert.Null(result.Data);
@@ -144,7 +143,7 @@ namespace Fanex.EmailHistory.Admin.Core.UnitTests.Controllers.EmailHistory
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeEmailHistoryService = emailHistoryService ?? Mock.Of<IEmailHistoryService>();
 
-            var controller = new EmailHistoryController(fakeSessionService, emailHistoryService);
+            var controller = new EmailHistoryController(fakeSessionService, fakeEmailHistoryService);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

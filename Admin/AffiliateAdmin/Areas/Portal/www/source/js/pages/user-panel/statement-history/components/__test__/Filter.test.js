@@ -49,26 +49,26 @@ describe('statement history - components - Filter', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "01/11/2020")};
+        const monthDate = { format: jest.fn(() => "01/11/2020") };
         const setParam = jest.fn();
         const props = Object.assign({}, defaultProps, { setParam });
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "01/11/2020", toDate: "3/12/2020" });
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "7/10/2019")};
+        const monthDate = { format: jest.fn(() => "7/10/2019") };
         const setParam = jest.fn();
         const props = Object.assign({}, defaultProps, { setParam });
         const wrapper = shallow(<Filter {...props} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "7/10/2019" });

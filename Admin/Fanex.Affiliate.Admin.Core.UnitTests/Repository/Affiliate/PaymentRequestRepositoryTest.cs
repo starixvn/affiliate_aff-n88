@@ -130,11 +130,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
             repository.Setup(re => re.GetObjectDb("Aff_PaymentMethod_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetPaymentMethod();
+            var (paymentMethods, minAmount) = repository.Object.GetPaymentMethod();
 
             // Assert
             objectDb.Verify(obj => obj.Query<PaymentMethodInfo>(null, null, true, 120), Times.Once);
-            Assert.Equal(100m, result.minAmount);
+            Assert.Equal(100m, minAmount);
         }
 
         private IDictionary<string, object> GetExpectedPaymentRequestList()

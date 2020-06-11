@@ -106,6 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
         //}
 
         [Fact]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         public void Add12BetPlayerAccountToIBC_WhenCallWithValidParam_AddSuccessfully()
         {
             // Arrange
@@ -159,6 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Object.WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully(new ActiveMemberParam { UserNames = "ABC" }, 123);
 
             // Assert
+            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         //[Fact]
@@ -199,6 +201,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
         //}
 
         [Fact]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         public void WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
         {
             // Arrange
@@ -211,6 +214,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Object.WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully(new ActiveMemberParam(), 123456);
 
             // Assert
+            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetInactivatedMemberList()
@@ -249,6 +253,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             };
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
         private IDictionary<string, object> Get12BetPlayersDepositInfo()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)

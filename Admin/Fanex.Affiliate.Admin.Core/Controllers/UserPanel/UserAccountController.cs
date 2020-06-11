@@ -6,7 +6,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
-using Fanex.Affiliate.Admin.Core.Resources;
 using Newtonsoft.Json;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;

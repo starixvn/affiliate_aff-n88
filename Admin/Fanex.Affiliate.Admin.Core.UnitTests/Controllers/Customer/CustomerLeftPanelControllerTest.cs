@@ -20,8 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 {
     public class CustomerLeftPanelControllerTest
     {
-        private IDependencyResolver _originalResolver;
-        private ILifetimeScopeProvider _scopeProvider;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void GetAffiliateInfo_WhenCallWithValidParam_ExcuteWithCorrectData()
@@ -166,9 +165,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = new UpdateStatusParam { AffId = 1271808, Status = "Approved" };

@@ -1,6 +1,5 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 
 import configureMockStore from 'redux-mock-store';
@@ -41,12 +40,12 @@ describe('department list actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: expectedResponse.data },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: expectedResponse.data },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData']()).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Department/GetDepartmentList');
@@ -58,12 +57,12 @@ describe('department list actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: types.SET_GRID_DATA , data: [] },
-            { type: types.SHOULD_RESET_SCROLL_POSITION , data: true },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: types.SET_GRID_DATA, data: [] },
+            { type: types.SHOULD_RESET_SCROLL_POSITION, data: true },
             { type: 'TOGGLE_LOADER', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData']()).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Department/GetDepartmentList');
@@ -74,12 +73,12 @@ describe('department list actions', () => {
     it('should create action to getDepartmentDetail with return correct data', async () => {
         const expectedResponse = {
             data: {
-                    DepartmentId: 123
+                DepartmentId: 123
             },
             status: 200
         };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-        
+
         const selectedDepartmentId = 123;
         const result = await actions['getDepartmentDetail'](selectedDepartmentId)();
 
@@ -87,7 +86,7 @@ describe('department list actions', () => {
 
         expect(result).toEqual(expectedResponse.data);
     })
-    ;
+        ;
     it('should create action to getDepartmentDetail with return error', async () => {
         ajaxRequest.post = jest.fn();
 
@@ -120,7 +119,7 @@ describe('department list actions', () => {
             DepartmentName: 'abc',
             Description: 'abc'
         };
-        
+
         const result = await actions['insertDepartment'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Department/InsertDepartment', param);
@@ -148,7 +147,7 @@ describe('department list actions', () => {
             DepartmentName: 'abc',
             Description: '123'
         };
-        
+
         const result = await actions['updateDepartment'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Department/UpdateDepartment', param);
@@ -174,7 +173,7 @@ describe('department list actions', () => {
         const param = {
             DepartmentId: 123456
         };
-        
+
         const result = await actions['deleteDepartment'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Department/DeleteDepartment', param);

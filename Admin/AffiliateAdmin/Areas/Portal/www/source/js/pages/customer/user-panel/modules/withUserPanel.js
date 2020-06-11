@@ -12,9 +12,9 @@ export const withUserPanel = (PageComponent, name) => {
         componentWillUnmount() {
             this.props.resetUserPanel(name);
         }
-        
+
         render() {
-            return (<PageComponent {...this.props } />);
+            return (<PageComponent {...this.props} />);
         }
     }
 

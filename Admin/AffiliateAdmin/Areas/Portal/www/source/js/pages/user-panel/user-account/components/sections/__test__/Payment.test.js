@@ -31,7 +31,7 @@ describe('user account - components - sections - Payment', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }]
     };
     const defaultProps = {
         userAccountInfo,
@@ -47,17 +47,17 @@ describe('user account - components - sections - Payment', () => {
 
     it('handleChangePaymentMethod - should call setUserAccountInfo', () => {
         const result = shallow(<Payment {...defaultProps} />);
-        
-        result.instance().handleChangePaymentMethod({ target: { value: 'Neteller' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, PreferredPayment: 'Neteller'});
+        result.instance().handleChangePaymentMethod({ target: { value: 'Neteller' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, PreferredPayment: 'Neteller' });
     });
 
     it('handleChange - should call setUserAccountInfo', () => {
         const result = shallow(<Payment {...defaultProps} />);
-        
-        result.instance().handleChange({ target: { name: 'bankName', value: '123' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, BankName: '123'});
+        result.instance().handleChange({ target: { name: 'bankName', value: '123' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, BankName: '123' });
     });
 });

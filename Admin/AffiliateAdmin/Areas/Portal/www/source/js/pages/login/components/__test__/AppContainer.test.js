@@ -106,9 +106,9 @@ describe('Login - components - AppContainer', () => {
     });
 
     it('_login - should call _validateAccount, post and _handleShowAlert', async () => {
-        const expectedResult = { data: { Message: "Wrong user name or password" }};
+        const expectedResult = { data: { Message: "Wrong user name or password" } };
         const wrapper = shallow(<AppContainer />);
-        wrapper.setState({ userName: 'abc', password: '123'});
+        wrapper.setState({ userName: 'abc', password: '123' });
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, val) => fn && fn());
 
@@ -125,9 +125,9 @@ describe('Login - components - AppContainer', () => {
     });
 
     it('_login - should call _validateAccount, post and resolveClientUrl with Portal/Home', async () => {
-        const expectedResult = { data: { IsSuccessful: true, Message: "OK" }};
+        const expectedResult = { data: { IsSuccessful: true, Message: "OK" } };
         const wrapper = shallow(<AppContainer />);
-        wrapper.setState({ userName: 'sa', password: '1234aa'});
+        wrapper.setState({ userName: 'sa', password: '1234aa' });
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, val) => fn && fn());
 
@@ -145,7 +145,7 @@ describe('Login - components - AppContainer', () => {
 
     it('_login - should call _validateAccount, post and _handleShowAlert with response is error', async () => {
         const wrapper = shallow(<AppContainer />);
-        wrapper.setState({ userName: 'sa', password: '1234aa'});
+        wrapper.setState({ userName: 'sa', password: '1234aa' });
 
         const instance = wrapper.instance();
         instance._validateAccount = jest.fn(() => true);
@@ -161,7 +161,7 @@ describe('Login - components - AppContainer', () => {
 
     it('_login - should only call _validateAccount', async () => {
         const wrapper = shallow(<AppContainer />);
-        wrapper.setState({ userName: '', password: '1234aa'});
+        wrapper.setState({ userName: '', password: '1234aa' });
 
         const instance = wrapper.instance();
         instance._validateAccount = jest.fn(() => false);

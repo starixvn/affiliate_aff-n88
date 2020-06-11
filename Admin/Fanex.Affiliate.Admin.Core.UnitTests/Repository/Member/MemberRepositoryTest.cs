@@ -144,6 +144,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Object.WriteAfterDeleteSuccefully(new DeleteMemberParam());
 
             // Assert
+            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetMemberList()

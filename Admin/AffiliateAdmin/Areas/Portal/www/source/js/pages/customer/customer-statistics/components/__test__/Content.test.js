@@ -10,7 +10,7 @@ describe('customer statistics - components - Content', () => {
         affId: 1271808
     };
 
-    const data = { 
+    const data = {
         ActivePlayerByMonth: 0,
         DepositByMonth: 0,
         DepositTotal: 951.435,
@@ -31,7 +31,7 @@ describe('customer statistics - components - Content', () => {
         WinlostTotal: -42950.0237
     }
 
-    const dataHasPlayerActive = { 
+    const dataHasPlayerActive = {
         ActivePlayerByMonth: 2,
         DepositByMonth: 0,
         DepositTotal: 951.435,
@@ -114,7 +114,7 @@ describe('customer statistics - components - Content', () => {
         expect(result).toEqual('Jun-2019');
     });
 
-    it('fetchData - should call setMonthDate, fetchData and setState', async() => {
+    it('fetchData - should call setMonthDate, fetchData and setState', async () => {
         const setMonthDate = jest.fn();
         const fetchData = jest.fn(() => data);
 

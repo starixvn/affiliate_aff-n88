@@ -5,20 +5,20 @@ import { NotificationPopup } from '../../../../common/components/NotificationPop
 
 describe('domain - components - Content ', () => {
     const gridData = [
-                    {
-                        CreatedDateText: '4/19/2018',
-                        Creator: "sa",
-                        DomainName: "bet.go.com",
-                        DomainId: 2438,
-                        IsSSL: true
-                    },
-                    {
-                        CreatedDateText: '8/1/2018',
-                        Creator: "sa",
-                        DomainName: "abc.com",
-                        DomainId: 2437,
-                        IsSSL: false
-                    }
+        {
+            CreatedDateText: '4/19/2018',
+            Creator: "sa",
+            DomainName: "bet.go.com",
+            DomainId: 2438,
+            IsSSL: true
+        },
+        {
+            CreatedDateText: '8/1/2018',
+            Creator: "sa",
+            DomainName: "abc.com",
+            DomainId: 2437,
+            IsSSL: false
+        }
     ];
 
     const defaultProps = {
