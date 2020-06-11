@@ -188,6 +188,9 @@
     .languages-item .info .language {
       border-bottom: 1px solid #e7e7e7; }
 
+.dot1, .dot2 {
+  background-color: #ffffff; }
+
 .main.after-login {
   background: #1E1F21; }
   .main.after-login .page-title {

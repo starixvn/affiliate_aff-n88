@@ -322,7 +322,10 @@ body {
         }
     }
 }
-
+//Loading
+.dot1, .dot2 {
+    background-color: $color-primary;
+}
 // After login
 
 .main.after-login {
