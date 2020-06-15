@@ -594,11 +594,19 @@ input[type=radio][disabled] + span {
 .banner-faqs {
   color: #ffffff; }
 
+.banner-product {
+  font-family: inherit; }
+
 @media only screen and (max-width: 1199px) {
   .banner-top {
     margin: 0 -160px; }
   .table-medium {
-    width: 100%; } }
+    width: 100%; }
+  .main .content {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .page-title {
+    margin-left: -10px; } }
 
 @media only screen and (max-width: 1023px) {
   #mainBanner {

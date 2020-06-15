@@ -962,6 +962,9 @@ input[type=radio][disabled] + span{
 .banner-faqs {
     color: $color-white;
 }
+.banner-product{
+    font-family: inherit;
+}
 @media only screen and (max-width: 1199px ) {
 
     .banner-top {
@@ -970,6 +973,13 @@ input[type=radio][disabled] + span{
 
     .table-medium {
         width: 100%;
+    }
+    .main .content{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .page-title{
+         margin-left: -10px;
     }
 }
 
