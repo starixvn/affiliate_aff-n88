@@ -2,6 +2,7 @@
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
 {
@@ -27,6 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
 
         public BannerParamFromHome Param { get; set; }
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string BannerRootUrl { get; set; }
     }
 }
