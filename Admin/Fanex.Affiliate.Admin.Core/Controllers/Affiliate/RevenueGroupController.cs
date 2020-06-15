@@ -15,7 +15,7 @@ using Fanex.Affiliate.Admin.Core.ViewModels;
 using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.Resources;
 
-namespace Fanex.Affiliate.Admin.Core.Controllers
+namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
     [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
     public class RevenueGroupController : BaseController
