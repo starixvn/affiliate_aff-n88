@@ -140,7 +140,10 @@ body {
         background: $group-title-border-after-color;
     }
 }
-
+// Banner product
+.banner-product.banner-product-sport .text-red {
+    left: 26px;
+}
 // Table
 .table table {
     border: 1px solid $table-border-color;

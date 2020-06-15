@@ -82,6 +82,9 @@
   .info-group .title:after {
     background: #C7C7C7; }
 
+.banner-product.banner-product-sport .text-red {
+  left: 26px; }
+
 .table table {
   border: 1px solid #000; }
   .table table tr {
