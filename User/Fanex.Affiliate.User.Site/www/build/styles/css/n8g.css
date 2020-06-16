@@ -80,6 +80,33 @@
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: none; }
 
+.banner-product.banner-product-sport .text-red {
+  left: 6rem;
+  font-size: 3.2rem; }
+  @media only screen and (max-width: 1400px) {
+    .banner-product.banner-product-sport .text-red {
+      font-size: 2.6rem; } }
+  @media only screen and (max-width: 991px) {
+    .banner-product.banner-product-sport .text-red {
+      left: 3rem;
+      font-size: 2.2rem; } }
+  @media only screen and (max-width: 768px) {
+    .banner-product.banner-product-sport .text-red {
+      left: 1rem;
+      font-size: 1.8rem; } }
+
+.banner-product.banner-product-casino .text-red {
+  font-size: 3.2rem; }
+  @media only screen and (max-width: 1400px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 2.6rem; } }
+  @media only screen and (max-width: 991px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 2.2rem; } }
+  @media only screen and (max-width: 768px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 1.6rem; } }
+
 .login-dialog .modal-header {
   background-color: #191919;
   color: #fff; }

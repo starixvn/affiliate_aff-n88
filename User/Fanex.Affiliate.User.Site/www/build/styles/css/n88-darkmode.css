@@ -83,7 +83,31 @@
     background: #C7C7C7; }
 
 .banner-product.banner-product-sport .text-red {
-  left: 26px; }
+  left: 6rem;
+  font-size: 3.2rem; }
+  @media only screen and (max-width: 1400px) {
+    .banner-product.banner-product-sport .text-red {
+      font-size: 2.6rem; } }
+  @media only screen and (max-width: 991px) {
+    .banner-product.banner-product-sport .text-red {
+      left: 3rem;
+      font-size: 2.2rem; } }
+  @media only screen and (max-width: 768px) {
+    .banner-product.banner-product-sport .text-red {
+      left: 1rem;
+      font-size: 1.8rem; } }
+
+.banner-product.banner-product-casino .text-red {
+  font-size: 3.2rem; }
+  @media only screen and (max-width: 1400px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 2.6rem; } }
+  @media only screen and (max-width: 991px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 2.2rem; } }
+  @media only screen and (max-width: 768px) {
+    .banner-product.banner-product-casino .text-red {
+      font-size: 1.6rem; } }
 
 .table table {
   border: 1px solid #000; }
