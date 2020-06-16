@@ -179,6 +179,8 @@ img.qr-code {
     margin-bottom: 3px; }
   .social-media-button-group > a {
     margin-right: 3px; }
+  .social-media-button-group .zalo-share-button {
+    cursor: pointer; }
 
 @media (max-width: 1024px) {
   .social-media-button-group {

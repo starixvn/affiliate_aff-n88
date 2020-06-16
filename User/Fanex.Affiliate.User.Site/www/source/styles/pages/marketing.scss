@@ -208,6 +208,10 @@ img.qr-code{
     & > a {
         margin-right: 3px;
     }
+
+    .zalo-share-button {
+        cursor: pointer;
+    }
 }
 
 @media (max-width: 1024px) {
