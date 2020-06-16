@@ -10,7 +10,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
 
         private const string UserIdKey = "__CustID";
         private const string OnUserIDKey = "__OnUserIDKey";
-        private const string AffIdKey = "AffId";
         private const string AffNameKey = "AffName";
 
         public int UserId
@@ -39,20 +38,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
             }
         }
 
-        public int AffId
-        {
-            get
-            {
-                var temp = HttpContext.Current.Session[AffIdKey];
-
-                return temp == null ? 0 : (int)temp;
-            }
-            set
-            {
-                HttpContext.Current.Session["AffUsername"] = value;
-            }
-        }
-
         public string AffName
         {
             get
@@ -67,7 +52,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
             }
         }
 
-        IList<UserPermission> ISessionService.UserPermissionList
+        public IList<UserPermission> UserPermissionList
         {
 
             get

@@ -108,8 +108,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             const string TemplateName = "Csd";
             var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.EnglishLanguageCode, emailParam);
 
-            
-
             var subject = string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.CsdSubject), emailParam.UserName);
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);
 

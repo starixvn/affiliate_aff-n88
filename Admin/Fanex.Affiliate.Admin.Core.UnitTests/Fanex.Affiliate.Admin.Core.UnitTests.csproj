@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\MockFile.cs" />
+    <Compile Include="Common\MockSession.cs" />
     <Compile Include="Controllers\AccessDeniedControllerTest.cs" />
     <Compile Include="Controllers\Administrator\AdministratorControllerTest.cs" />
     <Compile Include="Controllers\Administrator\DepartmentControllerTest.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Services\CommGroup\CommGroupAssignmentServiceTest.cs" />
     <Compile Include="Services\CommGroup\CommGroupCommonServiceTest.cs" />
     <Compile Include="Services\CommissionGroupServiceTest.cs" />
+    <Compile Include="Services\Common\SessionServiceTest.cs" />
     <Compile Include="Services\Customer\AdjustmentServiceTest.cs" />
     <Compile Include="Services\Customer\CustomerLeftPanelServiceTest.cs" />
     <Compile Include="Services\Customer\CustomerMemberServiceTest.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Services\Domain\DomainControlServiceTest.cs" />
     <Compile Include="Services\Domain\DomainServiceTest.cs" />
     <Compile Include="Services\EmailHistory\EmailHistoryServiceTest.cs" />
+    <Compile Include="Services\EmailServiceTest.cs" />
     <Compile Include="Services\Home\HomeServiceTest.cs" />
     <Compile Include="Services\LanguageServiceTest.cs" />
     <Compile Include="Services\ExchangeRate\ExchangeRateServiceTest.cs" />
