@@ -26,15 +26,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _emailService = emailService;
         }
 
-        public ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam)
+        public ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false)
         {
             var validInfo = _accountRepository.GetPlayerUserNameValidInfo(signUpParam.Player_UserName);
 
-            if (!validInfo.IsValid)
+            if (!isLocalEnvironment && !validInfo.IsValid)
             {
                 return new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) };
             }
-
 
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)

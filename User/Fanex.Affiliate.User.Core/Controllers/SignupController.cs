@@ -69,8 +69,9 @@
         [ValidateAntiForgeryToken]
         public ActionResult Index(UserSignUpParam param)
         {
+            var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
-            if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
+            if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
             }
@@ -121,7 +122,7 @@
                     MailTo = _appSetting.MailContact
                 };
 
-                result = _accountService.CreateAffiliate(signUpParam, emailParam);
+                result = _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
             }
             else
             {
