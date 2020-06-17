@@ -33,7 +33,8 @@ export const resource = {
     Yes: 'Yes',
     No: 'No',
     ParentAffiliate: 'Parent Affiliate',
-    SubAffiliateList: 'Sub-Affiliate List'
+    SubAffiliateList: 'Sub-Affiliate List',
+    ApprovedBy: 'Approved By'
 }
 
 export const messages = {

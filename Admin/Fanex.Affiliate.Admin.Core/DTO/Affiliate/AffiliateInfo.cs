@@ -54,5 +54,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string ApprovalDateText => ApprovalDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "N/A";
 
         public bool IsUsingPrivateCommGroup { get; set; }
+
+        public string ApprovedBy { get; set; }
     }
 }

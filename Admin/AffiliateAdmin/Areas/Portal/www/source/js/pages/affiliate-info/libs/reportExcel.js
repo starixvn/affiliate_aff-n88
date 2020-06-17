@@ -18,7 +18,7 @@ const REPORT_TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 2;
 
-const TOTAL_COLUMN = 18;
+const TOTAL_COLUMN = 19;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -38,6 +38,7 @@ const fields = {
     NoOfSubAff: 'NoOfSubAff',
     RegistrationDateText: 'RegistrationDateText',
     ApprovalDateText: 'ApprovalDateText',
+    ApprovedBy: 'ApprovedBy',
     Currency: 'Currency',
     PlayerUserName: 'PlayerUserName',
     PlayerCurrency: 'PlayerCurrency',
@@ -229,6 +230,10 @@ export default class ReportExcel {
             width: 200
         }, {
             field: fields.ApprovalDateText,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+            width: 200
+        }, {
+            field: fields.ApprovedBy,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 200
         }, {

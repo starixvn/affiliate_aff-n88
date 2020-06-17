@@ -287,6 +287,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        isDisable={false}
         keyField="columnKey"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"

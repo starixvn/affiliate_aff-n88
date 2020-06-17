@@ -251,6 +251,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Language
     </Col>
     <Col
@@ -616,6 +651,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
     </Col>
   </Row>
   <Connect(Component) />
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
   <Row
     tag="div"
   >
@@ -1023,6 +1093,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Language
     </Col>
     <Col
@@ -1397,6 +1502,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
     </Col>
   </Row>
   <Connect(Component) />
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
   <Row
     tag="div"
   >

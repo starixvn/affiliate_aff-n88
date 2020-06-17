@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { statusList, sortByList, defaultState, resource } from '../modules/constants';
+import { statusList, sortByList, defaultState, resource } from '../libs/constants';
 import { setReportTitle, setParam, setSelectedColumn, setParentAffName } from '../actions';
 import { htmlDecode } from '../../../modules/htmlHelper';
 

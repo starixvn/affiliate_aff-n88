@@ -44,6 +44,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     }
     handleClick={[Function]}
+    isDisable={false}
     isInserting={true}
     key="platformfee-0"
     onChangeCommission={[Function]}
@@ -84,6 +85,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     }
     handleClick={[Function]}
+    isDisable={false}
     isInserting={true}
     key="platformfee-1"
     onChangeCommission={[Function]}

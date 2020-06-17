@@ -145,7 +145,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["IsPrivate"] = false,
                 ["ParentAffId"] = null,
                 ["ParentAffName"] = null,
-                ["NoOfSubAff"] = 0
+                ["NoOfSubAff"] = 0,
+                ["ApprovedBy"] = "abc"
             };
         }
 
@@ -174,7 +175,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["IsPrivate"] = false,
                 ["ParentAffId"] = null,
                 ["ParentAffName"] = null,
-                ["NoOfSubAff"] = 0
+                ["NoOfSubAff"] = 0,
+                ["ApprovedBy"] = "abc"
             };
         }
     }

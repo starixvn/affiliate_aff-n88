@@ -3,8 +3,8 @@ import { Content } from '../Content';
 import { shallow } from 'enzyme';
 
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import ReportExcel from '../../modules/reportExcel';
-jest.mock('../../modules/reportExcel');
+import ReportExcel from '../../libs/reportExcel';
+jest.mock('../../libs/reportExcel');
 
 describe('affiliate info - Content ', () => {
     const mockColumnList = [

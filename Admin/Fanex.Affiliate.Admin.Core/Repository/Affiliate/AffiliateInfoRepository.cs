@@ -109,6 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
                 ParentAffName = Convert.ToString(reader["ParentAffName"]),
                 NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfSubAff"]),
+                ApprovedBy = Convert.ToString(reader["ApprovedBy"])
             };
         }
 

@@ -290,7 +290,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["NoSiteDesc"] = "tét",
                 ["Status"] = "Approved",
                 ["Phone"] = "0123456789",
-                ["IsPrivate"] = true
+                ["IsPrivate"] = true,
+                ["ApprovedBy"] = "abc"
             };
         }
 
@@ -319,7 +320,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["NoSiteDesc"] = "tét",
                 ["Status"] = "Approved",
                 ["Phone"] = "0123456789",
-                ["IsPrivate"] = true
+                ["IsPrivate"] = true,
+                ["ApprovedBy"] = "abc"
             };
         }
 

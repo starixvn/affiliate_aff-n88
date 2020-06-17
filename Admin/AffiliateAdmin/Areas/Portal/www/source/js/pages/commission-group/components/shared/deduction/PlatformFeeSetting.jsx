@@ -104,6 +104,8 @@ export class PlatformFeeSetting extends Component {
             }
         });
 
+        const isDisable = platformFeeData.length === 1;
+
         return (
             <div className="platformfee-group">
                 <p className="font-weight-bold">Platform Fee</p>
@@ -114,7 +116,7 @@ export class PlatformFeeSetting extends Component {
                         const handleClick = isFirst ? this.handleAdd : () => this.handleRemove(i);
 
                         return (
-                            <PlatformFeeItem data={item} key={`platformfee-${i}`}
+                            <PlatformFeeItem data={item} key={`platformfee-${i}`} isDisable={isDisable}
                                 onSelectProduct={(selectedItem) => this.handleSelect(i, selectedItem)}
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}

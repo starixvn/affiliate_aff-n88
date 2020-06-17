@@ -70,7 +70,7 @@ export default class CommissionGroupPopup extends PureComponent {
 
         const url = isPrivate ? resolveClientUrl(`Portal/CommGroupAssignment/AssignPrivateGroup?affId=${affId}`) : resolveClientUrl(`Portal/CommGroupAssignment/AssignGroup?affId=${affId}`);
         const size = isPrivate ? 'lg' : '';
-        const maxWidth = isPrivate ? '' : 610;
+        const maxWidth = isPrivate ? '' : 650;
 
         return (
             <div className="data-content">
@@ -83,7 +83,7 @@ export default class CommissionGroupPopup extends PureComponent {
                             isPrivate ? (<div className="modal-body-wrapper embed-responsive embed-responsive-4by3" style={{ height: 635 }}>
                                 <iframe className="embed-responsive-item" src={url}></iframe>
                             </div>) : (
-                                    <div className="modal-body-wrapper" style={{ height: 300, padding: 0 }}>
+                                    <div className="modal-body-wrapper" style={{ height: 310, padding: 0 }}>
                                         <iframe src={url} width="100%" height="100%" frameBorder="0"></iframe>
                                     </div>
                                 )

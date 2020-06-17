@@ -52,6 +52,7 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
           ]
         }
         hasAllOption={false}
+        isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"
@@ -826,6 +827,7 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
           ]
         }
         hasAllOption={false}
+        isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"

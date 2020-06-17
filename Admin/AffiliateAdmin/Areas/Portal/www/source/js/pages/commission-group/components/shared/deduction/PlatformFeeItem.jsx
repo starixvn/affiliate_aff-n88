@@ -20,7 +20,7 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText } = this.props;
+        const { data, handleClick, btnText, isDisable } = this.props;
 
         const { productList, commission } = data;
         const isValid = productList.filter(p => !p.Checked).length < productList.length;
@@ -37,7 +37,8 @@ export default class PlatformFeeItem extends React.Component {
                             hasAllOption={false}
                             maxDisplayItemCount={1}
                             noneSelectedLabel="Please Select"
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            isDisable={isDisable} />
                         <FormFeedback>At least 1 product must be selected per group</FormFeedback>
                     </div>
                 </Col>

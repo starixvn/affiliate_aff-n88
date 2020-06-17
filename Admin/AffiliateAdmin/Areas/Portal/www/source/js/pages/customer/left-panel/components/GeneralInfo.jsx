@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col, Button } from 'reactstrap';
 
-import { status, resource } from '../modules/constants';
+import { status, resource } from '../libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import Language from './general-info/Language';
 import ContactApp from './general-info/ContactApp';
@@ -59,6 +59,10 @@ export const GeneralInfo = (props) => {
                 <Col sm={7} className='text-right'>{affiliateInfo.Phone}</Col>
             </Row>
             <ContactApp />
+            <Row>
+                <Col sm={5}>{resource.ApprovedBy}</Col>
+                <Col sm={7} className='text-right'>{htmlDecode(affiliateInfo.ApprovedBy)}</Col>
+            </Row>
             <Row>
                 <Col sm={5}>{resource.Language}</Col>
                 <Col sm={7} className='text-right text-primary'><Language /></Col>

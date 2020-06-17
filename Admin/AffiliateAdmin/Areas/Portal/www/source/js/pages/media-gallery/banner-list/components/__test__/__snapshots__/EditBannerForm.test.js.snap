@@ -294,6 +294,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -356,6 +357,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -472,6 +474,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -532,6 +535,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -592,6 +596,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -979,6 +984,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1041,6 +1047,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1157,6 +1164,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1217,6 +1225,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1277,6 +1286,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1592,6 +1602,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1648,6 +1659,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1764,6 +1776,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1824,6 +1837,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"
@@ -1884,6 +1898,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
                   noneSelectedLabel="Please Select"

@@ -6,10 +6,10 @@ import { toggleLoader } from '../../../actions/loaderAction';
 import ReportTitle from '../../../components/ReportTitle';
 import GridData from './GridData';
 
-import ReportExcel from '../modules/reportExcel';
+import ReportExcel from '../libs/reportExcel';
 import { post } from '../../../modules/ajaxRequest';
-import { convertSelectedColumnList } from '../modules/utils';
-import { regExp } from '../modules/constants';
+import { convertSelectedColumnList } from '../libs/utils';
+import { regExp } from '../libs/constants';
 
 export class Content extends Component {
     constructor(props) {

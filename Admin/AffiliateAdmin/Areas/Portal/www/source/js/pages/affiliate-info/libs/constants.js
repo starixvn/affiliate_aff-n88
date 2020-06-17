@@ -34,6 +34,7 @@ export const headerText = {
     Email: 'Email',
     RegistrationDateText: 'Registration Date',
     ApprovalDateText: 'Approval Date',
+    ApprovedBy: 'Approved By',
     CommissionGroup: 'Revenue Group',
     BalanceBf: 'Balance B/F',
     Currency: 'Aff. Currency',
@@ -41,7 +42,7 @@ export const headerText = {
     PlayerCurrency: 'Aff. Player Currency',
     Member: 'Player',
     NoOfSubAff: 'Sub-Affiliate',
-    Password: 'Password',
+    Password: 'Password'
 }
 
 export const resource = {

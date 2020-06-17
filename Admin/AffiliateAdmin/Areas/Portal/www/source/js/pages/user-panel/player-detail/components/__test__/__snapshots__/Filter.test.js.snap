@@ -123,6 +123,7 @@ exports[`players detail - components - Filter render correctly 1`] = `
           ]
         }
         hasAllOption={true}
+        isDisable={false}
         keyField="key"
         maxDisplayItemCount={1}
         noneSelectedLabel="None Select"

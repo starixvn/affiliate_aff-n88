@@ -279,7 +279,7 @@ describe('affiliate info - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 19, "r": 2 });
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress with field incorrect.', () => {
@@ -291,6 +291,6 @@ describe('affiliate info - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 18, "r": 2 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 19, "r": 2 });
     });
 });

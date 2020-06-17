@@ -56,5 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
         public string AffLink { get; set; }
 
         public bool IsUsingPrivateCommGroup { get; set; }
+
+        public string ApprovedBy { get; set; }
     }
 }

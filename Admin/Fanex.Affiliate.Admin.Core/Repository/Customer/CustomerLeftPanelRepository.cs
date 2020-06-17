@@ -5,6 +5,7 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 {
@@ -47,6 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             Status = Convert.ToString(reader["Status"]),
                             Phone = Convert.ToString(reader["Phone"]),
                             IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
+                            ApprovedBy = Convert.ToString(reader["ApprovedBy"])
                         };
                     }
                 }

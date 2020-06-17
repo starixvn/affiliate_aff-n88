@@ -5,14 +5,14 @@ import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
-import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../modules/constants';
+import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../libs/constants';
 import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { post } from '../../../modules/ajaxRequest';
 import { format, formatDecimal } from '../../../modules/numberFormat';
 import { updateObjectInArray } from '../../../modules/dataHandler';
 import { resolveClientUrl } from '../../../modules/utils';
-import { convertSelectedColumnList } from '../modules/utils';
+import { convertSelectedColumnList } from '../libs/utils';
 import { htmlDecode } from '../../../modules/htmlHelper';
 import { NotificationPopup } from '../../common/components/NotificationPopup';
 
@@ -83,17 +83,18 @@ export class GridData extends Component {
         return (
             <Row key="theard">
                 {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
-                {selectedColumnList['ParentAffName'] && <Cell header={true} colWidth={250} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>}
+                {selectedColumnList['ParentAffName'] && <Cell header={true} colWidth={225} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>}
                 <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
                 {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell header={true} colWidth={200} title={headerText.LastName}>{headerText.LastName}</Cell>}
                 {selectedColumnList['Language'] && <Cell header={true} colWidth={200} title={headerText.Language}>{headerText.Language}</Cell>}
                 {selectedColumnList['Phone'] && <Cell header={true} colWidth={200} title={headerText.Phone}>{headerText.Phone}</Cell>}
-                {selectedColumnList['Email'] && <Cell header={true} colWidth={400} title={headerText.Email}>{headerText.Email}</Cell>}
+                {selectedColumnList['Email'] && <Cell header={true} colWidth={350} title={headerText.Email}>{headerText.Email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell header={true} colWidth={300} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell header={true} colWidth={300} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</Cell>}
-                {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={300} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
+                {selectedColumnList['ApprovedBy'] && <Cell header={true} colWidth={200} title={headerText.ApprovedBy}>{headerText.ApprovedBy}</Cell>}
+                {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={200} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell header={true} colWidth={200} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell header={true} colWidth={150} title={headerText.Currency}>{headerText.Currency}</Cell>}
                 {selectedColumnList['PlayerUserName'] && <Cell header={true} colWidth={200} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</Cell>}
@@ -188,6 +189,7 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
+                {selectedColumnList['ApprovedBy'] && <Cell title={dataItem.ApprovedBy}>{dataItem.ApprovedBy}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}
