@@ -205,6 +205,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Affiliate Currency.
+        /// </summary>
+        public static string AffiliateCurrency {
+            get {
+                return ResourceManager.GetString("AffiliateCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Affiliate ID.
         /// </summary>
         public static string AffiliateID {
@@ -1635,6 +1644,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Default {
             get {
                 return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Base Currency.
+        /// </summary>
+        public static string DefaultBaseCurrency {
+            get {
+                return ResourceManager.GetString("DefaultBaseCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currency unit shown in all reports.
+        /// </summary>
+        public static string DefaultBaseCurrencyDetail {
+            get {
+                return ResourceManager.GetString("DefaultBaseCurrencyDetail", resourceCulture);
             }
         }
         

@@ -298,6 +298,7 @@
     <Compile Include="CoreService\SessionService.cs" />
     <Compile Include="DTO\ContactApp.cs" />
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
+    <Compile Include="DTO\UserPanel\Currency.cs" />
     <Compile Include="DTO\DailyEarningDetail.cs" />
     <Compile Include="DTO\DBMode.cs" />
     <Compile Include="DTO\ExtraUserInfo.cs" />
@@ -328,10 +329,14 @@
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
+    <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />
+    <Compile Include="Repository\UserPanel\CurrencyRepository.cs" />
+    <Compile Include="Utilities\CurrencyHelper.cs" />
     <Compile Include="ViewModels\PopupViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\LanguageLinkViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\MyAccountViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\QrCodeLinkModel.cs" />

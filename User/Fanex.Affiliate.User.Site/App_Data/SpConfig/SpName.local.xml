@@ -12,7 +12,7 @@
     <Setting Key="Aff_Recheckin_view" SpName="Aff_Recheckin" DbName="affiliate_n88_view" />
     <Setting Key="Aff_User_VerificationInfoSel" SpName="Aff_User_VerificationInfoSel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_VerificationUpd" SpName="Aff_User_VerificationUpd" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_VerificationSuccessIns" SpName="Aff_User_VerificationSuccessIns" DbName="affiliate_n88" />    
+    <Setting Key="Aff_User_VerificationSuccessIns" SpName="Aff_User_VerificationSuccessIns" DbName="affiliate_n88" />
   </Function>
 
   <Function Name="AccountInformation">
@@ -25,18 +25,18 @@
     <Setting Key="Aff_User_GeneralInfo_Sel" SpName="Aff_User_GeneralInfo_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_GeneralInfo_Sel_view" SpName="Aff_User_GeneralInfo_Sel" DbName="affiliate_n88_view" />
 
-    <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="main" />   
+    <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="main" />
   </Function>
 
   <Function Name="DepositInformation">
     <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName ="Aff_PlayerUsername_CheckIsValid" DbName ="affiliate_n88"/>
-    
+
   </Function>
-  
-  <Function Name="Statistics">   
+
+  <Function Name="Statistics">
     <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateSelTrackingCode_view" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88_view" />
-    
+
     <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths_view" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="affiliate_n88_view" />
 
@@ -81,14 +81,14 @@
 
     <Setting Key="Aff_DailyEarning_Detail_Sel" SpName="Aff_DailyEarning_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_DailyEarning_Detail_Sel_view" SpName="Aff_DailyEarning_Detail_Sel" DbName="affiliate_n88_view" />
-    
+
     <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88"/>
     <Setting Key="Aff_SubAffiliate_Commission_Sel_view" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88"/>
   </Function>
 
   <Function Name="Commission">
     <Setting Key="Aff_User_CommSetting_Sel" SpName="Aff_User_CommSetting_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_CommSetting_Sel_view" SpName="Aff_User_CommSetting_Sel" DbName="affiliate_n88_view" />   
+    <Setting Key="Aff_User_CommSetting_Sel_view" SpName="Aff_User_CommSetting_Sel" DbName="affiliate_n88_view" />
   </Function>
 
   <Function Name="Payment">
@@ -109,7 +109,7 @@
   </Function>
 
   <Function Name="ContactUs">
-    <Setting Key="Aff_EmailHistoryIns" SpName="Aff_EmailHistoryIns" DbName="affiliate_n88" />  
+    <Setting Key="Aff_EmailHistoryIns" SpName="Aff_EmailHistoryIns" DbName="affiliate_n88" />
   </Function>
   <Function Name="CommissionReport">
     <Setting Key="Aff_User_Rpt_Commission" SpName="Aff_User_Rpt_Commission" DbName="affiliate_n88"></Setting>
@@ -122,7 +122,7 @@
     <Setting Key="Aff_User_Overview_Detail_Sel" SpName="Aff_User_Overview_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_Overview_Summary_Sel" SpName="Aff_User_Overview_Summary_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_LoginInfo_Sel" SpName="Aff_User_LoginInfo_Sel" DbName="affiliate_n88" />
-    
+
     <Setting Key="Aff_Admin_MediaCategory_Sel" SpName="Aff_Admin_MediaCategory_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_MediaCurrency_Sel" SpName="Aff_Admin_MediaCurrency_Sel" DbName="affiliate_n88" />
@@ -147,4 +147,8 @@
   <Function Name="CheckMaxSubAffiliateLevel">
     <Setting Key="Aff_CheckMaxSubAffLevel" SpName="Aff_CheckMaxSubAffLevel" DbName="affiliate_n88" />
   </Function>
+
+	<Function Name="Currency">
+		<Setting Key="Aff_BaseCurrency_Sel" SpName="Aff_BaseCurrency_Sel" DbName="affiliate_n88" />
+	</Function>
 </Functions>

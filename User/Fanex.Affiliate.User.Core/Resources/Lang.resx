@@ -2402,4 +2402,13 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="AffiliateCurrency" xml:space="preserve">
+    <value>Affiliate Currency</value>
+  </data>
+  <data name="DefaultBaseCurrency" xml:space="preserve">
+    <value>Default Base Currency</value>
+  </data>
+  <data name="DefaultBaseCurrencyDetail" xml:space="preserve">
+    <value>Currency unit shown in all reports</value>
+  </data>
 </root>
