@@ -13,14 +13,20 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         private const string TotalClickColumn = "TotalClick";
 
+        private readonly IObjectDBBuilder _builder;
+
+        public StatisticsRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
         public IEnumerable<string> GetTrackingCode(int affId, bool isInternal)
         {
             const string uSpkey = "Aff_AffiliateSelTrackingCode";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpkey, dbMode))
+            using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                return objectDb.DB.Query<string>(new { affId });
+                return objectDb.Query<string>(new { affId });
             }
         }
 
@@ -30,9 +36,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var dataList = new List<TrackingStatistics>();
 
-            using (var objectDb = new ObjectDBBuilder(uSpkey, dbMode))
+            using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                using (var reader = objectDb.DB.ExecuteReader(new { affId, trackingCode }))
+                using (var reader = objectDb.ExecuteReader(new { affId, trackingCode }))
                 {
                     while (reader.Read())
                     {
@@ -57,9 +63,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpkey = "Aff_AffiliateSelClickStatisticsMonthDetail";
             var dbMode = trackingStatisticsDetailParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpkey, dbMode))
+            using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                return objectDb.DB.Query<TrackingStatistics>(trackingStatisticsDetailParam);
+                return objectDb.Query<TrackingStatistics>(trackingStatisticsDetailParam);
             }
         }
 
@@ -68,9 +74,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpkey = "Aff_ClickStatisticsSelBySite";
             var dbMode = referrerStatisticsParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpkey, dbMode))
+            using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                return objectDb.DB.Query<ReferrerStatistics>(referrerStatisticsParam);
+                return objectDb.Query<ReferrerStatistics>(referrerStatisticsParam);
             }
         }
 
@@ -80,9 +86,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var dbMode = statisticsDetailParam.IsInternal ? DBMode.View : DBMode.Main;
             var dataList = new List<ReferrerStatistics>();
 
-            using (var objectDb = new ObjectDBBuilder(uSpkey, dbMode))
+            using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                using (var reader = objectDb.DB.ExecuteReader(statisticsDetailParam))
+                using (var reader = objectDb.ExecuteReader(statisticsDetailParam))
                 {
                     while (reader.Read())
                     {
@@ -106,9 +112,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_ClickStatisticsSelByPage";
             var dbMode = landingPageStatisticsParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<LandingPageStatistics>(landingPageStatisticsParam);
+                return objectDb.Query<LandingPageStatistics>(landingPageStatisticsParam);
             }
         }
 
@@ -117,9 +123,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_User_StatisticsSel";
             var dbMode = overviewParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.QueryEntity<AccountOverviewStatistics>(overviewParam);
+                return objectDb.QueryEntity<AccountOverviewStatistics>(overviewParam);
             }
         }
 
