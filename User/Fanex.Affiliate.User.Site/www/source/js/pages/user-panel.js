@@ -4,7 +4,7 @@ var DETAILS_SECTION_MENU_HEIGHT = 33;
 
 function handleSetTop() {
     let headerHeight = $('#overview-table-header').height();
-    $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight + 8}px` });
+    $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight + 7}px` });
 }
 
 function handleScroll() {
