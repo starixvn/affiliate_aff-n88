@@ -13,5 +13,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         [SpParam(Ignored =true)]
         public string RequestPage { get; set; } = Constants.RequestPage.StatementHistory;
+
+        [SpParam(Ignored = true)]
+        public bool IsOnlyContent { get; set; } = false;
     }
 }

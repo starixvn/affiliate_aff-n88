@@ -14,14 +14,17 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     public class SubAffEarningController : BaseController
     {
         private readonly IStatementHistoryRepository _statementHistoryRepository;
+        private readonly ICurrencyRepository _currencyRepository;
 
         public SubAffEarningController(ISessionService sessionService,
             ILanguageService languageService,
-            IStatementHistoryRepository statementHistoryRepository
+            IStatementHistoryRepository statementHistoryRepository,
+            ICurrencyRepository currencyRepository
 
             ) : base(sessionService, languageService)
         {
             _statementHistoryRepository = statementHistoryRepository;
+            _currencyRepository = currencyRepository;
         }
 
         [AjaxOnly]
@@ -48,8 +51,12 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             ViewBag.MonthDate = param.MonthDate;
             ViewBag.Breadcrumb = breadcrumb;
-
-            return View("~/Views/UserPanel/StatementHistory/SubAffEarning.cshtml", vms);
+            ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
+            ViewBag.SelectedBaseCurrency = param.BaseCurrency;
+            var path = param.IsOnlyContent
+                ? "~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml"
+                : "~/Views/UserPanel/StatementHistory/SubAffEarning.cshtml";
+            return View(path, vms);
         }
     }
 }

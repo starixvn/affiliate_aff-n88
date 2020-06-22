@@ -731,6 +731,10 @@
     <Content Include="www\build\js\signup.min.js">
       <DependentUpon>signup.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\sub-affiliate-earning.js" />
+    <Content Include="www\build\js\sub-affiliate-earning.min.js">
+      <DependentUpon>sub-affiliate-earning.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\summary.js" />
     <Content Include="www\build\js\summary.min.js" />
     <Content Include="www\build\js\user-panel.js" />
@@ -1075,6 +1079,7 @@
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />
     <Content Include="www\source\js\pages\statistics\referrerstatistics.js" />
     <Content Include="www\source\js\pages\statistics\trackingstatistics.js" />
+    <Content Include="www\source\js\pages\sub-affiliate-earning.js" />
     <Content Include="www\source\js\pages\test.js" />
     <Content Include="www\source\js\pages\account-overview\affiliate-link.js" />
     <Content Include="www\source\js\pages\user-panel.js" />

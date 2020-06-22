@@ -17,14 +17,23 @@
             });
 
             $("#ProductId").on("change", function () {
-                var params = {
-                    monthDate: $("#MonthDate").val(),
-                    productId: $(this).val(),
-                    IsOnlyContent: true
-                };
-
-                _me.renderDailyEarning(params);
+                _me.renderContent();
             });
+
+            $("#base-currency").change(function () {
+                _me.renderContent();
+            });
+        },
+
+        renderContent: function () {
+            var params = {
+                monthDate: $("#MonthDate").val(),
+                productId: $("#ProductId").val(),
+                baseCurrency: $("#base-currency").val(),
+                IsOnlyContent: true
+            };
+
+            _me.renderDailyEarning(params);
         },
 
         renderDailyEarning: function (params) {

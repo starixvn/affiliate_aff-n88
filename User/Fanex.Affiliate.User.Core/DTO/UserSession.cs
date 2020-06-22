@@ -18,5 +18,7 @@ namespace Fanex.Affiliate.User.Core.DTO.Auth
         public string GroupName { get; set; }
 
         public bool IsMaxSubLevel { get; set; }
+
+        public int BaseCurrency { get; set; }
     }
 }

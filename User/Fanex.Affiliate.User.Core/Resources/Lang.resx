@@ -2411,4 +2411,7 @@
   <data name="DefaultBaseCurrencyDetail" xml:space="preserve">
     <value>Currency unit shown in all reports</value>
   </data>
+  <data name="BaseCurrency" xml:space="preserve">
+    <value>Base Currency</value>
+  </data>
 </root>

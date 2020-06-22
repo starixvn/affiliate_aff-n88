@@ -170,5 +170,9 @@
   {
     "outputFile": "www/build/styles/css/n88-lightmode.css",
     "inputFile": "www/source/styles/scss/Themes/n88-lightmode.scss"
+  },
+  {
+    "outputFile": "www/build/js/sub-affiliate-earning.js",
+    "inputFile": "www/source/js/pages/sub-affiliate-earning.js"
   }
 ]

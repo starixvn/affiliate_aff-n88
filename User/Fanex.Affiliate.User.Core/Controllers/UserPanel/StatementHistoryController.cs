@@ -21,16 +21,19 @@
         private readonly IAppSetting _appSetting;
         private readonly ISessionService _sessionService;
         private readonly IStatementHistoryRepository _statementHistoryRepository;
+        private readonly ICurrencyRepository _currencyRepository;
 
         public StatementHistoryController(ISessionService sessionService,
             ILanguageService languageService,
             IAppSetting appSetting,
-            IStatementHistoryRepository statementHistoryRepository)
+            IStatementHistoryRepository statementHistoryRepository,
+            ICurrencyRepository currencyRepository)
             : base(sessionService, languageService)
         {
             _appSetting = appSetting;
             _sessionService = sessionService;
             _statementHistoryRepository = statementHistoryRepository;
+            _currencyRepository = currencyRepository;
         }
         [HttpGet]
         [AjaxOnly]
@@ -40,13 +43,16 @@
             {
                 AffId = SessionService.UserSession.AffId,
                 IsInternal = SessionService.IsInternal,
-                PageSize = DefaultPageSize
+                PageSize = DefaultPageSize,
+                BaseCurrency = _sessionService.UserSession.BaseCurrency
             };
 
             var statementHistoryList = GetStatementHistoryViewModel(param);
             ViewBag.TotalItem = param.NRows;
             ViewBag.StartRowNumber = 1;
             ViewBag.AvailableFromDate = _appSetting.StatementAvailableFrom;
+            ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
+            ViewBag.DefaultBaseCurrency = _sessionService.UserSession.BaseCurrency;
             return View("~/Views/UserPanel/StatementHistory/Index.cshtml", statementHistoryList);
         }
 

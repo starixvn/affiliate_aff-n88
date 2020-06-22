@@ -4,6 +4,8 @@
     using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+    using Fanex.Affiliate.User.Core.Repository.UserPanel;
     using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
     using Filters;
 
@@ -12,15 +14,18 @@
     {
         private readonly ISessionService _sessionService;
         private readonly ICommissionReportService _commissionReportService;
+        private readonly ICurrencyRepository _currencyRepository;
 
         public RevenueReportController(
             ISessionService sessionService,
             ILanguageService languageService,
-            ICommissionReportService commissionReportService
+            ICommissionReportService commissionReportService,
+            ICurrencyRepository currencyRepository
           ) : base(sessionService, languageService)
         {
             _sessionService = sessionService;
             _commissionReportService = commissionReportService;
+            _currencyRepository = currencyRepository;
         }
 
 
@@ -28,18 +33,24 @@
         [AjaxOnly]
         public ActionResult Index()
         {
+            ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
+            ViewBag.DefaultBaseCurrency = _sessionService.UserSession.BaseCurrency;
             return View("~/Views/UserPanel/CommissionReport/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]
         [AjaxOnly]
-        public ActionResult Index(int year)
+        public ActionResult Index(int year, int baseCurrency = 0)
         {
+            var currency = baseCurrency == 0 ? SessionService.UserSession.BaseCurrency : baseCurrency;
             var viewModel = year >= 2009 && year <= DateTime.Now.Year
-                ? _commissionReportService.GenerateCommissionReportData(
-                SessionService.UserSession.AffId,
-                new DateTime(year, 1, 1)
-                ) : new CommissionReportDataViewModel();
+                ? _commissionReportService.GenerateCommissionReportData(new CommissionReportParam
+                {
+                    AffId = SessionService.UserSession.AffId, 
+                    WinLostDate = new DateTime(year, 1, 1),
+                    BaseCurrency = currency
+                }) 
+                : new CommissionReportDataViewModel();
 
             return Json(viewModel);
         }

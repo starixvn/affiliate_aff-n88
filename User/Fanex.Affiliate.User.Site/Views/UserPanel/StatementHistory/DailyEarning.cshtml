@@ -1,5 +1,7 @@
 ﻿@{
     Layout = null;
+    var baseCurrencies = ViewBag.BaseCurrencies as IEnumerable<Fanex.Affiliate.User.Core.DTO.UserPanel.Currency>;
+    var selectedBaseCurrency = Convert.ToInt32(ViewBag.SelectedBaseCurrency);
 }
 
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.DailyEarningViewModel
@@ -28,6 +30,16 @@
                             {
                                 <option value="@item.ProductId" @(item.ProductId == Model.SelectedProduct ? "selected" : string.Empty)>@item.ProductName</option>
                             }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="w100">@Lang.BaseCurrency:</label>
+                    <select class="form-control" id="base-currency">
+                        @foreach (var currency in baseCurrencies)
+                        {
+                            var selected = currency.ExchangeId == selectedBaseCurrency ? "selected='selected'" : string.Empty;
+                            <option @selected value="@currency.ExchangeId">@currency.Code</option>
                         }
                     </select>
                 </div>

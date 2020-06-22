@@ -2254,4 +2254,7 @@
   <data name="Error" xml:space="preserve">
     <value>Lỗi</value>
   </data>
+  <data name="BaseCurrency" xml:space="preserve">
+    <value>Tiền cơ sở</value>
+  </data>
 </root>

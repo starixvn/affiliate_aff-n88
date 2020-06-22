@@ -8,6 +8,7 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
@@ -24,8 +25,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             IAppSetting appSetting,
             ILanguageService languageService,
             IAuthService authService,
-            ICaptchaService captchaService) : base(sessionService, languageService, appSetting, captchaService, authService)
-
+            ICaptchaService captchaService,
+            IAccountRepository accountRepository) : base(sessionService, languageService, appSetting, captchaService, authService, accountRepository)
         {
         }
 
@@ -74,10 +75,10 @@ namespace Fanex.Affiliate.User.Core.Controllers
             userParam.LoginInfo = Uri.UnescapeDataString(userParam.LoginInfo);
             var loginResult = AuthService.GetLoginResult(userParam, false);
 
+
             if (loginResult.Result.ShouldVerifyAccount)
             {
                 SessionService.VerificationSession = new VerificationSession { AffId = loginResult.UserInfo.AffId };
-
                 return Json(loginResult.Result);
             }
 

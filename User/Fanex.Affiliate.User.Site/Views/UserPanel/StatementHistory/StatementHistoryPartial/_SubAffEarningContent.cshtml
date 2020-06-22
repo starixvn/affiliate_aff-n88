@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.SubAffComViewModel>
 @{
+    Layout = null;
     decimal totalCom = 0;
     decimal totalSubCom = 0;
     if (Model != null && Model.Any())
@@ -8,50 +9,48 @@
         totalSubCom = Model.Sum(s => s.SubAffCommission);
     }
 }
-<div class="table table-responsive" id="subAffEarning">
-    <table>
-        <thead>
-            <tr>
-                <th width="3%">#</th>
-                <th width="18%">@Lang.SubAffiliate</th>
-                <th width="13%">@Lang.Commission</th>
-                <th width="13%">@Lang.SubAffEarning</th>
-            </tr>
-        </thead>
-        @if (Model != null)
-        {
-            <tbody>
-
-                @{
-                    var index = 1;
-                    foreach (var item in Model)
-                    {
-                        <tr>
-                            <td class="text-center">@index</td>
-                            <td class="text-center">@item.SubAffUserName</td>
-                            <td class="text-right">@item.Commission.ToStringMoneyWithSymbol()</td>
-                            <td class="text-right">@item.SubAffCommission.ToStringMoneyWithSymbol()</td>
-                        </tr>
-
-                        index++;
-                    }
-                }
-
-                @if (Model.Count() > 0)
-                {
-                    <tr class="total">
-                        <td class="text-center" colspan="2">@Lang.Total</td>
-                        <td class="text-right">@totalCom.ToStringMoneyWithSymbol()</td>
-                        <td class="text-right">@totalSubCom.ToStringMoneyWithSymbol()</td>
-                    </tr>
-                }
-            </tbody>
-        }
-    </table>
-    @if (Model == null || !Model.Any())
+<table>
+    <thead>
+        <tr>
+            <th width="3%">#</th>
+            <th width="18%">@Lang.SubAffiliate</th>
+            <th width="13%">@Lang.Commission</th>
+            <th width="13%">@Lang.SubAffEarning</th>
+        </tr>
+    </thead>
+    @if (Model != null)
     {
-        <p class="text-center">@Lang.NoInfo</p>
-    }
+        <tbody>
 
-</div>
+            @{
+                var index = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td class="text-center">@item.SubAffUserName</td>
+                        <td class="text-right">@item.Commission.ToStringMoneyWithSymbol()</td>
+                        <td class="text-right">@item.SubAffCommission.ToStringMoneyWithSymbol()</td>
+                    </tr>
+
+                    index++;
+                }
+            }
+
+            @if (Model.Count() > 0)
+            {
+                <tr class="total">
+                    <td class="text-center" colspan="2">@Lang.Total</td>
+                    <td class="text-right">@totalCom.ToStringMoneyWithSymbol()</td>
+                    <td class="text-right">@totalSubCom.ToStringMoneyWithSymbol()</td>
+                </tr>
+            }
+        </tbody>
+    }
+</table>
+@if (Model == null || !Model.Any())
+{
+    <p class="text-center">@Lang.NoInfo</p>
+}
+
 

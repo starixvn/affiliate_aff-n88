@@ -325,6 +325,7 @@
     <Compile Include="DTO\UserPanel\SubAffDetail.cs" />
     <Compile Include="Filters\JsonHandlerAttribute.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
+    <Compile Include="MetalModels\UserPanel\CommissionReportParam.cs" />
     <Compile Include="MetalModels\UserPanel\MediaCategoryParam.cs" />
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />

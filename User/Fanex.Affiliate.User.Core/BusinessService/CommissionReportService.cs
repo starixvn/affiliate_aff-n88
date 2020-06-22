@@ -2,6 +2,7 @@
 using System.Linq;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
@@ -26,9 +27,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
             return type.Value == 0 ? $" ({Lang.Temporary})" : $" ({Lang.Uncalculated})";
         }
-        public CommissionReportDataViewModel GenerateCommissionReportData(int affId, DateTime winlostDate)
+        public CommissionReportDataViewModel GenerateCommissionReportData(CommissionReportParam param)
         {
-            var rawData = _commissionReportRepository.GetAffiliateCommission(affId, winlostDate);
+            var rawData = _commissionReportRepository.GetAffiliateCommission(param);
 
             var byMonth =
                     (from n in rawData

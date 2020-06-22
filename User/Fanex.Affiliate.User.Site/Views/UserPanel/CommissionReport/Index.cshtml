@@ -1,6 +1,8 @@
 ﻿@{
     Layout = null;
     var currentYear = DateTime.Now.Year;
+    var baseCurrencies = ViewBag.BaseCurrencies as IEnumerable<Fanex.Affiliate.User.Core.DTO.UserPanel.Currency>;
+    var defaultBaseCurrency = Convert.ToInt32(ViewBag.DefaultBaseCurrency);
 }
 
 @model bool
@@ -25,8 +27,18 @@
                                     <option @temp value="@i">@i</option>
                                 }
                             </select>
-                            <button type="button" style="margin-left:3px;" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
                         </div>
+                        <div class="form-group">
+                            <label>@Lang.BaseCurrency</label>
+                            <select class="form-control" id="base-currency">
+                                @foreach (var currency in baseCurrencies)
+                                {
+                                    var selected = currency.ExchangeId == defaultBaseCurrency ? "selected='selected'" : string.Empty;
+                                    <option @selected value="@currency.ExchangeId">@currency.Code</option>
+                                }
+                            </select>
+                        </div>
+                        <button type="button" style="margin-left:3px;" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
                     </form>
                 </div>
             </div>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -16,12 +17,12 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             _builder = builder;
         }
-        public IEnumerable<AffiliateCommission> GetAffiliateCommission(int affId, DateTime winlostdate)
+        public IEnumerable<AffiliateCommission> GetAffiliateCommission(CommissionReportParam param)
         {
             const string uSpKey = "Aff_User_Rpt_Commission";
             using (var objectDb = _builder.Build(uSpKey))
             {
-                return objectDb.Query<AffiliateCommission>(new { affId, winlostdate });
+                return objectDb.Query<AffiliateCommission>(param);
             }
         }
     }

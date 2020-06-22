@@ -15,14 +15,16 @@
     public class DailyEarningController : BaseController
     {
         private readonly IStatementHistoryRepository _statementHistoryRepository;
+        private readonly ICurrencyRepository _currencyRepository;
 
         public DailyEarningController(ISessionService sessionService,
             ILanguageService languageService,
-            IStatementHistoryRepository statementHistoryRepository
-
+            IStatementHistoryRepository statementHistoryRepository,
+            ICurrencyRepository currencyRepository
             ) : base(sessionService, languageService)
         {
             _statementHistoryRepository = statementHistoryRepository;
+            _currencyRepository = currencyRepository;
         }
 
         [AjaxOnly]
@@ -44,6 +46,8 @@
                 HasDailyDetail = extraUserInfo.HasDailyDetail
             };
             ViewBag.MonthDate = param.MonthDate;
+            ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
+            ViewBag.SelectedBaseCurrency = param.BaseCurrency;
             var viewPath = param.IsOnlyContent ? "~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_DailyEarningContent.cshtml" :
                 "~/Views/UserPanel/StatementHistory/DailyEarning.cshtml";
 
