@@ -61,7 +61,7 @@ export const GeneralInfo = (props) => {
             <ContactApp />
             <Row>
                 <Col sm={5}>{resource.ApprovedBy}</Col>
-                <Col sm={7} className='text-right'>{htmlDecode(affiliateInfo.ApprovedBy)}</Col>
+                <Col sm={7} className='text-right'>{htmlDecode(affiliateInfo.ApprovedBy) || 'N/A'}</Col>
             </Row>
             <Row>
                 <Col sm={5}>{resource.Language}</Col>

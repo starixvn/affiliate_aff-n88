@@ -35,6 +35,7 @@ export default class PlatformFeeItem extends React.Component {
                             valueField="ProductName"
                             statusField="Checked"
                             hasAllOption={false}
+                            hasInputOption={!isDisable}
                             maxDisplayItemCount={1}
                             noneSelectedLabel="Please Select"
                             onChange={this.handleChange}

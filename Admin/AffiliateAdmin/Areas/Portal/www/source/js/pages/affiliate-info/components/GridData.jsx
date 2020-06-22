@@ -139,6 +139,7 @@ export class GridData extends Component {
         const phone = htmlDecode(dataItem.Phone);
         const email = htmlDecode(dataItem.Email);
         const playerUserName = htmlDecode(dataItem.PlayerUserName);
+        const approvedBy = htmlDecode(dataItem.ApprovedBy);
 
         const balanceBf = dataItem.BalanceBf === null ? resource.NA : formatDecimal(dataItem.BalanceBf);
         const formattedMemberValue = dataItem.Member === null ? resource.NA : format(dataItem.Member);
@@ -189,7 +190,7 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
-                {selectedColumnList['ApprovedBy'] && <Cell title={dataItem.ApprovedBy}>{dataItem.ApprovedBy}</Cell>}
+                {selectedColumnList['ApprovedBy'] && <Cell title={approvedBy}>{approvedBy || 'N/A'}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}

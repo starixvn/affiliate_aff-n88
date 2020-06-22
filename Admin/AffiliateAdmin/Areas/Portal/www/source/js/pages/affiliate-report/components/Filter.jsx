@@ -348,6 +348,7 @@ export class Filter extends Component {
                             valueField="ProductName"
                             statusField="Checked"
                             maxDisplayItemCount={1}
+                            hasInputOption={true}
                             noneSelectedLabel="Please Select"
                             onChange={this.handleChangeProduct} />
                         <div className="mx-1 rounded-circle note-info" title="Filtering product affects only to Turnover and Winloss columns. Others always show value for all products">
