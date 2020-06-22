@@ -68,11 +68,14 @@ var commissionReport = (function ($) {
         },
 
         submit: function () {
-            var year = $("#year").val();
+            var param = {
+                year: $("#year").val(),
+                baseCurrency: $("#base-currency").val()
+            };
             $.ajax({
                 type: "POST",
                 url: Site.resolveRelativeUrl("UserPanel/RevenueReport"),
-                data: JSON.stringify({ "year": year }),
+                data: JSON.stringify(param),
                 dataType: "json",
                 cache: false,
                 contentType: "application/json; charset=UTF-8",

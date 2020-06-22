@@ -278,12 +278,20 @@ var StatementHistory = (function ($) {
         },
 
         initEvent: function () {
+            $("#base-currency").change(function () {
+                console.log(11);
+                var params = _me.getStatementHistoryParam();
+                _me.renderStatementHistory(params);
+            })
+
             $("#statementDataList").on("click", ".amountItem", function () {
                 let transtype = Number($(this).data("transtype"));
                 let url = urlMapping.find(elem => elem.transType === transtype).url;
                 let params = {
                     monthDate: $(this).data("date"),
-                    requestPage: _currentPage
+                    requestPage: _currentPage,
+                    baseCurrency: $("#base-currency").val(),
+                    isOnlyContent: false
                 };
 
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
@@ -299,6 +307,7 @@ var StatementHistory = (function ($) {
 
         getStatementHistoryParam: function () {
             return {
+                baseCurrency: $("#base-currency").val(),
                 pageSize: _pageSize,
                 pageIndex: _pageIndex + 1
             };
