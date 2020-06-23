@@ -284,8 +284,8 @@
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\statementHistory.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\subaffiliate.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\userAccount.chunk.js" />
+    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~dailyEarning~dailyEarningDetail~playerDetail.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~landingPageStatistics~member~referrerStatistics~statementHistory~viewLog.chunk.js" />
-    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~playerDetail.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~xlsx-style.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\viewLog.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\xlsx-style.chunk.js" />
@@ -355,6 +355,11 @@
     <Content Include="Areas\Portal\www\index.html" />
     <Content Include="Areas\Portal\www\config-utils\constant.js" />
     <Content Include="Areas\Portal\www\config-utils\entry.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\Select.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\SelectLabel.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\SelectOptionList.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\Option.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\Content.test.js" />
@@ -1349,6 +1354,8 @@
     <Content Include="Areas\Portal\www\source\style\abstracts\_variables-lightmode-N88.scss" />
     <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
     <Content Include="Areas\Portal\www\source\style\abstracts\variables_N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\vendors\select.scss" />
+    <Content Include="Areas\Portal\www\source\style\components\_select.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

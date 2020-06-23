@@ -3,21 +3,32 @@ import PropTypes from 'prop-types';
 
 import SelectLabel from './SelectLabel';
 import SelectOptionList from './SelectOptionList';
-import OptionAll from './OptionAll';
 
 const KEY_NAME = "key";
 const VALUE_NAME = "value";
+const ITEM_ALL = {
+    key: '',
+    name: 'All'
+}
 
 let id = 1;
 
 export default class Select extends Component {
     constructor(props) {
         super(props);
-        this.id = `multiple-select-${props.id || id++}`;
+        this.id = `select-${props.id || id++}`;
+
+        const { dataSource, keyField, valueField, selectedKey } = props;
+
+        const selectedItem = dataSource.filter(i => i[keyField] == selectedKey)[0] || {};
 
         this.state = {
             showOptionList: false,
-            inputOption: ''
+            inputOption: '',
+            selectedItem: {
+                [KEY_NAME]: selectedItem[keyField],
+                [VALUE_NAME]: selectedItem[valueField]
+            }
         }
     }
 
@@ -25,9 +36,8 @@ export default class Select extends Component {
         dataSource: PropTypes.arrayOf(PropTypes.object).isRequired,
         keyField: PropTypes.string,
         valueField: PropTypes.string,
-        optionAllLabel: PropTypes.string,
+        selectedKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
         onChange: PropTypes.func,
-        hasAllOption: PropTypes.bool,
         hasInputOption: PropTypes.bool,
         isDisable: PropTypes.bool
     }
@@ -35,7 +45,6 @@ export default class Select extends Component {
     static defaultProps = {
         keyField: KEY_NAME,
         valueField: VALUE_NAME,
-        hasAllOption: true,
         hasInputOption: false,
         isDisable: false
     }
@@ -48,28 +57,12 @@ export default class Select extends Component {
         document.removeEventListener('click', this._handleDocumentClick)
     }
 
-    onChangeHandler = (item) => {
-        const { keyField, valueField, dataSource } = this.props;
+    onChangeHandler = (selectedItem) => {
+        this.onToggle();
 
-        const selectedItem = {
-            [keyField]: item.key,
-            [valueField]: item.value
-        }
+        this.setState({ selectedItem });
 
-        const newDataSource = dataSource.map(option => {
-            const newItem = Object.assign({}, option);
-
-            if (newItem[keyField] === item.key) {
-                newItem[statusField] = item.checked;
-            }
-
-            return {
-                [KEY_NAME]: newItem[keyField],
-                [VALUE_NAME]: newItem[valueField]
-            }
-        });
-
-        this._callBackToParent(selectedItem, newDataSource);
+        this._callBackToParent(selectedItem.key);
     }
 
     onToggle = () => {
@@ -82,36 +75,21 @@ export default class Select extends Component {
         this.setState({ [target.name]: target.value });
     }
 
-    _callBackToParent(selectedItem, newDataSource) {
-        const selectedItemsKey = this._getSelectedItemKey(newDataSource);
-        this.props.onChange && this.props.onChange(selectedItem, selectedItemsKey);
+    _callBackToParent(selectedItem) {
+        this.props.onChange && this.props.onChange(selectedItem);
     }
 
     _convertDataSource(inputOption) {
-        const { keyField, valueField, statusField, dataSource } = this.props;
+        const { keyField, valueField, dataSource } = this.props;
+
         const dataSourceAfterFilter = dataSource.filter(i => i[valueField].toLowerCase().includes(inputOption || ''));
 
         return dataSourceAfterFilter.map(item => {
             return {
                 [KEY_NAME]: item[keyField],
-                [VALUE_NAME]: item[valueField],
-                [STATUS_NAME]: item[statusField]
+                [VALUE_NAME]: item[valueField]
             }
         })
-    }
-
-    _getSelectedItemKey(dataSource) {
-        const selectedItemKey = [];
-
-        for (let i = 0; i < dataSource.length; i++) {
-            const item = dataSource[i];
-
-            if (item.checked) {
-                selectedItemKey.push(item.key)
-            }
-        }
-
-        return selectedItemKey.join(",");
     }
 
     _close = () => {
@@ -126,44 +104,31 @@ export default class Select extends Component {
         }
     }
 
-    _renderOptionAll(dataSource) {
-        const checkedItemCount = dataSource.filter(x => x.checked).length;
-        const checkedAll = checkedItemCount === dataSource.length;
-        const { optionAllLabel, isDisable } = this.props;
-
-        return (<OptionAll id={this.id} checked={checkedAll} label={optionAllLabel} onChange={this.checkAllHandler} isDisable={isDisable} />);
-    }
-
     render() {
-        const { inputOption } = this.state;
-        const { noneSelectedLabel, maxDisplayItemCount, hasAllOption, isDisable, hasInputOption } = this.props;
+        const { inputOption, selectedItem } = this.state;
+        const { isDisable, hasInputOption } = this.props;
         const dataSource = this._convertDataSource(inputOption.toLowerCase());
-        const dataSourceLabel = this._convertDataSource();
-        const selectedItems = dataSourceLabel.filter(item => item.checked);
 
         return (
-            <div className="multiple-select-container" id={this.id} ref={element => this.wrapper = element}>
+            <div className="select-container" id={this.id} ref={element => this.wrapper = element}>
                 <SelectLabel
-                    selectedItems={selectedItems}
+                    selectedText={selectedItem.value}
                     onToggle={this.onToggle}
-                    noneSelectedLabel={noneSelectedLabel}
-                    maxDisplayItemCount={maxDisplayItemCount} />
+                    isDisable={isDisable} />
 
-                <div className="multiple-select-default multiple-select-options-container"
+                <div className="select-options-container"
                     style={{ display: this.state.showOptionList ? "block" : "none" }}>
                     {
                         hasInputOption &&
-                        <ul className="multiple-select-options">
+                        <ul className="select-options">
                             <input type="text" name="inputOption" value={inputOption} className="w-100" onChange={this._handleChangeInput} />
                         </ul>
                     }
 
-                    {hasAllOption && this._renderOptionAll(dataSource)}
-
-                    <SelectOptionList id={this.id}
+                    <SelectOptionList
+                        id={this.id}
                         dataSource={dataSource}
-                        onChange={this.onChangeHandler}
-                        isDisable={isDisable} />
+                        onChange={this.onChangeHandler} />
                 </div>
             </div>
         )

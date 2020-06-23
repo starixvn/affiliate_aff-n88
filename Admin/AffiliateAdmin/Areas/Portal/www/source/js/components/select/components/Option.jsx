@@ -5,24 +5,17 @@ const Option = (props) => {
     const { itemData, onChange, id } = props;
 
     const handleChange = (event) => {
-        event.stopPropagation();
-
         const newItemData = {
             key: itemData.key,
             value: itemData.value
         }
+
         onChange && onChange(newItemData);
     }
 
     return (
-        <li className="multiple-select-item">
-            <input
-                id={id}
-                type="checkbox"
-                className="option-checkbox"
-                onChange={handleChange}
-            />
-            <label className="option-label" htmlFor={id}>
+        <li className="select-item" onClick={handleChange}>
+            <label className="option-label">
                 {itemData.value}
             </label>
         </li>

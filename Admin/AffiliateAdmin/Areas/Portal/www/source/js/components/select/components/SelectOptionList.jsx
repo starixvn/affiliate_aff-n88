@@ -6,7 +6,7 @@ const SelectOptionList = (props) => {
     const { dataSource, onChange, id } = props;
 
     return (
-        <ul className="multiple-select-options">
+        <ul className="select-options">
             {
                 dataSource.map((item, index) => {
                     return (

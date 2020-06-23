@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
+import Select from '../../../components/select';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, defaultBaseCurrency } from '../modules/constants';
 import { setReportTitle, setParam, setCurrencyList } from '../actions';

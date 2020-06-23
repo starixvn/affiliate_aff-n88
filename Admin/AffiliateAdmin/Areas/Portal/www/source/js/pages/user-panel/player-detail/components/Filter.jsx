@@ -8,6 +8,7 @@ import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMon
 import { setParam, exportExcel, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
+import Select from '../../../../components/select';
 import MultipleSelect from '../../../../components/multiple-select';
 import { handleChangeMultipleSelected } from '../../../../modules/utils';
 
@@ -33,9 +34,7 @@ export class Filter extends PureComponent {
         })
     }
 
-    handleChangeProduct = (event) => {
-        const selectedProduct = Number(event.target.value);
-
+    handleChangeProduct = (selectedProduct) => {
         this.setState({
             selectedProduct
         })
@@ -120,14 +119,13 @@ export class Filter extends PureComponent {
                 <Form inline tag="div">
                     <FormGroup className="mr-sm-2">
                         <Label className="mr-2">{globalResource.Product}</Label>
-                        <Input type="select" name="Product" id="Product" value={selectedProduct} onChange={this.handleChangeProduct}>
-                            <option value="0">{globalResource.All}</option>
-                            {
-                                productList && productList.map(p => {
-                                    return (<option value={p.ProductId} key={p.ProductId}>{htmlDecode(p.ProductName)}</option>)
-                                })
-                            }
-                        </Input>
+                        <Select
+                            dataSource={[{ ProductId: selectedAllProduct, ProductName: globalResource.All }, ...productList]}
+                            keyField="ProductId"
+                            valueField="ProductName"
+                            hasInputOption={true}
+                            selectedKey={selectedProduct}
+                            onChange={this.handleChangeProduct} />
                     </FormGroup>
                     {
                         baseCurrencyList && baseCurrencyList.length !== 0 &&
