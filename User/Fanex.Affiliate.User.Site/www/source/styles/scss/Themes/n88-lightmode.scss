@@ -251,6 +251,10 @@ body {
     .text-content {
         color: $home-card-content-color;
     }
+
+    .card-body > a{
+        color:$text-color;
+    }
 }
 
 .news-content {

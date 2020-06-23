@@ -44,8 +44,6 @@
         margin-right: 30px;
 
         label {
-            width: 80px;
-
             &.w150 {
                 width: 150px;
             }
@@ -63,6 +61,13 @@
 
 .form-inline {
     margin-bottom: 5px;
+
+    .form-group {
+        label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
 }
 
 .form-control-static {

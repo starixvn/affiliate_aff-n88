@@ -18,7 +18,7 @@
                 <div class="panel-body">
                     <form class="form-inline form-filter">
                         <div class="form-group">
-                            <label>@Lang.Year</label>
+                            <label>@Lang.Year:</label>
                             <select class="form-control" id="year">
 
                                 @for (var i = currentYear; i >= 2020; i--)
@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>@Lang.BaseCurrency</label>
+                            <label>@Lang.BaseCurrency:</label>
                             <select class="form-control" id="base-currency">
                                 @foreach (var currency in baseCurrencies)
                                 {
@@ -38,7 +38,9 @@
                                 }
                             </select>
                         </div>
-                        <button type="button" style="margin-left:3px;" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
+                        <div class="form-group">
+                            <button type="button" style="margin-left:3px;" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
