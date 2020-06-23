@@ -14,10 +14,9 @@
       display: inline-block; }
     .custom-panel .form-inline .btn {
       margin-right: 0; }
-
-.form-filter .form-group label {
-  display: inline;
-  margin-right: 2px; }
+    @media (max-width: 576px) {
+      .custom-panel .form-inline label {
+        width: 110px; } }
 
 @media screen and (max-width: 1023px) {
   .commission-report {

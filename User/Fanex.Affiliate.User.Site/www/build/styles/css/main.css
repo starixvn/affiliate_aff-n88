@@ -1470,17 +1470,18 @@ table + .button-group {
   display: inline-flex;
   align-items: center;
   margin-right: 30px; }
-  .form-filter .form-group label {
-    width: 80px; }
-    .form-filter .form-group label.w150 {
-      width: 150px; }
-    .form-filter .form-group label.w100 {
-      width: 100px; }
+  .form-filter .form-group label.w150 {
+    width: 150px; }
+  .form-filter .form-group label.w100 {
+    width: 100px; }
   .form-filter .form-group .form-control {
     width: 200px; }
 
 .form-inline {
   margin-bottom: 5px; }
+  .form-inline .form-group label {
+    display: inline-block;
+    margin-right: 10px; }
 
 .form-control-static {
   min-height: 28px;
