@@ -107,7 +107,7 @@ export default class Select extends Component {
     render() {
         const { inputOption, selectedItem } = this.state;
         const { isDisable, hasInputOption } = this.props;
-        const dataSource = this._convertDataSource(inputOption.toLowerCase());
+        const dataSource = this._convertDataSource(inputOption.trim().toLowerCase());
 
         return (
             <div className="select-container" id={this.id} ref={element => this.wrapper = element}>

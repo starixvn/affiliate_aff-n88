@@ -55,6 +55,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public bool IsUsingPrivateCommGroup { get; set; }
 
+        [JsonIgnore]
         public string ApprovedBy { get; set; }
+
+        public string ApprovedByText => string.IsNullOrEmpty(ApprovedBy) ? "N/A" : ApprovedBy;
     }
 }

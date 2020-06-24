@@ -38,7 +38,7 @@ const fields = {
     NoOfSubAff: 'NoOfSubAff',
     RegistrationDateText: 'RegistrationDateText',
     ApprovalDateText: 'ApprovalDateText',
-    ApprovedBy: 'ApprovedBy',
+    ApprovedByText: 'ApprovedByText',
     Currency: 'Currency',
     PlayerUserName: 'PlayerUserName',
     PlayerCurrency: 'PlayerCurrency',
@@ -233,7 +233,7 @@ export default class ReportExcel {
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 200
         }, {
-            field: fields.ApprovedBy,
+            field: fields.ApprovedByText,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 200
         }, {

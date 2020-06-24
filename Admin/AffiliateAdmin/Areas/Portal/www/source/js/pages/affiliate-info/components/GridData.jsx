@@ -93,7 +93,7 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell header={true} colWidth={350} title={headerText.Email}>{headerText.Email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell header={true} colWidth={300} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell header={true} colWidth={300} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</Cell>}
-                {selectedColumnList['ApprovedBy'] && <Cell header={true} colWidth={200} title={headerText.ApprovedBy}>{headerText.ApprovedBy}</Cell>}
+                {selectedColumnList['ApprovedByText'] && <Cell header={true} colWidth={200} title={headerText.ApprovedByText}>{headerText.ApprovedByText}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={200} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell header={true} colWidth={200} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell header={true} colWidth={150} title={headerText.Currency}>{headerText.Currency}</Cell>}
@@ -139,7 +139,7 @@ export class GridData extends Component {
         const phone = htmlDecode(dataItem.Phone);
         const email = htmlDecode(dataItem.Email);
         const playerUserName = htmlDecode(dataItem.PlayerUserName);
-        const approvedBy = htmlDecode(dataItem.ApprovedBy);
+        const approvedBy = htmlDecode(dataItem.ApprovedByText);
 
         const balanceBf = dataItem.BalanceBf === null ? resource.NA : formatDecimal(dataItem.BalanceBf);
         const formattedMemberValue = dataItem.Member === null ? resource.NA : format(dataItem.Member);
@@ -190,7 +190,7 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
-                {selectedColumnList['ApprovedBy'] && <Cell title={approvedBy}>{approvedBy || 'N/A'}</Cell>}
+                {selectedColumnList['ApprovedByText'] && <Cell title={approvedBy}>{approvedBy}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}

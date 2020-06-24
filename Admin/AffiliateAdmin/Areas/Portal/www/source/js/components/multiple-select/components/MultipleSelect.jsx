@@ -157,7 +157,8 @@ export default class MultipleSelect extends Component {
     render() {
         const { inputOption } = this.state;
         const { noneSelectedLabel, maxDisplayItemCount, hasAllOption, isDisable, hasInputOption } = this.props;
-        const dataSource = this._convertDataSource(inputOption.toLowerCase());
+        const inputOptionTrim = inputOption.trim();
+        const dataSource = this._convertDataSource(inputOptionTrim.toLowerCase());
         const dataSourceLabel = this._convertDataSource();
         const selectedItems = dataSourceLabel.filter(item => item.checked);
 
@@ -178,7 +179,7 @@ export default class MultipleSelect extends Component {
                         </ul>
                     }
 
-                    {hasAllOption && this._renderOptionAll(dataSource)}
+                    {hasAllOption && !inputOptionTrim && this._renderOptionAll(dataSource)}
 
                     <MultipleSelectOptionList id={this.id}
                         dataSource={dataSource}

@@ -2,8 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.Common;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.SessionState;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Common

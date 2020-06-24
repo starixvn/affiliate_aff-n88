@@ -34,7 +34,7 @@ export const headerText = {
     Email: 'Email',
     RegistrationDateText: 'Registration Date',
     ApprovalDateText: 'Approval Date',
-    ApprovedBy: 'Approved By',
+    ApprovedByText: 'Approved By',
     CommissionGroup: 'Revenue Group',
     BalanceBf: 'Balance B/F',
     Currency: 'Aff. Currency',
