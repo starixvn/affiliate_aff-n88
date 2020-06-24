@@ -249,4 +249,40 @@
   <data name="ProductRNGCasino" xml:space="preserve">
     <value>RNG CASINO</value>
   </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>Lupa password</value>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>Email Anda</value>
+  </data>
+  <data name="TitelForgetPass" xml:space="preserve">
+    <value>Password baru akan di kirim ke email yang anda daftarkan. &lt;br /&gt;Jika mengalami kendala selama di sini, &lt;a href="{0}"&gt;silahkan hubungi kami&lt;/a&gt;.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Ajukan</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}, atau anda bisa juga menggunakan form di bawah ini. </value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>nama</value>
+  </data>
+  <data name="AffiliateID" xml:space="preserve">
+    <value>ID affiliasi</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>Subject</value>
+  </data>
+  <data name="Email1" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Komentar</value>
+  </data>
+  <data name="ValidationCodeLabel" xml:space="preserve">
+    <value>Kode Validasi</value>
+  </data>
 </root>

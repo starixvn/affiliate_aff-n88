@@ -246,4 +246,40 @@
   <data name="ProductRNGCasino" xml:space="preserve">
     <value>RNG賭場</value>
   </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>忘記您的密碼</value>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>您的電郵</value>
+  </data>
+  <data name="TitelForgetPass" xml:space="preserve">
+    <value>新密碼將發送到您提供的電子郵件地址。&lt;br /&gt;&lt;a href="{0}"&gt;如果您遇到任何其他疑問，請與我們聯繫。&lt;/a&gt;.</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>提交</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>重設</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>如有任何意見或問題，歡迎電郵至{0}，或填寫以下的表單。</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>姓名</value>
+  </data>
+  <data name="AffiliateID" xml:space="preserve">
+    <value>合營代理號碼</value>
+  </data>
+  <data name="Subject" xml:space="preserve">
+    <value>主題</value>
+  </data>
+  <data name="Email1" xml:space="preserve">
+    <value>電郵</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>意見</value>
+  </data>
+  <data name="ValidationCodeLabel" xml:space="preserve">
+    <value>驗證碼</value>
+  </data>
 </root>

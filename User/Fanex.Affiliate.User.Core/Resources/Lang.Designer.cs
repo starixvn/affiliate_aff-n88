@@ -5858,8 +5858,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A new password will be sent to the email address that you provided.
-        ///                &lt;br /&gt;If you are experiencing any further difficulties, please &lt;a href=&quot;{0}&quot;&gt;Contact us&lt;/a&gt;..
+        ///   Looks up a localized string similar to A new password will be sent to the email address that you provided. &lt;br /&gt;If you are experiencing any further difficulties, please &lt;a href=&quot;{0}&quot;&gt;Contact us&lt;/a&gt;..
         /// </summary>
         public static string TitelForgetPass {
             get {
