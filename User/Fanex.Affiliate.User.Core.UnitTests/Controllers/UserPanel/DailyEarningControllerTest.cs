@@ -10,9 +10,6 @@ using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Moq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Xunit;
 
@@ -173,12 +170,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private static DailyEarningController CreateController(
              IStatementHistoryRepository statementHistoryRepository = null,
              ISessionService sessionService = null,
-             ILanguageService languageService = null)
+             ILanguageService languageService = null,
+             ICurrencyRepository currencyRepository = null)
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
+            var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
             var fakeStatementHistoryRepository = statementHistoryRepository ?? Mock.Of<IStatementHistoryRepository>();
-            var controller = new DailyEarningController(fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository);
+            var controller = new DailyEarningController(fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository, fakeCurrencyRepository);
 
             return MockingHelper.FakeController(controller) as DailyEarningController;
         }
