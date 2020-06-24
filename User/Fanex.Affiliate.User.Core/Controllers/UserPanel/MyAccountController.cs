@@ -133,6 +133,10 @@
             };
 
             var updatingResult = _accountRepository.UpdateAccountInformation(accountUpdateParam);
+            if (updatingResult.IsOk)
+            {
+                userSession.BaseCurrency = accountUpdateParam.DefaultBaseCurrency;
+            }
 
             return Json(updatingResult);
         }
