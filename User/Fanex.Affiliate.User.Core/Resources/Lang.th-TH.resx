@@ -192,4 +192,58 @@
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>มารู้จักโปรโมชั่นสุดฮอตในเดือนนี้. โพสต์ลงในเว็บไซต์และช่องทางโซเชียลของคุณเพื่อหาลูกค้าและส่วนแบ่งรายได้มากขึ้น!</value>
   </data>
+  <data name="ProductSportsBook" xml:space="preserve">
+    <value>หน้ากีฬา </value>
+  </data>
+  <data name="ProductVirtualSports" xml:space="preserve">
+    <value>เกมกีฬาจำลอง</value>
+  </data>
+  <data name="ProductNumberGame" xml:space="preserve">
+    <value>เกมส์หมายเลข</value>
+  </data>
+  <data name="ProductRngKeno" xml:space="preserve">
+    <value>คีโน </value>
+  </data>
+  <data name="ProductAllbet" xml:space="preserve">
+    <value>ALLBET</value>
+  </data>
+  <data name="ProductPragmaticPlay" xml:space="preserve">
+    <value>PRAGMATIC PLAY</value>
+  </data>
+  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
+    <value>สมัครเป็นพันธมิตรกับ12BETตอนนี้</value>
+  </data>
+  <data name="CasinoClubs" xml:space="preserve">
+    <value>คลับคาสิโน 12BET</value>
+  </data>
+  <data name="LiveCasino" xml:space="preserve">
+    <value>คาสิโนออนไลน์สด</value>
+  </data>
+  <data name="CasinoGame" xml:space="preserve">
+    <value>เกมส์คาสิโน</value>
+  </data>
+  <data name="Baccarat" xml:space="preserve">
+    <value>บาคาร่า</value>
+  </data>
+  <data name="Dragon" xml:space="preserve">
+    <value>ไพ่เสือมังกร</value>
+  </data>
+  <data name="Sicbo" xml:space="preserve">
+    <value>เกมส์ไฮโล</value>
+  </data>
+  <data name="SlotGames" xml:space="preserve">
+    <value>เกมส์สล็อต</value>
+  </data>
+  <data name="ProgressiveGames" xml:space="preserve">
+    <value>เกมส์แบบโปรเกรสซีฟ</value>
+  </data>
+  <data name="TableCardGames" xml:space="preserve">
+    <value>โต๊ะเกมส์/เกมส์ไพ่</value>
+  </data>
+  <data name="ScratchArcadeGames" xml:space="preserve">
+    <value>เกมส์อาเขต/สแคช</value>
+  </data>
+  <data name="ProductRNGCasino" xml:space="preserve">
+    <value>เกมส์คาสิโนแบบ RNG</value>
+  </data>
 </root>
