@@ -117,4 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Home" xml:space="preserve">
+    <value>主頁</value>
+  </data>
+  <data name="CommissionStructure" xml:space="preserve">
+    <value>佣金盈利結構</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>產品</value>
+  </data>
+  <data name="TermAndCondition" xml:space="preserve">
+    <value>標準規則</value>
+  </data>
+  <data name="Faqs" xml:space="preserve">
+    <value>常見疑問</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>聯繫我們</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>登入</value>
+  </data>
+  <data name="SignUpAffiliate" xml:space="preserve">
+    <value>註冊合營</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>驗證碼</value>
+  </data>
+  <data name="HotNews" xml:space="preserve">
+    <value>熱點新聞</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>賺取高達45%的代理佣金</value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>加入最佳的合營計劃</value>
+  </data>
+  <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
+    <value>申請12BET 合營</value>
+  </data>
+  <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
+    <value>成為Nova88合營代理後, 您所推薦的12BET每位玩家, 只要使用賬戶就可以為您帶來即時的佣金. 我們的在線系統將全天候24/7為您服務.</value>
+  </data>
+  <data name="WhatNewInAffiliate" xml:space="preserve">
+    <value>合營代理有什麼新功能</value>
+  </data>
+  <data name="CannotGetEnough" xml:space="preserve">
+    <value>覺得太少了嗎</value>
+  </data>
+  <data name="YourCurrentCommision" xml:space="preserve">
+    <value>您賺取的代理佣金</value>
+  </data>
+  <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
+    <value>聯繫代理支援團隊以獲得您別的代理佣金.,  以增加不您每個月收入</value>
+  </data>
+  <data name="ContactNow" xml:space="preserve">
+    <value>聯繫我們！</value>
+  </data>
+  <data name="OneTwoBetAffiliateNews" xml:space="preserve">
+    <value>12BET合營代理資訊</value>
+  </data>
+  <data name="NewBannerIsNowAvailable" xml:space="preserve">
+    <value>新的橫幅廣告上線</value>
+  </data>
+  <data name="NewWithExclamationPoint" xml:space="preserve">
+    <value>全新！</value>
+  </data>
+  <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
+    <value>您可以登入你的代理賬號以獲取您想要在網站上推廣的新橫幅廣告。</value>
+  </data>
+  <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
+    <value>12BET 最新優惠活動！</value>
+  </data>
+  <data name="GetToKnowHotPromotion" xml:space="preserve">
+    <value>了解本月最新的優惠活動.  將信息發布至在您的網站與社交媒體，以獲取更多的顧客及佣金。</value>
+  </data>
 </root>

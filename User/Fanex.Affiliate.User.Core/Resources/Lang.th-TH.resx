@@ -117,4 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Home" xml:space="preserve">
+    <value>หน้าหลัก</value>
+  </data>
+  <data name="CommissionStructure" xml:space="preserve">
+    <value>โครงสร้างรายได้ส่วนแบ่ง</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>ผลิตภัณฑ์</value>
+  </data>
+  <data name="TermAndCondition" xml:space="preserve">
+    <value>ข้อกำหนดและเงื่อนไข</value>
+  </data>
+  <data name="Faqs" xml:space="preserve">
+    <value>คำถามที่พบบ่อย</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>ติดต่อเรา</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>เข้าสู่ระบบ</value>
+  </data>
+  <data name="SignUpAffiliate" xml:space="preserve">
+    <value>สมัครเป็นพันธมิตร</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>การตรวจสอบ</value>
+  </data>
+  <data name="HotNews" xml:space="preserve">
+    <value>ข่าวด่วน</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>รับส่วนแบ่งสูงสุดถึง 45%  </value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>มาเป็นพันธมิตรกับเรา</value>
+  </data>
+  <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
+    <value>สมัครพันธมิตรกับ 12BET</value>
+  </data>
+  <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
+    <value>ในฐานะพันธมิตรในเครือ คุณจะได้รับส่วนแบ่งรายได้จากผู้เล่นทุกคนที่คุณแนะนำเข้ามาใน 12BET ตลอดอายุการใช้งานบัญชีของผู้เล่น. ระบบออนไลน์ของคุณจะให้บริการคุณตลอด 24 ชั่วโมง.</value>
+  </data>
+  <data name="WhatNewInAffiliate" xml:space="preserve">
+    <value>ข่าวใหม่ในพันธมิตร</value>
+  </data>
+  <data name="CannotGetEnough" xml:space="preserve">
+    <value>ไม่เพียงเท่านั้น!</value>
+  </data>
+  <data name="YourCurrentCommision" xml:space="preserve">
+    <value>ส่วนแบ่งรายได้ปัจจุบันของคุณ</value>
+  </data>
+  <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
+    <value>ติดต่อทีมงานพันธมิตร เพื่อรับส่วนแบ่งสุดพิเศษของรายได้ที่มากขึ้นในรายเดือนของคุณ</value>
+  </data>
+  <data name="ContactNow" xml:space="preserve">
+    <value>ติดต่อเราตอนนี้!</value>
+  </data>
+  <data name="OneTwoBetAffiliateNews" xml:space="preserve">
+    <value>ข่าวสารพันธมิตรของ 12BET</value>
+  </data>
+  <data name="NewBannerIsNowAvailable" xml:space="preserve">
+    <value>แบนเนอร์พันธมิตรเวอร์ชั่นใหม่ออกแล้ว!</value>
+  </data>
+  <data name="NewWithExclamationPoint" xml:space="preserve">
+    <value>ข่าวสาร</value>
+  </data>
+  <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
+    <value>ตอนนี้คุณสามารถเข้าสู่บัญชีพันธมิตรของคุณเพื่อรับแบนเนอร์ใหม่เพื่อโปรโมตในเว็บไซต์ของคุณ</value>
+  </data>
+  <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
+    <value>ข่าวโปรโมชั่นใหม่ของโนวา 12BET</value>
+  </data>
+  <data name="GetToKnowHotPromotion" xml:space="preserve">
+    <value>มารู้จักโปรโมชั่นสุดฮอตในเดือนนี้. โพสต์ลงในเว็บไซต์และช่องทางโซเชียลของคุณเพื่อหาลูกค้าและส่วนแบ่งรายได้มากขึ้น!</value>
+  </data>
 </root>

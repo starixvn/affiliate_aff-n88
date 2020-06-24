@@ -117,4 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CommissionStructure" xml:space="preserve">
+    <value>Struktur Pembagian Pendapatan</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Hubungi Kami</value>
+  </data>
+  <data name="Faqs" xml:space="preserve">
+    <value>Tanya Jawab</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Tampilan Depan</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>masuk</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Produk</value>
+  </data>
+  <data name="SignUpAffiliate" xml:space="preserve">
+    <value>daftar afiliasi</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TermAndCondition" xml:space="preserve">
+    <value>syarat dan ketentuan</value>
+  </data>
+  <data name="Validation" xml:space="preserve">
+    <value>validasi</value>
+  </data>
+  <data name="HotNews" xml:space="preserve">
+    <value>Berita hangat</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>Penghasilan hingga &lt;br/&gt; 45% dari sistem bagi hasil.</value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>Bergabunglah bersama affiliate terbaik.</value>
+  </data>
+  <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
+    <value>Ajukan Affiliasi 12BET </value>
+  </data>
+  <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
+    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada 12BET. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
+  </data>
+  <data name="WhatNewInAffiliate" xml:space="preserve">
+    <value>Apa yang baru di affiliasi ??</value>
+  </data>
+  <data name="CannotGetEnough" xml:space="preserve">
+    <value>TIDAK CUKUP !!</value>
+  </data>
+  <data name="YourCurrentCommision" xml:space="preserve">
+    <value>Pendapatan penghasilan bagi hasil anda saat ini ??</value>
+  </data>
+  <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
+    <value>Hubungi bantuan tim affiliasi anda untuk mendapatkan komisi eksklusif yang lebih besar setiap bulan nya.</value>
+  </data>
+  <data name="ContactNow" xml:space="preserve">
+    <value>HUBUNGI SEKARANG !</value>
+  </data>
+  <data name="OneTwoBetAffiliateNews" xml:space="preserve">
+    <value>Berita affiliasi 12BET</value>
+  </data>
+  <data name="NewBannerIsNowAvailable" xml:space="preserve">
+    <value>Spanduk baru tersedia sekarang !!</value>
+  </data>
+  <data name="NewWithExclamationPoint" xml:space="preserve">
+    <value>Baru!</value>
+  </data>
+  <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
+    <value>Sekarang Kamu sudah bisa login ke akun affiliasi anda untuk mendapatkan spanduk baru yang akan kalian gunakan untuk promosi di website anda.</value>
+  </data>
+  <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
+    <value>Apa yang baru di Promosi 12BET ??</value>
+  </data>
+  <data name="GetToKnowHotPromotion" xml:space="preserve">
+    <value>Cari tau Promosi terhangat di bulan ini !! Posting spanduk di website anda dan sosial media anda untuk mendapatkan customer baru dan perbesar pendapatan anda.</value>
+  </data>
 </root>
