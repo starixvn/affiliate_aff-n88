@@ -1597,15 +1597,7 @@
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\Themes\n88-lightmode.scss" />
     <Content Include="www\source\styles\Images\apply\n88\3step.en-US.webp" />
-    <Content Include="www\source\styles\Images\apply\n88\3step.id-ID.webp" />
-    <Content Include="www\source\styles\Images\apply\n88\3step.th-TH.webp" />
-    <Content Include="www\source\styles\Images\apply\n88\3step.zh-CN.webp" />
-    <Content Include="www\source\styles\Images\apply\n88\3step.zh-TW.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
@@ -1619,6 +1611,14 @@
     <Content Include="www\source\styles\Images\apply\n8b\3step.en-US.webp" />
     <Content Include="Views\CommissionStructure\_ExampleTable.cshtml" />
     <Content Include="www\source\styles\Images\AFF-Home-banner-SB.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.webp" />
+    <Content Include="www\source\styles\Images\apply\n88\3step.id-ID.webp" />
+    <Content Include="www\source\styles\Images\apply\n88\3step.th-TH.webp" />
+    <Content Include="www\source\styles\Images\apply\n88\3step.zh-CN.webp" />
+    <Content Include="www\source\styles\Images\apply\n88\3step.zh-TW.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
