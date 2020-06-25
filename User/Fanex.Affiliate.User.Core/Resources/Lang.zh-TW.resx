@@ -1826,7 +1826,7 @@
     <value>您賺取的代理佣金</value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>聯繫代理支援團隊以獲得您別的代理佣金.,  以增加不您每個月收入</value>
+    <value>聯繫代理支援團隊以獲得您別的代理佣金,  以增加不您每個月收入</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
     <value>聯繫我們！</value>
@@ -2153,7 +2153,7 @@
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>活躍推薦玩家</value>
   </data>
-  <data name="" xml:space="preserve">
+  <data name="_Empty[1]" xml:space="preserve">
     <value>公司純贏利({0})</value>
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
