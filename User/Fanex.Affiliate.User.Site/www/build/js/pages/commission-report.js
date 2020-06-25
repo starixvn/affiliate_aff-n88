@@ -2,6 +2,7 @@ var commissionReport = (function ($) {
     var _reportData = null;
     var _sortingColumn = 'Month';
     var _isSortingAsc = false;
+    var _currentBaseCurrency = 0;
     const _currentPage = "RevenueReport";
 
     function formatDecimal(value) {
@@ -58,7 +59,8 @@ var commissionReport = (function ($) {
                 let url = "UserPanel/Main/#SubAffEarning";
                 let params = {
                     monthDate: $(this).data("date"),
-                    requestPage: _currentPage
+                    requestPage: _currentPage,
+                    baseCurrency: _currentBaseCurrency
                 };
 
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
@@ -68,9 +70,10 @@ var commissionReport = (function ($) {
         },
 
         submit: function () {
+            _currentBaseCurrency = $("#base-currency").val();
             var param = {
                 year: $("#year").val(),
-                baseCurrency: $("#base-currency").val()
+                baseCurrency: _currentBaseCurrency
             };
             $.ajax({
                 type: "POST",
