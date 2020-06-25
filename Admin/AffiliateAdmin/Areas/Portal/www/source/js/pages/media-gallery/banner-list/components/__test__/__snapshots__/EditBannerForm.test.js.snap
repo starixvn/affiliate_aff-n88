@@ -294,6 +294,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -357,6 +358,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -474,6 +476,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -535,6 +538,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -596,6 +600,7 @@ exports[`banner list - components - EditBannerForm  render correctly with insert
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -984,6 +989,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1047,6 +1053,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1164,6 +1171,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1225,6 +1233,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1286,6 +1295,7 @@ exports[`banner list - components - EditBannerForm  render correctly with not sh
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1602,6 +1612,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1659,6 +1670,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1776,6 +1788,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1837,6 +1850,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}
@@ -1898,6 +1912,7 @@ exports[`banner list - components - EditBannerForm  render correctly with update
                     ]
                   }
                   hasAllOption={true}
+                  hasInputOption={false}
                   isDisable={false}
                   keyField="key"
                   maxDisplayItemCount={1}

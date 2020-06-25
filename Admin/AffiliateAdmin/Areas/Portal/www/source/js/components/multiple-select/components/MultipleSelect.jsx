@@ -135,7 +135,7 @@ export default class MultipleSelect extends Component {
     }
 
     _close = () => {
-        this.setState({ showOptionList: false });
+        this.setState({ showOptionList: false, inputOption: '' });
     }
 
     _handleDocumentClick = (event) => {

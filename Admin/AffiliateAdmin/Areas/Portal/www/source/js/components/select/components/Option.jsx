@@ -5,6 +5,8 @@ const Option = (props) => {
     const { itemData, onChange, id } = props;
 
     const handleChange = (event) => {
+        event.stopPropagation();
+
         const newItemData = {
             key: itemData.key,
             value: itemData.value
@@ -14,7 +16,7 @@ const Option = (props) => {
     }
 
     return (
-        <li className="select-item" onClick={handleChange}>
+        <li className="select-item" id={id} onClick={handleChange}>
             <label className="option-label">
                 {itemData.value}
             </label>

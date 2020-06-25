@@ -108,6 +108,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
         hasAllOption={true}
+        hasInputOption={false}
         isDisable={false}
         keyField="key"
         maxDisplayItemCount={1}
@@ -154,6 +155,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        hasInputOption={true}
         isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
@@ -450,6 +452,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           ]
         }
         hasAllOption={true}
+        hasInputOption={false}
         isDisable={false}
         keyField="key"
         maxDisplayItemCount={1}
@@ -471,6 +474,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        hasInputOption={true}
         isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}

@@ -66,17 +66,13 @@ describe('daily earning - components - Filter', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('handleChangeProduct - should call setState and handleSetParam when change product select', () => {
-        const event = {
-            target: {
-                value: 1
-            }
-        }
+    it('handleChangeProduct - should call setState and handleSetParam', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState = jest.fn((obj, func) => func && func());
-        wrapper.instance().handleSetParam = jest.fn();
+        const instance = wrapper.instance();
+        instance.handleSetParam = jest.fn();
 
-        wrapper.find('Input[type="select"][name="Product"][id="Product"]').simulate('change', event)
+        instance.handleChangeProduct(1);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ selectedProduct: 1 }, expect.any(Function));
         expect(wrapper.instance().handleSetParam).toHaveBeenCalled();

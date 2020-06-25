@@ -85,7 +85,7 @@ describe('players detail - components - Filter', () => {
         const instance = wrapper.instance();
         instance.setState = jest.fn();
 
-        instance.handleChangeProduct({ target: { value: 1 } });
+        instance.handleChangeProduct(1);
 
         expect(instance.setState).toHaveBeenCalledWith({ selectedProduct: 1 });
     });

@@ -27,31 +27,30 @@ exports[`players detail - components - Filter render correctly 1`] = `
       >
         Product
       </Label>
-      <Input
-        id="Product"
-        name="Product"
+      <Select
+        dataSource={
+          Array [
+            Object {
+              "ProductId": 0,
+              "ProductName": "All",
+            },
+            Object {
+              "ProductId": 1,
+              "ProductName": "Sportsbook",
+            },
+            Object {
+              "ProductId": 4,
+              "ProductName": "Number Game",
+            },
+          ]
+        }
+        hasInputOption={true}
+        isDisable={false}
+        keyField="ProductId"
         onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          value="0"
-        >
-          All
-        </option>
-        <option
-          key="1"
-          value={1}
-        >
-          Sportsbook
-        </option>
-        <option
-          key="4"
-          value={4}
-        >
-          Number Game
-        </option>
-      </Input>
+        selectedKey={0}
+        valueField="ProductName"
+      />
     </FormGroup>
     <FormGroup
       className="mr-sm-2"
@@ -123,6 +122,7 @@ exports[`players detail - components - Filter render correctly 1`] = `
           ]
         }
         hasAllOption={true}
+        hasInputOption={false}
         isDisable={false}
         keyField="key"
         maxDisplayItemCount={1}
@@ -224,19 +224,23 @@ exports[`players detail - components - Filter render correctly with empty 1`] = 
       >
         Product
       </Label>
-      <Input
-        id="Product"
-        name="Product"
+      <Select
+        dataSource={
+          Array [
+            Object {
+              "ProductId": 0,
+              "ProductName": "All",
+            },
+            null,
+          ]
+        }
+        hasInputOption={true}
+        isDisable={false}
+        keyField="ProductId"
         onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          value="0"
-        >
-          All
-        </option>
-      </Input>
+        selectedKey={0}
+        valueField="ProductName"
+      />
     </FormGroup>
     <FormGroup
       className="mr-sm-2"

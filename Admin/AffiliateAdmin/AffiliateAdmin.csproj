@@ -359,6 +359,10 @@
     <Content Include="Areas\Portal\www\source\js\components\select\components\SelectLabel.jsx" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\SelectOptionList.jsx" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\Option.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Select.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectLabel.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\AppContainer.test.js" />
@@ -1196,9 +1200,6 @@
     <Content Include="Areas\Portal\www\dist\vendors\moment-manifest.json" />
     <Content Include="Areas\Portal\www\source\js\components\Loader.jsx" />
     <Content Include="Areas\Portal\www\source\js\components\ReportTitle.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\AutoComplete.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\SuggestionList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\Content.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\Filter.jsx" />

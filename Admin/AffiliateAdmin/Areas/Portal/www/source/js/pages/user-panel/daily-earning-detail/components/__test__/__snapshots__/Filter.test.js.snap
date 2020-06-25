@@ -27,37 +27,34 @@ exports[`daily earning detail - components - Filter render correctly 1`] = `
       >
         Product
       </Label>
-      <Input
-        id="Product"
-        name="Product"
+      <Select
+        dataSource={
+          Array [
+            Object {
+              "ProductId": 0,
+              "ProductName": "All",
+            },
+            Object {
+              "ProductId": 1,
+              "ProductName": "Sportsbook",
+            },
+            Object {
+              "ProductId": 3,
+              "ProductName": "Playtech Casino",
+            },
+            Object {
+              "ProductId": 4,
+              "ProductName": "Number Game",
+            },
+          ]
+        }
+        hasInputOption={true}
+        isDisable={false}
+        keyField="ProductId"
         onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          value="0"
-        >
-          All
-        </option>
-        <option
-          key="product-1"
-          value={1}
-        >
-          Sportsbook
-        </option>
-        <option
-          key="product-3"
-          value={3}
-        >
-          Playtech Casino
-        </option>
-        <option
-          key="product-4"
-          value={4}
-        >
-          Number Game
-        </option>
-      </Input>
+        selectedKey={0}
+        valueField="ProductName"
+      />
     </FormGroup>
     <FormGroup
       className="mr-sm-2"
@@ -129,6 +126,7 @@ exports[`daily earning detail - components - Filter render correctly 1`] = `
           ]
         }
         hasAllOption={true}
+        hasInputOption={false}
         isDisable={false}
         keyField="key"
         maxDisplayItemCount={1}
@@ -169,19 +167,23 @@ exports[`daily earning detail - components - Filter render correctly with empty 
       >
         Product
       </Label>
-      <Input
-        id="Product"
-        name="Product"
+      <Select
+        dataSource={
+          Array [
+            Object {
+              "ProductId": 0,
+              "ProductName": "All",
+            },
+            null,
+          ]
+        }
+        hasInputOption={true}
+        isDisable={false}
+        keyField="ProductId"
         onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          value="0"
-        >
-          All
-        </option>
-      </Input>
+        selectedKey={0}
+        valueField="ProductName"
+      />
     </FormGroup>
   </Form>
 </div>

@@ -14,7 +14,8 @@ const defaultProps = {
     optionAllLabel: "All",
     maxDisplayItemCount: 3,
     onChange: jest.fn(),
-    hasAllOption: true
+    hasAllOption: true,
+    hasInputOption: true
 }
 
 const defaultOption = { code: "SB", name: "Sportsbook", status: true };
@@ -107,10 +108,10 @@ describe('MultipleSelect ', () => {
             multipleSelect.onToggle();
 
             let result = callback({ showOptionList: false });
-            expect(result).toEqual({ showOptionList: true });
+            expect(result).toEqual({ inputOption: "", showOptionList: true });
 
             result = callback({ showOptionList: true });
-            expect(result).toEqual({ showOptionList: false });
+            expect(result).toEqual({ inputOption: "", showOptionList: false });
         })
     })
 
@@ -144,6 +145,17 @@ describe('MultipleSelect ', () => {
             testCheckAll(checked);
 
             expect(multipleSelect._callBackToParent).toHaveBeenCalledWith(null, newDataSource);
+        })
+    })
+
+    describe('_handleChangeInput', () => {
+        it('new State should be correct', () => {
+            const multipleSelect = new MultipleSelect(defaultProps);
+            multipleSelect.setState = jest.fn();
+
+            multipleSelect._handleChangeInput({ target: { name: 'inputOption', value: 'ABC' }});
+
+            expect(multipleSelect.setState).toHaveBeenCalledWith({ inputOption: 'ABC' });
         })
     })
 
@@ -182,7 +194,7 @@ describe('MultipleSelect ', () => {
 
     describe('close', () => {
         it('setState function should be called with correct parameter', () => {
-            const expectedParam = { showOptionList: false };
+            const expectedParam = { showOptionList: false, inputOption: '' };
 
             const componentInstance = new MultipleSelect(defaultProps);
             componentInstance.setState = jest.fn();

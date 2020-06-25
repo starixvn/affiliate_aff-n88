@@ -53,6 +53,7 @@ export class Filter extends PureComponent {
     render() {
         const { selectedProduct, selectedBaseCurrency, currencyList } = this.state;
         const { productList, baseCurrencyList, isProduction } = this.props;
+        const dataSource = [{ ProductId: selectedAllProduct, ProductName: globalResource.All }].concat(productList);
 
         return (
             <div className="filter-container">
@@ -60,7 +61,7 @@ export class Filter extends PureComponent {
                     <FormGroup className="mr-sm-2">
                         <Label className="mr-2">{globalResource.Product}</Label>
                         <Select
-                            dataSource={[{ ProductId: selectedAllProduct, ProductName: globalResource.All }, ...productList]}
+                            dataSource={dataSource}
                             keyField="ProductId"
                             valueField="ProductName"
                             hasInputOption={true}

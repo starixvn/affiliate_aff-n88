@@ -75,8 +75,8 @@ export default class Select extends Component {
         this.setState({ [target.name]: target.value });
     }
 
-    _callBackToParent(selectedItem) {
-        this.props.onChange && this.props.onChange(selectedItem);
+    _callBackToParent(selectedKey) {
+        this.props.onChange && this.props.onChange(selectedKey);
     }
 
     _convertDataSource(inputOption) {
@@ -93,7 +93,7 @@ export default class Select extends Component {
     }
 
     _close = () => {
-        this.setState({ showOptionList: false });
+        this.setState({ showOptionList: false, inputOption: '' });
     }
 
     _handleDocumentClick = (event) => {
