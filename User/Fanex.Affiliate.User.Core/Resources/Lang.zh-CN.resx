@@ -2132,16 +2132,13 @@
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>活跃推荐玩家</value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
+  <data name="" xml:space="preserve">
     <value>公司纯赢利({0})</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>总数</value>
-  </data>
-  <data name="Tier" xml:space="preserve">
-    <value>阶层</value>
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>您的佣金盈利</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>立即加入</value>
   </data>
 </root>
