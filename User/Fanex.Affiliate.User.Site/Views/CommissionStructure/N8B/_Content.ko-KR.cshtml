@@ -1,11 +1,4 @@
-﻿@using Fanex.Affiliate.User.Core.Constants
-@{
-    var appSetting = AppSetting.Instance;
-    var siteName = appSetting.SiteFriendlyName;
-    var defaultCurrency = appSetting.DefaultCurrency;
-    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
-}
-<div class="banner-commission-structure">
+﻿<div class="banner-commission-structure">
     <div class="text-content english">
         <p class="text-big-yellow">45%</p>
         <p class="text-big-white">revenue share for life</p>
@@ -62,7 +55,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to @siteName.
+                    <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to Bwing.
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
@@ -100,11 +93,11 @@
             = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
         </p>
         <p class="text">
-            = 7,800 @defaultCurrency
+            = 7,800 VND
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 7,800 = <strong>65,850 @defaultCurrency</strong>
+        <strong>=></strong> Your total revenue share for the month would be: 58,050 + 7,800 = <strong>65,850 VND</strong>
     </p>
 </div>
 <div class="info-group">
@@ -113,10 +106,10 @@
     </div>
     <ul>
         <li class="text">
-            Once a month, through your @siteName player account (in THB, MYR, IDR & CNY) and the minimum withdrawal amount is @defaultCurrency @appSetting.MinWithdrawal (or in equivalent currencies). For other currencies need to request from @siteName.ToUpperInvariant() Affiliate team.
+            Once a month, through your Bwing player account (in THB, MYR, IDR & CNY) and the minimum withdrawal amount is VND 2,300,000. For other currencies need to request from BWING Affiliate team.
         </li>
         <li class="text">
-            Any 2nd withdrawal request in the same month shall be subject to @siteName Affiliates team’s approval.
+            Any 2nd withdrawal request in the same month shall be subject to Bwing Affiliates team’s approval.
         </li>
     </ul>
 </div>

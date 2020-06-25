@@ -913,6 +913,9 @@
     <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-cn.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-id.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-tw.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
     <Content Include="www\build\styles\Images\shadown.png" />
@@ -1193,6 +1196,9 @@
     <Content Include="www\source\styles\Images\img-hover-news.png" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-cn.png" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-id.png" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-tw.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
     <Content Include="www\source\styles\Images\shadown.png" />
@@ -1330,13 +1336,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="www\source\styles\fonts\tahoma\font.css" />
-    <Content Include="Views\Faq\_Content.en-US.cshtml" />
-    <Content Include="Views\Faq\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Faq\_Content.zh-TW.cshtml" />
-    <Content Include="Views\Faq\_Content.id-ID.cshtml" />
-    <Content Include="Views\Faq\_Content.vi-VN.cshtml" />
-    <Content Include="Views\Faq\_Content.th-TH.cshtml" />
-    <Content Include="Views\Faq\_Content.ko-KR.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.en-US.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.id-ID.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.ko-KR.cshtml" />
@@ -1360,13 +1359,6 @@
     <Content Include="www\build\styles\fonts\tahoma\TAHOMA_0.TTF" />
     <Content Include="Views\Product\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\_Content.zh-TW.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.en-US.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.id-ID.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.ko-KR.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.th-TH.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.vi-VN.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.zh-CN.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTable.cshtml" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.eot" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.ttf" />
@@ -1619,6 +1611,44 @@
     <Content Include="www\source\styles\Images\apply\n88\3step.th-TH.webp" />
     <Content Include="www\source\styles\Images\apply\n88\3step.zh-CN.webp" />
     <Content Include="www\source\styles\Images\apply\n88\3step.zh-TW.webp" />
+    <Content Include="Views\CommissionStructure\N88\_Content.zh-TW.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.zh-TW.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.id-ID.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.ko-KR.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.th-TH.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.zh-CN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.zh-TW.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.id-ID.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.ko-KR.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.th-TH.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.zh-TW.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.id-ID.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.ko-KR.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.th-TH.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.zh-TW.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.id-ID.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.ko-KR.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.th-TH.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.zh-TW.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

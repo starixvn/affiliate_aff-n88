@@ -8,8 +8,8 @@
 }
 
 @model string
-@{ 
-    var contentView = "~/Views/Faq/_Content." + Model + ".cshtml";
+@{
+    var contentView = "~/Views/Faq/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
 
      var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
 }

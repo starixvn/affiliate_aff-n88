@@ -282,4 +282,19 @@
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>หมายเลขตรวจสอบ</value>
   </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>ผู้เล่นที่แนะนำมาที่ยัง Active</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
+    <value>Company Net Win ({0})</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>รวม</value>
+  </data>
+  <data name="Tier" xml:space="preserve">
+    <value>Tier</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>ส่วนแบ่งรายได้ของคุณ</value>
+  </data>
 </root>

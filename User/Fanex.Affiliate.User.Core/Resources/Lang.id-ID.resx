@@ -285,4 +285,19 @@
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Kode Validasi</value>
   </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Pemain aktif yang direferensikan</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
+    <value>Kemenangan bersih Perusahaan ({0})</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Tier" xml:space="preserve">
+    <value>Tier</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Pembagian Penghasilan Anda</value>
+  </data>
 </root>

@@ -1330,15 +1330,16 @@ label.require:after {
 .btn-login-mobile {
   display: inline-block;
   margin-right: 8px !important; }
-  @media (min-width: 992px) {
-    .btn-login-mobile {
-      display: none; } }
 
 .btn-transparent {
   background-color: transparent; }
 
 .btn.btn-transparent :hover {
   color: cornflowerblue; }
+
+@media (min-width: 992px) {
+  #mobileLogin {
+    display: none; } }
 
 .table-medium {
   width: 70%; }

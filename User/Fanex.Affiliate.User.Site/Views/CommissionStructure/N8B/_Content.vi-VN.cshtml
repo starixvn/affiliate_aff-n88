@@ -1,11 +1,4 @@
-﻿@using Fanex.Affiliate.User.Core.Constants
-@{
-    var appSetting = AppSetting.Instance;
-    var siteName = appSetting.SiteFriendlyName;
-    var defaultCurrency = appSetting.DefaultCurrency;
-    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
-}
-<div class="banner-commission-structure">
+﻿<div class="banner-commission-structure">
     <div class="text-content english">
         <p class="text-big-yellow">45%</p>
         <p class="text-big-white">Thưởng Hoa Hồng</p>
@@ -62,7 +55,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Lãi Thực Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho @siteName.
+                    <strong>Lãi Thực Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho Bwing.
                 </li>
                 <li class="text">
                     <strong>Người Chơi Đủ Điều Kiện:</strong> người chơi có ít nhất một (1) cược trong tháng đó.
@@ -100,11 +93,11 @@
             = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
         </p>
         <p class="text">
-            = 7,800 @defaultCurrency
+            = 7,800 VND
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 58,050 + 7,800 = <strong>65,850 @defaultCurrency</strong>
+        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 58,050 + 7,800 = <strong>65,850 VND</strong>
     </p>
 </div>
 <div class="info-group">
@@ -113,10 +106,10 @@
     </div>
     <ul>
         <li class="text">
-            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @siteName (bằng tiền THB, MYR, IDR hoặc CNY) và số tiền rút tối thiểu phải tương đương @appSetting.MinWithdrawal @defaultCurrency. Đối với những loại tiền tệ khác, cần phải gửi yêu cầu cho nhóm Affiliate @siteName.
+            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại Bwing (bằng tiền THB, MYR, IDR hoặc CNY) và số tiền rút tối thiểu phải tương đương 2,300,000 VND. Đối với những loại tiền tệ khác, cần phải gửi yêu cầu cho nhóm Affiliate Bwing.
         </li>
         <li class="text">
-            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Affiliate @siteName.
+            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Affiliate Bwing.
         </li>
     </ul>
 </div>

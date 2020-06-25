@@ -3,8 +3,8 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 @model string
-@{ 
-    var viewName = "~/Views/CommissionStructure/_Content." + Model + ".cshtml";
+@{
+    var viewName = "~/Views/CommissionStructure/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
 
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
