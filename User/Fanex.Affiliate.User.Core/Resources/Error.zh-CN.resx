@@ -117,4 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ForgotPassword1001" xml:space="preserve">
+    <value>您所輸入的電子郵箱地址無法識別，請重新輸入或者 &lt;a href="{0}" class='err-msg'&gt;联络我们&lt;/a&gt;</value>
+  </data>
+  <data name="ForgotPassword1008" xml:space="preserve">
+    <value>此电子邮件地址对应的合作伙伴帐户失效或未被关闭。&lt;a href="{0}" class='err-msg'&gt;请重试或联系我们。&lt;/a&gt;.</value>
+  </data>
+  <data name="ForgotPassword1009" xml:space="preserve">
+    <value>此电子邮件地址对应的合作伙伴帐户失效或未被关闭。&lt;a href="{0}" class='err-msg'&gt;请重试或联系我们。&lt;/a&gt;</value>
+  </data>
+  <data name="LoginClosedAccount" xml:space="preserve">
+    <value>账号关闭，请联络管理员</value>
+  </data>
+  <data name="LoginLockedAccount" xml:space="preserve">
+    <value>因为连续5次登陆失败，您的账户被暂时锁定。请10分钟以后再尝试登陆或者联系管理员！</value>
+  </data>
+  <data name="LoginWrongInfo" xml:space="preserve">
+    <value>用户名或密码错误</value>
+  </data>
+  <data name="PaymentBalanceInvalid" xml:space="preserve">
+    <value>您的帐户余额不足，不能要求提款</value>
+  </data>
+  <data name="PaymentMethodInvalid" xml:space="preserve">
+    <value>非常抱歉，{0}支付方式暂不可用。&lt;a href='{1}'&gt;请点击这里&lt;/a&gt;改选“12BET玩家帐户”支付。</value>
+  </data>
+  <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
+    <value>每月8号至15号为申请提款时间.</value>
+  </data>
+  <data name="RecoverPassword1001" xml:space="preserve">
+    <value>您用于申请新密码的地址无效。</value>
+  </data>
+  <data name="RequireIMAccount" xml:space="preserve">
+    <value>请填写QQ或微信账号</value>
+  </data>
+  <data name="VerificationFailed" xml:space="preserve">
+    <value>邮箱验证码无效或过期，请重新输入或重新申请。</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>无效电子邮箱</value>
+  </data>
+  <data name="Wait60Seconds" xml:space="preserve">
+    <value>在重新发送密码前，请先等待60秒。</value>
+  </data>
 </root>
