@@ -2124,7 +2124,7 @@
  (僅適用於INR和IN.USD會員）</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>賺取高達45%的代理佣金</value>
+    <value>賺取高達&lt;br/&gt;45%的代理佣金</value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>加入最佳的合營計劃</value>

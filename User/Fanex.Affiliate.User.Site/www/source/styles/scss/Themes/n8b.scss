@@ -4,7 +4,7 @@ body {
     color: $color-white;
     background: $bg-main-color;
     font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
-    font-size: 1.4rem; 
+    font-size: 1.4rem;
 }
 
 // Header
@@ -900,7 +900,6 @@ input[type=radio][disabled] + span{
 
     .page-container {
         color: $text-color-white;
-        
     }
 }
 .btn-copy-link, .btn-copy-qr, .btn-save-img {
@@ -995,7 +994,7 @@ input[type=radio][disabled] + span{
     .home-page .news {
         .item-wrapper {
             max-width: 100%;
-            flex-basis: 100%; 
+            flex-basis: 100%;
             margin-bottom: 10px;
         }
     }
@@ -1064,4 +1063,4 @@ input[type=radio][disabled] + span{
     .banner-text {
         width: 160px;
     }
-} 
+}

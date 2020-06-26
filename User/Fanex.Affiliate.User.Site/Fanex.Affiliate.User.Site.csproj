@@ -844,9 +844,6 @@
     <Content Include="www\build\styles\Images\ads-1\ads-1_392.jpg" />
     <Content Include="www\build\styles\Images\ads-1\ads-1_559.jpg" />
     <Content Include="www\build\styles\Images\ads-1\ads-1_644.jpg" />
-    <Content Include="www\build\styles\Images\adv-contact\n88\bg-adv_contact.png" />
-    <Content Include="www\build\styles\Images\adv-contact\n8b\bg-adv_contact.png" />
-    <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.png" />
@@ -886,6 +883,9 @@
     <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.ko-KR.jpg" />
     <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.th-TH.jpg" />
     <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-us\contact.png" />
     <Content Include="www\build\styles\Images\FAQ_banner.png" />
     <Content Include="www\build\styles\Images\footer\cr-21.png" />
@@ -1119,9 +1119,9 @@
     <Content Include="www\source\styles\Images\ads-1\ads-1_392.jpg" />
     <Content Include="www\source\styles\Images\ads-1\ads-1_559.jpg" />
     <Content Include="www\source\styles\Images\ads-1\ads-1_644.jpg" />
-    <Content Include="www\source\styles\Images\adv-contact\n8b\bg-adv_contact.png" />
-    <Content Include="www\source\styles\Images\adv-contact\n88\bg-adv_contact.png" />
-    <Content Include="www\source\styles\Images\adv-contact\n8g\bg-adv_contact.png" />
+    <Content Include="www\source\styles\Images\contact-in-home\n88\bg_contact.png" />
+    <Content Include="www\source\styles\Images\contact-in-home\n8b\bg_contact.png" />
+    <Content Include="www\source\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\source\styles\Images\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\apply\n88\3step.en-US.png" />
     <Content Include="www\source\styles\Images\apply\n88\3step.id-ID.png" />
@@ -1555,10 +1555,8 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.webp" />
-    <Content Include="www\source\styles\Images\adv-contact\n8b\bg-adv_contact.webp" />
-    <Content Include="www\source\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
-    <Content Include="www\build\styles\Images\adv-contact\n8b\bg-adv_contact.webp" />
-    <Content Include="www\build\styles\Images\adv-contact\n8g\bg-adv_contact.webp" />
+    <Content Include="www\source\styles\Images\contact-in-home\n8b\bg_contact.webp" />
+    <Content Include="www\source\styles\Images\contact-in-home\n8g\bg_contact.webp" />
     <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\SubAffDetails.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
@@ -1582,8 +1580,6 @@
     <Content Include="www\source\styles\Images\sports-banners\n88\AFF-Home-banner-SB.vi-VN.webp" />
     <Content Include="www\source\styles\Images\sports-banners\n88\AFF-Home-banner-SB.zh-CN.webp" />
     <Content Include="www\source\styles\Images\sports-banners\n88\AFF-Home-banner-SB.zh-TW.webp" />
-    <Content Include="www\source\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
-    <Content Include="www\build\styles\Images\adv-contact\n88\bg-adv_contact.webp" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-lightmode.scss" />
     <Content Include="www\source\styles\scss\Themes\n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
@@ -1649,6 +1645,10 @@
     <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.zh-CN.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.zh-TW.cshtml" />
+    <Content Include="www\source\styles\Images\contact-in-home\n88\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

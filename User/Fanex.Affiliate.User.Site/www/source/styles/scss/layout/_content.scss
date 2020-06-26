@@ -88,20 +88,28 @@ $height-hotnew: 26px;
 }
 
 // --------------------------------- image responsive ------------------- //
+.no-webp .adv-contact.N88 {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.png");
+}
+
+.webp .adv-contact.N88 {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.webp");
+}
+
 .no-webp .adv-contact.N8B {
-    background-image: url("../../../../www/build/styles/Images/adv-contact/n8b/bg-adv_contact.png");
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8b/bg_contact.png");
 }
 
 .webp .adv-contact.N8B {
-    background-image: url("../../../../www/build/styles/Images/adv-contact/n8b/bg-adv_contact.webp");
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8b/bg_contact.webp");
 }
 
 .no-webp .adv-contact.N8G {
-    background-image: url("../../../../www/build/styles/Images/adv-contact/n8g/bg-adv_contact.png");
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8g/bg_contact.png");
 }
 
 .webp .adv-contact.N8G {
-    background-image: url("../../../../www/build/styles/Images/adv-contact/n8g/bg-adv_contact.webp");
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8g/bg_contact.webp");
 }
 
 .adv-contact {
@@ -199,4 +207,4 @@ $height-hotnew: 26px;
         max-width: calc(100% - 200px);
         flex-basis: calc(100% - 200px);
     }
-} 
+}
