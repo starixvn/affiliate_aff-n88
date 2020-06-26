@@ -1547,7 +1547,7 @@
     <value>等级 </value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
-    <value>新密码将发送到您提供的电子邮件地址。&lt;br /&gt;如果您遇到任何其他疑问，&lt;a href="{0}"&gt;请与我们联系&lt;/a&gt;.</value>
+    <value>新密码将发送到您提供的电子邮件地址。&lt;br /&gt;如果您遇到任何其他疑问，&lt;a href="{0}"&gt;请与我们联系&lt;/a&gt;。</value>
   </data>
   <data name="TitleLogin" xml:space="preserve">
     <value>合作伙伴登入</value>
