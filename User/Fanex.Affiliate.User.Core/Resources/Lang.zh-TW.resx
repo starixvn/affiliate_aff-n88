@@ -1090,7 +1090,7 @@
     <value>荷蘭</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>每月盈虧總額 (CNW)($)</value>
+    <value>公司纯赢利({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亞</value>
@@ -2161,5 +2161,8 @@
   </data>
   <data name="RegisterNow" xml:space="preserve">
     <value>立即加入</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>活躍玩家</value>
   </data>
 </root>

@@ -1091,7 +1091,7 @@
     <value>เนเธอแลนด์</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>ยอดเล่นสียสุทธิ/เดือน (ดอลล่าร์ฯ)</value>
+    <value>Company Net Win ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>คาเลโดเนีย ใหม่</value>
@@ -2148,7 +2148,7 @@
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>ผู้เล่นที่แนะนำมาที่ยัง Active</value>
   </data>
-  <data name="" xml:space="preserve">
+  <data name="_Empty[1]" xml:space="preserve">
     <value>Company Net Win ({0})</value>
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
@@ -2156,5 +2156,8 @@
   </data>
   <data name="RegisterNow" xml:space="preserve">
     <value> สมัครเลย</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Active Players</value>
   </data>
 </root>

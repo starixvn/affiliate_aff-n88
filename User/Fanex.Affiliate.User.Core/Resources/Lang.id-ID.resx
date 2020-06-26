@@ -1093,7 +1093,7 @@
     <value>Belanda </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Pendapatan Bersih Dalam Sebulan (Company Net Win For The Month) dalam USD</value>
+    <value>Kemenangan bersih Perusahaan ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>Kaledonia Baru </value>
@@ -2128,7 +2128,7 @@
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>Pemain aktif yang direferensikan</value>
   </data>
-  <data name="" xml:space="preserve">
+  <data name="_Empty[1]" xml:space="preserve">
     <value>Kemenangan bersih Perusahaan ({0})</value>
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
@@ -2136,5 +2136,8 @@
   </data>
   <data name="RegisterNow" xml:space="preserve">
     <value>Gabung Sekarang</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Pemain Aktif</value>
   </data>
 </root>
