@@ -22,6 +22,16 @@ body {
 
 .news {
     background: $bg-main-color;
+
+    .item-wrapper {
+        .card {
+            .card-body {
+                .img-content {
+                    color: $home-card-text-color;
+                }
+            }
+        }
+    }
 }
 
 .header-bottom {
@@ -481,5 +491,21 @@ body {
 @media (min-width: 1024px){
     .content .news {
         margin: 0;
+    }
+}
+@media only screen and ( min-width:1200px ) and (max-width: 1450px){
+    .content {
+        .news {
+            .item-wrapper {
+                padding-left: 10px;
+                padding-right: 10px;
+
+                .card-content {
+                    .card-title{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
     }
 }
