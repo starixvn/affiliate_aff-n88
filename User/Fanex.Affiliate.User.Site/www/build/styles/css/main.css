@@ -725,6 +725,11 @@ body {
     .adv-contact .btn:focus {
       outline: none; }
 
+@media only screen and (min-width: 1190px) and (max-width: 1366px) {
+  .page-container {
+    max-width: calc(100% - 200px);
+    flex-basis: calc(100% - 200px); } }
+
 .carousel.slide .carousel-control {
   width: 2.5rem;
   background: transparent;
@@ -762,7 +767,7 @@ body {
 
 .banner-text {
   position: absolute;
-  left: 208px;
+  left: 215px;
   top: 50%;
   transform: translate(0, -50%);
   max-width: 650px; }
@@ -1541,16 +1546,14 @@ input[type="radio"], input[type="checkbox"] {
     transform: translateX(-100%); } }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .banner-text {
-    left: 150px; }
-    .banner-text h2 {
-      font-size: 40px; }
-    .banner-text h5 {
-      font-size: 20px; } }
+  .banner-text h2 {
+    font-size: 40px; }
+  .banner-text h5 {
+    font-size: 20px; } }
 
-@media (min-width: 1280px) and (max-width: 1366px) {
+@media only screen and (max-width: 1366px) and (min-width: 1190px) {
   .banner-text {
-    left: 200px; } }
+    left: 110px; } }
 
 @media (min-width: 1024px) {
   .content .news {
@@ -1655,7 +1658,7 @@ input[type="radio"], input[type="checkbox"] {
         }*/ }
   .banner-text {
     left: 32px;
-    width: 160px; }
+    width: 70%; }
     .banner-text h2 {
       font-size: 24px; }
     .banner-text h5 {

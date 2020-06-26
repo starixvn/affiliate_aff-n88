@@ -5,7 +5,7 @@ $desktop: "(min-width: 1024px)";
 
 @media (min-width: 1024px) and (max-width: 1279px) {
     .banner-text {
-        left: 150px;
+      
         h2 {
             font-size: 40px;
         }
@@ -17,8 +17,14 @@ $desktop: "(min-width: 1024px)";
 }
 @media (min-width: 1280px) and (max-width: 1366px) {
     .banner-text {
-        left: 200px;
+         
         
+    }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1190px){
+    .banner-text {
+        left: 110px;
     }
 }
 
@@ -186,7 +192,8 @@ $desktop: "(min-width: 1024px)";
 
     .banner-text {
         left: 32px;
-        width: 160px;
+        //width: 160px;
+        width: 70%;
 
         h2 {
             font-size: 24px;

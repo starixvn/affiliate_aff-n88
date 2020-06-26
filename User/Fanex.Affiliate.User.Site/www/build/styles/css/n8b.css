@@ -648,3 +648,7 @@ input[type=radio][disabled] + span {
     width: 1500px; }
   .carousel-inner:after {
     display: none; } }
+
+@media (max-width: 767px) {
+  .banner-text {
+    width: 160px; } }

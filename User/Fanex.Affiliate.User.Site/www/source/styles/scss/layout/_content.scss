@@ -193,3 +193,10 @@ $height-hotnew: 26px;
         }
     }
 }
+
+@media only screen and (min-width: 1190px ) and (max-width: 1366px){
+    .page-container {
+        max-width: calc(100% - 200px);
+        flex-basis: calc(100% - 200px);
+    }
+} 
