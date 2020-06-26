@@ -1539,7 +1539,7 @@
     <value>ระดับชั้น</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
-    <value>รหัสใหม่จะส่งไปยังอีเมลที่คุณระบุ &lt;br /&gt;&lt;a href="{0}"&gt;ถ้าคุณมีปัญหาในการใช้งาน ได้โปรดติดต่อเรา&lt;/a&gt;.</value>
+    <value>รหัสใหม่จะส่งไปยังอีเมลที่คุณระบุ &lt;br /&gt;ถ้าคุณมีปัญหาในการใช้งาน&lt;a href="{0}"&gt; ได้โปรดติดต่อเรา&lt;/a&gt;.</value>
   </data>
   <data name="TitleLogin" xml:space="preserve">
     <value>ล๊อคอินเข้าระบบบัญชีพันธมิตร</value>
