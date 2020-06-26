@@ -49,6 +49,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 breadcrumb = Constants.RequestPage.Links[Constants.RequestPage.StatementHistory];
             }
 
+            breadcrumb.Url = $"{breadcrumb.Url}?baseCurrency={param.BaseCurrency}";
+
             ViewBag.MonthDate = param.MonthDate;
             ViewBag.Breadcrumb = breadcrumb;
             ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();

@@ -31,10 +31,10 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index()
+        public ActionResult Index(int? baseCurrency)
         {
             ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
-            ViewBag.DefaultBaseCurrency = _sessionService.UserSession.BaseCurrency;
+            ViewBag.DefaultBaseCurrency = baseCurrency ?? _sessionService.UserSession.BaseCurrency;
             return View("~/Views/UserPanel/CommissionReport/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
         }
 
