@@ -232,6 +232,11 @@ body {
 }
 
 // Product
+@media screen and (max-width: 530px){
+    .banner-product.banner-product-sport .text-red span {
+        //max-width: 180px;
+    }
+}
 .table {
     .game-list tr .game-name {
         background-color: $table-game-name-bg;

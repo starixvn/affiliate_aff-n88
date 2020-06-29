@@ -901,7 +901,7 @@ body {
   .banner-product .text-red {
     font-weight: 500;
     line-height: 1.204;
-    font-size: 4.4rem;
+    font-size: 4rem;
     color: #ffffff;
     line-height: 1.204545;
     position: absolute;
@@ -928,31 +928,35 @@ body {
     justify-content: center; }
     .banner-product.banner-product-sport .text-red {
       text-align: left;
-      left: 76px; }
+      left: 76px;
+      max-width: 52%; }
     @media screen and (max-width: 1500px) {
       .banner-product.banner-product-sport .text-red {
+        max-width: 57%;
         left: 20px;
-        font-size: 32px; } }
+        font-size: 3rem; } }
     @media screen and (max-width: 767px) {
       .banner-product.banner-product-sport .text-red {
         left: 10px;
-        font-size: 22px; } }
+        font-size: 2rem; } }
     @media screen and (max-width: 530px) {
       .banner-product.banner-product-sport .text-red {
-        font-size: 18px; }
-        .banner-product.banner-product-sport .text-red span {
-          max-width: 180px; } }
+        font-size: 16px;
+        max-width: 58%; } }
   .banner-product.banner-product-casino .text-red {
     text-align: right;
-    right: 34px;
-    margin: 3px 0 0 0; }
+    right: 49px;
+    margin: 3px 0 0 0;
+    padding: 0;
+    max-width: 53%; }
   @media screen and (max-width: 1500px) {
     .banner-product.banner-product-casino .text-red {
-      right: 20px;
-      font-size: 29px; } }
+      max-width: 57%;
+      right: 35px;
+      font-size: 30px; } }
   @media screen and (max-width: 991px) {
     .banner-product.banner-product-casino .text-red {
-      right: 10px;
+      right: 25px;
       font-size: 22px; } }
   @media screen and (max-width: 767px) {
     .banner-product.banner-product-casino .text-red {
@@ -960,8 +964,13 @@ body {
       font-size: 22px; } }
   @media screen and (max-width: 600px) {
     .banner-product.banner-product-casino .text-red {
-      right: 0;
+      right: 15px;
       font-size: 17px; } }
+  @media screen and (max-width: 530px) {
+    .banner-product.banner-product-casino .text-red {
+      right: 15px;
+      max-width: 58%;
+      font-size: 15px; } }
 
 .no-webp .banner-terms-condition {
   background-image: url("../Images/bg-Terms_&_conditions_banner.png"); }
@@ -1351,6 +1360,13 @@ label.require:after {
 @media (min-width: 992px) {
   #mobileLogin {
     display: none; } }
+
+.signup-block .btn.btn-link {
+  white-space: normal;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }
 
 .table-medium {
   width: 70%; }

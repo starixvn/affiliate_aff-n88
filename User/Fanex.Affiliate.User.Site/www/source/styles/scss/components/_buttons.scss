@@ -100,3 +100,13 @@
         display: none;
     }
 }
+// btn signup-block
+.signup-block {
+    .btn.btn-link {
+        white-space: normal;
+        line-height: 1.2;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+} 
