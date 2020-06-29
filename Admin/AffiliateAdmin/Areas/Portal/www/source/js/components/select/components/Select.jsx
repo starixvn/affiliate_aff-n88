@@ -6,10 +6,6 @@ import SelectOptionList from './SelectOptionList';
 
 const KEY_NAME = "key";
 const VALUE_NAME = "value";
-const ITEM_ALL = {
-    key: '',
-    name: 'All'
-}
 
 let id = 1;
 

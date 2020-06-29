@@ -104,6 +104,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var viewModel = new EmailTemplateViewModel
             {
                 RootUrl = domain,
+                UserSiteUrl = _appSetting.AsianAffSiteUrl,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = MappingLanguage(language),
                 Content = content,
