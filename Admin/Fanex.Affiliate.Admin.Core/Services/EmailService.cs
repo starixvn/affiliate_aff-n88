@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffInfor);
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectWithdrawalGuidance);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleWithdrawalGuidance, emailParam.Language, emailParam.RootUrl) :
