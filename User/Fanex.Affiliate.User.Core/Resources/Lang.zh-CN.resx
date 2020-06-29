@@ -421,7 +421,7 @@
     <value>意见填写无效</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>佣金%</value>
+    <value>百分比</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>完成日期</value>
@@ -448,7 +448,7 @@
     <value>库克群岛</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value> © 版权所有 2020 | 12BET 保留所有权利 | 21+</value>
+    <value> © 版权 2020 | 12BET 版权所有 | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>哥斯达黎加</value>
@@ -1093,7 +1093,7 @@
     <value>荷兰</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>公司純贏利({0})</value>
+    <value>公司净赢额 ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亚</value>
@@ -1544,7 +1544,7 @@
     <value>这是一封由系统自动发送的电子邮件，请勿直接回复此电子邮件。</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>等级 </value>
+    <value>层级</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>新密码将发送到您提供的电子邮件地址。&lt;br /&gt;如果您遇到任何其他疑问，&lt;a href="{0}"&gt;请与我们联系&lt;/a&gt;。</value>
@@ -1736,13 +1736,13 @@
     <value>视频扑克</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>佣金分成</value>
+    <value>佣金盈利</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>所有产品</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>更多有关12BET产品信息</value>
+    <value>有关12BET产品的更多详细信息</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>周一至周六上午 9 时至下午6 时（北京时间）</value>

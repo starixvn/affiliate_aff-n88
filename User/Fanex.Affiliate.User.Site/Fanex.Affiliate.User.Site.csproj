@@ -915,6 +915,7 @@
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-cn.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-id.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-th.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-tw.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
@@ -1198,6 +1199,7 @@
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-cn.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-id.png" />
+    <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-th.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-tw.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
     <Content Include="www\source\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />

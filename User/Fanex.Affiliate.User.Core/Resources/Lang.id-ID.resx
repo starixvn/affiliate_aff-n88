@@ -421,7 +421,7 @@
     <value>Komentar tidak valid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Persentase Komisi</value>
+    <value>Persentase</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
@@ -451,7 +451,7 @@
     <value>Kep. Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value> © Copyright 2020 | 12BET. All Rights Reserved | 21+</value>
+    <value> © hak cipta 2020 | 12BET. Seluruh hak dilindungi | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Kosta Rika </value>
@@ -1534,7 +1534,7 @@
     <value>Ini adalah email yang dibuat otomatis oleh sistem, jangan membalas email ini secara langsung.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Level</value>
+    <value>Tingkat</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Password baru akan di kirim ke email yang anda daftarkan. &lt;br /&gt;Jika mengalami kendala selama di sini, &lt;a href="{0}"&gt;silahkan hubungi kami&lt;/a&gt;.</value>
@@ -1630,7 +1630,7 @@
     <value>USD (Dollar Amerika Serikat)</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Nama pengguna</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>validasi</value>
@@ -1726,13 +1726,13 @@
     <value>Video Poker Games</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>Pembagian Hasil</value>
+    <value>Bagi Hasil</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
-    <value>Semua Produk/Permainan</value>
+    <value>Semua produk</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Info Lengkap Mengenai Produk 12BET</value>
+    <value>Lebih lengkap tentang Produk 12BET</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Senin - Sabtu&lt;br&gt;8:00 - 17:00 WIB</value>
@@ -2138,6 +2138,6 @@
     <value>Gabung Sekarang</value>
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>Pemain Aktif</value>
+    <value>Pemain aktif</value>
   </data>
 </root>

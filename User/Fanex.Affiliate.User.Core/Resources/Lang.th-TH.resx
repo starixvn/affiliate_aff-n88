@@ -421,7 +421,7 @@
     <value>ความคิดเห็นไม่ถูกต้อง</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>เปอร์เซนต์ของการรับค่าคอมมิชชั่น</value>
+    <value>เปอร์เซ็นต์</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>วันที่เสร็จสมบูรณ์</value>
@@ -448,7 +448,7 @@
     <value>เกาะ คุ๊ก</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value> © สงวนลิขสิทธิ์ 2020| 12BET.com | 21+</value>
+    <value> © ลิขสิทธิ์ 2020| 12BET. สงวนลิขสิทธิ์ | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>คอสตาริกา</value>
@@ -1091,7 +1091,7 @@
     <value>เนเธอแลนด์</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win ({0})</value>
+    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>คาเลโดเนีย ใหม่</value>
@@ -1536,7 +1536,7 @@
     <value>อีเมลล์นี้ได้ถูกส่งโดยระบบ   กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>ระดับชั้น</value>
+    <value>ระดับ</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>รหัสใหม่จะส่งไปยังอีเมลที่คุณระบุ &lt;br /&gt;ถ้าคุณมีปัญหาในการใช้งาน&lt;a href="{0}"&gt; ได้โปรดติดต่อเรา&lt;/a&gt;.</value>
@@ -1632,7 +1632,7 @@
     <value>USD (United States Dollar)</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>ไอดีพันธมิตร</value>
+    <value>ชื่อผู้ใช้</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>การตรวจสอบ</value>
@@ -1731,10 +1731,10 @@
     <value>ส่วนแบ่งรายได้</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
-    <value>ทุกผลิตภัณฑ์เดิมพัน</value>
+    <value>ผลิตภัณฑ์ทั้งหมด</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>ข้อมูลเพิ่มเติมสำหรับผลิตภัณฑ์12BETทั้งหมด</value>
+    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ 12BET</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>วันจันทร์ - วันเสาร์&lt;br&gt;เวลา 08.00 น. - 17.00 น. (เวลาไทย)</value>
@@ -2158,6 +2158,6 @@
     <value> สมัครเลย</value>
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>Active Players</value>
+    <value>ผู้เล่นที่มีการใช้งาน</value>
   </data>
 </root>
