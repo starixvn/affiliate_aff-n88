@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.Utilities;
+
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
@@ -22,7 +24,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
 
-            var langCookie = HttpContext.Current.Request.Cookies["afffavoritelang"]?.Value;
+            var langCookie = HttpContext.Current.Request.Cookies["afffavoritelang" + AppSetting.Instance.SiteName]?.Value;
 
             return SystemLanguage.IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
