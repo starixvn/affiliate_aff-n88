@@ -21,7 +21,7 @@
         private readonly ILanguageService _languageService;
         private readonly IAppSetting _appSetting;
 
-        private const string MailContact = "ricky.nguyen@starixsoft.com";
+        private const string MailContact = "hubert.duong@starixsoft.com";
 
         public TestController(ISessionService sessionService,
             ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
@@ -213,10 +213,10 @@
             return new UserInfo
             {
                 AffId = 1,
-                FirstName = "walter fisrt name",
-                UserName = "walter",
-                Email = "ricky.nguyen@starixsoft.com",
-                LastName = "walter last name",
+                FirstName = "hubert fisrt name",
+                UserName = "hubert",
+                Email = "hubert.duong@starixsoft.com",
+                LastName = "hubert last name",
                 MailOption = false,
                 PreferredLanguage = "en-US"
             };

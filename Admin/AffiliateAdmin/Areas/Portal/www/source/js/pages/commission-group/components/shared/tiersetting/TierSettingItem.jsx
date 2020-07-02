@@ -22,11 +22,13 @@ export default class TierSettingItem extends React.Component {
 
     handleCheck = (event) => {
         const isChecked = event.target.checked;
+        const isMaxQm = event.target.name === 'MaxQm';
+
         const { data, onChange } = this.props;
 
         const newState = isChecked ?
-            Object.assign({}, data, { MaxAmount: INFINITY_AM, MaxQm: INFINITY_QM }) :
-            Object.assign({}, data, { MaxAmount: data.MinAmount, MaxQm: data.MinQm });
+            Object.assign({}, data, isMaxQm ? { MaxQm: INFINITY_QM } : { MaxAmount: INFINITY_AM, MaxQm: INFINITY_QM }) :
+            Object.assign({}, data, isMaxQm ? { MaxQm: data.MinQm } : { MaxAmount: data.MinAmount, MaxQm: data.MinQm });
 
         onChange && onChange(data.TierId, newState);
     }
@@ -34,7 +36,8 @@ export default class TierSettingItem extends React.Component {
     render() {
         const { data, onRemove, isDisabledInfinity } = this.props;
         const { TierId, MinAmount, MaxAmount, MinQm, MaxQm, Commission } = data;
-        const isDisabled = MaxAmount === INFINITY_AM || MaxQm === INFINITY_QM;
+        const isDisabledMaxAmount = MaxAmount === INFINITY_AM;
+        const isDisabledMaxQm = MaxQm === INFINITY_QM;
 
         return (
             <tr>
@@ -45,11 +48,11 @@ export default class TierSettingItem extends React.Component {
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxAmount" className="form-max" disabled={isDisabled}
-                            value={isDisabled ? INFINITY_SYMBOL : format(MaxAmount)} onChange={this.handleChange} />
+                        <Input type="text" name="MaxAmount" className="form-max" disabled={isDisabledMaxAmount}
+                            value={isDisabledMaxAmount ? INFINITY_SYMBOL : format(MaxAmount)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
-                                <Input type="checkbox" checked={isDisabled}
+                                <Input type="checkbox" checked={isDisabledMaxAmount} name="MaxAmount"
                                     onChange={this.handleCheck} disabled={isDisabledInfinity} />{INFINITY_SYMBOL}
                             </Label>
                         </FormGroup>
@@ -60,12 +63,12 @@ export default class TierSettingItem extends React.Component {
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxQm" className="form-max" disabled={isDisabled}
-                            value={isDisabled ? INFINITY_SYMBOL : format(MaxQm)} onChange={this.handleChange} />
+                        <Input type="text" name="MaxQm" className="form-max" disabled={isDisabledMaxQm}
+                            value={isDisabledMaxQm ? INFINITY_SYMBOL : format(MaxQm)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
-                                <Input type="checkbox" checked={isDisabled}
-                                    onChange={this.handleCheck} disabled={isDisabledInfinity} />{INFINITY_SYMBOL}
+                                <Input type="checkbox" checked={isDisabledMaxQm} name="MaxQm"
+                                    onChange={this.handleCheck} />{INFINITY_SYMBOL}
                             </Label>
                         </FormGroup>
                     </Form>
