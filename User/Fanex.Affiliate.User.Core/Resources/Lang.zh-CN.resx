@@ -1093,7 +1093,7 @@
     <value>荷兰</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>公司净赢额 ({0})</value>
+    <value>公司净赢额 (美元)</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亚</value>
