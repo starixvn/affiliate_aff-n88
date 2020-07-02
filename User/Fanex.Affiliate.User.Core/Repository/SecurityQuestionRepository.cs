@@ -13,7 +13,7 @@ namespace Fanex.Affiliate.User.Core.Repository
         {
             _builder = builder;
         }
-        public IEnumerable<SecurityQuestion> GetSecurityQuestions(string language, bool isIncludeOldData = false)
+        public IEnumerable<SecurityQuestion> GetSecurityQuestions(string language)
         {
             const string spKey = "Aff_User_SecurityQuestions_Sel";
 
@@ -21,7 +21,6 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = _builder.Build(spKey))
             {
-                objectDb.AddInParameter("IsIncludedOldData", SqlDbType.Bit, isIncludeOldData);
                 objectDb.AddInParameter("Language", SqlDbType.VarChar, language);
 
                 using (var reader = objectDb.ExecuteReader())
