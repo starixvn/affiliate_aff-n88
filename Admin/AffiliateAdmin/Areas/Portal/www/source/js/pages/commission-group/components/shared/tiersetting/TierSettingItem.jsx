@@ -24,11 +24,11 @@ export default class TierSettingItem extends React.Component {
         const isChecked = event.target.checked;
         const isMaxQm = event.target.name === 'MaxQm';
 
-        const { data, onChange } = this.props;
+        const { data, onChange, isDisabledInfinity } = this.props;
 
         const newState = isChecked ?
-            Object.assign({}, data, isMaxQm ? { MaxQm: INFINITY_QM } : { MaxAmount: INFINITY_AM, MaxQm: INFINITY_QM }) :
-            Object.assign({}, data, isMaxQm ? { MaxQm: data.MinQm } : { MaxAmount: data.MinAmount, MaxQm: data.MinQm });
+            Object.assign({}, data, isMaxQm && isDisabledInfinity ? { MaxQm: INFINITY_QM } : { MaxAmount: INFINITY_AM, MaxQm: INFINITY_QM }) :
+            Object.assign({}, data, isMaxQm && isDisabledInfinity ? { MaxQm: data.MinQm } : { MaxAmount: data.MinAmount, MaxQm: data.MinQm });
 
         onChange && onChange(data.TierId, newState);
     }
