@@ -1307,7 +1307,7 @@
     <value>พันธมิตร 12bet - การสมัครของคุณ</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร 12BET &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร 12BET</value>
+    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร 12BET &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 3 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร 12BET</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>ถูกปฏิเสธแล้ว</value>
@@ -1743,7 +1743,7 @@
     <value>ทีมงานภาษาอินเดีย</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>ส่งคำเสนอแนะ ติชมหรือคำถามมาที่ {0} หรือกรอกแบบฟอร์มตามด้านล่างแล้วส่งให้เราได้เช่นกันค่ะ</value>
+    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่{0}.</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>หมายเลขตรวจสอบ</value>

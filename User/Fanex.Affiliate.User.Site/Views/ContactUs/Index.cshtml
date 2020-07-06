@@ -35,7 +35,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-12">
                 <div class="date-time">
                     <div class="img-support">
                         <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
@@ -45,17 +45,17 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-9">
-                <div class="contact-form">
-                    <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
+            <div class="col-sm-12">
+                <div class="contact-form text-center">
+                    @*<div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
                         @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.MessageSentReview.Replace("{br}", "<br>")))
                     </div>
 
-                    <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>
+                    <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>*@
 
                     <div id="mainContent">
                         <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyComment), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
-                        <form id="contactForm" class="form">
+                        @*<form id="contactForm" class="form">
                             @Html.AntiForgeryToken()
                             <div class="form-group">
                                 <div class="group group-small">
@@ -113,7 +113,7 @@
                                     <button class="btn btn-submit" type="reset" id="btnReset">@Lang.Reset</button>
                                 </div>
                             </div>
-                        </form>
+                        </form>*@
                     </div>
                 </div>
             </div>

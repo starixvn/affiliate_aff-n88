@@ -1312,7 +1312,7 @@
     <value>
 		感谢您提交申请。&lt;br /&gt;&lt;br /&gt;
 		我们12Bet合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
-		我们将在5天内回复您的申请。一旦您的申请被核准，您将立即获得全权参与进入我们的合作伙伴项目。&lt;br /&gt;&lt;br /&gt;
+		我们将在3天内回复您的申请。一旦您的申请被核准，您将立即获得全权参与进入我们的合作伙伴项目。&lt;br /&gt;&lt;br /&gt;
 		致以敬意，&lt;br /&gt;&lt;br /&gt;
 		12Bet合作伙伴团队
 	</value>
@@ -1751,7 +1751,7 @@
     <value>印地语</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>如有任何意见或问题，欢迎电邮至{0}，或填写以下的表单。</value>
+    <value>如有任何意见或问题，欢迎电邮至{0}。</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>验证码</value>

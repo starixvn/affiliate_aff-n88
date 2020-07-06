@@ -1303,7 +1303,7 @@
     <value>12Bet Affiliate - Đơn của bạn</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm 12Bet Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
+    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm 12Bet Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 3 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Bị từ chối</value>
@@ -1742,7 +1742,7 @@
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0} hoặc điền chi tiết vào hộp thư bên dưới:</value>
+    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0}.</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>

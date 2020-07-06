@@ -1309,7 +1309,7 @@
     <value>Afiliasi 12Bet - Permohonan Anda</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet</value>
+    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 3 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
@@ -1741,7 +1741,7 @@
     <value>Bantuan Dalam Bahasa India</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}, atau anda bisa juga menggunakan form di bawah ini.</value>
+    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}.</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Kode Validasi</value>
