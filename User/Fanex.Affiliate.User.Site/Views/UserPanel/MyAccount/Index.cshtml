@@ -255,7 +255,7 @@
                                 textareaAttributes.Add("disabled", "disabled");
                             }
                         }
-                        @Html.TextAreaFor(p => p.AccountInformation.NoSiteDesc, textareaAttributes)
+                        @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Html.TextAreaFor(p => p.AccountInformation.NoSiteDesc, textareaAttributes).ToHtmlString()))
                     </div>
                     <div class="col-sm-offset-3 col-sm-9">
                         @Html.ValidationMessage("NoSiteDesc", new { @class = "help-block hide" })

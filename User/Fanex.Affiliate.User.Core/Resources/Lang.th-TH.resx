@@ -273,9 +273,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>เบอร์มิวด้า</value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET ชื่อที่ใช้เข้าระบบ</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>ยูสเซอร์เนม 12bet จำเป็นต้องมี</value>
   </data>
@@ -576,9 +573,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>อีเมลล์แอดเดรสที่คุณได้กรอกได้ถูกใช้ในการลงทะเบียนแล้ว กรุณาเลือกอันใหม่</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>ยูสเซอร์เนม 12bet ไม่ถูกต้อง</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>รายละเอียดเกี่ยวกับบัญชีของคุณไม่ถูกต้อง  การอัพเดทบัญชีของคุณสำเร็จแล้ว</value>
   </data>
@@ -704,9 +698,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>แจ้งแก้ไขพาสเวิดไม่ถูกต้อง &lt;a href='ForgetPass.aspx'&gt;ลอง ใหม่ อีก ครั้ง&lt;/a&gt; หากพยายามอีกครั้งแล้วไม่สำเร็จ กรุณา &lt;a href='ContactUs.aspx'&gt; ติดต่อเรา&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>ขออภัย! ธุรกรรณผ่าน {method} ไม่สามารถใช้ได้  หากต้องการทำธุรกรรมตอนนี้ต้องทำผ่าน บัญชีผู้เล่น 12BET เท่านั้นคะ  กรุณา&lt;a href='MyAccount.aspx?ispay=1#payment'&gt; คลิ๊ก &lt;/a&gt; ที่นี่เพื่อเปลี่ยนวิธีการ</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>คำถามคำตอบเพื่อความปลอดภัยว่างเปล่ กรุณาตรวจสอบ !</value>
@@ -1688,9 +1679,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>ซิมบัฟเวย์</value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>บัญชีที่ใช้เล่นใน 12BET</value>
   </data>
@@ -2018,14 +2006,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>อีเมลล์แอดเดรส</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>หน้ากีฬา 12BET</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>หน้ากีฬา BTi</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12อีสปอร์ต</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM อีสปอร์ต (อีสปอร์ตบลู)</value>
@@ -2113,10 +2095,6 @@
   </data>
   <data name="PrefixProduct12AMBER" xml:space="preserve">
     <value>12AMBER</value>
-  </data>
-  <data name="_12BetExchange" xml:space="preserve">
-    <value>12BET EXCHANGE &lt;br /&gt;
-(เฉพาะผู้เล่นในสกุลเงินINR,INR.US)</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
     <value>รับส่วนแบ่งสูงสุดถึง 45%</value>

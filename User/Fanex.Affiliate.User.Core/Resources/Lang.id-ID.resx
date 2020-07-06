@@ -273,9 +273,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET Nama Pengguna</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>Nama Pengguna 12BET diperlukan</value>
   </data>
@@ -579,9 +576,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>Alamat email yang Anda ketik sudah digunakan untuk mendaftarkan rekening. Silakan pilih yang berbeda!</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>Nama Pengguna 12BET tidak valid</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>Informasi pengguna tidak valid. Proses pembaruan tidak berhasil</value>
   </data>
@@ -707,9 +701,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>Informasi untuk menyetel ulang kata sandi tidak valid, silakan &lt;a href='ForgetPass.aspx'&gt;coba lagi&lt;/a&gt;. Kalau Anda masih belum dapat menyetel ulang kata sandi, silakan &lt;a href='ContactUs.aspx'&gt;hubungi kami&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Maaf! Pembayaran melalui {method} tidak tersedia. Pada saat ini, hanya metode 'Rekening Pemain 12Bet' yang didukung. Silakan &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;klik di sini&lt;/a&gt; untuk membuat perubahan.</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Pertanyaan Keamanan kosong. Silakan diperiksa!</value>
@@ -1686,9 +1677,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>Melalui Akun 12BET</value>
   </data>
@@ -2022,14 +2010,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>E-mail</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12SPORTS</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi SPORTS</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12ESPORTS</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
@@ -2093,10 +2075,6 @@
   </data>
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI LOTTERY</value>
-  </data>
-  <data name="_12BetExchange" xml:space="preserve">
-    <value>12BET EXCHANGE &lt;br /&gt;
-(Hanya untuk INR &amp; IN.USD)</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
     <value>Penghasilan hingga &lt;br/&gt; 45% dari sistem bagi hasil.</value>

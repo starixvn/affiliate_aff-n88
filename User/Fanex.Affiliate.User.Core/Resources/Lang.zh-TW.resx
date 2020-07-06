@@ -270,9 +270,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>百慕達</value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET 用戶名</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>請填寫12BET用戶名</value>
   </data>
@@ -573,9 +570,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>您輸入的電郵地址已被使用，請選擇另外一個！</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>12BET用戶名無效</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>用戶信息無效。更新處理失敗。</value>
   </data>
@@ -703,9 +697,6 @@
     <value>      
       重新設定密碼信息錯誤，請&lt;a href='ForgetPass.aspx'&gt;重試&lt;/a&gt;。  如您仍不能重新設定您的密碼，請&lt;a href='ContactUs.aspx'&gt;聯繫我們&lt;/a&gt;。
     </value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>非常抱歉，{method}支付方式暫不可用。&lt;a href='MyAccount.aspx?ispay=1#payment'&gt;請點擊這裡&lt;/a&gt;改選“12BET玩家帳戶”支付。</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>安全提問 未輸入請確認!</value>
@@ -1693,9 +1684,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>辛巴威</value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>12BET玩家帳戶</value>
   </data>
@@ -1796,7 +1784,7 @@
     <value>申請12BET 合營</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>成為Nova88合營代理後, 您所推薦的12BET每位玩家, 只要使用賬戶就可以為您帶來即時的佣金. 我們的在線系統將全天候24/7為您服務.</value>
+    <value>成為12BET合營代理後, 您所推薦的12BET每位玩家, 只要使用賬戶就可以為您帶來即時的佣金. 我們的在線系統將全天候24/7為您服務.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>合營代理有什麼新功能</value>
@@ -2023,14 +2011,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>電郵地址</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12體育</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi體育</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12電競</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM電競牛</value>
@@ -2118,10 +2100,6 @@
   </data>
   <data name="PrefixProduct12AMBER" xml:space="preserve">
     <value>琥珀廳</value>
-  </data>
-  <data name="_12BetExchange" xml:space="preserve">
-    <value>12BET EXCHANGE &lt;br /&gt;
- (僅適用於INR和IN.USD會員）</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
     <value>賺取高達&lt;br/&gt;45%的代理佣金</value>

@@ -604,9 +604,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>The email address you've typed had been used to register account. Please choose another one!</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>User Name is invalid</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>Invalid user information. Update process is unsuccessful</value>
   </data>
@@ -732,9 +729,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>The information to reset password is not valid, please &lt;a href='ForgetPass.aspx'&gt;try again&lt;/a&gt;. In case you still can not reset your password, please &lt;a href='ContactUs.aspx'&gt;contact us&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Sorry! The payment via {method} is not available. At the moment, only '12Bet Player Account' method is supported. Please &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;click here&lt;/a&gt; to make a change.</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Please select Security Question</value>

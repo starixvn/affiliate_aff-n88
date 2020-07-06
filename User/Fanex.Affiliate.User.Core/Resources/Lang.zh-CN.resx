@@ -273,9 +273,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>百幕大</value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET 用户名</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>请填写12BET用户名</value>
   </data>
@@ -576,9 +573,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>您输入的电邮地址已被使用，请选择另外一个！</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>12BET用户名无效</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>用户信息无效。更新处理失败。</value>
   </data>
@@ -706,9 +700,6 @@
     <value>        
         重新设定密码信息错误，请&lt;a href='ForgetPass.aspx'&gt;重试&lt;/a&gt;。   如您仍不能重新设定您的密码，请&lt;a href='ContactUs.aspx'&gt;联系我们&lt;/a&gt;。        
     </value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>非常抱歉，{method}支付方式暂不可用。&lt;a href='MyAccount.aspx?ispay=1#payment'&gt;请点击这里&lt;/a&gt;改选“12BET玩家帐户”支付。</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>安全提问 未输入请确认!</value>
@@ -1696,9 +1687,6 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>津巴布韦</value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>12BET玩家帐户</value>
   </data>
@@ -2026,14 +2014,8 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>电邮地址</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12体育</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi 体育</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12电竞</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM电竞牛</value>
@@ -2097,10 +2079,6 @@
   </data>
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI彩票</value>
-  </data>
-  <data name="_12BetExchange" xml:space="preserve">
-    <value>12BET EXCHANGE &lt;br /&gt;
-(仅适用于INR和IN.USD会员）</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
     <value>赚取高达&lt;br/&gt;45%的代理佣金</value>

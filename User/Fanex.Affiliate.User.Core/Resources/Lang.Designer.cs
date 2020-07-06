@@ -2026,15 +2026,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User Name is invalid.
-        /// </summary>
-        public static string Err1003 {
-            get {
-                return ResourceManager.GetString("Err1003", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Invalid user information. Update process is unsuccessful.
         /// </summary>
         public static string Err1004 {
@@ -2436,15 +2427,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sorry! The payment via {method} is not available. At the moment, only &apos;12Bet Player Account&apos; method is supported. Please &lt;a href=&apos;MyAccount.aspx?ispay=1#payment&apos;&gt;click here&lt;/a&gt; to make a change..
-        /// </summary>
-        public static string ErrPaymentMethod {
-            get {
-                return ResourceManager.GetString("ErrPaymentMethod", resourceCulture);
             }
         }
         

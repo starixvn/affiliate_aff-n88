@@ -573,9 +573,6 @@
   <data name="Err1002" xml:space="preserve">
     <value>Địa chỉ email mà bạn nhập đã được sử dụng để đăng ký tài khoản. Vui lòng chọn địa chỉ khác!</value>
   </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>Tên người dùng 12BET không hợp lệ</value>
-  </data>
   <data name="Err1004" xml:space="preserve">
     <value>Thông tin người dùng không hợp lệ. Quá trình cập nhật không thành công</value>
   </data>
@@ -701,9 +698,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>Thông tin để đặt lại mật khẩu không hợp lệ, vui lòng &lt;a href='ForgetPass.aspx'&gt;thử lại&lt;/a&gt;. Trong trường hợp bạn vẫn không thể đặt lại mật khẩu của mình, vui lòng &lt;a href='ContactUs.aspx'&gt;liên hệ với chúng tôi&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Rất tiếc! Thanh toán qua {method} không hoạt động. Hiện tại, chỉ phương thức 'Tài khoản người chơi 12BET' được hỗ trợ. Vui lòng &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;nhấp vào đây&lt;/a&gt; để thực hiện thay đổi.</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Câu hỏi bảo mật trống. Vui lòng kiểm tra!</value>
