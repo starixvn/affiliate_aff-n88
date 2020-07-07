@@ -1751,7 +1751,7 @@
     <value>印地语</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>如有任何意见或问题，欢迎电邮至{0}。</value>
+    <value>如有任何意见或问题，欢迎电邮至{0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>验证码</value>

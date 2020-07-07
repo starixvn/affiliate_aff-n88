@@ -1742,7 +1742,7 @@
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0}.</value>
+    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>

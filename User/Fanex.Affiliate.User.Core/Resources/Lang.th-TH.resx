@@ -1743,7 +1743,7 @@
     <value>ทีมงานภาษาอินเดีย</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่{0}.</value>
+    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่ {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>หมายเลขตรวจสอบ</value>

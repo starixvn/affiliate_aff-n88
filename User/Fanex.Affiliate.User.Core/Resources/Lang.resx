@@ -1954,7 +1954,7 @@
     <comment>87923</comment>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Please direct any comments or questions to {0}.</value>
+    <value>Please direct any comments or questions to {0}</value>
     <comment>87923</comment>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">

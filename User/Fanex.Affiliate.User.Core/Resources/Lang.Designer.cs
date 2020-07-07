@@ -4535,7 +4535,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to {0}..
+        ///   Looks up a localized string similar to Please direct any comments or questions to {0}.
         /// </summary>
         public static string PleaseDirectAnyComment {
             get {

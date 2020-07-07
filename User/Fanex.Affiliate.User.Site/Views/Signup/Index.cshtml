@@ -227,7 +227,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.DescWebsite)</label>
                             <div class="col-sm-4">
-                                @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Html.TextAreaFor(p => p.NoSiteDesc, new { @class = "form-control", @rows = 5, @disabled = "disabled" }).ToHtmlString()))
+                                @Html.TextAreaFor(p => p.NoSiteDesc, new { @class = "form-control", @rows = 5, @disabled = "disabled" })
                             </div>
                             <div class="col-sm-offset-3 col-sm-9">
                                 @Html.ValidationMessageFor(p => p.NoSiteDesc, string.Empty, new { @class = "help-block hide" })
@@ -304,7 +304,7 @@
                                     <label class="control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.UsernameSignUp)</label>
                                     @*<label class="text-red">(@Lang.YouCanRequest)</label>*@
                                     <div class="">
-                                        @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" }).ToHtmlString()))
+                                        @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
                                     </div>
                                     <div class="">
                                         @Html.ValidationMessageFor(x => x.Player_UserName, string.Empty, new { @class = "help-block hide" })

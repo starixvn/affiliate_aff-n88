@@ -1741,7 +1741,7 @@
     <value>Bantuan Dalam Bahasa India</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}.</value>
+    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Kode Validasi</value>
