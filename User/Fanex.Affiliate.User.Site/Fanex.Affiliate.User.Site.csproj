@@ -727,6 +727,10 @@
     </Content>
     <Content Include="www\build\js\player-detail.js" />
     <Content Include="www\build\js\player-detail.min.js" />
+    <Content Include="www\build\js\revenue-structure.js" />
+    <Content Include="www\build\js\revenue-structure.min.js">
+      <DependentUpon>revenue-structure.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\signup.js" />
     <Content Include="www\build\js\signup.min.js">
       <DependentUpon>signup.js</DependentUpon>
@@ -913,12 +917,20 @@
     <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-cn.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-id.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-th.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-tw.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-us.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\revenue_share_hierarchy-vn.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-TW.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-TW.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\shadown.png" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.en-US.jpg" />
@@ -1078,6 +1090,7 @@
     <Content Include="www\source\js\pages\account-overview\marketingbase.js" />
     <Content Include="www\source\js\pages\account-overview\mediagallery.js" />
     <Content Include="www\source\js\pages\myaccount.js" />
+    <Content Include="www\source\js\pages\revenue-structure.js" />
     <Content Include="www\source\js\pages\signup.js" />
     <Content Include="www\source\js\pages\statement-history.js" />
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />
@@ -1614,39 +1627,19 @@
     <Content Include="Views\CommissionStructure\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.th-TH.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.zh-CN.cshtml" />
-    <Content Include="Views\CommissionStructure\N8B\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\N8B\_Content.en-US.cshtml" />
-    <Content Include="Views\CommissionStructure\N8B\_Content.id-ID.cshtml" />
-    <Content Include="Views\CommissionStructure\N8B\_Content.ko-KR.cshtml" />
-    <Content Include="Views\CommissionStructure\N8B\_Content.th-TH.cshtml" />
     <Content Include="Views\CommissionStructure\N8B\_Content.vi-VN.cshtml" />
-    <Content Include="Views\CommissionStructure\N8B\_Content.zh-CN.cshtml" />
-    <Content Include="Views\CommissionStructure\N8G\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
-    <Content Include="Views\CommissionStructure\N8G\_Content.id-ID.cshtml" />
-    <Content Include="Views\CommissionStructure\N8G\_Content.ko-KR.cshtml" />
-    <Content Include="Views\CommissionStructure\N8G\_Content.th-TH.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
-    <Content Include="Views\CommissionStructure\N8G\_Content.zh-CN.cshtml" />
     <Content Include="Views\Faq\N88\_Content.en-US.cshtml" />
     <Content Include="Views\Faq\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\Faq\N88\_Content.th-TH.cshtml" />
     <Content Include="Views\Faq\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\Faq\N88\_Content.zh-TW.cshtml" />
     <Content Include="Views\Faq\N8B\_Content.en-US.cshtml" />
-    <Content Include="Views\Faq\N8B\_Content.id-ID.cshtml" />
-    <Content Include="Views\Faq\N8B\_Content.ko-KR.cshtml" />
-    <Content Include="Views\Faq\N8B\_Content.th-TH.cshtml" />
     <Content Include="Views\Faq\N8B\_Content.vi-VN.cshtml" />
-    <Content Include="Views\Faq\N8B\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Faq\N8B\_Content.zh-TW.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.en-US.cshtml" />
-    <Content Include="Views\Faq\N8G\_Content.id-ID.cshtml" />
-    <Content Include="Views\Faq\N8G\_Content.ko-KR.cshtml" />
-    <Content Include="Views\Faq\N8G\_Content.th-TH.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
-    <Content Include="Views\Faq\N8G\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Faq\N8G\_Content.zh-TW.cshtml" />
     <Content Include="www\source\styles\Images\contact-in-home\n88\bg_contact.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />

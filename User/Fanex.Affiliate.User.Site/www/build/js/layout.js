@@ -95,6 +95,7 @@ var Layout = (function ($) {
 
             var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
             _me.setCheckedForInput(newMode);
+            Site.getImageByMode(newMode);
 
             var n88Link = $('#n88-link');
             n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css`));

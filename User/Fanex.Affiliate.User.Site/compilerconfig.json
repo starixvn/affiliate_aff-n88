@@ -174,5 +174,9 @@
   {
     "outputFile": "www/build/js/sub-affiliate-earning.js",
     "inputFile": "www/source/js/pages/sub-affiliate-earning.js"
+  },
+  {
+    "outputFile": "www/build/js/revenue-structure.js",
+    "inputFile": "www/source/js/pages/revenue-structure.js"
   }
 ]

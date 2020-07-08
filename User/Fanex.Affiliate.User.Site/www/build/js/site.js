@@ -63,6 +63,13 @@ var Site = (function ($) {
         toggleErrorMessage: function toggleErrorMessage($container, isValid) {
             $container.toggleClass("has-error", !isValid);
             $container.find(".help-block").toggleClass("hide", isValid);
+        },
+
+        getImageByMode: function getImageByMode(newMode) {
+            var language = _me.getCurrentLanguage();
+            var mode = newMode || _me.getCookie("mode");
+            var src = _me.resolveRelativeUrl("www/build/styles/Images/revenue-share-structure/N88/" + mode + "/revenue_share_hierarchy." + language + ".png");
+            $("#revenue_share_hierarchy").attr("src", src);
         }
     };
 
