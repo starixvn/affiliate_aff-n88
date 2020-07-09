@@ -331,7 +331,7 @@
     <value>Yêu cầu hủy</value>
   </data>
   <data name="CancelSubject" xml:space="preserve">
-    <value>12Bet Affiliate - [{transid}] - Thông báo yêu cầu thanh toán</value>
+    <value>12Bet Đại Lý - [{transid}] - Thông báo yêu cầu thanh toán</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -466,7 +466,7 @@
     <value>Croatia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>12Bet Affiliate - Tài khoản mới đang chờ chấp thuận</value>
+    <value>12Bet Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
@@ -826,7 +826,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của 12BET Affiliate.</value>
+    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của 12BET Đại Lý.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -1300,10 +1300,10 @@
     <value>Mẫu đơn</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>12Bet Affiliate - Đơn của bạn</value>
+    <value>12Bet Đại Lý - Đơn của bạn</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm 12Bet Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 3 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
+    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm Đại Lý 12Bet xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 3 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Bị từ chối</value>
@@ -1808,7 +1808,7 @@
     <value>NHẬN HOA HỒNG CAO HƠN? </value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>Liên hệ ngay Bộ phận Hỗ Trợ Đại Lý nếu có thắc mắc về hoa hồng đại lý mỗi tháng của mình!</value>
+    <value>Liên hệ ngay bộ phận Hỗ Trợ Đại Lý nếu có thắc mắc về hoa hồng đại lý mỗi tháng của mình!</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
     <value>LIÊN HỆ</value>
@@ -1958,7 +1958,7 @@
     <value>Chưa là Hội Viên?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 50% Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 45% Hoa Hồng Mỗi Tháng!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>ĐĂNG KÝ</value>
@@ -2132,22 +2132,22 @@
     <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 100 ký tự</value>
   </data>
   <data name="SubAffiliate" xml:space="preserve">
-    <value>Affiliate Phụ</value>
+    <value>Đại Lý Cấp Dưới</value>
   </data>
   <data name="SubAffDownline" xml:space="preserve">
-    <value>Cấp Dưới của Affiliate Phụ</value>
+    <value>Cấp Dưới của Đại Lý Cấp Dưới</value>
   </data>
   <data name="SubAffEarning" xml:space="preserve">
-    <value>Thu Nhập của Affiliate Phụ</value>
+    <value>Thu Nhập của Đại Lý Cấp Dưới</value>
   </data>
   <data name="SubAffiliateLink" xml:space="preserve">
-    <value>Đường Dẫn Affiliate Phụ</value>
+    <value>Đường Dẫn Đại Lý Cấp Dưới</value>
   </data>
   <data name="SubAffiliateMediaGallery" xml:space="preserve">
-    <value>Thư viện ảnh Affiliate phụ</value>
+    <value>Thư viện ảnh đại lý cấp dưới</value>
   </data>
   <data name="AffilateLink" xml:space="preserve">
-    <value>Đường Dẫn Affiliate</value>
+    <value>Đường Dẫn Đại Lý</value>
   </data>
   <data name="MediaGallery" xml:space="preserve">
     <value>Thư viện ảnh</value>
@@ -2204,7 +2204,7 @@
     <value>Tháng Đang Chờ Tính</value>
   </data>
   <data name="SubAffDetail" xml:space="preserve">
-    <value>Chi Tiết Affiliate Phụ</value>
+    <value>Chi Tiết Đại Lý Cấp Dưới</value>
   </data>
   <data name="ApprovalDate" xml:space="preserve">
     <value>Ngày Chấp Thuận</value>
@@ -2225,7 +2225,7 @@
     <value>HOA HỒNG &lt;br/&gt;LÊN ĐẾN 45% </value>
   </data>
   <data name="JoinIn" xml:space="preserve">
-    <value>THAM GIA VÀO CHƯƠNG TRÌNH AFFILIATE TỐT NHẤT HIỆN NAY</value>
+    <value>THAM GIA VÀO CHƯƠNG TRÌNH ĐẠI LÝ TỐT NHẤT HIỆN NAY</value>
   </data>
   <data name="RegisterNow" xml:space="preserve">
     <value>Tham gia ngay!</value>
