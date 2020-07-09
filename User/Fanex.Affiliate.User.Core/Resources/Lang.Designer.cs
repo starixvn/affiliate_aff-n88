@@ -1450,7 +1450,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copyright 2020 | 12BET. All Rights Reserved | 21+.
+        ///   Looks up a localized string similar to © Copyright 2020 | 12BET. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
             get {
