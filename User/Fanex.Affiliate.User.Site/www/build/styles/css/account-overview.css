@@ -278,12 +278,10 @@
       .details-section-content .table table thead tr {
         height: auto !important;
         align-items: center; }
-        .details-section-content .table table thead tr.overview-table-total {
-          height: 32px !important; }
     .details-section-content .table table tr {
       display: flex; }
       .details-section-content .table table tr td, .details-section-content .table table tr th {
         flex-basis: 100%;
         align-self: center;
         position: static !important;
-        border: none; } }
+        border: none !important; } }

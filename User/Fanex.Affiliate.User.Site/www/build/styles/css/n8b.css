@@ -633,15 +633,10 @@ input[type=radio][disabled] + span {
         margin: 6px 4px 0 3px; }
   .account-overview .summary-content .dashboard-section .info-panel {
     width: 100% !important; }
-  .summary-content .details-section-content .table table thead tr.overview-table-header th,
-  .summary-content .details-section-content .table #player-detail-table .th,
-  .summary-content .details-section-content .player-detail-table table thead tr th {
-    height: 105px; }
-  .summary-content .details-section-content .table table thead tr.overview-table-total {
-    padding: 0;
-    margin: 0 5px; }
-  .summary-content .details-section-content .player-detail-table table {
-    width: 1300px; }
+  .account-overview .summary-content .details-section-content .table table thead tr {
+    background: #303537 !important; }
+  .account-overview .summary-content .details-section-content .table table thead .overview-table-total {
+    background: #0A223D !important; }
   .table-responsive table {
     width: 900px !important; }
   .commission-report table {

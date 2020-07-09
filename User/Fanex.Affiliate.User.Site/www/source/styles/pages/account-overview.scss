@@ -298,10 +298,6 @@
                     tr {
                         height: auto !important;
                         align-items: center;
-
-                        &.overview-table-total {
-                            height: 32px !important;
-                        }
                     }
                 }
 
@@ -312,7 +308,7 @@
                         flex-basis: 100%;
                         align-self: center;
                         position: static !important;
-                        border: none;
+                        border: none !important;
                     }
                 }
             }

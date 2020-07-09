@@ -7,65 +7,21 @@
 @model IEnumerable<Fanex.Affiliate.User.Core.DTO.UserPanel.SubAffDetail>
 
 <div class="table player-detail-table">
-    <table id="player-detail-table">
+    <table>
         <thead>
             <tr class="player-detail-table-header">
                 <th width="8%">No.</th>
-                <th width="16%" class="th" data-name="Username">
-                    <div class="th-wrapper">
-                        <span>@Lang.Username</span>
-                    </div>
-                </th>
-                <th width="16%" class="th" data-name="FirstName">
-                    <div class="th-wrapper">
-                        <span>@Lang.FName</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="LastName">
-                    <div class="th-wrapper">
-                        <span>@Lang.LName</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="ApprovedDate">
-                    <div class="th-wrapper">
-                        <span>@Lang.ApprovalDate</span>
-                    </div>
-                </th>
-                <th width="10%" hidden class="th" data-name="SuspensionStatus">
-                    <div class="th-wrapper">
-                        <span>@Lang.SuspensionSatus</span>
-                    </div>
-                </th>
-                <th width="10%" hidden class="th" data-name="SuspensionDate">
-                    <div class="th-wrapper">
-                        <span>@Lang.SuspensionDate</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="TurnOver">
-                    <div class="th-wrapper">
-                        <span>@Lang.TotalTurnover</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="WinLoss">
-                    <div class="th-wrapper">
-                        <span>@Lang.TotalWinLoss</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="Commission">
-                    <div class="th-wrapper">
-                        <span>@Lang.TotalCommission</span>
-                    </div>
-                </th>
-                <th width="10%" class="th" data-name="ActivePlayer">
-                    <div class="th-wrapper">
-                        <span>@Lang.NumberOfActivePlayers</span>
-                    </div>
-                </th>
-                <th width="10%" hidden class="th" data-name="Remove">
-                    <div class="th-wrapper">
-                        <span>@Lang.Remove</span>
-                    </div>
-                </th>
+                <th width="16%">@Lang.Username</th>
+                <th width="16%">@Lang.FName</th>
+                <th width="10%">@Lang.LName</th>
+                <th width="10%">@Lang.ApprovalDate</th>
+                <th width="10%" hidden>@Lang.SuspensionSatus</th>
+                <th width="10%" hidden>@Lang.SuspensionDate</th>
+                <th width="10%">@Lang.TotalTurnover</th>
+                <th width="10%">@Lang.TotalWinLoss</th>
+                <th width="10%">@Lang.TotalCommission</th>
+                <th width="10%">@Lang.NumberOfActivePlayers</th>
+                <th width="10%" hidden>@Lang.Remove</th>
             </tr>
         </thead>
         <tbody id="player-detail-content">
