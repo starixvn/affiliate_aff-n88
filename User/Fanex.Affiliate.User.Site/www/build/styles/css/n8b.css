@@ -647,8 +647,16 @@ input[type=radio][disabled] + span {
   .commission-report table {
     width: 1500px; }
   .carousel-inner:after {
-    display: none; } }
+    display: none; }
+  .webp .adv-contact.N8B {
+    padding-right: 13%; } }
 
 @media (max-width: 767px) {
   .banner-text {
-    width: 160px; } }
+    width: 160px; }
+  .webp .adv-contact.N8B {
+    padding-right: 21%; } }
+
+@media (max-width: 376px) {
+  .webp .adv-contact.N8B {
+    padding-right: 0%; } }
