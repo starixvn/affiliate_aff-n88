@@ -95,15 +95,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .pika-prev,
 .is-rtl .pika-next {
-  float: left;
-  background-image: url(../../../source/styles/Images/pikaday/prev.png);
-  *left: 0; }
+  float: left; }
 
 .pika-next,
 .is-rtl .pika-prev {
-  float: right;
-  background-image: url(../../../source/styles/Images/pikaday/next.png);
-  *right: 0; }
+  float: right; }
 
 .pika-prev.is-disabled,
 .pika-next.is-disabled {
