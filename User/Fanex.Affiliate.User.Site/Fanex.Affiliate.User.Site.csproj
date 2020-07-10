@@ -1214,9 +1214,7 @@
     <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8b.scss" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
     <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\SubAffDetails.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
@@ -1260,6 +1258,8 @@
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

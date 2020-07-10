@@ -60,8 +60,8 @@
     background-color: #3391F6;
     color: #fff; }
     .page-title .text:after {
-      border-bottom: 18px solid #111111;
-      border-right: 16px solid #111111; }
+      border-bottom: 18px solid #fff;
+      border-right: 16px solid #fff; }
     .page-title .text:before {
       content: "";
       position: absolute;
@@ -313,12 +313,6 @@ label {
     .languages-item .info .language {
       border-bottom: 1px solid #e7e7e7; }
 
-.main.after-login .page-title {
-  background: #fff; }
-  .main.after-login .page-title .text:after {
-    border-bottom: 18px solid #fff;
-    border-right: 16px solid #fff; }
-
 .content-menu {
   background-color: #111111; }
   .content-menu .menu li:not(:last-child) {
@@ -420,9 +414,6 @@ label {
     margin-top: 0;
     margin-left: 0;
     margin-right: 0; }
-    .sub-content .page-title .text:after {
-      border-bottom: 18px solid #111111 !important;
-      border-right: 16px solid #111111 !important; }
 
 #account-overview-content #dataContainerList {
   padding: 0 0 15px; }

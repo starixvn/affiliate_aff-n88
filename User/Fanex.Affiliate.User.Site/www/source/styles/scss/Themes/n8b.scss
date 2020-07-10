@@ -108,8 +108,8 @@ body {
         color: $page-title-color;
 
         &:after {
-            border-bottom: 18px solid $bg-main-color;
-            border-right: 16px solid $bg-main-color;
+            border-bottom: 18px solid $bg-after-login-color;
+            border-right: 16px solid $bg-after-login-color;
         }
 
         &:before {
@@ -510,18 +510,6 @@ label {
 
 // After login
 
-.main.after-login {
-    //background: $bg-after-login-color;
-    .page-title {
-        background: $bg-after-login-color;
-
-        .text:after {
-            border-bottom: 18px solid $bg-after-login-color;
-            border-right: 16px solid $bg-after-login-color;
-        }
-    }
-}
-
 .content-menu {
     background-color: $bg-main-color;
 
@@ -702,13 +690,6 @@ label {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
-
-        .text {
-            &:after {
-                border-bottom: 18px solid $background-content !important;
-                border-right: 16px solid $background-content !important;
-            }
-        }
     }
 }
 #account-overview-content {
