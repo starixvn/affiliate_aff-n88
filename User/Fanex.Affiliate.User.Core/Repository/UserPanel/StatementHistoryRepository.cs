@@ -99,57 +99,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             return dailyEarningResult;
         }
 
-        public ExtraUserInfo GetExtraUserInfo(int affId, bool isInternal)
-        {
-            const string uSpKey = "Aff_AffiliateUser_ExtraUserInfoSel";
-            var mode = isInternal ? DBMode.View : DBMode.Main;
-            var result = new ExtraUserInfo();
-
-            using (var objectDb = _builder.Build(uSpKey, mode))
-            {
-                objectDb.AddInParameter("AffId", System.Data.SqlDbType.Int, affId);
-
-                using (var reader = objectDb.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        result.GroupName = Convert.ToString(reader["GroupName"]);
-                        result.HasDailyDetail = Convert.ToBoolean(reader["HasDailyDetail"]);
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        public IEnumerable<DailyEarningDetail> GetDailyEarningDetail(DailyEarningParam earningDetailParam)
-        {
-            const string uSpKey = "Aff_DailyEarning_Detail_Sel";
-            var mode = earningDetailParam.IsInternal ? DBMode.View : DBMode.Main;
-            var result = new List<DailyEarningDetail>();
-
-            using (var objectDb = _builder.Build(uSpKey, mode))
-            {
-                using (var reader = objectDb.ExecuteReader(earningDetailParam))
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(new DailyEarningDetail
-                        {
-                            CustId = Convert.ToInt32(reader["CustId"]),
-                            UserName = Convert.ToString(reader["UserName"]),
-                            Deposit = Convert.ToDecimal(reader["Deposit"]),
-                            Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                            Turnover = Convert.ToDecimal(reader["Turnover"]),
-                            WinLost = Convert.ToDecimal(reader["Winlost"])
-                        });
-                    }
-                }
-            }
-
-            return result;
-        }
-
         public IEnumerable<SubAffComInfo> GetSubAffCommission(SubAffComParam subAffParam)
         {
             const string uSpKey = "Aff_SubAffiliate_Commission_Sel";

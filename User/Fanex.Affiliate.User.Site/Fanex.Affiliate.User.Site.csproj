@@ -637,10 +637,6 @@
     <Content Include="www\build\js\contactus.min.js">
       <DependentUpon>contactus.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\daily-earning-detail.js" />
-    <Content Include="www\build\js\daily-earning-detail.min.js">
-      <DependentUpon>daily-earning-detail.js</DependentUpon>
-    </Content>
     <Content Include="www\build\js\daily-earning.js" />
     <Content Include="www\build\js\daily-earning.min.js">
       <DependentUpon>daily-earning.js</DependentUpon>
@@ -680,10 +676,6 @@
     <Content Include="www\build\js\mediagallery.js" />
     <Content Include="www\build\js\mediagallery.min.js">
       <DependentUpon>mediagallery.js</DependentUpon>
-    </Content>
-    <Content Include="www\build\js\member.js" />
-    <Content Include="www\build\js\member.min.js">
-      <DependentUpon>member.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\messagehistory.js" />
     <Content Include="www\build\js\messagehistory.min.js">
@@ -754,10 +746,6 @@
     <Content Include="www\build\styles\css\marketing.css" />
     <Content Include="www\build\styles\css\marketing.min.css">
       <DependentUpon>marketing.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\member.css" />
-    <Content Include="www\build\styles\css\member.min.css">
-      <DependentUpon>member.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\messagehistory.css" />
     <Content Include="www\build\styles\css\messagehistory.min.css">
@@ -902,7 +890,6 @@
     <Content Include="www\source\js\pages\commission-report.js" />
     <Content Include="www\source\js\pages\contactus.js" />
     <Content Include="www\source\js\pages\forgotpassword.js" />
-    <Content Include="www\source\js\pages\member.js" />
     <Content Include="www\source\js\pages\messagehistory.js" />
     <Content Include="www\source\js\pages\payment-request.js" />
     <Content Include="www\build\js\recheckin.js" />
@@ -940,10 +927,6 @@
     <Content Include="www\build\styles\css\contact-us.css" />
     <Content Include="www\build\styles\css\contact-us.min.css">
       <DependentUpon>contact-us.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\dailyearning-detail.css" />
-    <Content Include="www\build\styles\css\dailyearning-detail.min.css">
-      <DependentUpon>dailyearning-detail.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\dailyearning.css" />
     <Content Include="www\build\styles\css\dailyearning.min.css">
@@ -997,7 +980,6 @@
     <Content Include="www\source\js\layout.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.js" />
     <Content Include="www\source\js\pages\changepassword.js" />
-    <Content Include="www\source\js\pages\daily-earning-detail.js" />
     <Content Include="www\source\js\pages\daily-earning.js" />
     <Content Include="www\source\js\pages\home.js" />
     <Content Include="www\source\js\pages\login.js" />
@@ -1089,8 +1071,6 @@
     <Content Include="www\source\styles\pages\statement-history.scss" />
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_DailyEarningContent.cshtml" />
     <Content Include="www\source\styles\pages\dailyearning.scss" />
-    <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_DailyEarningDetailContent.cshtml" />
-    <Content Include="www\source\styles\pages\dailyearning-detail.scss" />
     <Content Include="www\source\styles\scss\components\_monthpicker.scss" />
     <Content Include="www\source\styles\pages\account-overview.scss" />
     <Content Include="Views\News\MessageHistory.cshtml" />
@@ -1279,11 +1259,7 @@
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
-    <Content Include="www\source\styles\pages\member.scss" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
-    <Content Include="Views\UserPanel\Member\Index.cshtml" />
-    <Content Include="Views\UserPanel\Member\_DataContent.cshtml" />
-    <Content Include="Views\UserPanel\MemberTransaction\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1537,7 +1513,6 @@
     <Content Include="www\source\styles\scss\base\_common.scss" />
     <Content Include="Views\Password\Index.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\DailyEarning.cshtml" />
-    <Content Include="Views\UserPanel\StatementHistory\DailyEarningDetail.cshtml" />
     <Content Include="Views\Test\Preview.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\Email\CommonLayout.cshtml" />

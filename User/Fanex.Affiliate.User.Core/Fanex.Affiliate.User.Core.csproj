@@ -216,11 +216,9 @@
     <Compile Include="BusinessService\ISecurityQuestionService.cs" />
     <Compile Include="BusinessService\ITwoFactorAuthService.cs" />
     <Compile Include="BusinessService\IVerificationService.cs" />
-    <Compile Include="BusinessService\MemberTransactionService.cs" />
     <Compile Include="BusinessService\MemberInfoServiceWrapper.cs" />
     <Compile Include="BusinessService\EmailService.cs" />
     <Compile Include="BusinessService\IContactService.cs" />
-    <Compile Include="BusinessService\IMemberTransactionService.cs" />
     <Compile Include="BusinessService\IMemberInfoServiceWrapper.cs" />
     <Compile Include="BusinessService\IPaymentService.cs" />
     <Compile Include="BusinessService\NewsService.cs" />
@@ -248,8 +246,6 @@
     <Compile Include="Constants\TransType.cs" />
     <Compile Include="Controllers\AuthBaseController.cs" />
     <Compile Include="Controllers\UnderMaintenanceController.cs" />
-    <Compile Include="Controllers\UserPanel\MemberTransactionController.cs" />
-    <Compile Include="Controllers\UserPanel\MemberController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\NotifyController.cs" />
     <Compile Include="Controllers\UserPanel\BaseMarketingController.cs" />
@@ -290,7 +286,6 @@
     <Compile Include="Controllers\TermAndConditionController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\UserPanel\MyAccountController.cs" />
-    <Compile Include="Controllers\UserPanel\DailyEarningDetailController.cs" />
     <Compile Include="Controllers\UserPanel\PaymentRequestController.cs" />
     <Compile Include="Controllers\UserPanel\MainController.cs" />
     <Compile Include="Controllers\UserPanel\StatisticsController.cs" />
@@ -359,7 +354,6 @@
     <Compile Include="DTO\UserPanel\MediaGallery\BannerType.cs" />
     <Compile Include="DTO\UserPanel\CommissionSetting.cs" />
     <Compile Include="DTO\UserPanel\Domain.cs" />
-    <Compile Include="DTO\UserPanel\Member.cs" />
     <Compile Include="DTO\UserPanel\MessageHistory.cs" />
     <Compile Include="DTO\UserPanel\PlayerAccountCheckingResult.cs" />
     <Compile Include="DTO\UserPanel\ReferrerStatistics.cs" />
@@ -403,7 +397,6 @@
     <Compile Include="MetalModels\Email\NewPasswordEmailParam.cs" />
     <Compile Include="MetalModels\PasswordRecoveryParam.cs" />
     <Compile Include="MetalModels\SendCodeParam.cs" />
-    <Compile Include="MetalModels\UserPanel\MemberParam.cs" />
     <Compile Include="MetalModels\UserPanel\DepositPlayerAccountParam.cs" />
     <Compile Include="MetalModels\UserPanel\MessageHistoryParam.cs" />
     <Compile Include="MetalModels\UserPanel\PaymentCreationParam.cs" />
@@ -444,8 +437,6 @@
     <Compile Include="Repository\UserPanel\CommissionReportRepository.cs" />
     <Compile Include="Repository\UserPanel\IAccountOverviewRepository.cs" />
     <Compile Include="Repository\UserPanel\ICommissionReportRepository.cs" />
-    <Compile Include="Repository\UserPanel\MemberRepository.cs" />
-    <Compile Include="Repository\UserPanel\IMemberRepository.cs" />
     <Compile Include="Repository\UserPanel\NewsRepository.cs" />
     <Compile Include="Repository\UserPanel\INewsRepository.cs" />
     <Compile Include="Repository\UserPanel\IPaymentRepository.cs" />
@@ -575,7 +566,6 @@
     <Compile Include="ViewModels\MemberTransactionViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\CommissionReportDataViewModel.cs" />
-    <Compile Include="ViewModels\UserPanel\DailyEarningDetailViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\DailyEarningViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\LatestHotNewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\LinkFormViewModel.cs" />

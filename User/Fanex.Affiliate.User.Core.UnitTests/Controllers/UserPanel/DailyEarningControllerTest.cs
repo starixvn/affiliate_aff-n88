@@ -30,12 +30,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 IsInternal = false
             };
 
-            var expectExtraUserInfo = new ExtraUserInfo
-            {
-                GroupName = "",
-                HasDailyDetail = false
-            };
-
             var expectProductList = new List<ProductItem>
             {
                 new ProductItem
@@ -52,7 +46,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             };
 
             var statementHistoryRepository = new Mock<IStatementHistoryRepository>();
-            statementHistoryRepository.Setup(s => s.GetExtraUserInfo(param.AffId, param.IsInternal)).Returns(expectExtraUserInfo);
             statementHistoryRepository.Setup(s => s.GetProductList(param.IsInternal)).Returns(expectProductList);
             statementHistoryRepository.Setup(s => s.GetDailyEarning(param)).Returns(expectDailyEarningResult);
             var controller = CreateController(statementHistoryRepository.Object);
@@ -87,12 +80,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 IsInternal = false
             };
 
-            var extraUserInfo = new ExtraUserInfo();
             var productList = new List<ProductItem>();
             var dailyEarningResult = new DailyEarningResult();
 
             var statementHistoryRepository = new Mock<IStatementHistoryRepository>();
-            statementHistoryRepository.Setup(s => s.GetExtraUserInfo(param.AffId, param.IsInternal)).Returns(extraUserInfo);
             statementHistoryRepository.Setup(s => s.GetProductList(param.IsInternal)).Returns(productList);
             statementHistoryRepository.Setup(s => s.GetDailyEarning(param)).Returns(dailyEarningResult);
             var controller = CreateController(statementHistoryRepository.Object);
@@ -124,7 +115,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var dailyEarningResult = new DailyEarningResult();
 
             var statementHistoryRepository = new Mock<IStatementHistoryRepository>();
-            statementHistoryRepository.Setup(s => s.GetExtraUserInfo(param.AffId, param.IsInternal)).Returns(extraUserInfo);
             statementHistoryRepository.Setup(s => s.GetProductList(param.IsInternal)).Returns(productList);
             statementHistoryRepository.Setup(s => s.GetDailyEarning(param)).Returns(dailyEarningResult);
             var controller = CreateController(statementHistoryRepository.Object);
@@ -154,7 +144,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var dailyEarningResult = new DailyEarningResult();
 
             var statementHistoryRepository = new Mock<IStatementHistoryRepository>();
-            statementHistoryRepository.Setup(s => s.GetExtraUserInfo(param.AffId, param.IsInternal)).Returns(extraUserInfo);
             statementHistoryRepository.Setup(s => s.GetProductList(param.IsInternal)).Returns(productList);
             statementHistoryRepository.Setup(s => s.GetDailyEarning(param)).Returns(dailyEarningResult);
             var controller = CreateController(statementHistoryRepository.Object);

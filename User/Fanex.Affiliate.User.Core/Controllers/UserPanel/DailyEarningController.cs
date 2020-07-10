@@ -3,7 +3,6 @@
     using System;
     using System.Web.Mvc;
     using Constants;
-    using Extensions;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
@@ -35,15 +34,11 @@
             param.ProductId = param.ProductId ?? Product.Sportsbook;
             param.MonthDate = param.MonthDate ?? DateTime.Now.AddDays(-1);
 
-            var extraUserInfo = _statementHistoryRepository.GetExtraUserInfo(param.AffId, param.IsInternal);
-
             var viewModel = new DailyEarningViewModel
             {
                 ProductList = param.IsOnlyContent ? null : _statementHistoryRepository.GetProductList(param.IsInternal),
                 Data = _statementHistoryRepository.GetDailyEarning(param),
-                SelectedProduct = param.ProductId.Value,
-                IsKoreanAgentCommGroup = !string.IsNullOrEmpty(extraUserInfo.GroupName) && extraUserInfo.GroupName.MatchWith(CommGroupName.KoreanAgentComm),
-                HasDailyDetail = extraUserInfo.HasDailyDetail
+                SelectedProduct = param.ProductId.Value
             };
             ViewBag.MonthDate = param.MonthDate;
             ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
