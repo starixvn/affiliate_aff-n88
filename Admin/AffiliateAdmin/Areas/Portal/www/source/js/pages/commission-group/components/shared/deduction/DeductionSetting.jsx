@@ -6,16 +6,35 @@ import { setSelectedGroup } from '../../../actions';
 
 import PlatformFeeSetting from './PlatformFeeSetting';
 import FeeSettingItem from './FeeSettingItem';
+import RateOrFixedAmount from './RateOrFixedAmount';
 
 export class DeductionSetting extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isSelectedRate: true,
+            fixedOperationalAmount: 0,
+            fixedBankAmount: 0
+        }
+    }
+
+    handleSelectedRate = (isSelectedRate) => {
+        this.props.setSelectedGroup({
+            IsSelectedRate: isSelectedRate
+        });
     }
 
     handleSelectOperationalFee = (value) => {
         const { OperationalFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
             OperationalFee: Object.assign({}, OperationalFee, value)
+        });
+    }
+
+    handleInputFixedOperationalAmount = (value) => {
+        this.props.setSelectedGroup({
+            FixedOperationalAmount: value
         });
     }
 
@@ -27,23 +46,26 @@ export class DeductionSetting extends Component {
     }
 
     render() {
-        const { OperationalFee, BankingFee, GroupId } = this.props.selectedGroup;
-        const isCreating = GroupId === 0;
+        const { OperationalFee, BankingFee, IsSelectedRate, FixedOperationalAmount, FixedBankAmount } = this.props.selectedGroup
 
         return (
             <fieldset>
                 <legend><h6 className="font-weight-bold">Deductions</h6></legend>
                 <PlatformFeeSetting />
 
+                <RateOrFixedAmount isSelectedRate={IsSelectedRate} handleChange={this.handleSelectedRate} />
+
                 <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"
-                    onChangeCommission={this.handleSelectOperationalFee}
+                    handleChange={this.handleSelectOperationalFee}
                     data={OperationalFee}
-                    isCreating={isCreating} />
+                    amount={FixedOperationalAmount}
+                    isSelectedRate={IsSelectedRate} />
 
                 <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
-                    onChangeCommission={this.handleSelectBankingFee}
+                    handleChange={this.handleSelectBankingFee}
                     data={BankingFee}
-                    isCreating={isCreating} />
+                    amount={FixedBankAmount}
+                    isSelectedRate={IsSelectedRate} />
             </fieldset>
         )
     }

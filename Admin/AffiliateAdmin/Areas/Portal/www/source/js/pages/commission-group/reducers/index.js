@@ -19,7 +19,7 @@ export const searchedGroupName = createReducer('', {
 
 export const selectedGroup = createReducer(null, {
     [SET_SELECTED_GROUP](prevState, action) {
-        return Object.assign({}, prevState, action.data);
+        return !action.data ? null : Object.assign({}, prevState, action.data);
     }
 })
 

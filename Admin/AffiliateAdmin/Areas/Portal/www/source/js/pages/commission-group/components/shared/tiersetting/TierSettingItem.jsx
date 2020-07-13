@@ -43,31 +43,31 @@ export default class TierSettingItem extends React.Component {
             <tr>
                 <td className="text-center">{TierId}</td>
                 <td>
-                    <Input type="text" name="MinAmount"
+                    <Input type="text" name="MinAmount" id={"MinAmount" + TierId}
                         value={format(MinAmount)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxAmount" className="form-max" disabled={isDisabledMaxAmount}
+                        <Input type="text" name="MaxAmount" id={"MaxAmount" + TierId} className="form-max" disabled={isDisabledMaxAmount}
                             value={isDisabledMaxAmount ? INFINITY_SYMBOL : format(MaxAmount)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
-                                <Input type="checkbox" checked={isDisabledMaxAmount} name="MaxAmount"
+                                <Input type="checkbox" checked={isDisabledMaxAmount} name="MaxAmount" id={"MinAmountCheckbox" + TierId}
                                     onChange={this.handleCheck} disabled={isDisabledInfinity} />{INFINITY_SYMBOL}
                             </Label>
                         </FormGroup>
                     </Form>
                 </td>
                 <td>
-                    <Input type="text" name="MinQm" value={format(MinQm)} onChange={this.handleChange} />
+                    <Input type="text" name="MinQm" id={"MinQm" + TierId} value={format(MinQm)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxQm" className="form-max" disabled={isDisabledMaxQm}
+                        <Input type="text" name="MaxQm" id={"MaxQm" + TierId} className="form-max" disabled={isDisabledMaxQm}
                             value={isDisabledMaxQm ? INFINITY_SYMBOL : format(MaxQm)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
-                                <Input type="checkbox" checked={isDisabledMaxQm} name="MaxQm"
+                                <Input type="checkbox" checked={isDisabledMaxQm} name="MaxQm" id={"MaxQmCheckbox" + TierId}
                                     onChange={this.handleCheck} />{INFINITY_SYMBOL}
                             </Label>
                         </FormGroup>
