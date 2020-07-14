@@ -826,7 +826,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của 12BET Đại Lý.</value>
+    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của Đại Lý 12BET.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -1742,7 +1742,7 @@
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0}</value>
+    <value>Mọi thắc mắc về chương trình Đại Lý 12BET, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>
@@ -1793,7 +1793,7 @@
     <value>CẬP NHẬT BANNER </value>
   </data>
   <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
-    <value>Đăng nhập tài khoản đại lý của mình và cập nhật banner mới nhất để tăng sức hấp dẫn cho trang web của bạn!</value>
+    <value>Đăng nhập tài khoản Đại Lý của mình và cập nhật banner mới nhất để tăng sức hấp dẫn cho trang web của bạn!</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
     <value>KHUYẾN MÃI ĐẶC BIỆT</value>
@@ -1991,7 +1991,7 @@
     <value>Ngôn ngữ</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Trở thành đối tác thương mại của 12BET | Chương trình đại lý 12BET</value>
+    <value>Trở thành đối tác thương mại của 12BET | Chương trình Đại Lý 12BET</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
     <value>Trở thành đối tác chính thức của 12BET, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
@@ -2144,7 +2144,7 @@
     <value>Đường Dẫn Đại Lý Cấp Dưới</value>
   </data>
   <data name="SubAffiliateMediaGallery" xml:space="preserve">
-    <value>Thư viện ảnh đại lý cấp dưới</value>
+    <value>Thư Viện Ảnh Đại Lý Cấp Dưới</value>
   </data>
   <data name="AffilateLink" xml:space="preserve">
     <value>Đường Dẫn Đại Lý</value>
