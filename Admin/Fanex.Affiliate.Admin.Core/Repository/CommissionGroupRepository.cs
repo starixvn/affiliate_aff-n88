@@ -195,8 +195,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         TierId = Convert.ToInt32(reader["TierId"]),
                         MinAmount = Convert.ToDecimal(reader["MinAmount"]),
                         MaxAmount = Convert.ToDecimal(reader["MaxAmount"]),
-                        MinQm = Convert.ToInt32(reader["MinQm"]),
-                        MaxQm = Convert.ToInt32(reader["MaxQm"]),
+                        MinAm = Convert.ToInt32(reader["MinAm"]),
+                        MaxAm = Convert.ToInt32(reader["MaxAm"]),
                         Commission = Convert.ToDecimal(reader["Commission"])
                     });
                 }
@@ -218,7 +218,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         DeductionId = Convert.ToInt32(reader["DeductionId"]),
                         DeductionName = reader["DeductionName"].ToString(),
                         ProductIds = reader["ProductIds"].ToString(),
-                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"])
+                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"]),
+                        DeductedAmount = Convert.ToString(reader["DeductedAmount"]),
+                        IsDeductedPercent = Convert.ToBoolean(reader["IsDeductedPercent"])
                     });
                 }
             }

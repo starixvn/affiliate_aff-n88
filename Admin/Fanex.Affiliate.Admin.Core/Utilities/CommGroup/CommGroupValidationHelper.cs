@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxQm == Validation.InfinityQualifiedMember)))
+            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAm == Validation.InfinityQualifiedMember)))
             {
                 result.Code = Code.GeneralErrorCode;
                 result.Message = string.Join(result.Message + brElementHtml, "Last Tier Setting must have maximum value=∞!");
@@ -61,7 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (tierSettingList.Any(item => item.MinQm > item.MaxQm))
+            if (tierSettingList.Any(item => item.MinAm > item.MaxAm))
             {
                 result.Code = Code.GeneralErrorCode;
                 result.Message = string.Join(result.Message + brElementHtml, "Max QM must be greater than or equal to Min QM!");

@@ -98,6 +98,7 @@ export class GridData extends Component {
 
     _renderGroupData() {
         const { gridData } = this.props;
+        console.log(gridData);
         const rows = [];
 
         if (gridData && gridData.length) {
@@ -134,14 +135,14 @@ export class GridData extends Component {
                             <Cell className="text-center cell-tier">{tierSetting.TierId}</Cell>
                             <Cell className="text-right cell-tier">{format(tierSetting.MinAmount)}</Cell>
                             <Cell className="text-right cell-tier">{tierSetting.MaxAmount === INFINITY_AM ? INFINITY_SYMBOL : format(tierSetting.MaxAmount)}</Cell>
-                            <Cell className="text-right cell-tier">{format(tierSetting.MinQm)}</Cell>
-                            <Cell className="text-right cell-tier">{tierSetting.MaxQm === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxQm)}</Cell>
+                            <Cell className="text-right cell-tier">{format(tierSetting.MinAm)}</Cell>
+                            <Cell className="text-right cell-tier">{tierSetting.MaxAm === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAm)}</Cell>
                             <Cell className="text-right cell-tier">{formatDecimal(tierSetting.Commission)}</Cell>
 
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                {OperationalFee && formatDecimal(OperationalFee.DeductedPercentage)}</Cell>)}
+                                {OperationalFee && formatDecimal(OperationalFee.IsDeductedPercent ? OperationalFee.DeductedPercentage : Number(OperationalFee.DeductedAmount))}</Cell>)}
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                {BankingFee && formatDecimal(BankingFee.DeductedPercentage)}</Cell>)}
+                                {BankingFee && formatDecimal(BankingFee.IsDeductedPercent ? BankingFee.DeductedPercentage : Number(BankingFee.DeductedAmount))}</Cell>)}
 
                             {isFirstItem && (
                                 <Cell className="text-center" rowSpan={rowSpan}>
@@ -187,7 +188,7 @@ export class GridData extends Component {
 
     render() {
         const { shouldResetScrollPosition, messageNotification, isConfirmPopup } = this.state;
-
+        console.log(format("70.0000"));
         return (
             <React.Fragment>
                 <div className="table-responsive table-group-setting">

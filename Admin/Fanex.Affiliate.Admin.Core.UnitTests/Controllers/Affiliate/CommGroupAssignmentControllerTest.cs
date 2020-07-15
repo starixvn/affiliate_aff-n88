@@ -319,8 +319,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
                 },
                 TierSettingList = new List<TierSetting>
                 {
-                    new TierSetting { Commission = 0.05m, MaxAmount = 100, MaxQm = 100, MinAmount = 0, MinQm = 0, TierId = 1 },
-                    new TierSetting { Commission = 0.15m, MaxAmount = 100000000000000, MaxQm = 1000000000, MinAmount = 101, MinQm = 101, TierId = 2 }
+                    new TierSetting { Commission = 0.05m, MaxAmount = 100, MaxAm = 100, MinAmount = 0, MinAm = 0, TierId = 1 },
+                    new TierSetting { Commission = 0.15m, MaxAmount = 100000000000000, MaxAm = 1000000000, MinAmount = 101, MinAm = 101, TierId = 2 }
                 }
             };
         }

@@ -57,13 +57,21 @@
     }
 
     .select-comm {
+        .deducted-percent-group {
+            margin-left: 3px;
+        }
+
         &::after {
             content: 'x';
             display: inline-block;
             position: absolute;
             right: -5px;
-            top: 7px;
+            top: 2px;
         }
+    }
+
+    .deducted-amount {
+        margin-left: -4.5rem;
     }
 
     .form-max {

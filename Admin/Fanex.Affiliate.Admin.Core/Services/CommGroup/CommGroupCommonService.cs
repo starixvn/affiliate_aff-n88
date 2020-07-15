@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in tierSettingList)
             {
-                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minqm=\"{item.MinQm}\" maxqm=\"{item.MaxQm}\" commission=\"{item.Commission}\" />";
+                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAm}\" maxam=\"{item.MaxAm}\" commission=\"{item.Commission}\" />";
                 result.Append(row);
             }
 
@@ -78,7 +78,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in deductionSettingList)
             {
-                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\" />";
+                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
+                    $" amount=\"{item.DeductedAmount}\" isdeductedpercent=\"{item.IsDeductedPercent}\" />";
                 result.Append(row);
             }
 

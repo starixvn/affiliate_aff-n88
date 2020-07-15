@@ -2,9 +2,13 @@ import React, { Fragment } from 'react';
 
 import { Col, FormGroup, Label, Input, Form } from 'reactstrap';
 import { formatDecimal, format } from '../../../../../modules/numberFormat';
-import { commissionValueList } from '../../../modules/constant';
+import { commissionValueList, regExp } from '../../../modules/constant';
 import { isValidNumber } from '../../../../../modules/utils';
 import { money } from '../../../../../modules/constants';
+
+const regexCheckAmount = new RegExp(regExp.checkAmount);
+const regexValidAmount = new RegExp(regExp.validAmount);
+const regexShouldFormatAmount = new RegExp(regExp.shouldFormatAmount);
 
 export default class FeeSettingItem extends React.Component {
     constructor(props) {
@@ -18,30 +22,39 @@ export default class FeeSettingItem extends React.Component {
     }
 
     handleChangeAmount = (event) => {
+        if (this.props.isInitial) {
+            this.props.handleUpdateState();
+        }
+
         const { name, value } = event.target;
 
-        const textValue = value.replace(/,/g, '');
-        const numberValue = Number(textValue);
-        const isValid = isValidNumber(numberValue);
-
-        if (isValid && numberValue <= money.MaxValue) {
-            this.props.handleChange({ [name]: numberValue });
+        const amount = value.replace(/,/g, '');
+        if (regexCheckAmount.test(amount) && Number(amount) > money.MinValue && Number(amount) < money.MaxValue) {
+            if (regexShouldFormatAmount.test(amount)) {
+                this.props.handleChange({ [name]: format(Number(amount)) })
+            } else {
+                this.props.handleChange({ [name]: value });
+            }
         }
     }
 
-
+    handleCheck = (value) => {
+        this.props.handleChange({ IsDeductedPercent: value });
+    }
 
     render() {
-        const { label, data, basedValueName, isSelectedRate, fixedAmount } = this.props;
+        const { label, data, basedValueName, isInitial } = this.props;
+        const isDeductedPercent = data && data.IsDeductedPercent;
+        var deductionAmount = isInitial && data && regexValidAmount.test(data.DeductedAmount) && formatDecimal(Number(data.DeductedAmount));
 
         return (
-            <FormGroup row>
-                <Label sm={4} className="font-weight-bold">{label}</Label>
+            <FormGroup row className="align-items-center">
+                <Label sm={2} className="font-weight-bold">{label}</Label>
                 {
-                    isSelectedRate ? (
+                    isDeductedPercent ? (
                         <Fragment>
-                            <Col sm={5} className="select-comm">
-                                <Form inline>
+                            <Col sm={4} className="select-comm">
+                                <Form inline className="deducted-percent-group">
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                                         <Label className="mr-sm-2">New Revenue Share </Label>
                                     </FormGroup>
@@ -63,20 +76,35 @@ export default class FeeSettingItem extends React.Component {
                             </Col>
                         </Fragment>
                     ) : (
-                        <Col sm={8}>
-                            <Form inline>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Label className="mr-sm-2">Amount </Label>
-                                </FormGroup>
-                                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                    <Input type="text" name="DeductedPercentage" className="form-control"
-                                            defaultValue={format(fixedAmount || 0)}
-                                            onChange={this.handleChangeAmount} style={{ width: 120 }} />
-                                </FormGroup>
-                            </Form>
-                        </Col>
+                        <Fragment>
+                            <Col sm={{ size: 4, offset: 1 }}>
+                                <Form inline>
+                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                        <Label className="mr-sm-2">Amount </Label>
+                                    </FormGroup>
+                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                                        <Input type="text" name="DeductedAmount" className="form-control"
+                                                value={deductionAmount || (data && data.DeductedAmount) || ''}
+                                                onChange={this.handleChangeAmount} style={{ width: 120 }} />
+                                    </FormGroup>
+                                </Form>
+                            </Col>
+                            <Col sm={2}>
+                                <p class="text-danger required deducted-amount">*</p>
+                            </Col>
+                        </Fragment>
                     )
                 }
+                <Col sm={3}>
+                    <Form inline>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" checked={!isDeductedPercent} name="IsDeductionPercent"
+                                    onChange={() => this.handleCheck(!isDeductedPercent)} /> Fixed Amount
+                            </Label>
+                        </FormGroup>
+                    </Form>
+                </Col>
             </FormGroup>
         )
     }

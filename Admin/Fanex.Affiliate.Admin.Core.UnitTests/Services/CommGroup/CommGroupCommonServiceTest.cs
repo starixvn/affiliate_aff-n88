@@ -135,18 +135,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     {
                         Commission = 0.01m,
                         MaxAmount = 100,
-                        MaxQm = 100,
+                        MaxAm = 100,
                         MinAmount = 0,
-                        MinQm = 0,
+                        MinAm = 0,
                         TierId = 1
                     },
                     new TierSetting
                     {
                         Commission = 0.10m,
                         MaxAmount = 100000000000000,
-                        MaxQm = 1000000000,
+                        MaxAm = 1000000000,
                         MinAmount = 101,
-                        MinQm = 101,
+                        MinAm = 101,
                         TierId = 2
                     }
                 }
@@ -174,9 +174,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                         {
                             Commission = 0,
                             MaxAmount = 100,
-                            MaxQm = 100,
+                            MaxAm = 100,
                             MinAmount = 0,
-                            MinQm = 0,
+                            MinAm = 0,
                             TierId = 1
                         }
                     }
@@ -188,18 +188,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                         {
                             Commission = 0,
                             MaxAmount = 0,
-                            MaxQm = 100,
+                            MaxAm = 100,
                             MinAmount = 100,
-                            MinQm = 0,
+                            MinAm = 0,
                             TierId = 1
                         },
                         new TierSetting
                         {
                             Commission = 0.10m,
                             MaxAmount = 100000000000000,
-                            MaxQm = 1000000000,
+                            MaxAm = 1000000000,
                             MinAmount = 101,
-                            MinQm = 101,
+                            MinAm = 101,
                             TierId = 2
                         }
                     }
@@ -211,18 +211,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                         {
                             Commission = 0,
                             MaxAmount = 100,
-                            MaxQm = 0,
+                            MaxAm = 0,
                             MinAmount = 0,
-                            MinQm = 100,
+                            MinAm = 100,
                             TierId = 1
                         },
                         new TierSetting
                         {
                             Commission = 0.10m,
                             MaxAmount = 100000000000000,
-                            MaxQm = 1000000000,
+                            MaxAm = 1000000000,
                             MinAmount = 101,
-                            MinQm = 101,
+                            MinAm = 101,
                             TierId = 2
                         }
                     }

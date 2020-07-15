@@ -6,39 +6,25 @@ import { setSelectedGroup } from '../../../actions';
 
 import PlatformFeeSetting from './PlatformFeeSetting';
 import FeeSettingItem from './FeeSettingItem';
-import RateOrFixedAmount from './RateOrFixedAmount';
 
 export class DeductionSetting extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isSelectedRate: true,
-            fixedOperationalAmount: 0,
-            fixedBankAmount: 0
+            isInitialOperationalFee: true,
+            isInitialBankingFee: true
         }
     }
 
-    handleSelectedRate = (isSelectedRate) => {
-        this.props.setSelectedGroup({
-            IsSelectedRate: isSelectedRate
-        });
-    }
-
-    handleSelectOperationalFee = (value) => {
+    handleChangeOperationalFee = (value) => {
         const { OperationalFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
             OperationalFee: Object.assign({}, OperationalFee, value)
         });
     }
 
-    handleInputFixedOperationalAmount = (value) => {
-        this.props.setSelectedGroup({
-            FixedOperationalAmount: value
-        });
-    }
-
-    handleSelectBankingFee = (value) => {
+    handleChangeBankingFee = (value) => {
         const { BankingFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
             BankingFee: Object.assign({}, BankingFee, value)
@@ -46,26 +32,25 @@ export class DeductionSetting extends Component {
     }
 
     render() {
-        const { OperationalFee, BankingFee, IsSelectedRate, FixedOperationalAmount, FixedBankAmount } = this.props.selectedGroup
+        const { isInitialOperationalFee, isInitialBankingFee } = this.state;
+        const { OperationalFee, BankingFee } = this.props.selectedGroup;
 
         return (
             <fieldset>
                 <legend><h6 className="font-weight-bold">Deductions</h6></legend>
                 <PlatformFeeSetting />
 
-                <RateOrFixedAmount isSelectedRate={IsSelectedRate} handleChange={this.handleSelectedRate} />
-
                 <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"
-                    handleChange={this.handleSelectOperationalFee}
+                    handleChange={this.handleChangeOperationalFee}
+                    handleUpdateState={() => this.setState({ isInitialOperationalFee: false })}
                     data={OperationalFee}
-                    amount={FixedOperationalAmount}
-                    isSelectedRate={IsSelectedRate} />
+                    isInitial={isInitialOperationalFee} />
 
                 <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
-                    handleChange={this.handleSelectBankingFee}
+                    handleChange={this.handleChangeBankingFee}
+                    handleUpdateState={() => this.setState({ isInitialBankingFee: false })}
                     data={BankingFee}
-                    amount={FixedBankAmount}
-                    isSelectedRate={IsSelectedRate} />
+                    isInitial={isInitialBankingFee} />
             </fieldset>
         )
     }

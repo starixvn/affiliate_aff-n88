@@ -364,7 +364,7 @@
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\RateOrFixedAmount.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\RateSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\Content.test.js" />

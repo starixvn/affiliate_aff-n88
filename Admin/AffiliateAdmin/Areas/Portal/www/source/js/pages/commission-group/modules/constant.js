@@ -25,6 +25,10 @@ export const commissionValueList = _commValueList;
 
 export const messages = {
     requireGroupName: 'Group Name cannot be empty. Please check!',
+    requireOperationalAmount: 'Operational Fee cannot be empty. Please check!',
+    invalidOperationalAmount: 'Operational Fee is invalid.',
+    requireBankingAmount: 'Banking Fee cannot be empty. Please check!',
+    invalidBankingAmount: 'Banking Fee is invalid.',
     requireTier: 'Tier Setting must have at least 1 tier',
     requireInfinity: 'Last Tier Setting must have maximum value=∞',
     qmConstrain: 'Max QM must be greater than or equal to Min QM',
@@ -44,3 +48,9 @@ const _deductionNameList = {
     bankingFee: 'Banking Fee'
 }
 export const deductionNameList = _deductionNameList;
+
+export const regExp = {
+    checkAmount: "^(\\d+\\.?\\d*)?$",
+    shouldFormatAmount: "^\\d+$",
+    validAmount: "^\\d+(\\.\\d{1,})?$"
+}

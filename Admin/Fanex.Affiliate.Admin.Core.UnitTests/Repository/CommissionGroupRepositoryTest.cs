@@ -355,8 +355,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["TierId"] = 1,
                 ["MinAmount"] = 0m,
                 ["MaxAmount"] = 100m,
-                ["MinQm"] = 0,
-                ["MaxQm"] = 50,
+                ["MinAm"] = 0,
+                ["MaxAm"] = 50,
                 ["Commission"] = 0.2m
             };
         }
