@@ -43,7 +43,7 @@ export default class FeeSettingItem extends React.Component {
     }
 
     render() {
-        const { label, data, basedValueName, isInitial } = this.props;
+        const { label, data, basedValueName, isInitial, defaultCurrency } = this.props;
         const isDeductedPercent = data && data.IsDeductedPercent;
         var deductionAmount = isInitial && data && regexValidAmount.test(data.DeductedAmount) && formatDecimal(Number(data.DeductedAmount));
 
@@ -90,7 +90,7 @@ export default class FeeSettingItem extends React.Component {
                                 </Form>
                             </Col>
                             <Col sm={2}>
-                                <p class="text-danger required deducted-amount">*</p>
+                                <p class="deducted-amount"><span class="text-danger required">*</span>{` (${defaultCurrency})`}</p>
                             </Col>
                         </Fragment>
                     )

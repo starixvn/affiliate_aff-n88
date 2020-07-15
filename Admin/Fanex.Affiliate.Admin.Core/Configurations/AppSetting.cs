@@ -56,5 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         public string SiteFriendlyName => GetValue("SiteFriendlyName");
 
         public string DefaultLanguage => GetValue("DefaultLanguage");
+
+        public string DefaultCurrency => GetValue("DefaultCurrency");
     }
 }

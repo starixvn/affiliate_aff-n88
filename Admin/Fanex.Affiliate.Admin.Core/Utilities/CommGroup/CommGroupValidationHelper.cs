@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
@@ -10,7 +11,39 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
     public static class CommGroupValidationHelper
     {
         private const string brElementHtml = "<br />";
-        public static ResultInfo ValidatePlatformFeeList(IProductRepository productRepository, IEnumerable<DeductionSetting> platformFeeList)
+
+        public static ResultInfo ValidateAllFees(IProductRepository productRepository, CommissionGroupSetting commGroup)
+        {
+            var result = new ResultInfo();
+
+            var validatePlatformFeeList = ValidatePlatformFeeList(productRepository, commGroup.PlatformFeeList);
+
+            if(!validatePlatformFeeList.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validatePlatformFeeList.Message);
+            }
+
+            var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, true);
+
+            if (!validateOperationalFee.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validateOperationalFee.Message);
+            }
+
+            var validateBankingFee = ValidateFixedAmountDeductedFee(commGroup.BankingFee, true);
+
+            if (!validateBankingFee.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validateBankingFee.Message);
+            }
+
+            return result;
+        }
+
+        private static ResultInfo ValidatePlatformFeeList(IProductRepository productRepository, IEnumerable<DeductionSetting> platformFeeList)
         {
             var result = new ResultInfo
             {
@@ -85,6 +118,34 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 distinctProductIdOfPlatform.Any(item => !productIdOfDB.Contains(item)))
             {
                 return result;
+            }
+
+            return new ResultInfo();
+        }
+
+        private static ResultInfo ValidateFixedAmountDeductedFee(DeductionSetting deductedFee, bool isOperationlFee)
+        {
+            var result = new ResultInfo
+            {
+                Code = Code.GeneralErrorCode,
+                Message = isOperationlFee ? CommGroupErrorMessage.InvalidOperationalFee : CommGroupErrorMessage.InvalidBankingFee
+            };
+
+            if(!deductedFee.IsDeductedPercent)
+            {
+                try
+                {
+                    var deductedAmount = Convert.ToDecimal(deductedFee.DeductedAmount);
+
+                    if(deductedAmount < 0 || deductedAmount > Money.MaxValue)
+                    {
+                        return result;
+                    }
+                }
+                catch
+                {
+                    return result;
+                }
             }
 
             return new ResultInfo();

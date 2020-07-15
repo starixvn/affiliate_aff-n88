@@ -32,6 +32,7 @@ export class DeductionSetting extends Component {
     }
 
     render() {
+        const { defaultCurrency } = this.props;
         const { isInitialOperationalFee, isInitialBankingFee } = this.state;
         const { OperationalFee, BankingFee } = this.props.selectedGroup;
 
@@ -44,20 +45,22 @@ export class DeductionSetting extends Component {
                     handleChange={this.handleChangeOperationalFee}
                     handleUpdateState={() => this.setState({ isInitialOperationalFee: false })}
                     data={OperationalFee}
+                    defaultCurrency={defaultCurrency}
                     isInitial={isInitialOperationalFee} />
 
                 <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
                     handleChange={this.handleChangeBankingFee}
                     handleUpdateState={() => this.setState({ isInitialBankingFee: false })}
                     data={BankingFee}
+                    defaultCurrency={defaultCurrency}
                     isInitial={isInitialBankingFee} />
             </fieldset>
         )
     }
 }
 
-function mapStateToProp({ selectedGroup }) {
-    return { selectedGroup };
+function mapStateToProp({ selectedGroup, defaultCurrency }) {
+    return { selectedGroup, defaultCurrency };
 }
 
 function mapDispatchToProps(dispatch) {

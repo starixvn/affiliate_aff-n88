@@ -115,8 +115,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 return CreateErrorResult();
             }
 
-            var platformFeeValidation = CommGroupValidationHelper.ValidatePlatformFeeList(_productRepository, commGroup.PlatformFeeList);
-            if (platformFeeValidation.IsSuccessful)
+            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
+            if (result.IsSuccessful)
             {
                 var assignParam = new CreateUpdateCommissionGroupParam
                 {
@@ -147,7 +147,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = platformFeeValidation.Message
+                    Message = result.Message
                 }
             };
         }

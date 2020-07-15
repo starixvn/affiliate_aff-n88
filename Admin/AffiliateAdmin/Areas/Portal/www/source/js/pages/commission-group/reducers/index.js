@@ -26,4 +26,6 @@ export const selectedGroup = createReducer(null, {
 export const productList = createReducer([], {});
 export const deductionList = createReducer([], {});
 
-export default combineReducers({ gridData, pagingOption, productList, deductionList, selectedGroup, searchedGroupName, isShowLoader });
+export const defaultCurrency = createReducer(null, {});
+
+export default combineReducers({ gridData, pagingOption, productList, deductionList, selectedGroup, searchedGroupName, isShowLoader, defaultCurrency });

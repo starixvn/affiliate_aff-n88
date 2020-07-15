@@ -119,9 +119,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var platformFeeValidation = CommGroupValidationHelper.ValidatePlatformFeeList(_productRepository, commGroup.PlatformFeeList);
+            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
 
-            if (groupNameValidation.IsSuccessful && platformFeeValidation.IsSuccessful)
+            if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {
                 var createParam = new CreateUpdateCommissionGroupParam
                 {
@@ -146,7 +146,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = groupNameValidation.Message + platformFeeValidation.Message
+                    Message = groupNameValidation.Message + result.Message
                 }
             };
         }
@@ -162,9 +162,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var platformFeeValidation = CommGroupValidationHelper.ValidatePlatformFeeList(_productRepository, commGroup.PlatformFeeList);
+            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
 
-            if (groupNameValidation.IsSuccessful && platformFeeValidation.IsSuccessful)
+            if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {
                 var updateParam = new CreateUpdateCommissionGroupParam
                 {
@@ -190,7 +190,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = groupNameValidation.Message + platformFeeValidation.Message
+                    Message = groupNameValidation.Message + result.Message
                 }
             };
         }

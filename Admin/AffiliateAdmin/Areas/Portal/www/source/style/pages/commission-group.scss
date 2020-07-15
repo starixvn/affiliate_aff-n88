@@ -1,6 +1,12 @@
 ﻿@import "../components/modal";
 @import "../components/multiple-select";
 
+.commission-group {
+    .deducted-percent-group {
+        margin-left: 3px;
+    }
+}
+
 .comm-popup-container {
     font-size: 12px;
 
@@ -57,10 +63,6 @@
     }
 
     .select-comm {
-        .deducted-percent-group {
-            margin-left: 3px;
-        }
-
         &::after {
             content: 'x';
             display: inline-block;
@@ -71,7 +73,7 @@
     }
 
     .deducted-amount {
-        margin-left: -4.5rem;
+        margin-left: -2rem;
     }
 
     .form-max {
