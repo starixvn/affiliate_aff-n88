@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Site
                     @"/index.aspx",new UrlSchema{Controller="Home",Action=IndexAction }
                 },
                 {
-                    @"/programdetails.aspx",new UrlSchema{Controller="CommissionStructure",Action=IndexAction}
+                    @"/programdetails.aspx",new UrlSchema{Controller="RevenueSharingStructure",Action=IndexAction}
                 },
                 {
                     @"/condition.aspx",new UrlSchema{Controller="TermAndCondition",Action=IndexAction}
@@ -44,6 +44,13 @@ namespace Fanex.Affiliate.User.Site
               name: "UserPanel",
               url: "UserPanel/{controller}/{action}/{id}",
               defaults: new { controller = "AccountOverview", action = IndexAction, id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "SignUp",
+                url: "Signup/{refId}/{action}",
+                defaults: new { controller = "Signup", action = IndexAction, refId = UrlParameter.Optional },
+                namespaces: new[] { "Fanex.Affiliate.User.Core.Controllers"}
             );
 
             routes.MapRoute(

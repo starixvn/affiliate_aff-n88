@@ -3,8 +3,8 @@ import { Content } from '../Content';
 import { shallow } from 'enzyme';
 
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import ReportExcel from '../../modules/reportExcel';
-jest.mock('../../modules/reportExcel');
+import ReportExcel from '../../libs/reportExcel';
+jest.mock('../../libs/reportExcel');
 
 describe('affiliate info - Content ', () => {
     const mockColumnList = [
@@ -17,8 +17,7 @@ describe('affiliate info - Content ', () => {
         { columnKey: "Email", columnName: "Email", checked: true },
         { columnKey: "RegistrationDateText", columnName: "Registration Date", checked: true },
         { columnKey: "ApprovalDateText", columnName: "Approval Date", checked: true },
-        { columnKey: "CasinoDateText", columnName: "Casino Date", checked: true },
-        { columnKey: "CommissionGroup", columnName: "Commission Group", checked: true },
+        { columnKey: "CommissionGroup", columnName: "Revenue Group", checked: true },
         { columnKey: "BalanceBf", columnName: "Balance B/F", checked: true },
         { columnKey: "Currency", columnName: "Aff. Currency", checked: true },
         { columnKey: "PlayerUserName", columnName: "Aff. Player", checked: true },
@@ -35,7 +34,6 @@ describe('affiliate info - Content ', () => {
         Email: true,
         RegistrationDateText: true,
         ApprovalDateText: true,
-        CasinoDateText: true,
         CommissionGroup: true,
         BalanceBf: true,
         Currency: true,

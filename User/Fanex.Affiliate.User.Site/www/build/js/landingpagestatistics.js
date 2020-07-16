@@ -227,7 +227,7 @@
         pickWholeWeek: false,
 
         // used internally (don't config outside)
-        minYear: 0,
+        minYear: 2020,
         maxYear: 9999,
         minMonth: undefined,
         maxMonth: undefined,
@@ -1254,7 +1254,10 @@
         'th-TH': 'หน้า {0} จาก {1}',
         'vi-VN': 'Trang {0}',
         'ko-KR': '페이지 {0} 중 {1}'
-    }
+    };
+
+    var defaultSupportedLangs = ['vi-VN', 'en-US'];
+    var defaultLang = 'en-US';
 
     var DEFAULT_PAGESIZE_LIST = [10, 20, 50, 100, 200];
     var defaultOption = {
@@ -1262,7 +1265,8 @@
         pageSize: 20,
         totalItems: 0,
         pageSizeList: DEFAULT_PAGESIZE_LIST,
-        languageCode: 'en-US',
+        supportedLangs: defaultSupportedLangs,
+        languageCode: defaultLang,
         onChange: function (pageIndex, pageSize) { },
         onClickPrev: function () { },
         onClickLastPrev: function () { },
@@ -1272,7 +1276,7 @@
     };
 
     function getPagingInfoText(pageIndex, totalPage) {
-        return (pagingInfoText[_languageCode] || pagingInfoText['en-US']).replace('{0}', pageIndex).replace('{1}', (totalPage || 1));
+        return (pagingInfoText[_languageCode] || pagingInfoText[defaultLang]).replace('{0}', pageIndex).replace('{1}', (totalPage || 1));
     }
 
     function buildPrevButton() {
@@ -1346,14 +1350,14 @@
                 $self.find("*").off();
                 $self.html("");
 
-                _languageCode = mainOption.languageCode;
+                _languageCode = mainOption.supportedLangs.includes(mainOption.languageCode) ? mainOption.languageCode : defaultLang;
                 var totalPage = calculateTotalPage(mainOption.totalItems, mainOption.pageSize);
                 var pageInfo = {
                     pageIndex: mainOption.pageIndex,
                     pageSize: mainOption.pageSize,
                     totalItems: mainOption.totalItems,
                     totalPage: totalPage
-                }
+                };
 
                 $self.data('pageInfo', pageInfo);
 
@@ -1459,7 +1463,7 @@
             var newPageInfo = $.extend({}, oldPageInfo, pageInfo);
             newPageInfo.totalPage = calculateTotalPage(newPageInfo.totalItems, newPageInfo.pageSize);
 
-            var $pagerContainer = $self.find('.page-container');
+            var $pagerContainer = $self.find('.pager-container');
             updatePageInfo($pagerContainer, newPageInfo.pageIndex + 1, newPageInfo.totalPage);
             var disableNextButton = isDisableNextButton(newPageInfo.pageIndex, newPageInfo.totalPage);
             resetToInitialState($pagerContainer, disableNextButton);
@@ -1508,7 +1512,7 @@ var LandingPageStatistics = (function ($) {
         UserPanel.datepicker.push(new Pikaday({
             field: document.getElementById(id),
             trigger: document.getElementById(triggerId),
-            yearRange: [2000, new Date().getFullYear()],
+            yearRange: [2020, new Date().getFullYear()],
             toString: function (date, format) {
                 var day = date.getDate();
                 var month = date.getMonth() + 1;

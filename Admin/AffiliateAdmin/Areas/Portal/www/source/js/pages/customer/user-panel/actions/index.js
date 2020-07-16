@@ -2,6 +2,7 @@ import { SET_SELECTED_USERPANEL, RESET_USER_PANEL, TOGGLE_LOADER_USER_PANEL } fr
 import { userPanelMenuKey } from '../../common/modules/constants';
 import { setParam as setDailyEarningParam } from '../../../user-panel/daily-earning/actions';
 import { setParam as setDailyEarningDetailParam } from '../../../user-panel/daily-earning-detail/actions';
+import { setParam as setSubAffiliateParam } from '../../../user-panel/sub-affiliate/actions';
 
 import { setParam as setPlayerDetailParam } from '../../../user-panel/player-detail/actions';
 import { setParam as setReferrersParam } from '../../../user-panel/referrers/actions';
@@ -36,6 +37,11 @@ export const redirectToDailyEarning = (data) => (dispatch) => {
 export const redirectToDailyEarningDetail = (data) => (dispatch) => {
     dispatch(setSelectedUserPanel(userPanelMenuKey.dailyEarningDetail));
     dispatch(setDailyEarningDetailParam(data));
+}
+
+export const redirectToSubAffiliate = (data) => (dispatch) => {
+    dispatch(setSelectedUserPanel(userPanelMenuKey.subAffiliate));
+    dispatch(setSubAffiliateParam(data));
 }
 
 export const redirectToPlayerDetail = (data) => (dispatch) => {

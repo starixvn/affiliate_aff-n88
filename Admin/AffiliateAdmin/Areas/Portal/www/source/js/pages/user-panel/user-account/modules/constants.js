@@ -15,7 +15,9 @@ export const messageList = {
     Postcode: 'Postcode/Zip is required',
     Country: 'Please select country',
     SiteUrl: 'Website URL is required',
-    PlayerUsername: '12BET User Name is required',
+    NoSiteDescriptionOfBwing: `Please describe how you would like to promote Bwing if you don't have the URL is required`,
+    NoSiteDescriptionOfGoal123: `Please describe how you would like to promote Goal123 if you don't have the URL is required`,
+    PlayerUsername: 'User Name is required',
     NetellerAccountId: 'Neteller Account ID is required',
     MoneybookersEmail: 'Moneybookers Email is required',
     BankName: 'Bank Name is required',
@@ -24,16 +26,14 @@ export const messageList = {
     BankAccountNumber: 'Bank Account Number is required',
 }
 
-export const requiredFieldList = [ 'FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode', 'SiteUrl' ]
+export const requiredFieldList = ['FirstName', 'LastName', 'Phone', 'Address', 'City', 'Postcode']
 
-export const requiredBankTranferList = [ 'BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber' ]
+export const requiredBankTranferList = ['BankName', 'BankAddress', 'BankAccountName', 'BankAccountNumber']
 
 export const playerMethod = 'Player';
-export const netellerMethod = 'Neteller';
 export const moneybookersMethod = 'Moneybookers';
 export const wireMethod = 'Wire';
-export const minimumPayment = 'Minimum payment amount is $100';
-export const nondeposited = 'Non-deposited account only';
+export const minimumPaymentText = 'Minimum payment amount is';
 
 export const countriesList = {
     'Albania': 'Albania',

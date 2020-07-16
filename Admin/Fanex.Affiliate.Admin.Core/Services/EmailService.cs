@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
@@ -26,7 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendApprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             SendApprovedAffEmail(emailParam);
             SendAffInforEmail(emailParam);
             SendWithdrawalGuidanceEmail(emailParam);
@@ -42,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = Lang.EmailSubjectAffApproved;
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffApproved);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffApproved, emailParam.Language, emailParam.RootUrl) :
@@ -64,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = Lang.EmailSubjectAffInfor;
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffInfor);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffInfor, emailParam.Language, emailParam.RootUrl) :
@@ -83,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = Lang.EmailSubjectAffInfor;
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectWithdrawalGuidance);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleWithdrawalGuidance, emailParam.Language, emailParam.RootUrl) :
@@ -94,7 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
-            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
+            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, MappingLanguage(prefrerredLanguage));
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
 
             return _mailProcessor.BuildTemplateContent(physicalPath, model);
@@ -105,8 +104,9 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var viewModel = new EmailTemplateViewModel
             {
                 RootUrl = domain,
+                UserSiteUrl = _appSetting.AsianAffSiteUrl,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = language,
+                Language = MappingLanguage(language),
                 Content = content,
                 Title = title
             };
@@ -117,15 +117,15 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendPaymentRequestUpdateEmail(PaymentRequestUpdateEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             emailParam.MailContact = _appSetting.MailContact;
 
             var TemplateName = emailParam.IsApproved ? "PaymentRequest/Approved" : "PaymentRequest/Rejected";
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, emailParam);
             var subject = emailParam.IsApproved ?
-                string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId) :
-                string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId);
+                string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectPaymentRequestApproved), emailParam.TransId) :
+                string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectPaymentRequestRejected), emailParam.TransId);
             var title = emailParam.IsApproved ? Lang.EmailTitlePaymentRequestApproved : Lang.EmailTitlePaymentRequestRejected;
 
             var contentToSend = emailParam.IsHtml ?
@@ -138,7 +138,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public void SendDisapprovedEmail(AffInformationEmail emailParam)
         {
-            _languageService.SetCulture(emailParam.Language);
+            _languageService.SetCulture(MappingLanguage(emailParam.Language));
             SendDisapprovedAffiliateEmail(emailParam);
             _languageService.SetCulture(LanguageSystem.DefaultLanguage);
         }
@@ -153,13 +153,23 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = Lang.EmailSubjectAffDisapproved;
+            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffDisapproved);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffDisapproved, emailParam.Language, emailParam.RootUrl) :
                 content;
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+        }
+
+        public static string MappingLanguage(string language)
+        {
+            if (language == "vi-VN")
+            {
+                return language;
+            }
+
+            return "en-US";
         }
     }
 }

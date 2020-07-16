@@ -1,5 +1,6 @@
 ﻿using Fanex.Affiliate.Admin.Core.Controllers;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
@@ -55,13 +56,19 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
         private CustomerController CreateCustomerController(
             ISessionService sessionService = null,
-            ILanguageService languageService = null
+            ILanguageService languageService = null,
+            IAffTypeService affTypeService = null,
+            IProductRepository productRepository = null,
+            ICurrencyRepository currencyRepository = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
+            var fakeAffTypeService = affTypeService ?? Mock.Of<IAffTypeService>();
+            var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
+            var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
 
-            return new CustomerController(fakeSessionService, fakeLanguageService);
+            return new CustomerController(fakeSessionService, fakeLanguageService, fakeAffTypeService, fakeProductRepository, fakeCurrencyRepository);
         }
     }
 }

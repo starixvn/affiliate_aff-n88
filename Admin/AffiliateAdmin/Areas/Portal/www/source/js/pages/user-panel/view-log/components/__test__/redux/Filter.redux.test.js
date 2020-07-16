@@ -36,6 +36,7 @@ describe('view log - Filter - connect', () => {
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
             setParam: actions['setParam'],
+            getLogTypeList: actions['getLogTypeList'],
             setShowIdList: actions['setShowIdList']
         }
 

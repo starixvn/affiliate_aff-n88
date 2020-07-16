@@ -30,8 +30,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         CreatedDate = new DateTime(2018, 7, 11),
                         Creator = "Admin",
                         Description = "Description",
-                        QmTurnover = 100.50m,
-                        NextQmTurnover = 150.50m,
                         NoAffs = 2
                     }
                 },
@@ -43,8 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         DeductionId = 1,
                         DeductionName = "DeductionName",
                         ProductIds = "1,2,3",
-                        DeductedPercentage = 0.7m,
-                        NextDeductedPercentage = 0.5m
+                        DeductedPercentage = 0.7m
                     },
                     new DeductionSetting
                     {
@@ -52,8 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         DeductionId = 13,
                         DeductionName = "ExchangeWinLossShare",
                         ProductIds = "19",
-                        DeductedPercentage = 0.0m,
-                        NextDeductedPercentage = 0.0m
+                        DeductedPercentage = 0.0m
                     },
                     new DeductionSetting
                     {
@@ -61,8 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         DeductionId = 11,
                         DeductionName = "BankingFee",
                         ProductIds = "0",
-                        DeductedPercentage = 0.07m,
-                        NextDeductedPercentage = 0.05m
+                        DeductedPercentage = 0.07m
                     }
                 },
                 TierSettingList = new List<TierSetting>

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import AppContainer from './components/AppContainer';
 import { configureStore } from '../../modules/store';
-import { headerText } from './modules/constants';
+import { headerText } from './libs/constants';
 
 const commGroupList = [...window.initialState.commGroupList];
 const commGroup = {};

@@ -17,8 +17,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         public string TierList { get; set; }
 
-        public decimal QmTurnover { get; set; }
-
         public string Ip { get; set; }
 
         public IEnumerable<TierSetting> TierSettingList { get; set; }
@@ -29,8 +27,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         public DeductionSetting BankingFee { get; set; }
 
-        public DeductionSetting ExchangeWinLossShare { get; set; }
-
-        public DeductionSetting ExchangeCommissionShare { get; set; }
+        public bool IsPrivate { get; set; }
     }
 }

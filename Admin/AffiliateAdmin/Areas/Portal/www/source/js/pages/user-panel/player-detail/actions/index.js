@@ -1,17 +1,10 @@
 import { post } from '../../../../modules/ajaxRequest';
 import { setPagingOption } from '../../../../actions/pagingAction';
 import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
-import { getProductList as productList  } from '../../../customer/user-panel/modules/service';
-import { SET_PRODUCT_LIST, SET_PARAM } from './types';
+import { SET_PARAM, SET_SORTING_COLUMN } from './types';
 
 export { setPagingOption, toggleLoaderUserPanel }
 
-export const setProductList = (data) => {
-    return {
-        type: SET_PRODUCT_LIST,
-        data
-    }
-}
 
 export const setParam = (data) => {
     return {
@@ -20,7 +13,12 @@ export const setParam = (data) => {
     }
 }
 
-export const getProductList = () => productList;
+export const setSortingColumn = (data) => {
+    return {
+        type: SET_SORTING_COLUMN,
+        data
+    }
+}
 
 export const fetchData = (param) => async () => {
     const url = 'Portal/UserPanel/PlayerDetail/GetPlayerDetailList';

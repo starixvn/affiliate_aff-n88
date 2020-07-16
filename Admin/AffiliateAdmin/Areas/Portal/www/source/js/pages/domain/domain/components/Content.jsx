@@ -12,12 +12,11 @@ import { deleteDomain, fetchData, toggleLoader, setSelectedDomain, setShouldRese
 export class Content extends PureComponent {
     constructor(props) {
         super(props);
-
         this.state = {
             selectedDomainId: 0,
             message: '',
             isConfirmPopup: true
-        }
+        };
     }
 
     componentDidMount() {
@@ -35,7 +34,7 @@ export class Content extends PureComponent {
 
     _handleDeleteDomain = (selectedDomainId) => {
         this.props.setShouldResetScrollPosition(false);
-        this.setState({ message: `Are you sure you want to delete this ${this.props.isAffDomain ? 'affiliate' : '12bet'} domain?`, isConfirmPopup: true, selectedDomainId });
+        this.setState({ message: `Are you sure you want to delete this ${this.props.isAffDomain ? 'affiliate' : this.props.licenseeName} domain?`, isConfirmPopup: true, selectedDomainId });
     }
 
     _handleEditDomain = (domainId, domainName, isSSL) => {
@@ -46,12 +45,12 @@ export class Content extends PureComponent {
     _deleteDomain = async (selectedDomainId) => {
         this.props.toggleLoader(true);
 
-        const { isAffDomain } = this.props;
+        const { isAffDomain, licenseeName } = this.props;
         const result = await this.props.deleteDomain({ DomainId: selectedDomainId, IsAffDomain: isAffDomain });
 
         if (result) {
             if (result.IsSuccessful) {
-                this.setState({ message: `${isAffDomain ? 'Affiliate' : '12Bet'} domain has been removed successfully!`, isConfirmPopup: false });
+                this.setState({ message: `${isAffDomain ? 'Affiliate' : licenseeName} domain has been removed successfully!`, isConfirmPopup: false });
 
                 this.props.fetchData(isAffDomain);
             }
@@ -123,13 +122,15 @@ export class Content extends PureComponent {
     }
 
     render() {
-        const { gridData, shouldResetScrollPosition, isAffDomain } = this.props;
+        const { gridData, shouldResetScrollPosition, isAffDomain, licenseeName } = this.props;
         const { message, isConfirmPopup } = this.state;
 
         return gridData && (
             <div className="data-content">
                 <div className="my-2">
-                    <Button outline type="button" onClick={() => this._handleEditDomain(0, '', false)}>{isAffDomain ? 'Add AffDomain' : 'Add 12Bet Domain'}<span className="oi oi-plus ml-2"></span></Button>
+                    <Button outline type="button" onClick={() => this._handleEditDomain(0, '', false)}>
+                        {isAffDomain ? 'Add AffDomain' : ('Add ' + licenseeName + ' Domain')}<span className="oi oi-plus ml-2"></span>
+                    </Button>
                 </div>
                 <div className="domain-list-content table-responsive table-striped my-2">
                     <Table
@@ -154,8 +155,8 @@ export class Content extends PureComponent {
     }
 }
 
-function mapStateToProps({ shouldResetScrollPosition, gridData, isAffDomain }) {
-    return Object.assign({}, { shouldResetScrollPosition, gridData, isAffDomain });
+function mapStateToProps({ shouldResetScrollPosition, gridData, isAffDomain, licenseeName }) {
+    return Object.assign({}, { shouldResetScrollPosition, gridData, isAffDomain, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

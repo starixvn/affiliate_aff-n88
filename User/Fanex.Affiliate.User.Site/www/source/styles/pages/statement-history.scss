@@ -1,1 +1,10 @@
 ﻿@import "../scss/components/pager";
+#statementDataList{
+    .btn.btn-transparent{
+        margin-right: 5px;
+    }
+
+    .display-none{
+        display: none;
+    }
+}

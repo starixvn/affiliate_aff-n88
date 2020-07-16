@@ -32,7 +32,7 @@ describe('landing page statistics - components - Detail', () => {
                 Signups: 0,
                 TotalClick: 8,
                 UniqueClick: 4,
-                WebsiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MediaGallery"
+                WebsiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MediaGallery"
             },
             {
                 Fdm: 0,
@@ -55,7 +55,7 @@ describe('landing page statistics - components - Detail', () => {
 
     it('render correctly with have data', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: data.MainData });
 
         expect(result).toMatchSnapshot();
@@ -63,7 +63,7 @@ describe('landing page statistics - components - Detail', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: {} });
 
         expect(result).toMatchSnapshot();

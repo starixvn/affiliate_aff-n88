@@ -10,6 +10,7 @@ using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.DTO.Message;
 using System.Collections.Generic;
+using Fanex.Affiliate.Admin.Core.Services;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -18,18 +19,23 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
     {
         private const int threeMilliSecond = 3;
         private readonly IMessageService _messageSevice;
+        private readonly ILanguageService _languageService;
 
         public MessageController(
             ISessionService sessionService,
-            IMessageService messageSevice) : base(sessionService)
+            IMessageService messageSevice,
+            ILanguageService languageService) : base(sessionService)
         {
             _messageSevice = messageSevice;
+            _languageService = languageService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var mode = _languageService.GetLanguageList();
+
+            return View(mode);
         }
 
         [HttpPost]
@@ -150,15 +156,15 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 MessageId = param.MessageId,
                 Important = param.Important,
-                MessageContentEn = Server.HtmlEncode(param.MessageContentEn),
-                MessageContentCn = Server.HtmlEncode(param.MessageContentCn),
-                MessageContentTw = Server.HtmlEncode(param.MessageContentTw),
-                MessageContentEs = Server.HtmlEncode(param.MessageContentEs),
-                MessageContentTh = Server.HtmlEncode(param.MessageContentTh),
-                MessageContentVi = Server.HtmlEncode(param.MessageContentVi),
-                MessageContentId = Server.HtmlEncode(param.MessageContentId),
-                MessageContentKr = Server.HtmlEncode(param.MessageContentKr),
-                MessageContentJp = Server.HtmlEncode(param.MessageContentJp)
+                MessageContenten = Server.HtmlEncode(param.MessageContenten),
+                MessageContentcs = Server.HtmlEncode(param.MessageContentcs),
+                MessageContentch = Server.HtmlEncode(param.MessageContentch),
+                MessageContentes = Server.HtmlEncode(param.MessageContentes),
+                MessageContentth = Server.HtmlEncode(param.MessageContentth),
+                MessageContentvn = Server.HtmlEncode(param.MessageContentvn),
+                MessageContentid = Server.HtmlEncode(param.MessageContentid),
+                MessageContentko = Server.HtmlEncode(param.MessageContentko),
+                MessageContentjp = Server.HtmlEncode(param.MessageContentjp)
             };
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
@@ -15,18 +16,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private const int EndDay = 15;
 
         private readonly IAccountRepository _accountRepository;
-        private readonly IAccountService _accountService;
         private readonly IPaymentRepository _paymentRepository;
         private readonly IEmailService _emailService;
 
         public PaymentService(
             IAccountRepository accountRepository,
-            IAccountService accountService,
             IPaymentRepository paymentRepository,
             IEmailService emailService)
         {
             _accountRepository = accountRepository;
-            _accountService = accountService;
             _paymentRepository = paymentRepository;
             _emailService = emailService;
         }
@@ -35,6 +33,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             return _paymentRepository.GetPaymentList(paymentParam);
         }
+
+
 
         public ResultInfo CancelPaymentRequest(PaymentCancelParam cancelParam, PaymentEmailParam emailParam)
         {
@@ -67,18 +67,25 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (resultInfo.IsOk)
             {
-                resultInfo = _accountService.CheckPlayerAccountIsActived(paymentCreationParam.AffId, paymentCreationParam.Language);
+                var param = new PaymentRequestInfo
+                {
+                    AffId = paymentCreationParam.AffId,
+                    Language = paymentCreationParam.Language,
+                    IpAddress = paymentCreationParam.Ip,
+                    Amount = paymentCreationParam.Amount,
+                    ErrCode = paymentCreationParam.ErrCode,
+                    ErrMsg = paymentCreationParam.ErrMsg
+                };
+
+                resultInfo = _paymentRepository.CreatePaymentRequest(param);
+
                 if (resultInfo.IsOk)
                 {
-                    resultInfo = _paymentRepository.CreatePaymentRequest(paymentCreationParam);
+                    paymentCreationParam.TransId = param.TransId;
+                    resultInfo.Message = Lang.RequestPayoutSucc;
 
-                    if (resultInfo.IsOk)
-                    {
-                        resultInfo.Message = Lang.RequestPayoutSucc;
-
-                        AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
-                        SendEmail(emailParam);
-                    }
+                    AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
+                    SendEmail(emailParam);
                 }
             }
 
@@ -95,11 +102,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var resultInfo = new ResultInfo { IsOk = false };
 
-            if (!IsInDateRange() && !paymentCreationParam.IsLocalTest)
-            {
-                resultInfo.Message = Lang.PayoutTime;
-            }
-            else if (!IsValidAmount(paymentCreationParam))
+            //if (!IsInDateRange() && !paymentCreationParam.IsLocalTest)
+            //{
+            //    resultInfo.Message = Lang.PayoutTime;
+            //}
+            if (!IsValidAmount(paymentCreationParam))
             {
                 resultInfo.Message = Error.PaymentAmountInvalid;
             }
@@ -129,7 +136,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 emailParam.MailTo = userInfo.Email;
                 emailParam.TransId = paymentCreationParam.TransId;
                 emailParam.Amount = paymentCreationParam.Amount;
-                emailParam.RequestDate = paymentCreationParam.TransDate.Value;
+                emailParam.RequestDate = paymentCreationParam.TransDate ?? DateTime.Now;
             }
         }
 
@@ -139,6 +146,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 _emailService.SendPaymentEmail(emailParam);
             }
+        }
+
+        public IDictionary<string, string> GetPaymentMethods()
+        {
+            var paymentMethods = _paymentRepository.GetPaymentMethods()
+                .PaymentMethods
+                .ToDictionary(m => m.PaymentId, m => m.PaymentName);
+            return paymentMethods;
+        }
+
+        public decimal GetMinAmountPaymentMoney()
+        {
+            return _paymentRepository.GetPaymentMethods().MinAmount;
         }
     }
 }

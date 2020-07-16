@@ -75,7 +75,7 @@ export class TierSetting extends Component {
 
     render() {
         const { TierSettingList } = this.props.selectedGroup;
-        const canAddTier = TierSettingList.filter(item => item.MaxAmount === INFINITY_AM || item.MaxQm === INFINITY_QM).length > 0;
+        const canAddTier = TierSettingList.filter(item => item.MaxAmount === INFINITY_AM).length > 0;
 
         return (
             <fieldset>
@@ -84,11 +84,11 @@ export class TierSetting extends Component {
                     <thead>
                         <tr>
                             <th style={{ width: 40 }}>Tier</th>
-                            <th>Min AM</th>
-                            <th>Max AM</th>
-                            <th>Min QM</th>
-                            <th>Max QM</th>
-                            <th style={{ width: 85 }}>Commission</th>
+                            <th>Min Amount</th>
+                            <th>Max Amount</th>
+                            <th>Min AP</th>
+                            <th>Max AP</th>
+                            <th style={{ width: 85 }}>Revenue Rate</th>
                             <th style={{ width: 50 }}>Action</th>
                         </tr>
                     </thead>

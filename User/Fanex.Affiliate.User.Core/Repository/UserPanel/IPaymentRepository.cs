@@ -10,6 +10,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         ResultInfo CancelPaymentRequest(PaymentCancelParam cancelParam);
 
-        ResultInfo CreatePaymentRequest(PaymentCreationParam paymentCreationParam);
+        ResultInfo CreatePaymentRequest(PaymentRequestInfo paymentCreationParam);
+
+        (IEnumerable<PaymentMethodInfo> PaymentMethods, decimal MinAmount) GetPaymentMethods();
     }
 }

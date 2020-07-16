@@ -9,17 +9,20 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public class MarketingRepository : IMarketingRepository
     {
-        private const int AffiliateLink = 1;
-        private const int MediaGallery = 2;
+        private readonly IObjectDBBuilder _builder;
 
-        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, bool isInternal)
+        public MarketingRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
+        public IEnumerable<CategoryType> GetCategoryList(MediaCategoryParam param, bool isInternal)
         {
             const string uSpKey = "Aff_Admin_MediaCategory_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<CategoryType>(new { TypeId = isMediaPage ? AffiliateLink : MediaGallery });
+                return objectDb.Query<CategoryType>(param);
             }
         }
 
@@ -28,9 +31,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_Market_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<LanguageType>();
+                return objectDb.Query<LanguageType>();
             }
         }
 
@@ -39,9 +42,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_Admin_MediaCurrency_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<CurrencyType>();
+                return objectDb.Query<CurrencyType>();
             }
         }
 
@@ -50,9 +53,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_Admin_MediaType_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<BannerType>();
+                return objectDb.Query<BannerType>();
             }
         }
 
@@ -61,9 +64,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_Admin_MediaSize_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<SizeType>(param);
+                return objectDb.Query<SizeType>(param);
             }
         }
 
@@ -73,9 +76,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<Domain>(new { AffId = affId });
+                return objectDb.Query<Domain>(new { AffId = affId });
             }
         }
 
@@ -85,9 +88,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             var dbMode = bannerParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<MarketingItem>(bannerParam);
+                return objectDb.Query<MarketingItem>(bannerParam);
             }
         }
 
@@ -96,9 +99,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_Admin_Text_Sel";
             var dbMode = textParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<MarketingItem>(textParam);
+                return objectDb.Query<MarketingItem>(textParam);
             }
         }
 
@@ -108,9 +111,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var result = new List<LandingPage>();
 
-            using (var objectDb = new ObjectDBBuilder(SpKey, dbMode))
+            using (var objectDb = _builder.Build(SpKey, dbMode))
             {
-                using (var reader = objectDb.DB.ExecuteReader())
+                using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
                     {

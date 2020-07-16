@@ -287,11 +287,8 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET User Name</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>12BET User Name is required</value>
+    <value>User Name is required</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>Bhutan </value>
@@ -432,14 +429,6 @@
   <data name="Colombia" xml:space="preserve">
     <value>Colombia</value>
   </data>
-  <data name="Comm" xml:space="preserve">
-    <value>Commission</value>
-    <comment>87923</comment>
-  </data>
-  <data name="CommShorted" xml:space="preserve">
-    <value>Comm.</value>
-    <comment>87923</comment>
-  </data>
   <data name="Comment" xml:space="preserve">
     <value>Comment</value>
     <comment>87923</comment>
@@ -448,7 +437,7 @@
     <value>Comment is invalid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Commission Percentage</value>
+    <value>Percentage</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Completed Date</value>
@@ -479,7 +468,7 @@
     <value>Cook Islands </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright © 2008 - 2019 | 12BET. All Rights Reserved | 21+</value>
+    <value>© Copyright 2020 | 12BET. All Rights Reserved | 21+</value>
     <comment>87923</comment>
   </data>
   <data name="CostaRica" xml:space="preserve">
@@ -510,7 +499,7 @@
     <value>Current</value>
   </data>
   <data name="CurrentCommissiSetting" xml:space="preserve">
-    <value>Current Commission Setting</value>
+    <value>Current Revenue Share Setting</value>
   </data>
   <data name="Cyprus" xml:space="preserve">
     <value>Cyprus </value>
@@ -546,13 +535,13 @@
     <value>Denmark </value>
   </data>
   <data name="Deposit" xml:space="preserve">
-    <value>Deposit</value>
+    <value>Deposited</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>Please describe how you would like to promote 12Bet if you don’t have  the URL</value>
+    <value>Please describe how you would like to promote if you don’t have  the URL</value>
   </data>
   <data name="Device" xml:space="preserve">
     <value>Device</value>
@@ -614,9 +603,6 @@
   </data>
   <data name="Err1002" xml:space="preserve">
     <value>The email address you've typed had been used to register account. Please choose another one!</value>
-  </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>12BET User Name is invalid</value>
   </data>
   <data name="Err1004" xml:space="preserve">
     <value>Invalid user information. Update process is unsuccessful</value>
@@ -743,9 +729,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>The information to reset password is not valid, please &lt;a href='ForgetPass.aspx'&gt;try again&lt;/a&gt;. In case you still can not reset your password, please &lt;a href='ContactUs.aspx'&gt;contact us&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Sorry! The payment via {method} is not available. At the moment, only '12Bet Player Account' method is supported. Please &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;click here&lt;/a&gt; to make a change.</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Please select Security Question</value>
@@ -977,10 +960,6 @@
   <data name="Latvia" xml:space="preserve">
     <value>Latvia </value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>Bet List</value>
-    <comment>87923</comment>
-  </data>
   <data name="lblSecureQuestion" xml:space="preserve">
     <value>Security Question</value>
   </data>
@@ -1157,7 +1136,7 @@
     <value>Netherlands </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Company Net Win For The Month (CNW)($)</value>
+    <value>Company Net Win ({0})</value>
     <comment>87923</comment>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
@@ -1191,9 +1170,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>No information is available</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Non-deposited account only</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>None</value>
   </data>
@@ -1221,7 +1197,7 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>I don’t have a website</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
+  <data name="ProductNumberGame" xml:space="preserve">
     <value>Number Game</value>
     <comment>87923</comment>
   </data>
@@ -1318,7 +1294,7 @@
     <value>Pending</value>
   </data>
   <data name="PendingComm" xml:space="preserve">
-    <value>Pending Commission</value>
+    <value>Pending Revenue Share</value>
   </data>
   <data name="PendingRequest" xml:space="preserve">
     <value>Pending Request</value>
@@ -1377,8 +1353,8 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
-    <value>Qualifying Members</value>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Number of Active Players&lt;br/&gt;(Min required)</value>
     <comment>87923</comment>
   </data>
   <data name="Racebook" xml:space="preserve">
@@ -1406,7 +1382,7 @@
     <value>12Bet Affiliate - Your Application</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at 12Bet Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at 12Bet Affiliates</value>
+    <value>Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at 12Bet Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 3 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at 12Bet Affiliates</value>
   </data>
   <data name="RegisteredDate" xml:space="preserve">
     <value>Registered Date</value>
@@ -1422,7 +1398,7 @@
     <value>Request Amount</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Input Request Amount (USD)</value>
+    <value>Input Request Amount</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Request Payout</value>
@@ -1649,8 +1625,7 @@
     <comment>87923</comment>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
-    <value>A new password will be sent to the email address that you provided.
-                &lt;br /&gt;If you are experiencing any further difficulties, please &lt;a href="{0}"&gt;Contact us&lt;/a&gt;.</value>
+    <value>A new password will be sent to the email address that you provided. &lt;br /&gt;If you are experiencing any further difficulties, please &lt;a href="{0}"&gt;Contact us&lt;/a&gt;.</value>
   </data>
   <data name="TitleLogin" xml:space="preserve">
     <value>Affiliate Login</value>
@@ -1772,7 +1747,7 @@
   <data name="Vietnamese" xml:space="preserve">
     <value>Tiếng Việt</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
+  <data name="ProductVirtualSports" xml:space="preserve">
     <value>Virtual Sports</value>
     <comment>87923</comment>
   </data>
@@ -1792,7 +1767,7 @@
     <value>Western Samoa </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Winlost</value>
+    <value>Win/Loss</value>
   </data>
   <data name="Withdrawal" xml:space="preserve">
     <value>Withdrawal</value>
@@ -1823,14 +1798,11 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
   </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
-  </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>12BET Player Account</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
-    <value>Commission Structure</value>
+    <value>Revenue Sharing Structure</value>
     <comment>87923</comment>
   </data>
   <data name="Product" xml:space="preserve">
@@ -1845,7 +1817,7 @@
     <value>E-Sports</value>
     <comment>87923</comment>
   </data>
-  <data name="RngKeno" xml:space="preserve">
+  <data name="ProductRngKeno" xml:space="preserve">
     <value>RNG KENO</value>
     <comment>87923</comment>
   </data>
@@ -1882,7 +1854,7 @@
     <value>Your Application</value>
   </data>
   <data name="CommissionReport" xml:space="preserve">
-    <value>Commission Report</value>
+    <value>Revenue Report</value>
     <comment>87923</comment>
   </data>
   <data name="Temporary" xml:space="preserve">
@@ -1893,12 +1865,12 @@
     <value>Uncalculated</value>
     <comment>87923</comment>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Banking Fees</value>
+  <data name="BankingFee" xml:space="preserve">
+    <value>Banking Fee</value>
     <comment>87923</comment>
   </data>
   <data name="CommRate" xml:space="preserve">
-    <value>Comm. Rate</value>
+    <value>Revenue Rate</value>
     <comment>87923</comment>
   </data>
   <data name="GrossWinLoss" xml:space="preserve">
@@ -1914,7 +1886,7 @@
     <comment>87923</comment>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Commission = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Comm. Rate</value>
+    <value>Revenue Share = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue Rate</value>
     <comment>87923</comment>
   </data>
   <data name="ServerError" xml:space="preserve">
@@ -1949,48 +1921,12 @@
     <value>Video Poker Games</value>
     <comment>87923</comment>
   </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>12EMERALD (PLAYTECH)</value>
+  <data name="ProductRNGCasino" xml:space="preserve">
+    <value>RNG CASINO</value>
     <comment>87923</comment>
   </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>12RUBY (12BET)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND (OPUS)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>12PEARL (ASIA GAMING)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>12TOPAZ (MICRO GAMING, NETENT, FLOW GAMING)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL (GAME PLAY INTERACTIVE)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>12OPAL (EBET)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST (GOLD DELUXE)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>12ONYX (ALLBET)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>12QUARZT (ISOFTBET, PRAGMATIC PLAY)</value>
-    <comment>87923</comment>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>12AMBER (BETSOFT)</value>
+  <data name="ProductPragmaticPlay" xml:space="preserve">
+    <value>PRAGMATIC PLAY</value>
     <comment>87923</comment>
   </data>
   <data name="SupportTime" xml:space="preserve">
@@ -2018,7 +1954,7 @@
     <comment>87923</comment>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Please direct any comments or questions to {0}, or using the form below.</value>
+    <value>Please direct any comments or questions to {0}</value>
     <comment>87923</comment>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
@@ -2034,7 +1970,7 @@
     <comment>87923</comment>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>As affiliates, you will earn commission on every player you referred to 12BET  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
+    <value>As affiliates, you will earn revenue share on every player you referred to 12BET  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
     <comment>87923</comment>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
@@ -2058,17 +1994,17 @@
     <comment>87923</comment>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
-    <value>Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and commission!</value>
+    <value>Get to know hot promotions this month. Post them in your websites and social channels to gain more customers and revenue share!</value>
     <comment>87923</comment>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
     <value>Can't Get Enough!</value>
   </data>
   <data name="YourCurrentCommision" xml:space="preserve">
-    <value>YOUR CURRENT COMMISSION?</value>
+    <value>YOUR CURRENT REVENUE SHARE?</value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>Contact your affiliates support team for exclusive commission rate to growth bigger revenue in your monthly earning</value>
+    <value>Contact your affiliates support team for exclusive revenue rate to growth bigger revenue in your monthly earning</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
     <value>CONTACT NOW!</value>
@@ -2090,7 +2026,7 @@
     <value>And Post Promotions in Your Websites</value>
   </data>
   <data name="ToBeatTheBestCommission" xml:space="preserve">
-    <value>to Beat The Best Commission!</value>
+    <value>to Beat The Best Revenue Share!</value>
   </data>
   <data name="GetBannerNow" xml:space="preserve">
     <value>GET BANNER NOW!</value>
@@ -2099,7 +2035,7 @@
     <value>&lt;span class="up-to-group"&gt;&lt;span class="up"&gt;Up&lt;/span&gt;&lt;span class="to"&gt;To&lt;/span&gt;&lt;/span&gt;</value>
   </data>
   <data name="MonthlyCommission" xml:space="preserve">
-    <value> &lt;p class="text-big-white"&gt;MONTHLY COMMISSION!&lt;/p&gt;</value>
+    <value> &lt;p class="text-big-white"&gt;MONTHLY REVENUE SHARE!&lt;/p&gt;</value>
   </data>
   <data name="OnSportandCasino" xml:space="preserve">
     <value>&lt;p class="text-white"&gt;ON &lt;span class="text-red"&gt;SPORTS &lt;/span&gt;&amp; &lt;span class="text-red"&gt;CASINO&lt;/span&gt; REVENUE&lt;/p&gt;</value>
@@ -2140,7 +2076,7 @@
     <comment>87923</comment>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Sign up to affiliate program and earn up to 40% monthly commission!</value>
+    <value>Sign up to affiliate program and earn up to 45% monthly revenue share!</value>
     <comment>87923</comment>
   </data>
   <data name="JoinNow" xml:space="preserve">
@@ -2154,9 +2090,6 @@
   <data name="ForgotLoginDetail" xml:space="preserve">
     <value>Forgot Login Details?</value>
     <comment>87923</comment>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>non-deposited account only</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>
@@ -2183,19 +2116,16 @@
     <value>Be A Business Partner of 12BET | Affiliate Program - 12BET</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly commission from customers brought from your websites.</value>
+    <value>Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly revenue share from customers brought from your websites.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>Email Address</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12SPORTS</value>
+  <data name="ProductSportsBook" xml:space="preserve">
+    <value>SportsBook</value>
   </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi SPORTS</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12ESPORTS</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
@@ -2272,56 +2202,209 @@
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI LOTTERY</value>
   </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND</value>
-  </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>12EMERALD</value>
-  </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>12PEARL</value>
-  </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>12OPAL</value>
-  </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST</value>
-  </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>12ONYX</value>
-  </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL</value>
-  </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>12AMBER</value>
-  </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(OPUS GAMING)</value>
-  </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(Playtech)</value>
-  </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(ASIA GAMING)</value>
-  </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(EBET)</value>
-  </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(GOLD DELUXE)</value>
-  </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(ALLBET)</value>
-  </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(BETSOFT)</value>
+  <data name="ProductAllbet" xml:space="preserve">
+    <value>AllBET</value>
   </data>
   <data name="MKK" xml:space="preserve">
     <value>MMK</value>
     <comment>MMK</comment>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Last Login:</value>
+  </data>
+  <data name="LastLoginIpAddress" xml:space="preserve">
+    <value>Last Login IP Address:</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>Revenue Share</value>
+  </data>
+  <data name="BalanceBroughtForward" xml:space="preserve">
+    <value>Balance Brought Forward</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Total Turnover</value>
+  </data>
+  <data name="DepositedPlayers" xml:space="preserve">
+    <value>Deposited Players</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="PlayersDetails" xml:space="preserve">
+    <value>Players Details</value>
+  </data>
+  <data name="YouCanRequest" xml:space="preserve">
+    <value>You can request for a withdrawal through Moneybookers, Wire Transfer or directly into your Bwing.com player account.</value>
+  </data>
+  <data name="FirstNameMaxLength" xml:space="preserve">
+    <value>First Name no more than 50 characters.</value>
+  </data>
+  <data name="LastNameMaxLength" xml:space="preserve">
+    <value>Last Name no more than 50 characters.</value>
+  </data>
+  <data name="AnswerMaxLength" xml:space="preserve">
+    <value>Your Answer no more than 300 characters.</value>
+  </data>
+  <data name="EmailMaxLength" xml:space="preserve">
+    <value>Email Address no more than 50 characters.</value>
+  </data>
+  <data name="PhoneMaxLength" xml:space="preserve">
+    <value>Contact Number no more than 50 characters.</value>
+  </data>
+  <data name="AddressMaxLength" xml:space="preserve">
+    <value>Address no more than 250 characters.</value>
+  </data>
+  <data name="CityMaxLength" xml:space="preserve">
+    <value>City no more than 250 characters.</value>
+  </data>
+  <data name="PostalMaxLength" xml:space="preserve">
+    <value>Postcode/Zip no more than 50 characters.</value>
+  </data>
+  <data name="UserNameMaxLength" xml:space="preserve">
+    <value>User Name no more than 100 characters.</value>
+  </data>
+  <data name="SiteUrlMaxLength" xml:space="preserve">
+    <value>Website URL no more than 250 characters.</value>
+  </data>
+  <data name="NoSiteDescMaxLength" xml:space="preserve">
+    <value>Please describe how you would like to promote if you don’t have the URL no more than 250 characters.</value>
+  </data>
+  <data name="AffilateLink" xml:space="preserve">
+    <value>Affiliate Link</value>
+  </data>
+  <data name="MediaGallery" xml:space="preserve">
+    <value>Media Gallery</value>
+  </data>
+  <data name="SubAffiliateLink" xml:space="preserve">
+    <value>Sub-Aff. Link</value>
+  </data>
+  <data name="SubAffiliateMediaGallery" xml:space="preserve">
+    <value>Sub-Aff. Media Gallery</value>
+  </data>
+  <data name="SubAffDownline" xml:space="preserve">
+    <value>Sub-Affiliate Downline</value>
+  </data>
+  <data name="SubAffEarning" xml:space="preserve">
+    <value>Sub-Affiliate Earning</value>
+  </data>
+  <data name="MonthlyTotal" xml:space="preserve">
+    <value>Monthly Total</value>
+  </data>
+  <data name="TotalCommission" xml:space="preserve">
+    <value>Total Revenue Share</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Copy Link</value>
+  </data>
+  <data name="CopyQRCode" xml:space="preserve">
+    <value>Copy QR Code</value>
+  </data>
+  <data name="SaveQRCode" xml:space="preserve">
+    <value>Save QR Code</value>
+  </data>
+  <data name="Dimension" xml:space="preserve">
+    <value>Dimension</value>
+  </data>
+  <data name="CopyBannerCode" xml:space="preserve">
+    <value>Copy Banner Code</value>
+  </data>
+  <data name="ShareBanner" xml:space="preserve">
+    <value>Share banner to your friends</value>
+  </data>
+  <data name="MonthlyEarning" xml:space="preserve">
+    <value>Monthly Earning</value>
+  </data>
+  <data name="UncalculatedMonthlyEarning" xml:space="preserve">
+    <value>Uncalculated Monthly Earning</value>
+  </data>
+  <data name="CurrentMonthlyEarning" xml:space="preserve">
+    <value>Current Monthly Earning</value>
+  </data>
+  <data name="CommissionBonus" xml:space="preserve">
+    <value>Revenue Share</value>
+  </data>
+  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+    <value>Uncalculated Revenue Share</value>
+  </data>
+  <data name="CurrentCommissionBonus" xml:space="preserve">
+    <value>Current Revenue Share</value>
+  </data>
+  <data name="CurrentMonthStatistics" xml:space="preserve">
+    <value>Current Month Statistics</value>
+  </data>
+  <data name="UncalculatedMonth" xml:space="preserve">
+    <value>Uncalculated Month</value>
+  </data>
+  <data name="SubAffDetail" xml:space="preserve">
+    <value>Sub-Affiliate Details</value>
+  </data>
+  <data name="ApprovalDate" xml:space="preserve">
+    <value>Approval Date</value>
+  </data>
+  <data name="SuspensionDate" xml:space="preserve">
+    <value>Suspension Date</value>
+  </data>
+  <data name="SuspensionSatus" xml:space="preserve">
+    <value>Suspension Status</value>
+  </data>
+  <data name="TotalWinLoss" xml:space="preserve">
+    <value>Total Win/Loss</value>
+  </data>
+  <data name="NumberOfActivePlayers" xml:space="preserve">
+    <value>No. of Active Players</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>Sub-Affiliate</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>EARN UP TO &lt;br/&gt;45% REVENUE SHARE</value>
+  </data>
+  <data name="RevenueSharePercent" xml:space="preserve">
+    <value>45% REVENUE SHARE</value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>JOIN IN THE BEST AFFILIATE PROGRAM</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Register now!</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Your Revenue Share</value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Active Referred Players</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Active Players</value>
+  </data>
+  <data name="InvalidLink" xml:space="preserve">
+    <value>The link you has entered is not valid.&lt;br /&gt;Please contact Customer Service Department or</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>click here.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="AffiliateCurrency" xml:space="preserve">
+    <value>Affiliate Currency</value>
+  </data>
+  <data name="DefaultBaseCurrency" xml:space="preserve">
+    <value>Default Base Currency</value>
+  </data>
+  <data name="DefaultBaseCurrencyDetail" xml:space="preserve">
+    <value>Currency unit shown in all reports</value>
+  </data>
+  <data name="BaseCurrency" xml:space="preserve">
+    <value>Base Currency</value>
   </data>
 </root>

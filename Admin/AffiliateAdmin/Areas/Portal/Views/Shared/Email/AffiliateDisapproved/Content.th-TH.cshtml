@@ -1,13 +1,14 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.AffInformationEmail
 
 <div>
-    เรียน คุณ @Model.FirstName<br /><br />
+    Dear @Raw(Model.FirstName),<br /><br />
 
-    เราเสียใจที่จะเรียนให้คุณทราบว่า ใบสมัครของท่านที่จะเข้าร่วมเป็นพันธมิตรกับเราไม่ได้รับการอนุมัติ เราต้องขออภัยในความไม่สะดวกที่เกิดขึ้น หากคุณมีคำถามเพิ่มเติมเกี่ยวกับเวบไซค์ของคุณที่ไม่เข้าเกณฑ์ที่เรากำหนดไว้<br /><br />
+    I regret to inform you that your application to join the @(Model.SiteFriendlyName) Affiliates program has been disapproved/rejected. I apologise for any inconvenience this may have caused.<br /><br />
 
-    กรุณาติดต่อเราได้ทันที<br /><br />
+    If you have any queries regarding why your website has not met the required criteria, please feel free to contact me at <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
 
-    ขอแสดงความนับถือ<br /><br />
-    ผู้จัดการฝ่ายพันธมิตร 12BET<br />
+    Sincerely,<br /><br />
+    Affiliate Services Manager,<br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div> 

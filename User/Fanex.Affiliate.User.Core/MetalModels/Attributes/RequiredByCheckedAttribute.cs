@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
@@ -38,7 +39,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Attributes
         {
             var rule = new ModelClientValidationRule();
             rule.ValidationType = "requiredbychecked";
-            rule.ErrorMessage = FormatErrorMessage(metadata.GetDisplayName());
+            rule.ErrorMessage = SiteFriendlyNameHelper.Replace12Bet(FormatErrorMessage(metadata.GetDisplayName()));
             rule.ValidationParameters.Add("dependentprop", DependentPropertyName);
             rule.ValidationParameters.Add("checked", IsChecked);
             yield return rule;

@@ -8,14 +8,13 @@
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var permission = sessionService.UserPermissionList;
     var menus = new Dictionary<string, string>
-    {
+{
         {"Customer",Function.Affiliate },
         {"Affiliate",Function.Affiliate },
-        {"Member",Function.Affiliate },
+        {"Player",Function.Affiliate },
         {"Report",Function.AffReport },
         {"MediaGallery",Function.Media },
         {"Message",Function.HotNews },
-        {"ExchangeRate",Function.AffExRate },
         {"Administrator",Function.UserControl },
         {"Domain",Function.Domain }
     };
@@ -51,9 +50,33 @@
     {
         var active = "nav-link " + (controllerName == item ? "active" : string.Empty);
         <li class="nav-item">
-            <a class="@active" href="@Url.Content("~/Portal/"+item)">
+            <a class="@active" id="@item" href="@Url.Content("~/Portal/"+item)">
                 @GetMenuName(item)
             </a>
         </li>
     }
 </ul>
+<script type="text/javascript">
+    var controllerName = '@controllerName';
+    let element;
+
+    switch(controllerName) {
+        case 'PaymentRequest': case 'RevenueGroup': case 'EmailHistory':
+            element = document.getElementById('Affiliate');
+            break;
+        case 'ActiveMember':
+            element = document.getElementById('Member');
+            break;
+        case 'TextList': case 'LandingPageList':
+            element = document.getElementById('MediaGallery');
+            break;
+        case 'Department':
+            element = document.getElementById('Administrator');
+            break;
+        case 'Domain': case 'DomainControl':
+            element = document.getElementById('Domain');
+            break;
+    }
+
+    element && element.classList.add("active");
+</script>

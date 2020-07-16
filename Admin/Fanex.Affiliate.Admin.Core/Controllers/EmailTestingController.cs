@@ -41,8 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [HttpGet]
         public ActionResult Preview(string language, string function, string format)
         {
-            var result = string.Empty;
-
+            string result;
             try
             {
                 _languageService.SetCulture(language);
@@ -68,7 +67,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 _languageService.SetCulture(language);
                 var content = GetEmailContent(language, function, format);
 
-                _mailProcessor.Send(content, emailAddress, "Affilite 12Bet testing");
+                _mailProcessor.Send(content, emailAddress, $"Affilite {AppSetting.Instance.SiteFriendlyName} testing");
                 _languageService.SetCulture("en-US");
             }
             catch (Exception ex)
@@ -109,7 +108,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var viewModel = new EmailTemplateViewModel
             {
                 RootUrl = domain,
-                UserSiteUrl = "https://ha.nexdev.net:7613/12BetUserAsianNew",
+                UserSiteUrl = "https://ha.nexdev.net:7634/N88User",
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = language,
                 Content = content,

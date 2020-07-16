@@ -143,106 +143,12 @@ exports[`message - components - MessageDetailForm  render correctly with current
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentEn"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentEn"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                English
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentEn"
-                  name="MessageContentEn"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentTw"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTw"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Chinese Traditional
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTw"
-                  name="MessageContentTw"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentCn"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -255,9 +161,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
                     "xl",
                   ]
                 }
-              >
-                Chinese Simplified
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -284,12 +188,57 @@ exports[`message - components - MessageDetailForm  render correctly with current
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentEn"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentEn"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentEn"
+                  name="MessageContentEn"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value="test"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentEs"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -302,9 +251,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
                     "xl",
                   ]
                 }
-              >
-                Spanish
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -331,106 +278,12 @@ exports[`message - components - MessageDetailForm  render correctly with current
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentTh"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTh"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Thai
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTh"
-                  name="MessageContentTh"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentVi"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentVi"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                VietNamese
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentVi"
-                  name="MessageContentVi"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentId"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -443,9 +296,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
                     "xl",
                   ]
                 }
-              >
-                Indonesian
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -472,12 +323,57 @@ exports[`message - components - MessageDetailForm  render correctly with current
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentJp"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentJp"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentJp"
+                  name="MessageContentJp"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentKr"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -490,9 +386,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
                     "xl",
                   ]
                 }
-              >
-                Korean
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -519,13 +413,13 @@ exports[`message - components - MessageDetailForm  render correctly with current
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentJp"
+              key="MessageContentTh"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentJp"
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTh"
                 sm={2}
                 tag="label"
                 widths={
@@ -537,9 +431,7 @@ exports[`message - components - MessageDetailForm  render correctly with current
                     "xl",
                   ]
                 }
-              >
-                Japanese
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -555,8 +447,98 @@ exports[`message - components - MessageDetailForm  render correctly with current
               >
                 <Input
                   disabled={true}
-                  id="MessageContentJp"
-                  name="MessageContentJp"
+                  id="MessageContentTh"
+                  name="MessageContentTh"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentTw"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTw"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentTw"
+                  name="MessageContentTw"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentVi"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentVi"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentVi"
+                  name="MessageContentVi"
                   onChange={[Function]}
                   rows="4"
                   type="textarea"
@@ -750,106 +732,12 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentEn"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentEn"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                English
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentEn"
-                  name="MessageContentEn"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentTw"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTw"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Chinese Traditional
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentTw"
-                  name="MessageContentTw"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentCn"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -862,9 +750,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
                     "xl",
                   ]
                 }
-              >
-                Chinese Simplified
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -891,12 +777,57 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentEn"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentEn"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentEn"
+                  name="MessageContentEn"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value="test"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentEs"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -909,9 +840,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
                     "xl",
                   ]
                 }
-              >
-                Spanish
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -938,106 +867,12 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentTh"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTh"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Thai
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentTh"
-                  name="MessageContentTh"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentVi"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentVi"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                VietNamese
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentVi"
-                  name="MessageContentVi"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentId"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -1050,9 +885,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
                     "xl",
                   ]
                 }
-              >
-                Indonesian
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1079,12 +912,57 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentJp"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentJp"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentJp"
+                  name="MessageContentJp"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentKr"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -1097,9 +975,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
                     "xl",
                   ]
                 }
-              >
-                Korean
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1126,13 +1002,13 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentJp"
+              key="MessageContentTh"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentJp"
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTh"
                 sm={2}
                 tag="label"
                 widths={
@@ -1144,9 +1020,7 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
                     "xl",
                   ]
                 }
-              >
-                Japanese
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1162,8 +1036,98 @@ exports[`message - components - MessageDetailForm  render correctly with insert 
               >
                 <Input
                   disabled={false}
-                  id="MessageContentJp"
-                  name="MessageContentJp"
+                  id="MessageContentTh"
+                  name="MessageContentTh"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentTw"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTw"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentTw"
+                  name="MessageContentTw"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentVi"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentVi"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentVi"
+                  name="MessageContentVi"
                   onChange={[Function]}
                   rows="4"
                   type="textarea"
@@ -1339,106 +1303,12 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentEn"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentEn"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                English
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentEn"
-                  name="MessageContentEn"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentTw"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTw"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Chinese Traditional
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTw"
-                  name="MessageContentTw"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentCn"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -1451,9 +1321,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
                     "xl",
                   ]
                 }
-              >
-                Chinese Simplified
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1480,12 +1348,57 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentEn"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentEn"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentEn"
+                  name="MessageContentEn"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value="test"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentEs"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -1498,9 +1411,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
                     "xl",
                   ]
                 }
-              >
-                Spanish
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1527,106 +1438,12 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentTh"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTh"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Thai
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTh"
-                  name="MessageContentTh"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentVi"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentVi"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                VietNamese
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentVi"
-                  name="MessageContentVi"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentId"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -1639,9 +1456,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
                     "xl",
                   ]
                 }
-              >
-                Indonesian
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1668,12 +1483,57 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentJp"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentJp"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentJp"
+                  name="MessageContentJp"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentKr"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -1686,9 +1546,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
                     "xl",
                   ]
                 }
-              >
-                Korean
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1715,13 +1573,13 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentJp"
+              key="MessageContentTh"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentJp"
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTh"
                 sm={2}
                 tag="label"
                 widths={
@@ -1733,9 +1591,7 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
                     "xl",
                   ]
                 }
-              >
-                Japanese
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -1751,8 +1607,98 @@ exports[`message - components - MessageDetailForm  render correctly with not sho
               >
                 <Input
                   disabled={true}
-                  id="MessageContentJp"
-                  name="MessageContentJp"
+                  id="MessageContentTh"
+                  name="MessageContentTh"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentTw"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTw"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentTw"
+                  name="MessageContentTw"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentVi"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentVi"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentVi"
+                  name="MessageContentVi"
                   onChange={[Function]}
                   rows="4"
                   type="textarea"
@@ -1946,106 +1892,12 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentEn"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentEn"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                English
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentEn"
-                  name="MessageContentEn"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentTw"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTw"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Chinese Traditional
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTw"
-                  name="MessageContentTw"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentCn"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -2058,9 +1910,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Chinese Simplified
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2087,12 +1937,57 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentEn"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentEn"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentEn"
+                  name="MessageContentEn"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value="test"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentEs"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -2105,9 +2000,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Spanish
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2134,106 +2027,12 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentTh"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTh"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Thai
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentTh"
-                  name="MessageContentTh"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentVi"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentVi"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                VietNamese
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={true}
-                  id="MessageContentVi"
-                  name="MessageContentVi"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentId"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -2246,9 +2045,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Indonesian
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2275,12 +2072,57 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentJp"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentJp"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentJp"
+                  name="MessageContentJp"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentKr"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -2293,9 +2135,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Korean
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2322,13 +2162,13 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentJp"
+              key="MessageContentTh"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentJp"
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTh"
                 sm={2}
                 tag="label"
                 widths={
@@ -2340,9 +2180,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Japanese
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2358,8 +2196,98 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               >
                 <Input
                   disabled={true}
-                  id="MessageContentJp"
-                  name="MessageContentJp"
+                  id="MessageContentTh"
+                  name="MessageContentTh"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentTw"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTw"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentTw"
+                  name="MessageContentTw"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentVi"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentVi"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={true}
+                  id="MessageContentVi"
+                  name="MessageContentVi"
                   onChange={[Function]}
                   rows="4"
                   type="textarea"
@@ -2553,106 +2481,12 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentEn"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentEn"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                English
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentEn"
-                  name="MessageContentEn"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentTw"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTw"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Chinese Traditional
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentTw"
-                  name="MessageContentTw"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentCn"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentCn"
                 sm={2}
                 tag="label"
@@ -2665,9 +2499,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Chinese Simplified
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2694,12 +2526,57 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentEn"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentEn"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentEn"
+                  name="MessageContentEn"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value="test"
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentEs"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentEs"
                 sm={2}
                 tag="label"
@@ -2712,9 +2589,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Spanish
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2741,106 +2616,12 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentTh"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentTh"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                Thai
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentTh"
-                  name="MessageContentTh"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
-              key="MessageContentVi"
-              row={true}
-              tag="div"
-            >
-              <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentVi"
-                sm={2}
-                tag="label"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                VietNamese
-              </Label>
-              <Col
-                sm={10}
-                tag="div"
-                widths={
-                  Array [
-                    "xs",
-                    "sm",
-                    "md",
-                    "lg",
-                    "xl",
-                  ]
-                }
-              >
-                <Input
-                  disabled={false}
-                  id="MessageContentVi"
-                  name="MessageContentVi"
-                  onChange={[Function]}
-                  rows="4"
-                  type="textarea"
-                  value=""
-                />
-              </Col>
-            </FormGroup>
-            <FormGroup
-              className="mb-2"
               key="MessageContentId"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentId"
                 sm={2}
                 tag="label"
@@ -2853,9 +2634,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Indonesian
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2882,12 +2661,57 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
+              key="MessageContentJp"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentJp"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentJp"
+                  name="MessageContentJp"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
               key="MessageContentKr"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
+                className="d-flex justify-content-end align-items-center text-right"
                 for="MessageContentKr"
                 sm={2}
                 tag="label"
@@ -2900,9 +2724,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Korean
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2929,13 +2751,13 @@ exports[`message - components - MessageDetailForm  render correctly with update 
             </FormGroup>
             <FormGroup
               className="mb-2"
-              key="MessageContentJp"
+              key="MessageContentTh"
               row={true}
               tag="div"
             >
               <Label
-                className="d-flex justify-content-end align-items-center"
-                for="MessageContentJp"
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTh"
                 sm={2}
                 tag="label"
                 widths={
@@ -2947,9 +2769,7 @@ exports[`message - components - MessageDetailForm  render correctly with update 
                     "xl",
                   ]
                 }
-              >
-                Japanese
-              </Label>
+              />
               <Col
                 sm={10}
                 tag="div"
@@ -2965,8 +2785,98 @@ exports[`message - components - MessageDetailForm  render correctly with update 
               >
                 <Input
                   disabled={false}
-                  id="MessageContentJp"
-                  name="MessageContentJp"
+                  id="MessageContentTh"
+                  name="MessageContentTh"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentTw"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentTw"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentTw"
+                  name="MessageContentTw"
+                  onChange={[Function]}
+                  rows="4"
+                  type="textarea"
+                  value=""
+                />
+              </Col>
+            </FormGroup>
+            <FormGroup
+              className="mb-2"
+              key="MessageContentVi"
+              row={true}
+              tag="div"
+            >
+              <Label
+                className="d-flex justify-content-end align-items-center text-right"
+                for="MessageContentVi"
+                sm={2}
+                tag="label"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              />
+              <Col
+                sm={10}
+                tag="div"
+                widths={
+                  Array [
+                    "xs",
+                    "sm",
+                    "md",
+                    "lg",
+                    "xl",
+                  ]
+                }
+              >
+                <Input
+                  disabled={false}
+                  id="MessageContentVi"
+                  name="MessageContentVi"
                   onChange={[Function]}
                   rows="4"
                   type="textarea"

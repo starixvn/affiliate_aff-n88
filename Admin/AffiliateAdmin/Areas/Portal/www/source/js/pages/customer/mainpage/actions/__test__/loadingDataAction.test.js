@@ -17,7 +17,7 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setAffCommonInfo', type: types.SET_AFF_COMMON_INFO, data: { Id: 123 }},
+    { name: 'setAffCommonInfo', type: types.SET_AFF_COMMON_INFO, data: { Id: 123 } },
     { name: 'receiveLeftMenuInfo', type: types.LEFTPANEL_RECEIVE_AFFINFO, data: 'receiveLeftMenuInfo' }
 ];
 
@@ -47,7 +47,7 @@ describe('customer - main page actions', () => {
                 NoSiteDescription: "",
                 Phone: "abc",
                 PreferredLanguage: "vi-VN",
-                SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+                SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
                 Status: "Approved"
             },
             status: 200
@@ -56,13 +56,13 @@ describe('customer - main page actions', () => {
 
         const expectedAction = [
             { type: 'TOGGLE_LOADER_LEFT_PANEL', data: true },
-            { type: types.SET_AFF_COMMON_INFO, data: { affId: 1271808, affName: '12BETAFF226', status: 'Approved' }},
-            { type: types.LEFTPANEL_RECEIVE_AFFINFO , data: expectedResponse.data },
+            { type: types.SET_AFF_COMMON_INFO, data: { affId: 1271808, affName: '12BETAFF226', status: 'Approved' } },
+            { type: types.LEFTPANEL_RECEIVE_AFFINFO, data: expectedResponse.data },
             { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'edit' },
             { type: 'SET_IS_VALID_USERNAME', data: true },
             { type: 'TOGGLE_LOADER_LEFT_PANEL', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getAffiliateInfo']('12BETAFF226', 'edit')).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/GetAffiliateInfo', { affUsername: "12BETAFF226" });
@@ -75,12 +75,12 @@ describe('customer - main page actions', () => {
 
         const expectedAction = [
             { type: 'TOGGLE_LOADER_LEFT_PANEL', data: true },
-            { type: types.SET_AFF_COMMON_INFO, data: null},
+            { type: types.SET_AFF_COMMON_INFO, data: null },
             { type: types.LEFTPANEL_RECEIVE_AFFINFO, data: null },
             { type: 'SET_IS_VALID_USERNAME', data: false },
             { type: 'TOGGLE_LOADER_LEFT_PANEL', data: false },
         ];
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getAffiliateInfo']('12BET')).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/GetAffiliateInfo', { affUsername: "12BET" });

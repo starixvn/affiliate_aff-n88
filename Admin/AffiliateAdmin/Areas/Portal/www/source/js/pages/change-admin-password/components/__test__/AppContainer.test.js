@@ -3,7 +3,6 @@ import AppContainer from '../AppContainer';
 import { shallow } from 'enzyme';
 
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import * as utils from '../../../../modules/utils';
 
 describe('change admin password - components - AppContainer', () => {
     it('render correctly with empty password', () => {
@@ -177,7 +176,7 @@ describe('change admin password - components - AppContainer', () => {
     });
 
     it('_handleSubmit - should call setState and _handleShowAlert with success', async () => {
-        const expectedResult = { data: { IsSuccessful: true, Message: "" }};
+        const expectedResult = { data: { IsSuccessful: true, Message: "" } };
         const wrapper = shallow(<AppContainer />);
         wrapper.setState = jest.fn();
 
@@ -193,7 +192,7 @@ describe('change admin password - components - AppContainer', () => {
     });
 
     it('_handleSubmit - should call setState and _handleShowAlert with failed', async () => {
-        const expectedResult = { data: { IsSuccessful: false, Message: 'Old password is incorrect!' }};
+        const expectedResult = { data: { IsSuccessful: false, Message: 'Old password is incorrect!' } };
         const wrapper = shallow(<AppContainer />);
         wrapper.setState = jest.fn();
 

@@ -35,12 +35,12 @@ export class DeductionSetting extends Component {
                 <legend><h6 className="font-weight-bold">Deductions</h6></legend>
                 <PlatformFeeSetting />
 
-                <FeeSettingItem label="Operational Fee%" basedValueName="| Gross Win Loss |"
+                <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"
                     onChangeCommission={this.handleSelectOperationalFee}
                     data={OperationalFee}
                     isCreating={isCreating} />
 
-                <FeeSettingItem label="Banking Fee%" basedValueName="(Deposit + Withdrawal)"
+                <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
                     onChangeCommission={this.handleSelectBankingFee}
                     data={BankingFee}
                     isCreating={isCreating} />

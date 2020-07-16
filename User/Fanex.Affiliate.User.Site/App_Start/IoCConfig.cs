@@ -9,7 +9,6 @@ using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.MemberInfoWebService;
 using Fanex.Affiliate.User.Core.Repository;
-using Fanex.Affiliate.User.Core.Repository.BetList;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Caching;
@@ -70,10 +69,8 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<AuthService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AccountRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MarketingRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<OldMarketingRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MemoryCacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MarketingService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<OldMarketingService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<StatisticsRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CryptographyService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<NewsRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -81,16 +78,13 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<EmailService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MailProcessor>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<StatementHistoryRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<BetListRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PaymentRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AccountService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PaymentService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<MemberRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<EmailHistoryRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ContactService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ServiceSoapClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MemberInfoServiceWrapper>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<MemberTransactionService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CommissionReportRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CommissionReportService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CaptchaService>().AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -101,9 +95,11 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<SecurityQuestionRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<SecurityQuestionService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AccountOverviewRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<CurrencyRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<ObjectDBBuilder>().AsImplementedInterfaces().UsingConstructor().InstancePerLifetimeScope();
         }
     }
 }

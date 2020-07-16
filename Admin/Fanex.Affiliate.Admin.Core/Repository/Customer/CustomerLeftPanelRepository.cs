@@ -5,6 +5,7 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Affiliate.Admin.Core.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 {
@@ -25,6 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                     {
                         result = new AffiliateInfoOnLeftPanel
                         {
+                            ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
+                            ParentAffName = Convert.ToString(reader["ParentAffName"]),
                             AffId = Convert.ToInt32(reader[Field.AffId]),
                             GroupId = Convert.ToInt32(reader["GroupId"]),
                             AffName = Convert.ToString(reader["UserName"]),
@@ -43,7 +46,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             SiteUrl = Convert.ToString(reader["SiteUrl"]),
                             NoSiteDescription = Convert.ToString(reader["NoSiteDesc"]),
                             Status = Convert.ToString(reader["Status"]),
-                            Phone = Convert.ToString(reader["Phone"])
+                            Phone = Convert.ToString(reader["Phone"]),
+                            IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
+                            ApprovedBy = Convert.ToString(reader["ApprovedBy"])
                         };
                     }
                 }

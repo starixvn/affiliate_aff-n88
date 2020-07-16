@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
@@ -153,15 +154,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             // Arrange
             var param = CreateValidPaymentCreationParam();
+            var paymentRequest = CreatePaymentRequest(param);
             const string ErrorMessage = "Create Payment Failed";
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerAccountIsActived(param.AffId, param.Language)).Returns(new ResultInfo { IsOk = true });
 
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { Message = ErrorMessage });
+            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { Message = ErrorMessage });
 
-            var service = CreatePaymentService(paymentRepository: paymentRepository.Object, accountService: accountService.Object);
+            var service = CreatePaymentService(paymentRepository: paymentRepository.Object);
 
             // Action
             var result = service.CreatePaymentRequest(param, new PaymentEmailParam());
@@ -171,18 +172,17 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             Assert.Equal(ErrorMessage, result.Message);
         }
 
+
         [Fact]
         public void CreatePaymentRequest_ValidParamAndSendEmail_ReturnCorrectResultAndEmailParamAssignCorrectly()
         {
             // Arrange
             PaymentEmailParam passedEmailParam = null;
             var param = CreateValidPaymentCreationParam();
-
-            var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerAccountIsActived(param.AffId, param.Language)).Returns(new ResultInfo { IsOk = true });
+            var paymentRequest = CreatePaymentRequest(param);
 
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(param)).Returns(new ResultInfo { IsOk = true });
+            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { IsOk = true });
 
             var userInfo = new UserInfo
             {
@@ -199,7 +199,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,
                 paymentRepository: paymentRepository.Object,
-                accountService: accountService.Object,
                 emailService: emailService.Object);
 
             var expectedEmailParam = new PaymentEmailParam
@@ -236,18 +235,29 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             };
         }
 
+        private PaymentRequestInfo CreatePaymentRequest(PaymentCreationParam param)
+        {
+            return new PaymentRequestInfo
+            {
+                AffId = param.AffId,
+                Amount = param.Amount,
+                ErrCode = param.ErrCode,
+                ErrMsg = param.ErrMsg,
+                IpAddress = param.Ip,
+                Language = param.Language
+            };
+        }
+
         private static PaymentService CreatePaymentService(
             IAccountRepository accountRepository = null,
-            IAccountService accountService = null,
             IPaymentRepository paymentRepository = null,
             IEmailService emailService = null)
         {
             var fakeAccountRepository = accountRepository ?? Mock.Of<IAccountRepository>();
-            var fakeAccountService = accountService ?? Mock.Of<IAccountService>();
             var fakePaymentRepository = paymentRepository ?? Mock.Of<IPaymentRepository>();
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
 
-            return new PaymentService(fakeAccountRepository, fakeAccountService, fakePaymentRepository, fakeEmailService);
+            return new PaymentService(fakeAccountRepository, fakePaymentRepository, fakeEmailService);
         }
     }
 

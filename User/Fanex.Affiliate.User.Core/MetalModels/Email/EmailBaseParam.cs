@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.Email
 {
@@ -15,5 +16,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Email
         public string MailBcc { get; set; } = string.Empty;
 
         public UserInfo User { get; set; }
+
+        public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }

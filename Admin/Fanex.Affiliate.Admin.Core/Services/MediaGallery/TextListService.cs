@@ -27,6 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 objectDb.AddInParameter("devicetype", DbType.Byte, param.DeviceType);
                 objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
                 objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
 
                 objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
 
@@ -46,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             return result;
         }
 
-        public TextInfo GetTextDetail(int selectedTextId)
+        public TextInfo GetTextDetail(int selectedTextId, byte userType)
         {
             const string SpKey = "Aff_Admin_Text_Sel";
             TextInfo item = null;
@@ -54,6 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             using (var objectDb = GetObjectDb(SpKey))
             {
                 objectDb.AddInParameter("textid", DbType.Int32, selectedTextId);
+                objectDb.AddInParameter(Field.TargetId, DbType.Byte, userType);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -105,6 +107,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 objectDb.AddInParameter("textids", DbType.String, param.TextIdList);
                 objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
                 objectDb.AddInParameter("ip", DbType.String, param.Ip);
+                objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
 
                 AssignResultOutputParam(objectDb);
 
@@ -123,6 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             objectDb.AddInParameter("devicetype", DbType.Byte, param.DeviceType);
             objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
             objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
 
             AssignResultOutputParam(objectDb);
         }
@@ -136,7 +140,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 Category = Convert.ToString(reader["Category"]),
                 Language = Convert.ToString(reader["Language"]),
                 Currency = Convert.ToString(reader["Currency"]),
-                DeviceType = reader.GetVal<byte>("DeviceType")
+                DeviceType = reader.GetVal<byte>("DeviceType"),
+                UserType = reader.GetVal<byte>("TargetId")
             };
         }
     }

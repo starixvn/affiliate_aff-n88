@@ -8,10 +8,7 @@ exports[`home - components - BannerStatistics render correctly 1`] = `
     tag="div"
   >
     <span
-      className="tbl-icon01"
-    />
-    <span
-      className="text-blue"
+      className="home-title"
     >
       Banner Statistics
     </span>
@@ -60,21 +57,17 @@ exports[`home - components - BannerStatistics render correctly 1`] = `
     >
       <span>
         <a
-          href="/Portal/MediaGallery?ImageType=Image&IsFromHome=true"
+          href="/Portal/MediaGallery?UserType=1&IsFromHome=true"
         >
-          <strong>
-            23
-          </strong>
+          <strong />
         </a>
-         image banners / 
+         Players banners / 
         <a
-          href="/Portal/MediaGallery?ImageType=Flash&IsFromHome=true"
+          href="/Portal/MediaGallery?UserType=2&IsFromHome=true"
         >
-          <strong>
-            9
-          </strong>
+          <strong />
         </a>
-         flash banners
+         Sub-affiliate banners
       </span>
     </Col>
   </Row>

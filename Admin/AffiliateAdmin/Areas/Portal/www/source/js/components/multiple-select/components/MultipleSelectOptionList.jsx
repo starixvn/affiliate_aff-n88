@@ -1,9 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Option from './Option'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Option from './Option';
 
 const MultipleSelectOptionList = (props) => {
-    const { dataSource, onChange, id } = props;
+    const { dataSource, onChange, id, isDisable } = props;
 
     return (
         <ul className="multiple-select-options">
@@ -14,7 +14,8 @@ const MultipleSelectOptionList = (props) => {
                             id={`${id}-optionItem-${index}`}
                             key={`${id}optionItem${index}`}
                             itemData={item}
-                            onChange={onChange} />
+                            onChange={onChange}
+                            isDisable={isDisable} />
                     )
                 })
             }
@@ -25,7 +26,8 @@ const MultipleSelectOptionList = (props) => {
 MultipleSelectOptionList.propTypes = {
     dataSource: PropTypes.arrayOf(PropTypes.object).isRequired,
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    isDisable: PropTypes.bool
 }
 
 export default MultipleSelectOptionList;

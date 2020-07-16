@@ -1,6 +1,5 @@
 ﻿jest.mock('redux');
 jest.mock('react-redux');
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../actions/index';
@@ -49,6 +48,8 @@ describe('affiliate info - GridData - connect', () => {
 			setShowPopupPassword: actions['setShowPopupPassword'],
 			setShowPopupCommGroup: actions['setShowPopupCommGroup'],
 			setAffId: actions['setAffId'],
+			setParam: actions['setParam'],
+			setParentAffName: actions['setParentAffName'],
 			setCommGroup: actions['setCommGroup']
 		}
 

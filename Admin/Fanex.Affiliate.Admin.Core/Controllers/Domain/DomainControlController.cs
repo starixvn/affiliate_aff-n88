@@ -8,6 +8,7 @@ using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
+using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Domain;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -34,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var subMenu = new List<SubMenu>
             {
                 new SubMenu { Name = Lang.AffiliateDomain, Url = Url.Content("~/Portal/Domain?isAffDomain=true") },
-                new SubMenu { Name = Lang.Text12BetDomains, Url = Url.Content("~/Portal/Domain?isAffDomain=false") },
+                new SubMenu { Name = SiteFriendlyNameHelper.Replace12Bet(Lang.Text12BetDomains), Url = Url.Content("~/Portal/Domain?isAffDomain=false") },
                 new SubMenu { Name = Lang.DomainControl, Url = Url.Content("~/Portal/DomainControl"), IsActive = true }
             };
 

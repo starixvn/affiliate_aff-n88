@@ -2,8 +2,6 @@
 import Filter from '../Filter';
 import { shallow } from 'enzyme';
 
-import { defaultPagingOption } from '../../../../../modules/constants';
-
 describe('admin list - components - Filter ', () => {
     const defaultProps = {
         setParam: jest.fn(),
@@ -28,8 +26,8 @@ describe('admin list - components - Filter ', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(defaultProps.setParam).toHaveBeenCalledWith({userName: '', firstLetter: ''});
-        expect(defaultProps.fetchData).toHaveBeenCalledWith({userName: '', firstLetter: ''});
+        expect(defaultProps.setParam).toHaveBeenCalledWith({ userName: '', firstLetter: '' });
+        expect(defaultProps.fetchData).toHaveBeenCalledWith({ userName: '', firstLetter: '' });
     });
 
     it('handleChange - should call setState', () => {
@@ -41,7 +39,7 @@ describe('admin list - components - Filter ', () => {
 
         wrapper.find('Input[type="text"][name="userName"]').simulate('change', event);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({userName: 'abc'});
+        expect(wrapper.setState).toHaveBeenCalledWith({ userName: 'abc' });
     });
 
     it('handlePressEnter - should call handleSearch', () => {

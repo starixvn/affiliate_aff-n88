@@ -6,6 +6,7 @@
     using System.Web;
     using System.Web.Mvc;
     using Fanex.Data;
+    using System.Text;
 
     public class HomeController : Controller
     {
@@ -14,20 +15,25 @@
             return View();
         }
 
-        public ActionResult MediaScript(int textId)
+        public ActionResult MediaScript(int textId, int targetId = 1)
         {
             var content = System.IO.File.ReadAllText(Server.MapPath("~/Scripts/affiliate.text.js"));
             content = content.Replace("{requesttime}", ConfigurationManager.AppSettings["RequestTime"]);
             content = content.Replace("{url}", ConfigurationManager.AppSettings["BannerUrl"]);
-            content = content.Replace("{affid}", textId.ToString());
+            content = content.Replace("{affid}", textId.ToString()).Replace("{targetId}", targetId.ToString());
 
             return JavaScript(content);
         }
 
-        public ActionResult MediaText(int textId)
+        public ActionResult MediaText(int textId, int targetId)
         {
-            var message = GetMessageContent(textId);
-            return JavaScript("document.getElementById('_affMediaText').innerHTML ='" + HttpUtility.HtmlDecode(message).Replace("\r\n", "<br/>") + "';");
+            var encodedMessage = GetMessageContent(textId, targetId);
+            var message = HttpUtility.HtmlDecode(encodedMessage)
+                .Replace("\r\n", "<br/>")
+                .Replace("\n", "<br/>")
+                .Replace("'","\\'");
+
+            return JavaScript($"document.getElementById('_affMediaText').innerHTML ='{message}';");
         }
 
         public ActionResult Error()
@@ -35,13 +41,14 @@
             return View();
         }
 
-        private static string GetMessageContent(int textId)
+        private static string GetMessageContent(int textId, int targetId = 1)
         {
-            using (var objectDb = new ObjectDb("Aff_TextSelDetail"))
+            using (var objectDb = new ObjectDb("Aff_Admin_Text_Sel"))
             {
                 var param = new Hashtable()
                 {
-                    { "textid", textId }
+                    { "textid", textId },
+                    { "targetId", targetId }
                 };
                 var reader = objectDb.ExecuteReader(param);
                 if (reader.Read())

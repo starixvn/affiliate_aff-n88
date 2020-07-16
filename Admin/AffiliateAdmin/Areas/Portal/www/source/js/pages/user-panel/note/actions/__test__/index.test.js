@@ -1,6 +1,5 @@
 ﻿import * as actions from '../index';
 import * as types from '../types';
-import { defaultPagingOption } from '../../../../../modules/constants';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 
 import configureMockStore from 'redux-mock-store';
@@ -18,9 +17,9 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setNoteList', type: types.SET_NOTE_LIST, data: [{ NoteId: 123456 }]},
+    { name: 'setNoteList', type: types.SET_NOTE_LIST, data: [{ NoteId: 123456 }] },
     { name: 'setShowPopup', type: types.SET_SHOW_POPUP, data: true },
-    { name: 'setNoteInfo', type: types.SET_NOTE_INFO, data: { NoteId: 123456 }}
+    { name: 'setNoteInfo', type: types.SET_NOTE_INFO, data: { NoteId: 123456 } }
 ];
 
 describe('note actions', () => {
@@ -52,9 +51,9 @@ describe('note actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER_USER_PANEL' , data: true },
-            { type: types.SET_NOTE_LIST , data: expectedResponse.data.MainData },
-            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 2 }},
+            { type: 'TOGGLE_LOADER_USER_PANEL', data: true },
+            { type: types.SET_NOTE_LIST, data: expectedResponse.data.MainData },
+            { type: 'SET_PAGING_OPTION', data: { PageIndex: 1, PageSize: 20, TotalItem: 2 } },
             { type: 'TOGGLE_LOADER_USER_PANEL', data: false },
         ];
         const param = {
@@ -62,7 +61,7 @@ describe('note actions', () => {
             pageIndex: 1,
             pageSize: 20
         }
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getNoteList'](param)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Note/GetNoteList', param);
@@ -74,7 +73,7 @@ describe('note actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectedAction = [
-            { type: 'TOGGLE_LOADER_USER_PANEL' , data: true },
+            { type: 'TOGGLE_LOADER_USER_PANEL', data: true },
             { type: 'TOGGLE_LOADER_USER_PANEL', data: false },
         ];
         const param = {
@@ -82,7 +81,7 @@ describe('note actions', () => {
             pageIndex: 1,
             pageSize: 20
         }
-        
+
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['getNoteList'](param)).then(() => {
             expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Note/GetNoteList', param);
@@ -91,12 +90,14 @@ describe('note actions', () => {
     })
 
     it('should create action to getNoteContentById with correct parameter', async () => {
-        const expectedResponse = { data: {
-            CreatedBy: null,
-            LastModifyText: "N/A",
-            NoteContent: "12BETAFF226",
-            NoteId: 1001
-        }, status: 200 };
+        const expectedResponse = {
+            data: {
+                CreatedBy: null,
+                LastModifyText: "N/A",
+                NoteContent: "12BETAFF226",
+                NoteId: 1001
+            }, status: 200
+        };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const param = {
             affId: 1271808,
@@ -116,7 +117,7 @@ describe('note actions', () => {
             affId: 123456,
             noteId: 123456
         };
-        
+
         const result = await actions['getNoteContentById'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Note/GetNoteContentById', param);
@@ -146,7 +147,7 @@ describe('note actions', () => {
             noteContent: "",
             noteId: 0
         }
-        
+
         const result = await actions['insertNote'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Note/InsertNote', param);
@@ -176,7 +177,7 @@ describe('note actions', () => {
             noteContent: "",
             noteId: 123456
         }
-        
+
         const result = await actions['updateNote'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Note/UpdateNote', param);

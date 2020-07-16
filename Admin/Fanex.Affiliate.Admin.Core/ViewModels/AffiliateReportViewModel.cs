@@ -8,5 +8,9 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
         public IEnumerable<Product> ProductList { get; set; }
 
         public IEnumerable<Language> LanguageList { get; set; }
+
+        public IEnumerable<Currency> CurrencyList { get; set; }
+
+        public IEnumerable<Currency> BaseCurrencyList { get; set; }
     }
 }

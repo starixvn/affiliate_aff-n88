@@ -7,18 +7,23 @@ namespace Fanex.Affiliate.User.Core.Repository
 {
     public class SecurityQuestionRepository : ISecurityQuestionRepository
     {
-        public IEnumerable<SecurityQuestion> GetSecurityQuestions(string language, bool isIncludeOldData = false)
+        private readonly IObjectDBBuilder _builder;
+
+        public SecurityQuestionRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
+        public IEnumerable<SecurityQuestion> GetSecurityQuestions(string language)
         {
             const string spKey = "Aff_User_SecurityQuestions_Sel";
 
             var securityQuestionList = new List<SecurityQuestion>();
 
-            using (var objectDbBuilder = new ObjectDBBuilder(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
-                objectDbBuilder.DB.AddInParameter("IsIncludedOldData", SqlDbType.Bit, isIncludeOldData);
-                objectDbBuilder.DB.AddInParameter("Language", SqlDbType.VarChar, language);
+                objectDb.AddInParameter("Language", SqlDbType.VarChar, language);
 
-                using (var reader = objectDbBuilder.DB.ExecuteReader())
+                using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
                     {

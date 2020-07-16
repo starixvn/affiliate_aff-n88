@@ -7,6 +7,7 @@ import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
 
 export const today = createReducer(null, {});
+export const licenseeName = createReducer('', {});
 
 export const param = createReducer(null, {
     [SET_PARAM](prevState, action) {
@@ -25,5 +26,6 @@ export default combineReducers({
     isShowLoader,
     today,
     param,
-    transactionId
+    transactionId,
+    licenseeName
 });

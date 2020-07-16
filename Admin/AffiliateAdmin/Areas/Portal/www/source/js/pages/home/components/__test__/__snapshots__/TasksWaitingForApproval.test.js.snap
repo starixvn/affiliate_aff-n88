@@ -8,10 +8,7 @@ exports[`home - components - TasksWaitingForApproval render correctly 1`] = `
     tag="div"
   >
     <span
-      className="tbl-icon02"
-    />
-    <span
-      className="text-blue"
+      className="home-title"
     >
       Tasks waiting for approval
     </span>
@@ -106,7 +103,7 @@ exports[`home - components - TasksWaitingForApproval render correctly 1`] = `
         }
       >
         <a
-          href="/Portal/PaymentRequest?SearchBy=2&Status=Pending&FromDate=12/01/2009&IsFromHome=true"
+          href="/Portal/PaymentRequest?SearchBy=2&Status=Processing&FromDate=01/01/2020&IsFromHome=true"
         >
           <strong>
             1

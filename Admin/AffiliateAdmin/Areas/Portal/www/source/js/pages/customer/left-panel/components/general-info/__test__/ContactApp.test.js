@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { ContactApp } from '../ContactApp';
 import { shallow } from 'enzyme';
-import ChangePasswordForm from '../../../../../common/components/ChangePasswordForm';
 
 describe('left panel - components - general-info - ContactApp', () => {
     afterAll(() => {
@@ -33,7 +32,7 @@ describe('left panel - components - general-info - ContactApp', () => {
         NoSiteDescription: "",
         Phone: "abc",
         PreferredLanguage: "vi-VN",
-        SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+        SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
         Status: "Approved"
     };
 

@@ -1,5 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO.Common;
-using Fanex.Affiliate.Admin.Core.MetaModels.Login;
+﻿using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;
@@ -157,6 +156,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.Logout(1234);
 
             // Assert
+            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetPermissionList()

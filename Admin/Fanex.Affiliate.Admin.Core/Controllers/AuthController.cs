@@ -12,6 +12,7 @@ using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.DTO;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -90,7 +91,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 }
                 else
                 {
-                    result.Message = "Your account is not configured to access any functions! Please contact your administrator";
+                    result = new ResultInfo
+                    {
+                        Code = 1,
+                        Message = "Your account is not configured to access any functions! Please contact your administrator"
+                    };
                 }
             }
 

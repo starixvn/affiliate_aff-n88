@@ -3,8 +3,14 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 @model string
-@{ 
-    var viewName = "~/Views/CommissionStructure/_Content." + Model + ".cshtml";
+@{
+    var viewName = "~/Views/CommissionStructure/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
+
+    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
+}
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/revenue-structure.js")
 }
 
 <div class="content">
@@ -12,6 +18,7 @@
         <span class="text">@Lang.CommissionStructure</span>
     </div>
 
-    @{ Html.RenderPartial(viewName); }
+    @Html.Raw(htmlString)
+
     @RazorHelper.RenderMovingTopButton()
 </div>

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Row, Col, Button } from 'reactstrap';
 
 import { countDownList, TenSeconds, SixtySeconds } from '../libs/constants';
-import { getOnlineList, getPSPToday, getDepositInfo } from '../actions';
+import { getOnlineList } from '../actions';
 
 export class Filter extends PureComponent {
     constructor(props) {
@@ -46,8 +46,6 @@ export class Filter extends PureComponent {
         const { pagingOption } = this.props;
 
         await this.props.getOnlineList({ pageIndex: 1, pageSize: pagingOption.PageSize });
-        await this.props.getPSPToday();
-        await this.props.getDepositInfo();
     }
 
     _toggleChangingCountDown = (isChanging) => {
@@ -92,7 +90,7 @@ function mapStateToProps({ pagingOption }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getOnlineList, getPSPToday, getDepositInfo }, dispatch);
+    return bindActionCreators({ getOnlineList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

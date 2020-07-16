@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using System.Data.SqlTypes;
 
@@ -31,9 +31,9 @@ namespace Fanex.Affiliate.Admin.Core.Extensions
 
         private static T Cast<T>(object dbValue, T defauleValue = default(T))
         {
-            if (dbValue is T)
+            if (dbValue is T t)
             {
-                return (T)dbValue;
+                return t;
             }
 
             if (dbValue is INullable && (dbValue as INullable).IsNull)

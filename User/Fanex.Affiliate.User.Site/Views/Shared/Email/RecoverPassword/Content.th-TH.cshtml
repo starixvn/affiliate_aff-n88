@@ -4,24 +4,22 @@
     var recoverUrl = Model.RootDomain + "Password/RecoverPassword?uid=" + userInfo.AffId + "&vid=" + Model.Code;
 }
 <div>
-เรียน คุณ @userInfo.FirstName<br /><br />
+    Dear @userInfo.FirstName,<br /><br />
 
-ตามที่คุณได้ทำการขอร้องขอ ชื่อ และ รหัสในการเข้าระบบ หากคุณไม่ได้ร้องขอ กรุณาอย่าใส่ใจกับอีเมลล์นี้  <br />
-หากคุณได้ทำการร้องขอ กรุณาคลิ๊กไปที่ลิ๊งค์นี้ รหัสใหม่จะถูกส่งไปที่อีเมลล์คุณาโดยเร็วทีสุด<br />
-<a href='@recoverUrl'>@recoverUrl</a><br /><br />
+    You have requested to recover your username or password. If you did not request it, please ignore this email.<br />
+    Otherwise please visit the following link, then your new password will be emailed to you shortly:<br />
+    <a href='@recoverUrl'>@recoverUrl</a><br /><br />
 
-หมายเหตุ<br />
-ชื่อ ยูสเซอร์เนม คือ @userInfo.UserName<br />
-เนื่องจากเหตุผลในเรื่องของความปลอดภัย หลังจากที่เราให้รหัสใหม่กับคุณกรุณาเข้าไปเปลี่ยนรหัสอีกครั้งตามที่คุณต้องการ<br />
-ลิ๊งค์ข้างบนนี้ จะหมดอายุการใช้งาน ภายใน 24 ชั่วโมง<br /><br />
+    Please note<br />
+    * Your username is: @userInfo.UserName <br />
+    * Due to security reason, we must provide you a new password (you can change this at anytime later).<br />
+    * The above link will be expired and become useless in 24 hours time.<br /><br />
 
-ขอบคุณที่ใช้บริการ 12 เบท<br /><br />
+    Have a great day!<br /><br />
 
-ขอให้คุณโชคดี !<br /><br />
+    Best regards,<br /><br />
 
-ขอแสดงความนับถือ<br /><br />
+    The team at 12Bet Affiliates<br />
 
-ทีมงานพันธมิตร 12 เบท<br />
-
-<a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

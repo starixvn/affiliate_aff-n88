@@ -79,32 +79,34 @@ export class GridData extends Component {
 
         return [
             <Row key="h1">
-                <Cell header={true} colWidth={120} rowSpan="2" title={firstColName}>{firstColName}</Cell>
+                <Cell header={true} colWidth={105} rowSpan="2" title={firstColName}>{firstColName}</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</Cell>
                 <Cell header={true} colWidth={65} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</Cell>
                 <Cell header={true} colWidth={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.QualifiedMember}>{headerText.QualifiedMember}</Cell>
+                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>
                 <Cell header={true} colSpan="9" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
-                <Cell header={true} colSpan={isMainView ? 5 : 4} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
-                {isMainView && (<Cell header={true} colWidth={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
+                <Cell header={true} colSpan={isMainView ? 7 : 6} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
+                {isMainView && (<Cell header={true} colWidth={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
             </Row>,
             <Row key="h2">
                 <Cell header={true} colWidth={75} title={headerText.Deposit}>{headerText.Deposit}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</Cell>
-                <Cell header={true} colWidth={95} title={headerText.Turnover}>{headerText.Turnover}</Cell>
-                <Cell header={true} colWidth={95} title={headerText.Winlost}>{headerText.Winlost}</Cell>
+                <Cell header={true} colWidth={85} title={headerText.Withdrawal}>{headerText.Withdrawal}</Cell>
+                <Cell header={true} colWidth={85} title={headerText.Turnover}>{headerText.Turnover}</Cell>
+                <Cell header={true} colWidth={85} title={headerText.Winlost}>{headerText.Winlost}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.Bonus}>{headerText.Bonus}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
+                <Cell header={true} colWidth={80} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.BankingFee}>{headerText.BankingFee}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.TotalFee}>{headerText.TotalFee}</Cell>
 
                 <Cell header={true} colWidth={60} title={headerText.CommissionRate}>{headerText.CommissionRate}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.Earning}>{headerText.Earning}</Cell>
+                <Cell header={true} colWidth={80} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</Cell>
+                <Cell header={true} colWidth={80} title={headerText.TotalEarning}>{headerText.TotalEarning}</Cell>
                 <Cell header={true} colWidth={80} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</Cell>
-                {isMainView && (<Cell header={true} colWidth={70} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
+                {isMainView && (<Cell header={true} colWidth={80} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
                 <Cell header={true} colWidth={100} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>
             </Row>
         ];
@@ -158,7 +160,7 @@ export class GridData extends Component {
         const signup = format(dataItem.Signup);
         const fdm = format(dataItem.Fdm);
         const activeMember = format(dataItem.ActiveMember);
-        const qualifiedMember = format(dataItem.QualifiedMember);
+        const noOfSubAff = format(dataItem.NoOfSubAff);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const turnover = formatDecimal(dataItem.Turnover);
@@ -168,12 +170,13 @@ export class GridData extends Component {
         const operationalFee = formatDecimal(dataItem.OperationalFee);
         const bankingFee = formatDecimal(dataItem.BankingFee);
         const totalFee = formatDecimal(dataItem.TotalFee);
-
         const earning = formatDecimal(dataItem.Earning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
         const commRate = this._isMainView() && isTotalRow ? 'N/A' : formatDecimal(dataItem.CommissionRate) + '%';
+        const subAffEarning = formatDecimal(dataItem.SubAffEarning);
+        const totalEarning = formatDecimal(dataItem.TotalEarning);
 
         return (
             <React.Fragment>
@@ -182,7 +185,7 @@ export class GridData extends Component {
                 <Cell className="text-right" title={signup}>{signup}</Cell>
                 <Cell className="text-right" title={fdm}>{fdm}</Cell>
                 <Cell className="text-right" title={activeMember}>{activeMember}</Cell>
-                <Cell className="text-right" title={qualifiedMember}>{qualifiedMember}</Cell>
+                <Cell className="text-right" title={noOfSubAff}>{noOfSubAff}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className={productColumnClassName} title={turnover}>{turnover}</Cell>
@@ -194,6 +197,8 @@ export class GridData extends Component {
                 <Cell className="text-right" title={totalFee}>{totalFee}</Cell>
                 <Cell className="text-right" title={commRate}>{commRate}</Cell>
                 <Cell className="text-right" title={earning}>{earning}</Cell>
+                <Cell className="text-right" title={subAffEarning}>{subAffEarning}</Cell>
+                <Cell className="text-right" title={totalEarning}>{totalEarning}</Cell>
                 <Cell className="text-right" title={affWithdrawal}>{affWithdrawal}</Cell>
                 {this._isMainView() && (<Cell className="text-right" title={affAdjustment}>{affAdjustment}</Cell>)}
                 <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>

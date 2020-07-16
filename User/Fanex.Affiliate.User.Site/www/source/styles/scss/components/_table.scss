@@ -11,7 +11,6 @@
 
     table {
         //table-layout: fixed;
-        border: 1px solid #c1c1c1;
         border-collapse: collapse;
         margin: 0;
         padding: 0;
@@ -32,28 +31,20 @@
         }
 
         tr {
-            background: #f5eaea;
             padding: .35em;
-            color: #333333;
             transition: background 0.2s ease;
-
-            &:hover {
-                background: #fbe8e1;
-            }
         }
 
         th, td {
-            border: 1px solid #c1c1c1;
             word-wrap: break-word;
+            line-height: 24px;
+            padding: 4px 5px;
         }
 
         th {
             font-size: 15px;
             text-transform: capitalize;
-            background: #c95f4d;
-            color: #fff;
             text-align: center;
-            padding: 4px 5px;
             font-weight: 500;
         }
 
@@ -62,10 +53,6 @@
         }
 
         td {
-            border: 1px solid #cccccc;
-            padding: 4px 5px;
-            line-height: 24px;
-
             &.bg-sportsbook {
                 background: #f8d8d1;
                 font-weight: 600;
@@ -78,12 +65,12 @@
         }
 
         .total {
-            background: #c95f4d;
-            color: #fff;
-            font-weight: 500;
+            background: #fbc763;
+            color: #000000;
+            font-weight: bold;
 
             &:hover {
-                background: #c95f4d;
+                background: #fdeada;
             }
         }
     }

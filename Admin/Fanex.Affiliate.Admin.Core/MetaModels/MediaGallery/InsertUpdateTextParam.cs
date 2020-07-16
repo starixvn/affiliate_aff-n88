@@ -13,8 +13,11 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery
 
         public string Language { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string Currency { get; set; }
 
         public byte DeviceType { get; set; }
+
+        public byte UserType { get; set; } = Constants.UserType.Player;
     }
 }

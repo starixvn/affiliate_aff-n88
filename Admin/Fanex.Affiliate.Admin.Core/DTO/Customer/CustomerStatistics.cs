@@ -26,10 +26,6 @@
 
         public decimal WinlostTotal { get; set; }
 
-        public int UniqueClickByMonth { get; set; }
-
-        public int TotalClickByMonth { get; set; }
-
         public int UniqueClickPcLaptopByMonth { get; set; }
 
         public int TotalClickPcLaptopByMonth { get; set; }
@@ -37,5 +33,9 @@
         public int UniqueClickMobileByMonth { get; set; }
 
         public int TotalClickMobileByMonth { get; set; }
+
+        public int NoOfSubAffByMonth { get; set; }
+
+        public int NoOfSubAffTotal { get; set; }
     }
 }

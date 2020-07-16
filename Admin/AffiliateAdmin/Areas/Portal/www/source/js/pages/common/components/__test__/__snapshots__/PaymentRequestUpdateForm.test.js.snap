@@ -358,7 +358,45 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
               }
             >
               <strong>
-                $100.00
+                100.00
+              </strong>
+            </Label>
+          </FormGroup>
+          <FormGroup
+            className="mb-2"
+            row={true}
+            tag="div"
+          >
+            <Label
+              sm={6}
+              tag="label"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              Transfer Amount
+            </Label>
+            <Label
+              sm={6}
+              tag="label"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              <strong>
+                 (undefined)
               </strong>
             </Label>
           </FormGroup>
@@ -396,7 +434,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
               }
             >
               <strong>
-                Pending
+                Processing
               </strong>
             </Label>
           </FormGroup>
@@ -418,7 +456,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
                 ]
               }
             >
-              12BET User Name
+              undefined User Name
             </Label>
             <Label
               sm={6}
@@ -630,7 +668,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
 </Modal>
 `;
 
-exports[`common - components - PaymentRequestUpdateForm render correctly with not pending 1`] = `
+exports[`common - components - PaymentRequestUpdateForm render correctly with not Processing 1`] = `
 <Modal
   autoFocus={true}
   backdrop="static"
@@ -988,7 +1026,45 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
               }
             >
               <strong>
-                $100.00
+                100.00
+              </strong>
+            </Label>
+          </FormGroup>
+          <FormGroup
+            className="mb-2"
+            row={true}
+            tag="div"
+          >
+            <Label
+              sm={6}
+              tag="label"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              Transfer Amount
+            </Label>
+            <Label
+              sm={6}
+              tag="label"
+              widths={
+                Array [
+                  "xs",
+                  "sm",
+                  "md",
+                  "lg",
+                  "xl",
+                ]
+              }
+            >
+              <strong>
+                 (undefined)
               </strong>
             </Label>
           </FormGroup>
@@ -1026,7 +1102,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
               }
             >
               <strong>
-                Pending
+                Processing
               </strong>
             </Label>
           </FormGroup>
@@ -1048,7 +1124,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
                 ]
               }
             >
-              12BET User Name
+              undefined User Name
             </Label>
             <Label
               sm={6}

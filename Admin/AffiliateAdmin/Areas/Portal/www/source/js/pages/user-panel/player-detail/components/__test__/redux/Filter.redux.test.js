@@ -45,6 +45,8 @@ describe('player detail - Filter - connect', () => {
         const expectedActionCreator = {
             setParam: actions['setParam'],
             exportExcel: actions['exportExcel'],
+            getCurrencies: actions['getCurrencies'],
+            setSortingColumn: actions['setSortingColumn'],
             getProductList: actions['getProductList']
         }
 

@@ -1,5 +1,5 @@
-import * as types from '../../actions/types'
-import * as reducers from '../index'
+import * as types from '../../actions/types';
+import * as reducers from '../index';
 
 const runTestReducer = ({ name, value, action, expectedResult }) => {
     it(`should handle ${name} reducer with type ${action.type}`, () => {
@@ -9,9 +9,9 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 }
 
 const mockColumnList = [
-            {columnKey: "Index", columnName: "#", checked: true},
-            {columnKey: "Status", columnName: "Status", checked: true},
-            {columnKey: "FirstName", columnName: "First Name", checked: true}];
+    { columnKey: "Index", columnName: "#", checked: true },
+    { columnKey: "Status", columnName: "Status", checked: true },
+    { columnKey: "FirstName", columnName: "First Name", checked: true }];
 
 const testCaseList = [
     { name: 'reportTitle', value: undefined, action: { type: types.SET_REPORT_TITLE, data: 'Specified Report Title' }, expectedResult: 'Specified Report Title' },

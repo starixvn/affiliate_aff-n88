@@ -16,7 +16,7 @@ describe('user account - components - sections - Payment', () => {
         State: "700000",
         Postcode: "700000",
         Country: "Viet Nam",
-        SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+        SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
         MoreSiteUrls: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
         NoSiteDescription: "",
         PreferredPayment: "Player",
@@ -31,11 +31,12 @@ describe('user account - components - sections - Payment', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }]
     };
     const defaultProps = {
         userAccountInfo,
-        setUserAccountInfo: jest.fn()
+        setUserAccountInfo: jest.fn(),
+        licenseeName: 'Bwing'
     }
 
     it('render correctly', () => {
@@ -46,17 +47,17 @@ describe('user account - components - sections - Payment', () => {
 
     it('handleChangePaymentMethod - should call setUserAccountInfo', () => {
         const result = shallow(<Payment {...defaultProps} />);
-        
-        result.instance().handleChangePaymentMethod({ target: { value: 'Neteller' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, PreferredPayment: 'Neteller'});
+        result.instance().handleChangePaymentMethod({ target: { value: 'Neteller' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, PreferredPayment: 'Neteller' });
     });
 
     it('handleChange - should call setUserAccountInfo', () => {
         const result = shallow(<Payment {...defaultProps} />);
-        
-        result.instance().handleChange({ target: { name: 'bankName', value: '123' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, BankName: '123'});
+        result.instance().handleChange({ target: { name: 'bankName', value: '123' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, BankName: '123' });
     });
 });

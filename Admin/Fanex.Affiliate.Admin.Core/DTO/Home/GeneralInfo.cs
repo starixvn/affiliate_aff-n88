@@ -6,11 +6,9 @@
 
         public int BannerNumber { get; set; }
 
-        public int ImageBannerNumber { get; set; }
+        public int PlayerBannerNum { get; set; }
 
-        public int FlashBannerNumber { get; set; }
-
-        public int TextBannerNumber { get; set; }
+        public int AffiliateBannerNum { get; set; }
 
         public int AllAffiliateNumber { get; set; }
 
@@ -55,5 +53,13 @@
         public decimal AllPSPFeeMonthNumber { get; set; }
 
         public decimal AllNetWinlostMonthNumber { get; set; }
+
+        public int MemAllNum { get; set; }
+
+        public int NonDepositMemAllNum { get; set; }
+
+        public int MemMonthNum { get; set; }
+
+        public int NonDepositMemMonthNum { get; set; }
     }
 }

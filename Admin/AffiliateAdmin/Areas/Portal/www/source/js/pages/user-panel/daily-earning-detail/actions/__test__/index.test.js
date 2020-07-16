@@ -14,20 +14,14 @@ const actionList = [
     { name: 'setParam', type: types.SET_PARAM, data: { param: 'param' } },
 ]
 
-describe('customer member actions', () => {
+describe('daily earning detail actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
 
-    it('getProductList - should return correct data', async () => {
-        const getProductList = actions['getProductList']();
-
-        expect(getProductList).toEqual(expect.any(Function));
-    })
-
     it('should create action to fetchData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         BankingFee: 0,
@@ -71,7 +65,7 @@ describe('customer member actions', () => {
             monthDate: "06 January 2019",
             productId: 0
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/StatementHistory/GetDailyEarningDetail', param);

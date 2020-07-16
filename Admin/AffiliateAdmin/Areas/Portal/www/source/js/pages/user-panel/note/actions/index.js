@@ -12,7 +12,7 @@ export const setNoteList = (data) => {
     }
 }
 
-export const getNoteList = (param) => async(dispatch) => {
+export const getNoteList = (param) => async (dispatch) => {
     dispatch(toggleLoaderUserPanel(true));
 
     const url = 'Portal/UserPanel/Note/GetNoteList';
@@ -48,21 +48,21 @@ export const setNoteInfo = (data) => {
     }
 }
 
-export const getNoteContentById = (param) => async() => {
+export const getNoteContentById = (param) => async () => {
     const url = 'Portal/UserPanel/Note/GetNoteContentById';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const insertNote = (param) => async() => {
+export const insertNote = (param) => async () => {
     const url = 'Portal/UserPanel/Note/InsertNote';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const updateNote = (param) => async() => {
+export const updateNote = (param) => async () => {
     const url = 'Portal/UserPanel/Note/UpdateNote';
     const response = await post(url, param);
 

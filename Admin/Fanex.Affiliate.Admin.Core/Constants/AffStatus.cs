@@ -2,9 +2,10 @@
 {
     public static class AffStatus
     {
-        public const string Approved = "approved";
-        public const string Disapproved = "disapproved";
-        public const string Pending = "pending";
-        public const string Rejected = "rejected";
+        public const string Approved = "Approved";
+        public const string Disapproved = "Disapproved";
+        public const string Pending = "Pending";
+        public const string Rejected = "Rejected";
+        public const string Processing = "Processing";
     }
 }

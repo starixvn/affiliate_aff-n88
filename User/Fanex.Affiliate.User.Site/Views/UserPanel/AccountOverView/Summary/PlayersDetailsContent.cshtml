@@ -1,20 +1,20 @@
 ﻿@model List<Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerDetail>
 
 @{
-    var hasScroll = Model.Count() > 10;
+    var hasScroll = Model != null && Model.Count() > 10;
     var totalItem = ViewBag.TotalItem;
     var startRowNumber = ViewBag.StartRowNumber;
 }
 
 @{
-    if (Model.Any())
+    if (Model != null && Model.Any())
     {
         foreach (var item in Model)
         {
             <tr>
                 <td class="text-center">@startRowNumber</td>
                 <td class="text-center break-all">@item.Username</td>
-                <td class="text-center">@item.RegisteredDate.ToString("dd-MMM-yyyy hh:mm tt")</td>
+                <td class="text-center">@(item.RegisteredDate?.ToString("dd-MMM-yyyy hh:mm tt") ?? string.Empty)</td>
                 <td class="text-center">@item.Turnover.FormatDecimal()</td>
                 <td class="text-center">@item.Winloss.FormatDecimal()</td>
                 <td class="text-center">@item.Deposit.FormatDecimal()</td>

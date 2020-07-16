@@ -5,14 +5,14 @@ import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
-import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource } from '../modules/constants';
-import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup } from '../actions';
+import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../libs/constants';
+import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { post } from '../../../modules/ajaxRequest';
 import { format, formatDecimal } from '../../../modules/numberFormat';
 import { updateObjectInArray } from '../../../modules/dataHandler';
 import { resolveClientUrl } from '../../../modules/utils';
-import { convertSelectedColumnList } from '../modules/utils';
+import { convertSelectedColumnList } from '../libs/utils';
 import { htmlDecode } from '../../../modules/htmlHelper';
 import { NotificationPopup } from '../../common/components/NotificationPopup';
 
@@ -62,26 +62,45 @@ export class GridData extends Component {
         this.props.toggleLoader(false);
     }
 
+    _handleViewSubAff = (userName) => {
+        this.props.setParentAffName(userName);
+
+        const newParam = {
+            ParentAffName: userName,
+            GroupId: 0,
+            Language: '',
+            Status: '',
+            UserName: '',
+            Email: '',
+            SortBy: defaultSortBy,
+            SortDirectionType: false,
+            AffId: ''
+        };
+
+        this.props.setParam(newParam);
+    }
     _renderHeader(selectedColumnList) {
         return (
             <Row key="theard">
                 {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
+                {selectedColumnList['ParentAffName'] && <Cell header={true} colWidth={225} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>}
                 <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
                 {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell header={true} colWidth={200} title={headerText.LastName}>{headerText.LastName}</Cell>}
                 {selectedColumnList['Language'] && <Cell header={true} colWidth={200} title={headerText.Language}>{headerText.Language}</Cell>}
                 {selectedColumnList['Phone'] && <Cell header={true} colWidth={200} title={headerText.Phone}>{headerText.Phone}</Cell>}
-                {selectedColumnList['Email'] && <Cell header={true} colWidth={400} title={headerText.Email}>{headerText.Email}</Cell>}
+                {selectedColumnList['Email'] && <Cell header={true} colWidth={350} title={headerText.Email}>{headerText.Email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell header={true} colWidth={300} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell header={true} colWidth={300} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</Cell>}
-                {selectedColumnList['CasinoDateText'] && <Cell header={true} colWidth={200} title={headerText.CasinoDateText}>{headerText.CasinoDateText}</Cell>}
-                {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={300} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
+                {selectedColumnList['ApprovedByText'] && <Cell header={true} colWidth={200} title={headerText.ApprovedByText}>{headerText.ApprovedByText}</Cell>}
+                {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={200} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell header={true} colWidth={200} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell header={true} colWidth={150} title={headerText.Currency}>{headerText.Currency}</Cell>}
                 {selectedColumnList['PlayerUserName'] && <Cell header={true} colWidth={200} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</Cell>}
                 {selectedColumnList['PlayerCurrency'] && <Cell header={true} colWidth={150} title={headerText.PlayerCurrency}>{headerText.PlayerCurrency}</Cell>}
                 {selectedColumnList['Member'] && <Cell header={true} colWidth={150} title={headerText.Member}>{headerText.Member}</Cell>}
+                {selectedColumnList['NoOfSubAff'] && <Cell header={true} colWidth={150} title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>}
                 <Cell header={true} colWidth={130} title={headerText.Password}>{headerText.Password}</Cell>
             </Row>
         );
@@ -120,22 +139,25 @@ export class GridData extends Component {
         const phone = htmlDecode(dataItem.Phone);
         const email = htmlDecode(dataItem.Email);
         const playerUserName = htmlDecode(dataItem.PlayerUserName);
+        const approvedBy = htmlDecode(dataItem.ApprovedByText);
 
         const balanceBf = dataItem.BalanceBf === null ? resource.NA : formatDecimal(dataItem.BalanceBf);
         const formattedMemberValue = dataItem.Member === null ? resource.NA : format(dataItem.Member);
+        const formattedSubAffValue = dataItem.NoOfSubAff === null ? resource.NA : format(dataItem.NoOfSubAff);
         const member = dataItem.Member === null ? resource.NA : (
-            <a href={resolveClientUrl(`Portal/Member?AffName=${dataItem.UserName}`)} target="_top">
+            <a href={resolveClientUrl(`Portal/Player?AffName=${dataItem.UserName}`)} target="_top">
                 {formattedMemberValue}
             </a>);
-
+        const noOfSubAff = dataItem.NoOfSubAff === null ? resource.NA : (
+            <Button color="link" className="p-0" onClick={() => this._handleViewSubAff(dataItem.UserName)}>
+                {formattedSubAffValue}
+            </Button>);
         const language = languageList[dataItem.Language];
-        const commissionGroup = dataItem.CommissionGroup ? (
-            commissionGroupName === dataItem.UserName ? (
-                <Button color="link"
-                    onClick={() => this.handleEditCommGroup(dataItem.AffId, dataItem.CommissionGroup)}>
-                    {commissionGroupName}
-                </Button>) : commissionGroupName
-        ) : resource.NA;
+        const commissionGroup = dataItem.IsUsingPrivateCommGroup ? (
+            <Button color="link"
+                onClick={() => this.handleEditCommGroup(dataItem.AffId, dataItem.CommissionGroup)}>
+                {commissionGroupName}
+            </Button>) : commissionGroupName;
 
         const isFavorite = dataItem.IsFavorite
         const checkFavorite = isFavorite ? "favor-check" : "favor-uncheck";
@@ -143,14 +165,23 @@ export class GridData extends Component {
 
         return (
             <Row key={`dataRow-${index}`}>
-                {selectedColumnList['Index'] && <Cell className="text-right" title={index}>{index}</Cell>}
+                {selectedColumnList['Index'] && <Cell className="text-center" title={index}>{index}</Cell>}
+                {selectedColumnList['ParentAffName'] && <Cell title={dataItem.ParentAffName}>
+                    {
+                        dataItem.ParentAffName ? (
+                            <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
+                                {dataItem.ParentAffName}
+                            </a>
+                        ) : 'N/A'
+                    }
+                </Cell>
+                }
                 <Cell title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}
                     </a>
                     <span className={classNameFavorite} onClick={() => this.handleToggleFavorite(dataItem.AffId, isFavorite)}></span>
                 </Cell>
-
                 {selectedColumnList['Status'] && <Cell title={dataItem.Status}>{dataItem.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell title={firstName}>{firstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell title={lastName}>{lastName}</Cell>}
@@ -159,13 +190,14 @@ export class GridData extends Component {
                 {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
                 {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
                 {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
-                {selectedColumnList['CasinoDateText'] && <Cell title={dataItem.CasinoDateText}>{dataItem.CasinoDateText}</Cell>}
+                {selectedColumnList['ApprovedByText'] && <Cell title={approvedBy}>{approvedBy}</Cell>}
                 {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
                 {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
                 {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}
                 {selectedColumnList['PlayerUserName'] && <Cell title={playerUserName}>{playerUserName}</Cell>}
                 {selectedColumnList['PlayerCurrency'] && <Cell title={dataItem.PlayerCurrency}>{dataItem.PlayerCurrency}</Cell>}
                 {selectedColumnList['Member'] && <Cell className="text-right" title={formattedMemberValue}>{member}</Cell>}
+                {selectedColumnList['NoOfSubAff'] && <Cell className="text-right" title={formattedSubAffValue}>{noOfSubAff}</Cell>}
                 <Cell className="text-center" title="Change Password">
                     {
                         isApproved && (<Button color="link" onClick={() => this.handleChangePassword(dataItem.AffId)}>
@@ -270,7 +302,7 @@ function mapStateToProps({ pagingOption, languageList, param, columnList }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoader, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoader, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GridData);

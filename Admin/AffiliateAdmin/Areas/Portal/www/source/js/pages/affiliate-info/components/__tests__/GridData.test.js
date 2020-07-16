@@ -6,7 +6,7 @@ import * as ajaxRequest from '../../../../modules/ajaxRequest';
 describe('affiliate info - GridData ', () => {
     const dataItem = {
         AffId: 927841,
-        UserName: "12BETAFF001",
+        UserName: "N8BAFF001",
         Status: "Approved",
         FirstName: "",
         LastName: "媒体册 获取以更新吧！",
@@ -15,14 +15,14 @@ describe('affiliate info - GridData ', () => {
         RegistrationDate: "\/Date(1211413740000)\/",
         ApprovalDate: "\/Date(1211413800000)\/",
         CasinoDate: "\/Date(1400778000000)\/",
-        CommissionGroup: "12BETAFF001",
+        CommissionGroup: "N8BAFF001",
         BalanceBf: -4439.0000,
         Member: 6,
         IsFavorite: false,
         IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
         ApprovalDateText: "05/22/2008 06:50:00",
-        CasinoDateText: "05/23/2014"
+        IsUsingPrivateCommGroup: true
     };
     const index = 1;
     const dataList = [dataItem];
@@ -36,7 +36,6 @@ describe('affiliate info - GridData ', () => {
         { columnKey: "Email", columnName: "Email", checked: true },
         { columnKey: "RegistrationDateText", columnName: "Registration Date", checked: true },
         { columnKey: "ApprovalDateText", columnName: "Approval Date", checked: true },
-        { columnKey: "CasinoDateText", columnName: "Casino Date", checked: true },
         { columnKey: "CommissionGroup", columnName: "Commission Group", checked: true },
         { columnKey: "BalanceBf", columnName: "Balance B/F", checked: true },
         { columnKey: "Currency", columnName: "Aff. Currency", checked: true },
@@ -54,7 +53,6 @@ describe('affiliate info - GridData ', () => {
         Email: true,
         RegistrationDateText: true,
         ApprovalDateText: true,
-        CasinoDateText: true,
         CommissionGroup: true,
         BalanceBf: true,
         Currency: true,
@@ -219,7 +217,7 @@ describe('affiliate info - GridData ', () => {
 
         await componentInstance.saveToggleFavorite(param);
 
-        expect(componentInstance.setState).toHaveBeenCalledWith({"messageNotification": "Toggle favorite is failed!"});
+        expect(componentInstance.setState).toHaveBeenCalledWith({ "messageNotification": "Toggle favorite is failed!" });
     });
 
     it('saveToggleFavorite - not call setState with incorrect parameter', async () => {
@@ -315,7 +313,7 @@ describe('affiliate info - GridData ', () => {
     it("_buildDataRow - should render correctly with dataItem's fields are null", () => {
         const dataItem = {
             AffId: 927841,
-            UserName: "12BETAFF001",
+            UserName: "N8BAFF001",
             Status: "Favorite",
             FirstName: "",
             LastName: "媒体册 获取以更新吧！",
@@ -330,8 +328,7 @@ describe('affiliate info - GridData ', () => {
             IsFavorite: true,
             IsClosed: false,
             RegistrationDateText: "05/22/2008 06:49:00",
-            ApprovalDateText: "05/22/2008 06:50:00",
-            CasinoDateText: "05/23/2014"
+            ApprovalDateText: "05/22/2008 06:50:00"
         };
 
         const componentInstance = new GridData(defaultProps);
@@ -350,7 +347,7 @@ describe('affiliate info - GridData ', () => {
         const buildDataRow = shallow(<div>{wrapper.instance()._buildDataRow(dataItem, index, selectedColumnList)}</div>);
 
         buildDataRow.find('Button').at(0).simulate('click');
-        expect(wrapper.instance().handleEditCommGroup).toHaveBeenCalledWith(927841, '12BETAFF001');
+        expect(wrapper.instance().handleEditCommGroup).toHaveBeenCalledWith(927841, 'N8BAFF001');
     });
 
     it("should call handleToggleFavorite when click icon favorite", () => {

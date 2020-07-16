@@ -11,20 +11,15 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setProductList', type: types.SET_PRODUCT_LIST, data: 'Sportsbook' },
-    { name: 'setParam', type: types.SET_PARAM, data: { param: 'param' } }
+    { name: 'setParam', type: types.SET_PARAM, data: { param: 'param' } },
+    { name: 'setSortingColumn', type: types.SET_SORTING_COLUMN, data: { sortingColumn: 'SortingColumn' } }
+
 ]
 
 describe('player detail actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
-
-    it('getProductList - should return correct data', async () => {
-        const getProductList = actions['getProductList']();
-
-        expect(getProductList).toEqual(expect.any(Function));
-    })
 
     const expectedResponse = {
         data: {
@@ -69,7 +64,7 @@ describe('player detail actions', () => {
             pageSize: 20,
             productId: 0
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', param);
@@ -102,7 +97,7 @@ describe('player detail actions', () => {
             monthDate: "1/1/2019",
             productId: 0
         }
-        
+
         const result = await actions['exportExcel'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });

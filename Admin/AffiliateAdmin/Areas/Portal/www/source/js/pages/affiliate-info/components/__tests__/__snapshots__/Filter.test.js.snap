@@ -29,7 +29,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
         Search By
       </Label>
       <Input
-        id="SearchBy"
+        id="searchBy"
         name="selectedCommGroup"
         onChange={[Function]}
         type="select"
@@ -39,7 +39,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
           key="commGroup-all"
           value={0}
         >
-          All Comm Groups
+          All Revenue Groups
         </option>
         <option
           key="commGroup-en-US"
@@ -54,7 +54,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Language"
+        id="language"
         name="selectedLanguage"
         onChange={[Function]}
         type="select"
@@ -79,7 +79,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Status"
+        id="status"
         name="selectedStatus"
         onChange={[Function]}
         type="select"
@@ -128,12 +128,27 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Username"
+        id="parentAffName"
+        name="parentAffName"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Parent Affiliate"
+        type="text"
+        value=""
+      />
+    </FormGroup>
+    <FormGroup
+      className="my-2 mr-sm-2"
+      tag="div"
+    >
+      <Input
+        id="username"
         name="userName"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Username"
         type="text"
+        value=""
       />
     </FormGroup>
     <FormGroup
@@ -141,12 +156,13 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="Email"
+        id="email"
         name="email"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Email"
         type="email"
+        value=""
       />
     </FormGroup>
     <FormGroup
@@ -154,12 +170,13 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="AffId"
+        id="affId"
         name="affId"
         onChange={[Function]}
         onKeyPress={[Function]}
         placeholder="Affiliate Id"
         type="text"
+        value=""
       />
     </FormGroup>
     <FormGroup
@@ -214,10 +231,10 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
           Balance B/F
         </option>
         <option
-          key="sortBy-Member"
+          key="sortBy-Player"
           value={5}
         >
-          Member
+          Player
         </option>
       </Input>
     </FormGroup>
@@ -270,6 +287,8 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        hasInputOption={false}
+        isDisable={false}
         keyField="columnKey"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"

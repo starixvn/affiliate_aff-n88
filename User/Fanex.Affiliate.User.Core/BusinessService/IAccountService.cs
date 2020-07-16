@@ -6,8 +6,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public interface IAccountService
     {
-        ResultInfo CheckPlayerAccountIsActived(int affId, string language);
+        ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false);
 
-        ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam);
+        MaxLevelInfo GetLevelAffiliate(int affId);
     }
 }

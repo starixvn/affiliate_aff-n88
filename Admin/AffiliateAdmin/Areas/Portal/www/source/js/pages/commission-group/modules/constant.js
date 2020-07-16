@@ -23,27 +23,24 @@ const _commValueList = generateCommissionValues();
 
 export const commissionValueList = _commValueList;
 
-const _validationMessage = {
+export const messages = {
     requireGroupName: 'Group Name cannot be empty. Please check!',
     requireTier: 'Tier Setting must have at least 1 tier',
     requireInfinity: 'Last Tier Setting must have maximum value=∞',
-    requireQmTurnover: 'QM Turnover value is required',
-    amountConstrain: 'Max Amount must be greater than or equal to Min Amount',
     qmConstrain: 'Max QM must be greater than or equal to Min QM',
+    amountConstrain: 'Max Amount must be greater than or equal to Min Amount',
     requireSelectedProduct: 'At least 1 product must be selected per group',
-    confirmChangeGroup: 'Are you sure you want to change the commission group for affiliate: {0}',
+    confirmChangeGroup: 'Are you sure you want to change the Revenue Group for affiliate: {0}',
     choseAnotherGroup: 'Please choose another group (not old group)!',
-    assignGroupSuccessfully: 'Assign affiliate to commission group successfully',
-    addGroupSuccessfully: 'Add Commission Group Successfully',
-    updateGroupSuccessfully: 'Update Commission Group Successfully'
+    assignGroupSuccessfully: 'Assign affiliate to Revenue Group successfully',
+    addGroupSuccessfully: 'Add Revenue Group Successfully',
+    updateGroupSuccessfully: 'Update Revenue Group Successfully',
+    note: "Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)"
 }
-export const messages = _validationMessage;
 
 const _deductionNameList = {
     platformFee: 'Platform Fee',
     operationalFee: 'Operational Fee',
-    bankingFee: 'Banking Fee',
-    exchangeWinLossShare: 'Exchange Win Loss Share',
-    exchangeCommissionShare: 'Exchange Commission Share'
+    bankingFee: 'Banking Fee'
 }
 export const deductionNameList = _deductionNameList;

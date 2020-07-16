@@ -39,10 +39,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
+                objectDb.AddInParameter("IsPrivate", DbType.Boolean, param.IsPrivate);
+                objectDb.AddOutParameter(Field.GroupId, DbType.Int32, Size.SizeOfInt);
 
                 objectDb.ExecuteNonQuery();
 
                 var code = objectDb.GetParameterValue(Field.ErrCode);
+                var groupId = objectDb.GetParameterValue(Field.GroupId);
+                param.GroupId = groupId == DBNull.Value ? 0 : Convert.ToInt32(groupId);
 
                 return new ResultInfo
                 {
@@ -58,6 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
+                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -167,11 +172,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     RowIdx = Convert.ToInt32(reader["RowIDX"]),
                     GroupId = Convert.ToInt32(reader[Field.GroupId]),
                     GroupName = reader[Field.GroupName].ToString(),
-                    CreatedDate = Convert.ToDateTime(reader["CreatedDate"]),
+                    CreatedDate = reader["CreatedDate"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["CreatedDate"]),
                     Creator = reader["Creator"].ToString(),
                     Description = reader["Description"].ToString(),
-                    QmTurnover = Convert.ToDecimal(reader["QMTurnover"]),
-                    NextQmTurnover = Convert.ToDecimal(reader["NextQMTurnover"]),
                     NoAffs = Convert.ToInt32(reader["NoAffs"])
                 });
             }
@@ -215,8 +218,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         DeductionId = Convert.ToInt32(reader["DeductionId"]),
                         DeductionName = reader["DeductionName"].ToString(),
                         ProductIds = reader["ProductIds"].ToString(),
-                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"]),
-                        NextDeductedPercentage = reader["NextDeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["NextDeductedPercentage"])
+                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"])
                     });
                 }
             }
@@ -227,12 +229,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
             objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-            objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
             objectDb.AddInParameter(Field.GroupName, DbType.String, param.GroupName);
             objectDb.AddInParameter("Description", DbType.String, param.Description);
             objectDb.AddInParameter("DeductionList", DbType.Xml, param.DeductionList);
             objectDb.AddInParameter("TierList", DbType.Xml, param.TierList);
-            objectDb.AddInParameter("QMTurnover", DbType.Decimal, param.QmTurnover);
             objectDb.AddInParameter("IP", DbType.String, param.Ip);
 
             AssignResultOutputParam(objectDb);

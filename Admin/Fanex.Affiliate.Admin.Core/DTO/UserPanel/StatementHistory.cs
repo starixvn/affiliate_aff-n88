@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 {
@@ -20,8 +21,41 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Creator { get; set; }
 
+        [JsonIgnore]
         public string Description { get; set; }
 
-        public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.Transaction) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
+        public byte? CalculatedType { get; set; }
+
+        public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.MonthlyTotal || TransType == Code.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
+
+        public string NormalizeDateText => Date.ToString("yyyy-MM-dd");
+
+        public string DescriptionDisplay
+        {
+            get
+            {
+                if (TransType == Code.MonthlyTotal)
+                {
+                    return GetMonthlyTotalDescription(CalculatedType);
+                }
+
+                return Description;
+            }
+        }
+
+        public IEnumerable<StatementHistory> Children { get; set; } = new List<StatementHistory>();
+
+        private static string GetMonthlyTotalDescription(byte? calculatedType)
+        {
+            switch (calculatedType)
+            {
+                case Constants.CalculatedType.CalculatedMonth:
+                    return "Monthly Total";
+                case Constants.CalculatedType.UnCalculatedMonth:
+                    return "Uncaculated Month";
+                default:
+                    return "Current Month Statistics";
+            }
+        }
     }
 }

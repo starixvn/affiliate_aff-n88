@@ -2,6 +2,8 @@
     var _reportData = null;
     var _sortingColumn = 'Month';
     var _isSortingAsc = false;
+    var _currentBaseCurrency = 0;
+    const _currentPage = "RevenueReport";
 
     function formatDecimal(value) {
         return format(value, 2)
@@ -52,14 +54,31 @@
                     .nextUntil('.sumrow').toggleClass('expanded', !isExpanding);
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             });
+
+            $('#dataTable').on('click', '.amountItem', function () {
+                let url = "UserPanel/Main/#SubAffEarning";
+                let params = {
+                    monthDate: $(this).data("date"),
+                    requestPage: _currentPage,
+                    baseCurrency: _currentBaseCurrency
+                };
+
+                Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
+            })
+
+
         },
 
         submit: function () {
-            var year = $("#year").val();
+            _currentBaseCurrency = $("#base-currency").val();
+            var param = {
+                year: $("#year").val(),
+                baseCurrency: _currentBaseCurrency
+            };
             $.ajax({
                 type: "POST",
-                url: Site.resolveRelativeUrl("UserPanel/CommissionReport"),
-                data: JSON.stringify({ "year": year }),
+                url: Site.resolveRelativeUrl("UserPanel/RevenueReport"),
+                data: JSON.stringify(param),
                 dataType: "json",
                 cache: false,
                 contentType: "application/json; charset=UTF-8",
@@ -86,7 +105,7 @@
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan="10">' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "11" : "12") + '>' + langResource.noInfo + '</td></tr>');
             }
         },
 
@@ -116,6 +135,9 @@
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
+            var length = langResource.isMaxLevel ? 7 : 8;
+
+            var date = dataRow.MonthDate;
 
             var iconHtml = '<span class="chevron toggleDetailRow ' + toggleIconClass + '" aria-hidden="true"></span>';
             var rowItems = [];
@@ -131,8 +153,10 @@
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
+                !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
-                for (var i = 0; i < 6; i++) {
+                for (var i = 0; i < length; i++) {
                     rowItems.push(_me.buildCell(""));
                 }
             }
@@ -154,6 +178,8 @@
                     _me.buildCell(formatDecimal(dataRow.Bonus)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
+                    (langResource.isMaxLevel ? '' : _me.buildCell(formatDecimal(dataRow.SubAffCommission))) +
+                    _me.buildCell(formatDecimal(dataRow.TotalCommission)) +
                     '</tr>';
             }
 
@@ -162,6 +188,10 @@
 
         buildCell: function (cellData) {
             return '<td class="text-right">' + cellData + '</td>';
+        },
+
+        buildSubAffCell: function (cellData, date) {
+            return `<td class="text-right"><a data-date=${date} href='javascript:;' class='amountItem'> ${cellData}</a></td>`;
         },
 
         processSorting: function ($element) {
@@ -189,7 +219,6 @@
 
         sort: function () {
             var mainDataList = _reportData.Data;
-
             mainDataList.sort(function (item, nextItem) {
                 if (_sortingColumn === 'Month') {
                     return _isSortingAsc ? item.Month - nextItem.Month : -(item.Month - nextItem.Month);

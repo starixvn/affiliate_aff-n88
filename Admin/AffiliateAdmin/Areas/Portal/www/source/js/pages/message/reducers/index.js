@@ -7,6 +7,9 @@ import { SET_PARAM, SET_CHECKED_MESSAGES, SET_SELECTED_MESSAGE_ID, SHOULD_RESET_
 
 export const today = createReducer(null, {});
 
+export const defaultMessageContentList = createReducer({}, {});
+export const languages = createReducer({}, {});
+
 export const param = createReducer(null, {
     [SET_PARAM](prevState, action) {
         return Object.assign({}, prevState, action.data);
@@ -45,5 +48,7 @@ export default combineReducers({
     isShowLoader,
     checkedMessages,
     selectedMessageId,
-    shouldResetScrollPosition
+    shouldResetScrollPosition,
+    languages,
+    defaultMessageContentList
 });

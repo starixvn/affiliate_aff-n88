@@ -6,11 +6,6 @@ using Fanex.Affiliate.Admin.Core.Services.ChangeAdminPassword;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -42,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var controller = CreateChangeAdminPasswordController(changeAdminPasswordService: changeAdminPasswordService.Object);
 
             // Action
-            var result = controller.ChangePassword(new ChangeAdminPasswordParam { OldPassword = "123", NewPassword = "234", ConfirmPassword = "234" }) as JsonNetResult;
+            var result = controller.ChangePassword(new ChangeAdminPasswordParam { OldPassword = "123456789012345678901234567890", NewPassword = "234", ConfirmPassword = "234" }) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert

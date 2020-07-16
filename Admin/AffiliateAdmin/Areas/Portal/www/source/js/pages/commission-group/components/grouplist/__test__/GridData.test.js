@@ -20,7 +20,6 @@ describe('commission group - GridData ', () => {
             DeductionId: 12,
             DeductionName: "Banking Fee",
             GroupId: 153,
-            NextDeductedPercentage: 0.02,
             ProductIds: "0"
         },
         CreatedDate: "/Date(1534273172607)/",
@@ -29,14 +28,12 @@ describe('commission group - GridData ', () => {
         Description: "",
         GroupId: 153,
         GroupName: "CG22125",
-        NextQmTurnover: 100,
         NoAffs: 2,
         OperationalFee: {
             DeductedPercentage: 0.15,
             DeductionId: 11,
             DeductionName: "Operational Fee",
             GroupId: 153,
-            NextDeductedPercentage: 0.15,
             ProductIds: "0"
         },
         PlatformFeeList: [
@@ -45,11 +42,9 @@ describe('commission group - GridData ', () => {
                 DeductionId: 10,
                 DeductionName: "Platform Fee",
                 GroupId: 153,
-                NextDeductedPercentage: 0.17,
                 ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
             }
         ],
-        QmTurnover: 100,
         RowIdx: 6,
         TierSettingList: [
             tierSettingItem
@@ -86,7 +81,7 @@ describe('commission group - GridData ', () => {
 
         await componentInstance._handleDeleteCommGroup(153, "CG22125");
 
-        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to delete the commission group CG22125 ?", isConfirmPopup: true, selectedGroupId: 153, shouldResetScrollPosition: false });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to delete the Revenue Group CG22125 ?", isConfirmPopup: true, selectedGroupId: 153, shouldResetScrollPosition: false });
     });
 
     it('_deleteCommGroup - delete Commission Group Successfully', async () => {
@@ -102,7 +97,7 @@ describe('commission group - GridData ', () => {
 
         expect(props.deleteCommGroup).toHaveBeenCalledWith({ "groupId": 153 });
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
-        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Delete Commission Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ messageNotification: "Delete Revenue Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
     });
 
     it('_deleteCommGroup - delete Commission Group Failed', async () => {
@@ -198,7 +193,6 @@ describe('commission group - GridData ', () => {
                 DeductionId: 12,
                 DeductionName: "Banking Fee",
                 GroupId: 1271808,
-                NextDeductedPercentage: 0.02,
                 ProductIds: "0"
             },
             CreatedDate: "/Date(1534273172607)/",
@@ -207,14 +201,12 @@ describe('commission group - GridData ', () => {
             Description: "",
             GroupId: 1271808,
             GroupName: "12BETAFF226",
-            NextQmTurnover: 100,
             NoAffs: 2,
             OperationalFee: {
                 DeductedPercentage: 0.15,
                 DeductionId: 11,
                 DeductionName: "Operational Fee",
                 GroupId: 1271808,
-                NextDeductedPercentage: 0.15,
                 ProductIds: "0"
             },
             PlatformFeeList: [
@@ -223,11 +215,9 @@ describe('commission group - GridData ', () => {
                     DeductionId: 10,
                     DeductionName: "Platform Fee",
                     GroupId: 1271808,
-                    NextDeductedPercentage: 0.17,
                     ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
                 }
             ],
-            QmTurnover: 100,
             RowIdx: 6,
             TierSettingList: [
                 tierSettingItem

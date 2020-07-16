@@ -1,7 +1,6 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { setPagingOption } from '../../../../actions/pagingAction';
-import { setSelectedUserPanel } from '../../../customer/user-panel/actions';
-import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
+import { setSelectedUserPanel, toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
 import { SET_SELECTED_SITE_URL, SET_PARAM } from '../actions/types';
 
 export { setPagingOption, toggleLoaderUserPanel, setSelectedUserPanel };

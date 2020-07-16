@@ -5,8 +5,8 @@ using Fanex.Affiliate.Admin.Core.Repository.Payment;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Resources;
 using System;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             var paymentRequestDetail = GetPaymentRequestDetail(param.TransId);
 
             if (paymentRequestDetail != null &&
-                string.Equals(AffStatus.Pending, paymentRequestDetail.Status, StringComparison.InvariantCultureIgnoreCase))
+                string.Equals(AffStatus.Processing, paymentRequestDetail.Status, StringComparison.InvariantCultureIgnoreCase))
             {
                 param.AffId = paymentRequestDetail.AffId;
                 param.Amount = paymentRequestDetail.Amount;
@@ -49,40 +49,31 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                 param.Status = param.IsApproved ? AffStatus.Approved : AffStatus.Rejected;
 
                 var result = _paymentRequestRepository.UpdatePaymentRequest(param);
-                if (result != null)
+                if (result != null && result.IsSuccessful)
                 {
-                    if (result.IsSuccessful)
-                    {
-                        var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
+                    var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
 
-                        emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
-                        emailParam.FirstName = affInfo.FirstName;
-                        emailParam.MailTo = affInfo.Email;
-                        emailParam.IsHtml = !affInfo.MailOption;
-                        emailParam.Language = affInfo.PreferredLanguage ?? LanguageSystem.DefaultLanguage;
+                    emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
+                    emailParam.FirstName = affInfo.FirstName;
+                    emailParam.MailTo = affInfo.Email;
+                    emailParam.IsHtml = !affInfo.MailOption;
+                    emailParam.Language = affInfo.PreferredLanguage ?? LanguageSystem.DefaultLanguage;
 
-                        emailParam.IsApproved = param.IsApproved;
-                        emailParam.TransId = param.TransId;
-                        emailParam.TransDate = paymentRequestDetail.TransDate.ToString("MM/dd/yyyy");
-                        emailParam.Amount = paymentRequestDetail.Amount;
+                    emailParam.IsApproved = param.IsApproved;
+                    emailParam.TransId = param.TransId;
+                    emailParam.TransDate = paymentRequestDetail.TransDate.ToString("MM/dd/yyyy");
+                    emailParam.Amount = paymentRequestDetail.Amount;
 
-                        _emailService.SendPaymentRequestUpdateEmail(emailParam);
-                    }
-                    else
-                    {
-                        result.Message = GetErrMsg(result.Code);
-                    }
+                    _emailService.SendPaymentRequestUpdateEmail(emailParam);
                 }
                 return result;
             }
             return null;
         }
 
-        public static string GetErrMsg(int errCode)
+        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount)  GetPaymentMethod()
         {
-            var message = Lang.ResourceManager.GetString("UpdatePaymentErr" + errCode);
-
-            return message ?? "Update transaction failed!";
+            return _paymentRequestRepository.GetPaymentMethod();
         }
     }
 }

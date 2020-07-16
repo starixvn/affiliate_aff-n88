@@ -17,8 +17,5 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         [Range(0, 1, ErrorMessage = "Deducted Percentage is incorrect!")]
         public decimal DeductedPercentage { get; set; }
-
-        [Range(0, 1, ErrorMessage = "Next Deducted Percentage is incorrect!")]
-        public decimal NextDeductedPercentage { get; set; }
     }
 }

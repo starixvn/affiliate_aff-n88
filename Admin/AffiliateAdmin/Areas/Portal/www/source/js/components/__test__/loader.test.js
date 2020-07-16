@@ -1,6 +1,5 @@
 ﻿import React from 'react';
 import Loader from '../Loader';
-import renderer from 'react-test-renderer';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
 describe('Loader', () => {

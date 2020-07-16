@@ -14,6 +14,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class SummaryController : BaseController
     {
+        private readonly ISessionService _sessionService;
         private readonly IAccountOverviewRepository _accountOverviewRepository;
 
         public SummaryController(ISessionService sessionService,
@@ -21,6 +22,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             IAccountOverviewRepository accountOverviewRepository
             ) : base(sessionService, languageService)
         {
+            _sessionService = sessionService;
             _accountOverviewRepository = accountOverviewRepository;
         }
 
@@ -28,7 +30,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml");
+            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]
@@ -36,6 +38,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         public ActionResult Dashboard(DateTime monthDate)
         {
             var model = _accountOverviewRepository.GetUserOverviewSummary(SessionService.UserSession.AffId, monthDate);
+            model.IsMaxSubLevel = _sessionService.UserSession.IsMaxSubLevel;
+
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/Dashboard.cshtml", model);
         }
 
@@ -84,6 +88,16 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetailsContent.cshtml", model);
+        }
+
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult SubAffDetails(SubAffDetailParam param)
+        {
+            param.AffId = SessionService.UserSession.AffId;
+            var model = _accountOverviewRepository.GetSubAffDetails(param);
+
+            return PartialView("~/Views/UserPanel/AccountOverView/Summary/SubAffDetails.cshtml", model);
         }
     }
 }

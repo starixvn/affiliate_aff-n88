@@ -6,7 +6,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
     {
         public string Category { get; set; }
 
-        [SpParam(Ignored = true)]
         public string SubCategory { get; set; }
 
         public string Language { get; set; }
@@ -16,5 +15,9 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         public string ImageType { get; set; }
 
         public byte DeviceType { get; set; }
+
+        public string AffType { get; set; }
+
+        public byte TargetId { get; set; } = 1;
     }
 }

@@ -10,14 +10,21 @@ namespace Fanex.Affiliate.User.Core.Repository
 {
     public class AuthRepository : IAuthRepository
     {
+        private readonly IObjectDBBuilder _builder;
+
+        public AuthRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
+
         public int GetOnUserId(OnUserIdParam onUserIdParam)
         {
             const string spKey = "Aff_CheckIn";
             var dbMode = onUserIdParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(spKey, dbMode))
+            using (var objectDb = _builder.Build(spKey, dbMode))
             {
-                objectDb.DB.ExecuteNonQuery(onUserIdParam);
+                objectDb.ExecuteNonQuery(onUserIdParam);
             }
 
             return onUserIdParam.On_UserId;
@@ -28,11 +35,11 @@ namespace Fanex.Affiliate.User.Core.Repository
             const string spKey = "Aff_User_Login_UserInfoSel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDbBuilder = new ObjectDBBuilder(spKey, dbMode))
+            using (var objectDb = _builder.Build(spKey, dbMode))
             {
-                objectDbBuilder.DB.AddInParameter("UserName", SqlDbType.NVarChar, userName);
+                objectDb.AddInParameter("UserName", SqlDbType.NVarChar, userName);
 
-                using (var reader = objectDbBuilder.DB.ExecuteReader())
+                using (var reader = objectDb.ExecuteReader())
                 {
                     return reader.Read() ? new AuthorizedUserInfo
                     {
@@ -43,7 +50,8 @@ namespace Fanex.Affiliate.User.Core.Repository
                         AffType = Convert.ToString(reader["AffType"]),
                         IsClosed = Convert.ToBoolean(reader["IsClosed"]),
                         Status = Convert.ToString(reader["Status"]),
-                        PreferredLanguage = Convert.ToString(reader["PreferredLanguage"])
+                        PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
+                        IsMaxSubLevel = Convert.ToBoolean(reader["IsMaxSubLevel"])
                     } : null;
                 }
             }
@@ -53,9 +61,8 @@ namespace Fanex.Affiliate.User.Core.Repository
         {
             const string spKey = "Aff_User_Login_ResultUpd";
 
-            using (var objectDbBuilder = new ObjectDBBuilder(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
-                var objectDb = objectDbBuilder.DB;
                 AssignUpdateLoginResultParam(objectDb, loginResultParam);
                 objectDb.ExecuteNonQuery();
 
@@ -73,11 +80,11 @@ namespace Fanex.Affiliate.User.Core.Repository
         {
             const string spKey = "Aff_SessionIdSel";
 
-            using (var objectDb = new ObjectDBBuilder(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
-                objectDb.DB.AddInParameter("OnUserId", System.Data.SqlDbType.Int, onUserId);
+                objectDb.AddInParameter("OnUserId", System.Data.SqlDbType.Int, onUserId);
 
-                return objectDb.DB.ExecuteScalar() as string;
+                return objectDb.ExecuteScalar() as string;
             }
         }
 
@@ -91,9 +98,9 @@ namespace Fanex.Affiliate.User.Core.Repository
                 IsKickedOut = true
             };
 
-            using (var objectDb = new ObjectDBBuilder(spKey, dbMode))
+            using (var objectDb = _builder.Build(spKey, dbMode))
             {
-                objectDb.DB.ExecuteNonQuery(parameterSet);
+                objectDb.ExecuteNonQuery(parameterSet);
             }
 
             return parameterSet.IsKickedOut;

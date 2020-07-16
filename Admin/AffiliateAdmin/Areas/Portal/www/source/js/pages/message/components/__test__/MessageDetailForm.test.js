@@ -20,6 +20,10 @@ describe('message - components - MessageDetailForm ', () => {
         MessageId: 0
     };
 
+    const languages = {
+        En: "English"
+    }
+
     const param = {
         FromDate: "9/20/2019",
         Important: null,
@@ -31,7 +35,9 @@ describe('message - components - MessageDetailForm ', () => {
 
     const defaultProps = {
         selectedMessageId: 37,
-        param
+        param,
+        defaultMessageContentList: messageContentList,
+        languages
     };
 
     it('render correctly with update', () => {
@@ -178,11 +184,12 @@ describe('message - components - MessageDetailForm ', () => {
 
         result.find('Input[type="textarea"][name="MessageContentEn"][id="MessageContentEn"]').simulate('change', event);
 
-        expect(result.setState).toHaveBeenCalledWith({ messageContentList });
+        expect(result.setState).toHaveBeenCalledWith({ messageContentList: { ...messageContentList, MessageContentEn: 'test' } });
     });
 
     it('_validateMessageContent - return false', async () => {
-        const wrapper = shallow(<MessageDetailForm {...defaultProps} />);
+        const props = Object.assign({}, defaultProps, { defaultMessageContentList: {} })
+        const wrapper = shallow(<MessageDetailForm {...props} />);
         const instance = wrapper.instance();
 
         const result = instance._validateMessageContent();
@@ -192,7 +199,6 @@ describe('message - components - MessageDetailForm ', () => {
 
     it('_validateMessageContent - return true', async () => {
         const wrapper = shallow(<MessageDetailForm {...defaultProps} />);
-        wrapper.setState({ messageContentList });
         const instance = wrapper.instance();
 
         const result = instance._validateMessageContent();
@@ -412,7 +418,6 @@ describe('message - components - MessageDetailForm ', () => {
     });
 
     it('_handleClosePopup - should call setSelectedMessageId and setState', async () => {
-        const defaultMessageContentList = Object.assign({}, messageContentList, { MessageContentEn: '' })
         const props = Object.assign({}, defaultProps, { setSelectedMessageId: jest.fn() });
         const wrapper = shallow(<MessageDetailForm {...props} />);
         const instance = wrapper.instance();
@@ -421,6 +426,6 @@ describe('message - components - MessageDetailForm ', () => {
         instance._handleClosePopup();
 
         expect(props.setSelectedMessageId).toHaveBeenCalledWith(null);
-        expect(instance.setState).toHaveBeenCalledWith({ isClickedEdit: false, important: false, messageContentList: defaultMessageContentList });
+        expect(instance.setState).toHaveBeenCalledWith({ isClickedEdit: false, important: false, messageContentList });
     });
 })

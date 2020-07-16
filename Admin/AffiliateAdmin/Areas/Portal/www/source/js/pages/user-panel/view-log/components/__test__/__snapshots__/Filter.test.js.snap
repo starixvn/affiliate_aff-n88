@@ -14,118 +14,6 @@ exports[`view log - components - Filter render correctly 1`] = `
     >
       <Label
         className="mr-sm-2"
-        for="logType"
-        tag="label"
-        widths={
-          Array [
-            "xs",
-            "sm",
-            "md",
-            "lg",
-            "xl",
-          ]
-        }
-      >
-        Type
-      </Label>
-      <Input
-        id="logType"
-        name="logType"
-        onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          value="0"
-        >
-          All
-        </option>
-        <option
-          key="logType-1"
-          value="1"
-        >
-          CommissionGroup
-        </option>
-        <option
-          key="logType-2"
-          value="2"
-        >
-          UserInfo
-        </option>
-        <option
-          key="logType-3"
-          value="3"
-        >
-          Transaction
-        </option>
-        <option
-          key="logType-4"
-          value="4"
-        >
-          Payout
-        </option>
-        <option
-          key="logType-6"
-          value="6"
-        >
-          Player
-        </option>
-        <option
-          key="logType-7"
-          value="7"
-        >
-          Banner
-        </option>
-        <option
-          key="logType-8"
-          value="8"
-        >
-          Email
-        </option>
-        <option
-          key="logType-11"
-          value="11"
-        >
-          UserNote
-        </option>
-        <option
-          key="logType-13"
-          value="13"
-        >
-          LoginAffiliate
-        </option>
-        <option
-          key="logType-15"
-          value="15"
-        >
-          LogoutAffiliate
-        </option>
-        <option
-          key="logType-16"
-          value="16"
-        >
-          Password
-        </option>
-        <option
-          key="logType-17"
-          value="17"
-        >
-          Adjustment
-        </option>
-        <option
-          key="logType-18"
-          value="18"
-        >
-          Member
-        </option>
-      </Input>
-    </FormGroup>
-    <FormGroup
-      className="mr-sm-2"
-      tag="div"
-    >
-      <Label
-        className="mr-sm-2"
         tag="label"
         widths={
           Array [
@@ -140,7 +28,7 @@ exports[`view log - components - Filter render correctly 1`] = `
         From
       </Label>
       <t
-        date="6/27/2019"
+        date="01/01/2020"
         format="MM/DD/YYYY"
         iconElement={
           <span
@@ -148,8 +36,8 @@ exports[`view log - components - Filter render correctly 1`] = `
           />
         }
         isEnable={true}
-        maxDate="12/27/2019"
-        minDate={2009-11-30T17:00:00.000Z}
+        maxDate="3/12/2020"
+        minDate={2020-01-30T17:00:00.000Z}
         onChange={[Function]}
       />
     </FormGroup>
@@ -173,7 +61,7 @@ exports[`view log - components - Filter render correctly 1`] = `
         To
       </Label>
       <t
-        date="12/27/2019"
+        date="3/12/2020"
         format="MM/DD/YYYY"
         iconElement={
           <span
@@ -181,8 +69,8 @@ exports[`view log - components - Filter render correctly 1`] = `
           />
         }
         isEnable={true}
-        maxDate="12/27/2019"
-        minDate="6/27/2019"
+        maxDate="3/12/2020"
+        minDate="01/01/2020"
         onChange={[Function]}
       />
     </FormGroup>

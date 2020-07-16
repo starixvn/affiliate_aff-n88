@@ -10,7 +10,7 @@ exports[`active member - components - Activated  render correctly 1`] = `
     <div
       className="title-text"
     >
-      Members have been activated already
+      Players have been activated already
     </div>
     <t
       adjustedHeight={0}
@@ -132,9 +132,9 @@ exports[`active member - components - Activated  render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBC User Name"
+            title="System Name"
           >
-            IBC User Name
+            System Name
           </t>
           <t
             asc={true}
@@ -165,9 +165,9 @@ exports[`active member - components - Activated  render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBCCustID"
+            title="System CustID"
           >
-            IBCCustID
+            System CustID
           </t>
           <t
             asc={true}
@@ -201,7 +201,7 @@ exports[`active member - components - Activated  render correctly with Activated
     <div
       className="title-text"
     >
-      Members have been activated already
+      Players have been activated already
     </div>
     <t
       adjustedHeight={0}
@@ -257,9 +257,9 @@ exports[`active member - components - Activated  render correctly with Activated
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBC User Name"
+            title="System Name"
           >
-            IBC User Name
+            System Name
           </t>
           <t
             asc={true}
@@ -290,9 +290,9 @@ exports[`active member - components - Activated  render correctly with Activated
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBCCustID"
+            title="System CustID"
           >
-            IBCCustID
+            System CustID
           </t>
           <t
             asc={true}

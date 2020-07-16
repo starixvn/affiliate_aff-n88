@@ -1,6 +1,5 @@
 ﻿jest.mock('redux');
 jest.mock('react-redux');
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../actions/index';
@@ -47,6 +46,7 @@ describe('affiliate info - Filter - connect', () => {
         const expectedActionCreator = {
             setReportTitle: actions['setReportTitle'],
             setParam: actions['setParam'],
+            setParentAffName: actions['setParentAffName'],
             setSelectedColumn: actions['setSelectedColumn']
         }
 

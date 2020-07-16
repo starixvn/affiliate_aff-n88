@@ -1,4 +1,7 @@
-﻿.main {
+﻿body {
+    overflow-x: hidden;
+}
+.main {
     display: flex;
     flex: 1 1 auto;
     min-height: 1px;
@@ -9,13 +12,15 @@
     flex-basis: calc(100% - 400px);
     margin: 0 auto;
 }
-
+#mainBanner {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
 .main {
     $bg-main: #660000, #00008e;
 
     &.after-login {
         flex-direction: column;
-        background: $bg-main-color;
     }
 
     .content {
@@ -39,19 +44,17 @@ $height-hotnew: 26px;
 
 .hot-news {
     display: flex;
-    background: #ffc000;
+    margin: 12px 0;
 
     .title {
         position: relative;
-        background: #ec8225;
-        color: #fff;
         padding: 0 10px;
         height: $height-hotnew;
         line-height: $height-hotnew;
         margin-right: 22px;
         text-transform: uppercase;
         font-size: 12px;
-        font-weight: 600;
+        font-weight: bold;
 
         &:after {
             content: "";
@@ -60,7 +63,6 @@ $height-hotnew: 26px;
             position: absolute;
             right: -10px;
             top: 0;
-            border-left: 11px solid #ec8225;
         }
     }
 
@@ -70,8 +72,6 @@ $height-hotnew: 26px;
         flex-grow: 1;
         flex-basis: 0;
         max-width: 100%;
-        color: #d43131;
-        background: #fff;
         padding: 0 10px;
         line-height: $height-hotnew;
         font-size: 12px;
@@ -88,12 +88,28 @@ $height-hotnew: 26px;
 }
 
 // --------------------------------- image responsive ------------------- //
-.no-webp .adv-contact {
-  background-image: url("../../../../www/build/styles/Images/bg-adv_contact.png");
+.no-webp .adv-contact.N88 {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.png");
 }
 
-.webp .adv-contact {
-  background-image: url("../../../../www/build/styles/Images/bg-adv_contact.webp");
+.webp .adv-contact.N88 {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.webp");
+}
+
+.no-webp .adv-contact.N8B {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8b/bg_contact.png");
+}
+
+.webp .adv-contact.N8B {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8b/bg_contact.webp");
+}
+
+.no-webp .adv-contact.N8G {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8g/bg_contact.png");
+}
+
+.webp .adv-contact.N8G {
+    background-image: url("../../../../www/build/styles/Images/contact-in-home/n8g/bg_contact.webp");
 }
 
 .adv-contact {
@@ -108,7 +124,7 @@ $height-hotnew: 26px;
     text-align: left;
     color: #fff;
 
-    &:hover, &:focus{
+    &:hover, &:focus {
         text-decoration: none;
         color: #fff;
     }
@@ -183,5 +199,12 @@ $height-hotnew: 26px;
         &:focus {
             outline: none;
         }
+    }
+}
+
+@media only screen and (min-width: 1190px ) and (max-width: 1366px){
+    .page-container {
+        max-width: calc(100% - 200px);
+        flex-basis: calc(100% - 200px);
     }
 }

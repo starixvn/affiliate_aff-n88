@@ -6,8 +6,8 @@ import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
-import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_WINLOST, PAYMENT_REQUEST, TRANSACTION, selectedAllProduct, maxWidth } from '../modules/constants';
+import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate } from '../actions';
+import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -26,6 +26,8 @@ export class Content extends PureComponent {
 
         if (param !== prevProps.param || affId !== prevProps.affId) {
             const newParam = Object.assign({}, param, { pageIndex: 1, pageSize: pagingOption.PageSize });
+
+            this.props.setExpandMonthDateList({});
             this.fetchData(newParam);
         }
     }
@@ -82,11 +84,21 @@ export class Content extends PureComponent {
         const { affId } = this.props;
         const dailyEarningParam = {
             affId,
-            monthDate: dataItem.DateText,
+            monthDate: dataItem.NormalizeDateText,
             productId: selectedAllProduct
         }
 
         return this.props.redirectToDailyEarning(dailyEarningParam);
+    }
+
+    _handleRedirectToSubAffiliate = (dataItem) => {
+        const { affId } = this.props;
+        const subAffiliateParam = {
+            affId,
+            monthDate: dataItem.NormalizeDateText
+        }
+
+        return this.props.redirectToSubAffiliate(subAffiliateParam);
     }
 
     _getClickHandlerByTransType() {
@@ -95,40 +107,67 @@ export class Content extends PureComponent {
                 return this.handleSetTransactionId(dataItem.TransId);
             },
             [MONTHLY_WINLOST]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
-            [TRANSACTION]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem)
+            [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToSubAffiliate(dataItem)
         }
     }
 
+    _handleShow = (monthDate) => {
+        const { expandMonthDateList } = this.props;
+        this.setState({ shouldResetScrollPosition: false });
+
+        this.props.setExpandMonthDateList(Object.assign({}, expandMonthDateList, { [monthDate]: !expandMonthDateList[monthDate] }));
+    }
+
     _buildDataRow(dataItem, index) {
+        const { expandMonthDateList } = this.props;
+        const isExpand = expandMonthDateList[dataItem.NormalizeDateText];
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount)
         const transType = dataItem.TransType;
         const clickHandler = this.transTypeClickHandler[transType];
+        const status = dataItem.Status;
 
-        const isPending = dataItem.Status && dataItem.Status.toLowerCase() === 'pending';
+        const isProcessing = status && status.toLowerCase() === 'processing';
 
-        const status = isPending ? "Processing" : dataItem.Status;
         const creator = htmlDecode(dataItem.Creator);
-        const description = htmlDecode(dataItem.Description);
+        const description = htmlDecode(dataItem.DescriptionDisplay);
+        const isTotalRow = transType === MONTHLY_TOTAL;
+        const transTypeString = isTotalRow && dataItem.CalculatedType == CalculatedMonth ? 'Monthly Total' : transTypeList[transType];
 
         return (
-            <Row key={`dataRow-${index}`} className={status && status.toLowerCase()}>
-                <Cell title={index} className="text-center">{index}</Cell>
-                <Cell title={dataItem.DateText} className="text-center">{dataItem.DateText}</Cell>
-                <Cell title={transType} className="text-center">{transTypeList[transType] || monthlyWinlost}</Cell>
-                <Cell title={amount} className="text-right">
-                    {clickHandler ?
-                        (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>
-                            {amount}
-                        </Button>) :
-                        amount}
-                </Cell>
-                <Cell title={status} className="text-center">{isPending ?
-                    <Button className="p-0" color="link" onClick={() => this.handleSetTransactionId(dataItem.TransId)}>
-                        {status}
+            <React.Fragment key={`dataRow-${dataItem.TransId}-${dataItem.DateText}-${dataItem.TransType}`}>
+                <Row className={status && status.toLowerCase()}>
+                    <Cell title={index} className="text-center">{index}</Cell>
+                    <Cell title={dataItem.DateText} className="text-center">{
+                        isTotalRow ? (
+                            <Button className="p-0 th-wrapper" color="link" onClick={() => this._handleShow(dataItem.NormalizeDateText)}>
+                                <div className="icon-container">
+                                    <span className={`caret ${isExpand ? 'expand current' : 'collapsed'}`}></span>
+                                </div>
+                                <span>{dataItem.DateText}</span>
+                            </Button>
+                        ) : dataItem.DateText
+                    }</Cell>
+                    <Cell title={transTypeString || monthlyWinlost} className="text-center">{transTypeString || monthlyWinlost}</Cell>
+                    <Cell title={amount} className="text-right">
+                        {clickHandler ?
+                            (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>
+                                {amount}
+                            </Button>) :
+                            amount}
+                    </Cell>
+                    <Cell title={status} className="text-center">{isProcessing ?
+                        <Button className="p-0" color="link" onClick={() => this.handleSetTransactionId(dataItem.TransId)}>
+                            {status}
                         </Button> : status}</Cell>
-                <Cell title={creator} className="text-center">{creator}</Cell>
-                <Cell title={description}>{description}</Cell>
-            </Row>
+                    <Cell title={creator} className="text-center">{creator}</Cell>
+                    <Cell title={description}>{description}</Cell>
+                </Row>
+                {
+                    isTotalRow && isExpand && dataItem.Children.map(item => {
+                        return this._buildDataRow(item);
+                    })
+                }
+            </React.Fragment>
         )
     }
 
@@ -169,14 +208,14 @@ export class Content extends PureComponent {
 
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
-    const { pagingOption, param } = statementHistory;
+    const { pagingOption, param, expandMonthDateList } = statementHistory;
     const { affId } = affCommonInfo;
 
-    return Object.assign({}, { affId, pagingOption, param });
+    return Object.assign({}, { affId, pagingOption, param, expandMonthDateList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

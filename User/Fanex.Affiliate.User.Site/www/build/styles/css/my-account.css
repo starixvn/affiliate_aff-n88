@@ -2,6 +2,8 @@
   margin-bottom: 0; }
   .account-information .form-group .form-control {
     margin-bottom: 10px; }
+  .account-information .form-group .info-container {
+    padding-top: 5px; }
 
 #websiteInfo .btn-submit {
   font-size: 10px;

@@ -37,6 +37,29 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
+        public void GetPlayerDetailList_WhenCall_ReturnCorrectDataHasNull()
+        {
+            // Arrange
+            var service = new Mock<PlayerDetailService> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+
+            ReaderHelper.MapReaderData(dataReader, GetPlayerDetailListHasNull());
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
+            service.Setup(r => r.GetObjectDb("Aff_Admin_PlayersDetail_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = service.Object.GetPlayerDetailList(new PlayerDetailParam());
+            var item = result.MainData.FirstOrDefault();
+
+            // Assert
+            Assert.Single(result.MainData);
+            Assert.Equal(string.Empty, item.RegisteredDateText);
+        }
+
+        [Fact]
         public void GetPlayerDetailList_WhenCall_ReturnNull()
         {
             // Arrange
@@ -64,6 +87,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["UserName"] = "12BetAff226",
                 ["Deposit"] = 1234,
                 ["RegisteredDate"] = new DateTime(2019, 11, 24),
+                ["Withdrawal"] = 37,
+                ["BankingFee"] = 123,
+                ["Bonus"] = 123,
+                ["Winloss"] = 123,
+                ["Turnover"] = 123
+            };
+        }
+
+        private IDictionary<string, object> GetPlayerDetailListHasNull()
+        {
+            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["IbcUserName"] = "12BetAff226",
+                ["UserName"] = "12BetAff226",
+                ["Deposit"] = 1234,
+                ["RegisteredDate"] = DBNull.Value,
                 ["Withdrawal"] = 37,
                 ["BankingFee"] = 123,
                 ["Bonus"] = 123,

@@ -1,6 +1,8 @@
 ﻿var AffiliateLink = (function ($) {
     var _pageSize = 20;
     var _pageIndex = 0;
+    const _targetToMemberSite = 1;
+    const _targetToAffiliateSite = 2;
 
     function initPager() {
         $("#marketingPager").pager({
@@ -14,7 +16,7 @@
 
                 var searchParams = _me.getSearchParam();
                 _me.getTextList(searchParams);
-            }
+            },
         });
     }
 
@@ -74,6 +76,7 @@
                 deviceType: $("#DeviceType").val(),
                 selectedDomainId: $("#Domain").val(),
                 selectedPage: $("#MemberSitePage").val(),
+                targetId: $("#TargetId").val(),
                 pageIndex: _pageIndex + 1,
                 pageSize: _pageSize
             }

@@ -10,8 +10,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
         ResultInfo DeleteMember(DeleteMemberParam param);
 
-        ResultInfo DeleteMemberInDepositDB(int depositMemberId);
-
         void WriteAfterDeleteSuccefully(DeleteMemberParam param);
     }
 }

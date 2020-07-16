@@ -1,15 +1,8 @@
-﻿import { deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
-import { globalResource } from '../../../../modules/globalResource';
-
-export { deviceTypes, globalResource, mobile };
-
-const defaultCategory = 'Basketball';
-const defaultLanguage = 'Chinese Simplified';
-const defaultCurrency = 'EURO';
-export const defaultDevice = pcLaptop;
+﻿import { playerBanner } from "../../common/libs/constants";
 
 export const headerText = {
     Index: '#',
+    UserType: 'User Type',
     Content: 'Content',
     Category: 'Category',
     Language: 'Language',
@@ -24,12 +17,13 @@ export const messages = {
 }
 
 export const defaultState = {
+    userType: playerBanner,
     textContent: '',
-    category: defaultCategory,
-    language: defaultLanguage,
-    currency: defaultCurrency,
-    deviceType: deviceTypes[defaultDevice],
+    category: 'Basketball',
+    currency: 'EURO',
+    deviceType: 0,
     isInsert: true,
+    isPlayer: true,
     isShowMessage: false,
     isSuccess: true,
     message: ''

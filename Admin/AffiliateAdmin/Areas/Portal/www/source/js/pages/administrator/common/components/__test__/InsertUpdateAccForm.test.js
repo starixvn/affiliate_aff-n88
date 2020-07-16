@@ -3,13 +3,13 @@ import { InsertUpdateAccForm } from '../InsertUpdateAccForm';
 import { shallow } from 'enzyme';
 
 describe('administrator - common - components - InsertUpdateAccForm ', () => {
-    const departmentList = [ { DepartmentId: 120, DepartmentName: 'IT' } ];
+    const departmentList = [{ DepartmentId: 120, DepartmentName: 'IT' }];
     const defaultProps = {
         selectedUserId: 123,
         isShowPopup: true,
         closePopup: jest.fn(),
         fetchData: jest.fn(),
-        departmentList: [ { DepartmentId: 120, DepartmentName: 'IT' } ],
+        departmentList: [{ DepartmentId: 120, DepartmentName: 'IT' }],
         isInsertExistedAcc: false,
         getDepartmentList: jest.fn(() => departmentList)
     };
@@ -134,7 +134,7 @@ describe('administrator - common - components - InsertUpdateAccForm ', () => {
     });
 
     it('_handleSubmit - should call _handleShowAlert with password is empty', async () => {
-        const wrapper = shallow(<InsertUpdateAccForm { ...defaultProps } />);
+        const wrapper = shallow(<InsertUpdateAccForm {...defaultProps} />);
         const instance = wrapper.instance();
         wrapper.setState({ userName: 'abc', password: '' });
 

@@ -45,7 +45,7 @@ describe('customer member - components - Content', () => {
 
     it('render correctly with have data', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ data });
 
         expect(result).toMatchSnapshot();
@@ -54,7 +54,7 @@ describe('customer member - components - Content', () => {
     it('render correctly with have data and canViewMemberEmail is true', () => {
         const props = Object.assign({}, defaultProps, { canViewMemberEmail: true });
         const result = shallow(<Content {...props} />);
-        
+
         result.instance().setState({ data });
 
         expect(result).toMatchSnapshot();
@@ -62,7 +62,7 @@ describe('customer member - components - Content', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ data: {} });
 
         expect(result).toMatchSnapshot();

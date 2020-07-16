@@ -27,40 +27,52 @@ describe('domain control - components - Content ', () => {
     ]
 
     const gridData = [
-                    {
-                        AffDomain: "10.18.200.209:7613/12BetGo",
-                        AffDomainId: 21,
-                        CreatedDate: "2018-05-02T04:23:45.707",
-                        CreatedDateText: "05/02/2018",
-                        Creator: "AAjenny",
-                        DomainId: 89,
-                        IsUsed: true,
-                        Market: "Chinese Simplified",
-                        MarketId: "zh-CN",
-                        RedirectDomain: "www.want.to",
-                        RedirectDomainId: 58
-                    },
-                    {
-                        AffDomain: "go.liam.com",
-                        AffDomainId: 47,
-                        CreatedDate: "2018-05-02T23:15:20.28",
-                        CreatedDateText: "05/02/2018",
-                        Creator: "AAjenny",
-                        DomainId: 92,
-                        IsUsed: true,
-                        Market: "Chinese Simplified",
-                        MarketId: "zh-CN",
-                        RedirectDomain: "12liampc.com",
-                        RedirectDomainId: 59
-                    }
+        {
+            AffDomain: "10.18.200.209:7613/12BetGo",
+            AffDomainId: 21,
+            CreatedDate: "2018-05-02T04:23:45.707",
+            CreatedDateText: "05/02/2018",
+            Creator: "AAjenny",
+            DomainId: 89,
+            IsUsed: true,
+            Market: "Chinese Simplified",
+            MarketId: "zh-CN",
+            RedirectDomain: "www.want.to",
+            RedirectDomainId: 58
+        },
+        {
+            AffDomain: "go.liam.com",
+            AffDomainId: 47,
+            CreatedDate: "2018-05-02T23:15:20.28",
+            CreatedDateText: "05/02/2018",
+            Creator: "AAjenny",
+            DomainId: 92,
+            IsUsed: true,
+            Market: "Chinese Simplified",
+            MarketId: "zh-CN",
+            RedirectDomain: "12liampc.com",
+            RedirectDomainId: 59
+        }
     ];
+
+    const marketList = [
+        {
+            LanguageCode: "en-GB",
+            DomainName: "English (Euro)"
+        },
+        {
+            LanguageCode: "vi-VN",
+            DomainName: "VietNamese"
+        }
+    ]
 
     const defaultProps = {
         shouldResetScrollPosition: true,
         selectedMarket: '',
         gridData,
         affDomainList,
-        redirectDomainList
+        redirectDomainList,
+        marketList
     };
 
     it('render correctly', () => {
@@ -71,7 +83,7 @@ describe('domain control - components - Content ', () => {
     });
 
     it('render correctly with gridData is null', () => {
-        const props = Object.assign({}, defaultProps, { gridData: null, affDomainList: null,  redirectDomainList: null, fetchDomain: jest.fn() })
+        const props = Object.assign({}, defaultProps, { gridData: null, affDomainList: null, redirectDomainList: null, fetchDomain: jest.fn() })
         const result = shallow(<Content {...props} />);
 
         expect(result).toMatchSnapshot();
@@ -130,7 +142,7 @@ describe('domain control - components - Content ', () => {
         dataRow.find('Button').at(0).simulate('click');
 
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({"affDomainId": 21, "domainId": 89, "isUsed": true, "marketId": "zh-CN", "redirectDomainId": 58});
+        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "affDomainId": 21, "domainId": 89, "isUsed": true, "marketId": "zh-CN", "redirectDomainId": 58 });
     });
 
     it('_handleEditDomain - should be called when click add button', () => {
@@ -141,7 +153,7 @@ describe('domain control - components - Content ', () => {
         wrapper.find('Button').at(0).simulate('click');
 
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({"affDomainId": 21, "domainId": 0, "isUsed": false, "marketId": "en-GB", "redirectDomainId": 46});
+        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "affDomainId": 21, "domainId": 0, "isUsed": false, "marketId": "en-GB", "redirectDomainId": 46 });
     });
 
     it('_deleteDomain - should call deleteDomain with delete successfully', async () => {

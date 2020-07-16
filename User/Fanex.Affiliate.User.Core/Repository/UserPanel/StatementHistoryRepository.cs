@@ -8,15 +8,21 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public class StatementHistoryRepository : IStatementHistoryRepository
     {
+        private readonly IObjectDBBuilder _builder;
+
+        public StatementHistoryRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
         public IEnumerable<StatementHistory> GetStatementHistory(StatementHistoryParam statementHistoryParam)
         {
             const string uSpKey = "Aff_User_StatementHistory_Sel";
             var dbMode = statementHistoryParam.IsInternal ? DBMode.View : DBMode.Main;
             var dataList = new List<StatementHistory>();
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                using (var reader = objectDb.DB.ExecuteReader(statementHistoryParam))
+                using (var reader = objectDb.ExecuteReader(statementHistoryParam))
                 {
                     while (reader.Read())
                     {
@@ -30,6 +36,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                             Amount = reader["Amount"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["Amount"]),
                             Description = Convert.ToString(reader["Description"]),
                             Status = Convert.ToString(reader["Status"]),
+                            CalculatedType = reader["CalculatedType"] == DBNull.Value ? null : (byte?)(reader["CalculatedType"]),
                         });
                     }
                 }
@@ -43,9 +50,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_ProductList_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.DB.Query<ProductItem>();
+                return objectDb.Query<ProductItem>();
             }
         }
 
@@ -57,9 +64,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var dailyEarningResult = new DailyEarningResult();
             var dataList = new List<DailyEarning>();
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, dbMode))
+            using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                using (var reader = objectDb.DB.ExecuteReader(dailyEarningParam))
+                using (var reader = objectDb.ExecuteReader(dailyEarningParam))
                 {
                     while (reader.Read())
                     {
@@ -92,55 +99,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             return dailyEarningResult;
         }
 
-        public ExtraUserInfo GetExtraUserInfo(int affId, bool isInternal)
+        public IEnumerable<SubAffComInfo> GetSubAffCommission(SubAffComParam subAffParam)
         {
-            const string uSpKey = "Aff_AffiliateUser_ExtraUserInfoSel";
-            var mode = isInternal ? DBMode.View : DBMode.Main;
-            var result = new ExtraUserInfo();
+            const string uSpKey = "Aff_SubAffiliate_Commission_Sel";
+            var mode = subAffParam.IsInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, mode))
+            using (var objecDb = _builder.Build(uSpKey, mode))
             {
-                objectDb.DB.AddInParameter("AffId", System.Data.SqlDbType.Int, affId);
-
-                using (var reader = objectDb.DB.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        result.GroupName = Convert.ToString(reader["GroupName"]);
-                        result.HasDailyDetail = Convert.ToBoolean(reader["HasDailyDetail"]);
-                    }
-                }
+                var result = objecDb.Query<SubAffComInfo>(subAffParam);
+                return result;
             }
-
-            return result;
-        }
-
-        public IEnumerable<DailyEarningDetail> GetDailyEarningDetail(DailyEarningParam earningDetailParam)
-        {
-            const string uSpKey = "Aff_DailyEarning_Detail_Sel";
-            var mode = earningDetailParam.IsInternal ? DBMode.View : DBMode.Main;
-            var result = new List<DailyEarningDetail>();
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey, mode))
-            {
-                using (var reader = objectDb.DB.ExecuteReader(earningDetailParam))
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(new DailyEarningDetail
-                        {
-                            CustId = Convert.ToInt32(reader["CustId"]),
-                            UserName = Convert.ToString(reader["UserName"]),
-                            Deposit = Convert.ToDecimal(reader["Deposit"]),
-                            Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                            Turnover = Convert.ToDecimal(reader["Turnover"]),
-                            WinLost = Convert.ToDecimal(reader["Winlost"])
-                        });
-                    }
-                }
-            }
-
-            return result;
         }
     }
 }

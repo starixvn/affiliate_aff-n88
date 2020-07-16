@@ -14,6 +14,7 @@ import { messages } from '../libs/constants';
 import { setParam, fetchData, toggleLoader, setSelectedBannerId, setCheckedBanners, deleteBanners, setShouldResetScrollPosition } from '../actions';
 
 export const AppContainer = (props) => {
+
     return (
         <AppLayout>
             <Loader show={props.isShowLoader} />
@@ -27,7 +28,7 @@ export const AppContainer = (props) => {
                 toggleLoader={props.toggleLoader}
                 setShouldResetScrollPosition={props.setShouldResetScrollPosition}
                 setSelectedItemId={props.setSelectedBannerId}
-                deleteItems={props.deleteBanners}
+                deleteItems={(bannerIdList) => props.deleteBanners({ bannerIdList, userType: props.param.userType })}
             />
             <Content />
             <EditBannerForm />

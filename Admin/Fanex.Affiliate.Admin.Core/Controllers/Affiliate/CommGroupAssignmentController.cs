@@ -18,7 +18,7 @@ using Fanex.Affiliate.Admin.Core.ViewModels;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 {
-    [FunctionAuthorize(FunctionName = Function.CommissionGroup)]
+    [FunctionAuthorize(FunctionName = Function.RevenueGroup)]
     public class CommGroupAssignmentController : BaseController
     {
         private const string PrivateGroupName = "[None]";
@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             return View("~/Areas/Portal/Views/Affiliate/AssignGroup.cshtml", viewModel);
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult AssignGroup(AssignGroupParam assignParam, AffiliateBasicInfo affInfo)
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             return View("~/Areas/Portal/Views/Affiliate/AssignPrivateGroup.cshtml", viewModel);
         }
 
-        [FunctionAuthorize(FunctionName = Function.CommissionGroup, IsHost = true)]
+        [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
         public ActionResult AssignPrivateGroup(CommissionGroupSetting commGroup, AffiliateBasicInfo affInfo)
@@ -121,16 +121,13 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 var assignParam = new CreateUpdateCommissionGroupParam
                 {
                     UserId = SessionService.UserId,
-                    GroupId = affInfo.AffId,
+                    GroupId = commGroup.GroupId,
                     GroupName = affInfo.UserName,
                     Description = PrivateGroupName,
-                    QmTurnover = commGroup.QmTurnover,
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
                     BankingFee = commGroup.BankingFee,
-                    ExchangeWinLossShare = commGroup.ExchangeWinLossShare,
-                    ExchangeCommissionShare = commGroup.ExchangeCommissionShare,
                     Ip = Request.UserHostAddress
                 };
 

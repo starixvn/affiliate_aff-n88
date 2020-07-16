@@ -11,6 +11,7 @@
 
     <div class="search-container">
         <form class="form-horizontal">
+            @Html.HiddenFor(m => m.TargetId)
 
             @RazorHelper.RenderDropdownForMarketing("Category", Lang.Category, Model.CategoryList)
 
@@ -20,12 +21,7 @@
 
             @RazorHelper.RenderDropdownForMarketing("Currency", Lang.Currency, Model.CurrencyList)
 
-            @if (Model.ImageTypeList != null)
-            {
-                @RazorHelper.RenderDropdownForMarketing("ImageType", Lang.Type, Model.ImageTypeList)
-            }
-
-            <div class="form-group">
+            <div class="form-group flex-sm-boostrap flex-center">
                 <label class="col-sm-3 control-label">@Lang.Device</label>
                 <div class="col-sm-9">
                     <select class="form-control" id="DeviceType">

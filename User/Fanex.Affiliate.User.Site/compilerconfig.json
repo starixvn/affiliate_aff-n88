@@ -32,10 +32,6 @@
     "inputFile": "www/source/styles/pages/marketing.scss"
   },
   {
-    "outputFile": "www/build/styles/css/oldmarketing.css",
-    "inputFile": "www/source/styles/pages/oldmarketing.scss"
-  },
-  {
     "outputFile": "www/build/styles/css/products.css",
     "inputFile": "www/source/styles/pages/products.scss"
   },
@@ -76,28 +72,12 @@
     "inputFile": "www/source/styles/pages/statement-history.scss"
   },
   {
-    "outputFile": "www/build/styles/css/dailyearning-detail.css",
-    "inputFile": "www/source/styles/pages/dailyearning-detail.scss"
-  },
-  {
-    "outputFile": "www/build/styles/css/betlist.css",
-    "inputFile": "www/source/styles/pages/betlist.scss"
-  },
-  {
     "outputFile": "www/build/styles/css/account-overview.css",
     "inputFile": "www/source/styles/pages/account-overview.scss"
   },
   {
     "outputFile": "www/build/styles/css/pages/commissionreport.css",
     "inputFile": "www/source/styles/pages/commissionreport.scss"
-  },
-  {
-    "outputFile": "www/build/js/pages/commission-report.js",
-    "inputFile": "www/source/js/pages/commission-report.js"
-  },
-  {
-    "outputFile": "www/build/js/betlist.js",
-    "inputFile": "www/source/js/pages/betlist.js"
   },
   {
     "outputFile": "www/build/styles/css/pages/payment-request.css",
@@ -114,10 +94,6 @@
   {
     "outputFile": "www/build/styles/css/signup.css",
     "inputFile": "www/source/styles/pages/signup.scss"
-  },
-  {
-    "outputFile": "www/build/styles/css/member.css",
-    "inputFile": "www/source/styles/pages/member.scss"
   },
   {
     "outputFile": "www/build/js/contactus.js",
@@ -147,12 +123,52 @@
     "outputFile": "www/build/js/pagetracking.js",
     "inputFile": "www/source/js/components/pagetracking.js"
   },
-  //{
-  //  "outputFile": "www/build/js/changepassword.js",
-  //  "inputFile": "www/source/js/changepassword.js"
-  //},
   {
     "outputFile": "www/build/styles/css/verification-account.css",
     "inputFile": "www/source/styles/pages/verification-account.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/theme-default.css",
+    "inputFile": "www/source/styles/scss/Themes/theme-default.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/theme1.css",
+    "inputFile": "www/source/styles/scss/Themes/theme1.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/theme2.css",
+    "inputFile": "www/source/styles/scss/Themes/theme2.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/theme3.css",
+    "inputFile": "www/source/styles/scss/Themes/theme3.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/theme4.css",
+    "inputFile": "www/source/styles/scss/Themes/theme4.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n8g.css",
+    "inputFile": "www/source/styles/scss/Themes/n8g.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n8b.css",
+    "inputFile": "www/source/styles/scss/Themes/n8b.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n88-darkmode.css",
+    "inputFile": "www/source/styles/scss/Themes/n88-darkmode.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n88-lightmode.css",
+    "inputFile": "www/source/styles/scss/Themes/n88-lightmode.scss"
+  },
+  {
+    "outputFile": "www/build/js/sub-affiliate-earning.js",
+    "inputFile": "www/source/js/pages/sub-affiliate-earning.js"
+  },
+  {
+    "outputFile": "www/build/js/revenue-structure.js",
+    "inputFile": "www/source/js/pages/revenue-structure.js"
   }
 ]

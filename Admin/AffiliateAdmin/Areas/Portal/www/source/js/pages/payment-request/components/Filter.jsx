@@ -7,8 +7,7 @@ import { DatePicker } from '@9softstudio/react-datepicker';
 import { resource, searchByList, statusList, globalResource, searchByUserName } from '../modules/constants';
 import { getDateRange } from '../../../modules/utils';
 import { setParam } from '../actions';
-
-const minDate = new Date(2009, 11, 1);
+import { minDate } from '../../../modules/constants';
 
 export class Filter extends PureComponent {
     constructor(props) {
@@ -32,7 +31,7 @@ export class Filter extends PureComponent {
     }
 
     componentDidMount() {
-        if(this.props.param.IsFromHome) {
+        if (this.props.param.IsFromHome) {
             this.handleSearch();
         }
     }

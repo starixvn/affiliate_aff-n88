@@ -19,9 +19,9 @@
             var mailItem = new MailRecord
             {
                 MailTo = mailTo,
-                Subject = subject,
-                Title = subject,
-                Body = content,
+                Subject = SiteFriendlyNameHelper.Replace12Bet(subject),
+                Title = SiteFriendlyNameHelper.Replace12Bet(subject),
+                Body = SiteFriendlyNameHelper.Replace12Bet(content),
                 MailBcc = mailBcc,
                 MailCc = mailCc
             };

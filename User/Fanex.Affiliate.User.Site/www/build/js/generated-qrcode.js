@@ -1,4 +1,12 @@
 var MarketingBase = (function ($) {
+    function getDownloadParam(button) {
+        return {
+            selectedLanguage: $(button).data("selected-language"),
+            selectedDomainId: $(button).data("selected-domain-id"),
+            selectedPage: $(button).data("selected-page"),
+            targetId: $("#TargetId").val()
+        };
+    }
     var _me = {
         resiterQrcodeEvent: function() {
             new ClipboardJS('.btn-copy-link');
@@ -8,16 +16,16 @@ var MarketingBase = (function ($) {
                     let imgTag = $(trigger).nextAll("img")[0];
                     return imgTag.outerHTML;
                 }
-            })
+            });
 
             $('.btn-save-img').click(function () {
-                let base64Img = $(this).nextAll("img").attr("src");
                 let downloadTag = document.createElement("a");
-                let downloadName = $(this).data("image-name");
-                downloadTag.href = base64Img;
-                downloadTag.download = downloadName;
+                let param = getDownloadParam(this);
+                var query = $.param(param);
+                let url = `${Site.resolveRelativeUrl("UserPanel/Marketing/DownloadQrCode")}?${query}`;
+                downloadTag.href = url;
                 downloadTag.click();
-            })
+            });
         },
         generateTextLink: function () {
             var params = _me.getLinkGenerationParam();
@@ -25,11 +33,13 @@ var MarketingBase = (function ($) {
         },
 
         getLinkGenerationParam: function () {
+
             return {
                 selectedLanguage: $("#Language").val(),
                 selectedDomainId: $("#Domain").val(),
-                selectedPage: $("#MemberSitePage").val()
-            }
+                selectedPage: $("#MemberSitePage").val(),
+                targetId: $("#TargetId").val()
+            };
         },
 
         getTextLink: function (params) {

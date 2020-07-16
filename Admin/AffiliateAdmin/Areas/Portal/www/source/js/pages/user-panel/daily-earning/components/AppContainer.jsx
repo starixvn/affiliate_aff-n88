@@ -13,31 +13,32 @@ import { setSelectedUserPanel } from '../actions';
 export class AppContainer extends PureComponent {
     constructor(props) {
         super(props);
-        
+
         const { param } = this.props;
         this.monthDate = param && param.monthDate;
-        const date = new Date(this.monthDate);
 
+        const date = new Date(this.monthDate);
         this.breadcrumbList = [
-            { handleClick: () => this.props.setSelectedUserPanel(userPanelMenuKey.statementHistory), title: 'Statement History'},
-            { title: `${monthNames[date.getMonth()]} ${date.getFullYear()}`}
+            { handleClick: () => this.props.setSelectedUserPanel(userPanelMenuKey.statementHistory), title: 'Statement History' },
+            { title: `${monthNames[date.getMonth()]} ${date.getFullYear()}` }
         ];
     }
 
     render() {
+        var { productList, currencyList, baseCurrencyList } = this.props;
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={this.breadcrumbList} />
-                <Filter />
+                <Filter productList={productList} currencyList={currencyList} baseCurrencyList={baseCurrencyList} />
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ dailyEarning }) {
+function mapStateToProps({ dailyEarning, productList, currencyList, baseCurrencyList }) {
     const { param } = dailyEarning;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, productList, currencyList, baseCurrencyList });
 }
 
 function mapDispatchToProps(dispatch) {

@@ -20,7 +20,6 @@ namespace Fanex.Affiliate.User.Core.Controllers
         private const int CaptchaImgWidth = 100;
         private const int CaptchaImgHeight = 28;
 
-        private readonly IAccountRepository _accountRepository;
         private readonly IVerificationService _verificationService;
 
         public VerificationAccountController(
@@ -30,9 +29,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             ICaptchaService captchaService,
             IAccountRepository accountRepository,
             IAuthService authService,
-            IVerificationService verificationService) : base(sessionService, languageService, appSetting, captchaService, authService)
+            IVerificationService verificationService) : base(sessionService, languageService, appSetting, captchaService, authService, accountRepository)
         {
-            _accountRepository = accountRepository;
             _verificationService = verificationService;
         }
 

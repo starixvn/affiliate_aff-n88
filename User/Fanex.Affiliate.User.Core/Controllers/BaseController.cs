@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.Utilities;
 using ONEbook.UM.Filters;
 
 namespace Fanex.Affiliate.User.Core.Controllers
@@ -28,7 +29,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             var sessionLang = SessionService.CurrentLanguage;
             if (favoriteLanguage != sessionLang)
             {
-                requestContext.HttpContext.Response.Cookies.Add(new System.Web.HttpCookie("afffavoritelang", favoriteLanguage) { HttpOnly = true });
+                requestContext.HttpContext.Response.Cookies.Add(new System.Web.HttpCookie("afffavoritelang" + AppSetting.Instance.SiteName, favoriteLanguage) { HttpOnly = true });
                 SessionService.CurrentLanguage = favoriteLanguage;
             }
             LanguageService.SetCulture(favoriteLanguage);

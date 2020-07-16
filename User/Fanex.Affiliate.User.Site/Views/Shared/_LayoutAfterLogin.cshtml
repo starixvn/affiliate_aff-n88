@@ -20,7 +20,7 @@
     @RazorHelper.RenderHotNews()
     <div class="content-menu">
         <ul class="menu list-unstyled" id="mainMenu">
-            <li><a class="menu-item" id="menuAccountOverView" href="@Url.Content("~/UserPanel/Main/#AccountOverView")">@Lang.AccOverview</a></li>
+            <li><a class="menu-item" id="menuAccountOverview" href="@Url.Content("~/UserPanel/Main/#AccountOverview")">@Lang.AccOverview</a></li>
             @if (string.Equals(groupName, CommGroupName.KoreanAgentComm))
             {
                 <li><a class="menu-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Member" ? "active" : string.Empty)" id="menuYourCustomer" href="@(Url.Content("~/UserPanel/Member/Index"))">@Lang.YourCustomers</a></li>
@@ -28,18 +28,10 @@
             <li><a class="menu-item" id="menuStatementHistory" href="@Url.Content("~/UserPanel/Main/#StatementHistory")">@Lang.StatementHistory</a></li>
             <li><a class="menu-item" id="menuMyAccount" href="@Url.Content("~/UserPanel/Main/#MyAccount")">@Lang.MyAccount</a></li>
             <li><a class="menu-item" id="menuPaymentRequest" href="@Url.Content("~/UserPanel/Main/#PaymentRequest")">@Lang.PaymentRequest</a></li>
-            <li class="parent">
-                <a class="menu-item" href="javascript:;">@Lang.MarketingTools <i class="caret"></i></a>
-                <ul class="menu submenu-container list-unstyled">
-                    <li><a class="menu-item" id="menuOldMediaGallery" href="@Url.Content("~/UserPanel/Main/#OldMediaGallery")">@Lang.Media</a></li>
-                    <li><a class="menu-item" id="menuTextBox" href="@Url.Content("~/UserPanel/Main/#TextBox")">@Lang.Text</a></li>
-                </ul>
-            </li>
-            <li><a class="menu-item" id="menuCommissionReport" href="@Url.Content("~/UserPanel/Main/#CommissionReport")">@Lang.CommissionReport</a></li>
+            <li><a class="menu-item" id="menuRevenueReport" href="@Url.Content("~/UserPanel/Main/#RevenueReport")">@Lang.CommissionReport</a></li>
             <li class="parent">
                 <a class="menu-item" href="javascript:;">@Lang.Statistics <i class="caret"></i></a>
                 <ul class="menu submenu-container list-unstyled">
-                    <li><a class="menu-item" id="menuTrackingStatistics" href="@Url.Content("~/UserPanel/Main/#TrackingStatistics")">@Lang.TrackingStatistics</a></li>
                     <li><a class="menu-item" id="menuReferrersStatistics" href="@Url.Content("~/UserPanel/Main/#ReferrersStatistics")">@Lang.Referrals</a></li>
                     <li><a class="menu-item" id="menuLandingPageStatistics" href="@Url.Content("~/UserPanel/Main/#LandingPageStatistics")">@Lang.LandingPages</a></li>
                 </ul>

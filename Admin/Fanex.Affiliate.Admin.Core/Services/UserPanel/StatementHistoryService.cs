@@ -4,6 +4,9 @@ using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels;
+using System.Collections.Generic;
+using Fanex.Affiliate.Admin.Core.Constants;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
@@ -14,6 +17,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         public StatementHistoryService(IStatementHistoryRepository statementHistoryRepository)
         {
             _statementHistoryRepository = statementHistoryRepository;
+        }
+
+        public EntityResult<SubAffiliate> GetSubAffiliate(SubAffiliateParam param)
+        {
+            return _statementHistoryRepository.GetSubAffiliate(param);
         }
 
         public DailyEarningResult GetDailyEarning(DailyEarningParam param)
@@ -45,7 +53,53 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         public EntityResult<StatementHistory> GetStatementHistoryList(AffiliatePagingByDateParam param)
         {
-            return _statementHistoryRepository.GetStatementHistoryList(param);
+            var vms = new List<StatementHistory>();
+            var result = _statementHistoryRepository.GetStatementHistoryList(param);
+            foreach (var item in result.MainData)
+            {
+                if (item.TransType == Code.MonthlyWinlost || item.TransType == Code.SubAffiliate)
+                {
+                    if (CheckIfExistMonthlyTotal(item.Date, vms))
+                    {
+                        continue;
+                    }
+                    vms.Add(CreateMonthlyTotal(item.Date, result.MainData));
+                }
+                else
+                {
+                    vms.Add(item);
+                }
+            }
+
+            return new EntityResult<StatementHistory> {
+                MainData = vms,
+                TotalItem = result.TotalItem
+            };
+        }
+
+        private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
+        {
+            var children = statementHistoryList.Where(s => s.Date == monthDate)
+                .Where(s => s.TransType == Code.SubAffiliate || s.TransType == Code.MonthlyWinlost);
+
+            var monthlyCom = children.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
+
+            var monthlyTotal = new StatementHistory
+            {
+                Creator = monthlyCom?.Creator ?? children.FirstOrDefault().Creator,
+                Amount = children.Sum(s => s.Amount),
+                Date = monthDate,
+                Children = children,
+                Status = monthlyCom?.Status ?? children.FirstOrDefault().Status,
+                TransType = Code.MonthlyTotal,
+                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault().CalculatedType
+            };
+            return monthlyTotal;
+        }
+
+        private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistory> vms)
+        {
+            return vms.Any(m => m.Date == monthDate && m.TransType == Code.MonthlyTotal);
         }
     }
 }

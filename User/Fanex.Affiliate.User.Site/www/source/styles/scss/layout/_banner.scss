@@ -6,7 +6,7 @@
     .carousel-control {
         width: 2.5rem;
         background: transparent;
-        text-shadow: 0 0 #fff;
+        text-shadow: 0 0 #fff;        
 
         .chevron {
             background: rgba(255,255,255,.5);
@@ -21,14 +21,15 @@
 
         > .item {
             height: 100%;
+            position: relative;
 
-            > a .img-responsive {
+            .img-responsive {
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
+            
         }
-
-
 
         @media (min-width: 1600px) {
             height: 500px;
@@ -49,7 +50,50 @@
         }
     }
 }
+.banner-text {
+    position: absolute;
+    left: 215px;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 650px;
 
+    @media only screen and (max-width: 1023px ) {
+        max-width: 310px;
+    }
+
+    .txt-lang {
+        text-transform: uppercase;
+        color: #fff;
+        margin: 0;
+        line-height: 1.2;
+    }
+    h2 {
+        font-size: 56px;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+        margin-bottom: 11px !important;
+    }
+
+    h5 {
+        font-size: 20px;
+        font-weight: normal;
+        letter-spacing: 0.02em;
+        margin-bottom: 12px;
+    }
+
+    .nounderline {
+        background: linear-gradient(180deg, #FFA470 0%, #FF5D00 65.83%);
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        display: inline-block;
+        border-radius: 8px;
+        padding: 12px 36px;
+        margin-top: 24px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+}
 .banner-side {
     background: #010187;
 
@@ -59,11 +103,11 @@
 }
 
 .no-webp .banner-commission-structure {
-  background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.png");
 }
 
 .webp .banner-commission-structure {
-  background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-Commission-Structure_Banner.webp");
 }
 
 .banner-commission-structure {
@@ -92,15 +136,15 @@
             position: relative;
             display: inline-block;
             margin-left: 10px;
-            font-size: 60px;            
+            font-size: 60px;
             color: #FFFF28;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;             
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
         }
 
         .text-big-white {
             font-size: 25px;
             color: #fff;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;            
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-style: italic;
         }
 
@@ -108,7 +152,7 @@
             //margin-bottom: 0;
             font-size: 20px;
             color: #fff;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;            
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-style: italic;
         }
 
@@ -122,17 +166,16 @@
             display: inline-block;
             font-size: 40px;
             color: #FFFF28;
-            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;                         
+            text-shadow: rgb(91, 69, 10) 1px 0px 0px, rgb(91, 69, 10) 0.540302px 0.841471px 0px, rgb(91, 69, 10) -0.416147px 0.909297px 0px, rgb(91, 69, 10) -0.989992px 0.14112px 0px, rgb(91, 69, 10) -0.653644px -0.756802px 0px, rgb(91, 69, 10) 0.283662px -0.958924px 0px, rgb(91, 69, 10) 0.96017px -0.279415px 0px;
             font-weight: 600;
             font-style: normal;
-
         }
     }
 
-     @media screen and (max-width: 767px) {
-         padding-left: 15px;
+    @media screen and (max-width: 767px) {
+        padding-left: 15px;
 
-         .text-content {
+        .text-content {
             .text-big-yellow {
                 font-size: 40px;
             }
@@ -148,47 +191,61 @@
             .text-yellow {
                 font-size: 30px;
             }
-         }
-              
-     }
+        }
+    }
 }
 
-
-
 .no-webp .banner-product-sport {
-  background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.jpg?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.jpg?v=000001");
 }
 
 .webp .banner-product-sport {
-  background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.webp?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-sports_affiliate.webp?v=000001");
 }
 
 .no-webp .banner-product-casino {
-  background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.jpg?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.jpg?v=000001");
 }
 
 .webp .banner-product-casino {
-  background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.webp?v=000001");
+    background-image: url("../../../../www/build/styles/Images/products/bg-casino_affiliate.webp?v=000001");
 }
 
 .banner-product {
-    display: flex;  
-    max-width: 1120px;    
+    display: flex;
+    max-width: 1120px;
     height: 300px;
     margin: 0 auto;
     padding: 50px 10px;
     font-family: Tahoma, sans-serif;
-    background-position: right center;
+    background-position: center center;
     background-repeat: no-repeat;
     text-align: left;
     background-size: cover;
+    position: relative;
 
     .text-red {
-        color: #ff0000;        
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.5;
-        text-align: center;
+        font-weight: 500;
+        line-height: 1.204;
+        font-size: 4rem;
+        color: #ffffff;
+        line-height: 1.204545;
+        position: absolute;
+        text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+
+
+        span {
+            font-weight: 600;
+            color: #FFD235;
+            font-size: 109.091%;
+            display: block;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
     }
 
     @media screen and (min-width: 768px) and (max-width: 1199px) {
@@ -203,85 +260,125 @@
         flex-direction: column;
         justify-content: center;
 
+
         .text-red {
-            margin-bottom: -260px  
+            text-align: left;
+            left: 76px;
+            max-width: 52%;
+        }
+
+        @media screen and (max-width: 1500px) {
+            .text-red {
+                max-width: 57%;
+                left: 20px;
+                font-size: 3rem;
+            }
         }
 
         @media screen and (min-width: 768px) and (max-width: 1199px) {
             .text-red {
-                margin-bottom: -170px 
+                //margin-bottom: -170px
             }
         }
 
-        @media screen and (max-width: 767px) {        
+        @media screen and (max-width: 767px) {
             .text-red {
-                margin-bottom: -30px;
+                left: 10px;
+                font-size: 2rem;
+            }
+        }
+
+        @media screen and (max-width: 530px) {
+            .text-red {
+                font-size: 16px;
+                max-width: 58%;
             }
         }
     }
 
     &.banner-product-casino {
         .text-red {
-            margin-top: -2rem;
-            font-size: 15px;
+            text-align: right;
+            right: 49px;
+            margin: 3px 0 0 0;
+            padding: 0;
+            max-width: 53%;
         }
 
-        @media screen and (min-width: 768px) and (max-width: 1199px) {
+        @media screen and (max-width: 1500px) {
             .text-red {
-                margin-top: -3.25rem;
+                max-width: 57%;
+                right: 35px;
+                font-size: 30px;
+            }
+        }
+
+        @media screen and (max-width: 991px) {
+            .text-red {
+                right: 25px;
+                font-size: 22px;
             }
         }
 
         @media screen and (max-width: 767px) {
             .text-red {
-                margin-top: -4.25rem;
-                font-size: 12px;
+                right: 10px;
+                font-size: 22px;
             }
         }
 
-        @media screen and (max-width: 424px) {
+
+
+        @media screen and (max-width:600px) {
             .text-red {
-                margin-top: -4rem;
-                margin-left: -0.75rem;
-                font-size: 10px;
+                right: 15px;
+                font-size: 17px;
+            }
+        }
+
+        @media screen and (max-width: 530px) {
+            .text-red {
+                right: 15px;
+                max-width: 58%;
+                font-size: 15px;
             }
         }
 
         @media screen and (max-width: 374px) {
-               .text-red {
-                margin-top: -4.25rem;
-                margin-left: -1.75rem;
+            .text-red {
+                //margin-top: -4.25rem;
+                //margin-left: -1.75rem;
             }
         }
     }
 }
 
 .no-webp .banner-terms-condition {
-  background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.png");
 }
 
 .webp .banner-terms-condition {
-  background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-Terms_&_conditions_banner.webp");
 }
 
 .no-webp .banner-faqs {
-  background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.png");
+    background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.png");
 }
 
 .webp .banner-faqs {
-  background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.webp");
+    background-image: url("../../../../www/build/styles/Images/bg-FAQ_banner.webp");
 }
 
 .banner-terms-condition, .banner-faqs {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 560px;
+    max-width: 570px;
     height: 95px;
     margin: 0 auto;
     padding-left: 108px;
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size: contain;
 
     p {
         margin: 0;
@@ -299,6 +396,12 @@
             font-size: 13px;
         }
     }
+
+    @media screen and (max-width: 320px) {
+        height: 52px;
+        width: 100%;
+        padding-left: 60px;
+    }
 }
 
 .banner-faqs {
@@ -306,6 +409,13 @@
 
     @media screen and (max-width: 767px) {
         width: 330px;
-        padding-left: 80px;        
+        padding-left: 80px;
     }
-}
+
+    @media screen and (max-width: 375px) {
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 17px;
+        height: 55px;
+    }
+}  

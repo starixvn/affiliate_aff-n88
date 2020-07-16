@@ -4,9 +4,9 @@ import { shallow } from 'enzyme';
 
 describe('tracking statistics - components - Detail', () => {
     const gridData = [
-        {TotalClick: 12, UniqueClick: 10, MonthText: "January-2017", DateText: "01/31/2017"},
-        {TotalClick: 11, UniqueClick: 9, MonthText: "January-2017", DateText: "01/30/2017"},
-        {TotalClick: 10, UniqueClick: 9, MonthText: "January-2017", DateText: "01/29/2017"}
+        { TotalClick: 12, UniqueClick: 10, MonthText: "January-2017", DateText: "01/31/2017" },
+        { TotalClick: 11, UniqueClick: 9, MonthText: "January-2017", DateText: "01/30/2017" },
+        { TotalClick: 10, UniqueClick: 9, MonthText: "January-2017", DateText: "01/29/2017" }
     ];
     const defaultProps = {
         affId: 1271808,
@@ -18,7 +18,7 @@ describe('tracking statistics - components - Detail', () => {
 
     it('render correctly', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.setState({ gridData });
 
         expect(result).toMatchSnapshot();
@@ -26,7 +26,7 @@ describe('tracking statistics - components - Detail', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Detail {...defaultProps} />);
-        
+
         result.setState({ gridData: [] });
 
         expect(result).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('tracking statistics - components - Detail', () => {
 
         instance.componentDidUpdate(defaultProps);
 
-        expect(instance.fetchData).toHaveBeenCalledWith({ trackingCode: "", selectedMonth: new Date('December-2019') });
+        expect(instance.fetchData).toHaveBeenCalledWith({ trackingCode: "", selectedMonth: "December-2019" });
     });
 
     it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption', async () => {

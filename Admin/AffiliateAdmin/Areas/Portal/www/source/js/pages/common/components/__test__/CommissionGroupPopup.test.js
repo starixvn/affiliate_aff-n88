@@ -46,7 +46,7 @@ describe('common - components - CommissionGroupPopup', () => {
     it('handleClosePopupEvent - should call handleAssignGroupSuccessfully', () => {
         const result = shallow(<CommissionGroupPopup {...defaultProps} />);
         const instance = result.instance();
-        instance.handleAssignGroupSuccessfully  = jest.fn();
+        instance.handleAssignGroupSuccessfully = jest.fn();
 
         instance.handleClosePopupEvent({ data: 'assignGroupSuccessfully' });
 

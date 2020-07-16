@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing
 
         public LinkFormViewModel LinkForm { get; set; }
 
-        public IDictionary<string, QrCodeLinkModel> QrCodeList { get; set; }
+        public IDictionary<string, QrCodeLinkViewModel> QrCodeList { get; set; }
 
         public IEnumerable<MarketingItem> MarketingDataList { get; set; }
     }

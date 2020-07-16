@@ -20,15 +20,19 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private readonly IAffiliateReportService _affiliateReportService;
 
+        private readonly ICurrencyRepository _currencyRepository;
+
         public ReportController(
             ISessionService sessionService,
             IProductRepository productRepository,
             ILanguageService languageService,
-            IAffiliateReportService affiliateReportService) : base(sessionService)
+            IAffiliateReportService affiliateReportService,
+            ICurrencyRepository currencyRepository) : base(sessionService)
         {
             _productRepository = productRepository;
             _languageService = languageService;
             _affiliateReportService = affiliateReportService;
+            _currencyRepository = currencyRepository;
         }
 
 
@@ -38,7 +42,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var viewModel = new AffiliateReportViewModel
             {
                 ProductList = _productRepository.GetProductList(),
-                LanguageList = _languageService.GetLanguageList()
+                LanguageList = _languageService.GetLanguageList(),
+                CurrencyList = _currencyRepository.GetCurrencies(),
+                BaseCurrencyList = _currencyRepository.GetBaseCurrencies()
             };
 
             return View(viewModel);
@@ -47,7 +53,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetMainData(AffiliateReportMainParam param)
+        public ActionResult GetMainData(AffiliateReportParam param)
         {
             return new JsonNetResult
             {
@@ -57,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult GetDetailData(AffiliateReportMainParam param)
+        public ActionResult GetDetailData(AffiliateReportParam param)
         {
             return new JsonNetResult
             {

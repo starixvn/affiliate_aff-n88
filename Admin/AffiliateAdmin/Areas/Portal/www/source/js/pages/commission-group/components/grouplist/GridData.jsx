@@ -50,7 +50,7 @@ export class GridData extends Component {
     }
 
     _handleDeleteCommGroup = (selectedGroupId, groupName) => {
-        this.setState({ messageNotification: `Are you sure you want to delete the commission group ${groupName} ?`, isConfirmPopup: true, selectedGroupId, shouldResetScrollPosition: false });
+        this.setState({ messageNotification: `Are you sure you want to delete the Revenue Group ${groupName} ?`, isConfirmPopup: true, selectedGroupId, shouldResetScrollPosition: false });
     }
 
     _deleteCommGroup = async (groupId) => {
@@ -63,7 +63,7 @@ export class GridData extends Component {
                 const gettingParam = Object.assign({}, { PageIndex: pagingOption.PageIndex, PageSize: pagingOption.PageSize, GroupName: this.props.searchedGroupName });
                 this.props.getGroupSettingList(gettingParam);
 
-                this.setState({ messageNotification: "Delete Commission Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
+                this.setState({ messageNotification: "Delete Revenue Group Successfully", isConfirmPopup: false, shouldResetScrollPosition: true });
             }
             else {
                 this.setState({ messageNotification: result.Message, isConfirmPopup: false, shouldResetScrollPosition: true });
@@ -79,21 +79,19 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2">No.Aff</Cell>
                 <Cell header={true} colWidth={150} rowSpan="2">Description</Cell>
                 <Cell header={true} colWidth={80} rowSpan="2">Creation</Cell>
-                <Cell header={true} colSpan="11">Policy</Cell>
+                <Cell header={true} colSpan="9">Policy</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2">Action</Cell>
             </Row>,
             <Row key="sub-theard">
                 <Cell header={true} colWidth={80}></Cell>
                 <Cell header={true} colWidth={80}>Tier</Cell>
-                <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min AM($)</Cell>
-                <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max AM($)</Cell>
-                <Cell header={true} colWidth={80} title="Minimum number of qualified members">Min QM</Cell>
-                <Cell header={true} colWidth={80} title="Maximum number of qualified members">Max QM</Cell>
-                <Cell header={true} colWidth={80}>Comm Rate</Cell>
-                <Cell header={true} colWidth={80}>Exchg. Rev%</Cell>
+                <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min Amount</Cell>
+                <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
+                <Cell header={true} colWidth={80} title="Minimum number of active players">Min AP</Cell>
+                <Cell header={true} colWidth={80} title="Maximum number of active players">Max AP</Cell>
+                <Cell header={true} colWidth={80}>Revenue Rate</Cell>
                 <Cell header={true} colWidth={80}>Operational Fee</Cell>
                 <Cell header={true} colWidth={80}>Banking Fee</Cell>
-                <Cell header={true} colWidth={80}>QM Turnover</Cell>
             </Row>
         ];
     }
@@ -106,7 +104,7 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, PlatformFeeList, OperationalFee, BankingFee, ExchangeWinLossShare, ExchangeCommissionShare, ...group } = item;
+                const { TierSettingList, PlatformFeeList, OperationalFee, BankingFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const rowSpan = tierSettingRowSpan + platformFeeRowSpan;
@@ -141,14 +139,9 @@ export class GridData extends Component {
                             <Cell className="text-right cell-tier">{formatDecimal(tierSetting.Commission)}</Cell>
 
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                <p>WL: {ExchangeWinLossShare ? formatDecimal(ExchangeWinLossShare.DeductedPercentage) : 0}</p>
-                                <p>Comm: {ExchangeCommissionShare ? formatDecimal(ExchangeCommissionShare.DeductedPercentage) : 0}</p>
-                            </Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
                                 {OperationalFee && formatDecimal(OperationalFee.DeductedPercentage)}</Cell>)}
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
                                 {BankingFee && formatDecimal(BankingFee.DeductedPercentage)}</Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>{formatDecimal(group.QmTurnover)}</Cell>)}
 
                             {isFirstItem && (
                                 <Cell className="text-center" rowSpan={rowSpan}>
@@ -185,7 +178,7 @@ export class GridData extends Component {
         }
         else {
             rows.push(<Row>
-                <Cell className="text-center" colSpan="16">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="14">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 

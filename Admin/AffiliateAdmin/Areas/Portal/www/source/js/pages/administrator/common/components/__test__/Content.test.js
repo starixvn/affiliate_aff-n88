@@ -3,8 +3,6 @@ import Content from '../Content';
 import { shallow } from 'enzyme';
 import EditPolicyForm from '../EditPolicyForm';
 import DepartmentPopup from '../DepartmentPopup';
-import InsertUpdateAccForm from '../InsertUpdateAccForm';
-import NotificationPopup from '../../../../common/components/NotificationPopup';
 import ChangePasswordForm from '../../../../common/components/ChangePasswordForm';
 
 describe('administrator - common - components - Content ', () => {
@@ -126,7 +124,7 @@ describe('administrator - common - components - Content ', () => {
         wrapper.instance()._onCheckItem(true, '862400');
 
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setCheckedUsers).toHaveBeenCalledWith({"1000000045": true, "862400": true });
+        expect(props.setCheckedUsers).toHaveBeenCalledWith({ "1000000045": true, "862400": true });
     });
 
     it('_handleChangeStatus - should call setShouldResetScrollPosition and setState', () => {
@@ -167,7 +165,7 @@ describe('administrator - common - components - Content ', () => {
     });
 
     it('handleFetchData - should call fetchData', () => {
-        const props = Object.assign({}, defaultProps, { fetchData: jest.fn() }) ;
+        const props = Object.assign({}, defaultProps, { fetchData: jest.fn() });
         const wrapper = shallow(<Content {...props} />);
 
         wrapper.instance().handleFetchData();
@@ -194,7 +192,7 @@ describe('administrator - common - components - Content ', () => {
         wrapper.instance()._handleShowPolicyPopup(862400, 'pgmViet');
 
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(wrapper.setState).toHaveBeenCalledWith({"isShowPolicyPopup": true, "selectedUserId": 862400, "userName": "pgmViet"});
+        expect(wrapper.setState).toHaveBeenCalledWith({ "isShowPolicyPopup": true, "selectedUserId": 862400, "userName": "pgmViet" });
     });
 
     it('_handleShowDepartmentPopup - should call setShouldResetScrollPosition and setState', () => {
@@ -232,7 +230,7 @@ describe('administrator - common - components - Content ', () => {
     });
 
     it('_handleSaveStatus - should call changeStatus and setState when update failed', async () => {
-        const expectedResult = { IsSuccessful: false, Message: 'Change is failed!'}
+        const expectedResult = { IsSuccessful: false, Message: 'Change is failed!' }
         const props = Object.assign({}, defaultProps, { changeStatus: jest.fn(() => expectedResult) });
         const wrapper = shallow(<Content {...props} />);
         const instance = wrapper.instance();
@@ -245,7 +243,7 @@ describe('administrator - common - components - Content ', () => {
     });
 
     it('_handleSaveStatus - should be called changeStatus, setState and handleFetchData when update successfully', async () => {
-        const expectedResult = { IsSuccessful: true, Message: ''}
+        const expectedResult = { IsSuccessful: true, Message: '' }
         const props = Object.assign({}, defaultProps, { changeStatus: jest.fn(() => expectedResult) });
         const wrapper = shallow(<Content {...props} />);
         const instance = wrapper.instance();
@@ -350,12 +348,14 @@ describe('administrator - common - components - Content ', () => {
 
         instance.handleClosePopup();
 
-        expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowUserPopup: false,
+        expect(wrapper.setState.mock.calls[0]).toEqual([{
+            isShowUserPopup: false,
             isShowPolicyPopup: false,
             isShowDepartmentPopup: false,
             isShowPasswordPopup: false,
-            message: '' }, expect.any(Function)]);
+            message: ''
+        }, expect.any(Function)]);
         expect(window.setTimeout).toHaveBeenCalledWith(expect.any(Function), 200);
-        expect(wrapper.setState.mock.calls[1]).toEqual([{"isInsertExistedAcc": false, "selectedUserId": 0}]);
+        expect(wrapper.setState.mock.calls[1]).toEqual([{ "isInsertExistedAcc": false, "selectedUserId": 0 }]);
     });
 })

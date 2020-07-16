@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container, Button, Row, Col, Alert } from 'reactstrap';
 
-import { getUserAccountInfo, updateUserAccount, getAffiliateInfo } from '../actions';
+import { getUserAccountInfo, updateUserAccount, getAffiliateInfo, getPaymentMethod } from '../actions';
 import { validateUserAccount } from '../modules/validation';
 import { userPanelMenuKey } from '../modules/constants';
 
@@ -21,13 +21,16 @@ export class Content extends PureComponent {
         this.state = {
             isSuccess: true,
             isShowMessage: false,
-            message: ''
+            message: '',
+            paymentMethodList: [],
+            minimumPayment: 0
         }
     }
 
     componentDidMount() {
         const { affId } = this.props;
         affId && this.props.getUserAccountInfo(affId);
+        this._fetchPaymentMethodInfo();
     }
 
     handleGetMoreSiteUrls = (moreSiteUrlsList) => {
@@ -35,7 +38,7 @@ export class Content extends PureComponent {
     }
 
     handleTrimObject = (objectOriginal) => {
-        return Object.keys(objectOriginal).reduce((accumulator, key) => {
+        const newObject = Object.keys(objectOriginal).reduce((accumulator, key) => {
             let item = objectOriginal[key];
             if (typeof item === 'string') {
                 item = item.trim();
@@ -44,19 +47,26 @@ export class Content extends PureComponent {
 
             return accumulator;
         }, {});
+
+        if (newObject.HasWebSite) {
+            newObject.NoSiteDescription = '';
+        } else {
+            newObject.SiteUrl = '';
+        }
+
+        return newObject;
     }
 
     handleSubmit = async () => {
-        const { affName, userAccountInfo, moreSiteUrlsList } = this.props;
+        const { affId, affName, userAccountInfo, moreSiteUrlsList, licenseeName } = this.props;
         const userAccountInfoAfterTrim = this.handleTrimObject(userAccountInfo);
-        const resultValidateUserAccount = validateUserAccount(userAccountInfoAfterTrim, moreSiteUrlsList);
+        const resultValidateUserAccount = validateUserAccount(userAccountInfoAfterTrim, moreSiteUrlsList, licenseeName);
 
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         if (resultValidateUserAccount.isValid) {
-            const moreSiteUrls = this.handleGetMoreSiteUrls(moreSiteUrlsList);
+            const moreSiteUrls = userAccountInfo.HasWebSite ? this.handleGetMoreSiteUrls(moreSiteUrlsList) : '';
             const newUserAccountInfo = Object.assign({}, userAccountInfoAfterTrim, { MoreSiteUrls: moreSiteUrls });
-
             const result = await this.props.updateUserAccount(newUserAccountInfo);
 
             if (result) {
@@ -66,7 +76,10 @@ export class Content extends PureComponent {
                     message: result.IsSuccessful ? `${userAccountInfo.AffName} has been updated successfully!` : result.Message,
                 }, () => window.setTimeout(() => {
                     this.hideMessage();
-                    result.IsSuccessful && this.props.getAffiliateInfo(affName, userPanelMenuKey.edit)
+                    if (result.IsSuccessful) {
+                        this.props.getUserAccountInfo(affId);
+                        this.props.getAffiliateInfo(affName, userPanelMenuKey.edit);
+                    }
                 }, 3000));
             }
             else {
@@ -91,8 +104,18 @@ export class Content extends PureComponent {
         });
     }
 
+    _fetchPaymentMethodInfo = async () => {
+        const response = await this.props.getPaymentMethod();
+
+        if (response) {
+            const paymentMethodList = response.PaymentMethods;
+            const minimumPayment = response.MinAmount;
+            this.setState({ paymentMethodList, minimumPayment });
+        }
+    }
+
     render() {
-        const { isSuccess, isShowMessage, message } = this.state;
+        const { isSuccess, isShowMessage, message, paymentMethodList, minimumPayment } = this.state;
 
         return this.props.userAccountInfo && (
             <Container fluid={true} className="user-account-container">
@@ -133,7 +156,7 @@ export class Content extends PureComponent {
                 <Row>
                     <Col xs="12" className="px-0">
                         <Section title="Payment Information">
-                            <Payment />
+                            <Payment paymentMethodList={paymentMethodList} minimumPayment={minimumPayment} />
                         </Section>
                     </Col>
                 </Row>
@@ -146,15 +169,15 @@ export class Content extends PureComponent {
     }
 }
 
-function mapStateToProps({ affCommonInfo, edit }) {
+function mapStateToProps({ affCommonInfo, edit, licenseeName }) {
     const { affId, affName } = affCommonInfo;
     const { userAccountInfo, moreSiteUrlsList } = edit;
 
-    return Object.assign({}, { affId, affName, userAccountInfo, moreSiteUrlsList });
+    return Object.assign({}, { affId, affName, userAccountInfo, moreSiteUrlsList, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getUserAccountInfo, updateUserAccount, getAffiliateInfo }, dispatch);
+    return bindActionCreators({ getUserAccountInfo, updateUserAccount, getAffiliateInfo, getPaymentMethod }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

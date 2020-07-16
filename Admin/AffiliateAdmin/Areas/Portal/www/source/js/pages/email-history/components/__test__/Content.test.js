@@ -100,7 +100,7 @@ describe('email history - components - Content ', () => {
         const wrapper = shallow(<Content {...defaultProps} />);
         const instance = wrapper.instance();
 
-        instance.onCheckItem = jest.fn((isChecked, emailId) => {});
+        instance.onCheckItem = jest.fn((isChecked, emailId) => { });
 
         const dataRow = shallow(<div>{instance._renderDataSection(gridData)}</div>);
 

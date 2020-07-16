@@ -1,6 +1,12 @@
 ﻿var StatementHistory = (function ($) {
-    var _pageSize = 20;
-    var _pageIndex = 0;
+    const _currentPage = "StatementHistory";
+    const urlMapping = [
+        { transType: 201, url: "UserPanel/Main/#DailyEarning" },
+        { transType: 204, url: "UserPanel/Main/#SubAffEarning" }
+    ];
+    
+    let _pageSize = 20;
+    let _pageIndex = 0;
 
     function initPager() {
         $("#statementPager").pager({
@@ -18,6 +24,15 @@
         });
     }
 
+    function toggleCollapseButton(btn) {
+        $(btn).children("span").toggleClass("glyphicon-chevron-right");
+        $(btn).children("span").toggleClass("glyphicon-chevron-down");
+    }
+
+    function toggleChildrenElem(children) {
+        $(children).toggleClass("display-none");
+    }
+
     var _me = {
         initialize: function () {
             initPager();
@@ -25,17 +40,36 @@
         },
 
         initEvent: function () {
+            $("#base-currency").change(function () {
+                console.log(11);
+                var params = _me.getStatementHistoryParam();
+                _me.renderStatementHistory(params);
+            })
+
             $("#statementDataList").on("click", ".amountItem", function () {
-                var params = {
-                    monthDate: $(this).data("date")
+                let transtype = Number($(this).data("transtype"));
+                let url = urlMapping.find(elem => elem.transType === transtype).url;
+                let params = {
+                    monthDate: $(this).data("date"),
+                    requestPage: _currentPage,
+                    baseCurrency: $("#base-currency").val(),
+                    isOnlyContent: false
                 };
 
-                Site.redirect(Site.resolveRelativeUrl("UserPanel/Main/#DailyEarning?" + $.param(params)));
+                Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
+            });
+
+            $("#statementDataList").on("click", ".btn.btn-transparent", function () {
+                let id = $(this).parents("tr").data("id");
+                let children = $(this).parents("tr").siblings(`tr[data-parent='${id}']`);
+                toggleCollapseButton(this);
+                toggleChildrenElem(children);
             });
         },
 
         getStatementHistoryParam: function () {
             return {
+                baseCurrency: $("#base-currency").val(),
                 pageSize: _pageSize,
                 pageIndex: _pageIndex + 1
             };

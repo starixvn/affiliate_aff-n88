@@ -6,14 +6,17 @@
 @model string
 @{ 
     var viewName = "~/Views/TermAndCondition/_Content." + Model + ".cshtml";
+
+    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.TermAndCondition</span>
-    </div>    
+    <div class="content">
+        <div class="page-title">
+            <span class="text">@Lang.TermAndCondition</span>
+        </div>
 
-    @{ Html.RenderPartial(viewName); }
+        @Html.Raw(htmlString)
 
-    @RazorHelper.RenderMovingTopButton()
-</div>
+        @RazorHelper.RenderMovingTopButton()
+
+    </div>

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Functions SiteId="32" SiteName="12Bet Admin">
+<Functions SiteId="32" SiteName="N88 Admin">
   <Function Name="Language">
     <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="AffiliateInformation">
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="affiliate_n88" />  
+    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="affiliate_n88" />  
+    <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Commission">
     <Setting Key="Aff_ProductList_Sel" SpName="Aff_ProductList_Sel" DbName="affiliate_n88" />
@@ -20,9 +20,6 @@
     <Setting Key="Aff_Admin_CommGroupNormal_Sel" SpName="Aff_Admin_CommGroupNormal_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_CommGroup_Assign" SpName="Aff_Admin_CommGroup_Assign" DbName="affiliate_n88" />
   </Function>
-  <Function Name="DepositInformation">
-    <Setting Key="Deposit_GetCustDataForCreateIBCACByUserName" SpName="Deposit_GetCustDataForCreateIBCACByUserName" DbName="deposit" />
-  </Function>
   <Function Name="Auth">
     <Setting Key="Aff_Admin_PolicySel" SpName="Aff_Admin_PolicySel" DbName="affiliate_n88" />
     <Setting Key="Aff_Recheckin" SpName="Aff_Recheckin" DbName="affiliate_n88" />
@@ -33,7 +30,7 @@
   </Function>
   <Function Name="Report">
     <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="affiliate_n88" />  
+    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Info">
     <Setting Key="Aff_Admin_Affiliate_Sel" SpName="Aff_Admin_Affiliate_Sel" DbName="affiliate_n88" />
@@ -44,6 +41,7 @@
     <Setting Key="Aff_Admin_AffiliatePaymentRequest_Sel" SpName="Aff_Admin_AffiliatePaymentRequest_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliatePaymentRequest_Detail_Sel" SpName="Aff_Admin_AffiliatePaymentRequest_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliatePaymentRequest_Upd" SpName="Aff_Admin_AffiliatePaymentRequest_Upd" DbName="affiliate_n88" />
+    <Setting Key="Aff_PaymentMethod_Sel" SpName="Aff_PaymentMethod_Sel" DbName="affiliate_n88"/>
   </Function>
   <Function Name="StatementHistory">
     <Setting Key="Aff_Admin_StatementHistory_Sel" SpName="Aff_Admin_StatementHistory_Sel" DbName="affiliate_n88" />
@@ -57,13 +55,11 @@
     <Setting Key="Aff_Admin_AffiliateNote_Detail_Sel" SpName="Aff_Admin_AffiliateNote_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateNote_Ins" SpName="Aff_Admin_AffiliateNote_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateNote_Upd" SpName="Aff_Admin_AffiliateNote_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="affiliate_n88" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsDetailBySite" SpName="Aff_ClickStatisticsDetailBySite" DbName="affiliate_n88" />
     <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateLog_Sel" SpName="Aff_Admin_AffiliateLog_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LogType_Sel" SpName="Aff_Admin_LogType_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_CustomerSelBalBF" SpName="Aff_CustomerSelBalBF" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateAdjustment_Ins" SpName="Aff_Admin_AffiliateAdjustment_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliatePreferredLanguage_Upd" SpName="Aff_Admin_AffiliatePreferredLanguage_Upd" DbName="affiliate_n88" />
@@ -71,6 +67,8 @@
     <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="affiliate_n88" />
+    <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName="Aff_PlayerUsername_CheckIsValid" DbName="affiliate_n88" />
+    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="MediaGallery">
     <Setting Key="Aff_Admin_LandingPage_Sel" SpName="Aff_Admin_LandingPage_Sel" DbName="affiliate_n88" />
@@ -84,17 +82,12 @@
     <Setting Key="Aff_Admin_Text_Upd" SpName="Aff_Admin_Text_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Text_Del" SpName="Aff_Admin_Text_Del" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_MediaType_Sel" SpName="Aff_Admin_MediaType_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_MediaSize_Sel" SpName="Aff_Admin_MediaSize_Sel_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_MediaSize_Sel" SpName="Aff_Admin_MediaSize_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Ins" SpName="Aff_Admin_Banner_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Upd" SpName="Aff_Admin_Banner_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Del" SpName="Aff_Admin_Banner_Del" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Sel" SpName="Aff_Admin_Banner_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_AffTypeSel" SpName="Aff_AffTypeSel" DbName="affiliate_n88" />
-  </Function>
-  <Function Name="ThirdPartyProduct">
-    <Setting Key="Aff_3rdProduct_ImportQueueSel" SpName="Aff_3rdProduct_ImportQueueSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_3rdProduct_XmlDataByQueueIdSel" SpName="Aff_3rdProduct_XmlDataByQueueIdSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_3rdProduct_TimeTrackerSel" SpName="Aff_3rdProduct_TimeTrackerSel" DbName="affiliate_n88" />
   </Function>
   <Function Name="EmailHistory">
     <Setting Key="Aff_Admin_EmailHistory_Sel" SpName="Aff_Admin_EmailHistory_Sel" DbName="affiliate_n88" />
@@ -113,14 +106,11 @@
     <Setting Key="Aff_Admin_Message_Del" SpName="Aff_Admin_Message_Del" DbName="affiliate_n88" />
   </Function>
   <Function Name="Member">
-    <Setting Key="Aff_MemberListSel" SpName="Aff_MemberListSel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_MemberDel" SpName="Aff_MemberDel" DbName="affiliate_n88" />
-    <Setting Key="DEP_AdminUpdAffID" SpName="DEP_AdminUpdAffID" DbName="deposit" />
     <Setting Key="Aff_WriteLog" SpName="Aff_WriteLog" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="affiliate_n88" />
-    <Setting Key="Deposit_GetCustDataForCreateIBCACByUserNames" SpName="Deposit_GetCustDataForCreateIBCACByUserNames" DbName="deposit" />
     <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="custdb" />
-    <Setting Key="Deposit_MemberIBCDetail" SpName="Deposit_MemberIBCDetail" DbName="deposit" />
   </Function>
   <Function Name="ChangeAdminPassword">
     <Setting Key="Aff_Admin_ChangePassword" SpName="Aff_Admin_ChangePassword" DbName="affiliate_n88" />
@@ -130,10 +120,10 @@
     <Setting Key="Aff_Admin_AffiliateDomain_Ins" SpName="Aff_Admin_AffiliateDomain_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateDomain_Upd" SpName="Aff_Admin_AffiliateDomain_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateDomain_Del" SpName="Aff_Admin_AffiliateDomain_Del" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Sel" SpName="Aff_Admin_12BETDomain_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Ins" SpName="Aff_Admin_12BETDomain_Ins" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Upd" SpName="Aff_Admin_12BETDomain_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_12BETDomain_Del" SpName="Aff_Admin_12BETDomain_Del" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Sel" SpName="Aff_Admin_LicenseeDomain_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Ins" SpName="Aff_Admin_LicenseeDomain_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Upd" SpName="Aff_Admin_LicenseeDomain_Upd" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_LicenseeDomain_Del" SpName="Aff_Admin_LicenseeDomain_Del" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Sel" SpName="Aff_Admin_DomainControl_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Ins" SpName="Aff_Admin_DomainControl_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Upd" SpName="Aff_Admin_DomainControl_Upd" DbName="affiliate_n88" />
@@ -157,9 +147,11 @@
     <Setting Key="Aff_Con_Batch_AdminPolicySel" SpName="Aff_Con_Batch_AdminPolicySel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Home">
-    <Setting Key="DEP_AffiliateGetPSP" SpName="DEP_AffiliateGetPSP" DbName="deposit" />
-    <Setting Key="DEP_AffiliateGeneralInfo" SpName="DEP_AffiliateGeneralInfo" DbName="deposit" />
     <Setting Key="Aff_UserOnlineList" SpName="Aff_UserOnlineList" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel" DbName="affiliate_n88" />
+  </Function>
+  <Function Name="Currency">
+    <Setting Key="Aff_Currency_Sel" SpName="Aff_Currency_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_BaseCurrency_Sel" SpName="Aff_BaseCurrency_Sel" DbName="affiliate_n88" />
   </Function>
 </Functions>

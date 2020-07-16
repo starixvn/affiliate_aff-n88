@@ -6,6 +6,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 {
     public class AppSetting : IAppSetting
     {
+        public static IAppSetting Instance { get; } = new AppSetting();
+
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string InternalAsianAffiliateUrl => GetValue("internalAsianAffiliateURL");
 
@@ -48,5 +50,11 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         public int ImageSize => Convert.ToInt32(GetValue("imagesize"));
 
         public string ServerId => GetValue("ServerID");
+
+        public string SiteName => GetValue("SiteName");
+
+        public string SiteFriendlyName => GetValue("SiteFriendlyName");
+
+        public string DefaultLanguage => GetValue("DefaultLanguage");
     }
 }

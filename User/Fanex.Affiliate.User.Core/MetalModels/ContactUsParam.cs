@@ -1,4 +1,6 @@
-﻿using Fanex.Data;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.User.Core.MetalModels
 {
@@ -8,14 +10,18 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public int Creator { get; set; }
 
+        [Required]
         public string Content { get; set; }
 
+        [Required]
         public string Sender { get; set; }
 
         public string Affiliate { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
+        [Required]
         public string Subject { get; set; }
 
         public string Ip { get; set; }
@@ -28,7 +34,14 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ErrMsg { get; set; }
 
+        [Required]
         [SpParam(Ignored = true)]
         public string Captcha { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string SubjectRaw { get; set; }
+
+        [SpParam(Ignored = true)]
+        public string SiteFiendlyName => AppSetting.Instance.SiteFriendlyName;
     }
 }

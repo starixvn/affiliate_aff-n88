@@ -1,10 +1,9 @@
 ﻿import React from 'react';
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
-import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('daily earning detail - components - Content', () => {
-    const param ={
+    const param = {
         affId: 1271808,
         monthDate: "06 January 2019",
         productId: 0
@@ -55,7 +54,7 @@ describe('daily earning detail - components - Content', () => {
 
     it('render correctly with have data', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData, total, isSelectedAllProducts: false });
 
         expect(result).toMatchSnapshot();

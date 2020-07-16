@@ -11,6 +11,7 @@
             background-color: #c11b00;
         }
     }
+
     @media screen and (max-width: 374px) {
         .btn-link {
             font-size: 11px;
@@ -24,7 +25,6 @@
             background: transparent;
 
             .game-name {
-                background-color: #ded5d5;
                 border: 3px solid #fff;
                 width: 200px;
 
@@ -32,12 +32,6 @@
                     width: 100px;
                 }
             }
-        }
-    }
-
-    .casino-table {
-        tbody > tr:nth-of-type(even) {
-            background-color: #f9f4f4;
         }
     }
 }

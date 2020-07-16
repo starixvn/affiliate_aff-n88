@@ -2,7 +2,6 @@
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -22,17 +21,17 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         UserInfo GetUserInfoById(int affId, bool isInternal);
 
-        PlayerAccountCheckingResult CheckPlayerAccountIsActived(int affId, string language);
-
         IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo);
 
-        ResultInfo UpdatePlayerAccountStatusForDeposit(DepositPlayerAccountParam account);
-
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
+
+        PlayerUserValidInfo GetPlayerUserNameValidInfo(string userName, int affId = 0);
 
         int CreateSecretKey(int affId, string secretKey);
 
         IEnumerable<CommissionSetting> GetCommissionSettingList(int affId, bool isInternal);
+
+        MaxLevelInfo GetLevelAffiliate(int affId);
 
     }
 }

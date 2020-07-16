@@ -58,5 +58,9 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public string ContactApps { get; set; }
 
         public IEnumerable<ContactApp> ContactAppList { get; set; }
+
+        public string AffCurrency { get; set; }
+
+        public int DefaultBaseCurrency { get; set; }
     }
 }

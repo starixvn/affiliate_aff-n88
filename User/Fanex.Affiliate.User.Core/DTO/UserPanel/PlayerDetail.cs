@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
     {
         public string Username { get; set; }
 
-        public DateTime RegisteredDate { get; set; }
+        public DateTime? RegisteredDate { get; set; }
 
         public decimal Turnover { get; set; }
 

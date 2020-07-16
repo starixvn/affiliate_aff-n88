@@ -21,6 +21,48 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N88AFF001
+      </Button>
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -41,7 +83,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF226
+        N88AFF002
       </a>
        
       [
@@ -209,6 +251,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Language
     </Col>
     <Col
@@ -261,11 +338,11 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
       }
     >
       <a
-        href="http://anonym.to/?http://https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount"
+        href="http://anonym.to/?http://https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount"
         target="_blank"
-        title="http://https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount"
+        title="http://https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount"
       >
-        https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount
+        https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount
       </a>
     </Col>
   </Row>
@@ -369,6 +446,48 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N88AFF001
+      </Button>
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -386,7 +505,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
       }
     >
       <span>
-        12BETAFF016
+        N88AFF002
       </span>
        
       [
@@ -532,6 +651,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
     </Col>
   </Row>
   <Connect(Component) />
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
   <Row
     tag="div"
   >
@@ -709,6 +863,48 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N88AFF001
+      </Button>
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -729,7 +925,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF001
+        N88AFF002
       </a>
        
       [
@@ -881,6 +1077,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
     </Col>
   </Row>
   <Connect(Component) />
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
   <Row
     tag="div"
   >
@@ -1057,6 +1288,48 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
+      Parent Affiliate
+    </Col>
+    <Col
+      className="text-right d-inline-block"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <Button
+        className="p-0"
+        color="link"
+        onClick={[Function]}
+        tag="button"
+      >
+        N88AFF001
+      </Button>
+    </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
       Affiliate
     </Col>
     <Col
@@ -1077,7 +1350,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
-        12BETAFF001
+        N88AFF002
       </a>
        
       [
@@ -1229,6 +1502,41 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
     </Col>
   </Row>
   <Connect(Component) />
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Approved By
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      undefined
+    </Col>
+  </Row>
   <Row
     tag="div"
   >

@@ -86,7 +86,7 @@ describe('email history - components - Filter ', () => {
     });
 
     it('should call handleChange when click checkbox All Date', () => {
-        const event = { target: { type: 'checkbox', name: 'isGetAll', checked: true }}
+        const event = { target: { type: 'checkbox', name: 'isGetAll', checked: true } }
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState = jest.fn();
 
@@ -96,22 +96,22 @@ describe('email history - components - Filter ', () => {
     });
 
     it('should call handleChangeFromDate when From change', () => {
-        const monthDate = { format: jest.fn(() => "6/25/2019")};
+        const monthDate = { format: jest.fn(() => "6/25/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "6/25/2019", toDate: "6/28/2019" });
     });
 
     it('should call handleChangeToDate when To change', () => {
-        const monthDate = { format: jest.fn(() => "6/26/2019")};
+        const monthDate = { format: jest.fn(() => "6/26/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "6/26/2019" });

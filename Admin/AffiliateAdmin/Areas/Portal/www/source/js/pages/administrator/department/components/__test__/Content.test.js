@@ -6,24 +6,24 @@ import DepartmentPopup from '../../../common/components/DepartmentPopup';
 
 describe('department list - components - Content ', () => {
     const gridData = [
-                    {
-                        DepartmentId: 123,
-                        DepartmentName: "IT",
-                        Description: "IT dept",
-                        NoOfUser: 12
-                    },
-                    {
-                        DepartmentId: 120,
-                        DepartmentName: "Finance",
-                        Description: "Finance",
-                        NoOfUser: 0
-                    },
-                    {
-                        DepartmentId: 119,
-                        DepartmentName: "None",
-                        Description: "None",
-                        NoOfUser: 0
-                    }
+        {
+            DepartmentId: 123,
+            DepartmentName: "IT",
+            Description: "IT dept",
+            NoOfUser: 12
+        },
+        {
+            DepartmentId: 120,
+            DepartmentName: "Finance",
+            Description: "Finance",
+            NoOfUser: 0
+        },
+        {
+            DepartmentId: 119,
+            DepartmentName: "None",
+            Description: "None",
+            NoOfUser: 0
+        }
     ];
 
     const defaultProps = {

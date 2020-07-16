@@ -1,0 +1,95 @@
+$text-color: #2b2b2b;
+$bg-main-color: #F5F5F5;
+$bg-after-login-color: #fff;
+$footer-bg-color: #000;
+
+$header-bg-color: #191919;
+$header-icon-color: #fff;
+$header-bottom-border-color: #443B35;
+
+$user-login-control-color: #000;
+$user-login-control-border-color: #000;
+$user-login-control-bg-color: #fff;
+
+$nav-bg-color: #191919;
+$nav-color: #FFFFFF;
+$nav-color-active: #0CF3E6;
+$nav-color-focus: #0CF3E6;
+
+$sub-nav-bg-color: #FFFFFF;
+$sub-nav-menu-color: #1E1E1E;
+$sub-nav-menu-bg-color-active: #1E1E1E;
+$sub-nav-menu-color-active: #fff;
+
+$tab-bg-color: $bg-main-color;
+$tab-item-color: #6E6E6E;
+$tab-item-bg-color-active: #0CF3E6;
+$tab-item-color-active: #000000;
+
+$hot-news-bg-color: #08D8CC;
+$hot-news-title-color: #000000;
+$hot-news-title-bg-color: #0CF3E6;
+$hot-news-content-bg-color: #fff;
+$hot-news-content-color: #D43311;
+
+$button-signup-bg-color: #0cf3e6;
+$button-signup-color: #090909;
+$button-signup-bg-color-hover: darken($button-signup-bg-color, 5%);
+$button-signup-border-color: #fff;
+
+$button-login-bg-color: #410DED;
+$button-login-color: #fff;
+$button-login-bg-color-hover: darken($button-login-bg-color, 5%);
+$button-login-border-color: #fff;
+
+$button-submit-bg-color: #A42EC8;
+$button-submit-color: #fff;
+$button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
+$button-submit-border-color: #fff;
+
+$page-title-color: #000000;
+$page-title-border-color: #0CF3E6;
+$page-title-bg-color: #0CF3E6;
+
+$group-title-color: #060818;
+$group-title-border-before-color: #06E5D9;
+$group-title-border-after-color: #C7C7C7;
+
+$table-bg-color: #FFF9F3;
+$table-color: #404040;
+$table-header-bg-color: #282828;
+$table-header-color: #fff;
+$table-header-border-color: #c1c1c1;
+$table-border-color: #C7C7C7;
+$table-row-bg-color-hover: #fbe8e1;
+$table-row-even-bg-color: #FBD3B3;
+$table-row-total-bg-color: #FFE771;
+$table-game-name-bg: #ded5d5;
+
+$form-control-color: #000;
+$form-control-border-color: #adadad;
+$form-control-bg-color: #fff;
+
+$modal-header-bg-color: #191919;
+$modal-header-color: #fff;
+
+// Home page
+$home-page-bg-color: #a3a3a3;
+$home-card-content-bg-color: #E5E5E5;
+$home-card-content-border-color: #C7C7C7;
+$home-card-title-color: #2b2b2b;
+$home-card-content-color: #212121;
+
+// Contact Us page
+$date-time-info: #3f4f66;
+$languages-item-bg-color: #fff;
+$languages-item-border-color: #e7e7e7;
+
+// Account Overview
+$account-overview-group-one: #156e82;
+$account-overview-group-two: #1c56ad;
+$account-overview-group-three: #9e5613;
+$account-overview-group-four: #158469;
+
+
+$color-primary: #ffffff;

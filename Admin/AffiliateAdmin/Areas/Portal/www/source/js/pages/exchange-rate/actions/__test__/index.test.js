@@ -40,10 +40,10 @@ describe('exchange rate actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectReponse));
 
         const expectActions = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: 'SET_GRID_DATA' , data: expectReponse.data },
-            { type: 'SHOULD_RESET_SCROLL_POSITION' , data: true },
-            { type: 'TOGGLE_LOADER' , data: false },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: 'SET_GRID_DATA', data: expectReponse.data },
+            { type: 'SHOULD_RESET_SCROLL_POSITION', data: true },
+            { type: 'TOGGLE_LOADER', data: false },
         ];
 
         const date = '09/06/2019';
@@ -59,10 +59,10 @@ describe('exchange rate actions', () => {
         ajaxRequest.post = jest.fn();
 
         const expectActions = [
-            { type: 'TOGGLE_LOADER' , data: true },
-            { type: 'SET_GRID_DATA' , data: null },
-            { type: 'SHOULD_RESET_SCROLL_POSITION' , data: true },
-            { type: 'TOGGLE_LOADER' , data: false },
+            { type: 'TOGGLE_LOADER', data: true },
+            { type: 'SET_GRID_DATA', data: null },
+            { type: 'SHOULD_RESET_SCROLL_POSITION', data: true },
+            { type: 'TOGGLE_LOADER', data: false },
         ];
 
         const date = 'date';

@@ -76,17 +76,6 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title={0}
-            >
-              0
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="07/06/2017 10:24:00"
             >
               07/06/2017 10:24:00
@@ -101,25 +90,6 @@ exports[`member list - components - Content  render correctly 1`] = `
               title="12BETAFF017"
             >
               12BETAFF017
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Remove Member"
-            >
-              <Button
-                color="link p-0"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-x text-danger"
-                />
-              </Button>
             </t>
           </t>,
           <t>
@@ -185,17 +155,6 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title={0}
-            >
-              0
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="07/05/2017 18:25:00"
             >
               07/05/2017 18:25:00
@@ -210,25 +169,6 @@ exports[`member list - components - Content  render correctly 1`] = `
               title="12BETAFF177"
             >
               12BETAFF177
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Remove Member"
-            >
-              <Button
-                color="link p-0"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-x text-danger"
-                />
-              </Button>
             </t>
           </t>,
         ]
@@ -266,9 +206,9 @@ exports[`member list - components - Content  render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBC User Name"
+            title="System Name"
           >
-            IBC User Name
+            System Name
           </t>
           <t
             asc={true}
@@ -294,17 +234,6 @@ exports[`member list - components - Content  render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Current Balance Member"
-          >
-            Current Balance Member
-          </t>
-          <t
-            asc={true}
             colWidth={100}
             header={true}
             onClick={[Function]}
@@ -324,17 +253,6 @@ exports[`member list - components - Content  render correctly 1`] = `
             title="Affiliate"
           >
             Affiliate
-          </t>
-          <t
-            asc={true}
-            colWidth={30}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Remove"
-          >
-            Remove
           </t>
         </t>
       }
@@ -440,17 +358,6 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title={0}
-            >
-              0
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="07/06/2017 10:24:00"
             >
               07/06/2017 10:24:00
@@ -465,25 +372,6 @@ exports[`member list - components - Content  render correctly with NotificationP
               title="12BETAFF017"
             >
               12BETAFF017
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Remove Member"
-            >
-              <Button
-                color="link p-0"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-x text-danger"
-                />
-              </Button>
             </t>
           </t>,
           <t>
@@ -549,17 +437,6 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title={0}
-            >
-              0
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
               title="07/05/2017 18:25:00"
             >
               07/05/2017 18:25:00
@@ -574,25 +451,6 @@ exports[`member list - components - Content  render correctly with NotificationP
               title="12BETAFF177"
             >
               12BETAFF177
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Remove Member"
-            >
-              <Button
-                color="link p-0"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-x text-danger"
-                />
-              </Button>
             </t>
           </t>,
         ]
@@ -630,9 +488,9 @@ exports[`member list - components - Content  render correctly with NotificationP
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBC User Name"
+            title="System Name"
           >
-            IBC User Name
+            System Name
           </t>
           <t
             asc={true}
@@ -658,17 +516,6 @@ exports[`member list - components - Content  render correctly with NotificationP
           </t>
           <t
             asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Current Balance Member"
-          >
-            Current Balance Member
-          </t>
-          <t
-            asc={true}
             colWidth={100}
             header={true}
             onClick={[Function]}
@@ -688,17 +535,6 @@ exports[`member list - components - Content  render correctly with NotificationP
             title="Affiliate"
           >
             Affiliate
-          </t>
-          <t
-            asc={true}
-            colWidth={30}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Remove"
-          >
-            Remove
           </t>
         </t>
       }
@@ -794,9 +630,9 @@ exports[`member list - components - Content  render correctly with gridData is e
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="IBC User Name"
+            title="System Name"
           >
-            IBC User Name
+            System Name
           </t>
           <t
             asc={true}
@@ -822,17 +658,6 @@ exports[`member list - components - Content  render correctly with gridData is e
           </t>
           <t
             asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Current Balance Member"
-          >
-            Current Balance Member
-          </t>
-          <t
-            asc={true}
             colWidth={100}
             header={true}
             onClick={[Function]}
@@ -852,17 +677,6 @@ exports[`member list - components - Content  render correctly with gridData is e
             title="Affiliate"
           >
             Affiliate
-          </t>
-          <t
-            asc={true}
-            colWidth={30}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Remove"
-          >
-            Remove
           </t>
         </t>
       }

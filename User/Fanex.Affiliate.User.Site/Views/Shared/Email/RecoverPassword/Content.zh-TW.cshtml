@@ -4,24 +4,22 @@
     var recoverUrl = Model.RootDomain + "Password/RecoverPassword?uid=" + userInfo.AffId + "&vid=" + Model.Code;
 }
 <div>
-尊敬的客戶： <br /><br />
+    Dear @userInfo.FirstName,<br /><br />
 
-您好，感謝您對我們壹貳博合作夥伴計劃的關注與支持。 <br />
+    You have requested to recover your username or password. If you did not request it, please ignore this email.<br />
+    Otherwise please visit the following link, then your new password will be emailed to you shortly:<br />
+    <a href='@recoverUrl'>@recoverUrl</a><br /><br />
 
-我們已經收到了您重置用戶名和密碼的要求。如您並沒有提出申請請忽略此封郵件。 <br />
+    Please note<br />
+    * Your username is: @userInfo.UserName <br />
+    * Due to security reason, we must provide you a new password (you can change this at anytime later).<br />
+    * The above link will be expired and become useless in 24 hours time.<br /><br />
 
-如您有此要求請點擊以下鏈接，我們會盡快發送新密碼至您郵箱。 <br />
-<a href='@recoverUrl'>@recoverUrl</a><br /><br />
+    Have a great day!<br /><br />
 
-請注意：<br />
-*您的用戶名是： @userInfo.UserName <br />
-*基於安全理由，我們必鬚髮送給您一個新密碼（您可隨後更改此密碼） <br />
-*以上鍊接將在24小時內失效<br /><br />
+    Best regards,<br /><br />
 
-如果您遇到任何疑問需要幫助，歡迎隨時聯繫我們。 <br /><br />
+    The team at 12Bet Affiliates<br />
 
-誠摯的<br />
-12BET合作夥伴團隊<br />
-
-<a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

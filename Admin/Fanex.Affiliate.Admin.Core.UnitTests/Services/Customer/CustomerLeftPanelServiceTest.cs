@@ -20,8 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 {
     public class CustomerLeftPanelServiceTest
     {
-        private IDependencyResolver _originalResolver = null;
-        private ILifetimeScopeProvider _scopeProvider = null;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void GetAffiliateInfoOnLeftPanel_WhenCall_ReturnNull()
@@ -49,13 +48,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = 2 });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.Asian });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
@@ -77,13 +75,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = 4 });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.European });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
@@ -171,15 +168,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7613/12BetUserAsianNew");
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = new UpdateStatusParam { AffId = 1271808, Status = "disapproved" };
@@ -204,15 +200,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7613/12BetUserAsianNew");
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = new UpdateStatusParam { AffId = 1271808, Status = "disapproved" };

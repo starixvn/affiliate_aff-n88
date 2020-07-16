@@ -8,11 +8,13 @@ describe('customer - mainpage reducer', () => {
             affInfo: {},
         },
         affCommonInfo: null,
+        baseCurrencyList: null,
         clickStatistics: {
             pagingOption: defaultPagingOption,
             param: {},
             selectedSiteUrl: null,
         },
+        currencyList: null,
         customerStatistics: {
             monthDate: null,
         },
@@ -20,6 +22,9 @@ describe('customer - mainpage reducer', () => {
             param: null,
         },
         dailyEarningDetail: {
+            param: {},
+        },
+        subAffiliate: {
             pagingOption: defaultPagingOption,
             param: {},
         },
@@ -27,6 +32,7 @@ describe('customer - mainpage reducer', () => {
             moreSiteUrlsList: null,
             userAccountInfo: null,
         },
+        isProduction: false,
         isShowLoaderUserPanel: false,
         landingPageStatistics: {
             pageList: [],
@@ -39,6 +45,7 @@ describe('customer - mainpage reducer', () => {
         leftPanel: {
             affName: '',
             affiliateInfo: null,
+            affTypeList: null,
             isShowLoader: false,
             isValidUserName: true,
         },
@@ -59,14 +66,20 @@ describe('customer - mainpage reducer', () => {
         playerDetail: {
             pagingOption: defaultPagingOption,
             param: {},
-            productList: [],
+            sortingColumn: {
+                ColumnName: "Turnover",
+                IsSortAsc: false,
+            }
         },
+        productList: null,
         selectedUserPanel: null,
         statementHistory: {
+            expandMonthDateList: {},
             pagingOption: defaultPagingOption,
             param: {},
             transactionId: null,
         },
+        licenseeName: '',
         today: '6/27/2019',
         trackingStatistics: {
             param: {},

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import MonthPicker from '@9softstudio/react-monthpicker';
 import { Table, Spinner } from 'reactstrap';
 import { rowTitle, resource } from '../modules/constants';
-import { shortedMonthNames, minMonthDate, selectedAllProduct, deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
+import { shortedMonthNames, minMonthDate, deviceTypes, pcLaptop, mobile } from '../../../../modules/constants';
 import { formatDecimalWithCurrencySymbol, format } from '../../../../modules/numberFormat';
 
 import { redirectToPlayerDetail, redirectToTrackingStatistics, redirectToReferrers } from '../../user-panel/actions';
@@ -76,7 +76,7 @@ export class Content extends PureComponent {
                 </tr>
             </thead>
         )
-                                }
+    }
 
     _renderData(monthDate, data) {
         data = data || {};
@@ -99,27 +99,11 @@ export class Content extends PureComponent {
                         `${format(data.NewSignUpByMonth)}/${format(data.NewFdmByMonth)}`,
                         `${format(data.NewSignUpTotal)}/${format(data.NewFdmTotal)}`)
                 }
-                {
-                    this._buildRow(rowTitle.TotalActive,
-                        (
-                            data.ActivePlayerByMonth > 0 ? (
-                                <a href="javascript:;" onClick={() => this.props.redirectToPlayerDetail({ productId: selectedAllProduct, monthDate: startMonthString, isClickLink: true })}>
-                                    {format(data.ActivePlayerByMonth)}
-                                </a>) : format(data.ActivePlayerByMonth)
-                        ),
-                        resource.NA)
-                }
-                {this._buildRow(rowTitle.TotalQualified, format(data.QualifiedMemberByMonth), resource.NA)}
+                {this._buildRow(rowTitle.TotalActive, format(data.ActivePlayerByMonth), resource.NA)}
+                {this._buildRow(rowTitle.TotalSubAff, format(data.NoOfSubAffByMonth), format(data.NoOfSubAffTotal))}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}
                 {this._buildRow(rowTitle.Winlost, WinlostByMonth, WinlostTotal)}
-                {
-                    this._buildRow(rowTitle.TrackingRate,
-                        (<a href="javascript:;" onClick={() => this.props.redirectToTrackingStatistics({ isClickLink: true })}>
-                            {format(data.UniqueClickByMonth)}/{format(data.TotalClickByMonth)}
-                        </a>),
-                        resource.NA)
-                }
                 {
                     this._buildRow(rowTitle.TrackingRatePC,
                         (<a href="javascript:;" onClick={() => this.props.redirectToReferrers({ fromDate: startMonthString, toDate: endMonthString, deviceType: deviceTypes[pcLaptop], isClickLink: true })}>

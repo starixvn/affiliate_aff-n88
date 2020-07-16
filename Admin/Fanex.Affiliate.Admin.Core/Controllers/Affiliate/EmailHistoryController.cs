@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate") },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest") },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/CommissionGroup") },
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup") },
                 new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory"), IsActive = true }
             };
 

@@ -4,12 +4,10 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, setSelectedGroup } from '../../actions';
-import { buildDefaultCommGroup, validateQmTurnover, validateTierSettingList, validatePlatformFeeList } from '../../modules/service';
+import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/deduction';
-import ExchangeRevenueShareSetting from '../shared/exchange';
-import QmTurnOverSetting from '../shared/QmTurnOverSetting';
 import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
@@ -30,14 +28,14 @@ export class AssignPrivateGroup extends React.Component {
     componentDidMount() {
         this.setState({ isShowLoader: true });
         const { deductionList, productList, affInfo } = this.props;
-        const { GroupId } = affInfo;
+        const { GroupId, IsUsingPrivateCommGroup } = affInfo;
 
-        if (GroupId === 0 || GroupId !== affInfo.AffId) {
-            const commGroup = productList && deductionList && buildDefaultCommGroup(deductionList, productList);
-            this.props.setSelectedGroup(commGroup);
+        if (IsUsingPrivateCommGroup) {
+            this.props.getSelectedCommGroup({ GroupId });
         }
         else {
-            this.props.getSelectedCommGroup({ GroupId });
+            const commGroup = productList && deductionList && buildDefaultCommGroup(deductionList, productList);
+            this.props.setSelectedGroup(commGroup);
         }
         this.setState({ isShowLoader: false });
     }
@@ -94,15 +92,12 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { QmTurnover, TierSettingList, PlatformFeeList } = this.props.selectedGroup;
-        const qmTurnoverValidation = validateQmTurnover(QmTurnover);
+        const { TierSettingList, PlatformFeeList } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
         const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
 
-        const isValid = qmTurnoverValidation.isValid && tierSettingValidation.isValid && platformFeeListValidation.isValid;
-        const messageList = [...qmTurnoverValidation.messageList, ...tierSettingValidation.messageList,
-        ...platformFeeListValidation.messageList
-        ];
+        const isValid = tierSettingValidation.isValid && platformFeeListValidation.isValid;
+        const messageList = [...tierSettingValidation.messageList, ...platformFeeListValidation.messageList];
 
         return { isValid, messageList };
     }
@@ -117,11 +112,9 @@ export class AssignPrivateGroup extends React.Component {
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
-                <ExchangeRevenueShareSetting />
                 <DeductionSetting />
-                <QmTurnOverSetting />
                 <TierSetting />
-
+                <p className="text-danger">{messages.note}</p>
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
             </div>
         )

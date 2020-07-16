@@ -29,5 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         [Required(ErrorMessage = "Player User Name is required!")]
         public string PlayerUsername { get; set; }
+
+        public bool IsUsingPrivateCommGroup { get; set; }
     }
 }

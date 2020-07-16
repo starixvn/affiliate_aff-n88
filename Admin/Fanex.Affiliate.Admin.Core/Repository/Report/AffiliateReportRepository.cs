@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
         private const int OneHundred = 100;
         private const int NumberOfDigits = 2;
 
-        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportMainParam param)
+        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateReport_Sel";
             var result = new EntityResult<AffiliateReport>();
@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             return result;
         }
 
-        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportMainParam param)
+        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateReport_Detail_Sel";
             var result = new EntityResult<AffiliateReport>();
@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             return result;
         }
 
-        private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportMainParam param)
+        private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportParam param)
         {
             objectDb.AddInParameter("Username", DbType.String, param.UserName);
             objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
@@ -112,7 +112,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
             objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
             objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-
+            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
         }
 
@@ -143,7 +144,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 Earning = Convert.ToDecimal(reader["Earning"]),
                 AffWithdrawal = Convert.ToDecimal(reader["AffWithdrawal"]),
                 AffAdjustment = Convert.ToDecimal(reader["AffAdjustment"]),
-                BalanceBf = Convert.ToDecimal(reader["BFF"])
+                BalanceBf = Convert.ToDecimal(reader["BFF"]),
+                NoOfSubAff = Convert.ToInt32(reader["NoOfSubAff"]),
+                SubAffEarning = Convert.ToDecimal(reader["SubAffEarning"])
             };
         }
     }

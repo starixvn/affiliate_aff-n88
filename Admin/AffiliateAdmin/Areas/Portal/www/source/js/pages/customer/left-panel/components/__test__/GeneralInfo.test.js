@@ -13,7 +13,8 @@ describe('left panel - components - Content', () => {
         const affiliateInfo = {
             AffId: 1271808,
             AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF226",
+            ParentAffName: "N88AFF001",
+            AffName: "N88AFF002",
             AffType: 2,
             BalanceBf: 9802280.5446,
             CommGroupName: "NoCommission",
@@ -29,7 +30,7 @@ describe('left panel - components - Content', () => {
             NoSiteDescription: "",
             Phone: "abc",
             PreferredLanguage: "vi-VN",
-            SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+            SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
             Status: "Approved"
         }
         const result = shallow(<GeneralInfo affiliateInfo={affiliateInfo} />);
@@ -41,7 +42,8 @@ describe('left panel - components - Content', () => {
         const affiliateInfo = {
             AffId: 927841,
             AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF001",
+            ParentAffName: "N88AFF001",
+            AffName: "N88AFF002",
             AffType: 2,
             BalanceBf: 4953349.1635,
             CommGroupName: "CG22124",
@@ -69,7 +71,8 @@ describe('left panel - components - Content', () => {
         const affiliateInfo = {
             AffId: 927841,
             AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF001",
+            ParentAffName: "N88AFF001",
+            AffName: "N88AFF002",
             AffType: 2,
             BalanceBf: 4953349.1635,
             CommGroupName: "CG22124",
@@ -97,7 +100,8 @@ describe('left panel - components - Content', () => {
         const affiliateInfo = {
             AffId: 1219631,
             AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF016",
+            ParentAffName: "N88AFF001",
+            AffName: "N88AFF002",
             AffType: 2,
             BalanceBf: 0,
             CommGroupName: "",
@@ -119,5 +123,40 @@ describe('left panel - components - Content', () => {
         const result = shallow(<GeneralInfo affiliateInfo={affiliateInfo} />);
 
         expect(result).toMatchSnapshot();
+    });
+
+
+    it('_handleClickParentAffiliate - should call setAffName and getAffiliateInfo', () => {
+        const affiliateInfo = {
+            AffId: 1219631,
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
+            ParentAffName: "N88AFF001",
+            AffName: "N88AFF002",
+            AffType: 2,
+            BalanceBf: 0,
+            CommGroupName: "",
+            ContactApps: '[{"Name":"MSN/YM/QQ","Value":"123123123","Order":0}]',
+            FirstName: "",
+            Gender: null,
+            GroupId: 0,
+            IsClosed: false,
+            LastLoginDateText: "01/01/1900 00:00:00",
+            LastLoginIp: "10.10.12.12",
+            LastName: "",
+            MoreSiteUrl: "",
+            NoSiteDescription: "",
+            Phone: "123456789",
+            PreferredLanguage: "en-US",
+            SiteUrl: "http://www.12345678.com",
+            Status: "Disapproved"
+        }
+        const props = { affiliateInfo, setAffName: jest.fn(), getAffiliateInfo: jest.fn() };
+        const result = shallow(<GeneralInfo {...props} />);
+        result._handleClickParentAffiliate = jest.fn();
+
+        result.find('Button').at(0).simulate('click');
+
+        expect(props.setAffName).toHaveBeenCalledWith("N88AFF001");
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith("N88AFF001");
     });
 });

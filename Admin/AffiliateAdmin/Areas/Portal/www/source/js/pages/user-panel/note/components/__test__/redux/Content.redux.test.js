@@ -20,8 +20,8 @@ describe('note - Content - connect', () => {
     it('props should be mapped correctly', () => {
         const expectedResult = {
             pagingOption: { PageSize: 10 },
-            noteList: [{ NoteId: 123}],
-            noteInfo: { NoteId: 123},
+            noteList: [{ NoteId: 123 }],
+            noteInfo: { NoteId: 123 },
             affId: 1271808
         };
         const state = {
@@ -30,8 +30,8 @@ describe('note - Content - connect', () => {
             },
             note: {
                 pagingOption: { PageSize: 10 },
-                noteList: [{ NoteId: 123}],
-                noteInfo: { NoteId: 123}
+                noteList: [{ NoteId: 123 }],
+                noteInfo: { NoteId: 123 }
             },
             anotherProp: "Not included"
         };

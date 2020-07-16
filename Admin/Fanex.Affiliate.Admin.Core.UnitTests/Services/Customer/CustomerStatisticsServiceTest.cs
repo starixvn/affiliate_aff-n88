@@ -72,7 +72,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["UniqueClickPCByMonth"] = 0,
                 ["TotalClickPCByMonth"] = 0,
                 ["UniqueClickMobileByMonth"] = 0,
-                ["TotalClickMobileByMonth"] = 0
+                ["TotalClickMobileByMonth"] = 0,
+                ["NoOfSubAffByMonth"] = 0,
+                ["NoOfSubAffTotal"] = 0
             };
         }
     }

@@ -6,7 +6,7 @@ describe('tracking statistics - components - Filter', () => {
     const trackingCodeList = ["[None]"];
     const setParam = jest.fn();
     const setSelectedMonth = jest.fn();
-    const getTrackingCodeList = jest.fn(() => trackingCodeList );
+    const getTrackingCodeList = jest.fn(() => trackingCodeList);
 
     const defaultProps = {
         isClickLink: false,
@@ -78,7 +78,7 @@ describe('tracking statistics - components - Filter', () => {
         const instance = wrapper.instance();
         instance.setState = jest.fn();
 
-        instance.handleChange({ target: { name: 'trackingCode', value: "[None]" }});
+        instance.handleChange({ target: { name: 'trackingCode', value: "[None]" } });
 
         expect(instance.setState).toHaveBeenCalledWith({ trackingCode: "[None]" });
     });

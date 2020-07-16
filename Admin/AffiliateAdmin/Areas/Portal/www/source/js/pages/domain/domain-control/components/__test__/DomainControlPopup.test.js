@@ -103,9 +103,9 @@ describe('domain control - components - DomainControlPopup ', () => {
         const props = Object.assign({}, defaultProps, { setSelectedDomain: jest.fn() })
         const result = shallow(<DomainControlPopup {...props} />);
 
-    result.find('Input[type="select"][name="marketId"]').simulate('change', event);
+        result.find('Input[type="select"][name="marketId"]').simulate('change', event);
 
-    expect(props.setSelectedDomain).toHaveBeenCalledWith({ domainId: 89, marketId: 'en-GB', affDomainId: 34, redirectDomainId: 60, isUsed: true });
+        expect(props.setSelectedDomain).toHaveBeenCalledWith({ domainId: 89, marketId: 'en-GB', affDomainId: 34, redirectDomainId: 60, isUsed: true });
     });
 
     it('_handleChange should be called when change aff domain', () => {

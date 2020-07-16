@@ -17,20 +17,20 @@ describe('customer - user-panel - components - UserPanelMenuItem', () => {
     }
 
     it('Should render correctly with is active', () => {
-        const wrapper = shallow(<UserPanelMenuItem {...defaultProps}/>);
+        const wrapper = shallow(<UserPanelMenuItem {...defaultProps} />);
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('Should render correctly with not active', () => {
         const props = Object.assign({}, defaultProps, { isActive: false });
-        const wrapper = shallow(<UserPanelMenuItem {...props}/>);
+        const wrapper = shallow(<UserPanelMenuItem {...props} />);
 
         expect(wrapper).toMatchSnapshot();
     });
 
     it('onClickMenu - should be called when click menu', () => {
-        const wrapper = shallow(<UserPanelMenuItem {...defaultProps}/>);
+        const wrapper = shallow(<UserPanelMenuItem {...defaultProps} />);
         wrapper.find('a').simulate('click');
 
         expect(defaultProps.onClickMenu).toHaveBeenCalledWith('edit');

@@ -49,44 +49,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
             return result;
         }
 
-        public decimal GetPSPToday()
-        {
-            const string SpKey = "DEP_AffiliateGetPSP";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddOutParameter("PSP", DbType.Int32, Size.SizeOfCurrency);
-
-                objectDb.ExecuteNonQuery();
-
-                var psp = objectDb.GetParameterValue("PSP");
-                return Convert.ToDecimal(psp);
-            }
-        }
-
-        public DepositInfo GetDepositInfo()
-        {
-            const string SpKey = "DEP_AffiliateGeneralInfo";
-            DepositInfo result = null;
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                using (var reader = objectDb.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        result = new DepositInfo
-                        {
-                            AllMemberDepositUpToNow = reader.GetVal<int>("MemInProAllNum"),
-                            AllMemberDepositThisMonth = reader.GetVal<int>("MemInProMonthNum")
-                        };
-                    }
-                }
-            }
-
-            return result;
-        }
-
         public GeneralInfo GetGeneralInfo()
         {
             const string SpKey = "Aff_Admin_GeneralInfo_Sel";
@@ -112,9 +74,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
             {
                 PaymentRequestNumber = reader.GetVal<int>("PaymentReqNum"),
                 BannerNumber = reader.GetVal<int>("BannerNum"),
-                ImageBannerNumber = reader.GetVal<int>("ImageBannerNum"),
-                FlashBannerNumber = reader.GetVal<int>("FlashBannerNum"),
-                TextBannerNumber = reader.GetVal<int>("TextBannerNum"),
+                PlayerBannerNum = reader.GetVal<int>("PlayerBannerNum"),
+                AffiliateBannerNum = reader.GetVal<int>("AffiliateBannerNum"),
                 AllAffiliateNumber = reader.GetVal<int>("AffInProAllNum"),
                 PendingAffiliateNumber = reader.GetVal<int>("PendingAllNum"),
                 ApprovedAffiliateNumber = reader.GetVal<int>("ApprovedAllNum"),
@@ -137,6 +98,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
                 AllBonusMonthNumber = reader.GetVal<decimal>("BonusMonth"),
                 AllPSPFeeMonthNumber = reader.GetVal<decimal>("PSPFeeMonth"),
                 AllNetWinlostMonthNumber = reader.GetVal<decimal>("NetWinlostMonth"),
+                MemAllNum = reader.GetVal<int>("MemAllNum"),
+                NonDepositMemAllNum = reader.GetVal<int>("NonDepositMemAllNum"),
+                MemMonthNum = reader.GetVal<int>("MemMonthNum"),
+                NonDepositMemMonthNum = reader.GetVal<int>("NonDepositMemMonthNum"),
             };
         }
     }

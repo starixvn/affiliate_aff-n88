@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
 {
     public class BannerListServiceTest
     {
-        private const string ErrorMessage = "Sorry! We just support these file types : .jpg, .gif, .png, .jpeg";
+        private const string ErrorMessage = "Sorry! We just support these file types : .jpg, .gif, .png, .jpeg <br />";
 
         [Fact]
         public void GetBannerList_WhenCallWithNotSubCategory_ReturnCorrectData()
@@ -73,17 +73,31 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             // Arrange
             var selectedBannerId = 123;
-            var passedParam = 0;
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(selectedBannerId)).Returns(new BannerInfo { BannerId = 123 }).Callback<int>(p => passedParam = p);
+            bannerListRepository.Setup(s => s.GetBannerDetail(selectedBannerId, 1)).Returns(new BannerInfo { BannerId = 123 });
             var service = CreateBannerListService(bannerListRepository.Object);
 
             // Action
-            var result = service.GetBannerDetail(selectedBannerId);
+            var result = service.GetBannerDetail(selectedBannerId, 1);
 
             // Assert
             Assert.Equal(selectedBannerId, result.BannerId);
-            Assert.Equal(selectedBannerId, passedParam);
+        }
+
+        [Fact]
+        public void InsertBanner_WhenCallWithInvalidCurrency_ReturnError()
+        {
+            // Arrange
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { UserType = 1 });
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Please select Currency.", result.Message);
         }
 
         [Fact]
@@ -95,30 +109,104 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile(stream: new MemoryStream()), new InsertUpdateBannerParam());
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.pdf")) }, new InsertUpdateMultipleBannersParam { Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal(ErrorMessage, result.Message);
+            Assert.Equal("File abc.pdf is incorrect.<br />" + ErrorMessage, result.Message);
         }
 
         [Fact]
-        public void InsertBanner_WhenCallWithInvalidInputFileName_ReturnError()
+        public void InsertBanner_WhenCallWithInputFileNamesMaxLenght_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { InputFileName = "test.pdf" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "123test123test123test123test123test123test123test123test.png", Currencies = "USD" };
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
             var systemFile = new Mock<ISystemFile>();
-            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".pdf");
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile(stream: new MemoryStream()), param);
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal(ErrorMessage, result.Message);
+            Assert.Equal("The maximum length of file name is 50. Please choose another name File Name 1.<br />", result.Message);
+        }
+
+        [Fact]
+        public void InsertBanner_WhenCallWithSpecialCharacter_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc*.png", Currencies = "USD" };
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("A File Name can't contain any of the following characters: \\/:*?\"<>|#%&+", result.Message);
+        }
+
+        [Fact]
+        public void InsertBanner_WhenCallWithDuplicateFileName_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png|abc.png", Currencies = "USD" };
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("File Name is unique, please enter other file name!", result.Message);
+        }
+
+        [Fact]
+        public void InsertBanner_WhenCallWithInvalidInputFileNames_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf|abc.png", Currencies = "USD" };
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.SetupSequence(s => s.GetExtension(It.IsAny<string>())).Returns(".pdf").Returns(".png");
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream())) }, param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("File Name 1 is incorrect.<br />Sorry! We just support these file types : .jpg, .gif, .png, .jpeg<br />", result.Message);
+        }
+
+        [Fact]
+        public void InsertBanner_WhenCallWithInvalidFileMaxLenght_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" };
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
+
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png")) }, param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("The maximum length of file name is 50. Please choose another name for File Name 1 or select another File.<br />", result.Message);
         }
 
         [Fact]
@@ -133,63 +221,73 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
             // Action
-            var result = service.InsertBanner(new MockFile(stream: new MemoryStream()), new InsertUpdateBannerParam { InputFileName = "abc.gif"});
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal("The file name already exists.", result.Message);
+            Assert.Equal("abc.png, This file name(s) belong to existing banner(s). Please change the file name.", result.Message);
         }
 
-        //[Fact]
-        //public void InsertBanner_WhenCallWithValidParam_InsertSuccessfully()
-        //{
-        //    // Arrange
-        //    string[] bannerFolders = { "abc" };
-        //    var bannerValidationService = new Mock<IBannerValidationService>();
-        //    bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-        //    bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-        //    var bannerListRepository = new Mock<IBannerListRepository>();
-        //    bannerListRepository.Setup(b => b.InsertBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo());
-        //    var appSetting = new Mock<IAppSetting>();
-        //    appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-        //    var systemFile = new Mock<ISystemFile>();
-        //    systemFile.Setup(s => s.UploadFile(It.IsAny<Bitmap>(), It.IsAny<string>()));
-        //    var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
+        [Fact]
+        public void InsertBanner_WhenCallWithCanNotAccessFolder_ReturnError()
+        {
+            // Arrange
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.ErrCanNotAccessFolder, Message = "Can not access folder." });
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
 
-        //    // Action
-        //    var result = service.InsertBanner(new MockFile(stream: new MemoryStream()), new InsertUpdateBannerParam());
+            // Action
+            var result = service.InsertBanner(new MockFile[1] { (new MockFile(stream: new MemoryStream(), fileName: "abc.png")) }, new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" });
 
-        //    // Assert
-        //    Assert.True(result.IsSuccessful);
-        //}
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Can not access folder.", result.Message);
+        }
 
-        //[Fact]
-        //public void InsertBanner_WhenCallWithValidParam_InsertIsFalied()
-        //{
-        //    // Arrange
-        //    string[] bannerFolders = { "abc" };
-        //    var bannerValidationService = new Mock<IBannerValidationService>();
-        //    bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-        //    bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-        //    var bannerListRepository = new Mock<IBannerListRepository>();
-        //    bannerListRepository.Setup(s => s.InsertBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo { Code = 999, Message = "Insert is failed!" });
-        //    var appSetting = new Mock<IAppSetting>();
-        //    appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-        //    var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, bannerValidationService: bannerValidationService.Object);
+        [Fact]
+        public void UpdateBanner_WhenCallWithInvalidCurrency_ReturnError()
+        {
+            // Arrange
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
-        //    // Action
-        //    var result = service.InsertBanner(new MockFile(stream: new MemoryStream()), new InsertUpdateBannerParam());
+            // Action
+            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { UserType = 1 });
 
-        //    // Assert
-        //    Assert.False(result.IsSuccessful);
-        //    Assert.Equal("Insert is failed!", result.Message);
-        //}
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Please select Currency.", result.Message);
+        }
+
+        [Fact]
+        public void UpdateBanner_WhenCallWithSpecialCharacter_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc*.png", Currencies = "USD", UserType = 2 };
+            var bannerValidationService = new Mock<IBannerValidationService>();
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
+            var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
+
+            // Action
+            var result = service.UpdateBanner(new MockFile(stream: new MemoryStream()), param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Sub-Affiliate", param.Folder);
+            Assert.Equal("A File Name can't contain any of the following characters: \\/:*?\"<>|#%&+", result.Message);
+        }
 
         [Fact]
         public void UpdateBanner_WhenCallWithInvalidInputFileName_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { InputFileName = "test.pdf" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "test.pdf", Currencies = "USD" };
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".pdf");
             var service = CreateBannerListService(systemFile: systemFile.Object);
@@ -199,7 +297,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal(ErrorMessage, result.Message);
+            Assert.Equal("Players", param.Folder);
+            Assert.Equal("Sorry! We just support these file types : .jpg, .gif, .png, .jpeg<br />", result.Message);
+        }
+
+        [Fact]
+        public void UpdateBanner_WhenCallWithInvalidFile_ReturnError()
+        {
+            // Arrange
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "", Currencies = "USD" };
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
+            var service = CreateBannerListService(systemFile: systemFile.Object);
+
+            // Action
+            var result = service.UpdateBanner(new MockFile(stream: new MemoryStream(), fileName: "123test123test123test123test123test123test123test123test.png"), param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("The maximum length of file name is 50. Please either choose another file name or select another file.", result.Message);
         }
 
         [Fact]
@@ -209,13 +325,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
             var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "The file name already exists." });
+            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.ErrTheFileNameAlreadyExists, Message = "The file name already exists." });
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "abc.gif" });
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(), new InsertUpdateBannerParam());
+            var result = service.UpdateBanner(new MockFile(), new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -223,127 +339,46 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         }
 
         [Fact]
-        public void UpdateBanner_WhenCallWithInvalidFile_ReturnError()
+        public void UpdateBanner_WhenCallWithValidParam_UpdateSuccess()
         {
             // Arrange
             var systemFile = new Mock<ISystemFile>();
-            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
-
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = ErrorMessage});
-
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "CategoryMedia/Players/abc.png" });
+            bannerListRepository.Setup(s => s.UpdateBanner(It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(new MockFile(stream: new MemoryStream()), new InsertUpdateBannerParam { SubCategory = "Slot", Category = "Casino" });
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(ErrorMessage, result.Message);
-        }
-
-        //[Fact]
-        //public void UpdateBanner_WhenCallWithUploadNewFile_UpdateSuccessfully()
-        //{
-        //    // Arrange
-        //    string[] bannerFolders = { "abc" };
-        //    var bannerValidationService = new Mock<IBannerValidationService>();
-        //    bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-        //    bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-        //    var bannerListRepository = new Mock<IBannerListRepository>();
-        //    bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
-        //    bannerListRepository.Setup(b => b.UpdateBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo());
-        //    var appSetting = new Mock<IAppSetting>();
-        //    appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-        //    var systemFile = new Mock<ISystemFile>();
-        //    systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
-        //    systemFile.Setup(s => s.UploadFile(It.IsAny<Bitmap>(), It.IsAny<string>()));
-        //    systemFile.Setup(s => s.DeleteFile(It.IsAny<string>(), It.IsAny<string>()));
-        //    var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
-
-        //    // Action
-        //    var result = service.UpdateBanner(new MockFile(), new InsertUpdateBannerParam());
-
-        //    // Assert
-        //    Assert.True(result.IsSuccessful);
-        //}
-
-        //[Fact]
-        //public void UpdateBanner_WhenCallWithUploadNewFile_UpdateIsFailed()
-        //{
-        //    // Arrange
-        //    string[] bannerFolders = { "abc" };
-        //    var bannerValidationService = new Mock<IBannerValidationService>();
-        //    bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-        //    bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-        //    var bannerListRepository = new Mock<IBannerListRepository>();
-        //    bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
-        //    bannerListRepository.Setup(b => b.UpdateBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Update is failed" });
-        //    var appSetting = new Mock<IAppSetting>();
-        //    appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-        //    var systemFile = new Mock<ISystemFile>();
-        //    systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
-        //    systemFile.Setup(s => s.UploadFile(It.IsAny<Bitmap>(), It.IsAny<string>()));
-        //    systemFile.Setup(s => s.DeleteFile(It.IsAny<string>(), It.IsAny<string>()));
-        //    var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
-
-        //    // Action
-        //    var result = service.UpdateBanner(new MockFile(), new InsertUpdateBannerParam());
-
-        //    // Assert
-        //    Assert.False(result.IsSuccessful);
-        //    Assert.Equal("Update is failed", result.Message);
-        //}
-
-        [Fact]
-        public void UpdateBanner_WhenCallWithMoveFile_UpdateSuccessfully()
-        {
-            // Arrange
-            string[] bannerFolders = { "abc" };
-            var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
-            var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
-            bannerListRepository.Setup(b => b.UpdateBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo());
-            var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-            var systemFile = new Mock<ISystemFile>();
-            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
-            systemFile.Setup(s => s.MoveFile(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
-            var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
-
-            // Action
-            var result = service.UpdateBanner(null, new InsertUpdateBannerParam());
+            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "abc.png", UserType = 1, Currencies = "USD" });
 
             // Assert
             Assert.True(result.IsSuccessful);
         }
 
         [Fact]
-        public void UpdateBanner_WhenCallWithMoveFile_UpdateIsFailed()
+        public void UpdateBanner_WhenCallWithValidParamHasMoveFile_UpdateSuccess()
         {
             // Arrange
-            string[] bannerFolders = { "abc" };
+            var systemFile = new Mock<ISystemFile>();
+            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".png");
+            systemFile.Setup(s => s.MoveFile(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()));
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo());
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
-            bannerListRepository.Setup(b => b.UpdateBanner(It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Update is failed" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "CategoryMedia/abc.png" });
+            bannerListRepository.Setup(s => s.UpdateBanner(It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
-            var systemFile = new Mock<ISystemFile>();
-            systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
+            appSetting.Setup(a => a.BannerFolders).Returns(new string[] { "abc" });
             var service = CreateBannerListService(bannerListRepository.Object, appSetting.Object, systemFile.Object, bannerValidationService.Object);
 
             // Action
-            var result = service.UpdateBanner(null, new InsertUpdateBannerParam());
+            var result = service.UpdateBanner(null, new InsertUpdateMultipleBannersParam { InputFileNames = "xyz.png", UserType = 1, Currencies = "USD" });
 
             // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal("Update is failed", result.Message);
+            Assert.True(result.IsSuccessful);
         }
 
         [Fact]
@@ -351,9 +386,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             // Arrange
             string[] bannerFolders = { "abc" };
-            var param = new DeleteBannerParam { BannerIdList = "123" };
+            var param = new DeleteBannerParam { BannerIdList = "123", UserType = 1 };
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "abc.gif" });
             bannerListRepository.Setup(s => s.DeleteBanners(param)).Returns(new ResultInfo());
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.BannerFolders).Returns(bannerFolders);
@@ -372,9 +407,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         public void DeleteBanners_WhenCall_DeleteIsFailed()
         {
             // Arrange
-            var param = new DeleteBannerParam { BannerIdList = "123" };
+            var param = new DeleteBannerParam { BannerIdList = "123", UserType = 1 };
             var bannerListRepository = new Mock<IBannerListRepository>();
-            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>())).Returns(new BannerInfo { FileName = "abc.gif" });
+            bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "abc.gif" });
             bannerListRepository.Setup(s => s.DeleteBanners(param)).Returns(new ResultInfo { Code = 999, Message = "Delete is failed" });
             var service = CreateBannerListService(bannerListRepository.Object);
 

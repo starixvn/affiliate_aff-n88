@@ -9,8 +9,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Common
 
         int OnUserId { get; set; }
 
-        int AffId { get; set; }
-
         string AffName { get; set; }
 
         IList<UserPermission> UserPermissionList { get; set; }

@@ -8,7 +8,7 @@ describe('customer member - components - Filter', () => {
         jest.resetAllMocks();
     });
 
-    const today = '07/11/2019';
+    const today = '03/12/2020';
     const defaultProps = {
         today
     };
@@ -52,22 +52,22 @@ describe('customer member - components - Filter', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "6/25/2019")};
+        const monthDate = { format: jest.fn(() => "6/25/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "6/25/2019", toDate: "7/11/2019" });
+        expect(wrapper.setState).toHaveBeenCalledWith({ "fromDate": "6/25/2019", "toDate": "3/12/2020" });
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "7/10/2019")};
+        const monthDate = { format: jest.fn(() => "7/10/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "7/10/2019" });
@@ -80,6 +80,6 @@ describe('customer member - components - Filter', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ fromDate: "7/01/2019", isGetAll: false, memberType: '0', toDate: "7/11/2019" });
+        expect(props.setParam).toHaveBeenCalledWith({ "fromDate": "3/01/2020", "isGetAll": false, "memberType": "0", "toDate": "3/12/2020" });
     });
 });

@@ -12,11 +12,14 @@ using System.Drawing;
 using System.Web;
 using System.IO;
 using Fanex.Affiliate.Admin.Core.Constants;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 {
     public class BannerListService : IBannerListService
     {
+        private const int MaxLength = 50;
         private readonly IBannerListRepository _bannerListRepository;
         private readonly IAppSetting _appSetting;
         private readonly ISystemFile _systemFile;
@@ -35,71 +38,276 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public EntityResult<BannerInfo> GetBannerList(BannerParam param)
         {
-            param.Category = GetCategory(param.Category, param.SubCategory);
-
             return _bannerListRepository.GetBannerList(param);
         }
 
-        public BannerInfo GetBannerDetail(int selectedBannerId)
+        public BannerInfo GetBannerDetail(int selectedBannerId, byte userType)
         {
-            return _bannerListRepository.GetBannerDetail(selectedBannerId);
+            return _bannerListRepository.GetBannerDetail(selectedBannerId, userType);
         }
 
-        public ResultInfo InsertBanner(HttpPostedFileBase file, InsertUpdateBannerParam param)
+        private ResultInfo ValidateAllFiles(HttpPostedFileBase[] files)
         {
-            var fileName = file.FileName;
-            var result = _bannerValidationService.ValidateFile(fileName, file.ContentLength);
+            var resultValidateAllFiles = new ResultInfo();
+            var message = new StringBuilder();
+            foreach (var file in files)
+            {
+                var fileName = file.FileName;
+                var result = _bannerValidationService.ValidateFile(fileName, file.ContentLength);
 
+                if (!result.IsSuccessful)
+                {
+                    resultValidateAllFiles.Code = result.Code;
+                    message.Append($"File {fileName} is incorrect.<br />" + result.Message);
+                }
+            }
+
+            resultValidateAllFiles.Message = message.ToString();
+            return resultValidateAllFiles;
+        }
+
+        private ResultInfo CheckDuplicateFileNames(string[] inputFileNames)
+        {
+            var length = inputFileNames.Length;
+            for (var i = 0; i <= length - 1; i++)
+            {
+                var fileName = inputFileNames[i].Trim();
+
+                for (var j = i + 1; j < length; j++)
+                {
+                    if (string.Equals(fileName, inputFileNames[j].Trim(), StringComparison.OrdinalIgnoreCase))
+                    {
+                        return new ResultInfo
+                        {
+                            Code = Code.GeneralErrorCode,
+                            Message = "File Name is unique, please enter other file name!"
+                        };
+                    }
+                }
+            }
+
+            return new ResultInfo();
+        }
+
+        private ResultInfo ValidateAllInputFileNames(string[] inputFileNames, HttpPostedFileBase[] files)
+        {
+            var result = CheckDuplicateFileNames(inputFileNames);
             if (!result.IsSuccessful)
             {
                 return result;
             }
 
-            if (string.IsNullOrEmpty(param.InputFileName))
+            var message = new StringBuilder();
+            for (int i = 0; i < inputFileNames.Length; i++)
             {
-                param.InputFileName = fileName;
-            }
-            else
-            {
-                if (!BannerHelper.IsValidExtension(_systemFile.GetExtension(param.InputFileName)))
+                var inputFileName = inputFileNames[i];
+
+                if (string.IsNullOrEmpty(inputFileNames[i]))
                 {
-                    return BannerHelper.CreateErrorResult();
+                    var file = files[i];
+
+                    inputFileNames[i] = file.FileName;
+
+                    if (file.FileName.Length > MaxLength)
+                    {
+                        result.Code = Code.GeneralErrorCode;
+                        message.Append($"The maximum length of file name is 50. Please choose another name for File Name {i + 1} or select another File.<br />");
+                    }
+                }
+                else
+                {
+                    if (!BannerHelper.IsValidExtension(_systemFile.GetExtension(inputFileName)))
+                    {
+                        result.Code = Code.GeneralErrorCode;
+                        message.Append($"File Name {i + 1} is incorrect.<br />" + Lang.InvalidBannerExtensionFile);
+                    }
+
+                    if (inputFileName.Length > MaxLength)
+                    {
+                        result.Code = Code.GeneralErrorCode;
+                        message.Append($"The maximum length of file name is 50. Please choose another name File Name {i + 1}.<br />");
+                    }
                 }
             }
 
-            result = CheckFileInFolder(param, string.Empty);
+            result.Message = message.ToString();
+            return result;
+        }
 
-            if (result.IsSuccessful)
+        private ResultInfo CheckMultipleFilesInFolder(string[] inputFileNames, string folder)
+        {
+            var resultCheckMultipleFilesInFolder = new ResultInfo();
+            var message = new StringBuilder();
+
+            for (int i = 0; i < inputFileNames.Length; i++)
             {
+                var inputFileName = inputFileNames[i];
+                var filePath = $"CategoryMedia/{folder}/{inputFileName}";
+                var result = _bannerValidationService.CheckFileInFolder($"CategoryMedia/{folder}/", filePath);
+
+                if (!result.IsSuccessful)
+                {
+                    if (result.Code == Code.ErrCanNotAccessFolder)
+                    {
+                        return result;
+                    }
+
+                    resultCheckMultipleFilesInFolder.Code = Code.GeneralErrorCode;
+                    message.Append($"{inputFileName}, ");
+                }
+            }
+
+            resultCheckMultipleFilesInFolder.Message = resultCheckMultipleFilesInFolder.IsSuccessful ? string.Empty
+                : message.Append("This file name(s) belong to existing banner(s). Please change the file name.").ToString();
+
+            return resultCheckMultipleFilesInFolder;
+        }
+
+        private ResultInfo ValidateCurrency(InsertUpdateMultipleBannersParam param)
+        {
+            if(param.UserType == UserType.Player && string.IsNullOrEmpty(param.Currencies))
+            {
+                return new ResultInfo {
+                    Code = Code.GeneralErrorCode,
+                    Message = "Please select Currency."
+                };
+            }
+
+            return new ResultInfo();
+        }
+
+        private static void BuildFilesXml(InsertUpdateMultipleBannersParam param)
+        {
+            var result = new StringBuilder();
+            result.Append("<root>");
+
+            for (var i = 0; i < param.FilePaths.Count; i++)
+            {
+                var row = $"<row FileName=\"{param.FilePaths[i]}\" ImageType=\"Image\"  Size=\"{param.Sizes[i]}\" />";
+                result.Append(row);
+            }
+
+            result.Append("</root>");
+
+            param.Files = result.ToString();
+        }
+
+        public ResultInfo InsertBanner(HttpPostedFileBase[] files, InsertUpdateMultipleBannersParam param)
+        {
+            var result = ValidateCurrency(param);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            result = ValidateAllFiles(files);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            var regex = new Regex("[\\\\/:*?\"<>#%&+]");
+            if (regex.IsMatch(param.InputFileNames))
+            {
+                return new ResultInfo
+                {
+                    Code = Code.GeneralErrorCode,
+                    Message = Lang.FileNameCanNotContain
+                };
+            }
+
+            var inputFileNames = param.InputFileNames.Split('|');
+            result = ValidateAllInputFileNames(inputFileNames, files);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            result = CheckMultipleFilesInFolder(inputFileNames, param.Folder);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            for (var i = 0; i < files.Length; i++)
+            {
+                var file = files[i];
+
                 using (var bitmap = new Bitmap(file.InputStream))
                 {
-                    param.Size = BannerHelper.GetSize(bitmap.Width, bitmap.Height);
-                    result = _bannerListRepository.InsertBanner(param);
+                    var inputFileName = inputFileNames[i];
+                    var path = $"CategoryMedia/{param.Folder}/{inputFileName}";
+                    param.FilePaths.Add(path);
+                    param.Sizes.Add(BannerHelper.GetSize(bitmap.Width, bitmap.Height));
+                    UploadFile(bitmap, path);
+                }
+            }
 
-                    if (result.IsSuccessful)
-                    {
-                        UploadFile(bitmap, param.FilePath);
-                    }
+            BuildFilesXml(param);
+            result = _bannerListRepository.InsertBanner(param);
+
+            if (!result.IsSuccessful)
+            {
+                foreach (var path in param.FilePaths)
+                {
+                    DeleteFile(path);
                 }
             }
 
             return result;
         }
 
-        public ResultInfo UpdateBanner(HttpPostedFileBase file, InsertUpdateBannerParam param)
+        private ResultInfo ValidationInputFileName(HttpPostedFileBase file, InsertUpdateMultipleBannersParam param)
         {
-            if (!BannerHelper.IsValidExtension(_systemFile.GetExtension(param.InputFileName)))
+            if (!string.IsNullOrEmpty(param.InputFileNames))
             {
-                return BannerHelper.CreateErrorResult();
+                var regex = new Regex("[\\\\/:*?\"<>|#%&+]");
+                if (regex.IsMatch(param.InputFileNames))
+                {
+                    return new ResultInfo
+                    {
+                        Code = Code.GeneralErrorCode,
+                        Message = Lang.FileNameCanNotContain
+                    };
+                }
+
+                if (!BannerHelper.IsValidExtension(_systemFile.GetExtension(param.InputFileNames)))
+                {
+                    return BannerHelper.CreateErrorResult();
+                }
+            }
+            else
+            {
+                param.InputFileNames = file.FileName;
             }
 
-            var oldBannerInfo = _bannerListRepository.GetBannerDetail(param.BannerId);
+            return param.InputFileNames.Length > MaxLength ? new ResultInfo
+            {
+                Code = Code.GeneralErrorCode,
+                Message = Lang.MaxLenghtOfFileName
+            } : new ResultInfo();
+        }
+
+        public ResultInfo UpdateBanner(HttpPostedFileBase file, InsertUpdateMultipleBannersParam param)
+        {
+            var result = ValidateCurrency(param);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            result = ValidationInputFileName(file, param);
+            if (!result.IsSuccessful)
+            {
+                return result;
+            }
+
+            var oldBannerInfo = _bannerListRepository.GetBannerDetail(param.BannerId, param.UserType);
             var oldFilePath = oldBannerInfo.FileName;
-            param.Size = oldBannerInfo.Size;
 
-            var result = CheckFileInFolder(param, oldFilePath);
+            result = CheckFileInFolder(param, oldFilePath);
 
-            if(!result.IsSuccessful)
+            if (!result.IsSuccessful)
             {
                 return result;
             }
@@ -112,24 +320,27 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 {
                     using (var bitmap = new Bitmap(file.InputStream))
                     {
-                        param.Size = BannerHelper.GetSize(bitmap.Width, bitmap.Height);
+                        param.Sizes.Add(BannerHelper.GetSize(bitmap.Width, bitmap.Height));
+                        BuildFilesXml(param);
                         result = _bannerListRepository.UpdateBanner(param);
 
                         if (result.IsSuccessful)
                         {
                             DeleteFile(oldFilePath);
-                            UploadFile(bitmap, param.FilePath);
+                            UploadFile(bitmap, param.FilePaths[0]);
                         }
                     }
                 }
             }
             else
             {
+                param.Sizes.Add(oldBannerInfo.Size);
+                BuildFilesXml(param);
                 result = _bannerListRepository.UpdateBanner(param);
 
-                if (result.IsSuccessful && string.Compare(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase) != 0)
+                if (result.IsSuccessful && !string.Equals(param.FilePaths[0], oldFilePath, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    MoveFile(param.FilePath, oldFilePath);
+                    MoveFile(param.FilePaths[0], oldFilePath);
                 }
             }
 
@@ -138,7 +349,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public ResultInfo DeleteBanners(DeleteBannerParam param)
         {
-            var fileNameList = GetFileNameList(param.BannerIdList);
+            var fileNameList = GetFileNameList(param.BannerIdList, param.UserType);
             var result = _bannerListRepository.DeleteBanners(param);
 
             if (result.IsSuccessful)
@@ -150,12 +361,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         public IEnumerable<MediaGalleryFilterItem> GetSizeList(SizeParam param)
         {
-            param.Category = GetCategory(param.Category, param.SubCategory);
-
             return _bannerListRepository.GetSizeList(param);
         }
 
-    private void UploadFile(Bitmap bitmap, string fileName)
+        private void UploadFile(Bitmap bitmap, string fileName)
         {
             foreach (var serverPath in _appSetting.BannerFolders)
             {
@@ -188,47 +397,32 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             }
         }
 
-        private List<string> GetFileNameList(string bannerIds)
+        private List<string> GetFileNameList(string bannerIds, byte userType)
         {
             var bannerIdList = bannerIds.Split(',');
             var fileNameList = new List<string>();
 
             foreach (var bannerId in bannerIdList)
             {
-                var bannerInfo = _bannerListRepository.GetBannerDetail(Convert.ToInt32(bannerId));
+                var bannerInfo = _bannerListRepository.GetBannerDetail(Convert.ToInt32(bannerId), userType);
                 fileNameList.Add(bannerInfo.FileName);
             }
 
             return fileNameList;
         }
 
-        private ResultInfo CheckFileInFolder(InsertUpdateBannerParam param, string oldFilePath)
+        private ResultInfo CheckFileInFolder(InsertUpdateMultipleBannersParam param, string oldFilePath)
         {
-            var folder = BannerHelper.GeneralFolder(param.Category, param.SubCategory);
-            param.FilePath = folder + param.InputFileName;
-            if (!string.IsNullOrEmpty(param.SubCategory))
-            {
-                param.Category = param.SubCategory;
-            }
+            var path = $"CategoryMedia/{param.Folder}/{param.InputFileNames}";
+            var result = _bannerValidationService.CheckFileInFolder($"CategoryMedia/{param.Folder}/", path);
+            param.FilePaths.Add(path);
 
-            var result = _bannerValidationService.CheckFileInFolder(folder, param.FilePath);
-
-            if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Compare(param.FilePath, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)
+            if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Compare(path, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)
             {
                 return new ResultInfo();
             }
 
             return result;
-        }
-
-        private static string GetCategory(string category, string subCategory)
-        {
-            if(string.IsNullOrEmpty(subCategory))
-            {
-                return category;
-            }
-
-            return subCategory;
         }
     }
 }

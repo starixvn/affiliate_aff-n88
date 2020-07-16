@@ -1,15 +1,14 @@
-@import "variables";
 /// Adds a browser prefix to the property
 /// @param {*} $property Property
 /// @param {*} $value Value
 
 @mixin css3-prefix($property, $value) {
-  -webkit-#{$property}: #{$value};
-   -khtml-#{$property}: #{$value};
-     -moz-#{$property}: #{$value};
-      -ms-#{$property}: #{$value};
-       -o-#{$property}: #{$value};
-          #{$property}: #{$value};
+    -webkit-#{$property}: #{$value};
+    -khtml-#{$property}: #{$value};
+    -moz-#{$property}: #{$value};
+    -ms-#{$property}: #{$value};
+    -o-#{$property}: #{$value};
+    #{$property}: #{$value};
 }
 
 /// Box Shadow
@@ -20,20 +19,20 @@
 /// @param {Boolean} $inset - Inset
 
 @mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
-  @if ($inset != "") {
-    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
-  } @else {
-    @include css3-prefix('box-shadow', $x $y $blur $color);
-  }
+    @if ($inset != "") {
+        @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+    }
+    @else {
+        @include css3-prefix('box-shadow', $x $y $blur $color);
+    }
 }
-
 
 /// Box Sizing
 /// @param {*} $type [border-box] - Type
 /// @require {mixin} css3-prefix
 
 @mixin box-sizing($type: border-box) {
-  @include css3-prefix('box-sizing', $type);
+    @include css3-prefix('box-sizing', $type);
 }
 
 /// Border Radius
@@ -44,10 +43,10 @@
     @include css3-prefix('border-radius', $radius);
 }
 
-@mixin background-gradient($direction, $list) { 
-  background: -ms-linear-gradient($direction, $list);
-  background: -webkit-linear-gradient($direction, $list);
-  background: -moz-linear-gradient($direction, $list);
-  background: -o-linear-gradient($direction, $list);
-  background: linear-gradient($direction, $list);
+@mixin background-gradient($direction, $list) {
+    background: -ms-linear-gradient($direction, $list);
+    background: -webkit-linear-gradient($direction, $list);
+    background: -moz-linear-gradient($direction, $list);
+    background: -o-linear-gradient($direction, $list);
+    background: linear-gradient($direction, $list);
 }

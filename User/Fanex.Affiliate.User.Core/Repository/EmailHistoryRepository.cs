@@ -5,13 +5,20 @@ namespace Fanex.Affiliate.User.Core.Repository
 {
     public class EmailHistoryRepository : IEmailHistoryRepository
     {
+        private readonly IObjectDBBuilder _builder;
+
+        public EmailHistoryRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
+
         public ResultInfo Insert(ContactUsParam param)
         {
             const string uSpKey = "Aff_EmailHistoryIns";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.DB.ExecuteNonQuery(param);
+                objectDb.ExecuteNonQuery(param);
             }
 
             return new ResultInfo

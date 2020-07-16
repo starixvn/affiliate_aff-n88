@@ -1,4 +1,87 @@
-$primary-color: #fe2400;
-$second-color: #212121;
 $text-color: #2b2b2b;
 $bg-main-color: #f5f5f5;
+$bg-after-login-color: #fff;
+$footer-bg-color: #000;
+
+$header-bg-color: #010000;
+$header-icon-color: #fff;
+$header-bottom-border-color: transparent;
+
+$user-login-control-color: #000;
+$user-login-control-border-color: #000;
+$user-login-control-bg-color: #fff;
+
+$nav-bg-color: #c31d1d;
+$nav-color: #eb9b9b;
+$nav-color-active: #fff;
+$nav-color-focus: #fe2400;
+
+$sub-nav-bg-color: #ad6b2e;
+$sub-nav-menu-color: #fff;
+$sub-nav-menu-bg-color-active: ffea00;
+$sub-nav-menu-color-active: #fff;
+
+$tab-bg-color: $bg-main-color;
+$tab-item-color: #6E6E6E;
+$tab-item-bg-color-active: #e15f00;
+$tab-item-color-active: #fff;
+
+$hot-news-bg-color: #ffc000;
+$hot-news-title-color: #fff;
+$hot-news-title-bg-color: #ec8225;
+$hot-news-content-bg-color: #fff;
+$hot-news-content-color: #d43131;
+
+$button-login-bg-color: #fe2400;
+$button-login-color: #fff;
+$button-login-bg-color-hover: darken($button-login-bg-color, 5%);
+$button-login-border-color: #fff;
+
+$button-submit-bg-color: #b8491f;
+$button-submit-color: #fff;
+$button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
+$button-submit-border-color: #fff;
+
+$page-title-color: #fff;
+$page-title-border-color: #a24627;
+$page-title-bg-color: #a24627;
+
+$group-title-color: #2b2b2b;
+$group-title-border-before-color: #e04f29;
+$group-title-border-after-color: #dbdbdb;
+
+$table-bg-color: #f5eaea;
+$table-color: #333;
+$table-header-bg-color: #c95f4d;
+$table-header-color: #fff;
+$table-header-border-color: #c1c1c1;
+$table-border-color: #cccccc;
+$table-row-bg-color-hover: #fbe8e1;
+$table-row-even-bg-color: #f9f4f4;
+$table-row-total-bg-color: #ffc000;
+$table-game-name-bg: #ded5d5;
+
+$form-control-color: #000;
+$form-control-border-color: #adadad;
+$form-control-bg-color: #fff;
+
+$modal-header-bg-color: #d43131;
+$modal-header-color: #fff;
+
+// Home page
+$home-page-bg-color: #a3a3a3;
+$home-card-content-bg-color: rgba(255,255,255,.2);
+$home-card-content-border-color: #fff;
+$home-card-title-color: #2b2b2b;
+$home-card-content-color: #212121;
+
+// Contact Us page
+$date-time-info: #3f4f66;
+$languages-item-bg-color: #fff;
+$languages-item-border-color: #e7e7e7;
+
+// Account Overview
+$account-overview-group-one: #156e82;
+$account-overview-group-two: #1c56ad;
+$account-overview-group-three: #9e5613;
+$account-overview-group-four: #158469;

@@ -9,7 +9,6 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
-      id="MinAmount"
       name="MinAmount"
       onChange={[Function]}
       type="text"
@@ -24,7 +23,6 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
       <Input
         className="form-max"
         disabled={false}
-        id="MaxAmount"
         name="MaxAmount"
         onChange={[Function]}
         type="text"
@@ -61,7 +59,6 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
-      id="MinQm"
       name="MinQm"
       onChange={[Function]}
       type="text"
@@ -76,7 +73,6 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
       <Input
         className="form-max"
         disabled={false}
-        id="MaxQm"
         name="MaxQm"
         onChange={[Function]}
         type="text"
@@ -750,7 +746,6 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
-      id="MinAmount"
       name="MinAmount"
       onChange={[Function]}
       type="text"
@@ -765,7 +760,6 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       <Input
         className="form-max"
         disabled={true}
-        id="MaxAmount"
         name="MaxAmount"
         onChange={[Function]}
         type="text"
@@ -802,7 +796,6 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
-      id="MinQm"
       name="MinQm"
       onChange={[Function]}
       type="text"
@@ -817,7 +810,6 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       <Input
         className="form-max"
         disabled={true}
-        id="MaxQm"
         name="MaxQm"
         onChange={[Function]}
         type="text"

@@ -130,22 +130,22 @@ describe('landing page statistics - components - Filter', () => {
     });
 
     it('handleChangeFromDate - should be called when From change', () => {
-        const monthDate = { format: jest.fn(() => "6/25/2019")};
+        const monthDate = { format: jest.fn(() => "6/25/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ pageList });
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(0).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ fromDate: "6/25/2019", toDate: "7/12/2019" });
     });
 
     it('handleChangeToDate - should be called when To change', () => {
-        const monthDate = { format: jest.fn(() => "7/10/2019")};
+        const monthDate = { format: jest.fn(() => "7/10/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ pageList });
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).at(1).simulate('change', monthDate);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ toDate: "7/10/2019" });

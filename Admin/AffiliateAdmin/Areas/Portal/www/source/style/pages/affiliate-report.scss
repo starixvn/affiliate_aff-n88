@@ -1,6 +1,6 @@
 ﻿@import "../components/multiple-select";
 @import "../components/monthpicker";
-@import "../components/autocomplete";
+@import "../components/select";
 
 .multiple-select-container {
     flex: 1;
@@ -21,4 +21,10 @@
             color: #99a0a7
         }
     }
+}
+
+.affiliate-report-note {
+    font-size: 17px;
+    font-weight: bold;
+    color: red;
 }

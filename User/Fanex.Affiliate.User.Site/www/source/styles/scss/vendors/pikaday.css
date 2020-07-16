@@ -103,15 +103,11 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .pika-prev,
 .is-rtl .pika-next {
     float: left;
-    background-image: url(../Images/pikaday/prev.png);
-    *left: 0;
 }
 
 .pika-next,
 .is-rtl .pika-prev {
     float: right;
-    background-image: url(../Images/pikaday/next.png);
-    *right: 0;
 }
 
 .pika-prev.is-disabled,

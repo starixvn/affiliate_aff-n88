@@ -48,5 +48,19 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string SymmetricPassword { get; }
 
         string SymmetricSalt { get; }
+
+        string SiteFriendlyName { get; }
+
+        string SiteName { get; }
+
+        string MinWithdrawal { get; }
+
+        IEnumerable<string> SubAffDomains { get; }
+
+        string SubAffTextLinkTemplate { get; }
+
+        string DefaultLanguageCode { get; }
+
+        string DefaultCurrency { get; }
     }
 }

@@ -1,10 +1,9 @@
 import { LEFTPANEL_RECEIVE_AFFINFO, SET_AFF_COMMON_INFO } from './types';
 import { post } from '../../../../modules/ajaxRequest';
-import { toggleLoaderLeftPanel } from '../../left-panel/actions';
 
 import { setSelectedUserPanel } from '../../user-panel/actions';
 import { userPanelMenuKey } from '../../common/modules/constants';
-import { setIsValidUserName } from '../../left-panel/actions';
+import { setIsValidUserName, toggleLoaderLeftPanel } from '../../left-panel/actions';
 
 export const receiveLeftMenuInfo = (data) => {
     return {

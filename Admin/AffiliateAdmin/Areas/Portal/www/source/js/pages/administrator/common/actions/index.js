@@ -1,48 +1,48 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 
-export const getUserDetail = (selectedUserId) => async() => {
+export const getUserDetail = (selectedUserId) => async () => {
     const url = 'Portal/Administrator/GetUserDetail';
     const response = await post(url, { selectedUserId });
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const insertUser = (param) => async() => {
+export const insertUser = (param) => async () => {
     const url = 'Portal/Administrator/InsertUser';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const insertExistedUser = (param) => async() => {
+export const insertExistedUser = (param) => async () => {
     const url = 'Portal/Administrator/InsertExistedUser';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const updateUser = (param) => async() => {
+export const updateUser = (param) => async () => {
     const url = 'Portal/Administrator/UpdateUser';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const updateAccountPolicy = (param) => async() => {
+export const updateAccountPolicy = (param) => async () => {
     const url = 'Portal/Administrator/UpdateAccountPolicy';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const updateRolePolicy = (param) => async() => {
+export const updateRolePolicy = (param) => async () => {
     const url = 'Portal/Department/UpdateRolePolicy';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }
 
-export const getAccountPolicyList = (param) => async() => {
+export const getAccountPolicyList = (param) => async () => {
     const url = 'Portal/Administrator/GetAccountPolicyList';
     const response = await post(url, param);
 
@@ -52,7 +52,7 @@ export const getAccountPolicyList = (param) => async() => {
     return { data: data ? data : [], checkedPolicies };
 }
 
-export const getRolePolicy = (param) => async() => {
+export const getRolePolicy = (param) => async () => {
     const url = 'Portal/Department/GetRolePolicy';
     const response = await post(url, param);
 
@@ -62,7 +62,7 @@ export const getRolePolicy = (param) => async() => {
     return { data: data ? data : [], checkedPolicies };
 }
 
-export const getPolicyListByGroupIds = (param) => async() => {
+export const getPolicyListByGroupIds = (param) => async () => {
     const url = 'Portal/Administrator/GetPolicyListByGroupIds';
     const response = await post(url, param);
 
@@ -72,7 +72,7 @@ export const getPolicyListByGroupIds = (param) => async() => {
     return { data: data ? data : [], checkedPolicies };
 }
 
-export const fetchData = (param) => async() => {
+export const fetchData = (param) => async () => {
     const url = 'Portal/Administrator/GetUserList';
     const response = await post(url, param);
 

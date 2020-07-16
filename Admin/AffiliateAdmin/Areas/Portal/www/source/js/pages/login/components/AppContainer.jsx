@@ -1,8 +1,10 @@
 ﻿import React, { PureComponent } from 'react';
-import { Alert, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Alert, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { post } from '../../../modules/ajaxRequest';
-import { resolveClientUrl } from '../../../modules/utils';
+import { resolveClientUrl, changeMode, renderMode } from '../../../modules/utils';
+
+const nova88 = 'Nova88';
 
 export default class AppContainer extends PureComponent {
     constructor(props) {
@@ -14,7 +16,17 @@ export default class AppContainer extends PureComponent {
             password: '',
             isShowMessage: false,
             message: '',
-            year: now.getFullYear()
+            year: now.getFullYear(),
+            isLightMode: true,
+            isClicked: false
+        }
+    }
+
+    componentDidMount() {
+        if (window.initialState.licenseeName === nova88) {
+            const isLightMode = renderMode();
+
+            this.setState({ isLightMode });
         }
     }
 
@@ -41,7 +53,11 @@ export default class AppContainer extends PureComponent {
         this._handleShowAlert(false, !isValidUserName ? 'User Name is empty. Please check!' : 'Password is empty. Please check!');
         return false;
     }
-    _handleLogin = async () => {
+    _handleLogin = () => {
+        this.setState({ isClicked: true }, this._login);
+    }
+
+    _login = async () => {
         const { userName, password } = this.state;
 
         const isValidAccount = this._validateAccount(userName, password);
@@ -62,6 +78,8 @@ export default class AppContainer extends PureComponent {
                 this._handleShowAlert(false, "An error occurred while processing your request");
             }
         }
+
+        this.setState({ isClicked: false });
     }
 
     _handlePressEnter = (event) => {
@@ -77,49 +95,65 @@ export default class AppContainer extends PureComponent {
         this.setState({ [target.name]: target.value });
     }
 
+    _handleChangeMode = () => {
+        const { isLightMode } = this.state;
+
+        changeMode(isLightMode);
+        this.setState({ isLightMode: !isLightMode });
+    }
+
     render() {
-        const { userName, password, isShowMessage, message, year } = this.state;
+        const { userName, password, isShowMessage, message, year, isLightMode, isClicked } = this.state;
+        const { licenseeName } = window.initialState;
 
         return (
             <div className="login-container">
-                <div className="lgRight"></div>
+                {/* <div className="lgRight"></div> */}
                 <div className="lgRp">
-                    <div className="logo"></div>
+                    <div className="login-header">
+                        <div>
+                            <div>Welcome to {licenseeName}<span> Login</span></div>
+                            <p>Please sign in to continue to work</p>
+                        </div>
+                        {
+                            licenseeName === nova88 && <div class="switch-mode-theme">
+                                <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label for="switch"></label>
+                            </div>
+                        }
+                    </div>
                     <div className="war-box">
                         <Alert color='danger' isOpen={isShowMessage}>
                             <div dangerouslySetInnerHTML={{ __html: message }}></div>
                         </Alert>
                     </div>
-                    <Form tag="form" className="form-login pl-3" autocomplete="false">
-                        <FormGroup row className="mb-1">
-                            <span className="icUser">&nbsp;</span>
-                            <Label for="userName" sm={3} className="form-login-text">User Name</Label>
-                            <Col sm={6}>
+
+                    <Form tag="form" className="form-login" autocomplete="false">
+                        <FormGroup>
+                            {/* <span className="icUser">&nbsp;</span> */}
+                            <Label for="userName" className="form-login-text">User Name</Label>
+                            <div>
                                 <Input type="text" name="userName" id="userName" value={userName}
                                     onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                            </Col>
+                            </div>
                         </FormGroup>
 
-                        <FormGroup row>
-                            <span className="icPass">&nbsp;</span>
-                            <Label for="passWord" sm={3} className="form-login-text">Password</Label>
-                            <Col sm={6}>
+                        <FormGroup>
+                            {/* <span className="icPass">&nbsp;</span> */}
+                            <Label for="passWord" className="form-login-text">Password</Label>
+                            <div>
                                 <Input type="password" name="password" id="password" autocomplete="false"
                                     value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
-                            </Col>
+                            </div>
                         </FormGroup>
+
+                        <div className="bt">
+                            <a href="javascript:;" class="bt-login" onClick={!isClicked && this._handleLogin} >Log On</a>
+                        </div>
                     </Form>
-                    <div className="bt">
-                        <a href="javascript:;" class="bt-login" onClick={this._handleLogin}>Log On</a>
-                    </div>
-                    <div className="foot">
-                        <span className="foot-left">&nbsp;</span>
-                        <span className="foot-rp">{`© Copyright ${year} Pacific Sea Invests`}</span>
-                        <span className="foot-right">&nbsp;</span>
-                        <span className="foot-text">Best view in</span>
-                        <span className="foot-icIE">&nbsp;</span>
-                        <span className="foot-icFirefox">&nbsp;</span>
-                    </div>
+                </div>
+
+                <div className="foot">
+                    <span className="foot-rp">{`© Copyright ${year} ${licenseeName}. All Rights Reserved | 21+`}</span>
                 </div>
             </div>
         )

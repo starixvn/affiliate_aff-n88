@@ -1,21 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Row, Col } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import { Row, Col, Button } from 'reactstrap';
 
-import { status, resource } from '../modules/constants';
+import { status, resource } from '../libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import Language from './general-info/Language';
 import ContactApp from './general-info/ContactApp';
 import ApprovedStatusInfo from './general-info/ApprovedStatusInfo';
+import { setAffName } from '../actions';
+import { getAffiliateInfo } from '../../mainpage/actions/loadingDataAction';
 
 export const GeneralInfo = (props) => {
     const { affiliateInfo } = props;
     const isApproved = affiliateInfo && affiliateInfo.Status && affiliateInfo.Status.toLowerCase() === status.Approved;
     const siteUrl = affiliateInfo && (affiliateInfo.SiteUrl.indexOf('http://') === -1 ? 'http://' + affiliateInfo.SiteUrl : affiliateInfo.SiteUrl);
 
+    const _handleClickParentAffiliate = (parentAffName) => {
+        props.setAffName(parentAffName);
+        props.getAffiliateInfo(parentAffName);
+    }
+
     return affiliateInfo && (
         <div className="general-info pt-2">
             <Row className="border-0 py-1">
+                <Col sm={5}>{resource.ParentAffiliate}</Col>
+                <Col sm={7} className='text-right d-inline-block'>
+                    <Button color="link" className="p-0" onClick={() => _handleClickParentAffiliate(affiliateInfo.ParentAffName)}>
+                        {affiliateInfo.ParentAffName}
+                    </Button>
+                </Col>
+            </Row>
+            <Row>
                 <Col sm={5}>{resource.Affiliate}</Col>
                 <Col sm={7} className='text-right d-inline-block'>
                     {
@@ -24,7 +40,7 @@ export const GeneralInfo = (props) => {
                             (<span>{affiliateInfo.AffName}</span>)
                     }{' '}
                     [<span>{affiliateInfo.AffId}</span>]
-                    </Col>
+                </Col>
             </Row>
             <Row>
                 <Col sm={5}>{resource.FirstName}</Col>
@@ -43,6 +59,10 @@ export const GeneralInfo = (props) => {
                 <Col sm={7} className='text-right'>{affiliateInfo.Phone}</Col>
             </Row>
             <ContactApp />
+            <Row>
+                <Col sm={5}>{resource.ApprovedBy}</Col>
+                <Col sm={7} className='text-right'>{htmlDecode(affiliateInfo.ApprovedBy) || 'N/A'}</Col>
+            </Row>
             <Row>
                 <Col sm={5}>{resource.Language}</Col>
                 <Col sm={7} className='text-right text-primary'><Language /></Col>
@@ -79,4 +99,8 @@ function mapStateToProps({ leftPanel }) {
     return Object.assign({}, { affiliateInfo });
 }
 
-export default connect(mapStateToProps)(React.memo(GeneralInfo));
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ getAffiliateInfo, setAffName }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(GeneralInfo));

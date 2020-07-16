@@ -13,7 +13,6 @@ describe('commission group - assign private group', () => {
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" },
         { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" }],
-        QmTurnover: 100,
         TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
     };
     const defaultProps = {
@@ -48,7 +47,7 @@ describe('commission group - assign private group', () => {
             PlatformFeeList: [
                 { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" },
                 { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" },
-                { DeductedPercentage: 0.17, DeductionId: 10, NextDeductedPercentage: 0.17, ProductIds: "" }
+                { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }
             ]
         }
         const mockSetSelectedGroup = jest.fn();

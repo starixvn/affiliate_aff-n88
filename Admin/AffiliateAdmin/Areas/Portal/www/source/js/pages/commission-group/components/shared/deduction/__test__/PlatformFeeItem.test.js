@@ -43,14 +43,14 @@ describe('commission group - PlatformFeeItem', () => {
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
 
-    it('handleChangeComm - should call onChangeCommission when change NextDeductedPercentage', () => {
+    it('handleChangeComm - should call onChangeCommission when change DeductedPercentage when update', () => {
         const mockEvent = { target: { name: 'NextDeductedPercentage', value: '0.15' } };
         const props = Object.assign({}, defaultProps, { isInserting: false });
         const wrapper = shallow(<PlatformFeeItem {...props} />);
 
-        wrapper.find('select[name="NextDeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find('select[name="DeductedPercentage"]').simulate('change', mockEvent);
 
-        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ NextDeductedPercentage: 0.15 });
+        expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
 
     it('Should render correctly', () => {

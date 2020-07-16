@@ -24,11 +24,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         public void Index_WhenCall_ReturnView()
         {
             // Arrange
-            var param = new BannerParamFromHome { ImageType = "Image", IsFromHome = true };
+            var param = new BannerParamFromHome { UserType = 1, IsFromHome = true };
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(c => c.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryId = 123, CategoryName = "Category", ParentCategoryId = 123 } });
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(1,1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
             commonMediaGalleryService.Setup(c => c.GetCurrencyList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 234, Name = "Currency" } });
-            commonMediaGalleryService.Setup(c => c.GetImageTypeList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 345, Name = "Image" } });
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language { LanguageCode = "en", LanguageName = "English" } });
             var affTypeService = new Mock<IAffTypeService>();
@@ -37,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             SizeParam passedSizeParam = null;
             var bannerListService = new Mock<IBannerListService>();
             bannerListService.Setup(t => t.GetSizeList(It.IsAny<SizeParam>())).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 456, Name = "320x250" } }).Callback<SizeParam>(p => passedSizeParam = p);
-            var controller = CreateMediaGalleryController(languageService: languageService.Object, commonMediaGalleryService: commonMediaGalleryService.Object, bannerListService: bannerListService.Object, affTypeService: affTypeService.Object);
+            var controller = CreateMediaGalleryController(null, languageService.Object, commonMediaGalleryService.Object, bannerListService.Object, affTypeService.Object);
 
             var urlHelperMock = new Mock<UrlHelper>();
             urlHelperMock.Setup(m => m.Content(It.IsAny<string>())).Returns("/Portal/MediaGallery");
@@ -53,38 +52,23 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             Assert.Single(model.CategoryList);
             Assert.Single(model.LanguageList);
             Assert.Single(model.CurrencyList);
-            Assert.Single(model.ImageTypeList);
             Assert.Single(model.SizeList);
             Assert.Single(model.AffTypeList);
             Assert.Equal(param, model.Param);
-            Assert.Equal(param.ImageType, passedSizeParam.ImageType);
+            Assert.Equal(param.UserType, passedSizeParam.UserType);
         }
 
         [Fact]
-        public void GetSubCategoryCasinoList_WhenCall_ReturnCorrectData()
+        public void GetCategoryList_WhenCall_ReturnCorrectData()
         {
             // Arrange
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryId = 123, CategoryName = "Casino Bonus", ParentCategoryId = 51 } });
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(1, 1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+
             var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
 
             // Action
-            var result = controller.GetSubCategoryCasinoList() as JsonNetResult;
-
-            // Assert
-            Assert.Single(result.Data as IEnumerable<Category>);
-        }
-
-        [Fact]
-        public void GetSubCategorySportsbookList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(t => t.GetCategoryList(1)).Returns(new List<Category> { new Category { CategoryId = 123, CategoryName = "SB Bonus", ParentCategoryId = 1 } });
-            var controller = CreateMediaGalleryController(commonMediaGalleryService: commonMediaGalleryService.Object);
-
-            // Action
-            var result = controller.GetSubCategorySportsbookList() as JsonNetResult;
+            var result = controller.GetCategoryList(1) as JsonNetResult;
 
             // Assert
             Assert.Single(result.Data as IEnumerable<Category>);
@@ -148,18 +132,16 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var selectedBannerId = 123;
-            var passedParam = 0;
             var bannerListService = new Mock<IBannerListService>();
-            bannerListService.Setup(s => s.GetBannerDetail(selectedBannerId)).Returns(new BannerInfo { BannerId = 123 }).Callback<int>(p => passedParam = p);
+            bannerListService.Setup(s => s.GetBannerDetail(selectedBannerId, It.IsAny<byte>())).Returns(new BannerInfo { BannerId = 123 });
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
-            var result = controller.GetBannerDetail(selectedBannerId) as JsonNetResult;
+            var result = controller.GetBannerDetail(selectedBannerId, 1) as JsonNetResult;
             var bannerInfo = result.Data as BannerInfo;
 
             // Assert
             Assert.Equal(selectedBannerId, bannerInfo.BannerId);
-            Assert.Equal(selectedBannerId, passedParam);
         }
 
         [Fact]
@@ -167,11 +149,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var bannerListService = new Mock<IBannerListService>();
-            bannerListService.Setup(s => s.InsertBanner(It.IsAny<HttpPostedFileBase>(), It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo ());
+            bannerListService.Setup(s => s.InsertBanner(It.IsAny<HttpPostedFileBase[]>(), It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
-            var result = controller.InsertBanner(new MockFile(), new InsertUpdateBannerParam()) as JsonNetResult;
+            var result = controller.InsertBanner(new MockFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -186,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.InsertBanner(new MockFile(), new InsertUpdateBannerParam()) as JsonNetResult;
+            var result = controller.InsertBanner(new MockFile[1], new InsertUpdateMultipleBannersParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -201,7 +183,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
             var controller = CreateMediaGalleryController();
 
             // Action
-            var result = controller.InsertBanner(null, new InsertUpdateBannerParam()) as JsonNetResult;
+            var result = controller.InsertBanner(null, new InsertUpdateMultipleBannersParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -213,9 +195,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         public void UpdateBanner_WhenCallWithValidParam_UpdateSuccessful()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { BannerId = 123, InputFileName = "abc.gif" };
+            var param = new InsertUpdateMultipleBannersParam { BannerId = 123, InputFileNames = "abc.gif" };
             var bannerListService = new Mock<IBannerListService>();
-            bannerListService.Setup(s => s.UpdateBanner(null, It.IsAny<InsertUpdateBannerParam>())).Returns(new ResultInfo());
+            bannerListService.Setup(s => s.UpdateBanner(null, It.IsAny<InsertUpdateMultipleBannersParam>())).Returns(new ResultInfo());
             var controller = CreateMediaGalleryController(bannerListService: bannerListService.Object);
 
             // Action
@@ -230,7 +212,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         public void UpdateBanner_WhenCallWithInValidParam_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { BannerId = 123, InputFileName = "abc.gif" };
+            var param = new InsertUpdateMultipleBannersParam { BannerId = 123, InputFileNames = "abc.gif" };
             var controller = CreateMediaGalleryController();
             controller.ModelState.AddModelError("Error01", string.Empty);
 
@@ -240,14 +222,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("You must enter a file name for banner.", resultInfo.Message);
+            Assert.Equal("You must either enter a file name for banner or browse other banner.", resultInfo.Message);
         }
 
         [Fact]
         public void UpdateBanner_WhenCallWithInValidBannerId_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { InputFileName = "abc.gif" };
+            var param = new InsertUpdateMultipleBannersParam { InputFileNames = "abc.gif" };
             var controller = CreateMediaGalleryController();
 
             // Action
@@ -256,14 +238,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("BannerId is invalid.", resultInfo.Message);
+            Assert.Equal("Banner Id is invalid.", resultInfo.Message);
         }
 
         [Fact]
         public void UpdateBanner_WhenCallWithInValidInputFileName_ReturnError()
         {
             // Arrange
-            var param = new InsertUpdateBannerParam { BannerId = 123 };
+            var param = new InsertUpdateMultipleBannersParam { BannerId = 123 };
             var controller = CreateMediaGalleryController();
 
             // Action
@@ -272,7 +254,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("You must enter a file name for banner.", resultInfo.Message);
+            Assert.Equal("You must either enter a file name for banner or browse other banner.", resultInfo.Message);
         }
 
         [Fact]
@@ -307,7 +289,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.False(resultInfo.IsSuccessful);
-            Assert.Equal("Please select Banners to delete.", resultInfo.Message);
+            Assert.Equal("Please select Banner(s) to delete.", resultInfo.Message);
         }
 
         private MediaGalleryController CreateMediaGalleryController(

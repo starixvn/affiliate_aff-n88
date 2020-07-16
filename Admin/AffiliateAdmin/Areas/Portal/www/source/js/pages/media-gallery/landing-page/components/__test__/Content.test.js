@@ -2,21 +2,18 @@
 import { Content } from '../Content';
 import { shallow, mount } from 'enzyme';
 
-import { defaultPagingOption } from '../../../../../modules/constants';
-import { Table } from '@9softstudio/react-fixed-table-header';
-
 describe('landing page list - components - Content ', () => {
     const gridData = [
-                {
-                    PageCode: "sportsbooks",
-                    PageId: 1,
-                    PageName: "Sportsbooks"
-                },
-                {
-                    PageCode: "numbergame",
-                    PageId: 22,
-                    PageName: "Number Game"
-                }
+        {
+            PageCode: "sportsbooks",
+            PageId: 1,
+            PageName: "Sportsbooks"
+        },
+        {
+            PageCode: "numbergame",
+            PageId: 22,
+            PageName: "Number Game"
+        }
     ];
 
     const defaultProps = {

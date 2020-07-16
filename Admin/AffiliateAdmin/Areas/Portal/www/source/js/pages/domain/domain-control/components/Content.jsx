@@ -129,13 +129,14 @@ export class Content extends PureComponent {
     }
 
     render() {
-        const { gridData, shouldResetScrollPosition, selectedMarket, affDomainList, redirectDomainList } = this.props;
+        const { gridData, shouldResetScrollPosition, selectedMarket, affDomainList, redirectDomainList, marketList } = this.props;
         const { message, isConfirmPopup } = this.state;
+        const languageCode = selectedMarket || (marketList[0].LanguageCode || 'en-US');
 
         return gridData && (
             <div className="data-content">
                 <div className="my-2">
-                    <Button outline type="button" onClick={() => this._handleEditDomain(0, selectedMarket || 'en-GB', affDomainList[0].DomainId, redirectDomainList[0].DomainId, false)}>Add New <span className="oi oi-plus ml-2"></span></Button>
+                    <Button outline type="button" onClick={() => this._handleEditDomain(0, languageCode, affDomainList[0] ? affDomainList[0].DomainId : 0, redirectDomainList[0] ? redirectDomainList[0].DomainId : 0, false)}>Add New <span className="oi oi-plus ml-2"></span></Button>
                 </div>
                 <div className="domain-list-content table-responsive table-striped my-2">
                     <Table
@@ -160,8 +161,8 @@ export class Content extends PureComponent {
     }
 }
 
-function mapStateToProps({ shouldResetScrollPosition, gridData, selectedMarket, affDomainList, redirectDomainList }) {
-    return Object.assign({}, { shouldResetScrollPosition, gridData, selectedMarket, affDomainList, redirectDomainList });
+function mapStateToProps({ shouldResetScrollPosition, gridData, selectedMarket, affDomainList, redirectDomainList, marketList }) {
+    return Object.assign({}, { shouldResetScrollPosition, gridData, selectedMarket, affDomainList, redirectDomainList, marketList });
 }
 
 function mapDispatchToProps(dispatch) {

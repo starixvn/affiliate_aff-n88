@@ -3,11 +3,28 @@ using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
+using Fanex.Affiliate.Admin.Core.Constants;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
     public class UserAccountRepository : BaseRepository, IUserAccountRepository
     {
+        public bool CheckPlayerUserName(int affId, string playerUserName)
+        {
+            const string SpKey = "Aff_PlayerUsername_CheckIsValid";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, affId);
+                objectDb.AddInParameter("Player_Username", DbType.String, playerUserName);
+                objectDb.AddOutParameter("IsValid", DbType.Boolean, Size.SizeOfInt);
+
+                objectDb.ExecuteNonQuery();
+
+                return Convert.ToBoolean(objectDb.GetParameterValue("IsValid"));
+            }
+        }
+
         public UserAccount GetUserAccountInfo(int affId)
         {
             const string SpKey = "Aff_Admin_AffiliateInfo_Sel";
@@ -15,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, affId);
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, affId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -23,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                     {
                         result = new UserAccount
                         {
-                            AffId = Convert.ToInt32(reader["AffId"]),
+                            AffId = Convert.ToInt32(reader[Field.AffId]),
                             AffName = Convert.ToString(reader["UserName"]),
                             FirstName = Convert.ToString(reader["FirstName"]),
                             LastName = Convert.ToString(reader["LastName"]),
@@ -64,7 +81,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             const string SpKey = "Aff_Admin_AffiliateInfo_Upd";
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
                 objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
                 objectDb.AddInParameter("FirstName", DbType.String, param.FirstName);
                 objectDb.AddInParameter("LastName", DbType.String, param.LastName);

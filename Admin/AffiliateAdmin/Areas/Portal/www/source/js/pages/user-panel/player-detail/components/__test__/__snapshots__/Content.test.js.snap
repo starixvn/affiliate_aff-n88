@@ -258,7 +258,7 @@ exports[`players detail - components - Content render correctly 1`] = `
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="IBC User Name"
+          title="System Name"
         />
         <Memo(SortingCell)
           columnName="RegisteredDate"
@@ -386,7 +386,7 @@ exports[`players detail - components - Content render correctly with have data i
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="IBC User Name"
+          title="System Name"
         />
         <Memo(SortingCell)
           columnName="RegisteredDate"
@@ -721,7 +721,7 @@ exports[`players detail - components - Content render correctly with not selecte
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="IBC User Name"
+          title="System Name"
         />
         <Memo(SortingCell)
           columnName="RegisteredDate"

@@ -2,7 +2,7 @@
 import App from '../index';
 import { shallow } from 'enzyme';
 
-jest.mock('react-dom', ()=> ({render: jest.fn()}))
+jest.mock('react-dom', () => ({ render: jest.fn() }))
 
 describe('text list - App', () => {
     it('Should render correctly', () => {

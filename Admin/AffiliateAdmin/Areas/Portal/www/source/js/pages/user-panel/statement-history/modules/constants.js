@@ -1,7 +1,7 @@
 ﻿import { globalResource } from '../../../../modules/globalResource';
-import { selectedAllProduct, maxWidth } from '../../../../modules/constants';
+import { selectedAllProduct, maxWidth, minDate } from '../../../../modules/constants';
 
-export { globalResource, selectedAllProduct, maxWidth }
+export { globalResource, selectedAllProduct, maxWidth, minDate }
 
 export const headerText = {
     Index: '#',
@@ -13,16 +13,19 @@ export const headerText = {
     Description: 'Description',
 }
 
+export const CalculatedMonth = 2;
+export const MONTHLY_TOTAL = 0;
 export const MONTHLY_WINLOST = 201;
 export const PAYMENT_REQUEST = 202;
 export const ADJUSTMENT = 203;
-export const TRANSACTION = 0;
+export const SUBAFFILIATE = 204;
 
 export const transTypeList = {
+    [MONTHLY_TOTAL]: 'Transaction',
     [MONTHLY_WINLOST]: 'Monthly Winlost',
     [PAYMENT_REQUEST]: 'Payment Request',
     [ADJUSTMENT]: 'Adjustment',
-    [TRANSACTION]: 'Transaction'
+    [SUBAFFILIATE]: 'Sub-Affiliate'
 }
 
 export const monthlyWinlost = 'Monthly Winlost'

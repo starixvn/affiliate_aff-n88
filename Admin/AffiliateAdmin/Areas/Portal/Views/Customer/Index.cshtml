@@ -11,13 +11,19 @@
 @section pagejs{
     <script type="text/javascript">
         window.initialState = {
+            licenseeName: '@(AppSetting.Instance.SiteFriendlyName)',
             today: '@DateTime.Now.ToString("MM/dd/yyyy")',
             selectedUserPanel: null,
             affCommonInfo: null,
             leftPanel: {
-                affName: '@Model.AffName'
+                affName: '@Model.AffName',
+                affTypeList: @Html.Raw(Json.Encode(Model.AffTypeList))
             },
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
+            productList: @Html.Raw(Json.Encode(Model.ProductList)),
+            currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
+            baseCurrencyList: @Html.Raw(Json.Encode(Model.BaseCurrencyList)),
+            isProduction: '@(AppSetting.Instance.Environment)'.toLowerCase() === 'production',
             customerStatistics: {}
         }
     </script>

@@ -24,9 +24,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             if (result.IsSuccessful)
             {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee, param.ExchangeWinLossShare, param.ExchangeCommissionShare });
+                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList, true);
+                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
                 return _commGroupRepository.CreateCommissionGroup(param);
             }
@@ -40,9 +40,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             if (result.IsSuccessful)
             {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee, param.ExchangeWinLossShare, param.ExchangeCommissionShare });
+                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
                 param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList, false);
+                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
                 return _commGroupRepository.UpdateCommissionGroup(param);
             }
@@ -71,15 +71,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return result.ToString();
         }
 
-        private static string BuildDeductionSettingXml(IEnumerable<DeductionSetting> deductionSettingList, bool isInsert)
+        private static string BuildDeductionSettingXml(IEnumerable<DeductionSetting> deductionSettingList)
         {
             var result = new StringBuilder();
             result.Append("<root>");
 
             foreach (var item in deductionSettingList)
             {
-                var percent = isInsert ? item.DeductedPercentage : item.NextDeductedPercentage;
-                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{percent}\" />";
+                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\" />";
                 result.Append(row);
             }
 

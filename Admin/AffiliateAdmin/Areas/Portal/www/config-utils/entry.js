@@ -30,16 +30,6 @@ module.exports = {
     [`${jsDist}/pages/administrator/department`]: clientRoot + "/js/pages/administrator/department/index.jsx",
     [`${jsDist}/pages/home`]: clientRoot + "/js/pages/home/index.jsx",
 
-    //For Thirdparty Product pages
-    [`${jsDist}/pages/thirdparty-product/betsoft`]: clientRoot + "/js/pages/thirdparty-product/betsoft/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/ebet`]: clientRoot + "/js/pages/thirdparty-product/ebet/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/crystal-gpi`]: clientRoot + "/js/pages/thirdparty-product/crystal-gpi/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/isoftbet`]: clientRoot + "/js/pages/thirdparty-product/isoftbet/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/opus`]: clientRoot + "/js/pages/thirdparty-product/opus/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/importqueue`]: clientRoot + "/js/pages/thirdparty-product/importqueue/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/timetracker`]: clientRoot + "/js/pages/thirdparty-product/timetracker/index.jsx",
-    [`${jsDist}/pages/thirdparty-product/exchange-summary-transaction`]: clientRoot + "/js/pages/thirdparty-product/exchange-summary-transaction/index.jsx",
-
     [`${styleDist}/portalmain`]: clientRoot + "/style/main.scss",
     [`${styleDist}/layout`]: clientRoot + "/style/layout/main-layout.scss",
     [`${styleDist}/user-panel-layout`]: clientRoot + "/style/layout/user-panel-layout.scss",
@@ -63,4 +53,13 @@ module.exports = {
     [`${styleDist}/pages/administrator/administrator`]: clientRoot + "/style/pages/administrator/administrator.scss",
     [`${styleDist}/pages/administrator/department`]: clientRoot + "/style/pages/administrator/department.scss",
     [`${styleDist}/home`]: clientRoot + "/style/pages/home.scss",
+    [`${styleDist}/theme-blue`]: clientRoot + "/style/themes/theme-blue.scss",
+    [`${styleDist}/theme-violet`]: clientRoot + "/style/themes/theme-violet.scss",
+    [`${styleDist}/theme-coral`]: clientRoot + "/style/themes/theme-coral.scss",
+    [`${styleDist}/theme-green`]: clientRoot + "/style/themes/theme-green.scss",
+    [`${styleDist}/N8G`]: clientRoot + "/style/themes/N8G.scss",
+    [`${styleDist}/N8B`]: clientRoot + "/style/themes/N8B.scss",
+    [`${styleDist}/N88`]: clientRoot + "/style/themes/N88.scss",
+    [`${styleDist}/N88-lightmode`]: clientRoot + "/style/themes/N88-lightmode.scss",
+    [`${styleDist}/N88-darkmode`]: clientRoot + "/style/themes/N88-darkmode.scss",
 };

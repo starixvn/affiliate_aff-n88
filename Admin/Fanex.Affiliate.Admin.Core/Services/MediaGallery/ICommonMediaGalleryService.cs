@@ -5,10 +5,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 {
     public interface ICommonMediaGalleryService
     {
-        IEnumerable<Category> GetCategoryList(byte typeId);
+        IEnumerable<Category> GetCategoryList(byte typeId, byte userType);
 
         IEnumerable<MediaGalleryFilterItem> GetCurrencyList();
-
-        IEnumerable<MediaGalleryFilterItem> GetImageTypeList();
     }
 }

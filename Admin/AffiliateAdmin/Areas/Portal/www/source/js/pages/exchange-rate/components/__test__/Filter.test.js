@@ -28,11 +28,11 @@ describe('exchange rate - components - Filter ', () => {
     });
 
     it('should call handleChangeDate when To change', () => {
-        const date = { format: jest.fn(() => "09/05/2019")};
+        const date = { format: jest.fn(() => "09/05/2019") };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.setState = jest.fn();
-        
+
         wrapper.find(DatePicker).simulate('change', date);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ date: "09/05/2019" });

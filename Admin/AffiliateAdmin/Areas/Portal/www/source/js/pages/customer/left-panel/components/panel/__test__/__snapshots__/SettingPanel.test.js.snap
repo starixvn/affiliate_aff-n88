@@ -45,22 +45,10 @@ exports[`left panel - components - panel - SettingPanel render correctly 1`] = `
         value={2}
       >
         <option
-          key="affinfo-type-0"
-          value="2"
+          key="affinfo-type-1"
+          value={1}
         >
           Asian
-        </option>
-        <option
-          key="affinfo-type-1"
-          value="3"
-        >
-          Media
-        </option>
-        <option
-          key="affinfo-type-2"
-          value="4"
-        >
-          European
         </option>
       </select>
       <Button
@@ -74,7 +62,7 @@ exports[`left panel - components - panel - SettingPanel render correctly 1`] = `
         }
         tag="button"
       >
-        Asian
+        2
       </Button>
     </Col>
   </Row>
@@ -209,22 +197,10 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         value={2}
       >
         <option
-          key="affinfo-type-0"
-          value="2"
+          key="affinfo-type-1"
+          value={1}
         >
           Asian
-        </option>
-        <option
-          key="affinfo-type-1"
-          value="3"
-        >
-          Media
-        </option>
-        <option
-          key="affinfo-type-2"
-          value="4"
-        >
-          European
         </option>
       </select>
       <Button
@@ -238,7 +214,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         }
         tag="button"
       >
-        Asian
+        2
       </Button>
     </Col>
   </Row>
@@ -281,46 +257,6 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         setShowPopupCommGroup={[Function]}
         showPopupCommGroup={false}
       />
-    </Col>
-  </Row>
-  <Row
-    tag="div"
-  >
-    <Col
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      Closed
-    </Col>
-    <Col
-      className="text-right text-primary"
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <Button
-        className="left-panel-btn-link btn-closed"
-        color="link"
-        onClick={[Function]}
-        tag="button"
-      >
-        No
-      </Button>
     </Col>
   </Row>
 </Memo(Panel)>

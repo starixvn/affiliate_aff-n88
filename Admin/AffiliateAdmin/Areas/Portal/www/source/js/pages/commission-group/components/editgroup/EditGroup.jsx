@@ -6,8 +6,6 @@ import { Alert } from 'reactstrap';
 import { getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup } from '../../actions';
 
 import DeductionSetting from '../shared/deduction';
-import ExchangeRevenueShareSetting from '../shared/exchange';
-import QmTurnOverSetting from '../shared/QmTurnOverSetting';
 import TierSetting from '../shared/tiersetting';
 import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
@@ -81,11 +79,9 @@ export class EditGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
-                <ExchangeRevenueShareSetting />
                 <DeductionSetting />
-                <QmTurnOverSetting />
                 <TierSetting />
-
+                <p className="text-danger">{messages.note}</p>
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
             </div>
         )

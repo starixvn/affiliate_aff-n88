@@ -1,3 +1,7 @@
+import { defaultBaseCurrency } from '../../../modules/constants';
+
+export { defaultBaseCurrency };
+
 const sortByCommon = {
     Turnover: 2,
     Winloss: 3,
@@ -33,8 +37,9 @@ export const headerText = {
     UniqueClick: 'Unique Click',
     Signup: 'Signup',
     Fdm: 'FDM',
-    ActiveMember: 'Active Member',
-    QualifiedMember: 'Qualified Member',
+    ActiveMember: 'Active Player',
+    NoOfSubAff: 'Sub-Affiliate',
+    QualifiedMember: 'Qualified Player',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
@@ -42,14 +47,16 @@ export const headerText = {
     Bonus: 'Bonus',
     PlatformFee: 'Platform Fee',
     OperationalFee: 'Operational Fee',
-    BankingFee: 'Banking Fees',
+    BankingFee: 'Banking Fee',
     TotalFee: 'Total Fee',
-    CommissionRate: 'Comm%',
+    CommissionRate: 'Share%',
     Earning: 'Earning',
+    SubAffEarning: 'Sub-Affiliate Earning',
+    TotalEarning: 'Total Earning',
     AffWithdrawal: 'Withdrawal',
     AffAdjustment: 'Adjustment',
     BalanceBf: 'Balance B/F',
-    MemberStatistics: 'Member Statistics',
+    MemberStatistics: 'Player Statistics',
     AffiliateStatistics: 'Affiliate Statistics',
     MonthOnMonth: 'Month on Month'
 }

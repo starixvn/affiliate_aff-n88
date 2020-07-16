@@ -29,7 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportParam());
             var item = result.MainData.FirstOrDefault();
 
             // Assert
@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportParam());
             var item = result.MainData.FirstOrDefault();
 
             // Assert
@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetMainReportData(new AffiliateReportMainParam());
+            var result = repository.Object.GetMainReportData(new AffiliateReportParam());
 
             // Assert
             Assert.Empty(result.MainData);
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Detail_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetDetailReportData(new AffiliateReportMainParam());
+            var result = repository.Object.GetDetailReportData(new AffiliateReportParam());
 
             // Assert
             Assert.Single(result.MainData);
@@ -122,7 +122,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Detail_Sel", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetDetailReportData(new AffiliateReportMainParam());
+            var result = repository.Object.GetDetailReportData(new AffiliateReportParam());
 
             // Assert
             Assert.Empty(result.MainData);
@@ -172,6 +172,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["AffWithdrawal"] = 123,
                 ["AffAdjustment"] = 123,
                 ["BFF"] = 123,
+                ["NoOfSubAff"] = 0,
+                ["SubAffEarning"] = 0
             };
         }
 
@@ -203,6 +205,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["AffWithdrawal"] = 123,
                 ["AffAdjustment"] = 123,
                 ["BFF"] = 123,
+                ["NoOfSubAff"] = 0,
+                ["SubAffEarning"] = 0
             };
         }
 

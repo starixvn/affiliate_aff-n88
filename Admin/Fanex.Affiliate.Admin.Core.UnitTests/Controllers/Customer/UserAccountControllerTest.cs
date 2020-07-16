@@ -134,7 +134,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             // Assert
             Assert.False(data.IsSuccessful);
-            Assert.Equal("Update is failed!", data.Message);
+            Assert.Equal("", data.Message);
         }
 
         private UserAccountController CreateUserAccountController(
@@ -179,7 +179,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
                 Postcode = "700000",
                 Country = "Viet Nam",
                 MoreSiteUrls = "www.sportsbookie.com",
-                SiteUrl = "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+                SiteUrl = "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
                 PreferredPayment = "Player",
                 PlayerUsername = "bettingexp",
                 NoSiteDescription = "test",
@@ -213,7 +213,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
                 Postcode = "700000",
                 Country = "Viet Nam",
                 MoreSiteUrls = "www.sportsbookie.com",
-                SiteUrl = "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+                SiteUrl = "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
                 PreferredPayment = "Player",
                 PlayerUsername = "bettingexp",
                 NoSiteDescription = "test",

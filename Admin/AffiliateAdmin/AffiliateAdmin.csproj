@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -220,6 +220,7 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -229,55 +230,38 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
-    <Content Include="App_Data\SpConfig\SpName.local.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.master.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.production.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.sit.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.uat.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\SpName.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpName.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>_SpName.txt</LastGenOutput>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpName.txt">
-      <DependentUpon>_SpName.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpNameConfig.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\SpConfig\_SpNameOriginal.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner.png" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_en-GB.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_en-US.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_en.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_es-ES.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_hi-IN.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_id-ID.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_ja-JP.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_ko-KR.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_th-TH.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_vi-VN.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_zh-CN.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\banner_zh-TW.jpg" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\bgMain.jpg" />
+    <Content Include="App_Data\SpConfig\SpName.xml" />
     <Content Include="Areas\Portal\www\dist\imgs\email\button.png" />
-    <Content Include="Areas\Portal\www\dist\imgs\email\header.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_en-US.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_id-ID.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_ko-KR.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_th-TH.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_vi-VN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_zh-CN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_zh-TW.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\bgMain.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n88\header.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_en-US.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_id-ID.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_ko-KR.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_th-TH.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_vi-VN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_zh-CN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\banner_zh-TW.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\bgMain.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8b\header.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_en-US.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_id-ID.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_ko-KR.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_th-TH.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_vi-VN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_zh-CN.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\banner_zh-TW.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\bgMain.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\email\n8g\header.png" />
     <Content Include="Areas\Portal\www\dist\imgs\email\note.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_admin.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_affiliateslist.png" />
@@ -285,6 +269,8 @@
     <Content Include="Areas\Portal\www\dist\imgs\i_media1.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_member.png" />
     <Content Include="Areas\Portal\www\dist\imgs\i_report.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO3.png" />
+    <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO1.png" />
     <Content Include="Areas\Portal\www\dist\jquery-3.3.1.min.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\adjustment.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\customer-statistics.chunk.js" />
@@ -296,10 +282,10 @@
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\playerDetail.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\referrerStatistics.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\statementHistory.chunk.js" />
-    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\trackingStatistics.chunk.js" />
+    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\subaffiliate.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\userAccount.chunk.js" />
+    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~dailyEarning~dailyEarningDetail~playerDetail.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~landingPageStatistics~member~referrerStatistics~statementHistory~viewLog.chunk.js" />
-    <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~playerDetail.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\vendors~xlsx-style.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\viewLog.chunk.js" />
     <Content Include="Areas\Portal\www\dist\js\dynamic-chunks\xlsx-style.chunk.js" />
@@ -327,27 +313,18 @@
     <Content Include="Areas\Portal\www\dist\js\pages\payment\payment-request.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\Recheckin\recheckin.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\report\affiliate-report.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\betsoft.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\crystal-gpi.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\ebet.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\exchange-summary-transaction.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\gpi-lottery.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\imone-vrlottery.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\importqueue.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\isoftbet.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\lb-keno.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\opus.js" />
-    <Content Include="Areas\Portal\www\dist\js\pages\thirdparty-product\timetracker.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\under-maintenance.js" />
-    <Content Include="Areas\Portal\www\dist\style\assets\banner_top.jpg" />
-    <Content Include="Areas\Portal\www\dist\style\assets\lgLeft.jpg" />
-    <Content Include="Areas\Portal\www\dist\style\assets\lgLogo.jpg" />
     <Content Include="Areas\Portal\www\dist\style\assets\open-iconic.svg" />
     <Content Include="Areas\Portal\www\dist\style\assets\UnderMaintenance.gif" />
     <Content Include="Areas\Portal\www\dist\style\change-admin-password.css" />
     <Content Include="Areas\Portal\www\dist\style\home.css" />
     <Content Include="Areas\Portal\www\dist\style\layout.css" />
     <Content Include="Areas\Portal\www\dist\style\login.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88-darkmode.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88-lightmode.css" />
+    <Content Include="Areas\Portal\www\dist\style\N88.css" />
+    <Content Include="Areas\Portal\www\dist\style\N8B.css" />
+    <Content Include="Areas\Portal\www\dist\style\N8G.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\administrator\administrator.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\administrator\department.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\affiliate-info.css" />
@@ -365,6 +342,10 @@
     <Content Include="Areas\Portal\www\dist\style\pages\message\message.css" />
     <Content Include="Areas\Portal\www\dist\style\pages\payment\payment-request.css" />
     <Content Include="Areas\Portal\www\dist\style\portalmain.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-blue.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-coral.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-green.css" />
+    <Content Include="Areas\Portal\www\dist\style\theme-violet.css" />
     <Content Include="Areas\Portal\www\dist\style\under-maintenance.css" />
     <Content Include="Areas\Portal\www\dist\style\user-panel-layout.css" />
     <Content Include="Areas\Portal\www\dist\vendors\bootstrap.css" />
@@ -374,6 +355,24 @@
     <Content Include="Areas\Portal\www\index.html" />
     <Content Include="Areas\Portal\www\config-utils\constant.js" />
     <Content Include="Areas\Portal\www\config-utils\entry.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\Select.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\SelectLabel.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\SelectOptionList.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\Option.jsx" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Select.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectLabel.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
+    <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\AppContainer.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\Content.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\Filter.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\redux\Content.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\__test__\redux\Filter.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\reducers\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\darkmode.svg" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\lightmode.svg" />
     <Content Include="Areas\Portal\www\source\js\actions\actionTypes.js" />
     <Content Include="Areas\Portal\www\source\js\actions\loaderAction.js" />
     <Content Include="Areas\Portal\www\source\js\actions\pagingAction.js" />
@@ -420,9 +419,9 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\actions\__tests__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\GridData.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\Filter.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\modules\utils.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\modules\__test__\reportExcel.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\modules\__test__\utils.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\libs\utils.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\libs\__test__\reportExcel.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\libs\__test__\utils.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\reducers\__tests__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\components\__test__\AppContainer.test.js" />
@@ -450,16 +449,11 @@
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\PlatformFeeItem.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\PlatformFeeSetting.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\redux\PlatformFeeSetting.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\__test__\ExchangeRevenueShareSetting.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\__test__\redux\ExchangeRevenueShareSetting.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\__test__\SharePercentSettingItem.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\redux\TierSetting.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\TierSetting.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\TierSettingItem.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\CommGroup.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\QmTurnOverSetting.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\redux\CommGroupInfo.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\redux\QmTurnOverSetting.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\__test__\Content.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\__test__\Filter.test.js" />
@@ -500,8 +494,8 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\Content.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\actions\types.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\modules\constants.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\modules\reportExcel.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\libs\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\libs\reportExcel.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\actions\types.js" />
@@ -552,7 +546,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\__test__\PanelList.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\__test__\redux\SearchBox.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\__test__\SearchBox.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\modules\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\reducers\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\mainpage\actions\loadingDataAction.js" />
@@ -575,7 +569,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\customer\user-panel\modules\__test__\service.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\user-panel\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\user-panel\reducers\__test__\index.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\customer\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\domain-control\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\domain-control\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\domain-control\components\__test__\Content.test.js" />
@@ -670,7 +663,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\banner-list\libs\utils.js" />
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\banner-list\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\banner-list\reducers\__test__\index.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\media-gallery\banner-list\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\media-gallery\common\components\InputFile.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\common\components\__test__\ControlButtons.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\common\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\media-gallery\landing-page\actions\index.js" />
@@ -755,8 +748,8 @@
     <Content Include="Areas\Portal\Views\MediaGallery\LandingPageList.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\Filter.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\Content.jsx" />
-    <Content Include="Areas\Portal\Views\Member\ActiveMember.cshtml" />
-    <Content Include="Areas\Portal\Views\Member\_MemberSubMenu.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\ActiveMember.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\_MemberSubMenu.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\member\member-list\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\login\index.jsx" />
@@ -820,7 +813,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\message\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\reducers\__test__\index.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\message\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\types.js" />
     <Content Include="Areas\Portal\www\source\js\pages\payment-request\actions\__test__\index.test.js" />
@@ -938,6 +930,13 @@
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\modules\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\statement-history\reducers\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\index.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\actions\types.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\Filter.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\Content.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\components\AppContainer.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\libs\constants.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\user-panel\sub-affiliate\reducers\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\types.js" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\tracking-statistics\actions\__test__\index.test.js" />
@@ -1022,6 +1021,9 @@
     <Content Include="Areas\Portal\www\source\style\assets\login\lgLogo.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\login\lgRight.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\login\lgRp.jpg" />
+    <Content Include="Areas\Portal\www\dist\imgs\theme\LOGO2.png" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\darkmode.svg" />
+    <Content Include="Areas\Portal\www\source\style\assets\mode\lightmode.svg" />
     <Content Include="Areas\Portal\www\source\style\assets\under-maintenance\UnderMaintenance.gif" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\a_bg.jpg" />
     <Content Include="Areas\Portal\www\source\style\assets\user-panel\bg_box_tab.jpg" />
@@ -1036,6 +1038,9 @@
     <Content Include="Areas\Portal\www\webpack.config.js" />
     <Content Include="Areas\Portal\www\webpack.config.vendor.js" />
     <Content Include="Default.aspx" />
+    <Content Include="favicon-n88.ico" />
+    <Content Include="favicon-n8b.ico" />
+    <Content Include="favicon-n8g.ico" />
     <Content Include="Global.asax" />
     <Content Include="Release Note.txt" />
     <Content Include="SpNames.xml">
@@ -1044,11 +1049,35 @@
     <Content Include="AppSettings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.n88admin.sit.config" />
+    <Content Include="Web.n88admin-n8b.backupmnl.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.local.config" />
+    <Content Include="Web.n88admin-n8b.master.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.production.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.sit.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8b.uat.config">
+      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.backupmnl.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.local.config" />
+    <Content Include="Web.n88admin-n8g.sit.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.uat.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
     <Content Include="Areas\Portal\Views\Web.config" />
     <Content Include="AffiliateAdmin.ruleset" />
     <Content Include="Areas\Portal\www\source\js\layouts\AppLayout.jsx" />
-    <Content Include="Areas\Portal\www\source\style\abstracts\_variables.scss" />
     <Content Include="Areas\Portal\www\source\style\base\_base.scss" />
     <Content Include="Areas\Portal\www\source\style\components\_table.scss" />
     <Content Include="Areas\Portal\www\source\style\main.scss" />
@@ -1069,7 +1098,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\CommGroupInfo.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\DeductionSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\PlatformFeeItem.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\QmTurnOverSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\TierSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\TierSettingItem.jsx" />
     <Content Include="Areas\Portal\Views\Shared\_Header.cshtml" />
@@ -1081,7 +1109,7 @@
     <Content Include="Areas\Portal\www\source\style\layout\main-layout.scss" />
     <Content Include="Areas\Portal\www\source\style\layout\_menu.scss" />
     <Content Include="Areas\Portal\Views\Customer\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\Member\Index.cshtml" />
+    <Content Include="Areas\Portal\Views\Player\Index.cshtml" />
     <Content Include="Areas\Portal\Views\Report\Index.cshtml" />
     <Content Include="Areas\Portal\Views\MediaGallery\Index.cshtml" />
     <Content Include="Areas\Portal\Views\Message\Index.cshtml" />
@@ -1113,34 +1141,22 @@
     <Content Include="Areas\Portal\Views\Affiliate\AssignGroup.cshtml" />
     <Content Include="Areas\Portal\Views\Affiliate\AssignPrivateGroup.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\CommonLayout.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.vi-VN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.zh-CN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateApproved\Content.zh-TW.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.vi-VN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.zh-CN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.zh-TW.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\WithdrawalGuidance\Content.vi-VN.cshtml" />
@@ -1184,9 +1200,6 @@
     <Content Include="Areas\Portal\www\dist\vendors\moment-manifest.json" />
     <Content Include="Areas\Portal\www\source\js\components\Loader.jsx" />
     <Content Include="Areas\Portal\www\source\js\components\ReportTitle.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\AutoComplete.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\components\auto-complete\SuggestionList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\Content.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\customer-member\components\Filter.jsx" />
@@ -1198,13 +1211,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\GridData.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\common\components\ChangePasswordForm.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\Filter.test.js" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\Home\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\Betsoft\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\Ebet\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\CrystalGpi\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\ISoftbet\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\Opus\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\ExchangeSummaryTransaction\Index.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\landing-page-statistics\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\landing-page-statistics\components\Content.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\landing-page-statistics\components\Detail.jsx" />
@@ -1243,23 +1249,15 @@
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\SearchBox.jsx" />
     <Content Include="Areas\Portal\www\source\style\pages\payment\payment-request.scss" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.zh-TW.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.vi-VN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.zh-CN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.zh-TW.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.vi-VN.cshtml" />
@@ -1295,12 +1293,8 @@
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\OnlineInfoPanel.jsx" />
     <Content Include="Areas\Portal\www\source\style\pages\customer\rightpanel.scss" />
     <Content Include="Areas\Portal\www\source\js\pages\common\components\CommissionGroupPopup.jsx" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.en-GB.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.en-US.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.es-ES.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.id-ID.cshtml" />
-    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.ja-JP.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.ko-KR.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.th-TH.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.vi-VN.cshtml" />
@@ -1314,12 +1308,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\email-history\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\email-history\components\DeleteEmail.jsx" />
     <Content Include="Areas\Portal\www\source\style\pages\payment\payment-request-table.scss" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\SharePercentSettingItem.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\exchange\ExchangeRevenueShareSetting.jsx" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\ImportQueue\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\ImportQueue\XmlData.cshtml" />
-    <Content Include="Areas\Portal\Views\ThirdPartyProduct\TimeTracker\Index.cshtml" />
     <Content Include="Areas\Portal\www\source\js\pages\exchange-rate\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\exchange-rate\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\exchange-rate\components\Filter.jsx" />
@@ -1348,19 +1336,58 @@
     <Content Include="Areas\Portal\www\source\style\components\_department-popup.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\home.scss" />
     <Content Include="Areas\Portal\www\source\js\pages\user-panel\player-detail\components\SortingCell.jsx" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-blue.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-coral.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-green.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-violet.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-blue.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-coral.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-green.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\theme-violet.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N8B.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N8G.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N8B.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N8G.scss" />
+    <Content Include="Areas\Portal\www\source\style\pages\user-panel\statement-history.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88-darkmode.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-darkmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88-lightmode.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\_variables-lightmode-N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\themes\N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\abstracts\variables_N88.scss" />
+    <Content Include="Areas\Portal\www\source\style\vendors\select.scss" />
+    <Content Include="Areas\Portal\www\source\style\components\_select.scss" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="WebWorkbench.mswwsettings" />
+    <Content Include="Web.n88admin-n8g.master.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n8g.production.config">
+      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.backupmnl.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.local.config" />
+    <Content Include="Web.n88admin-n88.master.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.production.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.sit.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Web.n88admin-n88.uat.config">
+      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Web.n88admin.backupmnl.config" />
-    <Content Include="Web.n88admin.local.config" />
-    <Content Include="Web.n88admin.master.config" />
-    <Content Include="Web.n88admin.production.config" />
-    <Content Include="Web.n88admin.uat.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1412,7 +1439,6 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties App_3Data_4EBetConfig_1json__JSONSchema="http://json.schemastore.org/apple-app-site-association" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -10,7 +10,7 @@ describe('customer statistics - components - Content', () => {
         affId: 1271808
     };
 
-    const data = { 
+    const data = {
         ActivePlayerByMonth: 0,
         DepositByMonth: 0,
         DepositTotal: 951.435,
@@ -31,7 +31,7 @@ describe('customer statistics - components - Content', () => {
         WinlostTotal: -42950.0237
     }
 
-    const dataHasPlayerActive = { 
+    const dataHasPlayerActive = {
         ActivePlayerByMonth: 2,
         DepositByMonth: 0,
         DepositTotal: 951.435,
@@ -114,7 +114,7 @@ describe('customer statistics - components - Content', () => {
         expect(result).toEqual('Jun-2019');
     });
 
-    it('fetchData - should call setMonthDate, fetchData and setState', async() => {
+    it('fetchData - should call setMonthDate, fetchData and setState', async () => {
         const setMonthDate = jest.fn();
         const fetchData = jest.fn(() => data);
 
@@ -129,30 +129,6 @@ describe('customer statistics - components - Content', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ data, isLoading: false });
     });
 
-    it('redirectToPlayerDetail - should be called when click at player active link', () => {
-        const setMonthDate = jest.fn();
-        const fetchData = jest.fn(() => data);
-        const redirectToPlayerDetail = jest.fn()
-        const props = Object.assign({}, defaultProps, { setMonthDate, fetchData, redirectToPlayerDetail });
-        const wrapper = shallow(<Content {...props} />);
-        wrapper.setState({ data: dataHasPlayerActive });
-
-        wrapper.find('a').at(0).simulate('click');
-        expect(props.redirectToPlayerDetail).toHaveBeenCalledWith({ isClickLink: true, monthDate: "7/1/2019", productId: 0 });
-    });
-
-    it('redirectToTrackingStatistics - should be called when click at tracking statistics link', () => {
-        const setMonthDate = jest.fn();
-        const fetchData = jest.fn(() => data);
-        const redirectToTrackingStatistics = jest.fn()
-        const props = Object.assign({}, defaultProps, { setMonthDate, fetchData, redirectToTrackingStatistics });
-        const wrapper = shallow(<Content {...props} />);
-        wrapper.setState({ data: dataHasPlayerActive });
-
-        wrapper.find('a').at(1).simulate('click');
-        expect(props.redirectToTrackingStatistics).toHaveBeenCalledWith({ isClickLink: true });
-    });
-
     it('redirectToReferrers - should be called when click at referrers laptop link', () => {
         const setMonthDate = jest.fn();
         const fetchData = jest.fn(() => data);
@@ -161,7 +137,7 @@ describe('customer statistics - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ data: dataHasPlayerActive });
 
-        wrapper.find('a').at(2).simulate('click');
+        wrapper.find('a').at(0).simulate('click');
         expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 0, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
     });
 
@@ -173,7 +149,7 @@ describe('customer statistics - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         wrapper.setState({ data: dataHasPlayerActive });
 
-        wrapper.find('a').at(3).simulate('click');
+        wrapper.find('a').at(1).simulate('click');
         expect(props.redirectToReferrers).toHaveBeenCalledWith({ deviceType: 1, fromDate: "7/1/2019", isClickLink: true, toDate: "7/31/2019" });
     });
 })

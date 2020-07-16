@@ -1,37 +1,70 @@
-﻿<div class="table table-responsive">
+﻿@using Fanex.Affiliate.User.Core.Constants
+@{
+    var appSetting = AppSetting.Instance;
+    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+}
+<div class="table table-responsive">
     <table>
         <thead>
             <tr>
                 <th width="20%">@Lang.RevenueShare</th>
                 <th width="8%">@Lang.Tier</th>
-                <th width="20%">@Lang.NetWinLoss</th>
-                <th width="20%">@Lang.QualifyingMem</th>
-                <th width="20%">@Lang.Comm</th>
+                <th width="20%">@string.Format(Lang.NetWinLoss, appSetting.DefaultCurrency)</th>
+                <th width="20%">@Lang.ActivePlayersRevenue</th>
+                <th width="20%">@Lang.CommPercent</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td rowspan="3" class="text-center">
-                    <p>@Lang.AllProducts</p>
-                    <p><a class="more-detail" href="@Url.Content("~/Product")">> @Lang.MoreDetailProduct</a></p>
-                </td>
-                <td class="text-center">1</td>
-                <td class="text-center">$1 - $2,999</td>
-                <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
-                <td class="text-center">20%</td>
-            </tr>
-            <tr>
-                <td class="text-center">2</td>
-                <td class="text-center">$3,000.00 - $45,000</td>
-                
-                <td class="text-center">30%</td>
-            </tr>
-            <tr>
-                <td class="text-center">3</td>
-                <td class="text-center">$45,000+</td>
-                
-                <td class="text-center">40%</td>
-            </tr>
+            @if (isN88)
+            {
+                <tr>
+                    <td rowspan="3" class="text-center">
+                        <p>@Lang.AllProducts</p>
+                        <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">0 - 2,500</td>
+                    <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
+                    <td class="text-center">25%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-center">2,501 - 40,000</td>
+
+                    <td class="text-center">35%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-center">> 40,000</td>
+
+                    <td class="text-center">45%</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td rowspan="3" class="text-center">
+                        <p>@Lang.AllProducts</p>
+                        <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.Replace12Bet(Lang.MoreDetailProduct)</a></p>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td class="text-center">0 - 130,000,000</td>
+                    <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
+                    <td class="text-center">25%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">2</td>
+                    <td class="text-center">130,001,000 – 1,990,000,000</td>
+
+                    <td class="text-center">35%</td>
+                </tr>
+                <tr>
+                    <td class="text-center">3</td>
+                    <td class="text-center">> 1,990,000,000</td>
+
+                    <td class="text-center">45%</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

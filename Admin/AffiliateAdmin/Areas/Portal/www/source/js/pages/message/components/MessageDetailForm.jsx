@@ -6,7 +6,7 @@ import { Alert, Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, 
 import { setSelectedMessageId, getMessageDetail, fetchData, insertMessage, updateMessage, toggleLoader, deleteMessages } from '../actions';
 
 import { htmlDecode } from '../../../modules/htmlHelper';
-import { resource, languages, popupTitle, messages, defaultMessageContentList, messageInsertId, messageCurrentId } from '../libs/constants';
+import { resource, popupTitle, messages, messageInsertId, messageCurrentId } from '../libs/constants';
 import Notification from '../../common/components/NotificationPopup';
 import ButtonDeleteItems from '../../common/components/ButtonDeleteItems';
 
@@ -17,7 +17,7 @@ export class MessageDetailForm extends PureComponent {
         this.state = {
             isClickedEdit: false,
             important: false,
-            messageContentList: defaultMessageContentList,
+            messageContentList: this.props.defaultMessageContentList,
             isShowMessage: false,
             isSuccess: true,
             message: '',
@@ -42,7 +42,7 @@ export class MessageDetailForm extends PureComponent {
     _handleGetMessageDetail = async (selectedMessageId) => {
         const item = await this.props.getMessageDetail(selectedMessageId);
 
-        if(item) {
+        if (item) {
             const messageContentList = {};
 
             Object.keys(this.state.messageContentList).map(key => {
@@ -130,12 +130,12 @@ export class MessageDetailForm extends PureComponent {
 
     _handleClosePopup = () => {
         this.props.setSelectedMessageId(null);
-        this.setState({ isClickedEdit: false, important: false, messageContentList: defaultMessageContentList });
+        this.setState({ isClickedEdit: false, important: false, messageContentList: this.props.defaultMessageContentList });
     }
 
     render() {
         const { important, messageContentList, isClickedEdit, isSuccess, isShowMessage, message, messageNotification, isInsert } = this.state;
-        const { selectedMessageId } = this.props;
+        const { selectedMessageId, languages } = this.props;
         const isShowPopup = selectedMessageId !== null;
         const isCurrentMessage = selectedMessageId === messageCurrentId;
         const title = isInsert ? popupTitle.Add : (isCurrentMessage ? popupTitle.Current : `${popupTitle.Detail} (ID=${selectedMessageId})`);
@@ -162,7 +162,7 @@ export class MessageDetailForm extends PureComponent {
                                         Object.keys(messageContentList).map(key => {
                                             return key === 'MessageId' ? null : (
                                                 <FormGroup row className="mb-2" key={key}>
-                                                    <Label for={key} sm={2} className="d-flex justify-content-end align-items-center">{languages[key]}</Label>
+                                                    <Label for={key} sm={2} className="d-flex justify-content-end align-items-center text-right">{languages[key]}</Label>
                                                     <Col sm={10}>
                                                         <Input type="textarea" name={key} id={key} rows="4"
                                                             value={messageContentList[key]} onChange={this._handleChangeMessageContent} disabled={isDisabled} />
@@ -207,8 +207,8 @@ export class MessageDetailForm extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedMessageId, param }) {
-    return Object.assign({}, { selectedMessageId, param });
+function mapStateToProps({ selectedMessageId, param, defaultMessageContentList, languages }) {
+    return Object.assign({}, { selectedMessageId, param, defaultMessageContentList, languages });
 }
 
 function mapDispatchToProps(dispatch) {

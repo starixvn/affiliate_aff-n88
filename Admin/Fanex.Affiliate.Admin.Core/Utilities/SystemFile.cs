@@ -50,13 +50,13 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             try
             {
                 var extension = GetExtension(filePath);
-                if (string.Compare(extension, ".gif", StringComparison.CurrentCultureIgnoreCase) == 0)
+                if (string.Equals(extension, ".gif", StringComparison.CurrentCultureIgnoreCase))
                 {
                     bitmap.Save(filePath, ImageFormat.Gif);
                 }
                 else
                 {
-                    var isPng = string.Compare(extension, ".png", StringComparison.CurrentCultureIgnoreCase) == 0;
+                    var isPng = string.Equals(extension, ".png", StringComparison.CurrentCultureIgnoreCase);
                     bitmap.Save(filePath, isPng ? ImageFormat.Png : ImageFormat.Jpeg);
                 }
             }
@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
                     Logger.Log.Error(ex.Message, ex);
                     return new ResultInfo
                     {
-                        Code = Code.GeneralErrorCode,
+                        Code = Code.ErrCanNotAccessFolder,
                         Message = "Can not access folder."
                     };
                 }

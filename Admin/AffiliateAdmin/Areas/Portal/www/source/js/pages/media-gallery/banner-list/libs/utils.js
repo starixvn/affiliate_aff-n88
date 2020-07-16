@@ -1,4 +1,4 @@
-﻿import { Casino, Sportsbook, maxLength } from './constants';
+﻿import { maxLength } from './constants';
 
 export const validateFileExtension = (fileName) => {
     const result = {
@@ -32,34 +32,11 @@ export const validateInputFile = (inputFileName) => {
 
 }
 
-export const getSubCategory = (category, subCategoryCasinoList, subCategorySportsbookList) => {
-    var result = {
-        category: category,
-        subCategory: ''
-    }
-
-    subCategoryCasinoList.map(item => {
-        if (item.CategoryName === category) {
-            result.category = Casino;
-            result.subCategory = category
-        }
-    })
-
-    subCategorySportsbookList.map(item => {
-        if (item.CategoryName === category) {
-            result.category = Sportsbook;
-            result.subCategory = category
-        }
-    })
-
-    return result;
-}
-
 export const resizeWidthHeight = (realWidth, realHeight, size = 500) => {
     let width = Number(realWidth);
     let height = Number(realHeight);
 
-    if(width < size && height < size) {
+    if (width < size && height < size) {
         return { width, height }
     }
 

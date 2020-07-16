@@ -1,6 +1,5 @@
 ﻿jest.mock('redux');
 jest.mock('react-redux');
-import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../actions/index';
@@ -48,7 +47,8 @@ describe('affiliate report - Filter - connect', () => {
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
             setReportTitle: actions['setReportTitle'],
-            setParam: actions['setParam']
+            setParam: actions['setParam'],
+            setCurrencyList: actions['setCurrencyList']
         }
 
         const dispatch = {};

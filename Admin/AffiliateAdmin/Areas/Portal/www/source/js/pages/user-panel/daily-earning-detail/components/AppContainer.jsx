@@ -20,7 +20,7 @@ export class AppContainer extends PureComponent {
     }
 
     render() {
-        const { param } = this.props;
+        const { param, productList, currencyList, baseCurrencyList } = this.props;
         const dailyEarningParam = Object.assign({}, param, { monthDate: this.monthDate });
 
         const breadcrumbList = [
@@ -32,16 +32,16 @@ export class AppContainer extends PureComponent {
         return this.monthDate && (
             <AppLayout>
                 <UserPanelBreadcrumb breadcrumbList={breadcrumbList} />
-                <Filter />
+                <Filter productList={productList} currencyList={currencyList} baseCurrencyList={baseCurrencyList} />
                 <Content />
             </AppLayout>
         );
     }
 }
 
-function mapStateToProps({ dailyEarningDetail }) {
+function mapStateToProps({ dailyEarningDetail, productList, currencyList, baseCurrencyList }) {
     const { param } = dailyEarningDetail;
-    return Object.assign({}, { param });
+    return Object.assign({}, { param, productList, currencyList, baseCurrencyList });
 }
 
 function mapDispatchToProps(dispatch) {

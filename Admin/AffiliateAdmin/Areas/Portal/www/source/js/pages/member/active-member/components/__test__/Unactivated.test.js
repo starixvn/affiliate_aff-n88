@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Unactivated } from '../Unactivated';
 import { shallow, mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 
 describe('active member - components - Unactivated ', () => {
     const unactivatedGridData = [
@@ -47,7 +46,7 @@ describe('active member - components - Unactivated ', () => {
 
         expect(props.activeMember).toHaveBeenCalledWith({ userNames: 'xyl157' });
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setMessage).toHaveBeenCalledWith("Activate members is failed!");
+        expect(props.setMessage).toHaveBeenCalledWith("Activate players is failed!");
     });
 
     it('_handleActive - should be called when click Active All button', async () => {
@@ -59,7 +58,7 @@ describe('active member - components - Unactivated ', () => {
 
         expect(props.activeMember).toHaveBeenCalledWith({ userNames: 'xyl157' });
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setMessage).toHaveBeenCalledWith("Activate members is failed!");
+        expect(props.setMessage).toHaveBeenCalledWith("Activate players is failed!");
     });
 
     it('_handleActive - should be called when click Active All button is successful', async () => {
@@ -72,7 +71,7 @@ describe('active member - components - Unactivated ', () => {
 
         expect(props.activeMember).toHaveBeenCalledWith({ userNames: 'xyl157' });
         expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(props.setMessage).toHaveBeenCalledWith("Members has been activated successfully!");
+        expect(props.setMessage).toHaveBeenCalledWith("Players has been activated successfully!");
     });
 
     it('_handleActive - should be called when click Active All button is failed', async () => {

@@ -2,6 +2,7 @@
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
 {
@@ -9,7 +10,11 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
     {
         public IEnumerable<Category> CategoryList { get; set; }
 
-        public IEnumerable<MediaGalleryFilterItem> ImageTypeList { get; set; }
+        public IEnumerable<Category> SubCategoryList { get; set; }
+
+        public IEnumerable<Category> SubCategoryCasinoList { get; set; }
+
+        public IEnumerable<Category> SubCategorySportsbookList { get; set; }
 
         public IEnumerable<Language> LanguageList { get; set; }
 
@@ -22,5 +27,8 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
         public IEnumerable<SubMenu> SubMenuList { get; set; }
 
         public BannerParamFromHome Param { get; set; }
+
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        public string BannerRootUrl { get; set; }
     }
 }

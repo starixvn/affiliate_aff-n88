@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('note - components - Content', () => {
-        const noteList = [
+    const noteList = [
         {
             CreatedBy: "AAHubert",
             LastModifyText: "06/20/2019 22:21:05",

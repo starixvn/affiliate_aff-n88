@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         }
 
         [Theory]
-        [MemberData("TestData", MemberType = typeof(TestCase))]
+        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
         public void CreateCommissionGroup_WhenCall_ExcuteUncorrectWithInvalidTierSettingList(List<TierSetting> tierSettingList)
         {
             // Arrange
@@ -60,7 +60,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         }
 
         [Theory]
-        [MemberData("TestData", MemberType = typeof(TestCase))]
+        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
         public void UpdateCommissionGroup_WhenCall_ExcuteUncorrectWithInvalidTierSettingList(List<TierSetting> tierSettingList)
         {
             // Arrange
@@ -113,18 +113,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     DeductedPercentage = 0.02m,
                     DeductionId = 12,
                     ProductIds = "0"
-                },
-                ExchangeCommissionShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.10m,
-                    DeductionId = 14,
-                    ProductIds = "19"
-                },
-                ExchangeWinLossShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.15m,
-                    DeductionId = 13,
-                    ProductIds = "19"
                 },
                 OperationalFee = new DeductionSetting
                 {

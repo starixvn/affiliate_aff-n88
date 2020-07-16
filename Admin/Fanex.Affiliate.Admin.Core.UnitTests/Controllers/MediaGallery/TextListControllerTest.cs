@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
-            commonMediaGalleryService.Setup(c => c.GetCategoryList(2)).Returns(new List<Category> { new Category { CategoryId = 123, CategoryName = "Category" } });
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(2,1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
             commonMediaGalleryService.Setup(c => c.GetCurrencyList()).Returns(new List<MediaGalleryFilterItem> { new MediaGalleryFilterItem { Id = 234, Name = "Currency" } });
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language { LanguageCode = "en", LanguageName = "English" } });
@@ -41,9 +41,24 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
 
             // Assert
             Assert.Equal("~/Areas/Portal/Views/MediaGallery/TextList.cshtml", viewName);
-            Assert.Single(model.CategoryList);
             Assert.Single(model.LanguageList);
             Assert.Single(model.CurrencyList);
+        }
+
+        [Fact]
+        public void GetCategoryList_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var commonMediaGalleryService = new Mock<ICommonMediaGalleryService>();
+            commonMediaGalleryService.Setup(c => c.GetCategoryList(2, 1)).Returns(new List<Category> { new Category { CategoryName = "Category" } });
+
+            var controller = CreateTextListController(commonMediaGalleryService: commonMediaGalleryService.Object);
+
+            // Action
+            var result = controller.GetCategoryList(1) as JsonNetResult;
+
+            // Assert
+            Assert.Single(result.Data as IEnumerable<Category>);
         }
 
         [Fact]
@@ -87,18 +102,16 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.MediaGallery
         {
             // Arrange
             var selectedTextId = 123;
-            var passedParam = 0;
             var textListService = new Mock<ITextListService>();
-            textListService.Setup(s => s.GetTextDetail(selectedTextId)).Returns(new TextInfo { TextId = 123 }).Callback<int>(p => passedParam = p);
+            textListService.Setup(s => s.GetTextDetail(selectedTextId, 1)).Returns(new TextInfo { TextId = 123 });
             var controller = CreateTextListController(textListService: textListService.Object);
 
             // Action
-            var result = controller.GetTextDetail(selectedTextId) as JsonNetResult;
+            var result = controller.GetTextDetail(selectedTextId, 1) as JsonNetResult;
             var textInfo = result.Data as TextInfo;
 
             // Assert
             Assert.Equal(selectedTextId, textInfo.TextId);
-            Assert.Equal(selectedTextId, passedParam);
         }
 
         [Fact]

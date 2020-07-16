@@ -7,10 +7,10 @@ export const errorList = {
     UpdateFailed: 'Update transaction failed!',
 }
 
-export const pending = 'Pending';
+export const processing = 'Processing';
 
 export const statusList = {
-    [pending]: 'Processing',
+    [processing]: 'Processing',
     Approved: 'Approved',
     Rejected: 'Rejected',
     Cancelled: 'Cancelled',
@@ -27,8 +27,8 @@ export const resource = {
     PaymentInformation: 'Payment Information',
     PaymentMethod: 'Payment Method',
     Amount: 'Amount',
+    TransAmount: 'Transfer Amount',
     Status: 'Status',
-    UserName12Bet: '12BET User Name',
     CompletedDate: 'Completed Date',
     UpdatedBy: 'Updated By',
 

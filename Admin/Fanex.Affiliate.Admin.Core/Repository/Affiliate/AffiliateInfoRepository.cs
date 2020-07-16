@@ -71,6 +71,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
             objectDb.AddInParameter("GroupID", DbType.Int32, param.GroupId);
             objectDb.AddInParameter("PreferredLanguage", DbType.String, param.Language);
             objectDb.AddInParameter("Status", DbType.String, param.Status);
+            objectDb.AddInParameter("ParentAffName", DbType.String, param.ParentAffName);
             objectDb.AddInParameter("UserName", DbType.String, param.UserName);
             objectDb.AddInParameter("Email", DbType.String, param.Email);
             objectDb.AddInParameter("SortType", DbType.Byte, param.SortBy);
@@ -95,16 +96,20 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 Email = Convert.ToString(reader["Email"]),
                 RegistrationDate = Convert.ToDateTime(reader["RegisteredDate"]),
                 ApprovalDate = reader["ApprovedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ApprovedDate"]),
-                CasinoDate = reader["CasinoJoinedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CasinoJoinedDate"]),
-                CommissionGroup = Convert.ToString(reader["GroupName"]),
                 BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(reader["BFF"]),
                 Member = reader["NoOfMember"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfMember"]),
+                CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : Convert.ToString(reader["GroupName"]),
                 IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
                 IsClosed = Convert.ToBoolean(reader["IsClosed"]),
                 Currency = Convert.ToString(reader["Currency"]),
                 PlayerCurrency = Convert.ToString(reader["PlayerCurrency"]),
                 Phone = Convert.ToString(reader["Phone"]),
-                PlayerUserName = Convert.ToString(reader["Player_Username"])
+                PlayerUserName = Convert.ToString(reader["Player_Username"]),
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
+                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
+                ParentAffName = Convert.ToString(reader["ParentAffName"]),
+                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfSubAff"]),
+                ApprovedBy = Convert.ToString(reader["ApprovedBy"])
             };
         }
 

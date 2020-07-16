@@ -5,7 +5,8 @@ import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 import { Button } from 'reactstrap';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
-import { headerText, globalResource, defaultDevice, mobile } from '../libs/constants';
+import { headerText } from '../libs/constants';
+import { globalResource, pcLaptop, mobile, userTypeList } from '../../common/libs/constants';
 import { setSelectedTextId, setPagingOption, fetchData, setCheckedTexts, setShouldResetScrollPosition, setParam } from '../actions';
 
 export const Content = (props) => {
@@ -38,6 +39,7 @@ export const Content = (props) => {
             <Row key="thead">
                 <Cell header={true} colWidth={50}></Cell>
                 <Cell header={true} colWidth={50} title={headerText.Index}>{headerText.Index}</Cell>
+                <Cell header={true} colWidth={100} title={headerText.UserType}>{headerText.UserType}</Cell>
                 <Cell header={true} colWidth={550} title={headerText.Content}>{headerText.Content}</Cell>
                 <Cell header={true} colWidth={125} title={headerText.Category}>{headerText.Category}</Cell>
                 <Cell header={true} colWidth={150} title={headerText.Language}>{headerText.Language}</Cell>
@@ -71,7 +73,8 @@ export const Content = (props) => {
 
     function _buildDataRow(dataItem, index) {
         const content = htmlDecode(dataItem.TextContent);
-        const deviceType = dataItem.DeviceType === 0 ? defaultDevice : mobile;
+        const deviceType = dataItem.DeviceType == 0 ? pcLaptop : mobile;
+        const userType = userTypeList[dataItem.UserType] || '';
 
         return (
             <Row key={`dataRow-${index}`}>
@@ -80,6 +83,7 @@ export const Content = (props) => {
                         onChange={(e) => _onCheckItem(e.target.checked, dataItem.TextId)} />
                 </Cell>
                 <Cell className="text-center" title={index}>{index}</Cell>
+                <Cell className="text-center" title={userType}>{userType}</Cell>
                 <Cell className="text-content" title={content}>{content}</Cell>
                 <Cell className="text-center" title={dataItem.Category}>{dataItem.Category}</Cell>
                 <Cell className="text-center" title={dataItem.Language}>{dataItem.Language}</Cell>

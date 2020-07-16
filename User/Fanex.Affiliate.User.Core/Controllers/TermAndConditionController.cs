@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.ViewModels;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
@@ -19,9 +20,15 @@ namespace Fanex.Affiliate.User.Core.Controllers
         }
 
         [HttpGet]
-        public ActionResult Popup()
+        public ActionResult Popup(string mode)
         {
-            return View("~/Views/TermAndCondition/Popup.cshtml", model: SessionService.CurrentLanguage);
+            var model = new PopupViewModel
+            {
+                Mode = string.IsNullOrEmpty(mode) ? "lightmode" : mode,
+                CurrentLanguage = SessionService.CurrentLanguage
+            };
+
+            return View("~/Views/TermAndCondition/Popup.cshtml", model);
         }
     }
 }

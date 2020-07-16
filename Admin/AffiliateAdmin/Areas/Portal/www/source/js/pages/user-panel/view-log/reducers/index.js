@@ -6,7 +6,7 @@ import { pagingOption } from '../../../../reducers/pagingReducer';
 
 export const param = createReducer({}, {
     [SET_PARAM](prevState, action) {
-        return {...action.data };
+        return { ...action.data };
     }
 });
 

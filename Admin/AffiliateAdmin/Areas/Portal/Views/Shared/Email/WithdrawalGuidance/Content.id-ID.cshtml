@@ -1,27 +1,21 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.WithdrawalEmail
+
 <div>
-    Yang terhormat @Model.FirstName,<br /><br />
+    Dear @Raw(Model.FirstName),<br /><br />
 
-    Selamat untuk menjadi afiliasi 12Bet kami!<br /><br />
+    Congratulation on becoming our @(Model.SiteFriendlyName) affiliate!<br /><br />
 
-    Untuk memastikan untuk pembayaran yang lebih cepat untuk afiliasi Anda, silahkan luangkan waktu untuk membaca prosedur untuk penarikan berikut:<br /><br />
+    To ensure for a faster payout for your affiliate, please take some time to read the following procedure for withdrawal:<br /><br />
 
-    1. Tolong jangan mendaftarkan rekening taruhan 12Bet baru (JANGAN DEPOSIT)<br /><br />
-    2. Kirim email ke <a href="mailto:@Model.MailContact">@Model.MailContact</a> dan negara pengguna 12Bet Anda bersama dengan nama pengguna afiliasi<br /><br />
-    3. Setelah mengirim email kepada kami untuk Anda 12Bet account, silahkan login account afiliasi Anda dan klik pada "Rekening Saya",
-    pada kolom Informasi pembayaran, silakan ubah metode pembayaran Anda 12Bet Player Account, isikan username dan 12Bet Anda klik submit.<br /><br />
-    4. Kami akan menyelesaikan pembayaran komisi member sekali dalam sebulan, silakan mengakses rekening afiliasi Anda dan klik pada permintaan Pembayaran, masukkan jumlah dan permintaan Payout.<br /><br />
-    5. ika permintaan penarikan Anda disetujui, dana Anda akan secara otomatis ditransfer ke rekening taruhan 12bet Anda.<br /><br />
-    6. Anda dapat meminta penarikan dari rekening taruhan 12Bet Anda kapan saja dan tidak akan ada biaya tambahan. <br /><br />
+    1. We will settle affiliate's revenue share payout once in a month, please access your affiliate account and click on Payment request, enter the amount and request Payout.<br /><br />
+    2. If your withdrawal request is approved, your fund will be automatically transferred to your @(Model.SiteFriendlyName) betting account.<br /><br />
 
-    Harap perhatikan:<br /><br />
-    1. 12Bet rekening taruhan Anda adalah untuk tujuan afiliasi saja; tolong jangan membuat deposito atau menempatkan taruhan.<br /><br />
-    2. Anda terdaftar 12Bet rekening taruhan nama harus sama nama yang terdaftar sudah terdaftar di rekening afiliasi Anda, dan itu harus nama asli Anda.<br /><br />
-    3. Prosedur di atas adalah untuk pertama kali penarikan hanya anggota afiliasi, jika permintaan penarikan 2 atau 3, silahkan merujuk pada langkah 4, 5 dan 6.<br /><br />
+    Please take note:<br /><br />
+    1. Your @(Model.SiteFriendlyName) betting account registered name must be the same registered name that you had registered in your affiliate account, and it must be your real name.<br /><br />
 
-    Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan lebih lanjut.<br /><br />
+    Please do not hesitate to contact us if you have any further question.<br /><br />
 
-    Hormat kami,<br /><br />
-    Afiliasi 12BET Tim <br />
-    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    Sincerely,<br /><br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
+    Email: <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

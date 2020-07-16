@@ -33,7 +33,7 @@ describe('payment request - components - Content ', () => {
             Amount: 105,
             CompletedDateText: "06/19/2019 00:20:18",
             Creator: "AAwalter",
-            Status: "Pending",
+            Status: "Processing",
             TransDateText: "06/18/2019 22:14:31",
             TransId: 1262276209
         }
@@ -47,7 +47,7 @@ describe('payment request - components - Content ', () => {
 
     it('render correctly with have gridData', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData });
 
         expect(result).toMatchSnapshot();
@@ -55,7 +55,7 @@ describe('payment request - components - Content ', () => {
 
     it('render correctly with have gridData is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: {} });
 
         expect(result).toMatchSnapshot();

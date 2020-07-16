@@ -12,7 +12,7 @@ describe('view log - components - Content', () => {
             fromDate: "06/06/2019",
             toDate: "06/06/2019"
         },
-        showIdList: {10279105: false},
+        showIdList: { 10279105: false },
         setPagingOption: jest.fn(),
         toggleLoaderUserPanel: jest.fn(),
         setShowIdList: jest.fn(),
@@ -48,7 +48,7 @@ describe('view log - components - Content', () => {
 
     it('render correctly', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData });
 
         expect(result).toMatchSnapshot();
@@ -56,7 +56,7 @@ describe('view log - components - Content', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: [] });
 
         expect(result).toMatchSnapshot();
@@ -124,7 +124,7 @@ describe('view log - components - Content', () => {
         dataRow.find('Button').at(0).simulate('click');
 
         expect(wrapper.setState).toHaveBeenCalledWith({ "shouldResetScrollPosition": false });
-        expect(props.setShowIdList).toHaveBeenCalledWith({10279105: true});
+        expect(props.setShowIdList).toHaveBeenCalledWith({ 10279105: true });
     });
 
     it('handlePaging - should call fetchData with correct parameters', () => {

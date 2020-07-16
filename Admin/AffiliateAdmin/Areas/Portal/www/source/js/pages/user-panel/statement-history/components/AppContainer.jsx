@@ -25,13 +25,14 @@ export class AppContainer extends PureComponent {
     }
 
     render() {
-        const { transactionId } = this.props;
+        const { transactionId, licenseeName } = this.props;
 
         return (
             <AppLayout>
                 <Filter />
                 <Content />
                 <PaymentRequestUpdateForm
+                    licenseeName={licenseeName}
                     transactionId={transactionId}
                     handleClosePopup={this.handleClosePopup}
                     handleFetchData={this.handleFetchData}
@@ -41,10 +42,10 @@ export class AppContainer extends PureComponent {
     }
 }
 
-function mapStateToProps({ statementHistory, affCommonInfo }) {
+function mapStateToProps({ statementHistory, affCommonInfo, licenseeName }) {
     const { transactionId, param } = statementHistory;
     const { affName } = affCommonInfo;
-    return Object.assign({}, { transactionId, param, affName });
+    return Object.assign({}, { transactionId, param, affName, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

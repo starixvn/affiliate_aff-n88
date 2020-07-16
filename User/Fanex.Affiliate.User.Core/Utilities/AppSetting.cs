@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 {
     public class AppSetting : IAppSetting
     {
+        public static IAppSetting Instance { get; } = new AppSetting();
+
         public string Environment => GetValue("Environment");
 
         public bool IsLocal => Environment.Equals("Local", StringComparison.OrdinalIgnoreCase);
@@ -51,5 +53,19 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SymmetricSalt => GetValue("SymmetricSalt");
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
+
+        public string SiteName => GetValue("SiteName");
+
+        public string SiteFriendlyName => GetValue("SiteFriendlyName");
+
+        public string MinWithdrawal => GetValue("MinWithdrawal");
+
+        public IEnumerable<string> SubAffDomains => GetValue("SubAffDomains").Split(new[] { ',' } , StringSplitOptions.RemoveEmptyEntries);
+
+        public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
+
+        public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
+
+        public string DefaultCurrency => GetValue("DefaultCurrency");
     }
 }

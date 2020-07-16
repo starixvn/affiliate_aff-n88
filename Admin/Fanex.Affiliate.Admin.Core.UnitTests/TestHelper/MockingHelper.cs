@@ -14,7 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.TestHelper
         public static ISessionService GetSessionService()
         {
             return Mock.Of<ISessionService>(ss =>
-                ss.AffId == Constant.AffId &&
                 ss.AffName == Constant.AffName &&
                 ss.OnUserId == Constant.OnUserId &&
                 ss.UserId == Constant.UserId &&
@@ -23,7 +22,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.TestHelper
                     new UserPermission
                     {
                         IsHost = true,
-                        FunctionName = Function.CommissionGroup
+                        FunctionName = Function.RevenueGroup
                     }
                 }
             );

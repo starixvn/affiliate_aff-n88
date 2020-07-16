@@ -100,7 +100,7 @@ describe('commission group - AssignGroup', () => {
         expect(wrapper.setState.mock.calls[1][0]).toEqual({
             isShowMessage: true,
             isSuccess: true,
-            message: 'Assign affiliate to commission group successfully'
+            message: 'Assign affiliate to Revenue Group successfully'
         });
         expect(wrapper.setState.mock.calls[2][0]).toEqual({ isShowMessage: false });
         expect(wrapper.setState.mock.calls[3][0]).toEqual({ isShowLoader: false });

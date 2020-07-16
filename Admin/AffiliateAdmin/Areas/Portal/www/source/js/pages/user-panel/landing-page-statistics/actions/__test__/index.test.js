@@ -62,7 +62,7 @@ describe('landing page actions', () => {
             selectedPage: "",
             toDate: "7/3/2019"
         }
-        
+
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/LandingPageStatistics/GetLandingPageStatisticsList', param);
@@ -89,7 +89,7 @@ describe('landing page actions', () => {
 
     it('should create action to fetchDetailData with correct parameter', async () => {
         const expectedResponse = {
-            data: { 
+            data: {
                 MainData: [
                     {
                         Fdm: 0,
@@ -98,7 +98,7 @@ describe('landing page actions', () => {
                         Signups: 0,
                         TotalClick: 8,
                         UniqueClick: 4,
-                        WebsiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MediaGallery"
+                        WebsiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MediaGallery"
                     },
                     {
                         Fdm: 0,
@@ -127,7 +127,7 @@ describe('landing page actions', () => {
             selectedPage: "sportsbook",
             toDate: "7/3/2019"
         }
-        
+
         const result = await actions['fetchDetailData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/LandingPageStatistics/GetLandingPageStatisticsDetailList', param);

@@ -45,12 +45,51 @@ exports[`left panel - components - general-info - ApprovedStatusInfo render corr
       </Button>
     </Col>
   </Row>
-  <a
-    href="/Portal/Member?AffName=undefined"
-    target="fMain"
+  <Row
+    tag="div"
   >
-    Member List
-  </a>
+    <Col
+      sm={6}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <a
+        href="/Portal/Player?AffName=undefined"
+        target="_top"
+      >
+        Player List
+      </a>
+    </Col>
+    <Col
+      className="text-right"
+      sm={6}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <a
+        href="/Portal/Affiliate?ParentAffName=undefined"
+        target="_top"
+      >
+        Sub-Affiliate List
+      </a>
+    </Col>
+  </Row>
 </Fragment>
 `;
 
@@ -104,11 +143,50 @@ exports[`left panel - components - general-info - ApprovedStatusInfo render corr
       />
     </Col>
   </Row>
-  <a
-    href="/Portal/Member?AffName=12BETAFF226"
-    target="fMain"
+  <Row
+    tag="div"
   >
-    Member List
-  </a>
+    <Col
+      sm={6}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <a
+        href="/Portal/Player?AffName=12BETAFF226"
+        target="_top"
+      >
+        Player List
+      </a>
+    </Col>
+    <Col
+      className="text-right"
+      sm={6}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      <a
+        href="/Portal/Affiliate?ParentAffName=12BETAFF226"
+        target="_top"
+      >
+        Sub-Affiliate List
+      </a>
+    </Col>
+  </Row>
 </Fragment>
 `;

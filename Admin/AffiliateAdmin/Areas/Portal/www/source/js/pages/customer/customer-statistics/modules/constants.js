@@ -3,13 +3,12 @@
     UpToNow: "Up To Now",
     NewSignups: "New Signups/FDM",
     TotalActive: "Total Active Players",
-    TotalQualified: "Total Qualified Active Players",
+    TotalSubAff: "Total Sub-Affiliates",
     TotalDeposits: "Total Deposits",
     Turnover: "Turnover",
     Winlost: "Winlost",
-    TrackingRate: "Tracking Rate (Unique/Total)",
-    TrackingRatePC: "Tracking Rate for PC/Laptop (Unique/Total) New!!!!!",
-    TrackingRateMobile: "Tracking Rate for Mobile (Unique/Total) New!!!!!"
+    TrackingRatePC: "Tracking Rate for PC/Laptop (Unique/Total)",
+    TrackingRateMobile: "Tracking Rate for Mobile (Unique/Total)"
 }
 
 export const resource = {

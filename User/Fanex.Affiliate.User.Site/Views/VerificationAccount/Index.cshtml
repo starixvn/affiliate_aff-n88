@@ -5,7 +5,7 @@
 @model Fanex.Affiliate.User.Core.ViewModels.VerificationAccountViewModel
 
 @{
-    var email = Model.Email;  
+    var email = Model.Email;
     if (string.IsNullOrEmpty(email))
     {
         <h4 class="text-danger">You don't have the email address. Please contact administrator!</h4>
@@ -30,7 +30,7 @@
         }
         <div class="content verification-account">
             <br />
-            <p>@Lang.DearCustomer</p>
+            <p>@SiteFriendlyNameHelper.Replace12Bet(Lang.DearCustomer)</p>
             <p>@Lang.DueTo</p>
             <p>@Html.Raw(string.Format(Lang.YourRegisterEmail, email))</p>
             <form id="sendCodeForm">

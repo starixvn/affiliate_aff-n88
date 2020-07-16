@@ -81,62 +81,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
         }
 
         [Fact]
-        public void GetPSPToday_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-
-            objectDb.Setup(obj => obj.GetParameterValue("PSP")).Returns(1.23m);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGetPSP", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetPSPToday();
-
-            // Assert
-            Assert.Equal(1.23m, result);
-        }
-
-        [Fact]
-        public void GetDepositInfo_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
-
-            ReaderHelper.MapReaderData(dataReader, GetDepositInfo());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGeneralInfo", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetDepositInfo();
-
-            // Assert
-            Assert.Equal(34, result.AllMemberDepositUpToNow);
-        }
-
-        [Fact]
-        public void GetDepositInfo_WhenCall_ReturnNull()
-        {
-            // Arrange
-            var service = new Mock<HomeService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false);
-
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("DEP_AffiliateGeneralInfo", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetDepositInfo();
-
-            // Assert
-            Assert.Null(result);
-        }
-
-        [Fact]
         public void GetGeneralInfo_WhenCall_ReturnCorrectData()
         {
             // Arrange
@@ -199,24 +143,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
             };
         }
 
-        private IDictionary<string, object> GetDepositInfo()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["MemInProAllNum"] = 34,
-                ["MemInProMonthNum"] = 12
-            };
-        }
-
         private IDictionary<string, object> GetGeneralInfo()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["PaymentReqNum"] = 1,
                 ["BannerNum"] = 2,
-                ["ImageBannerNum"] = 3,
-                ["FlashBannerNum"] = 4,
-                ["TextBannerNum"] = 5,
+                ["PlayerBannerNum"] = 3,
+                ["AffiliateBannerNum"] = 4,
                 ["AffInProAllNum"] = 1,
                 ["PendingAllNum"] = 2,
                 ["ApprovedAllNum"] = 3,
@@ -238,7 +172,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Home
                 ["WinlostMonth"] = 4,
                 ["BonusMonth"] = 5,
                 ["PSPFeeMonth"] = 4,
-                ["NetWinlostMonth"] = 5
+                ["NetWinlostMonth"] = 5,
+                ["MemAllNum"] = 4,
+                ["NonDepositMemAllNum"] = 3,
+                ["MemMonthNum"] = 4,
+                ["NonDepositMemMonthNum"] = 3
             };
         }
     }

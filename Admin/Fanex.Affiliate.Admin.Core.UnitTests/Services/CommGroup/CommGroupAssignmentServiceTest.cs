@@ -20,8 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 {
     public class CommGroupAssignmentServiceTest
     {
-        private IDependencyResolver _originalResolver = null;
-        private ILifetimeScopeProvider _scopeProvider = null;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void GetNormalCommGroupList_WhenCall_ReturnCorrectData()
@@ -73,7 +72,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 4 };
+            var affInfo = new AffiliateBasicInfo { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -97,19 +96,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("https://ha.nexdev.net:7613/12BetUserEuNew");
+            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 4 };
+            var affInfo = new AffiliateBasicInfo { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -123,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             emailService.Setup(e => e.SendApprovedEmail(It.IsAny<AffInformationEmail>()));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, emailService.Object);
-            
+
             // Action
             var result = service.AssignGroup(param, affInfo, emailParam);
 
@@ -132,7 +130,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         }
 
         [Theory]
-        [MemberData("TestData", MemberType = typeof(TestCase))]
+        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
         public void AssignPrivateGroup_WhenCall_ExcuteWithIncorrectParam(List<TierSetting> tierSettingList)
         {
             // Arrange
@@ -208,7 +206,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            param.GroupId = 123;
             var affInfo = new AffiliateBasicInfo();
             var emailParam = new AffInformationEmail();
 
@@ -234,7 +231,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            param.GroupId = 123;
             var affInfo = new AffiliateBasicInfo();
             var emailParam = new AffInformationEmail();
 
@@ -264,15 +260,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7613/12BetUserAsianNew");
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -351,18 +346,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     DeductedPercentage = 0.02m,
                     DeductionId = 12,
                     ProductIds = "0"
-                },
-                ExchangeCommissionShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.10m,
-                    DeductionId = 14,
-                    ProductIds = "19"
-                },
-                ExchangeWinLossShare = new DeductionSetting
-                {
-                    DeductedPercentage = 0.15m,
-                    DeductionId = 13,
-                    ProductIds = "19"
                 },
                 OperationalFee = new DeductionSetting
                 {

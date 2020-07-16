@@ -22,7 +22,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
     it('render correctly with have selectedExchangeRate', () => {
         const props = Object.assign({}, defaultProps, { selectedExchangeRate });
         const result = shallow(<EditExchangeRateForm {...props} />);
-    
+
         expect(result).toMatchSnapshot();
     });
 
@@ -30,7 +30,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
         const exchangeRate = Object.assign({}, selectedExchangeRate, { RateType: 0 })
         const props = Object.assign({}, defaultProps, { selectedExchangeRate: exchangeRate });
         const result = shallow(<EditExchangeRateForm {...props} />);
-    
+
         expect(result).toMatchSnapshot();
     });
 
@@ -38,7 +38,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
         const props = Object.assign({}, defaultProps, { selectedExchangeRate });
         const result = shallow(<EditExchangeRateForm {...props} />);
 
-        result.setState({ isSuccess: false });    
+        result.setState({ isSuccess: false });
 
         expect(result).toMatchSnapshot();
     });
@@ -46,9 +46,9 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
     it('render correctly with have selectedExchangeRate but invalid rate', () => {
         const props = Object.assign({}, defaultProps, { selectedExchangeRate });
         const result = shallow(<EditExchangeRateForm {...props} />);
-    
+
         result.setState({ rate: "0." });
-    
+
         expect(result).toMatchSnapshot();
     });
 
@@ -295,7 +295,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
         const wrapper = shallow(<EditExchangeRateForm {...props} />);
 
         wrapper.find('Button').at(1).simulate('click');
-    
+
         expect(props.setTogglePopup).toHaveBeenCalledWith(false);
     });
 
@@ -305,7 +305,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
         const wrapper = shallow(<EditExchangeRateForm {...props} />);
 
         wrapper.find('Modal').props().toggle();
-    
+
         expect(props.setTogglePopup).toHaveBeenCalledWith(false);
     });
 
@@ -315,7 +315,7 @@ describe('exchange rate - components - EditExchangeRateForm ', () => {
         const wrapper = shallow(<EditExchangeRateForm {...props} />);
 
         wrapper.find('ModalHeader').props().toggle();
-    
+
         expect(props.setTogglePopup).toHaveBeenCalledWith(false);
     });
 })

@@ -22,8 +22,7 @@ export class TasksWaitingForApproval extends PureComponent {
         return (
             <div className="waiting-approval">
                 <Row>
-                    <span className="tbl-icon02"></span>
-                    <span className="text-blue">Tasks waiting for approval</span>
+                    <span className="home-title">Tasks waiting for approval</span>
                     <Col sm={12} className="background-gray">
                         <Col sm={3} className="text-border">
                             <span><strong>Affiliate</strong></span>
@@ -35,7 +34,7 @@ export class TasksWaitingForApproval extends PureComponent {
                             <span><strong>Payment Request</strong></span>
                         </Col>
                         <Col sm={2} className="text-border">
-                            <a href={resolveClientUrl("Portal/PaymentRequest?SearchBy=2&Status=Pending&FromDate=12/01/2009&IsFromHome=true")}><strong>{format(generalInfo.PaymentRequestNumber)}</strong></a>
+                            <a href={resolveClientUrl("Portal/PaymentRequest?SearchBy=2&Status=Processing&FromDate=01/01/2020&IsFromHome=true")}><strong>{format(generalInfo.PaymentRequestNumber)}</strong></a>
                         </Col>
                     </Col>
                 </Row>

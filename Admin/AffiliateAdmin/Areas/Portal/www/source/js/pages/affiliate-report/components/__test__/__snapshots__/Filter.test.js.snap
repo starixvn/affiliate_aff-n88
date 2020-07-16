@@ -41,6 +41,87 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       className="mb-2 mr-sm-2 mb-sm-0"
       tag="div"
     >
+      <Label
+        className="mr-sm-2"
+        for="BaseCurrency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          VND
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Currency
+      </Label>
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
+            },
+          ]
+        }
+        hasAllOption={true}
+        hasInputOption={false}
+        isDisable={false}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
+        onChange={[Function]}
+        statusField="checked"
+        valueField="name"
+      />
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
       <Input
         id="Language"
         name="Language"
@@ -74,6 +155,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        hasInputOption={true}
+        isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"
@@ -117,8 +200,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           />
         }
         isReadonly={true}
-        minMonth={12}
-        minYear={2009}
+        minMonth={1}
+        minYear={2020}
         onFormat={[Function]}
         onSelect={[Function]}
         open={false}
@@ -289,14 +372,94 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       >
         Affiliate
       </Label>
-      <AutoComplete
-        cache={true}
-        characterCountToSearch={2}
-        onInput={[Function]}
-        onSelect={[Function]}
-        queryParamName="query"
-        url="/Portal/AffiliateReport/GetAffiliateList"
+      <Input
+        id="Affiliate"
+        name="Affiliate"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        type="text"
         value=""
+      />
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        for="BaseCurrency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Base Currency
+      </Label>
+      <Input
+        id="BaseCurrency"
+        name="BaseCurrency"
+        onChange={[Function]}
+        type="select"
+        value={20}
+      >
+        <option
+          key="20"
+          value={20}
+        >
+          VND
+        </option>
+        <option
+          value="20"
+        >
+          UUS
+        </option>
+      </Input>
+    </FormGroup>
+    <FormGroup
+      className="mb-2 mr-sm-2 mb-sm-0"
+      tag="div"
+    >
+      <Label
+        className="mr-sm-2"
+        for="Currency"
+        tag="label"
+        widths={
+          Array [
+            "xs",
+            "sm",
+            "md",
+            "lg",
+            "xl",
+          ]
+        }
+      >
+        Currency
+      </Label>
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "checked": true,
+              "key": 20,
+              "name": "UUS",
+            },
+          ]
+        }
+        hasAllOption={true}
+        hasInputOption={false}
+        isDisable={false}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
+        onChange={[Function]}
+        statusField="checked"
+        valueField="name"
       />
     </FormGroup>
     <FormGroup
@@ -311,6 +474,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       <MultipleSelect
         dataSource={Array []}
         hasAllOption={true}
+        hasInputOption={true}
+        isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"
@@ -354,8 +519,8 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           />
         }
         isReadonly={true}
-        minMonth={12}
-        minYear={2009}
+        minMonth={1}
+        minYear={2020}
         onFormat={[Function]}
         onSelect={[Function]}
         open={false}

@@ -4,18 +4,20 @@ import { bindActionCreators } from 'redux';
 
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../components/multiple-select';
+import Select from '../../../components/select';
 import MonthPicker from '@9softstudio/react-monthpicker';
-import AutoComplete from '../../../components/auto-complete';
-import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType } from '../modules/constants';
-import { setReportTitle, setParam } from '../actions';
-import { formatUnit, resolveClientUrl } from '../../../modules/utils';
+import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, allProduct, viewLevel, sortDirectionType, defaultBaseCurrency } from '../modules/constants';
+import { setReportTitle, setParam, setCurrencyList } from '../actions';
+import { formatUnit, handleChangeMultipleSelected } from '../../../modules/utils';
 import { minMonthDate } from '../../../modules/constants';
+import { globalResource } from '../../../modules/globalResource';
 
 export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        this.now = new Date(this.props.today);
+        const { today, baseCurrencyList, currencyList } = this.props;
+        this.now = new Date(today);
         const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
 
         this.state = {
@@ -26,7 +28,9 @@ export class Filter extends Component {
             sortBy: defaultSortBy,
             isSortAscending: true,
             selectedProductList: allProduct,
-            isGetAll: false
+            isGetAll: false,
+            selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
+            selectedCurrencyList: currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || ''
         }
 
         this.cachedMainReportParam = null;
@@ -45,7 +49,7 @@ export class Filter extends Component {
             }
 
             if (this._isMainView()) {
-                const { UserName, PreferredLanguage, FromDate, ToDate, SortType, SortDirectionType, ProductIds } = this.cachedMainReportParam;
+                const { UserName, PreferredLanguage, FromDate, ToDate, SortType, SortDirectionType, ProductIds, CurrencyIds, BaseCurrencyId } = this.cachedMainReportParam;
                 const from = new Date(FromDate);
                 const to = new Date(ToDate);
 
@@ -57,6 +61,8 @@ export class Filter extends Component {
                     sortBy: SortType,
                     isSortAscending: SortDirectionType === sortDirectionType.ascending,
                     selectedProductList: ProductIds,
+                    selectedBaseCurrency: BaseCurrencyId,
+                    selectedCurrencyList: CurrencyIds,
                     isGetAll: false
                 }, callback);
 
@@ -95,6 +101,10 @@ export class Filter extends Component {
         this.setState({ selectedLanguage: event.target.value });
     }
 
+    handleChangeBaseCurrency = (event) => {
+        this.setState({ selectedBaseCurrency: event.target.value });
+    }
+
     handleSelectFromMonth = (month, year) => {
         const fromMonth = { month, year };
         if (!this._isMainView()) {
@@ -125,6 +135,12 @@ export class Filter extends Component {
         this.setState({ toMonth: { month, year } });
     }
 
+    handleChangeCurrency = (item, selectedCurrencyList) => {
+        this.setState({ selectedCurrencyList });
+
+        this.props.setCurrencyList(handleChangeMultipleSelected(this.props.currencyList, selectedCurrencyList));
+    }
+
     handleChangeProduct = (item, selectedProductList) => {
         this.setState({ selectedProductList: selectedProductList });
     }
@@ -152,7 +168,7 @@ export class Filter extends Component {
             return;
         }
 
-        const { selectedLanguage, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
+        const { selectedLanguage, selectedBaseCurrency, selectedCurrencyList, fromMonth, toMonth, sortBy, isSortAscending, userName, isGetAll } = this.state;
         const { productList, pagingOption } = this.props;
 
         const isCheckedAllProduct = selectedProductList === allProduct || selectedProductList.split(',').length === productList.length;
@@ -164,6 +180,8 @@ export class Filter extends Component {
             FromDate: `${fromMonth.month}/1/${fromMonth.year}`,
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
+            BaseCurrencyId: Number(selectedBaseCurrency),
+            CurrencyIds: selectedCurrencyList,
             ProductIds: isCheckedAllProduct ? allProduct : selectedProductList,
             SortType: sortBy,
             SortDirectionType: isSortAscending ? sortDirectionType.ascending : sortDirectionType.descending,
@@ -184,8 +202,8 @@ export class Filter extends Component {
     }
 
     _buildMainReportTitle(isCheckedAllProduct) {
-        const { languageList } = this.props;
-        const { selectedLanguage, fromMonth, toMonth, userName } = this.state;
+        const { languageList, baseCurrencyList } = this.props;
+        const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
 
         const userNameTitle = `${userName && '- Username contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
@@ -195,12 +213,13 @@ export class Filter extends Component {
 
         const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'AFFILIATE REPORT ';
+        const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency);
 
-        return `${reportName}${userNameTitle} ${'- ' + language} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency[0] && baseCurrency[0].Code} - ${language} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
-        const { fromMonth, toMonth, userName, isGetAll } = this.state;
+        const { fromMonth, toMonth, userName, isGetAll, selectedBaseCurrency } = this.state;
 
         const userNameTitle = userName && '- ' + userName;
         const productList = this._getProductDataSource();
@@ -209,8 +228,9 @@ export class Filter extends Component {
         const fromToTitle = isGetAll ? 'Get All Dates' :
             `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const reportName = 'MONTH ON MONTH ';
+        const baseCurrency = this.props.baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency);
 
-        return `${reportName}${userNameTitle} ${productName && '- ' + productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency[0] && baseCurrency[0].Code} ${productName && '- ' + productName} - ${fromToTitle}`;
     }
 
     _getProductDataSource = () => {
@@ -258,8 +278,8 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
-        const { languageList } = this.props;
+        const { selectedLanguage, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
+        const { languageList, currencyList, baseCurrencyList, isProduction } = this.props;
 
         const productDataSource = this._getProductDataSource();
         const isValidSelectedProduct = selectedProductList.length > 0;
@@ -273,21 +293,41 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                         <Label for="Affiliate" className="mr-sm-2">Affiliate</Label>
-                        {
-                            isMainView ?
-                                (<Input type="text" name="Affiliate" id="Affiliate"
-                                    onKeyPress={this.handlePressEnter}
-                                    onChange={this.handleChangeAffiliate}
-                                    value={userName} />) :
-                                (
-                                    <AutoComplete url={resolveClientUrl('Portal/AffiliateReport/GetAffiliateList')}
-                                        onSelect={(value) => this.setState({ userName: value })}
-                                        onInput={(value) => this.setState({ userName: value })}
-                                        value={userName}
-                                        characterCountToSearch={2} />
-                                )
-                        }
+                        <Input type="text" name="Affiliate" id="Affiliate"
+                            onKeyPress={this.handlePressEnter}
+                            onChange={this.handleChangeAffiliate}
+                            value={userName} />
                     </FormGroup>
+                    {
+                        baseCurrencyList && baseCurrencyList.length !== 0 &&
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="BaseCurrency" className="mr-sm-2">{globalResource.BaseCurrency}</Label>
+                            <Input type="select" name="BaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChangeBaseCurrency}>
+                                {
+                                    baseCurrencyList && baseCurrencyList.map(c => {
+                                        return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
+                                    })
+                                }
+                                {
+                                    !isProduction && <option value="20">UUS</option>
+                                }
+                            </Input>
+                        </FormGroup>
+                    }
+                    {
+                        !isProduction && currencyList && currencyList.length !== 0 &&
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label for="Currency" className="mr-sm-2">{globalResource.Currency}</Label>
+                            <MultipleSelect
+                                dataSource={currencyList}
+                                keyField="key"
+                                valueField="name"
+                                statusField="checked"
+                                maxDisplayItemCount={1}
+                                noneSelectedLabel="None Select"
+                                onChange={this.handleChangeCurrency} />
+                        </FormGroup>
+                    }
                     {
                         isMainView &&
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -309,6 +349,7 @@ export class Filter extends Component {
                             valueField="ProductName"
                             statusField="Checked"
                             maxDisplayItemCount={1}
+                            hasInputOption={true}
                             noneSelectedLabel="Please Select"
                             onChange={this.handleChangeProduct} />
                         <div className="mx-1 rounded-circle note-info" title="Filtering product affects only to Turnover and Winloss columns. Others always show value for all products">
@@ -370,12 +411,12 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ productList, pagingOption, languageList, today, currentViewLevel, param }) {
-    return Object.assign({}, { productList, pagingOption, languageList, today, currentViewLevel, param });
+function mapStateToProps({ productList, pagingOption, languageList, currencyList, baseCurrencyList, isProduction, today, currentViewLevel, param }) {
+    return Object.assign({}, { productList, pagingOption, languageList, currencyList, baseCurrencyList, isProduction, today, currentViewLevel, param });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setCurrencyList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

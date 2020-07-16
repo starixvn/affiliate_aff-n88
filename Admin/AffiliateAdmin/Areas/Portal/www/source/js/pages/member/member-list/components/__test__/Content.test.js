@@ -95,18 +95,18 @@ describe('member list - components - Content ', () => {
         expect(props.setParam).toHaveBeenCalledWith({ PageIndex: 50, PageSize: 50, AffName: '', UserName: '', IbcUserName: '' });
     });
 
-    it('_handleDeleteMember - should be called when click remove button', () => {
-        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(), setShouldResetScrollPosition: jest.fn() });
+    //it('_handleDeleteMember - should be called when click remove button', () => {
+    //    const props = Object.assign({}, defaultProps, { fetchData: jest.fn(), setShouldResetScrollPosition: jest.fn() });
 
-        const wrapper = shallow(<Content {...props} />);
-        wrapper.setState = jest.fn();
-        const dataRow = shallow(<div>{wrapper.instance()._renderDataSection(gridData)}</div>);
+    //    const wrapper = shallow(<Content {...props} />);
+    //    wrapper.setState = jest.fn();
+    //    const dataRow = shallow(<div>{wrapper.instance()._renderDataSection(gridData)}</div>);
 
-        dataRow.find('Button').at(0).simulate('click');
+    //    dataRow.find('Button').at(0).simulate('click');
 
-        expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
-        expect(wrapper.setState).toHaveBeenCalledWith({ message: 'Are you sure you want to remove this member from his affiliate?', isConfirmPopup: true, selectedMemberId: 26522982 });
-    });
+    //    expect(props.setShouldResetScrollPosition).toHaveBeenCalledWith(false);
+    //    expect(wrapper.setState).toHaveBeenCalledWith({ message: 'Are you sure you want to remove this member from his affiliate?', isConfirmPopup: true, selectedMemberId: 26522982 });
+    //});
 
     it('_handleCloseNotificationPopup - should be called when call onClose with true in NotificationPopup', () => {
         const wrapper = shallow(<Content {...defaultProps} />);

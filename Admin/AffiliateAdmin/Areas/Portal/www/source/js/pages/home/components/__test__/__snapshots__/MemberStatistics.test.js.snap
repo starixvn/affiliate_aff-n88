@@ -3,7 +3,7 @@
 exports[`home - components - MemberStatistics render correctly 1`] = `
 <Memo(Panel)
   className="icon-home02"
-  heading="Member statistics (up to now)"
+  heading="Player statistics (up to now)"
 >
   <Row
     tag="div"
@@ -24,10 +24,8 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
     >
       <span>
         We have 
-        <strong>
-          17,049
-        </strong>
-         members in the program
+        <strong />
+         players in the program
       </span>
     </Col>
     <Col
@@ -49,9 +47,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
           8,847
         </strong>
          Deposit / 
-        <strong>
-          8,202
-        </strong>
+        <strong />
          Non-Deposit
       </span>
     </Col>
@@ -86,7 +82,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             <td
               className="content"
             >
-              $5,830,693.01
+              5,830,693.01
             </td>
           </tr>
           <tr
@@ -100,7 +96,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             <td
               className="content"
             >
-              -$57.12
+              -57.12
             </td>
           </tr>
           <tr
@@ -114,7 +110,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             <td
               className="content"
             >
-              -$3,453,885.20
+              -3,453,885.20
             </td>
           </tr>
           <tr
@@ -128,7 +124,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             <td
               className="content"
             >
-              $509.19
+              509.19
             </td>
           </tr>
           <tr>
@@ -143,7 +139,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
               className="content-total"
             >
               <strong>
-                $1,776,017.45
+                1,776,017.45
               </strong>
             </td>
           </tr>
@@ -157,7 +153,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
 exports[`home - components - MemberStatistics render correctly with this month 1`] = `
 <Memo(Panel)
   className="icon-home02"
-  heading="Member statistics (this month)"
+  heading="Player statistics (this month)"
 >
   <Row
     tag="div"
@@ -178,10 +174,8 @@ exports[`home - components - MemberStatistics render correctly with this month 1
     >
       <span>
         We have 
-        <strong>
-          0
-        </strong>
-         members in the program
+        <strong />
+         players in the program
       </span>
     </Col>
     <Col
@@ -203,9 +197,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
           2,516
         </strong>
          Deposit / 
-        <strong>
-          -2,516
-        </strong>
+        <strong />
          Non-Deposit
       </span>
     </Col>
@@ -240,7 +232,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              0.00
             </td>
           </tr>
           <tr
@@ -254,7 +246,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              0.00
             </td>
           </tr>
           <tr
@@ -268,7 +260,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $58.33
+              58.33
             </td>
           </tr>
           <tr
@@ -282,7 +274,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             <td
               className="content"
             >
-              $0.00
+              0.00
             </td>
           </tr>
           <tr>
@@ -297,7 +289,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
               className="content-total"
             >
               <strong>
-                -$77.00
+                -77.00
               </strong>
             </td>
           </tr>

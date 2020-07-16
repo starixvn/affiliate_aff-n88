@@ -24,7 +24,10 @@
 
             for (var i = 0; i < requiredInputList.length; i++) {
                 var element = requiredInputList[i];
-                $(element).val("");
+                var $element = $(element);
+                $element.val("");
+                var $container = $element.closest(".group");
+                Site.toggleErrorMessage($container, true);
             }
         },
 
@@ -73,7 +76,7 @@
                     var hasValue = !!$element.val();
 
                     var $container = $element.closest(".group");
-                    _me.toggleErrorMessage($container, hasValue);
+                    Site.toggleErrorMessage($container, hasValue);
 
                     if (isValid && !hasValue) {
                         isValid = false;
@@ -85,20 +88,13 @@
         },
 
         checkValidEmail: function () {
-            var pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
             var $email = $("#Email");
-            var isValid = pattern.test($email.val());
+            var isValid = Site.emailValidationPattern.test($email.val());
 
             var $container = $email.closest(".group");
-            _me.toggleErrorMessage($container, isValid);
+            Site.toggleErrorMessage($container, isValid);
 
             return isValid;
-        },
-
-        toggleErrorMessage: function ($container, isValid) {
-            $container.toggleClass("has-error", !isValid);
-            $container.find(".help-block").toggleClass("hide", isValid);
         },
 
         refreshCaptcha: function () {

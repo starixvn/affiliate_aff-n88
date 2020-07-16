@@ -1,17 +1,18 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
 <div>
-Yang terhormat @Model.User.FirstName,<br /><br />
- 
-Terima kasih atas permintaan pembayaran Anda tanggal @Model.RequestDate.ToString("MM/dd/yyyy") untuk jumlah $@Model.Amount<br />
+    Dear @Model.User.FirstName,<br /><br />
 
-Permintaan Anda nombor referensi adalah  @Model.TransId .<br /><br />
- 
-Permintaan pembayaran Anda akan diproses dalam waktu 7 hari kerja. Semua permintaan akan diperiksa dalam urutan di mana mereka diterima. <br /><br />
- 
-Ini adalah sistem yang dihasilkan otomatis email, harap jangan balas email ini secara langsung. <br />
-Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau komentar di <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
- 
-Salam Sejahtera,<br /><br />
- 
-Tim di 12csd Afiliasi<br /><br />
+    Thank you for your payment request dated @Model.RequestDate.ToString("MM/dd/yyyy") for the amount of $@Model.Amount .<br />
+    Your request reference number is @Model.TransId .<br /><br />
+
+    Your payment request will be processed within 7 working days. All requests are reviewed in the order in which they are received.<br /><br />
+
+    This is a system auto generated email, please do not reply to this email directly.<br />
+    Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
+
+    Have a great day!<br /><br />
+
+    Best regards,<br /><br />
+
+    The team at 12Bet Affiliates
 </div>

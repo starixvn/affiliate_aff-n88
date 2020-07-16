@@ -32,7 +32,7 @@ describe('left panel actions', () => {
         const param = {
             affUsername: "12BETAFF226"
         }
-        
+
         const result = await actions['getOnLineList'](param.affUsername)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/getOnLineList', param);
@@ -68,7 +68,7 @@ describe('left panel actions', () => {
             AffId: 1271808,
             PreferredLanguage: "vi-VN"
         }
-        
+
         const result = await actions['updateLanguage'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/UpdateLanguage', param);
@@ -105,7 +105,7 @@ describe('left panel actions', () => {
             AffId: 1271808,
             AffType: "2"
         }
-        
+
         const result = await actions['updateAffType'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/UpdateAffType', param);
@@ -142,7 +142,7 @@ describe('left panel actions', () => {
             AffId: 92037914,
             Status: "Disapproved"
         }
-        
+
         const result = await actions['updateStatus'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/UpdateStatus', param);
@@ -179,7 +179,7 @@ describe('left panel actions', () => {
             AffId: 1271808,
             IsClosed: true
         }
-        
+
         const result = await actions['updateClosedStatus'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/CustomerLeftPanel/UpdateClosedStatus', param);

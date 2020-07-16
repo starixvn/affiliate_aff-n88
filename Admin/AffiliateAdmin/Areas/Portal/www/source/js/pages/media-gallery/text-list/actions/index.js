@@ -1,7 +1,7 @@
 ﻿import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { setPagingOption } from '../../../../actions/pagingAction';
-import { SET_PARAM, SET_CHECKED_TEXTS, SET_SELECTED_TEXT_ID, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA } from './types';
+import { SET_PARAM, SET_CHECKED_TEXTS, SET_SELECTED_TEXT_ID, SHOULD_RESET_SCROLL_POSITION, SET_GRID_DATA, SET_DISABLE_CURRENCY, SET_CATEGORY_LIST } from './types';
 
 export { toggleLoader, setPagingOption };
 
@@ -40,6 +40,30 @@ export const setGridData = (data) => {
     }
 }
 
+export const setDisableCurrency = (data) => {
+    return {
+        type: SET_DISABLE_CURRENCY,
+        data
+    }
+}
+
+export const setCategoryList = (data) => {
+    return {
+        type: SET_CATEGORY_LIST,
+        data
+    }
+}
+
+export const getCategoryList = (userType) => async (dispatch) => {
+    const url = 'Portal/TextList/GetCategoryList';
+    const response = await post(url, { userType });
+
+    const data = response && response.status === 200 ? response.data : [];
+
+    dispatch(setCategoryList(data));
+}
+
+
 export const fetchData = (param) => async (dispatch) => {
     dispatch(toggleLoader(true));
 
@@ -66,9 +90,9 @@ function _convertCheckedTexts(dataList) {
     return checkedTexts;
 }
 
-export const getTextDetail = (selectedTextId) => async () => {
+export const getTextDetail = (selectedTextId, userType) => async () => {
     const url = 'Portal/TextList/GetTextDetail';
-    const response = await post(url, { selectedTextId });
+    const response = await post(url, { selectedTextId, userType });
 
     return response && response.status === 200 ? response.data : null;
 }
@@ -87,9 +111,9 @@ export const updateText = (param) => async () => {
     return response && response.status === 200 ? response.data : null;
 }
 
-export const deleteTexts = (textIdList) => async () => {
+export const deleteTexts = (param) => async () => {
     const url = 'Portal/TextList/DeleteTexts';
-    const response = await post(url, { textIdList });
+    const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;
 }

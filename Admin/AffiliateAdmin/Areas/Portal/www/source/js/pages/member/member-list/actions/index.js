@@ -36,7 +36,7 @@ export const setGridData = (data) => {
 export const fetchData = (param) => async (dispatch) => {
     dispatch(toggleLoader(true));
 
-    const url = 'Portal/Member/GetMemberList';
+    const url = 'Portal/Player/GetMemberList';
     const response = await post(url, param);
 
     const data = response && response.status === 200 ? response.data : null;
@@ -48,8 +48,8 @@ export const fetchData = (param) => async (dispatch) => {
 }
 
 export const deleteMember = (memberId) => async () => {
-    const url = 'Portal/Member/Deletemember';
-    const response = await post(url, { memberId });
+    //const url = 'Portal/Player/Deletemember';
+    //const response = await post(url, { memberId });
 
-    return response && response.status === 200 ? response.data : null;
+    //return response && response.status === 200 ? response.data : null;
 }

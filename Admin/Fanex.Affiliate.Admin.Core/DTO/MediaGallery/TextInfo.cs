@@ -13,5 +13,7 @@
         public string Currency { get; set; }
 
         public byte DeviceType { get; set; }
+
+        public byte UserType { get; set; }
     }
 }

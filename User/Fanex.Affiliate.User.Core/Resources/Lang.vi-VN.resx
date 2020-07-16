@@ -142,7 +142,7 @@
     <value>Điều chỉnh</value>
   </data>
   <data name="Affiliate" xml:space="preserve">
-    <value>CHƯƠNG TRÌNH ĐẠI LÝ</value>
+    <value>Chương Trình Đại Lý</value>
   </data>
   <data name="AffiliateID" xml:space="preserve">
     <value>Mã Số Đại Lý </value>
@@ -273,11 +273,8 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>Tên truy cập 12BET</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>Tên người dùng 12BET là bắt buộc</value>
+    <value>Tên người dùng là bắt buộc</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>Bhutan </value>
@@ -289,7 +286,7 @@
     <value>Bolivia </value>
   </data>
   <data name="Bonus" xml:space="preserve">
-    <value>Thưởng</value>
+    <value>Tiền thưởng</value>
   </data>
   <data name="BosniaandHerzegovina" xml:space="preserve">
     <value>Bosnia và Herzegovina </value>
@@ -334,7 +331,7 @@
     <value>Yêu cầu hủy</value>
   </data>
   <data name="CancelSubject" xml:space="preserve">
-    <value>12Bet Affiliate - [{transid}] - Thông báo yêu cầu thanh toán</value>
+    <value>12Bet Đại Lý - [{transid}] - Thông báo yêu cầu thanh toán</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -411,17 +408,14 @@
   <data name="Colombia" xml:space="preserve">
     <value>Colombia</value>
   </data>
-  <data name="Comm" xml:space="preserve">
-    <value>Hoa hồng</value>
-  </data>
   <data name="Comment" xml:space="preserve">
     <value>Nội dung</value>
   </data>
   <data name="CommentsIsInvalid" xml:space="preserve">
-    <value>Nhận xét không hợp lệ</value>
+    <value>Nội dung không hợp lệ</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Phần trăm hoa hồng</value>
+    <value>Phần trăm</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Ngày hoàn thành</value>
@@ -451,7 +445,7 @@
     <value>Quần đảo Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Bản quyền © 2008 - 2019 | Toàn bộ thuộc 12BET.com | 21+</value>
+    <value>© Bản quyền 2020 | Toàn bộ thuộc 12BET.com | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Costa Rica </value>
@@ -472,7 +466,7 @@
     <value>Croatia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>12Bet Affiliate - Tài khoản mới đang chờ chấp thuận</value>
+    <value>12Bet Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
@@ -523,7 +517,7 @@
     <value>Mô tả</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>Hãy mô tả bạn sẽ quảng cáo 12bet như thế nào nếu bạn không có một trang web</value>
+    <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web</value>
   </data>
   <data name="DominicaCommonwealthof" xml:space="preserve">
     <value>Liên bang Dominica </value>
@@ -578,9 +572,6 @@
   </data>
   <data name="Err1002" xml:space="preserve">
     <value>Địa chỉ email mà bạn nhập đã được sử dụng để đăng ký tài khoản. Vui lòng chọn địa chỉ khác!</value>
-  </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>Tên người dùng 12BET không hợp lệ</value>
   </data>
   <data name="Err1004" xml:space="preserve">
     <value>Thông tin người dùng không hợp lệ. Quá trình cập nhật không thành công</value>
@@ -707,9 +698,6 @@
   </data>
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>Thông tin để đặt lại mật khẩu không hợp lệ, vui lòng &lt;a href='ForgetPass.aspx'&gt;thử lại&lt;/a&gt;. Trong trường hợp bạn vẫn không thể đặt lại mật khẩu của mình, vui lòng &lt;a href='ContactUs.aspx'&gt;liên hệ với chúng tôi&lt;/a&gt;</value>
-  </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Rất tiếc! Thanh toán qua {method} không hoạt động. Hiện tại, chỉ phương thức 'Tài khoản người chơi 12BET' được hỗ trợ. Vui lòng &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;nhấp vào đây&lt;/a&gt; để thực hiện thay đổi.</value>
   </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Câu hỏi bảo mật trống. Vui lòng kiểm tra!</value>
@@ -838,7 +826,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của 12BET Affiliate.</value>
+    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của 12BET Đại Lý.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -1093,7 +1081,7 @@
     <value>Hà Lan </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Lợi Nhuận Ròng Mỗi Tháng (CNW)($)</value>
+    <value>Lãi Thực Công Ty ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>New Caledonia </value>
@@ -1122,9 +1110,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>Không có thông tin nào</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Chỉ cho phép tài khoản không có tiền gửi</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>Không tên</value>
   </data>
@@ -1140,7 +1125,7 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>Tôi không có trang web</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
+  <data name="ProductNumberGame" xml:space="preserve">
     <value>Number Game</value>
   </data>
   <data name="October" xml:space="preserve">
@@ -1290,8 +1275,8 @@
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
   </data>
-  <data name="QualifyingMem" xml:space="preserve">
-    <value>Thành Viên Hợp Lệ Mỗi Tháng / Sản Phẩm</value>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>Số lượng người chơi hoạt động&lt;br/&gt;(Yêu cầu tối thiểu)</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Đua Ngựa</value>
@@ -1315,10 +1300,10 @@
     <value>Mẫu đơn</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>12Bet Affiliate - Đơn của bạn</value>
+    <value>12Bet Đại Lý - Đơn của bạn</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm 12Bet Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
+    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm Đại Lý 12Bet xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 3 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Bị từ chối</value>
@@ -1330,7 +1315,7 @@
     <value>Số tiền yêu cầu</value>
   </data>
   <data name="RequestAmt" xml:space="preserve">
-    <value>Nhập số tiền yêu cầu (bằng USD)</value>
+    <value>Nhập số tiền yêu cầu</value>
   </data>
   <data name="RequestPayout" xml:space="preserve">
     <value>Yêu cầu thanh toán</value>
@@ -1477,7 +1462,7 @@
     <value>Hội viên 12BET - Chi tiết đăng nhập của bạn</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
-    <value>Chủ thể không hợp lệ</value>
+    <value>Tiêu đề không hợp lệ</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
     <value>Hội viên 12BET - Mật khẩu mới của bạn</value>
@@ -1534,7 +1519,7 @@
     <value>Đây là email do hệ thống tạo tự động, vui lòng không trả lời trực tiếp email này.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Cấp Bậc</value>
+    <value>Cấp</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Mật khẩu mới sẽ được gửi tới địa chỉ email mà bạn đã cung cấp.
@@ -1550,7 +1535,7 @@
     <value>Togo </value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Tổng Cộng</value>
+    <value>Tổng</value>
   </data>
   <data name="TotalActive" xml:space="preserve">
     <value>Tổng số người chơi có giao dịch</value>
@@ -1586,7 +1571,7 @@
     <value>Thổ Nhĩ Kỳ </value>
   </data>
   <data name="Turnover" xml:space="preserve">
-    <value>Doanh Thu</value>
+    <value>Tiền cược</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Loại giao dịch</value>
@@ -1664,7 +1649,7 @@
     <value>Tây Samoa </value>
   </data>
   <data name="Winlost" xml:space="preserve">
-    <value>Tiền thắng thua của thành viên</value>
+    <value>Thắng/Thua</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Năm</value>
@@ -1686,9 +1671,6 @@
   </data>
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
-  </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>Tài khoản người chơi 12BET</value>
@@ -1726,41 +1708,14 @@
   <data name="VideoPokerGames" xml:space="preserve">
     <value>Video Poker Games</value>
   </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>12EMERALD (PLAYTECH)</value>
+  <data name="ProductRNGCasino" xml:space="preserve">
+    <value>RNG CASINO</value>
   </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>12RUBY (12BET)</value>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND (OPUS)</value>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>12PEARL (ASIA GAMING) </value>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>12TOPAZ (MICRO GAMING, NETENT, FLOW GAMING)</value>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL (GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>12OPAL (EBET)</value>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST (GOLD DELUXE)</value>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>12ONYX (ALLBET)</value>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>12QUARZT (ISOFTBET, PRAGMATIC PLAY)</value>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>12AMBER (BETSOFT)</value>
+  <data name="ProductPragmaticPlay" xml:space="preserve">
+    <value>PRAGMATIC PLAY</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>Doanh Thu Thuần</value>
+    <value>Hoa Hồng</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>Tất Cả Sản Phẩm</value>
@@ -1787,7 +1742,7 @@
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0} hoặc điền chi tiết vào hộp thư bên dưới:</value>
+    <value>Mọi thắc mắc về chương trình đại lý 12BET, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>
@@ -1796,18 +1751,18 @@
     <value>ĐIỀU KHOẢN &amp; ĐIỀU KIỆN</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý</value>
+    <value>Cấu Trúc Hoa Hồng</value>
   </data>
   <data name="Product" xml:space="preserve">
     <value>SẢN PHẨM</value>
   </data>
-  <data name="VirtualSports" xml:space="preserve">
+  <data name="ProductVirtualSports" xml:space="preserve">
     <value>Thể Thao Ảo</value>
   </data>
   <data name="ESports" xml:space="preserve">
     <value>Esports</value>
   </data>
-  <data name="RngKeno" xml:space="preserve">
+  <data name="ProductRngKeno" xml:space="preserve">
     <value>RNG KENO</value>
   </data>
   <data name="Lottery" xml:space="preserve">
@@ -1853,7 +1808,7 @@
     <value>NHẬN HOA HỒNG CAO HƠN? </value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>Liên hệ ngay Bộ phận Hỗ Trợ Đại Lý nếu có thắc mắc về hoa hồng đại lý mỗi tháng của mình!</value>
+    <value>Liên hệ ngay bộ phận Hỗ Trợ Đại Lý nếu có thắc mắc về hoa hồng đại lý mỗi tháng của mình!</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
     <value>LIÊN HỆ</value>
@@ -1895,7 +1850,7 @@
     <value>ĐĂNG KÝ NGAY!</value>
   </data>
   <data name="CommissionReport" xml:space="preserve">
-    <value>Báo Cáo Hoa Hồng Đại Lý</value>
+    <value>Báo Cáo Hoa Hồng</value>
   </data>
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Tổng Thắng Thua</value>
@@ -1906,17 +1861,14 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>Chi Phí Vận Hành</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Chi Phí Ngân Hàng</value>
+  <data name="BankingFee" xml:space="preserve">
+    <value>Phí Ngân Hàng</value>
   </data>
   <data name="CommRate" xml:space="preserve">
-    <value>% Hoa Hồng</value>
-  </data>
-  <data name="CommShorted" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý</value>
+    <value>Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Hoa Hồng Đại Lý = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x % Hoa Hồng</value>
+    <value>Hoa Hồng = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Tạm Thời</value>
@@ -1975,9 +1927,6 @@
   <data name="Non_Deposit" xml:space="preserve">
     <value>Chưa Gửi Tiền</value>
   </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>Danh Sách Vé Cược</value>
-  </data>
   <data name="result" xml:space="preserve">
     <value>Kết Quả</value>
   </data>
@@ -2000,7 +1949,7 @@
     <value>Thống Kê</value>
   </data>
   <data name="AffiliateProgram" xml:space="preserve">
-    <value>Chương Trình Đại Lý</value>
+    <value>CHƯƠNG TRÌNH ĐẠI LÝ</value>
   </data>
   <data name="AffiliateLogin" xml:space="preserve">
     <value>ĐĂNG NHẬP TÀI KHOẢN ĐẠI LÝ</value>
@@ -2009,7 +1958,7 @@
     <value>Chưa là Hội Viên?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 40% Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng 45% Hoa Hồng Mỗi Tháng!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>ĐĂNG KÝ</value>
@@ -2025,9 +1974,6 @@
   </data>
   <data name="MobileDevice" xml:space="preserve">
     <value>Di động</value>
-  </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>Tài khoản chưa từng gửi tiền</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Tên truy cập 12BET</value>
@@ -2053,14 +1999,11 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>Địa chỉ email</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12THỂ THAO</value>
+  <data name="ProductSportsBook" xml:space="preserve">
+    <value>SportsBook</value>
   </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi THỂ THAO</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12ESPORT</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
@@ -2125,52 +2068,187 @@
   <data name="GpiLottery" xml:space="preserve">
     <value>Xổ Số GPI</value>
   </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND</value>
+  <data name="ProductAllbet" xml:space="preserve">
+    <value>AllBET</value>
   </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>12EMERALD</value>
+  <data name="Summary" xml:space="preserve">
+    <value>Thống Kê</value>
   </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>12PEARL</value>
+  <data name="LastLogin" xml:space="preserve">
+    <value>Lần đăng nhập cuối:</value>
   </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>12OPAL</value>
+  <data name="LastLoginIpAddress" xml:space="preserve">
+    <value>IP lần đăng nhập cuối:</value>
   </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST</value>
+  <data name="Commission" xml:space="preserve">
+    <value>Hoa hồng</value>
   </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>12ONYX</value>
+  <data name="BalanceBroughtForward" xml:space="preserve">
+    <value>Số dư lũy kế</value>
   </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL</value>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>Tổng tiền đặt cược</value>
   </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>12AMBER</value>
+  <data name="DepositedPlayers" xml:space="preserve">
+    <value>Người chơi đã nộp tiền</value>
   </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(OPUS GAMING)</value>
+  <data name="Overview" xml:space="preserve">
+    <value>Tổng quan</value>
   </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(Playtech)</value>
+  <data name="PlayersDetails" xml:space="preserve">
+    <value>Chi tiết người chơi</value>
   </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(ASIA GAMING)</value>
+  <data name="FirstNameMaxLength" xml:space="preserve">
+    <value>Tên không được nhiều hơn 50 ký tự</value>
   </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(EBET)</value>
+  <data name="LastNameMaxLength" xml:space="preserve">
+    <value>Họ không được nhiều hơn 50 ký tự</value>
   </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(GOLD DELUXE)</value>
+  <data name="AnswerMaxLength" xml:space="preserve">
+    <value>Câu trả lời của bạn không được nhiều hơn 300 ký tự</value>
   </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(ALLBET)</value>
+  <data name="AddressMaxLength" xml:space="preserve">
+    <value>Địa chỉ không được nhiều hơn 250 ký tự</value>
   </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(GAME PLAY INTERACTIVE)</value>
+  <data name="CityMaxLength" xml:space="preserve">
+    <value>Thành phố không được nhiều hơn 250 ký tự</value>
   </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(BETSOFT)</value>
+  <data name="EmailMaxLength" xml:space="preserve">
+    <value>Địa chỉ email không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="PhoneMaxLength" xml:space="preserve">
+    <value>Số liên hệ không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="UserNameMaxLength" xml:space="preserve">
+    <value>Tên truy cập không được nhiều hơn 100 ký tự</value>
+  </data>
+  <data name="PostalMaxLength" xml:space="preserve">
+    <value>Mã bưu điện/Mã zip không được nhiều hơn 50 ký tự</value>
+  </data>
+  <data name="SiteUrlMaxLength" xml:space="preserve">
+    <value>Trang web URL không được nhiều hơn 100 ký tự</value>
+  </data>
+  <data name="NoSiteDescMaxLength" xml:space="preserve">
+    <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 100 ký tự</value>
+  </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>Đại Lý Cấp Dưới</value>
+  </data>
+  <data name="SubAffDownline" xml:space="preserve">
+    <value>Cấp Dưới của Đại Lý Cấp Dưới</value>
+  </data>
+  <data name="SubAffEarning" xml:space="preserve">
+    <value>Thu Nhập của Đại Lý Cấp Dưới</value>
+  </data>
+  <data name="SubAffiliateLink" xml:space="preserve">
+    <value>Đường Dẫn Đại Lý Cấp Dưới</value>
+  </data>
+  <data name="SubAffiliateMediaGallery" xml:space="preserve">
+    <value>Thư viện ảnh đại lý cấp dưới</value>
+  </data>
+  <data name="AffilateLink" xml:space="preserve">
+    <value>Đường Dẫn Đại Lý</value>
+  </data>
+  <data name="MediaGallery" xml:space="preserve">
+    <value>Thư viện ảnh</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>Sao Chép Đường Dẫn</value>
+  </data>
+  <data name="CopyQRCode" xml:space="preserve">
+    <value>Sao Chép Mã QR</value>
+  </data>
+  <data name="SaveQRCode" xml:space="preserve">
+    <value>Lưu Mã QR</value>
+  </data>
+  <data name="Dimension" xml:space="preserve">
+    <value>Kích Thước</value>
+  </data>
+  <data name="CopyBannerCode" xml:space="preserve">
+    <value>Sao Chép Mã Biểu Ngữ</value>
+  </data>
+  <data name="ShareBanner" xml:space="preserve">
+    <value>Chia sẻ biểu ngữ cho bạn bè</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Người Chơi</value>
+  </data>
+  <data name="MonthlyTotal" xml:space="preserve">
+    <value>Tổng Hàng Tháng</value>
+  </data>
+  <data name="TotalCommission" xml:space="preserve">
+    <value>Tổng hoa hồng</value>
+  </data>
+  <data name="MonthlyEarning" xml:space="preserve">
+    <value>Thu Nhập Hàng Tháng</value>
+  </data>
+  <data name="UncalculatedMonthlyEarning" xml:space="preserve">
+    <value>Thu Nhập Hàng Tháng Chưa Tính</value>
+  </data>
+  <data name="CurrentMonthlyEarning" xml:space="preserve">
+    <value>Thu Nhập Tháng Này</value>
+  </data>
+  <data name="CommissionBonus" xml:space="preserve">
+    <value>Hoa Hồng</value>
+  </data>
+  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+    <value>Hoa Hồng Chưa Xử Lý</value>
+  </data>
+  <data name="CurrentCommissionBonus" xml:space="preserve">
+    <value>Hoa Hồng Hiện Tại</value>
+  </data>
+  <data name="CurrentMonthStatistics" xml:space="preserve">
+    <value>Thống Kê Tháng Hiện Tại</value>
+  </data>
+  <data name="UncalculatedMonth" xml:space="preserve">
+    <value>Tháng Đang Chờ Tính</value>
+  </data>
+  <data name="SubAffDetail" xml:space="preserve">
+    <value>Chi Tiết Đại Lý Cấp Dưới</value>
+  </data>
+  <data name="ApprovalDate" xml:space="preserve">
+    <value>Ngày Chấp Thuận</value>
+  </data>
+  <data name="TotalWinLoss" xml:space="preserve">
+    <value>Tổng Lợi Nhuận Ròng</value>
+  </data>
+  <data name="NumberOfActivePlayers" xml:space="preserve">
+    <value>Số lượng người chơi hoạt động</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Sao chép</value>
+  </data>
+  <data name="RevenueSharePercent" xml:space="preserve">
+    <value>LÊN ĐẾN 45% </value>
+  </data>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>HOA HỒNG &lt;br/&gt;LÊN ĐẾN 45% </value>
+  </data>
+  <data name="JoinIn" xml:space="preserve">
+    <value>THAM GIA VÀO CHƯƠNG TRÌNH ĐẠI LÝ TỐT NHẤT HIỆN NAY</value>
+  </data>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Tham gia ngay!</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Hoa Hồng Của Bạn</value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Người Chơi Đủ Điều Kiện</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Người Chơi Đủ Điều Kiện</value>
+  </data>
+  <data name="InvalidLink" xml:space="preserve">
+    <value>Liên kết bạn đã nhập không hợp lệ.&lt;br /&gt;Vui lòng liên hệ với bộ phận chăm sóc khách hàng hoặc</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>nhấn vào đây.</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="BaseCurrency" xml:space="preserve">
+    <value>Tiền cơ sở</value>
   </data>
 </root>

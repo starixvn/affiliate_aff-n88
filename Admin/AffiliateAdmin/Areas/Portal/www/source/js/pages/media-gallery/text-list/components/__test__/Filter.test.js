@@ -34,7 +34,7 @@ describe('text list - components - Filter ', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ category: '', language: '', currency: '', deviceType: 0, PageIndex: 1, PageSize: 20 });
+        expect(props.setParam).toHaveBeenCalledWith({ category: '', language: '', currency: '', deviceType: '', userType: 0, PageIndex: 1, PageSize: 20 });
     });
 
     it('setCategory - should change category when change category select', () => {

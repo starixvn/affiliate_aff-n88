@@ -1,14 +1,14 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.AffInformationEmail
 
 <div>
-    @Model.FirstName 고객님께,<br /><br />
+    Dear @Raw(Model.FirstName),<br /><br />
 
-    고객님께서 제출하신 12BET의 업무제휴사 신청이 승인되지 않았음을 알려드리게 되어 매우 유감입니다. 이에 어떠한 불편을 드렸다면 깊이 사과드립니다. <br /><br />
+    I regret to inform you that your application to join the @(Model.SiteFriendlyName) Affiliates program has been disapproved/rejected. I apologise for any inconvenience this may have caused.<br /><br />
 
-    만일 고객님의 신청이 승인되지 않은 이유에 대하여 문의를 원하시면 언제든지 저희에게 연락 주시기 바랍니다. <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
+    If you have any queries regarding why your website has not met the required criteria, please feel free to contact me at <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
 
-    감사합니다.<br /><br />
-    업무제휴 서비스 매니저 올림,<br />
-    12BET 업무제휴 팀<br />
+    Sincerely,<br /><br />
+    Affiliate Services Manager,<br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div> 

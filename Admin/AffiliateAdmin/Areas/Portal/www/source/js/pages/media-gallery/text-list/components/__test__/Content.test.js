@@ -7,22 +7,22 @@ import { Table } from '@9softstudio/react-fixed-table-header';
 
 describe('text list - components - Content ', () => {
     const gridData = [
-                    {
-                        Category: "Tennis",
-                        Currency: "EURO",
-                        DeviceType: 1,
-                        Language: "Japanese",
-                        TextContent: "anna 03",
-                        TextId: 2438
-                    },
-                    {
-                        Category: "Basketball",
-                        Currency: "EURO",
-                        DeviceType: 0,
-                        Language: "Japanese",
-                        TextContent: "anna 02",
-                        TextId: 2437
-                    }
+        {
+            Category: "Tennis",
+            Currency: "EURO",
+            DeviceType: 1,
+            Language: "Japanese",
+            TextContent: "anna 03",
+            TextId: 2438
+        },
+        {
+            Category: "Basketball",
+            Currency: "EURO",
+            DeviceType: 0,
+            Language: "Japanese",
+            TextContent: "anna 02",
+            TextId: 2437
+        }
     ];
 
     const param = {

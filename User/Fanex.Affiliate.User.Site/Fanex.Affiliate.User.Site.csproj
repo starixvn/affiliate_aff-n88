@@ -140,6 +140,9 @@
       <HintPath>..\..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.7\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -202,9 +205,25 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
@@ -275,7 +294,201 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
-    <Content Include="favicon.ico" />
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8b.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.backupmnl.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.local.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.master.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.production.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.sit.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.n88user-n8g.uat.config">
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\AppSetting.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppSetting.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n88.backupmnl.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n88.master.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n88.production.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n88.sit.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n88.uat.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8b.backupmnl.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8b.master.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8b.production.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8b.sit.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8b.uat.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.backupmnl.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.master.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.production.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.sit.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\AppSetting\Transform\n8g.uat.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.backupmnl.config">
+      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.master.config">
+      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.production.config">
+      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.sit.config">
+      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.uat.config">
+      <DependentUpon>ConnectionString.n88user-n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.backupmnl.config">
+      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.master.config">
+      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.production.config">
+      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.sit.config">
+      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.uat.config">
+      <DependentUpon>ConnectionString.n88user-n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.backupmnl.config">
+      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.master.config">
+      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.production.config">
+      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.sit.config">
+      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.uat.config">
+      <DependentUpon>ConnectionString.n88user-n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n88.backupmnl.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n88.master.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n88.production.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n88.sit.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n88.uat.config">
+      <DependentUpon>n88.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8b.backupmnl.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8b.master.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8b.production.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8b.sit.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8b.uat.config">
+      <DependentUpon>n8b.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.backupmnl.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.master.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.production.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.sit.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Transform\n8g.uat.config">
+      <DependentUpon>n8g.local.config</DependentUpon>
+    </Content>
+    <Content Include="favicon-n8b.ico" />
     <Content Include="App_Data\SpConfig\SpName.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
@@ -309,51 +522,10 @@
     <Content Include="App_Data\SpConfig\_SpNameOriginal.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.backupmnl.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.master.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-asian.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.backupmnl.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.local.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.master.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.production.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.sit.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
-    <Content Include="Configurations\AppSetting\AppSetting.12betuser-euro.uat.config">
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
     <None Include="Configurations\AppSetting\AppSetting.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AppSetting.txt</LastGenOutput>
     </None>
-    <Content Include="Configurations\AppSetting\AppSetting.txt">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AppSetting.tt</DependentUpon>
-    </Content>
     <Content Include="Configurations\Web\Web.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Web.txt</LastGenOutput>
@@ -363,11 +535,44 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
+    <Content Include="favicon-n88.ico" />
+    <Content Include="favicon-n8g.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="karma.conf.js" />
+    <Content Include="Configurations\AppSetting\Transform\n88.local.config" />
+    <Content Include="Configurations\Web\Transform\n88.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n88.local.config" />
+    <Content Include="Configurations\Web\Web.n88user-n88.backupmnl.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.local.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.master.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.production.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.sit.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n88.uat.config">
+      <DependentUpon>Web.tt</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\CommissionStructure\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Promotion\Index.cshtml" />
@@ -377,89 +582,37 @@
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.uat.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-asian.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.backupmnl.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.local.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.master.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.production.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.sit.config" />
-    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-euro.uat.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.local.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.sit.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.uat.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.production.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.local.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.production.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.sit.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.uat.config" />
-    <Content Include="Configurations\Web\Transform\asian.local.config" />
-    <Content Include="Configurations\Web\Transform\asian.production.config" />
-    <Content Include="Configurations\Web\Transform\asian.sit.config" />
-    <Content Include="Configurations\Web\Transform\asian.uat.config" />
-    <Content Include="Configurations\Web\Transform\euro.local.config" />
-    <Content Include="Configurations\Web\Transform\euro.production.config" />
-    <Content Include="Configurations\Web\Transform\euro.sit.config" />
-    <Content Include="Configurations\Web\Transform\euro.uat.config" />
-    <Content Include="Configurations\Web\Transform\asian.master.config" />
-    <Content Include="Configurations\Web\Transform\asian.backupmnl.config" />
-    <Content Include="Configurations\Web\Transform\euro.master.config" />
-    <Content Include="Configurations\Web\Transform\euro.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\asian.master.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.backupmnl.config" />
-    <Content Include="Configurations\AppSetting\Transform\euro.master.config" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.en-GB.cshtml" />
+    <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
+    <Content Include="Configurations\Web\Transform\n8g.local.config" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-TW.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.zh-TW.cshtml" />
     <Content Include="Views\Shared\Email\Csd\Content.en-US.cshtml" />
-    <Content Include="Views\UserPanel\Member\Index.cshtml" />
-    <Content Include="Views\UserPanel\Member\_DataContent.cshtml" />
     <Content Include="Views\Shared\Email\ContactUs\Content.en-US.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -476,10 +629,6 @@
     <Content Include="www\build\js\affiliate-link.min.js">
       <DependentUpon>affiliate-link.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\betlist.js" />
-    <Content Include="www\build\js\betlist.min.js">
-      <DependentUpon>betlist.js</DependentUpon>
-    </Content>
     <Content Include="www\build\js\changepassword.js" />
     <Content Include="www\build\js\changepassword.min.js">
       <DependentUpon>changepassword.js</DependentUpon>
@@ -487,10 +636,6 @@
     <Content Include="www\build\js\contactus.js" />
     <Content Include="www\build\js\contactus.min.js">
       <DependentUpon>contactus.js</DependentUpon>
-    </Content>
-    <Content Include="www\build\js\daily-earning-detail.js" />
-    <Content Include="www\build\js\daily-earning-detail.min.js">
-      <DependentUpon>daily-earning-detail.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\daily-earning.js" />
     <Content Include="www\build\js\daily-earning.min.js">
@@ -524,7 +669,6 @@
     <Content Include="www\build\js\lib\modernizr-webp.min.js">
       <DependentUpon>modernizr-webp.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\lib\require.min.js" />
     <Content Include="www\build\js\login.js" />
     <Content Include="www\build\js\login.min.js">
       <DependentUpon>login.js</DependentUpon>
@@ -532,10 +676,6 @@
     <Content Include="www\build\js\mediagallery.js" />
     <Content Include="www\build\js\mediagallery.min.js">
       <DependentUpon>mediagallery.js</DependentUpon>
-    </Content>
-    <Content Include="www\build\js\member.js" />
-    <Content Include="www\build\js\member.min.js">
-      <DependentUpon>member.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\messagehistory.js" />
     <Content Include="www\build\js\messagehistory.min.js">
@@ -545,8 +685,6 @@
     <Content Include="www\build\js\myaccount.min.js">
       <DependentUpon>myaccount.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\oldmediagallery.js" />
-    <Content Include="www\build\js\oldmediagallery.min.js" />
     <Content Include="www\build\js\overview.js" />
     <Content Include="www\build\js\overview.min.js" />
     <Content Include="www\build\js\pages\changepassword.js" />
@@ -579,9 +717,17 @@
     </Content>
     <Content Include="www\build\js\player-detail.js" />
     <Content Include="www\build\js\player-detail.min.js" />
+    <Content Include="www\build\js\revenue-structure.js" />
+    <Content Include="www\build\js\revenue-structure.min.js">
+      <DependentUpon>revenue-structure.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\signup.js" />
     <Content Include="www\build\js\signup.min.js">
       <DependentUpon>signup.js</DependentUpon>
+    </Content>
+    <Content Include="www\build\js\sub-affiliate-earning.js" />
+    <Content Include="www\build\js\sub-affiliate-earning.min.js">
+      <DependentUpon>sub-affiliate-earning.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\summary.js" />
     <Content Include="www\build\js\summary.min.js" />
@@ -597,21 +743,29 @@
     <Content Include="www\build\styles\css\commissionreport.min.css">
       <DependentUpon>commissionreport.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\member.css" />
-    <Content Include="www\build\styles\css\member.min.css">
-      <DependentUpon>member.css</DependentUpon>
+    <Content Include="www\build\styles\css\marketing.css" />
+    <Content Include="www\build\styles\css\marketing.min.css">
+      <DependentUpon>marketing.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\messagehistory.css" />
     <Content Include="www\build\styles\css\messagehistory.min.css">
       <DependentUpon>messagehistory.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\n88-darkmode.css" />
+    <Content Include="www\build\styles\css\n88-darkmode.min.css" />
+    <Content Include="www\build\styles\css\n88-lightmode.css" />
+    <Content Include="www\build\styles\css\n88-lightmode.min.css" />
+    <Content Include="www\build\styles\css\n8b.css" />
+    <Content Include="www\build\styles\css\n8b.min.css">
+      <DependentUpon>n8b.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n8g.css" />
+    <Content Include="www\build\styles\css\n8g.min.css">
+      <DependentUpon>n8g.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\notify.css" />
     <Content Include="www\build\styles\css\notify.min.css">
       <DependentUpon>notify.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\oldmarketing.css" />
-    <Content Include="www\build\styles\css\oldmarketing.min.css">
-      <DependentUpon>oldmarketing.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\pages\commissionreport.css" />
     <Content Include="www\build\styles\css\pages\commissionreport.min.css">
@@ -625,6 +779,20 @@
     <Content Include="www\build\styles\css\signup.min.css">
       <DependentUpon>signup.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\theme-default.css" />
+    <Content Include="www\build\styles\css\theme-default.min.css">
+      <DependentUpon>theme-default.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\theme1.css" />
+    <Content Include="www\build\styles\css\theme1.min.css">
+      <DependentUpon>theme1.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\theme2.css" />
+    <Content Include="www\build\styles\css\theme2.min.css" />
+    <Content Include="www\build\styles\css\theme3.css" />
+    <Content Include="www\build\styles\css\theme3.min.css" />
+    <Content Include="www\build\styles\css\theme4.css" />
+    <Content Include="www\build\styles\css\theme4.min.css" />
     <Content Include="www\build\styles\css\user-panel.css" />
     <Content Include="www\build\styles\css\user-panel.min.css">
       <DependentUpon>user-panel.css</DependentUpon>
@@ -645,11 +813,13 @@
     <Content Include="www\build\styles\fonts\tahoma\font.min.css">
       <DependentUpon>font.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\Images\404-illus.png" />
     <Content Include="www\build\styles\Images\account-overview\commission.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-copy.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-facebook.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-line.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-qq.png" />
+    <Content Include="www\build\styles\Images\account-overview\icon-subaff.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-talk.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-telegram.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-twitter.png" />
@@ -659,85 +829,50 @@
     <Content Include="www\build\styles\Images\account-overview\icon-zalo.png" />
     <Content Include="www\build\styles\Images\account-overview\new-sign-up.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit.png" />
-    <Content Include="www\build\styles\Images\ads-1.jpg" />
-    <Content Include="www\build\styles\Images\ads-1\ads-1_200.jpg" />
-    <Content Include="www\build\styles\Images\ads-1\ads-1_392.jpg" />
-    <Content Include="www\build\styles\Images\ads-1\ads-1_559.jpg" />
-    <Content Include="www\build\styles\Images\ads-1\ads-1_644.jpg" />
-    <Content Include="www\build\styles\Images\adv_contact.jpg" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.en-US.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.hi-IN.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.id-ID.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.ja-JP.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.ko-KR.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.th-TH.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.vi-VN.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.zh-CN.png" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.zh-TW.png" />
-    <Content Include="www\build\styles\Images\banner-main-left.jpg" />
-    <Content Include="www\build\styles\Images\banner-main-right.jpg" />
-    <Content Include="www\build\styles\Images\bg-adv_contact.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.png" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
-    <Content Include="www\build\styles\Images\bootstrap-formhelpers-countries.flags.png" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-TW.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.ja-JP.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.ko-KR.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\contact-us\China_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\english_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\india_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\indonesian_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\line.png" />
-    <Content Include="www\build\styles\Images\contact-us\qq_icon.png" />
-    <Content Include="www\build\styles\Images\contact-us\skype_icon.png" />
-    <Content Include="www\build\styles\Images\contact-us\Support_girl.png" />
-    <Content Include="www\build\styles\Images\contact-us\thailand_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\vietnam_lang.png" />
-    <Content Include="www\build\styles\Images\contact-us\whats_app.png" />
-    <Content Include="www\build\styles\Images\contact-us\zalo.png" />
-    <Content Include="www\build\styles\Images\FAQ_banner.png" />
-    <Content Include="www\build\styles\Images\footer\cr-21.png" />
-    <Content Include="www\build\styles\Images\footer\cr-gamleaware.png" />
-    <Content Include="www\build\styles\Images\footer\cr-pagcor.png" />
-    <Content Include="www\build\styles\Images\footer\cr-playtech.png" />
-    <Content Include="www\build\styles\Images\footer\cr-rank-sponsors.png" />
-    <Content Include="www\build\styles\Images\footer\cr-safe&amp;secure.png" />
-    <Content Include="www\build\styles\Images\footer\cr-thawte.png" />
-    <Content Include="www\build\styles\Images\footer\cr-tst.png" />
-    <Content Include="www\build\styles\Images\footer\cr-westbrom.png" />
-    <Content Include="www\build\styles\Images\header-bg.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-us\contact.png" />
     <Content Include="www\build\styles\Images\icon-1.png" />
     <Content Include="www\build\styles\Images\icon-2.png" />
     <Content Include="www\build\styles\Images\icon-3.png" />
-    <Content Include="www\build\styles\Images\qr-icon.png" />
-    <Content Include="www\build\styles\Images\logo.png" />
-    <Content Include="www\build\styles\Images\notify\bgMain.jpg" />
-    <Content Include="www\build\styles\Images\notify\icon.png" />
-    <Content Include="www\build\styles\Images\notify\iconnf.png" />
-    <Content Include="www\build\styles\Images\notify\logo_e.png" />
     <Content Include="www\build\styles\Images\notify\note_icon.gif" />
-    <Content Include="www\build\styles\Images\notify\sry.png" />
-    <Content Include="www\build\styles\Images\notify\srynf.png" />
-    <Content Include="www\build\styles\Images\offers.png" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.zh-TW.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.ja-JP.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.en-US.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.ko-KR.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\term-and-condition\termcondition.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-TW.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-TW.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
+    <Content Include="www\build\styles\Images\themes\n88.png" />
+    <Content Include="www\build\styles\Images\themes\n8b.png" />
+    <Content Include="www\build\styles\Images\themes\n8g.png" />
+    <Content Include="www\build\styles\Images\themes\n88-qrcode.png" />
     <Content Include="www\source\js\components\authhelper.js" />
     <Content Include="www\source\js\components\clipboard.js" />
     <Content Include="www\source\js\components\clipboard.min.js" />
@@ -745,22 +880,16 @@
     <Content Include="www\source\js\components\pagetracking.js" />
     <Content Include="www\source\js\components\validation.custom.js" />
     <Content Include="www\source\js\components\website.js" />
-    <Content Include="www\source\js\config-require.js" />
     <Content Include="www\source\js\lib\hmac-sha256.js" />
     <Content Include="www\source\js\lib\jquery.validate.min.js" />
     <Content Include="www\source\js\lib\jquery.validate.unobtrusive.min.js" />
     <Content Include="www\source\js\lib\modernizr-webp.js" />
-    <Content Include="www\source\js\lib\require-2.3.6.min.js" />
     <Content Include="www\source\js\pages\account-overview\overview.js" />
     <Content Include="www\source\js\pages\account-overview\player-detail.js" />
     <Content Include="www\source\js\pages\account-overview\summary.js" />
     <Content Include="www\source\js\pages\commission-report.js" />
     <Content Include="www\source\js\pages\contactus.js" />
     <Content Include="www\source\js\pages\forgotpassword.js" />
-    <Content Include="www\source\js\pages\marketing\marketingbase.js" />
-    <Content Include="www\source\js\pages\marketing\mediagallery.js" />
-    <Content Include="www\source\js\pages\marketing\textbox.js" />
-    <Content Include="www\source\js\pages\member.js" />
     <Content Include="www\source\js\pages\messagehistory.js" />
     <Content Include="www\source\js\pages\payment-request.js" />
     <Content Include="www\build\js\recheckin.js" />
@@ -783,10 +912,6 @@
     <Content Include="www\build\js\test.min.js">
       <DependentUpon>test.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\textbox.js" />
-    <Content Include="www\build\js\textbox.min.js">
-      <DependentUpon>textbox.js</DependentUpon>
-    </Content>
     <Content Include="www\build\js\trackingstatistics.js" />
     <Content Include="www\build\js\trackingstatistics.min.js">
       <DependentUpon>trackingstatistics.js</DependentUpon>
@@ -795,31 +920,6 @@
     <Content Include="www\build\styles\css\account-overview.min.css">
       <DependentUpon>account-overview.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\betlist.css" />
-    <Content Include="www\build\styles\css\betlist.min.css">
-      <DependentUpon>betlist.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\betlist\betlist.css" />
-    <Content Include="www\build\styles\css\betlist\betlist.min.css">
-      <DependentUpon>betlist.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\betlist\images\1F.gif" />
-    <Content Include="www\build\styles\css\betlist\images\1L.gif" />
-    <Content Include="www\build\styles\css\betlist\images\bar-loader.gif" />
-    <Content Include="www\build\styles\css\betlist\images\bgHeader.jpg" />
-    <Content Include="www\build\styles\css\betlist\images\blank.gif" />
-    <Content Include="www\build\styles\css\betlist\images\firstGoal.gif" />
-    <Content Include="www\build\styles\css\betlist\images\goal-icon.png" />
-    <Content Include="www\build\styles\css\betlist\images\lastGoal.gif" />
-    <Content Include="www\build\styles\css\betlist\images\link_14x14.png" />
-    <Content Include="www\build\styles\css\betlist\images\link_16x16.png" />
-    <Content Include="www\build\styles\css\betlist\images\note.png" />
-    <Content Include="www\build\styles\css\betlist\images\plus.png" />
-    <Content Include="www\build\styles\css\betlist\images\q_Icon2_1.png" />
-    <Content Include="www\build\styles\css\betlist\images\q_Icon_2.png" />
-    <Content Include="www\build\styles\css\betlist\images\tab_topbg.gif" />
-    <Content Include="www\build\styles\css\betlist\images\undo.png" />
-    <Content Include="www\build\styles\css\betlist\images\up.png" />
     <Content Include="www\build\styles\css\bootstrap.css" />
     <Content Include="www\build\styles\css\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
@@ -827,10 +927,6 @@
     <Content Include="www\build\styles\css\contact-us.css" />
     <Content Include="www\build\styles\css\contact-us.min.css">
       <DependentUpon>contact-us.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\dailyearning-detail.css" />
-    <Content Include="www\build\styles\css\dailyearning-detail.min.css">
-      <DependentUpon>dailyearning-detail.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\dailyearning.css" />
     <Content Include="www\build\styles\css\dailyearning.min.css">
@@ -847,10 +943,6 @@
     <Content Include="www\build\styles\css\main.css" />
     <Content Include="www\build\styles\css\main.min.css">
       <DependentUpon>main.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\marketing.css" />
-    <Content Include="www\build\styles\css\marketing.min.css">
-      <DependentUpon>marketing.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\materialdesignicons.css" />
     <Content Include="www\build\styles\css\materialdesignicons.min.css">
@@ -887,20 +979,20 @@
     <Content Include="www\source\js\lib\pikaday.js" />
     <Content Include="www\source\js\layout.js" />
     <Content Include="www\source\js\pages\account-overview\account-overview.js" />
-    <Content Include="www\source\js\pages\betlist.js" />
     <Content Include="www\source\js\pages\changepassword.js" />
-    <Content Include="www\source\js\pages\daily-earning-detail.js" />
     <Content Include="www\source\js\pages\daily-earning.js" />
     <Content Include="www\source\js\pages\home.js" />
     <Content Include="www\source\js\pages\login.js" />
     <Content Include="www\source\js\pages\account-overview\marketingbase.js" />
     <Content Include="www\source\js\pages\account-overview\mediagallery.js" />
     <Content Include="www\source\js\pages\myaccount.js" />
+    <Content Include="www\source\js\pages\revenue-structure.js" />
     <Content Include="www\source\js\pages\signup.js" />
     <Content Include="www\source\js\pages\statement-history.js" />
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />
     <Content Include="www\source\js\pages\statistics\referrerstatistics.js" />
     <Content Include="www\source\js\pages\statistics\trackingstatistics.js" />
+    <Content Include="www\source\js\pages\sub-affiliate-earning.js" />
     <Content Include="www\source\js\pages\test.js" />
     <Content Include="www\source\js\pages\account-overview\affiliate-link.js" />
     <Content Include="www\source\js\pages\user-panel.js" />
@@ -916,130 +1008,41 @@
     <Content Include="www\source\styles\fonts\font_bebas\Flat-it License.txt" />
     <Content Include="www\source\styles\fonts\Montserrat\font.css" />
     <Content Include="www\source\styles\fonts\myriadPro\font.css" />
-    <Content Include="www\source\styles\Images\account-overview\commission.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-copy.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-facebook.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-line.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-qq.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-talk.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-telegram.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-twitter.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-wechat.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-weiboi.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-whatsapp.png" />
-    <Content Include="www\source\styles\Images\account-overview\icon-zalo.png" />
-    <Content Include="www\source\styles\Images\account-overview\new-sign-up.png" />
-    <Content Include="www\source\styles\Images\account-overview\total-deposit.png" />
-    <Content Include="www\source\styles\Images\ads-1.jpg" />
-    <Content Include="www\source\styles\Images\ads-1\ads-1_200.jpg" />
-    <Content Include="www\source\styles\Images\ads-1\ads-1_392.jpg" />
-    <Content Include="www\source\styles\Images\ads-1\ads-1_559.jpg" />
-    <Content Include="www\source\styles\Images\ads-1\ads-1_644.jpg" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.zh-CN.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.en-US.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.id-ID.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.ko-KR.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.th-TH.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.zh-TW.png" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.vi-VN.png" />
-    <Content Include="www\source\styles\Images\banner-main-left.jpg" />
-    <Content Include="www\source\styles\Images\banner-main-right.jpg" />
-    <Content Include="www\source\styles\Images\bg-adv_contact.png" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.ja-JP.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.ko-KR.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.th-TH.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.vi-VN.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-CN.jpg" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-TW.jpg" />
-    <Content Include="www\source\styles\Images\contact-us\line.png" />
-    <Content Include="www\source\styles\Images\contact-us\whats_app.png" />
-    <Content Include="www\source\styles\Images\contact-us\zalo.png" />
-    <Content Include="www\source\styles\Images\footer\cr-21.png" />
-    <Content Include="www\source\styles\Images\footer\cr-pagcor.png" />
-    <Content Include="www\source\styles\Images\footer\cr-westbrom.png" />
-    <Content Include="www\source\styles\Images\products\bg-casino_affiliate.jpg" />
-    <Content Include="www\source\styles\Images\bg-Commission-Structure_Banner.png" />
-    <Content Include="www\source\styles\Images\bg-FAQ_banner.png" />
-    <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
+    <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
-    <Content Include="www\source\styles\Images\contact-us\China_lang.png" />
-    <Content Include="www\source\styles\Images\contact-us\english_lang.png" />
-    <Content Include="www\source\styles\Images\contact-us\india_lang.png" />
-    <Content Include="www\source\styles\Images\contact-us\indonesian_lang.png" />
-    <Content Include="www\source\styles\Images\contact-us\qq_icon.png" />
-    <Content Include="www\source\styles\Images\contact-us\skype_icon.png" />
-    <Content Include="www\source\styles\Images\contact-us\Support_girl.png" />
-    <Content Include="www\source\styles\Images\contact-us\thailand_lang.png" />
-    <Content Include="www\source\styles\Images\contact-us\vietnam_lang.png" />
-    <Content Include="www\source\styles\Images\email\banner.png" />
-    <Content Include="www\source\styles\Images\email\banner_en-GB.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_en-US.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_en.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_es-ES.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_hi-IN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_id-ID.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_ja-JP.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_ko-KR.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_th-TH.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_vi-VN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_zh-CN.jpg" />
-    <Content Include="www\source\styles\Images\email\banner_zh-TW.jpg" />
-    <Content Include="www\source\styles\Images\email\bgMain.jpg" />
+    <Content Include="www\source\styles\Images\email\n88\banner.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_id-ID.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_ko-KR.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_th-TH.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_zh-CN.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_zh-TW.png" />
+    <Content Include="www\source\styles\Images\email\n88\bgMain.png" />
+    <Content Include="www\source\styles\Images\email\n88\header.png" />
+    <Content Include="www\source\styles\Images\email\n8b\banner.png" />
+    <Content Include="www\source\styles\Images\email\n8b\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n8b\banner_vi-VN.png" />
+    <Content Include="www\source\styles\Images\email\n8b\bgMain.png" />
+    <Content Include="www\source\styles\Images\email\n8b\header.png" />
+    <Content Include="www\source\styles\Images\email\n8g\banner.png" />
+    <Content Include="www\source\styles\Images\email\n8g\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n8g\banner_vi-VN.png" />
+    <Content Include="www\source\styles\Images\email\n8g\bgMain.png" />
+    <Content Include="www\source\styles\Images\email\n8g\header.png" />
     <Content Include="www\source\styles\Images\email\button.png" />
-    <Content Include="www\source\styles\Images\email\header.png" />
     <Content Include="www\source\styles\Images\email\note.png" />
-    <Content Include="www\source\styles\Images\FAQ_banner.png" />
-    <Content Include="www\source\styles\Images\footer\cr-gamleaware.png" />
-    <Content Include="www\source\styles\Images\footer\cr-playtech.png" />
-    <Content Include="www\source\styles\Images\footer\cr-rank-sponsors.png" />
-    <Content Include="www\source\styles\Images\footer\cr-safe&amp;secure.png" />
-    <Content Include="www\source\styles\Images\footer\cr-thawte.png" />
-    <Content Include="www\source\styles\Images\footer\cr-tst.png" />
-    <Content Include="www\source\styles\Images\header-bg.png" />
-    <Content Include="www\source\styles\Images\icon-1.png" />
-    <Content Include="www\source\styles\Images\icon-2.png" />
-    <Content Include="www\source\styles\Images\icon-3.png" />
-    <Content Include="www\source\styles\Images\logo.png" />
+    <Content Include="www\source\styles\Images\mode\darkmode.svg" />
+    <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\notify\bgMain.jpg" />
     <Content Include="www\source\styles\Images\notify\icon.png" />
     <Content Include="www\source\styles\Images\notify\iconnf.png" />
-    <Content Include="www\source\styles\Images\notify\logo_e.png" />
-    <Content Include="www\source\styles\Images\notify\note_icon.gif" />
     <Content Include="www\source\styles\Images\notify\sry.png" />
     <Content Include="www\source\styles\Images\notify\srynf.png" />
-    <Content Include="www\source\styles\Images\offers.png" />
-    <Content Include="www\source\styles\Images\products\ad-banner.jpg" />
-    <Content Include="www\source\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\source\styles\Images\products\game.zh-TW.jpg" />
-    <Content Include="www\source\styles\Images\products\game.zh-CN.jpg" />
-    <Content Include="www\source\styles\Images\products\game.en-US.jpg" />
-    <Content Include="www\source\styles\Images\products\game.hi-IN.jpg" />
-    <Content Include="www\source\styles\Images\products\game.id-ID.jpg" />
-    <Content Include="www\source\styles\Images\products\game.ko-KR.jpg" />
-    <Content Include="www\source\styles\Images\products\game.th-TH.jpg" />
-    <Content Include="www\source\styles\Images\products\game.vi-VN.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.en-US.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.hi-IN.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.id-ID.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.ja-JP.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.ko-KR.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.th-TH.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.vi-VN.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.zh-CN.jpg" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.zh-TW.jpg" />
-    <Content Include="www\source\styles\Images\term-and-condition\termcondition.jpg" />
-    <Content Include="www\source\styles\Images\adv_contact.jpg" />
+    <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
-    <Content Include="Views\Shared\Email\Signup\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.vi-VN.cshtml" />
@@ -1068,20 +1071,12 @@
     <Content Include="www\source\styles\pages\statement-history.scss" />
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_DailyEarningContent.cshtml" />
     <Content Include="www\source\styles\pages\dailyearning.scss" />
-    <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_DailyEarningDetailContent.cshtml" />
-    <Content Include="www\source\styles\pages\dailyearning-detail.scss" />
-    <Content Include="Views\UserPanel\BetList\Index.cshtml" />
-    <Content Include="www\source\styles\pages\betlist.scss" />
     <Content Include="www\source\styles\scss\components\_monthpicker.scss" />
     <Content Include="www\source\styles\pages\account-overview.scss" />
-    <Content Include="Views\UserPanel\BetList\Result.cshtml" />
-    <Content Include="Views\UserPanel\BetList\ParlayDetail.cshtml" />
     <Content Include="Views\News\MessageHistory.cshtml" />
     <Content Include="Views\News\_MessageContent.cshtml" />
-    <Content Include="www\source\styles\pages\messagehistory.scss" />
     <Content Include="www\source\styles\pages\signup.scss" />
     <Content Include="Views\Signup\_CountryOption.cshtml" />
-    <Content Include="www\source\styles\pages\member.scss" />
     <Content Include="Views\Shared\_LayoutNotify.cshtml" />
     <Content Include="Views\Notify\Error.cshtml" />
     <Content Include="www\source\styles\pages\notify.scss" />
@@ -1091,36 +1086,15 @@
     <Content Include="Views\UserPanel\PaymentRequest\PaymentPartial\_PaymentList.cshtml" />
     <Content Include="Views\UserPanel\PaymentRequest\PaymentPartial\_RequestPayout.cshtml" />
     <Content Include="Views\TermAndCondition\Popup.cshtml" />
-    <Content Include="Views\UserPanel\MemberTransaction\Index.cshtml" />
     <Content Include="www\source\styles\scss\components\_modal.scss" />
     <Content Include="www\source\styles\scss\base\_pureicon.scss" />
     <Content Include="www\source\styles\scss\layout\_footer.scss" />
     <Content Include="Views\UserPanel\CommissionReport\Index.cshtml" />
     <Content Include="www\source\styles\pages\commissionreport.scss" />
     <Content Include="www\source\styles\scss\base\_media.scss" />
-    <Content Include="www\source\styles\Images\adv_contact.webp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="www\source\styles\Images\offers.webp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="www\source\styles\Images\products\ad-banner.webp">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="www\source\styles\fonts\tahoma\font.css" />
-    <Content Include="Views\Faq\_Content.en-US.cshtml" />
-    <Content Include="Views\Faq\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Faq\_Content.zh-TW.cshtml" />
-    <Content Include="Views\Faq\_Content.id-ID.cshtml" />
-    <Content Include="Views\Faq\_Content.vi-VN.cshtml" />
-    <Content Include="Views\Faq\_Content.th-TH.cshtml" />
-    <Content Include="Views\Faq\_Content.ko-KR.cshtml" />
-    <Content Include="Views\Faq\_Content.ja-JP.cshtml" />
-    <Content Include="Views\Faq\_Content.hi-IN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.en-US.cshtml" />
-    <Content Include="Views\TermAndCondition\_Content.hi-IN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.id-ID.cshtml" />
-    <Content Include="Views\TermAndCondition\_Content.ja-JP.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.ko-KR.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.th-TH.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.vi-VN.cshtml" />
@@ -1128,9 +1102,7 @@
     <Content Include="Views\TermAndCondition\_Content.zh-TW.cshtml" />
     <Content Include="Views\Product\_CasinoProductTable.cshtml" />
     <Content Include="Views\Product\_Content.en-US.cshtml" />
-    <Content Include="Views\Product\_Content.hi-IN.cshtml" />
     <Content Include="Views\Product\_Content.id-ID.cshtml" />
-    <Content Include="Views\Product\_Content.ja-JP.cshtml" />
     <Content Include="Views\Product\_Content.ko-KR.cshtml" />
     <Content Include="Views\Product\_Content.th-TH.cshtml" />
     <Content Include="Views\Product\_Content.vi-VN.cshtml" />
@@ -1144,15 +1116,6 @@
     <Content Include="www\build\styles\fonts\tahoma\TAHOMA_0.TTF" />
     <Content Include="Views\Product\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\_Content.zh-TW.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.en-US.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.hi-IN.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.id-ID.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.ja-JP.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.ko-KR.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.th-TH.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.vi-VN.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.zh-CN.cshtml" />
-    <Content Include="Views\CommissionStructure\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTable.cshtml" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.eot" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.ttf" />
@@ -1164,100 +1127,23 @@
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Bold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Italic.ttf" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Italic.ttf" />
-    <Content Include="www\source\styles\Images\bg-adv_contact.webp" />
-    <Content Include="www\source\styles\Images\bg-Commission-Structure_Banner.webp" />
-    <Content Include="www\source\styles\Images\bg-FAQ_banner.webp" />
-    <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.zh-CN.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.en-US.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.id-ID.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.ko-KR.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.th-TH.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.zh-TW.webp" />
-    <Content Include="www\source\styles\Images\apply12bet\3step.vi-VN.webp" />
-    <Content Include="www\source\styles\Images\products\game.zh-TW.webp" />
-    <Content Include="www\source\styles\Images\products\game.zh-CN.webp" />
-    <Content Include="www\source\styles\Images\products\game.en-US.webp" />
-    <Content Include="www\source\styles\Images\products\game.hi-IN.webp" />
-    <Content Include="www\source\styles\Images\products\game.id-ID.webp" />
-    <Content Include="www\source\styles\Images\products\game.ko-KR.webp" />
-    <Content Include="www\source\styles\Images\products\game.th-TH.webp" />
-    <Content Include="www\source\styles\Images\products\game.vi-VN.webp" />
     <Content Include="Views\UnderMaintenance\Index.cshtml" />
-    <Content Include="www\source\styles\Images\banner-main-right.webp" />
     <Content Include="packages.config" />
-    <Content Include="www\source\styles\Images\products\bg-casino_affiliate.webp" />
     <Content Include="Views\VerificationAccount\Index.cshtml" />
     <Content Include="www\source\styles\pages\verification-account.scss" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.en-GB.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.es-ES.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.ja-JP.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.ko-KR.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.zh-CN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.zh-TW.cshtml" />
     <Content Include="Views\Signup\_SecurityQuestion.cshtml" />
-    <Content Include="www\source\styles\Images\banner-main-left.webp" />
-    <Content Include="www\source\styles\Images\products\bg-sports_affiliate.webp" />
-    <Content Include="www\build\styles\Images\adv_contact.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.hi-IN.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.id-ID.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.ja-JP.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.ko-KR.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.th-TH.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\apply12bet\3step.zh-TW.webp" />
-    <Content Include="www\build\styles\Images\banner-main-left.webp" />
-    <Content Include="www\build\styles\Images\banner-main-right.webp" />
-    <Content Include="www\build\styles\Images\bg-adv_contact.webp" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.webp" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.webp" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.webp" />
-    <Content Include="www\build\styles\Images\offers.webp" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.webp" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-TW.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.ko-KR.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.th-TH.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.zh-TW.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.en-US.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.hi-IN.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.id-ID.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.ko-KR.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.th-TH.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\AFF-Home-banner-Casino.ja-JP.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\AFF-Home-banner-SB.ja-JP.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.en-US.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.hi-IN.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.id-ID.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.ja-JP.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.ko-KR.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.th-TH.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.vi-VN.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-CN.webp" />
-    <Content Include="www\source\styles\Images\casino-banners\AFF-Home-banner-Casino.zh-TW.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.en-US.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.hi-IN.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.id-ID.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.ja-JP.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.ko-KR.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.th-TH.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.vi-VN.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.zh-CN.webp" />
-    <Content Include="www\source\styles\Images\sports-banners\AFF-Home-banner-SB.zh-TW.webp" />
     <Content Include="Views\Password\RecoverPasswordResult.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\Overview.cshtml" />
@@ -1274,51 +1160,106 @@
     <Content Include="Views\UserPanel\AccountOverView\MediaGallery\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Partial\_GeneratedQrCode.cshtml" />
     <Content Include="www\source\styles\scss\base\_flex.scss" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_BannerFilter.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_BannerList.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_LinkForm.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_SearchForm.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_TextLink.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MarketingPartial\_TextList.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\MediaGallery\Index.cshtml" />
-    <Content Include="Views\UserPanel\Marketing\TextBox\Index.cshtml" />
-    <Content Include="www\source\styles\pages\oldmarketing.scss" />
-    <None Include="Configurations\Web\Web.n88user-asian.backupmnl.config">
+    <Content Include="Configurations\Web\Transform\n8b.local.config" />
+    <Content Include="www\source\styles\scss\Themes\theme-default.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme1.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme2.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme3.scss" />
+    <Content Include="www\source\styles\scss\Themes\theme4.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables2.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables3.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables4.scss" />
+    <Content Include="Configurations\AppSetting\Transform\n8b.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.local.config" />
+    <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.local.config" />
+    <Content Include="Configurations\Web\Web.n88user-n8b.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.local.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8b.local.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.master.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8b.master.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.production.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8b.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.sit.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8b.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-asian.uat.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8b.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.backupmnl.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.backupmnl.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.local.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.local.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.master.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.master.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.production.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.production.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.sit.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.sit.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
-    <None Include="Configurations\Web\Web.n88user-euro.uat.config">
+    </Content>
+    <Content Include="Configurations\Web\Web.n88user-n8g.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
-    </None>
+    </Content>
+    <Content Include="www\source\styles\scss\Themes\n8g.scss" />
+    <Content Include="www\source\styles\scss\Themes\n8b.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n8b.scss" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
+    <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
+    <Content Include="Views\UserPanel\AccountOverView\Summary\SubAffDetails.cshtml" />
+    <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n88-lightmode.scss" />
+    <Content Include="www\source\styles\scss\Themes\n88-darkmode.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
+    <Content Include="www\source\styles\scss\Themes\n88-lightmode.scss" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
+    <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
+    <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
+    <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.webp" />
+    <Content Include="Views\CommissionStructure\_ExampleTable.cshtml" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.webp" />
+    <Content Include="Views\CommissionStructure\N88\_Content.zh-TW.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.zh-TW.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
+    <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
+    <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
+    <Content Include="www\source\styles\pages\messagehistory.scss" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1454,29 +1395,6 @@
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutLeft.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutRight.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutUp.scss" />
-    <Content Include="www\source\styles\scss\vendors\betlist\betlist.css" />
-    <Content Include="www\source\styles\scss\vendors\betlist\cashoutdetail.css" />
-    <Content Include="www\source\styles\scss\vendors\betlist\fanex.result.css" />
-    <Content Include="www\source\styles\scss\vendors\betlist\global.content.css" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\1F.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\1L.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\bar-loader.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\bgHeader.jpg" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\blank.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\firstGoal.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\goal-icon.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\lastGoal.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\link_14x14.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\link_16x16.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\note.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\plus.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\q_Icon2_1.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\q_Icon_2.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\tab_topbg.gif" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\undo.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\images\up.png" />
-    <Content Include="www\source\styles\scss\vendors\betlist\rngcasino.handhistory.css" />
-    <Content Include="www\source\styles\scss\vendors\betlist\systemparlay.detail.css" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_alerts.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_background-variant.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_border-radius.scss" />
@@ -1595,7 +1513,6 @@
     <Content Include="www\source\styles\scss\base\_common.scss" />
     <Content Include="Views\Password\Index.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\DailyEarning.cshtml" />
-    <Content Include="Views\UserPanel\StatementHistory\DailyEarningDetail.cshtml" />
     <Content Include="Views\Test\Preview.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\Email\CommonLayout.cshtml" />

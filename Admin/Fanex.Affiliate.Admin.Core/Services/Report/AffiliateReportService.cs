@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
             _affiliateReportRepository = affiliateReportRepository;
         }
 
-        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportMainParam param)
+        public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
         {
             if (!IsValidParam(param))
             {
@@ -26,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
             return _affiliateReportRepository.GetMainReportData(param);
         }
 
-        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportMainParam param)
+        public EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param)
         {
             return _affiliateReportRepository.GetDetailReportData(param);
         }
@@ -40,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
                 _affiliateReportRepository.SearchAffiliateList(userName);
         }
 
-        private static bool IsValidParam(AffiliateReportMainParam param)
+        private static bool IsValidParam(AffiliateReportParam param)
         {
             return !string.IsNullOrEmpty(param.ProductIds) && IsValidMonthRange(param.FromDate, param.ToDate);
         }

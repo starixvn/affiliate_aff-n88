@@ -14,10 +14,9 @@
       display: inline-block; }
     .custom-panel .form-inline .btn {
       margin-right: 0; }
-
-.form-filter .form-group label {
-  display: inline;
-  margin-right: 2px; }
+    @media (max-width: 576px) {
+      .custom-panel .form-inline label {
+        width: 110px; } }
 
 @media screen and (max-width: 1023px) {
   .commission-report {
@@ -61,22 +60,19 @@
     .table .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
       cursor: pointer; }
 
-.table tbody tr > td {
-  background: #fff;
-  color: #000; }
-  .table tbody tr > td .row-wrapper {
-    position: relative; }
-    .table tbody tr > td .row-wrapper .chevron {
-      cursor: pointer;
-      position: absolute;
-      top: 3px;
-      right: 2px;
-      width: 20px;
-      height: 20px;
-      line-height: 11px;
-      text-align: center; }
-      .table tbody tr > td .row-wrapper .chevron.left {
-        top: 5px; }
+.table tbody tr > td .row-wrapper {
+  position: relative; }
+  .table tbody tr > td .row-wrapper .chevron {
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    width: 20px;
+    height: 20px;
+    line-height: 11px;
+    text-align: center; }
+    .table tbody tr > td .row-wrapper .chevron.left {
+      top: 5px; }
 
 .table tbody tr.sumrow > td {
   background: #F5EAEA; }
@@ -89,8 +85,6 @@
 .table tbody tr.total {
   display: table-row; }
   .table tbody tr.total > td {
-    background: #F8D8D1;
-    color: #000;
     font-weight: bold; }
 
 .table tbody tr.noInfo {

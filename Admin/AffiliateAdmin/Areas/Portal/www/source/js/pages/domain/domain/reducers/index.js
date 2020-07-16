@@ -5,6 +5,7 @@ import { isShowLoader } from '../../../../reducers/loaderReducer';
 import { SHOULD_RESET_SCROLL_POSITION, SET_SELECTED_DOMAIN, SET_GRID_DATA } from '../actions/types';
 
 const isAffDomain = createReducer(true, {});
+const licenseeName = createReducer("", {});
 
 export const shouldResetScrollPosition = createReducer(true, {
     [SHOULD_RESET_SCROLL_POSITION](prevState, action) {
@@ -29,5 +30,6 @@ export default combineReducers({
     isAffDomain,
     isShowLoader,
     selectedDomain,
-    shouldResetScrollPosition
+    shouldResetScrollPosition,
+    licenseeName
 });

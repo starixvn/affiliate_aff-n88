@@ -2,12 +2,12 @@ import { post } from '../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { setPagingOption } from '../../../actions/pagingAction';
 
-import { SET_GRIDDATA, SET_PAGING_OPTION, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME } from './types';
+import { SET_GRIDDATA, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME } from './types';
 
 export { toggleLoader, setPagingOption };
 
 export const fetchGroupSettingData = (param) => {
-    const url = 'Portal/CommissionGroup/GetCommissionGroupList';
+    const url = 'Portal/RevenueGroup/GetCommissionGroupList';
 
     return post(url, param);
 }
@@ -58,19 +58,19 @@ export const setSearchedGroupName = (data) => {
 }
 
 export const insertCommissionGroup = (param) => {
-    const url = 'Portal/CommissionGroup/CreateCommissionGroup';
+    const url = 'Portal/RevenueGroup/CreateCommissionGroup';
 
     return () => post(url, param);
 }
 
 export const updateCommissionGroup = (param) => {
-    const url = 'Portal/CommissionGroup/UpdateCommissionGroup';
+    const url = 'Portal/RevenueGroup/UpdateCommissionGroup';
 
     return () => post(url, param);
 }
 
 export const getSelectedCommGroup = (param) => async (dispatch) => {
-    const url = 'Portal/CommissionGroup/GetCommissionGroup';
+    const url = 'Portal/RevenueGroup/GetCommissionGroup';
 
     const response = await post(url, param);
 
@@ -80,7 +80,7 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
 }
 
 export const deleteCommGroup = (param) => {
-    const url = 'Portal/CommissionGroup/DeleteCommissionGroup';
+    const url = 'Portal/RevenueGroup/DeleteCommissionGroup';
 
     return () => post(url, param);
 }

@@ -7,10 +7,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
     {
         EntityResult<OnlineListInfo> GetOnlineList(int pageIndex, int pageSize);
 
-        decimal GetPSPToday();
-
-        DepositInfo GetDepositInfo();
-
         GeneralInfo GetGeneralInfo();
     }
 }

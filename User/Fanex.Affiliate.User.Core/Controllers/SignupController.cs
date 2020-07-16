@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
@@ -34,9 +35,25 @@
         }
 
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(string refId = null)
         {
-            return View(new UserSignUpParam());
+            if(string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return View(new UserSignUpParam { IsValidParentId = true });
+            }
+
+            bool isParsable = int.TryParse(refId, out int parentAffId);
+
+            var vm = new UserSignUpParam();
+            vm.ParentAffId = parentAffId;
+
+            if (isParsable)
+            {
+                var result = _accountService.GetLevelAffiliate(parentAffId);
+                vm.IsValidParentId = result.IsValidAffId;
+            }
+
+            return View(vm);
         }
 
         [HttpGet]
@@ -52,8 +69,9 @@
         [ValidateAntiForgeryToken]
         public ActionResult Index(UserSignUpParam param)
         {
+            var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
-            if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
+            if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
             }
@@ -91,7 +109,8 @@
                     Language = SessionService.CurrentLanguage,
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
-                    IsLocal = _appSetting.IsLocal
+                    IsLocal = _appSetting.IsLocal,
+                    ParentAffId = param.ParentAffId
                 };
 
                 var emailParam = new EmailBaseParam
@@ -103,7 +122,7 @@
                     MailTo = _appSetting.MailContact
                 };
 
-                result = _accountService.CreateAffiliate(signUpParam, emailParam);
+                result = _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
             }
             else
             {

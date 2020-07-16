@@ -5,21 +5,26 @@ using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public class AccountRepository : IAccountRepository
     {
+        private readonly IObjectDBBuilder _builder;
+
+        public AccountRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
         public AccountInformation GetAccountInfo(int affId)
         {
             const string uSpKey = "Aff_User_UserInfoSel";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
                 var parameterSet = new { affId };
 
-                return objectDb.DB.QueryEntity<AccountInformation>(parameterSet);
+                return objectDb.QueryEntity<AccountInformation>(parameterSet);
             }
         }
 
@@ -27,9 +32,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Deposit_GetCustDataForCreateIBCACByUserName";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                return objectDb.DB.QueryEntity<DepositAccountInfo>(new { deposit_username = playerUserName });
+                return objectDb.QueryEntity<DepositAccountInfo>(new { deposit_username = playerUserName });
             }
         }
 
@@ -37,9 +42,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_User_UserInfoUpd";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.DB.ExecuteNonQuery(accountUpdateParam);
+                objectDb.ExecuteNonQuery(accountUpdateParam);
             }
 
             return new ResultInfo
@@ -64,9 +69,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 AffPwd = updatePasswordParam.NewPassword
             };
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.DB.ExecuteNonQuery(parameterSet);
+                objectDb.ExecuteNonQuery(parameterSet);
             }
 
             return new ResultInfo
@@ -80,9 +85,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_User_ForgotPassword";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                return objectDb.DB.QueryEntity<UserInfo>(userInfoParam);
+                return objectDb.QueryEntity<UserInfo>(userInfoParam);
             }
         }
 
@@ -90,9 +95,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_User_RecoverPassWord";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                return objectDb.DB.QueryEntity<UserInfo>(passwordRecoveryParam);
+                return objectDb.QueryEntity<UserInfo>(passwordRecoveryParam);
             }
         }
 
@@ -101,35 +106,10 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_User_GeneralInfo_Sel";
             var mode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, mode))
+            using (var objectDb = _builder.Build(uSpKey, mode))
             {
-                return objectDb.DB.QueryEntity<UserInfo>(new { affId });
+                return objectDb.QueryEntity<UserInfo>(new { affId });
             }
-        }
-
-        public PlayerAccountCheckingResult CheckPlayerAccountIsActived(int affId, string language)
-        {
-            var result = new PlayerAccountCheckingResult();
-            const string uSpKey = "Aff_CustomerCheck12BetPlayerAccountActivated";
-            var parameterSet = new
-            {
-                AffId = affId,
-                Language = language,
-                Result = false,
-                ErrCode = 0,
-                ErrMsg = string.Empty
-            };
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(parameterSet);
-
-                result.IsOk = parameterSet.Result;
-                result.Message = parameterSet.ErrMsg;
-                result.PlayerUserName = objectDb.DB.GetParameterValue("12BetPlayerUserName") as string;
-            }
-
-            return result;
         }
 
 
@@ -168,22 +148,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
 
             return result;
-        }
-
-        public ResultInfo UpdatePlayerAccountStatusForDeposit(DepositPlayerAccountParam account)
-        {
-            const string uSpKey = "Deposit_MemberIBCDetail";
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(account);
-            }
-
-            return new ResultInfo
-            {
-                IsOk = account.ErrorCode == 0,
-                Message = account.ErrorMsg
-            };
         }
 
         public ResultInfo CreateAffiliate(UserSignUpParam signUpParam)
@@ -232,5 +196,33 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
+        public PlayerUserValidInfo GetPlayerUserNameValidInfo(string userName, int affId = 0)
+        {
+            const string uSpKey = "Aff_PlayerUsername_CheckIsValid";
+            var userInfo = new PlayerUserValidInfo
+            {
+                AffId = affId,
+                PlayerUserName = userName,
+                IsValid = false
+            };
+
+            using(var objectDb = new ObjectDBBuilder(uSpKey))
+            {
+                objectDb.DB.ExecuteNonQuery(userInfo);
+            }
+            return userInfo;
+        }
+
+        public MaxLevelInfo GetLevelAffiliate(int affId)
+        {
+            const string uSpKey = "Aff_CheckMaxSubAffLevel";
+
+            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            {
+                var parameterSet = new { affId };
+
+                return objectDb.DB.QueryEntity<MaxLevelInfo>(parameterSet);
+            }
+        }
     }
 }

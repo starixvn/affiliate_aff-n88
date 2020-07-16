@@ -81,6 +81,70 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         }
 
         [Fact]
+        public void GetSubAffiliate_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var repository = new Mock<StatementHistoryRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false).Returns(true);
+            dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
+
+            ReaderHelper.MapReaderData(dataReader, GetSubAffiliateList());
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
+            repository.Setup(r => r.GetObjectDb("Aff_SubAffiliate_Commission_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetSubAffiliate(new SubAffiliateParam());
+
+            // Assert
+            Assert.Single(result.MainData);
+        }
+
+        [Fact]
+        public void GetSubAffiliate_WhenCall_ReturnCorrectDataHasNull()
+        {
+            // Arrange
+            var repository = new Mock<StatementHistoryRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false).Returns(true);
+            dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
+
+            ReaderHelper.MapReaderData(dataReader, GetSubAffiliateListHasNull());
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
+            repository.Setup(r => r.GetObjectDb("Aff_SubAffiliate_Commission_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetSubAffiliate(new SubAffiliateParam());
+
+            // Assert
+            Assert.Single(result.MainData);
+        }
+
+        [Fact]
+        public void GetSubAffiliate_WhenCall_ReturnNullData()
+        {
+            // Arrange
+            var repository = new Mock<StatementHistoryRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
+
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
+            repository.Setup(r => r.GetObjectDb("Aff_SubAffiliate_Commission_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetSubAffiliate(new SubAffiliateParam());
+
+            // Assert
+            Assert.Empty(result.MainData);
+        }
+
+        [Fact]
         public void GetDailyEarning_WhenCall_ReturnCorrectData()
         {
             // Arrange
@@ -190,13 +254,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["TransId"] = 37,
+                ["TransId"] = 123,
                 ["Amount"] = 100,
                 ["TransType"] = 123,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
                 ["Status"] = "Approved",
                 ["Creator"] = "sa",
-                ["Description"] = "abc"
+                ["Description"] = "abc",
+                ["CalculatedType"] = null
             };
         }
 
@@ -204,13 +269,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["TransId"] = 37,
+                ["TransId"] = 123,
                 ["Amount"] = 100,
                 ["TransType"] = 0,
                 ["MonthDate"] = new DateTime(2019, 11, 22),
                 ["Status"] = "Approved",
                 ["Creator"] = "sa",
-                ["Description"] = "abc"
+                ["Description"] = "abc",
+                ["CalculatedType"] = DBNull.Value
             };
         }
 
@@ -251,6 +317,28 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["Withdrawal"] = 123,
                 ["Bonus"] = 123,
                 ["BankingFee"] = 123,
+            };
+        }
+
+        private IDictionary<string, object> GetSubAffiliateList()
+        {
+            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["AffId"] = 123,
+                ["AffName"] = "abc",
+                ["Commission"] = 123,
+                ["SubAffCommission"] = 123
+            };
+        }
+
+        private IDictionary<string, object> GetSubAffiliateListHasNull()
+        {
+            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["AffId"] = 123,
+                ["AffName"] = "abc",
+                ["Commission"] = DBNull.Value,
+                ["SubAffCommission"] = DBNull.Value
             };
         }
     }

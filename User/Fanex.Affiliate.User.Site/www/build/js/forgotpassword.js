@@ -13,14 +13,16 @@ var ForgotPassword = (function ($) {
             });
 
             $("#btnReset").on("click", function () {
-                $("#Email").val("");
-                $("#forgotPasswordForm").validate().resetForm();
+                var $email = $("#Email");
+                var $container = $("#emailInputGroup");
+
+                $email.val("");
+                Site.toggleErrorMessage($container, true);
             });
         },
 
         submit: function submit($form) {
-            var validator = $form.validate();
-            var isValidForm = validator.form();
+            var isValidForm = _me.checkValidEmail();
             if (isValidForm) {
                 var postData = $form.serializeObject();
                 $.ajax({
@@ -49,6 +51,16 @@ var ForgotPassword = (function ($) {
             if (response.IsOk) {
                 $("#mainContent").remove();
             }
+        },
+
+        checkValidEmail: function checkValidEmail() {
+            var $email = $("#Email");
+            var isValid = Site.emailValidationPattern.test($email.val());
+
+            var $container = $("#emailInputGroup");
+            Site.toggleErrorMessage($container, isValid);
+
+            return isValid;
         }
     };
 

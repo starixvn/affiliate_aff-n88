@@ -10,6 +10,12 @@ namespace Fanex.Affiliate.User.Core.Repository
 {
     public class VerificationRepository : IVerificationRepository
     {
+        private readonly IObjectDBBuilder _builder;
+
+        public VerificationRepository(IObjectDBBuilder builder)
+        {
+            _builder = builder;
+        }
         public ResultInfo UpdateVerificationInfo(AuthResultBaseParam param)
         {
             const string SpKey = "Aff_User_VerificationUpd";
@@ -22,13 +28,13 @@ namespace Fanex.Affiliate.User.Core.Repository
             const string SpKey = "Aff_User_VerificationInfoSel";
             VerificationInfo result = null;
 
-            using (var objectDb = new ObjectDBBuilder(SpKey))
+            using (var objectDb = _builder.Build(SpKey))
             {
-                objectDb.DB.AddInParameter("AffId", SqlDbType.Int, affId);
-                objectDb.DB.AddInParameter("IpAddress", SqlDbType.NVarChar, ipAddress);
-                objectDb.DB.AddInParameter("DeviceInfo", SqlDbType.NVarChar, deviceInfo);
+                objectDb.AddInParameter("AffId", SqlDbType.Int, affId);
+                objectDb.AddInParameter("IpAddress", SqlDbType.NVarChar, ipAddress);
+                objectDb.AddInParameter("DeviceInfo", SqlDbType.NVarChar, deviceInfo);
 
-                using (var reader = objectDb.DB.ExecuteReader())
+                using (var reader = objectDb.ExecuteReader())
                 {
                     if (reader.Read())
                     {
@@ -53,9 +59,8 @@ namespace Fanex.Affiliate.User.Core.Repository
 
         private ResultInfo Execute(string spKey, AuthResultBaseParam param)
         {
-            using (var objectDbBuilder = new ObjectDBBuilder(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
-                var objectDb = objectDbBuilder.DB;
                 AssignUpdateLoginResultParam(objectDb, param);
                 objectDb.ExecuteNonQuery();
 

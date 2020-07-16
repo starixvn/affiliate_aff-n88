@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MultipleSelectLabel from './MultipleSelectLabel'
-import MultipleSelectOptionList from './MultipleSelectOptionList'
-import OptionAll from './OptionAll'
+import MultipleSelectLabel from './MultipleSelectLabel';
+import MultipleSelectOptionList from './MultipleSelectOptionList';
+import OptionAll from './OptionAll';
 
 const KEY_NAME = "key";
 const VALUE_NAME = "value";
@@ -17,7 +17,8 @@ export default class MultipleSelect extends Component {
         this.id = `multiple-select-${props.id || id++}`;
 
         this.state = {
-            showOptionList: false
+            showOptionList: false,
+            inputOption: ''
         }
     }
 
@@ -30,7 +31,9 @@ export default class MultipleSelect extends Component {
         optionAllLabel: PropTypes.string,
         maxDisplayItemCount: PropTypes.number,
         onChange: PropTypes.func,
-        hasAllOption: PropTypes.bool
+        hasAllOption: PropTypes.bool,
+        hasInputOption: PropTypes.bool,
+        isDisable: PropTypes.bool
     }
 
     static defaultProps = {
@@ -38,6 +41,8 @@ export default class MultipleSelect extends Component {
         valueField: VALUE_NAME,
         statusField: STATUS_NAME,
         hasAllOption: true,
+        hasInputOption: false,
+        isDisable: false
     }
 
     componentDidMount() {
@@ -75,7 +80,7 @@ export default class MultipleSelect extends Component {
     }
 
     onToggle = () => {
-        this.setState((prevState) => { return { showOptionList: !prevState.showOptionList } })
+        this.setState((prevState) => { return { showOptionList: !prevState.showOptionList, inputOption: '' } })
     }
 
     checkAllHandler = (checked) => {
@@ -91,15 +96,22 @@ export default class MultipleSelect extends Component {
         this._callBackToParent(null, newDataSource);
     }
 
+    _handleChangeInput = (event) => {
+        const { target } = event;
+
+        this.setState({ [target.name]: target.value });
+    }
+
     _callBackToParent(selectedItem, newDataSource) {
         const selectedItemsKey = this._getSelectedItemKey(newDataSource);
         this.props.onChange && this.props.onChange(selectedItem, selectedItemsKey);
     }
 
-    _convertDataSource() {
+    _convertDataSource(inputOption) {
         const { keyField, valueField, statusField, dataSource } = this.props;
+        const dataSourceAfterFilter = dataSource.filter(i => i[valueField].toLowerCase().includes(inputOption || ''));
 
-        return dataSource.map(item => {
+        return dataSourceAfterFilter.map(item => {
             return {
                 [KEY_NAME]: item[keyField],
                 [VALUE_NAME]: item[valueField],
@@ -123,7 +135,7 @@ export default class MultipleSelect extends Component {
     }
 
     _close = () => {
-        this.setState({ showOptionList: false });
+        this.setState({ showOptionList: false, inputOption: '' });
     }
 
     _handleDocumentClick = (event) => {
@@ -137,14 +149,18 @@ export default class MultipleSelect extends Component {
     _renderOptionAll(dataSource) {
         const checkedItemCount = dataSource.filter(x => x.checked).length;
         const checkedAll = checkedItemCount === dataSource.length;
+        const { optionAllLabel, isDisable } = this.props;
 
-        return (<OptionAll id={this.id} checked={checkedAll} label={this.props.optionAllLabel} onChange={this.checkAllHandler} />);
+        return (<OptionAll id={this.id} checked={checkedAll} label={optionAllLabel} onChange={this.checkAllHandler} isDisable={isDisable} />);
     }
 
     render() {
-        const { noneSelectedLabel, maxDisplayItemCount, hasAllOption } = this.props;
-        const dataSource = this._convertDataSource();
-        const selectedItems = dataSource.filter(item => item.checked);
+        const { inputOption } = this.state;
+        const { noneSelectedLabel, maxDisplayItemCount, hasAllOption, isDisable, hasInputOption } = this.props;
+        const inputOptionTrim = inputOption.trim();
+        const dataSource = this._convertDataSource(inputOptionTrim.toLowerCase());
+        const dataSourceLabel = this._convertDataSource();
+        const selectedItems = dataSourceLabel.filter(item => item.checked);
 
         return (
             <div className="multiple-select-container" id={this.id} ref={element => this.wrapper = element}>
@@ -156,11 +172,19 @@ export default class MultipleSelect extends Component {
 
                 <div className="multiple-select-default multiple-select-options-container"
                     style={{ display: this.state.showOptionList ? "block" : "none" }}>
-                    {hasAllOption && this._renderOptionAll(dataSource)}
+                    {
+                        hasInputOption &&
+                        <ul className="multiple-select-options">
+                            <input type="text" name="inputOption" value={inputOption} className="w-100" onChange={this._handleChangeInput} />
+                        </ul>
+                    }
+
+                    {hasAllOption && !inputOptionTrim && this._renderOptionAll(dataSource)}
 
                     <MultipleSelectOptionList id={this.id}
                         dataSource={dataSource}
-                        onChange={this.onChangeHandler} />
+                        onChange={this.onChangeHandler}
+                        isDisable={isDisable} />
                 </div>
             </div>
         )

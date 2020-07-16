@@ -26,7 +26,7 @@ export const AppContainer = (props) => {
                 toggleLoader={props.toggleLoader}
                 setShouldResetScrollPosition={props.setShouldResetScrollPosition}
                 setSelectedItemId={props.setSelectedTextId}
-                deleteItems={props.deleteTexts}
+                deleteItems={(textIdList) => props.deleteTexts({ textIdList, userType: props.param.userType })}
             />
             <Content />
             <TextDetailForm />

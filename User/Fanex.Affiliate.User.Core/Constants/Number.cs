@@ -22,8 +22,14 @@
 
         public const int OneHundred = 100;
 
+        public const int OneThousand = 1000;
+
         public const int OneFiveZero = 150;
 
+        public const int TwoFiveZero = 250;
+
         public const int TwoDoubleFive = 255;
+
+        public const int ThreeHundred = 300;
     }
 }

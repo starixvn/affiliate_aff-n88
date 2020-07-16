@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Panel from '../Panel';
 import { Row, Col, Button } from 'reactstrap';
 
-import { resource } from '../../modules/constants';
+import { resource } from '../../libs/constants';
 import { formatDecimalWithCurrencySymbol } from '../../../../../modules/numberFormat';
 import { getAffiliateInfo } from '../../actions';
 import CommissionGroupPopup from '../../../../common/components/CommissionGroupPopup';
@@ -14,18 +14,10 @@ import { htmlDecode } from '../../../../../modules/htmlHelper';
 export class CommissionPanel extends PureComponent {
     constructor(props) {
         super(props);
-        const { affiliateInfo } = this.props;
 
         this.state = {
-            isChangingCommissionGroup: false,
-            isPrivateGroup: affiliateInfo.AffId === affiliateInfo.GroupId
+            isChangingCommissionGroup: false
         }
-    }
-
-    componentDidUpdate() {
-        const { affiliateInfo } = this.props;
-        const isPrivateGroup = affiliateInfo.AffId === affiliateInfo.GroupId;
-        this.setState({ isPrivateGroup });
     }
 
     toggleEditingCommissionPopup = (isChanging) => {
@@ -40,7 +32,7 @@ export class CommissionPanel extends PureComponent {
     }
 
     render() {
-        const { isChangingCommissionGroup, isPrivateGroup } = this.state;
+        const { isChangingCommissionGroup } = this.state;
         const { affiliateInfo } = this.props;
 
         return (
@@ -51,7 +43,7 @@ export class CommissionPanel extends PureComponent {
                         {this._renderCommGroup(affiliateInfo)}
                         <CommissionGroupPopup
                             showPopupCommGroup={isChangingCommissionGroup}
-                            isPrivateGroup={isPrivateGroup}
+                            isPrivateGroup={affiliateInfo.IsUsingPrivateCommGroup}
                             affName={affiliateInfo.AffName}
                             affId={affiliateInfo.AffId}
                             setShowPopupCommGroup={this.toggleEditingCommissionPopup}

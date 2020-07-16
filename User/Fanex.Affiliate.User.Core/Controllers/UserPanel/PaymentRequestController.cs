@@ -69,6 +69,7 @@
                 paymentCreationParam.Ip = Request.UserHostAddress;
                 paymentCreationParam.IsInternal = SessionService.IsInternal;
                 paymentCreationParam.IsLocalTest = !_appSetting.IsProduction;
+                paymentCreationParam.TransDate = paymentCreationParam.TransDate ?? DateTime.Now;
 
                 var emailParam = new PaymentEmailParam
                 {
@@ -96,7 +97,7 @@
             }
             else
             {
-                cancelParam.UserId = SessionService.UserSession.AffId;
+                cancelParam.AffId = SessionService.UserSession.AffId;
                 cancelParam.Language = SessionService.CurrentLanguage;
                 cancelParam.Ip = Request.UserHostAddress;
 
@@ -127,15 +128,14 @@
             };
             var paymentList = _paymentService.GetPaymentList(paymentParam);
 
-
             var viewModel = new PaymentViewModel
             {
                 PaymentList = paymentList,
                 BalBroughtForward = paymentParam.BalBroughtForward,
                 MinAmount = paymentParam.MinAmount,
                 PreferredPayment = paymentParam.PreferredPayment,
-                PendingPayment = paymentList.FirstOrDefault(p => p.Status.MatchWith(PaymentStatus.Pending)),
-                IsValidDate = _paymentService.IsInDateRange() || !_appSetting.IsProduction
+                PendingPayment = paymentList.FirstOrDefault(p => p.Status.MatchWith(PaymentStatus.Processing)),
+                IsValidDate = true //_paymentService.IsInDateRange() || !_appSetting.IsProduction
             };
 
             return viewModel;

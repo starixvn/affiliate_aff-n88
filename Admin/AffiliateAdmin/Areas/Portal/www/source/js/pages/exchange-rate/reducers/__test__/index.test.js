@@ -4,7 +4,7 @@ import * as reducers from '../index';
 const runTestReducer = ({ name, value, action, expectedResult }) => {
     it(`should handle ${name} reducer with type ${action.type}`, () => {
         const result = reducers[name](value, action);
-        
+
         expect(result).toEqual(expectedResult);
     })
 }

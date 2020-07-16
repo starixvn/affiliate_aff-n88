@@ -33,7 +33,7 @@ describe('left panel - components - general-info - ApprovedStatusInfo', () => {
         NoSiteDescription: "",
         Phone: "abc",
         PreferredLanguage: "vi-VN",
-        SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+        SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
         Status: "Approved"
     };
     const props = {
@@ -48,7 +48,7 @@ describe('left panel - components - general-info - ApprovedStatusInfo', () => {
     });
 
     it('toggleChangingPassword - should call setChangingPassword when button change', () => {
-        const wrapper = shallow(<ApprovedStatusInfo {...props}/>);
+        const wrapper = shallow(<ApprovedStatusInfo {...props} />);
 
         wrapper.find('Button').simulate('click', true);
 

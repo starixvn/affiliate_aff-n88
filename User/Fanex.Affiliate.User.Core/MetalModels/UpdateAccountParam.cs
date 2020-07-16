@@ -25,6 +25,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ContactApps { get; set; }
 
+        public int DefaultBaseCurrency { get; set; }
+
         public int ErrCode { get; set; }
 
         public string ErrMsg { get; set; }

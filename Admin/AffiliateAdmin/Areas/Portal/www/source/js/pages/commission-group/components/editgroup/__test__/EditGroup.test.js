@@ -13,7 +13,6 @@ describe('commission group - EditGroup', () => {
             GroupName: "",
             OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
-            QmTurnover: 100,
             TierSettingList: []
         },
         onClose: jest.fn(),
@@ -72,7 +71,6 @@ describe('commission group - EditGroup', () => {
             GroupName: "test",
             OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            QmTurnover: 100,
             TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
@@ -95,7 +93,7 @@ describe('commission group - EditGroup', () => {
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
         expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(props.getGroupSettingList).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, GroupName: '' });
-        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Update Commission Group Successfully"] });
+        expect(wrapper.instance().setState).toHaveBeenCalledWith({ isShowMessage: true, isSuccess: true, message: ["Update Revenue Group Successfully"] });
     });
 
     it('handleSave - should call toggleLoader,  when click button SAVE with correct respone but not success', async () => {
@@ -107,7 +105,6 @@ describe('commission group - EditGroup', () => {
             GroupName: "test",
             OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            QmTurnover: 100,
             TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
@@ -143,7 +140,6 @@ describe('commission group - EditGroup', () => {
             GroupName: "test",
             OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            QmTurnover: 100,
             TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();

@@ -8,8 +8,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public string Language { get; set; }
 
-        public string ImageType { get; set; }
-
         public string Size { get; set; }
 
         public string Currency { get; set; }
@@ -22,6 +20,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public byte? DeviceType { get; set; }
 
+        public byte TargetId { get; set; } = 1;
+
         [SpParam(Ignored = true)]
         public int TotalPages { get; set; }
 
@@ -30,10 +30,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         [SpParam(Ignored = true)]
         public string BannerDomain { get; set; }
 
-        [SpParam(Ignored = true)]
         public string SubCategory { get; set; }
-
-        [SpParam(Ignored = true)]
-        public int ScreenWidth { get; set; }
     }
 }

@@ -18,7 +18,8 @@
         window.initialState = {
             categoryList: @Html.Raw(Json.Encode(Model.CategoryList)),
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
-            currencyList: @Html.Raw(Json.Encode(Model.CurrencyList))
+            currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
+            defaultLanguage: '@AppSetting.Instance.DefaultLanguage'
         }
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/media-gallery/text-list.js")"></script>

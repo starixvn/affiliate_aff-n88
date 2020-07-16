@@ -4,12 +4,45 @@ import { shallow } from 'enzyme';
 import UserPanelBreadcrumb from '../../../../common/components/UserPanelBreadcrumb';
 
 describe('daily earning detail - components - AppContainer', () => {
+    const productList = [
+        {
+            ProductId: 1,
+            ProductName: 'Sportsbook'
+        },
+        {
+            ProductId: 3,
+            ProductName: 'Playtech Casino'
+        },
+        {
+            ProductId: 4,
+            ProductName: 'Number Game'
+        }
+    ]
+
+    const baseCurrencyList = [
+        {
+            ExchangeId: 20,
+            Code: 'UUS'
+        }
+    ]
+
+    const currencyList = [
+        {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        }
+    ]
+
     const defaultProps = {
         param: {
             affId: 1271808,
             monthDate: "06 January 2019",
             productId: 0
-        }
+        },
+        productList,
+        currencyList,
+        baseCurrencyList
     }
     it('render correctly', () => {
         const result = shallow(<AppContainer {...defaultProps} />);

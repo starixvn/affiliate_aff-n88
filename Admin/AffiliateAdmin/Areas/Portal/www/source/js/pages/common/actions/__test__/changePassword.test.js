@@ -31,7 +31,7 @@ describe('changePassword actions', () => {
             Password: '123abc',
             ConfirmPassword: '123abc'
         }
-        
+
         const result = await updateChangeAffPasswword(param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Affiliate/ChangePassword', param);
@@ -60,7 +60,7 @@ describe('changePassword actions', () => {
             Password: '123abc',
             ConfirmPassword: '123abc'
         }
-        
+
         const result = await updateChangeAdminPasswword(param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Administrator/ChangePassword', param);

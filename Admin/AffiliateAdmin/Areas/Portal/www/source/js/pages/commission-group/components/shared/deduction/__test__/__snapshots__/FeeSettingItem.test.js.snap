@@ -23,7 +23,7 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
   </Label>
   <Col
     className="select-comm"
-    sm={2}
+    sm={5}
     tag="div"
     widths={
       Array [
@@ -35,620 +35,655 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
       ]
     }
   >
-    <Input
-      className="form-control"
-      defaultValue=""
-      name="DeductedPercentage"
-      onChange={[Function]}
-      type="select"
+    <Form
+      inline={true}
+      tag="form"
     >
-      <option
-        key="feecomm-0"
-        value="0.00"
-      >
-        0.00
-      </option>
-      <option
-        key="feecomm-1"
-        value="0.01"
-      >
-        0.01
-      </option>
-      <option
-        key="feecomm-2"
-        value="0.02"
-      >
-        0.02
-      </option>
-      <option
-        key="feecomm-3"
-        value="0.03"
-      >
-        0.03
-      </option>
-      <option
-        key="feecomm-4"
-        value="0.04"
-      >
-        0.04
-      </option>
-      <option
-        key="feecomm-5"
-        value="0.05"
-      >
-        0.05
-      </option>
-      <option
-        key="feecomm-6"
-        value="0.06"
-      >
-        0.06
-      </option>
-      <option
-        key="feecomm-7"
-        value="0.07"
-      >
-        0.07
-      </option>
-      <option
-        key="feecomm-8"
-        value="0.08"
-      >
-        0.08
-      </option>
-      <option
-        key="feecomm-9"
-        value="0.09"
-      >
-        0.09
-      </option>
-      <option
-        key="feecomm-10"
-        value="0.10"
-      >
-        0.10
-      </option>
-      <option
-        key="feecomm-11"
-        value="0.11"
-      >
-        0.11
-      </option>
-      <option
-        key="feecomm-12"
-        value="0.12"
-      >
-        0.12
-      </option>
-      <option
-        key="feecomm-13"
-        value="0.13"
-      >
-        0.13
-      </option>
-      <option
-        key="feecomm-14"
-        value="0.14"
-      >
-        0.14
-      </option>
-      <option
-        key="feecomm-15"
-        value="0.15"
-      >
-        0.15
-      </option>
-      <option
-        key="feecomm-16"
-        value="0.16"
-      >
-        0.16
-      </option>
-      <option
-        key="feecomm-17"
-        value="0.17"
-      >
-        0.17
-      </option>
-      <option
-        key="feecomm-18"
-        value="0.18"
-      >
-        0.18
-      </option>
-      <option
-        key="feecomm-19"
-        value="0.19"
-      >
-        0.19
-      </option>
-      <option
-        key="feecomm-20"
-        value="0.20"
-      >
-        0.20
-      </option>
-      <option
-        key="feecomm-21"
-        value="0.21"
-      >
-        0.21
-      </option>
-      <option
-        key="feecomm-22"
-        value="0.22"
-      >
-        0.22
-      </option>
-      <option
-        key="feecomm-23"
-        value="0.23"
-      >
-        0.23
-      </option>
-      <option
-        key="feecomm-24"
-        value="0.24"
-      >
-        0.24
-      </option>
-      <option
-        key="feecomm-25"
-        value="0.25"
-      >
-        0.25
-      </option>
-      <option
-        key="feecomm-26"
-        value="0.26"
-      >
-        0.26
-      </option>
-      <option
-        key="feecomm-27"
-        value="0.27"
-      >
-        0.27
-      </option>
-      <option
-        key="feecomm-28"
-        value="0.28"
-      >
-        0.28
-      </option>
-      <option
-        key="feecomm-29"
-        value="0.29"
-      >
-        0.29
-      </option>
-      <option
-        key="feecomm-30"
-        value="0.30"
-      >
-        0.30
-      </option>
-      <option
-        key="feecomm-31"
-        value="0.31"
-      >
-        0.31
-      </option>
-      <option
-        key="feecomm-32"
-        value="0.32"
-      >
-        0.32
-      </option>
-      <option
-        key="feecomm-33"
-        value="0.33"
-      >
-        0.33
-      </option>
-      <option
-        key="feecomm-34"
-        value="0.34"
-      >
-        0.34
-      </option>
-      <option
-        key="feecomm-35"
-        value="0.35"
-      >
-        0.35
-      </option>
-      <option
-        key="feecomm-36"
-        value="0.36"
-      >
-        0.36
-      </option>
-      <option
-        key="feecomm-37"
-        value="0.37"
-      >
-        0.37
-      </option>
-      <option
-        key="feecomm-38"
-        value="0.38"
-      >
-        0.38
-      </option>
-      <option
-        key="feecomm-39"
-        value="0.39"
-      >
-        0.39
-      </option>
-      <option
-        key="feecomm-40"
-        value="0.40"
-      >
-        0.40
-      </option>
-      <option
-        key="feecomm-41"
-        value="0.41"
-      >
-        0.41
-      </option>
-      <option
-        key="feecomm-42"
-        value="0.42"
-      >
-        0.42
-      </option>
-      <option
-        key="feecomm-43"
-        value="0.43"
-      >
-        0.43
-      </option>
-      <option
-        key="feecomm-44"
-        value="0.44"
-      >
-        0.44
-      </option>
-      <option
-        key="feecomm-45"
-        value="0.45"
-      >
-        0.45
-      </option>
-      <option
-        key="feecomm-46"
-        value="0.46"
-      >
-        0.46
-      </option>
-      <option
-        key="feecomm-47"
-        value="0.47"
-      >
-        0.47
-      </option>
-      <option
-        key="feecomm-48"
-        value="0.48"
-      >
-        0.48
-      </option>
-      <option
-        key="feecomm-49"
-        value="0.49"
-      >
-        0.49
-      </option>
-      <option
-        key="feecomm-50"
-        value="0.50"
-      >
-        0.50
-      </option>
-      <option
-        key="feecomm-51"
-        value="0.51"
-      >
-        0.51
-      </option>
-      <option
-        key="feecomm-52"
-        value="0.52"
-      >
-        0.52
-      </option>
-      <option
-        key="feecomm-53"
-        value="0.53"
-      >
-        0.53
-      </option>
-      <option
-        key="feecomm-54"
-        value="0.54"
-      >
-        0.54
-      </option>
-      <option
-        key="feecomm-55"
-        value="0.55"
-      >
-        0.55
-      </option>
-      <option
-        key="feecomm-56"
-        value="0.56"
-      >
-        0.56
-      </option>
-      <option
-        key="feecomm-57"
-        value="0.57"
-      >
-        0.57
-      </option>
-      <option
-        key="feecomm-58"
-        value="0.58"
-      >
-        0.58
-      </option>
-      <option
-        key="feecomm-59"
-        value="0.59"
-      >
-        0.59
-      </option>
-      <option
-        key="feecomm-60"
-        value="0.60"
-      >
-        0.60
-      </option>
-      <option
-        key="feecomm-61"
-        value="0.61"
-      >
-        0.61
-      </option>
-      <option
-        key="feecomm-62"
-        value="0.62"
-      >
-        0.62
-      </option>
-      <option
-        key="feecomm-63"
-        value="0.63"
-      >
-        0.63
-      </option>
-      <option
-        key="feecomm-64"
-        value="0.64"
-      >
-        0.64
-      </option>
-      <option
-        key="feecomm-65"
-        value="0.65"
-      >
-        0.65
-      </option>
-      <option
-        key="feecomm-66"
-        value="0.66"
-      >
-        0.66
-      </option>
-      <option
-        key="feecomm-67"
-        value="0.67"
-      >
-        0.67
-      </option>
-      <option
-        key="feecomm-68"
-        value="0.68"
-      >
-        0.68
-      </option>
-      <option
-        key="feecomm-69"
-        value="0.69"
-      >
-        0.69
-      </option>
-      <option
-        key="feecomm-70"
-        value="0.70"
-      >
-        0.70
-      </option>
-      <option
-        key="feecomm-71"
-        value="0.71"
-      >
-        0.71
-      </option>
-      <option
-        key="feecomm-72"
-        value="0.72"
-      >
-        0.72
-      </option>
-      <option
-        key="feecomm-73"
-        value="0.73"
-      >
-        0.73
-      </option>
-      <option
-        key="feecomm-74"
-        value="0.74"
-      >
-        0.74
-      </option>
-      <option
-        key="feecomm-75"
-        value="0.75"
-      >
-        0.75
-      </option>
-      <option
-        key="feecomm-76"
-        value="0.76"
-      >
-        0.76
-      </option>
-      <option
-        key="feecomm-77"
-        value="0.77"
-      >
-        0.77
-      </option>
-      <option
-        key="feecomm-78"
-        value="0.78"
-      >
-        0.78
-      </option>
-      <option
-        key="feecomm-79"
-        value="0.79"
-      >
-        0.79
-      </option>
-      <option
-        key="feecomm-80"
-        value="0.80"
-      >
-        0.80
-      </option>
-      <option
-        key="feecomm-81"
-        value="0.81"
-      >
-        0.81
-      </option>
-      <option
-        key="feecomm-82"
-        value="0.82"
-      >
-        0.82
-      </option>
-      <option
-        key="feecomm-83"
-        value="0.83"
-      >
-        0.83
-      </option>
-      <option
-        key="feecomm-84"
-        value="0.84"
-      >
-        0.84
-      </option>
-      <option
-        key="feecomm-85"
-        value="0.85"
-      >
-        0.85
-      </option>
-      <option
-        key="feecomm-86"
-        value="0.86"
-      >
-        0.86
-      </option>
-      <option
-        key="feecomm-87"
-        value="0.87"
-      >
-        0.87
-      </option>
-      <option
-        key="feecomm-88"
-        value="0.88"
-      >
-        0.88
-      </option>
-      <option
-        key="feecomm-89"
-        value="0.89"
-      >
-        0.89
-      </option>
-      <option
-        key="feecomm-90"
-        value="0.90"
-      >
-        0.90
-      </option>
-      <option
-        key="feecomm-91"
-        value="0.91"
-      >
-        0.91
-      </option>
-      <option
-        key="feecomm-92"
-        value="0.92"
-      >
-        0.92
-      </option>
-      <option
-        key="feecomm-93"
-        value="0.93"
-      >
-        0.93
-      </option>
-      <option
-        key="feecomm-94"
-        value="0.94"
-      >
-        0.94
-      </option>
-      <option
-        key="feecomm-95"
-        value="0.95"
-      >
-        0.95
-      </option>
-      <option
-        key="feecomm-96"
-        value="0.96"
-      >
-        0.96
-      </option>
-      <option
-        key="feecomm-97"
-        value="0.97"
-      >
-        0.97
-      </option>
-      <option
-        key="feecomm-98"
-        value="0.98"
-      >
-        0.98
-      </option>
-      <option
-        key="feecomm-99"
-        value="0.99"
-      >
-        0.99
-      </option>
-      <option
-        key="feecomm-100"
-        value="1.00"
-      >
-        1.00
-      </option>
-    </Input>
+      <FormGroup
+        className="mb-2 mr-sm-2 mb-sm-0"
+        tag="div"
+      >
+        <Label
+          className="mr-sm-2"
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          New Revenue Share 
+        </Label>
+      </FormGroup>
+      <FormGroup
+        className="mb-2 mr-sm-2 mb-sm-0"
+        tag="div"
+      >
+        <Input
+          className="form-control"
+          defaultValue="0.00"
+          name="DeductedPercentage"
+          onChange={[Function]}
+          style={
+            Object {
+              "width": 60,
+            }
+          }
+          type="select"
+        >
+          <option
+            key="operational-fee-comm-0"
+            value="0.00"
+          >
+            0.00
+          </option>
+          <option
+            key="operational-fee-comm-1"
+            value="0.01"
+          >
+            0.01
+          </option>
+          <option
+            key="operational-fee-comm-2"
+            value="0.02"
+          >
+            0.02
+          </option>
+          <option
+            key="operational-fee-comm-3"
+            value="0.03"
+          >
+            0.03
+          </option>
+          <option
+            key="operational-fee-comm-4"
+            value="0.04"
+          >
+            0.04
+          </option>
+          <option
+            key="operational-fee-comm-5"
+            value="0.05"
+          >
+            0.05
+          </option>
+          <option
+            key="operational-fee-comm-6"
+            value="0.06"
+          >
+            0.06
+          </option>
+          <option
+            key="operational-fee-comm-7"
+            value="0.07"
+          >
+            0.07
+          </option>
+          <option
+            key="operational-fee-comm-8"
+            value="0.08"
+          >
+            0.08
+          </option>
+          <option
+            key="operational-fee-comm-9"
+            value="0.09"
+          >
+            0.09
+          </option>
+          <option
+            key="operational-fee-comm-10"
+            value="0.10"
+          >
+            0.10
+          </option>
+          <option
+            key="operational-fee-comm-11"
+            value="0.11"
+          >
+            0.11
+          </option>
+          <option
+            key="operational-fee-comm-12"
+            value="0.12"
+          >
+            0.12
+          </option>
+          <option
+            key="operational-fee-comm-13"
+            value="0.13"
+          >
+            0.13
+          </option>
+          <option
+            key="operational-fee-comm-14"
+            value="0.14"
+          >
+            0.14
+          </option>
+          <option
+            key="operational-fee-comm-15"
+            value="0.15"
+          >
+            0.15
+          </option>
+          <option
+            key="operational-fee-comm-16"
+            value="0.16"
+          >
+            0.16
+          </option>
+          <option
+            key="operational-fee-comm-17"
+            value="0.17"
+          >
+            0.17
+          </option>
+          <option
+            key="operational-fee-comm-18"
+            value="0.18"
+          >
+            0.18
+          </option>
+          <option
+            key="operational-fee-comm-19"
+            value="0.19"
+          >
+            0.19
+          </option>
+          <option
+            key="operational-fee-comm-20"
+            value="0.20"
+          >
+            0.20
+          </option>
+          <option
+            key="operational-fee-comm-21"
+            value="0.21"
+          >
+            0.21
+          </option>
+          <option
+            key="operational-fee-comm-22"
+            value="0.22"
+          >
+            0.22
+          </option>
+          <option
+            key="operational-fee-comm-23"
+            value="0.23"
+          >
+            0.23
+          </option>
+          <option
+            key="operational-fee-comm-24"
+            value="0.24"
+          >
+            0.24
+          </option>
+          <option
+            key="operational-fee-comm-25"
+            value="0.25"
+          >
+            0.25
+          </option>
+          <option
+            key="operational-fee-comm-26"
+            value="0.26"
+          >
+            0.26
+          </option>
+          <option
+            key="operational-fee-comm-27"
+            value="0.27"
+          >
+            0.27
+          </option>
+          <option
+            key="operational-fee-comm-28"
+            value="0.28"
+          >
+            0.28
+          </option>
+          <option
+            key="operational-fee-comm-29"
+            value="0.29"
+          >
+            0.29
+          </option>
+          <option
+            key="operational-fee-comm-30"
+            value="0.30"
+          >
+            0.30
+          </option>
+          <option
+            key="operational-fee-comm-31"
+            value="0.31"
+          >
+            0.31
+          </option>
+          <option
+            key="operational-fee-comm-32"
+            value="0.32"
+          >
+            0.32
+          </option>
+          <option
+            key="operational-fee-comm-33"
+            value="0.33"
+          >
+            0.33
+          </option>
+          <option
+            key="operational-fee-comm-34"
+            value="0.34"
+          >
+            0.34
+          </option>
+          <option
+            key="operational-fee-comm-35"
+            value="0.35"
+          >
+            0.35
+          </option>
+          <option
+            key="operational-fee-comm-36"
+            value="0.36"
+          >
+            0.36
+          </option>
+          <option
+            key="operational-fee-comm-37"
+            value="0.37"
+          >
+            0.37
+          </option>
+          <option
+            key="operational-fee-comm-38"
+            value="0.38"
+          >
+            0.38
+          </option>
+          <option
+            key="operational-fee-comm-39"
+            value="0.39"
+          >
+            0.39
+          </option>
+          <option
+            key="operational-fee-comm-40"
+            value="0.40"
+          >
+            0.40
+          </option>
+          <option
+            key="operational-fee-comm-41"
+            value="0.41"
+          >
+            0.41
+          </option>
+          <option
+            key="operational-fee-comm-42"
+            value="0.42"
+          >
+            0.42
+          </option>
+          <option
+            key="operational-fee-comm-43"
+            value="0.43"
+          >
+            0.43
+          </option>
+          <option
+            key="operational-fee-comm-44"
+            value="0.44"
+          >
+            0.44
+          </option>
+          <option
+            key="operational-fee-comm-45"
+            value="0.45"
+          >
+            0.45
+          </option>
+          <option
+            key="operational-fee-comm-46"
+            value="0.46"
+          >
+            0.46
+          </option>
+          <option
+            key="operational-fee-comm-47"
+            value="0.47"
+          >
+            0.47
+          </option>
+          <option
+            key="operational-fee-comm-48"
+            value="0.48"
+          >
+            0.48
+          </option>
+          <option
+            key="operational-fee-comm-49"
+            value="0.49"
+          >
+            0.49
+          </option>
+          <option
+            key="operational-fee-comm-50"
+            value="0.50"
+          >
+            0.50
+          </option>
+          <option
+            key="operational-fee-comm-51"
+            value="0.51"
+          >
+            0.51
+          </option>
+          <option
+            key="operational-fee-comm-52"
+            value="0.52"
+          >
+            0.52
+          </option>
+          <option
+            key="operational-fee-comm-53"
+            value="0.53"
+          >
+            0.53
+          </option>
+          <option
+            key="operational-fee-comm-54"
+            value="0.54"
+          >
+            0.54
+          </option>
+          <option
+            key="operational-fee-comm-55"
+            value="0.55"
+          >
+            0.55
+          </option>
+          <option
+            key="operational-fee-comm-56"
+            value="0.56"
+          >
+            0.56
+          </option>
+          <option
+            key="operational-fee-comm-57"
+            value="0.57"
+          >
+            0.57
+          </option>
+          <option
+            key="operational-fee-comm-58"
+            value="0.58"
+          >
+            0.58
+          </option>
+          <option
+            key="operational-fee-comm-59"
+            value="0.59"
+          >
+            0.59
+          </option>
+          <option
+            key="operational-fee-comm-60"
+            value="0.60"
+          >
+            0.60
+          </option>
+          <option
+            key="operational-fee-comm-61"
+            value="0.61"
+          >
+            0.61
+          </option>
+          <option
+            key="operational-fee-comm-62"
+            value="0.62"
+          >
+            0.62
+          </option>
+          <option
+            key="operational-fee-comm-63"
+            value="0.63"
+          >
+            0.63
+          </option>
+          <option
+            key="operational-fee-comm-64"
+            value="0.64"
+          >
+            0.64
+          </option>
+          <option
+            key="operational-fee-comm-65"
+            value="0.65"
+          >
+            0.65
+          </option>
+          <option
+            key="operational-fee-comm-66"
+            value="0.66"
+          >
+            0.66
+          </option>
+          <option
+            key="operational-fee-comm-67"
+            value="0.67"
+          >
+            0.67
+          </option>
+          <option
+            key="operational-fee-comm-68"
+            value="0.68"
+          >
+            0.68
+          </option>
+          <option
+            key="operational-fee-comm-69"
+            value="0.69"
+          >
+            0.69
+          </option>
+          <option
+            key="operational-fee-comm-70"
+            value="0.70"
+          >
+            0.70
+          </option>
+          <option
+            key="operational-fee-comm-71"
+            value="0.71"
+          >
+            0.71
+          </option>
+          <option
+            key="operational-fee-comm-72"
+            value="0.72"
+          >
+            0.72
+          </option>
+          <option
+            key="operational-fee-comm-73"
+            value="0.73"
+          >
+            0.73
+          </option>
+          <option
+            key="operational-fee-comm-74"
+            value="0.74"
+          >
+            0.74
+          </option>
+          <option
+            key="operational-fee-comm-75"
+            value="0.75"
+          >
+            0.75
+          </option>
+          <option
+            key="operational-fee-comm-76"
+            value="0.76"
+          >
+            0.76
+          </option>
+          <option
+            key="operational-fee-comm-77"
+            value="0.77"
+          >
+            0.77
+          </option>
+          <option
+            key="operational-fee-comm-78"
+            value="0.78"
+          >
+            0.78
+          </option>
+          <option
+            key="operational-fee-comm-79"
+            value="0.79"
+          >
+            0.79
+          </option>
+          <option
+            key="operational-fee-comm-80"
+            value="0.80"
+          >
+            0.80
+          </option>
+          <option
+            key="operational-fee-comm-81"
+            value="0.81"
+          >
+            0.81
+          </option>
+          <option
+            key="operational-fee-comm-82"
+            value="0.82"
+          >
+            0.82
+          </option>
+          <option
+            key="operational-fee-comm-83"
+            value="0.83"
+          >
+            0.83
+          </option>
+          <option
+            key="operational-fee-comm-84"
+            value="0.84"
+          >
+            0.84
+          </option>
+          <option
+            key="operational-fee-comm-85"
+            value="0.85"
+          >
+            0.85
+          </option>
+          <option
+            key="operational-fee-comm-86"
+            value="0.86"
+          >
+            0.86
+          </option>
+          <option
+            key="operational-fee-comm-87"
+            value="0.87"
+          >
+            0.87
+          </option>
+          <option
+            key="operational-fee-comm-88"
+            value="0.88"
+          >
+            0.88
+          </option>
+          <option
+            key="operational-fee-comm-89"
+            value="0.89"
+          >
+            0.89
+          </option>
+          <option
+            key="operational-fee-comm-90"
+            value="0.90"
+          >
+            0.90
+          </option>
+          <option
+            key="operational-fee-comm-91"
+            value="0.91"
+          >
+            0.91
+          </option>
+          <option
+            key="operational-fee-comm-92"
+            value="0.92"
+          >
+            0.92
+          </option>
+          <option
+            key="operational-fee-comm-93"
+            value="0.93"
+          >
+            0.93
+          </option>
+          <option
+            key="operational-fee-comm-94"
+            value="0.94"
+          >
+            0.94
+          </option>
+          <option
+            key="operational-fee-comm-95"
+            value="0.95"
+          >
+            0.95
+          </option>
+          <option
+            key="operational-fee-comm-96"
+            value="0.96"
+          >
+            0.96
+          </option>
+          <option
+            key="operational-fee-comm-97"
+            value="0.97"
+          >
+            0.97
+          </option>
+          <option
+            key="operational-fee-comm-98"
+            value="0.98"
+          >
+            0.98
+          </option>
+          <option
+            key="operational-fee-comm-99"
+            value="0.99"
+          >
+            0.99
+          </option>
+          <option
+            key="operational-fee-comm-100"
+            value="1.00"
+          >
+            1.00
+          </option>
+        </Input>
+      </FormGroup>
+    </Form>
   </Col>
   <Col
     sm={3}
@@ -730,9 +765,7 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
             ]
           }
         >
-          Current: 
-          0.00
-           | Next month: 
+          New Revenue Share 
         </Label>
       </FormGroup>
       <FormGroup
@@ -742,7 +775,7 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
         <Input
           className="form-control"
           defaultValue="0.00"
-          name="NextDeductedPercentage"
+          name="DeductedPercentage"
           onChange={[Function]}
           style={
             Object {
@@ -752,607 +785,607 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
           type="select"
         >
           <option
-            key="platformfee-nextmonth-comm-0"
+            key="operational-fee-comm-0"
             value="0.00"
           >
             0.00
           </option>
           <option
-            key="platformfee-nextmonth-comm-1"
+            key="operational-fee-comm-1"
             value="0.01"
           >
             0.01
           </option>
           <option
-            key="platformfee-nextmonth-comm-2"
+            key="operational-fee-comm-2"
             value="0.02"
           >
             0.02
           </option>
           <option
-            key="platformfee-nextmonth-comm-3"
+            key="operational-fee-comm-3"
             value="0.03"
           >
             0.03
           </option>
           <option
-            key="platformfee-nextmonth-comm-4"
+            key="operational-fee-comm-4"
             value="0.04"
           >
             0.04
           </option>
           <option
-            key="platformfee-nextmonth-comm-5"
+            key="operational-fee-comm-5"
             value="0.05"
           >
             0.05
           </option>
           <option
-            key="platformfee-nextmonth-comm-6"
+            key="operational-fee-comm-6"
             value="0.06"
           >
             0.06
           </option>
           <option
-            key="platformfee-nextmonth-comm-7"
+            key="operational-fee-comm-7"
             value="0.07"
           >
             0.07
           </option>
           <option
-            key="platformfee-nextmonth-comm-8"
+            key="operational-fee-comm-8"
             value="0.08"
           >
             0.08
           </option>
           <option
-            key="platformfee-nextmonth-comm-9"
+            key="operational-fee-comm-9"
             value="0.09"
           >
             0.09
           </option>
           <option
-            key="platformfee-nextmonth-comm-10"
+            key="operational-fee-comm-10"
             value="0.10"
           >
             0.10
           </option>
           <option
-            key="platformfee-nextmonth-comm-11"
+            key="operational-fee-comm-11"
             value="0.11"
           >
             0.11
           </option>
           <option
-            key="platformfee-nextmonth-comm-12"
+            key="operational-fee-comm-12"
             value="0.12"
           >
             0.12
           </option>
           <option
-            key="platformfee-nextmonth-comm-13"
+            key="operational-fee-comm-13"
             value="0.13"
           >
             0.13
           </option>
           <option
-            key="platformfee-nextmonth-comm-14"
+            key="operational-fee-comm-14"
             value="0.14"
           >
             0.14
           </option>
           <option
-            key="platformfee-nextmonth-comm-15"
+            key="operational-fee-comm-15"
             value="0.15"
           >
             0.15
           </option>
           <option
-            key="platformfee-nextmonth-comm-16"
+            key="operational-fee-comm-16"
             value="0.16"
           >
             0.16
           </option>
           <option
-            key="platformfee-nextmonth-comm-17"
+            key="operational-fee-comm-17"
             value="0.17"
           >
             0.17
           </option>
           <option
-            key="platformfee-nextmonth-comm-18"
+            key="operational-fee-comm-18"
             value="0.18"
           >
             0.18
           </option>
           <option
-            key="platformfee-nextmonth-comm-19"
+            key="operational-fee-comm-19"
             value="0.19"
           >
             0.19
           </option>
           <option
-            key="platformfee-nextmonth-comm-20"
+            key="operational-fee-comm-20"
             value="0.20"
           >
             0.20
           </option>
           <option
-            key="platformfee-nextmonth-comm-21"
+            key="operational-fee-comm-21"
             value="0.21"
           >
             0.21
           </option>
           <option
-            key="platformfee-nextmonth-comm-22"
+            key="operational-fee-comm-22"
             value="0.22"
           >
             0.22
           </option>
           <option
-            key="platformfee-nextmonth-comm-23"
+            key="operational-fee-comm-23"
             value="0.23"
           >
             0.23
           </option>
           <option
-            key="platformfee-nextmonth-comm-24"
+            key="operational-fee-comm-24"
             value="0.24"
           >
             0.24
           </option>
           <option
-            key="platformfee-nextmonth-comm-25"
+            key="operational-fee-comm-25"
             value="0.25"
           >
             0.25
           </option>
           <option
-            key="platformfee-nextmonth-comm-26"
+            key="operational-fee-comm-26"
             value="0.26"
           >
             0.26
           </option>
           <option
-            key="platformfee-nextmonth-comm-27"
+            key="operational-fee-comm-27"
             value="0.27"
           >
             0.27
           </option>
           <option
-            key="platformfee-nextmonth-comm-28"
+            key="operational-fee-comm-28"
             value="0.28"
           >
             0.28
           </option>
           <option
-            key="platformfee-nextmonth-comm-29"
+            key="operational-fee-comm-29"
             value="0.29"
           >
             0.29
           </option>
           <option
-            key="platformfee-nextmonth-comm-30"
+            key="operational-fee-comm-30"
             value="0.30"
           >
             0.30
           </option>
           <option
-            key="platformfee-nextmonth-comm-31"
+            key="operational-fee-comm-31"
             value="0.31"
           >
             0.31
           </option>
           <option
-            key="platformfee-nextmonth-comm-32"
+            key="operational-fee-comm-32"
             value="0.32"
           >
             0.32
           </option>
           <option
-            key="platformfee-nextmonth-comm-33"
+            key="operational-fee-comm-33"
             value="0.33"
           >
             0.33
           </option>
           <option
-            key="platformfee-nextmonth-comm-34"
+            key="operational-fee-comm-34"
             value="0.34"
           >
             0.34
           </option>
           <option
-            key="platformfee-nextmonth-comm-35"
+            key="operational-fee-comm-35"
             value="0.35"
           >
             0.35
           </option>
           <option
-            key="platformfee-nextmonth-comm-36"
+            key="operational-fee-comm-36"
             value="0.36"
           >
             0.36
           </option>
           <option
-            key="platformfee-nextmonth-comm-37"
+            key="operational-fee-comm-37"
             value="0.37"
           >
             0.37
           </option>
           <option
-            key="platformfee-nextmonth-comm-38"
+            key="operational-fee-comm-38"
             value="0.38"
           >
             0.38
           </option>
           <option
-            key="platformfee-nextmonth-comm-39"
+            key="operational-fee-comm-39"
             value="0.39"
           >
             0.39
           </option>
           <option
-            key="platformfee-nextmonth-comm-40"
+            key="operational-fee-comm-40"
             value="0.40"
           >
             0.40
           </option>
           <option
-            key="platformfee-nextmonth-comm-41"
+            key="operational-fee-comm-41"
             value="0.41"
           >
             0.41
           </option>
           <option
-            key="platformfee-nextmonth-comm-42"
+            key="operational-fee-comm-42"
             value="0.42"
           >
             0.42
           </option>
           <option
-            key="platformfee-nextmonth-comm-43"
+            key="operational-fee-comm-43"
             value="0.43"
           >
             0.43
           </option>
           <option
-            key="platformfee-nextmonth-comm-44"
+            key="operational-fee-comm-44"
             value="0.44"
           >
             0.44
           </option>
           <option
-            key="platformfee-nextmonth-comm-45"
+            key="operational-fee-comm-45"
             value="0.45"
           >
             0.45
           </option>
           <option
-            key="platformfee-nextmonth-comm-46"
+            key="operational-fee-comm-46"
             value="0.46"
           >
             0.46
           </option>
           <option
-            key="platformfee-nextmonth-comm-47"
+            key="operational-fee-comm-47"
             value="0.47"
           >
             0.47
           </option>
           <option
-            key="platformfee-nextmonth-comm-48"
+            key="operational-fee-comm-48"
             value="0.48"
           >
             0.48
           </option>
           <option
-            key="platformfee-nextmonth-comm-49"
+            key="operational-fee-comm-49"
             value="0.49"
           >
             0.49
           </option>
           <option
-            key="platformfee-nextmonth-comm-50"
+            key="operational-fee-comm-50"
             value="0.50"
           >
             0.50
           </option>
           <option
-            key="platformfee-nextmonth-comm-51"
+            key="operational-fee-comm-51"
             value="0.51"
           >
             0.51
           </option>
           <option
-            key="platformfee-nextmonth-comm-52"
+            key="operational-fee-comm-52"
             value="0.52"
           >
             0.52
           </option>
           <option
-            key="platformfee-nextmonth-comm-53"
+            key="operational-fee-comm-53"
             value="0.53"
           >
             0.53
           </option>
           <option
-            key="platformfee-nextmonth-comm-54"
+            key="operational-fee-comm-54"
             value="0.54"
           >
             0.54
           </option>
           <option
-            key="platformfee-nextmonth-comm-55"
+            key="operational-fee-comm-55"
             value="0.55"
           >
             0.55
           </option>
           <option
-            key="platformfee-nextmonth-comm-56"
+            key="operational-fee-comm-56"
             value="0.56"
           >
             0.56
           </option>
           <option
-            key="platformfee-nextmonth-comm-57"
+            key="operational-fee-comm-57"
             value="0.57"
           >
             0.57
           </option>
           <option
-            key="platformfee-nextmonth-comm-58"
+            key="operational-fee-comm-58"
             value="0.58"
           >
             0.58
           </option>
           <option
-            key="platformfee-nextmonth-comm-59"
+            key="operational-fee-comm-59"
             value="0.59"
           >
             0.59
           </option>
           <option
-            key="platformfee-nextmonth-comm-60"
+            key="operational-fee-comm-60"
             value="0.60"
           >
             0.60
           </option>
           <option
-            key="platformfee-nextmonth-comm-61"
+            key="operational-fee-comm-61"
             value="0.61"
           >
             0.61
           </option>
           <option
-            key="platformfee-nextmonth-comm-62"
+            key="operational-fee-comm-62"
             value="0.62"
           >
             0.62
           </option>
           <option
-            key="platformfee-nextmonth-comm-63"
+            key="operational-fee-comm-63"
             value="0.63"
           >
             0.63
           </option>
           <option
-            key="platformfee-nextmonth-comm-64"
+            key="operational-fee-comm-64"
             value="0.64"
           >
             0.64
           </option>
           <option
-            key="platformfee-nextmonth-comm-65"
+            key="operational-fee-comm-65"
             value="0.65"
           >
             0.65
           </option>
           <option
-            key="platformfee-nextmonth-comm-66"
+            key="operational-fee-comm-66"
             value="0.66"
           >
             0.66
           </option>
           <option
-            key="platformfee-nextmonth-comm-67"
+            key="operational-fee-comm-67"
             value="0.67"
           >
             0.67
           </option>
           <option
-            key="platformfee-nextmonth-comm-68"
+            key="operational-fee-comm-68"
             value="0.68"
           >
             0.68
           </option>
           <option
-            key="platformfee-nextmonth-comm-69"
+            key="operational-fee-comm-69"
             value="0.69"
           >
             0.69
           </option>
           <option
-            key="platformfee-nextmonth-comm-70"
+            key="operational-fee-comm-70"
             value="0.70"
           >
             0.70
           </option>
           <option
-            key="platformfee-nextmonth-comm-71"
+            key="operational-fee-comm-71"
             value="0.71"
           >
             0.71
           </option>
           <option
-            key="platformfee-nextmonth-comm-72"
+            key="operational-fee-comm-72"
             value="0.72"
           >
             0.72
           </option>
           <option
-            key="platformfee-nextmonth-comm-73"
+            key="operational-fee-comm-73"
             value="0.73"
           >
             0.73
           </option>
           <option
-            key="platformfee-nextmonth-comm-74"
+            key="operational-fee-comm-74"
             value="0.74"
           >
             0.74
           </option>
           <option
-            key="platformfee-nextmonth-comm-75"
+            key="operational-fee-comm-75"
             value="0.75"
           >
             0.75
           </option>
           <option
-            key="platformfee-nextmonth-comm-76"
+            key="operational-fee-comm-76"
             value="0.76"
           >
             0.76
           </option>
           <option
-            key="platformfee-nextmonth-comm-77"
+            key="operational-fee-comm-77"
             value="0.77"
           >
             0.77
           </option>
           <option
-            key="platformfee-nextmonth-comm-78"
+            key="operational-fee-comm-78"
             value="0.78"
           >
             0.78
           </option>
           <option
-            key="platformfee-nextmonth-comm-79"
+            key="operational-fee-comm-79"
             value="0.79"
           >
             0.79
           </option>
           <option
-            key="platformfee-nextmonth-comm-80"
+            key="operational-fee-comm-80"
             value="0.80"
           >
             0.80
           </option>
           <option
-            key="platformfee-nextmonth-comm-81"
+            key="operational-fee-comm-81"
             value="0.81"
           >
             0.81
           </option>
           <option
-            key="platformfee-nextmonth-comm-82"
+            key="operational-fee-comm-82"
             value="0.82"
           >
             0.82
           </option>
           <option
-            key="platformfee-nextmonth-comm-83"
+            key="operational-fee-comm-83"
             value="0.83"
           >
             0.83
           </option>
           <option
-            key="platformfee-nextmonth-comm-84"
+            key="operational-fee-comm-84"
             value="0.84"
           >
             0.84
           </option>
           <option
-            key="platformfee-nextmonth-comm-85"
+            key="operational-fee-comm-85"
             value="0.85"
           >
             0.85
           </option>
           <option
-            key="platformfee-nextmonth-comm-86"
+            key="operational-fee-comm-86"
             value="0.86"
           >
             0.86
           </option>
           <option
-            key="platformfee-nextmonth-comm-87"
+            key="operational-fee-comm-87"
             value="0.87"
           >
             0.87
           </option>
           <option
-            key="platformfee-nextmonth-comm-88"
+            key="operational-fee-comm-88"
             value="0.88"
           >
             0.88
           </option>
           <option
-            key="platformfee-nextmonth-comm-89"
+            key="operational-fee-comm-89"
             value="0.89"
           >
             0.89
           </option>
           <option
-            key="platformfee-nextmonth-comm-90"
+            key="operational-fee-comm-90"
             value="0.90"
           >
             0.90
           </option>
           <option
-            key="platformfee-nextmonth-comm-91"
+            key="operational-fee-comm-91"
             value="0.91"
           >
             0.91
           </option>
           <option
-            key="platformfee-nextmonth-comm-92"
+            key="operational-fee-comm-92"
             value="0.92"
           >
             0.92
           </option>
           <option
-            key="platformfee-nextmonth-comm-93"
+            key="operational-fee-comm-93"
             value="0.93"
           >
             0.93
           </option>
           <option
-            key="platformfee-nextmonth-comm-94"
+            key="operational-fee-comm-94"
             value="0.94"
           >
             0.94
           </option>
           <option
-            key="platformfee-nextmonth-comm-95"
+            key="operational-fee-comm-95"
             value="0.95"
           >
             0.95
           </option>
           <option
-            key="platformfee-nextmonth-comm-96"
+            key="operational-fee-comm-96"
             value="0.96"
           >
             0.96
           </option>
           <option
-            key="platformfee-nextmonth-comm-97"
+            key="operational-fee-comm-97"
             value="0.97"
           >
             0.97
           </option>
           <option
-            key="platformfee-nextmonth-comm-98"
+            key="operational-fee-comm-98"
             value="0.98"
           >
             0.98
           </option>
           <option
-            key="platformfee-nextmonth-comm-99"
+            key="operational-fee-comm-99"
             value="0.99"
           >
             0.99
           </option>
           <option
-            key="platformfee-nextmonth-comm-100"
+            key="operational-fee-comm-100"
             value="1.00"
           >
             1.00

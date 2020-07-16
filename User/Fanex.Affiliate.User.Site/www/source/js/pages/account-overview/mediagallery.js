@@ -74,9 +74,7 @@
             });
 
             $("#dataContainerList").on("change", "#DeviceType", function () {
-                _pageIndex = 0;
-                var params = _me.getSearchParam();
-                _me.getBannerList(params, _me.updatePager);
+                _me.submitSearch();
             });
 
             $("#btnGenerateLink").on("click", function () {
@@ -126,7 +124,8 @@
                 language: $("#Language").val(),
                 currency: $("#Currency").val(),
                 imageType: $("#ImageType").val(),
-                deviceType: $("#DeviceType").val()
+                deviceType: $("#DeviceType").val(),
+                targetId: $("#TargetId").val()
             };
 
             $.ajax({
@@ -171,10 +170,10 @@
                 deviceType: $("#DeviceType").val(),
                 selectedDomainId: $("#Domain").val(),
                 selectedPage: $("#MemberSitePage").val(),
+                targetId: $("#TargetId").val(),
                 pageIndex: _pageIndex + 1,
-                pageSize: _pageSize,
-                screenWidth: screen.availWidth
-            }
+                pageSize: _pageSize
+            };
         },
 
         getBannerList: function (params, onSuccess) {

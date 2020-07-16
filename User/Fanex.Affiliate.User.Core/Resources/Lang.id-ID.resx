@@ -273,9 +273,6 @@
   <data name="Bermuda" xml:space="preserve">
     <value>Bermuda </value>
   </data>
-  <data name="Bet12Username" xml:space="preserve">
-    <value>12BET Nama Pengguna</value>
-  </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
     <value>Nama Pengguna 12BET diperlukan</value>
   </data>
@@ -421,7 +418,7 @@
     <value>Komentar tidak valid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
-    <value>Persentase Komisi</value>
+    <value>Persentase</value>
   </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
@@ -451,7 +448,7 @@
     <value>Kep. Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright © 2008 - 2019 | 12BET. All Rights Reserved | 21+</value>
+    <value>© hak cipta 2020 | 12BET. Seluruh hak dilindungi | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Kosta Rika </value>
@@ -544,7 +541,7 @@
     <value>Alamat e-mail</value>
   </data>
   <data name="Email1" xml:space="preserve">
-    <value>Alamat Email</value>
+    <value>E-mail</value>
   </data>
   <data name="Emailaddressest" xml:space="preserve">
     <value>Alamat Email yang Anda masukkan tidak cocok.</value>
@@ -578,9 +575,6 @@
   </data>
   <data name="Err1002" xml:space="preserve">
     <value>Alamat email yang Anda ketik sudah digunakan untuk mendaftarkan rekening. Silakan pilih yang berbeda!</value>
-  </data>
-  <data name="Err1003" xml:space="preserve">
-    <value>Nama Pengguna 12BET tidak valid</value>
   </data>
   <data name="Err1004" xml:space="preserve">
     <value>Informasi pengguna tidak valid. Proses pembaruan tidak berhasil</value>
@@ -708,9 +702,6 @@
   <data name="ErrMsgForgetPwFail" xml:space="preserve">
     <value>Informasi untuk menyetel ulang kata sandi tidak valid, silakan &lt;a href='ForgetPass.aspx'&gt;coba lagi&lt;/a&gt;. Kalau Anda masih belum dapat menyetel ulang kata sandi, silakan &lt;a href='ContactUs.aspx'&gt;hubungi kami&lt;/a&gt;</value>
   </data>
-  <data name="ErrPaymentMethod" xml:space="preserve">
-    <value>Maaf! Pembayaran melalui {method} tidak tersedia. Pada saat ini, hanya metode 'Rekening Pemain 12Bet' yang didukung. Silakan &lt;a href='MyAccount.aspx?ispay=1#payment'&gt;klik di sini&lt;/a&gt; untuk membuat perubahan.</value>
-  </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Pertanyaan Keamanan kosong. Silakan diperiksa!</value>
   </data>
@@ -730,7 +721,7 @@
     <value>EUR (Euro)</value>
   </data>
   <data name="Faqs" xml:space="preserve">
-    <value>FAQ</value>
+    <value>Tanya Jawab</value>
   </data>
   <data name="FDM" xml:space="preserve">
     <value>Member yang Deposit Pertama Kali</value>
@@ -766,7 +757,7 @@
     <value>Bila Anda tidak menerima email untuk alasan apa pun, silakan &lt;a href='{0}'&gt;hubungi kami&lt;/a&gt; dan kami dengan senang hati akan membantu Anda.  </value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Lupa Password Anda?</value>
+    <value>Lupa password</value>
   </data>
   <data name="France" xml:space="preserve">
     <value>Prancis</value>
@@ -820,7 +811,7 @@
     <value>Haiti </value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>Beranda</value>
+    <value>Tampilan Depan</value>
   </data>
   <data name="Honduras" xml:space="preserve">
     <value>Honduras </value>
@@ -829,7 +820,7 @@
     <value>Hong Kong </value>
   </data>
   <data name="HotNews" xml:space="preserve">
-    <value>BERITA HANGAT</value>
+    <value>Berita hangat</value>
   </data>
   <data name="HtmlFormat" xml:space="preserve">
     <value>Format Html</value>
@@ -955,7 +946,7 @@
     <value>Nama Belakang </value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>MASUK</value>
+    <value>masuk</value>
   </data>
   <data name="Logout" xml:space="preserve">
     <value>Keluar</value>
@@ -1072,7 +1063,7 @@
     <value>MYR (Ringgit Malaysia)</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Nama</value>
+    <value>nama</value>
   </data>
   <data name="NameIsInvalid" xml:space="preserve">
     <value>Nama tidak valid</value>
@@ -1093,7 +1084,7 @@
     <value>Belanda </value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>Pendapatan Bersih Dalam Sebulan (Company Net Win For The Month) dalam USD</value>
+    <value>Kemenangan bersih Perusahaan ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>Kaledonia Baru </value>
@@ -1318,7 +1309,7 @@
     <value>Afiliasi 12Bet - Permohonan Anda</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet</value>
+    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 3 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
@@ -1399,7 +1390,7 @@
     <value>Seychelles </value>
   </data>
   <data name="Sicbo" xml:space="preserve">
-    <value>Sic bo</value>
+    <value>Sic Bo</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
@@ -1471,7 +1462,7 @@
     <value>Status</value>
   </data>
   <data name="Subject" xml:space="preserve">
-    <value>Subjek</value>
+    <value>Subject</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
     <value>Afiliasi 12Bet - Rincian login Anda</value>
@@ -1483,7 +1474,7 @@
     <value>Afiliasi 12Bet - Kata sandi baru Anda</value>
   </data>
   <data name="Submit" xml:space="preserve">
-    <value>Cek</value>
+    <value>Ajukan</value>
   </data>
   <data name="Sudan" xml:space="preserve">
     <value>Sudan </value>
@@ -1534,11 +1525,10 @@
     <value>Ini adalah email yang dibuat otomatis oleh sistem, jangan membalas email ini secara langsung.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Level</value>
+    <value>Tingkat</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
-    <value>Kata sandi baru akan dikirim ke alamat email yang sudah Anda berikan.
-               &lt;br /&gt;Jika Anda mengalami kesulitan lebih jauh, silakan &lt;a href="{0}"&gt;Hubungi kami&lt;/a&gt;.</value>
+    <value>Password baru akan di kirim ke email yang anda daftarkan. &lt;br /&gt;Jika mengalami kendala selama di sini, &lt;a href="{0}"&gt;silahkan hubungi kami&lt;/a&gt;.</value>
   </data>
   <data name="TitleLogin" xml:space="preserve">
     <value>Login Afiliasi</value>
@@ -1550,7 +1540,7 @@
     <value>Togo </value>
   </data>
   <data name="Total" xml:space="preserve">
-    <value>Total</value>
+    <value>รวม</value>
   </data>
   <data name="TotalActive" xml:space="preserve">
     <value>Total member yang aktif</value>
@@ -1631,10 +1621,10 @@
     <value>USD (Dollar Amerika Serikat)</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Username</value>
+    <value>Nama pengguna</value>
   </data>
   <data name="Validation" xml:space="preserve">
-    <value>Validasi</value>
+    <value>validasi</value>
   </data>
   <data name="ValidationCode" xml:space="preserve">
     <value>Anda memasukkan kode captcha yang salah</value>
@@ -1673,7 +1663,7 @@
     <value>Yaman </value>
   </data>
   <data name="YourEmail" xml:space="preserve">
-    <value>Email Anda:</value>
+    <value>Email Anda</value>
   </data>
   <data name="Yourlogindetail" xml:space="preserve">
     <value>Rincian login Anda sudah dikirim.</value>
@@ -1686,9 +1676,6 @@
   </data>
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
-  </data>
-  <data name="_12BET" xml:space="preserve">
-    <value>12BET</value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
     <value>Melalui Akun 12BET</value>
@@ -1706,13 +1693,13 @@
     <value>Permohonan Anda</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET CASINO CLUBS</value>
+    <value>12BET Kasino Klub</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Live Casino</value>
+    <value>Kasino Siaran Langsung / Live casino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>Dragon/Tiger</value>
+    <value>Naga/Harimau</value>
   </data>
   <data name="CasinoHold" xml:space="preserve">
     <value>Casino Hold'em</value>
@@ -1721,52 +1708,19 @@
     <value>Multiplayer</value>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Scratch/Arcade Games</value>
+    <value>Permainan Scratch</value>
   </data>
   <data name="VideoPokerGames" xml:space="preserve">
     <value>Video Poker Games</value>
   </data>
-  <data name="Product12EMERALD" xml:space="preserve">
-    <value>12EMERALD (PLAYTECH)</value>
-  </data>
-  <data name="Product12RUBY" xml:space="preserve">
-    <value>12RUBY (12BET)</value>
-  </data>
-  <data name="Product12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND (OPUS)</value>
-  </data>
-  <data name="Product12PEARL" xml:space="preserve">
-    <value>12PEARL (ASIA GAMING)</value>
-  </data>
-  <data name="Product12TOPAZ" xml:space="preserve">
-    <value>12TOPAZ (MICRO GAMING, NETENT, FLOW GAMING)</value>
-  </data>
-  <data name="Product12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL (GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="Product12OPAL" xml:space="preserve">
-    <value>12OPAL (EBET)</value>
-  </data>
-  <data name="Product12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST (GOLD DELUXE)</value>
-  </data>
-  <data name="Product12ONYX" xml:space="preserve">
-    <value>12ONYX (ALLBET)</value>
-  </data>
-  <data name="Product12QUARZT" xml:space="preserve">
-    <value>12QUARZT (ISOFTBET, PRAGMATIC PLAY)</value>
-  </data>
-  <data name="Product12AMBER" xml:space="preserve">
-    <value>12AMBER (BETSOFT)</value>
-  </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>Pembagian Hasil</value>
+    <value>Bagi Hasil</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
-    <value>Semua Produk/Permainan</value>
+    <value>Semua produk</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Info Lengkap Mengenai Produk 12BET</value>
+    <value>Lebih lengkap tentang Produk 12BET</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Senin - Sabtu&lt;br&gt;8:00 - 17:00 WIB</value>
@@ -1787,19 +1741,19 @@
     <value>Bantuan Dalam Bahasa India</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
-    <value>Silakan kirimkan komentar atau pertanyaan Anda ke alamat email {0} atau dengan mengisi form di bawah ini.</value>
+    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
-    <value>Validasi</value>
+    <value>Kode Validasi</value>
   </data>
   <data name="TermAndCondition" xml:space="preserve">
-    <value>SYARAT DAN KETENTUAN</value>
+    <value>syarat dan ketentuan</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
-    <value>STRUKTUR KOMISI</value>
+    <value>Struktur Pembagian Pendapatan</value>
   </data>
   <data name="Product" xml:space="preserve">
-    <value>PRODUK/PERMAINAN</value>
+    <value>Produk</value>
   </data>
   <data name="ESports" xml:space="preserve">
     <value>ESPORTS</value>
@@ -1811,49 +1765,49 @@
     <value>LOTERE</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>DAFTAR PROGRAM AFILIASI 12BET SEKARANG!</value>
+    <value>Daftarkan diri anda untuk program affilasi 12BET Sekarang juga !!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
-    <value>PENDAFTARAN AFILIASI</value>
+    <value>daftar afiliasi</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Pendaftaran Afiliasi 12BET</value>
+    <value>Ajukan Affiliasi 12BET</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>Sebagai afiliasi, Anda akan menerima komisi atas setiap pemain yang Anda datangkan ke 12BET, selama akun pemain tersebut masih aktif. Sistem online kami bisa diakses kapan saja selama 24 jam.</value>
+    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada 12BET. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
-    <value>Apa yang Baru?</value>
+    <value>Apa yang baru di affiliasi ??</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>Berita Afiliasi 12BET</value>
+    <value>Berita affiliasi 12BET</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
-    <value>BARU!</value>
+    <value>Baru!</value>
   </data>
   <data name="NewBannerIsNowAvailable" xml:space="preserve">
-    <value>Banner baru sudah tersedia!</value>
+    <value>Spanduk baru tersedia sekarang !!</value>
   </data>
   <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
-    <value>Silakan masuk ke akun afiliasi Anda untuk mendapatkan banner terbaru dan mulai mempromosikan 12BET di website Anda.</value>
+    <value>Sekarang Kamu sudah bisa login ke akun affiliasi anda untuk mendapatkan spanduk baru yang akan kalian gunakan untuk promosi di website anda.</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>Promo Terbaru 12BET!</value>
+    <value>Apa yang baru di Promosi 12BET ??</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
-    <value>Dapatkan informasi promo terbaru bulan ini! Silakan post tentang promo 12BET di websute Anda dan mulai dapatkan keuntungan bulanan!</value>
+    <value>Cari tau Promosi terhangat di bulan ini !! Posting spanduk di website anda dan sosial media anda untuk mendapatkan customer baru dan perbesar pendapatan anda.</value>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
-    <value>Gandakan Keuntungan!</value>
+    <value>TIDAK CUKUP !!</value>
   </data>
   <data name="YourCurrentCommision" xml:space="preserve">
-    <value>KOMISI ANDA SAAT INI!</value>
+    <value>Pendapatan penghasilan bagi hasil anda saat ini ??</value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
-    <value>Hubungi tim dukungan Afiliasi Anda untuk mendapatkan persentase komisi lebih dan dapatkan penghasilanan bulanan yang lebih besar.</value>
+    <value>Hubungi bantuan tim affiliasi anda untuk mendapatkan komisi eksklusif yang lebih besar setiap bulan nya.</value>
   </data>
   <data name="ContactNow" xml:space="preserve">
-    <value>HUBUNGI SEKARANG!</value>
+    <value>HUBUNGI SEKARANG !</value>
   </data>
   <data name="OptimizeYourWebsite" xml:space="preserve">
     <value>OPTIMALKAN PENDAPATAN WEBSITE</value>
@@ -2006,7 +1960,7 @@
     <value>Belum Menjadi Member Afiliasi?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Daftar Afiliasi dan hasilkan komisi hingga 40%!</value>
+    <value>Daftar Afiliasi dan hasilkan komisi hingga 45%!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>DAFTAR SEKARANG!</value>
@@ -2056,29 +2010,23 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>E-mail</value>
   </data>
-  <data name="_12Sports" xml:space="preserve">
-    <value>12SPORTS</value>
-  </data>
   <data name="BTiSports" xml:space="preserve">
     <value>BTi SPORTS</value>
-  </data>
-  <data name="_12ESports" xml:space="preserve">
-    <value>12ESPORTS</value>
   </data>
   <data name="ImESports" xml:space="preserve">
     <value>IM ESPORTS (ESPORTS BULL)</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
-    <value>Casino Game</value>
+    <value>Permainan Kasino</value>
   </data>
   <data name="SlotGames" xml:space="preserve">
-    <value>Slot Games</value>
+    <value>Permainan Slot</value>
   </data>
   <data name="ProgressiveGames" xml:space="preserve">
-    <value>Progressive Games</value>
+    <value>Permainan Progresif</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>Table/Card Games</value>
+    <value>Permainan Meja / Kartu</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>YTH Member 12BET,</value>
@@ -2128,52 +2076,46 @@
   <data name="GpiLottery" xml:space="preserve">
     <value>GPI LOTTERY</value>
   </data>
-  <data name="PrefixProduct12DIAMOND" xml:space="preserve">
-    <value>12DIAMOND</value>
+  <data name="EarnUpTo" xml:space="preserve">
+    <value>Penghasilan hingga &lt;br/&gt; 45% dari sistem bagi hasil.</value>
   </data>
-  <data name="PrefixProduct12EMERALD" xml:space="preserve">
-    <value>12EMERALD</value>
+  <data name="JoinIn" xml:space="preserve">
+    <value>Bergabunglah bersama affiliate terbaik.</value>
   </data>
-  <data name="PrefixProduct12PEARL" xml:space="preserve">
-    <value>12PEARL</value>
+  <data name="ProductAllbet" xml:space="preserve">
+    <value>ALLBET</value>
   </data>
-  <data name="PrefixProduct12OPAL" xml:space="preserve">
-    <value>12OPAL</value>
+  <data name="ProductNumberGame" xml:space="preserve">
+    <value>Number Game</value>
   </data>
-  <data name="PrefixProduct12AMETHYST" xml:space="preserve">
-    <value>12AMETHYST</value>
+  <data name="ProductPragmaticPlay" xml:space="preserve">
+    <value>PRAGMATIC PLAY</value>
   </data>
-  <data name="PrefixProduct12ONYX" xml:space="preserve">
-    <value>12ONYX</value>
+  <data name="ProductRNGCasino" xml:space="preserve">
+    <value>RNG CASINO</value>
   </data>
-  <data name="PrefixProduct12CRYSTAL" xml:space="preserve">
-    <value>12CRYSTAL</value>
+  <data name="ProductRngKeno" xml:space="preserve">
+    <value>RNG KENO</value>
   </data>
-  <data name="PrefixProduct12AMBER" xml:space="preserve">
-    <value>12AMBER</value>
+  <data name="ProductSportsBook" xml:space="preserve">
+    <value>SportsBook</value>
   </data>
-  <data name="SuffixProduct12DIAMOND" xml:space="preserve">
-    <value>(OPUS GAMING)</value>
+  <data name="ProductVirtualSports" xml:space="preserve">
+    <value>Virtual Sports</value>
   </data>
-  <data name="SuffixProduct12EMERALD" xml:space="preserve">
-    <value>(Playtech)</value>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>Pemain aktif yang direferensikan</value>
   </data>
-  <data name="SuffixProduct12PEARL" xml:space="preserve">
-    <value>(ASIA GAMING)</value>
+  <data name="_Empty[1]" xml:space="preserve">
+    <value>Kemenangan bersih Perusahaan ({0})</value>
   </data>
-  <data name="SuffixProduct12OPAL" xml:space="preserve">
-    <value>(EBET)</value>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>Pembagian Penghasilan Anda</value>
   </data>
-  <data name="SuffixProduct12AMETHYST" xml:space="preserve">
-    <value>(GOLD DELUXE)</value>
+  <data name="RegisterNow" xml:space="preserve">
+    <value>Gabung Sekarang</value>
   </data>
-  <data name="SuffixProduct12ONYX" xml:space="preserve">
-    <value>(ALLBET)</value>
-  </data>
-  <data name="SuffixProduct12CRYSTAL" xml:space="preserve">
-    <value>(GAME PLAY INTERACTIVE)</value>
-  </data>
-  <data name="SuffixProduct12AMBER" xml:space="preserve">
-    <value>(BETSOFT)</value>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>Pemain aktif</value>
   </data>
 </root>

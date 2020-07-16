@@ -25,8 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
 {
     public class CommGroupAssignmentControllerTest
     {
-        private IDependencyResolver _originalResolver = null;
-        private ILifetimeScopeProvider _scopeProvider = null;
+        private ILifetimeScopeProvider scopeProvider;
 
         [Fact]
         public void AssignGroup_WhenCallWithInvalidAffId_ReturnViewWithEmptyModel()
@@ -123,9 +122,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var assignParam = new AssignGroupParam { AffId = 1271808, GroupId = 133 };
@@ -150,7 +148,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
 
             // Action
             var viewResult = controller.AssignPrivateGroup(0) as ViewResult;
-            var model = viewResult.Model as AssignPrivateGroupViewModel;
 
             // Assert
             Assert.Equal("~/Areas/Portal/Views/Affiliate/AssignPrivateGroup.cshtml", viewResult.ViewName);
@@ -209,7 +206,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Theory]
-        [MemberData("TestData", MemberType = typeof(TestCase))]
+        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
         public void AssignPrivateGroup_WhenCallWithInvalidPlatformFee_ExcuteIncorrect(List<DeductionSetting> platformFeeList)
         {
             // Arrange
@@ -246,9 +243,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this._scopeProvider = new SimpleLifetimeScopeProvider(container);
-            var resolver = new AutofacDependencyResolver(container, _scopeProvider);
-            this._originalResolver = DependencyResolver.Current;
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
             var commGroup = CreateCommissionGroupSetting();
@@ -314,8 +310,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             {
                 BankingFee = new DeductionSetting { DeductionId = 12, ProductIds = "0", DeductedPercentage = 0.02m },
                 Description = "Test",
-                ExchangeCommissionShare = new DeductionSetting { DeductionId = 14, ProductIds = "19", DeductedPercentage = 0.1m },
-                ExchangeWinLossShare = new DeductionSetting { DeductionId = 13, ProductIds = "19", DeductedPercentage = 0.05m },
                 GroupId = 0,
                 GroupName = "Test",
                 OperationalFee = new DeductionSetting { DeductionId = 11, ProductIds = "0", DeductedPercentage = 0.07m },
@@ -323,7 +317,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
                 {
                     new DeductionSetting { DeductionId = 10, ProductIds = "1,3,4", DeductedPercentage = 0.17m }
                 },
-                QmTurnover = 100,
                 TierSettingList = new List<TierSetting>
                 {
                     new TierSetting { Commission = 0.05m, MaxAmount = 100, MaxQm = 100, MinAmount = 0, MinQm = 0, TierId = 1 },

@@ -27,7 +27,7 @@ describe('left panel - components - panel - CommissionPanel', () => {
         NoSiteDescription: "",
         Phone: "abc",
         PreferredLanguage: "vi-VN",
-        SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+        SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
         Status: "Approved"
     };
 
@@ -68,15 +68,6 @@ describe('left panel - components - panel - CommissionPanel', () => {
         const result = shallow(<CommissionPanel {...props} />);
 
         expect(result).toMatchSnapshot();
-    });
-
-    it('componentDidUpdate - should call setState', () => {
-        const wrapper = shallow(<CommissionPanel {...defaultProps} />);
-        wrapper.setState = jest.fn();
-
-        wrapper.instance().componentDidUpdate();
-
-        expect(wrapper.setState).toHaveBeenCalledWith({ isPrivateGroup: false });
     });
 
     it('toggleEditingCommissionPopup - should call setState when CommGroupName button', () => {

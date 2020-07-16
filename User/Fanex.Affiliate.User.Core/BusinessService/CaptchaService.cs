@@ -142,13 +142,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             return isAllowAutomationCaptchaCode &&
                 !string.IsNullOrWhiteSpace(secretCaptcha) &&
-                inputCaptcha == secretCaptcha &&
-                IsValidHostAddress(userHostAddress);
-        }
-
-        private bool IsValidHostAddress(string userHostAddress)
-        {
-            return _appSetting.IsLocal || Regex.IsMatch(userHostAddress, _appSetting.GetValue("CompanyIP"));
+                inputCaptcha == secretCaptcha;
         }
 
         private static Color CreateRandomColor(Random random, int min, int max)

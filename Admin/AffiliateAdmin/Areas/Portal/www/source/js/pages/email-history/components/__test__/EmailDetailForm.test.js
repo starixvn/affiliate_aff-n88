@@ -34,17 +34,17 @@ describe('email history - components - EmailDetailForm ', () => {
 
     it('render correctly with have dataItem', () => {
         const result = shallow(<EmailDetailForm {...defaultProps} />);
-    
+
         result.setState({ dataItem });
-    
+
         expect(result).toMatchSnapshot();
     });
 
     it('render correctly with have dataItem and isSuccess is false', () => {
         const result = shallow(<EmailDetailForm {...defaultProps} />);
-    
+
         result.setState({ dataItem, isSuccess: false });
-    
+
         expect(result).toMatchSnapshot();
     });
 
@@ -64,7 +64,7 @@ describe('email history - components - EmailDetailForm ', () => {
         window.confirm = jest.fn(() => false);
 
         wrapper.find('Button').at(0).simulate('click');
-    
+
         expect(props.toggleLoader).not.toHaveBeenCalled();
     });
 
@@ -76,7 +76,7 @@ describe('email history - components - EmailDetailForm ', () => {
         wrapper.setState = jest.fn();
 
         await wrapper.instance().handleGetEmailHistoryDetail(2205);
-    
+
         expect(props.toggleLoader.mock.calls[0][0]).toBe(true);
         expect(props.getEmailHistoryDetail).toHaveBeenCalledWith(2205);
         expect(wrapper.setState).toHaveBeenCalledWith({ dataItem });
@@ -102,7 +102,7 @@ describe('email history - components - EmailDetailForm ', () => {
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
 
         await wrapper.instance()._deleteEmail(2205);
-    
+
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBe(true);
         expect(props.deleteEmailHistory).toHaveBeenCalledWith({ EmailIdList: 2205 });
@@ -120,7 +120,7 @@ describe('email history - components - EmailDetailForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance()._deleteEmail(2205);
-    
+
         expect(props.toggleLoader.mock.calls[0][0]).toBe(true);
         expect(props.deleteEmailHistory).toHaveBeenCalledWith({ EmailIdList: 2205 });
         expect(wrapper.setState).toHaveBeenCalledTimes(2);
@@ -148,7 +148,7 @@ describe('email history - components - EmailDetailForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance()._deleteEmail(2205);
-    
+
         expect(props.toggleLoader.mock.calls[0][0]).toBe(true);
         expect(props.deleteEmailHistory).toHaveBeenCalledWith({ EmailIdList: 2205 });
         expect(wrapper.setState).toHaveBeenCalledTimes(2);
@@ -174,7 +174,7 @@ describe('email history - components - EmailDetailForm ', () => {
         result.setState({ dataItem });
 
         await result.find('Button').at(1).simulate('click');
-    
+
         expect(props.setSelectedEmailId).toHaveBeenCalledWith(null);
     });
 

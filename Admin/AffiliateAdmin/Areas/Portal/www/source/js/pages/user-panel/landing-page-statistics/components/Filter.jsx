@@ -5,25 +5,20 @@ import { DatePicker } from '@9softstudio/react-datepicker';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { getDateRange } from '../../../../modules/utils';
-import { headerTitle, deviceTypes, globalResource } from '../modules/constants';
+import { headerTitle, deviceTypes, globalResource, minDate } from '../modules/constants';
 import { setSelectedPage, setParam, setShortCodeLanguageList, getPageList } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
 const shortCodeLanguageList = {};
 const shortCodeList = {
-    'en-GB': 'eneuro',
     'en-US': 'en',
-    'es-ES': 'es',
-    'hi-IN': 'hien',
     'id-ID': 'id',
-    'ja-JP': 'jp',
     'ko-KR': 'ko',
     'th-TH': 'th',
     'vi-VN': 'vn',
     'zh-CN': 'cs',
     'zh-TW': 'ch',
 };
-const minDate = new Date(2009, 11, 1);
 
 export class Filter extends React.Component {
     constructor(props) {

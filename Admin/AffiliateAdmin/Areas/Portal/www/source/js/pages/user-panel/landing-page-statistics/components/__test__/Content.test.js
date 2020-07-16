@@ -79,7 +79,7 @@ describe('landing page statistics - components - Content', () => {
 
     it('render correctly with have data', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData });
 
         expect(result).toMatchSnapshot();
@@ -87,7 +87,7 @@ describe('landing page statistics - components - Content', () => {
 
     it('render correctly with have data is empty', () => {
         const result = shallow(<Content {...defaultProps} />);
-        
+
         result.instance().setState({ gridData: {} });
 
         expect(result).toMatchSnapshot();
@@ -160,6 +160,6 @@ describe('landing page statistics - components - Content', () => {
 
         wrapper.instance().handleSelectedPage('casino', 'hien');
 
-        expect(props.setSelectedPage).toHaveBeenCalledWith({ languageCode: 'hien', selectedPage: "casino"});
+        expect(props.setSelectedPage).toHaveBeenCalledWith({ languageCode: 'hien', selectedPage: "casino" });
     });
 });

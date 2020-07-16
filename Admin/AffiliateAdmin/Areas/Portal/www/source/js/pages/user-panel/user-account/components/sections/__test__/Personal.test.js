@@ -16,7 +16,7 @@ describe('user account - components - sections - Personal', () => {
         State: "700000",
         Postcode: "700000",
         Country: "Viet Nam",
-        SiteUrl: "https://ha.nexdev.net:7613/12BetUserAsianNew/UserPanel/Main/#MyAccount",
+        SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
         MoreSiteUrls: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
         NoSiteDescription: "",
         PreferredPayment: "Player",
@@ -31,7 +31,7 @@ describe('user account - components - sections - Personal', () => {
         Question: "What?",
         Answer: "What?",
         MailOption: false,
-        ContactAppList: [{Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0}]
+        ContactAppList: [{ Name: "MSN/YM/QQ", Value: "@123 Lê Văn", Order: 0 }]
     };
     const defaultProps = {
         userAccountInfo,
@@ -46,15 +46,15 @@ describe('user account - components - sections - Personal', () => {
 
     it('handleChange - should call setUserAccountInfo', () => {
         const result = shallow(<Personal {...defaultProps} />);
-        
-        result.instance().handleChange({ target: { name: 'username', value: 'ABC' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Username: 'ABC'});
+        result.instance().handleChange({ target: { name: 'username', value: 'ABC' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Username: 'ABC' });
     });
 
     it('handleChangeGender - should be called when check Male', () => {
         const result = shallow(<Personal {...defaultProps} />);
-        
+
         result.find('Input[type="radio"]').at(0).simulate('change');
 
         expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Gender: true });
@@ -62,7 +62,7 @@ describe('user account - components - sections - Personal', () => {
 
     it('handleChangeGender - should be called when check Female', () => {
         const result = shallow(<Personal {...defaultProps} />);
-        
+
         result.find('Input[type="radio"]').at(1).simulate('change');
 
         expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, Gender: false });
@@ -70,9 +70,9 @@ describe('user account - components - sections - Personal', () => {
 
     it('handleChangeContactApps - should call setUserAccountInfo', () => {
         const result = shallow(<Personal {...defaultProps} />);
-        
-        result.instance().handleChangeContactApps({ target: { name: "MSN/YM/QQ", value: 'abc123' }});
 
-        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, ContactAppList: [{Name: "MSN/YM/QQ", Value: "abc123", Order: 0}]});
+        result.instance().handleChangeContactApps({ target: { name: "MSN/YM/QQ", value: 'abc123' } });
+
+        expect(defaultProps.setUserAccountInfo).toHaveBeenCalledWith({ ...userAccountInfo, ContactAppList: [{ Name: "MSN/YM/QQ", Value: "abc123", Order: 0 }] });
     });
 });

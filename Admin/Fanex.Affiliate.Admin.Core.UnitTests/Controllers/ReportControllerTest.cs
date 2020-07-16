@@ -26,6 +26,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             productRepository.Setup(s => s.GetProductList()).Returns(new List<Product> { new Product()});
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(s => s.GetLanguageList()).Returns(new List<Language> { new Language() });
+            var currencyRepository = new Mock<ICurrencyRepository>();
+            currencyRepository.Setup(s => s.GetCurrencies()).Returns(new List<Currency> { new Currency { ExchangeId = 123, Code = "ABC" }});
             var controller = CreateReportController(productRepository: productRepository.Object, languageService: languageService.Object);
 
             // Action
@@ -42,10 +44,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void GetMainData_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = new AffiliateReportMainParam();
-            AffiliateReportMainParam passedParam = null;
+            var param = new AffiliateReportParam();
+            AffiliateReportParam passedParam = null;
             var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportMainParam>(p => passedParam = p);
+            affiliateReportService.Setup(s => s.GetMainReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
             var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
 
             // Action
@@ -61,10 +63,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void GetDetailData_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = new AffiliateReportMainParam();
-            AffiliateReportMainParam passedParam = null;
+            var param = new AffiliateReportParam();
+            AffiliateReportParam passedParam = null;
             var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.GetDetailReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportMainParam>(p => passedParam = p);
+            affiliateReportService.Setup(s => s.GetDetailReportData(param)).Returns(new EntityResult<AffiliateReport> { MainData = new List<AffiliateReport> { new AffiliateReport() }, TotalItem = 1 }).Callback<AffiliateReportParam>(p => passedParam = p);
             var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
 
             // Action
@@ -99,15 +101,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             ISessionService sessionService = null,
             IProductRepository productRepository = null,
             ILanguageService languageService = null,
-            IAffiliateReportService affiliateReportService = null
+            IAffiliateReportService affiliateReportService = null,
+            ICurrencyRepository currencyRepository = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeAffiliateReportService = affiliateReportService ?? Mock.Of<IAffiliateReportService>();
+            var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
 
-            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService);
+            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService, fakeCurrencyRepository);
         }
     }
 }

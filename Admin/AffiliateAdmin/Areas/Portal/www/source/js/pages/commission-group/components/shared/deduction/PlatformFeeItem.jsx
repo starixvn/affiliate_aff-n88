@@ -20,9 +20,9 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText, isInserting } = this.props;
+        const { data, handleClick, btnText, isDisable } = this.props;
 
-        const { productList, commission, nextCommission } = data;
+        const { productList, commission } = data;
         const isValid = productList.filter(p => !p.Checked).length < productList.length;
 
         return (
@@ -35,47 +35,32 @@ export default class PlatformFeeItem extends React.Component {
                             valueField="ProductName"
                             statusField="Checked"
                             hasAllOption={false}
+                            hasInputOption={!isDisable}
                             maxDisplayItemCount={1}
                             noneSelectedLabel="Please Select"
-                            onChange={this.handleChange} />
+                            onChange={this.handleChange}
+                            isDisable={isDisable} />
                         <FormFeedback>At least 1 product must be selected per group</FormFeedback>
                     </div>
                 </Col>
-                {
-                    isInserting ? (
-                        <Col sm={2} className="select-comm">
-                            <select name="DeductedPercentage" className="form-control" value={formatDecimal(commission)}
-                                onChange={this.handleChangeComm}>
+                <Col sm={5} className="select-comm">
+                    <Form inline>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <Label className="mr-sm-2">New Revenue Share </Label>
+                        </FormGroup>
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                            <select name="DeductedPercentage" className="form-control"
+                                value={formatDecimal(commission || 0)}
+                                onChange={this.handleChangeComm} style={{ width: 60 }}>
                                 {
                                     commissionValueList.map((item, i) => {
                                         return (<option key={`platformfee-comm-${i}`} value={item}>{item}</option>);
                                     })
                                 }
                             </select>
-                        </Col>
-                    ) :
-                        (
-                            <Col sm={5} className="select-comm">
-                                <Form inline>
-                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <Label className="mr-sm-2">Current: {formatDecimal(commission || 0)} | Next month: </Label>
-                                    </FormGroup>
-                                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                                        <select name="NextDeductedPercentage" className="form-control"
-                                            value={formatDecimal(nextCommission || 0)}
-                                            onChange={this.handleChangeComm} style={{ width: 60 }}>
-                                            {
-                                                commissionValueList.map((item, i) => {
-                                                    return (<option key={`platformfee-nextmonth-comm-${i}`} value={item}>{item}</option>);
-                                                })
-                                            }
-                                        </select>
-                                    </FormGroup>
-                                </Form>
-                            </Col>
-                        )
-                }
-
+                        </FormGroup>
+                    </Form>
+                </Col>
                 <Col sm={2}>
                     <Input plaintext tag="p">| Gross Win Loss |</Input>
                 </Col>

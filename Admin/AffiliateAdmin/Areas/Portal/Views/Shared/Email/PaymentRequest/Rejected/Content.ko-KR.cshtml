@@ -1,16 +1,16 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
 <div>
-    @(Model.FirstName)고객님께,  <br /><br />
+    Dear @Raw(Model.FirstName),  <br /><br />
 
-    요청 확인 번호는  @(Model.TransId)입니다. @(Model.TransDate).<br /><br />
+    Request reference number is @Model.TransId, dated @Model.TransDate.<br /><br />
 
-    고객님이 요청하신 @Model.Amount $의 지불 요청이 거부되었음을 알려드리게 되어 매우 유감입니다.<br /><br />
+    We regret to inform you that your payment request amount of $@Model.Amount has been rejected.<br /><br />
 
-    도움을 원하시는 경우 <a href="mailto:@Model.MailContact">@Model.MailContact</a>로 연락주시기 바랍니다.<br />
-    본 메일은 시스템 자동 발신 메일이므로, 답신의 수신이 불가능 합니다.<br /><br />
+    Please contact us at <a href="mailto:@Model.MailContact">@Model.MailContact</a> for assistance.<br />
+    This is a system auto generated email, please do not reply to this email directly.<br /><br />
 
-    감사합니다.<br /><br />
-      12BET 업무제휴 팀<br />
-      <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    Sincerely,<br /><br />
+    @(Model.SiteFriendlyName) Affiliates Team<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

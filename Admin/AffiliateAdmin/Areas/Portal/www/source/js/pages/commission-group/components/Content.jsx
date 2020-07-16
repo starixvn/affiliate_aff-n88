@@ -25,14 +25,14 @@ export class Content extends Component {
     handleAddNewGroup = () => {
         this.setState({
             Popup: (<AddGroup onClose={this.handleHide} onSave={this.handleSave} />),
-            popupTitle: 'Add a Commission Group'
+            popupTitle: 'Add a Revenue Group'
         });
     }
 
     handleEditGroup = (itemId) => {
         this.setState({
             Popup: (<EditGroup onClose={this.handleHide} itemId={itemId} onSave={this.handleSave} />),
-            popupTitle: 'Edit Commission Group'
+            popupTitle: 'Edit the Revenue Group'
 
         });
     }

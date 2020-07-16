@@ -19,7 +19,14 @@ export const setShowIdList = (data) => {
     }
 }
 
-export const fetchData = (param) => async() => {
+export const getLogTypeList = () => async () => {
+    const url = 'Portal/UserPanel/ViewLog/GetLogTypeList';
+    const response = await post(url);
+
+    return response && response.status === 200 ? response.data : null;
+}
+
+export const fetchData = (param) => async () => {
     const url = 'Portal/UserPanel/ViewLog/GetViewLogList';
     const response = await post(url, param);
 

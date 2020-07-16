@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
@@ -16,6 +17,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
 
         private const string RsaKeyPairKey = "Affiliate12Bet.RsaKeyPairKey";
         private const string VerificationSessionKey = "Affiliate12Bet.VerificationSessionKey";
+
         public string CaptchaCode
         {
             get { return HttpContext.Current.Session[CaptchaCodeKey] as string; }
@@ -65,14 +67,8 @@ namespace Fanex.Affiliate.User.Core.CoreService
 
         public string PrivateKey
         {
-            get
-            {
-                return HttpContext.Current.Session[RsaKeyPairKey] as string;
-            }
-            set
-            {
-                HttpContext.Current.Session[RsaKeyPairKey] = value;
-            }
+            get { return HttpContext.Current.Session[RsaKeyPairKey] as string; }
+            set { HttpContext.Current.Session[RsaKeyPairKey] = value; }
         }
 
         public void AssignSessions(AuthorizedUserInfo authorizedUser)
@@ -86,7 +82,8 @@ namespace Fanex.Affiliate.User.Core.CoreService
                                         authorizedUser.PreferredLanguage,
                 OnUserId = authorizedUser.OnUserId,
                 AffType = authorizedUser.AffType,
-                GroupName = authorizedUser.GroupName
+                GroupName = authorizedUser.GroupName,
+                IsMaxSubLevel = authorizedUser.IsMaxSubLevel
             };
 
             HttpContext.Current.Session[UserSessionKey] = userSession;

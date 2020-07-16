@@ -1,7 +1,7 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
 <div>
-    Kính gửi @Model.FirstName,<br /><br />
+    Kính gửi @Raw(Model.FirstName),<br /><br />
 
     Chúng tôi đã nhận được yêu cầu thanh toán số @Model.TransId vào ngày @Model.TransDate.<br /><br />
 
@@ -11,6 +11,6 @@
     Mọi thắc mắc xin liên hệ tới <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /> <br />
 
     Xin chân thành cảm ơn.<br /><br />
-    Bộ phận liên kết 12BET.<br />
+    Bộ phận liên kết @(Model.SiteFriendlyName).<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

@@ -14,6 +14,7 @@ import landingPageStatisticsReducer from '../../../user-panel/landing-page-stati
 import playerDetailReducer from '../../../user-panel/player-detail/reducers';
 import dailyEarningReducer from '../../../user-panel/daily-earning/reducers';
 import dailyEarningDetailReducer from '../../../user-panel/daily-earning-detail/reducers';
+import subAffiliateReducer from '../../../user-panel/sub-affiliate/reducers';
 
 export const selectedUserPanel = createReducer(null, {
     [SET_SELECTED_USERPANEL](prevState, action) {
@@ -31,6 +32,7 @@ export const userPanelReducer = {
     [menuKey.statementHistory]: statementHistoryReducer,
     [menuKey.dailyEarning]: dailyEarningReducer,
     [menuKey.dailyEarningDetail]: dailyEarningDetailReducer,
+    [menuKey.subAffiliate]: subAffiliateReducer,
     [menuKey.edit]: userAccountReducer,
     [menuKey.note]: noteReducer,
     [menuKey.playerDetail]: playerDetailReducer,

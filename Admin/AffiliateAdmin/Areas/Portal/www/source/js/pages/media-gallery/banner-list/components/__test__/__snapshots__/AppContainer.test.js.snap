@@ -7,6 +7,7 @@ exports[`banner list - components - AppContainer render correctly 1`] = `
   />
   <Connect(Filter) />
   <Memo(ControlButtons)
+    deleteItems={[Function]}
     fetchData={[Function]}
     messages={
       Object {

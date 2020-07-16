@@ -4,12 +4,12 @@ import { bindActionCreators } from 'redux';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 import { Button } from 'reactstrap';
 
-import { headerText, globalResource, resource, statusList, pending } from '../modules/constants';
+import { headerText, globalResource, resource, processing } from '../modules/constants';
 import { setPagingOption, toggleLoader, fetchData, setTransactionId } from '../actions';
 import { formatDecimalWithCurrencySymbol } from '../../../modules/numberFormat';
 import { htmlDecode } from '../../../modules/htmlHelper';
 
-const pendingStatus = pending.toLowerCase();
+const processingStatus = processing.toLowerCase();
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -86,11 +86,10 @@ export class Content extends PureComponent {
 
     _buildDataRow(dataItem, index) {
         const amount = formatDecimalWithCurrencySymbol(dataItem.Amount);
-        const isPending = dataItem.Status && dataItem.Status.toLowerCase() === pendingStatus;
-
-        const status = isPending ? statusList.Pending : dataItem.Status;
-        const completedDate = isPending ? '--' : dataItem.CompletedDateText;
-        const creator = isPending ? '--' : htmlDecode(dataItem.Creator);
+        const status = dataItem.Status;
+        const isProcessing = status && status.toLowerCase() === processingStatus;
+        const completedDate = isProcessing ? '--' : dataItem.CompletedDateText;
+        const creator = isProcessing ? '--' : htmlDecode(dataItem.Creator);
 
         return (
             <Row key={`dataRow-${index}`} className={status && status.toLowerCase()}>

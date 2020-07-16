@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { InsertUpdateNoteForm } from '../InsertUpdateNoteForm';
 import { shallow } from 'enzyme';
-import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('note - components - InsertUpdateNoteForm ', () => {
@@ -30,7 +29,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
     it('render correctly with add Note', () => {
         const props = Object.assign({}, defaultProps, { noteInfo: { noteId: 0, noteContent: '' } });
         const result = shallow(<InsertUpdateNoteForm {...props} />);
-    
+
         expect(result).toMatchSnapshot();
     });
 
@@ -53,7 +52,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.setState = jest.fn();
 
         wrapper.find('Input[type="textarea"][name="noteContent"][id="noteContent"]').simulate('change', event);
-    
+
         expect(wrapper.setState).toHaveBeenCalledWith({ noteContent: '12BETAFF 226' });
     });
 
@@ -62,7 +61,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.setState({ noteContent: '12BETAFF 226' });
 
         const result = wrapper.instance()._validateNoteContent();
-    
+
         expect(result).toEqual({ isValid: true, message: "" });
     });
 
@@ -71,30 +70,32 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.setState({ noteContent: '' });
 
         const result = wrapper.instance()._validateNoteContent();
-    
+
         expect(result).toEqual({ isValid: false, message: "This field is required" });
     });
 
     it('_validateNoteContent - return incorrect data with noteContent > max lenght', () => {
         const wrapper = shallow(<InsertUpdateNoteForm {...defaultProps} />);
-        wrapper.setState({ noteContent: '_validateNoteContent - return incorrect data with noteContent > max lenght, '
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'
-                                        + '_validateNoteContent - return incorrect data with noteContent > max lenght'});
+        wrapper.setState({
+            noteContent: '_validateNoteContent - return incorrect data with noteContent > max lenght, '
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+                + '_validateNoteContent - return incorrect data with noteContent > max lenght'
+        });
 
         const result = wrapper.instance()._validateNoteContent();
-    
+
         expect(result).toEqual({ isValid: false, message: "This field must not exceed 1000 characters" });
     });
 
@@ -106,7 +107,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.instance().Save = jest.fn();
 
         wrapper.find('Button').at(0).simulate('click');
-    
+
         expect(wrapper.instance().Save).toHaveBeenCalledWith(newNote);
         expect(wrapper.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
     });
@@ -118,7 +119,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.instance().Save = jest.fn();
 
         wrapper.find('Button').at(0).simulate('click');
-    
+
         expect(wrapper.instance().Save).not.toHaveBeenCalled();
         expect(wrapper.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
     });
@@ -130,7 +131,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
-    
+
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The request is failed" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -144,7 +145,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
-    
+
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "Add note is failed!" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -160,7 +161,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(newNote);
-    
+
         expect(props.insertNote).toHaveBeenCalledWith({ affId: 1271808, ...newNote });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: true, message: "Add Note is successful" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -175,7 +176,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.instance().Save = jest.fn();
 
         wrapper.find('Button').at(0).simulate('click');
-    
+
         expect(wrapper.instance().Save).toHaveBeenCalledWith({ noteContent: "12BETAFF 226", noteId: 1001 });
         expect(wrapper.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
     });
@@ -186,7 +187,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.instance().Save = jest.fn();
 
         wrapper.find('Button').at(0).simulate('click');
-    
+
         expect(wrapper.instance().Save).not.toHaveBeenCalled();
         expect(wrapper.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
     });
@@ -198,7 +199,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
-    
+
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "The request is failed" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -212,7 +213,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
-    
+
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: false, message: "Update note is failed!" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -228,7 +229,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         window.setTimeout = jest.fn((fn, time) => fn());
 
         await wrapper.instance().Save(noteInfo);
-    
+
         expect(props.updateNote).toHaveBeenCalledWith({ affId: 1271808, ...noteInfo });
         expect(wrapper.setState.mock.calls[0]).toEqual([{ isShowMessage: true, isSuccess: true, message: "Update Note is successful" }, expect.any(Function)]);
         expect(wrapper.setState.mock.calls[1]).toEqual([{ isShowMessage: false }]);
@@ -243,7 +244,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         wrapper.setState = jest.fn();
 
         wrapper.find('Button').at(1).simulate('click');
-    
+
         expect(props.setShowPopup).toHaveBeenCalledWith(false);
         expect(wrapper.setState).toHaveBeenCalledWith({ noteContent: '', isClickedSubmit: false });
     });

@@ -4,7 +4,6 @@ using Fanex.Affiliate.Admin.Core.DTO.Payment;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
 using System.Collections.Generic;
 using System.Data;
-using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Payment
@@ -72,23 +71,25 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                         {
                             TransId = Convert.ToInt64(reader["Transid"]),
                             AffId = Convert.ToInt32(reader["AffId"]),
-                            AffName = Convert.ToString(reader["username"]),
+                            AffName = Convert.ToString(reader["AffName"]),
                             TransDate = Convert.ToDateTime(reader["Transdate"]),
                             Email = Convert.ToString(reader["email"]),
                             FirstName = Convert.ToString(reader["firstname"]),
                             LastName = Convert.ToString(reader["lastname"]),
                             PaymentMethod = Convert.ToString(reader["PreferredPayment"]),
                             Amount = Convert.ToDecimal(reader["Amount"]),
+                            TransAmount = Convert.ToDecimal(reader["TransAmount"]),
+                            TransCurrencyCode = Convert.ToString(reader["TransCurrencyCode"]),
                             Status = Convert.ToString(reader[Field.Status]),
-                            PlayerUsername = Convert.ToString(reader["Username2"]),
+                            PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
                             CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
-                            Creator = Convert.ToString(reader["adminname"]),
+                            Creator = Convert.ToString(reader["Creator"]),
                             AdminDesc = Convert.ToString(reader["AdminDesc"]),
                             AffDesc = Convert.ToString(reader["AffDesc"])
                         };
                     }
                 }
-            }
+            }            
 
             return result;
         }
@@ -110,6 +111,21 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                 objectDb.ExecuteNonQuery();
 
                 return GetResultInfo(objectDb);
+            }
+        }
+
+        public (IEnumerable<PaymentMethodInfo> paymentMethods, decimal minAmount) GetPaymentMethod()
+        {
+            const string SpKey = "Aff_PaymentMethod_Sel";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.AddOutParameter("MinAmount", DbType.Int32, Size.SizeOfInt);
+
+                var paymentMethods = objectDb.Query<PaymentMethodInfo>();
+                var minAmount = Convert.ToDecimal(objectDb.GetParameterValue("MinAmount"));
+
+                return (paymentMethods, minAmount);
             }
         }
     }

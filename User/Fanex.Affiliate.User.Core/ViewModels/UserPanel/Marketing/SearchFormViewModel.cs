@@ -11,8 +11,8 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing
 
         public IEnumerable<SelectListItem> CurrencyList { get; set; }
 
-        public IEnumerable<SelectListItem> ImageTypeList { get; set; }
-
         public IEnumerable<SelectListItem> SizeList { get; set; }
+
+        public int TargetId { get; set; }
     }
 }

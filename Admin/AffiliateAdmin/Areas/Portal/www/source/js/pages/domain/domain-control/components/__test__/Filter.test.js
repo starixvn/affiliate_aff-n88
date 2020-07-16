@@ -2,8 +2,6 @@
 import { Filter } from '../Filter';
 import { shallow } from 'enzyme';
 
-import { defaultPagingOption } from '../../../../../modules/constants';
-
 describe('domain control - components - Filter ', () => {
     const defaultProps = {
         marketList: [

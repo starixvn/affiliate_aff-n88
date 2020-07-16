@@ -11,5 +11,11 @@ export const globalResource = {
     Update: 'Update',
     Delete: 'Delete',
     Cancel: 'Cancel',
-    NoInfo: 'There is no information available'
+    Remove: 'Remove',
+    NoInfo: 'There is no information available',
+    ChooseFile: "Choose File",
+    Currency: 'Currency',
+    BaseCurrency: 'Base Currency',
+    UserName: "User Name",
+    SystemUserName: "System Name"
 }

@@ -80,8 +80,8 @@ exports[`payment request - components - Filter  render correctly with SearchBy O
           All
         </option>
         <option
-          key="status-Pending"
-          value="Pending"
+          key="status-Processing"
+          value="Processing"
         >
           Processing
         </option>
@@ -134,7 +134,7 @@ exports[`payment request - components - Filter  render correctly with SearchBy O
         }
         isEnable={true}
         maxDate="6/27/2019"
-        minDate={2009-11-30T17:00:00.000Z}
+        minDate={2020-01-30T17:00:00.000Z}
         onChange={[Function]}
       />
     </FormGroup>

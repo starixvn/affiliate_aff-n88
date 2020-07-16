@@ -63,7 +63,7 @@ describe('common - components - ChangePasswordForm', () => {
     });
 
     it('handleChange - should setState', () => {
-        const event = { target: { name: "password", value: '123abc' }};
+        const event = { target: { name: "password", value: '123abc' } };
         const result = shallow(<ChangePasswordForm {...defaultProps} />);
         result.setState = jest.fn();
 

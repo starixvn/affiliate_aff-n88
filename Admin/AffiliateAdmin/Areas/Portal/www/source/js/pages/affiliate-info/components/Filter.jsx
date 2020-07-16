@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { statusList, sortByList, defaultSortBy, resource } from '../modules/constants';
-import { setReportTitle, setParam, setSelectedColumn } from '../actions';
+import { statusList, sortByList, defaultState, resource } from '../libs/constants';
+import { setReportTitle, setParam, setSelectedColumn, setParentAffName } from '../actions';
 import { htmlDecode } from '../../../modules/htmlHelper';
 
 export class Filter extends Component {
@@ -15,20 +15,28 @@ export class Filter extends Component {
         this.initialGroupId = this.props.groupId;
 
         this.state = {
+            ...defaultState,
             selectedCommGroup: this.initialGroupId,
-            selectedLanguage: '',
             selectedStatus: props.param.Status || '',
-            userName: '',
-            email: '',
-            affId: '',
-            selectedSortBy: defaultSortBy,
-            isSortAscending: true
+            parentAffName: this.props.param.ParentAffName || '',
         }
     }
 
     componentDidMount() {
-        if (this.initialGroupId !== 0 || this.props.param.IsFromHome) {
+        const { param } = this.props;
+
+        if (this.initialGroupId !== 0 || param.IsFromHome) {
             this.handleClickSearch();
+        }
+
+        param.ParentAffName && this.handleClickSearch(param.ParentAffName);
+    }
+
+    componentDidUpdate(prevProps) {
+        const { parentAffName } = this.props;
+
+        if (parentAffName !== prevProps.parentAffName) {
+            this.setState({ ...defaultState, parentAffName });
         }
     }
 
@@ -46,7 +54,7 @@ export class Filter extends Component {
         }
     }
 
-    handleClickSearch = () => {
+    handleClickSearch = (parentAffName) => {
         const { selectedCommGroup, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId } = this.state;
 
         const affIdInput = affId.trim();
@@ -55,6 +63,7 @@ export class Filter extends Component {
             GroupId: selectedCommGroup,
             Language: selectedLanguage,
             Status: selectedStatus,
+            ParentAffName: parentAffName || this.state.parentAffName,
             UserName: userName,
             Email: email,
             SortBy: selectedSortBy,
@@ -98,7 +107,7 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending } = this.state;
+        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId, parentAffName } = this.state;
         const { commGroupList, languageList, columnList } = this.props;
 
         return (
@@ -106,7 +115,7 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="my-2 mr-sm-2">
                         <Label for="SearchBy" className="mr-sm-2">{resource.SearchBy}</Label>
-                        <Input type="select" name="selectedCommGroup" id="SearchBy" value={selectedCommGroup} onChange={this.handleChange} >
+                        <Input type="select" name="selectedCommGroup" id="searchBy" value={selectedCommGroup} onChange={this.handleChange} >
                             <option key="commGroup-all" value={0}>{resource.AllCommGroups}</option>
                             {
                                 Object.keys(commGroupList).map(commGroup => {
@@ -118,7 +127,7 @@ export class Filter extends Component {
 
                     <FormGroup className="my-2 mr-sm-2">
                         {
-                            <Input type="select" name="selectedLanguage" id="Language" value={selectedLanguage} onChange={this.handleChange}>
+                            <Input type="select" name="selectedLanguage" id="language" value={selectedLanguage} onChange={this.handleChange}>
                                 <option key="lang-all" value="">{resource.AllLanguages}</option>
                                 {
                                     Object.keys(languageList).map(lang => {
@@ -131,7 +140,7 @@ export class Filter extends Component {
 
                     <FormGroup className="my-2 mr-sm-2">
                         {
-                            <Input type="select" name="selectedStatus" id="Status" value={selectedStatus} onChange={this.handleChange}>
+                            <Input type="select" name="selectedStatus" id="status" value={selectedStatus} onChange={this.handleChange}>
                                 <option key="status-all" value="">{resource.AllStatuses}</option>
                                 {
                                     Object.keys(statusList).map(status => {
@@ -143,19 +152,25 @@ export class Filter extends Component {
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="userName" id="Username" placeholder="Username"
+                        <Input type="text" name="parentAffName" id="parentAffName" value={parentAffName} placeholder="Parent Affiliate"
+                            onKeyPress={this.handlePressEnter}
+                            onChange={(e) => this.props.setParentAffName(e.target.value)} />
+                    </FormGroup>
+
+                    <FormGroup className="my-2 mr-sm-2">
+                        <Input type="text" name="userName" id="username" placeholder="Username" value={userName}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="email" name="email" id="Email" placeholder="Email"
+                        <Input type="email" name="email" id="email" placeholder="Email" value={email}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="affId" id="AffId" placeholder="Affiliate Id"
+                        <Input type="text" name="affId" id="affId" placeholder="Affiliate Id" value={affId}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>
@@ -190,7 +205,7 @@ export class Filter extends Component {
                             onChange={this.handleChangeColumn} />
                     </FormGroup>
 
-                    <Button className="my-2" outline color="primary" type="button" onClick={this.handleClickSearch} >
+                    <Button className="my-2" outline color="primary" type="button" onClick={() => this.handleClickSearch(parentAffName)} >
                         <span className="oi oi-magnifying-glass"></span> {resource.Search}
                     </Button>
                 </Form>
@@ -199,12 +214,12 @@ export class Filter extends Component {
     }
 }
 
-function mapStateToProps({ languageList, commGroupList, param, groupId, columnList }) {
-    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList });
+function mapStateToProps({ languageList, commGroupList, param, groupId, columnList, parentAffName }) {
+    return Object.assign({}, { languageList, commGroupList, param, groupId, columnList, parentAffName });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn, setParentAffName }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

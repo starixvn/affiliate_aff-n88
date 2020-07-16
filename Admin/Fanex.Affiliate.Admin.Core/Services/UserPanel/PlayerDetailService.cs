@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 IbcUserName = Convert.ToString(reader["IbcUserName"]),
                 UserName = Convert.ToString(reader["UserName"]),
-                RegisteredDate = Convert.ToDateTime(reader["RegisteredDate"]),
+                RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"]),
                 Deposit = Convert.ToDecimal(reader["Deposit"]),
                 Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
                 BankingFee = Convert.ToDecimal(reader["BankingFee"]),
@@ -64,6 +64,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
             objectDb.AddInParameter("IsSortAsc", DbType.Boolean, param.IsSortAsc);
             objectDb.AddInParameter("SortById", DbType.Int32, param.SortById);
+            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
 
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
         }
