@@ -36,6 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
             Assert.Single(result.MainData);
             Assert.Equal("01/01/2020 00:00:00", item.RegistrationDateText);
             Assert.Equal("04/15/2020 00:00:00", item.ApprovalDateText);
+            Assert.Equal("abc", item.ApprovedByText);
         }
 
         [Fact]
@@ -60,6 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
             Assert.Single(result.MainData);
             Assert.Equal("01/01/2020 00:00:00", item.RegistrationDateText);
             Assert.Equal("N/A", item.ApprovalDateText);
+            Assert.Equal("N/A", item.ApprovedByText);
         }
 
         [Fact]
@@ -176,7 +178,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["ParentAffId"] = null,
                 ["ParentAffName"] = null,
                 ["NoOfSubAff"] = 0,
-                ["ApprovedBy"] = "abc"
+                ["ApprovedBy"] = null
             };
         }
     }

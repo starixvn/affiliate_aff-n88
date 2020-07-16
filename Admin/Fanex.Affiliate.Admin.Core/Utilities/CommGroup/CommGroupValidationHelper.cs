@@ -8,20 +8,42 @@ using Fanex.Affiliate.Admin.Core.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
-    public static class CommGroupValidationHelper
+    public class CommGroupValidationHelper : ICommGroupValidation
     {
         private const string brElementHtml = "<br />";
 
-        public static ResultInfo ValidateAllFees(IProductRepository productRepository, CommissionGroupSetting commGroup)
+        private readonly IProductRepository _productRepository;
+
+        public CommGroupValidationHelper(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+        public ResultInfo ValidateCommGroup(CommissionGroupSetting commGroup)
+        {
+            var result = ValidateAllFees(commGroup);
+
+            var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList);
+
+            if(!validateTierSettingList.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message, validateTierSettingList.Message);
+            }
+
+            return result;
+        }
+
+        private ResultInfo ValidateAllFees(CommissionGroupSetting commGroup)
         {
             var result = new ResultInfo();
 
-            var validatePlatformFeeList = ValidatePlatformFeeList(productRepository, commGroup.PlatformFeeList);
+            var validatePlatformFeeList = ValidatePlatformFeeList(commGroup.PlatformFeeList);
 
             if(!validatePlatformFeeList.IsSuccessful)
             {
                 result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, validatePlatformFeeList.Message);
+                result.Message = validatePlatformFeeList.Message;
             }
 
             var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, true);
@@ -32,7 +54,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 result.Message = string.Join(result.Message + brElementHtml, validateOperationalFee.Message);
             }
 
-            var validateBankingFee = ValidateFixedAmountDeductedFee(commGroup.BankingFee, true);
+            var validateBankingFee = ValidateFixedAmountDeductedFee(commGroup.BankingFee, false);
 
             if (!validateBankingFee.IsSuccessful)
             {
@@ -43,7 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return result;
         }
 
-        private static ResultInfo ValidatePlatformFeeList(IProductRepository productRepository, IEnumerable<DeductionSetting> platformFeeList)
+        private ResultInfo ValidatePlatformFeeList(IEnumerable<DeductionSetting> platformFeeList)
         {
             var result = new ResultInfo
             {
@@ -56,7 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            var productIdOfDB = productRepository.GetProductList().Select(p => p.ProductId.ToString());
+            var productIdOfDB = _productRepository.GetProductList().Select(p => p.ProductId.ToString());
             var productIdOfPlatform = string.Join(",", platformFeeList.Select(p => p.ProductIds.Replace(" ", "")))
                                         .Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
 
@@ -69,7 +91,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return new ResultInfo();
         }
 
-        public static ResultInfo ValidateTierSettingList(IEnumerable<TierSetting> tierSettingList)
+        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSetting> tierSettingList)
         {
             var result = new ResultInfo();
 

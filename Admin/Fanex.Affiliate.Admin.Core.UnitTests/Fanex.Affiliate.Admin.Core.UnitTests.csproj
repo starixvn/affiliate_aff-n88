@@ -255,6 +255,7 @@
     <Compile Include="TestHelper\ReaderHelper.cs" />
     <Compile Include="TestHelper\SimpleLifetimeScopeProvider.cs" />
     <Compile Include="Utilities\BannerHelperTest.cs" />
+    <Compile Include="Utilities\CommGroupValidationHelperTest.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>

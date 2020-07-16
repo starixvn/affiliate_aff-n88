@@ -6,7 +6,7 @@
 
         public string DeductionName { get; set; }
 
-        public decimal IsDeductedPercent { get; set; }
+        public bool IsDeductedPercent { get; set; }
 
         public string DeductedAmount { get; set; }
 

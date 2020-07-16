@@ -231,12 +231,6 @@
   <data name="InvalidBannerSize" xml:space="preserve">
     <value>Your upload file size must be &lt;= 3 MB.&lt;br /&gt;</value>
   </data>
-  <data name="Casino" xml:space="preserve">
-    <value>Casino</value>
-  </data>
-  <data name="Sportsbook" xml:space="preserve">
-    <value>Sportsbook</value>
-  </data>
   <data name="PleaseEnterFileName" xml:space="preserve">
     <value>You must either enter a file name for banner or browse other banner.</value>
   </data>

@@ -31,17 +31,21 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
         private readonly IProductRepository _productRepository;
 
+        private readonly ICommGroupValidation _commGroupValidation;
+
         public CommGroupAssignmentController(
             ISessionService sessionService,
             IProductRepository productRepository,
             IAffiliateService affiliateService,
             ICommGroupAssignmentService commGroupAssignmentService,
-            ICommGroupCommonService commGroupCommonService) : base(sessionService)
+            ICommGroupCommonService commGroupCommonService,
+            ICommGroupValidation commGroupValidation) : base(sessionService)
         {
             _affiliateService = affiliateService;
             _commGroupAssignmentService = commGroupAssignmentService;
             _productRepository = productRepository;
             _commGroupCommonService = commGroupCommonService;
+            _commGroupValidation = commGroupValidation;
         }
 
         [HttpGet]
@@ -115,7 +119,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 return CreateErrorResult();
             }
 
-            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
+            var result = _commGroupValidation.ValidateCommGroup(commGroup);
             if (result.IsSuccessful)
             {
                 var assignParam = new CreateUpdateCommissionGroupParam

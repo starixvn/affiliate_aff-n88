@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
@@ -11,6 +12,7 @@ using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -117,35 +119,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(expectedResult);
 
-            var emailService = new Mock<IEmailService>();
-            emailService.Setup(e => e.SendApprovedEmail(It.IsAny<AffInformationEmail>()));
-
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, emailService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
 
             // Action
             var result = service.AssignGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.True(result.IsSuccessful);
-        }
-
-        [Theory]
-        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
-        public void AssignPrivateGroup_WhenCall_ExcuteWithIncorrectParam(List<TierSetting> tierSettingList)
-        {
-            // Arrange
-            var param = CreateValidCreateUpdateCommissionGroupParam();
-            param.TierSettingList = tierSettingList;
-            var affInfo = new AffiliateBasicInfo();
-            var emailParam = new AffInformationEmail();
-
-            var service = CreateCommGroupAssignmentService();
-
-            // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
         }
 
         [Fact]
@@ -217,7 +197,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var commGroupRepository = new Mock<ICommissionGroupRepository>();
             commGroupRepository.Setup(comm => comm.AssignGroup(It.IsAny<AssignGroupParam>())).Returns(new ResultInfo { Code = 999 });
 
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, commGroupCommonService: commGroupCommonService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, null, null, commGroupCommonService.Object);
 
             // Action
             var result = service.AssignPrivateGroup(param, affInfo, emailParam);
@@ -245,8 +225,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(new ResultInfo { Code = 999 });
 
-
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, commGroupCommonService: commGroupCommonService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 
             // Action
             var result = service.AssignPrivateGroup(param, affInfo, emailParam);
@@ -285,10 +264,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(expectedResult);
 
-            var emailService = new Mock<IEmailService>();
-            emailService.Setup(e => e.SendApprovedEmail(It.IsAny<AffInformationEmail>()));
-
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object , commGroupCommonService: commGroupCommonService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 
             // Action
             var result = service.AssignPrivateGroup(param, affInfo, emailParam);
@@ -313,7 +289,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var commGroupRepository = new Mock<ICommissionGroupRepository>();
             commGroupRepository.Setup(comm => comm.AssignGroup(It.IsAny<AssignGroupParam>())).Returns(expectedResult);
 
-            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, commGroupCommonService: commGroupCommonService.Object);
+            var service = CreateCommGroupAssignmentService(commGroupRepository.Object, null, null, commGroupCommonService.Object);
 
             // Action
             var result = service.AssignPrivateGroup(param, affInfo, emailParam);
@@ -339,51 +315,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
 
         private static CreateUpdateCommissionGroupParam CreateValidCreateUpdateCommissionGroupParam()
         {
-            return new CreateUpdateCommissionGroupParam
-            {
-                BankingFee = new DeductionSetting
-                {
-                    DeductedPercentage = 0.02m,
-                    DeductionId = 12,
-                    ProductIds = "0"
-                },
-                OperationalFee = new DeductionSetting
-                {
-                    DeductedPercentage = 0.07m,
-                    DeductionId = 11,
-                    ProductIds = "0"
-                },
-                PlatformFeeList = new List<DeductionSetting>
-                {
-                    new DeductionSetting
-                    {
-                        DeductedPercentage = 0.17m,
-                        DeductionId = 10,
-                        ProductIds = "1,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18"
-                    }
-                },
-                TierSettingList = new List<TierSetting>
-                {
-                    new TierSetting
-                    {
-                        Commission = 0.01m,
-                        MaxAmount = 100,
-                        MaxAm = 100,
-                        MinAmount = 0,
-                        MinAm = 0,
-                        TierId = 1
-                    },
-                    new TierSetting
-                    {
-                        Commission = 0.10m,
-                        MaxAmount = 100000000000000,
-                        MaxAm = 1000000000,
-                        MinAmount = 101,
-                        MinAm = 101,
-                        TierId = 2
-                    }
-                }
-            };
+            return new CreateUpdateCommissionGroupParam();
         }
     }
 }

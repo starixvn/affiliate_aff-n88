@@ -2,12 +2,13 @@
 
 exports[`commission group - FeeSettingItem Should render correctly 1`] = `
 <FormGroup
+  className="align-items-center"
   row={true}
   tag="div"
 >
   <Label
     className="font-weight-bold"
-    sm={4}
+    sm={2}
     tag="label"
     widths={
       Array [
@@ -23,7 +24,7 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
   </Label>
   <Col
     className="select-comm"
-    sm={5}
+    sm={4}
     tag="div"
     widths={
       Array [
@@ -36,6 +37,7 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
     }
   >
     <Form
+      className="deducted-percent-group"
       inline={true}
       tag="form"
     >
@@ -65,7 +67,7 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
       >
         <Input
           className="form-control"
-          defaultValue="0.00"
+          defaultValue="0.07"
           name="DeductedPercentage"
           onChange={[Function]}
           style={
@@ -705,18 +707,64 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
     >
       | Gross Win Loss |
     </Input>
+  </Col>
+  <Col
+    sm={3}
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Form
+      inline={true}
+      tag="form"
+    >
+      <FormGroup
+        check={true}
+        tag="div"
+      >
+        <Label
+          check={true}
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <Input
+            checked={false}
+            name="IsDeductionPercent"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Fixed Amount
+        </Label>
+      </FormGroup>
+    </Form>
   </Col>
 </FormGroup>
 `;
 
 exports[`commission group - FeeSettingItem Should render correctly with isCreating is false 1`] = `
 <FormGroup
+  className="align-items-center"
   row={true}
   tag="div"
 >
   <Label
     className="font-weight-bold"
-    sm={4}
+    sm={2}
     tag="label"
     widths={
       Array [
@@ -732,7 +780,7 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
   </Label>
   <Col
     className="select-comm"
-    sm={5}
+    sm={4}
     tag="div"
     widths={
       Array [
@@ -745,6 +793,7 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
     }
   >
     <Form
+      className="deducted-percent-group"
       inline={true}
       tag="form"
     >
@@ -774,7 +823,7 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
       >
         <Input
           className="form-control"
-          defaultValue="0.00"
+          defaultValue="0.07"
           name="DeductedPercentage"
           onChange={[Function]}
           style={
@@ -1414,6 +1463,51 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
     >
       | Gross Win Loss |
     </Input>
+  </Col>
+  <Col
+    sm={3}
+    tag="div"
+    widths={
+      Array [
+        "xs",
+        "sm",
+        "md",
+        "lg",
+        "xl",
+      ]
+    }
+  >
+    <Form
+      inline={true}
+      tag="form"
+    >
+      <FormGroup
+        check={true}
+        tag="div"
+      >
+        <Label
+          check={true}
+          tag="label"
+          widths={
+            Array [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+            ]
+          }
+        >
+          <Input
+            checked={false}
+            name="IsDeductionPercent"
+            onChange={[Function]}
+            type="checkbox"
+          />
+           Fixed Amount
+        </Label>
+      </FormGroup>
+    </Form>
   </Col>
 </FormGroup>
 `;

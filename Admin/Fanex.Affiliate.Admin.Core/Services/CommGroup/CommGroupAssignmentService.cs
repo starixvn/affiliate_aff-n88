@@ -7,7 +7,6 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 
 namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 {
@@ -45,32 +44,25 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public ResultInfo AssignPrivateGroup(CreateUpdateCommissionGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
         {
-            var result = CommGroupValidationHelper.ValidateTierSettingList(param.TierSettingList);
+            param.IsPrivate = param.GroupId == 0;
 
-            if (result.IsSuccessful)
+            var commGroupResult = param.IsPrivate ? _commGroupCommonService.CreateCommissionGroup(param) :
+                                                            _commGroupCommonService.UpdateCommissionGroup(param);
+
+            if (commGroupResult.IsSuccessful)
             {
-                param.IsPrivate = param.GroupId == 0;
-
-                var commGroupResult = param.IsPrivate ? _commGroupCommonService.CreateCommissionGroup(param) :
-                                                                _commGroupCommonService.UpdateCommissionGroup(param);
-
-                if (commGroupResult.IsSuccessful)
+                var assignparam = new AssignGroupParam
                 {
-                    var assignparam = new AssignGroupParam
-                    {
-                        UserId = param.UserId,
-                        AffId = affInfo.AffId,
-                        GroupId = param.GroupId,
-                        Ip = param.Ip
-                    };
+                    UserId = param.UserId,
+                    AffId = affInfo.AffId,
+                    GroupId = param.GroupId,
+                    Ip = param.Ip
+                };
 
-                    return ProcessAssignGroup(assignparam, affInfo, emailParam);
-                }
-
-                return commGroupResult;
+                return ProcessAssignGroup(assignparam, affInfo, emailParam);
             }
 
-            return result;
+            return commGroupResult;
         }
 
         private ResultInfo ProcessAssignGroup(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)

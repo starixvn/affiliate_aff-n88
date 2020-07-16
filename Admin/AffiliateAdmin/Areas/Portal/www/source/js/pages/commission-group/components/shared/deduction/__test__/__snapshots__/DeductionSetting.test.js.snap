@@ -19,9 +19,10 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
         "ProductIds": 0,
       }
     }
-    isCreating={true}
+    handleChange={[Function]}
+    handleUpdateState={[Function]}
+    isInitial={true}
     label="Operational Fee"
-    onChangeCommission={[Function]}
   />
   <FeeSettingItem
     basedValueName="(Deposit + Withdrawal)"
@@ -32,9 +33,10 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
         "ProductIds": 0,
       }
     }
-    isCreating={true}
+    handleChange={[Function]}
+    handleUpdateState={[Function]}
+    isInitial={true}
     label="Banking Fee"
-    onChangeCommission={[Function]}
   />
 </fieldset>
 `;

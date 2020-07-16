@@ -20,7 +20,6 @@
             deductionList: @Html.Raw(Json.Encode(Model.DeductionList)),
             defaultCurrency: '@(AppSetting.Instance.DefaultCurrency)'
         }
-                console.log('@(AppSetting.Instance.DefaultCurrency)');
     </script>
     <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/commission/commission-group.js")"></script>
 }

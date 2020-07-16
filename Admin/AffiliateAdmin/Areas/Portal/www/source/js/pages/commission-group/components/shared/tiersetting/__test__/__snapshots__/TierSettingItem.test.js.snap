@@ -9,6 +9,7 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
+      id="MinAmount1"
       name="MinAmount"
       onChange={[Function]}
       type="text"
@@ -23,6 +24,7 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
       <Input
         className="form-max"
         disabled={false}
+        id="MaxAmount1"
         name="MaxAmount"
         onChange={[Function]}
         type="text"
@@ -49,6 +51,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
           <Input
             checked={false}
             disabled={true}
+            id="MinAmountCheckbox1"
+            name="MaxAmount"
             onChange={[Function]}
             type="checkbox"
           />
@@ -59,7 +63,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
-      name="MinQm"
+      id="MinAm1"
+      name="MinAm"
       onChange={[Function]}
       type="text"
       value="0"
@@ -73,7 +78,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
       <Input
         className="form-max"
         disabled={false}
-        name="MaxQm"
+        id="MaxAm1"
+        name="MaxAm"
         onChange={[Function]}
         type="text"
         value="10"
@@ -98,7 +104,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
         >
           <Input
             checked={false}
-            disabled={true}
+            id="MaxAmCheckbox1"
+            name="MaxAm"
             onChange={[Function]}
             type="checkbox"
           />
@@ -737,7 +744,7 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
 </tr>
 `;
 
-exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxQm 1`] = `
+exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxAm 1`] = `
 <tr>
   <td
     className="text-center"
@@ -746,6 +753,7 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
+      id="MinAmount1"
       name="MinAmount"
       onChange={[Function]}
       type="text"
@@ -760,6 +768,7 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       <Input
         className="form-max"
         disabled={true}
+        id="MaxAmount1"
         name="MaxAmount"
         onChange={[Function]}
         type="text"
@@ -786,6 +795,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
           <Input
             checked={true}
             disabled={true}
+            id="MinAmountCheckbox1"
+            name="MaxAmount"
             onChange={[Function]}
             type="checkbox"
           />
@@ -796,7 +807,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
-      name="MinQm"
+      id="MinAm1"
+      name="MinAm"
       onChange={[Function]}
       type="text"
       value="10"
@@ -810,7 +822,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       <Input
         className="form-max"
         disabled={true}
-        name="MaxQm"
+        id="MaxAm1"
+        name="MaxAm"
         onChange={[Function]}
         type="text"
         value="∞"
@@ -835,7 +848,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
         >
           <Input
             checked={true}
-            disabled={true}
+            id="MaxAmCheckbox1"
+            name="MaxAm"
             onChange={[Function]}
             type="checkbox"
           />

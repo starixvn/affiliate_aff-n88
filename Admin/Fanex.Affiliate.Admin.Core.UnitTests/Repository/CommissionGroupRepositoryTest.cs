@@ -369,7 +369,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["DeductionId"] = 1,
                 ["DeductionName"] = "DeductionName",
                 ["ProductIds"] = "1,2,3",
-                ["DeductedPercentage"] = 0.7m
+                ["DeductedPercentage"] = 0.7m,
+                ["IsDeductedPercent"] = true,
+                ["DeductedAmount"] = null
             };
         }
 

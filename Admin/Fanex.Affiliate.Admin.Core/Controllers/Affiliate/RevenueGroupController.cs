@@ -28,15 +28,19 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
         private readonly IProductRepository _productRepository;
 
+        private readonly ICommGroupValidation _commGroupValidation;
+
         public RevenueGroupController(
             ISessionService sessionService,
             ICommissionGroupService commissionService,
             IProductRepository productRepository,
-            ICommGroupCommonService commGroupCommonService) : base(sessionService)
+            ICommGroupCommonService commGroupCommonService,
+            ICommGroupValidation commGroupValidation) : base(sessionService)
         {
             _commissionGroupService = commissionService;
             _productRepository = productRepository;
             _commGroupCommonService = commGroupCommonService;
+            _commGroupValidation = commGroupValidation;
         }
 
         [HttpGet]
@@ -119,7 +123,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
+            var result = _commGroupValidation.ValidateCommGroup(commGroup);
 
             if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {
@@ -162,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var result = CommGroupValidationHelper.ValidateAllFees(_productRepository, commGroup);
+            var result = _commGroupValidation.ValidateCommGroup(commGroup);
 
             if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {

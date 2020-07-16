@@ -14,8 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Member
 
         public string LastName { get; set; }
 
-        public string CurrentBalance { get; set; }
-
         public DateTime? CreatedDate { get; set; }
 
         public string AffName { get; set; }

@@ -2,6 +2,7 @@
 
 exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
 <FormGroup
+  className="align-items-center"
   row={true}
   tag="div"
 >
@@ -778,6 +779,7 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
 
 exports[`commission group - PlatformFeeItem Should render correctly with isInserting is false 1`] = `
 <FormGroup
+  className="align-items-center"
   row={true}
   tag="div"
 >

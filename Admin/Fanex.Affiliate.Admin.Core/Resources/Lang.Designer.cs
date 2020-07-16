@@ -124,15 +124,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Casino.
-        /// </summary>
-        public static string Casino {
-            get {
-                return ResourceManager.GetString("Casino", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Revenue Group.
         /// </summary>
         public static string CommGroup {
@@ -399,15 +390,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string PleaseSelectMessage {
             get {
                 return ResourceManager.GetString("PleaseSelectMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sportsbook.
-        /// </summary>
-        public static string Sportsbook {
-            get {
-                return ResourceManager.GetString("Sportsbook", resourceCulture);
             }
         }
         

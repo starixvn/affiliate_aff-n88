@@ -22,7 +22,7 @@ describe('commission group - DeductionSetting', () => {
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<DeductionSetting {...props} />);
 
-        wrapper.find(FeeSettingItem).at(0).props().onChangeCommission();
+        wrapper.find(FeeSettingItem).at(0).props().handleChange();
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 } });
     });
 
@@ -31,7 +31,7 @@ describe('commission group - DeductionSetting', () => {
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<DeductionSetting {...props} />);
 
-        wrapper.find(FeeSettingItem).at(1).props().onChangeCommission();
+        wrapper.find(FeeSettingItem).at(1).props().handleChange();
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 } });
     });
 

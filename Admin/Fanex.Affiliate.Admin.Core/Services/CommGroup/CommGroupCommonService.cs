@@ -13,41 +13,28 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
     {
         private readonly ICommissionGroupRepository _commGroupRepository;
 
-        public CommGroupCommonService(ICommissionGroupRepository commGroupRepository)
+        public CommGroupCommonService(
+            ICommissionGroupRepository commGroupRepository)
         {
             _commGroupRepository = commGroupRepository;
         }
 
         public ResultInfo CreateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var result = CommGroupValidationHelper.ValidateTierSettingList(param.TierSettingList);
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            param.TierList = BuildTierSettingXml(param.TierSettingList);
+            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
-            if (result.IsSuccessful)
-            {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
-                param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
-
-                return _commGroupRepository.CreateCommissionGroup(param);
-            }
-
-            return result;
+            return _commGroupRepository.CreateCommissionGroup(param);
         }
 
         public ResultInfo UpdateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var result = CommGroupValidationHelper.ValidateTierSettingList(param.TierSettingList);
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            param.TierList = BuildTierSettingXml(param.TierSettingList);
+            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
-            if (result.IsSuccessful)
-            {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
-                param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
-
-                return _commGroupRepository.UpdateCommissionGroup(param);
-            }
-
-            return result;
+            return _commGroupRepository.UpdateCommissionGroup(param);
         }
 
         public IEnumerable<Deduction> GetDeductionList()

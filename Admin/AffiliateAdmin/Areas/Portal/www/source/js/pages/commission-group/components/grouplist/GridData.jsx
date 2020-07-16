@@ -98,7 +98,6 @@ export class GridData extends Component {
 
     _renderGroupData() {
         const { gridData } = this.props;
-        console.log(gridData);
         const rows = [];
 
         if (gridData && gridData.length) {
@@ -188,7 +187,7 @@ export class GridData extends Component {
 
     render() {
         const { shouldResetScrollPosition, messageNotification, isConfirmPopup } = this.state;
-        console.log(format("70.0000"));
+
         return (
             <React.Fragment>
                 <div className="table-responsive table-group-setting">
