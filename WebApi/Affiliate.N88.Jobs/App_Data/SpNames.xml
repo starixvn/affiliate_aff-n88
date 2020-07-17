@@ -14,8 +14,8 @@
   <Funtion Name="ThirdPartyImport">
     <Setting Key="Master_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Master_bodb_N88"/>
     <Setting Key="Slave_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Slave_bodb_N88"/>
-    <Setting Key="Master_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_LatestCalledTime" DbName="Master_bodb_N88"/>
-    <Setting Key="Slave_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_LatestCalledTime" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_Sel" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_TimeTracker_LatestCalledTime" SpName="Task_API_TimeTracker_Sel" DbName="Slave_bodb_N88"/>
     <Setting Key="Master_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Master_bodb_N88"/>
     <Setting Key="Slave_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Slave_bodb_N88"/>
   </Funtion>

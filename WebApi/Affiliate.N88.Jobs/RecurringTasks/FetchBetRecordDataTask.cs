@@ -27,12 +27,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
-        private readonly ITimeTrackerService _timeTrackerService;
+        private readonly ITrackerService _timeTrackerService;
 
         public FetchBetRecordDataTask(ILicenseeApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
             ILogger logger,
-            ITimeTrackerService timeTrackerService,
+            ITrackerService timeTrackerService,
             IOptionsSnapshot<FetchServiceSetting> configuration)
             : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_BET_RECORD_SETTING))
         {
@@ -168,7 +168,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private DateTime GetAdjustmentApiServerDate()
         {
             var date = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(API_SERVER_TIME_OFFSET));
-            var adjustmentMin = Settings.AdjustmentTime;
+            var adjustmentMin = Settings.AdjustmentValue;
             var adjustDate = date.AddMinutes(adjustmentMin);
             return adjustDate.DateTime;
         }

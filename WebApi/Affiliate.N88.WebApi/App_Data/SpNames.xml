@@ -6,5 +6,8 @@
     <Setting Key="N88_Get_TpGameType" SpName="N88_Get_TpGameType" DbName="N88Licensee"/>
     <Setting Key="N88_Get_Customer" SpName="N88_Get_Customer" DbName="N88Licensee"/>
     <Setting Key="N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee"/>
+    <Setting Key="N88_Get_TpTransferInfo" SpName="N88_Get_TpTransferInfo" DbName="N88Licensee"/>
+    <Setting Key="N88_Get_CustWallet" SpName="N88_Get_CustWallet" DbName="N88Licensee"/>
+    <Setting Key="N88_Get_DepositInfo" SpName="N88_Get_DepositInfo" DbName="N88Licensee"/>
   </Function>
 </Functions>

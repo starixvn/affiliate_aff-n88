@@ -1,4 +1,5 @@
-﻿using Affiliate.N88.SpParams.Commands;
+﻿using Affiliate.N88.Models;
+using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 using System;
@@ -6,32 +7,19 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Repository
 {
-    public class TimeTrackerRespository : ITimeTrackerRepository
+    public class TrackerRespository : ITrackerRepository
     {
         private readonly IDynamicRepository _repo;
 
-        public TimeTrackerRespository(IDynamicRepository repo)
+        public TrackerRespository(IDynamicRepository repo)
         {
             _repo = repo ?? throw new ArgumentNullException(nameof(repo));
         }
-        public async Task<DateTime> GetLastedTimeAsync(GetLastedImportTimeCriteria timeInfo)
 
-/* Unmerged change from project 'Affiliate.N88 (netstandard2.0)'
-Before:
-            => await _repo.GetAsync<DateTime>(timeInfo);
-        
+        public async Task<TrackerInfo> GetLastedTrackerAsync(GetLastedImportTimeCriteria timeInfo)
+            => await _repo.GetAsync<TrackerInfo>(timeInfo);
 
-        public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
-After:
-            => await _repo.GetAsync<DateTime>(timeInfo);
-
-
-        public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
-*/
-            => await _repo.GetAsync<DateTime>(timeInfo);
-
-
-        public async Task ImportTimeTrackerAsync(InsertImportTimeTrackerCommand timeInfo)
+        public async Task ImportTimeTrackerAsync(InsertImportTrackerCommand timeInfo)
             => await _repo.ExecuteAsync(timeInfo);
     }
 }

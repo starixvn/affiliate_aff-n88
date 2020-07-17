@@ -30,8 +30,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public abstract Task FetchDataAsync();
 
-        protected async Task ImportDataToMultipleRepoAsync(IEnumerable<TData> data)
+        protected Task ImportDataToMultipleRepoAsync(IEnumerable<TData> data)
         {
+            if (!data.Any())
+            {
+                return Task.CompletedTask;
+            }
+
             var supportedPrefix = GetSupportedRepoPrefix();
             var groupRecords = GetInsertedRecordBySupportPrefix(supportedPrefix, data);
             Parallel.ForEach(groupRecords.Values, async records =>
@@ -43,7 +48,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                         throw new ImporterException(record.ErrMsg);
                 }
             });
-
+            return Task.CompletedTask;
         }
 
         protected abstract IEnumerable<string> GetSupportedRepoPrefix();

@@ -3,9 +3,9 @@ using System;
 
 namespace Affiliate.N88.SpParams.Commands
 {
-    public class InsertImportTimeTrackerCommand : IdenticalSuffixNonQueryCommand
+    public class InsertImportTrackerCommand : IdenticalSuffixNonQueryCommand
     {
-        public InsertImportTimeTrackerCommand(IPrefixProvider prefixProvider = null) : base(prefixProvider) { }
+        public InsertImportTrackerCommand(IPrefixProvider prefixProvider = null) : base(prefixProvider) { }
         protected override string SuffixSettingKey => "Task_API_TimeTracker_Import";
 
         public override bool IsValid() => true;
@@ -13,6 +13,8 @@ namespace Affiliate.N88.SpParams.Commands
         public string DataSource { get; set; }
 
         public DateTime CalledTime { get; set; }
+
+        public string KeyValue { get; set; } = String.Empty;
 
         public int ErrCode { get; set; } = 0;
 

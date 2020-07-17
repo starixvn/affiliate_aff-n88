@@ -143,7 +143,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                             , $"regtime=\"{customer?.RegTime}\""
                             , $"firstdepositdate=\"{customer?.FirstDepositDate}\""
                             , $"status=\"{customer?.Status}\""
-                            , $"istest=\"{customer.IsTest}\""
+                            , $"istest=\"{customer?.IsTest}\""
                             , "/>");
                         return builder.ToString();
                     }));

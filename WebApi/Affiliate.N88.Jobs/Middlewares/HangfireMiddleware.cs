@@ -1,8 +1,10 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
+using Affiliate.N88.Utitlities;
 using Hangfire;
 using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
@@ -10,7 +12,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.IO;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -29,43 +30,52 @@ namespace Affiliate.N88.Jobs.Middlewares
             var appSettings = new AppSettings();
             configuration.GetSection("AppSettings").Bind(appSettings);
 
-            var directory = System.AppDomain.CurrentDomain.BaseDirectory;
-            var saveConfigPath = Path.Combine(directory, appSettings.SaveConfigPath);
-
             //FetchCustomerDataTask
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
             services.AddScoped<IFetchAffCustomerDataTask, FetchAffCustomerDataTask>();
             services.Configure<LicenseeSiteSetting>(configuration.GetSection("AppSettings:LicenseeSetting"));
 
             //TimeTrackerService
-            services.AddScoped<ITimeTrackerRepository, TimeTrackerRespository>();
-            services.AddScoped<ITimeTrackerService, TimeTrackerService>();
+            services.AddScoped<ITrackerRepository, TrackerRespository>();
+            services.AddScoped<ITrackerService, TimeTrackerService>();
             services.Configure<TimeTrackerSetting>(configuration.GetSection("AppSettings:TimeTrackerSetting"));
 
             //FetchBetRecordDataTask
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
             services.AddScoped<IFetchBetRecordDataTask, FetchBetRecordDataTask>();
             services.Configure<FetchServiceSetting>(
-                Constants.ServiceConfigName.PULL_BET_RECORD_SETTING,
-                configuration.GetSection("AppSettings:PullBetRecordSetting"));
+                ServiceConfigName.PULL_BET_RECORD_SETTING,
+                configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_BET_RECORD_SETTING}"));
 
             //FetchCustomerDataTask
             services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>()
                 .Configure<FetchServiceSetting>(
-                    Constants.ServiceConfigName.PULL_CUSTOMER_SETTING,
-                    configuration.GetSection("AppSettings:PullCustomerSetting"));
+                    ServiceConfigName.PULL_CUSTOMER_SETTING,
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_CUSTOMER_SETTING}"));
 
             //FetchServerInfoDataTask
             services.AddScoped<IFetchServerInfoDataTask, FetchServerInfoDataTask>()
                 .Configure<FetchServiceSetting>(
-                    Constants.ServiceConfigName.PULL_SERVER_INFO_SETTING,
-                    configuration.GetSection("AppSettings:PullServerInfoSetting"));
+                    ServiceConfigName.PULL_SERVER_INFO_SETTING,
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_SERVER_INFO_SETTING}"));
 
             //FetchTpGameTypeDataTask
             services.AddScoped<IFetchGameTypeDataTask, FetchGameTypeDataTask>()
                 .Configure<FetchServiceSetting>(
-                    Constants.ServiceConfigName.PULL_GAME_TYPE_SETTING,
-                    configuration.GetSection("AppSettings:PullGameTypeSetting"));
+                    ServiceConfigName.PULL_GAME_TYPE_SETTING,
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_GAME_TYPE_SETTING}"));
+
+            //FetchTpTransferInfoDataTask
+            services.AddScoped<IFetchTpTransferInfoDataTask, FetchTpTransferInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING,
+                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING}"));
+
+            //FetchDepositInfoDataTask
+            services.AddScoped<IFetchDepositInfoDataTask, FetchDepositInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_DEPOSIT_INFO_SETTING, 
+                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -90,6 +100,10 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchServerInfoDataTask>($"{typeof(IFetchServerInfoDataTask).Name}", appSettings.PullServerInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchGameTypeDataTask>($"{typeof(IFetchGameTypeDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchTpTransferInfoDataTask>($"{typeof(IFetchTpTransferInfoDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

@@ -7,11 +7,9 @@ namespace Affiliate.N88.SpParams.Criteria
     {
         protected readonly IPrefixProvider _prefixProvider;
 
-        public IdenticalSurfixCriteriaBase(IPrefixProvider prefixProvider = null)
-        {
-            _prefixProvider = prefixProvider;
-        }
-
+        protected IdenticalSurfixCriteriaBase(IPrefixProvider prefixProvider = null)
+            => _prefixProvider = prefixProvider;
+        
         protected abstract string SuffixSettingKey { get; }
 
         public override string GetSettingKey()

@@ -11,5 +11,11 @@
         public const string PULL_GAME_TYPE_SETTING = "PullGameTypeSetting";
 
         public const string PULL_SERVER_INFO_SETTING = "PullServerInfoSetting";
+
+        public const string PULL_TPTRANSFER_INFO_SETTING = "PullTransferInfoSetting";
+
+        public const string PULL_CUST_WALLET_SETTING = "PullCustWalletSetting";
+
+        public const string PULL_DEPOSIT_INFO_SETTING = "PullDepositInfoSetting";
     }
 }

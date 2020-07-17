@@ -15,14 +15,14 @@ using Xunit;
 
 namespace Affiliate.N88.Jobs.UnitTests
 {
-    public class FetchCustomerDataTaskTests
+    public class FetchAffCustomerDataTaskTests
     {
         private readonly IMemberImportRepository Repo;
         private readonly ILicenseeApi Api;
         private readonly ILogger Logger;
         private readonly IOptions<LicenseeSiteSetting> Config;
 
-        public FetchCustomerDataTaskTests()
+        public FetchAffCustomerDataTaskTests()
         {
             Repo = Substitute.For<IMemberImportRepository>();
             Api = Substitute.For<ILicenseeApi>();
@@ -101,7 +101,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 
             await Repo.ReceivedWithAnyArgs(3).GetLastedMemberImportedTimeAsync(Arg.Any<MemberImportedTimeInfo>());
             await Logger.ReceivedWithAnyArgs(2).ErrorAsync(Arg.Any<string>(), Arg.Any<Exception>());
-            await Api.Received(1).GetCustomerAsync(date);
+            await Api.Received(1).GetAffCustomerAsync(date);
         }
 
         [Fact]
@@ -114,7 +114,7 @@ namespace Affiliate.N88.Jobs.UnitTests
 
             await fetchTask.FetchDataAsync();
 
-            await Api.Received().GetCustomerAsync(minDate);
+            await Api.Received().GetAffCustomerAsync(minDate);
         }
 
         [Fact]
@@ -122,7 +122,7 @@ namespace Affiliate.N88.Jobs.UnitTests
         {
             var date = new DateTime(2020, 2, 2);
             var fetchTask = CreateFetchTask();
-            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(new List<AffCustomerModel>());
+            Api.GetAffCustomerAsync(Arg.Any<DateTime>()).Returns(new List<AffCustomerModel>());
             await fetchTask.FetchDataAsync(date);
 
             await Logger.Received().InfoAsync(Arg.Is<string>(s => s.Contains($"No Data on date {date}")));
@@ -135,7 +135,7 @@ namespace Affiliate.N88.Jobs.UnitTests
             var siteNotInConfig = FetchCustomerDataTaskTestsHelper.SiteNotInConfigSetting;
             var fetchTask = CreateFetchTask();
             var customers = FetchCustomerDataTaskTestsHelper.GetSiteCustomer(siteNotInConfig);
-            Api.GetCustomerAsync(Arg.Any<DateTime>()).Returns(customers);
+            Api.GetAffCustomerAsync(Arg.Any<DateTime>()).Returns(customers);
 
             await fetchTask.FetchDataAsync(date);
 

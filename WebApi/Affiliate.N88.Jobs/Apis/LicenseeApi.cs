@@ -22,5 +22,14 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/setting/GetTpGameType")]
         Task<IEnumerable<TpGameTypeInfo>> GetGameTypeAsync();
+
+        [Get("/customer/GetCustWallets")]
+        Task<IEnumerable<CustWalletInfo>> GetCustomerWalletAsync(DateTime fromDate);
+
+        [Get("/betreport/GetTpTransferInfo")]
+        Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);
+
+        [Get("/betreport/GetDepositInfo")]
+        Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow);
     }
 }

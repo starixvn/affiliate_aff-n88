@@ -22,7 +22,7 @@ namespace Affiliate.N88.Jobs.Tests
     public class FetchBetRecordTaskTests
     {
         private readonly ILicenseeApi Api;
-        private readonly ITimeTrackerService TimeTrackerService;
+        private readonly ITrackerService TimeTrackerService;
         private readonly ILogger Logger;
         private readonly IOptionsSnapshot<FetchServiceSetting> Configuration;
         private readonly IThirdPartyImportRepository Repo;
@@ -31,7 +31,7 @@ namespace Affiliate.N88.Jobs.Tests
 
         public FetchBetRecordTaskTests()
         {
-            TimeTrackerService = Substitute.For<ITimeTrackerService>();
+            TimeTrackerService = Substitute.For<ITrackerService>();
             Logger = Substitute.For<ILogger>();
             Configuration = Substitute.For<IOptionsSnapshot<FetchServiceSetting>>();
             Repo = Substitute.For<IThirdPartyImportRepository>();
@@ -157,7 +157,7 @@ namespace Affiliate.N88.Jobs.Tests
 
         public static FetchServiceSetting GetConfiguration() => new FetchServiceSetting
         {
-            AdjustmentTime = 0,
+            AdjustmentValue = 0,
             DefaultPullDate = new DateTime(2020, 2, 2, 0, 0, 0),
             MaxTimeRange = 30,
             PullInfoCron = "*/30 * * * *",

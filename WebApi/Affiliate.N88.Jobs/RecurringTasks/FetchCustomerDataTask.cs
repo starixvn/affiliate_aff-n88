@@ -21,14 +21,14 @@ namespace Affiliate.N88.Jobs.RecurringTasks
     }
     public sealed class FetchCustomerDataTask : FetchDataForMultipleRepositoryTaskBase<CustomerInfo>, IFetchCustomerDataTask
     {
-        private readonly ITimeTrackerService _timeTrackerService;
+        private readonly ITrackerService _timeTrackerService;
         private readonly ILicenseeApi _liceseeApi;
         private readonly ILogger _logger;
 
         public FetchCustomerDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
             , ILogger logger
-            , ITimeTrackerService timeTrackerService
+            , ITrackerService timeTrackerService
             , IOptionsSnapshot<FetchServiceSetting> setting)
             : base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_CUSTOMER_SETTING))
         {
@@ -48,7 +48,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
             }
-
         }
 
         public async Task FetchDataAsync(DateTime fromDate)
@@ -75,14 +74,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         }
 
         private DateTime GetAdjustmentTime()
-            => DateTime.Now.AddMinutes(Settings.AdjustmentTime);
+            => DateTime.Now.AddMinutes(Settings.AdjustmentValue);
 
         protected override string BuildXml(IEnumerable<CustomerInfo> data)
             => XmlHelper.BuildXml(data, "root", "row");
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
             => Settings.SupportedPrefix;
-
-
     }
 }

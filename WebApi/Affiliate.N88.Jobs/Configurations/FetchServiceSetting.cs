@@ -9,7 +9,7 @@ namespace Affiliate.N88.Jobs.Configurations
 
         public DateTime DefaultPullDate { get; set; }
 
-        public int AdjustmentTime { get; set; }
+        public int AdjustmentValue { get; set; }
 
         public int MaxTimeRange { get; set; }
 
