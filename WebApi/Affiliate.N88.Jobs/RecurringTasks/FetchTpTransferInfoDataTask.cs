@@ -43,12 +43,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var queryId = GetAdjustmentId(id);
             var data = await _licenseeApi.GetTpTransferInfo(queryId, MAX_ROW_COUNT);
             await ImportDataToMultipleRepoAsync(data);
-            await _trackerService.SaveTrackerAsync(TableName, 
-                new TrackerInfo 
-                { 
-                    CalledTime = DateTime.Now, 
-                    KeyValue = queryId.ToString()
-                });
+            var maxId = data.Max(d => d.TransferId);
+            await _trackerService.SaveTrackerAsync(TableName,
+                new TrackerInfo
+                {
+                    CalledTime = DateTime.Now,
+                    KeyValue = maxId.ToString()
+                }); ;
 
             await ImportIfStillHaveMoreDataAsync(data);
         }
