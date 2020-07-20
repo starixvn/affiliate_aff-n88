@@ -26,7 +26,7 @@ namespace Affiliate.N88.Jobs.Apis
         [Get("/customer/GetCustWallets")]
         Task<IEnumerable<CustWalletInfo>> GetCustomerWalletAsync(DateTime fromDate);
 
-        [Get("/betreport/GetTpTransferInfo")]
+        [Get("/BetReport/GetTpTransferInfo")]
         Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);
 
         [Get("/betreport/GetDepositInfo")]

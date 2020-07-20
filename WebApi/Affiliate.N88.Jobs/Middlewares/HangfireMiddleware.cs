@@ -69,13 +69,13 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddScoped<IFetchTpTransferInfoDataTask, FetchTpTransferInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING,
-                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING}"));
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING}"));
 
             //FetchDepositInfoDataTask
             services.AddScoped<IFetchDepositInfoDataTask, FetchDepositInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_DEPOSIT_INFO_SETTING, 
-                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)

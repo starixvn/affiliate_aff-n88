@@ -6,7 +6,7 @@ namespace Affiliate.N88.SpParams.Criteria
     {
         public GetDepositInfoCriteria(int depositId, int batchCount = 2000)
         {
-            DepositId = depositId;
+            Id = depositId;
             BatchCount = batchCount;
         }
 
@@ -16,7 +16,7 @@ namespace Affiliate.N88.SpParams.Criteria
         public override bool IsValid()
             => true;
 
-        public int DepositId { get; set; }
+        public int Id { get; set; }
 
         public int BatchCount { get; set; }
     }

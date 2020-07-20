@@ -85,6 +85,10 @@ namespace Affiliate.N88.Jobs.Services
                 try
                 {
                     var trackerInfo = await _timeTrackerRepository.GetLastedTrackerAsync(param);
+                    if(trackerInfo == null)
+                    {
+                        trackerInfo = new TrackerInfo();
+                    }    
                     if (trackerInfo.CalledTime == default(DateTime))
                     {
                         trackerInfo.CalledTime = Setting.DefaultTime;

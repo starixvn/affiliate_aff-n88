@@ -6,7 +6,7 @@ namespace Affiliate.N88.SpParams.Criteria
     {
         public GetTpTransferInfoCriteria(int transferId, int batchCount = 2000)
         {
-            TransferId = transferId;
+            Id = transferId;
             BatchCount = batchCount;
         }
 
@@ -14,7 +14,7 @@ namespace Affiliate.N88.SpParams.Criteria
 
         public override bool IsValid() => true;
 
-        public int TransferId { get; set; }
+        public int Id { get; set; }
 
         public int BatchCount { get; set; }
 

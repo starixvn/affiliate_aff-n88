@@ -22,6 +22,10 @@
 
         public FetchServiceSetting PullGameTypeSetting { get; set; }
 
+        public FetchServiceSetting PullDepositInfoSetting { get; set; }
+
+        public FetchServiceSetting PullTpTransferInfoSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
