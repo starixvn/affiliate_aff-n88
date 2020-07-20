@@ -389,6 +389,10 @@ label {
 .summary-content .details-section-content .table table tbody tr:nth-child(even) {
   background: #1a1a1a; }
 
+.summary-content .details-section-sticky {
+  background: #111111 !important;
+  width: calc(100% - 30px) !important; }
+
 .account-overview #account-overview-menu .menu li:not(:last-child) {
   border: 0 !important;
   margin-right: 1px; }

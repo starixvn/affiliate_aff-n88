@@ -840,7 +840,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
-    <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
+    <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
@@ -1227,7 +1227,7 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
-    <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.webp" />
+    <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.webp" />
     <Content Include="Views\CommissionStructure\_ExampleTable.cshtml" />
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
