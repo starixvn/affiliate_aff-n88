@@ -49,7 +49,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     CalledTime = DateTime.Now,
                     KeyValue = maxId.ToString()
-                }); ;
+                });
 
             await ImportIfStillHaveMoreDataAsync(data);
         }

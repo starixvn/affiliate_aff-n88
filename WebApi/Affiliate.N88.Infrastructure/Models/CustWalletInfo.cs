@@ -6,10 +6,10 @@ namespace Affiliate.N88.Models
     {
         public int CustId { get; set; }
 
-        public int SiteId { get; set; }
+        public int? SiteId { get; set; }
 
-        public decimal Balance { get; set; }
+        public decimal? Balance { get; set; }
 
-        public DateTime FirstDepositTime { get; set; }
+        public DateTime? FirstDepositTime { get; set; }
     }
 }
