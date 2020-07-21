@@ -42,33 +42,32 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var id = string.IsNullOrWhiteSpace(tracker.KeyValue) ? 0 : int.Parse(tracker.KeyValue);
             var queryId = GetAdjustmentId(id);
             var data = await _licenseeApi.GetTpTransferInfo(queryId, MAX_ROW_COUNT);
-            await ImportDataToMultipleRepoAsync(data);
-            var maxId = data.Max(d => d.TransferId);
-            await _trackerService.SaveTrackerAsync(TableName,
-                new TrackerInfo
-                {
-                    CalledTime = DateTime.Now,
-                    KeyValue = maxId.ToString()
-                });
 
-            await ImportIfStillHaveMoreDataAsync(data);
+            await ImportDataAsync(data);
         }
 
-        private async Task ImportIfStillHaveMoreDataAsync(IEnumerable<TpTransferInfo> data)
+        private async Task ImportDataAsync(IEnumerable<TpTransferInfo> data)
         {
             var importData = data;
-            while(importData.Count() == MAX_ROW_COUNT)
+            while (importData != null && importData.Any())
             {
                 var maxId = data.Max(d => d.TransferId);
-                importData = await _licenseeApi.GetTpTransferInfo(maxId, MAX_ROW_COUNT);
-                await ImportDataToMultipleRepoAsync(data);
                 await _trackerService.SaveTrackerAsync(TableName,
                     new TrackerInfo
                     {
                         CalledTime = DateTime.Now,
                         KeyValue = maxId.ToString()
                     });
-            }
+
+                if(importData.Count() == MAX_ROW_COUNT)
+                {
+                    importData = await _licenseeApi.GetTpTransferInfo(maxId, MAX_ROW_COUNT);
+                }
+                else
+                {
+                    break;
+                }
+            }    
         }
 
         private int GetAdjustmentId(int id)

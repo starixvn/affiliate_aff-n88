@@ -42,31 +42,30 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var id = string.IsNullOrWhiteSpace(tracker.KeyValue) ? 0 : int.Parse(tracker.KeyValue);
             var queryId = GetAdjustmentId(id);
             var data = await _licenseeApi.GetDepositInfo(queryId, MAX_ROW_COUNT);
-            await ImportDataToMultipleRepoAsync(data);
-            await _trackerService.SaveTrackerAsync(TableName,
-                new TrackerInfo
-                {
-                    CalledTime = DateTime.Now,
-                    KeyValue = queryId.ToString()
-                });
-
-            await ImportIfStillHaveMoreDataAsync(data);
+            await ImportDataAsync(data);
         }
 
-        private async Task ImportIfStillHaveMoreDataAsync(IEnumerable<DepositInfo> data)
+        private async Task ImportDataAsync(IEnumerable<DepositInfo> data)
         {
             var importData = data;
-            while (importData.Count() == MAX_ROW_COUNT)
+            while (importData != null && importData.Any())
             {
                 var maxId = data.Max(d => d.DepositId);
-                importData = await _licenseeApi.GetDepositInfo(maxId, MAX_ROW_COUNT);
-                await ImportDataToMultipleRepoAsync(data);
                 await _trackerService.SaveTrackerAsync(TableName,
                     new TrackerInfo
                     {
                         CalledTime = DateTime.Now,
                         KeyValue = maxId.ToString()
                     });
+
+                if (importData.Count() == MAX_ROW_COUNT)
+                {
+                    importData = await _licenseeApi.GetDepositInfo(maxId, MAX_ROW_COUNT);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
 
