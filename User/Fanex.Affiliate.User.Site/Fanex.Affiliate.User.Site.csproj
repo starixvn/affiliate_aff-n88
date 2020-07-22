@@ -840,6 +840,10 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
@@ -857,10 +861,6 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.th-TH.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
