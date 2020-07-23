@@ -1,5 +1,6 @@
 ﻿using Affiliate.N88.DTO;
 using Affiliate.N88.Models;
+using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 using System;
@@ -47,9 +48,32 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<CustWalletInfo>> GetCustWallets(DateTime fromDate)
             => await dynamicRepository.FetchAsync<CustWalletInfo>(new GetCustWalletCriteria(fromDate));
+            
+        [HttpGet]
+        public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
+            => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
 
         [HttpGet]
         public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
             => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
+            
+        [HttpPost]
+        public async Task<decimal> UpdateCustomerWallet(PaymentRequestInfo payment)
+        {
+            var criteria = new UpdateCustomerWalletCommand
+            {
+                Amount = payment.Amount,
+                AfterAmount = 0,
+                CustId = payment.CustId,
+                Memo = payment.Memo,
+                RefTransId = payment.RefTransId,
+                SiteId = payment.SiteId,
+                Type = payment.Type,
+                UserName = payment.UserName
+            };
+
+            await dynamicRepository.ExecuteAsync(criteria);
+            return criteria.AfterAmount;
+        }
     }
 }

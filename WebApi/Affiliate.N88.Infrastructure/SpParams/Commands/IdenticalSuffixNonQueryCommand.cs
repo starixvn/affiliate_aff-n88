@@ -4,9 +4,9 @@ using Fanex.Data.Repository;
 
 namespace Affiliate.N88.SpParams.Commands
 {
-    public abstract class IdenticalSuffixNonQueryCommand : IdenticalSurfixCriteriaBase, INonQueryCommand, ICriteria
+    public abstract class IdenticalSuffixNonQueryCommand : IdenticalSurfixCriteriaBase, INonQueryCommand
     {
-        public IdenticalSuffixNonQueryCommand(IPrefixProvider prefixProvider = null) : base(prefixProvider)
+        protected IdenticalSuffixNonQueryCommand(IPrefixProvider prefixProvider = null) : base(prefixProvider)
         {
         }
     }
