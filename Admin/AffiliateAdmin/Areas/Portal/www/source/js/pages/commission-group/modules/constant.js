@@ -31,7 +31,7 @@ export const messages = {
     invalidBankingAmount: 'Banking Fee is invalid.',
     requireTier: 'Tier Setting must have at least 1 tier',
     requireInfinity: 'Last Tier Setting must have maximum value=∞',
-    qmConstrain: 'Max QM must be greater than or equal to Min QM',
+    qmConstrain: 'Min AP must be lesser than or equal to 1,000,000,000!',
     amountConstrain: 'Max Amount must be greater than or equal to Min Amount',
     requireSelectedProduct: 'At least 1 product must be selected per group',
     confirmChangeGroup: 'Are you sure you want to change the Revenue Group for affiliate: {0}',

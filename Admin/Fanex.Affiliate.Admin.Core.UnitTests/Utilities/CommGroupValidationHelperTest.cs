@@ -166,18 +166,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.01m,
                     MaxAmount = 100,
-                    MaxAm = 100,
+                    MaxAp = 100,
                     MinAmount = 0,
-                    MinAm = 0,
+                    MinAp = 0,
                     TierId = 1
                 },
                 new TierSetting
                 {
                     Commission = 0.10m,
                     MaxAmount = 100000000,
-                    MaxAm = 100000,
+                    MaxAp = 100000,
                     MinAmount = 101,
-                    MinAm = 101,
+                    MinAp = 101,
                     TierId = 2
                 }
             };
@@ -202,18 +202,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.01m,
                     MaxAmount = 100,
-                    MaxAm = 100,
+                    MaxAp = 100,
                     MinAmount = 101,
-                    MinAm = 0,
+                    MinAp = 0,
                     TierId = 1
                 },
                 new TierSetting
                 {
                     Commission = 0.10m,
                     MaxAmount = 100000000000000,
-                    MaxAm = 1000000000,
+                    MaxAp = 1000000000,
                     MinAmount = 101,
-                    MinAm = 101,
+                    MinAp = 101,
                     TierId = 2
                 }
             };
@@ -228,7 +228,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmGreaterThanMaxAm_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanMaxAp_ReturnError()
         {
             // Arrange
             var param = CreateValidCommissionGroupSetting();
@@ -238,18 +238,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.01m,
                     MaxAmount = 100,
-                    MaxAm = 100,
+                    MaxAp = 100,
                     MinAmount = 0,
-                    MinAm = 101,
+                    MinAp = 101,
                     TierId = 1
                 },
                 new TierSetting
                 {
                     Commission = 0.10m,
                     MaxAmount = 100000000000000,
-                    MaxAm = 1000000000,
+                    MaxAp = 1000000000,
                     MinAmount = 101,
-                    MinAm = 101,
+                    MinAp = 101,
                     TierId = 2
                 }
             };
@@ -312,18 +312,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     {
                         Commission = 0.01m,
                         MaxAmount = 100,
-                        MaxAm = 100,
+                        MaxAp = 100,
                         MinAmount = 0,
-                        MinAm = 0,
+                        MinAp = 0,
                         TierId = 1
                     },
                     new TierSetting
                     {
                         Commission = 0.10m,
                         MaxAmount = 100000000000000,
-                        MaxAm = 1000000000,
+                        MaxAp = 1000000000,
                         MinAmount = 101,
-                        MinAm = 101,
+                        MinAp = 101,
                         TierId = 2
                     }
                 }

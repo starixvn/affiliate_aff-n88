@@ -840,6 +840,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
@@ -848,7 +849,6 @@
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
-    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-us\contact.png" />
     <Content Include="www\build\styles\Images\icon-1.png" />
     <Content Include="www\build\styles\Images\icon-2.png" />
@@ -1253,13 +1253,13 @@
     <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />
-    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

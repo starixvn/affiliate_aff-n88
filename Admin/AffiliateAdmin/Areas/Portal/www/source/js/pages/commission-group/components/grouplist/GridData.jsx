@@ -109,6 +109,9 @@ export class GridData extends Component {
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const rowSpan = tierSettingRowSpan + platformFeeRowSpan;
 
+                const operationalFee = OperationalFee && formatDecimal(OperationalFee.IsDeductedPercent ? OperationalFee.DeductedPercentage : Number(OperationalFee.DeductedAmount))
+                const bankingFee = BankingFee && formatDecimal(BankingFee.IsDeductedPercent ? BankingFee.DeductedPercentage : Number(BankingFee.DeductedAmount))
+
                 for (let iTier = 0; iTier < TierSettingList.length; iTier++) {
                     const tierSetting = TierSettingList[iTier];
                     const isFirstItem = iTier === 0;
@@ -134,14 +137,14 @@ export class GridData extends Component {
                             <Cell className="text-center cell-tier">{tierSetting.TierId}</Cell>
                             <Cell className="text-right cell-tier">{format(tierSetting.MinAmount)}</Cell>
                             <Cell className="text-right cell-tier">{tierSetting.MaxAmount === INFINITY_AM ? INFINITY_SYMBOL : format(tierSetting.MaxAmount)}</Cell>
-                            <Cell className="text-right cell-tier">{format(tierSetting.MinAm)}</Cell>
-                            <Cell className="text-right cell-tier">{tierSetting.MaxAm === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAm)}</Cell>
+                            <Cell className="text-right cell-tier">{format(tierSetting.MinAp)}</Cell>
+                            <Cell className="text-right cell-tier">{tierSetting.MaxAp === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAp)}</Cell>
                             <Cell className="text-right cell-tier">{formatDecimal(tierSetting.Commission)}</Cell>
 
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                {OperationalFee && formatDecimal(OperationalFee.IsDeductedPercent ? OperationalFee.DeductedPercentage : Number(OperationalFee.DeductedAmount))}</Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan}>
-                                {BankingFee && formatDecimal(BankingFee.IsDeductedPercent ? BankingFee.DeductedPercentage : Number(BankingFee.DeductedAmount))}</Cell>)}
+                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={operationalFee}>
+                                {operationalFee}</Cell>)}
+                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={bankingFee}>
+                                {bankingFee}</Cell>)}
 
                             {isFirstItem && (
                                 <Cell className="text-center" rowSpan={rowSpan}>

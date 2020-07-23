@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAm == Validation.InfinityQualifiedMember)))
+            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAp == Validation.InfinityQualifiedMember)))
             {
                 result.Code = Code.GeneralErrorCode;
                 result.Message = string.Join(result.Message + brElementHtml, "Last Tier Setting must have maximum value=∞!");
@@ -116,10 +116,10 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (tierSettingList.Any(item => item.MinAm > item.MaxAm))
+            if (tierSettingList.Any(item => item.MinAp > item.MaxAp))
             {
                 result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Max QM must be greater than or equal to Min QM!");
+                result.Message = string.Join(result.Message + brElementHtml, "Min AP must be lesser than or equal to 1,000,000,000!");
             }
 
             return result;

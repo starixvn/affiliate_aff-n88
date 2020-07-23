@@ -95,18 +95,18 @@ describe('commission group actions', () => {
                                 Commission: 0.2,
                                 GroupId: 133,
                                 MaxAmount: 15,
-                                MaxAm: 5,
+                                MaxAp: 5,
                                 MinAmount: 0,
-                                MinAm: 0,
+                                MinAp: 0,
                                 TierId: 1
                             },
                             {
                                 Commission: 0,
                                 GroupId: 133,
                                 MaxAmount: 100000000000000,
-                                MaxAm: 1000000000,
+                                MaxAp: 1000000000,
                                 MinAmount: 16,
-                                MinAm: 6,
+                                MinAp: 6,
                                 TierId: 1
                             }
                         ]

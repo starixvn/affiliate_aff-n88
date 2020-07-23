@@ -163,13 +163,13 @@ export const validateTierSettingList = (tierSettingList) => {
     if (tierSettingList.length === 0) {
         isValid = false;
         messageList.push(messages.requireTier);
-    } else if (tierSettingList.filter(item => item.MaxAmount === INFINITY_AM && item.MaxAm === INFINITY_QM).length === 0) {
+    } else if (tierSettingList.filter(item => item.MaxAmount === INFINITY_AM && item.MaxAp === INFINITY_QM).length === 0) {
         isValid = false;
         messageList.push(messages.requireInfinity);
     } else if (tierSettingList.filter(item => item.MinAmount > item.MaxAmount).length > 0) {
         isValid = false;
         messageList.push(messages.amountConstrain);
-    } else if (tierSettingList.filter(item => item.MinAm > item.MaxAm).length > 0) {
+    } else if (tierSettingList.filter(item => item.MinAp > item.MaxAp).length > 0) {
         isValid = false;
         messageList.push(messages.qmConstrain);
     }

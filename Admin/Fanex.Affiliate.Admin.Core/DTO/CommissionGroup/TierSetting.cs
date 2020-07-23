@@ -16,11 +16,11 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
         [Range(0, (double)Validation.InfinityAmount, ErrorMessage = "Max Amount not valid!")]
         public decimal MaxAmount { get; set; }
 
-        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Min Actived Members not valid!")]
-        public int MinAm { get; set; }
+        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Min Actived Players not valid!")]
+        public int MinAp { get; set; }
 
-        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Max Actived Members not valid!")]
-        public int MaxAm { get; set; }
+        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Max Actived Players not valid!")]
+        public int MaxAp { get; set; }
 
         public decimal Commission { get; set; }
     }

@@ -195,8 +195,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         TierId = Convert.ToInt32(reader["TierId"]),
                         MinAmount = Convert.ToDecimal(reader["MinAmount"]),
                         MaxAmount = Convert.ToDecimal(reader["MaxAmount"]),
-                        MinAm = Convert.ToInt32(reader["MinAm"]),
-                        MaxAm = Convert.ToInt32(reader["MaxAm"]),
+                        MinAp = Convert.ToInt32(reader["MinAm"]),
+                        MaxAp = Convert.ToInt32(reader["MaxAm"]),
                         Commission = Convert.ToDecimal(reader["Commission"])
                     });
                 }

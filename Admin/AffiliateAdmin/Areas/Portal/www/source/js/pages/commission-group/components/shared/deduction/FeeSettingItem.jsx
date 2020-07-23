@@ -3,7 +3,6 @@ import React, { Fragment } from 'react';
 import { Col, FormGroup, Label, Input, Form } from 'reactstrap';
 import { formatDecimal, format } from '../../../../../modules/numberFormat';
 import { commissionValueList, regExp } from '../../../modules/constant';
-import { isValidNumber } from '../../../../../modules/utils';
 import { money } from '../../../../../modules/constants';
 
 const regexCheckAmount = new RegExp(regExp.checkAmount);
@@ -29,7 +28,7 @@ export default class FeeSettingItem extends React.Component {
         const { name, value } = event.target;
 
         const amount = value.replace(/,/g, '');
-        if (regexCheckAmount.test(amount) && Number(amount) > money.MinValue && Number(amount) < money.MaxValue) {
+        if (regexCheckAmount.test(amount) && Number(amount) >= money.MinValue && Number(amount) <= money.MaxValue) {
             if (regexShouldFormatAmount.test(amount)) {
                 this.props.handleChange({ [name]: format(Number(amount)) })
             } else {

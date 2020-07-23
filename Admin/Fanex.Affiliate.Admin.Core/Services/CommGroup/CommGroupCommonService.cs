@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in tierSettingList)
             {
-                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAm}\" maxam=\"{item.MaxAm}\" commission=\"{item.Commission}\" />";
+                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAp}\" maxam=\"{item.MaxAp}\" commission=\"{item.Commission}\" />";
                 result.Append(row);
             }
 

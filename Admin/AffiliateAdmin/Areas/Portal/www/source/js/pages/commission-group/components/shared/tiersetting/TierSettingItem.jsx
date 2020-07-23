@@ -22,22 +22,22 @@ export default class TierSettingItem extends React.Component {
 
     handleCheck = (event) => {
         const isChecked = event.target.checked;
-        const isMaxAm = event.target.name === 'MaxAm';
+        const isMaxAp = event.target.name === 'MaxAp';
 
         const { data, onChange } = this.props;
 
         const newState = isChecked ?
-            Object.assign({}, data, isMaxAm ? { MaxAm: INFINITY_QM } : { MaxAmount: INFINITY_AM, MaxAm: INFINITY_QM }) :
-            Object.assign({}, data, isMaxAm ? { MaxAm: data.MinAm } : { MaxAmount: data.MinAmount, MaxAm: data.MinAm });
+            Object.assign({}, data, isMaxAp ? { MaxAp: INFINITY_QM } : { MaxAmount: INFINITY_AM, MaxAp: INFINITY_QM }) :
+            Object.assign({}, data, isMaxAp ? { MaxAp: data.MinAp } : { MaxAmount: data.MinAmount, MaxAp: data.MinAp });
 
         onChange && onChange(data.TierId, newState);
     }
 
     render() {
         const { data, onRemove, isDisabledInfinity } = this.props;
-        const { TierId, MinAmount, MaxAmount, MinAm, MaxAm, Commission } = data;
+        const { TierId, MinAmount, MaxAmount, MinAp, MaxAp, Commission } = data;
         const isDisabledMaxAmount = MaxAmount === INFINITY_AM;
-        const isDisabledMaxAm = MaxAm === INFINITY_QM;
+        const isDisabledMaxAp = MaxAp === INFINITY_QM;
 
         return (
             <tr>
@@ -59,15 +59,15 @@ export default class TierSettingItem extends React.Component {
                     </Form>
                 </td>
                 <td>
-                    <Input type="text" name="MinAm" id={"MinAm" + TierId} value={format(MinAm)} onChange={this.handleChange} />
+                    <Input type="text" name="MinAp" id={"MinAp" + TierId} value={format(MinAp)} onChange={this.handleChange} />
                 </td>
                 <td>
                     <Form inline>
-                        <Input type="text" name="MaxAm" id={"MaxAm" + TierId} className="form-max" disabled={isDisabledMaxAm}
-                            value={isDisabledMaxAm ? INFINITY_SYMBOL : format(MaxAm)} onChange={this.handleChange} />
+                        <Input type="text" name="MaxAp" id={"MaxAp" + TierId} className="form-max" disabled={isDisabledMaxAp}
+                            value={isDisabledMaxAp ? INFINITY_SYMBOL : format(MaxAp)} onChange={this.handleChange} />
                         <FormGroup check className="ml-sm-1">
                             <Label check>
-                                <Input type="checkbox" checked={isDisabledMaxAm} name="MaxAm" id={"MaxAmCheckbox" + TierId}
+                                <Input type="checkbox" checked={isDisabledMaxAp} name="MaxAp" id={"MaxApCheckbox" + TierId}
                                     onChange={this.handleCheck} />{INFINITY_SYMBOL}
                             </Label>
                         </FormGroup>

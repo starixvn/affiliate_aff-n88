@@ -17,21 +17,21 @@ export class TierSetting extends Component {
     handleAdd = () => {
         const { TierSettingList } = this.props.selectedGroup;
         let defaultMinAmount = 0;
-        let defaultMinAm = 0;
+        let defaultMinAp = 0;
 
         const itemCount = TierSettingList.length;
         if (itemCount > 0) {
             const lastItem = TierSettingList[itemCount - 1];
             defaultMinAmount = lastItem.MaxAmount + 1;
-            defaultMinAm = lastItem.MaxAm + 1;
+            defaultMinAp = lastItem.MaxAp + 1;
         }
 
         const newTierSetting = {
             TierId: itemCount + 1,
             MinAmount: defaultMinAmount,
             MaxAmount: defaultMinAmount,
-            MinAm: defaultMinAm,
-            MaxAm: defaultMinAm,
+            MinAp: defaultMinAp,
+            MaxAp: defaultMinAp,
             Commission: 0
         };
 
@@ -51,11 +51,11 @@ export class TierSetting extends Component {
     }
 
     handleChangeInput = (tierId, tierItemValue) => {
-        const { MinAmount, MaxAmount, MinAm, MaxAm } = tierItemValue;
+        const { MinAmount, MaxAmount, MinAp, MaxAp } = tierItemValue;
         if ((!MinAmount || isValidNumber(MinAmount)) &&
             (!MaxAmount || isValidNumber(MaxAmount)) &&
-            (!MinAm || isValidNumber(MinAm)) &&
-            (!MaxAm || isValidNumber(MaxAm))) {
+            (!MinAp || isValidNumber(MinAp)) &&
+            (!MaxAp || isValidNumber(MaxAp))) {
             const { TierSettingList } = this.props.selectedGroup;
 
             const tierSettingList = TierSettingList.map(item => {
