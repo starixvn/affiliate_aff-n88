@@ -2,8 +2,14 @@
 @import "../components/multiple-select";
 
 .commission-group {
-    .deducted-percent-group {
-        margin-left: 3px;
+    .comm-popup-container {
+        .deducted-percent-group {
+            margin-left: 3px;
+        }
+
+        .deducted-amount {
+            margin-left: -3.15rem;
+        }
     }
 }
 
@@ -73,7 +79,7 @@
     }
 
     .deducted-amount {
-        margin-left: -2rem;
+        margin-left: -2.75rem;
     }
 
     .form-max {

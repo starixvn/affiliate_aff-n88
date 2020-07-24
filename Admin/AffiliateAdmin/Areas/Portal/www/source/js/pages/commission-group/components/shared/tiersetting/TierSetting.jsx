@@ -17,13 +17,12 @@ export class TierSetting extends Component {
     handleAdd = () => {
         const { TierSettingList } = this.props.selectedGroup;
         let defaultMinAmount = 0;
-        let defaultMinAp = 0;
+        let defaultMinAp = 5;
 
         const itemCount = TierSettingList.length;
         if (itemCount > 0) {
             const lastItem = TierSettingList[itemCount - 1];
             defaultMinAmount = lastItem.MaxAmount + 1;
-            defaultMinAp = lastItem.MaxAp + 1;
         }
 
         const newTierSetting = {
