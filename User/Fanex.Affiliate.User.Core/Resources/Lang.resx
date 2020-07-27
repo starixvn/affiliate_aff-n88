@@ -2407,4 +2407,13 @@
   <data name="BaseCurrency" xml:space="preserve">
     <value>Base Currency</value>
   </data>
+  <data name="UserNameNotExist" xml:space="preserve">
+    <value>Username is not exist</value>
+  </data>
+  <data name="UserNameSuspended" xml:space="preserve">
+    <value>Username is suspended</value>
+  </data>
+  <data name="UserNameClosed" xml:space="preserve">
+    <value>Username is closed</value>
+  </data>
 </root>

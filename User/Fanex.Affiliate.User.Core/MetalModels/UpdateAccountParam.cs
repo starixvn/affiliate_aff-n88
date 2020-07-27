@@ -17,8 +17,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string NoSiteDesc { get; set; }
 
-        public string Player_UserName { get; set; }
-
         public string Ip { get; set; }
 
         public string Language { get; set; }

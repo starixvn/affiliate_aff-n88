@@ -91,6 +91,10 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public int ParentAffId { get; set; }
 
+        public int Player_CustId { get; set; }
+
+        public int Player_Currency { get; set; }
+
         [SpParam(Ignored = true)]
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 

@@ -207,6 +207,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\ICustomerApi.cs" />
     <Compile Include="BusinessService\AccountService.cs" />
     <Compile Include="BusinessService\AuthService.cs" />
     <Compile Include="BusinessService\CaptchaService.cs" />
@@ -233,6 +234,7 @@
     <Compile Include="BusinessService\TwoFactorAuthService.cs" />
     <Compile Include="BusinessService\VerificationService.cs" />
     <Compile Include="Constants\ActionName.cs" />
+    <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
     <Compile Include="Constants\CommGroupName.cs" />
     <Compile Include="Constants\CommissionType.cs" />
@@ -293,6 +295,7 @@
     <Compile Include="Controllers\UserPanel\StatisticsController.cs" />
     <Compile Include="CoreService\ISessionService.cs" />
     <Compile Include="CoreService\SessionService.cs" />
+    <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
     <Compile Include="DTO\ContactApp.cs" />
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
     <Compile Include="DTO\UserPanel\Currency.cs" />
@@ -321,6 +324,7 @@
     <Compile Include="DTO\UserPanel\SubAffComInfo.cs" />
     <Compile Include="DTO\UserPanel\SubAffDetail.cs" />
     <Compile Include="Filters\JsonHandlerAttribute.cs" />
+    <Compile Include="Infrastructure\AuthenticatedHttpClientHandler.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
     <Compile Include="MetalModels\Attributes\RequiredReplace12BetAttribute.cs" />
     <Compile Include="MetalModels\UserPanel\CommissionReportParam.cs" />

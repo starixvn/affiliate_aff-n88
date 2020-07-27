@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
     using BusinessService;
     using CoreService;
@@ -67,7 +68,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(UserSignUpParam param)
+        public async Task<ActionResult> Index(UserSignUpParam param)
         {
             var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
@@ -122,7 +123,7 @@
                     MailTo = _appSetting.MailContact
                 };
 
-                result = _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
+                result = await _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
             }
             else
             {

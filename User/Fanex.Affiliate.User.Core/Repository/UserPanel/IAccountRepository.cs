@@ -25,8 +25,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
 
-        PlayerUserValidInfo GetPlayerUserNameValidInfo(string userName, int affId = 0);
-
         int CreateSecretKey(int affId, string secretKey);
 
         IEnumerable<CommissionSetting> GetCommissionSettingList(int affId, bool isInternal);

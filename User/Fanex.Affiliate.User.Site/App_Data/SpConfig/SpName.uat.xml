@@ -28,11 +28,6 @@
     <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="main" />
   </Function>
 
-  <Function Name="DepositInformation">
-    <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName ="Aff_PlayerUsername_CheckIsValid" DbName ="affiliate_n88"/>
-
-  </Function>
-
   <Function Name="Statistics">
     <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateSelTrackingCode_view" SpName="Aff_AffiliateSelTrackingCode" DbName="affiliate_n88_view" />

@@ -6236,6 +6236,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username is closed.
+        /// </summary>
+        public static string UserNameClosed {
+            get {
+                return ResourceManager.GetString("UserNameClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username is required.
         /// </summary>
         public static string UsernameIsRequired {
@@ -6254,11 +6263,29 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username is not exist.
+        /// </summary>
+        public static string UserNameNotExist {
+            get {
+                return ResourceManager.GetString("UserNameNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string UsernameSignUp {
             get {
                 return ResourceManager.GetString("UsernameSignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username is suspended.
+        /// </summary>
+        public static string UserNameSuspended {
+            get {
+                return ResourceManager.GetString("UserNameSuspended", resourceCulture);
             }
         }
         

@@ -112,7 +112,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-
         public IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo)
         {
             const string uSpKey = "Dot_Dep_CustomerInsMember_Ag_Cust";
@@ -194,23 +193,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
                 return code == DBNull.Value ? 0 : Convert.ToInt32(code);
             }
-        }
-
-        public PlayerUserValidInfo GetPlayerUserNameValidInfo(string userName, int affId = 0)
-        {
-            const string uSpKey = "Aff_PlayerUsername_CheckIsValid";
-            var userInfo = new PlayerUserValidInfo
-            {
-                AffId = affId,
-                PlayerUserName = userName,
-                IsValid = false
-            };
-
-            using(var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(userInfo);
-            }
-            return userInfo;
         }
 
         public MaxLevelInfo GetLevelAffiliate(int affId)

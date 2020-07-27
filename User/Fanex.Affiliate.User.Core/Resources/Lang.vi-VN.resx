@@ -2251,4 +2251,13 @@
   <data name="BaseCurrency" xml:space="preserve">
     <value>Tiền cơ sở</value>
   </data>
+  <data name="UserNameNotExist" xml:space="preserve">
+    <value>Tên truy cập không tồn tại</value>
+  </data>
+  <data name="UserNameSuspended" xml:space="preserve">
+    <value>Tên truy cập bị khóa</value>
+  </data>
+  <data name="UserNameClosed" xml:space="preserve">
+    <value>Tên truy cập đã bị đóng</value>
+  </data>
 </root>
