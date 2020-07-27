@@ -2414,6 +2414,6 @@
     <value>Username is suspended</value>
   </data>
   <data name="UserNameClosed" xml:space="preserve">
-    <value>Username is closed</value>
+    <value>User is closed</value>
   </data>
 </root>

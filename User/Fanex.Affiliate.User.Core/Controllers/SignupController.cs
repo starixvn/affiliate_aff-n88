@@ -123,7 +123,7 @@
                     MailTo = _appSetting.MailContact
                 };
 
-                result = await _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
+                result = await _accountService.CreateAffiliate(signUpParam, emailParam);
             }
             else
             {

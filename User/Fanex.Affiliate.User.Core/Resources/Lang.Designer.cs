@@ -6236,7 +6236,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username is closed.
+        ///   Looks up a localized string similar to User is closed.
         /// </summary>
         public static string UserNameClosed {
             get {
