@@ -54,5 +54,9 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         string DefaultLanguage { get; }
 
         string DefaultCurrency { get; }
+
+        string MemberSiteApiUrl { get; }
+
+        int MemberSiteId { get; }
     }
 }

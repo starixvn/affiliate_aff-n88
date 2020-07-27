@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var param = GetUserAccountParam();
             UserAccountParam passedParam = null;
             var userAccountService = new Mock<IUserAccountService>();
-            userAccountService.Setup(s => s.UpdateUserAccount(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
+            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
             var controller = CreateUserAccountController(userAccountService: userAccountService.Object);
 
             // Action
@@ -109,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             param.ContactAppList = null;
             UserAccountParam passedParam = null;
             var userAccountService = new Mock<IUserAccountService>();
-            userAccountService.Setup(s => s.UpdateUserAccount(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
+            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
             var controller = CreateUserAccountController(userAccountService: userAccountService.Object);
 
             // Action

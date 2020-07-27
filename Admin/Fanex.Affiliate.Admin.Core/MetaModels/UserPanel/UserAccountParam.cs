@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
+using Fanex.Data.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {
@@ -54,6 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         [Required]
         public string PreferredPayment { get; set; }
 
+        [SpParam(Ignored = true)]
         public string PlayerUsername { get; set; }
 
         public string NetellerAccountId { get; set; }
@@ -76,5 +78,9 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 
         public bool HasWebSite { get; set; }
+
+        public int Player_CustId { get; set; }
+
+        public int Player_Currency { get; set; }
     }
 }

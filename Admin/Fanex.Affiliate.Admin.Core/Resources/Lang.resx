@@ -237,4 +237,19 @@
   <data name="FileNameCanNotContain" xml:space="preserve">
     <value>A File Name can't contain any of the following characters: \/:*?"&lt;&gt;|#%&amp;+</value>
   </data>
+  <data name="UserNameNotExist" xml:space="preserve">
+    <value>Username is not exist</value>
+  </data>
+  <data name="UserNameClosed" xml:space="preserve">
+    <value>User is closed</value>
+  </data>
+  <data name="UserNameSuspended" xml:space="preserve">
+    <value>User is suspended</value>
+  </data>
+  <data name="ErrInApi" xml:space="preserve">
+    <value>Have err when call API</value>
+  </data>
+  <data name="PaymentRequestNotValid" xml:space="preserve">
+    <value>Payment request is not valid</value>
+  </data>
 </root>

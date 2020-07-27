@@ -58,5 +58,9 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         public string DefaultLanguage => GetValue("DefaultLanguage");
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
+
+        public string MemberSiteApiUrl => GetValue("MemberSiteUrl");
+
+        public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
     }
 }

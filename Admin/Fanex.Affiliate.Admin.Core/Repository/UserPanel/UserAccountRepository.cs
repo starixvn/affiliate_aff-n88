@@ -9,22 +9,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
     public class UserAccountRepository : BaseRepository, IUserAccountRepository
     {
-        public bool CheckPlayerUserName(int affId, string playerUserName)
-        {
-            const string SpKey = "Aff_PlayerUsername_CheckIsValid";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter(Field.AffId, DbType.Int32, affId);
-                objectDb.AddInParameter("Player_Username", DbType.String, playerUserName);
-                objectDb.AddOutParameter("IsValid", DbType.Boolean, Size.SizeOfInt);
-
-                objectDb.ExecuteNonQuery();
-
-                return Convert.ToBoolean(objectDb.GetParameterValue("IsValid"));
-            }
-        }
-
         public UserAccount GetUserAccountInfo(int affId)
         {
             const string SpKey = "Aff_Admin_AffiliateInfo_Sel";
@@ -103,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 objectDb.AddInParameter("NoSiteDesc", DbType.String, param.NoSiteDescription);
 
                 objectDb.AddInParameter("PreferredPayment", DbType.String, param.PreferredPayment);
-                objectDb.AddInParameter("PlayerUsername", DbType.String, param.PlayerUsername);
+                objectDb.AddInParameter("Player_Username", DbType.String, param.PlayerUsername);
                 objectDb.AddInParameter("NetellerAccountId", DbType.String, param.NetellerAccountId);
                 objectDb.AddInParameter("MoneybookersEmail", DbType.String, param.MoneybookersEmail);
                 objectDb.AddInParameter("BankName", DbType.String, param.BankName);
@@ -112,6 +96,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 objectDb.AddInParameter("BankAccountName", DbType.String, param.BankAccountName);
                 objectDb.AddInParameter("BankAccountNo", DbType.String, param.BankAccountNumber);
                 objectDb.AddInParameter("IP", DbType.String, param.Ip);
+
+                objectDb.AddInParameter("Player_CustId", DbType.Int32, param.Player_CustId);
+                objectDb.AddInParameter("Player_Currency", DbType.Int32, param.Player_Currency);
 
                 AssignResultOutputParam(objectDb);
 

@@ -181,7 +181,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             Assert.Equal(100m, minAmount);
         }
 
-        private static PaymentRequestService CreatePaymentRequestService(
+        private static PaymentService CreatePaymentRequestService(
             IEmailService emailService = null,
             IAffiliateService affiliateService = null,
             IPaymentRequestRepository paymentRequestRepository = null)
@@ -190,7 +190,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             var fakeAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var fakePaymentRequestRepository = paymentRequestRepository ?? Mock.Of<IPaymentRequestRepository>();
 
-            return new PaymentRequestService(fakePaymentRequestRepository, fakeAffiliateService, fakeEmailService);
+            return new PaymentService(fakePaymentRequestRepository, fakeAffiliateService, fakeEmailService);
         }
     }
 }

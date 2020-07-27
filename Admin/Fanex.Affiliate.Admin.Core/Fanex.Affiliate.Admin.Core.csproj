@@ -170,6 +170,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Apis\ILicenseeApi.cs" />
     <Compile Include="Attributes\CustomAuthorizeAttribute .cs" />
     <Compile Include="Attributes\FunctionAuthorizeAttribute.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeaderAttribute.cs" />
@@ -178,6 +179,8 @@
     <Compile Include="Configurations\LoggingConfig.cs" />
     <Compile Include="Constants\AffStatus.cs" />
     <Compile Include="Constants\AffType.cs" />
+    <Compile Include="Constants\Apis\CustomerStatus.cs" />
+    <Compile Include="Constants\Apis\PaymentType.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
     <Compile Include="Constants\Code.cs" />
     <Compile Include="Constants\CommGroupErrorMessage.cs" />
@@ -236,6 +239,8 @@
     <Compile Include="DTO\Affiliate\AffiliateBasicInfo.cs" />
     <Compile Include="DTO\Affiliate\AffiliateInfo.cs" />
     <Compile Include="DTO\AffTypeInfo.cs" />
+    <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
+    <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
     <Compile Include="DTO\Currency.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
@@ -270,6 +275,7 @@
     <Compile Include="DTO\Payment\PaymentMethod.cs" />
     <Compile Include="DTO\UserPanel\LogType.cs" />
     <Compile Include="DTO\UserPanel\SubAffiliate.cs" />
+    <Compile Include="Exceptions\LicenseePaymentException.cs" />
     <Compile Include="MetaModels\Administrator\ChangeStatusParam.cs" />
     <Compile Include="MetaModels\Administrator\DeleteDepartmentParam.cs" />
     <Compile Include="MetaModels\Administrator\InsertExistedUserParam.cs" />
@@ -498,7 +504,9 @@
     <Compile Include="Services\ICommissionGroupService.cs" />
     <Compile Include="Services\IEmailService.cs" />
     <Compile Include="Services\ILanguageService.cs" />
+    <Compile Include="Services\ILicenseeService.cs" />
     <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\LicenseeService.cs" />
     <Compile Include="Services\MediaGallery\BannerListService.cs" />
     <Compile Include="Services\MediaGallery\BannerValidationService.cs" />
     <Compile Include="Services\MediaGallery\CommonMediaGalleryService.cs" />

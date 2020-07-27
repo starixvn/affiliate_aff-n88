@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService(repository.Object);
 
             // Action
-            var result = service.UpdateUserAccount(param);
+            var result = service.UpdateUserAccountAsync(param);
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService(repository.Object);
 
             // Action
-            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService(repository.Object, appSetting.Object);
 
             // Action
-            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccount(new UserAccountParam());
+            var result = service.UpdateUserAccountAsync(new UserAccountParam());
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -103,7 +103,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccount(new UserAccountParam { HasWebSite = true });
+            var result = service.UpdateUserAccountAsync(new UserAccountParam { HasWebSite = true });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -117,7 +117,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccount(new UserAccountParam { PreferredPayment = "Wire", NoSiteDescription = "abc" });
+            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Wire", NoSiteDescription = "abc" });
 
             // Assert
             Assert.False(result.IsSuccessful);

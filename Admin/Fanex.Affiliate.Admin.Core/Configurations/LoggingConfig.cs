@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Fanex.Logging;
+using Fanex.Logging.EntLib;
 using Fanex.Logging.Sentry.RavenClient;
 using SharpRaven;
 

@@ -11,6 +11,7 @@ using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Payment;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
@@ -18,11 +19,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
     [FunctionAuthorize(FunctionName = Function.Payment)]
     public class PaymentRequestController : BaseController
     {
-        private readonly IPaymentRequestService _paymentRequestService;
+        private readonly IPaymentService _paymentRequestService;
 
         public PaymentRequestController(
             ISessionService sessionService,
-            IPaymentRequestService paymentRequestService) : base(sessionService)
+            IPaymentService paymentRequestService) : base(sessionService)
         {
             _paymentRequestService = paymentRequestService;
         }
@@ -74,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.Payment, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult UpdatePaymentRequest(PaymentRequestUpdateParam param)
+        public async Task<ActionResult> UpdatePaymentRequest(PaymentRequestUpdateParam param)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +96,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
                 return new JsonNetResult
                 {
-                    Data = _paymentRequestService.UpdatePaymentRequest(paymentRequestUpdateParam, emailParam)
+                    Data = await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam).ConfigureAwait(false)
                 };
             }
 
