@@ -439,7 +439,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User is closed.
+        ///   Looks up a localized string similar to The payment account you entered is Closed. Please check again..
         /// </summary>
         public static string UserNameClosed {
             get {
@@ -448,7 +448,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username is not exist.
+        ///   Looks up a localized string similar to The payment account you entered does not exist. Please check again..
         /// </summary>
         public static string UserNameNotExist {
             get {
@@ -457,7 +457,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to User is suspended.
+        ///   Looks up a localized string similar to The payment account you entered is Suspended. Please check again..
         /// </summary>
         public static string UserNameSuspended {
             get {

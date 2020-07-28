@@ -160,13 +160,13 @@
     <value>12Bet Affiliates – Đơn đăng ký chương trình liên kết 12BET bị từ chối</value>
   </data>
   <data name="UserNameNotExist" xml:space="preserve">
-    <value>Tên truy cập không tồn tại</value>
+    <value>Tài khoản thanh toán này đã bị đình chỉ. Vui lòng kiểm tra lại.</value>
   </data>
   <data name="UserNameClosed" xml:space="preserve">
-    <value>Tên truy cập đã bị đóng</value>
+    <value>Tài khoản thanh toán này đã bị đóng. Vui lòng kiểm tra lại.</value>
   </data>
   <data name="UserNameSuspended" xml:space="preserve">
-    <value>Tên truy cập bị khóa</value>
+    <value>Tài khoản thanh toán này đã bị đình chỉ. Vui lòng kiểm tra lại.</value>
   </data>
   <data name="ErrInApi" xml:space="preserve">
     <value>Có lỗi khi gọi API.</value>

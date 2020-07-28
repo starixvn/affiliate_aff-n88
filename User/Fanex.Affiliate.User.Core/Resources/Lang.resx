@@ -2408,12 +2408,12 @@
     <value>Base Currency</value>
   </data>
   <data name="UserNameNotExist" xml:space="preserve">
-    <value>Username is not exist</value>
+    <value>The payment account you entered does not exist. Please check again.</value>
   </data>
   <data name="UserNameSuspended" xml:space="preserve">
-    <value>Username is suspended</value>
+    <value>The payment account you entered is Suspended. Please check again.</value>
   </data>
   <data name="UserNameClosed" xml:space="preserve">
-    <value>User is closed</value>
+    <value>The payment account you entered is Closed. Please check again.</value>
   </data>
 </root>
