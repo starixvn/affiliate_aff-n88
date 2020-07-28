@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
@@ -31,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithValid_ExcuteSuccessfully()
+        public async Task UpdateUserAccount_WhenCallWithValid_ExcuteSuccessfully()
         {
             // Arrange
             var param = GetUserAccountParam();
@@ -41,7 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateUserAccountService(repository.Object);
 
             // Action
-            var result = service.UpdateUserAccountAsync(param);
+            var result = await service.UpdateUserAccountAsync(param);
 
             // Assert
             Assert.True(result.IsSuccessful);
