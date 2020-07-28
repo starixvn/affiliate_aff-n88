@@ -7,6 +7,7 @@ using System.Data;
 using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 {
@@ -145,8 +146,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
                     {
                         result.Add(new MediaGalleryFilterItem
                         {
-                            Id = Convert.ToInt32(reader["SizeId"]),
-                            Name = Convert.ToString(reader["Size"])
+                            Id =reader.ToInt("SizeId"),
+                            Name =reader.ToString("Size")
                         });
                     }
                 }
@@ -175,13 +176,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
         {
             return new BannerInfo
             {
-                BannerId = Convert.ToInt32(reader["BannerID"]),
-                FileName = Convert.ToString(reader["FileName"]),
-                Categories = Convert.ToString(reader["Categories"]).Split(','),
-                SubCategories = Convert.ToString(reader["SubCategories"]).Split(','),
-                Language = Convert.ToString(reader["Language"]),
-                Currencies = Convert.ToString(reader["Currencies"]).Split(','),
-                Size = Convert.ToString(reader["Size"]),
+                BannerId =reader.ToInt("BannerID"),
+                FileName =reader.ToString("FileName"),
+                Categories =reader.ToString("Categories").Split(','),
+                SubCategories =reader.ToString("SubCategories").Split(','),
+                Language =reader.ToString("Language"),
+                Currencies =reader.ToString("Currencies").Split(','),
+                Size =reader.ToString("Size"),
                 DeviceTypes = reader.GetVal<string>("DeviceTypes").Split(','),
                 UserType = reader.GetVal<byte>("TargetId")
             };

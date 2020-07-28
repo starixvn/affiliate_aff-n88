@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 {
@@ -26,29 +27,29 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                     {
                         result = new AffiliateInfoOnLeftPanel
                         {
-                            ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
-                            ParentAffName = Convert.ToString(reader["ParentAffName"]),
-                            AffId = Convert.ToInt32(reader[Field.AffId]),
-                            GroupId = Convert.ToInt32(reader["GroupId"]),
-                            AffName = Convert.ToString(reader["UserName"]),
-                            FirstName = Convert.ToString(reader["FirstName"]),
-                            LastName = Convert.ToString(reader["LastName"]),
-                            PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
-                            AffType = Convert.ToByte(reader["AffType"]),
-                            BalanceBf = Convert.ToDecimal(reader["BalBroughtForward"]),
-                            CommGroupName = Convert.ToString(reader["GroupName"]),
-                            ContactApps = Convert.ToString(reader["ContactApps"]),
-                            Gender = Convert.ToBoolean(reader["Gender"]),
-                            IsClosed = Convert.ToBoolean(reader["Closed"]),
-                            LastLoginDate = reader["LastLoginDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["LastLoginDate"]),
-                            LastLoginIp = Convert.ToString(reader["LastLoginIp"]),
-                            MoreSiteUrl = Convert.ToString(reader["MoreSiteUrls"]),
-                            SiteUrl = Convert.ToString(reader["SiteUrl"]),
-                            NoSiteDescription = Convert.ToString(reader["NoSiteDesc"]),
-                            Status = Convert.ToString(reader["Status"]),
-                            Phone = Convert.ToString(reader["Phone"]),
-                            IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
-                            ApprovedBy = Convert.ToString(reader["ApprovedBy"])
+                            ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null :reader.ToInt("ParentAffId"),
+                            ParentAffName =reader.ToString("ParentAffName"),
+                            AffId =reader.ToInt(Field.AffId),
+                            GroupId =reader.ToInt("GroupId"),
+                            AffName =reader.ToString("UserName"),
+                            FirstName =reader.ToString("FirstName"),
+                            LastName =reader.ToString("LastName"),
+                            PreferredLanguage =reader.ToString("PreferredLanguage"),
+                            AffType =reader.ToByte("AffType"),
+                            BalanceBf =reader.ToDecimal("BalBroughtForward"),
+                            CommGroupName =reader.ToString("GroupName"),
+                            ContactApps =reader.ToString("ContactApps"),
+                            Gender =reader.ToBool("Gender"),
+                            IsClosed =reader.ToBool("Closed"),
+                            LastLoginDate = reader["LastLoginDate"] == DBNull.Value ? (DateTime?)null :reader.ToDateTime("LastLoginDate"),
+                            LastLoginIp =reader.ToString("LastLoginIp"),
+                            MoreSiteUrl =reader.ToString("MoreSiteUrls"),
+                            SiteUrl =reader.ToString("SiteUrl"),
+                            NoSiteDescription =reader.ToString("NoSiteDesc"),
+                            Status =reader.ToString("Status"),
+                            Phone =reader.ToString("Phone"),
+                            IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) &&reader.ToBool("IsPrivate"),
+                            ApprovedBy =reader.ToString("ApprovedBy")
                         };
                     }
                 }
@@ -72,8 +73,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                     {
                         result.Add(new OnlineList
                         {
-                            Ip = Convert.ToString(reader["Ip"]),
-                            ReloadTime = Convert.ToDateTime(reader["ReloadTime"])
+                            Ip =reader.ToString("Ip"),
+                            ReloadTime =reader.ToDateTime("ReloadTime")
                         });
                     }
                 }

@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using DNAide.Utils;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -24,7 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     {
                         result.Add(new UserPermission
                         {
-                            FunctionName = reader["FuncName"].ToString(),
+                            FunctionName = reader.ToString("FuncName"),
                             IsHost = Convert.ToBoolean(reader["Host"])
                         });
                     }

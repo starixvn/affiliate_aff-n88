@@ -6,6 +6,8 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using DNAide.Core;
+using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
 {
@@ -32,13 +34,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                     while (reader.Read())
                     {
                         dataList.Add(new MemberInfo {
-                            MemberId = Convert.ToInt32(reader["CustID"]),
-                            UserName = Convert.ToString(reader["UserName"]),
-                            IbcUserName = Convert.ToString(reader["IBCUserName"]),
-                            FirstName =  Convert.ToString(reader["FirstName"]),
-                            LastName = Convert.ToString(reader["LastName"]),
-                            CreatedDate = reader["CreatedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CreatedDate"]),
-                            AffName = Convert.ToString(reader["AffUserName"])
+                            MemberId =reader.ToInt("CustID"),
+                            UserName = reader.ToString("UserName"),
+                            IbcUserName = reader.ToString("IBCUserName"),
+                            FirstName =  reader.ToString("FirstName"),
+                            LastName = reader.ToString("LastName"),
+                            CreatedDate = reader.GetVal<DateTime?>("CreatedDate"),
+                            AffName = reader.ToString("AffUserName")
                         });
                     }
                 }
