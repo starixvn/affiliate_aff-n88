@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                         return new ResultInfo
                         {
                             Code = Code.GeneralErrorCode,
-                            Message = $"{_appSetting.SiteFriendlyName} User Name is invalid!."
+                            Message = result.Message
                         };
                     }
                     param.Player_CustId = memberSiteCust.CustId;
