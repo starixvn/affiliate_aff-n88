@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.DTO;
 using System.Data;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {
@@ -29,8 +30,8 @@ namespace Fanex.Affiliate.User.Core.Repository
                     {
                         securityQuestionList.Add(new SecurityQuestion
                         {
-                            QuestionId = Convert.ToByte(reader["QuestionID"]),
-                            Question = Convert.ToString(reader["Question"])
+                            QuestionId = reader.ToByte("QuestionID"),
+                            Question = reader.ToString("Question")
                         });
                     }
                 }

@@ -4,6 +4,7 @@ using System.Data;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -32,7 +33,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                     {
                         result.HotNewsList = GetMessageData(reader);
 
-                        result.IsImportant = Convert.ToBoolean(reader["Important"]);
+                        result.IsImportant = reader.ToBool("Important");
                     }
                 }
             }

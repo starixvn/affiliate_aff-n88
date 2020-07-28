@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -119,8 +120,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                     {
                         result.Add(new LandingPage
                         {
-                            PageName = Convert.ToString(reader["PageName"]),
-                            PageCode = Convert.ToString(reader["PageCode"])
+                            PageName = reader.ToString("PageName"),
+                            PageCode = reader.ToString("PageCode")
                         });
                     }
                 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -26,16 +27,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 {
                     while (reader.Read())
                     {
-                        var transType = Convert.ToByte(reader["TransType"]);
-                        var monthDate = Convert.ToDateTime(reader["MonthDate"]);
+                        var transType = reader.ToByte("TransType");
+                        var monthDate = reader.ToDateTime("MonthDate");
 
                         dataList.Add(new StatementHistory
                         {
                             MonthDate = monthDate,
                             TransType = transType,
-                            Amount = reader["Amount"] == DBNull.Value ? 0 : Convert.ToDecimal(reader["Amount"]),
-                            Description = Convert.ToString(reader["Description"]),
-                            Status = Convert.ToString(reader["Status"]),
+                            Amount = reader["Amount"] == DBNull.Value ? 0 : reader.ToDecimal("Amount"),
+                            Description = reader.ToString("Description"),
+                            Status = reader.ToString("Status"),
                             CalculatedType = reader["CalculatedType"] == DBNull.Value ? null : (byte?)(reader["CalculatedType"]),
                         });
                     }
@@ -72,12 +73,12 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                     {
                         dataList.Add(new DailyEarning
                         {
-                            WinlostDate = Convert.ToDateTime(reader["WinlostDate"]),
-                            Deposit = Convert.ToDecimal(reader["Deposit"]),
-                            Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                            MemberWinLost = Convert.ToDecimal(reader["MemberWinLost"]),
-                            MemberWinLostFake = Convert.ToDecimal(reader["MemberWinLostFake"]),
-                            Bonus = Convert.ToDecimal(reader["Bonus"]),
+                            WinlostDate = reader.ToDateTime("WinlostDate"),
+                            Deposit = reader.ToDecimal("Deposit"),
+                            Withdrawal = reader.ToDecimal("Withdrawal"),
+                            MemberWinLost = reader.ToDecimal("MemberWinLost"),
+                            MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
+                            Bonus = reader.ToDecimal("Bonus"),
                         });
                     }
                     dailyEarningResult.MainDataList = dataList;
@@ -86,11 +87,11 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                     {
                         dailyEarningResult.Total = new DailyEarning
                         {
-                            Deposit = Convert.ToDecimal(reader["Deposit"]),
-                            Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                            MemberWinLost = Convert.ToDecimal(reader["MemberWinLost"]),
-                            MemberWinLostFake = Convert.ToDecimal(reader["MemberWinLostFake"]),
-                            Bonus = Convert.ToDecimal(reader["Bonus"]),
+                            Deposit = reader.ToDecimal("Deposit"),
+                            Withdrawal = reader.ToDecimal("Withdrawal"),
+                            MemberWinLost = reader.ToDecimal("MemberWinLost"),
+                            MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
+                            Bonus = reader.ToDecimal("Bonus"),
                         };
                     }
                 }

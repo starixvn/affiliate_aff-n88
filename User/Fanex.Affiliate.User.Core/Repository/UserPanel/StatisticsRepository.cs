@@ -4,6 +4,7 @@ using System.Data;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -94,11 +95,11 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                     {
                         dataList.Add(new ReferrerStatistics
                         {
-                            DomainReferrer = reader["UrlReferrer"].ToString(),
-                            TotalClick = reader[TotalClickColumn] == DBNull.Value ? 0 : Convert.ToInt32(reader[TotalClickColumn]),
-                            UniqueClick = reader[UniqueClickColumn] == DBNull.Value ? 0 : Convert.ToInt32(reader[UniqueClickColumn]),
-                            SignUps = reader["Signups"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Signups"]),
-                            Fdm = reader["FDM"] == DBNull.Value ? 0 : Convert.ToInt32(reader["FDM"])
+                            DomainReferrer = reader.ToString("UrlReferrer"),
+                            TotalClick = reader.ToInt(TotalClickColumn),
+                            UniqueClick = reader.ToInt(UniqueClickColumn),
+                            SignUps = reader.ToInt("Signups"),
+                            Fdm = reader.ToInt("FDM")
                         });
                     }
                 }
@@ -131,13 +132,13 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         private TrackingStatistics BuildTrackingStatisticsItem(IDataReader reader)
         {
-            var date = Convert.ToDateTime(reader["Date"]);
+            var date = reader.ToDateTime("Date");
 
             return new TrackingStatistics
             {
                 Date = date,
-                TotalClick = reader[TotalClickColumn] == DBNull.Value ? 0 : Convert.ToInt32(reader[TotalClickColumn]),
-                UniqueClick = reader[UniqueClickColumn] == DBNull.Value ? 0 : Convert.ToInt32(reader[UniqueClickColumn])
+                TotalClick = reader.ToInt(TotalClickColumn),
+                UniqueClick = reader.ToInt(UniqueClickColumn)
             };
         }
     }
