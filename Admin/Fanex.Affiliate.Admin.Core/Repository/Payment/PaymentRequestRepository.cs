@@ -40,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                             Status = Convert.ToString(reader[Field.Status]),
                             AffName = Convert.ToString(reader["Username"]),
                             Amount = Convert.ToDecimal(reader["Amount"]),
-                            CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
+                            CompletedDate = reader["Completeddate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["Completeddate"]),
                             Creator = Convert.ToString(reader["Creator"])
                         });
                     }
@@ -82,14 +82,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                             TransCurrencyCode = Convert.ToString(reader["TransCurrencyCode"]),
                             Status = Convert.ToString(reader[Field.Status]),
                             PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
-                            CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
+                            CompletedDate = reader["Completeddate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["Completeddate"]),
                             Creator = Convert.ToString(reader["Creator"]),
                             AdminDesc = Convert.ToString(reader["AdminDesc"]),
                             AffDesc = Convert.ToString(reader["AffDesc"])
                         };
                     }
                 }
-            }            
+            }
 
             return result;
         }

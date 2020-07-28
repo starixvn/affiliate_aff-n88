@@ -40,7 +40,6 @@ export default class PlatformFeeItem extends React.Component {
                             noneSelectedLabel="Please Select"
                             onChange={this.handleChange}
                             isDisable={isDisable} />
-                        <FormFeedback>At least 1 product must be selected per group</FormFeedback>
                     </div>
                 </Col>
                 <Col sm={5} className="select-comm">
