@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Customer
@@ -49,7 +48,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             Status =reader.ToString("Status"),
                             Phone =reader.ToString("Phone"),
                             IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) &&reader.ToBool("IsPrivate"),
-                            ApprovedBy =reader.ToString("ApprovedBy")
+                            ApprovedBy =reader.ToString("ApprovedBy"),
+                            IsDeductedPercent = reader.ToBool("IsDeductedPercent"),
                         };
                     }
                 }

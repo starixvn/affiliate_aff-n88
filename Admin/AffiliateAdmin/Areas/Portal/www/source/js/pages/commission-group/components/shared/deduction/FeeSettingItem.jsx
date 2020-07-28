@@ -28,7 +28,7 @@ export default class FeeSettingItem extends React.Component {
         const { name, value } = event.target;
 
         const amount = value.replace(/,/g, '');
-        if (regexCheckAmount.test(amount) && Number(amount) >= money.MinValue && Number(amount) <= money.MaxValue) {
+        if (regexCheckAmount.test(amount) && Number(amount) >= 0 && Number(amount) <= money.AllowedMaxValue) {
             if (regexShouldFormatAmount.test(amount)) {
                 this.props.handleChange({ [name]: format(Number(amount)) })
             } else {

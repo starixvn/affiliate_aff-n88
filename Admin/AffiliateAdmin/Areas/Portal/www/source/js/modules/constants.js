@@ -12,7 +12,9 @@ export const monthNames = ["January", "February", "March", "April", "May", "June
 
 export const money = {
     MaxValue: 922337203685477,
-    MinValue: -922337203685477
+    MinValue: -922337203685477,
+    AllowedMaxValue: 100000000000,
+    AllowedMinValue: -100000000000
 }
 
 export const selectedAllProduct = 0;

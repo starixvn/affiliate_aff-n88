@@ -159,7 +159,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 {
                     var deductedAmount = Convert.ToDecimal(deductedFee.DeductedAmount);
 
-                    if(deductedAmount < 0 || deductedAmount > Money.MaxValue)
+                    if(deductedAmount < 0 || deductedAmount > Money.AllowedMaxValue)
                     {
                         return result;
                     }

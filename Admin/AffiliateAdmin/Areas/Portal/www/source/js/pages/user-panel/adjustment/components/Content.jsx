@@ -46,7 +46,7 @@ export class Content extends PureComponent {
         const { name, value } = event.target;
         const amount = value.replace(/,/g, '');
 
-        if (regexCheckAmount.test(amount) && Number(amount) >= money.MinValue && Number(amount) <= money.MaxValue) {
+        if (regexCheckAmount.test(amount) && Number(amount) >= money.AllowedMinValue && Number(amount) <= money.AllowedMaxValue) {
             if (regexShouldFormatAmount.test(amount)) {
                 this.setState({ [name]: format(Number(amount)) })
             } else {
@@ -58,7 +58,7 @@ export class Content extends PureComponent {
     _isValidAmount = (amount) => {
         const absBalanceBf = Math.abs(this.state.balanceBf);
 
-        return regexValidAmount.test(amount) && Number(amount) - absBalanceBf >= money.MinValue && Number(amount) + absBalanceBf <= money.MaxValue;
+        return regexValidAmount.test(amount) && Number(amount) - absBalanceBf >= money.AllowedMinValue && Number(amount) + absBalanceBf <= money.AllowedMaxValue;
     }
 
     _validateAmount = () => {

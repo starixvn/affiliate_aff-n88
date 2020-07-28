@@ -37,6 +37,8 @@ export class Content extends PureComponent {
     }
 
     _renderHeader() {
+        const { param } = this.props;
+
         return (
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>
@@ -45,7 +47,7 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Bonus}>{resource.Bonus}</Cell>
-                <Cell header={true} colWidth={100} title={resource.BankingFee}>{resource.BankingFee}</Cell>
+                {param.isDeductedPercent && <Cell header={true} colWidth={100} title={resource.BankingFee}>{resource.BankingFee}</Cell>}
             </Row>
         )
     }
@@ -54,6 +56,7 @@ export class Content extends PureComponent {
         const dataRows = [];
 
         if (dataList && dataList.length) {
+            const { param } = this.props;
             const isTotalRow = dataList.length === 1 && !dataList[0].Date;
 
             if (isTotalRow) {
@@ -62,7 +65,7 @@ export class Content extends PureComponent {
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(this._buildDataRow(dataItem, isTotalRow ? null : i + 1, productColumnClassName));
+                dataRows.push(this._buildDataRow(dataItem, isTotalRow ? null : i + 1, productColumnClassName, param.isDeductedPercent));
             }
         }
         else {
@@ -74,7 +77,7 @@ export class Content extends PureComponent {
         return dataRows;
     }
 
-    _buildDataRow(dataItem, rowNumber, productColumnClassName) {
+    _buildDataRow(dataItem, rowNumber, productColumnClassName, isDeductedPercent) {
         const winlost = formatDecimal(dataItem.MemberWinLost);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
@@ -97,7 +100,7 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
-                <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>
+                {isDeductedPercent && <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>}
             </Row>
         )
     }
