@@ -59,8 +59,16 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
-        public string MemberSiteApiUrl => GetValue("MemberSiteUrl");
+        public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
+
+        public string MemberSiteProxyUrl => GetValue("MemberSiteProxyUrl");
+
+        public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");
+
+        public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
+
+
     }
 }

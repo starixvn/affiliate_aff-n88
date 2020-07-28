@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Web.Compilation;
@@ -111,8 +112,15 @@ namespace Fanex.Affiliate.User.Site
         private static void RegisterMemberSiteApi(ContainerBuilder builder)
         {
             var appSetting = AppSetting.Instance;
+            var handler = new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey)
+            {
+                Proxy =  appSetting.IsUseMemberSiteProxy
+                            ? new WebProxy(new Uri(appSetting.MemberSiteProxyUrl))
+                            : null
+
+            };
             builder.RegisterInstance(RestService.For<ILicenseeApi>(
-                new HttpClient(new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey))
+                new HttpClient(handler)
                 {
                     BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
                 })); 

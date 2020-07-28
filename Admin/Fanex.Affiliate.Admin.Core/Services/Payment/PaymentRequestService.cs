@@ -26,22 +26,19 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
         private readonly IEmailService _emailService;
         private readonly ILicenseeService _licenseeService;
         private readonly IAppSetting _appSetting;
-        private readonly ILogger _logger;
 
         public PaymentService(
             IPaymentRequestRepository paymentRequestRepository,
             IAffiliateService affiliateService,
             ILicenseeService licenseeService,
             IEmailService emailService,
-            IAppSetting appSetting,
-            ILogger logger)
+            IAppSetting appSetting)
         {
             _paymentRequestRepository = paymentRequestRepository;
             _affiliateService = affiliateService;
             _licenseeService = licenseeService;
             _emailService = emailService;
             _appSetting = appSetting;
-            _logger = logger;
         }
 
         public EntityResult<PaymentRequest> GetPaymentRequestList(PaymentRequestParam param)
@@ -100,16 +97,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
 
                 try
                 {
-                    await _logger.InfoAsync($"Call member site API to payment\n" +
-                        $"Param: {JsonConvert.SerializeObject(paymentInfo)}")
-                        .ConfigureAwait(false);
+                    LogHelper.WriteInfo($"Call member site API to payment\n" +
+                        $"Param: {JsonConvert.SerializeObject(paymentInfo)}");
 
                     result = await _licenseeService.UpdatePaymentRequest(paymentInfo).ConfigureAwait(false);
 
-                    await _logger.InfoAsync($"Membersite return result:\n" +
+                    LogHelper.WriteInfo($"Membersite return result:\n" +
                         $"Param: {JsonConvert.SerializeObject(paymentInfo)}\n" +
-                        $"Result: {JsonConvert.SerializeObject(result)}")
-                        .ConfigureAwait(false);
+                        $"Result: {JsonConvert.SerializeObject(result)}");
                 }
                 catch (Exception ex)
                 {
