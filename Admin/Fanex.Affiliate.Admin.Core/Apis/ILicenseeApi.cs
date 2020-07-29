@@ -13,7 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.Apis
         [Get("/api/customer/GetLoginCustomerInfo")]
         Task<MemberSiteCustomerInfo> GetCustomerInfoAsync(string userName, int siteId);
 
-        [Get("/api/customer/UpdateCustomerWallet")]
+        [Post("/api/customer/UpdateCustomerWallet")]
         Task<decimal> UpdatePaymentRequestAsync(PaymentRequestInfo paymentInfo);
     }
 }
