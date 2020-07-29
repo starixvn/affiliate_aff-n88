@@ -53,11 +53,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
                     if(!result.IsSuccessful)
                     {
-                        return new ResultInfo
-                        {
-                            Code = Code.GeneralErrorCode,
-                            Message = result.Message
-                        };
+                        return result;
                     }
                     param.Player_CustId = memberSiteCust.CustId;
                     param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : param.Player_Currency;

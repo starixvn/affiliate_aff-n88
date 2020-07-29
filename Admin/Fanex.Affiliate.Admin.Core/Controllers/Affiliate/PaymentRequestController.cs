@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     TransId = param.TransId,
                     IsApproved = param.IsApproved,
                     AdminDesc = Server.HtmlEncode(param.AdminDesc),
-                    AffDesc = Server.HtmlEncode(param.AffDesc)
+                    AffDesc = Server.HtmlEncode(param.AffDesc),
                 };
 
                 var emailParam = new PaymentRequestUpdateEmail

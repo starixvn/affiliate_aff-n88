@@ -71,8 +71,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
         public async Task<ResultInfo> HandlePaymentRequest(PaymentRequestUpdateParam param, PaymentRequestUpdateEmail emailParam)
         {
             var siteId = _appSetting.MemberSiteId;
-            var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
             var paymentRequestDetail = GetPaymentRequestDetail(param.TransId);
+            var affInfo = _affiliateService.GetAffiliateBasicInfo(paymentRequestDetail.AffId);
             var cust = await _licenseeService.GetMemberSiteCustomerInfo(affInfo.PlayerUsername, siteId).ConfigureAwait(false);
             var result = _licenseeService.CheckCustomerIsValid(cust);
 
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             {
                 var paymentInfo = new PaymentRequestInfo
                 {
-                    Amount = param.Amount,
+                    Amount = paymentRequestDetail.Amount,
                     CustId = cust.CustId,
                     RefTransId = param.TransId.ToString(),
                     SiteId = siteId,
