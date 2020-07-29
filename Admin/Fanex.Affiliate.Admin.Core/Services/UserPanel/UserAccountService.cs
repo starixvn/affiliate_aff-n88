@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                         return result;
                     }
                     param.Player_CustId = memberSiteCust.CustId;
-                    param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : param.Player_Currency;
+                    param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : memberSiteCust.CurrencyId.GetValueOrDefault();
                 }
 
                 return _userAccountRepository.UpdateUserAccount(param);
