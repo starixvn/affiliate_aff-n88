@@ -22,8 +22,6 @@ namespace Affiliate.N88.WebApi
             );
 
             var formaters = GlobalConfiguration.Configuration.Formatters;
-            formaters.Clear();
-            formaters.Add(new JsonMediaTypeFormatter());
 
             var jsonFormater = formaters.JsonFormatter;
             jsonFormater.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
