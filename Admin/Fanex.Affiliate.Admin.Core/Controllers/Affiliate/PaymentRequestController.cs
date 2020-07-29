@@ -96,7 +96,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
                 return new JsonNetResult
                 {
-                    Data = await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam).ConfigureAwait(false)
+                    Data = await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam)
                 };
             }
 

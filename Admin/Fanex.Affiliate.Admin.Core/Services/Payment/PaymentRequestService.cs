@@ -16,6 +16,7 @@ using Fanex.Affiliate.Admin.Core.Constants.Apis;
 using Fanex.Affiliate.Admin.Core.Exceptions;
 using Fanex.Logging;
 using Newtonsoft.Json;
+using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
@@ -73,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             var siteId = _appSetting.MemberSiteId;
             var paymentRequestDetail = GetPaymentRequestDetail(param.TransId);
             var affInfo = _affiliateService.GetAffiliateBasicInfo(paymentRequestDetail.AffId);
-            var cust = await _licenseeService.GetMemberSiteCustomerInfo(affInfo.PlayerUsername, siteId).ConfigureAwait(false);
+            var cust = await _licenseeService.GetMemberSiteCustomerInfo(affInfo.PlayerUsername, siteId);
             var result = _licenseeService.CheckCustomerIsValid(cust);
 
             if (!result.IsSuccessful)
@@ -100,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                     LogHelper.WriteInfo($"Call member site API to payment\n" +
                         $"Param: {JsonConvert.SerializeObject(paymentInfo)}");
 
-                    result = await _licenseeService.UpdatePaymentRequest(paymentInfo).ConfigureAwait(false);
+                    result = await _licenseeService.UpdatePaymentRequest(paymentInfo);
 
                     LogHelper.WriteInfo($"Membersite return result:\n" +
                         $"Param: {JsonConvert.SerializeObject(paymentInfo)}\n" +

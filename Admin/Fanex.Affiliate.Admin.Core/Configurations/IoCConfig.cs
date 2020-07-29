@@ -4,6 +4,7 @@ using Fanex.Affiliate.Admin.Core.Apis;
 using Fanex.Affiliate.User.Core.Infrastructure;
 using Refit;
 using System;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
