@@ -8,6 +8,7 @@ using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -83,17 +84,19 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithValidParam_ExcuteSuccessfully()
+        public async Task UpdateUserAccount_WhenCallWithValidParam_ExcuteSuccessfully()
         {
             // Arrange
             var param = GetUserAccountParam();
             UserAccountParam passedParam = null;
             var userAccountService = new Mock<IUserAccountService>();
-            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
+            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>()))
+                .Returns(Task.FromResult(new ResultInfo()))
+                .Callback<UserAccountParam>(p => passedParam = p);
             var controller = CreateUserAccountController(userAccountService: userAccountService.Object);
 
             // Action
-            var result = controller.UpdateUserAccount(param) as JsonNetResult;
+            var result = await controller.UpdateUserAccount(param) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -102,18 +105,20 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithValidParam_ExcuteSuccessfullyWithContactAppListIsNull()
+        public async Task UpdateUserAccount_WhenCallWithValidParam_ExcuteSuccessfullyWithContactAppListIsNull()
         {
             // Arrange
             var param = GetUserAccountParam();
             param.ContactAppList = null;
             UserAccountParam passedParam = null;
             var userAccountService = new Mock<IUserAccountService>();
-            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>())).Returns(new ResultInfo()).Callback<UserAccountParam>(p => passedParam = p);
+            userAccountService.Setup(s => s.UpdateUserAccountAsync(It.IsAny<UserAccountParam>()))
+                .Returns(Task.FromResult(new ResultInfo()))
+                .Callback<UserAccountParam>(p => passedParam = p);
             var controller = CreateUserAccountController(userAccountService: userAccountService.Object);
 
             // Action
-            var result = controller.UpdateUserAccount(param) as JsonNetResult;
+            var result = await controller.UpdateUserAccount(param) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -122,14 +127,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalidParam_ReturnError()
+        public async Task UpdateUserAccount_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
             var controller = CreateUserAccountController();
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.UpdateUserAccount(new UserAccountParam()) as JsonNetResult;
+            var result = await controller.UpdateUserAccount(new UserAccountParam()) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert

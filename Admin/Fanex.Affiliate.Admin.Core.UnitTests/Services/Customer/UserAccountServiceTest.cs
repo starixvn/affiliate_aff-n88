@@ -1,8 +1,10 @@
 ﻿using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
+using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.UserPanel;
 using Moq;
 using System.Collections.Generic;
@@ -50,47 +52,53 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithValidPlayerAccount_ExcuteSuccessfully()
+        public async Task UpdateUserAccount_WhenCallWithValidPlayerAccount_ExcuteSuccessfully()
         {
             // Arrange
             var repository = new Mock<IUserAccountRepository>();
-            repository.Setup(comm => comm.CheckPlayerUserName(It.IsAny<int>(), "123")).Returns(true);
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(s => s.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>()))
+                .Returns(new ResultInfo {Code = 0 });
+            licenseeService.Setup(s => s.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>()))
+                .ReturnsAsync(new MemberSiteCustomerInfo());
             repository.Setup(comm => comm.UpdateUserAccount(It.IsAny<UserAccountParam>())).Returns(new ResultInfo());
-            var service = CreateUserAccountService(repository.Object);
+            var service = CreateUserAccountService(repository.Object, licenseeService.Object);
 
             // Action
-            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+            var result = await service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
 
             // Assert
             Assert.True(result.IsSuccessful);
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalidPlayerAccount_ReturnError()
+        public async Task UpdateUserAccount_WhenCallWithInvalidPlayerAccount_ReturnError()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(ap => ap.SiteFriendlyName).Returns("N88");
             var repository = new Mock<IUserAccountRepository>();
-            repository.Setup(comm => comm.CheckPlayerUserName(It.IsAny<int>(), "123")).Returns(false);
-            var service = CreateUserAccountService(repository.Object, appSetting.Object);
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(s => s.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = 100 });
+
+            var service = CreateUserAccountService(repository.Object, licenseeService.Object, appSetting.Object);
 
             // Action
-            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
+            var result = await service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Player", PlayerUsername = "123", NoSiteDescription = "abc" });
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal("N88 User Name is invalid!.", result.Message);
+            Assert.Equal(100, result.Code);
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalidNoSiteDescription_ReturnError()
+        public async Task UpdateUserAccount_WhenCallWithInvalidNoSiteDescription_ReturnError()
         {
             // Arrange
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccountAsync(new UserAccountParam());
+            var result = await service.UpdateUserAccountAsync(new UserAccountParam());
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -98,13 +106,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalidSiteUrl_ReturnError()
+        public async Task UpdateUserAccount_WhenCallWithInvalidSiteUrl_ReturnError()
         {
             // Arrange
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccountAsync(new UserAccountParam { HasWebSite = true });
+            var result = await service.UpdateUserAccountAsync(new UserAccountParam { HasWebSite = true });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -112,13 +120,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateUserAccount_WhenCallWithInvalidPaymentMethod_ReturnError()
+        public async Task UpdateUserAccount_WhenCallWithInvalidPaymentMethod_ReturnError()
         {
             // Arrange
             var service = CreateUserAccountService();
 
             // Action
-            var result = service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Wire", NoSiteDescription = "abc" });
+            var result = await service.UpdateUserAccountAsync(new UserAccountParam { PreferredPayment = "Wire", NoSiteDescription = "abc" });
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -127,12 +135,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 
         private static UserAccountService CreateUserAccountService(
             IUserAccountRepository userAccountRepository = null,
+            ILicenseeService licenseeService = null,
             IAppSetting appSeting = null)
         {
             var fakeUserAccountRepository = userAccountRepository ?? Mock.Of<IUserAccountRepository>();
             var fakeAppSetting = appSeting ?? Mock.Of<IAppSetting>();
+            var fakeLicenseeService = licenseeService ?? Mock.Of<ILicenseeService>();
 
-            return new UserAccountService(fakeUserAccountRepository, fakeAppSetting);
+            return new UserAccountService(fakeUserAccountRepository, fakeLicenseeService, fakeAppSetting);
         }
 
         private static UserAccountParam GetUserAccountParam()

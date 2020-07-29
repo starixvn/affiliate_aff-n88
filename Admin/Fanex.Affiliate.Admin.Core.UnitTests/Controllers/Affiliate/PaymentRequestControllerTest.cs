@@ -13,6 +13,7 @@ using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.ViewModels.Payment;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -108,7 +109,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Fact]
-        public void UpdatePaymentRequest_WhenCallWithValidParam_InsertSuccessful()
+        public async Task UpdatePaymentRequest_WhenCallWithValidParam_InsertSuccessful()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -126,11 +127,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var param = new PaymentRequestUpdateParam { TransId = 123 };
             PaymentRequestUpdateParam passedParam = null;
             var paymentRequestService = new Mock<IPaymentService>();
-            paymentRequestService.Setup(s => s.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>(), It.IsAny<PaymentRequestUpdateEmail>())).Returns(new ResultInfo()).Callback<PaymentRequestUpdateParam, PaymentRequestUpdateEmail>((a, b) => passedParam = a);
+            paymentRequestService.Setup(s => s.HandlePaymentRequest(It.IsAny<PaymentRequestUpdateParam>(), It.IsAny<PaymentRequestUpdateEmail>()))
+                .Returns(Task.FromResult(new ResultInfo()))
+                .Callback<PaymentRequestUpdateParam, PaymentRequestUpdateEmail>((a, b) => passedParam = a);
             var controller = CreatePaymentRequestController(paymentRequestService: paymentRequestService.Object);
 
             // Action
-            var result = controller.UpdatePaymentRequest(param) as JsonNetResult;
+            var result = await controller.UpdatePaymentRequest(param) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert
@@ -139,14 +142,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Fact]
-        public void UpdatePaymentRequest_WhenCallWithInvalidParam_ReturnError()
+        public async Task UpdatePaymentRequest_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
             var controller = CreatePaymentRequestController();
             controller.ModelState.AddModelError("Error01", "Failed!");
 
             // Action
-            var result = controller.UpdatePaymentRequest(new PaymentRequestUpdateParam()) as JsonNetResult;
+            var result = await controller.UpdatePaymentRequest(new PaymentRequestUpdateParam()) as JsonNetResult;
             var resultInfo = result.Data as ResultInfo;
 
             // Assert

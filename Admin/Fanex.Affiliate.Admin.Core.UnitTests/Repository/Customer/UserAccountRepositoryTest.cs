@@ -13,23 +13,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
     public class UserAccountRepositoryTest
     {
         [Fact]
-        public void CheckPlayerUserName_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var repository = new Mock<UserAccountRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("IsValid")).Returns(true);
-            repository.Setup(re => re.GetObjectDb("Aff_PlayerUsername_CheckIsValid", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.CheckPlayerUserName(123, "abc");
-
-            // Assert
-            Assert.True(result);
-        }
-
-        [Fact]
         public void GetUserAccountInfo_WhenCall_ReturnCorrectData()
         {
             // Arrange
