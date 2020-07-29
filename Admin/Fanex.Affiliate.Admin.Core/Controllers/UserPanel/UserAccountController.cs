@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
                 return new JsonNetResult
                 {
-                    Data = await _userAccountService.UpdateUserAccountAsync(userAccountParam).ConfigureAwait(false)
+                    Data = await _userAccountService.UpdateUserAccountAsync(userAccountParam)
                 };
             }
 

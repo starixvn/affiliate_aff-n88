@@ -46,8 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 {
                     var memberSiteId = _appSetting.MemberSiteId;
                     var memberSiteCust = await _licenseeService
-                        .GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId)
-                        .ConfigureAwait(false);
+                        .GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
 
                     var result = _licenseeService.CheckCustomerIsValid(memberSiteCust);
 
