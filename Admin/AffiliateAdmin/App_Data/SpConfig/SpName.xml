@@ -22,6 +22,7 @@
   </Function>
   <Function Name="Auth">
     <Setting Key="Aff_Admin_PolicySel" SpName="Aff_Admin_PolicySel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Con_CheckPermission" SpName="Aff_Con_CheckPermission" DbName="affiliate_n88" />
     <Setting Key="Aff_Recheckin" SpName="Aff_Recheckin" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Login" SpName="Aff_Admin_Login" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_PolicySel" SpName="Aff_Admin_PolicySel" DbName="affiliate_n88" />
