@@ -103,7 +103,7 @@ namespace Affiliate.N88.Jobs.Middlewares
 
                 RegisterTask<IFetchTpTransferInfoDataTask>($"{typeof(IFetchTpTransferInfoDataTask).Name}", appSettings.PullTpTransferInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
-                RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullDepositInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+                //RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullDepositInfoSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 
