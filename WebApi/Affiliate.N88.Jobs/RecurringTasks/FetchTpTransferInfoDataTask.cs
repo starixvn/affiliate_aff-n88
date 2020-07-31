@@ -52,7 +52,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             while (importData != null && importData.Any())
             {
                 await ImportDataToMultipleRepoAsync(importData);
-                var maxId = data.Max(d => d.TransferId);
+                var maxId = importData.Max(d => d.TransferId);
                 await _trackerService.SaveTrackerAsync(TableName,
                     new TrackerInfo
                     {
