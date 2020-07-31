@@ -3,10 +3,14 @@ using Affiliate.N88.Models;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
+using Fanex.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi.Controllers
@@ -56,6 +60,9 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpPost]
         public async Task<decimal> UpdateCustomerWallet(PaymentRequestInfo payment)
         {
+            await LogService.InfoAsync($"Recevice update wallet request\n" +
+                $"Param: {JsonConvert.SerializeObject(payment)}\n" +
+                $"RequestIp: ${GetIpAddress()}");
             var criteria = new UpdateCustomerWalletCommand
             {
                 Amount = payment.Amount,
@@ -69,7 +76,25 @@ namespace Affiliate.N88.WebApi.Controllers
             };
 
             await dynamicRepository.ExecuteAsync(criteria);
+            await LogService.InfoAsync($"AfterAmount: {criteria.AfterAmount}");
             return criteria.AfterAmount;
+        }
+
+        private string GetIpAddress()
+        {
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
+            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                string[] addresses = ipAddress.Split(',');
+                if (addresses.Length != 0)
+                {
+                    return addresses[0];
+                }
+            }
+
+            return context.Request.ServerVariables["REMOTE_ADDR"];
         }
     }
 }
