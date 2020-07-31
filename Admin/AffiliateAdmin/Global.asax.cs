@@ -15,6 +15,8 @@ namespace AffiliateAdmin
 
             IoCConfig.Register();
 
+            SslConfig.RegisterHttpSecurityProtocol();
+
             Fanex.Data.Configuration.DbSettingProviderManager.Current.Start();
 
             AreaRegistration.RegisterAllAreas();
