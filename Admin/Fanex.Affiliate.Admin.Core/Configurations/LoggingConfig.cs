@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Fanex.Logging;
+using Fanex.Logging.EntLib;
 using Fanex.Logging.Sentry.RavenClient;
 using SharpRaven;
 
@@ -24,7 +25,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
                         {
                             Dsn = new Dsn(dsn),
                             Environment = env
-                        })
+                        }),
+                        new EntlibLogging(new Logging.EntLib.Configuration.EntLibConfig(null, "Log"))
                     });
             }
         }
