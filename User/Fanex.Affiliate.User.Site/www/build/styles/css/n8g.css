@@ -600,7 +600,8 @@
   .banner-text {
     width: 60%;
     max-width: 60%;
-    margin: 3px 0 0 0; }
+    margin: 3px 0 0 0;
+    left: 20px; }
     .banner-text .txt-lang {
       text-transform: none; }
     .banner-text h2 {
