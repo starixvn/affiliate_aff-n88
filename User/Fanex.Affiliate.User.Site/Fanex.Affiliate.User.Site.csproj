@@ -840,9 +840,12 @@
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\gift.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\ipad-login.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
@@ -1033,6 +1036,8 @@
     <Content Include="www\source\styles\Images\email\n8g\header.png" />
     <Content Include="www\source\styles\Images\email\button.png" />
     <Content Include="www\source\styles\Images\email\note.png" />
+    <Content Include="www\source\styles\Images\gift.png" />
+    <Content Include="www\source\styles\Images\ipad-login.png" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\notify\bgMain.jpg" />
