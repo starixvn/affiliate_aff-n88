@@ -88,7 +88,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             {
                 var paymentInfo = new PaymentRequestInfo
                 {
-                    Amount = paymentRequestDetail.Amount,
+                    Amount = paymentRequestDetail.TransAmount,
                     CustId = cust.CustId,
                     RefTransId = param.TransId.ToString(),
                     SiteId = siteId,
