@@ -47,7 +47,7 @@ body {
     }
 
     .footer-text {
-        font-weight: 600;
+        font-weight: 500;
         font-size: 15px;
         line-height: 20px;
         color: $text-color;
@@ -93,13 +93,14 @@ body {
         border: 1px solid $user-login-control-border-color;
         color: $user-login-control-color;
         height: 25px;
-
+        width: 110px;
         &:focus {
             border: 1px solid $user-login-control-border-color;
         }
     }
 }
 .main .page-container {
+    
     position: relative;
 
     &:before {
@@ -149,6 +150,10 @@ body {
                 color: #fff;
                 font-size: 16px;
                 line-height: 30px;
+
+                a {
+                    color: #fff!important;
+                }
             }
         }
     }
@@ -163,7 +168,7 @@ body {
             &:after {
                 position: absolute;
                 z-index: 5;
-                width: 50%;
+                width: 70%;
                 height: 100%;
                 content: '';
                 top: 0;
@@ -171,7 +176,7 @@ body {
                 background: -webkit-gradient(linear, left top, right top, color-stop(28.94%, #000000), color-stop(77.18%, rgba(0, 0, 0, 0)));
                 background: -o-linear-gradient(left, #000000 28.94%, rgba(0, 0, 0, 0) 77.18%);
                 background: linear-gradient(90deg, #000000 28.94%, rgba(0, 0, 0, 0) 77.18%);
-                opacity: 0.5;
+                opacity: 0.6;
             }
         }
 
@@ -187,11 +192,12 @@ body {
     margin: -37px 0 0 0;
     left: 200px;
     z-index: 10;
-    max-width: 43%;
-    width: 43%;
+    max-width: 30%;
+    width: 30%;
 
     .txt-lang {
         color: $banner-color-text;
+        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32);
     }
 
     h2 {
@@ -251,38 +257,71 @@ body {
 }
 // Common
 .page-title {
-    background: $bg-main-color;
-    border-top: 1px solid $page-title-border-color;
-
+    margin: 0 0 4rem 0;
     .text {
-        background-color: $page-title-bg-color;
+        //background-color: $page-title-bg-color;
         color: $page-title-color;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 47px;
+        padding: 0;
 
         &:after {
-            border-bottom: 18px solid $bg-main-color;
-            border-right: 16px solid $bg-main-color;
+            display: none;
+            //border-bottom: 18px solid $bg-main-color;
+            //border-right: 16px solid $bg-main-color;
         }
     }
 }
 
-.info-group .title {
-    color: $group-title-color;
+.info-group {
+    margin-bottom: 4.2rem;
 
-    &:before {
-        background: $group-title-border-before-color;
+    .title {
+        color: $group-title-color;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        background-position: left 0px top 3px;
+        background-repeat: no-repeat;
+        background-image: url("../../../../build/styles/Images/contact-in-home/n8g/icon-arrow.png");
+        padding: 0 0 0 31px;
+        margin-bottom: 10px;
     }
 
-    &:after {
-        background: $group-title-border-after-color;
+    ul,ol {
+        padding-left: 2.6rem;
+
+        li {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    p {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.02em;
     }
 }
 
 // Table
 .table table {
     border: 1px solid $table-border-color;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+
+    tbody {
+        tr {
+            background: rgba(0, 0, 0, 0.2);
+        }
+    }
 
     tr {
-        background: $table-bg-color;
         color: $table-color;
 
         &:hover {
@@ -427,6 +466,9 @@ body {
 .main {
     .page-container .home-page {
         //background: $home-page-bg-color;
+        &.content {
+            margin-top: 0;
+        }
     }
 }
 .content {
@@ -444,6 +486,12 @@ body {
 
             &.first {
                 background: $home-card-news-first;
+
+                .card-title {
+                    .text {
+                        width: 45%;
+                    }
+                }
 
                 .nounderline {
                     display: -webkit-box;
@@ -466,8 +514,8 @@ body {
 
                     .text-content {
                         order: 1;
-                        font-size: 20px;
-                        line-height: 32px;
+                        font-size: 16px;
+                        line-height: 24px;
                         color: $home-card-content-color;
                         width: 48%;
                         padding: 0 88px 0 0;
@@ -485,6 +533,10 @@ body {
                 -webkit-box-pack: end;
                 -ms-flex-pack: end;
                 justify-content: flex-end;
+
+                .card-title {
+                    padding-top: 12px;
+                }
 
                 .card {
                     width: 40.5%;
@@ -527,16 +579,16 @@ body {
 
                     .text-1 {
                         font-style: italic;
-                        font-size: 24px;
-                        line-height: 28px;
+                        font-size: 18px;
+                        line-height: 21px;
                         font-weight: 400;
                         padding-top: 10px;
                     }
 
                     .text-2 {
                         font-weight: 700;
-                        font-size: 28px;
-                        line-height: 33px;
+                        font-size: 20px;
+                        line-height: 23px;
                         margin-top: 10px;
                     }
 
@@ -546,9 +598,8 @@ body {
 
                     .text-3 {
                         margin-top: 20px;
-                        font-size: 20px;
-                        line-height: 32px;
-                        letter-spacing: -0.01em;
+                        font-size: 16px;
+                        line-height: 24px;
                     }
 
                     .btn {
@@ -561,11 +612,12 @@ body {
                         font-weight: 700;
                         color: $home-card-link-color;
                         border: 0;
+                        min-width: 190px;
                         overflow: inherit;
                         letter-spacing: 0.08em;
                         padding: 13px 29px 12px 28px;
                         font-style: normal;
-                        margin: 35px 0 0 6px;
+                        margin: 54px 0 0 6px;
 
                         &:after {
                             display: none;
@@ -597,13 +649,13 @@ body {
             margin: 0;
 
             .card-title {
-                font-size: 40px;
-                line-height: 47px;
+                font-size: 28px;
+                line-height: 33px;
                 color: $home-card-title-color;
                 text-transform: uppercase;
                 position: relative;
-                padding: 5px 0 5px 72px;
-                margin-bottom: 27px;
+                padding: 9px 0 5px 72px;
+                margin-bottom: 37px;
 
                 .icon {
                     width: 52px;
@@ -629,6 +681,9 @@ body {
     .card-title {
         //color: $home-card-title-color;
         //border-bottom: 1px solid $home-card-content-border-color;
+        .text{
+            display: block;
+        }
     }
 
     .text-content {
@@ -800,7 +855,7 @@ body {
         .news {
             .item-wrapper {
                 .card-title {
-                    font-size: 30px;
+           
                     padding-left: 50px;
 
                     .icon {
@@ -822,11 +877,7 @@ body {
                     padding-top: 100px;
                     padding-bottom: 100px;
 
-                    .card-body {
-                        .text-2 {
-                            font-size: 25px;
-                        }
-                    }
+                 
 
                     .card {
                         width: 50%;
@@ -862,7 +913,7 @@ body {
         left: 100px;
     }
 }
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
     .banner-text{
         left: 40px;
         width: 53%;
@@ -890,6 +941,12 @@ body {
             padding: 1rem;
         }
     }
+    .navbar .menu .menu-item.active:after {
+        -webkit-transform: skewX(0);
+        -ms-transform: skewX(0);
+        transform: skewX(0);
+    }
+
     .hot-news {
         margin: 5px 0;
     }
@@ -926,6 +983,9 @@ body {
             font-size: 24px;
             line-height: 28px !important;
             margin-bottom: 7px !important;
+            br{
+                display: none;
+            }
         }
 
         h5 {
@@ -957,6 +1017,7 @@ body {
                     line-height: 19px;
                     padding-left: 32px;
                     margin-bottom: 20px;
+                    padding-top: 5px !important;
 
                     .icon {
                         width: 32px;
@@ -966,6 +1027,12 @@ body {
                 }
 
                 &.first {
+                    .card-title {
+                        .text{
+                            width: 100%;
+                        }
+                    }
+
                     .nounderline {
                         -ms-flex-wrap: wrap;
                         flex-wrap: wrap;
@@ -974,9 +1041,11 @@ body {
                             width: 100%;
                             margin-top: 14px;
                             text-align: center;
-                            a{
+
+                            a {
                                 display: inline-block;
                             }
+
                             .img-item {
                                 margin-top: 0;
                                 left: 0;
@@ -1099,5 +1168,57 @@ body {
     .content .news .item-wrapper {
         padding-left: 10px;
         padding-right: 10px;
+    }
+}
+@media only screen and (max-width: 374px) {
+    .banner-text{
+        h2{
+            font-size: 19px;
+        }
+        h5{
+            font-size: 16px;
+        }
+    }
+}
+
+
+//RevenueSharingStructure
+.page-container {
+    .content {
+        margin-top: 75px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.banner-commission-structure {
+    width: 100%;
+    max-width: 100%;
+    background-size: cover;
+    padding: 32px 20px 32px 70px;
+    margin-bottom: 36px;
+    .text-content {
+        transform: rotate(0);
+
+
+
+        .text-big-yellow {
+            font-size: 80px;
+            line-height: 96px;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .table {
+        table {
+            margin: -1px -1px -1px -1px;
+        }
+    }
+    .page-container {
+        .content {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
     }
 }

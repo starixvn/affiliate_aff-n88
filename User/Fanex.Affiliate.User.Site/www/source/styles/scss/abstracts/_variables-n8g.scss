@@ -53,20 +53,20 @@ $button-submit-color: #fff;
 $button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
 $button-submit-border-color: #fff;
 
-$page-title-color: #000000;
+$page-title-color: #ffffff;
 $page-title-border-color: #0CF3E6;
 $page-title-bg-color: #0CF3E6;
 
-$group-title-color: #060818;
+$group-title-color: #ffffff;
 $group-title-border-before-color: #06E5D9;
 $group-title-border-after-color: #C7C7C7;
 
 $table-bg-color: #FFF9F3;
-$table-color: #404040;
-$table-header-bg-color: #282828;
+$table-color: #ffffff;
+$table-header-bg-color: rgba(0, 0, 0, 0.5);
 $table-header-color: #fff;
-$table-header-border-color: #c1c1c1;
-$table-border-color: #C7C7C7;
+$table-header-border-color: #8F9AAE;
+$table-border-color: #8F9AAE;
 $table-row-bg-color-hover: #fbe8e1;
 $table-row-even-bg-color: #FBD3B3;
 $table-row-total-bg-color: #FFE771;
