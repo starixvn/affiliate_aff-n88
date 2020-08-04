@@ -19,7 +19,7 @@ body {
     background-color: $header-bg-color;
     .logo{
         padding-top: .2rem;
-        padding-left: 1rem;
+        padding-left: 1.5rem;
     }
     .logo-image {
         width: 180px; 
@@ -284,14 +284,23 @@ body {
         line-height: 29px;
         background-position: left 0px top 3px;
         background-repeat: no-repeat;
-        background-image: url("../../../../build/styles/Images/contact-in-home/n8g/icon-arrow.png");
+        background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
         padding: 0 0 0 31px;
         margin-bottom: 10px;
     }
 
-    ul,ol {
-        padding-left: 2.6rem;
+    ul {
+        padding-left: 1.5rem;
 
+        li {
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 24px;
+            letter-spacing: 0.02em;
+        }
+    }
+
+    ol {
         li {
             font-weight: normal;
             font-size: 14px;
@@ -1183,6 +1192,10 @@ body {
 
 
 //RevenueSharingStructure
+.table table th, .table table td{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .page-container {
     .content {
         margin-top: 75px;
@@ -1208,17 +1221,20 @@ body {
         }
     }
 }
-
-@media only screen and (max-width: 991px) {
-    .table {
-        table {
-            margin: -1px -1px -1px -1px;
-        }
-    }
+@media only screen and (max-width: 1199px) {
     .page-container {
         .content {
             padding-left: 1rem;
             padding-right: 1rem;
         }
     }
+}
+@media only screen and (max-width: 768px) {
+    .table {
+        table {
+           
+        }
+    }
+
+        
 }
