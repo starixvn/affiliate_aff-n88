@@ -290,7 +290,7 @@ body {
     }
 
     ul {
-        padding-left: 1.5rem;
+        padding-left: 2.5rem;
 
         li {
             font-weight: normal;
@@ -301,6 +301,8 @@ body {
     }
 
     ol {
+        padding-left: 2.5rem;
+
         li {
             font-weight: normal;
             font-size: 14px;
@@ -1235,6 +1237,19 @@ body {
            
         }
     }
+}
 
-        
+.table {
+    table {
+        &.game-list {
+            tr {
+                .game-name {
+                    border-width: 1px;
+                }
+            }
+        }
+    }
+}
+.webp .banner-product-casino{
+    margin-bottom: 20px;
 }

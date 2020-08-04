@@ -217,17 +217,19 @@
     padding: 0 0 0 31px;
     margin-bottom: 10px; }
   .info-group ul {
-    padding-left: 1.5rem; }
+    padding-left: 2.5rem; }
     .info-group ul li {
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
       letter-spacing: 0.02em; }
-  .info-group ol li {
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.02em; }
+  .info-group ol {
+    padding-left: 2.5rem; }
+    .info-group ol li {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.02em; }
   .info-group p {
     font-weight: normal;
     font-size: 14px;
@@ -327,7 +329,7 @@
     color: #fff; }
 
 .table .game-list tr .game-name {
-  background-color: #ded5d5; }
+  background-color: rgba(0, 0, 0, 0.5); }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
   background-color: #FBD3B3; }
@@ -801,3 +803,9 @@
   .page-container .content {
     padding-left: 1rem;
     padding-right: 1rem; } }
+
+.table table.game-list tr .game-name {
+  border-width: 1px; }
+
+.webp .banner-product-casino {
+  margin-bottom: 20px; }
