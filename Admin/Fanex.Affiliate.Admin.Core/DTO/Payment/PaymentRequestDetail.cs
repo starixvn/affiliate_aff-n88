@@ -28,5 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Payment
         public decimal TransAmount { get; set; }
 
         public string TransCurrencyCode { get; set; }
+
+        public decimal OriginalTransAmount { get; set; }
     }
 }

@@ -82,11 +82,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                             TransAmount = reader.ToDecimal("TransAmount"),
                             TransCurrencyCode = reader.ToString("TransCurrencyCode"),
                             Status = reader.ToString(Field.Status),
-                            PlayerUsername =reader.ToString("PlayerUsername"),
+                            PlayerUsername = reader.ToString("PlayerUsername"),
                             CompletedDate = reader.ToDateTime("Completeddate"),
                             Creator = reader.ToString("Creator"),
                             AdminDesc = reader.ToString("AdminDesc"),
-                            AffDesc =reader.ToString("AffDesc")
+                            AffDesc = reader.ToString("AffDesc"),
+                            OriginalTransAmount = reader.ToDecimal("OriginalTransAmount")
                         };
                     }
                 }
