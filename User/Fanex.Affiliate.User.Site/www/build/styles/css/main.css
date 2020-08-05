@@ -1578,11 +1578,11 @@ input[type="radio"], input[type="checkbox"] {
     left: 110px; } }
 
 @media (min-width: 1024px) {
-  .content .news {
+  .news {
     padding-top: 32px;
     padding-bottom: 32px;
     margin: 0 -16px; }
-    .content .news .item-wrapper {
+    .news .item-wrapper {
       flex-basis: 33.333%;
       max-width: 33.333%;
       padding-left: 16px;
