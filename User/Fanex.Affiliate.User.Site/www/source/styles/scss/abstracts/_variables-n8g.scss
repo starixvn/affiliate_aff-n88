@@ -9,8 +9,8 @@ $header-icon-color: #fff;
 $header-bottom-border-color: #443B35;
 
 $user-login-control-color: #ffffff;
-$user-login-control-border-color: #000000;
-$user-login-control-bg-color: #333333;
+$user-login-control-border-color: #435068;
+$user-login-control-bg-color: rgba(3, 12, 27, 0.4);
 
 $nav-bg-color: #1E347E;
 $nav-bg-color-active: #FAB617;
@@ -21,13 +21,16 @@ $nav-color-focus: #0CF3E6;
 $sub-nav-bg-color: #FFFFFF;
 $sub-nav-menu-color: #FFFFFF;
 $sub-nav-menu-bg-color-active: #ffffff;
-$sub-nav-menu-color-active: #333333;
+$sub-nav-menu-color-active: #FAB617;
 $sub-nav-menu-line-color: #64789B;
+$sub-nav-menu-bg: #ffffff;
+$sub-nav-menu-color-sub: #333333;
 
 $tab-bg-color: $bg-main-color;
 $tab-item-color: #6E6E6E;
-$tab-item-bg-color-active: #0CF3E6;
-$tab-item-color-active: #000000;
+$tab-item-bg-color-active: #1E365F;
+$tab-item-color-active: #ffffff;
+$tab-item-border-color: #435068;
 
 $hot-news-bg-color: #6b1213;
 $hot-news-title-color: #ffffff;

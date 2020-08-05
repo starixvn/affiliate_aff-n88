@@ -69,13 +69,14 @@
   margin-top: 14px;
   margin-bottom: 20px; }
   .user-login .text-field {
-    background: #333333;
-    border: 1px solid #000000;
+    background: rgba(3, 12, 27, 0.4);
+    border: 1px solid #435068;
     color: #ffffff;
     height: 25px;
-    width: 110px; }
+    width: 110px;
+    border-radius: 2px; }
     .user-login .text-field:focus {
-      border: 1px solid #000000; }
+      border: 1px solid #435068; }
 
 .main .page-container {
   position: relative; }
@@ -262,7 +263,8 @@
 
 .banner-product.banner-product-sport .text-red {
   left: 6rem;
-  font-size: 3.2rem; }
+  font-size: 3.2rem;
+  line-height: inherit; }
   @media only screen and (max-width: 1400px) {
     .banner-product.banner-product-sport .text-red {
       font-size: 2.6rem; } }
@@ -522,7 +524,7 @@
     margin: 0; }
   .content-menu .menu li:not(:last-child) {
     border: 0; }
-    .content-menu .menu li:not(:last-child) .menu-item:before {
+    .content-menu .menu li:not(:last-child) > .menu-item:before {
       position: absolute;
       top: 5px;
       right: 0;
@@ -535,14 +537,15 @@
     position: relative;
     font-weight: bold; }
     .content-menu .menu .menu-item + .submenu-container {
-      background-color: #3391F6; }
+      background-color: #ffffff; }
       .content-menu .menu .menu-item + .submenu-container li {
         border: 0; }
+        .content-menu .menu .menu-item + .submenu-container li a {
+          color: #333333; }
+          .content-menu .menu .menu-item + .submenu-container li a:before {
+            display: none; }
     .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
-      background-color: #ffffff;
-      color: #333333; }
-      .content-menu .menu .menu-item.active:before, .content-menu .menu .menu-item:hover:before {
-        display: none; }
+      color: #FAB617; }
 
 .content-menu .submenu-container {
   background: #FFFFFF; }
@@ -560,13 +563,13 @@
   background-color: #158469; }
 
 .summary-content .details-section-menu .menu {
-  border-bottom: 1px solid #0CF3E6; }
+  border-bottom: 1px solid #1E365F; }
 
 .summary-content .details-section-menu .menu-item {
   color: #6E6E6E; }
   .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
-    color: #0CF3E6;
-    border-bottom: 2px solid #0CF3E6; }
+    color: #1E365F;
+    border-bottom: 2px solid #1E365F; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total {
   background: #FFE771 !important; }
@@ -574,17 +577,39 @@
     background: #FFE771 !important;
     color: #ffffff; }
 
-.account-overview #account-overview-menu {
-  background: #1E347E; }
-  .account-overview #account-overview-menu .menu-item {
-    color: #6E6E6E; }
-    .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-      color: #000000;
-      background-color: #0CF3E6; }
+.account-overview #account-overview-menu .menu li:not(:last-child) {
+  border: 0 !important;
+  margin-right: 2px; }
+
+.account-overview #account-overview-menu .menu-item {
+  color: #6E6E6E;
+  border: 1px solid #435068;
+  border-bottom: 0; }
+  .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
+    color: #ffffff;
+    background-color: #1E365F;
+    border-color: #1E365F; }
 
 .account-overview .bg-orange {
-  background: #0CF3E6;
-  color: #000000; }
+  background: #1E365F;
+  color: #ffffff; }
+
+.page-container .content .banner-faqs {
+  width: 100%;
+  max-width: 100%;
+  background-size: cover;
+  height: 200px;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 40px; }
+  .page-container .content .banner-faqs p {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: 0.08em;
+    text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5); }
 
 @media only screen and (max-width: 1800px) {
   .content .news .item-wrapper:nth-child(2) .card {

@@ -99,6 +99,7 @@ body {
         color: $user-login-control-color;
         height: 25px;
         width: 110px;
+        border-radius: 2px;
 
         &:focus {
             border: 1px solid $user-login-control-border-color;
@@ -375,6 +376,7 @@ body {
     .text-red {
         left: 6rem;
         font-size: 3.2rem;
+        line-height: inherit;
 
         @media only screen and (max-width: 1400px) {
             font-size: 2.6rem;
@@ -774,7 +776,7 @@ body {
         li:not(:last-child) {
             border: 0;
 
-            .menu-item {
+            > .menu-item {
                 &:before {
                     position: absolute;
                     top: 5px;
@@ -793,19 +795,26 @@ body {
             font-weight: bold;
 
             + .submenu-container {
-                background-color: #3391F6;
-                li{
+                background-color: $sub-nav-menu-bg;
+
+                li {
                     border: 0;
+
+                    a {
+                        color: $sub-nav-menu-color-sub;
+
+                        &:before {
+                            display: none;
+                        }
+                    }
                 }
             }
 
             &.active, &:hover {
-                background-color: $sub-nav-menu-bg-color-active;
+                 
                 color: $sub-nav-menu-color-active;
 
-                &:before {
-                    display: none;
-                }
+                
             }
         }
     }
@@ -861,15 +870,22 @@ body {
 
 .account-overview {
     #account-overview-menu {
-        background: $tab-bg-color;
-
+        //background: $tab-bg-color;
         .menu {
+            li:not(:last-child) {
+                border: 0 !important;
+                margin-right: 2px;
+            }
+
             &-item {
                 color: $tab-item-color;
+                border: 1px solid $tab-item-border-color;
+                border-bottom: 0;
 
                 &.active, &:hover {
                     color: $tab-item-color-active;
                     background-color: $tab-item-bg-color-active;
+                    border-color: $tab-item-bg-color-active;
                 }
             }
         }
@@ -881,7 +897,27 @@ body {
     }
 }
 
+//faqs
+.page-container .content .banner-faqs {
+    width: 100%;
+    max-width: 100%;
+    //background-image: url(../Images/apply/n8g/bg-Terms_conditions_banner.webp);
+    background-size: cover;
+    height: 200px;
+    padding: 0;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
 
+    p {
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 37px;
+        letter-spacing: 0.08em;
+        text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5);
+    }
+}
 //responsive
 @media only screen and (max-width: 1800px) {
     .content {
