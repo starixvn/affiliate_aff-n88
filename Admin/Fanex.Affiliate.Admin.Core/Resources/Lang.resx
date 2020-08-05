@@ -231,16 +231,25 @@
   <data name="InvalidBannerSize" xml:space="preserve">
     <value>Your upload file size must be &lt;= 3 MB.&lt;br /&gt;</value>
   </data>
-  <data name="Casino" xml:space="preserve">
-    <value>Casino</value>
-  </data>
-  <data name="Sportsbook" xml:space="preserve">
-    <value>Sportsbook</value>
-  </data>
   <data name="PleaseEnterFileName" xml:space="preserve">
     <value>You must either enter a file name for banner or browse other banner.</value>
   </data>
   <data name="FileNameCanNotContain" xml:space="preserve">
     <value>A File Name can't contain any of the following characters: \/:*?"&lt;&gt;|#%&amp;+</value>
+  </data>
+  <data name="UserNameNotExist" xml:space="preserve">
+    <value>The payment account you entered does not exist. Please check again.</value>
+  </data>
+  <data name="UserNameClosed" xml:space="preserve">
+    <value>The payment account you entered is Closed. Please check again.</value>
+  </data>
+  <data name="UserNameSuspended" xml:space="preserve">
+    <value>The payment account you entered is Suspended. Please check again.</value>
+  </data>
+  <data name="ErrInApi" xml:space="preserve">
+    <value>Have err when call API</value>
+  </data>
+  <data name="PaymentRequestNotValid" xml:space="preserve">
+    <value>Payment request is not valid</value>
   </data>
 </root>

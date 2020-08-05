@@ -6,6 +6,7 @@ using Fanex.Data;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
@@ -74,12 +75,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
         {
             return new Referrers
             {
-                SiteUrl = isGetReferrersList ? (Convert.ToString(reader["DomainReferrer"])) : string.Empty,
-                WebsiteUrl = isGetReferrersList ? string.Empty : (Convert.ToString(reader["URLReferrer"])),
-                TotalClick = reader["TotalClick"] == DBNull.Value ? 0 : Convert.ToInt32(reader["TotalClick"]),
-                UniqueClick = reader["UniqueClick"] == DBNull.Value ? 0 : Convert.ToInt32(reader["UniqueClick"]),
-                Signups = reader["Signups"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Signups"]),
-                Fdm = reader["FDM"] == DBNull.Value ? 0 : Convert.ToInt32(reader["FDM"]),
+                SiteUrl = isGetReferrersList ? (reader.ToString("DomainReferrer")) : string.Empty,
+                WebsiteUrl = isGetReferrersList ? string.Empty : (reader.ToString("URLReferrer")),
+                TotalClick = reader.ToInt("TotalClick"),
+                UniqueClick = reader.ToInt("UniqueClick"),
+                Signups = reader.ToInt("Signups"),
+                Fdm = reader.ToInt("FDM"),
             };
         }
     }

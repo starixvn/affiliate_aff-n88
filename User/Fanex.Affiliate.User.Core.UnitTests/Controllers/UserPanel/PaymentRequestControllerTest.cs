@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Constants;
@@ -287,7 +288,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void CreatePaymentRequest_InternalLogin_DoNoThingAndSetResultInfoCorrectly()
+        public async Task CreatePaymentRequest_InternalLogin_DoNoThingAndSetResultInfoCorrectly()
         {
             // Arrange
             var sessionService = MockingHelper.GetSessionService();
@@ -296,7 +297,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var controller = CreatePaymentRequestController(sessionService: sessionService);
 
             // Action
-            var actionResult = controller.CreatePaymentRequest(new PaymentCreationParam()) as JsonResult;
+            var actionResult = await controller.CreatePaymentRequest(new PaymentCreationParam()) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             // Assert
@@ -305,7 +306,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void CreatePaymentRequest_WhenCall_PassedCreationParamCorrectly()
+        public async Task CreatePaymentRequest_WhenCall_PassedCreationParamCorrectly()
         {
             // Arrange
             PaymentCreationParam passedParam = null;
@@ -319,7 +320,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var paymentService = new Mock<IPaymentService>();
             paymentService.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentCreationParam>(), It.IsAny<PaymentEmailParam>()))
-                .Returns(new ResultInfo { IsOk = true })
+                .Returns(Task.FromResult(new ResultInfo { IsOk = true }))
                 .Callback<PaymentCreationParam, PaymentEmailParam>((p, e) =>
                 {
                     passedParam = p;
@@ -341,7 +342,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var expectedResult = JsonConvert.SerializeObject(expectedParam);
 
             // Action
-            controller.CreatePaymentRequest(creationParam);
+            await controller.CreatePaymentRequest(creationParam);
             var result = JsonConvert.SerializeObject(passedParam);
 
             // Assert
@@ -349,7 +350,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void CreatePaymentRequest_AccountIsNotActived_ReturnCheckingResultIntermediately()
+        public async Task CreatePaymentRequest_AccountIsNotActived_ReturnCheckingResultIntermediately()
         {
             // Arrange
             var creationParam = new PaymentCreationParam
@@ -366,13 +367,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var paymentService = new Mock<IPaymentService>();
             paymentService.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentCreationParam>(), It.IsAny<PaymentEmailParam>()))
-                .Returns(checkingActiveResult);
+                .Returns(Task.FromResult(checkingActiveResult));
             var appSetting = Mock.Of<IAppSetting>(ap => ap.IsLocal);
 
             var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
 
             // Action
-            var actionResult = controller.CreatePaymentRequest(creationParam) as JsonResult;
+            var actionResult = await controller.CreatePaymentRequest(creationParam) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             // Assert
@@ -380,7 +381,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void CreatePaymentRequest_AccountIsActivedButCreatePaymentRequestFailed_ReturnCreationResultIntermediately()
+        public async Task CreatePaymentRequest_AccountIsActivedButCreatePaymentRequestFailed_ReturnCreationResultIntermediately()
         {
             // Arrange
             var creationParam = new PaymentCreationParam
@@ -397,21 +398,22 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 Message = "Create Failed"
             };
             var paymentService = new Mock<IPaymentService>();
-            paymentService.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentCreationParam>(), It.IsAny<PaymentEmailParam>())).Returns(creationResult);
+            paymentService.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentCreationParam>(), It.IsAny<PaymentEmailParam>()))
+                .Returns(Task.FromResult(creationResult));
 
             var appSetting = Mock.Of<IAppSetting>(ap => ap.IsLocal);
 
             var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
 
             // Action
-            var actionResult = controller.CreatePaymentRequest(creationParam) as JsonResult;
+            var actionResult = await controller.CreatePaymentRequest(creationParam) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             Assert.Equal(creationResult, result);
         }
 
         [Fact]
-        public void CreatePaymentRequest_CreateSuccessfully_SendEmailWithCorrectParam()
+        public async Task CreatePaymentRequest_CreateSuccessfully_SendEmailWithCorrectParam()
         {
             // Arrange
             PaymentEmailParam emailParam = null;
@@ -424,7 +426,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var paymentService = new Mock<IPaymentService>();
             paymentService.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentCreationParam>(), It.IsAny<PaymentEmailParam>()))
-                            .Returns(new ResultInfo { IsOk = true })
+                            .Returns(Task.FromResult(new ResultInfo { IsOk = true }))
                             .Callback<PaymentCreationParam, PaymentEmailParam>((p, e) =>
                             {
                                 emailParam = e;
@@ -441,7 +443,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var expectedResult = JsonConvert.SerializeObject(expectedEmailParam);
 
             // Action
-            controller.CreatePaymentRequest(creationParam);
+            await controller.CreatePaymentRequest(creationParam);
             var result = JsonConvert.SerializeObject(emailParam);
 
             // Assert

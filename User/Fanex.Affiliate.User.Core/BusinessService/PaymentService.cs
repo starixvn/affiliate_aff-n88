@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
+using NPOI.HSSF.Record.Chart;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -18,15 +20,18 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly IAccountRepository _accountRepository;
         private readonly IPaymentRepository _paymentRepository;
         private readonly IEmailService _emailService;
+        private readonly IAccountService _accountService;
 
         public PaymentService(
             IAccountRepository accountRepository,
             IPaymentRepository paymentRepository,
-            IEmailService emailService)
+            IEmailService emailService,
+            IAccountService accountService)
         {
             _accountRepository = accountRepository;
             _paymentRepository = paymentRepository;
             _emailService = emailService;
+            _accountService = accountService;
         }
 
         public IEnumerable<Payment> GetPaymentList(PaymentParam paymentParam)
@@ -61,9 +66,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return resultInfo;
         }
 
-        public ResultInfo CreatePaymentRequest(PaymentCreationParam paymentCreationParam, PaymentEmailParam emailParam)
+        public async Task<ResultInfo> CreatePaymentRequest(PaymentCreationParam paymentCreationParam, PaymentEmailParam emailParam)
         {
-            var resultInfo = ValidatePaymentRequest(paymentCreationParam);
+            var resultInfo = await ValidatePaymentRequest(paymentCreationParam);
 
             if (resultInfo.IsOk)
             {
@@ -77,7 +82,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     ErrMsg = paymentCreationParam.ErrMsg
                 };
 
-                resultInfo = _paymentRepository.CreatePaymentRequest(param);
+                resultInfo =  _paymentRepository.CreatePaymentRequest(param);
 
                 if (resultInfo.IsOk)
                 {
@@ -98,22 +103,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return (currentDay >= BeginDay && currentDay <= EndDay);
         }
 
-        private ResultInfo ValidatePaymentRequest(PaymentCreationParam paymentCreationParam)
+        private async Task<ResultInfo> ValidatePaymentRequest(PaymentCreationParam paymentCreationParam)
         {
             var resultInfo = new ResultInfo { IsOk = false };
-
-            //if (!IsInDateRange() && !paymentCreationParam.IsLocalTest)
-            //{
-            //    resultInfo.Message = Lang.PayoutTime;
-            //}
             if (!IsValidAmount(paymentCreationParam))
             {
                 resultInfo.Message = Error.PaymentAmountInvalid;
+                return resultInfo;
             }
-            else
-            {
-                resultInfo.IsOk = true;
-            }
+
+            var affInfo = _accountRepository.GetAccountInfo(paymentCreationParam.AffId);
+            resultInfo = await _accountService.CheckPlayerUserNameValid(affInfo.PlayerUsername);
 
             return resultInfo;
         }

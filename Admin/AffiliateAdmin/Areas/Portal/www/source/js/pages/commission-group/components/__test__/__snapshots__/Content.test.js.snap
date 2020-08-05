@@ -74,7 +74,7 @@ exports[`commission group - Content should render correctly 1`] = `
       tag="div"
     >
       <div
-        className="modal-body-wrapper"
+        className="modal-body-wrapper commission-group"
       />
     </ModalBody>
   </Modal>

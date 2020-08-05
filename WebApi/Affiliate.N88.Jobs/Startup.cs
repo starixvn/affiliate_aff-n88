@@ -1,14 +1,10 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Affiliate.N88.Jobs.Configurations;
+﻿using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Middlewares;
 using Fanex.Logging;
-using Hangfire;
-using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -32,8 +28,10 @@ namespace Affiliate.N88.Jobs
             appSettings = new AppSettings();
             Configuration.GetSection("AppSettings").Bind(appSettings);
 
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.RegisterHangfire(Configuration);
             services.RegisterServices(Configuration, appSettings);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,10 +40,13 @@ namespace Affiliate.N88.Jobs
             // Add This
             app.UseHangfire(appSettings);
 
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMvc();
 
             app.Run(async (context) =>
             {

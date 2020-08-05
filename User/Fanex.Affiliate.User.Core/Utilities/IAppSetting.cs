@@ -62,5 +62,16 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string DefaultLanguageCode { get; }
 
         string DefaultCurrency { get; }
+
+        string MemberSiteApiUrl { get; }
+
+        int MemberSiteId { get; }
+
+        string MemberSiteProxyUrl { get; }
+
+        string MemberSiteApiAuthenticationKey { get; }
+
+        bool IsUseMemberSiteProxy { get; }
+
     }
 }

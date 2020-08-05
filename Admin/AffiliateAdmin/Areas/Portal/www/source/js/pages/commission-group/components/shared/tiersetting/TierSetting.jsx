@@ -7,7 +7,7 @@ import { setSelectedGroup } from '../../../actions';
 import TierSettingItem from './TierSettingItem';
 import { removeItem } from '../../../../../modules/dataHandler';
 import { isValidNumber } from '../../../../../modules/utils';
-import { INFINITY_AM, INFINITY_QM, globalResource } from '../../../modules/constant';
+import { INFINITY_AM, globalResource } from '../../../modules/constant';
 
 export class TierSetting extends Component {
     constructor(props) {
@@ -17,21 +17,20 @@ export class TierSetting extends Component {
     handleAdd = () => {
         const { TierSettingList } = this.props.selectedGroup;
         let defaultMinAmount = 0;
-        let defaultMinQm = 0;
+        let defaultMinAp = 5;
 
         const itemCount = TierSettingList.length;
         if (itemCount > 0) {
             const lastItem = TierSettingList[itemCount - 1];
             defaultMinAmount = lastItem.MaxAmount + 1;
-            defaultMinQm = lastItem.MaxQm + 1;
         }
 
         const newTierSetting = {
             TierId: itemCount + 1,
             MinAmount: defaultMinAmount,
             MaxAmount: defaultMinAmount,
-            MinQm: defaultMinQm,
-            MaxQm: defaultMinQm,
+            MinAp: defaultMinAp,
+            MaxAp: defaultMinAp,
             Commission: 0
         };
 
@@ -51,11 +50,11 @@ export class TierSetting extends Component {
     }
 
     handleChangeInput = (tierId, tierItemValue) => {
-        const { MinAmount, MaxAmount, MinQm, MaxQm } = tierItemValue;
+        const { MinAmount, MaxAmount, MinAp, MaxAp } = tierItemValue;
         if ((!MinAmount || isValidNumber(MinAmount)) &&
             (!MaxAmount || isValidNumber(MaxAmount)) &&
-            (!MinQm || isValidNumber(MinQm)) &&
-            (!MaxQm || isValidNumber(MaxQm))) {
+            (!MinAp || isValidNumber(MinAp)) &&
+            (!MaxAp || isValidNumber(MaxAp))) {
             const { TierSettingList } = this.props.selectedGroup;
 
             const tierSettingList = TierSettingList.map(item => {

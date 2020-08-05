@@ -124,15 +124,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Casino.
-        /// </summary>
-        public static string Casino {
-            get {
-                return ResourceManager.GetString("Casino", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Revenue Group.
         /// </summary>
         public static string CommGroup {
@@ -286,6 +277,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Have err when call API.
+        /// </summary>
+        public static string ErrInApi {
+            get {
+                return ResourceManager.GetString("ErrInApi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A File Name can&apos;t contain any of the following characters: \/:*?&quot;&lt;&gt;|#%&amp;+.
         /// </summary>
         public static string FileNameCanNotContain {
@@ -367,6 +367,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payment request is not valid.
+        /// </summary>
+        public static string PaymentRequestNotValid {
+            get {
+                return ResourceManager.GetString("PaymentRequestNotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
         public static string Player {
@@ -403,15 +412,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sportsbook.
-        /// </summary>
-        public static string Sportsbook {
-            get {
-                return ResourceManager.GetString("Sportsbook", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 12Bet Domains.
         /// </summary>
         public static string Text12BetDomains {
@@ -435,6 +435,33 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string UpdateIsFailed {
             get {
                 return ResourceManager.GetString("UpdateIsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The payment account you entered is Closed. Please check again..
+        /// </summary>
+        public static string UserNameClosed {
+            get {
+                return ResourceManager.GetString("UserNameClosed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The payment account you entered does not exist. Please check again..
+        /// </summary>
+        public static string UserNameNotExist {
+            get {
+                return ResourceManager.GetString("UserNameNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The payment account you entered is Suspended. Please check again..
+        /// </summary>
+        public static string UserNameSuspended {
+            get {
+                return ResourceManager.GetString("UserNameSuspended", resourceCulture);
             }
         }
     }

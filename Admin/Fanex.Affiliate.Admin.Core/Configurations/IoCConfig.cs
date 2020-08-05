@@ -1,7 +1,13 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using Fanex.Affiliate.Admin.Core.Apis;
+using Fanex.Affiliate.User.Core.Infrastructure;
+using Refit;
 using System;
+using System.Configuration;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Mvc;
@@ -18,9 +24,12 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
             builder.RegisterAssemblyTypes(asselmblyList).AsImplementedInterfaces();
 
+            builder.RegisterMemberSiteApi();
+
             // Register your MVC controllers. (MvcApplication is the name of
             // the class in Global.asax.)
             builder.RegisterControllers(asselmblyList);
+
 
             // OPTIONAL: Register web abstractions like HttpContextBase.
             builder.RegisterModule<AutofacWebTypesModule>();
@@ -47,6 +56,23 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
             }
 
             return assemblies.Where(x => x.FullName.StartsWith("Fanex.Affiliate", StringComparison.InvariantCulture)).ToArray();
+        }
+
+        private static void RegisterMemberSiteApi(this ContainerBuilder builder)
+        {
+            var appSetting = AppSetting.Instance;
+            var handler = new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey)
+            {
+                Proxy = appSetting.IsUseMemberSiteProxy
+                            ? new WebProxy(new Uri(appSetting.MemberSiteProxyUrl))
+                            : null
+
+            };
+            builder.RegisterInstance(RestService.For<ILicenseeApi>(
+                new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
+                }));
         }
 
     }

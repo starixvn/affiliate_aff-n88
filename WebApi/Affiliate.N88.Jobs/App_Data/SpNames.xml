@@ -7,4 +7,16 @@
     <Setting Key="N8B_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N8B"/>
     <Setting Key="N8B_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N8B" />
   </Function>
+  <Function Name="Affiliate_N88">
+    <Setting Key="N88_Task_Aff_MemberInfo_Import" SpName="Task_Aff_MemberInfo_Import" DbName="Affiliate_N88"/>
+    <Setting Key="N88_Task_Aff_GetSetting" SpName ="Task_Aff_GetSetting" DbName="Affiliate_N88" />
+  </Function>
+  <Funtion Name="ThirdPartyImport">
+    <Setting Key="Master_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_Queue_Import" SpName="Task_API_Queue_Import" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_TimeTracker_Sel" SpName="Task_API_TimeTracker_Sel" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_TimeTracker_Sel" SpName="Task_API_TimeTracker_Sel" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Slave_bodb_N88"/>
+  </Funtion>
 </Functions>

@@ -9,9 +9,9 @@ describe('commission group - GridData ', () => {
         Commission: 0.02,
         GroupId: 153,
         MaxAmount: 100000000000000,
-        MaxQm: 1000000000,
+        MaxAp: 1000000000,
         MinAmount: 0,
-        MinQm: 0,
+        MinAp: 0,
         TierId: 1
     };
     const dataItem = {
@@ -146,8 +146,8 @@ describe('commission group - GridData ', () => {
         expect(renderGroupData).toMatchSnapshot();
     });
 
-    it('_renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxQm is not max value', () => {
-        const tierSetting = Object.assign({}, tierSettingItem, { MaxAmount: 100, MaxQm: 10 });
+    it('_renderGroupData - render correctly with groupId > 1000, MaxAmount and MaxAp is not max value', () => {
+        const tierSetting = Object.assign({}, tierSettingItem, { MaxAmount: 100, MaxAp: 10 });
         const data = Object.assign({}, dataItem, { GroupId: 927841, TierSettingList: [tierSetting] })
         const props = Object.assign({}, defaultProps, { gridData: [data] });
         const componentInstance = new GridData(props);

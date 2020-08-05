@@ -52,5 +52,18 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         string SiteFriendlyName { get; }
 
         string DefaultLanguage { get; }
+
+        string DefaultCurrency { get; }
+
+        string MemberSiteApiUrl { get; }
+
+        int MemberSiteId { get; }
+
+        string MemberSiteProxyUrl { get; }
+
+        string MemberSiteApiAuthenticationKey { get; }
+
+        bool IsUseMemberSiteProxy { get; }
+
     }
 }

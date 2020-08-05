@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.Infrastructure;
 using Fanex.Affiliate.User.Core.MemberInfoWebService;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Caching;
 using ONEbook.UM.Services.Impl;
+using Refit;
 
 namespace Fanex.Affiliate.User.Site
 {
@@ -23,6 +28,8 @@ namespace Fanex.Affiliate.User.Site
             var builder = new ContainerBuilder();
             //Register repository
             RegisterDependencies(builder);
+
+            RegisterMemberSiteApi(builder);
 
             var asselmblyList = GetExecutingAssembly();
             // Register your MVC controllers. (MvcApplication is the name of
@@ -100,6 +107,23 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ObjectDBBuilder>().AsImplementedInterfaces().UsingConstructor().InstancePerLifetimeScope();
+        }
+
+        private static void RegisterMemberSiteApi(ContainerBuilder builder)
+        {
+            var appSetting = AppSetting.Instance;
+            var handler = new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey)
+            {
+                Proxy =  appSetting.IsUseMemberSiteProxy
+                            ? new WebProxy(new Uri(appSetting.MemberSiteProxyUrl))
+                            : null
+
+            };
+            builder.RegisterInstance(RestService.For<ILicenseeApi>(
+                new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
+                })); 
         }
     }
 }

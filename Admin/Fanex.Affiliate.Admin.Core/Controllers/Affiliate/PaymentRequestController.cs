@@ -3,7 +3,9 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
+using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Payment;
@@ -11,6 +13,7 @@ using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.ViewModels.Payment;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
@@ -18,13 +21,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
     [FunctionAuthorize(FunctionName = Function.Payment)]
     public class PaymentRequestController : BaseController
     {
-        private readonly IPaymentRequestService _paymentRequestService;
+        private readonly IPaymentService _paymentRequestService;
+        private readonly IAuthRepository _authRepo;
 
         public PaymentRequestController(
             ISessionService sessionService,
-            IPaymentRequestService paymentRequestService) : base(sessionService)
+            IPaymentService paymentRequestService,
+            IAuthRepository authRepository) : base(sessionService)
         {
             _paymentRequestService = paymentRequestService;
+            _authRepo = authRepository;
         }
 
         public ActionResult Index(PaymentRequestParamFromHome param)
@@ -33,8 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate") },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest"), IsActive = true },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup") }//,
-                //new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory") }
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup") }
             };
 
             param.SubMenuList = subMenu;
@@ -75,10 +80,22 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.Payment, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult UpdatePaymentRequest(PaymentRequestUpdateParam param)
+        public async Task<ActionResult> UpdatePaymentRequest(PaymentRequestUpdateParam param)
         {
             if (ModelState.IsValid)
             {
+                var permissionParam = new CheckPermissionParam
+                {
+                    CustId = SessionService.UserId,
+                    FuncName = Function.Payment
+                };
+
+                var result = _authRepo.CheckPermission(permissionParam);
+                if (!result.IsSuccessful)
+                {
+                    return new JsonNetResult { Data = result };
+                }
+
                 var paymentRequestUpdateParam = new PaymentRequestUpdateParam
                 {
                     UserId = SessionService.UserId,
@@ -86,7 +103,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     TransId = param.TransId,
                     IsApproved = param.IsApproved,
                     AdminDesc = Server.HtmlEncode(param.AdminDesc),
-                    AffDesc = Server.HtmlEncode(param.AffDesc)
+                    AffDesc = Server.HtmlEncode(param.AffDesc),
                 };
 
                 var emailParam = new PaymentRequestUpdateEmail
@@ -96,7 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
                 return new JsonNetResult
                 {
-                    Data = _paymentRequestService.UpdatePaymentRequest(paymentRequestUpdateParam, emailParam)
+                    Data = await _paymentRequestService.HandlePaymentRequest(paymentRequestUpdateParam, emailParam)
                 };
             }
 

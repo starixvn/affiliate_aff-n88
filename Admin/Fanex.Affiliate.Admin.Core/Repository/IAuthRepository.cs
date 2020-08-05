@@ -2,6 +2,7 @@
 using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -15,5 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         int LoginOnUser(LoginParam param, string sessionId, string serverId);
 
         void Logout(int onUserId);
+
+        ResultInfo CheckPermission(CheckPermissionParam param);
     }
 }

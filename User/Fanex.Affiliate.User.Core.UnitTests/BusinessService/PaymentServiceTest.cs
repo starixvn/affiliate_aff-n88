@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
@@ -128,7 +129,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void CreatePaymentRequest_InvalidAmount_ReturnCorrectResultInfo()
+        public async Task CreatePaymentRequest_InvalidAmount_ReturnCorrectResultInfo()
         {
             // Arrange
             var param = new PaymentCreationParam
@@ -142,7 +143,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreatePaymentService();
 
             // Action
-            var result = service.CreatePaymentRequest(param, new PaymentEmailParam());
+            var result = await service.CreatePaymentRequest(param, new PaymentEmailParam());
 
             // Assert
             Assert.False(result.IsOk);
@@ -150,7 +151,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void CreatePaymentRequest_ValidParamButCreatePaymentFailed_ReturnCorrectResultInfo()
+        public async Task CreatePaymentRequest_ValidParamButCreatePaymentFailed_ReturnCorrectResultInfo()
         {
             // Arrange
             var param = CreateValidPaymentCreationParam();
@@ -165,7 +166,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreatePaymentService(paymentRepository: paymentRepository.Object);
 
             // Action
-            var result = service.CreatePaymentRequest(param, new PaymentEmailParam());
+            var result = await service.CreatePaymentRequest(param, new PaymentEmailParam());
 
             // Assert
             Assert.False(result.IsOk);
@@ -174,7 +175,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
 
         [Fact]
-        public void CreatePaymentRequest_ValidParamAndSendEmail_ReturnCorrectResultAndEmailParamAssignCorrectly()
+        public async Task CreatePaymentRequest_ValidParamAndSendEmail_ReturnCorrectResultAndEmailParamAssignCorrectly()
         {
             // Arrange
             PaymentEmailParam passedEmailParam = null;
@@ -212,7 +213,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             };
 
             // Action
-            var result = service.CreatePaymentRequest(param, new PaymentEmailParam());
+            var result = await service.CreatePaymentRequest(param, new PaymentEmailParam());
 
             // Assert
             Assert.True(result.IsOk);
@@ -251,13 +252,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         private static PaymentService CreatePaymentService(
             IAccountRepository accountRepository = null,
             IPaymentRepository paymentRepository = null,
-            IEmailService emailService = null)
+            IEmailService emailService = null,
+            IAccountService accountService = null)
         {
             var fakeAccountRepository = accountRepository ?? Mock.Of<IAccountRepository>();
             var fakePaymentRepository = paymentRepository ?? Mock.Of<IPaymentRepository>();
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
+            var fakeAccountService = accountService ?? Mock.Of<IAccountService>();
 
-            return new PaymentService(fakeAccountRepository, fakePaymentRepository, fakeEmailService);
+            return new PaymentService(fakeAccountRepository, fakePaymentRepository, fakeEmailService, fakeAccountService);
         }
     }
 

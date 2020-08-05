@@ -3,20 +3,26 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
-using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Repository.UserPanel;
 using Fanex.Affiliate.Admin.Core.Resources;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
     public class UserAccountService : IUserAccountService
     {
         private readonly IUserAccountRepository _userAccountRepository;
+        private readonly ILicenseeService _licenseeService;
         private readonly IAppSetting _appSetting;
 
-        public UserAccountService(IUserAccountRepository userAccountRepository, IAppSetting appSetting)
+        private const int TEST_CURRENCY_ID = 20;
+
+        public UserAccountService(IUserAccountRepository userAccountRepository,
+            ILicenseeService licenseeService,
+            IAppSetting appSetting)
         {
             _userAccountRepository = userAccountRepository;
+            _licenseeService = licenseeService;
             _appSetting = appSetting;
         }
 
@@ -25,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             return _userAccountRepository.GetUserAccountInfo(affId);
         }
 
-        public ResultInfo UpdateUserAccount(UserAccountParam param)
+        public async Task<ResultInfo> UpdateUserAccountAsync(UserAccountParam param)
         {
             var validateWebSite = ValidateWebSite(param);
             if (!validateWebSite.IsSuccessful)
@@ -38,17 +44,20 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 if(PaymentMethod.PlayerAccount.Equals(param.PreferredPayment))
                 {
-                    var isValid = _userAccountRepository.CheckPlayerUserName(param.AffId, param.PlayerUsername);
+                    var memberSiteId = _appSetting.MemberSiteId;
+                    var memberSiteCust = await _licenseeService
+                        .GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
 
-                    if(!isValid)
+                    var result = _licenseeService.CheckCustomerIsValid(memberSiteCust);
+
+                    if(!result.IsSuccessful)
                     {
-                        return new ResultInfo
-                        {
-                            Code = Code.GeneralErrorCode,
-                            Message = $"{_appSetting.SiteFriendlyName} User Name is invalid!."
-                        };
+                        return result;
                     }
+                    param.Player_CustId = memberSiteCust.CustId;
+                    param.Player_Currency = memberSiteCust.IsTest.GetValueOrDefault() ? TEST_CURRENCY_ID : memberSiteCust.CurrencyId.GetValueOrDefault();
                 }
+
                 return _userAccountRepository.UpdateUserAccount(param);
             }
 

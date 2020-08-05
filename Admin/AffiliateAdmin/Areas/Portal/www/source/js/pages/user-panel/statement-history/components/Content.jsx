@@ -81,11 +81,12 @@ export class Content extends PureComponent {
     }
 
     _handleRedirectToDailyEarning = (dataItem) => {
-        const { affId } = this.props;
+        const { affId, isDeductedPercent } = this.props;
         const dailyEarningParam = {
             affId,
             monthDate: dataItem.NormalizeDateText,
-            productId: selectedAllProduct
+            productId: selectedAllProduct,
+            isDeductedPercent
         }
 
         return this.props.redirectToDailyEarning(dailyEarningParam);
@@ -209,9 +210,9 @@ export class Content extends PureComponent {
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
     const { pagingOption, param, expandMonthDateList } = statementHistory;
-    const { affId } = affCommonInfo;
+    const { affId, isDeductedPercent } = affCommonInfo;
 
-    return Object.assign({}, { affId, pagingOption, param, expandMonthDateList });
+    return Object.assign({}, { affId, pagingOption, param, expandMonthDateList, isDeductedPercent });
 }
 
 function mapDispatchToProps(dispatch) {

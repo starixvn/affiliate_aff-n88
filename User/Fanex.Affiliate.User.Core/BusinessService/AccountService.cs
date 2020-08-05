@@ -1,40 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Affiliate.User.Core.Apis;
+using Fanex.Affiliate.User.Core.Constants.Apis;
 using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.Api;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class AccountService : IAccountService
     {
         private readonly IAccountRepository _accountRepository;
-
         private readonly IEmailService _emailService;
+        private readonly ILicenseeApi _licenseeApi;
+        private readonly IAppSetting _appSetting;
 
-        private static readonly IDictionary<int, string> MessageByCode = new Dictionary<int, string>
-        {
-            [101] = Lang.errUserNotFound,
-            [102] = Lang.errExistAccount
-        };
+        private const int TEST_CURRENCY = 20;
 
-        public AccountService(IAccountRepository accountRepository, IEmailService emailService)
+        public AccountService(IAccountRepository accountRepository,
+            IEmailService emailService,
+            ILicenseeApi licenseeApi,
+            IAppSetting appSetting)
         {
             _accountRepository = accountRepository;
             _emailService = emailService;
+            _licenseeApi = licenseeApi;
+            _appSetting = appSetting;
         }
 
-        public ResultInfo CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false)
+        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false)
         {
-            var validInfo = _accountRepository.GetPlayerUserNameValidInfo(signUpParam.Player_UserName);
+            var cust = await GetMemberSiteCustomer(signUpParam.Player_UserName);
 
-            if (!isLocalEnvironment && !validInfo.IsValid)
+            var validInfo = CheckPlayerUserNameValid(cust);
+
+            if (!isLocalEnvironment && !validInfo.IsOk)
             {
-                return new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) };
+                return validInfo;
             }
 
+            signUpParam.Player_CustId = cust.CustId;
+            signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
+            
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)
             {
@@ -70,6 +80,53 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public MaxLevelInfo GetLevelAffiliate(int affId)
         {
             return _accountRepository.GetLevelAffiliate(affId) ?? new MaxLevelInfo();
+        }
+
+        public async Task<ResultInfo> CheckPlayerUserNameValid(string userName)
+        {
+            var cust = await GetMemberSiteCustomer(userName);
+            return CheckPlayerUserNameValid(cust);
+        }
+
+        public async Task<MemberSiteCustomerInfo> GetMemberSiteCustomer(string userName)
+        {
+            var siteId = _appSetting.MemberSiteId;
+            return await _licenseeApi.GetCustomerInfoAsync(userName, siteId);
+        }
+
+        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust)
+        {
+            var validInfo = new ResultInfo
+            {
+                IsOk = false
+            };
+            if (cust == null)
+            {
+                validInfo.Message = Lang.UserNameNotExist;
+            }
+            else
+            {
+                switch (cust.Status)
+                {
+                    case CustomerStatus.RUNNING:
+                        validInfo.IsOk = true;
+                        break;
+                    case CustomerStatus.SUSPENDED:
+                        validInfo.IsOk = false;
+                        validInfo.Message = Lang.UserNameSuspended;
+                        break;
+                    case CustomerStatus.CLOSED:
+                        validInfo.IsOk = false;
+                        validInfo.Message = Lang.UserNameClosed;
+                        break;
+                    default:
+                        validInfo.IsOk = false;
+                        validInfo.Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed);
+                        break;
+                }
+            }
+
+            return validInfo;
         }
     }
 }

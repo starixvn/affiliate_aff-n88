@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Affiliate.N88.ApiModels
+namespace Affiliate.N88.Models
 {
-    public class CustomerModel
+    public class AffCustomerModel
     {
         public int SiteId { get; set; }
 
@@ -12,16 +12,18 @@ namespace Affiliate.N88.ApiModels
 
         public string UserName { get; set; }
 
-        public int CurrencyId { get; set; }
+        public int? CurrencyId { get; set; }
 
-        public int ActStatus { get; set; }
+        public int? ActStatus { get; set; }
 
-        public DateTime RegTime { get; set; }
+        public DateTime? RegTime { get; set; }
 
         public DateTime? FirstDepositDate { get; set; }
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
         public int? AffId { get; set; }
+
+        public bool? IsTest { get; set; }
     }
 }

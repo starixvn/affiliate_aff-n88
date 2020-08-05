@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Common.Extensions;
 using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.Repository
@@ -43,15 +44,15 @@ namespace Fanex.Affiliate.User.Core.Repository
                 {
                     return reader.Read() ? new AuthorizedUserInfo
                     {
-                        AffId = Convert.ToInt32(reader["AffId"]),
-                        UserName = Convert.ToString(reader["UserName"]),
-                        Password = Convert.ToString(reader["Password"]),
-                        GroupName = Convert.ToString(reader["GroupName"]),
-                        AffType = Convert.ToString(reader["AffType"]),
-                        IsClosed = Convert.ToBoolean(reader["IsClosed"]),
-                        Status = Convert.ToString(reader["Status"]),
-                        PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
-                        IsMaxSubLevel = Convert.ToBoolean(reader["IsMaxSubLevel"])
+                        AffId = reader.ToInt("AffId"),
+                        UserName = reader.ToString("UserName"),
+                        Password = reader.ToString("Password"),
+                        GroupName = reader.ToString("GroupName"),
+                        AffType = reader.ToString("AffType"),
+                        IsClosed = reader.ToBool("IsClosed"),
+                        Status = reader.ToString("Status"),
+                        PreferredLanguage = reader.ToString("PreferredLanguage"),
+                        IsMaxSubLevel = reader.ToBool("IsMaxSubLevel")
                     } : null;
                 }
             }

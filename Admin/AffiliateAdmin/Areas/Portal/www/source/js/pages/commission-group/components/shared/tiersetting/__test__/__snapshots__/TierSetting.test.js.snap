@@ -65,10 +65,10 @@ exports[`commission group - TierSetting Should render correctly 1`] = `
         data={
           Object {
             "Commission": 0,
+            "MaxAm": 10,
             "MaxAmount": 100,
-            "MaxQm": 10,
+            "MinAm": 0,
             "MinAmount": 0,
-            "MinQm": 0,
             "TierId": 1,
           }
         }
@@ -81,10 +81,10 @@ exports[`commission group - TierSetting Should render correctly 1`] = `
         data={
           Object {
             "Commission": 0,
+            "MaxAm": 1000000000,
             "MaxAmount": 100000000000000,
-            "MaxQm": 1000000000,
+            "MinAm": 10,
             "MinAmount": 100,
-            "MinQm": 10,
             "TierId": 2,
           }
         }

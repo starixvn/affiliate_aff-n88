@@ -1,4 +1,5 @@
 ﻿using Affiliate.N88.Core;
+using Affiliate.N88.SpParams.Commands;
 using Fanex.Data;
 using System;
 

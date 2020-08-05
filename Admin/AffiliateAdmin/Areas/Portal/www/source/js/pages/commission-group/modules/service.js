@@ -1,4 +1,4 @@
-import { deductionNameList, messages, INFINITY_AM, INFINITY_QM } from './constant';
+import { deductionNameList, messages, INFINITY_AM, INFINITY_QM, regExp } from './constant';
 
 const emptyCommGroup = {
     GroupId: 0,
@@ -43,7 +43,9 @@ export const createDefaultOperationalSetting = (operationalFeeSetting) => {
     return {
         DeductionId: operationalFeeSetting.DeductionId,
         ProductIds: 0,
-        DeductedPercentage: operationalFeeSetting.DeductedPercentage
+        DeductedPercentage: operationalFeeSetting.DeductedPercentage,
+        DeductedAmount: operationalFeeSetting.DeductedAmount,
+        IsDeductedPercent: operationalFeeSetting.IsDeductedPercent
     }
 }
 
@@ -51,7 +53,9 @@ export const createDefaultBankingSetting = (bankingFeeSetting) => {
     return {
         DeductionId: bankingFeeSetting.DeductionId,
         ProductIds: 0,
-        DeductedPercentage: bankingFeeSetting.DeductedPercentage
+        DeductedPercentage: bankingFeeSetting.DeductedPercentage,
+        DeductedAmount: bankingFeeSetting.DeductedAmount,
+        IsDeductedPercent: bankingFeeSetting.IsDeductedPercent
     }
 }
 
@@ -62,7 +66,9 @@ export const buildPlatformFeeList = ({ productList, deductionSetting, productIds
     const convertedPlatformFeeList = platformFeeList.length ? platformFeeList : [{
         DeductionId: platformFeeSetting.DeductionId,
         ProductIds: products.map(p => p.ProductId).join(','),
-        DeductedPercentage: platformFeeSetting.DeductedPercentage
+        DeductedPercentage: platformFeeSetting.DeductedPercentage,
+        DeductedAmount: platformFeeSetting.DeductedAmount,
+        IsDeductedPercent: platformFeeSetting.IsDeductedPercent
     }];
 
     return convertedPlatformFeeList;
@@ -100,17 +106,40 @@ export const convertProductList = (productList, productIds = '') => {
 }
 
 export const validate = (selectedGroup) => {
-    const { GroupName, TierSettingList, PlatformFeeList } = selectedGroup;
+    const { GroupName, TierSettingList, PlatformFeeList, OperationalFee, BankingFee } = selectedGroup;
 
     const groupNameValidation = validateGroupName(GroupName);
     const tierSettingValidation = validateTierSettingList(TierSettingList);
     const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
+    const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
+    const bankingFeeValidation = validateDeductedFees(BankingFee, messages.requireBankingAmount, messages.invalidBankingAmount);
 
-    const isValid = groupNameValidation.isValid &&
-        tierSettingValidation.isValid && platformFeeListValidation.isValid;
-    const messageList = [...groupNameValidation.messageList,
-    ...tierSettingValidation.messageList, ...platformFeeListValidation.messageList
+    const isValid = groupNameValidation.isValid && tierSettingValidation.isValid && platformFeeListValidation.isValid
+        && operationalFeeValidation.isValid && bankingFeeValidation.isValid;
+    const messageList = [...groupNameValidation.messageList, ...tierSettingValidation.messageList, ...platformFeeListValidation.messageList,
+        ...operationalFeeValidation.messageList, ...bankingFeeValidation.messageList
     ];
+
+    return { isValid, messageList };
+}
+
+export const validateDeductedFees = (deductedFee, requiredMessage, invalidMessage) => {
+    let isValid = true;
+    const messageList = [];
+
+    if (!deductedFee.IsDeductedPercent) {
+        let deductionAmount = deductedFee.DeductedAmount && deductedFee.DeductedAmount.replace(/,/g, '');
+        if (!deductionAmount) {
+            isValid = false;
+            messageList.push(requiredMessage);
+        } else {
+            const regexValidAmount = new RegExp(regExp.validAmount);
+            if (!regexValidAmount.test(deductionAmount)) {
+                isValid = false;
+                messageList.push(invalidMessage);
+            }
+        }
+    }
 
     return { isValid, messageList };
 }
@@ -134,13 +163,13 @@ export const validateTierSettingList = (tierSettingList) => {
     if (tierSettingList.length === 0) {
         isValid = false;
         messageList.push(messages.requireTier);
-    } else if (tierSettingList.filter(item => item.MaxAmount === INFINITY_AM && item.MaxQm === INFINITY_QM).length === 0) {
+    } else if (tierSettingList.filter(item => item.MaxAmount === INFINITY_AM && item.MaxAp === INFINITY_QM).length === 0) {
         isValid = false;
         messageList.push(messages.requireInfinity);
     } else if (tierSettingList.filter(item => item.MinAmount > item.MaxAmount).length > 0) {
         isValid = false;
         messageList.push(messages.amountConstrain);
-    } else if (tierSettingList.filter(item => item.MinQm > item.MaxQm).length > 0) {
+    } else if (tierSettingList.filter(item => item.MinAp > item.MaxAp).length > 0) {
         isValid = false;
         messageList.push(messages.qmConstrain);
     }

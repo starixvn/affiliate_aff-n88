@@ -646,6 +646,11 @@ label {
             }
         }
     }
+
+    .details-section-sticky {
+        background: $bg-main-color !important;
+        width: calc(100% - 30px) !important;
+    }
 }
 
 .account-overview {

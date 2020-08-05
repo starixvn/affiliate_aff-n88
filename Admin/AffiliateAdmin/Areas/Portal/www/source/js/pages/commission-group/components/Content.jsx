@@ -67,7 +67,7 @@ export class Content extends Component {
                 <Modal isOpen={showPopup} toggle={this.handleHide} size="lg" backdrop='static' innerRef={this.modalRef}>
                     <ModalHeader toggle={this.handleHide}><span className="iconpopup"></span>{popupTitle}</ModalHeader>
                     <ModalBody>
-                        <div className="modal-body-wrapper">
+                        <div className="modal-body-wrapper commission-group">
                             {Popup}
                         </div>
                     </ModalBody>

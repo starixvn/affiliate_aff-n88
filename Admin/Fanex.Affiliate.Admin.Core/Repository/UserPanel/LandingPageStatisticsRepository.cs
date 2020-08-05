@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Data;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 {
@@ -76,13 +77,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
         {
             return new LandingPageStatistics
             {
-                Page = isGetLandingPageStatisticsList ? (Convert.ToString(reader["SportCode"])) : string.Empty,
-                LanguageCode = isGetLandingPageStatisticsList ? (Convert.ToString(reader["LanguageCode"])) : string.Empty,
-                WebsiteUrl = isGetLandingPageStatisticsList ? string.Empty : (Convert.ToString(reader["URLReferrer"])),
-                TotalClick = reader["TotalClick"] == DBNull.Value ? 0 : Convert.ToInt32(reader["TotalClick"]),
-                UniqueClick = reader["UniqueClick"] == DBNull.Value ? 0 : Convert.ToInt32(reader["UniqueClick"]),
-                Signups = reader["Signups"] == DBNull.Value ? 0 : Convert.ToInt32(reader["Signups"]),
-                Fdm = reader["FDM"] == DBNull.Value ? 0 : Convert.ToInt32(reader["FDM"]),
+                Page = isGetLandingPageStatisticsList ? (reader.ToString("SportCode")) : string.Empty,
+                LanguageCode = isGetLandingPageStatisticsList ? (reader.ToString("LanguageCode")) : string.Empty,
+                WebsiteUrl = isGetLandingPageStatisticsList ? string.Empty : (reader.ToString("URLReferrer")),
+                TotalClick = reader.ToInt("TotalClick"),
+                UniqueClick = reader.ToInt("UniqueClick"),
+                Signups = reader.ToInt("Signups"),
+                Fdm = reader.ToInt("FDM"),
             };
         }
     }

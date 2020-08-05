@@ -6,6 +6,10 @@
 
         public string DeductionName { get; set; }
 
+        public bool IsDeductedPercent { get; set; }
+
+        public string DeductedAmount { get; set; }
+
         public decimal DeductedPercentage { get; set; }
     }
 }

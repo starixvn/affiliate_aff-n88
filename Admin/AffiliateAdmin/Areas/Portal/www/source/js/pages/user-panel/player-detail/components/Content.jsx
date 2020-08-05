@@ -61,7 +61,7 @@ export class Content extends PureComponent {
         }
     }
     _renderHeader() {
-        const { sortingColumn } = this.props;
+        const { sortingColumn, isDeductedPercent } = this.props;
 
         return (
             <Row>
@@ -74,7 +74,7 @@ export class Content extends PureComponent {
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Withdrawal'} title={headerText.Withdrawal} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Bonus'} title={headerText.Bonus} handleClickHeader={this.handleClickHeader} />
-                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'BankingFee'} title={headerText.BankingFee} handleClickHeader={this.handleClickHeader} />
+                {isDeductedPercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'BankingFee'} title={headerText.BankingFee} handleClickHeader={this.handleClickHeader} />}
             </Row>
         )
     }
@@ -85,13 +85,13 @@ export class Content extends PureComponent {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption } = this.props;
+            const { pagingOption, isDeductedPercent } = this.props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
 
-                dataRows.push(this._buildDataRow(dataItem, startIndex + i, productColumnClassName));
+                dataRows.push(this._buildDataRow(dataItem, startIndex + i, productColumnClassName, isDeductedPercent));
             }
         }
         else {
@@ -103,7 +103,7 @@ export class Content extends PureComponent {
         return dataRows;
     }
 
-    _buildDataRow(dataItem, rowNumber, productColumnClassName) {
+    _buildDataRow(dataItem, rowNumber, productColumnClassName, isDeductedPercent) {
         const turnover = formatDecimal(dataItem.Turnover);
         const winloss = formatDecimal(dataItem.Winloss);
         const bonus = formatDecimal(dataItem.Bonus);
@@ -123,7 +123,9 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
-                <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>
+                {
+                    isDeductedPercent && <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>
+                }
             </Row>
         )
     }
@@ -164,9 +166,9 @@ export class Content extends PureComponent {
 
 function mapStateToProps({ affCommonInfo, playerDetail }) {
     const { param, pagingOption, sortingColumn } = playerDetail;
-    const { affId } = affCommonInfo;
+    const { affId, isDeductedPercent } = affCommonInfo;
 
-    return Object.assign({}, { param, pagingOption, affId, sortingColumn });
+    return Object.assign({}, { param, pagingOption, affId, sortingColumn, isDeductedPercent });
 }
 
 function mapDispatchToProps(dispatch) {

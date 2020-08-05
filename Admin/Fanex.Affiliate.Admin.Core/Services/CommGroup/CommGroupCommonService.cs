@@ -13,41 +13,28 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
     {
         private readonly ICommissionGroupRepository _commGroupRepository;
 
-        public CommGroupCommonService(ICommissionGroupRepository commGroupRepository)
+        public CommGroupCommonService(
+            ICommissionGroupRepository commGroupRepository)
         {
             _commGroupRepository = commGroupRepository;
         }
 
         public ResultInfo CreateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var result = CommGroupValidationHelper.ValidateTierSettingList(param.TierSettingList);
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            param.TierList = BuildTierSettingXml(param.TierSettingList);
+            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
-            if (result.IsSuccessful)
-            {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
-                param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
-
-                return _commGroupRepository.CreateCommissionGroup(param);
-            }
-
-            return result;
+            return _commGroupRepository.CreateCommissionGroup(param);
         }
 
         public ResultInfo UpdateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var result = CommGroupValidationHelper.ValidateTierSettingList(param.TierSettingList);
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            param.TierList = BuildTierSettingXml(param.TierSettingList);
+            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
-            if (result.IsSuccessful)
-            {
-                var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
-                param.TierList = BuildTierSettingXml(param.TierSettingList);
-                param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
-
-                return _commGroupRepository.UpdateCommissionGroup(param);
-            }
-
-            return result;
+            return _commGroupRepository.UpdateCommissionGroup(param);
         }
 
         public IEnumerable<Deduction> GetDeductionList()
@@ -62,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in tierSettingList)
             {
-                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minqm=\"{item.MinQm}\" maxqm=\"{item.MaxQm}\" commission=\"{item.Commission}\" />";
+                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAp}\" maxam=\"{item.MaxAp}\" commission=\"{item.Commission}\" />";
                 result.Append(row);
             }
 
@@ -78,7 +65,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
             foreach (var item in deductionSettingList)
             {
-                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\" />";
+                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
+                    $" amount=\"{item.DeductedAmount}\" isdeductedpercent=\"{item.IsDeductedPercent}\" />";
                 result.Append(row);
             }
 

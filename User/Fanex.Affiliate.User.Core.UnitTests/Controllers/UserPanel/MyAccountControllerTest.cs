@@ -235,7 +235,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 SiteUrl = "EncodedSiteUrl",
                 MoreSiteUrls = "EncodedMoreSiteUrls",
                 NoSiteDesc = "EncodedNoSiteDesc",
-                Player_UserName = $"Encoded{PlayerUserName}",
                 AffId = Constant.DefaultAffId,
                 Ip = "::1",
                 Language = Constant.DefaultLanguage,

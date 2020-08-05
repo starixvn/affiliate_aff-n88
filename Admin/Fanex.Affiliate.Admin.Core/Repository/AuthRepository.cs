@@ -6,6 +6,9 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using DNAide.Utils;
+using Fanex.Common.Extensions;
+using System.Runtime.CompilerServices;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -24,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     {
                         result.Add(new UserPermission
                         {
-                            FunctionName = reader["FuncName"].ToString(),
+                            FunctionName = reader.ToString("FuncName"),
                             IsHost = Convert.ToBoolean(reader["Host"])
                         });
                     }
@@ -106,6 +109,21 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 objectDb.AddInParameter(Field.OnUserId, DbType.Int32, onUserId);
 
                 objectDb.ExecuteNonQuery();
+            }
+        }
+
+        public ResultInfo CheckPermission(CheckPermissionParam param)
+        {
+            const string spName = "Aff_Con_CheckPermission";
+            using(var objectDb = GetObjectDb(spName))
+            {
+                objectDb.ExecuteNonQuery(param);
+
+                return new ResultInfo
+                {
+                    Code = param.ErrCode,
+                    Message = param.ErrMsg
+                };
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -36,7 +37,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_ModelStateIsInvalid_ReturnCorrectResult()
+        public async Task Index_ModelStateIsInvalid_ReturnCorrectResult()
         {
             // Arrange
             const string ErrorMessage1 = "ErrorMessage1";
@@ -50,7 +51,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var expectedResult = new ResultInfo { IsOk = false, Message = $"{ErrorMessage1}<br>{ErrorMessage2}" };
 
             // Action
-            var actionResult = controller.Index(new UserSignUpParam
+            var actionResult = await controller.Index(new UserSignUpParam
             {
                 Captcha = Constant.Captcha,
                 ContactAppList = contactAppList
@@ -64,7 +65,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_ContactAppListIsInvalid_ReturnCorrectResult()
+        public async Task Index_ContactAppListIsInvalid_ReturnCorrectResult()
         {
             // Arrange
             var accountService = new Mock<IAccountService>();
@@ -73,7 +74,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             contactAppList.ForEach(item => item.Value = null);
 
             // Action
-            var actionResult = controller.Index(new UserSignUpParam { Captcha = Constant.Captcha, ContactAppList = contactAppList }) as JsonResult;
+            var actionResult = await controller.Index(new UserSignUpParam { Captcha = Constant.Captcha, ContactAppList = contactAppList }) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             // Assert
@@ -83,7 +84,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_WhenCallWithPost_CaptchaIsInvalid_SetResultCorrectly()
+        public async Task Index_WhenCallWithPost_CaptchaIsInvalid_SetResultCorrectly()
         {
             // Arrange
             var accountService = new Mock<IAccountService>();
@@ -93,7 +94,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var expectedResult = new ResultInfo { IsOk = false, Message = Lang.ValidationCode };
 
             // Action
-            var actionResult = controller.Index(signUpParam) as JsonResult;
+            var actionResult = await controller.Index(signUpParam) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             // Assert
@@ -102,7 +103,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_WhenCallWithPost_ModelStateIsValid_CallServiceWithCorrectParam()
+        public async Task Index_WhenCallWithPost_ModelStateIsValid_CallServiceWithCorrectParam()
         {
             // Arrange
             UserSignUpParam passedParam = null;
@@ -122,7 +123,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var expectedPassedParam = JsonConvert.SerializeObject(CreateExpectedParam());
 
             // Action
-            controller.Index(signUpParam);
+            await controller.Index(signUpParam);
             var result = JsonConvert.SerializeObject(passedParam);
 
             // Assert
@@ -130,12 +131,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_WhenCallWithPost_ModelStateIsValid_ReturnResultCorrectly()
+        public async Task Index_WhenCallWithPost_ModelStateIsValid_ReturnResultCorrectly()
         {
             // Arrange
             var expectedResult = new ResultInfo { IsOk = true };
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>(), false)).Returns(expectedResult);
+            accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>(), false)).Returns(Task.FromResult(expectedResult));
 
             var appSetting = Mock.Of<IAppSetting>(ap => ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian });
 
@@ -146,7 +147,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             signUpParam.Captcha = Constant.Captcha;
 
             // Action
-            var actionResult = controller.Index(signUpParam) as JsonResult;
+            var actionResult = await controller.Index(signUpParam) as JsonResult;
             var result = actionResult.Data as ResultInfo;
 
             // Assert
@@ -154,14 +155,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Index_ModelStateIsValid_CallServiceWithCorrectEmailParam()
+        public async Task Index_ModelStateIsValid_CallServiceWithCorrectEmailParam()
         {
             // Arrange
             EmailBaseParam passedEmailParam = null;
             var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
             var accountService = new Mock<IAccountService>();
             accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>(), false))
-                                .Returns(resultInfo)
+                                .Returns(Task.FromResult(resultInfo))
                                 .Callback<UserSignUpParam, EmailBaseParam>((u, e) => passedEmailParam = e);
 
             var appSetting = Mock.Of<IAppSetting>(ap =>
@@ -186,7 +187,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             });
 
             // Action
-            controller.Index(signUpParam);
+            await controller.Index(signUpParam);
             var result = JsonConvert.SerializeObject(passedEmailParam);
 
             // Assert

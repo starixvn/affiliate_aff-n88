@@ -89,36 +89,6 @@ describe('Adjustment - components - Content', () => {
         expect(wrapper.setState).not.toHaveBeenCalled();
     });
 
-    it('handleChangeAmount - should call setState with amount > max amount', async () => {
-        const event = {
-            target: {
-                name: 'amount',
-                value: '922337203685479'
-            }
-        }
-        const wrapper = shallow(<Content {...defaultProps} />);
-        wrapper.setState = jest.fn();
-
-        wrapper.find('Input[type="text"][name="amount"][id="amount"]').simulate('change', event);
-
-        expect(wrapper.setState).toHaveBeenCalledWith({ amount: "922337203685479" });
-    });
-
-    it('handleChangeAmount - should call setState with amount < min amount', async () => {
-        const event = {
-            target: {
-                name: 'amount',
-                value: '-922337203685479'
-            }
-        }
-        const wrapper = shallow(<Content {...defaultProps} />);
-        wrapper.setState = jest.fn();
-
-        wrapper.find('Input[type="text"][name="amount"][id="amount"]').simulate('change', event);
-
-        expect(wrapper.setState).toHaveBeenCalledWith({ amount: "-922337203685479" });
-    });
-
     it('handleChange - should call setState when change description textarea ', async () => {
         const event = {
             target: {

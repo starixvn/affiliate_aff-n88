@@ -28,15 +28,19 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
         private readonly IProductRepository _productRepository;
 
+        private readonly ICommGroupValidation _commGroupValidation;
+
         public RevenueGroupController(
             ISessionService sessionService,
             ICommissionGroupService commissionService,
             IProductRepository productRepository,
-            ICommGroupCommonService commGroupCommonService) : base(sessionService)
+            ICommGroupCommonService commGroupCommonService,
+            ICommGroupValidation commGroupValidation) : base(sessionService)
         {
             _commissionGroupService = commissionService;
             _productRepository = productRepository;
             _commGroupCommonService = commGroupCommonService;
+            _commGroupValidation = commGroupValidation;
         }
 
         [HttpGet]
@@ -46,8 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 new SubMenu { Name = Lang.AffiliateInfo, Url = Url.Content("~/Portal/Affiliate") },
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest") },
-                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), IsActive = true }//,
-                //new SubMenu { Name = Lang.EmailHistory, Url = Url.Content("~/Portal/EmailHistory") }
+                new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), IsActive = true }
             };
 
             var viewModel = new CommissionGroupViewModel
@@ -119,9 +122,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var platformFeeValidation = CommGroupValidationHelper.ValidatePlatformFeeList(_productRepository, commGroup.PlatformFeeList);
+            var result = _commGroupValidation.ValidateCommGroup(commGroup);
 
-            if (groupNameValidation.IsSuccessful && platformFeeValidation.IsSuccessful)
+            if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {
                 var createParam = new CreateUpdateCommissionGroupParam
                 {
@@ -146,7 +149,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = groupNameValidation.Message + platformFeeValidation.Message
+                    Message = groupNameValidation.Message + result.Message
                 }
             };
         }
@@ -162,9 +165,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
 
             var groupNameValidation = ValidateGroupName(commGroup.GroupName);
-            var platformFeeValidation = CommGroupValidationHelper.ValidatePlatformFeeList(_productRepository, commGroup.PlatformFeeList);
+            var result = _commGroupValidation.ValidateCommGroup(commGroup);
 
-            if (groupNameValidation.IsSuccessful && platformFeeValidation.IsSuccessful)
+            if (groupNameValidation.IsSuccessful && result.IsSuccessful)
             {
                 var updateParam = new CreateUpdateCommissionGroupParam
                 {
@@ -190,7 +193,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 Data = new ResultInfo
                 {
                     Code = Code.GeneralErrorCode,
-                    Message = groupNameValidation.Message + platformFeeValidation.Message
+                    Message = groupNameValidation.Message + result.Message
                 }
             };
         }

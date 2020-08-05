@@ -7,12 +7,12 @@ jest.mock('../../../modules/constant');
 describe('commission group - EditGroup', () => {
     const defaultProps = {
         selectedGroup: {
-            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
             Description: "",
             GroupId: 0,
             GroupName: "",
-            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
+            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
             TierSettingList: []
         },
         onClose: jest.fn(),
@@ -65,13 +65,13 @@ describe('commission group - EditGroup', () => {
     it('handleSave - should call toggleLoader,  when click button SAVE with correct respone', async () => {
         const expectedResponse = { data: { IsSuccessful: true, Message: "OK" }, status: 200 };
         const selectedGroupValid = {
-            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
             Description: "test",
             GroupId: 0,
             GroupName: "test",
-            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
+            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8", IsDeductedPercent: true, DeductedAmount: "" }],
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();
@@ -99,13 +99,13 @@ describe('commission group - EditGroup', () => {
     it('handleSave - should call toggleLoader,  when click button SAVE with correct respone but not success', async () => {
         const expectedResponse = { data: { IsSuccessful: false, Message: "fail" }, status: 200 };
         const selectedGroupValid = {
-            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
             Description: "test",
             GroupId: 0,
             GroupName: "test",
-            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
+            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8", IsDeductedPercent: true, DeductedAmount: "" }],
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();
@@ -134,13 +134,13 @@ describe('commission group - EditGroup', () => {
         const expectedResponse = { status: 500 };
 
         const selectedGroupValid = {
-            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
             Description: "test",
             GroupId: 0,
             GroupName: "test",
-            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8" }],
-            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinQm: 0, MaxQm: 1000000000, Commission: 0 }]
+            OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,8", IsDeductedPercent: true, DeductedAmount: "" }],
+            TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
         }
         const mockGetSelectedCommGroup = jest.fn();
         const mockToggleLoader = jest.fn();

@@ -1,22 +1,13 @@
 ﻿using Affiliate.N88.Core;
+using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 
-namespace Affiliate.N88.DTO
+namespace Affiliate.N88.SpParams.Commands
 {
-    public abstract class IdenticalSuffixNonQueryCommand : NonQueryCommand
+    public abstract class IdenticalSuffixNonQueryCommand : IdenticalSurfixCriteriaBase, INonQueryCommand
     {
-        protected readonly IPrefixProvider _prefixProvider;
-
-        protected IdenticalSuffixNonQueryCommand(IPrefixProvider prefixProvider = null)
+        protected IdenticalSuffixNonQueryCommand(IPrefixProvider prefixProvider = null) : base(prefixProvider)
         {
-            _prefixProvider = prefixProvider;
         }
-
-        protected abstract string SuffixSettingKey { get; }
-
-        public override string GetSettingKey() 
-            => _prefixProvider == null || string.IsNullOrWhiteSpace(_prefixProvider.PrefixCode) 
-                ? SuffixSettingKey 
-                : $"{_prefixProvider.PrefixCode}_{SuffixSettingKey}";
     }
 }

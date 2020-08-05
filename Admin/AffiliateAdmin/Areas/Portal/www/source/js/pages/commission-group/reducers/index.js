@@ -19,11 +19,13 @@ export const searchedGroupName = createReducer('', {
 
 export const selectedGroup = createReducer(null, {
     [SET_SELECTED_GROUP](prevState, action) {
-        return Object.assign({}, prevState, action.data);
+        return !action.data ? null : Object.assign({}, prevState, action.data);
     }
 })
 
 export const productList = createReducer([], {});
 export const deductionList = createReducer([], {});
 
-export default combineReducers({ gridData, pagingOption, productList, deductionList, selectedGroup, searchedGroupName, isShowLoader });
+export const defaultCurrency = createReducer(null, {});
+
+export default combineReducers({ gridData, pagingOption, productList, deductionList, selectedGroup, searchedGroupName, isShowLoader, defaultCurrency });

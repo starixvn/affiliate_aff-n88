@@ -56,22 +56,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
         }
 
         [Fact]
-        public void UpdatePaymentRequest_WhenCallWithTransIdIncorrect_ReturnNull()
-        {
-            // Arrange
-            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
-            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail());
-
-            var service = CreatePaymentRequestService(paymentRequestRepository: paymentRequestRepository.Object);
-
-            // Action
-            var result = service.UpdatePaymentRequest(new PaymentRequestUpdateParam(), new PaymentRequestUpdateEmail());
-
-            // Assert
-            Assert.Null(result);
-        }
-
-        [Fact]
         public void UpdatePaymentRequest_WhenCall_UpdateFailed()
         {
             // Arrange
@@ -181,16 +165,20 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             Assert.Equal(100m, minAmount);
         }
 
-        private static PaymentRequestService CreatePaymentRequestService(
+        private static PaymentService CreatePaymentRequestService(
             IEmailService emailService = null,
             IAffiliateService affiliateService = null,
-            IPaymentRequestRepository paymentRequestRepository = null)
+            IPaymentRequestRepository paymentRequestRepository = null,
+            ILicenseeService licenseeService = null,
+            IAppSetting appSetting = null)
         {
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
             var fakeAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var fakePaymentRequestRepository = paymentRequestRepository ?? Mock.Of<IPaymentRequestRepository>();
+            var fakeLicenseeService = licenseeService ?? Mock.Of<ILicenseeService>();
+            var fakeAppSetting = appSetting ?? Mock.Of<IAppSetting>();
 
-            return new PaymentRequestService(fakePaymentRequestRepository, fakeAffiliateService, fakeEmailService);
+            return new PaymentService(fakePaymentRequestRepository, fakeAffiliateService, fakeLicenseeService, fakeEmailService, fakeAppSetting);
         }
     }
 }

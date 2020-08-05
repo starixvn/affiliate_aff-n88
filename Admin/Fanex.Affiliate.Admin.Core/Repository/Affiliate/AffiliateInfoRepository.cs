@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 {
@@ -87,29 +88,29 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
         {
             return new AffiliateInfo
             {
-                AffId = Convert.ToInt32(reader[Field.AffId]),
-                UserName = Convert.ToString(reader["Username"]),
-                Status = Convert.ToString(reader["Status"]),
-                FirstName = Convert.ToString(reader["FirstName"]),
-                LastName = Convert.ToString(reader["LastName"]),
-                Language = Convert.ToString(reader["PreferredLanguage"]),
-                Email = Convert.ToString(reader["Email"]),
-                RegistrationDate = Convert.ToDateTime(reader["RegisteredDate"]),
-                ApprovalDate = reader["ApprovedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["ApprovedDate"]),
-                BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(reader["BFF"]),
-                Member = reader["NoOfMember"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfMember"]),
-                CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : Convert.ToString(reader["GroupName"]),
-                IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
-                IsClosed = Convert.ToBoolean(reader["IsClosed"]),
-                Currency = Convert.ToString(reader["Currency"]),
-                PlayerCurrency = Convert.ToString(reader["PlayerCurrency"]),
-                Phone = Convert.ToString(reader["Phone"]),
-                PlayerUserName = Convert.ToString(reader["Player_Username"]),
-                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"]),
-                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["ParentAffId"]),
-                ParentAffName = Convert.ToString(reader["ParentAffName"]),
-                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["NoOfSubAff"]),
-                ApprovedBy = Convert.ToString(reader["ApprovedBy"])
+                AffId =reader.ToInt(Field.AffId),
+                UserName = reader.ToString("Username"),
+                Status = reader.ToString("Status"),
+                FirstName = reader.ToString("FirstName"),
+                LastName = reader.ToString("LastName"),
+                Language = reader.ToString("PreferredLanguage"),
+                Email = reader.ToString("Email"),
+                RegistrationDate = reader.ToDateTime("RegisteredDate"),
+                ApprovalDate = reader["ApprovedDate"] == DBNull.Value ? (DateTime?)null : reader.ToDateTime("ApprovedDate"),
+                BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : reader.ToDecimal("BFF"),
+                Member = reader["NoOfMember"] == DBNull.Value ? (int?)null :reader.ToInt("NoOfMember"),
+                CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : reader.ToString("GroupName"),
+                IsFavorite =reader.ToBool("IsFavorite"),
+                IsClosed =reader.ToBool("IsClosed"),
+                Currency = reader.ToString("Currency"),
+                PlayerCurrency = reader.ToString("PlayerCurrency"),
+                Phone = reader.ToString("Phone"),
+                PlayerUserName = reader.ToString("Player_Username"),
+                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) &&reader.ToBool("IsPrivate"),
+                ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null :reader.ToInt("ParentAffId"),
+                ParentAffName = reader.ToString("ParentAffName"),
+                NoOfSubAff = reader["NoOfSubAff"] == DBNull.Value ? (int?)null :reader.ToInt("NoOfSubAff"),
+                ApprovedBy = reader.ToString("ApprovedBy")
             };
         }
 

@@ -1,17 +1,19 @@
-﻿using System.Configuration;
-using System.Reflection;
-using System.Web.Http;
-using System.Web.Mvc;
-using Fanex.Data;
+﻿using Fanex.Data;
 using Fanex.Data.MySql;
 using Fanex.Data.Repository;
 using Fanex.Logging;
+using Fanex.Logging.EntLib;
 using Fanex.Logging.Sentry.RavenClient;
 using SharpRaven;
 using SimpleInjector;
 using SimpleInjector.Integration.Web;
 using SimpleInjector.Integration.Web.Mvc;
 using SimpleInjector.Integration.WebApi;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Reflection;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Affiliate.N88.WebApi.App_Start
 {
@@ -43,10 +45,14 @@ namespace Affiliate.N88.WebApi.App_Start
         {
             LogManager
                     .SetDefaultLogCategory("Affiliate.N88.DataApi")
-                    .Use(new SentryLogging(new SentryEngineOptions
+                    .Use(new List<ILogEngine>
                     {
-                        Dsn = new Dsn(ConfigurationManager.AppSettings["SentryDsn"])
-                    }));
+                        new SentryLogging(new SentryEngineOptions
+                        {
+                            Dsn = new Dsn(ConfigurationManager.AppSettings["SentryDsn"]),
+                        }),
+                        new EntlibLogging(new Fanex.Logging.EntLib.Configuration.EntLibConfig(null, "Log"))
+                    });
         }
 
         public static void InitFanexData()

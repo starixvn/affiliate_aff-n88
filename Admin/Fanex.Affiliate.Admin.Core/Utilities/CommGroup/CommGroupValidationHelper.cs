@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
@@ -7,10 +8,64 @@ using Fanex.Affiliate.Admin.Core.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
-    public static class CommGroupValidationHelper
+    public class CommGroupValidationHelper : ICommGroupValidation
     {
         private const string brElementHtml = "<br />";
-        public static ResultInfo ValidatePlatformFeeList(IProductRepository productRepository, IEnumerable<DeductionSetting> platformFeeList)
+
+        private readonly IProductRepository _productRepository;
+
+        public CommGroupValidationHelper(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
+        public ResultInfo ValidateCommGroup(CommissionGroupSetting commGroup)
+        {
+            var result = ValidateAllFees(commGroup);
+
+            var validateTierSettingList = ValidateTierSettingList(commGroup.TierSettingList);
+
+            if(!validateTierSettingList.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message, validateTierSettingList.Message);
+            }
+
+            return result;
+        }
+
+        private ResultInfo ValidateAllFees(CommissionGroupSetting commGroup)
+        {
+            var result = new ResultInfo();
+
+            var validatePlatformFeeList = ValidatePlatformFeeList(commGroup.PlatformFeeList);
+
+            if(!validatePlatformFeeList.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = validatePlatformFeeList.Message;
+            }
+
+            var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, true);
+
+            if (!validateOperationalFee.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validateOperationalFee.Message);
+            }
+
+            var validateBankingFee = ValidateFixedAmountDeductedFee(commGroup.BankingFee, false);
+
+            if (!validateBankingFee.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validateBankingFee.Message);
+            }
+
+            return result;
+        }
+
+        private ResultInfo ValidatePlatformFeeList(IEnumerable<DeductionSetting> platformFeeList)
         {
             var result = new ResultInfo
             {
@@ -23,7 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            var productIdOfDB = productRepository.GetProductList().Select(p => p.ProductId.ToString());
+            var productIdOfDB = _productRepository.GetProductList().Select(p => p.ProductId.ToString());
             var productIdOfPlatform = string.Join(",", platformFeeList.Select(p => p.ProductIds.Replace(" ", "")))
                                         .Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
 
@@ -36,7 +91,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return new ResultInfo();
         }
 
-        public static ResultInfo ValidateTierSettingList(IEnumerable<TierSetting> tierSettingList)
+        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSetting> tierSettingList)
         {
             var result = new ResultInfo();
 
@@ -47,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxQm == Validation.InfinityQualifiedMember)))
+            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAp == Validation.InfinityQualifiedMember)))
             {
                 result.Code = Code.GeneralErrorCode;
                 result.Message = string.Join(result.Message + brElementHtml, "Last Tier Setting must have maximum value=∞!");
@@ -61,10 +116,10 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (tierSettingList.Any(item => item.MinQm > item.MaxQm))
+            if (tierSettingList.Any(item => item.MinAp > item.MaxAp))
             {
                 result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Max QM must be greater than or equal to Min QM!");
+                result.Message = string.Join(result.Message + brElementHtml, "Min AP must be lesser than or equal to 1,000,000,000!");
             }
 
             return result;
@@ -85,6 +140,34 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 distinctProductIdOfPlatform.Any(item => !productIdOfDB.Contains(item)))
             {
                 return result;
+            }
+
+            return new ResultInfo();
+        }
+
+        private static ResultInfo ValidateFixedAmountDeductedFee(DeductionSetting deductedFee, bool isOperationlFee)
+        {
+            var result = new ResultInfo
+            {
+                Code = Code.GeneralErrorCode,
+                Message = isOperationlFee ? CommGroupErrorMessage.InvalidOperationalFee : CommGroupErrorMessage.InvalidBankingFee
+            };
+
+            if(!deductedFee.IsDeductedPercent)
+            {
+                try
+                {
+                    var deductedAmount = Convert.ToDecimal(deductedFee.DeductedAmount);
+
+                    if(deductedAmount < 0 || deductedAmount > Money.AllowedMaxValue)
+                    {
+                        return result;
+                    }
+                }
+                catch
+                {
+                    return result;
+                }
             }
 
             return new ResultInfo();

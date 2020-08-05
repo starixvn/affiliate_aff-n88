@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web.Mvc;
     using Constants;
     using DTO;
@@ -52,7 +53,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreatePaymentRequest(PaymentCreationParam paymentCreationParam)
+        public async Task<ActionResult> CreatePaymentRequest(PaymentCreationParam paymentCreationParam)
         {
             var resultInfo = new ResultInfo { IsOk = true };
 
@@ -79,7 +80,7 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 
-                resultInfo = _paymentService.CreatePaymentRequest(paymentCreationParam, emailParam);
+                resultInfo = await _paymentService.CreatePaymentRequest(paymentCreationParam, emailParam);
             }
 
             return Json(resultInfo);

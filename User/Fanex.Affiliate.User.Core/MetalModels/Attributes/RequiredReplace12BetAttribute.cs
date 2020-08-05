@@ -11,9 +11,11 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Attributes
     {
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
         {
-            var rule = new ModelClientValidationRule();
-            rule.ValidationType = "required";
-            rule.ErrorMessage = SiteFriendlyNameHelper.Replace12Bet(FormatErrorMessage(metadata.GetDisplayName()));
+            var rule = new ModelClientValidationRule
+            {
+                ValidationType = "required",
+                ErrorMessage = SiteFriendlyNameHelper.Replace12Bet(FormatErrorMessage(metadata.GetDisplayName()))
+            };
             yield return rule;
         }
     }

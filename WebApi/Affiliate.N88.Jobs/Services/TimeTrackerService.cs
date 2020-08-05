@@ -1,0 +1,106 @@
+﻿using Affiliate.N88.Core;
+using Affiliate.N88.Exceptions;
+using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.Constants;
+using Affiliate.N88.Models;
+using Affiliate.N88.Repository;
+using Affiliate.N88.Services;
+using Affiliate.N88.SpParams.Commands;
+using Affiliate.N88.SpParams.Criteria;
+using Fanex.Logging;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Affiliate.N88.Jobs.Services
+{
+    public class TimeTrackerService : ITrackerService
+    {
+        private readonly ITrackerRepository _timeTrackerRepository;
+        private readonly ILogger _logger;
+
+        private readonly TimeTrackerSetting Setting;
+        public TimeTrackerService(ITrackerRepository timeTrackerRepository
+            , IOptionsSnapshot<TimeTrackerSetting> optionsSnapshot
+            , ILogger logger)
+        {
+            _timeTrackerRepository = timeTrackerRepository ?? throw new ArgumentNullException(nameof(timeTrackerRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            Setting = optionsSnapshot?.Value ?? throw new ArgumentNullException($"{nameof(optionsSnapshot)}.Value");
+
+        }
+
+        public async Task<DateTime> GetTimeAsync(string source)
+            => (await GetTrackerAsync(source, p => p.CalledTime)).CalledTime;
+
+        public async Task<TrackerInfo> GetTrackerAsync<TKey>(string source, Func<TrackerInfo, TKey> minKeySelector)
+        {
+            var listTracker = await GetListTrackerAsync(source);
+            if (!listTracker.Any())
+                throw new InvalidOperationException("List lasted date is zero");
+            return listTracker.OrderBy(minKeySelector).FirstOrDefault();
+        }
+
+        public async Task SaveTimeAsync(string source, DateTime date)
+        {
+            var tracker = new TrackerInfo { CalledTime = date, KeyValue = string.Empty };
+            await SaveTrackerAsync(source, tracker);
+
+        }
+
+        public Task SaveTrackerAsync(string source, TrackerInfo tracker)
+        {
+            var supportedPrefix = Setting.SourcePrefix;
+            Parallel.ForEach(supportedPrefix, async p =>
+            {
+                var param = new InsertImportTrackerCommand(new PrefixProvider(p))
+                {
+                    CalledTime = tracker.CalledTime,
+                    KeyValue = tracker.KeyValue,
+                    DataSource = source,
+                    ErrCode = SqlResponseCode.Success,
+                    ErrMsg = String.Empty
+                };
+                await _timeTrackerRepository.ImportTimeTrackerAsync(param);
+                if (param.ErrCode != SqlResponseCode.Success)
+                {
+                    throw new ImporterException(param.ErrCode, param.ErrMsg);
+                }
+            });
+            return Task.CompletedTask;
+        }
+
+        private async Task<IEnumerable<TrackerInfo>> GetListTrackerAsync(string source)
+        {
+            var lstTracke = new List<TrackerInfo>();
+            var supportedPrefix = Setting.SourcePrefix;
+            foreach (var prefix in supportedPrefix)
+            {
+                var param = new GetLastedImportTimeCriteria(new PrefixProvider(prefix))
+                {
+                    DataSource = source
+                };
+                try
+                {
+                    var trackerInfo = await _timeTrackerRepository.GetLastedTrackerAsync(param);
+                    if(trackerInfo == null)
+                    {
+                        trackerInfo = new TrackerInfo();
+                    }    
+                    if (trackerInfo.CalledTime == default(DateTime))
+                    {
+                        trackerInfo.CalledTime = Setting.DefaultTime;
+                    }
+                    lstTracke.Add(trackerInfo);
+                }
+                catch (Exception ex)
+                {
+                    await _logger.WarnAsync(ex.Message);
+                }
+            }
+            return lstTracke;
+        }
+    }
+}

@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Affiliate.N88.WebApi.App_Start;
+using System;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Affiliate.N88.WebApi.App_Start;
 
 namespace Affiliate.N88.WebApi
 {

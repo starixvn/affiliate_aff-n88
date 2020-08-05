@@ -30,6 +30,11 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             LogService.Error(content.ToString(), exception);
         }
 
+        public static void WriteInfo(string msg)
+        {
+            LogService.Info(msg);
+        }
+
         private static StringBuilder BuildMessage(string message)
         {
             var request = HttpContext.Current.Request;

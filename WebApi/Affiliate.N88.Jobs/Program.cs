@@ -1,10 +1,12 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Linq;
+﻿using Affiliate.N88.Jobs.Configurations;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.WindowsServices;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace Affiliate.N88.Jobs
 {
@@ -14,18 +16,18 @@ namespace Affiliate.N88.Jobs
         {
             var isService = !(Debugger.IsAttached || args.Contains("--console"));
 
-            if (isService)
-            {
-                var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
-                var pathToContentRoot = Path.GetDirectoryName(pathToExe);
-                Directory.SetCurrentDirectory(pathToContentRoot);
-            }
+            var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
+            var pathToContentRoot = Path.GetDirectoryName(pathToExe);
+            Directory.SetCurrentDirectory(pathToContentRoot);
 
             var builder = CreateWebHostBuilder(args.Where(arg => arg != "--console").ToArray());
-
             var host = builder.Build();
 
-            if (isService)
+            var config = host.Services.GetService<IConfiguration>();
+            var appSetting = new AppSettings();
+            config.GetSection("AppSettings").Bind(appSetting);
+
+            if (isService && appSetting.RunAsService)
             {
                 host.RunAsService();
             }

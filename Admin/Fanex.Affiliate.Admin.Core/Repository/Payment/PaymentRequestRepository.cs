@@ -5,6 +5,7 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
 using System.Collections.Generic;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 {
@@ -35,13 +36,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                     {
                         dataList.Add(new PaymentRequest
                         {
-                            TransId = Convert.ToInt64(reader["Transid"]),
-                            TransDate = Convert.ToDateTime(reader["Transdate"]),
-                            Status = Convert.ToString(reader[Field.Status]),
-                            AffName = Convert.ToString(reader["Username"]),
-                            Amount = Convert.ToDecimal(reader["Amount"]),
-                            CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
-                            Creator = Convert.ToString(reader["Creator"])
+                            TransId = reader.ToLong("Transid"),
+                            TransDate = reader.ToDateTime("Transdate"),
+                            Status = reader.ToString(Field.Status),
+                            AffName = reader.ToString("Username"),
+                            Amount = reader.ToDecimal("Amount"),
+                            CompletedDate = reader.ToDateTime("Completeddate"),
+                            Creator = reader.ToString("Creator")
                         });
                     }
                 }
@@ -69,27 +70,28 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                     {
                         result = new PaymentRequestDetail
                         {
-                            TransId = Convert.ToInt64(reader["Transid"]),
-                            AffId = Convert.ToInt32(reader["AffId"]),
-                            AffName = Convert.ToString(reader["AffName"]),
-                            TransDate = Convert.ToDateTime(reader["Transdate"]),
-                            Email = Convert.ToString(reader["email"]),
-                            FirstName = Convert.ToString(reader["firstname"]),
-                            LastName = Convert.ToString(reader["lastname"]),
-                            PaymentMethod = Convert.ToString(reader["PreferredPayment"]),
-                            Amount = Convert.ToDecimal(reader["Amount"]),
-                            TransAmount = Convert.ToDecimal(reader["TransAmount"]),
-                            TransCurrencyCode = Convert.ToString(reader["TransCurrencyCode"]),
-                            Status = Convert.ToString(reader[Field.Status]),
-                            PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
-                            CompletedDate = Convert.ToDateTime(reader["Completeddate"]),
-                            Creator = Convert.ToString(reader["Creator"]),
-                            AdminDesc = Convert.ToString(reader["AdminDesc"]),
-                            AffDesc = Convert.ToString(reader["AffDesc"])
+                            TransId = reader.ToLong("Transid"),
+                            AffId = reader.ToInt("AffId"),
+                            AffName = reader.ToString("AffName"),
+                            TransDate = reader.ToDateTime("Transdate"),
+                            Email = reader.ToString("email"),
+                            FirstName = reader.ToString("firstname"),
+                            LastName = reader.ToString("lastname"),
+                            PaymentMethod = reader.ToString("PreferredPayment"),
+                            Amount = reader.ToDecimal("Amount"),
+                            TransAmount = reader.ToDecimal("TransAmount"),
+                            TransCurrencyCode = reader.ToString("TransCurrencyCode"),
+                            Status = reader.ToString(Field.Status),
+                            PlayerUsername = reader.ToString("PlayerUsername"),
+                            CompletedDate = reader.ToDateTime("Completeddate"),
+                            Creator = reader.ToString("Creator"),
+                            AdminDesc = reader.ToString("AdminDesc"),
+                            AffDesc = reader.ToString("AffDesc"),
+                            OriginalTransAmount = reader.ToDecimal("OriginalTransAmount")
                         };
                     }
                 }
-            }            
+            }
 
             return result;
         }

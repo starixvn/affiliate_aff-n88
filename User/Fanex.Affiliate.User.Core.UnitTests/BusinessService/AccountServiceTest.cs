@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
@@ -8,6 +10,7 @@ using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Moq;
 using Newtonsoft.Json;
 using Xunit;
@@ -19,7 +22,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void CreateAffiliate_ValidDepositAccountInfo_CallRepositoryByEnvironment(bool isLocalTest)
+        public async Task CreateAffiliate_ValidDepositAccountInfo_CallRepositoryByEnvironment(bool isLocalTest)
         {
             // Arrange
             var signUpParam = new UserSignUpParam { IsLocal = isLocalTest };
@@ -31,7 +34,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var times = isLocalTest ? Times.Never() : Times.Once();
 
             // Action
-            accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
+            await accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
 
             // Assert
             accountRepository.Verify(ac => ac.CreateAffiliate(signUpParam), Times.Once);
@@ -39,7 +42,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void CreateAffiliate_InvalidPlayerDepositInfo_DoNotCallRepository()
+        public async Task CreateAffiliate_InvalidPlayerDepositInfo_DoNotCallRepository()
         {
             // Arrange
             const string PlayerUserName = "player";
@@ -52,14 +55,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var accountService = CreateAccountService(accountRepository.Object);
 
             // Action
-            accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
+            await accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
 
             // Assert
             accountRepository.Verify(ac => ac.CreateAffiliate(signUpParam), Times.Never);
         }
 
         [Fact]
-        public void CreateAffiliate_InvalidPlayerDepositInfo_ReturnExpectedResult()
+        public async Task CreateAffiliate_InvalidPlayerDepositInfo_ReturnExpectedResult()
         {
             // Arrange
             var signUpParam = new UserSignUpParam { IsLocal = false };
@@ -72,7 +75,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var expectedResult = new ResultInfo { IsOk = false, Message = Lang.errDepositDBConnectFailed };
 
             // Action
-            var result = accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
+            var result = await accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
 
             // Assert
             Assert.Equal(expectedResult.IsOk, result.IsOk);
@@ -80,7 +83,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void CreateAffiliate_CreateSuccessfully_ReturnCorrectResult()
+        public async Task CreateAffiliate_CreateSuccessfully_ReturnCorrectResult()
         {
             // Arrange
             var expectedResultInfo = new ResultInfo { IsOk = true };
@@ -91,14 +94,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var accountService = CreateAccountService(accountRepository.Object);
 
             // Action
-            var result = accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
+            var result = await accountService.CreateAffiliate(signUpParam, new EmailBaseParam());
 
             // Assert
             Assert.Equal(expectedResultInfo, result);
         }
 
         [Fact]
-        public void CreateAffiliate_CreateSuccessfully_SendEmailToUserWithCorrectParameter()
+        public async Task CreateAffiliate_CreateSuccessfully_SendEmailToUserWithCorrectParameter()
         {
             // Arrange
             EmailBaseParam passedParam = null;
@@ -123,7 +126,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var emailParam = CreateEmailParam();
 
             // Action
-            accountService.CreateAffiliate(signUpParam, emailParam);
+            await accountService.CreateAffiliate(signUpParam, emailParam);
             var result = JsonConvert.SerializeObject(passedParam);
 
             // Assert
@@ -132,7 +135,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void CreateAffiliate_CreateSuccessfully_SendEmailToCsdWithCorrectParameter()
+        public async Task CreateAffiliate_CreateSuccessfully_SendEmailToCsdWithCorrectParameter()
         {
             // Arrange
             const string ExpectedCsdEmail = Constant.DefaultMailContact;
@@ -150,7 +153,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var emailParam = CreateEmailParam();
 
             // Action
-            accountService.CreateAffiliate(signUpParam, emailParam);
+            await accountService.CreateAffiliate(signUpParam, emailParam);
 
             // Assert
             emailService.Verify(e => e.SendNoticeEmailToCsd(It.IsAny<NoticeEmailParam>()), Times.Once);
@@ -160,7 +163,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
         private static AccountService CreateAccountService(IAccountRepository repository, IEmailService emailService = null)
         {
-            return new AccountService(repository, emailService ?? Mock.Of<IEmailService>());
+            return new AccountService(repository, emailService ?? Mock.Of<IEmailService>(), Mock.Of<ILicenseeApi>(), Mock.Of<IAppSetting>());
         }
 
         private DepositAccountInfo GetDepositAccount()

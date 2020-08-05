@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Common.Extensions;
 using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.Repository
@@ -41,7 +42,7 @@ namespace Fanex.Affiliate.User.Core.Repository
                         result = new VerificationInfo
                         {
                             FailedLoginCount = reader["FailedLoginCount"] == DBNull.Value ? null : (byte?)reader["FailedLoginCount"],
-                            DeviceCount = Convert.ToByte(reader["DeviceCount"])
+                            DeviceCount = reader.ToByte("DeviceCount")
                         };
                     }
                 }

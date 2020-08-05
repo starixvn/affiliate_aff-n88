@@ -35,6 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             // Assert
             Assert.Single(result.MainData);
             Assert.Equal("", item.MonthDateString);
+            Assert.Equal(123, item.TotalEarning);
         }
 
         [Fact]
@@ -64,6 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             // Assert
             Assert.Single(result.MainData);
             Assert.Equal("11/2019", item.MonthDateString);
+            Assert.Equal(123, item.TotalEarning);
         }
 
         [Fact]

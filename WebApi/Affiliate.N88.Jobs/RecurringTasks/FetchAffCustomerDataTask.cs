@@ -1,0 +1,200 @@
+﻿using Affiliate.N88.Core;
+using Affiliate.N88.DTO;
+using Affiliate.N88.Jobs.Apis;
+using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Models;
+using Affiliate.N88.Repository;
+using Fanex.Logging;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Affiliate.N88.Jobs.RecurringTasks
+{
+    public interface IFetchAffCustomerDataTask : IFetchDataTask
+    {
+        Task FetchDataAsync(DateTime fromDate);
+    }
+
+    public sealed class FetchAffCustomerDataTask : IFetchAffCustomerDataTask
+    {
+        private readonly IMemberImportRepository _importerRepository;
+        private readonly ILicenseeApi _licenseeApi;
+        private readonly ILogger _logger;
+        private readonly LicenseeSiteSetting _setting;
+
+        private IEnumerable<string> SupportedSites => _setting?.SupportedSites;
+
+
+        public FetchAffCustomerDataTask(ILicenseeApi licenseeApi
+            , IMemberImportRepository memberImportRepository
+            , ILogger logger
+            , IOptions<LicenseeSiteSetting> config)
+        {
+            _importerRepository = memberImportRepository;
+            _licenseeApi = licenseeApi;
+            _logger = logger;
+            _setting = config.Value ?? throw new NullReferenceException(nameof(_setting));
+        }
+
+        public async Task FetchDataAsync()
+        {
+            try
+            {
+                if (SupportedSites == null
+                    || !SupportedSites.Any())
+                {
+                    return;
+                }
+
+                var date = await GetMinLastedTimeAsync();
+                await FetchDataAsync(date);
+            }
+            catch (Exception ex)
+            {
+                await _logger.ErrorAsync(ex.ToString(), ex);
+            }
+        }
+
+        public async Task FetchDataAsync(DateTime regTime)
+        {
+            var customerData = await _licenseeApi.GetAffCustomerAsync(regTime);
+
+            if (customerData == null
+                || !customerData.Any())
+            {
+                await _logger.InfoAsync($"No Data on date {regTime}");
+
+                return;
+            }
+
+            var insertMemberCommands = GetImportingData(customerData);
+            foreach (var command in insertMemberCommands)
+            {
+
+                if (SupportedSites.Any(supportSiteCode => string.Compare(supportSiteCode, command.SiteName, StringComparison.OrdinalIgnoreCase) == 0))
+                {
+                    await InsertMembers(regTime, command);
+                }
+                else
+                {
+                    await _logger.InfoAsync($"No Import Setting for Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime}");
+                }
+            }
+        }
+
+        private async Task InsertMembers(DateTime regTime, InsertMemberInfoCommand command)
+        {
+            try
+            {
+                await _importerRepository.ImportMemberAsync(command);
+                await _logger.InfoAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName}, Imported Data {regTime} by SP {command.GetSettingKey()}: {command.XmlData}");
+            }
+            catch (Exception ex)
+            {
+                await _logger.ErrorAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName} {ex.Message} \n {command.XmlData}", ex);
+            }
+        }
+
+        private IEnumerable<InsertMemberInfoCommand> GetImportingData(IEnumerable<AffCustomerModel> customerData)
+        {
+            var commandList = new List<InsertMemberInfoCommand>();
+            var groupCustomers = customerData.GroupBy(c => c.SiteName);
+
+            foreach (var group in groupCustomers)
+            {
+                var importData = GenerateImportedDataBySiteName(group.Key, group.ToList());
+
+                commandList.Add(importData);
+            }
+
+            return commandList;
+        }
+
+        private InsertMemberInfoCommand GenerateImportedDataBySiteName(string siteName, List<AffCustomerModel> customers)
+        {
+            var prefixSettingCode = _setting.GetCodePrefix(siteName);
+            var xml = BuildXml(customers);
+
+            return new InsertMemberInfoCommand(new PrefixProvider(prefixSettingCode))
+            {
+                SettingPrefix = prefixSettingCode,
+                SiteName = siteName,
+                XmlData = xml
+            };
+        }
+
+        private string BuildXml(List<AffCustomerModel> customers)
+        {
+            var customerXml = string.Join(
+                    string.Empty,
+                    customers.Select(customer =>
+                    {
+                        var builder = new StringBuilder();
+                        builder.AppendJoin(" ", "<row"
+                            , $"custid=\"{customer?.CustId}\""
+                            , $"username=\"{customer?.UserName}\""
+                            , $"currencyid=\"{customer?.CurrencyId}\""
+                            , $"actstatus=\"{customer?.ActStatus}\""
+                            , $"affid=\"{customer?.AffId}\""
+                            , $"regtime=\"{customer?.RegTime}\""
+                            , $"firstdepositdate=\"{customer?.FirstDepositDate}\""
+                            , $"status=\"{customer?.Status}\""
+                            , $"istest=\"{customer?.IsTest}\""
+                            , "/>");
+                        return builder.ToString();
+                    }));
+
+            return $"<root>{customerXml}</root>";
+        }
+
+        private async Task<DateTime> GetMinLastedTimeAsync()
+        {
+            var dates = new List<DateTime>();
+            foreach (var site in SupportedSites)
+            {
+                try
+                {
+                    var siteCode = _setting.GetCodePrefix(site);
+                    var siteNameInStore = await GetSiteNameAsync(siteCode);
+                    if (string.Compare(site, siteNameInStore, StringComparison.OrdinalIgnoreCase) != 0)
+                    {
+                        await _logger.WarnAsync($"Site name in web config {site} isn't having same site name in database {siteNameInStore}");
+                    }
+
+                    var lastedDate = await GetLastedImportDate(siteCode);
+                    dates.Add(lastedDate);
+                }
+                catch (Exception ex)
+                {
+                    await _logger.ErrorAsync(ex.Message, ex);
+                }
+            }
+
+            if (!dates.Any())
+            {
+                throw new InvalidOperationException($"Can't find lasted importing member date");
+            }
+
+            dates.Sort();
+            return dates.First();
+        }
+
+        private async Task<DateTime> GetLastedImportDate(string settingPrefixCode)
+        {
+            var prefixProvider = new PrefixProvider(settingPrefixCode);
+
+            return await _importerRepository.GetLastedMemberImportedTimeAsync(new MemberImportedTimeInfo(prefixProvider));
+        }
+
+        private async Task<string> GetSiteNameAsync(string settingPrefixCode)
+        {
+            var prefixProvider = new PrefixProvider(settingPrefixCode);
+
+            return await _importerRepository.GetSiteNameAsync(new SiteNameInfo(prefixProvider));
+        }
+    }
+}

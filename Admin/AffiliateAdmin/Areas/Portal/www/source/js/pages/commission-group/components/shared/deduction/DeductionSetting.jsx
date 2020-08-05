@@ -10,16 +10,21 @@ import FeeSettingItem from './FeeSettingItem';
 export class DeductionSetting extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isInitialOperationalFee: true,
+            isInitialBankingFee: true
+        }
     }
 
-    handleSelectOperationalFee = (value) => {
+    handleChangeOperationalFee = (value) => {
         const { OperationalFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
             OperationalFee: Object.assign({}, OperationalFee, value)
         });
     }
 
-    handleSelectBankingFee = (value) => {
+    handleChangeBankingFee = (value) => {
         const { BankingFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
             BankingFee: Object.assign({}, BankingFee, value)
@@ -27,8 +32,9 @@ export class DeductionSetting extends Component {
     }
 
     render() {
-        const { OperationalFee, BankingFee, GroupId } = this.props.selectedGroup;
-        const isCreating = GroupId === 0;
+        const { defaultCurrency } = this.props;
+        const { isInitialOperationalFee, isInitialBankingFee } = this.state;
+        const { OperationalFee, BankingFee } = this.props.selectedGroup;
 
         return (
             <fieldset>
@@ -36,21 +42,25 @@ export class DeductionSetting extends Component {
                 <PlatformFeeSetting />
 
                 <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"
-                    onChangeCommission={this.handleSelectOperationalFee}
+                    handleChange={this.handleChangeOperationalFee}
+                    handleUpdateState={() => this.setState({ isInitialOperationalFee: false })}
                     data={OperationalFee}
-                    isCreating={isCreating} />
+                    defaultCurrency={defaultCurrency}
+                    isInitial={isInitialOperationalFee} />
 
                 <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
-                    onChangeCommission={this.handleSelectBankingFee}
+                    handleChange={this.handleChangeBankingFee}
+                    handleUpdateState={() => this.setState({ isInitialBankingFee: false })}
                     data={BankingFee}
-                    isCreating={isCreating} />
+                    defaultCurrency={defaultCurrency}
+                    isInitial={isInitialBankingFee} />
             </fieldset>
         )
     }
 }
 
-function mapStateToProp({ selectedGroup }) {
-    return { selectedGroup };
+function mapStateToProp({ selectedGroup, defaultCurrency }) {
+    return { selectedGroup, defaultCurrency };
 }
 
 function mapDispatchToProps(dispatch) {

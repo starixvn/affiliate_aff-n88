@@ -355,8 +355,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["TierId"] = 1,
                 ["MinAmount"] = 0m,
                 ["MaxAmount"] = 100m,
-                ["MinQm"] = 0,
-                ["MaxQm"] = 50,
+                ["MinAp"] = 0,
+                ["MaxAp"] = 50,
                 ["Commission"] = 0.2m
             };
         }
@@ -369,7 +369,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
                 ["DeductionId"] = 1,
                 ["DeductionName"] = "DeductionName",
                 ["ProductIds"] = "1,2,3",
-                ["DeductedPercentage"] = 0.7m
+                ["DeductedPercentage"] = 0.7m,
+                ["IsDeductedPercent"] = true,
+                ["DeductedAmount"] = null
             };
         }
 

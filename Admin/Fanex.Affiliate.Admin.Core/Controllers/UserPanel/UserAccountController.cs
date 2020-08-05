@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 {
@@ -85,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
         [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult UpdateUserAccount(UserAccountParam param)
+        public async Task<ActionResult> UpdateUserAccount(UserAccountParam param)
         {
             if(ModelState.IsValid)
             {
@@ -132,7 +133,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
                 return new JsonNetResult
                 {
-                    Data = _userAccountService.UpdateUserAccount(userAccountParam)
+                    Data = await _userAccountService.UpdateUserAccountAsync(userAccountParam)
                 };
             }
 

@@ -7,6 +7,7 @@ using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Report
 {
@@ -93,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 {
                     while (reader.Read())
                     {
-                        result.Add(Convert.ToString(reader["UserName"]));
+                        result.Add(reader.ToString("UserName"));
                     }
                 }
             }
@@ -121,32 +122,32 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
         {
             return new AffiliateReport
             {
-                AffId = reader.HasColumn("AffId") ? Convert.ToInt32(reader["AffId"]) : 0,
-                UserName = reader.HasColumn("Username") ? Convert.ToString(reader["Username"]) : string.Empty,
-                MonthDate = reader.HasColumn("MonthDate") ? Convert.ToDateTime(reader["MonthDate"]) : (DateTime?)null,
-                Description = reader.HasColumn("Description") ? Convert.ToString(reader["Description"]) : string.Empty,
-                TotalClick = Convert.ToInt32(reader["TotalClick"]),
-                UniqueClick = Convert.ToInt32(reader["UniqueClick"]),
-                Signup = Convert.ToInt32(reader["Signup"]),
-                Fdm = Convert.ToInt32(reader["FDM"]),
-                ActiveMember = Convert.ToInt32(reader["ActiveMember"]),
-                QualifiedMember = Convert.ToInt32(reader["QualifiedMember"]),
-                Deposit = Convert.ToDecimal(reader["Deposit"]),
-                Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                Turnover = Convert.ToDecimal(reader["Turnover"]),
-                Winlost = Convert.ToDecimal(reader["Winlost"]),
-                Bonus = Convert.ToDecimal(reader["Bonus"]),
-                PlatformFee = Convert.ToDecimal(reader["PlatformFee"]),
-                OperationalFee = Convert.ToDecimal(reader["OperationalFee"]),
-                BankingFee = Convert.ToDecimal(reader["BankingFee"]),
-                TotalFee = Convert.ToDecimal(reader["TotalFee"]),
-                CommissionRate = decimal.Round(OneHundred * Convert.ToDecimal(reader["CommissionRate"]), NumberOfDigits),
-                Earning = Convert.ToDecimal(reader["Earning"]),
-                AffWithdrawal = Convert.ToDecimal(reader["AffWithdrawal"]),
-                AffAdjustment = Convert.ToDecimal(reader["AffAdjustment"]),
-                BalanceBf = Convert.ToDecimal(reader["BFF"]),
-                NoOfSubAff = Convert.ToInt32(reader["NoOfSubAff"]),
-                SubAffEarning = Convert.ToDecimal(reader["SubAffEarning"])
+                AffId = reader.HasColumn("AffId") ?reader.ToInt("AffId") : 0,
+                UserName = reader.HasColumn("Username") ?reader.ToString("Username") : string.Empty,
+                MonthDate = reader.HasColumn("MonthDate") ?reader.ToDateTime("MonthDate") : (DateTime?)null,
+                Description = reader.HasColumn("Description") ?reader.ToString("Description") : string.Empty,
+                TotalClick =reader.ToInt("TotalClick"),
+                UniqueClick =reader.ToInt("UniqueClick"),
+                Signup =reader.ToInt("Signup"),
+                Fdm =reader.ToInt("FDM"),
+                ActiveMember =reader.ToInt("ActiveMember"),
+                QualifiedMember =reader.ToInt("QualifiedMember"),
+                Deposit =reader.ToDecimal("Deposit"),
+                Withdrawal =reader.ToDecimal("Withdrawal"),
+                Turnover =reader.ToDecimal("Turnover"),
+                Winlost =reader.ToDecimal("Winlost"),
+                Bonus =reader.ToDecimal("Bonus"),
+                PlatformFee =reader.ToDecimal("PlatformFee"),
+                OperationalFee =reader.ToDecimal("OperationalFee"),
+                BankingFee =reader.ToDecimal("BankingFee"),
+                TotalFee =reader.ToDecimal("TotalFee"),
+                CommissionRate = decimal.Round(OneHundred *reader.ToDecimal("CommissionRate"), NumberOfDigits),
+                Earning =reader.ToDecimal("Earning"),
+                AffWithdrawal =reader.ToDecimal("AffWithdrawal"),
+                AffAdjustment =reader.ToDecimal("AffAdjustment"),
+                BalanceBf =reader.ToDecimal("BFF"),
+                NoOfSubAff =reader.ToInt("NoOfSubAff"),
+                SubAffEarning =reader.ToDecimal("SubAffEarning")
             };
         }
     }

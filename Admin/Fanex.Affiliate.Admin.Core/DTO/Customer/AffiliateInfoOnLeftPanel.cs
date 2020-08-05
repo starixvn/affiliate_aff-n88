@@ -58,5 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
         public bool IsUsingPrivateCommGroup { get; set; }
 
         public string ApprovedBy { get; set; }
+
+        public bool IsDeductedPercent { get; set; }
     }
 }

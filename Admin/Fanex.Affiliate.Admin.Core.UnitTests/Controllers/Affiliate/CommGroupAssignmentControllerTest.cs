@@ -14,6 +14,7 @@ using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Fanex.Affiliate.Admin.Core.ViewModels;
 using Moq;
 using System.Collections.Generic;
@@ -159,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             // Arrange
             int affId = 1271808;
             var productList = new List<Product> { new Product { ProductId = 123, ProductName = "Casino" } };
-            var deductionList = new List<Deduction> { new Deduction { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m } };
+            var deductionList = new List<Deduction> { new Deduction { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m, IsDeductedPercent = true, DeductedAmount = "" } };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(productList);
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
@@ -205,13 +206,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             Assert.Equal(expectResult.Message, resultInfo.Message);
         }
 
-        [Theory]
-        [MemberData(nameof(TestCase.TestData), MemberType = typeof(TestCase))]
-        public void AssignPrivateGroup_WhenCallWithInvalidPlatformFee_ExcuteIncorrect(List<DeductionSetting> platformFeeList)
+        [Fact]
+        public void AssignPrivateGroup_WhenCallWithInvalidPlatformFee_ExcuteIncorrect()
         {
             // Arrange
             var commGroup = CreateCommissionGroupSetting();
-            commGroup.PlatformFeeList = platformFeeList;
             var affInfo = new AffiliateBasicInfo { AffId = 1271808 };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product>
@@ -221,7 +220,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
                 new Product { ProductId = 3 }
             });
 
-            var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object);
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommissionGroupSetting>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+
+            var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupValidation: commGroupValidation.Object);
 
             // Action
             var result = controller.AssignPrivateGroup(commGroup, affInfo) as JsonNetResult;
@@ -258,7 +260,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             });
             var commGroupAssignmentService = new Mock<ICommGroupAssignmentService>();
             commGroupAssignmentService.Setup(c => c.AssignPrivateGroup(It.IsAny<CreateUpdateCommissionGroupParam>(), affInfo, It.IsAny<AffInformationEmail>())).Returns(new ResultInfo());
-            var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupAssignmentService: commGroupAssignmentService.Object);
+
+            var commGroupValidation = new Mock<ICommGroupValidation>();
+            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommissionGroupSetting>())).Returns(new ResultInfo());
+
+            var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupAssignmentService: commGroupAssignmentService.Object, commGroupValidation: commGroupValidation.Object);
 
             // Action
             var result = controller.AssignPrivateGroup(commGroup, affInfo) as JsonNetResult;
@@ -273,14 +279,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             IProductRepository productRepository = null,
             IAffiliateService affiliateService = null,
             ICommGroupAssignmentService commGroupAssignmentService = null,
-            ICommGroupCommonService commGroupCommonService = null)
+            ICommGroupCommonService commGroupCommonService = null,
+            ICommGroupValidation commGroupValidation = null)
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeProductRepository = productRepository ?? Mock.Of<IProductRepository>();
             var fakeAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var fakeCommGroupAssignmentService = commGroupAssignmentService ?? Mock.Of<ICommGroupAssignmentService>();
             var fakeCommGroupCommonService = commGroupCommonService ?? Mock.Of<ICommGroupCommonService>();
-            var controller = new CommGroupAssignmentController(fakeSessionService, fakeProductRepository, fakeAffiliateService, fakeCommGroupAssignmentService, fakeCommGroupCommonService);
+            var fakeCommGroupValidation = commGroupValidation ?? Mock.Of<ICommGroupValidation>();
+
+            var controller = new CommGroupAssignmentController(fakeSessionService, fakeProductRepository, fakeAffiliateService, fakeCommGroupAssignmentService, fakeCommGroupCommonService, fakeCommGroupValidation);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();
@@ -308,20 +317,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         {
             return new CommissionGroupSetting
             {
-                BankingFee = new DeductionSetting { DeductionId = 12, ProductIds = "0", DeductedPercentage = 0.02m },
                 Description = "Test",
                 GroupId = 0,
-                GroupName = "Test",
-                OperationalFee = new DeductionSetting { DeductionId = 11, ProductIds = "0", DeductedPercentage = 0.07m },
-                PlatformFeeList = new List<DeductionSetting>
-                {
-                    new DeductionSetting { DeductionId = 10, ProductIds = "1,3,4", DeductedPercentage = 0.17m }
-                },
-                TierSettingList = new List<TierSetting>
-                {
-                    new TierSetting { Commission = 0.05m, MaxAmount = 100, MaxQm = 100, MinAmount = 0, MinQm = 0, TierId = 1 },
-                    new TierSetting { Commission = 0.15m, MaxAmount = 100000000000000, MaxQm = 1000000000, MinAmount = 101, MinQm = 101, TierId = 2 }
-                }
+                GroupName = "Test"
             };
         }
     }

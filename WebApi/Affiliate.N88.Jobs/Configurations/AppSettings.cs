@@ -8,8 +8,28 @@
 
         public string SpPath { get; set; }
 
+        public string SaveConfigPath { get; set; }
+
         public string AuthenticationKey { get; set; }
 
         public string PullCustomerInfoCron { get; set; }
+
+        public FetchServiceSetting PullBetRecordSetting { get; set; }
+
+        public FetchServiceSetting PullCustomerSetting { get; set; }
+
+        public FetchServiceSetting PullServerInfoSetting { get; set; }
+
+        public FetchServiceSetting PullGameTypeSetting { get; set; }
+
+        public FetchServiceSetting PullDepositInfoSetting { get; set; }
+
+        public FetchServiceSetting PullTpTransferInfoSetting { get; set; }
+
+        public bool IsRunFetchTask { get; set; }
+
+        public bool RunAsService { get; set; }
+
+        public ProxySetting ProxySetting { get; set; }
     }
 }

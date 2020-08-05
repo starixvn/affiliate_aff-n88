@@ -1,8 +1,9 @@
 ﻿using Affiliate.N88.Core;
+using Affiliate.N88.SpParams.Criteria;
 
 namespace Affiliate.N88.DTO
 {
-    public  class SettingInfo : IdenticalSuffixNonQueryCommand
+    public class SettingInfo : IdenticalSurfixCriteriaBase
     {
         public SettingInfo(IPrefixProvider prefixProvider) : base(prefixProvider)
         {

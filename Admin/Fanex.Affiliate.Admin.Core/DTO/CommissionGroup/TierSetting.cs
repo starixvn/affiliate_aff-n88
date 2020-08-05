@@ -10,17 +10,17 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
         [Range(Validation.MinId, Validation.MaxId, ErrorMessage = "TierId not exists!")]
         public int TierId { get; set; }
 
-        [Range(0, (double)Validation.InfinityAmount, ErrorMessage = "MinAmount not valid!")]
+        [Range(0, (double)Validation.InfinityAmount, ErrorMessage = "Min Amount not valid!")]
         public decimal MinAmount { get; set; }
 
-        [Range(0, (double)Validation.InfinityAmount, ErrorMessage = "MaxAmount not valid!")]
+        [Range(0, (double)Validation.InfinityAmount, ErrorMessage = "Max Amount not valid!")]
         public decimal MaxAmount { get; set; }
 
-        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "MinQm not valid!")]
-        public int MinQm { get; set; }
+        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Min Actived Players not valid!")]
+        public int MinAp { get; set; }
 
-        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "MaxQm not valid!")]
-        public int MaxQm { get; set; }
+        [Range(0, Validation.InfinityQualifiedMember, ErrorMessage = "Max Actived Players not valid!")]
+        public int MaxAp { get; set; }
 
         public decimal Commission { get; set; }
     }

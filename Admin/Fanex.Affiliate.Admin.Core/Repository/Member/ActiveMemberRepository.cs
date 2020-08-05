@@ -7,6 +7,7 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
 {
@@ -44,11 +45,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                 result.Add(new ActiveMemberInfo
                 {
                     IbcCustId = reader.GetVal<int>("IBCCustID"),
-                    IbcUserName = Convert.ToString(reader["IBCUserName"]),
-                    UserName = Convert.ToString(reader[Field.UserName]),
-                    FirstName = Convert.ToString(reader[Field.FirstName]),
-                    LastName = Convert.ToString(reader[Field.LastName]),
-                    CreatedDate = reader["CreatedDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["CreatedDate"])
+                    IbcUserName = reader.ToString("IBCUserName"),
+                    UserName = reader.ToString(Field.UserName),
+                    FirstName = reader.ToString(Field.FirstName),
+                    LastName = reader.ToString(Field.LastName),
+                    CreatedDate = reader.GetVal<DateTime?>("CreatedDate")
                 });
             }
 
@@ -65,9 +66,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                 {
                     result.Add(new InactiveMemberInfo
                     {
-                        UserName = Convert.ToString(reader[Field.UserName]),
-                        FirstName = Convert.ToString(reader[Field.FirstName]),
-                        LastName = Convert.ToString(reader[Field.LastName])
+                        UserName = reader.ToString(Field.UserName),
+                        FirstName = reader.ToString(Field.FirstName),
+                        LastName = reader.ToString(Field.LastName)
                     });
                 }
             }

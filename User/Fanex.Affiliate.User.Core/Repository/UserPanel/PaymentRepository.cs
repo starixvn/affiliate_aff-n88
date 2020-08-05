@@ -4,6 +4,7 @@ using System.Data;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Common.Extensions;
 using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
@@ -30,7 +31,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
-                    {
+                    { 
                         paymentList.Add(BuildPaymentItem(reader));
                     }
                 }
@@ -93,13 +94,13 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             return new Payment
             {
-                TransId = Convert.ToInt64(reader["TransID"]),
-                RefId = Convert.ToInt64(reader["RefID"]),
-                TransDate = Convert.ToDateTime(reader["TransDate"]),
-                CompletedDate = Convert.ToDateTime(reader["CompletedDate"]),
-                Status = Convert.ToString(reader["Status"]),
-                Amount = Convert.ToDecimal(reader["Amount"]),
-                AffDesc = Convert.ToString(reader["AffDesc"])
+                TransId = reader.ToLong("TransID"),
+                RefId = reader.ToLong("RefID"),
+                TransDate = reader.ToDateTime("TransDate"),
+                CompletedDate = reader.ToDateTime("CompletedDate"),
+                Status = reader.ToString("Status"),
+                Amount = reader.ToDecimal("Amount"),
+                AffDesc = reader.ToString("AffDesc")
             };
         }
 

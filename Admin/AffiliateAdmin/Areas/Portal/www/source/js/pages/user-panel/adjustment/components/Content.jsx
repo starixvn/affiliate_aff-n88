@@ -43,14 +43,14 @@ export class Content extends PureComponent {
     }
 
     handleChangeAmount = (event) => {
-        const value = event.target.value;
+        const { name, value } = event.target;
         const amount = value.replace(/,/g, '');
 
-        if (regexCheckAmount.test(amount)) {
-            if (regexShouldFormatAmount.test(amount) && Number(amount) !== 0 && Number(amount) > money.MinValue && Number(amount) < money.MaxValue) {
-                this.setState({ [event.target.name]: format(Number(amount)) })
+        if (regexCheckAmount.test(amount) && Number(amount) >= money.AllowedMinValue && Number(amount) <= money.AllowedMaxValue) {
+            if (regexShouldFormatAmount.test(amount)) {
+                this.setState({ [name]: format(Number(amount)) })
             } else {
-                this.setState({ [event.target.name]: value });
+                this.setState({ [name]: value });
             }
         }
     }
@@ -58,7 +58,7 @@ export class Content extends PureComponent {
     _isValidAmount = (amount) => {
         const absBalanceBf = Math.abs(this.state.balanceBf);
 
-        return regexValidAmount.test(amount) && Number(amount) - absBalanceBf > money.MinValue && Number(amount) + absBalanceBf < money.MaxValue;
+        return regexValidAmount.test(amount) && Number(amount) - absBalanceBf >= money.AllowedMinValue && Number(amount) + absBalanceBf <= money.AllowedMaxValue;
     }
 
     _validateAmount = () => {

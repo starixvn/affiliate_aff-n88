@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Data;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository
 {
@@ -126,8 +127,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     {
                         result.Add(new SelectItem
                         {
-                            Id = reader[Field.GroupId].ToString(),
-                            Name = reader[Field.GroupName].ToString()
+                            Id = reader.ToString(Field.GroupId),
+                            Name = reader.ToString(Field.GroupName)
                         });
                     }
                 }
@@ -169,13 +170,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             {
                 commGroupList.Add(new CommGroup
                 {
-                    RowIdx = Convert.ToInt32(reader["RowIDX"]),
-                    GroupId = Convert.ToInt32(reader[Field.GroupId]),
-                    GroupName = reader[Field.GroupName].ToString(),
-                    CreatedDate = reader["CreatedDate"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["CreatedDate"]),
-                    Creator = reader["Creator"].ToString(),
-                    Description = reader["Description"].ToString(),
-                    NoAffs = Convert.ToInt32(reader["NoAffs"])
+                    RowIdx = reader.ToInt("RowIDX"),
+                    GroupId = reader.ToInt(Field.GroupId),
+                    GroupName = reader.ToString(Field.GroupName),
+                    CreatedDate = reader.ToDateTime("CreatedDate"),
+                    Creator = reader.ToString("Creator"),
+                    Description = reader.ToString("Description"),
+                    NoAffs = reader.ToInt("NoAffs")
                 });
             }
 
@@ -191,13 +192,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 {
                     tierSettingList.Add(new TierSetting
                     {
-                        GroupId = Convert.ToInt32(reader[Field.GroupId]),
-                        TierId = Convert.ToInt32(reader["TierId"]),
-                        MinAmount = Convert.ToDecimal(reader["MinAmount"]),
-                        MaxAmount = Convert.ToDecimal(reader["MaxAmount"]),
-                        MinQm = Convert.ToInt32(reader["MinQm"]),
-                        MaxQm = Convert.ToInt32(reader["MaxQm"]),
-                        Commission = Convert.ToDecimal(reader["Commission"])
+                        GroupId = reader.ToInt(Field.GroupId),
+                        TierId = reader.ToInt("TierId"),
+                        MinAmount = reader.ToDecimal("MinAmount"),
+                        MaxAmount = reader.ToDecimal("MaxAmount"),
+                        MinAp = reader.ToInt("MinAm"),
+                        MaxAp = reader.ToInt("MaxAm"),
+                        Commission = reader.ToDecimal("Commission")
                     });
                 }
             }
@@ -214,11 +215,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 {
                     deductionSettingList.Add(new DeductionSetting
                     {
-                        GroupId = Convert.ToInt32(reader[Field.GroupId]),
-                        DeductionId = Convert.ToInt32(reader["DeductionId"]),
-                        DeductionName = reader["DeductionName"].ToString(),
-                        ProductIds = reader["ProductIds"].ToString(),
-                        DeductedPercentage = reader["DeductedPercentage"] == DBNull.Value ? default(decimal) : Convert.ToDecimal(reader["DeductedPercentage"])
+                        GroupId = reader.ToInt(Field.GroupId),
+                        DeductionId = reader.ToInt("DeductionId"),
+                        DeductionName = reader.ToString("DeductionName"),
+                        ProductIds = reader.ToString("ProductIds"),
+                        DeductedPercentage = reader.ToDecimal("DeductedPercentage"),
+                        DeductedAmount = reader.ToString("DeductedAmount"),
+                        IsDeductedPercent = reader.ToBool("IsDeductedPercent")
                     });
                 }
             }

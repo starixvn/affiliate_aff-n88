@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.ExchangeRate
 
         public bool IsValid()
         {
-            return Rate > 0 && Rate < Money.MaxValue;
+            return Rate > 0 && Rate < Money.AllowedMaxValue;
         }
     }
 }

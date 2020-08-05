@@ -106,13 +106,6 @@
                 userAccount.PlayerUsername :
                 Server.HtmlEncode(model.PlayerUsername);
 
-            var validInfo = _accountRepository.GetPlayerUserNameValidInfo(model.PlayerUsername, userSession.AffId);
-
-            if (!validInfo.IsValid)
-            {
-                return Json(new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) });
-            }
-
             var accountUpdateParam = new UpdateAccountParam
             {
                 AffId = userSession.AffId,
@@ -120,7 +113,6 @@
                 SiteUrl = Server.HtmlEncode(model.SiteUrl ?? string.Empty),
                 MoreSiteUrls = Server.HtmlEncode(model.MoreSiteUrls ?? string.Empty),
                 NoSiteDesc = Server.HtmlEncode(model.NoSiteDesc ?? string.Empty),
-                Player_UserName = model.PlayerUsername,
                 Ip = Request.UserHostAddress,
                 Language = _sessionService.CurrentLanguage,
                 DefaultBaseCurrency = model.DefaultBaseCurrency,

@@ -37,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
 
             controller.Url = urlHelperMock.Object;
             // Action
-            var viewResult = controller.Index(new ParamFromHome()) as ViewResult;
+            var viewResult = controller.Index(new ParamFromHome { ParentAffName = "N88AFF001" }) as ViewResult;
             var viewName = viewResult.ViewName;
             var model = viewResult.Model as AffiliateInfoViewModel;
 

@@ -26,7 +26,7 @@ export default class PlatformFeeItem extends React.Component {
         const isValid = productList.filter(p => !p.Checked).length < productList.length;
 
         return (
-            <FormGroup row>
+            <FormGroup row className="align-items-center">
                 <Col sm={4}>
                     <div className={`select-product ${isValid ? "" : "is-invalid"}`}>
                         <MultipleSelect
@@ -40,7 +40,6 @@ export default class PlatformFeeItem extends React.Component {
                             noneSelectedLabel="Please Select"
                             onChange={this.handleChange}
                             isDisable={isDisable} />
-                        <FormFeedback>At least 1 product must be selected per group</FormFeedback>
                     </div>
                 </Col>
                 <Col sm={5} className="select-comm">
