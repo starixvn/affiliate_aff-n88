@@ -526,6 +526,10 @@ body {
     .card-title {
         .text {
             width: 45%;
+
+            &:before {
+                content: url("../../../styles/Images/ipad-login.svg") !important;
+            }
         }
     }
 
@@ -557,48 +561,40 @@ body {
         width: 48%;
         padding: 0 88px 0 0;
         letter-spacing: -0.01em;
-        
     }
 }
 
 .item-wrapper:nth-child(2) {
-    padding-top: 138px;
-    padding-bottom: 160px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
 
     .card-title {
         padding-top: 12px;
     }
 
     .card {
-        width: 40.5%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        position: relative;
+        padding-bottom: 180px;
 
         .card-content {
-            position: relative;
-
-            &:after {
-                position: absolute;
-                content: '';
-                width: 700px;
-                height: 583px;
-                top: -118px;
-                left: -904px;
-                background-image: url("../../../../build/styles/Images/contact-in-home/n8g/contact.png");
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: top center;
-            }
+            width: 40.5%;
         }
-    }
 
-    .card-title {
-        .icon {
-            background: url('../../Images/gift.png') no-repeat center center / 100% 100%;
+        &:after {
+            position: absolute;
+            content: '';
+            width: 700px;
+            height: 583px;
+            top: -45px;
+            left: 10px;
+            background-image: url("../../../../build/styles/Images/contact-in-home/n8g/contact.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center;
         }
     }
 
@@ -690,6 +686,7 @@ body {
         position: relative;
         padding: 9px 0 5px 72px;
         margin-bottom: 37px;
+        position: relative;
 
         .icon {
             display: none;
@@ -697,6 +694,14 @@ body {
 
         .text {
             display: block;
+            &:before{
+                content: url("../../../styles/Images/gift.svg");
+                width: 52px;
+                height: 52px;
+                position: absolute;
+                left: 0;
+                top: -6px;
+            }
         }
     }
  
