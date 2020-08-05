@@ -19,16 +19,17 @@ $nav-color-active: #0CF3E6;
 $nav-color-focus: #0CF3E6;
 
 $sub-nav-bg-color: #FFFFFF;
-$sub-nav-menu-color: #1E1E1E;
-$sub-nav-menu-bg-color-active: #1E1E1E;
-$sub-nav-menu-color-active: #fff;
+$sub-nav-menu-color: #FFFFFF;
+$sub-nav-menu-bg-color-active: #ffffff;
+$sub-nav-menu-color-active: #333333;
+$sub-nav-menu-line-color: #64789B;
 
 $tab-bg-color: $bg-main-color;
 $tab-item-color: #6E6E6E;
 $tab-item-bg-color-active: #0CF3E6;
 $tab-item-color-active: #000000;
 
-$hot-news-bg-color: #000000;
+$hot-news-bg-color: #6b1213;
 $hot-news-title-color: #ffffff;
 $hot-news-title-bg-color: #E9262A;
 $hot-news-content-bg-color: #000000;
@@ -68,7 +69,7 @@ $table-header-color: #fff;
 $table-header-border-color: #8F9AAE;
 $table-border-color: #8F9AAE;
 $table-row-bg-color-hover: rgba(0, 0, 0, 0.4);
-$table-row-even-bg-color: #FBD3B3;
+$table-row-even-bg-color: rgba(0, 0, 0, 0);
 $table-row-total-bg-color: #FFE771;
 $table-game-name-bg: rgba(0, 0, 0, 0.5);
 

@@ -1,10 +1,11 @@
 ﻿body {
   color: #ffffff;
   background: #1E347E;
-  background: -webkit-gradient(linear, left top, left bottom, from(#254379), to(#152747));
-  background: -o-linear-gradient(top, #254379 0%, #152747 100%);
-  background: linear-gradient(180deg, #254379 0%, #152747 100%);
-  font-family: 'Roboto', sans-serif; }
+  background: -webkit-gradient(linear, left top, left bottom, from(#11274E), to(#04132E));
+  background: -o-linear-gradient(top, #11274E 0%, #04132E 100%);
+  background: linear-gradient(180deg, #11274E 0%, #04132E 100%);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem; }
 
 .news {
   background: #1E347E; }
@@ -85,14 +86,14 @@
     width: calc(100% + 400px);
     left: -200px;
     top: 0;
-    height: 6rem;
+    height: 3rem;
     background: #000; }
 
 .hot-news {
-  background: rgba(233, 38, 42, 0.5);
+  background: #6b1213;
   position: relative;
   z-index: 1;
-  margin: 15px 0; }
+  margin: 0; }
   .hot-news .title {
     background: #E9262A;
     color: #ffffff;
@@ -104,7 +105,7 @@
       border-top: 15px solid transparent;
       border-bottom: 15px solid transparent;
       position: absolute;
-      right: -10px; }
+      right: -9px; }
   .hot-news .message {
     color: #D43311;
     background: #000000; }
@@ -194,7 +195,7 @@
       transform: skewX(-13deg); }
 
 .page-title {
-  margin: 0 0 4rem 0; }
+  margin: 0 0 4.2rem 0; }
   .page-title .text {
     color: #ffffff;
     font-weight: bold;
@@ -243,10 +244,10 @@
   line-height: 18px; }
   .table table tbody tr {
     background: rgba(0, 0, 0, 0.2); }
+    .table table tbody tr:hover {
+      background: rgba(0, 0, 0, 0.4) !important; }
   .table table tr {
     color: #ffffff; }
-    .table table tr:hover {
-      background: rgba(0, 0, 0, 0.4); }
   .table table th, .table table td {
     border: 1px solid #8F9AAE; }
   .table table th {
@@ -319,6 +320,10 @@
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #fff; }
 
+.content .signup-block .btn-link:hover {
+  background-color: #3391F6;
+  color: #fff; }
+
 .btn-submit {
   background-color: #A42EC8;
   color: #fff; }
@@ -332,7 +337,7 @@
   background-color: rgba(0, 0, 0, 0.5); }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
-  background-color: #FBD3B3; }
+  background-color: transparent; }
 
 .main .page-container .home-page.content {
   margin-top: 0; }
@@ -505,25 +510,42 @@
 .dot1, .dot2 {
   background-color: #ffffff; }
 
-.main.after-login {
+.main.after-login .page-title {
   background: #fff; }
-  .main.after-login .page-title {
-    background: #fff; }
-    .main.after-login .page-title .text:after {
-      border-bottom: 18px solid #fff;
-      border-right: 16px solid #fff; }
+  .main.after-login .page-title .text:after {
+    border-bottom: 18px solid #fff;
+    border-right: 16px solid #fff; }
 
-.content-menu {
-  background-color: #1E347E; }
-  .content-menu .menu {
-    background: #FFFFFF; }
-    .content-menu .menu .menu-item {
-      color: #1E1E1E; }
-      .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
-        background-color: #1E1E1E;
-        color: #fff; }
-  .content-menu .submenu-container {
-    background: #FFFFFF; }
+.content-menu .menu {
+  margin: 20px 0; }
+  .content-menu .menu .submenu-container {
+    margin: 0; }
+  .content-menu .menu li:not(:last-child) {
+    border: 0; }
+    .content-menu .menu li:not(:last-child) .menu-item:before {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      content: "";
+      height: 20px;
+      width: 1px;
+      background: #64789B; }
+  .content-menu .menu .menu-item {
+    color: #FFFFFF;
+    position: relative;
+    font-weight: bold; }
+    .content-menu .menu .menu-item + .submenu-container {
+      background-color: #3391F6; }
+      .content-menu .menu .menu-item + .submenu-container li {
+        border: 0; }
+    .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
+      background-color: #ffffff;
+      color: #333333; }
+      .content-menu .menu .menu-item.active:before, .content-menu .menu .menu-item:hover:before {
+        display: none; }
+
+.content-menu .submenu-container {
+  background: #FFFFFF; }
 
 .summary-content .dashboard-section .group-one {
   background-color: #156e82; }
@@ -630,10 +652,8 @@
     -webkit-transform: skewX(0);
     -ms-transform: skewX(0);
     transform: skewX(0); }
-  .hot-news {
-    margin: 5px 0; }
   .main .page-container:before {
-    height: 4rem; }
+    height: 3rem; }
   .carousel.slide .carousel-inner {
     height: 230px; }
   .banner-center .carousel-inner .item:after {
@@ -782,10 +802,17 @@
   padding-top: 5px;
   padding-bottom: 5px; }
 
-.page-container .content {
-  margin-top: 75px;
-  padding-left: 0;
-  padding-right: 0; }
+.page-container {
+  width: 100%; }
+  .page-container .content {
+    margin-top: 38px;
+    padding-left: 0;
+    padding-right: 0; }
+    .page-container .content p {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 24px;
+      letter-spacing: 0.02em; }
 
 .banner-commission-structure {
   width: 100%;
@@ -809,3 +836,27 @@
 
 .webp .banner-product-casino {
   margin-bottom: 20px; }
+
+.text-block {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.02em; }
+
+.webp .banner-terms-condition {
+  width: 100%;
+  max-width: 100%;
+  background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp");
+  background-size: cover;
+  height: 200px;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 40px; }
+  .webp .banner-terms-condition p {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: 0.08em;
+    text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5); }
