@@ -467,10 +467,13 @@ body {
 .btn-submit {
     background-color: $button-submit-bg-color;
     color: $button-submit-color;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 0 19px;
 
     &:hover, &:focus {
-        color: $button-submit-color;
-        background-color: $button-submit-bg-color-hover;
+        //color: $button-submit-color;
+        //background-color: $button-submit-bg-color-hover;
     }
 
     .icon {
@@ -478,6 +481,39 @@ body {
     }
 }
 
+//date picker
+.summary {
+    .form-group {
+
+        .d-inline-block {
+            vertical-align: top;
+        }
+
+        .form-wrapper#monthPicker {
+            background: $date-picker-bg;
+            border: 1px solid $date-picker-border;
+            border-radius: 2px;
+            padding-right: 10px;
+            margin-right: 6px;
+
+            .form-control {
+                border: 0;
+                background: transparent;
+                margin: 0;
+                text-align: left;
+                font-size: 14px;
+                color: $date-picker-color;
+                width: 91px;
+                height: 23px;
+            }
+
+            .glyphicon {
+                color: $date-picker-color-icon;
+                top: 4px;
+            }
+        }
+    }
+}
 // Product
 .table {
     .game-list tr .game-name {
@@ -742,7 +778,7 @@ background: $date-time-info;
     }
     // After login
     .main.after-login {
-        background: $bg-after-login-color;
+        //background: $bg-after-login-color;
 
         .page-title {
             background: $bg-after-login-color;
@@ -755,62 +791,62 @@ background: $date-time-info;
     }
 
     .content-menu {
-        background-color: $bg-main-color;
+        //background-color: $bg-main-color;
+
         .menu {
-        margin: 20px 0;
+            margin: 20px 0;
 
-        .submenu-container {
-            margin: 0;
-        }
-
-        li:not(:last-child) {
-            border: 0;
-
-            > .menu-item {
-                &:before {
-                    position: absolute;
-                    top: 5px;
-                    right: 0;
-                    content: "";
-                    height: 20px;
-                    width: 1px;
-                    background: $sub-nav-menu-line-color;
-                }
+            .submenu-container {
+                margin: 0;
             }
-        }
 
-            .menu-item {
-                color: $sub-nav-menu-color;
-            position: relative;
-            font-weight: bold;
+            li:not(:last-child) {
+                border: 0;
 
-            + .submenu-container {
-                background-color: $sub-nav-menu-bg;
-
-                li {
-                    border: 0;
-
-                    a {
-                        color: $sub-nav-menu-color-sub;
-
-                        &:before {
-                            display: none;
-                        }
+                > .menu-item {
+                    &:before {
+                        position: absolute;
+                        top: 5px;
+                        right: 0;
+                        content: "";
+                        height: 20px;
+                        width: 1px;
+                        background: $sub-nav-menu-line-color;
                     }
                 }
             }
 
-                &.active, &:hover {
-                    background-color: $sub-nav-menu-bg-color-active;
-                    color: $sub-nav-menu-color-active;
+            .menu-item {
+                color: $sub-nav-menu-color;
+                position: relative;
+                font-weight: bold;
 
-                
+                + .submenu-container {
+                    background-color: $sub-nav-menu-bg;
+
+                    li {
+                        border: 0;
+
+                        a {
+                            color: $sub-nav-menu-color-sub;
+
+                            &:before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &.active, &:hover {
+                    //background-color: $sub-nav-menu-bg-color-active;
+                    color: $sub-nav-menu-color-active;
                 }
             }
         }
 
         .submenu-container {
             background: $sub-nav-bg-color;
+
         }
     }
 
@@ -858,33 +894,35 @@ background: $date-time-info;
         }
     }
 
-    .account-overview {
-        #account-overview-menu {
-            background: $tab-bg-color;
+.account-overview {
+    #account-overview-menu {
+        //background: $tab-bg-color;
 
-            .menu {
+        .menu {
             li:not(:last-child) {
                 border: 0 !important;
                 margin-right: 2px;
             }
 
-                &-item {
-                    color: $tab-item-color;
+            &-item {
+                color: $tab-item-color;
                 border: 1px solid $tab-item-border-color;
                 border-bottom: 0;
+                padding: 2px 20px 0 !important;
 
-                    &.active, &:hover {
-                        color: $tab-item-color-active;
-                        background-color: $tab-item-bg-color-active;
+                &.active, &:hover {
+                    color: $tab-item-color-active;
+                    background-color: $tab-item-bg-color-active;
                     border-color: $tab-item-bg-color-active;
-                    }
                 }
             }
         }
+    }
 
     .bg-orange {
         background: $tab-item-bg-color-active;
         color: $tab-item-color-active;
+        line-height: 2.7rem;
     }
 }
 

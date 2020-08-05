@@ -52,7 +52,7 @@ $button-login-color: #fff;
 $button-login-bg-color-hover: darken($button-login-bg-color, 5%);
 $button-login-border-color: #fff;
 
-$button-submit-bg-color: #A42EC8;
+$button-submit-bg-color: #0B71DF;
 $button-submit-color: #fff;
 $button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
 $button-submit-border-color: #fff;
@@ -106,3 +106,9 @@ $account-overview-group-four: #158469;
 
 
 $color-primary: #ffffff;
+
+//date picker
+$date-picker-bg: #030C1B;
+$date-picker-border: #435068;
+$date-picker-color: #ffffff;
+$date-picker-color-icon: #DADADA;
