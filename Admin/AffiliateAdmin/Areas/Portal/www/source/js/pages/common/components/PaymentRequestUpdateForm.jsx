@@ -41,7 +41,12 @@ export class PaymentRequestUpdateForm extends PureComponent {
     handleGetPaymentRequestInfo = async (transId) => {
         const data = await this.props.getPaymentRequestDetail({ transId });
 
-        data && this.setState({ paymentRequestInfo: data, originalStatus: htmlDecode(data.Status) });
+        data && this.setState(
+        { 
+            paymentRequestInfo: data, 
+            originalStatus: htmlDecode(data.Status),
+            isSendingRequest: false
+        });
     }
 
     handleSave = async () => {
