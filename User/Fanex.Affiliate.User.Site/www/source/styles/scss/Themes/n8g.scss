@@ -1528,7 +1528,21 @@ div.pager-container {
         transform: skewX(0);
     }
 
-
+    .page-title {
+        margin-bottom: 16px;
+        .text {
+            font-size: 20px;
+            line-height: 23px;
+        }
+    }
+    .info-group {
+        .title {
+            font-size: 16px;
+            line-height: 19px;
+            background-size: 20px auto; 
+            padding: 4px 0 4px 25px;
+        }
+    }
 
     .main .page-container:before {
         height: 3rem;
@@ -1734,6 +1748,7 @@ div.pager-container {
     .page-container .content .banner-faqs, .webp .banner-terms-condition {
         height: 150px;
         background-position: left -30px center;
+        margin-bottom: 10px; 
 
         p {
             font-size: 20px!important;
