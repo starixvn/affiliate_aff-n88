@@ -483,8 +483,9 @@ body {
 
 //date picker
 .summary {
-    .form-group {
-
+    div.form-group {
+        padding: 18px 0 0; 
+        border: 0;
         .d-inline-block {
             vertical-align: top;
         }
@@ -498,7 +499,7 @@ body {
 
             .form-control {
                 border: 0;
-                background: transparent;
+                background: transparent; 
                 margin: 0;
                 text-align: left;
                 font-size: 14px;
@@ -758,9 +759,7 @@ body {
     }
 }
 // Contact Us
-/*.date-time-info {
-background: $date-time-info;
-}*/
+ 
     .languages-item {
         background: $languages-item-bg-color;
 
@@ -850,54 +849,104 @@ background: $date-time-info;
         }
     }
 
-    .summary-content {
-        .dashboard-section {
-            .group-one {
-                background-color: $account-overview-group-one;
+div.summary-content {
+    padding: 30px 0 0 0;
+    border: 0;
+
+    .dashboard-section {
+        .img-icon {
+            display: flex;
+            align-items: center;
+            height: 70px;
+        }
+
+        span.my-account {
+            font-weight: 500;
+            font-size: 28px;
+            line-height: 33px;
+            display: block;
+            margin-bottom: 13px;
+        }
+
+        .info-panel {
+            padding: 5px 0;
+            height: 70px;
+            border: 0;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                top: 10px;
+                left: 0;
+                content: '';
+                width: 1px;
+                height: 50px;
+                background: rgba(255, 255, 255, 0.4);
+                opacity: 0.5;
             }
 
-            .group-two {
-                background-color: $account-overview-group-two;
+            .info-panel-title {
+                font-weight: 500;
+                font-size: 15px;
+                line-height: 18px;
             }
 
-            .group-three {
-                background-color: $account-overview-group-three;
-            }
-
-            .group-four {
-                background-color: $account-overview-group-four;
+            .info-panel-content {
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 23px;
             }
         }
 
-        .details-section-menu {
-            .menu {
-                border-bottom: 1px solid $tab-item-bg-color-active;
-            }
-
-            .menu-item {
-                color: $tab-item-color;
-
-                &.active, &:hover {
-                    color: $tab-item-bg-color-active;
-                    border-bottom: 2px solid $tab-item-bg-color-active;
-                }
-            }
+        .group {
+            border-radius: 8px;
         }
 
-        .details-section-content .table table thead tr.overview-table-total {
-            background: $table-row-total-bg-color !important;
+        .group-one {
+            background-color: $account-overview-group-one;
+        }
 
-            th {
-                background: $table-row-total-bg-color !important;
-                color: $table-color;
+        .group-two {
+            background-color: $account-overview-group-two;
+        }
+
+        .group-three {
+            background-color: $account-overview-group-three;
+        }
+
+        .group-four {
+            background-color: $account-overview-group-four;
+        }
+    }
+
+    .details-section-menu {
+        .menu {
+            border-bottom: 1px solid $tab-item-bg-color-active;
+        }
+
+        .menu-item {
+            color: $tab-item-color;
+
+            &.active, &:hover {
+                color: $tab-item-bg-color-active;
+                border-bottom: 2px solid $tab-item-bg-color-active;
             }
         }
     }
 
+    .details-section-content .table table thead tr.overview-table-total {
+        background: $table-row-total-bg-color !important;
+
+        th {
+            background: $table-row-total-bg-color !important;
+            color: $table-color;
+        }
+    }
+}
+
 .account-overview {
     #account-overview-menu {
         //background: $tab-bg-color;
-
         .menu {
             li:not(:last-child) {
                 border: 0 !important;
@@ -908,7 +957,7 @@ background: $date-time-info;
                 color: $tab-item-color;
                 border: 1px solid $tab-item-border-color;
                 border-bottom: 0;
-                padding: 2px 20px 0 !important;
+                padding: 2px 18px 0 !important;
 
                 &.active, &:hover {
                     color: $tab-item-color-active;
@@ -923,6 +972,15 @@ background: $date-time-info;
         background: $tab-item-bg-color-active;
         color: $tab-item-color-active;
         line-height: 2.7rem;
+        padding-top: 2px;
+
+        span.text {
+            padding: 0 15px 0 17px;
+
+            strong, b {
+                margin-right: 7px;
+            }
+        }
     }
 }
 

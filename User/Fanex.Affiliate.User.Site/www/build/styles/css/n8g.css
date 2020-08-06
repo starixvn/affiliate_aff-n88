@@ -335,27 +335,29 @@
   .btn-submit .icon {
     color: #fff; }
 
-.summary .form-group .d-inline-block {
-  vertical-align: top; }
-
-.summary .form-group .form-wrapper#monthPicker {
-  background: #030C1B;
-  border: 1px solid #435068;
-  border-radius: 2px;
-  padding-right: 10px;
-  margin-right: 6px; }
-  .summary .form-group .form-wrapper#monthPicker .form-control {
-    border: 0;
-    background: transparent;
-    margin: 0;
-    text-align: left;
-    font-size: 14px;
-    color: #ffffff;
-    width: 91px;
-    height: 23px; }
-  .summary .form-group .form-wrapper#monthPicker .glyphicon {
-    color: #DADADA;
-    top: 4px; }
+.summary div.form-group {
+  padding: 18px 0 0;
+  border: 0; }
+  .summary div.form-group .d-inline-block {
+    vertical-align: top; }
+  .summary div.form-group .form-wrapper#monthPicker {
+    background: #030C1B;
+    border: 1px solid #435068;
+    border-radius: 2px;
+    padding-right: 10px;
+    margin-right: 6px; }
+    .summary div.form-group .form-wrapper#monthPicker .form-control {
+      border: 0;
+      background: transparent;
+      margin: 0;
+      text-align: left;
+      font-size: 14px;
+      color: #ffffff;
+      width: 91px;
+      height: 23px; }
+    .summary div.form-group .form-wrapper#monthPicker .glyphicon {
+      color: #DADADA;
+      top: 4px; }
 
 .table .game-list tr .game-name {
   background-color: rgba(0, 0, 0, 0.5); }
@@ -527,9 +529,6 @@
 .news-content li > a {
   color: #ffffff; }
 
-/*.date-time-info {
-background: $date-time-info;
-}*/
 .languages-item {
   background: #fff; }
   .languages-item .info {
@@ -578,32 +577,63 @@ background: $date-time-info;
 .content-menu .submenu-container {
   background: #FFFFFF; }
 
-.summary-content .dashboard-section .group-one {
-  background-color: #156e82; }
-
-.summary-content .dashboard-section .group-two {
-  background-color: #1c56ad; }
-
-.summary-content .dashboard-section .group-three {
-  background-color: #9e5613; }
-
-.summary-content .dashboard-section .group-four {
-  background-color: #158469; }
-
-.summary-content .details-section-menu .menu {
-  border-bottom: 1px solid #1E365F; }
-
-.summary-content .details-section-menu .menu-item {
-  color: #6E6E6E; }
-  .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
-    color: #1E365F;
-    border-bottom: 2px solid #1E365F; }
-
-.summary-content .details-section-content .table table thead tr.overview-table-total {
-  background: #FFE771 !important; }
-  .summary-content .details-section-content .table table thead tr.overview-table-total th {
-    background: #FFE771 !important;
-    color: #ffffff; }
+div.summary-content {
+  padding: 30px 0 0 0;
+  border: 0; }
+  div.summary-content .dashboard-section .img-icon {
+    display: flex;
+    align-items: center;
+    height: 70px; }
+  div.summary-content .dashboard-section span.my-account {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    display: block;
+    margin-bottom: 13px; }
+  div.summary-content .dashboard-section .info-panel {
+    padding: 5px 0;
+    height: 70px;
+    border: 0;
+    position: relative; }
+    div.summary-content .dashboard-section .info-panel:before {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      content: '';
+      width: 1px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.4);
+      opacity: 0.5; }
+    div.summary-content .dashboard-section .info-panel .info-panel-title {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 18px; }
+    div.summary-content .dashboard-section .info-panel .info-panel-content {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 23px; }
+  div.summary-content .dashboard-section .group {
+    border-radius: 8px; }
+  div.summary-content .dashboard-section .group-one {
+    background-color: #017792; }
+  div.summary-content .dashboard-section .group-two {
+    background-color: #0D50B5; }
+  div.summary-content .dashboard-section .group-three {
+    background-color: #C78F1F; }
+  div.summary-content .dashboard-section .group-four {
+    background-color: #259176; }
+  div.summary-content .details-section-menu .menu {
+    border-bottom: 1px solid #1E365F; }
+  div.summary-content .details-section-menu .menu-item {
+    color: #6E6E6E; }
+    div.summary-content .details-section-menu .menu-item.active, div.summary-content .details-section-menu .menu-item:hover {
+      color: #1E365F;
+      border-bottom: 2px solid #1E365F; }
+  div.summary-content .details-section-content .table table thead tr.overview-table-total {
+    background: #FFE771 !important; }
+    div.summary-content .details-section-content .table table thead tr.overview-table-total th {
+      background: #FFE771 !important;
+      color: #ffffff; }
 
 .account-overview #account-overview-menu .menu li:not(:last-child) {
   border: 0 !important;
@@ -613,7 +643,7 @@ background: $date-time-info;
   color: #6E6E6E;
   border: 1px solid #435068;
   border-bottom: 0;
-  padding: 2px 20px 0 !important; }
+  padding: 2px 18px 0 !important; }
   .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
     color: #ffffff;
     background-color: #1E365F;
@@ -622,7 +652,12 @@ background: $date-time-info;
 .account-overview .bg-orange {
   background: #1E365F;
   color: #ffffff;
-  line-height: 2.7rem; }
+  line-height: 2.7rem;
+  padding-top: 2px; }
+  .account-overview .bg-orange span.text {
+    padding: 0 15px 0 17px; }
+    .account-overview .bg-orange span.text strong, .account-overview .bg-orange span.text b {
+      margin-right: 7px; }
 
 .page-container .content .banner-faqs {
   width: 100%;
