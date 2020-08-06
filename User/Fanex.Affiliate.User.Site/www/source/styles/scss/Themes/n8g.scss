@@ -68,7 +68,7 @@ body {
         color: $nav-color;
         padding: 0 11px;
 
-        &.active {
+        &.active,&:hover {
             position: relative;
             z-index: 1;
 
@@ -166,7 +166,9 @@ body {
         }
     }
 }
-
+#mainBanner{
+    margin-left: -200px;
+}
 .banner-center {
     .carousel-control {
         display: none;
@@ -445,7 +447,7 @@ select.form-control{
     background-color: transparent;
     background: rgba(3, 12, 27, 0.4);
     border: 1px solid #435068;
-    color: $text-color-white;
+    color: $text-color;
     height: 30px;
     border-radius: 2px;
 }

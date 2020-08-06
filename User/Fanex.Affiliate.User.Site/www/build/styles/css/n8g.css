@@ -49,10 +49,10 @@
   .navbar .menu .menu-item {
     color: #FFFFFF;
     padding: 0 11px; }
-    .navbar .menu .menu-item.active {
+    .navbar .menu .menu-item.active, .navbar .menu .menu-item:hover {
       position: relative;
       z-index: 1; }
-      .navbar .menu .menu-item.active:after {
+      .navbar .menu .menu-item.active:after, .navbar .menu .menu-item:hover:after {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -119,6 +119,9 @@
       line-height: 30px; }
       .hot-news .message .marquee-container .marquee-content a {
         color: #fff !important; }
+
+#mainBanner {
+  margin-left: -200px; }
 
 .banner-center .carousel-control {
   display: none; }
@@ -310,7 +313,7 @@ select.form-control {
   background-color: transparent;
   background: rgba(3, 12, 27, 0.4);
   border: 1px solid #435068;
-  color: #ffffff;
+  color: #BAC2D2;
   height: 30px;
   border-radius: 2px; }
 
