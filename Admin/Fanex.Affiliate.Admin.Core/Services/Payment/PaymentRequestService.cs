@@ -14,9 +14,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Fanex.Affiliate.Admin.Core.Constants.Apis;
 using Fanex.Affiliate.Admin.Core.Exceptions;
-using Fanex.Logging;
 using Newtonsoft.Json;
-using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Payment
 {
