@@ -53,7 +53,7 @@ body {
         font-weight: 500;
         font-size: 15px;
         line-height: 20px;
-        color: $text-color;
+        color: $text-color-white;
         padding: 0;
     }
 }
@@ -156,7 +156,7 @@ body {
         .marquee-container {
             .marquee-content {
                 color: #fff;
-                font-size: 16px;
+                font-size: 14px;
                 line-height: 30px;
 
                 a {
@@ -364,7 +364,7 @@ body {
     }
 
     tr {
-        color: $table-color;
+        color: $text-color;
     }
 
     th, td {
@@ -373,7 +373,8 @@ body {
 
     th {
         background: $table-header-bg-color;
-        color: $table-header-color;
+        color: $text-color;
+      
     }
 
     td {
@@ -444,7 +445,7 @@ select.form-control{
     background-color: transparent;
     background: rgba(3, 12, 27, 0.4);
     border: 1px solid #435068;
-    color: #ffffff;
+    color: $text-color-white;
     height: 30px;
     border-radius: 2px;
 }
@@ -458,8 +459,8 @@ select.form-control{
     padding: 1px 15px 0 15px;
 
     &:hover, &:focus {
-        color: $button-signup-color;
-        background: $button-signup-bg-color-hover;
+        background: $button-signup-bg-color;
+        color: $button-signup-color!important;
     }
 
     .icon {
@@ -532,12 +533,12 @@ select.form-control{
                 font-size: 14px;
                 color: $date-picker-color;
                 width: 91px;
-                height: 23px;
+                height: 28px;
             }
 
             .glyphicon {
                 color: $date-picker-color-icon;
-                top: 4px;
+                top: 7px;
             }
         }
     }
@@ -698,6 +699,7 @@ select.form-control{
             margin-top: 20px;
             font-size: 1.6rem;
             line-height: 24px;
+            color: $text-color
         }
 
         .btn {
@@ -759,7 +761,8 @@ select.form-control{
 
         .text {
             display: block;
-            &:before{
+
+            &:before {
                 content: url("../../../styles/Images/gift.svg");
                 background-size: 52px 52px;
                 position: absolute;
@@ -768,9 +771,9 @@ select.form-control{
             }
         }
     }
- 
+
     .text-content {
-        color: $home-card-content-color;
+        color: $text-color;
     }
 }
 
@@ -816,65 +819,63 @@ select.form-control{
         }
     }
 
-    .content-menu {
-        //background-color: $bg-main-color;
+.content-menu {
+    //background-color: $bg-main-color;
+    .menu {
+        margin: 20px 0;
 
-        .menu {
-            margin: 20px 0;
+        .submenu-container {
+            margin: 0;
+        }
 
-            .submenu-container {
-                margin: 0;
-            }
+        li:not(:last-child) {
+            border: 0;
 
-            li:not(:last-child) {
-                border: 0;
-
-                > .menu-item {
-                    &:before {
-                        position: absolute;
-                        top: 5px;
-                        right: 0;
-                        content: "";
-                        height: 20px;
-                        width: 1px;
-                        background: $sub-nav-menu-line-color;
-                    }
+            > .menu-item {
+                &:before {
+                    position: absolute;
+                    top: 5px;
+                    right: 0;
+                    content: "";
+                    height: 20px;
+                    width: 1px;
+                    background: $sub-nav-menu-line-color;
                 }
             }
+        }
 
-            .menu-item {
-                color: $sub-nav-menu-color;
-                position: relative;
-                font-weight: bold;
+        .menu-item {
+            color: $text-color;
+            position: relative;
+            font-weight: bold;
 
-                + .submenu-container {
-                    background-color: $sub-nav-menu-bg;
+            + .submenu-container {
+                background-color: $sub-nav-menu-bg;
 
-                    li {
-                        border: 0;
+                li {
+                    border: 0;
 
-                        a {
-                            color: $sub-nav-menu-color-sub;
+                    a {
+                        color: $sub-nav-menu-color-sub;
 
-                            &:before {
-                                display: none;
-                            }
+                        &:before {
+                            display: none;
                         }
                     }
                 }
+            }
 
-                &.active, &:hover {
-                    //background-color: $sub-nav-menu-bg-color-active;
-                    color: $sub-nav-menu-color-active;
-                }
+            &.active, &:hover {
+                //background-color: $sub-nav-menu-bg-color-active;
+                color: $sub-nav-menu-color-active;
             }
         }
-
-        .submenu-container {
-            background: $sub-nav-bg-color;
-
-        }
     }
+
+    .submenu-container {
+        background: $sub-nav-bg-color;
+    }
+}
 
 div.summary-content {
     padding: 30px 0 0 0;
@@ -893,6 +894,7 @@ div.summary-content {
             line-height: 33px;
             display: block;
             margin-bottom: 13px;
+            color: $text-color-white;
         }
 
         .info-panel {
@@ -961,7 +963,6 @@ div.summary-content {
         .menu-item {
             color: $tab-item-color;
             opacity: 0.5;
-            font-weight: 500;
             font-size: 16px;
             line-height: 19px;
             padding: 1px 21px 3px;
@@ -970,12 +971,12 @@ div.summary-content {
                 color: $tab-item-bg-color-active;
                 border-bottom: 3px solid $tab-item-bg-color-active;
                 opacity: 1;
+                font-weight: 500;
             }
         }
     }
 
     .details-section-content {
-        
     }
 }
 
@@ -1006,8 +1007,8 @@ div.summary-content {
 }
 .account-overview {
     .btn-submit {
-        background: $button-signup-bg-color;
-        color: $button-signup-color;
+         
+      
         font-weight: 500;
         font-size: 14px;
         line-height: 30px;
@@ -1146,6 +1147,13 @@ div.summary-content {
     background: none;
     line-height: 20px; 
 }
+div.custom-panel{
+    background-color: transparent;
+    border: 0;
+}
+.btn.focus, .btn:focus, .btn:hover{
+    color: inherit;
+}
 div.pager-container {
     background-color: transparent;
     border: 0;
@@ -1205,6 +1213,10 @@ div.pager-container {
                         background-color: #0f2346;
                     }
 
+                    &[data-parent="~"] {
+                        background-color: #08142C; 
+                    }
+
                     &:hover {
                         background: #052561 !important;
                     }
@@ -1250,6 +1262,7 @@ div.pager-container {
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 40px;
+    color: $text-color-white;
 
     p {
         font-weight: 500;
@@ -1259,6 +1272,23 @@ div.pager-container {
         text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5);
     }
 }
+
+//account-information
+.account-information {
+    .info-group {
+        .title {
+            padding: 0;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            background: none;
+        }
+        &:nth-child(1){
+
+        }
+    }
+}
+
 //responsive
 @media only screen and (max-width: 1800px) {
     .item-wrapper:nth-child(2) {
@@ -1701,7 +1731,7 @@ div.pager-container {
         -ms-flex-align: center;
         align-items: center;
         margin-bottom: 40px;
-
+        color: $text-color-white;
         p {
             font-weight: 500;
             font-size: 32px;

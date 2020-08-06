@@ -1,5 +1,5 @@
 ﻿body {
-  color: #ffffff;
+  color: #BAC2D2;
   background: #1E347E;
   background: -webkit-gradient(linear, left top, left bottom, from(#11274E), to(#04132E));
   background: -o-linear-gradient(top, #11274E 0%, #04132E 100%);
@@ -115,7 +115,7 @@
       border-width: 15px 0 15px 10px; }
     .hot-news .message .marquee-container .marquee-content {
       color: #fff;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 30px; }
       .hot-news .message .marquee-container .marquee-content a {
         color: #fff !important; }
@@ -255,12 +255,12 @@
     .table table tbody tr:hover {
       background: rgba(0, 0, 0, 0.4) !important; }
   .table table tr {
-    color: #ffffff; }
+    color: #BAC2D2; }
   .table table th, .table table td {
     border: 1px solid #8F9AAE; }
   .table table th {
     background: rgba(0, 0, 0, 0.5);
-    color: #fff; }
+    color: #BAC2D2; }
   .table table td {
     border: 1px solid #8F9AAE; }
   .table table .overview-table-header, .table table .player-detail-table-header {
@@ -321,8 +321,8 @@ select.form-control {
   font-weight: 700;
   padding: 1px 15px 0 15px; }
   .btn-signup:hover, .btn-signup:focus {
-    color: #333333;
-    background: #f2ab05; }
+    background: #FAB617;
+    color: #333333 !important; }
   .btn-signup .icon {
     color: #333333;
     margin-right: 1px;
@@ -372,10 +372,10 @@ select.form-control {
       font-size: 14px;
       color: #ffffff;
       width: 91px;
-      height: 23px; }
+      height: 28px; }
     .summary div.form-group .form-wrapper#monthPicker .glyphicon {
       color: #DADADA;
-      top: 4px; }
+      top: 7px; }
 
 .table .game-list tr .game-name {
   background-color: rgba(0, 0, 0, 0.5); }
@@ -482,7 +482,8 @@ select.form-control {
     .item-wrapper:nth-child(2) .card-body .text-3 {
       margin-top: 20px;
       font-size: 1.6rem;
-      line-height: 24px; }
+      line-height: 24px;
+      color: #BAC2D2; }
     .item-wrapper:nth-child(2) .card-body .btn {
       border-radius: 0;
       background: transparent;
@@ -538,7 +539,7 @@ select.form-control {
         left: -13px;
         top: -6px; }
   .card .card-content .text-content {
-    color: #ffffff; }
+    color: #BAC2D2; }
 
 .news-content li:not(:last-child) {
   border-bottom: 1px solid #C7C7C7; }
@@ -575,7 +576,7 @@ select.form-control {
       width: 1px;
       background: #64789B; }
   .content-menu .menu .menu-item {
-    color: #FFFFFF;
+    color: #BAC2D2;
     position: relative;
     font-weight: bold; }
     .content-menu .menu .menu-item + .submenu-container {
@@ -604,7 +605,8 @@ div.summary-content {
     font-size: 28px;
     line-height: 33px;
     display: block;
-    margin-bottom: 13px; }
+    margin-bottom: 13px;
+    color: #ffffff; }
   div.summary-content .dashboard-section .info-panel {
     padding: 5px 0;
     height: 70px;
@@ -645,14 +647,14 @@ div.summary-content {
   div.summary-content .details-section-menu .menu-item {
     color: #BAC2D2;
     opacity: 0.5;
-    font-weight: 500;
     font-size: 16px;
     line-height: 19px;
     padding: 1px 21px 3px; }
     div.summary-content .details-section-menu .menu-item.active, div.summary-content .details-section-menu .menu-item:hover {
       color: #FAB617;
       border-bottom: 3px solid #FAB617;
-      opacity: 1; }
+      opacity: 1;
+      font-weight: 500; }
 
 .flex-sm-boostrap.flex-center label {
   padding-left: 0 !important;
@@ -669,8 +671,6 @@ div.summary-content {
   margin-right: 0; }
 
 .account-overview .btn-submit {
-  background: #FAB617;
-  color: #333333;
   font-weight: 500;
   font-size: 14px;
   line-height: 30px;
@@ -763,6 +763,13 @@ div.summary-content {
   background: none;
   line-height: 20px; }
 
+div.custom-panel {
+  background-color: transparent;
+  border: 0; }
+
+.btn.focus, .btn:focus, .btn:hover {
+  color: inherit; }
+
 div.pager-container {
   background-color: transparent;
   border: 0; }
@@ -791,6 +798,8 @@ div.pager-container {
     background-color: #182E56; }
   #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd), #statementDataList .table table tbody tr:nth-child(odd) {
     background-color: #0f2346; }
+  #account-overview-content .table table tbody tr[data-parent="~"], #paymentList .table table tbody tr[data-parent="~"], .report-container .table table tbody tr[data-parent="~"], #statementDataList .table table tbody tr[data-parent="~"] {
+    background-color: #08142C; }
   #account-overview-content .table table tbody tr:hover, #paymentList .table table tbody tr:hover, .report-container .table table tbody tr:hover, #statementDataList .table table tbody tr:hover {
     background: #052561 !important; }
   #account-overview-content .table table tbody tr .btn.btn-transparent :hover, #paymentList .table table tbody tr .btn.btn-transparent :hover, .report-container .table table tbody tr .btn.btn-transparent :hover, #statementDataList .table table tbody tr .btn.btn-transparent :hover {
@@ -814,13 +823,21 @@ div.pager-container {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  color: #ffffff; }
   .page-container .content .banner-faqs p {
     font-weight: 500;
     font-size: 32px;
     line-height: 37px;
     letter-spacing: 0.08em;
     text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5); }
+
+.account-information .info-group .title {
+  padding: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  background: none; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1084,7 +1101,8 @@ div.pager-container {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+  color: #ffffff; }
   .webp .banner-terms-condition p {
     font-weight: 500;
     font-size: 32px;
