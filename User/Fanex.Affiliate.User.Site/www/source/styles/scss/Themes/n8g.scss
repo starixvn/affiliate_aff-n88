@@ -137,7 +137,7 @@ body {
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
             position: absolute;
-            right: -9px;
+            right: -10px;
         }
     }
 
@@ -211,8 +211,8 @@ body {
     margin: 0;
     left: 200px;
     z-index: 10;
-    max-width: 30%;
-    width: 30%;
+    max-width: 50%;
+    width: 50%;
 
     .txt-lang {
         color: $banner-color-text;
@@ -425,7 +425,7 @@ body {
 
 .banner-product.banner-product-casino {
     margin-bottom: 20px;
-    background-image: url("../../../../build/styles/Images/apply/n8g/bg-Terms_conditions_banner.webp");
+    background-image: url("../../../../build/styles/Images/apply/n8g/bg-casino_affiliate.webp");
     max-width: 100%;
 
     .text-red {
