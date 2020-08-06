@@ -1044,7 +1044,9 @@
     <Content Include="www\source\styles\Images\email\button.png" />
     <Content Include="www\source\styles\Images\email\note.png" />
     <Content Include="www\source\styles\Images\gift.png" />
+    <Content Include="www\source\styles\Images\gift.svg" />
     <Content Include="www\source\styles\Images\ipad-login.png" />
+    <Content Include="www\source\styles\Images\ipad-login.svg" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
     <Content Include="www\source\styles\Images\notify\bgMain.jpg" />
