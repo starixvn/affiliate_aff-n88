@@ -1417,7 +1417,18 @@ div.pager-container {
         }
     }
 }
+// btn go to top
+.btn-move-top {
+    background: #0B71DF;
+    color: #ffffff;
+    opacity: 1;
 
+    &:hover {
+        background: #0B71DF;
+        color: #ffffff;
+        opacity: 1;
+    }
+}
 //responsive
 @media only screen and (max-width: 1800px) {
     .item-wrapper:nth-child(2) {

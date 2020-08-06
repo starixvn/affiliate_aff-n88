@@ -929,6 +929,15 @@ div.pager-container {
   line-height: 23px;
   background: none; }
 
+.btn-move-top {
+  background: #0B71DF;
+  color: #ffffff;
+  opacity: 1; }
+  .btn-move-top:hover {
+    background: #0B71DF;
+    color: #ffffff;
+    opacity: 1; }
+
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
     width: 50%; }
