@@ -1040,6 +1040,10 @@ div.summary-content {
         display: grid !important;
         grid-template-columns: 20rem 1fr;
 
+        @media screen and (max-width: 480px) {
+            grid-template-columns: 1fr;
+        }
+
         &:before {
             content: none;
         }
@@ -1077,6 +1081,12 @@ div.summary-content {
         color: $cancel-text-color;
     }
 }
+
+.form-group .form-control {
+    background-color: #030C1B;
+    border: 1px solid #435068;
+}
+
 .main.after-login {
     .main-content {
         > .container-fluid {
