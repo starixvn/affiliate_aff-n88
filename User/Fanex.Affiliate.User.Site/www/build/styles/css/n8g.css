@@ -1,14 +1,11 @@
 ﻿body {
   color: #BAC2D2;
-  background: #1E347E;
-  background: -webkit-gradient(linear, left top, left bottom, from(#11274E), to(#04132E));
-  background: -o-linear-gradient(top, #11274E 0%, #04132E 100%);
-  background: linear-gradient(180deg, #11274E 0%, #04132E 100%);
+  background: #152849;
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem; }
 
 .news {
-  background: #1E347E; }
+  background: #152849; }
 
 .header-top {
   background-color: #10192F; }
