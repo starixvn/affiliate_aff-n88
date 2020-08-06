@@ -118,7 +118,8 @@
       font-size: 14px;
       line-height: 30px; }
       .hot-news .message .marquee-container .marquee-content a {
-        color: #fff !important; }
+        color: #fff !important;
+        font-size: 1.4rem; }
 
 #mainBanner {
   margin-left: -200px; }
