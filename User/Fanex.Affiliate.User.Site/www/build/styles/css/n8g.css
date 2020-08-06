@@ -296,6 +296,14 @@
 .form-control {
   border: 1px solid #adadad; }
 
+select.form-control {
+  background-color: transparent;
+  background: rgba(3, 12, 27, 0.4);
+  border: 1px solid #435068;
+  color: #ffffff;
+  height: 30px;
+  border-radius: 2px; }
+
 .btn-signup {
   background: #FAB617;
   color: #333333;
@@ -621,25 +629,44 @@ div.summary-content {
     background-color: #C78F1F; }
   div.summary-content .dashboard-section .group-four {
     background-color: #259176; }
+  div.summary-content .details-section {
+    padding-top: 29px; }
   div.summary-content .details-section-menu .menu {
-    border-bottom: 1px solid #1E365F; }
+    border-bottom: 1px solid #435068;
+    margin-bottom: 14px; }
   div.summary-content .details-section-menu .menu-item {
-    color: #6E6E6E; }
+    color: #BAC2D2;
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 1px 21px 3px; }
     div.summary-content .details-section-menu .menu-item.active, div.summary-content .details-section-menu .menu-item:hover {
-      color: #1E365F;
-      border-bottom: 2px solid #1E365F; }
-  div.summary-content .details-section-content .table table thead tr.overview-table-total {
-    background: #FFE771 !important; }
+      color: #FAB617;
+      border-bottom: 3px solid #FAB617;
+      opacity: 1; }
+  div.summary-content .details-section-content .table table {
+    border: 1px solid #435068 !important; }
+    div.summary-content .details-section-content .table table thead tr.overview-table-header th {
+      background-color: #0F1C33; }
     div.summary-content .details-section-content .table table thead tr.overview-table-total th {
-      background: #FFE771 !important;
+      background-color: #15366F !important;
       color: #ffffff; }
+    div.summary-content .details-section-content .table table tbody tr:nth-child(even) {
+      background-color: #182E56; }
+    div.summary-content .details-section-content .table table tbody tr:nth-child(odd) {
+      background-color: #0f2346; }
+    div.summary-content .details-section-content .table table tr th, div.summary-content .details-section-content .table table tr td {
+      border: 0; }
+      div.summary-content .details-section-content .table table tr th:not(:last-child), div.summary-content .details-section-content .table table tr td:not(:last-child) {
+        border-right: 1px solid #435068; }
 
 .account-overview #account-overview-menu .menu li:not(:last-child) {
   border: 0 !important;
   margin-right: 2px; }
 
 .account-overview #account-overview-menu .menu-item {
-  color: #6E6E6E;
+  color: #BAC2D2;
   border: 1px solid #435068;
   border-bottom: 0;
   padding: 2px 18px 0 !important; }
@@ -649,8 +676,8 @@ div.summary-content {
     border-color: #1E365F; }
 
 .account-overview .bg-orange {
-  background: #1E365F;
-  color: #ffffff;
+  background: #1D3560;
+  color: #FFFFFF;
   line-height: 2.7rem;
   padding-top: 2px; }
   .account-overview .bg-orange span.text {

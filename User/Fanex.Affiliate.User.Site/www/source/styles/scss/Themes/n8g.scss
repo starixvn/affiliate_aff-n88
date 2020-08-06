@@ -421,7 +421,14 @@ body {
 .form-control {
     border: 1px solid $form-control-border-color;
 }
-
+select.form-control {
+    background-color: transparent;
+    background: rgba(3, 12, 27, 0.4);
+    border: 1px solid #435068;
+    color: #ffffff;
+    height: 30px;
+    border-radius: 2px;
+}
 // Button
 .btn-signup {
     background: $button-signup-bg-color;
@@ -919,27 +926,78 @@ div.summary-content {
         }
     }
 
+    .details-section {
+        padding-top: 29px;
+    }
+
     .details-section-menu {
+
+
         .menu {
-            border-bottom: 1px solid $tab-item-bg-color-active;
+            border-bottom: 1px solid #435068;
+            margin-bottom: 14px;
         }
 
         .menu-item {
             color: $tab-item-color;
+            opacity: 0.5;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            padding: 1px 21px 3px;
 
             &.active, &:hover {
                 color: $tab-item-bg-color-active;
-                border-bottom: 2px solid $tab-item-bg-color-active;
+                border-bottom: 3px solid $tab-item-bg-color-active;
+                opacity: 1;
             }
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total {
-        background: $table-row-total-bg-color !important;
+    .details-section-content {
+        .table {
+            table {
+                border: 1px solid #435068 !important;
 
-        th {
-            background: $table-row-total-bg-color !important;
-            color: $table-color;
+                thead {
+                    tr {
+                        &.overview-table-header {
+                            th {
+                                background-color: #0F1C33;
+                            }
+                        }
+
+                        &.overview-table-total {
+                            th {
+                                background-color: #15366F !important;
+                                color: $table-color;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        &:nth-child(even) {
+                            background-color: #182E56;
+                        }
+
+                        &:nth-child(odd) {
+                            background-color: #0f2346;
+                        }
+                    }
+                }
+
+                tr {
+                    th, td {
+                        border: 0;
+
+                        &:not(:last-child) {
+                            border-right: 1px solid #435068;
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -960,17 +1018,17 @@ div.summary-content {
                 padding: 2px 18px 0 !important;
 
                 &.active, &:hover {
-                    color: $tab-item-color-active;
-                    background-color: $tab-item-bg-color-active;
-                    border-color: $tab-item-bg-color-active;
+                    color: #ffffff;
+                    background-color: #1E365F;
+                    border-color: #1E365F;
                 }
             }
         }
     }
 
     .bg-orange {
-        background: $tab-item-bg-color-active;
-        color: $tab-item-color-active;
+        background: #1D3560;
+        color: #FFFFFF;
         line-height: 2.7rem;
         padding-top: 2px;
 
