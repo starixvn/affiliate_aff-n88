@@ -338,6 +338,10 @@ body {
         line-height: 24px;
         letter-spacing: 0.02em;
     }
+
+    #statementPager {
+        padding-bottom: 1.6rem;
+    }
 }
 //title in my account
 #account-overview-content {
@@ -1030,6 +1034,49 @@ div.summary-content {
 }
 
 //my account
+
+.account-information {
+    .info-group .form-group {
+        display: grid !important;
+        grid-template-columns: 20rem 1fr;
+
+        &:before {
+            content: none;
+        }
+
+        .col-sm-4 {
+            padding-left: 0;
+        }
+
+        .control-label {
+            width: 100%;
+            text-align: left;
+            padding-left: 0;
+        }
+    }
+
+    .info-group.website-info .form-group {
+        grid-template-columns: 1fr;
+    }
+
+    #websiteInfo .form-group {
+        grid-template-columns: 16rem 30rem 1fr;
+
+        .col-sm-4 {
+            width: 100%;
+        }
+    }
+
+    .info-group .button-block {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    #btnCancel, #websiteInfo .btn-submit {
+        background-color: $cancel-bg-color;
+        color: $cancel-text-color;
+    }
+}
 .main.after-login {
     .main-content {
         > .container-fluid {

@@ -244,6 +244,8 @@
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.02em; }
+  .info-group #statementPager {
+    padding-bottom: 1.6rem; }
 
 #account-overview-content .info-group .title {
   padding: 0;
@@ -691,6 +693,34 @@ div.summary-content {
 
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
+
+.account-information .info-group .form-group {
+  display: grid !important;
+  grid-template-columns: 20rem 1fr; }
+  .account-information .info-group .form-group:before {
+    content: none; }
+  .account-information .info-group .form-group .col-sm-4 {
+    padding-left: 0; }
+  .account-information .info-group .form-group .control-label {
+    width: 100%;
+    text-align: left;
+    padding-left: 0; }
+
+.account-information .info-group.website-info .form-group {
+  grid-template-columns: 1fr; }
+
+.account-information #websiteInfo .form-group {
+  grid-template-columns: 16rem 30rem 1fr; }
+  .account-information #websiteInfo .form-group .col-sm-4 {
+    width: 100%; }
+
+.account-information .info-group .button-block {
+  margin-left: 0;
+  padding-left: 0; }
+
+.account-information #btnCancel, .account-information #websiteInfo .btn-submit {
+  background-color: #FAB617;
+  color: #333333; }
 
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
