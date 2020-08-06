@@ -955,52 +955,11 @@ div.summary-content {
     }
 
     .details-section-content {
-        .table {
-            table {
-                border: 1px solid #435068 !important;
-
-                thead {
-                    tr {
-                        &.overview-table-header {
-                            th {
-                                background-color: #0F1C33;
-                            }
-                        }
-
-                        &.overview-table-total {
-                            th {
-                                background-color: #15366F !important;
-                                color: $table-color;
-                            }
-                        }
-                    }
-                }
-
-                tbody {
-                    tr {
-                        &:nth-child(even) {
-                            background-color: #182E56;
-                        }
-
-                        &:nth-child(odd) {
-                            background-color: #0f2346;
-                        }
-                    }
-                }
-
-                tr {
-                    th, td {
-                        border: 0;
-
-                        &:not(:last-child) {
-                            border-right: 1px solid #435068;
-                        }
-                    }
-                }
-            }
-        }
+        
     }
 }
+
+
 
 .account-overview {
     #account-overview-menu {
@@ -1041,7 +1000,53 @@ div.summary-content {
         }
     }
 }
+//table my account
+#account-overview-content, #paymentList, .report-container {
+    .table {
+        table {
+            border: 1px solid #435068 !important;
 
+            thead {
+                tr {
+                    &.overview-table-header {
+                        th {
+                            background-color: #0F1C33;
+                        }
+                    }
+
+                    &.overview-table-total {
+                        th {
+                            background-color: #15366F !important;
+                            color: $table-color;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: #182E56;
+                    }
+
+                    &:nth-child(odd) {
+                        background-color: #0f2346;
+                    }
+                }
+            }
+
+            tr {
+                th, td {
+                    border: 0;
+
+                    &:not(:last-child) {
+                        border-right: 1px solid #435068;
+                    }
+                }
+            }
+        }
+    }
+}
 //faqs
 .page-container .content .banner-faqs {
     width: 100%;
