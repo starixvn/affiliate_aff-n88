@@ -287,6 +287,7 @@ body {
 .info-group {
     margin-bottom: 4.2rem;
 
+     
     .title {
         color: $group-title-color;
         font-weight: bold;
@@ -297,6 +298,7 @@ body {
         background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
         padding: 0 0 0 31px;
         margin-bottom: 10px;
+        
     }
 
     ul {
@@ -328,7 +330,22 @@ body {
         letter-spacing: 0.02em;
     }
 }
+//title in my account
+#account-overview-content {
 
+    #searchForm{
+        //margin-left: -15px; 
+    }
+    .info-group {
+        .title {
+            padding: 0;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            background: none;
+        }
+    }
+}
 // Table
 .table table {
     border: 1px solid $table-border-color;
@@ -395,8 +412,10 @@ body {
 }
 
 .banner-product.banner-product-casino {
+    margin-bottom: 20px;
     .text-red {
         font-size: 3.2rem;
+        line-height: inherit;
 
         @media only screen and (max-width: 1400px) {
             font-size: 2.6rem;
@@ -421,7 +440,7 @@ body {
 .form-control {
     border: 1px solid $form-control-border-color;
 }
-select.form-control {
+select.form-control{
     background-color: transparent;
     background: rgba(3, 12, 27, 0.4);
     border: 1px solid #435068;
@@ -429,6 +448,7 @@ select.form-control {
     height: 30px;
     border-radius: 2px;
 }
+ 
 // Button
 .btn-signup {
     background: $button-signup-bg-color;
@@ -787,7 +807,7 @@ select.form-control {
         //background: $bg-after-login-color;
 
         .page-title {
-            background: $bg-after-login-color;
+            //background: $bg-after-login-color;
 
             .text:after {
                 border-bottom: 18px solid $bg-after-login-color;
@@ -960,8 +980,60 @@ div.summary-content {
 }
 
 
+.flex-sm-boostrap.flex-center label{
+    padding-left: 0 !important;
+    text-align: left;
+}
+.form-horizontal .form-group{
+    margin: 0 0 10px 0;
+}
 
+//my account
+.main.after-login {
+    .main-content {
+        > .container-fluid{
+            padding: 0;
+        }
+    }
+}
+.main-content {
+    #mainPanel {
+        .page-title {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
 .account-overview {
+    .btn-submit {
+        background: $button-signup-bg-color;
+        color: $button-signup-color;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 30px;
+        padding: 0 19px;
+        height: 30px;
+    }
+
+    .col-md-4.col-lg-3 {
+        padding-left: 0 !important;
+    }
+
+    .col-md-8.col-lg-9 {
+        .title {
+            padding-left: 15px !important;
+        }
+    }
+
+    .container-fluid {
+
+        #searchForm {
+            .title {
+                //margin-left: -15px;
+            }
+        }
+    }
+
     #account-overview-menu {
         //background: $tab-bg-color;
         .menu {
@@ -999,15 +1071,115 @@ div.summary-content {
             }
         }
     }
+
+    .info-group {
+        ul {
+            &.list-content {
+                padding: 0;
+            }
+
+            li {
+                .marketing-text {
+                    font-size: 14px;
+                    line-height: 24px;
+                    letter-spacing: 0.02em;
+                    color: $marketing-text-color;
+                }
+
+                .marketing-action {
+                    background-color: $marketing-bg-color;
+                    border-color: $marketing-border-color;
+                    padding: 10px 5px;
+
+                    > * {
+                        margin: 0 5px;
+                    }
+
+                    .btn-marketing-copy {
+                        background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+                        background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
+                        background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+                        -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        border-radius: 2px;
+                        font-weight: 500;
+                        font-size: 14px;
+                        color: $marketing-btn-color;
+                        padding: 6px 18px;
+                    }
+                }
+
+                &.banner-control {
+                    background: rgba(0, 0, 0, 0.3);
+                    border-radius: 0;
+
+                    + .banner-control {
+                        border: 0;
+                        border-top: 1px solid #435068;
+                    }
+
+                    .banner-control-button .copy-banner-code {
+                        background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+                        background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
+                        background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+                        -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        border-radius: 2px;
+                        font-weight: 500;
+                        font-size: 14px;
+                        color: $marketing-btn-color;
+                        padding: 5px 18px;
+                    }
+                }
+            }
+        }
+    }
 }
+#textLinkList .marketing-qrcode button {
+    margin-bottom: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border: 0;
+    background: none;
+    line-height: 20px; 
+}
+div.pager-container {
+    background-color: transparent;
+    border: 0;
+
+    select.pagesize-select {
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid #000000;
+        color: #ffffff;
+        height: 30px;
+        border-radius: 2px;
+        outline: none;
+    }
+
+    .icon {
+        color: #ffffff;
+    }
+
+    .disable {
+        color: #737e92;
+    }
+}
+
 //table my account
-#account-overview-content, #paymentList, .report-container {
+#account-overview-content, #paymentList, .report-container, #statementDataList {
     .table {
         table {
             border: 1px solid #435068 !important;
 
             thead {
                 tr {
+                    th {
+                        background-color: #0F1C33;
+                    }
+
                     &.overview-table-header {
                         th {
                             background-color: #0F1C33;
@@ -1031,6 +1203,25 @@ div.summary-content {
 
                     &:nth-child(odd) {
                         background-color: #0f2346;
+                    }
+
+                    &:hover {
+                        background: #052561 !important;
+                    }
+
+                    .btn.btn-transparent :hover {
+                        color: #ffffff;
+                    }
+
+                    .btn.btn-transparent {
+                        &:hover, &:focus {
+                            color: #ffffff;
+                        }
+
+                        span {
+                            outline: none;
+                            color: #ffffff;
+                        }
                     }
                 }
             }
@@ -1489,10 +1680,6 @@ div.summary-content {
             }
         }
     }
-}
-
-.webp .banner-product-casino {
-    margin-bottom: 20px;
 }
 
 //TermAndCondition

@@ -209,7 +209,7 @@
 .info-group {
   margin-bottom: 4.2rem; }
   .info-group .title {
-    color: #ffffff;
+    color: #FAB617;
     font-weight: bold;
     font-size: 24px;
     line-height: 29px;
@@ -237,6 +237,13 @@
     font-size: 14px;
     line-height: 24px;
     letter-spacing: 0.02em; }
+
+#account-overview-content .info-group .title {
+  padding: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  background: none; }
 
 .table table {
   border: 1px solid #8F9AAE;
@@ -277,17 +284,20 @@
       left: 1rem;
       font-size: 1.8rem; } }
 
-.banner-product.banner-product-casino .text-red {
-  font-size: 3.2rem; }
-  @media only screen and (max-width: 1400px) {
-    .banner-product.banner-product-casino .text-red {
-      font-size: 2.6rem; } }
-  @media only screen and (max-width: 991px) {
-    .banner-product.banner-product-casino .text-red {
-      font-size: 2.2rem; } }
-  @media only screen and (max-width: 768px) {
-    .banner-product.banner-product-casino .text-red {
-      font-size: 1.6rem; } }
+.banner-product.banner-product-casino {
+  margin-bottom: 20px; }
+  .banner-product.banner-product-casino .text-red {
+    font-size: 3.2rem;
+    line-height: inherit; }
+    @media only screen and (max-width: 1400px) {
+      .banner-product.banner-product-casino .text-red {
+        font-size: 2.6rem; } }
+    @media only screen and (max-width: 991px) {
+      .banner-product.banner-product-casino .text-red {
+        font-size: 2.2rem; } }
+    @media only screen and (max-width: 768px) {
+      .banner-product.banner-product-casino .text-red {
+        font-size: 1.6rem; } }
 
 .login-dialog .modal-header {
   background-color: #191919;
@@ -546,11 +556,9 @@ select.form-control {
 .dot1, .dot2 {
   background-color: #ffffff; }
 
-.main.after-login .page-title {
-  background: #fff; }
-  .main.after-login .page-title .text:after {
-    border-bottom: 18px solid #fff;
-    border-right: 16px solid #fff; }
+.main.after-login .page-title .text:after {
+  border-bottom: 18px solid #fff;
+  border-right: 16px solid #fff; }
 
 .content-menu .menu {
   margin: 20px 0; }
@@ -646,6 +654,35 @@ div.summary-content {
       border-bottom: 3px solid #FAB617;
       opacity: 1; }
 
+.flex-sm-boostrap.flex-center label {
+  padding-left: 0 !important;
+  text-align: left; }
+
+.form-horizontal .form-group {
+  margin: 0 0 10px 0; }
+
+.main.after-login .main-content > .container-fluid {
+  padding: 0; }
+
+.main-content #mainPanel .page-title {
+  margin-left: 0;
+  margin-right: 0; }
+
+.account-overview .btn-submit {
+  background: #FAB617;
+  color: #333333;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 30px;
+  padding: 0 19px;
+  height: 30px; }
+
+.account-overview .col-md-4.col-lg-3 {
+  padding-left: 0 !important; }
+
+.account-overview .col-md-8.col-lg-9 .title {
+  padding-left: 15px !important; }
+
 .account-overview #account-overview-menu .menu li:not(:last-child) {
   border: 0 !important;
   margin-right: 2px; }
@@ -670,20 +707,102 @@ div.summary-content {
     .account-overview .bg-orange span.text strong, .account-overview .bg-orange span.text b {
       margin-right: 7px; }
 
-#account-overview-content .table table, #paymentList .table table, .report-container .table table {
+.account-overview .info-group ul.list-content {
+  padding: 0; }
+
+.account-overview .info-group ul li .marketing-text {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #ffffff; }
+
+.account-overview .info-group ul li .marketing-action {
+  background-color: #030C1B;
+  border-color: #435068;
+  padding: 10px 5px; }
+  .account-overview .info-group ul li .marketing-action > * {
+    margin: 0 5px; }
+  .account-overview .info-group ul li .marketing-action .btn-marketing-copy {
+    background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+    background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
+    background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+    -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    padding: 6px 18px; }
+
+.account-overview .info-group ul li.banner-control {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0; }
+  .account-overview .info-group ul li.banner-control + .banner-control {
+    border: 0;
+    border-top: 1px solid #435068; }
+  .account-overview .info-group ul li.banner-control .banner-control-button .copy-banner-code {
+    background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+    background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
+    background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+    -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #333333;
+    padding: 5px 18px; }
+
+#textLinkList .marketing-qrcode button {
+  margin-bottom: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 0;
+  background: none;
+  line-height: 20px; }
+
+div.pager-container {
+  background-color: transparent;
+  border: 0; }
+  div.pager-container select.pagesize-select {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #000000;
+    color: #ffffff;
+    height: 30px;
+    border-radius: 2px;
+    outline: none; }
+  div.pager-container .icon {
+    color: #ffffff; }
+  div.pager-container .disable {
+    color: #737e92; }
+
+#account-overview-content .table table, #paymentList .table table, .report-container .table table, #statementDataList .table table {
   border: 1px solid #435068 !important; }
-  #account-overview-content .table table thead tr.overview-table-header th, #paymentList .table table thead tr.overview-table-header th, .report-container .table table thead tr.overview-table-header th {
+  #account-overview-content .table table thead tr th, #paymentList .table table thead tr th, .report-container .table table thead tr th, #statementDataList .table table thead tr th {
     background-color: #0F1C33; }
-  #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th {
+  #account-overview-content .table table thead tr.overview-table-header th, #paymentList .table table thead tr.overview-table-header th, .report-container .table table thead tr.overview-table-header th, #statementDataList .table table thead tr.overview-table-header th {
+    background-color: #0F1C33; }
+  #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th, #statementDataList .table table thead tr.overview-table-total th {
     background-color: #15366F !important;
     color: #ffffff; }
-  #account-overview-content .table table tbody tr:nth-child(even), #paymentList .table table tbody tr:nth-child(even), .report-container .table table tbody tr:nth-child(even) {
+  #account-overview-content .table table tbody tr:nth-child(even), #paymentList .table table tbody tr:nth-child(even), .report-container .table table tbody tr:nth-child(even), #statementDataList .table table tbody tr:nth-child(even) {
     background-color: #182E56; }
-  #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd) {
+  #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd), #statementDataList .table table tbody tr:nth-child(odd) {
     background-color: #0f2346; }
-  #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td {
+  #account-overview-content .table table tbody tr:hover, #paymentList .table table tbody tr:hover, .report-container .table table tbody tr:hover, #statementDataList .table table tbody tr:hover {
+    background: #052561 !important; }
+  #account-overview-content .table table tbody tr .btn.btn-transparent :hover, #paymentList .table table tbody tr .btn.btn-transparent :hover, .report-container .table table tbody tr .btn.btn-transparent :hover, #statementDataList .table table tbody tr .btn.btn-transparent :hover {
+    color: #ffffff; }
+  #account-overview-content .table table tbody tr .btn.btn-transparent:hover, #account-overview-content .table table tbody tr .btn.btn-transparent:focus, #paymentList .table table tbody tr .btn.btn-transparent:hover, #paymentList .table table tbody tr .btn.btn-transparent:focus, .report-container .table table tbody tr .btn.btn-transparent:hover, .report-container .table table tbody tr .btn.btn-transparent:focus, #statementDataList .table table tbody tr .btn.btn-transparent:hover, #statementDataList .table table tbody tr .btn.btn-transparent:focus {
+    color: #ffffff; }
+  #account-overview-content .table table tbody tr .btn.btn-transparent span, #paymentList .table table tbody tr .btn.btn-transparent span, .report-container .table table tbody tr .btn.btn-transparent span, #statementDataList .table table tbody tr .btn.btn-transparent span {
+    outline: none;
+    color: #ffffff; }
+  #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
     border: 0; }
-    #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child) {
+    #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
       border-right: 1px solid #435068; }
 
 .page-container .content .banner-faqs {
@@ -948,9 +1067,6 @@ div.summary-content {
 
 .table table.game-list tr .game-name {
   border-width: 1px; }
-
-.webp .banner-product-casino {
-  margin-bottom: 20px; }
 
 .text-block {
   font-weight: normal;
