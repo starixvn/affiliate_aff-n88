@@ -5,6 +5,10 @@ body {
     background: $bg-main-color;
     font-family: 'Roboto', sans-serif;
     font-size: 1.4rem;
+
+    a {
+        color: #0b71df;
+    }
 }
 
 .news {
@@ -65,7 +69,11 @@ body {
         color: $nav-color;
         padding: 0 11px;
 
-        &.active, &:hover {
+        &:hover {
+            color: #FAB617;
+        }
+
+        &.active {
             position: relative;
             z-index: 1;
 
@@ -1010,7 +1018,12 @@ div.summary-content {
             line-height: 19px;
             padding: 1px 21px 3px;
 
-            &.active, &:hover {
+            &:hover {
+                color: $tab-item-bg-color-active;
+                opacity: 1;
+            }
+
+            &.active {
                 color: $tab-item-bg-color-active;
                 border-bottom: 3px solid $tab-item-bg-color-active;
                 opacity: 1;
@@ -1905,7 +1918,7 @@ div.pager-container {
         &.game-list {
             tr {
                 .game-name {
-                    border-width: 1px;
+                    border: 1px solid $table-border-color; 
                 }
             }
         }

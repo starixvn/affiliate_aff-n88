@@ -3,6 +3,8 @@
   background: #152849;
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem; }
+  body a {
+    color: #0b71df; }
 
 .news {
   background: #152849; }
@@ -46,10 +48,12 @@
   .navbar .menu .menu-item {
     color: #FFFFFF;
     padding: 0 11px; }
-    .navbar .menu .menu-item.active, .navbar .menu .menu-item:hover {
+    .navbar .menu .menu-item:hover {
+      color: #FAB617; }
+    .navbar .menu .menu-item.active {
       position: relative;
       z-index: 1; }
-      .navbar .menu .menu-item.active:after, .navbar .menu .menu-item:hover:after {
+      .navbar .menu .menu-item.active:after {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -255,7 +259,7 @@
   background: none; }
 
 .table table {
-  border: 1px solid #8F9AAE;
+  border: 1px solid #3E5278;
   font-weight: normal;
   font-size: 14px;
   line-height: 18px; }
@@ -266,12 +270,12 @@
   .table table tr {
     color: #BAC2D2; }
   .table table th, .table table td {
-    border: 1px solid #8F9AAE; }
+    border: 1px solid #3E5278; }
   .table table th {
-    background: rgba(0, 0, 0, 0.5);
+    background: #15366E;
     color: #BAC2D2; }
   .table table td {
-    border: 1px solid #8F9AAE; }
+    border: 1px solid #3E5278; }
   .table table .overview-table-header, .table table .player-detail-table-header {
     background: #282828 !important; }
     .table table .overview-table-header th, .table table .player-detail-table-header th {
@@ -400,7 +404,7 @@ select.form-control {
       top: 7px; }
 
 .table .game-list tr .game-name {
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: #15366E; }
 
 .table .casino-table tbody > tr:nth-of-type(even) {
   background-color: transparent; }
@@ -681,7 +685,10 @@ div.summary-content {
     font-size: 16px;
     line-height: 19px;
     padding: 1px 21px 3px; }
-    div.summary-content .details-section-menu .menu-item.active, div.summary-content .details-section-menu .menu-item:hover {
+    div.summary-content .details-section-menu .menu-item:hover {
+      color: #FAB617;
+      opacity: 1; }
+    div.summary-content .details-section-menu .menu-item.active {
       color: #FAB617;
       border-bottom: 3px solid #FAB617;
       opacity: 1;
@@ -1217,7 +1224,7 @@ div.pager-container {
     padding-right: 1rem; } }
 
 .table table.game-list tr .game-name {
-  border-width: 1px; }
+  border: 1px solid #3E5278; }
 
 .text-block {
   font-weight: normal;
