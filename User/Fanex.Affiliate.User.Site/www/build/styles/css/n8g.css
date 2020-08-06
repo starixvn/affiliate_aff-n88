@@ -120,6 +120,12 @@
 
 #mainBanner {
   margin-left: -200px; }
+  @media only screen and (max-width: 1366px) {
+    #mainBanner {
+      margin-left: -100px; } }
+  @media only screen and (max-width: 1199px) {
+    #mainBanner {
+      margin-left: 0; } }
 
 .banner-center .carousel-control {
   display: none; }
@@ -142,7 +148,7 @@
   z-index: 10; }
 
 .banner-text {
-  margin: -37px 0 0 0;
+  margin: 0;
   left: 200px;
   z-index: 10;
   max-width: 30%;
@@ -269,24 +275,29 @@
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: none; }
 
-.banner-product.banner-product-sport .text-red {
-  left: 6rem;
-  font-size: 3.2rem;
-  line-height: inherit; }
-  @media only screen and (max-width: 1400px) {
-    .banner-product.banner-product-sport .text-red {
-      font-size: 2.6rem; } }
-  @media only screen and (max-width: 991px) {
-    .banner-product.banner-product-sport .text-red {
-      left: 3rem;
-      font-size: 2.2rem; } }
-  @media only screen and (max-width: 768px) {
-    .banner-product.banner-product-sport .text-red {
-      left: 1rem;
-      font-size: 1.8rem; } }
+.banner-product.banner-product-sport {
+  background-image: url("../Images/apply/n8g/bg-sports_affiliate.webp");
+  max-width: 100%; }
+  .banner-product.banner-product-sport .text-red {
+    left: 6rem;
+    font-size: 3.2rem;
+    line-height: inherit; }
+    @media only screen and (max-width: 1400px) {
+      .banner-product.banner-product-sport .text-red {
+        font-size: 2.6rem; } }
+    @media only screen and (max-width: 991px) {
+      .banner-product.banner-product-sport .text-red {
+        left: 3rem;
+        font-size: 2.2rem; } }
+    @media only screen and (max-width: 768px) {
+      .banner-product.banner-product-sport .text-red {
+        left: 1rem;
+        font-size: 1.8rem; } }
 
 .banner-product.banner-product-casino {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp");
+  max-width: 100%; }
   .banner-product.banner-product-casino .text-red {
     font-size: 3.2rem;
     line-height: inherit; }
@@ -314,6 +325,14 @@ select.form-control {
   color: #BAC2D2;
   height: 30px;
   border-radius: 2px; }
+  select.form-control:focus {
+    box-shadow: none;
+    border-color: #3391F6; }
+  select.form-control option {
+    background: #2A4370; }
+    select.form-control option:hover {
+      background: #1856C1;
+      color: #ffffff; }
 
 .btn-signup {
   background: #FAB617;
@@ -581,11 +600,16 @@ select.form-control {
     position: relative;
     font-weight: bold; }
     .content-menu .menu .menu-item + .submenu-container {
-      background-color: #ffffff; }
+      background-color: #2A4370; }
       .content-menu .menu .menu-item + .submenu-container li {
         border: 0; }
         .content-menu .menu .menu-item + .submenu-container li a {
-          color: #333333; }
+          color: #ffffff;
+          padding: 9px 10px;
+          font-size: 14px;
+          line-height: 16px; }
+          .content-menu .menu .menu-item + .submenu-container li a:hover {
+            background: #1856C1; }
           .content-menu .menu .menu-item + .submenu-container li a:before {
             display: none; }
     .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
@@ -597,49 +621,53 @@ select.form-control {
 div.summary-content {
   padding: 30px 0 0 0;
   border: 0; }
-  div.summary-content .dashboard-section .img-icon {
+  div.summary-content .dashboard-section {
     display: flex;
-    align-items: center;
-    height: 70px; }
-  div.summary-content .dashboard-section span.my-account {
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 33px;
-    display: block;
-    margin-bottom: 13px;
-    color: #ffffff; }
-  div.summary-content .dashboard-section .info-panel {
-    padding: 5px 0;
-    height: 70px;
-    border: 0;
-    position: relative; }
-    div.summary-content .dashboard-section .info-panel:before {
-      position: absolute;
-      top: 10px;
-      left: 0;
-      content: '';
-      width: 1px;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.4);
-      opacity: 0.5; }
-    div.summary-content .dashboard-section .info-panel .info-panel-title {
+    justify-content: space-between;
+    max-width: 1348px; }
+    div.summary-content .dashboard-section .img-icon {
+      display: flex;
+      align-items: center;
+      height: 70px; }
+    div.summary-content .dashboard-section span.my-account {
       font-weight: 500;
-      font-size: 15px;
-      line-height: 18px; }
-    div.summary-content .dashboard-section .info-panel .info-panel-content {
-      font-weight: bold;
-      font-size: 20px;
-      line-height: 23px; }
-  div.summary-content .dashboard-section .group {
-    border-radius: 8px; }
-  div.summary-content .dashboard-section .group-one {
-    background-color: #017792; }
-  div.summary-content .dashboard-section .group-two {
-    background-color: #0D50B5; }
-  div.summary-content .dashboard-section .group-three {
-    background-color: #C78F1F; }
-  div.summary-content .dashboard-section .group-four {
-    background-color: #259176; }
+      font-size: 28px;
+      line-height: 33px;
+      display: block;
+      margin-bottom: 13px;
+      color: #ffffff; }
+    div.summary-content .dashboard-section .info-panel {
+      padding: 5px 0;
+      height: 70px;
+      border: 0;
+      position: relative; }
+      div.summary-content .dashboard-section .info-panel:before {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        content: '';
+        width: 1px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.4);
+        opacity: 0.5; }
+      div.summary-content .dashboard-section .info-panel .info-panel-title {
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 18px; }
+      div.summary-content .dashboard-section .info-panel .info-panel-content {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 23px; }
+    div.summary-content .dashboard-section .group {
+      border-radius: 8px; }
+    div.summary-content .dashboard-section .group-one {
+      background-color: #017792; }
+    div.summary-content .dashboard-section .group-two {
+      background-color: #0D50B5; }
+    div.summary-content .dashboard-section .group-three {
+      background-color: #C78F1F; }
+    div.summary-content .dashboard-section .group-four {
+      background-color: #259176; }
   div.summary-content .details-section {
     padding-top: 29px; }
   div.summary-content .details-section-menu .menu {
@@ -666,6 +694,9 @@ div.summary-content {
 
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
+  @media only screen and (max-width: 991px) {
+    .main.after-login .main-content > .container-fluid {
+      padding: 0 10px; } }
 
 .main-content #mainPanel .page-title {
   margin-left: 0;
@@ -762,7 +793,8 @@ div.summary-content {
   appearance: none;
   border: 0;
   background: none;
-  line-height: 20px; }
+  line-height: 20px;
+  color: #2990FF; }
 
 div.custom-panel {
   background-color: transparent;
@@ -852,6 +884,10 @@ div.pager-container {
 @media only screen and (max-width: 1500px) {
   .banner-text {
     margin: 0; }
+    .banner-text h2 {
+      font-size: 40px; }
+    .banner-text h5 {
+      font-size: 24px; }
   .card .card-content .card-title {
     padding-left: 50px; }
     .card .card-content .card-title .text:before {
@@ -870,7 +906,7 @@ div.pager-container {
         left: -490px;
         top: -10px; } }
 
-@media only screen and (max-width: 1368px) {
+@media only screen and (max-width: 1366px) {
   .news {
     width: calc(100% + 200px);
     margin-left: -100px; }
@@ -1031,7 +1067,10 @@ div.pager-container {
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
-    margin-top: 0px; } }
+    margin-top: 10px; }
+  .user-login.login-after {
+    margin-bottom: 10px;
+    margin-top: 5px; } }
 
 @media only screen and (max-width: 767px) {
   .header-top .logo {
