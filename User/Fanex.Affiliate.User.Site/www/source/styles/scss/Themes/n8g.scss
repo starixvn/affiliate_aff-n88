@@ -1140,7 +1140,7 @@ div.summary-content {
         grid-template-columns: 20rem 1fr;
 
         @media screen and (max-width: 480px) {
-            grid-template-columns: 1fr;
+            grid-template-columns: 15rem 1fr;
         }
 
         &:before {
@@ -1165,8 +1165,17 @@ div.summary-content {
     #websiteInfo .form-group {
         grid-template-columns: 16rem 30rem 1fr;
 
+        @media screen and (max-width: 480px) {
+            display: block !important;
+        }
+
         .col-sm-4 {
             width: 100%;
+
+            @media screen and (max-width: 480px) {
+                float: left;
+                width: 80%;
+            }
         }
     }
 
@@ -1182,6 +1191,7 @@ div.summary-content {
 }
 
 
+    color: $text-color;
 
 .main.after-login {
     .main-content {
