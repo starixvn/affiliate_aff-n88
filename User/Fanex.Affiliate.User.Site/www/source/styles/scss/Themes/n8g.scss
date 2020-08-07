@@ -69,31 +69,50 @@ body {
     background: -o-linear-gradient(left, #11203B 0%, #1E347E 51.56%, #11203B 100%);
     background: linear-gradient(90deg, #11203B 0%, #1E347E 51.56%, #11203B 100%);
 
-    .menu .menu-item {
-        color: $nav-color;
-        padding: 0 11px;
+    .navbar-collapse {
+        overflow: hidden !important;
+    }
 
-        &:hover {
-            color: #FAB617;
+    .menu {
+        li {
+            &:first-child {
+                .menu-item {
+                    &.active {
+                        &:after {
+                            width: calc(100% + 10px);
+                            margin-left: -10px;
+                        }
+                    }
+                }
+            }
         }
 
-        &.active {
-            position: relative;
-            z-index: 1;
-            color: $nav-color!important;
+        .menu-item {
+            color: $nav-color;
+            padding: 0 11px;
 
-            &:after {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                content: '';
-                top: 0;
-                left: 0;
-                background: $nav-bg-color-active;
-                z-index: -1;
-                -webkit-transform: skewX(-9deg);
-                -ms-transform: skewX(-9deg);
-                transform: skewX(-9deg);
+            &:hover {
+                color: #FAB617;
+            }
+
+            &.active {
+                position: relative;
+                z-index: 1;
+                color: $nav-color !important;
+
+                &:after {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    content: '';
+                    top: 0;
+                    left: 0;
+                    background: $nav-bg-color-active;
+                    z-index: -1;
+                    -webkit-transform: skewX(-9deg);
+                    -ms-transform: skewX(-9deg);
+                    transform: skewX(-9deg);
+                }
             }
         }
     }
@@ -112,11 +131,16 @@ body {
         border-radius: 2px;
 
         &:focus {
-            border: 1px solid $user-login-control-border-color;
+            color: $text-color-white;
+            border: 1px solid #3391F6;
         }
     }
 }
-
+.form-control:focus {
+    color: $text-color-white;
+    border: 1px solid #3391F6 !important;
+    box-shadow: none!important;
+}
 .main .page-container {
     position: relative;
 
@@ -490,6 +514,7 @@ body {
 .form-control {
     border: 1px solid $form-control-border-color;
 }
+
 
 select.form-control {
     background-color: transparent;
@@ -2093,11 +2118,14 @@ div.custom-panel {
     .text-content {
         transform: rotate(0);
 
-
+        p {
+            line-height: inherit;
+        }
 
         .text-big-yellow {
             font-size: 80px;
             line-height: 96px;
+            margin-bottom: 0;
         }
     }
 }

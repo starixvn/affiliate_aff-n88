@@ -47,6 +47,11 @@
   background: -webkit-gradient(linear, left top, right top, from(#11203B), color-stop(51.56%, #1E347E), to(#11203B));
   background: -o-linear-gradient(left, #11203B 0%, #1E347E 51.56%, #11203B 100%);
   background: linear-gradient(90deg, #11203B 0%, #1E347E 51.56%, #11203B 100%); }
+  .navbar .navbar-collapse {
+    overflow: hidden !important; }
+  .navbar .menu li:first-child .menu-item.active:after {
+    width: calc(100% + 10px);
+    margin-left: -10px; }
   .navbar .menu .menu-item {
     color: #FFFFFF;
     padding: 0 11px; }
@@ -80,7 +85,13 @@
     width: 110px;
     border-radius: 2px; }
     .user-login .text-field:focus {
-      border: 1px solid #435068; }
+      color: #ffffff;
+      border: 1px solid #3391F6; }
+
+.form-control:focus {
+  color: #ffffff;
+  border: 1px solid #3391F6 !important;
+  box-shadow: none !important; }
 
 .main .page-container {
   position: relative; }
@@ -1330,9 +1341,12 @@ div.custom-panel {
   margin-bottom: 36px; }
   .banner-commission-structure .text-content {
     transform: rotate(0); }
+    .banner-commission-structure .text-content p {
+      line-height: inherit; }
     .banner-commission-structure .text-content .text-big-yellow {
       font-size: 80px;
-      line-height: 96px; }
+      line-height: 96px;
+      margin-bottom: 0; }
 
 @media only screen and (max-width: 1199px) {
   .page-container .content {
