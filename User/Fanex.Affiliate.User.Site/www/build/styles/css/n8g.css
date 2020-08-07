@@ -254,6 +254,17 @@
   .info-group #statementPager {
     padding-bottom: 1.6rem; }
 
+.page-container .content div p.text-bold.text-uppercase {
+  color: #FAB617;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  background-position: left 0px top 3px;
+  background-repeat: no-repeat;
+  background-image: url("../Images/apply/n8g/icon-arrow.svg");
+  padding: 0 0 0 31px;
+  margin-bottom: 10px; }
+
 #account-overview-content .info-group .title {
   padding: 0;
   font-weight: 500;
@@ -851,19 +862,19 @@ div.custom-panel {
   color: #ffffff;
   outline: none; }
 
-div.pager-container {
+.page-container .pager-container {
   background-color: transparent;
   border: 0; }
-  div.pager-container select.pagesize-select {
+  .page-container .pager-container .pagesize-select {
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid #000000;
     color: #ffffff;
     height: 30px;
     border-radius: 2px;
     outline: none; }
-  div.pager-container .icon {
+  .page-container .pager-container .icon {
     color: #ffffff; }
-  div.pager-container .disable {
+  .page-container .pager-container .disable {
     color: #737e92; }
 
 #account-overview-content .table table, #paymentList .table table, .report-container .table table, #statementDataList .table table {
@@ -948,9 +959,6 @@ div.pager-container {
     background: #0B71DF;
     color: #ffffff;
     opacity: 1; }
-
-#mobileLogin {
-  display: block !important; }
 
 .login-dialog .modal-content {
   background-color: #10192F;
@@ -1097,6 +1105,11 @@ div.pager-container {
     line-height: 19px;
     background-size: 20px auto;
     padding: 4px 0 4px 25px; }
+  .page-container .content div p.text-bold.text-uppercase {
+    font-size: 16px;
+    line-height: 19px;
+    background-size: 20px auto;
+    padding: 4px 0 4px 25px; }
   .main .page-container:before {
     height: 3rem; }
   .carousel.slide .carousel-inner {
@@ -1225,7 +1238,37 @@ div.pager-container {
     background-position: left -30px center;
     margin-bottom: 10px; }
     .page-container .content .banner-faqs p, .webp .banner-terms-condition p {
-      font-size: 20px !important; } }
+      font-size: 20px !important; }
+  .login-dialog .modal-content .login-side {
+    border-left: 0;
+    margin-top: 20px; }
+  .login-dialog .modal-content .modal-banner {
+    padding: 28px 18px 28px;
+    margin: 0; }
+    .login-dialog .modal-content .modal-banner img {
+      width: 175px; }
+    .login-dialog .modal-content .modal-banner .logo-text {
+      display: none; }
+  .login-dialog .modal-content .modal-main-content .modal-body {
+    padding: 15px 14px; }
+    .login-dialog .modal-content .modal-main-content .modal-body .form-group {
+      margin-bottom: 10px; }
+      .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
+        height: 30px;
+        line-height: 30px; }
+    .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile {
+      margin-top: -5px;
+      font-weight: bold;
+      font-size: 16px;
+      height: 32px;
+      line-height: 32px;
+      background-color: #0B71DF; }
+    .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
+      font-size: 14px;
+      color: #E9262A;
+      text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.04em;
+      margin-top: 7px; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {

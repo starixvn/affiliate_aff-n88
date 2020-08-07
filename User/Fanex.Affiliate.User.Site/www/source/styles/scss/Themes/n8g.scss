@@ -356,6 +356,24 @@ body {
         padding-bottom: 1.6rem;
     }
 }
+.page-container .content {
+    div {
+        p.text-bold.text-uppercase {
+            color: $group-title-color;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 29px;
+            background-position: left 0px top 3px;
+            background-repeat: no-repeat;
+            background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
+            padding: 0 0 0 31px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+ 
+
 //title in my account
 #account-overview-content {
 
@@ -1278,28 +1296,30 @@ div.custom-panel {
     color: #ffffff;
     outline: none;
 }
+.page-container {
+    .pager-container {
+        background-color: transparent;
+        border: 0;
 
-div.pager-container {
-    background-color: transparent;
-    border: 0;
+        .pagesize-select {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #000000;
+            color: #ffffff;
+            height: 30px;
+            border-radius: 2px;
+            outline: none;
+        }
 
-    select.pagesize-select {
-        background: rgba(0, 0, 0, 0.4);
-        border: 1px solid #000000;
-        color: #ffffff;
-        height: 30px;
-        border-radius: 2px;
-        outline: none;
-    }
+        .icon {
+            color: #ffffff;
+        }
 
-    .icon {
-        color: #ffffff;
-    }
-
-    .disable {
-        color: #737e92;
+        .disable {
+            color: #737e92;
+        }
     }
 }
+
 
 //table my account
 #account-overview-content, #paymentList, .report-container, #statementDataList {
@@ -1449,9 +1469,7 @@ div.pager-container {
     }
 }
 //modal popup
-#mobileLogin{
-    display: block!important;
-}
+
 .login-dialog {
     .modal-content {
         background-color: $modal-bg;
@@ -1690,6 +1708,17 @@ div.pager-container {
             padding: 4px 0 4px 25px;
         }
     }
+    .page-container .content {
+        div {
+            p.text-bold.text-uppercase {
+                font-size: 16px;
+                line-height: 19px;
+                background-size: 20px auto;
+                padding: 4px 0 4px 25px;
+            }
+        }
+    }
+
 
     .main .page-container:before {
         height: 3rem;
@@ -1906,17 +1935,15 @@ div.pager-container {
 
     .login-dialog {
         .modal-content {
-            background-color: $modal-bg;
-            border: 2px solid $modal-border-color;
-            padding: 0;
-            border-radius: 0;
+
 
             .login-side {
-                border-left: 2px solid $modal-border-color-right;
+                border-left: 0;
+                margin-top: 20px;
             }
 
             .modal-banner {
-                padding: 40px 18px 44px;
+                padding: 28px 18px 28px;
                 margin: 0;
 
                 img {
@@ -1924,57 +1951,19 @@ div.pager-container {
                 }
 
                 .logo-text {
-                    font-weight: bold;
-                    font-size: 24px;
-                    letter-spacing: 0.04em;
-                    margin: 0 0 0 11px;
-                    vertical-align: middle;
+                    display: none;
                 }
             }
 
             .modal-main-content {
-                margin-top: 0;
-                background-color: transparent;
 
-                .modal-header {
-                    background-color: $modal-bg-title;
-                    border-radius: 0;
-                    border: 0;
-
-                    modal-title {
-                        font-weight: bold;
-                        font-size: 24px;
-                    }
-                }
-
+                
                 .modal-body {
-                    padding: 20px 18px;
-                    color: $modal-color;
+                    padding: 15px 14px; 
 
-                    .title-left {
-                        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
-                        font-weight: bold;
-                        font-size: 16px;
-                        margin: 10px 0 11px 0;
-                        color: $modal-color;
-                    }
-
-                    p {
-                        font-size: 14px;
-                        line-height: 17px;
-                        letter-spacing: 0.04em;
-                        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
-                    }
-
-                    .btn-signup {
-                        color: $modal-color-btn;
-                        margin-top: 12px;
-                        height: 32px;
-                        line-height: 32px;
-                    }
+                   
 
                     .title-right {
-                        @extend .title-left
                     }
 
                     .form-group {
