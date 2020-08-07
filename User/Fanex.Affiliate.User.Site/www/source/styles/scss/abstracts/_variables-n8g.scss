@@ -45,19 +45,19 @@ $banner-color-text: #ffffff;
 $banner-bg-btn: #3391F6;
 $banner-bg-btn-bf: #FAB617;
 
-$button-signup-bg-color: #FAB617;
-$button-signup-color: #333333;
-$button-signup-bg-color-hover: darken($button-signup-bg-color, 5%);
+$button-signup-bg-color: #0B71DF;
+$button-signup-color: #ffffff;
+$button-signup-bg-color-hover: rgba(11,113,223,0.5);
 $button-signup-border-color: #fff;
 
-$button-login-bg-color: #3391F6;
-$button-login-color: #fff;
-$button-login-bg-color-hover: #3391F6;
+$button-login-bg-color: #FAB617;
+$button-login-color: #333333;
+$button-login-bg-color-hover: rgba(250,182,23,0.5);
 $button-login-border-color: #fff;
 
 $button-submit-bg-color: #0B71DF;
 $button-submit-color: #fff;
-$button-submit-bg-color-hover: darken($button-submit-bg-color, 5%);
+$button-submit-bg-color-hover: rgba(11,113,223,0.5);
 $button-submit-border-color: #fff;
 
 $page-title-color: #ffffff;

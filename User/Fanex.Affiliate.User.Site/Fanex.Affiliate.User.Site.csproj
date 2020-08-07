@@ -845,6 +845,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.jpg" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Terms_conditions_banner.png" />
@@ -1292,6 +1293,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-Commission-Structure_Banner.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

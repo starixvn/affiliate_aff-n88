@@ -8,6 +8,10 @@
     body a:hover {
       color: #0b71df; }
 
+.btn.focus, .btn:focus, .btn:hover {
+  color: #ffffff;
+  outline: none; }
+
 .news {
   background: #152849; }
 
@@ -229,7 +233,7 @@
   .page-title .text {
     color: #ffffff;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 2.8rem;
     line-height: 47px;
     padding: 0; }
     .page-title .text:after {
@@ -367,44 +371,58 @@ select.form-control {
       color: #ffffff; }
 
 .btn-signup {
-  background: #FAB617;
-  color: #333333;
+  background: #0B71DF;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 700;
   padding: 1px 15px 0 15px; }
   .btn-signup:hover, .btn-signup:focus {
-    background: #FAB617;
-    color: #333333 !important; }
+    background: rgba(11, 113, 223, 0.5);
+    color: #ffffff !important; }
   .btn-signup .icon {
-    color: #333333;
+    color: #ffffff;
     margin-right: 1px;
     font-size: 12px;
     top: 0px; }
 
-.btn-login, .btn-link, .btn-login-mobile {
-  background: #3391F6;
-  color: #fff;
+.btn-login {
+  background: #FAB617;
+  color: #333333;
   font-size: 14px;
   padding: 1px 20px 0 19px; }
-  .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
-    color: #fff;
-    background: #3391F6; }
-  .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
-    color: #fff; }
+  .btn-login:hover, .btn-login:focus {
+    color: #333333;
+    background: rgba(250, 182, 23, 0.5); }
+  .btn-login .icon {
+    color: #333333; }
+
+.btn-link, .btn-login-mobile {
+  background: #FAB617;
+  color: #333333;
+  font-size: 14px;
+  padding: 1px 20px 0 19px; }
+  .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
+    color: #333333;
+    background: rgba(250, 182, 23, 0.5); }
+  .btn-link .icon, .btn-login-mobile .icon {
+    color: #333333; }
 
 .content .signup-block .btn-link {
-  background-color: #FAB617;
-  color: #333333; }
+  background-color: #0B71DF;
+  color: #ffffff; }
   .content .signup-block .btn-link:hover {
-    background-color: #FAB617;
-    color: #333333; }
+    background-color: #0B71DF;
+    color: #ffffff; }
 
 .btn-submit {
   background-color: #0B71DF;
   color: #fff;
   font-weight: 500;
   font-size: 14px;
-  padding: 0 19px; }
+  padding: 0 19px;
+  line-height: 25px; }
+  .btn-submit:hover, .btn-submit:focus {
+    background-color: rgba(11, 113, 223, 0.5); }
   .btn-submit .icon {
     color: #fff; }
 
@@ -791,6 +809,8 @@ div.summary-content {
 .account-information #btnCancel, .account-information #websiteInfo .btn-submit {
   background-color: #FAB617;
   color: #333333; }
+  .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover {
+    background-color: rgba(250, 182, 23, 0.5); }
 
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
@@ -899,10 +919,6 @@ div.summary-content {
 div.custom-panel {
   background-color: transparent;
   border: 0; }
-
-.btn.focus, .btn:focus, .btn:hover {
-  color: #ffffff;
-  outline: none; }
 
 .page-container .pager-container {
   background-color: transparent;
@@ -1086,6 +1102,9 @@ div.custom-panel {
         text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
         letter-spacing: 0.04em;
         margin-top: 7px; }
+
+.table-medium {
+  width: 100%; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1413,8 +1432,6 @@ div.custom-panel {
     border-color: #435068;
     border-top: 0;
     border-bottom: 0; }
-  .table-medium {
-    width: 100%; }
   .date-wrapper {
     margin-bottom: 5px; }
   .form-inline {
@@ -1455,17 +1472,18 @@ div.custom-panel {
       line-height: 24px;
       letter-spacing: 0.02em; }
 
-.banner-commission-structure {
+.webp .banner-commission-structure {
   width: 100%;
   max-width: 100%;
+  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.webp");
   background-size: cover;
   padding: 32px 20px 32px 70px;
   margin-bottom: 36px; }
-  .banner-commission-structure .text-content {
+  .webp .banner-commission-structure .text-content {
     transform: rotate(0); }
-    .banner-commission-structure .text-content p {
+    .webp .banner-commission-structure .text-content p {
       line-height: inherit; }
-    .banner-commission-structure .text-content .text-big-yellow {
+    .webp .banner-commission-structure .text-content .text-big-yellow {
       font-size: 80px;
       line-height: 96px;
       margin-bottom: 0; }
