@@ -936,6 +936,10 @@ div.custom-panel {
     background-color: #08142C; }
   #account-overview-content .table table tbody tr:hover, #paymentList .table table tbody tr:hover, .report-container .table table tbody tr:hover, #statementDataList .table table tbody tr:hover {
     background: #052561 !important; }
+  #account-overview-content .table table tbody tr.total, #paymentList .table table tbody tr.total, .report-container .table table tbody tr.total, #statementDataList .table table tbody tr.total {
+    background-color: #15366E; }
+    #account-overview-content .table table tbody tr.total td, #paymentList .table table tbody tr.total td, .report-container .table table tbody tr.total td, #statementDataList .table table tbody tr.total td {
+      color: #ffffff; }
   #account-overview-content .table table tbody tr .btn.btn-transparent :hover, #paymentList .table table tbody tr .btn.btn-transparent :hover, .report-container .table table tbody tr .btn.btn-transparent :hover, #statementDataList .table table tbody tr .btn.btn-transparent :hover {
     color: #ffffff; }
   #account-overview-content .table table tbody tr .btn.btn-transparent:hover, #account-overview-content .table table tbody tr .btn.btn-transparent:focus, #paymentList .table table tbody tr .btn.btn-transparent:hover, #paymentList .table table tbody tr .btn.btn-transparent:focus, .report-container .table table tbody tr .btn.btn-transparent:hover, .report-container .table table tbody tr .btn.btn-transparent:focus, #statementDataList .table table tbody tr .btn.btn-transparent:hover, #statementDataList .table table tbody tr .btn.btn-transparent:focus {
@@ -947,6 +951,9 @@ div.custom-panel {
     border: 0; }
     #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
       border-right: 1px solid #435068; }
+
+.table tbody tr.sumrow > td {
+  background-color: transparent !important; }
 
 .page-container .content .banner-faqs {
   width: 100%;
@@ -1342,7 +1349,47 @@ div.custom-panel {
     margin: 0 auto; }
   div.summary-content .dashboard-section span.my-account {
     font-size: 20px;
-    text-align: left; } }
+    text-align: left; }
+  .account-overview .col-md-4.col-lg-3 {
+    padding-right: 0 !important; }
+  .account-overview .col-md-8.col-lg-9 .title {
+    padding-left: 0 !important; }
+  .account-overview .col-md-8.col-lg-9 #linkForm {
+    padding: 0; }
+  .account-overview .col-md-8.col-lg-9 #textLinkList {
+    padding: 0; }
+    .account-overview .col-md-8.col-lg-9 #textLinkList .control-label {
+      width: 92px;
+      text-align: left;
+      margin: 0; }
+  .account-overview .search-container .form-group, .account-overview .info-group .form-group {
+    display: flex;
+    flex-wrap: nowrap; }
+    .account-overview .search-container .form-group .control-label, .account-overview .info-group .form-group .control-label {
+      width: 84px; }
+    .account-overview .search-container .form-group .col-sm-9, .account-overview .info-group .form-group .col-sm-9 {
+      flex: 1; }
+    .account-overview .search-container .form-group .col-sm-offset-3, .account-overview .info-group .form-group .col-sm-offset-3 {
+      padding-left: 99px; }
+  .summary-content .details-section-content .table table tr {
+    padding: 0; }
+    .summary-content .details-section-content .table table tr td:not(:last-child), .summary-content .details-section-content .table table tr th:not(:last-child) {
+      border-right: 1px solid #435068 !important; }
+  .summary-content .details-section-content .table table thead tr.overview-table-header {
+    background: #0F1C33 !important; }
+    .summary-content .details-section-content .table table thead tr.overview-table-header th, .summary-content .details-section-content .table table thead tr.overview-table-header td {
+      font-size: 14px;
+      line-height: 16px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+  .summary-content .details-section-content .table table tr:nth-child(even) {
+    background-color: #15366E !important; } }
+
+@media only screen and (max-width: 640px) {
+  div.summary-content .dashboard-section .info-panel:before {
+    display: none; } }
 
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {

@@ -1415,6 +1415,14 @@ div.custom-panel {
                         background: #052561 !important;
                     }
 
+                    &.total {
+                       
+                        background-color: #15366E;
+                        td {
+                            color: $table-color;
+                        }
+                    }
+
                     .btn.btn-transparent :hover {
                         color: #ffffff;
                     }
@@ -1443,6 +1451,10 @@ div.custom-panel {
             }
         }
     }
+}
+//table RevenueReport
+.table tbody tr.sumrow > td{
+    background-color: transparent!important;
 }
 //faqs
 .page-container .content .banner-faqs {
@@ -2104,14 +2116,111 @@ div.custom-panel {
         }
     }
 
+    .account-overview {
+        .col-md-4.col-lg-3 {
+            padding-right: 0 !important;
+        }
+
+        .col-md-8.col-lg-9 {
+
+            .title {
+                padding-left: 0 !important;
+            }
+
+            #linkForm {
+                padding: 0;
+            }
+
+            #textLinkList {
+                padding: 0;
+
+                .control-label {
+                    width: 92px;
+                    text-align: left;
+                    margin: 0;
+                }
+            }
+        }
+
+        .search-container, .info-group {
+            .form-group {
+                display: flex;
+                flex-wrap: nowrap;
+
+                .control-label {
+                    width: 84px;
+                }
+
+                .col-sm-9 {
+                    flex: 1;
+                }
+
+                .col-sm-offset-3 {
+                    padding-left: 99px;
+                }
+            }
+        }
+    }
+
+    .summary-content {
+        .details-section-content {
+            .table {
+                table {
+                    &.has-total {
+                        tbody {
+                            //max-height: 200px;
+                        }
+                    }
+
+                    tr {
+                        padding: 0;
+
+                        td, th {
+                            &:not(:last-child) {
+                                border-right: 1px solid #435068 !important;
+                            }
+                        }
+                    }
+
+                    thead {
+                        tr {
+                            &.overview-table-header {
+                                background: #0F1C33 !important;
+
+                                th, td {
+                                    font-size: 14px;
+                                    line-height: 16px;
+                                    min-height: 60px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+                            }
+                        }
+                    }
+
+                    tr:nth-child(even) {
+                        background-color: $table-game-name-bg !important;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
+@media only screen and (max-width: 640px) {
+    div.summary-content .dashboard-section .info-panel:before {
+        display: none;
+    }
+}
 @media only screen and (max-width: 375px) {
     .news .item-wrapper {
         padding-left: 10px;
         padding-right: 10px;
     }
 }
+
 
 @media only screen and (max-width: 374px) {
     .banner-text {
