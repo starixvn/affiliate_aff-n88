@@ -200,7 +200,7 @@ body {
         .marquee-container {
             .marquee-content {
                 color: #fff;
-                font-size: 14px;
+                font-size: 1.4rem;
                 line-height: 30px;
 
                 a {
@@ -339,7 +339,7 @@ body {
 }
 
 .info-group {
-    margin-bottom: 4.2rem;
+    margin-bottom: 3.5rem;
 
 
     .title {
@@ -351,7 +351,7 @@ body {
         background-repeat: no-repeat;
         background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
         padding-left: 3.1rem;
-        margin-bottom: 10px;
+        margin-bottom: 2px;
     }
 
     ul {
@@ -462,6 +462,7 @@ body {
 .banner-product.banner-product-sport {
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-sports_affiliate.webp");
     max-width: 100%;
+    margin-bottom: 41px;
     .text-red { 
         left: 6rem;
         font-size: 3.2rem;
@@ -484,7 +485,7 @@ body {
 }
 
 .banner-product.banner-product-casino {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-casino_affiliate.webp");
     max-width: 100%;
 
@@ -539,7 +540,7 @@ select.form-control {
 .btn-signup {
     background: $button-signup-bg-color;
     color: $button-signup-color;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 700;
     padding: 1px 15px 0 15px;
 
@@ -551,14 +552,14 @@ select.form-control {
     .icon {
         color: $button-signup-color;
         margin-right: 1px;
-        font-size: 12px;
+        font-size: 1.2rem;
         top: 0px;
     }
 }
 .btn-login {
     background: $button-login-bg-color;
     color: $button-login-color;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding: 1px 20px 0 19px;
 
     &:hover, &:focus {
@@ -573,7 +574,7 @@ select.form-control {
 .btn-link, .btn-login-mobile {
     background: $button-login-bg-color;
     color: $button-login-color;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding: 1px 20px 0 19px;
 
     &:hover, &:focus {
@@ -591,7 +592,7 @@ select.form-control {
     color: $button-signup-color;
 
     &:hover {
-        background-color: $button-signup-bg-color;
+        background-color: $button-signup-bg-color-hover;
         color: $button-signup-color;
     }
 }
@@ -600,7 +601,7 @@ select.form-control {
     background-color: $button-submit-bg-color;
     color: $button-submit-color;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding: 0 19px;
     line-height: 25px;
 
@@ -636,7 +637,7 @@ select.form-control {
                 background: transparent;
                 margin: 0;
                 text-align: left;
-                font-size: 14px;
+                font-size: 1.4rem;
                 color: $date-picker-color;
                 width: 91px;
                 height: 28px;
@@ -663,7 +664,7 @@ select.form-control {
         background: transparent;
         margin: 0;
         text-align: left;
-        font-size: 14px;
+        font-size: 1.4rem;
         color: $date-picker-color;
         width: 91px;
         height: 28px;
@@ -753,7 +754,7 @@ select.form-control {
 
     .text-content {
         order: 1;
-        font-size: 16px;
+        font-size: 1.6rem;
         line-height: 24px;
         color: $home-card-content-color;
         width: 48%;
@@ -840,7 +841,7 @@ select.form-control {
             background: transparent;
             position: relative;
             z-index: 1;
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 19px;
             font-weight: 700;
             color: $home-card-link-color;
@@ -989,7 +990,7 @@ select.form-control {
                     a {
                         color: $sub-nav-menu-color-sub;
                         padding: 9px 10px;
-                        font-size: 14px;
+                        font-size: 1.4rem;
                         line-height: 16px;
 
                         &:hover {
@@ -1106,7 +1107,7 @@ div.summary-content {
         .menu-item {
             color: $tab-item-color;
             opacity: 0.5;
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 19px;
             padding: 1px 21px 3px;
 
@@ -1227,7 +1228,7 @@ div.summary-content {
 .account-overview {
     .btn-submit {
         font-weight: 500;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 30px;
         padding: 0 19px;
         height: 30px;
@@ -1289,7 +1290,7 @@ div.summary-content {
 
             li {
                 .marketing-text {
-                    font-size: 14px;
+                    font-size: 1.4rem;
                     line-height: 24px;
                     letter-spacing: 0.02em;
                     color: $marketing-text-color;
@@ -1312,7 +1313,7 @@ div.summary-content {
                         box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
                         border-radius: 2px;
                         font-weight: 500;
-                        font-size: 14px;
+                        font-size: 1.4rem;
                         color: $marketing-btn-color;
                         padding: 6px 18px;
                     }
@@ -1335,7 +1336,7 @@ div.summary-content {
                         box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
                         border-radius: 2px;
                         font-weight: 500;
-                        font-size: 14px;
+                        font-size: 1.4rem;
                         color: $marketing-btn-color;
                         padding: 5px 18px;
                     }
@@ -1618,13 +1619,13 @@ div.custom-panel {
                 .title-left {
                     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
                     font-weight: bold;
-                    font-size: 16px;
+                    font-size: 1.6rem;
                     margin: 10px 0 11px 0;
                     color: $modal-color;
                 }
 
                 p {
-                    font-size: 14px;
+                    font-size: 1.4rem;
                     line-height: 17px;
                     letter-spacing: 0.04em;
                     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
@@ -1653,14 +1654,14 @@ div.custom-panel {
                 .btn-login-mobile {
                     margin-top: -5px;
                     font-weight: bold;
-                    font-size: 16px;
+                    font-size: 1.6rem;
                     height: 32px;
                     line-height: 32px;
                     background-color: $modal-bg-btn;
                 }
 
                 .link-login-popup {
-                    font-size: 14px;
+                    font-size: 1.4rem;
                     color: #E9262A;
                     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
                     letter-spacing: 0.04em;
@@ -1813,7 +1814,7 @@ div.custom-panel {
     }
     .info-group {
         .title {
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 19px;
             background-size: 20px auto; 
             padding: 4px 0 4px 25px;
@@ -1821,7 +1822,7 @@ div.custom-panel {
     }
     .page-container .content {
         .text-bold.text-uppercase {
-            font-size: 16px;
+            font-size: 1.6rem;
             line-height: 19px;
             background-size: 20px auto;
             padding: 4px 0 4px 25px;
@@ -1879,7 +1880,7 @@ div.custom-panel {
         }
 
         .nounderline {
-            font-size: 16px;
+            font-size: 1.6rem;
             padding: 3px 26px 1px 22px;
             margin-top: 15px;
             margin-left: 8px;
@@ -1980,19 +1981,19 @@ div.custom-panel {
             margin-bottom: 19px;
 
             .text-1 {
-                font-size: 16px;
+                font-size: 1.6rem;
                 line-height: 19px;
                 margin-top: 9px;
             }
 
             .text-2 {
-                font-size: 14px;
+                font-size: 1.4rem;
                 line-height: 16px;
                 margin-top: 6px;
             }
 
             .text-3 {
-                font-size: 14px;
+                font-size: 1.4rem;
                 line-height: 20px;
                 margin-top: 10px;
             }
@@ -2049,8 +2050,10 @@ div.custom-panel {
             }
         }
     }
+    .banner-product.banner-product-sport, .banner-product.banner-product-casino {
+        margin-bottom: 20px;
+    }
     //modal popup
-
     .login-dialog {
         .modal-content {
 
@@ -2067,17 +2070,15 @@ div.custom-panel {
                 img {
                     width: 175px;
                 }
-
-               
             }
 
             .modal-main-content {
 
-                
-                .modal-body {
-                    padding: 15px 14px; 
 
-                   
+                .modal-body {
+                    padding: 15px 14px;
+
+
 
                     .title-right {
                     }
@@ -2094,14 +2095,14 @@ div.custom-panel {
                     .btn-login-mobile {
                         margin-top: -5px;
                         font-weight: bold;
-                        font-size: 16px;
+                        font-size: 1.6rem;
                         height: 32px;
                         line-height: 32px;
                         background-color: $modal-bg-btn;
                     }
 
                     .link-login-popup {
-                        font-size: 14px;
+                        font-size: 1.4rem;
                         color: #E9262A;
                         text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
                         letter-spacing: 0.04em;
@@ -2244,7 +2245,7 @@ div.custom-panel {
                             background: #0F1C33 !important;
 
                             th, td {
-                                font-size: 14px;
+                                font-size: 1.4rem;
                                 line-height: 16px;
                                 min-height: 60px;
                                 display: flex;
@@ -2305,13 +2306,13 @@ div.custom-panel {
         }
 
         h5 {
-            font-size: 16px;
+            font-size: 1.6rem;
         }
     }
     .user-login.login-after{
         .btn{
             padding: 0 10px;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 25px;
         }
     }
@@ -2333,7 +2334,7 @@ div.custom-panel {
 
         p {
             font-weight: normal;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 24px;
             letter-spacing: 0.02em;
         }
@@ -2346,7 +2347,7 @@ div.custom-panel {
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-Commission-Structure_Banner.webp");
     background-size: cover;
     padding: 32px 20px 32px 70px; 
-    margin-bottom: 36px;
+    margin-bottom: 39px;
 
     .text-content {
         transform: rotate(0);
@@ -2395,7 +2396,7 @@ div.custom-panel {
 //TermAndCondition
 .text-block {
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 24px;
     letter-spacing: 0.02em;
 }
