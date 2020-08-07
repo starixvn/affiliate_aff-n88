@@ -229,7 +229,7 @@
       transform: skewX(-13deg); }
 
 .page-title {
-  margin: 0 0 4.2rem 0; }
+  margin: 0 0 3.3rem 0; }
   .page-title .text {
     color: #ffffff;
     font-weight: bold;
@@ -1168,13 +1168,16 @@ div.custom-panel {
       padding-left: 20px !important;
       padding-right: 20px !important; } }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 992px) {
   .header-top .logo {
-    padding: 1rem; }
-  .navbar .menu .menu-item.active:after {
-    -webkit-transform: skewX(0);
-    -ms-transform: skewX(0);
-    transform: skewX(0); }
+    padding: 1rem;
+    text-align: left; }
+  .navbar .menu .menu-item {
+    padding: 0 16px; }
+    .navbar .menu .menu-item.active:after {
+      -webkit-transform: skewX(0);
+      -ms-transform: skewX(0);
+      transform: skewX(0); }
   .page-title {
     margin-bottom: 16px; }
     .page-title .text {
@@ -1333,8 +1336,6 @@ div.custom-panel {
     margin: 0; }
     .login-dialog .modal-content .modal-banner img {
       width: 175px; }
-    .login-dialog .modal-content .modal-banner .logo-text {
-      display: none; }
   .login-dialog .modal-content .modal-main-content .modal-body {
     padding: 15px 14px; }
     .login-dialog .modal-content .modal-main-content .modal-body .form-group {
@@ -1368,6 +1369,8 @@ div.custom-panel {
     padding: 3.4rem 1rem 2.4rem; }
     .header-top .logo .logo-image {
       width: 222px; }
+  .login-dialog .modal-content .modal-banner .logo-text {
+    display: none; }
   .page-container .content .banner-faqs, .webp .banner-terms-condition {
     height: 120px;
     background-position: left -90px center;
@@ -1463,7 +1466,7 @@ div.custom-panel {
 .page-container {
   width: 100%; }
   .page-container .content {
-    margin-top: 38px;
+    margin-top: 33px;
     padding-left: 0;
     padding-right: 0; }
     .page-container .content p {

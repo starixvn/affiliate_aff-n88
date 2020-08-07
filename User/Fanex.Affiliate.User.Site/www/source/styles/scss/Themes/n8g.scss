@@ -323,7 +323,7 @@ body {
 }
 // Common
 .page-title {
-    margin: 0 0 4.2rem 0;
+    margin: 0 0 3.3rem 0;
 
     .text {
         color: $page-title-color;
@@ -1779,20 +1779,31 @@ div.custom-panel {
         }
     }
 }
-
-@media only screen and (max-width: 991px) {
+ 
+@media only screen and (max-width: 992px) {
     .header-top {
         .logo {
             padding: 1rem;
+            text-align: left;
+        }
+    }
+    .navbar {
+        .menu {
+            .menu-item {
+                padding: 0 16px;
+
+                &.active {
+                    &:after {
+                        -webkit-transform: skewX(0);
+                        -ms-transform: skewX(0);
+                        transform: skewX(0);
+                    }
+                }
+            }
         }
     }
 
-    .navbar .menu .menu-item.active:after {
-        -webkit-transform: skewX(0);
-        -ms-transform: skewX(0);
-        transform: skewX(0);
-    }
-
+    
     .page-title {
         margin-bottom: 16px;
         .text {
@@ -2057,9 +2068,7 @@ div.custom-panel {
                     width: 175px;
                 }
 
-                .logo-text {
-                    display: none;
-                }
+               
             }
 
             .modal-main-content {
@@ -2129,6 +2138,9 @@ div.custom-panel {
             }
         }
     }
+    .login-dialog .modal-content .modal-banner .logo-text{
+        display: none;
+    }
     .page-container .content .banner-faqs, .webp .banner-terms-condition {
         height: 120px;
         background-position: left -90px center;
@@ -2137,7 +2149,7 @@ div.custom-panel {
         justify-content: center;
 
         p {
-            line-height: 24px!important;
+            line-height: 24px !important;
         }
     }
     .account-overview {
@@ -2315,7 +2327,7 @@ div.custom-panel {
     width: 100%;
 
     .content {
-        margin-top: 38px;
+        margin-top: 33px;
         padding-left: 0;
         padding-right: 0;
 
