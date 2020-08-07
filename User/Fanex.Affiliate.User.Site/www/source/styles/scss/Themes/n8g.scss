@@ -1452,9 +1452,22 @@ div.custom-panel {
         }
     }
 }
+//form filter
+.form-inline.form-filter {
+
+    .form-group {
+        label {
+            width: 100px;
+        }
+
+        select, .date-wrapper {
+            flex: 1;
+        }
+    }
+}
 //table RevenueReport
-.table tbody tr.sumrow > td{
-    background-color: transparent!important;
+.table tbody tr.sumrow > td {
+    background-color: transparent !important;
 }
 //faqs
 .page-container .content .banner-faqs {
@@ -2206,7 +2219,20 @@ div.custom-panel {
             }
         }
     }
-
+    .table-responsive {
+        border-color: #435068;
+        border-top: 0; 
+        border-bottom: 0;
+    }
+    .table-medium{
+        width: 100%;
+    }
+    .date-wrapper{
+        margin-bottom: 5px;
+    }
+    .form-inline{
+        margin-bottom: 0;
+    }
 }
 
 @media only screen and (max-width: 640px) {
