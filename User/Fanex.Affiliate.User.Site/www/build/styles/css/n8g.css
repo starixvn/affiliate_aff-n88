@@ -362,7 +362,7 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
     color: #fff;
-    background: #1b84f5; }
+    background: #3391F6; }
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #fff; }
 
@@ -845,7 +845,8 @@ div.custom-panel {
   border: 0; }
 
 .btn.focus, .btn:focus, .btn:hover {
-  color: inherit; }
+  color: #ffffff;
+  outline: none; }
 
 div.pager-container {
   background-color: transparent;
