@@ -390,19 +390,18 @@ body {
         padding-bottom: 1.6rem;
     }
 }
+
+.term-condition-page .info-group .title {
+    background: none;
+    padding-left: 0;
+}
 .page-container .content {
-    div {
-        p.text-bold.text-uppercase {
-            color: $group-title-color;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 29px;
-            background-position: left 0px top 3px;
-            background-repeat: no-repeat;
-            background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
-            padding: 0 0 0 31px;
-            margin-bottom: 10px;
-        }
+    .title-block {
+        color: $group-title-color;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 10px;
     }
 }
 
@@ -586,9 +585,14 @@ select.form-control {
     }
 }
 
-.content .signup-block .btn-link:hover {
-    background-color: $button-login-bg-color;
-    color: $button-login-color;
+.content .signup-block .btn-link {
+    background-color: $button-signup-bg-color;
+    color: $button-signup-color;
+
+    &:hover {
+        background-color: $button-signup-bg-color;
+        color: $button-signup-color;
+    }
 }
 
 .btn-submit {
@@ -1472,13 +1476,13 @@ div.custom-panel {
 
     p {
         font-weight: 500;
-        font-size: 32px;
+        font-size: 3.2rem;
         line-height: 37px;
         letter-spacing: 0.08em;
         text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5);
     }
 }
-.webp {
+.content.term-condition-page {
     .banner-terms-condition {
         width: 100%;
         max-width: 100%;
@@ -1511,9 +1515,6 @@ div.custom-panel {
             font-size: 20px;
             line-height: 23px;
             background: none;
-        }
-
-        &:nth-child(1) {
         }
     }
 }
@@ -1770,13 +1771,11 @@ div.custom-panel {
         }
     }
     .page-container .content {
-        div {
-            p.text-bold.text-uppercase {
-                font-size: 16px;
-                line-height: 19px;
-                background-size: 20px auto;
-                padding: 4px 0 4px 25px;
-            }
+        .text-bold.text-uppercase {
+            font-size: 16px;
+            line-height: 19px;
+            background-size: 20px auto;
+            padding: 4px 0 4px 25px;
         }
     }
 

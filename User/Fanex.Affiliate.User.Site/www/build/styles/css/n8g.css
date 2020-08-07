@@ -269,15 +269,15 @@
   .info-group #statementPager {
     padding-bottom: 1.6rem; }
 
-.page-container .content div p.text-bold.text-uppercase {
+.term-condition-page .info-group .title {
+  background: none;
+  padding-left: 0; }
+
+.page-container .content .title-block {
   color: #FAB617;
   font-weight: bold;
   font-size: 24px;
   line-height: 29px;
-  background-position: left 0px top 3px;
-  background-repeat: no-repeat;
-  background-image: url("../Images/apply/n8g/icon-arrow.svg");
-  padding: 0 0 0 31px;
   margin-bottom: 10px; }
 
 #account-overview-content .info-group .title {
@@ -395,9 +395,12 @@ select.form-control {
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #fff; }
 
-.content .signup-block .btn-link:hover {
-  background-color: #3391F6;
-  color: #fff; }
+.content .signup-block .btn-link {
+  background-color: #FAB617;
+  color: #333333; }
+  .content .signup-block .btn-link:hover {
+    background-color: #FAB617;
+    color: #333333; }
 
 .btn-submit {
   background-color: #0B71DF;
@@ -962,12 +965,12 @@ div.custom-panel {
   color: #ffffff; }
   .page-container .content .banner-faqs p {
     font-weight: 500;
-    font-size: 32px;
+    font-size: 3.2rem;
     line-height: 37px;
     letter-spacing: 0.08em;
     text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5); }
 
-.webp .banner-terms-condition {
+.content.term-condition-page .banner-terms-condition {
   width: 100%;
   max-width: 100%;
   background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp");
@@ -979,7 +982,7 @@ div.custom-panel {
   align-items: center;
   margin-bottom: 40px;
   color: #ffffff; }
-  .webp .banner-terms-condition p {
+  .content.term-condition-page .banner-terms-condition p {
     font-weight: 500;
     font-size: 32px;
     line-height: 37px;
@@ -1147,7 +1150,7 @@ div.custom-panel {
     line-height: 19px;
     background-size: 20px auto;
     padding: 4px 0 4px 25px; }
-  .page-container .content div p.text-bold.text-uppercase {
+  .page-container .content .text-bold.text-uppercase {
     font-size: 16px;
     line-height: 19px;
     background-size: 20px auto;
