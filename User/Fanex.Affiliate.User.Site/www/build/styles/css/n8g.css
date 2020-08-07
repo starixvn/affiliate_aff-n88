@@ -432,6 +432,29 @@ select.form-control {
       color: #DADADA;
       top: 7px; }
 
+.date-wrapper {
+  background: #030C1B;
+  border: 1px solid #435068;
+  border-radius: 2px;
+  padding-right: 10px;
+  max-width: 220px;
+  width: 100%;
+  position: relative; }
+  .date-wrapper .form-control {
+    border: 0;
+    background: transparent;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff;
+    width: 91px;
+    height: 28px; }
+  .date-wrapper .glyphicon {
+    color: #DADADA;
+    top: 7px;
+    position: absolute;
+    right: 5px; }
+
 .table .game-list tr .game-name {
   background-color: #15366E; }
 

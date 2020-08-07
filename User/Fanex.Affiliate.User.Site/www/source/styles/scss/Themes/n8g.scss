@@ -643,6 +643,33 @@ select.form-control {
         }
     }
 }
+.date-wrapper {
+    background: $date-picker-bg;
+    border: 1px solid $date-picker-border;
+    border-radius: 2px;
+    padding-right: 10px;
+    max-width: 220px;
+    width: 100%;
+    position: relative;
+
+    .form-control {
+        border: 0;
+        background: transparent;
+        margin: 0;
+        text-align: left;
+        font-size: 14px;
+        color: $date-picker-color;
+        width: 91px;
+        height: 28px;
+    }
+
+    .glyphicon {
+        color: $date-picker-color-icon;
+        top: 7px;
+        position: absolute;
+        right: 5px;
+    }
+}
 // Product
 .table {
     .game-list tr .game-name {
