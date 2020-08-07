@@ -655,7 +655,8 @@ select.form-control {
 
 div.summary-content {
   padding: 30px 0 0 0;
-  border: 0; }
+  border: 0;
+  overflow: hidden; }
   div.summary-content .dashboard-section {
     display: flex;
     justify-content: space-between;
@@ -763,7 +764,7 @@ div.summary-content {
 
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 1199px) {
     .main.after-login .main-content > .container-fluid {
       padding: 0 10px; } }
 
