@@ -1962,7 +1962,16 @@ div.custom-panel {
             font-size: 20px!important;
         }
     }
-
+    div.summary-content {
+        .dashboard-section {
+            margin-left: -10px;
+            margin-right: - 10px;
+            >*{
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    }
     //modal popup
 
     .login-dialog {
@@ -2041,6 +2050,7 @@ div.custom-panel {
         margin-bottom: 10px;
         margin-top: 5px;
     }
+    
 }
 
 @media only screen and (max-width: 767px) {
@@ -2064,6 +2074,24 @@ div.custom-panel {
             line-height: 24px!important;
         }
     }
+    .account-overview {
+        .summary-content {
+            .dashboard-section {
+                .img-responsive {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+    div.summary-content {
+        .dashboard-section {
+            span.my-account{
+                font-size: 20px;
+                text-align: left;
+            }
+        }
+    }
+
 }
 
 @media only screen and (max-width: 375px) {
