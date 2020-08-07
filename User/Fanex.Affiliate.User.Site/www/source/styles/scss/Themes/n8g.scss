@@ -136,10 +136,7 @@ body {
         }
     }
 }
-.form-control:focus {
-    
 
-}
 .form-group .form-control {
     background-color: $input-bg;
     border: 1px solid $input-border;
@@ -267,20 +264,20 @@ body {
     }
 
     h2 {
-        font-size: 48px;
+        font-size: 4.8rem;
         line-height: 56px;
         margin-bottom: 13px !important;
         font-weight: 900;
     }
 
     h5 {
-        font-size: 28px;
+        font-size: 2.8rem;
         line-height: 33px;
         text-transform: none;
     }
 
     .nounderline {
-        font-size: 24px;
+        font-size: 2.4rem;
         line-height: 28px;
         color: $banner-color-text;
         background: transparent;
@@ -326,7 +323,6 @@ body {
     margin: 0 0 4.2rem 0;
 
     .text {
-        //background-color: $page-title-bg-color;
         color: $page-title-color;
         font-weight: bold;
         font-size: 40px;
@@ -335,8 +331,6 @@ body {
 
         &:after {
             display: none;
-            //border-bottom: 18px solid $bg-main-color;
-            //border-right: 16px solid $bg-main-color;
         }
     }
 }
@@ -348,12 +342,12 @@ body {
     .title {
         color: $group-title-color;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 2.4rem;
         line-height: 29px;
         background-position: left 0px top 3px;
         background-repeat: no-repeat;
         background-image: url("../../../../build/styles/Images/apply/n8g/icon-arrow.svg");
-        padding: 0 0 0 31px;
+        padding-left: 3.1rem;
         margin-bottom: 10px;
     }
 
@@ -362,7 +356,7 @@ body {
 
         li {
             font-weight: normal;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 24px;
             letter-spacing: 0.02em;
         }
@@ -373,7 +367,7 @@ body {
 
         li {
             font-weight: normal;
-            font-size: 14px;
+            font-size: 1.4rem;
             line-height: 24px;
             letter-spacing: 0.02em;
         }
@@ -381,7 +375,7 @@ body {
 
     p {
         font-weight: normal;
-        font-size: 14px;
+        font-size: 1.4rem;
         line-height: 24px;
         letter-spacing: 0.02em;
     }
@@ -399,9 +393,9 @@ body {
     .title-block {
         color: $group-title-color;
         font-weight: bold;
-        font-size: 24px;
+        font-size: 2.4rem;
         line-height: 29px;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
     }
 }
 
@@ -409,16 +403,11 @@ body {
 
 //title in my account
 #account-overview-content {
-
-    #searchForm {
-        //margin-left: -15px;
-    }
-
     .info-group {
         .title {
             padding: 0;
             font-weight: 500;
-            font-size: 20px;
+            font-size: 2rem;
             line-height: 23px;
             background: none;
         }
@@ -428,7 +417,7 @@ body {
 .table table {
     border: 1px solid $table-border-color;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 18px;
 
     tbody {
@@ -517,11 +506,6 @@ body {
 .login-dialog .modal-header {
     background-color: $modal-header-bg-color;
     color: $modal-header-color;
-}
-
-// form-control
-.form-control {
-    border: 1px solid $form-control-border-color;
 }
 
 

@@ -179,16 +179,16 @@
     color: #ffffff;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32); }
   .banner-text h2 {
-    font-size: 48px;
+    font-size: 4.8rem;
     line-height: 56px;
     margin-bottom: 13px !important;
     font-weight: 900; }
   .banner-text h5 {
-    font-size: 28px;
+    font-size: 2.8rem;
     line-height: 33px;
     text-transform: none; }
   .banner-text .nounderline {
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 28px;
     color: #ffffff;
     background: transparent;
@@ -240,30 +240,30 @@
   .info-group .title {
     color: #FAB617;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 29px;
     background-position: left 0px top 3px;
     background-repeat: no-repeat;
     background-image: url("../Images/apply/n8g/icon-arrow.svg");
-    padding: 0 0 0 31px;
+    padding-left: 3.1rem;
     margin-bottom: 10px; }
   .info-group ul {
     padding-left: 2.5rem; }
     .info-group ul li {
       font-weight: normal;
-      font-size: 14px;
+      font-size: 1.4rem;
       line-height: 24px;
       letter-spacing: 0.02em; }
   .info-group ol {
     padding-left: 2.5rem; }
     .info-group ol li {
       font-weight: normal;
-      font-size: 14px;
+      font-size: 1.4rem;
       line-height: 24px;
       letter-spacing: 0.02em; }
   .info-group p {
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 24px;
     letter-spacing: 0.02em; }
   .info-group #statementPager {
@@ -276,21 +276,21 @@
 .page-container .content .title-block {
   color: #FAB617;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 2.4rem;
   line-height: 29px;
-  margin-bottom: 10px; }
+  margin-bottom: 1rem; }
 
 #account-overview-content .info-group .title {
   padding: 0;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 2rem;
   line-height: 23px;
   background: none; }
 
 .table table {
   border: 1px solid #3E5278;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 18px; }
   .table table tbody tr {
     background: rgba(0, 0, 0, 0.2); }
@@ -349,9 +349,6 @@
 .login-dialog .modal-header {
   background-color: #191919;
   color: #fff; }
-
-.form-control {
-  border: 1px solid #adadad; }
 
 select.form-control {
   background-color: transparent;
