@@ -949,13 +949,74 @@ div.pager-container {
     color: #ffffff;
     opacity: 1; }
 
+#mobileLogin {
+  display: block !important; }
+
 .login-dialog .modal-content {
   background-color: #10192F;
   border: 2px solid #FAB617;
   padding: 0;
   border-radius: 0; }
-  .login-dialog .modal-content .modal-main-content .modal-header {
-    background-color: #FAB617; }
+  .login-dialog .modal-content .login-side {
+    border-left: 2px solid #444444; }
+  .login-dialog .modal-content .modal-banner {
+    padding: 40px 18px 44px;
+    margin: 0; }
+    .login-dialog .modal-content .modal-banner img {
+      width: 175px; }
+    .login-dialog .modal-content .modal-banner .logo-text {
+      font-weight: bold;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      margin: 0 0 0 11px;
+      vertical-align: middle; }
+  .login-dialog .modal-content .modal-main-content {
+    margin-top: 0;
+    background-color: transparent; }
+    .login-dialog .modal-content .modal-main-content .modal-header {
+      background-color: #FAB617;
+      border-radius: 0;
+      border: 0; }
+      .login-dialog .modal-content .modal-main-content .modal-header modal-title {
+        font-weight: bold;
+        font-size: 24px; }
+    .login-dialog .modal-content .modal-main-content .modal-body {
+      padding: 20px 18px;
+      color: #ffffff; }
+      .login-dialog .modal-content .modal-main-content .modal-body .title-left, .login-dialog .modal-content .modal-main-content .modal-body .title-right {
+        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+        font-weight: bold;
+        font-size: 16px;
+        margin: 10px 0 11px 0;
+        color: #ffffff; }
+      .login-dialog .modal-content .modal-main-content .modal-body p {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.04em;
+        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5); }
+      .login-dialog .modal-content .modal-main-content .modal-body .btn-signup {
+        color: #333333;
+        margin-top: 12px;
+        height: 32px;
+        line-height: 32px; }
+      .login-dialog .modal-content .modal-main-content .modal-body .form-group {
+        margin-bottom: 10px; }
+        .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
+          height: 30px;
+          line-height: 30px; }
+      .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile {
+        margin-top: -5px;
+        font-weight: bold;
+        font-size: 16px;
+        height: 32px;
+        line-height: 32px;
+        background-color: #0B71DF; }
+      .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
+        font-size: 14px;
+        color: #E9262A;
+        text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+        letter-spacing: 0.04em;
+        margin-top: 7px; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
