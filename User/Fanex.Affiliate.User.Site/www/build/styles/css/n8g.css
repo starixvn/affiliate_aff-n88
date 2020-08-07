@@ -47,6 +47,11 @@
   background: -webkit-gradient(linear, left top, right top, from(#11203B), color-stop(51.56%, #1E347E), to(#11203B));
   background: -o-linear-gradient(left, #11203B 0%, #1E347E 51.56%, #11203B 100%);
   background: linear-gradient(90deg, #11203B 0%, #1E347E 51.56%, #11203B 100%); }
+  .navbar .navbar-collapse {
+    overflow: hidden !important; }
+  .navbar .menu li:first-child .menu-item.active:after {
+    width: calc(100% + 10px);
+    margin-left: -10px; }
   .navbar .menu .menu-item {
     color: #FFFFFF;
     padding: 0 11px; }
@@ -80,7 +85,17 @@
     width: 110px;
     border-radius: 2px; }
     .user-login .text-field:focus {
-      border: 1px solid #435068; }
+      color: #ffffff;
+      border: 1px solid #3391F6; }
+
+.form-group .form-control {
+  background-color: #030C1B;
+  border: 1px solid #435068;
+  color: #ffffff; }
+  .form-group .form-control:focus {
+    color: #ffffff;
+    border: 1px solid #3391F6 !important;
+    box-shadow: none !important; }
 
 .main .page-container {
   position: relative; }
@@ -254,6 +269,17 @@
   .info-group #statementPager {
     padding-bottom: 1.6rem; }
 
+.page-container .content div p.text-bold.text-uppercase {
+  color: #FAB617;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  background-position: left 0px top 3px;
+  background-repeat: no-repeat;
+  background-image: url("../Images/apply/n8g/icon-arrow.svg");
+  padding: 0 0 0 31px;
+  margin-bottom: 10px; }
+
 #account-overview-content .info-group .title {
   padding: 0;
   font-weight: 500;
@@ -405,6 +431,29 @@ select.form-control {
     .summary div.form-group .form-wrapper#monthPicker .glyphicon {
       color: #DADADA;
       top: 7px; }
+
+.date-wrapper {
+  background: #030C1B;
+  border: 1px solid #435068;
+  border-radius: 2px;
+  padding-right: 10px;
+  max-width: 220px;
+  width: 100%;
+  position: relative; }
+  .date-wrapper .form-control {
+    border: 0;
+    background: transparent;
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+    color: #ffffff;
+    width: 91px;
+    height: 28px; }
+  .date-wrapper .glyphicon {
+    color: #DADADA;
+    top: 7px;
+    position: absolute;
+    right: 5px; }
 
 .table .game-list tr .game-name {
   background-color: #15366E; }
@@ -629,7 +678,8 @@ select.form-control {
 
 div.summary-content {
   padding: 30px 0 0 0;
-  border: 0; }
+  border: 0;
+  overflow: hidden; }
   div.summary-content .dashboard-section {
     display: flex;
     justify-content: space-between;
@@ -742,14 +792,9 @@ div.summary-content {
   background-color: #FAB617;
   color: #333333; }
 
-.form-group .form-control {
-  background-color: #030C1B;
-  border: 1px solid #435068;
-  color: #BAC2D2; }
-
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
-  @media only screen and (max-width: 991px) {
+  @media only screen and (max-width: 1199px) {
     .main.after-login .main-content > .container-fluid {
       padding: 0 10px; } }
 
@@ -859,19 +904,19 @@ div.custom-panel {
   color: #ffffff;
   outline: none; }
 
-div.pager-container {
+.page-container .pager-container {
   background-color: transparent;
   border: 0; }
-  div.pager-container select.pagesize-select {
+  .page-container .pager-container .pagesize-select {
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid #000000;
     color: #ffffff;
     height: 30px;
     border-radius: 2px;
     outline: none; }
-  div.pager-container .icon {
+  .page-container .pager-container .icon {
     color: #ffffff; }
-  div.pager-container .disable {
+  .page-container .pager-container .disable {
     color: #737e92; }
 
 #account-overview-content .table table, #paymentList .table table, .report-container .table table, #statementDataList .table table {
@@ -956,9 +1001,6 @@ div.pager-container {
     background: #0B71DF;
     color: #ffffff;
     opacity: 1; }
-
-#mobileLogin {
-  display: block !important; }
 
 .login-dialog .modal-content {
   background-color: #10192F;
@@ -1105,6 +1147,11 @@ div.pager-container {
     line-height: 19px;
     background-size: 20px auto;
     padding: 4px 0 4px 25px; }
+  .page-container .content div p.text-bold.text-uppercase {
+    font-size: 16px;
+    line-height: 19px;
+    background-size: 20px auto;
+    padding: 4px 0 4px 25px; }
   .main .page-container:before {
     height: 3rem; }
   .carousel.slide .carousel-inner {
@@ -1116,8 +1163,8 @@ div.pager-container {
     width: 100%;
     opacity: 1; }
   .banner-text {
-    width: 60%;
-    max-width: 60%;
+    width: 52%;
+    max-width: 52%;
     margin: 3px 0 0 0;
     left: 20px; }
     .banner-text .txt-lang {
@@ -1233,7 +1280,43 @@ div.pager-container {
     background-position: left -30px center;
     margin-bottom: 10px; }
     .page-container .content .banner-faqs p, .webp .banner-terms-condition p {
-      font-size: 20px !important; } }
+      font-size: 20px !important; }
+  div.summary-content .dashboard-section {
+    margin-left: -10px;
+    margin-right: -10px; }
+    div.summary-content .dashboard-section > * {
+      margin-left: 10px;
+      margin-right: 10px; }
+  .login-dialog .modal-content .login-side {
+    border-left: 0;
+    margin-top: 20px; }
+  .login-dialog .modal-content .modal-banner {
+    padding: 28px 18px 28px;
+    margin: 0; }
+    .login-dialog .modal-content .modal-banner img {
+      width: 175px; }
+    .login-dialog .modal-content .modal-banner .logo-text {
+      display: none; }
+  .login-dialog .modal-content .modal-main-content .modal-body {
+    padding: 15px 14px; }
+    .login-dialog .modal-content .modal-main-content .modal-body .form-group {
+      margin-bottom: 10px; }
+      .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
+        height: 30px;
+        line-height: 30px; }
+    .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile {
+      margin-top: -5px;
+      font-weight: bold;
+      font-size: 16px;
+      height: 32px;
+      line-height: 32px;
+      background-color: #0B71DF; }
+    .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
+      font-size: 14px;
+      color: #E9262A;
+      text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.04em;
+      margin-top: 7px; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1254,7 +1337,12 @@ div.pager-container {
     display: flex;
     justify-content: center; }
     .page-container .content .banner-faqs p, .webp .banner-terms-condition p {
-      line-height: 24px !important; } }
+      line-height: 24px !important; }
+  .account-overview .summary-content .dashboard-section .img-responsive {
+    margin: 0 auto; }
+  div.summary-content .dashboard-section span.my-account {
+    font-size: 20px;
+    text-align: left; } }
 
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {
@@ -1295,9 +1383,12 @@ div.pager-container {
   margin-bottom: 36px; }
   .banner-commission-structure .text-content {
     transform: rotate(0); }
+    .banner-commission-structure .text-content p {
+      line-height: inherit; }
     .banner-commission-structure .text-content .text-big-yellow {
       font-size: 80px;
-      line-height: 96px; }
+      line-height: 96px;
+      margin-bottom: 0; }
 
 @media only screen and (max-width: 1199px) {
   .page-container .content {
