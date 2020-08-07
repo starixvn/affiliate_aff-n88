@@ -3,6 +3,7 @@
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var groupName = sessionService.UserSession.GroupName;
+    var isN8G = string.Equals(AppSetting.Instance.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
 }
 
 @using Fanex.Affiliate.User.Core.CoreService
@@ -17,7 +18,7 @@
 }
 
 <div class="main after-login">
-    <div class="page-container">
+    <div class=@(isN8G ? "page-container" : "after-login-container")>
         @RazorHelper.RenderHotNews()
         <div class="content-menu">
             <ul class="menu list-unstyled" id="mainMenu">
