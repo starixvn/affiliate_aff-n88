@@ -30,25 +30,17 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public abstract Task FetchDataAsync();
 
-        protected Task ImportDataToMultipleRepoAsync(IEnumerable<TData> data)
+        protected async Task ImportDataToMultipleRepoAsync(IEnumerable<TData> data)
         {
             if (!data.Any())
             {
-                return Task.CompletedTask;
+                return;
             }
 
             var supportedPrefix = GetSupportedRepoPrefix();
             var groupRecords = GetInsertedRecordBySupportPrefix(supportedPrefix, data);
-            Parallel.ForEach(groupRecords.Values, async records =>
-            {
-                foreach (var record in records)
-                {
-                    await _thirdPartyImportRepository.ImportRecordAsync(record);
-                    if (record.ErrCode != 0)
-                        throw new ImporterException(record.ErrMsg);
-                }
-            });
-            return Task.CompletedTask;
+            var importTasks = groupRecords.Select(g => ImportDataAsync(g.Value));
+            await Task.WhenAll(importTasks);
         }
 
         protected abstract IEnumerable<string> GetSupportedRepoPrefix();
@@ -83,5 +75,15 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         }
 
         protected abstract string BuildXml(IEnumerable<TData> data);
+
+        private async Task ImportDataAsync(IEnumerable<InsertThirdPartyRecodInfoCommand> records)
+        {
+            foreach (var record in records)
+            {
+                await _thirdPartyImportRepository.ImportRecordAsync(record);
+                if (record.ErrCode != 0)
+                    throw new ImporterException(record.ErrMsg);
+            }
+        }
     }
 }
