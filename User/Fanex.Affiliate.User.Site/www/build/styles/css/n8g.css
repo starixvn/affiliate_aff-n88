@@ -52,7 +52,8 @@
       color: #FAB617; }
     .navbar .menu .menu-item.active {
       position: relative;
-      z-index: 1; }
+      z-index: 1;
+      color: #FFFFFF !important; }
       .navbar .menu .menu-item.active:after {
         position: absolute;
         width: 100%;
@@ -70,7 +71,7 @@
   margin-top: 14px;
   margin-bottom: 20px; }
   .user-login .text-field {
-    background: rgba(3, 12, 27, 0.4);
+    background: #030C1B;
     border: 1px solid #435068;
     color: #ffffff;
     height: 25px;
@@ -155,8 +156,8 @@
   margin: 0;
   left: 200px;
   z-index: 10;
-  max-width: 50%;
-  width: 50%; }
+  max-width: 40%;
+  width: 40%; }
   .banner-text .txt-lang {
     color: #ffffff;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32); }

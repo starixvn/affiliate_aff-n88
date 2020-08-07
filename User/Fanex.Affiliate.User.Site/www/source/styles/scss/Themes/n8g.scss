@@ -76,6 +76,7 @@ body {
         &.active {
             position: relative;
             z-index: 1;
+            color: $nav-color!important;
 
             &:after {
                 position: absolute;
@@ -219,8 +220,8 @@ body {
     margin: 0;
     left: 200px;
     z-index: 10;
-    max-width: 50%;
-    width: 50%;
+    max-width: 40%;
+    width: 40%;
 
     .txt-lang {
         color: $banner-color-text;
