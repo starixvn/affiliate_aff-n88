@@ -914,6 +914,8 @@ div.custom-panel {
     height: 30px;
     border-radius: 2px;
     outline: none; }
+    .page-container .pager-container .pagesize-select option {
+      background: #2A4370; }
   .page-container .pager-container .icon {
     color: #ffffff; }
   .page-container .pager-container .disable {
@@ -951,6 +953,10 @@ div.custom-panel {
     border: 0; }
     #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
       border-right: 1px solid #435068; }
+
+.table table .total {
+  background-color: #15366E;
+  color: #ffffff; }
 
 .form-inline.form-filter .form-group label {
   width: 100px; }
@@ -1377,19 +1383,30 @@ div.custom-panel {
       flex: 1; }
     .account-overview .search-container .form-group .col-sm-offset-3, .account-overview .info-group .form-group .col-sm-offset-3 {
       padding-left: 99px; }
+  .account-overview .details-section-content .table table.has-total tbody {
+    height: auto !important; }
   .summary-content .details-section-content .table table tr {
     padding: 0; }
-    .summary-content .details-section-content .table table tr td:not(:last-child), .summary-content .details-section-content .table table tr th:not(:last-child) {
-      border-right: 1px solid #435068 !important; }
-  .summary-content .details-section-content .table table thead tr.overview-table-header {
+    .summary-content .details-section-content .table table tr td, .summary-content .details-section-content .table table tr th {
+      align-self: unset;
+      align-items: unset; }
+      .summary-content .details-section-content .table table tr td:not(:first-child), .summary-content .details-section-content .table table tr th:not(:first-child) {
+        border-left: 1px solid #435068 !important;
+        border-right: 0; }
+  .summary-content .details-section-content .table table thead tr {
     background: #0F1C33 !important; }
-    .summary-content .details-section-content .table table thead tr.overview-table-header th, .summary-content .details-section-content .table table thead tr.overview-table-header td {
+    .summary-content .details-section-content .table table thead tr th, .summary-content .details-section-content .table table thead tr td {
       font-size: 14px;
       line-height: 16px;
       min-height: 60px;
       display: flex;
       align-items: center;
       justify-content: center; }
+      .summary-content .details-section-content .table table thead tr th[hidden], .summary-content .details-section-content .table table thead tr td[hidden] {
+        display: none; }
+      .summary-content .details-section-content .table table thead tr th:not(:first-child), .summary-content .details-section-content .table table thead tr td:not(:first-child) {
+        border-left: 1px solid #435068 !important;
+        border-right: 0; }
   .summary-content .details-section-content .table table tr:nth-child(even) {
     background-color: #15366E !important; }
   .table-responsive {

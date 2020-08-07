@@ -1357,6 +1357,10 @@ div.custom-panel {
             height: 30px;
             border-radius: 2px;
             outline: none;
+
+            option {
+                background: #2A4370;
+            }
         }
 
         .icon {
@@ -1451,6 +1455,10 @@ div.custom-panel {
             }
         }
     }
+}
+.table table .total {
+    background-color: #15366E;
+    color: #ffffff;
 }
 //form filter
 .form-inline.form-filter {
@@ -2173,40 +2181,50 @@ div.custom-panel {
                 }
             }
         }
+
+        .details-section-content .table table.has-total tbody {
+            height: auto !important;
+        }
     }
 
     .summary-content {
         .details-section-content {
             .table {
                 table {
-                    &.has-total {
-                        tbody {
-                            //max-height: 200px;
-                        }
-                    }
 
                     tr {
                         padding: 0;
 
                         td, th {
-                            &:not(:last-child) {
-                                border-right: 1px solid #435068 !important;
+                            align-self: unset;
+                            align-items: unset;
+
+                            &:not(:first-child) {
+                                border-left: 1px solid #435068 !important;
+                                border-right: 0;
                             }
                         }
                     }
 
                     thead {
                         tr {
-                            &.overview-table-header {
-                                background: #0F1C33 !important;
+                            background: #0F1C33 !important;
 
-                                th, td {
-                                    font-size: 14px;
-                                    line-height: 16px;
-                                    min-height: 60px;
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center;
+                            th, td {
+                                font-size: 14px;
+                                line-height: 16px;
+                                min-height: 60px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+
+                                &[hidden] {
+                                    display: none;
+                                }
+
+                                &:not(:first-child) {
+                                    border-left: 1px solid #435068 !important;
+                                    border-right: 0;
                                 }
                             }
                         }
@@ -2233,6 +2251,7 @@ div.custom-panel {
     .form-inline{
         margin-bottom: 0;
     }
+    
 }
 
 @media only screen and (max-width: 640px) {
