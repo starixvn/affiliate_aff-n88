@@ -125,21 +125,31 @@ body {
     .text-field {
         background: $user-login-control-bg-color;
         border: 1px solid $user-login-control-border-color;
-        color: $user-login-control-color;
+        color: $input-color;
         height: 25px;
         width: 110px;
         border-radius: 2px;
 
         &:focus {
             color: $text-color-white;
-            border: 1px solid #3391F6;
+            border: 1px solid $input-border-focus;
         }
     }
 }
 .form-control:focus {
-    color: $text-color-white;
-    border: 1px solid #3391F6 !important;
-    box-shadow: none!important;
+    
+
+}
+.form-group .form-control {
+    background-color: $input-bg;
+    border: 1px solid $input-border;
+    color: $input-color;
+
+    &:focus {
+        color: $text-color-white;
+        border: 1px solid $input-border-focus !important;
+        box-shadow: none !important;
+    }
 }
 .main .page-container {
     position: relative;
@@ -1143,10 +1153,7 @@ div.summary-content {
     }
 }
 
-.form-group .form-control {
-    background-color: #030C1B;
-    border: 1px solid #435068;
-}
+
 
 .main.after-login {
     .main-content {
@@ -1768,8 +1775,8 @@ div.custom-panel {
     }
 
     .banner-text {
-        width: 60%;
-        max-width: 60%;
+        width: 52%;
+        max-width: 52%;
         margin: 3px 0 0 0;
         left: 20px;
 
