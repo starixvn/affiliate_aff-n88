@@ -844,13 +844,19 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.jpg" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Terms_conditions_banner.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\contact.png" />
     <Content Include="www\build\styles\Images\apply\n8g\gift.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\icon-arrow.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\ipad-login.png" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
@@ -1281,6 +1287,9 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
