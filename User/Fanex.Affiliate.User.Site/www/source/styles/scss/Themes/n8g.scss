@@ -244,7 +244,7 @@ body {
     background-color: $input-bg;
     border: 1px solid $input-border;
     color: $input-color;
-
+    max-width: 300px;
     &:focus {
         color: $text-color-white;
         border: 1px solid $input-border-focus !important;
