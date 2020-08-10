@@ -849,10 +849,17 @@
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Terms_conditions_banner.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\China.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\contact.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\Dropdown.svg" />
+    <Content Include="www\build\styles\Images\apply\n8g\Eng.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\gift.png" />
     <Content Include="www\build\styles\Images\apply\n8g\icon-arrow.svg" />
+    <Content Include="www\build\styles\Images\apply\n8g\Indonesia.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\ipad-login.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\Taiwan.svg" />
+    <Content Include="www\build\styles\Images\apply\n8g\Thailand.svg" />
+    <Content Include="www\build\styles\Images\apply\n8g\Vietnam.svg" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />

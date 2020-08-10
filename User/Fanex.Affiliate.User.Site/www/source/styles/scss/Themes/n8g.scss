@@ -35,7 +35,78 @@ body {
     .logo-image {
         width: 180px;
     }
-}
+    //.language-container
+    .language-container {
+        .language-list-wrapper {
+            background-color: #29426C;
+
+            .language-list {
+                margin-bottom: 0;
+                .language-item {
+                    color: $text-color-white;
+
+                    &:hover {
+                        background: #0B71DF;
+                    }
+                }
+            }
+        }
+
+        #selectedLanguage {
+            border: 0;
+            position: relative;
+            padding: 2px 32px 0 32px;
+
+            .caret {
+                border: 0;
+                width: 16px;
+                height: 16px;
+                background: url("../../../../build/styles/Images/apply/n8g/Dropdown.svg");
+                position: absolute;
+                top: 6px;
+                right: 8px;
+            }
+
+            .flag {
+                width: 24px;
+                height: 24px;
+                border-radius: 20px;
+                overflow: hidden;
+                background-position: center center;
+                background-size: cover;
+                display: inline-block;
+                vertical-align: middle;
+                top: 0;
+                left: 0;
+                position: absolute;
+
+                &.flag-vi-VN {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/Vietnam.svg");
+                }
+
+                &.flag-en-US {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/Eng.svg");
+                }
+
+                &.flag-id-ID {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/Indonesia.svg");
+                }
+
+                &.flag-zh-TW {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/Taiwan.svg");
+                }
+
+                &.flag-zh-CN {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/China.svg");
+                }
+
+                &.flag-th-TH {
+                    background-image: url("../../../../build/styles/Images/apply/n8g/Thailand.svg");
+                }
+            }
+        }
+    }
+} 
 
 
 .footer {
