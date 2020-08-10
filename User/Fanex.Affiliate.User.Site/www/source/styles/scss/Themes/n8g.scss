@@ -2209,7 +2209,15 @@ div.custom-panel {
 
         .login {
             .btn {
-                padding: 1px 10px 0 10px;
+                padding: 1px 5px 0 5px;
+
+                &.btn-login-mobile {
+                    margin-right: 3px !important;
+                }
+            }
+
+            .language-container{
+                margin-left: 3px;
             }
         }
     }

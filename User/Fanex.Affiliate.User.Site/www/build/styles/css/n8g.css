@@ -1421,7 +1421,11 @@ div.custom-panel {
     .header-top .logo .logo-image {
       width: 222px; }
   .header-top .login .btn {
-    padding: 1px 10px 0 10px; }
+    padding: 1px 5px 0 5px; }
+    .header-top .login .btn.btn-login-mobile {
+      margin-right: 3px !important; }
+  .header-top .login .language-container {
+    margin-left: 3px; }
   .modal-dialog {
     margin: 30px 15px !important; }
   .login-dialog .modal-content .modal-banner .logo-text {
