@@ -773,41 +773,51 @@ div.summary-content {
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
 
-.account-information .info-group .form-group {
+.account-information .info-group .form-group, .sign-up-page .info-group .form-group {
   display: grid !important;
   grid-template-columns: 20rem 1fr; }
   @media screen and (max-width: 480px) {
-    .account-information .info-group .form-group {
+    .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
       grid-template-columns: 15rem 1fr; } }
-  .account-information .info-group .form-group:before {
+  .account-information .info-group .form-group:before, .sign-up-page .info-group .form-group:before {
     content: none; }
-  .account-information .info-group .form-group .col-sm-4 {
+  .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
     padding-left: 0; }
-  .account-information .info-group .form-group .control-label {
+    @media screen and (max-width: 480px) {
+      .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
+        width: 100%; } }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
+        width: 50%; } }
+  .account-information .info-group .form-group .control-label, .sign-up-page .info-group .form-group .control-label {
     width: 100%;
     text-align: left;
     padding-left: 0; }
+  .account-information .info-group .form-group.agree-box, .account-information .info-group .form-group .payment-username, .sign-up-page .info-group .form-group.agree-box, .sign-up-page .info-group .form-group .payment-username {
+    grid-template-columns: 1fr; }
+    .account-information .info-group .form-group.agree-box .chk-agree, .account-information .info-group .form-group .payment-username .chk-agree, .sign-up-page .info-group .form-group.agree-box .chk-agree, .sign-up-page .info-group .form-group .payment-username .chk-agree {
+      margin-left: 0; }
 
-.account-information .info-group.website-info .form-group {
+.account-information .info-group.website-info .form-group, .sign-up-page .info-group.website-info .form-group {
   grid-template-columns: 1fr; }
 
-.account-information #websiteInfo .form-group {
+.account-information #websiteInfo .form-group, .sign-up-page #websiteInfo .form-group {
   grid-template-columns: 16rem 30rem 1fr; }
   @media screen and (max-width: 480px) {
-    .account-information #websiteInfo .form-group {
+    .account-information #websiteInfo .form-group, .sign-up-page #websiteInfo .form-group {
       display: block !important; } }
-  .account-information #websiteInfo .form-group .col-sm-4 {
+  .account-information #websiteInfo .form-group .col-sm-4, .sign-up-page #websiteInfo .form-group .col-sm-4 {
     width: 100%; }
     @media screen and (max-width: 480px) {
-      .account-information #websiteInfo .form-group .col-sm-4 {
+      .account-information #websiteInfo .form-group .col-sm-4, .sign-up-page #websiteInfo .form-group .col-sm-4 {
         float: left;
         width: 80%; } }
 
-.account-information .info-group .button-block {
+.account-information .info-group .button-block, .sign-up-page .info-group .button-block {
   margin-left: 0;
   padding-left: 0; }
 
-.account-information #btnCancel, .account-information #websiteInfo .btn-submit {
+.account-information #btnCancel, .account-information #websiteInfo .btn-submit, .sign-up-page #btnCancel, .sign-up-page #websiteInfo .btn-submit {
   background-color: #FAB617;
   color: #333333; }
   .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover {

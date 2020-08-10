@@ -28,7 +28,7 @@
     @Html.InlineScripts("~/www/build/js/signup.js")
 }
 
-<div class="content">
+<div class="content sign-up-page">
     @if (Model.IsValidParentId)
     {
         <div class="page-title">
@@ -185,7 +185,7 @@
                     </div>
                 </div>
 
-                <div class="info-group">
+                <div class="info-group website-info">
                     <div class="title">
                         <span class="text">@Lang.WebsiteInfor</span>
                     </div>
@@ -300,7 +300,7 @@
                                 <label class="radio-inline">
                                     <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))</span>
                                 </label>
-                                <div class="form-group col-sm-12 p-l-0">
+                                <div class="form-group payment-username col-sm-12 p-l-0">
                                     <label class="control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.UsernameSignUp)</label>
                                     @*<label class="text-red">(@Lang.YouCanRequest)</label>*@
                                     <div class="">
@@ -313,7 +313,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group agree-box">
                             <div class="checkbox col-sm-offset-3 chk-agree">
                                 <label>
                                     <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.Replace12Bet(Lang.IagreetotheTerm)

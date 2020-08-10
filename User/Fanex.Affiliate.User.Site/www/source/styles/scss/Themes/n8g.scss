@@ -1141,7 +1141,7 @@ div.summary-content {
 
 //my account
 
-.account-information {
+.account-information, .sign-up-page {
     .info-group .form-group {
         display: grid !important;
         grid-template-columns: 20rem 1fr;
@@ -1156,12 +1156,26 @@ div.summary-content {
 
         .col-sm-4 {
             padding-left: 0;
+            @media screen and (max-width: 480px) {
+                width: 100%;
+            }
+            @media screen and (min-width: 481px) and (max-width: 1024px){
+                width: 50%;
+            }
         }
 
         .control-label {
             width: 100%;
             text-align: left;
             padding-left: 0;
+        }
+
+        &.agree-box, .payment-username {
+            grid-template-columns: 1fr;
+
+            .chk-agree {
+                margin-left: 0;
+            }
         }
     }
 
