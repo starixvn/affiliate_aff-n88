@@ -1022,10 +1022,12 @@ div.custom-panel {
 .table tbody tr.sumrow > td {
   background-color: transparent !important; }
 
-#forgotPasswordForm .form-group {
-  margin: 0 -15px; }
-  #forgotPasswordForm .form-group .control-label {
-    text-align: left; }
+#forgotPasswordForm {
+  overflow: hidden; }
+  #forgotPasswordForm .form-group {
+    margin: 0 -15px; }
+    #forgotPasswordForm .form-group .control-label {
+      text-align: left; }
 
 .page-container .content .banner-faqs {
   width: 100%;

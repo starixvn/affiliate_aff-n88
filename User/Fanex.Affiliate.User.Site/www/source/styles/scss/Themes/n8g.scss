@@ -1559,6 +1559,7 @@ div.custom-panel {
 }
 //forgotPasswordForm
 #forgotPasswordForm {
+    overflow: hidden;
     .form-group {
         margin: 0 -15px;
         .control-label{
