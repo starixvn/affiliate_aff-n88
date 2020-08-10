@@ -1139,7 +1139,13 @@ div.custom-panel {
         color: #333333;
         margin-top: 12px;
         height: 32px;
-        line-height: 32px; }
+        line-height: 32px;
+        background-color: #0B71DF;
+        color: #ffffff;
+        margin: 0; }
+        .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:focus {
+          background: rgba(11, 113, 223, 0.5);
+          color: #ffffff !important; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group {
         margin-bottom: 10px; }
         .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
@@ -1151,11 +1157,12 @@ div.custom-panel {
         font-size: 1.4rem;
         height: 32px;
         line-height: 32px;
-        background: #0B71DF;
-        color: #ffffff; }
+        background-color: #FAB617;
+        color: #333333;
+        margin: 0; }
         .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:focus {
           color: #ffffff;
-          background: rgba(11, 113, 223, 0.5); }
+          background: rgba(250, 182, 23, 0.5); }
       .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
         font-size: 1.4rem;
         color: #E9262A;
@@ -1404,20 +1411,7 @@ div.custom-panel {
       margin-bottom: 10px; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
         height: 30px;
-        line-height: 30px; }
-    .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile {
-      margin-top: -5px;
-      font-weight: bold;
-      font-size: 1.4rem;
-      height: 32px;
-      line-height: 32px;
-      background-color: #0B71DF; }
-    .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
-      font-size: 1.4rem;
-      color: #E9262A;
-      text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
-      letter-spacing: 0.04em;
-      margin-top: 7px; } }
+        line-height: 30px; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1434,6 +1428,8 @@ div.custom-panel {
       width: 222px; }
   .header-top .login .btn {
     padding: 1px 10px 0 10px; }
+  .modal-dialog {
+    margin: 30px 15px !important; }
   .login-dialog .modal-content .modal-banner .logo-text {
     margin: 10px 0 0;
     font-size: 20px; }
