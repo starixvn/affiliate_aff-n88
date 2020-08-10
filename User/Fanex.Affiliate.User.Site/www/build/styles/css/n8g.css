@@ -1045,8 +1045,8 @@ div.custom-panel {
   background-image: url("../Images/apply/n8g/bg-FAQ_banner.webp");
   background-size: cover;
   background-position: center center;
-  height: 200px;
-  margin-bottom: 61px; }
+  height: 260px;
+  margin-bottom: -9px; }
   .page-container .content .banner-faqs p {
     display: none; }
 
@@ -1056,8 +1056,8 @@ div.custom-panel {
   background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp");
   background-size: cover;
   background-position: center center;
-  height: 200px;
-  margin-bottom: 61px; }
+  height: 260px;
+  margin-bottom: -9px; }
   .content.term-condition-page .banner-terms-condition p {
     display: none; }
 
@@ -1369,7 +1369,7 @@ div.custom-panel {
       line-height: 20px; }
   .page-container .content .banner-faqs, .content.term-condition-page .banner-terms-condition {
     height: 150px;
-    margin-bottom: 30px; }
+    margin-bottom: 0; }
   div.summary-content .dashboard-section {
     margin-left: -10px;
     margin-right: -10px; }
@@ -1421,13 +1421,7 @@ div.custom-panel {
     margin: 10px 0 0;
     font-size: 20px; }
   .page-container .content .banner-faqs, .webp .banner-terms-condition {
-    height: 120px;
-    background-position: left -90px center;
-    padding-left: 100px;
-    display: flex;
-    justify-content: center; }
-    .page-container .content .banner-faqs p, .webp .banner-terms-condition p {
-      line-height: 24px !important; }
+    height: 120px; }
   .account-overview .summary-content .dashboard-section .img-responsive {
     margin: 0 auto; }
   div.summary-content .dashboard-section span.my-account {
