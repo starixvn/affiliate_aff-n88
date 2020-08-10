@@ -991,9 +991,7 @@ select.form-control {
 }
 // After login
 .main.after-login {
-    //background: $bg-after-login-color;
     .page-title {
-        //background: $bg-after-login-color;
         .text:after {
             border-bottom: 18px solid $bg-after-login-color;
             border-right: 16px solid $bg-after-login-color;
@@ -1002,7 +1000,6 @@ select.form-control {
 }
 
 .content-menu {
-    //background-color: $bg-main-color;
     .menu {
         margin: 20px 0;
 
@@ -1197,7 +1194,7 @@ div.summary-content {
         grid-template-columns: 20rem 1fr;
 
         @media screen and (max-width: 480px) {
-            grid-template-columns: 15rem 1fr;
+            grid-template-columns: 1fr;
         }
 
         &:before {
@@ -1206,10 +1203,7 @@ div.summary-content {
 
         .col-sm-4 {
             padding-left: 0;
-            @media screen and (max-width: 480px) {
-                width: 100%;
-            }
-            @media screen and (min-width: 481px) and (max-width: 1024px){
+            @media (min-width: 768px) {
                 width: 50%;
             }
         }
@@ -1247,6 +1241,10 @@ div.summary-content {
                 float: left;
                 width: 80%;
             }
+        }
+
+        .glyphicon {
+            top: -7px;
         }
     }
 

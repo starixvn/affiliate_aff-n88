@@ -814,15 +814,12 @@ div.summary-content {
   grid-template-columns: 20rem 1fr; }
   @media screen and (max-width: 480px) {
     .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
-      grid-template-columns: 15rem 1fr; } }
+      grid-template-columns: 1fr; } }
   .account-information .info-group .form-group:before, .sign-up-page .info-group .form-group:before {
     content: none; }
   .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
     padding-left: 0; }
-    @media screen and (max-width: 480px) {
-      .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
-        width: 100%; } }
-    @media screen and (min-width: 481px) and (max-width: 1024px) {
+    @media (min-width: 768px) {
       .account-information .info-group .form-group .col-sm-4, .sign-up-page .info-group .form-group .col-sm-4 {
         width: 50%; } }
   .account-information .info-group .form-group .control-label, .sign-up-page .info-group .form-group .control-label {
@@ -848,6 +845,8 @@ div.summary-content {
       .account-information #websiteInfo .form-group .col-sm-4, .sign-up-page #websiteInfo .form-group .col-sm-4 {
         float: left;
         width: 80%; } }
+  .account-information #websiteInfo .form-group .glyphicon, .sign-up-page #websiteInfo .form-group .glyphicon {
+    top: -7px; }
 
 .account-information .info-group .button-block, .sign-up-page .info-group .button-block {
   margin-left: 0;
