@@ -15,6 +15,17 @@
 .news {
   background: #152849; }
 
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #BAC2D2; }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #BAC2D2; }
+
+::placeholder {
+  color: #BAC2D2; }
+
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
@@ -135,17 +146,6 @@
     .user-login .text-field:focus {
       color: #ffffff;
       border: 1px solid #3391F6; }
-
-.text-field::-webkit-input-placeholder {
-  /* Edge */
-  color: #BAC2D2; }
-
-.text-field:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #BAC2D2; }
-
-.text-field::placeholder {
-  color: #BAC2D2; }
 
 .form-group .form-control {
   background-color: #030C1B;

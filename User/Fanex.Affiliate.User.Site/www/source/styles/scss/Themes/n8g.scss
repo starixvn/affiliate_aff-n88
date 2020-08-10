@@ -21,7 +21,17 @@ body {
 .news {
     background: $bg-main-color;
 }
+::-webkit-input-placeholder { /* Edge */
+    color: $color-placeholder;
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color-placeholder;
+}
+
+::placeholder {
+    color: $color-placeholder;
+}
 // Header
 
 .header-top {
@@ -210,19 +220,9 @@ body {
         }
     }
 }
-.text-field {
-    &::-webkit-input-placeholder { /* Edge */
-        color: $color-placeholder;
-    }
 
-    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $color-placeholder;
-    }
+    
 
-    &::placeholder {
-        color: $color-placeholder;
-    }
-}
 .form-group .form-control {
     background-color: $input-bg;
     border: 1px solid $input-border;
