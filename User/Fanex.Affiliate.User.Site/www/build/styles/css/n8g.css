@@ -32,7 +32,8 @@
     padding-top: .2rem;
     padding-left: 1.5rem; }
   .header-top .user-login .btn, .header-top .user-signup .btn {
-    font-weight: bold; }
+    font-weight: bold;
+    line-height: 23px; }
   .header-top .logo-image {
     width: 180px; }
   .header-top .language-container .language-list-wrapper {
@@ -894,11 +895,12 @@ div.summary-content {
     .account-information .info-group .form-group.agree-box .chk-agree, .account-information .info-group .form-group .payment-username .chk-agree, .sign-up-page .info-group .form-group.agree-box .chk-agree, .sign-up-page .info-group .form-group .payment-username .chk-agree {
       margin-left: 0; }
   .account-information .info-group .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group .form-group.has-error .col-sm-offset-3 {
+    width: 100%;
+    margin: 0;
     padding: 0; }
     @media only screen and (min-width: 769px) {
       .account-information .info-group .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group .form-group.has-error .col-sm-offset-3 {
-        grid-column: 1 / 3;
-        margin: 0; } }
+        grid-column: 1 / 3; } }
 
 .account-information .info-group.website-info .form-group, .sign-up-page .info-group.website-info .form-group {
   grid-template-columns: 1fr; }
@@ -910,11 +912,12 @@ div.summary-content {
   line-height: 25px !important; }
 
 .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
-  float: left; }
+  float: left;
+  margin: 0;
+  width: 100%; }
   @media only screen and (min-width: 769px) {
     .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
-      grid-column: 1 / 4;
-      margin: 0; } }
+      grid-column: 1 / 4; } }
   @media only screen and (max-width: 768px) {
     .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
       grid-column: 1/3; } }
@@ -943,11 +946,12 @@ div.summary-content {
   margin-left: 0;
   padding-left: 0; }
 
-.account-information #btnCancel, .account-information #websiteInfo .btn-submit, .sign-up-page #btnCancel, .sign-up-page #websiteInfo .btn-submit {
-  background-color: #FAB617;
-  color: #333333; }
-  .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover, .sign-up-page #btnCancel:hover, .sign-up-page #websiteInfo .btn-submit:hover {
-    background-color: #FFC337; }
+#btnCancel, #websiteInfo .btn-submit {
+  background-color: #FAB617 !important;
+  color: #333333 !important; }
+  #btnCancel:hover, #websiteInfo .btn-submit:hover {
+    background-color: #FFC337 !important;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 #paymentRequest .info-group .title {
   padding-left: 0;
@@ -1063,7 +1067,10 @@ div.summary-content {
   border: 0;
   background: none;
   line-height: 20px;
-  color: #2990FF; }
+  color: #4DBEFF;
+  border-left: 1px solid #64789B;
+  margin-bottom: 10px;
+  padding: 0 12px; }
 
 #textLinkList .marketing-qrcode .control-label {
   text-align: left; }
@@ -1117,6 +1124,8 @@ div.custom-panel {
   #account-overview-content .table table tbody tr .btn.btn-transparent span, #paymentList .table table tbody tr .btn.btn-transparent span, .report-container .table table tbody tr .btn.btn-transparent span, #statementDataList .table table tbody tr .btn.btn-transparent span {
     outline: none;
     color: #ffffff; }
+  #account-overview-content .table table tbody tr td[colspan], #paymentList .table table tbody tr td[colspan], .report-container .table table tbody tr td[colspan], #statementDataList .table table tbody tr td[colspan] {
+    border-top: 1px solid #435068; }
   #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
     border: 0; }
     #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {

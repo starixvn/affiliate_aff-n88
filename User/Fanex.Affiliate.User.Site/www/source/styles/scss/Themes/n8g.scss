@@ -45,6 +45,7 @@ body {
     .user-login, .user-signup {
         .btn {
             font-weight: bold;
+            line-height: 23px;
         }
     }
 
@@ -1324,9 +1325,10 @@ div.summary-content {
             .col-sm-offset-3 {
                 @media only screen and (min-width: 769px) {
                     grid-column: 1 / 3;
-                    margin: 0;
                 }
 
+                width: 100%;
+                margin: 0;
                 padding: 0;
             }
         }
@@ -1346,14 +1348,14 @@ div.summary-content {
         }
 
         #websiteInfo {
-            .btn-submit{
-                line-height: 25px!important;
+            .btn-submit {
+                line-height: 25px !important;
             }
+
             .has-error {
                 .col-sm-offset-3 {
                     @media only screen and (min-width: 769px) {
                         grid-column: 1 / 4;
-                        margin: 0;
                     }
 
                     @media only screen and (max-width: 768px) {
@@ -1361,6 +1363,8 @@ div.summary-content {
                     }
 
                     float: left;
+                    margin: 0;
+                    width: 100%;
                 }
             }
 
@@ -1400,13 +1404,15 @@ div.summary-content {
         padding-left: 0;
     }
 
-    #btnCancel, #websiteInfo .btn-submit {
-        background-color: $cancel-bg-color;
-        color: $cancel-text-color;
+    
+}
+#btnCancel, #websiteInfo .btn-submit {
+    background-color: $cancel-bg-color !important;
+    color: $cancel-text-color !important;
 
-        &:hover {
-            background-color: $button-login-bg-color-hover;
-        }
+    &:hover {
+        background-color: $cancel-bg-color-hover !important;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 }
     //PaymentRequest
@@ -1574,26 +1580,29 @@ div.summary-content {
         }
     }
 
-    #textLinkList {
-        .marketing-qrcode {
-            button {
-                margin-bottom: 0;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                -ms-appearance: none;
-                -o-appearance: none;
-                appearance: none;
-                border: 0;
-                background: none;
-                line-height: 20px;
-                color: #2990FF;
-            }
+#textLinkList {
+    .marketing-qrcode {
+        button {
+            margin-bottom: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            border: 0;
+            background: none;
+            line-height: 20px;
+            color: #4DBEFF;
+            border-left: 1px solid #64789B;
+            margin-bottom: 10px;
+            padding: 0 12px;
+        }
 
-            .control-label {
-                text-align: left;
-            }
+        .control-label {
+            text-align: left;
         }
     }
+}
 
     div.custom-panel {
         background-color: transparent;
@@ -1629,87 +1638,91 @@ div.summary-content {
         }
     }
     //table my account
-    #account-overview-content, #paymentList, .report-container, #statementDataList {
-        .table {
-            table {
-                border: 1px solid #435068 !important;
+#account-overview-content, #paymentList, .report-container, #statementDataList {
+    .table {
+        table {
+            border: 1px solid #435068 !important;
 
-                thead {
-                    tr {
+            thead {
+                tr {
+                    th {
+                        background-color: #0F1C33;
+                    }
+
+                    &.overview-table-header {
                         th {
                             background-color: #0F1C33;
                         }
+                    }
 
-                        &.overview-table-header {
-                            th {
-                                background-color: #0F1C33;
-                            }
-                        }
-
-                        &.overview-table-total {
-                            th {
-                                background-color: #15366F !important;
-                                color: $table-color;
-                            }
+                    &.overview-table-total {
+                        th {
+                            background-color: #15366F !important;
+                            color: $table-color;
                         }
                     }
                 }
+            }
 
-                tbody {
-                    tr {
-                        &:nth-child(even) {
-                            background-color: #182E56;
+            tbody {
+                tr {
+                    &:nth-child(even) {
+                        background-color: #182E56;
+                    }
+
+                    &:nth-child(odd) {
+                        background-color: #0f2346;
+                    }
+
+                    &[data-parent="~"] {
+                        background-color: #08142C;
+                    }
+
+                    &:hover {
+                        background: #052561 !important;
+                    }
+
+                    &.total {
+                        background-color: #15366E;
+
+                        td {
+                            color: $table-color;
                         }
+                    }
 
-                        &:nth-child(odd) {
-                            background-color: #0f2346;
-                        }
+                    .btn.btn-transparent :hover {
+                        color: #ffffff;
+                    }
 
-                        &[data-parent="~"] {
-                            background-color: #08142C;
-                        }
-
-                        &:hover {
-                            background: #052561 !important;
-                        }
-
-                        &.total {
-                            background-color: #15366E;
-
-                            td {
-                                color: $table-color;
-                            }
-                        }
-
-                        .btn.btn-transparent :hover {
+                    .btn.btn-transparent {
+                        &:hover, &:focus {
                             color: #ffffff;
                         }
 
-                        .btn.btn-transparent {
-                            &:hover, &:focus {
-                                color: #ffffff;
-                            }
-
-                            span {
-                                outline: none;
-                                color: #ffffff;
-                            }
+                        span {
+                            outline: none;
+                            color: #ffffff;
                         }
                     }
+
+                    td[colspan] {
+                        border-top: 1px solid #435068;
+                    }
                 }
+            }
 
-                tr {
-                    th, td {
-                        border: 0;
+            tr {
+                th, td {
+                    border: 0;
 
-                        &:not(:last-child) {
-                            border-right: 1px solid #435068;
-                        }
+                    &:not(:last-child) {
+                        border-right: 1px solid #435068;
                     }
                 }
             }
         }
     }
+}
 
     .table table .total {
         background-color: #15366E;
