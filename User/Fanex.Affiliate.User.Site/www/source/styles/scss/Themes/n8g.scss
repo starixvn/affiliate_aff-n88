@@ -341,8 +341,8 @@ body {
     margin: 0;
     left: 200px;
     z-index: 10;
-    max-width: 40%;
-    width: 40%;
+    max-width: 42%;
+    width: 42%; 
 
     .txt-lang {
         color: $banner-color-text;
@@ -1857,6 +1857,8 @@ div.custom-panel {
 @media only screen and (max-width: 1500px) {
     .banner-text {
         margin: 0;
+        max-width: 40%;
+        width: 40%;
 
         h2 {
             font-size: 40px;
@@ -1919,14 +1921,16 @@ div.custom-panel {
 
     .banner-text {
         left: 100px;
+        max-width: 45%;
+        width: 45%;
     }
 }
 
 @media only screen and (max-width: 1199px) {
     .banner-text {
         left: 40px;
-        width: 53%;
-        max-width: 53%;
+        width: 51%;
+        max-width: 51%;
     }
 
     .main .page-container:before {
