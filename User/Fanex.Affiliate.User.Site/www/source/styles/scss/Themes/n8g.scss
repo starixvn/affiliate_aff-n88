@@ -1726,7 +1726,14 @@ div.custom-panel {
                     font-size: 1.6rem;
                     height: 32px;
                     line-height: 32px;
-                    background-color: $modal-bg-btn;
+                    background: $button-signup-bg-color;
+                    color: $button-signup-color;
+
+
+                    &:hover, &:focus {
+                        color: $button-signup-color;
+                        background: $button-login-bg-color-hover;
+                    }
                 }
 
                 .link-login-popup {

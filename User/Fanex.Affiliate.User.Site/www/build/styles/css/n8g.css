@@ -1139,7 +1139,11 @@ div.custom-panel {
         font-size: 1.6rem;
         height: 32px;
         line-height: 32px;
-        background-color: #0B71DF; }
+        background: #0B71DF;
+        color: #ffffff; }
+        .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:focus {
+          color: #ffffff;
+          background: rgba(250, 182, 23, 0.5); }
       .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
         font-size: 1.4rem;
         color: #E9262A;
