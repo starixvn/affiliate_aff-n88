@@ -378,7 +378,7 @@ body {
     }
 
     ol {
-        padding-left: 2.5rem;
+        padding-left: 1.6rem;
 
         li {
             font-weight: normal;
@@ -638,12 +638,12 @@ select.form-control {
 }
 
 .content .signup-block .btn-link {
-    background-color: $button-signup-bg-color;
-    color: $button-signup-color;
+    background-color: $button-login-bg-color;
+    color: $button-login-color;
 
     &:hover {
-        background-color: $button-signup-bg-color-hover;
-        color: $button-signup-color;
+        background-color: $button-login-bg-color-hover;
+        color: $button-login-color;
     }
 }
 
@@ -1583,20 +1583,12 @@ div.custom-panel {
     max-width: 100%;
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-FAQ_banner.webp");
     background-size: cover;
+    background-position: center center;
     height: 200px;
-    padding: 0;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 40px;
-    color: $text-color-white;
-
+    margin-bottom: 61px;
+   
     p {
-        font-weight: 500;
-        font-size: 3.2rem;
-        line-height: 37px;
-        letter-spacing: 0.08em;
-        text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5);
+        display: none;
     }
 }
 .content.term-condition-page {
@@ -1605,20 +1597,12 @@ div.custom-panel {
         max-width: 100%;
         background-image: url("../../../../build/styles/Images/apply/n8g/bg-Terms_conditions_banner.webp");
         background-size: cover;
+        background-position: center center;
         height: 200px;
-        padding: 0;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        margin-bottom: 40px;
-        color: $text-color-white;
+        margin-bottom: 61px;
 
         p {
-            font-weight: 500;
-            font-size: 32px;
-            line-height: 37px;
-            letter-spacing: 0.08em;
-            text-shadow: -2px 4px 2px rgba(0, 0, 0, 0.5);
+            display: none;
         }
     }
 }
@@ -2126,15 +2110,12 @@ div.custom-panel {
         }
     }
 
-    .page-container .content .banner-faqs, .webp .banner-terms-condition {
+    .page-container .content .banner-faqs, .content.term-condition-page .banner-terms-condition {
         height: 150px;
-        background-position: left -30px center;
-        margin-bottom: 10px; 
+        margin-bottom: 30px;
 
-        p {
-            font-size: 20px!important;
-        }
     }
+
     div.summary-content {
         .dashboard-section {
             margin-left: -10px;
@@ -2152,7 +2133,6 @@ div.custom-panel {
     .login-dialog {
         .modal-content {
 
-
             .login-side {
                 border-left: 0;
                 margin-top: 20px;
@@ -2164,16 +2144,20 @@ div.custom-panel {
 
                 img {
                     width: 175px;
+                    margin: 0 auto;
+                    display: block;
+                }
+
+                .logo-text{
+                    display: block;
+                    text-align: center;
+                    margin: 10px 0 0;
                 }
             }
 
             .modal-main-content {
-
-
                 .modal-body {
                     padding: 15px 14px;
-
-
 
                     .title-right {
                     }
@@ -2186,16 +2170,10 @@ div.custom-panel {
                             line-height: 30px;
                         }
                     }
-
-                  
- 
                 }
             }
         }
     }
-
-  
-  
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
