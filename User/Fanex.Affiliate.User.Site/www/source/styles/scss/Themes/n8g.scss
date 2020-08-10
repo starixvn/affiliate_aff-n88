@@ -41,6 +41,11 @@ body {
         padding-top: .2rem;
         padding-left: 1.5rem;
     }
+    .user-login{
+        .btn{
+            font-weight: bold;
+        }
+    }
 
     .logo-image {
         width: 180px;
@@ -630,6 +635,7 @@ select.form-control {
     &:hover, &:focus {
         background: $button-signup-bg-color-hover;
         color: $button-signup-color !important;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -648,6 +654,7 @@ select.form-control {
         &:hover, &:focus {
             color: $button-login-color;
             background: $button-login-bg-color-hover;
+            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
         }
     }
 }
@@ -660,6 +667,7 @@ select.form-control {
     &:hover, &:focus {
         color: $button-login-color;
         background: $button-login-bg-color-hover;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -675,6 +683,7 @@ select.form-control {
     &:hover, &:focus {
         color: $button-login-color;
         background: $button-login-bg-color-hover;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -690,6 +699,7 @@ select.form-control {
     &:hover, &:focus {
         color: $button-login-color;
         background: $button-login-bg-color-hover;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -699,11 +709,12 @@ select.form-control {
     &.btn-block {
         background: $button-signup-bg-color;
         color: $button-signup-color;
-  
+
 
         &:hover, &:focus {
             color: $button-signup-color;
             background: $button-signup-bg-color-hover;
+            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
         }
     }
 }
@@ -727,8 +738,9 @@ select.form-control {
     line-height: 25px;
 
     &:hover, &:focus {
-        //color: $button-submit-color;
+        color: $button-submit-color;
         background-color: $button-submit-bg-color-hover;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -1286,7 +1298,7 @@ div.summary-content {
             padding-left: 0;
         }
 
-        .radio-inline input[type="radio"], .checkbox input[type="checkbox"]{
+        .radio-inline input[type="radio"], .checkbox input[type="checkbox"] {
             margin-top: 3px;
         }
 
@@ -1295,6 +1307,12 @@ div.summary-content {
 
             .chk-agree {
                 margin-left: 0;
+            }
+        }
+
+        &.has-error {
+            .col-sm-4 + .col-sm-offset-3 {
+                grid-column: 2 / 3 ;
             }
         }
     }
@@ -1336,6 +1354,13 @@ div.summary-content {
         &:hover {
             background-color: $button-login-bg-color-hover;
         }
+    }
+}
+//PaymentRequest
+#paymentRequest {
+    .info-group .title {
+        padding-left: 0;
+        background: none;
     }
 }
 

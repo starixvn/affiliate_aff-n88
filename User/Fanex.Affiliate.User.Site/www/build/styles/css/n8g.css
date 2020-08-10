@@ -31,6 +31,8 @@
   .header-top .logo {
     padding-top: .2rem;
     padding-left: 1.5rem; }
+  .header-top .user-login .btn {
+    font-weight: bold; }
   .header-top .logo-image {
     width: 180px; }
   .header-top .language-container .language-list-wrapper {
@@ -433,8 +435,9 @@ select.form-control {
   font-weight: 700;
   padding: 1px 15px 0 15px; }
   .btn-signup:hover, .btn-signup:focus {
-    background: rgba(11, 113, 223, 0.5);
-    color: #ffffff !important; }
+    background: #1882F5;
+    color: #ffffff !important;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
   .btn-signup .icon {
     color: #ffffff;
     margin-right: 1px;
@@ -447,7 +450,8 @@ select.form-control {
     padding: 1px 20px 0 19px; }
     .btn-signup.btn-block:hover, .btn-signup.btn-block:focus {
       color: #333333;
-      background: rgba(250, 182, 23, 0.5); }
+      background: #FFC337;
+      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .btn-login {
   background: #FAB617;
@@ -456,7 +460,8 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-login:hover, .btn-login:focus {
     color: #333333;
-    background: rgba(250, 182, 23, 0.5); }
+    background: #FFC337;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
   .btn-login .icon {
     color: #333333; }
 
@@ -467,7 +472,8 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-link:hover, .btn-link:focus {
     color: #333333;
-    background: rgba(250, 182, 23, 0.5); }
+    background: #FFC337;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
   .btn-link .icon {
     color: #333333; }
 
@@ -478,7 +484,8 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-login-mobile:hover, .btn-login-mobile:focus, .btn-submit#btnReset:hover, .btn-submit#btnReset:focus {
     color: #333333;
-    background: rgba(250, 182, 23, 0.5); }
+    background: #FFC337;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
   .btn-login-mobile .icon, .btn-submit#btnReset .icon {
     color: #333333; }
   .btn-login-mobile.btn-block, .btn-submit#btnReset.btn-block {
@@ -486,13 +493,14 @@ select.form-control {
     color: #ffffff; }
     .btn-login-mobile.btn-block:hover, .btn-login-mobile.btn-block:focus, .btn-submit#btnReset.btn-block:hover, .btn-submit#btnReset.btn-block:focus {
       color: #ffffff;
-      background: rgba(11, 113, 223, 0.5); }
+      background: #1882F5;
+      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .content .signup-block .btn-link {
   background-color: #FAB617;
   color: #333333; }
   .content .signup-block .btn-link:hover {
-    background-color: rgba(250, 182, 23, 0.5);
+    background-color: #FFC337;
     color: #333333; }
 
 .btn-submit {
@@ -503,7 +511,9 @@ select.form-control {
   padding: 0 19px;
   line-height: 25px; }
   .btn-submit:hover, .btn-submit:focus {
-    background-color: rgba(11, 113, 223, 0.5); }
+    color: #fff;
+    background-color: #1882F5;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
   .btn-submit .icon {
     color: #fff; }
 
@@ -876,6 +886,8 @@ div.summary-content {
     grid-template-columns: 1fr; }
     .account-information .info-group .form-group.agree-box .chk-agree, .account-information .info-group .form-group .payment-username .chk-agree, .sign-up-page .info-group .form-group.agree-box .chk-agree, .sign-up-page .info-group .form-group .payment-username .chk-agree {
       margin-left: 0; }
+  .account-information .info-group .form-group.has-error .col-sm-4 + .col-sm-offset-3, .sign-up-page .info-group .form-group.has-error .col-sm-4 + .col-sm-offset-3 {
+    grid-column: 2 / 3; }
 
 .account-information .info-group.website-info .form-group, .sign-up-page .info-group.website-info .form-group {
   grid-template-columns: 1fr; }
@@ -902,7 +914,11 @@ div.summary-content {
   background-color: #FAB617;
   color: #333333; }
   .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover, .sign-up-page #btnCancel:hover, .sign-up-page #websiteInfo .btn-submit:hover {
-    background-color: rgba(250, 182, 23, 0.5); }
+    background-color: #FFC337; }
+
+#paymentRequest .info-group .title {
+  padding-left: 0;
+  background: none; }
 
 .account-information .info-group .title, .sign-up-page .info-group .title {
   padding: 0;
@@ -1182,7 +1198,7 @@ div.custom-panel {
         color: #ffffff;
         margin: 0; }
         .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:focus {
-          background: rgba(11, 113, 223, 0.5);
+          background: #1882F5;
           color: #ffffff !important; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group {
         margin-bottom: 10px; }
@@ -1200,7 +1216,7 @@ div.custom-panel {
         margin: 0; }
         .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:focus {
           color: #ffffff;
-          background: rgba(250, 182, 23, 0.5); }
+          background: #FFC337; }
       .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
         font-size: 1.4rem;
         color: #E9262A;
