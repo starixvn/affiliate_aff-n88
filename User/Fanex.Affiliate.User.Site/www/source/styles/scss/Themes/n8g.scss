@@ -540,7 +540,7 @@ select.form-control {
 .btn-signup {
     background: $button-signup-bg-color;
     color: $button-signup-color;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     padding: 1px 15px 0 15px;
 
@@ -1724,7 +1724,7 @@ div.custom-panel {
                 .btn-login-mobile {
                     margin-top: -5px;
                     font-weight: bold;
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
                     height: 32px;
                     line-height: 32px;
                     background: $button-signup-bg-color;
@@ -2172,7 +2172,7 @@ div.custom-panel {
                     .btn-login-mobile {
                         margin-top: -5px;
                         font-weight: bold;
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
                         height: 32px;
                         line-height: 32px;
                         background-color: $modal-bg-btn;
@@ -2216,9 +2216,16 @@ div.custom-panel {
                 width: 222px;
             }
         }
+
+        .login {
+            .btn {
+                padding: 1px 10px 0 10px;
+            }
+        }
     }
-    .login-dialog .modal-content .modal-banner .logo-text{
-        display: none;
+    .login-dialog .modal-content .modal-banner .logo-text {
+        margin: 10px 0 0;
+        font-size: 20px;
     }
     .page-container .content .banner-faqs, .webp .banner-terms-condition {
         height: 120px;
