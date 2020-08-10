@@ -1631,8 +1631,16 @@ div.custom-panel {
         opacity: 1;
     }
 }
+//contact
+.date-time .img-support {
+    max-width: 375px;
+    width: 100%;
+    margin-bottom: 6px;
+    .img-responsive{
+        margin: 0 auto;
+    }
+}
 //modal popup
-
 .login-dialog {
     .modal-content {
         background-color: $modal-bg;
