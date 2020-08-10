@@ -870,6 +870,8 @@ div.summary-content {
     width: 100%;
     text-align: left;
     padding-left: 0; }
+  .account-information .info-group .form-group .radio-inline input[type="radio"], .account-information .info-group .form-group .checkbox input[type="checkbox"], .sign-up-page .info-group .form-group .radio-inline input[type="radio"], .sign-up-page .info-group .form-group .checkbox input[type="checkbox"] {
+    margin-top: 3px; }
   .account-information .info-group .form-group.agree-box, .account-information .info-group .form-group .payment-username, .sign-up-page .info-group .form-group.agree-box, .sign-up-page .info-group .form-group .payment-username {
     grid-template-columns: 1fr; }
     .account-information .info-group .form-group.agree-box .chk-agree, .account-information .info-group .form-group .payment-username .chk-agree, .sign-up-page .info-group .form-group.agree-box .chk-agree, .sign-up-page .info-group .form-group .payment-username .chk-agree {
@@ -901,6 +903,14 @@ div.summary-content {
   color: #333333; }
   .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover, .sign-up-page #btnCancel:hover, .sign-up-page #websiteInfo .btn-submit:hover {
     background-color: rgba(250, 182, 23, 0.5); }
+
+.account-information .info-group .title, .sign-up-page .info-group .title {
+  padding: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  background: none;
+  margin-bottom: 16px; }
 
 .main.after-login .main-content > .container-fluid {
   padding: 0; }
@@ -1104,13 +1114,6 @@ div.custom-panel {
   margin-bottom: -9px; }
   .content.term-condition-page .banner-terms-condition p {
     display: none; }
-
-.account-information .info-group .title {
-  padding: 0;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  background: none; }
 
 .btn-move-top {
   background: #0B71DF;

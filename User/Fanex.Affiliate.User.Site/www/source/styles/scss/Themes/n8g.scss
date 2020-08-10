@@ -1274,6 +1274,7 @@ div.summary-content {
 
         .col-sm-4 {
             padding-left: 0;
+
             @media (min-width: 768px) {
                 width: 50%;
             }
@@ -1283,6 +1284,10 @@ div.summary-content {
             width: 100%;
             text-align: left;
             padding-left: 0;
+        }
+
+        .radio-inline input[type="radio"], .checkbox input[type="checkbox"]{
+            margin-top: 3px;
         }
 
         &.agree-box, .payment-username {
@@ -1334,6 +1339,19 @@ div.summary-content {
     }
 }
 
+//account-information
+.account-information, .sign-up-page {
+    .info-group {
+        .title {
+            padding: 0;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            background: none;
+            margin-bottom: 16px;
+        }
+    }
+}
 
    
 
@@ -1678,18 +1696,6 @@ div.custom-panel {
     }
 }
 
-//account-information
-.account-information {
-    .info-group {
-        .title {
-            padding: 0;
-            font-weight: 500;
-            font-size: 20px;
-            line-height: 23px;
-            background: none;
-        }
-    }
-}
 // btn go to top
 .btn-move-top {
     background: #0B71DF;
