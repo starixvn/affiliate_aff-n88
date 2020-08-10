@@ -81,6 +81,11 @@
       .header-top .language-container #selectedLanguage .flag.flag-th-TH {
         background-image: url("../Images/apply/n8g/Thailand.svg"); }
 
+.breadcrumb-container .breadcrumb {
+  background: #0B71DF; }
+  .breadcrumb-container .breadcrumb a {
+    color: #ffffff; }
+
 .footer {
   background: #0E0C2E;
   border-top: 8px solid #E9262A;
@@ -873,7 +878,8 @@ div.summary-content {
 
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
   display: grid !important;
-  grid-template-columns: 20rem 1fr; }
+  grid-template-columns: 20rem 1fr;
+  margin-bottom: 10px; }
   @media screen and (max-width: 480px) {
     .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
       grid-template-columns: 1fr; } }
@@ -1073,7 +1079,8 @@ div.summary-content {
   padding: 0 12px; }
 
 #textLinkList .marketing-qrcode .control-label {
-  text-align: left; }
+  text-align: left;
+  margin-right: 20px; }
 
 div.custom-panel {
   background-color: transparent;
@@ -1270,6 +1277,25 @@ div.custom-panel {
 
 .table-medium {
   width: 100%; }
+
+.payment-info .form-horizontal .control-label {
+  text-align: left;
+  padding-left: 0; }
+
+.payment-info .form-horizontal .col-sm-3 {
+  padding-left: 0; }
+
+.payment-info .form-horizontal .col-sm-offset-3 {
+  margin-left: 0;
+  padding-left: 0; }
+  .payment-info .form-horizontal .col-sm-offset-3 .btn-submit {
+    background-color: #FAB617;
+    color: #333333 !important;
+    font-weight: bold; }
+    .payment-info .form-horizontal .col-sm-offset-3 .btn-submit:hover {
+      background-color: #FFC337;
+      color: #333333;
+      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1523,7 +1549,11 @@ div.custom-panel {
     margin-top: 10px; }
   .user-login.login-after {
     margin-bottom: 10px;
-    margin-top: 5px; } }
+    margin-top: 5px; }
+  #account-overview-content .col-lg-9 .info-group .title {
+    padding-left: 0 !important; }
+  #account-overview-content .info-group #linkForm, #account-overview-content .info-group #textLinkList {
+    padding-left: 0 !important; } }
 
 @media only screen and (max-width: 767px) {
   .header-top .logo {
@@ -1537,6 +1567,8 @@ div.custom-panel {
       margin-right: 3px !important; }
   .header-top .login .language-container {
     margin-left: 3px; }
+  .header-top .login .user-login .btn {
+    margin-bottom: 5px; }
   .modal-dialog {
     margin: 30px 15px !important; }
   .login-dialog .modal-content .modal-banner .logo-text {
@@ -1560,7 +1592,7 @@ div.custom-panel {
     .account-overview .col-md-8.col-lg-9 #textLinkList .control-label {
       width: 92px;
       text-align: left;
-      margin: 0; }
+      margin: 0 8px 0 0; }
   .account-overview .search-container .form-group, .account-overview .info-group .form-group {
     display: flex;
     flex-wrap: nowrap; }
