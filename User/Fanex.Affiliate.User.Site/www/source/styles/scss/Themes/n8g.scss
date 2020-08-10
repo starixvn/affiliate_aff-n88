@@ -612,6 +612,17 @@ select.form-control {
     .icon {
         color: $button-login-color;
     }
+
+    &.btn-block {
+        background: $button-signup-bg-color;
+        color: $button-signup-color;
+  
+
+        &:hover, &:focus {
+            color: $button-signup-color;
+            background: $button-signup-bg-color-hover;
+        }
+    }
 }
 
 .content .signup-block .btn-link {

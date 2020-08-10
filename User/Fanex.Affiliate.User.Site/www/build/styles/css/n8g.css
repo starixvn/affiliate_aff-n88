@@ -426,6 +426,12 @@ select.form-control {
     background: rgba(250, 182, 23, 0.5); }
   .btn-login-mobile .icon, .btn-submit#btnReset .icon {
     color: #333333; }
+  .btn-login-mobile.btn-block, .btn-submit#btnReset.btn-block {
+    background: #0B71DF;
+    color: #ffffff; }
+    .btn-login-mobile.btn-block:hover, .btn-login-mobile.btn-block:focus, .btn-submit#btnReset.btn-block:hover, .btn-submit#btnReset.btn-block:focus {
+      color: #ffffff;
+      background: rgba(11, 113, 223, 0.5); }
 
 .content .signup-block .btn-link {
   background-color: #0B71DF;
