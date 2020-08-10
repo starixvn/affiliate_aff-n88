@@ -41,8 +41,9 @@ body {
         padding-top: .2rem;
         padding-left: 1.5rem;
     }
-    .user-login{
-        .btn{
+
+    .user-login, .user-signup {
+        .btn {
             font-weight: bold;
         }
     }
@@ -57,6 +58,7 @@ body {
 
             .language-list {
                 margin-bottom: 0;
+
                 .language-item {
                     color: $text-color-white;
 
@@ -70,7 +72,7 @@ body {
         #selectedLanguage {
             border: 0;
             position: relative;
-            padding: 2px 32px 0 32px;
+            padding: 2px 23px 0 28px;
 
             .caret {
                 border: 0;
@@ -722,10 +724,12 @@ select.form-control {
 .content .signup-block .btn-link {
     background-color: $button-login-bg-color;
     color: $button-login-color;
+    font-weight: bold;
 
     &:hover {
         background-color: $button-login-bg-color-hover;
         color: $button-login-color;
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 }
 
@@ -1268,9 +1272,15 @@ div.summary-content {
 .form-horizontal .form-group {
     margin: 0 0 10px 0;
 }
-
+//btn sub content
+.sub-content {
+    .btn-submit{
+        line-height: 30px;
+        height: 30px;
+        vertical-align: top;
+    }
+}
 //my account
-
 .account-information, .sign-up-page {
     .info-group .form-group {
         display: grid !important;
@@ -1336,6 +1346,9 @@ div.summary-content {
         }
 
         #websiteInfo {
+            .btn-submit{
+                line-height: 25px!important;
+            }
             .has-error {
                 .col-sm-offset-3 {
                     @media only screen and (min-width: 769px) {
@@ -1706,8 +1719,10 @@ div.summary-content {
     .form-inline.form-filter {
 
         .form-group {
+            margin-bottom: 10px;
             label {
                 width: 100px;
+                margin: 0;
             }
 
             select, .date-wrapper {

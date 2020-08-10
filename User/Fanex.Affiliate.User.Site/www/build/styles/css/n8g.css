@@ -31,7 +31,7 @@
   .header-top .logo {
     padding-top: .2rem;
     padding-left: 1.5rem; }
-  .header-top .user-login .btn {
+  .header-top .user-login .btn, .header-top .user-signup .btn {
     font-weight: bold; }
   .header-top .logo-image {
     width: 180px; }
@@ -46,7 +46,7 @@
   .header-top .language-container #selectedLanguage {
     border: 0;
     position: relative;
-    padding: 2px 32px 0 32px; }
+    padding: 2px 23px 0 28px; }
     .header-top .language-container #selectedLanguage .caret {
       border: 0;
       width: 16px;
@@ -498,10 +498,12 @@ select.form-control {
 
 .content .signup-block .btn-link {
   background-color: #FAB617;
-  color: #333333; }
+  color: #333333;
+  font-weight: bold; }
   .content .signup-block .btn-link:hover {
     background-color: #FFC337;
-    color: #333333; }
+    color: #333333;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .btn-submit {
   background-color: #0B71DF;
@@ -863,6 +865,11 @@ div.summary-content {
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
 
+.sub-content .btn-submit {
+  line-height: 30px;
+  height: 30px;
+  vertical-align: top; }
+
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
   display: grid !important;
   grid-template-columns: 20rem 1fr; }
@@ -898,6 +905,9 @@ div.summary-content {
   @media only screen and (min-width: 769px) {
     .account-information .info-group.website-info .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group.website-info .form-group.has-error .col-sm-offset-3 {
       grid-column: 1 / 2; } }
+
+.account-information .info-group.website-info #websiteInfo .btn-submit, .sign-up-page .info-group.website-info #websiteInfo .btn-submit {
+  line-height: 25px !important; }
 
 .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
   float: left; }
@@ -1116,11 +1126,13 @@ div.custom-panel {
   background-color: #15366E;
   color: #ffffff; }
 
-.form-inline.form-filter .form-group label {
-  width: 100px; }
-
-.form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
-  flex: 1; }
+.form-inline.form-filter .form-group {
+  margin-bottom: 10px; }
+  .form-inline.form-filter .form-group label {
+    width: 100px;
+    margin: 0; }
+  .form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
+    flex: 1; }
 
 .table tbody tr.sumrow > td {
   background-color: transparent !important; }
