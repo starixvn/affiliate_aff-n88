@@ -385,6 +385,14 @@ select.form-control {
     margin-right: 1px;
     font-size: 1.2rem;
     top: 0px; }
+  .btn-signup.btn-block {
+    background: #FAB617;
+    color: #333333;
+    font-size: 1.4rem;
+    padding: 1px 20px 0 19px; }
+    .btn-signup.btn-block:hover, .btn-signup.btn-block:focus {
+      color: #333333;
+      background: rgba(250, 182, 23, 0.5); }
 
 .btn-login {
   background: #FAB617;
@@ -397,15 +405,26 @@ select.form-control {
   .btn-login .icon {
     color: #333333; }
 
-.btn-link, .btn-login-mobile {
+.btn-link {
   background: #FAB617;
   color: #333333;
   font-size: 1.4rem;
   padding: 1px 20px 0 19px; }
-  .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
+  .btn-link:hover, .btn-link:focus {
     color: #333333;
     background: rgba(250, 182, 23, 0.5); }
-  .btn-link .icon, .btn-login-mobile .icon {
+  .btn-link .icon {
+    color: #333333; }
+
+.btn-login-mobile, .btn-submit#btnReset {
+  background: #FAB617;
+  color: #333333;
+  font-size: 1.4rem;
+  padding: 1px 20px 0 19px; }
+  .btn-login-mobile:hover, .btn-login-mobile:focus, .btn-submit#btnReset:hover, .btn-submit#btnReset:focus {
+    color: #333333;
+    background: rgba(250, 182, 23, 0.5); }
+  .btn-login-mobile .icon, .btn-submit#btnReset .icon {
     color: #333333; }
 
 .content .signup-block .btn-link {
@@ -820,7 +839,7 @@ div.summary-content {
 .account-information #btnCancel, .account-information #websiteInfo .btn-submit, .sign-up-page #btnCancel, .sign-up-page #websiteInfo .btn-submit {
   background-color: #FAB617;
   color: #333333; }
-  .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover {
+  .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover, .sign-up-page #btnCancel:hover, .sign-up-page #websiteInfo .btn-submit:hover {
     background-color: rgba(250, 182, 23, 0.5); }
 
 .main.after-login .main-content > .container-fluid {
@@ -927,6 +946,9 @@ div.summary-content {
   line-height: 20px;
   color: #2990FF; }
 
+#textLinkList .marketing-qrcode .control-label {
+  text-align: left; }
+
 div.custom-panel {
   background-color: transparent;
   border: 0; }
@@ -993,6 +1015,11 @@ div.custom-panel {
 
 .table tbody tr.sumrow > td {
   background-color: transparent !important; }
+
+#forgotPasswordForm .form-group {
+  margin: 0 -15px; }
+  #forgotPasswordForm .form-group .control-label {
+    text-align: left; }
 
 .page-container .content .banner-faqs {
   width: 100%;
@@ -1379,7 +1406,8 @@ div.custom-panel {
 
 @media only screen and (max-width: 767px) {
   .header-top .logo {
-    padding: 3.4rem 1rem 2.4rem; }
+    padding: 3.4rem 1rem 2.4rem;
+    text-align: center; }
     .header-top .logo .logo-image {
       width: 222px; }
   .login-dialog .modal-content .modal-banner .logo-text {

@@ -546,7 +546,7 @@ select.form-control {
 
     &:hover, &:focus {
         background: $button-signup-bg-color-hover;
-        color: $button-signup-color!important;
+        color: $button-signup-color !important;
     }
 
     .icon {
@@ -554,6 +554,18 @@ select.form-control {
         margin-right: 1px;
         font-size: 1.2rem;
         top: 0px;
+    }
+
+    &.btn-block {
+        background: $button-login-bg-color;
+        color: $button-login-color;
+        font-size: 1.4rem;
+        padding: 1px 20px 0 19px;
+
+        &:hover, &:focus {
+            color: $button-login-color;
+            background: $button-login-bg-color-hover;
+        }
     }
 }
 .btn-login {
@@ -571,7 +583,22 @@ select.form-control {
         color: $button-login-color;
     }
 }
-.btn-link, .btn-login-mobile {
+.btn-link {
+    background: $button-login-bg-color;
+    color: $button-login-color;
+    font-size: 1.4rem;
+    padding: 1px 20px 0 19px;
+
+    &:hover, &:focus {
+        color: $button-login-color;
+        background: $button-login-bg-color-hover;
+    }
+
+    .icon {
+        color: $button-login-color;
+    }
+}
+.btn-login-mobile, .btn-submit#btnReset {
     background: $button-login-bg-color;
     color: $button-login-color;
     font-size: 1.4rem;
@@ -1360,17 +1387,25 @@ div.summary-content {
     }
 }
 
-#textLinkList .marketing-qrcode button {
-    margin-bottom: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    appearance: none;
-    border: 0;
-    background: none;
-    line-height: 20px;
-    color: #2990FF;
+#textLinkList {
+    .marketing-qrcode {
+        button {
+            margin-bottom: 0;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            border: 0;
+            background: none;
+            line-height: 20px;
+            color: #2990FF;
+        }
+
+        .control-label{
+            text-align: left;
+        }
+    }
 }
 
 div.custom-panel {
@@ -1510,6 +1545,15 @@ div.custom-panel {
 //table RevenueReport
 .table tbody tr.sumrow > td {
     background-color: transparent !important;
+}
+//forgotPasswordForm
+#forgotPasswordForm {
+    .form-group {
+        margin: 0 -15px;
+        .control-label{
+            text-align: left;
+        }
+    }
 }
 //faqs
 .page-container .content .banner-faqs {
@@ -2147,6 +2191,7 @@ div.custom-panel {
     .header-top {
         .logo {
             padding: 3.4rem 1rem 2.4rem;
+            text-align: center;
 
             .logo-image {
                 width: 222px;
