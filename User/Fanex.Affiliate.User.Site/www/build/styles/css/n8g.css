@@ -853,7 +853,6 @@ div.summary-content {
     margin-bottom: 14px; }
   div.summary-content .details-section-menu .menu-item {
     color: #BAC2D2;
-    opacity: 0.5;
     font-size: 1.6rem;
     line-height: 19px;
     padding: 1px 21px 3px; }
@@ -868,7 +867,8 @@ div.summary-content {
 
 .flex-sm-boostrap.flex-center label {
   padding-left: 0 !important;
-  text-align: left; }
+  text-align: left;
+  padding-right: 0; }
 
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
@@ -1097,13 +1097,18 @@ div.summary-content {
   background: none;
   line-height: 20px;
   color: #4DBEFF;
-  border-left: 1px solid #64789B;
   margin-bottom: 10px;
   padding: 0 12px; }
 
 #textLinkList .marketing-qrcode .control-label {
   text-align: left;
   margin-right: 20px; }
+
+#textLinkList .marketing-qrcode .flex {
+  width: 100% !important; }
+  #textLinkList .marketing-qrcode .flex .control-label {
+    max-width: 100px;
+    margin: 0 0 10px 0; }
 
 div.custom-panel {
   background-color: transparent;
@@ -1625,18 +1630,25 @@ div.custom-panel {
   .account-overview .col-md-8.col-lg-9 #linkForm {
     padding: 0; }
   .account-overview .col-md-8.col-lg-9 #textLinkList {
-    padding: 0; }
+    padding: 0;
+    margin-top: 10px; }
+    .account-overview .col-md-8.col-lg-9 #textLinkList .flex {
+      flex-wrap: wrap; }
     .account-overview .col-md-8.col-lg-9 #textLinkList .control-label {
-      width: 92px;
+      width: 100%;
       text-align: left;
-      margin: 0 8px 0 0; }
+      margin: 0 0 10px 0; }
+    .account-overview .col-md-8.col-lg-9 #textLinkList .flex-9 {
+      width: 100%; }
   .account-overview .search-container .form-group, .account-overview .info-group .form-group {
     display: flex;
-    flex-wrap: nowrap; }
+    flex-wrap: wrap; }
     .account-overview .search-container .form-group .control-label, .account-overview .info-group .form-group .control-label {
-      width: 84px; }
+      width: 100%; }
     .account-overview .search-container .form-group .col-sm-9, .account-overview .info-group .form-group .col-sm-9 {
-      flex: 1; }
+      flex: 1;
+      width: 100%;
+      padding: 0; }
     .account-overview .search-container .form-group .col-sm-offset-3, .account-overview .info-group .form-group .col-sm-offset-3 {
       padding-left: 99px; }
   .account-overview .details-section-content .table table.has-total tbody {
