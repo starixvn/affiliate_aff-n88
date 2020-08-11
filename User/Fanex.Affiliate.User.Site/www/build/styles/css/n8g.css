@@ -1155,7 +1155,7 @@ div.custom-panel {
     outline: none;
     color: #ffffff; }
   #account-overview-content .table table tbody tr td[colspan], #paymentList .table table tbody tr td[colspan], .report-container .table table tbody tr td[colspan], #statementDataList .table table tbody tr td[colspan] {
-    border-top: 1px solid #435068; }
+    border-top: 1px solid #435068 !important; }
   #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
     border: 0; }
     #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
@@ -1319,6 +1319,11 @@ div.custom-panel {
       background-color: #FFC337;
       color: #333333;
       box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+
+.commission-report {
+  border: 0;
+  border-left: 1px solid #435068;
+  border-right: 1px solid #435068; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {

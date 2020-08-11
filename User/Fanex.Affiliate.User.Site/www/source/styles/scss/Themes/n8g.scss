@@ -1753,7 +1753,7 @@ div.summary-content {
                     }
 
                     td[colspan] {
-                        border-top: 1px solid #435068;
+                        border-top: 1px solid #435068!important;
                     }
                 }
             }
@@ -2009,6 +2009,12 @@ div.summary-content {
             }
         }
     }
+}
+//commission-report
+.commission-report {
+    border: 0;
+    border-left: 1px solid #435068;
+    border-right: 1px solid #435068;
 }
 //responsive
 @media only screen and (max-width: 1800px) {
