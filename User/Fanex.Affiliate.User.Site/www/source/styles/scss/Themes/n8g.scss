@@ -1292,6 +1292,38 @@ div.summary-content {
 }
 //my account
 .account-information, .sign-up-page {
+    .info-group.website-info + .info-group {
+        .form-horizontal {
+            &:last-child {
+                .form-group {
+                    display: inline-flex !important;
+                    width: 100%;
+                    max-width: 560px;
+
+                    .control-label {
+                        max-width: 200px;
+                        width: 100%;
+                    }
+
+                    .form-control {
+                        min-width: 100px;
+                    }
+
+                    .info-container {
+                        padding: 8px 0 0 0px;
+                    }
+
+                    @media only screen and (max-width:480px) {
+                        flex-wrap: wrap;
+                        .control-label{
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .info-group .form-group {
         display: grid !important;
         grid-template-columns: 20rem 1fr;
