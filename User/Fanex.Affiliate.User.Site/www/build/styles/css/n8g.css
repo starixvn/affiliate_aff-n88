@@ -1568,7 +1568,10 @@ div.custom-panel {
       margin-bottom: 10px; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
         height: 30px;
-        line-height: 30px; } }
+        line-height: 30px; }
+  .date-time .img-support {
+    max-width: 190px;
+    margin-top: 0; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
