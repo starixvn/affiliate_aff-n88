@@ -2016,6 +2016,11 @@ div.summary-content {
     border-left: 1px solid #435068;
     border-right: 1px solid #435068;
 }
+#dataContainerList, #dataContainerList {
+    .info-group .title {
+        margin-bottom: 20px;
+    }
+}
 //responsive
 @media only screen and (max-width: 1800px) {
     .item-wrapper:nth-child(2) {
