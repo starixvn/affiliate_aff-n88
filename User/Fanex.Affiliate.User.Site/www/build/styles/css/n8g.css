@@ -882,9 +882,7 @@ div.summary-content {
   vertical-align: top; }
 
 .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
-  display: inline-flex !important;
-  width: 100%;
-  max-width: 560px; }
+  width: 100%; }
   .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
     max-width: 200px;
     width: 100%; }
@@ -1147,8 +1145,8 @@ div.custom-panel {
     background-color: #182E56; }
   #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd), #statementDataList .table table tbody tr:nth-child(odd) {
     background-color: #0f2346; }
-  #account-overview-content .table table tbody tr[data-parent="~"], #paymentList .table table tbody tr[data-parent="~"], .report-container .table table tbody tr[data-parent="~"], #statementDataList .table table tbody tr[data-parent="~"] {
-    background-color: #08142C; }
+  #account-overview-content .table table tbody tr:last-child, #paymentList .table table tbody tr:last-child, .report-container .table table tbody tr:last-child, #statementDataList .table table tbody tr:last-child {
+    border-bottom: 0 !important; }
   #account-overview-content .table table tbody tr:hover, #paymentList .table table tbody tr:hover, .report-container .table table tbody tr:hover, #statementDataList .table table tbody tr:hover {
     background: #052561 !important; }
   #account-overview-content .table table tbody tr.total, #paymentList .table table tbody tr.total, .report-container .table table tbody tr.total, #statementDataList .table table tbody tr.total {
@@ -1162,12 +1160,16 @@ div.custom-panel {
   #account-overview-content .table table tbody tr .btn.btn-transparent span, #paymentList .table table tbody tr .btn.btn-transparent span, .report-container .table table tbody tr .btn.btn-transparent span, #statementDataList .table table tbody tr .btn.btn-transparent span {
     outline: none;
     color: #ffffff; }
-  #account-overview-content .table table tbody tr td[colspan], #paymentList .table table tbody tr td[colspan], .report-container .table table tbody tr td[colspan], #statementDataList .table table tbody tr td[colspan] {
-    border-top: 1px solid #435068 !important; }
-  #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
-    border: 0; }
-    #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
-      border-right: 1px solid #435068; }
+  #account-overview-content .table table tr, #paymentList .table table tr, .report-container .table table tr, #statementDataList .table table tr {
+    border-bottom: 1px solid #435068 !important; }
+    #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
+      border: 0;
+      font-size: 1.4rem; }
+      #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
+        border-right: 1px solid #435068; }
+
+#statementDataList table thead th:last-child {
+  width: 24%; }
 
 .table table .total {
   background-color: #15366E;
@@ -1332,9 +1334,7 @@ div.custom-panel {
       box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .commission-report {
-  border: 0 !important;
-  border-left: 1px solid #435068 !important;
-  border-right: 1px solid #435068 !important; }
+  border: 0 !important; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
@@ -1699,7 +1699,9 @@ div.custom-panel {
   .date-wrapper {
     margin-bottom: 5px; }
   .form-inline {
-    margin-bottom: 0; } }
+    margin-bottom: 0; }
+  .table-responsive {
+    border: 0; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {
