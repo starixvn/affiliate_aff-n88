@@ -243,7 +243,7 @@ body {
 .form-group .form-control {
     background-color: $input-bg;
     border: 1px solid $input-border;
-    color: $input-color;
+    color: $text-color;
     max-width: 300px;
     &:focus {
         color: $text-color-white;

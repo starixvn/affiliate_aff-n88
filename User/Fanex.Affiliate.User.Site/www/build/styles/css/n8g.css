@@ -15,25 +15,11 @@
 .news {
   background: #152849; }
 
-::-webkit-input-placeholder {
-  /* Edge */
-  color: #BAC2D2; }
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #BAC2D2; }
-
-::placeholder {
-  color: #BAC2D2; }
-
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
     padding-top: .2rem;
     padding-left: 1.5rem; }
-  .header-top .user-login .btn, .header-top .user-signup .btn {
-    font-weight: bold;
-    line-height: 23px; }
   .header-top .logo-image {
     width: 180px; }
   .header-top .language-container .language-list-wrapper {
@@ -47,7 +33,7 @@
   .header-top .language-container #selectedLanguage {
     border: 0;
     position: relative;
-    padding: 2px 23px 0 28px; }
+    padding: 2px 32px 0 32px; }
     .header-top .language-container #selectedLanguage .caret {
       border: 0;
       width: 16px;
@@ -80,11 +66,6 @@
         background-image: url("../Images/apply/n8g/China.svg"); }
       .header-top .language-container #selectedLanguage .flag.flag-th-TH {
         background-image: url("../Images/apply/n8g/Thailand.svg"); }
-
-.breadcrumb-container .breadcrumb {
-  background: #0B71DF; }
-  .breadcrumb-container .breadcrumb a {
-    color: #ffffff; }
 
 .footer {
   background: #0E0C2E;
@@ -155,11 +136,21 @@
       color: #ffffff;
       border: 1px solid #3391F6; }
 
+.text-field::-webkit-input-placeholder {
+  /* Edge */
+  color: #BAC2D2; }
+
+.text-field:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #BAC2D2; }
+
+.text-field::placeholder {
+  color: #BAC2D2; }
+
 .form-group .form-control {
   background-color: #030C1B;
   border: 1px solid #435068;
-  color: #ffffff;
-  max-width: 300px; }
+  color: #BAC2D2; }
   .form-group .form-control:focus {
     color: #ffffff;
     border: 1px solid #3391F6 !important;
@@ -241,8 +232,8 @@
   margin: 0;
   left: 200px;
   z-index: 10;
-  max-width: 42%;
-  width: 42%; }
+  max-width: 40%;
+  width: 40%; }
   .banner-text .txt-lang {
     color: #ffffff;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32); }
@@ -442,9 +433,8 @@ select.form-control {
   font-weight: 700;
   padding: 1px 15px 0 15px; }
   .btn-signup:hover, .btn-signup:focus {
-    background: #1882F5;
-    color: #ffffff !important;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background: rgba(11, 113, 223, 0.5);
+    color: #ffffff !important; }
   .btn-signup .icon {
     color: #ffffff;
     margin-right: 1px;
@@ -457,8 +447,7 @@ select.form-control {
     padding: 1px 20px 0 19px; }
     .btn-signup.btn-block:hover, .btn-signup.btn-block:focus {
       color: #333333;
-      background: #FFC337;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+      background: rgba(250, 182, 23, 0.5); }
 
 .btn-login {
   background: #FAB617;
@@ -467,8 +456,7 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-login:hover, .btn-login:focus {
     color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background: rgba(250, 182, 23, 0.5); }
   .btn-login .icon {
     color: #333333; }
 
@@ -479,8 +467,7 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-link:hover, .btn-link:focus {
     color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background: rgba(250, 182, 23, 0.5); }
   .btn-link .icon {
     color: #333333; }
 
@@ -491,8 +478,7 @@ select.form-control {
   padding: 1px 20px 0 19px; }
   .btn-login-mobile:hover, .btn-login-mobile:focus, .btn-submit#btnReset:hover, .btn-submit#btnReset:focus {
     color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background: rgba(250, 182, 23, 0.5); }
   .btn-login-mobile .icon, .btn-submit#btnReset .icon {
     color: #333333; }
   .btn-login-mobile.btn-block, .btn-submit#btnReset.btn-block {
@@ -500,17 +486,14 @@ select.form-control {
     color: #ffffff; }
     .btn-login-mobile.btn-block:hover, .btn-login-mobile.btn-block:focus, .btn-submit#btnReset.btn-block:hover, .btn-submit#btnReset.btn-block:focus {
       color: #ffffff;
-      background: #1882F5;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+      background: rgba(11, 113, 223, 0.5); }
 
 .content .signup-block .btn-link {
   background-color: #FAB617;
-  color: #333333;
-  font-weight: bold; }
+  color: #333333; }
   .content .signup-block .btn-link:hover {
-    background-color: #FFC337;
-    color: #333333;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background-color: rgba(250, 182, 23, 0.5);
+    color: #333333; }
 
 .btn-submit {
   background-color: #0B71DF;
@@ -518,11 +501,9 @@ select.form-control {
   font-weight: 500;
   font-size: 1.4rem;
   padding: 0 19px;
-  line-height: 23px; }
+  line-height: 25px; }
   .btn-submit:hover, .btn-submit:focus {
-    color: #fff;
-    background-color: #1882F5;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+    background-color: rgba(11, 113, 223, 0.5); }
   .btn-submit .icon {
     color: #fff; }
 
@@ -872,15 +853,9 @@ div.summary-content {
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
 
-.sub-content .btn-submit {
-  line-height: 30px;
-  height: 30px;
-  vertical-align: top; }
-
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
   display: grid !important;
-  grid-template-columns: 20rem 1fr;
-  margin-bottom: 10px; }
+  grid-template-columns: 20rem 1fr; }
   @media screen and (max-width: 480px) {
     .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
       grid-template-columns: 1fr; } }
@@ -901,39 +876,9 @@ div.summary-content {
     grid-template-columns: 1fr; }
     .account-information .info-group .form-group.agree-box .chk-agree, .account-information .info-group .form-group .payment-username .chk-agree, .sign-up-page .info-group .form-group.agree-box .chk-agree, .sign-up-page .info-group .form-group .payment-username .chk-agree {
       margin-left: 0; }
-  .account-information .info-group .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group .form-group.has-error .col-sm-offset-3 {
-    width: 100%;
-    margin: 0;
-    padding: 0; }
-    @media only screen and (min-width: 769px) {
-      .account-information .info-group .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group .form-group.has-error .col-sm-offset-3 {
-        grid-column: 1 / 3; } }
 
 .account-information .info-group.website-info .form-group, .sign-up-page .info-group.website-info .form-group {
   grid-template-columns: 1fr; }
-  @media only screen and (min-width: 769px) {
-    .account-information .info-group.website-info .form-group.has-error .col-sm-offset-3, .sign-up-page .info-group.website-info .form-group.has-error .col-sm-offset-3 {
-      grid-column: 1 / 2; } }
-
-.account-information .info-group.website-info #websiteInfo .btn-submit, .sign-up-page .info-group.website-info #websiteInfo .btn-submit {
-  line-height: 25px !important; }
-
-.account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
-  float: left;
-  margin: 0;
-  width: 100%; }
-  @media only screen and (min-width: 769px) {
-    .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
-      grid-column: 1 / 4; } }
-  @media only screen and (max-width: 768px) {
-    .account-information .info-group.website-info #websiteInfo .has-error .col-sm-offset-3, .sign-up-page .info-group.website-info #websiteInfo .has-error .col-sm-offset-3 {
-      grid-column: 1/3; } }
-
-@media only screen and (max-width: 768px) {
-  .account-information .info-group.website-info #websiteInfo .col-sm-1, .sign-up-page .info-group.website-info #websiteInfo .col-sm-1 {
-    float: left;
-    width: 20px;
-    padding: 0; } }
 
 .account-information #websiteInfo .form-group, .sign-up-page #websiteInfo .form-group {
   grid-template-columns: 16rem 30rem 1fr; }
@@ -953,16 +898,11 @@ div.summary-content {
   margin-left: 0;
   padding-left: 0; }
 
-#btnCancel, #websiteInfo .btn-submit {
-  background-color: #FAB617 !important;
-  color: #333333 !important; }
-  #btnCancel:hover, #websiteInfo .btn-submit:hover {
-    background-color: #FFC337 !important;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-
-#paymentRequest .info-group .title {
-  padding-left: 0;
-  background: none; }
+.account-information #btnCancel, .account-information #websiteInfo .btn-submit, .sign-up-page #btnCancel, .sign-up-page #websiteInfo .btn-submit {
+  background-color: #FAB617;
+  color: #333333; }
+  .account-information #btnCancel:hover, .account-information #websiteInfo .btn-submit:hover, .sign-up-page #btnCancel:hover, .sign-up-page #websiteInfo .btn-submit:hover {
+    background-color: rgba(250, 182, 23, 0.5); }
 
 .account-information .info-group .title, .sign-up-page .info-group .title {
   padding: 0;
@@ -1074,14 +1014,10 @@ div.summary-content {
   border: 0;
   background: none;
   line-height: 20px;
-  color: #4DBEFF;
-  border-left: 1px solid #64789B;
-  margin-bottom: 10px;
-  padding: 0 12px; }
+  color: #2990FF; }
 
 #textLinkList .marketing-qrcode .control-label {
-  text-align: left;
-  margin-right: 20px; }
+  text-align: left; }
 
 div.custom-panel {
   background-color: transparent;
@@ -1132,8 +1068,6 @@ div.custom-panel {
   #account-overview-content .table table tbody tr .btn.btn-transparent span, #paymentList .table table tbody tr .btn.btn-transparent span, .report-container .table table tbody tr .btn.btn-transparent span, #statementDataList .table table tbody tr .btn.btn-transparent span {
     outline: none;
     color: #ffffff; }
-  #account-overview-content .table table tbody tr td[colspan], #paymentList .table table tbody tr td[colspan], .report-container .table table tbody tr td[colspan], #statementDataList .table table tbody tr td[colspan] {
-    border-top: 1px solid #435068; }
   #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
     border: 0; }
     #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
@@ -1143,13 +1077,11 @@ div.custom-panel {
   background-color: #15366E;
   color: #ffffff; }
 
-.form-inline.form-filter .form-group {
-  margin-bottom: 10px; }
-  .form-inline.form-filter .form-group label {
-    width: 100px;
-    margin: 0; }
-  .form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
-    flex: 1; }
+.form-inline.form-filter .form-group label {
+  width: 100px; }
+
+.form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
+  flex: 1; }
 
 .table tbody tr.sumrow > td {
   background-color: transparent !important; }
@@ -1250,7 +1182,7 @@ div.custom-panel {
         color: #ffffff;
         margin: 0; }
         .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:focus {
-          background: #1882F5;
+          background: rgba(11, 113, 223, 0.5);
           color: #ffffff !important; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group {
         margin-bottom: 10px; }
@@ -1268,7 +1200,7 @@ div.custom-panel {
         margin: 0; }
         .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:focus {
           color: #ffffff;
-          background: #FFC337; }
+          background: rgba(250, 182, 23, 0.5); }
       .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
         font-size: 1.4rem;
         color: #E9262A;
@@ -1278,25 +1210,6 @@ div.custom-panel {
 
 .table-medium {
   width: 100%; }
-
-.payment-info .form-horizontal .control-label {
-  text-align: left;
-  padding-left: 0; }
-
-.payment-info .form-horizontal .col-sm-3 {
-  padding-left: 0; }
-
-.payment-info .form-horizontal .col-sm-offset-3 {
-  margin-left: 0;
-  padding-left: 0; }
-  .payment-info .form-horizontal .col-sm-offset-3 .btn-submit {
-    background-color: #FAB617;
-    color: #333333 !important;
-    font-weight: bold; }
-    .payment-info .form-horizontal .col-sm-offset-3 .btn-submit:hover {
-      background-color: #FFC337;
-      color: #333333;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1309,9 +1222,7 @@ div.custom-panel {
 
 @media only screen and (max-width: 1500px) {
   .banner-text {
-    margin: 0;
-    max-width: 40%;
-    width: 40%; }
+    margin: 0; }
     .banner-text h2 {
       font-size: 40px; }
     .banner-text h5 {
@@ -1345,15 +1256,13 @@ div.custom-panel {
     width: calc(100% + 200px);
     left: -100px; }
   .banner-text {
-    left: 100px;
-    max-width: 45%;
-    width: 45%; } }
+    left: 100px; } }
 
 @media only screen and (max-width: 1199px) {
   .banner-text {
     left: 40px;
-    width: 51%;
-    max-width: 51%; }
+    width: 53%;
+    max-width: 53%; }
   .main .page-container:before {
     width: 100%;
     left: 0; }
@@ -1550,11 +1459,7 @@ div.custom-panel {
     margin-top: 10px; }
   .user-login.login-after {
     margin-bottom: 10px;
-    margin-top: 5px; }
-  #account-overview-content .col-lg-9 .info-group .title {
-    padding-left: 0 !important; }
-  #account-overview-content .info-group #linkForm, #account-overview-content .info-group #textLinkList {
-    padding-left: 0 !important; } }
+    margin-top: 5px; } }
 
 @media only screen and (max-width: 767px) {
   .header-top .logo {
@@ -1568,8 +1473,6 @@ div.custom-panel {
       margin-right: 3px !important; }
   .header-top .login .language-container {
     margin-left: 3px; }
-  .header-top .login .user-login .btn {
-    margin-bottom: 5px; }
   .modal-dialog {
     margin: 30px 15px !important; }
   .login-dialog .modal-content .modal-banner .logo-text {
@@ -1593,7 +1496,7 @@ div.custom-panel {
     .account-overview .col-md-8.col-lg-9 #textLinkList .control-label {
       width: 92px;
       text-align: left;
-      margin: 0 8px 0 0; }
+      margin: 0; }
   .account-overview .search-container .form-group, .account-overview .info-group .form-group {
     display: flex;
     flex-wrap: nowrap; }
@@ -1655,7 +1558,7 @@ div.custom-panel {
   .user-login.login-after .btn {
     padding: 0 10px;
     font-size: 1.4rem;
-    line-height: 23px; } }
+    line-height: 25px; } }
 
 .table table th, .table table td {
   padding-top: 5px;
