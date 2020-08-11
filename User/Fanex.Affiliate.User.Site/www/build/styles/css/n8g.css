@@ -1367,7 +1367,9 @@ div.custom-panel {
     margin-left: 0; }
     .news .item-wrapper {
       padding-left: 20px !important;
-      padding-right: 20px !important; } }
+      padding-right: 20px !important; }
+  .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
+    min-width: 1200px; } }
 
 @media only screen and (max-width: 992px) {
   .header-top .logo {
@@ -1661,7 +1663,9 @@ div.custom-panel {
   .user-login.login-after .btn {
     padding: 0 10px;
     font-size: 1.4rem;
-    line-height: 23px; } }
+    line-height: 23px; }
+  .signup-block .btn-link {
+    font-size: 14px !important; } }
 
 .table table th, .table table td {
   padding-top: 5px;
