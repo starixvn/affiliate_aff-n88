@@ -1309,6 +1309,9 @@ div.custom-panel {
 .table-medium {
   width: 100%; }
 
+#subAffEarning table + p {
+  border-bottom: 1px solid #3E5278; }
+
 .payment-info .form-horizontal .control-label {
   text-align: left;
   padding-left: 0; }

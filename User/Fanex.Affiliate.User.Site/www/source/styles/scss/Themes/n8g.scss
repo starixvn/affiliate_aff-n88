@@ -1994,6 +1994,12 @@ div.summary-content {
 .table-medium {
     width: 100%;
 }
+//subAffEarning
+#subAffEarning {
+    table + p {
+        border-bottom: 1px solid #3E5278
+    }
+}
 //payment-info
 .payment-info {
     .form-horizontal {
@@ -2012,7 +2018,7 @@ div.summary-content {
 
             .btn-submit {
                 background-color: $button-login-bg-color;
-                color: $button-login-color!important;
+                color: $button-login-color !important;
                 font-weight: bold;
 
                 &:hover {
