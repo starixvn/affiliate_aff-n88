@@ -83,9 +83,14 @@
         background-image: url("../Images/apply/n8g/Thailand.svg"); }
 
 .breadcrumb-container .breadcrumb {
-  background: #0B71DF; }
+  background: transparent;
+  border: 0;
+  padding: 0; }
+  .breadcrumb-container .breadcrumb li {
+    margin-right: 20px; }
   .breadcrumb-container .breadcrumb a {
-    color: #ffffff; }
+    color: #ffffff;
+    text-decoration: underline; }
 
 .footer {
   background: #0E0C2E;
@@ -1326,9 +1331,9 @@ div.custom-panel {
       box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .commission-report {
-  border: 0;
-  border-left: 1px solid #435068;
-  border-right: 1px solid #435068; }
+  border: 0 !important;
+  border-left: 1px solid #435068 !important;
+  border-right: 1px solid #435068 !important; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
@@ -1399,7 +1404,11 @@ div.custom-panel {
       padding-left: 20px !important;
       padding-right: 20px !important; }
   .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
-    min-width: 1200px; } }
+    min-width: 1200px; }
+  .commission-report .row-wrapper {
+    padding-right: 22px; }
+  #textLinkList .marketing-qrcode .flex .control-label {
+    max-width: 25%; } }
 
 @media only screen and (max-width: 992px) {
   .header-top .logo {
@@ -1625,6 +1634,8 @@ div.custom-panel {
     text-align: left; }
   .account-overview .col-md-4.col-lg-3 {
     padding-right: 0 !important; }
+    .account-overview .col-md-4.col-lg-3 #searchForm.info-group {
+      margin-bottom: 0; }
   .account-overview .col-md-8.col-lg-9 .title {
     padding-left: 0 !important; }
   .account-overview .col-md-8.col-lg-9 #linkForm {
@@ -1640,6 +1651,9 @@ div.custom-panel {
       margin: 0 0 10px 0; }
     .account-overview .col-md-8.col-lg-9 #textLinkList .flex-9 {
       width: 100%; }
+      .account-overview .col-md-8.col-lg-9 #textLinkList .flex-9 button {
+        padding: 0;
+        margin-right: 20px; }
   .account-overview .search-container .form-group, .account-overview .info-group .form-group {
     display: flex;
     flex-wrap: wrap; }
@@ -1688,7 +1702,9 @@ div.custom-panel {
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {
-    display: none; } }
+    display: none; }
+  .form-group .form-control {
+    max-width: 100%; } }
 
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {
