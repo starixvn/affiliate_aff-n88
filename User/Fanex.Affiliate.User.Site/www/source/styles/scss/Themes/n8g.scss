@@ -2110,6 +2110,12 @@ div.summary-content {
         margin-bottom: 20px;
     }
 }
+//.custom-panel
+.custom-panel {
+    .panel-body{
+        padding: 0!important;
+    }
+}
 //responsive
 @media only screen and (max-width: 1800px) {
     .item-wrapper:nth-child(2) {

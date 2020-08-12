@@ -1374,6 +1374,9 @@ div.custom-panel {
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
 
+.custom-panel .panel-body {
+  padding: 0 !important; }
+
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
     width: 50%; }
