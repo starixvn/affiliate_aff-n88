@@ -112,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["PreferredPayment"] = "Player",
                 ["PlayerUsername"] = "bettingexp",
                 ["NoSiteDesc"] = "test",
-                ["NetellerAccountID"] = 1,
+                ["NetellerAccountID"] = true,
                 ["MoneybookersEmail"] = "abc@gmail.com",
                 ["BankName"] = "Test",
                 ["BankAddress"] = "test",
@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["BankAccountNo"] = "test",
                 ["Question"] = "test",
                 ["Answer"] = "test",
-                ["MailOption"] = 0
+                ["MailOption"] = false
             };
         }
     }

@@ -6,7 +6,9 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Payment;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using Fanex.Affiliate.Admin.Core.MetaModels;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
+using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Services.Payment;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
@@ -130,7 +132,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             paymentRequestService.Setup(s => s.HandlePaymentRequest(It.IsAny<PaymentRequestUpdateParam>(), It.IsAny<PaymentRequestUpdateEmail>()))
                 .Returns(Task.FromResult(new ResultInfo()))
                 .Callback<PaymentRequestUpdateParam, PaymentRequestUpdateEmail>((a, b) => passedParam = a);
-            var controller = CreatePaymentRequestController(paymentRequestService: paymentRequestService.Object);
+
+            var authRepository = new Mock<IAuthRepository>();
+            authRepository.Setup(a => a.CheckPermission(It.IsAny<CheckPermissionParam>())).Returns(new ResultInfo());
+            var controller = CreatePaymentRequestController(null, paymentRequestService.Object, authRepository.Object);
 
             // Action
             var result = await controller.UpdatePaymentRequest(param) as JsonNetResult;
@@ -193,13 +198,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
 
         private PaymentRequestController CreatePaymentRequestController(
             ISessionService sessionService = null,
-            IPaymentService paymentRequestService = null
+            IPaymentService paymentRequestService = null,
+            IAuthRepository authRepository = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakePaymentRequestService = paymentRequestService ?? Mock.Of<IPaymentService>();
+            var fakeAuthRepository = authRepository ?? Mock.Of<IAuthRepository>();
 
-            var controller = new PaymentRequestController(fakeSessionService, fakePaymentRequestService);
+            var controller = new PaymentRequestController(fakeSessionService, fakePaymentRequestService, fakeAuthRepository);
 
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();

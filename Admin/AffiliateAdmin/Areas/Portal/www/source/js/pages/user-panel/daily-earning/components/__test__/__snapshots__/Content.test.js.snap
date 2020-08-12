@@ -95,17 +95,6 @@ exports[`customer member - components - Content render correctly 1`] = `
         >
           Bonus
         </t>
-        <t
-          asc={true}
-          colWidth={100}
-          header={true}
-          onClick={[Function]}
-          sortable={false}
-          sorting={false}
-          title="Banking Fee"
-        >
-          Banking Fee
-        </t>
       </t>
     }
     isPaging={false}
@@ -167,17 +156,6 @@ exports[`customer member - components - Content render correctly with have data 
             title="-536.08"
           >
             -536.08
-          </t>
-          <t
-            asc={true}
-            className="text-right"
-            header={false}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="0.00"
-          >
-            0.00
           </t>
           <t
             asc={true}
@@ -288,17 +266,6 @@ exports[`customer member - components - Content render correctly with have data 
           >
             0.00
           </t>
-          <t
-            asc={true}
-            className="text-right"
-            header={false}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="0.00"
-          >
-            0.00
-          </t>
         </t>,
       ]
     }
@@ -329,17 +296,6 @@ exports[`customer member - components - Content render correctly with have data 
             title="-2,031.23"
           >
             -2,031.23
-          </t>
-          <t
-            asc={true}
-            className="text-right"
-            header={false}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="0.00"
-          >
-            0.00
           </t>
           <t
             asc={true}
@@ -443,17 +399,6 @@ exports[`customer member - components - Content render correctly with have data 
           title="Bonus"
         >
           Bonus
-        </t>
-        <t
-          asc={true}
-          colWidth={100}
-          header={true}
-          onClick={[Function]}
-          sortable={false}
-          sorting={false}
-          title="Banking Fee"
-        >
-          Banking Fee
         </t>
       </t>
     }

@@ -62,11 +62,6 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
         statusField="Checked"
         valueField="ProductName"
       />
-      <FormFeedback
-        tag="div"
-      >
-        At least 1 product must be selected per group
-      </FormFeedback>
     </div>
   </Col>
   <Col
@@ -839,11 +834,6 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
         statusField="Checked"
         valueField="ProductName"
       />
-      <FormFeedback
-        tag="div"
-      >
-        At least 1 product must be selected per group
-      </FormFeedback>
     </div>
   </Col>
   <Col

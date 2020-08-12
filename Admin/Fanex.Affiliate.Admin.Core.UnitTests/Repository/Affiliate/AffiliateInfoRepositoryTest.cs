@@ -145,8 +145,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["Phone"] = "0123456789",
                 ["Player_Username"] = "abc123",
                 ["IsPrivate"] = false,
-                ["ParentAffId"] = null,
-                ["ParentAffName"] = null,
+                ["ParentAffId"] = 1,
+                ["ParentAffName"] = "N88aff000",
                 ["NoOfSubAff"] = 0,
                 ["ApprovedBy"] = "abc"
             };
@@ -175,10 +175,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
                 ["Phone"] = "0123456789",
                 ["Player_Username"] = "abc123",
                 ["IsPrivate"] = false,
-                ["ParentAffId"] = null,
-                ["ParentAffName"] = null,
+                ["ParentAffId"] = DBNull.Value,
+                ["ParentAffName"] = DBNull.Value,
                 ["NoOfSubAff"] = 0,
-                ["ApprovedBy"] = null
+                ["ApprovedBy"] = DBNull.Value
             };
         }
     }
