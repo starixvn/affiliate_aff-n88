@@ -1308,10 +1308,12 @@ div.summary-content {
 .account-information, .sign-up-page {
     .info-group.website-info + .info-group {
         .form-horizontal {
-            &:last-child {
-                .form-group {
+
+            .form-group {
+                &:last-child {
                     width: 100%;
                     display: flex !important;
+                    flex-wrap: wrap;
 
                     .control-label {
                         max-width: 200px;
@@ -1319,7 +1321,7 @@ div.summary-content {
                     }
 
                     .col-sm-4 {
-                        width: 300px;
+
 
                         .form-control {
                             margin: 0;
@@ -1327,6 +1329,15 @@ div.summary-content {
 
                         @media only screen and (max-width:480px) {
                             width: 280px;
+                        }
+                    }
+
+                    .col-sm-offset-3 {
+                        width: 100%;
+                        padding-left: 20rem;
+
+                        @media only screen and (max-width:480px) {
+                            padding-left: 0;
                         }
                     }
 
@@ -1375,7 +1386,6 @@ div.summary-content {
             width: 100%;
             text-align: left;
             padding-left: 0;
-            
         }
 
         .radio-inline input[type="radio"], .checkbox input[type="checkbox"] {

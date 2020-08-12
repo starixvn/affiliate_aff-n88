@@ -886,27 +886,32 @@ div.summary-content {
   .control-label.require {
     color: #BAC2D2 !important; }
 
-.account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
+.account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
   width: 100%;
-  display: flex !important; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
+  display: flex !important;
+  flex-wrap: wrap; }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
     max-width: 200px;
     width: 100%; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
-    width: 300px; }
-    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control {
-      margin: 0; }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control {
+    margin: 0; }
+  @media only screen and (max-width: 480px) {
+    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 {
+      width: 280px; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+    width: 100%;
+    padding-left: 20rem; }
     @media only screen and (max-width: 480px) {
-      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
-        width: 280px; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control {
+      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+        padding-left: 0; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control {
     min-width: 100px; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container {
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container {
     padding: 6px 0 0 0; }
   @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
+    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
       flex-wrap: wrap; }
-      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
+      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
         max-width: 100%; } }
 
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
