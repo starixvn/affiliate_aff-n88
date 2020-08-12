@@ -2821,6 +2821,11 @@ div.summary-content {
             }
         }
     }
+    #statisticsTable {
+        table {
+            min-width: 800px;
+        }
+    }
 }
 
 @media only screen and (max-width: 640px) {

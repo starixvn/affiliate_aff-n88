@@ -1747,7 +1747,9 @@ div.custom-panel {
         margin: 0;
         padding: 0; }
       .account-information .info-group .form-group p {
-        padding: 0; } }
+        padding: 0; }
+  #statisticsTable table {
+    min-width: 800px; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {
