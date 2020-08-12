@@ -1733,17 +1733,19 @@ div.custom-panel {
     border-bottom: 0; }
   .date-wrapper {
     margin-bottom: 5px; }
-  .form-inline.form-filter .form-group {
-    display: block;
-    width: 100%; }
-    .form-inline.form-filter .form-group label {
-      width: 100%; }
-    .form-inline.form-filter .form-group .form-control {
-      width: 100%; }
-    .form-inline.form-filter .form-group .date-wrapper {
-      width: 100%;
+  .form-inline.form-filter {
+    margin-bottom: 10px; }
+    .form-inline.form-filter .form-group {
       display: block;
-      max-width: 100%; }
+      width: 100%; }
+      .form-inline.form-filter .form-group label {
+        width: 100%; }
+      .form-inline.form-filter .form-group .form-control {
+        width: 100%; }
+      .form-inline.form-filter .form-group .date-wrapper {
+        width: 100%;
+        display: block;
+        max-width: 100%; }
   .table-responsive {
     border: 0; }
   #updatePasswordForm .form-group > * {
