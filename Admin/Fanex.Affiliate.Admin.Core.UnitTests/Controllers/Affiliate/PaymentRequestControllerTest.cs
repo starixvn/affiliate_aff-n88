@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Controllers.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
@@ -111,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         }
 
         [Fact]
-        public async Task UpdatePaymentRequest_WhenCallWithValidParam_InsertSuccessful()
+        public async Task UpdatePaymentRequest_WhenCallWithValidParam_UpdateSuccessful()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -144,6 +145,24 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             // Assert
             Assert.True(resultInfo.IsSuccessful);
             Assert.Equal(param.TransId, passedParam.TransId);
+        }
+
+        [Fact]
+        public async Task UpdatePaymentRequest_WhenCallWithNotHavePermission_ReturnError()
+        {
+            // Arrange
+            var param = new PaymentRequestUpdateParam { TransId = 123 };
+
+            var authRepository = new Mock<IAuthRepository>();
+            authRepository.Setup(a => a.CheckPermission(It.IsAny<CheckPermissionParam>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+            var controller = CreatePaymentRequestController(null, null, authRepository.Object);
+
+            // Action
+            var result = await controller.UpdatePaymentRequest(param) as JsonNetResult;
+            var resultInfo = result.Data as ResultInfo;
+
+            // Assert
+            Assert.False(resultInfo.IsSuccessful);
         }
 
         [Fact]
