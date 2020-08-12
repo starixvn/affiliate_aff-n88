@@ -887,14 +887,22 @@ div.summary-content {
     color: #BAC2D2 !important; }
 
 .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
-  width: 100%; }
+  width: 100%;
+  display: flex !important; }
   .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
     max-width: 200px;
     width: 100%; }
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
+    width: 300px; }
+    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control {
+      margin: 0; }
+    @media only screen and (max-width: 480px) {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
+        width: 280px; } }
   .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control {
     min-width: 100px; }
   .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container {
-    padding: 8px 0 0 0px; }
+    padding: 6px 0 0 0; }
   @media only screen and (max-width: 480px) {
     .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
       flex-wrap: wrap; }

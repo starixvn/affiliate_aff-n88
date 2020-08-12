@@ -1304,16 +1304,32 @@ div.summary-content {
         color: $text-color !important;
     }
 }
+#accountForm{
+
+}
 .account-information, .sign-up-page {
     .info-group.website-info + .info-group {
         .form-horizontal {
             &:last-child {
                 .form-group {
                     width: 100%;
+                    display: flex !important;
 
                     .control-label {
                         max-width: 200px;
                         width: 100%;
+                    }
+
+                    .col-sm-4 {
+                        width: 300px;
+
+                        .form-control {
+                            margin: 0;
+                        }
+
+                        @media only screen and (max-width:480px) {
+                            width: 280px;
+                        }
                     }
 
                     .form-control {
@@ -1321,7 +1337,7 @@ div.summary-content {
                     }
 
                     .info-container {
-                        padding: 8px 0 0 0px;
+                        padding: 6px 0 0 0;
                     }
 
                     @media only screen and (max-width:480px) {
