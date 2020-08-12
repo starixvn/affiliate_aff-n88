@@ -1132,6 +1132,9 @@ div.custom-panel {
   .page-container .pager-container .disable {
     color: #737e92; }
 
+.table {
+  font-size: 1.4rem; }
+
 #account-overview-content .table table, #paymentList .table table, .report-container .table table, #statementDataList .table table {
   border: 1px solid #435068 !important; }
   #account-overview-content .table table thead tr th, #paymentList .table table thead tr th, .report-container .table table thead tr th, #statementDataList .table table thead tr th {
@@ -1168,8 +1171,16 @@ div.custom-panel {
       #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
         border-right: 1px solid #435068; }
 
+#dailyEarningContent table + p {
+  border: 1px solid #435068;
+  border-top: 0;
+  padding: 10px; }
+
 #statementDataList table thead th:last-child {
   width: 24%; }
+
+#forgotPasswordForm #emailInputGroup {
+  margin-bottom: 10px; }
 
 .table table .total {
   background-color: #15366E;

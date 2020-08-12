@@ -1698,6 +1698,9 @@ div.summary-content {
         }
     }
     //table my account
+.table{
+    font-size: 1.4rem;
+}
 #account-overview-content, #paymentList, .report-container, #statementDataList {
     .table {
         table {
@@ -1782,6 +1785,13 @@ div.summary-content {
         }
     }
 }
+#dailyEarningContent {
+    table + p {
+        border: 1px solid #435068;
+        border-top: 0;
+        padding: 10px;
+    }
+}
 #statementDataList {
     table {
         thead {
@@ -1791,6 +1801,11 @@ div.summary-content {
                 }
             }
         }
+    }
+}
+#forgotPasswordForm {
+    #emailInputGroup{
+        margin-bottom: 10px;
     }
 }
 .table table .total {
