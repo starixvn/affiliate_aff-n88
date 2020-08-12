@@ -1733,7 +1733,16 @@ div.custom-panel {
   .table-responsive {
     border: 0; }
   #updatePasswordForm .form-group > * {
-    padding: 0; } }
+    padding: 0; }
+  .account-information .info-group {
+    margin-bottom: 2rem; }
+    .account-information .info-group .form-group {
+      margin-bottom: 10px; }
+      .account-information .info-group .form-group .control-label {
+        margin: 0;
+        padding: 0; }
+      .account-information .info-group .form-group p {
+        padding: 0; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {

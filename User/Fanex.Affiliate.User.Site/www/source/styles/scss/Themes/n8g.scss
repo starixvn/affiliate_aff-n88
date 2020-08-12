@@ -1304,9 +1304,7 @@ div.summary-content {
         color: $text-color !important;
     }
 }
-#accountForm{
 
-}
 .account-information, .sign-up-page {
     .info-group.website-info + .info-group {
         .form-horizontal {
@@ -1377,6 +1375,7 @@ div.summary-content {
             width: 100%;
             text-align: left;
             padding-left: 0;
+            
         }
 
         .radio-inline input[type="radio"], .checkbox input[type="checkbox"] {
@@ -2794,6 +2793,21 @@ div.summary-content {
         .form-group{
             > *{
                 padding: 0;
+            }
+        }
+    }
+    .account-information {
+        .info-group {
+            margin-bottom: 2rem;
+            .form-group {
+                margin-bottom: 10px;
+                .control-label{
+                    margin: 0;
+                    padding: 0;
+                }
+                p{
+                    padding: 0;
+                }
             }
         }
     }
