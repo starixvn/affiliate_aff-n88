@@ -1297,13 +1297,20 @@ div.summary-content {
     }
 }
 //my account
+.control-label {
+    color: $text-color !important;
+
+    &.require {
+        color: $text-color !important;
+    }
+}
 .account-information, .sign-up-page {
     .info-group.website-info + .info-group {
         .form-horizontal {
             &:last-child {
-                .form-group { 
+                .form-group {
                     width: 100%;
-                   
+
                     .control-label {
                         max-width: 200px;
                         width: 100%;
@@ -1988,6 +1995,7 @@ div.summary-content {
                     .form-control {
                         height: 30px;
                         line-height: 30px;
+                        max-width: 100%;
                     }
                 }
 

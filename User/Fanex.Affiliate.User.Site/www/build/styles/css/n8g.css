@@ -881,6 +881,11 @@ div.summary-content {
   height: 30px;
   vertical-align: top; }
 
+.control-label {
+  color: #BAC2D2 !important; }
+  .control-label.require {
+    color: #BAC2D2 !important; }
+
 .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
   width: 100%; }
   .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
@@ -1302,7 +1307,8 @@ div.custom-panel {
         margin-bottom: 10px; }
         .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
           height: 30px;
-          line-height: 30px; }
+          line-height: 30px;
+          max-width: 100%; }
       .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile {
         margin-top: -5px;
         font-weight: bold;
