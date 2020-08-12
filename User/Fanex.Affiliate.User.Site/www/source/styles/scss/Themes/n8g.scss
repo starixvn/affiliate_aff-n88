@@ -2830,6 +2830,24 @@ div.summary-content {
     .form-group .form-control{
         max-width: 100%;
     }
+    .form-inline.form-filter .form-group {
+        display: block;
+        width: 100%;
+
+        label {
+            width: 100%;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .date-wrapper {
+            width: 100%;
+            display: block;
+            max-width: 100%;
+        }
+    }
 }
 
 @media only screen and (max-width: 375px) {
