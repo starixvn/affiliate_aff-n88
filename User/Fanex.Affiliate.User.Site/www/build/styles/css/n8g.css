@@ -997,7 +997,7 @@ div.summary-content {
     .main.after-login .main-content > .container-fluid {
       padding: 0 10px; } }
 
-.main-content #mainPanel .page-title {
+.main-content #mainPanel .page-title, .main-content .sub-content .page-title {
   margin-left: 0;
   margin-right: 0; }
 
@@ -1197,6 +1197,9 @@ div.custom-panel {
 .table tbody tr.sumrow > td {
   background-color: transparent !important; }
 
+#updatePasswordForm {
+  padding-top: 20px; }
+
 #forgotPasswordForm {
   overflow: hidden; }
   #forgotPasswordForm .form-group {
@@ -1346,6 +1349,8 @@ div.custom-panel {
 
 .commission-report {
   border: 0 !important; }
+  .commission-report table thead th[data-name="Commission"] .th-wrapper {
+    padding-right: 25px; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
@@ -1415,8 +1420,6 @@ div.custom-panel {
     .news .item-wrapper {
       padding-left: 20px !important;
       padding-right: 20px !important; }
-  .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
-    min-width: 1200px; }
   .commission-report .row-wrapper {
     padding-right: 22px; }
   #textLinkList .marketing-qrcode .flex .control-label {
@@ -1605,7 +1608,9 @@ div.custom-panel {
         line-height: 30px; }
   .date-time .img-support {
     max-width: 190px;
-    margin-top: 0; } }
+    margin-top: 0; }
+  .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
+    min-width: 1200px; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1712,7 +1717,9 @@ div.custom-panel {
   .form-inline {
     margin-bottom: 0; }
   .table-responsive {
-    border: 0; } }
+    border: 0; }
+  #updatePasswordForm .form-group > * {
+    padding: 0; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {

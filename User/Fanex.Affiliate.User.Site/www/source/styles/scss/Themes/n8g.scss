@@ -1496,14 +1496,14 @@ div.summary-content {
         }
     }
 
-    .main-content {
-        #mainPanel {
-            .page-title {
-                margin-left: 0;
-                margin-right: 0;
-            }
+.main-content {
+    #mainPanel, .sub-content {
+        .page-title {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
+}
 
 .account-overview {
     .btn-submit {
@@ -1831,6 +1831,11 @@ div.summary-content {
 .table tbody tr.sumrow > td {
     background-color: transparent !important;
 }
+//updatePasswordForm
+#updatePasswordForm {
+    padding-top: 20px;
+    
+}
 //forgotPasswordForm
 #forgotPasswordForm {
     overflow: hidden;
@@ -2057,6 +2062,15 @@ div.summary-content {
 .commission-report {
     border: 0 !important;
 
+    table {
+        thead {
+            th[data-name="Commission"] {
+                .th-wrapper{
+                    padding-right: 25px;
+                }
+            }
+        }
+    }
 }
 #dataContainerList, #dataContainerList {
     .info-group .title {
@@ -2172,11 +2186,7 @@ div.summary-content {
             padding-right: 20px !important;
         }
     }
-    .commission-report, .payment-history, #statementDataList, .details-section-content {
-        table {
-            min-width: 1200px;
-        }
-    }
+    
     .commission-report {
         .row-wrapper{
             padding-right: 22px;
@@ -2518,7 +2528,11 @@ div.summary-content {
         max-width: 190px;
         margin-top: 0;
     }
-    
+    .commission-report, .payment-history, #statementDataList, .details-section-content {
+        table {
+            min-width: 1200px;
+        }
+    }
         
 }
 
@@ -2751,6 +2765,13 @@ div.summary-content {
     }
     .table-responsive{
         border: 0;
+    }
+    #updatePasswordForm {
+        .form-group{
+            > *{
+                padding: 0;
+            }
+        }
     }
 }
 
