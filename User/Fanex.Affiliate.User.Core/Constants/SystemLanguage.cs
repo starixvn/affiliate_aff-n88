@@ -46,10 +46,10 @@ namespace Fanex.Affiliate.User.Core.Constants
                             .Select(l => new Language
                             {
                                 Code = l.MarketId,
-                                DisplayName = l.DisplayName ?? DefaultLanguaList[l.MarketId].DisplayName,
-                                EnglishName = l.MarketName ?? DefaultLanguaList[l.MarketId].EnglishName,
-                                NativeName = l.MarketNativeName ?? DefaultLanguaList[l.MarketId].NativeName,
-                                ShortedCode = l.ShortedCode ?? DefaultLanguaList[l.MarketId].ShortedCode
+                                DisplayName = l.DisplayName,
+                                EnglishName = l.MarketName,
+                                NativeName = l.MarketNativeName,
+                                ShortedCode = l.ShortedCode
                             })
                             .ToList();
                     }

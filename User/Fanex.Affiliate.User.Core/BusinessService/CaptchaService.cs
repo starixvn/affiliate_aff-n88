@@ -135,14 +135,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
         }
 
-        private bool IsValidSecretCaptcha(string inputCaptcha)
+        private bool IsValidSecretCaptcha(string inputCaptcha, string userHostAddress)
         {
             var isAllowAutomationCaptchaCode = _appSetting.GetValue("AllowAutomationCaptchaCode") == "1";
             var secretCaptcha = _appSetting.GetValue("SecretCaptcha");
 
             return isAllowAutomationCaptchaCode &&
                 !string.IsNullOrWhiteSpace(secretCaptcha) &&
-                inputCaptcha == secretCaptcha;
+                inputCaptcha == secretCaptcha &&
+                IsValidHostAddress(userHostAddress);
+        }
+
+        private bool IsValidHostAddress(string userHostAddress)
+        {
+            return _appSetting.IsLocal || Regex.IsMatch(userHostAddress, _appSetting.GetValue("CompanyIP"));
         }
 
         private static Color CreateRandomColor(Random random, int min, int max)
