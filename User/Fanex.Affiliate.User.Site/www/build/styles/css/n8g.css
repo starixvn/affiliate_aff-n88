@@ -1141,8 +1141,8 @@ div.custom-panel {
   background-color: transparent;
   border: 0; }
   .page-container .pager-container .pagesize-select {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #000000;
+    background: #030C1B;
+    border: 1px solid #435068;
     color: #ffffff;
     height: 30px;
     border-radius: 2px;
@@ -1385,6 +1385,8 @@ div.custom-panel {
   border: 0 !important; }
   .commission-report table thead th[data-name="Commission"] .th-wrapper {
     padding-right: 25px; }
+  .commission-report table tbody tr.sumrow .title-cell .row-wrapper {
+    padding-right: 20px; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }

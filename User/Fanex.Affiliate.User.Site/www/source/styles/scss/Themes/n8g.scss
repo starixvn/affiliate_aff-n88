@@ -1707,33 +1707,33 @@ div.summary-content {
     }
 
 
-    .page-container {
-        .pager-container {
-            background-color: transparent;
-            border: 0;
+.page-container {
+    .pager-container {
+        background-color: transparent;
+        border: 0;
 
-            .pagesize-select {
-                background: rgba(0, 0, 0, 0.4);
-                border: 1px solid #000000;
-                color: #ffffff;
-                height: 30px;
-                border-radius: 2px;
-                outline: none;
+        .pagesize-select {
+            background: $date-picker-bg;
+            border: 1px solid $date-picker-border;
+            color: #ffffff;
+            height: 30px;
+            border-radius: 2px;
+            outline: none;
 
-                option {
-                    background: #2A4370;
-                }
-            }
-
-            .icon {
-                color: #ffffff;
-            }
-
-            .disable {
-                color: #737e92;
+            option {
+                background: #2A4370;
             }
         }
+
+        .icon {
+            color: #ffffff;
+        }
+
+        .disable {
+            color: #737e92;
+        }
     }
+}
     //table my account
 .table{
     font-size: 1.4rem;
@@ -2119,8 +2119,18 @@ div.summary-content {
     table {
         thead {
             th[data-name="Commission"] {
-                .th-wrapper{
+                .th-wrapper {
                     padding-right: 25px;
+                }
+            }
+        }
+
+        tbody {
+            tr.sumrow {
+                .title-cell {
+                    .row-wrapper{
+                        padding-right: 20px;
+                    }
                 }
             }
         }
