@@ -463,33 +463,19 @@ select {
         margin-bottom: 2px;
     }
 
-    ul {
-        padding-left: 2.5rem;
-
-        li {
-            font-weight: normal;
-            font-size: 1.4rem;
-            line-height: 24px;
-            letter-spacing: 0.02em;
-        }
-    }
-
-    ol {
-        padding-left: 1.6rem;
-
-        li {
-            font-weight: normal;
-            font-size: 1.4rem;
-            line-height: 24px;
-            letter-spacing: 0.02em;
-        }
-    }
-
-    p {
+    li, p {
         font-weight: normal;
         font-size: 1.4rem;
         line-height: 24px;
         letter-spacing: 0.02em;
+    }
+
+    ul {
+        padding-left: 2.5rem;
+    }
+
+    ol {
+        padding-left: 1.6rem;
     }
 
     #statementPager {
@@ -535,28 +521,31 @@ select {
     tbody {
         tr {
             background: rgba(0, 0, 0, 0.2);
+            color: $text-color;
 
             &:hover {
                 background: $table-row-bg-color-hover !important;
             }
+            //table RevenueReport
+            &.sumrow > td {
+                background-color: transparent !important;
+            }
         }
-    }
-
-    tr {
-        color: $text-color;
-    }
-
-    th, td {
-        border: 1px solid $table-header-border-color;
     }
 
     th {
         background: $table-header-bg-color;
         color: $text-color;
+        border: 1px solid $table-header-border-color;
     }
 
     td {
         border: 1px solid $table-border-color;
+    }
+
+    th, td {
+        padding-top: 5px;
+        padding-bottom: 5px;
     }
 
     .overview-table-header, .player-detail-table-header {
@@ -566,7 +555,26 @@ select {
             border: none;
         }
     }
+
+    .total {
+        background-color: #15366E;
+        color: #ffffff;
+    }
+
+    &.game-list tr .game-name {
+        background-color: $table-game-name-bg;
+        border: 1px solid $table-border-color;
+    }
+
+    .casino-table tbody > tr:nth-of-type(even) {
+        background-color: $table-row-even-bg-color;
+    }
 }
+
+.table-medium {
+    width: 100%;
+}
+
 // Banner product
 .banner-product.banner-product-sport {
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-sports_affiliate.jpg");
@@ -833,16 +841,6 @@ select.form-control {
         top: 7px;
         position: absolute;
         right: 5px;
-    }
-}
-// Product
-.table {
-    .game-list tr .game-name {
-        background-color: $table-game-name-bg;
-    }
-
-    .casino-table tbody > tr:nth-of-type(even) {
-        background-color: $table-row-even-bg-color;
     }
 }
 
@@ -1160,7 +1158,6 @@ select.form-control {
             }
 
             &.active, &:hover {
-                //background-color: $sub-nav-menu-bg-color-active;
                 color: $sub-nav-menu-color-active;
             }
         }
@@ -1261,7 +1258,6 @@ div.summary-content {
 
         .menu-item {
             color: $tab-item-color;
-            //opacity: 0.5;
             font-size: 1.6rem;
             line-height: 19px;
             padding: 1px 21px 3px;
@@ -1293,6 +1289,7 @@ div.summary-content {
 .form-horizontal .form-group {
     margin: 0 0 10px 0;
 }
+
 //btn sub content
 .sub-content {
     .btn-submit{
@@ -1301,6 +1298,7 @@ div.summary-content {
         vertical-align: top;
     }
 }
+
 //my account
 .control-label {
     color: $text-color !important;
@@ -1505,6 +1503,7 @@ div.summary-content {
             background: none;
         }
     }
+
     //account-information
     .account-information, .sign-up-page {
         .info-group {
@@ -1518,7 +1517,6 @@ div.summary-content {
             }
         }
     }
-
 
 
     .main.after-login {
@@ -1678,7 +1676,6 @@ div.summary-content {
             background: none;
             line-height: 20px;
             color: #4DBEFF;
-            //border-left: 1px solid #64789B;
             margin-bottom: 10px;
             padding: 0 12px;
         }
@@ -1731,10 +1728,8 @@ div.summary-content {
         }
     }
 }
-    //table my account
-.table{
-    font-size: 1.4rem;
-}
+
+// Table my account
 #account-overview-content, #paymentList, .report-container, #statementDataList {
     .table {
         table {
@@ -1744,12 +1739,6 @@ div.summary-content {
                 tr {
                     th {
                         background-color: #0F1C33;
-                    }
-
-                    &.overview-table-header {
-                        th {
-                            background-color: #0F1C33;
-                        }
                     }
 
                     &.overview-table-total {
@@ -1772,7 +1761,7 @@ div.summary-content {
                     }
 
                     &:last-child{
-                        border-bottom: 0!important;
+                        border-bottom: 0 !important;
                     }
 
                     &:hover {
@@ -1809,7 +1798,6 @@ div.summary-content {
 
                 th, td {
                     border: 0;
-                    font-size: 1.4rem;
 
                     &:not(:last-child) {
                         border-right: 1px solid #435068;
@@ -1819,6 +1807,7 @@ div.summary-content {
         }
     }
 }
+
 #dailyEarningContent {
     table + p {
         border: 1px solid #435068;
@@ -1842,10 +1831,7 @@ div.summary-content {
         margin-bottom: 10px;
     }
 }
-.table table .total {
-    background-color: #15366E;
-    color: #ffffff;
-}
+
 //form filter
 .form-inline.form-filter {
 
@@ -1861,10 +1847,7 @@ div.summary-content {
         }
     }
 }
-//table RevenueReport
-.table tbody tr.sumrow > td {
-    background-color: transparent !important;
-}
+
 //updatePasswordForm
 #updatePasswordForm {
     padding-top: 20px;
@@ -1902,9 +1885,8 @@ div.summary-content {
 .page-container .content .banner-faqs {
     width: 100%;
     max-width: 100%;
-    background-image: url("../../../../build/styles/Images/apply/n8g/bg-FAQ_banner.png");
+    background: url("../../../../build/styles/Images/apply/n8g/bg-FAQ_banner.webp") center center;
     background-size: cover;
-    background-position: center center;
     height: 260px;
     margin-bottom: -9px;
 
@@ -1917,9 +1899,8 @@ div.summary-content {
     .banner-terms-condition {
         width: 100%;
         max-width: 100%;
-        background-image: url("../../../../build/styles/Images/apply/n8g/bg-Terms_conditions_banner.png");
+        background: url("../../../../build/styles/Images/apply/n8g/bg-Terms_conditions_banner.webp") center center;
         background-size: cover;
-        background-position: center center;
         height: 260px;
         margin-bottom: -9px;
 
@@ -1931,15 +1912,16 @@ div.summary-content {
 // btn go to top
 .btn-move-top {
     background: #0B71DF;
-    color: #ffffff;
+    color: #fff;
     opacity: 1;
 
     &:hover {
         background: #0B71DF;
-        color: #ffffff;
+        color: #fff;
         opacity: 1;
     }
 }
+
 //contact
 .date-time .img-support {
     max-width: 375px;
@@ -2070,9 +2052,6 @@ div.summary-content {
     }
 }
 
-.table-medium {
-    width: 100%;
-}
 //subAffEarning
 #subAffEarning {
     table + p {
@@ -2834,8 +2813,7 @@ div.summary-content {
 
     .table-responsive {
         border-color: #435068;
-        border-top: 0;
-        border-bottom: 0;
+        border: none;
     }
 
     .date-wrapper {
@@ -2864,9 +2842,6 @@ div.summary-content {
                 max-width: 100%;
             }
         }
-    }
-    .table-responsive{
-        border: 0;
     }
     #updatePasswordForm {
         .form-group{
@@ -3003,7 +2978,6 @@ div.summary-content {
 
 }
 
-
 @media only screen and (max-width: 374px) {
     .banner-text {
         h2 {
@@ -3034,11 +3008,7 @@ div.summary-content {
         margin-right: 0;
     }
 }
-//RevenueSharingStructure
-.table table th, .table table td {
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
+
 
 .page-container {
     width: 100%;
@@ -3108,24 +3078,6 @@ div.summary-content {
                 font-size: 80px;
                 line-height: 96px;
                 margin-bottom: 0;
-            }
-        }
-    }
-}
-@media only screen and (max-width: 768px) {
-    .table {
-        table {
-        }
-    }
-}
-
-.table {
-    table {
-        &.game-list {
-            tr {
-                .game-name {
-                    border: 1px solid $table-border-color;
-                }
             }
         }
     }

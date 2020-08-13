@@ -26,9 +26,6 @@
 ::placeholder {
   color: #BAC2D2; }
 
-select {
-  -webkit-appearance: none; }
-
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
@@ -322,25 +319,15 @@ select {
     background-image: url("../Images/apply/n8g/icon-arrow.svg");
     padding-left: 3.1rem;
     margin-bottom: 2px; }
-  .info-group ul {
-    padding-left: 2.5rem; }
-    .info-group ul li {
-      font-weight: normal;
-      font-size: 1.4rem;
-      line-height: 24px;
-      letter-spacing: 0.02em; }
-  .info-group ol {
-    padding-left: 1.6rem; }
-    .info-group ol li {
-      font-weight: normal;
-      font-size: 1.4rem;
-      line-height: 24px;
-      letter-spacing: 0.02em; }
-  .info-group p {
+  .info-group li, .info-group p {
     font-weight: normal;
     font-size: 1.4rem;
     line-height: 24px;
     letter-spacing: 0.02em; }
+  .info-group ul {
+    padding-left: 2.5rem; }
+  .info-group ol {
+    padding-left: 1.6rem; }
   .info-group #statementPager {
     padding-bottom: 1.6rem; }
 
@@ -368,25 +355,39 @@ select {
   font-size: 1.4rem;
   line-height: 18px; }
   .table table tbody tr {
-    background: rgba(0, 0, 0, 0.2); }
+    background: rgba(0, 0, 0, 0.2);
+    color: #BAC2D2; }
     .table table tbody tr:hover {
       background: rgba(0, 0, 0, 0.4) !important; }
-  .table table tr {
-    color: #BAC2D2; }
-  .table table th, .table table td {
-    border: 1px solid #3E5278; }
+    .table table tbody tr.sumrow > td {
+      background-color: transparent !important; }
   .table table th {
     background: #15366E;
-    color: #BAC2D2; }
+    color: #BAC2D2;
+    border: 1px solid #3E5278; }
   .table table td {
     border: 1px solid #3E5278; }
+  .table table th, .table table td {
+    padding-top: 5px;
+    padding-bottom: 5px; }
   .table table .overview-table-header, .table table .player-detail-table-header {
     background: #282828 !important; }
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: none; }
+  .table table .total {
+    background-color: #15366E;
+    color: #ffffff; }
+  .table table.game-list tr .game-name {
+    background-color: #15366E;
+    border: 1px solid #3E5278; }
+  .table table .casino-table tbody > tr:nth-of-type(even) {
+    background-color: transparent; }
+
+.table-medium {
+  width: 100%; }
 
 .banner-product.banner-product-sport {
-  background-image: url("../Images/apply/n8g/bg-sports_affiliate.jpg");
+  background-image: url("../Images/apply/n8g/bg-sports_affiliate.webp");
   max-width: 100%;
   margin-bottom: 41px; }
   .banner-product.banner-product-sport .text-red {
@@ -403,12 +404,11 @@ select {
     @media only screen and (max-width: 768px) {
       .banner-product.banner-product-sport .text-red {
         left: 1rem;
-        font-size: 1.8rem;
-        max-width: 68%; } }
+        font-size: 1.8rem; } }
 
 .banner-product.banner-product-casino {
   margin-bottom: 40px;
-  background-image: url("../Images/apply/n8g/bg-casino_affiliate.jpg");
+  background-image: url("../Images/apply/n8g/bg-casino_affiliate.webp");
   max-width: 100%; }
   .banner-product.banner-product-casino .text-red {
     font-size: 3.2rem;
@@ -581,12 +581,6 @@ select.form-control {
     position: absolute;
     right: 5px; }
 
-.table .game-list tr .game-name {
-  background-color: #15366E; }
-
-.table .casino-table tbody > tr:nth-of-type(even) {
-  background-color: transparent; }
-
 .main .page-container .home-page.content {
   margin-top: 0; }
 
@@ -605,7 +599,7 @@ select.form-control {
     .news .item-wrapper.last {
       display: none; }
     .news .item-wrapper.first {
-      background: #0f1c33; }
+      background: #152140; }
 
 .item-wrapper.first .card-title .text {
   width: 45%; }
@@ -890,32 +884,27 @@ div.summary-content {
   .control-label.require {
     color: #BAC2D2 !important; }
 
-.account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
+.account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
   width: 100%;
-  display: flex !important;
-  flex-wrap: wrap; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
+  display: flex !important; }
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
     max-width: 200px;
     width: 100%; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control {
-    margin: 0; }
-  @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 {
-      width: 280px; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
-    width: 100%;
-    padding-left: 20rem; }
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
+    width: 300px; }
+    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control {
+      margin: 0; }
     @media only screen and (max-width: 480px) {
-      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
-        padding-left: 0; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
+        width: 280px; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control {
     min-width: 100px; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container {
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container {
     padding: 6px 0 0 0; }
   @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
+    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
       flex-wrap: wrap; }
-      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
         max-width: 100%; } }
 
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
@@ -1024,6 +1013,10 @@ div.summary-content {
   margin-right: 0; }
 
 .account-overview .btn-submit {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 30px;
+  padding: 0 19px;
   height: 30px; }
 
 .account-overview .col-md-4.col-lg-3 {
@@ -1137,8 +1130,8 @@ div.custom-panel {
   background-color: transparent;
   border: 0; }
   .page-container .pager-container .pagesize-select {
-    background: #030C1B;
-    border: 1px solid #435068;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #000000;
     color: #ffffff;
     height: 30px;
     border-radius: 2px;
@@ -1150,14 +1143,9 @@ div.custom-panel {
   .page-container .pager-container .disable {
     color: #737e92; }
 
-.table {
-  font-size: 1.4rem; }
-
 #account-overview-content .table table, #paymentList .table table, .report-container .table table, #statementDataList .table table {
   border: 1px solid #435068 !important; }
   #account-overview-content .table table thead tr th, #paymentList .table table thead tr th, .report-container .table table thead tr th, #statementDataList .table table thead tr th {
-    background-color: #0F1C33; }
-  #account-overview-content .table table thead tr.overview-table-header th, #paymentList .table table thead tr.overview-table-header th, .report-container .table table thead tr.overview-table-header th, #statementDataList .table table thead tr.overview-table-header th {
     background-color: #0F1C33; }
   #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th, #statementDataList .table table thead tr.overview-table-total th {
     background-color: #15366F !important;
@@ -1184,8 +1172,7 @@ div.custom-panel {
   #account-overview-content .table table tr, #paymentList .table table tr, .report-container .table table tr, #statementDataList .table table tr {
     border-bottom: 1px solid #435068 !important; }
     #account-overview-content .table table tr th, #account-overview-content .table table tr td, #paymentList .table table tr th, #paymentList .table table tr td, .report-container .table table tr th, .report-container .table table tr td, #statementDataList .table table tr th, #statementDataList .table table tr td {
-      border: 0;
-      font-size: 1.4rem; }
+      border: 0; }
       #account-overview-content .table table tr th:not(:last-child), #account-overview-content .table table tr td:not(:last-child), #paymentList .table table tr th:not(:last-child), #paymentList .table table tr td:not(:last-child), .report-container .table table tr th:not(:last-child), .report-container .table table tr td:not(:last-child), #statementDataList .table table tr th:not(:last-child), #statementDataList .table table tr td:not(:last-child) {
         border-right: 1px solid #435068; }
 
@@ -1200,10 +1187,6 @@ div.custom-panel {
 #forgotPasswordForm #emailInputGroup {
   margin-bottom: 10px; }
 
-.table table .total {
-  background-color: #15366E;
-  color: #ffffff; }
-
 .form-inline.form-filter .form-group {
   margin-bottom: 10px; }
   .form-inline.form-filter .form-group label {
@@ -1211,9 +1194,6 @@ div.custom-panel {
     margin: 0; }
   .form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
     flex: 1; }
-
-.table tbody tr.sumrow > td {
-  background-color: transparent !important; }
 
 #updatePasswordForm {
   padding-top: 20px; }
@@ -1225,23 +1205,11 @@ div.custom-panel {
     #forgotPasswordForm .form-group .control-label {
       text-align: left; }
 
-.report-container .table table {
-  min-width: 1000px; }
-
-#statisticsDetailPager {
-  width: 100% !important;
-  margin: 20px 0 !important; }
-
-#statisticsDetailTable {
-  overflow-y: hidden;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
-
 .page-container .content .banner-faqs {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-FAQ_banner.png");
+  background: url("../Images/apply/n8g/bg-FAQ_banner.webp") center center;
   background-size: cover;
-  background-position: center center;
   height: 260px;
   margin-bottom: -9px; }
   .page-container .content .banner-faqs p {
@@ -1250,9 +1218,8 @@ div.custom-panel {
 .content.term-condition-page .banner-terms-condition {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.png");
+  background: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp") center center;
   background-size: cover;
-  background-position: center center;
   height: 260px;
   margin-bottom: -9px; }
   .content.term-condition-page .banner-terms-condition p {
@@ -1260,11 +1227,11 @@ div.custom-panel {
 
 .btn-move-top {
   background: #0B71DF;
-  color: #ffffff;
+  color: #fff;
   opacity: 1; }
   .btn-move-top:hover {
     background: #0B71DF;
-    color: #ffffff;
+    color: #fff;
     opacity: 1; }
 
 .date-time .img-support {
@@ -1352,9 +1319,6 @@ div.custom-panel {
         letter-spacing: 0.04em;
         margin-top: 7px; }
 
-.table-medium {
-  width: 100%; }
-
 #subAffEarning table + p {
   border-bottom: 1px solid #3E5278; }
 
@@ -1381,14 +1345,9 @@ div.custom-panel {
   border: 0 !important; }
   .commission-report table thead th[data-name="Commission"] .th-wrapper {
     padding-right: 25px; }
-  .commission-report table tbody tr.sumrow .title-cell .row-wrapper {
-    padding-right: 20px; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
-
-.custom-panel .panel-body {
-  padding: 0 !important; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1645,13 +1604,7 @@ div.custom-panel {
     max-width: 190px;
     margin-top: 0; }
   .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
-    min-width: 1200px; }
-  #requestPayoutForm .form-group label {
-    padding: 0;
-    margin: 0; }
-  #requestPayoutForm .form-group p {
-    padding: 0;
-    margin: 0; } }
+    min-width: 1200px; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1751,109 +1704,30 @@ div.custom-panel {
     background-color: #15366E !important; }
   .table-responsive {
     border-color: #435068;
-    border-top: 0;
-    border-bottom: 0; }
+    border: none; }
   .date-wrapper {
     margin-bottom: 5px; }
-  .form-inline.form-filter {
-    margin-bottom: 20px; }
-    .form-inline.form-filter .form-group {
-      display: block;
-      width: 100%; }
-      .form-inline.form-filter .form-group label {
-        width: 100%; }
-      .form-inline.form-filter .form-group .form-control {
-        width: 100%; }
-      .form-inline.form-filter .form-group .date-wrapper {
-        width: 100%;
-        display: block;
-        max-width: 100%; }
-  .table-responsive {
-    border: 0; }
+  .form-inline {
+    margin-bottom: 0; }
   #updatePasswordForm .form-group > * {
-    padding: 0; }
-  .account-information .info-group {
-    margin-bottom: 2rem; }
-    .account-information .info-group .form-group {
-      margin-bottom: 10px; }
-      .account-information .info-group .form-group .control-label {
-        margin: 0;
-        padding: 0; }
-      .account-information .info-group .form-group p {
-        padding: 0; }
-  #statisticsTable table {
-    min-width: 800px; } }
+    padding: 0; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {
     display: none; }
   .form-group .form-control {
-    max-width: 100%; }
-  .account-overview .summary-content .dashboard-section .group {
-    display: flex !important;
-    padding: 10px 0;
-    border-radius: 8px !important; }
-    .account-overview .summary-content .dashboard-section .group > * {
-      min-height: 50px; }
-    .account-overview .summary-content .dashboard-section .group .img-icon {
-      width: 60px;
-      padding: 0;
-      height: auto; }
-    .account-overview .summary-content .dashboard-section .group .info-panel {
-      padding: 0;
-      border: 0;
-      position: relative; }
-      .account-overview .summary-content .dashboard-section .group .info-panel:after {
-        position: absolute;
-        width: 1px;
-        height: 100%;
-        top: 0;
-        left: 0;
-        content: "";
-        background: rgba(255, 255, 255, 0.4);
-        opacity: 0.5; }
-      .account-overview .summary-content .dashboard-section .group .info-panel .info-panel-title {
-        font-size: 1.2rem;
-        line-height: 14px;
-        font-weight: 500;
-        margin-bottom: 2px; }
-      .account-overview .summary-content .dashboard-section .group .info-panel .info-panel-content {
-        font-weight: bold;
-        font-size: 1.6rem;
-        line-height: 19px; }
-      .account-overview .summary-content .dashboard-section .group .info-panel:nth-child(2) {
-        width: 110px; }
-      .account-overview .summary-content .dashboard-section .group .info-panel:nth-child(3) {
-        flex: 1; } }
+    max-width: 100%; } }
 
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {
     padding-left: 10px;
-    padding-right: 10px; }
-  #requestPayoutForm .form-group label {
-    padding: 0;
-    margin: 0; }
-  #requestPayoutForm .form-group p {
-    padding: 0;
-    margin: 0; }
-  #paymentList .title {
-    display: block; }
-    #paymentList .title .text {
-      display: block;
-      width: 100%;
-      margin-bottom: 10px; }
-    #paymentList .title .form-inline {
-      display: block;
-      width: 100%; } }
+    padding-right: 10px; } }
 
 @media only screen and (max-width: 374px) {
   .banner-text h2 {
     font-size: 19px; }
   .banner-text h5 {
     font-size: 1.6rem; }
-  .banner-text .nounderline {
-    padding-left: 10px;
-    padding-right: 10px; }
   .user-login.login-after .btn {
     padding: 0 10px;
     font-size: 1.4rem;
@@ -1862,10 +1736,6 @@ div.custom-panel {
     font-size: 14px !important; }
   .form-inline.form-filter .form-group {
     margin-right: 0; } }
-
-.table table th, .table table td {
-  padding-top: 5px;
-  padding-bottom: 5px; }
 
 .page-container {
   width: 100%; }
@@ -1882,7 +1752,7 @@ div.custom-panel {
 .webp .banner-commission-structure {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.png");
+  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.webp");
   background-size: cover;
   padding: 32px 20px 32px 70px;
   margin-bottom: 39px; }
@@ -1899,24 +1769,6 @@ div.custom-panel {
   .page-container .content {
     padding-left: 1rem;
     padding-right: 1rem; } }
-
-@media only screen and (max-width: 992px) {
-  .webp .banner-commission-structure {
-    padding: 32px 20px 32px 70px;
-    margin-bottom: 39px;
-    height: 160px;
-    display: flex; }
-    .webp .banner-commission-structure .text-content {
-      transform: rotate(0); }
-      .webp .banner-commission-structure .text-content p {
-        line-height: inherit; }
-      .webp .banner-commission-structure .text-content .text-big-yellow {
-        font-size: 80px;
-        line-height: 96px;
-        margin-bottom: 0; } }
-
-.table table.game-list tr .game-name {
-  border: 1px solid #3E5278; }
 
 .text-block {
   font-weight: normal;
