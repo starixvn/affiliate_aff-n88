@@ -10,6 +10,7 @@ using System.Web.Helpers;
 
 namespace Fanex.Affiliate.Admin.Core.Exceptions
 {
+    #pragma warning disable S3925 // "ISerializable" should be implemented correctly
     public class LicenseePaymentException : Exception
     {
         public LicenseePaymentException(PaymentRequestInfo paymentInfo, ResultInfo resultInfo)
