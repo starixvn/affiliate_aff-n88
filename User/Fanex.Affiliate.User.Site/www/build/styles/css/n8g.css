@@ -26,13 +26,6 @@
 ::placeholder {
   color: #BAC2D2; }
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #030C1B url("../Images/apply/n8g/icon-select.svg") no-repeat right 5px center !important;
-  padding-right: 24px !important; }
-
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
@@ -115,7 +108,7 @@ select {
     transform: skew(-45deg); }
   .footer .footer-text {
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 15px;
     line-height: 20px;
     color: #ffffff;
     padding: 0; }
@@ -430,10 +423,6 @@ select {
     @media only screen and (max-width: 768px) {
       .banner-product.banner-product-casino .text-red {
         font-size: 1.6rem; } }
-
-.login-dialog .modal-header {
-  background-color: #191919;
-  color: #fff; }
 
 select.form-control {
   background-color: transparent;
@@ -1247,12 +1236,10 @@ div.custom-panel {
 
 .btn-move-top {
   background: #0B71DF;
-  color: #fff;
-  opacity: 1; }
+  color: #fff; }
   .btn-move-top:hover {
-    background: #0B71DF;
-    color: #fff;
-    opacity: 1; }
+    background: #1882F5;
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .date-time .img-support {
   max-width: 375px;
@@ -1275,7 +1262,7 @@ div.custom-panel {
       width: 175px; }
     .login-dialog .modal-content .modal-banner .logo-text {
       font-weight: bold;
-      font-size: 24px;
+      font-size: 2.4rem;
       letter-spacing: 0.04em;
       margin: 0 0 0 11px;
       vertical-align: middle; }
@@ -1284,6 +1271,7 @@ div.custom-panel {
     background-color: transparent; }
     .login-dialog .modal-content .modal-main-content .modal-header {
       background-color: #FAB617;
+      color: #fff;
       border-radius: 0;
       border: 0; }
       .login-dialog .modal-content .modal-main-content .modal-header modal-title {
@@ -1389,9 +1377,9 @@ div.custom-panel {
     max-width: 40%;
     width: 40%; }
     .banner-text h2 {
-      font-size: 40px; }
+      font-size: 4rem; }
     .banner-text h5 {
-      font-size: 24px; }
+      font-size: 2.4rem; }
   .card .card-content .card-title {
     padding-left: 50px; }
     .card .card-content .card-title .text:before {
@@ -1488,14 +1476,14 @@ div.custom-panel {
     .banner-text .txt-lang {
       text-transform: none; }
     .banner-text h2 {
-      font-size: 24px;
+      font-size: 2.4rem;
       line-height: 28px !important;
       margin-bottom: 7px !important; }
       .banner-text h2 br {
         display: none; }
     .banner-text h5 {
       font-weight: 500;
-      font-size: 18px;
+      font-size: 1.8rem;
       line-height: 21px !important;
       padding-top: 0; }
     .banner-text .nounderline {
@@ -1808,6 +1796,13 @@ div.custom-panel {
         flex: 1; } }
 
 @media only screen and (max-width: 375px) {
+  .banner-text h2 {
+    font-size: 19px; }
+  .banner-text h5 {
+    font-size: 1.6rem; }
+  .banner-text .nounderline {
+    padding-left: 10px;
+    padding-right: 10px; }
   .news .item-wrapper {
     padding-left: 10px;
     padding-right: 10px; }
@@ -1825,24 +1820,9 @@ div.custom-panel {
       margin-bottom: 10px; }
     #paymentList .title .form-inline {
       display: block;
-      width: 100%; } }
-
-@media only screen and (max-width: 374px) {
-  .banner-text h2 {
-    font-size: 1.9rem; }
-  .banner-text h5 {
-    font-size: 1.6rem; }
-  .banner-text .nounderline {
-    padding-left: 10px;
-    padding-right: 10px; }
-  .user-login.login-after .btn {
-    padding: 0 10px;
-    font-size: 1.4rem;
-    line-height: 23px; }
+      width: 100%; }
   .signup-block .btn-link {
-    font-size: 1.4rem !important; }
-  .form-inline.form-filter .form-group {
-    margin-right: 0; } }
+    font-size: 1.4rem !important; } }
 
 .page-container {
   width: 100%; }
@@ -1868,7 +1848,7 @@ div.custom-panel {
     .webp .banner-commission-structure .text-content p {
       line-height: inherit; }
     .webp .banner-commission-structure .text-content .text-big-yellow {
-      font-size: 8rem;
+      font-size: 80px;
       line-height: 96px;
       margin-bottom: 0; }
 

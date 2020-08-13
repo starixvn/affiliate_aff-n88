@@ -2938,6 +2938,20 @@ div.summary-content {
 }
 
 @media only screen and (max-width: 375px) {
+    .banner-text {
+        h2 {
+            font-size: 19px;
+        }
+
+        h5 {
+            font-size: 1.6rem;
+        }
+
+        .nounderline {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
     .news .item-wrapper {
         padding-left: 10px;
         padding-right: 10px;
@@ -2974,37 +2988,10 @@ div.summary-content {
         }
     }
 
-}
-
-@media only screen and (max-width: 374px) {
-    .banner-text {
-        h2 {
-            font-size: 1.9rem;
-        }
-
-        h5 {
-            font-size: 1.6rem;
-        }
-
-        .nounderline{
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-
-    .user-login.login-after {
-        .btn {
-            padding: 0 10px;
-            font-size: 1.4rem;
-            line-height: 23px;
-        }
-    }
     .signup-block .btn-link {
-        font-size: 1.4rem!important;
+        font-size: 1.4rem !important;
     }
-    .form-inline.form-filter .form-group{
-        margin-right: 0;
-    }
+
 }
 
 
