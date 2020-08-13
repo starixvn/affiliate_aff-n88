@@ -861,6 +861,8 @@
     <Content Include="www\build\styles\Images\apply\n8g\Eng.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\gift.png" />
     <Content Include="www\build\styles\Images\apply\n8g\icon-arrow.svg" />
+    <Content Include="www\build\styles\Images\apply\n8g\icon-select.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\icon-select.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\Indonesia.svg" />
     <Content Include="www\build\styles\Images\apply\n8g\ipad-login.png" />
     <Content Include="www\build\styles\Images\apply\n8g\Taiwan.svg" />

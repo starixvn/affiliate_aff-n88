@@ -26,6 +26,13 @@
 ::placeholder {
   color: #BAC2D2; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #030C1B url("../Images/apply/n8g/icon-select.svg") no-repeat right 5px center !important;
+  padding-right: 24px !important; }
+
 .header-top {
   background-color: #10192F; }
   .header-top .logo {

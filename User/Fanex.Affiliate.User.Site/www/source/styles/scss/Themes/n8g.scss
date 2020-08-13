@@ -33,7 +33,11 @@ body {
     color: $color-placeholder;
 }
 select {
-    //-webkit-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: $date-picker-bg url("../../../../build/styles/Images/apply/n8g/icon-select.svg") no-repeat right 5px center!important;
+    padding-right: 24px!important;
 }
 // Header
 
