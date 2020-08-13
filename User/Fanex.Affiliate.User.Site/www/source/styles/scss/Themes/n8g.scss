@@ -1880,6 +1880,22 @@ div.summary-content {
         }
     }
 }
+//page report-container
+.report-container{
+    .table{
+        table{
+            min-width: 1000px;
+        } 
+    }
+}
+#statisticsDetailPager {
+    width: 100% !important;
+    margin: 20px 0 !important;
+}
+#statisticsDetailTable {
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 //faqs
 .page-container .content .banner-faqs {
     width: 100%;
@@ -2801,7 +2817,7 @@ div.summary-content {
 
 
     .form-inline.form-filter {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
 
         .form-group {
             display: block;
