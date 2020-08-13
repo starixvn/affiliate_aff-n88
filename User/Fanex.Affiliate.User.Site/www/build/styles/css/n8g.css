@@ -115,7 +115,7 @@ select {
     transform: skew(-45deg); }
   .footer .footer-text {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 20px;
     color: #ffffff;
     padding: 0; }
@@ -1829,7 +1829,7 @@ div.custom-panel {
 
 @media only screen and (max-width: 374px) {
   .banner-text h2 {
-    font-size: 19px; }
+    font-size: 1.9rem; }
   .banner-text h5 {
     font-size: 1.6rem; }
   .banner-text .nounderline {
@@ -1840,7 +1840,7 @@ div.custom-panel {
     font-size: 1.4rem;
     line-height: 23px; }
   .signup-block .btn-link {
-    font-size: 14px !important; }
+    font-size: 1.4rem !important; }
   .form-inline.form-filter .form-group {
     margin-right: 0; } }
 
@@ -1868,7 +1868,7 @@ div.custom-panel {
     .webp .banner-commission-structure .text-content p {
       line-height: inherit; }
     .webp .banner-commission-structure .text-content .text-big-yellow {
-      font-size: 80px;
+      font-size: 8rem;
       line-height: 96px;
       margin-bottom: 0; }
 

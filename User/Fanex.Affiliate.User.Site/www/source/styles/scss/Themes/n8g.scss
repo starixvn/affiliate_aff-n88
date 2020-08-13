@@ -170,7 +170,7 @@ select {
 
     .footer-text {
         font-weight: 500;
-        font-size: 15px;
+        font-size: 1.5rem;
         line-height: 20px;
         color: $text-color-white;
         padding: 0;
@@ -2979,7 +2979,7 @@ div.summary-content {
 @media only screen and (max-width: 374px) {
     .banner-text {
         h2 {
-            font-size: 19px;
+            font-size: 1.9rem;
         }
 
         h5 {
@@ -3000,7 +3000,7 @@ div.summary-content {
         }
     }
     .signup-block .btn-link {
-        font-size: 14px!important;
+        font-size: 1.4rem!important;
     }
     .form-inline.form-filter .form-group{
         margin-right: 0;
@@ -3041,7 +3041,7 @@ div.summary-content {
         }
 
         .text-big-yellow {
-            font-size: 80px;
+            font-size: 8rem;
             line-height: 96px;
             margin-bottom: 0;
         }
