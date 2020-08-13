@@ -21,7 +21,8 @@ export class PaymentRequestUpdateForm extends PureComponent {
             originalStatus: '',
             isSuccess: true,
             isShowMessage: false,
-            message: ''
+            message: '',
+            isSendingRequest: false
         }
     }
 
@@ -40,7 +41,12 @@ export class PaymentRequestUpdateForm extends PureComponent {
     handleGetPaymentRequestInfo = async (transId) => {
         const data = await this.props.getPaymentRequestDetail({ transId });
 
-        data && this.setState({ paymentRequestInfo: data, originalStatus: htmlDecode(data.Status) });
+        data && this.setState(
+        { 
+            paymentRequestInfo: data, 
+            originalStatus: htmlDecode(data.Status),
+            isSendingRequest: false
+        });
     }
 
     handleSave = async () => {
@@ -49,6 +55,10 @@ export class PaymentRequestUpdateForm extends PureComponent {
 
         if (originalStatus && originalStatus.toLowerCase() === processingStatus &&
             selectedStatus && (selectedStatus.toLowerCase() === approvedStatus || selectedStatus.toLowerCase() === rejectedStatus)) {
+
+            this.setState({
+                isSendingRequest: true
+            });
 
             const paymentInfo = Object.assign({}, {
                 AffId: paymentRequestInfo.AffId,
@@ -228,7 +238,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
 
     render() {
         const { transactionId } = this.props;
-        const { paymentRequestInfo, originalStatus, isSuccess, isShowMessage, message } = this.state;
+        const { paymentRequestInfo, originalStatus, isSuccess, isShowMessage, message, isSendingRequest } = this.state;
         const isProcessing = originalStatus && originalStatus.toLowerCase() === processingStatus;
 
         return paymentRequestInfo && (
@@ -243,7 +253,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
                             {this._renderAccountInformation(paymentRequestInfo)}
                             {this._renderPaymentInformation(paymentRequestInfo, isProcessing)}
                             {this._renderNote(paymentRequestInfo, isProcessing)}
-                            <Button type="button" color="success" className="mr-3" disabled={!isProcessing} onClick={this.handleSave}>{globalResource.Update}</Button>
+                            <Button type="button" color="success" className="mr-3" disabled={!isProcessing || isSendingRequest} onClick={this.handleSave}>{globalResource.Update}</Button>
                             <Button type="button" color="info" onClick={this.handleClosePopup}>{globalResource.Cancel}</Button>
                         </Form>
                     </div>

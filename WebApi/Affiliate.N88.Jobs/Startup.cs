@@ -1,6 +1,7 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Middlewares;
 using Fanex.Logging;
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +40,7 @@ namespace Affiliate.N88.Jobs
         {
             // Add This
             app.UseHangfire(appSettings);
-
+            GlobalJobFilters.Filters.Add(new AutomaticRetryAttribute { Attempts = 0 });
 
             if (env.IsDevelopment())
             {
