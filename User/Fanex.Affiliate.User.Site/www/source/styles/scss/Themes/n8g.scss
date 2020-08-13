@@ -572,7 +572,8 @@ select {
     background-image: url("../../../../build/styles/Images/apply/n8g/bg-sports_affiliate.jpg");
     max-width: 100%;
     margin-bottom: 41px;
-    .text-red { 
+
+    .text-red {
         left: 6rem;
         font-size: 3.2rem;
         line-height: inherit;
@@ -589,6 +590,7 @@ select {
         @media only screen and (max-width: 768px) {
             left: 1rem;
             font-size: 1.8rem;
+            max-width: 68%;
         }
     }
 }
@@ -2591,6 +2593,21 @@ div.summary-content {
             min-width: 1200px;
         }
     }
+
+    //requestPayoutForm
+    #requestPayoutForm {
+        .form-group {
+            label {
+                padding: 0;
+                margin: 0;
+            }
+            p{
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+  
         
 }
 
@@ -2888,7 +2905,37 @@ div.summary-content {
         padding-left: 10px;
         padding-right: 10px;
     }
+    //requestPayoutForm
+    #requestPayoutForm {
+        .form-group {
+            label {
+                padding: 0;
+                margin: 0;
+            }
 
+            p {
+                padding: 0;
+                margin: 0;
+            }
+        }
+    }
+
+    #paymentList {
+        .title {
+            display: block;
+
+            .text {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .form-inline {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
 
 }
 

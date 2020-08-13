@@ -403,7 +403,8 @@ select {
     @media only screen and (max-width: 768px) {
       .banner-product.banner-product-sport .text-red {
         left: 1rem;
-        font-size: 1.8rem; } }
+        font-size: 1.8rem;
+        max-width: 68%; } }
 
 .banner-product.banner-product-casino {
   margin-bottom: 40px;
@@ -1646,7 +1647,13 @@ div.custom-panel {
     max-width: 190px;
     margin-top: 0; }
   .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
-    min-width: 1200px; } }
+    min-width: 1200px; }
+  #requestPayoutForm .form-group label {
+    padding: 0;
+    margin: 0; }
+  #requestPayoutForm .form-group p {
+    padding: 0;
+    margin: 0; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1788,7 +1795,22 @@ div.custom-panel {
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {
     padding-left: 10px;
-    padding-right: 10px; } }
+    padding-right: 10px; }
+  #requestPayoutForm .form-group label {
+    padding: 0;
+    margin: 0; }
+  #requestPayoutForm .form-group p {
+    padding: 0;
+    margin: 0; }
+  #paymentList .title {
+    display: block; }
+    #paymentList .title .text {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px; }
+    #paymentList .title .form-inline {
+      display: block;
+      width: 100%; } }
 
 @media only screen and (max-width: 374px) {
   .banner-text h2 {
