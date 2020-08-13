@@ -26,6 +26,9 @@
 ::placeholder {
   color: #BAC2D2; }
 
+select {
+  -webkit-appearance: none; }
+
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
@@ -383,7 +386,7 @@
       border: none; }
 
 .banner-product.banner-product-sport {
-  background-image: url("../Images/apply/n8g/bg-sports_affiliate.webp");
+  background-image: url("../Images/apply/n8g/bg-sports_affiliate.jpg");
   max-width: 100%;
   margin-bottom: 41px; }
   .banner-product.banner-product-sport .text-red {
@@ -404,7 +407,7 @@
 
 .banner-product.banner-product-casino {
   margin-bottom: 40px;
-  background-image: url("../Images/apply/n8g/bg-casino_affiliate.webp");
+  background-image: url("../Images/apply/n8g/bg-casino_affiliate.jpg");
   max-width: 100%; }
   .banner-product.banner-product-casino .text-red {
     font-size: 3.2rem;
@@ -1239,7 +1242,7 @@ div.custom-panel {
 .page-container .content .banner-faqs {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-FAQ_banner.webp");
+  background-image: url("../Images/apply/n8g/bg-FAQ_banner.png");
   background-size: cover;
   background-position: center center;
   height: 260px;
@@ -1250,7 +1253,7 @@ div.custom-panel {
 .content.term-condition-page .banner-terms-condition {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.webp");
+  background-image: url("../Images/apply/n8g/bg-Terms_conditions_banner.png");
   background-size: cover;
   background-position: center center;
   height: 260px;
@@ -1820,7 +1823,7 @@ div.custom-panel {
 .webp .banner-commission-structure {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.webp");
+  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.png");
   background-size: cover;
   padding: 32px 20px 32px 70px;
   margin-bottom: 39px; }
