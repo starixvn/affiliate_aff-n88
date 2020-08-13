@@ -1544,10 +1544,7 @@ div.summary-content {
 
 .account-overview {
     .btn-submit {
-        font-weight: 500;
-        font-size: 1.4rem;
-        line-height: 30px;
-        padding: 0 19px;
+        
         height: 30px;
     }
 
@@ -3092,7 +3089,29 @@ div.summary-content {
         }
     }
 }
+@media only screen and (max-width: 992px) {
+    .webp .banner-commission-structure {
+        
+        padding: 32px 20px 32px 70px;
+        margin-bottom: 39px;
+        height: 160px;
+        display: flex;
 
+        .text-content {
+            transform: rotate(0);
+
+            p {
+                line-height: inherit;
+            }
+
+            .text-big-yellow {
+                font-size: 80px;
+                line-height: 96px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
 @media only screen and (max-width: 768px) {
     .table {
         table {

@@ -1024,10 +1024,6 @@ div.summary-content {
   margin-right: 0; }
 
 .account-overview .btn-submit {
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 30px;
-  padding: 0 19px;
   height: 30px; }
 
 .account-overview .col-md-4.col-lg-3 {
@@ -1903,6 +1899,21 @@ div.custom-panel {
   .page-container .content {
     padding-left: 1rem;
     padding-right: 1rem; } }
+
+@media only screen and (max-width: 992px) {
+  .webp .banner-commission-structure {
+    padding: 32px 20px 32px 70px;
+    margin-bottom: 39px;
+    height: 160px;
+    display: flex; }
+    .webp .banner-commission-structure .text-content {
+      transform: rotate(0); }
+      .webp .banner-commission-structure .text-content p {
+        line-height: inherit; }
+      .webp .banner-commission-structure .text-content .text-big-yellow {
+        font-size: 80px;
+        line-height: 96px;
+        margin-bottom: 0; } }
 
 .table table.game-list tr .game-name {
   border: 1px solid #3E5278; }
