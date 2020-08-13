@@ -2,15 +2,11 @@
 using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Helpers;
+using System.Runtime.Serialization;
 
 namespace Fanex.Affiliate.Admin.Core.Exceptions
 {
-    #pragma warning disable S3925 // "ISerializable" should be implemented correctly
+    [Serializable]
     public class LicenseePaymentException : Exception
     {
         public LicenseePaymentException(PaymentRequestInfo paymentInfo, ResultInfo resultInfo)
@@ -22,5 +18,10 @@ namespace Fanex.Affiliate.Admin.Core.Exceptions
         public LicenseePaymentException(PaymentRequestInfo paymentInfo, Exception innerExceptin)
             : base($"Error in lincensee api:\nParam: {JsonConvert.SerializeObject(paymentInfo)}", innerExceptin)
         { }
+
+        protected LicenseePaymentException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+        }
     }
 }
