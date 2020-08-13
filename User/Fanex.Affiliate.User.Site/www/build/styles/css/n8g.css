@@ -26,9 +26,6 @@
 ::placeholder {
   color: #BAC2D2; }
 
-select {
-  -webkit-appearance: none; }
-
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
