@@ -3061,8 +3061,7 @@ div.summary-content {
 }
 @media only screen and (max-width: 992px) {
     .webp .banner-commission-structure {
-        
-        padding: 32px 20px 32px 70px;
+        padding: 16px 10px 32px 25px;
         margin-bottom: 39px;
         height: 160px;
         display: flex;
@@ -3075,9 +3074,35 @@ div.summary-content {
             }
 
             .text-big-yellow {
-                font-size: 80px;
-                line-height: 96px;
-                margin-bottom: 0;
+                font-weight: bold;
+                font-size: 4rem;
+                line-height: 48px;
+                margin: 0;
+            }
+
+            .text-big-white, .text-small-white {
+                font-style: italic;
+                font-weight: normal;
+                font-size: 1.6rem;
+                line-height: 19px;
+                margin: 0;
+            }
+
+            .text-big-white {
+            }
+
+            .text-small-white {
+                &.text-small {
+                    margin-left: 30px;
+                }
+
+                &:last-child {
+                    margin-top: 12px;
+
+                    .text-yellow {
+                        margin: 0 4px;
+                    }
+                }
             }
         }
     }

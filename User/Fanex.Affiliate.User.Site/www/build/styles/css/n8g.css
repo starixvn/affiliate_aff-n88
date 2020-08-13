@@ -26,6 +26,9 @@
 ::placeholder {
   color: #BAC2D2; }
 
+select {
+  -webkit-appearance: none; }
+
 .header-top {
   background-color: #10192F; }
   .header-top .logo {
@@ -387,7 +390,7 @@
   width: 100%; }
 
 .banner-product.banner-product-sport {
-  background-image: url("../Images/apply/n8g/bg-sports_affiliate.webp");
+  background-image: url("../Images/apply/n8g/bg-sports_affiliate.jpg");
   max-width: 100%;
   margin-bottom: 41px; }
   .banner-product.banner-product-sport .text-red {
@@ -404,11 +407,12 @@
     @media only screen and (max-width: 768px) {
       .banner-product.banner-product-sport .text-red {
         left: 1rem;
-        font-size: 1.8rem; } }
+        font-size: 1.8rem;
+        max-width: 68%; } }
 
 .banner-product.banner-product-casino {
   margin-bottom: 40px;
-  background-image: url("../Images/apply/n8g/bg-casino_affiliate.webp");
+  background-image: url("../Images/apply/n8g/bg-casino_affiliate.jpg");
   max-width: 100%; }
   .banner-product.banner-product-casino .text-red {
     font-size: 3.2rem;
@@ -599,7 +603,7 @@ select.form-control {
     .news .item-wrapper.last {
       display: none; }
     .news .item-wrapper.first {
-      background: #152140; }
+      background: #0f1c33; }
 
 .item-wrapper.first .card-title .text {
   width: 45%; }
@@ -884,27 +888,32 @@ div.summary-content {
   .control-label.require {
     color: #BAC2D2 !important; }
 
-.account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
+.account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
   width: 100%;
-  display: flex !important; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
+  display: flex !important;
+  flex-wrap: wrap; }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
     max-width: 200px;
     width: 100%; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
-    width: 300px; }
-    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 .form-control {
-      margin: 0; }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control {
+    margin: 0; }
+  @media only screen and (max-width: 480px) {
+    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 {
+      width: 280px; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+    width: 100%;
+    padding-left: 20rem; }
     @media only screen and (max-width: 480px) {
-      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .col-sm-4 {
-        width: 280px; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .form-control {
+      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+        padding-left: 0; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control {
     min-width: 100px; }
-  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .info-container {
+  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container {
     padding: 6px 0 0 0; }
   @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group {
+    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
       flex-wrap: wrap; }
-      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group .control-label {
+      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
         max-width: 100%; } }
 
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
@@ -1013,10 +1022,6 @@ div.summary-content {
   margin-right: 0; }
 
 .account-overview .btn-submit {
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 30px;
-  padding: 0 19px;
   height: 30px; }
 
 .account-overview .col-md-4.col-lg-3 {
@@ -1130,8 +1135,8 @@ div.custom-panel {
   background-color: transparent;
   border: 0; }
   .page-container .pager-container .pagesize-select {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #000000;
+    background: #030C1B;
+    border: 1px solid #435068;
     color: #ffffff;
     height: 30px;
     border-radius: 2px;
@@ -1204,6 +1209,17 @@ div.custom-panel {
     margin: 0 -15px; }
     #forgotPasswordForm .form-group .control-label {
       text-align: left; }
+
+.report-container .table table {
+  min-width: 1000px; }
+
+#statisticsDetailPager {
+  width: 100% !important;
+  margin: 20px 0 !important; }
+
+#statisticsDetailTable {
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
 
 .page-container .content .banner-faqs {
   width: 100%;
@@ -1345,9 +1361,14 @@ div.custom-panel {
   border: 0 !important; }
   .commission-report table thead th[data-name="Commission"] .th-wrapper {
     padding-right: 25px; }
+  .commission-report table tbody tr.sumrow .title-cell .row-wrapper {
+    padding-right: 20px; }
 
 #dataContainerList .info-group .title, #dataContainerList .info-group .title {
   margin-bottom: 20px; }
+
+.custom-panel .panel-body {
+  padding: 0 !important; }
 
 @media only screen and (max-width: 1800px) {
   .item-wrapper:nth-child(2) .card {
@@ -1604,7 +1625,13 @@ div.custom-panel {
     max-width: 190px;
     margin-top: 0; }
   .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
-    min-width: 1200px; } }
+    min-width: 1200px; }
+  #requestPayoutForm .form-group label {
+    padding: 0;
+    margin: 0; }
+  #requestPayoutForm .form-group p {
+    padding: 0;
+    margin: 0; } }
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .user-signup {
@@ -1707,27 +1734,103 @@ div.custom-panel {
     border: none; }
   .date-wrapper {
     margin-bottom: 5px; }
-  .form-inline {
-    margin-bottom: 0; }
+  .form-inline.form-filter {
+    margin-bottom: 20px; }
+    .form-inline.form-filter .form-group {
+      display: block;
+      width: 100%; }
+      .form-inline.form-filter .form-group label {
+        width: 100%; }
+      .form-inline.form-filter .form-group .form-control {
+        width: 100%; }
+      .form-inline.form-filter .form-group .date-wrapper {
+        width: 100%;
+        display: block;
+        max-width: 100%; }
   #updatePasswordForm .form-group > * {
-    padding: 0; } }
+    padding: 0; }
+  .account-information .info-group {
+    margin-bottom: 2rem; }
+    .account-information .info-group .form-group {
+      margin-bottom: 10px; }
+      .account-information .info-group .form-group .control-label {
+        margin: 0;
+        padding: 0; }
+      .account-information .info-group .form-group p {
+        padding: 0; }
+  #statisticsTable table {
+    min-width: 800px; } }
 
 @media only screen and (max-width: 640px) {
   div.summary-content .dashboard-section .info-panel:before {
     display: none; }
   .form-group .form-control {
-    max-width: 100%; } }
+    max-width: 100%; }
+  .account-overview .summary-content .dashboard-section .group {
+    display: flex !important;
+    padding: 10px 0;
+    border-radius: 8px !important; }
+    .account-overview .summary-content .dashboard-section .group > * {
+      min-height: 50px; }
+    .account-overview .summary-content .dashboard-section .group .img-icon {
+      width: 60px;
+      padding: 0;
+      height: auto; }
+    .account-overview .summary-content .dashboard-section .group .info-panel {
+      padding: 0;
+      border: 0;
+      position: relative; }
+      .account-overview .summary-content .dashboard-section .group .info-panel:after {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        content: "";
+        background: rgba(255, 255, 255, 0.4);
+        opacity: 0.5; }
+      .account-overview .summary-content .dashboard-section .group .info-panel .info-panel-title {
+        font-size: 1.2rem;
+        line-height: 14px;
+        font-weight: 500;
+        margin-bottom: 2px; }
+      .account-overview .summary-content .dashboard-section .group .info-panel .info-panel-content {
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 19px; }
+      .account-overview .summary-content .dashboard-section .group .info-panel:nth-child(2) {
+        width: 110px; }
+      .account-overview .summary-content .dashboard-section .group .info-panel:nth-child(3) {
+        flex: 1; } }
 
 @media only screen and (max-width: 375px) {
   .news .item-wrapper {
     padding-left: 10px;
-    padding-right: 10px; } }
+    padding-right: 10px; }
+  #requestPayoutForm .form-group label {
+    padding: 0;
+    margin: 0; }
+  #requestPayoutForm .form-group p {
+    padding: 0;
+    margin: 0; }
+  #paymentList .title {
+    display: block; }
+    #paymentList .title .text {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px; }
+    #paymentList .title .form-inline {
+      display: block;
+      width: 100%; } }
 
 @media only screen and (max-width: 374px) {
   .banner-text h2 {
     font-size: 19px; }
   .banner-text h5 {
     font-size: 1.6rem; }
+  .banner-text .nounderline {
+    padding-left: 10px;
+    padding-right: 10px; }
   .user-login.login-after .btn {
     padding: 0 10px;
     font-size: 1.4rem;
@@ -1752,7 +1855,7 @@ div.custom-panel {
 .webp .banner-commission-structure {
   width: 100%;
   max-width: 100%;
-  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.webp");
+  background-image: url("../Images/apply/n8g/bg-Commission-Structure_Banner.png");
   background-size: cover;
   padding: 32px 20px 32px 70px;
   margin-bottom: 39px; }
@@ -1769,6 +1872,34 @@ div.custom-panel {
   .page-container .content {
     padding-left: 1rem;
     padding-right: 1rem; } }
+
+@media only screen and (max-width: 992px) {
+  .webp .banner-commission-structure {
+    padding: 16px 10px 32px 25px;
+    margin-bottom: 39px;
+    height: 160px;
+    display: flex; }
+    .webp .banner-commission-structure .text-content {
+      transform: rotate(0); }
+      .webp .banner-commission-structure .text-content p {
+        line-height: inherit; }
+      .webp .banner-commission-structure .text-content .text-big-yellow {
+        font-weight: bold;
+        font-size: 4rem;
+        line-height: 48px;
+        margin: 0; }
+      .webp .banner-commission-structure .text-content .text-big-white, .webp .banner-commission-structure .text-content .text-small-white {
+        font-style: italic;
+        font-weight: normal;
+        font-size: 1.6rem;
+        line-height: 19px;
+        margin: 0; }
+      .webp .banner-commission-structure .text-content .text-small-white.text-small {
+        margin-left: 30px; }
+      .webp .banner-commission-structure .text-content .text-small-white:last-child {
+        margin-top: 12px; }
+        .webp .banner-commission-structure .text-content .text-small-white:last-child .text-yellow {
+          margin: 0 4px; } }
 
 .text-block {
   font-weight: normal;
