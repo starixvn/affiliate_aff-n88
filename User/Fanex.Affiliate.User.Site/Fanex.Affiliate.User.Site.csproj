@@ -838,11 +838,17 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Commission-Structure_Banner.png" />
