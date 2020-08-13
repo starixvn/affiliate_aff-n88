@@ -2897,6 +2897,63 @@ div.summary-content {
     .form-group .form-control{
         max-width: 100%;
     }
+    .account-overview {
+        .summary-content {
+            .dashboard-section {
+                .group {
+                    display: flex !important;
+                    padding: 10px 0;
+                    border-radius: 8px !important;
+                    > *{
+                        min-height: 50px;
+                    }
+                    .img-icon {
+                        width: 60px;
+                        padding: 0; 
+                        height: auto;
+                    }
+
+                    .info-panel {
+                        padding: 0;
+                        border: 0;
+                        position: relative;
+
+                        &:after {
+                            position: absolute;
+                            width: 1px;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            content: "";
+                            background: rgba(255, 255, 255, 0.4);
+                            opacity: 0.5;
+                        }
+
+                        .info-panel-title {
+                            font-size: 1.2rem;
+                            line-height: 14px;
+                            font-weight: 500;
+                            margin-bottom: 2px;
+                        }
+
+                        .info-panel-content {
+                            font-weight: bold;
+                            font-size: 1.6rem;
+                            line-height: 19px;
+                        }
+
+                        &:nth-child(2) {
+                            width: 110px;
+                        }
+
+                        &:nth-child(3) {
+                            flex: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
     
 }
 
