@@ -7,12 +7,14 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Logging;
 
 namespace Fanex.Affiliate.User.Core.Constants
 {
     public static class SystemLanguage
     {
         private static readonly IAppSetting _appSetting = AppSetting.Instance;
+
 
         public static string DefaultLanguageCode
         {
@@ -38,7 +40,23 @@ namespace Fanex.Affiliate.User.Core.Constants
                 var sessionService = DependencyResolver.Current.GetService<ISessionService>();
                 if (service != null && sessionService != null)
                 {
-                    languageList = service.GetLanguageList(sessionService.IsInternal);
+                    try
+                    {
+                        languageList = service.GetLanguageList(sessionService.IsInternal)
+                            .Select(l => new Language
+                            {
+                                Code = l.MarketId,
+                                DisplayName = l.DisplayName ?? DefaultLanguaList[l.MarketId].DisplayName,
+                                EnglishName = l.MarketName ?? DefaultLanguaList[l.MarketId].EnglishName,
+                                NativeName = l.MarketNativeName ?? DefaultLanguaList[l.MarketId].NativeName,
+                                ShortedCode = l.ShortedCode ?? DefaultLanguaList[l.MarketId].ShortedCode
+                            })
+                            .ToList();
+                    }
+                    catch(Exception ex)
+                    {
+                        LogService.Error("Error when get language list from DB", ex);
+                    }
                 }
 
                 return languageList;

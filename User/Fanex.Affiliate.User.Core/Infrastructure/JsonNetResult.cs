@@ -27,7 +27,8 @@ namespace Fanex.Affiliate.User.Core.Infrastructure
                 throw new ArgumentNullException(nameof(context));
             }
 
-            if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet && string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase))
+            if (this.JsonRequestBehavior == JsonRequestBehavior.DenyGet 
+                && string.Equals(context.HttpContext.Request.HttpMethod, "GET", StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidOperationException("JSON GET is not allowed");
             }
