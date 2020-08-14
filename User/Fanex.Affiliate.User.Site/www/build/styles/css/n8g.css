@@ -57,7 +57,8 @@ select {
   .header-top .language-container #selectedLanguage {
     border: 0;
     position: relative;
-    padding: 0 25px 0 28px; }
+    padding: 0 25px 0 28px;
+    line-height: 25px; }
     .header-top .language-container #selectedLanguage .caret {
       border: 0;
       width: 16px;
