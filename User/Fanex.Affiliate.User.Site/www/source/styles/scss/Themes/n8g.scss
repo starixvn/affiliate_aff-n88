@@ -675,7 +675,6 @@ select.form-control {
 // Button blue
 .btn-signup,
 .btn-submit,
-.btn-login-mobile.btn-block,
 #btnReset,
 .btn-link {
     background: $button-signup-bg-color;
@@ -703,8 +702,8 @@ select.form-control {
 .btn-submit.btnDeleteUrl,
 #btnAddUrl,
 #btnRequestPayout,
-.btn-login-mobile,
-.btn-login-mobile.btn-block,
+#mobileLogin,
+#btnDialogLogin,
 #btnReset {
     background-color: $button-login-bg-color !important;
     color: $button-login-color !important;
@@ -1550,7 +1549,9 @@ div.summary-content {
                         font-weight: 500;
                         font-size: 1.4rem;
                         color: $marketing-btn-color;
-                        padding: 6px 18px;
+                        padding: 0 5px;
+                        min-width: 85px;
+                        text-align: center;
                     }
                 }
 

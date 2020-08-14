@@ -461,7 +461,6 @@ select.form-control {
 
 .btn-signup,
 .btn-submit,
-.btn-login-mobile.btn-block,
 #btnReset,
 .btn-link {
   background: #0B71DF;
@@ -470,8 +469,6 @@ select.form-control {
   .btn-signup:hover, .btn-signup:focus,
   .btn-submit:hover,
   .btn-submit:focus,
-  .btn-login-mobile.btn-block:hover,
-  .btn-login-mobile.btn-block:focus,
   #btnReset:hover,
   #btnReset:focus,
   .btn-link:hover,
@@ -480,7 +477,6 @@ select.form-control {
     color: #ffffff !important; }
   .btn-signup .icon,
   .btn-submit .icon,
-  .btn-login-mobile.btn-block .icon,
   #btnReset .icon,
   .btn-link .icon {
     color: #ffffff;
@@ -494,8 +490,8 @@ select.form-control {
 .btn-submit.btnDeleteUrl,
 #btnAddUrl,
 #btnRequestPayout,
-.btn-login-mobile,
-.btn-login-mobile.btn-block,
+#mobileLogin,
+#btnDialogLogin,
 #btnReset {
   background-color: #FAB617 !important;
   color: #333333 !important; }
@@ -505,8 +501,8 @@ select.form-control {
   .btn-submit.btnDeleteUrl:hover,
   #btnAddUrl:hover,
   #btnRequestPayout:hover,
-  .btn-login-mobile:hover,
-  .btn-login-mobile.btn-block:hover,
+  #mobileLogin:hover,
+  #btnDialogLogin:hover,
   #btnReset:hover {
     background-color: #FFC337 !important; }
 
@@ -1043,7 +1039,9 @@ div.summary-content {
     font-weight: 500;
     font-size: 1.4rem;
     color: #333333;
-    padding: 6px 18px; }
+    padding: 0 5px;
+    min-width: 85px;
+    text-align: center; }
 
 .account-overview .info-group ul li.banner-control {
   background: rgba(0, 0, 0, 0.3);
