@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Email
         public string TransDate { get; set; }
 
         public bool IsApproved { get; set; }
+
+        public string DefaultCurrency { get; set; }
     }
 }

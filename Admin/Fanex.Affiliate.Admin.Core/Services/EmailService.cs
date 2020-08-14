@@ -37,7 +37,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
             const string TemplateName = "AffiliateApproved";
             var model = new EmailBase
             {
-                MailContact = _appSetting.MailContact
+                MailContact = _appSetting.MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
@@ -56,6 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var model = new AffInformationEmail
             {
                 MailContact = _appSetting.MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(2),
                 FirstName = emailParam.FirstName,
                 UserName = emailParam.UserName,
@@ -78,6 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var model = new WithdrawalEmail
             {
                 MailContact = _appSetting.MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 FirstName = emailParam.FirstName
             };
 
@@ -119,6 +122,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
         {
             _languageService.SetCulture(MappingLanguage(emailParam.Language));
             emailParam.MailContact = _appSetting.MailContact;
+            emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
+            emailParam.DefaultCurrency = _appSetting.DefaultCurrency;
 
             var TemplateName = emailParam.IsApproved ? "PaymentRequest/Approved" : "PaymentRequest/Rejected";
 
@@ -149,6 +154,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var model = new AffInformationEmail
             {
                 MailContact = _appSetting.MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 FirstName = emailParam.FirstName
             };
 

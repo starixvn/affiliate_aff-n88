@@ -126,22 +126,47 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 case "AffiliateApproved":
                     return new EmailBase
                     {
-                        MailContact = _appSetting.MailContact
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName
                     };
                 case "AffiliateInformation":
                     return new AffInformationEmail
                     {
                         MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
                         UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(AffType.Asian),
                         FirstName = "First Name",
-                        UserName = "AFF12BET00000",
+                        UserName = "NOVA00000",
                         Password = "qwrfsdg"
                     };
                 case "WithdrawalGuidance":
                     return new WithdrawalEmail
                     {
                         MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
                         FirstName = "First Name"
+                    };
+                case "PaymentRequest/Approved":
+                    return new PaymentRequestUpdateEmail
+                    {
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        DefaultCurrency = _appSetting.DefaultCurrency,
+                        FirstName = "First Name",
+                        TransId = 123,
+                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        Amount = 100
+                    };
+                case "PaymentRequest/Rejected":
+                    return new PaymentRequestUpdateEmail
+                    {
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        DefaultCurrency = _appSetting.DefaultCurrency,
+                        FirstName = "First Name",
+                        TransId = 123,
+                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        Amount = 100
                     };
                 default:
                     return null;
