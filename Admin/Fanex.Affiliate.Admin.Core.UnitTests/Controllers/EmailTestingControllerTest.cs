@@ -124,6 +124,58 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         }
 
         [Fact]
+        public void Preview_WhenCallPaymentRequestApproved_ReturnView()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.Environment).Returns("UAT");
+            appSetting.Setup(a => a.IsProduction).Returns(true);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var controller = CreateEmailTestingController();
+
+            // Action
+            var viewResult = controller.Preview(string.Empty, "PaymentRequest/Approved", string.Empty) as ViewResult;
+            var viewName = viewResult.ViewName;
+
+            // Assert
+            Assert.Equal("", viewName);
+        }
+
+        [Fact]
+        public void Preview_WhenCallPaymentRequestRejected_ReturnView()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.Environment).Returns("UAT");
+            appSetting.Setup(a => a.IsProduction).Returns(true);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var controller = CreateEmailTestingController();
+
+            // Action
+            var viewResult = controller.Preview(string.Empty, "PaymentRequest/Rejected", string.Empty) as ViewResult;
+            var viewName = viewResult.ViewName;
+
+            // Assert
+            Assert.Equal("", viewName);
+        }
+
+        [Fact]
         public void SendEmail_WhenCallHasException_ReturnFalse()
         {
             // Arrange
