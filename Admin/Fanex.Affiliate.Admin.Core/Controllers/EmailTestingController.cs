@@ -14,6 +14,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
     [FunctionAuthorize(FunctionName = Function.UserControl)]
     public class EmailTestingController : BaseController
     {
+        private const int _transId = 123;
+        private const int _amount = 100;
+        private const string _firstName = "First Name";
+
         private readonly IMailProcessor _mailProcessor;
 
         private readonly IAppSetting _appSetting;
@@ -135,7 +139,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         MailContact = _appSetting.MailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(AffType.Asian),
-                        FirstName = "First Name",
+                        FirstName = _firstName,
                         UserName = "NOVA00000",
                         Password = "qwrfsdg"
                     };
@@ -144,7 +148,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     {
                         MailContact = _appSetting.MailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
-                        FirstName = "First Name"
+                        FirstName = _firstName
                     };
                 case "PaymentRequest/Approved":
                     return new PaymentRequestUpdateEmail
@@ -152,10 +156,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         MailContact = _appSetting.MailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         DefaultCurrency = _appSetting.DefaultCurrency,
-                        FirstName = "First Name",
-                        TransId = 123,
+                        FirstName = _firstName,
+                        TransId = _transId,
                         TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
-                        Amount = 100
+                        Amount = _amount
                     };
                 case "PaymentRequest/Rejected":
                     return new PaymentRequestUpdateEmail
@@ -163,10 +167,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         MailContact = _appSetting.MailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         DefaultCurrency = _appSetting.DefaultCurrency,
-                        FirstName = "First Name",
-                        TransId = 123,
+                        FirstName = _firstName,
+                        TransId = _transId,
                         TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
-                        Amount = 100
+                        Amount = _amount
                     };
                 default:
                     return null;

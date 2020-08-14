@@ -85,6 +85,7 @@
                 {
                     User = userInfo,
                     MailContact = _appSetting.MailContact,
+                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailTo = param.Email,
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
                     Code = code
@@ -128,7 +129,8 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
                     NewPassword = newPassword,
                     MailTo = userInfo.Email,
-                    MailContact = _appSetting.MailContact
+                    MailContact = _appSetting.MailContact,
+                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                 };
 
                 var userLang = SystemLanguage.IsValid(userInfo.PreferredLanguage) ? userInfo.PreferredLanguage : SystemLanguage.DefaultLanguageCode;

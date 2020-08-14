@@ -154,6 +154,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 VerificationEmailParam = new VerificationAccountEmailParam
                 {
                     MailContact = AppSetting.MailContact,
+                    SiteFriendlyName = AppSetting.SiteFriendlyName,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, AppSetting),
                     Ip = RequestHelper.GetClientIPAddress(Request)
                 }

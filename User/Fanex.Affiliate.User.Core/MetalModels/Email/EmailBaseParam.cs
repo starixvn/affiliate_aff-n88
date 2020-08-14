@@ -17,6 +17,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Email
 
         public UserInfo User { get; set; }
 
-        public string SiteFriendlyName => AppSetting.Instance.SiteFriendlyName;
+        public string SiteFriendlyName { get; set; }
     }
 }

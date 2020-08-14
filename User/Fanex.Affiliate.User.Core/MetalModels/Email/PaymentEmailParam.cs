@@ -12,5 +12,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Email
         public decimal Amount { get; set; }
 
         public PaymentRequestType PaymentType { get; set; }
+
+        public string DefaultCurrency { get; set; }
     }
 }

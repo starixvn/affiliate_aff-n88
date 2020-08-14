@@ -118,6 +118,7 @@
                 {
                     MailCc = _appSetting.MailCc,
                     MailContact = _appSetting.MailContact,
+                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     MailTo = _appSetting.MailContact

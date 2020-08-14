@@ -86,6 +86,7 @@
                 param.Ip = Request.UserHostAddress;
                 param.SessionId = Session.SessionID;
                 param.Browser = Request.Browser.Browser;
+                param.SiteFriendlyName = _appSetting.SiteFriendlyName;
 
                 var emailParam = new EmailBaseParam
                 {

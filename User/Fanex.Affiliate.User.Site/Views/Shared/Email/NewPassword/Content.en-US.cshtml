@@ -1,8 +1,8 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.NewPasswordEmailParam
-@{ 
+@{
     var userInfo = Model.User;
 }
-<div>  
+<div>
 Dear @userInfo.FirstName,<br /><br />
 
 As you have requested, we provide you a new password. Your new account information is as below:<br /><br />
@@ -18,6 +18,6 @@ Have a great day!<br /><br />
 
 Best regards,<br /><br />
 
-The team at 12Bet Affiliates<br />
+The team at @Model.SiteFriendlyName Affiliates<br />
 <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>
