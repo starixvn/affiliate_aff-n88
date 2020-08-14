@@ -952,7 +952,7 @@ select.form-control {
                 content: '';
                 top: 0;
                 left: 0;
-                background: $home-page-bg-color-btn;
+                background: $button-login-bg-color;
                 width: 100%;
                 height: 100%;
                 z-index: -1;
@@ -961,6 +961,12 @@ select.form-control {
                 transform: skewX(-19deg);
                 -webkit-box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
                 box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+            }
+
+            &:hover {
+                &:before {
+                    background: $button-login-bg-color-hover;
+                }
             }
         }
     }
@@ -1910,13 +1916,7 @@ div.summary-content {
                 }
 
                 .btn-signup {
-                    
-                    margin-top: 12px;
-                  
-                    
-                    margin: 0;
-
-                    
+                    margin: 12px 0 0;
                 }
 
                 .title-right {
@@ -1934,13 +1934,8 @@ div.summary-content {
                 }
 
                 .btn-login-mobile {
-                    margin-top: -5px;
-                    font-weight: bold;
-                    font-size: 1.4rem;
-                   
-                    margin: 0;
-
-                   
+                            
+                    margin: 0;                 
                 }
 
                 .link-login-popup {
@@ -2443,6 +2438,12 @@ div.summary-content {
             }
 
             .modal-main-content {
+                .modal-header {
+                    .modal-title {
+                        font-size: 1.6rem;
+                    }
+                }
+
                 .modal-body {
                     padding: 15px 14px;
 
