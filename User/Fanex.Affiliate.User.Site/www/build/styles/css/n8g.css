@@ -16,24 +16,33 @@
   background: #152849; }
 
 ::-webkit-input-placeholder {
-  /* Edge */
   color: #BAC2D2; }
 
 :-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
   color: #BAC2D2; }
 
 ::placeholder {
   color: #BAC2D2; }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #030C1B url("../Images/apply/n8g/icon-select.svg") no-repeat right 5px center !important;
+  padding-right: 24px !important;
+  padding-left: 5px !important; }
+
 .header-top {
   background-color: #10192F; }
+  .header-top .sign-up {
+    vertical-align: top; }
   .header-top .logo {
     padding-top: .2rem;
     padding-left: 1.5rem; }
   .header-top .user-login .btn, .header-top .user-signup .btn {
     font-weight: bold;
-    line-height: 23px; }
+    line-height: 23px;
+    height: 25px; }
   .header-top .logo-image {
     width: 180px; }
   .header-top .language-container .language-list-wrapper {
@@ -108,7 +117,7 @@
     transform: skew(-45deg); }
   .footer .footer-text {
     font-weight: 500;
-    font-size: 15px;
+    font-size: 1.5rem;
     line-height: 20px;
     color: #ffffff;
     padding: 0; }
@@ -440,96 +449,65 @@ select.form-control {
       background: #1856C1;
       color: #ffffff; }
 
-.btn-signup {
+.btn, button {
+  font-weight: bold;
+  font-size: 1.4rem;
+  vertical-align: top !important;
+  height: 30px;
+  line-height: 30px; }
+  .btn:hover, .btn:focus, button:hover, button:focus {
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
+
+.btn-signup,
+.btn-submit,
+.btn-login-mobile.btn-block,
+.btn-submit#btnReset,
+.btn-link {
   background: #0B71DF;
   color: #ffffff;
-  font-size: 1.4rem;
-  font-weight: 700;
-  padding: 1px 15px 0 15px; }
-  .btn-signup:hover, .btn-signup:focus {
+  padding: 0 15px; }
+  .btn-signup:hover, .btn-signup:focus,
+  .btn-submit:hover,
+  .btn-submit:focus,
+  .btn-login-mobile.btn-block:hover,
+  .btn-login-mobile.btn-block:focus,
+  .btn-submit#btnReset:hover,
+  .btn-submit#btnReset:focus,
+  .btn-link:hover,
+  .btn-link:focus {
     background: #1882F5;
-    color: #ffffff !important;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-  .btn-signup .icon {
+    color: #ffffff !important; }
+  .btn-signup .icon,
+  .btn-submit .icon,
+  .btn-login-mobile.btn-block .icon,
+  .btn-submit#btnReset .icon,
+  .btn-link .icon {
     color: #ffffff;
     margin-right: 1px;
     font-size: 1.2rem;
     top: 0px; }
-  .btn-signup.btn-block {
-    background: #FAB617;
-    color: #333333;
-    font-size: 1.4rem;
-    padding: 1px 20px 0 19px; }
-    .btn-signup.btn-block:hover, .btn-signup.btn-block:focus {
-      color: #333333;
-      background: #FFC337;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
-.btn-login {
-  background: #FAB617;
-  color: #333333;
-  font-size: 1.4rem;
-  padding: 1px 20px 0 19px; }
-  .btn-login:hover, .btn-login:focus {
-    color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-  .btn-login .icon {
-    color: #333333; }
-
-.btn-link {
-  background: #FAB617;
-  color: #333333;
-  font-size: 1.4rem;
-  padding: 1px 20px 0 19px; }
-  .btn-link:hover, .btn-link:focus {
-    color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-  .btn-link .icon {
-    color: #333333; }
-
-.btn-login-mobile, .btn-submit#btnReset {
-  background: #FAB617;
-  color: #333333;
-  font-size: 1.4rem;
-  padding: 1px 20px 0 19px; }
-  .btn-login-mobile:hover, .btn-login-mobile:focus, .btn-submit#btnReset:hover, .btn-submit#btnReset:focus {
-    color: #333333;
-    background: #FFC337;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-  .btn-login-mobile .icon, .btn-submit#btnReset .icon {
-    color: #333333; }
-  .btn-login-mobile.btn-block, .btn-submit#btnReset.btn-block {
-    background: #0B71DF;
-    color: #ffffff; }
-    .btn-login-mobile.btn-block:hover, .btn-login-mobile.btn-block:focus, .btn-submit#btnReset.btn-block:hover, .btn-submit#btnReset.btn-block:focus {
-      color: #ffffff;
-      background: #1882F5;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-
-.content .signup-block .btn-link {
-  background-color: #FAB617;
-  color: #333333;
-  font-weight: bold; }
-  .content .signup-block .btn-link:hover {
-    background-color: #FFC337;
-    color: #333333;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-
-.btn-submit {
-  background-color: #0B71DF;
-  color: #fff;
-  font-weight: 500;
-  font-size: 1.4rem;
-  padding: 0 19px;
-  line-height: 23px; }
-  .btn-submit:hover, .btn-submit:focus {
-    color: #fff;
-    background-color: #1882F5;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-  .btn-submit .icon {
-    color: #fff; }
+.btn-login,
+.content .signup-block .btn-link,
+.btn-submit#btnCancel,
+.btn-submit.btnDeleteUrl,
+.btn-submit#btnAddUrl,
+.btn-submit#btnRequestPayout,
+.btn-login-mobile,
+.btn-login-mobile.btn-block,
+.btn-submit#btnReset {
+  background-color: #FAB617 !important;
+  color: #333333 !important; }
+  .btn-login:hover,
+  .content .signup-block .btn-link:hover,
+  .btn-submit#btnCancel:hover,
+  .btn-submit.btnDeleteUrl:hover,
+  .btn-submit#btnAddUrl:hover,
+  .btn-submit#btnRequestPayout:hover,
+  .btn-login-mobile:hover,
+  .btn-login-mobile.btn-block:hover,
+  .btn-submit#btnReset:hover {
+    background-color: #FFC337 !important; }
 
 .summary div.form-group {
   padding: 18px 0 0;
@@ -871,42 +849,39 @@ div.summary-content {
 .form-horizontal .form-group {
   margin: 0 0 10px 0; }
 
-.sub-content .btn-submit {
-  line-height: 30px;
-  height: 30px;
-  vertical-align: top; }
-
 .control-label {
   color: #BAC2D2 !important; }
   .control-label.require {
     color: #BAC2D2 !important; }
 
-.account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
+.account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child {
   width: 100%;
   display: flex !important;
   flex-wrap: wrap; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .control-label {
     max-width: 200px;
     width: 100%; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 .form-control {
-    margin: 0; }
-  @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-4 {
-      width: 280px; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4 {
+    max-width: 300px; }
+    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4 .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4 .form-control {
+      margin: 0; }
+    @media only screen and (max-width: 480px) {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-4 {
+        width: 280px; } }
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-offset-3 {
     width: 100%;
     padding-left: 20rem; }
     @media only screen and (max-width: 480px) {
-      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .col-sm-offset-3 {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-offset-3, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .col-sm-offset-3 {
         padding-left: 0; } }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .form-control {
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .form-control, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .form-control {
     min-width: 100px; }
-  .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .info-container {
+  .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .info-container, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .info-container {
     padding: 6px 0 0 0; }
   @media only screen and (max-width: 480px) {
-    .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child {
+    .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child {
       flex-wrap: wrap; }
-      .account-information .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal .form-group:last-child .control-label {
+      .account-information .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .control-label, .sign-up-page .info-group.website-info + .info-group .form-horizontal:last-child .form-group:last-child .control-label {
         max-width: 100%; } }
 
 .account-information .info-group .form-group, .sign-up-page .info-group .form-group {
@@ -985,13 +960,6 @@ div.summary-content {
   margin-left: 0;
   padding-left: 0; }
 
-#btnCancel, #websiteInfo .btn-submit {
-  background-color: #FAB617 !important;
-  color: #333333 !important; }
-  #btnCancel:hover, #websiteInfo .btn-submit:hover {
-    background-color: #FFC337 !important;
-    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
-
 #paymentRequest .info-group .title {
   padding-left: 0;
   background: none; }
@@ -1013,9 +981,6 @@ div.summary-content {
 .main-content #mainPanel .page-title, .main-content .sub-content .page-title {
   margin-left: 0;
   margin-right: 0; }
-
-.account-overview .btn-submit {
-  height: 30px; }
 
 .account-overview .col-md-4.col-lg-3 {
   padding-left: 0 !important; }
@@ -1274,9 +1239,11 @@ div.custom-panel {
       color: #fff;
       border-radius: 0;
       border: 0; }
-      .login-dialog .modal-content .modal-main-content .modal-header modal-title {
+      .login-dialog .modal-content .modal-main-content .modal-header .close {
+        width: 30px; }
+      .login-dialog .modal-content .modal-main-content .modal-header .modal-title {
         font-weight: bold;
-        font-size: 24px; }
+        font-size: 2.4rem; }
     .login-dialog .modal-content .modal-main-content .modal-body {
       padding: 20px 18px;
       color: #ffffff; }
@@ -1292,16 +1259,8 @@ div.custom-panel {
         letter-spacing: 0.04em;
         text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5); }
       .login-dialog .modal-content .modal-main-content .modal-body .btn-signup {
-        color: #333333;
         margin-top: 12px;
-        height: 32px;
-        line-height: 32px;
-        background-color: #0B71DF;
-        color: #ffffff;
         margin: 0; }
-        .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-signup:focus {
-          background: #1882F5;
-          color: #ffffff !important; }
       .login-dialog .modal-content .modal-main-content .modal-body .form-group {
         margin-bottom: 10px; }
         .login-dialog .modal-content .modal-main-content .modal-body .form-group .form-control {
@@ -1312,14 +1271,7 @@ div.custom-panel {
         margin-top: -5px;
         font-weight: bold;
         font-size: 1.4rem;
-        height: 32px;
-        line-height: 32px;
-        background-color: #FAB617;
-        color: #333333;
         margin: 0; }
-        .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:hover, .login-dialog .modal-content .modal-main-content .modal-body .btn-login-mobile:focus {
-          color: #ffffff;
-          background: #FFC337; }
       .login-dialog .modal-content .modal-main-content .modal-body .link-login-popup {
         font-size: 1.4rem;
         color: #E9262A;
@@ -1340,14 +1292,6 @@ div.custom-panel {
 .payment-info .form-horizontal .col-sm-offset-3 {
   margin-left: 0;
   padding-left: 0; }
-  .payment-info .form-horizontal .col-sm-offset-3 .btn-submit {
-    background-color: #FAB617;
-    color: #333333 !important;
-    font-weight: bold; }
-    .payment-info .form-horizontal .col-sm-offset-3 .btn-submit:hover {
-      background-color: #FFC337;
-      color: #333333;
-      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16); }
 
 .commission-report {
   border: 0 !important; }
@@ -1848,7 +1792,7 @@ div.custom-panel {
     .webp .banner-commission-structure .text-content p {
       line-height: inherit; }
     .webp .banner-commission-structure .text-content .text-big-yellow {
-      font-size: 80px;
+      font-size: 8rem;
       line-height: 96px;
       margin-bottom: 0; }
 

@@ -21,11 +21,11 @@ body {
 .news {
     background: $bg-main-color;
 }
-::-webkit-input-placeholder { /* Edge */
+::-webkit-input-placeholder { 
     color: $color-placeholder;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+:-ms-input-placeholder { 
     color: $color-placeholder;
 }
 
@@ -38,12 +38,15 @@ select {
     appearance: none;
     background: $date-picker-bg url("../../../../build/styles/Images/apply/n8g/icon-select.svg") no-repeat right 5px center!important;
     padding-right: 24px!important;
+    padding-left: 5px!important;
 }
 // Header
 
 .header-top {
     background-color: $header-bg-color;
-
+    .sign-up{
+        vertical-align: top;
+    }
     .logo {
         padding-top: .2rem;
         padding-left: 1.5rem;
@@ -53,6 +56,7 @@ select {
         .btn {
             font-weight: bold;
             line-height: 23px;
+            height: 25px;
         }
     }
 
@@ -264,6 +268,7 @@ select {
         box-shadow: none !important;
     }
 }
+
 .main .page-container {
     position: relative;
 
@@ -324,6 +329,7 @@ select {
         }
     }
 }
+
 
 #mainBanner {
     margin-left: -200px;
@@ -655,17 +661,29 @@ select.form-control {
 }
 
 // Button
-.btn-signup {
+.btn, button {
+    font-weight: bold;
+    font-size: 1.4rem;
+    vertical-align: top!important;
+    height: 30px;
+    line-height: 30px;
+    &:hover, &:focus {
+        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
+    }
+}
+
+.btn-signup,
+.btn-submit,
+.btn-login-mobile.btn-block,
+.btn-submit#btnReset,
+.btn-link {
     background: $button-signup-bg-color;
     color: $button-signup-color;
-    font-size: 1.4rem;
-    font-weight: 700;
-    padding: 1px 15px 0 15px;
+    padding: 0 15px;
 
     &:hover, &:focus {
         background: $button-signup-bg-color-hover;
         color: $button-signup-color !important;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 
     .icon {
@@ -674,111 +692,28 @@ select.form-control {
         font-size: 1.2rem;
         top: 0px;
     }
-
-    &.btn-block {
-        background: $button-login-bg-color;
-        color: $button-login-color;
-        font-size: 1.4rem;
-        padding: 1px 20px 0 19px;
-
-        &:hover, &:focus {
-            color: $button-login-color;
-            background: $button-login-bg-color-hover;
-            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-        }
-    }
-}
-.btn-login {
-    background: $button-login-bg-color;
-    color: $button-login-color;
-    font-size: 1.4rem;
-    padding: 1px 20px 0 19px;
-
-    &:hover, &:focus {
-        color: $button-login-color;
-        background: $button-login-bg-color-hover;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-    }
-
-    .icon {
-        color: $button-login-color;
-    }
-}
-.btn-link {
-    background: $button-login-bg-color;
-    color: $button-login-color;
-    font-size: 1.4rem;
-    padding: 1px 20px 0 19px;
-
-    &:hover, &:focus {
-        color: $button-login-color;
-        background: $button-login-bg-color-hover;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-    }
-
-    .icon {
-        color: $button-login-color;
-    }
-}
-.btn-login-mobile, .btn-submit#btnReset {
-    background: $button-login-bg-color;
-    color: $button-login-color;
-    font-size: 1.4rem;
-    padding: 1px 20px 0 19px;
-
-    &:hover, &:focus {
-        color: $button-login-color;
-        background: $button-login-bg-color-hover;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-    }
-
-    .icon {
-        color: $button-login-color;
-    }
-
-    &.btn-block {
-        background: $button-signup-bg-color;
-        color: $button-signup-color;
-
-
-        &:hover, &:focus {
-            color: $button-signup-color;
-            background: $button-signup-bg-color-hover;
-            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-        }
-    }
 }
 
-.content .signup-block .btn-link {
-    background-color: $button-login-bg-color;
-    color: $button-login-color;
-    font-weight: bold;
+ 
+//button yellow
+.btn-login,
+.content .signup-block .btn-link,
+.btn-submit#btnCancel,
+.btn-submit.btnDeleteUrl,
+.btn-submit#btnAddUrl,
+.btn-submit#btnRequestPayout,
+.btn-login-mobile,
+.btn-login-mobile.btn-block,
+.btn-submit#btnReset {
+    background-color: $cancel-bg-color !important;
+    color: $cancel-text-color !important;
 
     &:hover {
-        background-color: $button-login-bg-color-hover;
-        color: $button-login-color;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
+        background-color: $cancel-bg-color-hover !important;
     }
 }
+ 
 
-.btn-submit {
-    background-color: $button-submit-bg-color;
-    color: $button-submit-color;
-    font-weight: 500;
-    font-size: 1.4rem;
-    padding: 0 19px;
-    line-height: 23px;
-
-    &:hover, &:focus {
-        color: $button-submit-color;
-        background-color: $button-submit-bg-color-hover;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-    }
-
-    .icon {
-        color: $button-submit-color;
-    }
-}
 
 //date picker
 .summary {
@@ -1248,8 +1183,6 @@ div.summary-content {
     }
 
     .details-section-menu {
-
-
         .menu {
             border-bottom: 1px solid #435068;
             margin-bottom: 14px;
@@ -1274,8 +1207,6 @@ div.summary-content {
             }
         }
     }
-
-  
 }
 
 
@@ -1289,14 +1220,7 @@ div.summary-content {
     margin: 0 0 10px 0;
 }
 
-//btn sub content
-.sub-content {
-    .btn-submit{
-        line-height: 30px;
-        height: 30px;
-        vertical-align: top;
-    }
-}
+ 
 
 //my account
 .control-label {
@@ -1310,52 +1234,53 @@ div.summary-content {
 .account-information, .sign-up-page {
     .info-group.website-info + .info-group {
         .form-horizontal {
-
-            .form-group {
-                &:last-child {
-                    width: 100%;
-                    display: flex !important;
-                    flex-wrap: wrap;
-
-                    .control-label {
-                        max-width: 200px;
+            &:last-child {
+                .form-group {
+                    &:last-child {
                         width: 100%;
-                    }
-
-                    .col-sm-4 {
-
-
-                        .form-control {
-                            margin: 0;
-                        }
-
-                        @media only screen and (max-width:480px) {
-                            width: 280px;
-                        }
-                    }
-
-                    .col-sm-offset-3 {
-                        width: 100%;
-                        padding-left: 20rem;
-
-                        @media only screen and (max-width:480px) {
-                            padding-left: 0;
-                        }
-                    }
-
-                    .form-control {
-                        min-width: 100px;
-                    }
-
-                    .info-container {
-                        padding: 6px 0 0 0;
-                    }
-
-                    @media only screen and (max-width:480px) {
+                        display: flex !important;
                         flex-wrap: wrap;
 
                         .control-label {
-                            max-width: 100%;
+                            max-width: 200px;
+                            width: 100%;
+                        }
+
+                        .col-sm-4 {
+                            max-width: 300px;
+
+                            .form-control {
+                                margin: 0;
+                            }
+
+                            @media only screen and (max-width:480px) {
+                                width: 280px;
+                            }
+                        }
+
+                        .col-sm-offset-3 {
+                            width: 100%;
+                            padding-left: 20rem;
+
+                            @media only screen and (max-width:480px) {
+                                padding-left: 0;
+                            }
+                        }
+
+                        .form-control {
+                            min-width: 100px;
+                        }
+
+                        .info-container {
+                            padding: 6px 0 0 0;
+                        }
+
+                        @media only screen and (max-width:480px) {
+                            flex-wrap: wrap;
+
+                            .control-label {
+                                max-width: 100%;
+                            }
                         }
                     }
                 }
@@ -1486,15 +1411,7 @@ div.summary-content {
         padding-left: 0;
     }
 }
-#btnCancel, #websiteInfo .btn-submit {
-    background-color: $cancel-bg-color !important;
-    color: $cancel-text-color !important;
 
-    &:hover {
-        background-color: $cancel-bg-color-hover !important;
-        box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-    }
-}
     //PaymentRequest
     #paymentRequest {
         .info-group .title {
@@ -1540,10 +1457,6 @@ div.summary-content {
 }
 
 .account-overview {
-    .btn-submit {
-        
-        height: 30px;
-    }
 
     .col-md-4.col-lg-3 {
         padding-left: 0 !important;
@@ -1968,10 +1881,12 @@ div.summary-content {
                 color: $modal-header-color;
                 border-radius: 0;
                 border: 0;
-
-                modal-title {
+                .close{
+                    width: 30px;
+                }
+                .modal-title {
                     font-weight: bold;
-                    font-size: 24px;
+                    font-size: 2.4rem;
                 }
             }
 
@@ -1995,18 +1910,13 @@ div.summary-content {
                 }
 
                 .btn-signup {
-                    color: $modal-color-btn;
+                    
                     margin-top: 12px;
-                    height: 32px;
-                    line-height: 32px;
-                    background-color: $button-signup-bg-color;
-                    color: $button-signup-color;
+                  
+                    
                     margin: 0;
 
-                    &:hover, &:focus {
-                        background: $button-signup-bg-color-hover;
-                        color: $button-signup-color !important;
-                    }
+                    
                 }
 
                 .title-right {
@@ -2027,16 +1937,10 @@ div.summary-content {
                     margin-top: -5px;
                     font-weight: bold;
                     font-size: 1.4rem;
-                    height: 32px;
-                    line-height: 32px;
-                    background-color: $button-login-bg-color;
-                    color: $button-login-color;
+                   
                     margin: 0;
 
-                    &:hover, &:focus {
-                        color: $button-signup-color;
-                        background: $button-login-bg-color-hover;
-                    }
+                   
                 }
 
                 .link-login-popup {
@@ -2073,17 +1977,7 @@ div.summary-content {
             margin-left: 0;
             padding-left: 0;
 
-            .btn-submit {
-                background-color: $button-login-bg-color;
-                color: $button-login-color !important;
-                font-weight: bold;
-
-                &:hover {
-                    background-color: $button-login-bg-color-hover;
-                    color: $button-login-color;
-                    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
-                }
-            }
+            
         }
     }
 }
