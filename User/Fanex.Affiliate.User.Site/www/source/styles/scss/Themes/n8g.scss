@@ -671,7 +671,7 @@ select.form-control {
         box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 }
-
+// Button blue
 .btn-signup,
 .btn-submit,
 .btn-login-mobile.btn-block,
@@ -694,8 +694,8 @@ select.form-control {
     }
 }
 
- 
-//button yellow
+
+// Button yellow
 .btn-login,
 .content .signup-block .btn-link,
 .btn-submit#btnCancel,
@@ -705,11 +705,11 @@ select.form-control {
 .btn-login-mobile,
 .btn-login-mobile.btn-block,
 .btn-submit#btnReset {
-    background-color: $cancel-bg-color !important;
-    color: $cancel-text-color !important;
+    background-color: $button-login-bg-color !important;
+    color: $button-login-color !important;
 
     &:hover {
-        background-color: $cancel-bg-color-hover !important;
+        background-color: $button-login-bg-color-hover !important;
     }
 }
  
