@@ -462,7 +462,7 @@ select.form-control {
 .btn-signup,
 .btn-submit,
 .btn-login-mobile.btn-block,
-.btn-submit#btnReset,
+#btnReset,
 .btn-link {
   background: #0B71DF;
   color: #ffffff;
@@ -472,8 +472,8 @@ select.form-control {
   .btn-submit:focus,
   .btn-login-mobile.btn-block:hover,
   .btn-login-mobile.btn-block:focus,
-  .btn-submit#btnReset:hover,
-  .btn-submit#btnReset:focus,
+  #btnReset:hover,
+  #btnReset:focus,
   .btn-link:hover,
   .btn-link:focus {
     background: #1882F5;
@@ -481,7 +481,7 @@ select.form-control {
   .btn-signup .icon,
   .btn-submit .icon,
   .btn-login-mobile.btn-block .icon,
-  .btn-submit#btnReset .icon,
+  #btnReset .icon,
   .btn-link .icon {
     color: #ffffff;
     margin-right: 1px;
@@ -490,24 +490,24 @@ select.form-control {
 
 .btn-login,
 .content .signup-block .btn-link,
-.btn-submit#btnCancel,
+#btnCancel,
 .btn-submit.btnDeleteUrl,
-.btn-submit#btnAddUrl,
-.btn-submit#btnRequestPayout,
+#btnAddUrl,
+#btnRequestPayout,
 .btn-login-mobile,
 .btn-login-mobile.btn-block,
-.btn-submit#btnReset {
+#btnReset {
   background-color: #FAB617 !important;
   color: #333333 !important; }
   .btn-login:hover,
   .content .signup-block .btn-link:hover,
-  .btn-submit#btnCancel:hover,
+  #btnCancel:hover,
   .btn-submit.btnDeleteUrl:hover,
-  .btn-submit#btnAddUrl:hover,
-  .btn-submit#btnRequestPayout:hover,
+  #btnAddUrl:hover,
+  #btnRequestPayout:hover,
   .btn-login-mobile:hover,
   .btn-login-mobile.btn-block:hover,
-  .btn-submit#btnReset:hover {
+  #btnReset:hover {
     background-color: #FFC337 !important; }
 
 .summary div.form-group {

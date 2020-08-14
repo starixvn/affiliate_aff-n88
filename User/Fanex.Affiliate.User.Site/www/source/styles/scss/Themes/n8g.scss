@@ -676,7 +676,7 @@ select.form-control {
 .btn-signup,
 .btn-submit,
 .btn-login-mobile.btn-block,
-.btn-submit#btnReset,
+#btnReset,
 .btn-link {
     background: $button-signup-bg-color;
     color: $button-signup-color;
@@ -699,13 +699,13 @@ select.form-control {
 // Button yellow
 .btn-login,
 .content .signup-block .btn-link,
-.btn-submit#btnCancel,
+#btnCancel,
 .btn-submit.btnDeleteUrl,
-.btn-submit#btnAddUrl,
-.btn-submit#btnRequestPayout,
+#btnAddUrl,
+#btnRequestPayout,
 .btn-login-mobile,
 .btn-login-mobile.btn-block,
-.btn-submit#btnReset {
+#btnReset {
     background-color: $button-login-bg-color !important;
     color: $button-login-color !important;
 
