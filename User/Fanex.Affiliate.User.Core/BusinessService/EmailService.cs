@@ -69,15 +69,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public void SendPaymentEmail(PaymentEmailParam emailParam)
         {
             var prevLanguage = SetLanguage(emailParam.User.PreferredLanguage);
+            var isCancel = emailParam.PaymentType == PaymentRequestType.Cancel;
 
-            var templateName = emailParam.PaymentType == PaymentRequestType.Cancel ? "PaymentCancel" : "PaymentRequest";
-            var subject = Lang.CancelSubject.Replace("{transid}", emailParam.TransId.ToString());
+            var templateName = isCancel ? "PaymentCancel" : "PaymentRequest";
+            var subject = isCancel ? string.Format(Lang.PaymentRequestCancelSubject, emailParam.TransId) : string.Format(Lang.PaymentRequestSubject, emailParam.TransId);
 
             var emailContent = GetEmailTextContent(templateName, emailParam.User.PreferredLanguage, emailParam);
 
             if (!emailParam.User.MailOption)
             {
-                emailContent = GetEmailHtmlContent(emailContent, Lang.EmailTitlePayment, emailParam.User.PreferredLanguage, emailParam.RootDomain);
+                emailContent = GetEmailHtmlContent(emailContent, isCancel ? Lang.EmailTitlePaymentCancel : Lang.EmailTitlePayment, emailParam.User.PreferredLanguage, emailParam.RootDomain);
             }
 
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.MailBcc, emailParam.MailCc);

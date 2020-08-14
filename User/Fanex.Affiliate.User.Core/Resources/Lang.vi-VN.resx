@@ -330,8 +330,8 @@
   <data name="CancelRequest" xml:space="preserve">
     <value>Yêu cầu hủy</value>
   </data>
-  <data name="CancelSubject" xml:space="preserve">
-    <value>12Bet Đại Lý - [{transid}] - Thông báo yêu cầu thanh toán</value>
+  <data name="PaymentRequestSubject" xml:space="preserve">
+    <value>12Bet Đại Lý - [{0}] - Thông báo yêu cầu thanh toán</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -2259,5 +2259,11 @@
   </data>
   <data name="UserNameClosed" xml:space="preserve">
     <value>Tài khoản thanh toán này đã bị đóng. Vui lòng kiểm tra lại.</value>
+  </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>Yêu cầu thanh toán của bạn đã bị hủy</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>12Bet Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
   </data>
 </root>

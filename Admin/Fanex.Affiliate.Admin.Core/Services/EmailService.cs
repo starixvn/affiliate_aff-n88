@@ -42,13 +42,12 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffApproved);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffApproved, emailParam.Language, emailParam.RootUrl) :
                 content;
 
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffApproved, _appSetting.BccMail, _appSetting.CcMail);
         }
 
         private void SendAffInforEmail(AffInformationEmail emailParam)
@@ -65,13 +64,12 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffInfor);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffInfor, emailParam.Language, emailParam.RootUrl) :
                 content;
 
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffInfor, _appSetting.BccMail, _appSetting.CcMail);
         }
 
         private void SendWithdrawalGuidanceEmail(AffInformationEmail emailParam)
@@ -85,13 +83,12 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectWithdrawalGuidance);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleWithdrawalGuidance, emailParam.Language, emailParam.RootUrl) :
                 content;
 
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectWithdrawalGuidance, _appSetting.BccMail, _appSetting.CcMail);
         }
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
@@ -129,8 +126,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, emailParam);
             var subject = emailParam.IsApproved ?
-                string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectPaymentRequestApproved), emailParam.TransId) :
-                string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectPaymentRequestRejected), emailParam.TransId);
+                string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId) :
+                string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId);
             var title = emailParam.IsApproved ? Lang.EmailTitlePaymentRequestApproved : Lang.EmailTitlePaymentRequestRejected;
 
             var contentToSend = emailParam.IsHtml ?
@@ -159,13 +156,12 @@ namespace Fanex.Affiliate.Admin.Core.Services
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);
-            var subject = SiteFriendlyNameHelper.Replace12Bet(Lang.EmailSubjectAffDisapproved);
 
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffDisapproved, emailParam.Language, emailParam.RootUrl) :
                 content;
 
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
+            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, _appSetting.BccMail, _appSetting.CcMail);
         }
 
         public static string MappingLanguage(string language)
