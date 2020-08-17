@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
@@ -8,6 +9,7 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
 using Moq;
+using NSubstitute;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
@@ -74,6 +76,28 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             // Assert
             Assert.Equal(expectedResult, result.Promotion12BetLink);
+        }
+
+        [Fact]
+        public void Excute_WhenRequestChangeLang_SetForNewLang()
+        {
+            var languageService = NSubstitute.Substitute.For<ILanguageService>();
+            var sessionService = NSubtituteMockingHelper.FakeSessionService();
+            var appSetting = NSubstitute.Substitute.For<IAppSetting>();
+            var controller = new HomeController(sessionService, appSetting, languageService);
+            NSubtituteMockingHelper.FakeController(controller);
+            var requestContext = new RequestContext(controller.HttpContext, controller.RouteData);
+            requestContext.HttpContext.Response.Cookies.Returns(new HttpCookieCollection());
+            languageService.GetFavoriteLanguage().Returns("vn-vi");
+
+            try
+            {
+                (controller as IController).Execute(requestContext);
+            }
+            catch { }
+
+
+            languageService.Received().SetCulture("vn-vi");
         }
 
         private static HomeController CreateController(
