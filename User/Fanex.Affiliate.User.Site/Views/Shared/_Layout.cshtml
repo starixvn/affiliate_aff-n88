@@ -10,6 +10,7 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
     var isN88 = string.Equals(settingService.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+    var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
 }
 
 <!DOCTYPE html>
@@ -97,7 +98,7 @@
 
     <div class="header-bottom">
         <div class="navbar">
-            <div class="@RenderSection("classNav", required: false) page-container">
+            <div class="@RenderSection("classNav", required: false) @(isN8G ? "page-container" : "layout-page-container")">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="navbar-header">
