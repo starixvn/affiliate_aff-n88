@@ -261,7 +261,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["Status"] = "Approved",
                 ["Creator"] = "sa",
                 ["Description"] = "abc",
-                ["CalculatedType"] = null
+                ["CalculatedType"] = DBNull.Value
             };
         }
 

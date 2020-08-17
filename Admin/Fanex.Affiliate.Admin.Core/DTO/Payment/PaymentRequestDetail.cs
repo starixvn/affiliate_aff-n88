@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Payment
 
         public new string TransDateText => TransDate.ToString("MM/dd/yyyy HH:mm:ss tt");
 
-        public new string CompletedDateText => CompletedDate?.ToString("MM/dd/yyyy HH:mm:ss tt");
+        public new string CompletedDateText => CompletedDate.ToString("MM/dd/yyyy HH:mm:ss tt");
 
         public decimal TransAmount { get; set; }
 

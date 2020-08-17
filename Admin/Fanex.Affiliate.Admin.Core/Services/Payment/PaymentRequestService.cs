@@ -78,7 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             if (!result.IsSuccessful)
             {
                 return result;
-            }    
+            }
 
             result = UpdatePaymentRequest(param, paymentRequestDetail);
 
@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             return result;
         }
 
-        private void SendMail(PaymentRequestUpdateParam param, 
+        private void SendMail(PaymentRequestUpdateParam param,
             PaymentRequestUpdateEmail emailParam,
             AffiliateBasicInfo affInfo,
             PaymentRequestDetail paymentRequestDetail)
@@ -151,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                 var result = _paymentRequestRepository.UpdatePaymentRequest(param);
                 return result;
             }
-            return new ResultInfo { Code = 1000, Message = Lang.PaymentRequestNotValid };
+            return new ResultInfo { Code = Code.GeneralErrorCode, Message = Lang.PaymentRequestNotValid };
         }
     }
 }

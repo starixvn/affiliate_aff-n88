@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             signUpParam.Player_CustId = cust.CustId;
             signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
-            
+
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)
             {
@@ -59,10 +59,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
                 var csdEmailParam = new NoticeEmailParam
                 {
-                    MailTo = emailParam.MailContact,
+                    MailTo = emailParam.MailTo,
                     MailBcc = emailParam.MailBcc,
                     MailCc = emailParam.MailCc,
                     MailContact = emailParam.MailContact,
+                    SiteFriendlyName = emailParam.SiteFriendlyName,
                     FirstName = signUpParam.FirstName,
                     LastName = signUpParam.LastName,
                     UserName = signUpParam.UserName,

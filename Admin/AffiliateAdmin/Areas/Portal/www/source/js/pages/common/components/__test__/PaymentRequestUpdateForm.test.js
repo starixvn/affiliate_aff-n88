@@ -87,7 +87,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         await instance.handleGetPaymentRequestInfo(1271808);
 
         expect(props.getPaymentRequestDetail).toHaveBeenCalledWith({ transId: 1271808 });
-        expect(instance.setState).toHaveBeenCalledWith({ paymentRequestInfo, originalStatus: 'Processing' });
+        expect(instance.setState).toHaveBeenCalledWith({ paymentRequestInfo, originalStatus: 'Processing', "isSendingRequest": false });
     });
 
     it('handleSave - should call updatePaymentRequest, handleFetchData, handleClosePopup and setState', async () => {
@@ -104,9 +104,10 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         await instance.handleSave();
 
         expect(props.updatePaymentRequest).toHaveBeenCalledWith({ AdminDesc: "Visible only to admin encode", AffDesc: "Visible also to affiliate encode", AffId: 1271808, IsApproved: true, TransId: 1262276212 });
-        expect(instance.setState).toHaveBeenCalledTimes(1);
-        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: true, message: 'Transaction ID 1262276212 has been updated successfully!' });
-        expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState).toHaveBeenCalledTimes(2);
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
+        expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: true, message: 'Transaction ID 1262276212 has been updated successfully!' });
+        expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
         expect(window.setTimeout).toHaveBeenCalledTimes(3);
         expect(instance.hideMessage).toHaveBeenCalled();
         expect(props.handleFetchData).toHaveBeenCalled();
@@ -127,9 +128,10 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         await instance.handleSave();
 
         expect(props.updatePaymentRequest).toHaveBeenCalledWith({ AdminDesc: "Visible only to admin encode", AffDesc: "Visible also to affiliate encode", AffId: 1271808, IsApproved: true, TransId: 1262276212 });
-        expect(instance.setState).toHaveBeenCalledTimes(1);
-        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Failed!' });
-        expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState).toHaveBeenCalledTimes(2);
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
+        expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Failed!' });
+        expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
         expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(instance.hideMessage).toHaveBeenCalled();
         expect(props.handleFetchData).not.toHaveBeenCalled();
@@ -149,9 +151,10 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         await instance.handleSave();
 
         expect(props.updatePaymentRequest).toHaveBeenCalledWith({ AdminDesc: "Visible only to admin encode", AffDesc: "Visible also to affiliate encode", AffId: 1271808, IsApproved: false, TransId: 1262276212 });
-        expect(instance.setState).toHaveBeenCalledTimes(1);
-        expect(instance.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Update transaction failed!' });
-        expect(instance.setState.mock.calls[0][1]).toEqual(expect.any(Function));
+        expect(instance.setState).toHaveBeenCalledTimes(2);
+        expect(instance.setState.mock.calls[0][0]).toEqual({ isSendingRequest: true });
+        expect(instance.setState.mock.calls[1][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'Update transaction failed!' });
+        expect(instance.setState.mock.calls[1][1]).toEqual(expect.any(Function));
         expect(window.setTimeout).toHaveBeenCalledTimes(1);
         expect(instance.hideMessage).toHaveBeenCalled();
         expect(props.handleFetchData).not.toHaveBeenCalled();

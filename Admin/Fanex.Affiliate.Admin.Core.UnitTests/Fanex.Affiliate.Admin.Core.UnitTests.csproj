@@ -238,6 +238,7 @@
     <Compile Include="Services\Home\HomeServiceTest.cs" />
     <Compile Include="Services\LanguageServiceTest.cs" />
     <Compile Include="Services\ExchangeRate\ExchangeRateServiceTest.cs" />
+    <Compile Include="Services\LicenseeServiceTest.cs" />
     <Compile Include="Services\MediaGallery\BannerListServiceTest.cs" />
     <Compile Include="Services\MediaGallery\BannerValidationServiceTest.cs" />
     <Compile Include="Services\MediaGallery\CommonMediaGalleryServiceTest.cs" />

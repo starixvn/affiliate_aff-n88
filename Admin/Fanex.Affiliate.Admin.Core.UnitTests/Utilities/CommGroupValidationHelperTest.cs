@@ -210,7 +210,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSetting
                 {
                     Commission = 0.10m,
-                    MaxAmount = 100000000000000,
+                    MaxAmount = 100000000000,
                     MaxAp = 1000000000,
                     MinAmount = 101,
                     MinAp = 101,
@@ -246,7 +246,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSetting
                 {
                     Commission = 0.10m,
-                    MaxAmount = 100000000000000,
+                    MaxAmount = 100000000000,
                     MaxAp = 1000000000,
                     MinAmount = 101,
                     MinAp = 101,
@@ -320,7 +320,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     new TierSetting
                     {
                         Commission = 0.10m,
-                        MaxAmount = 100000000000000,
+                        MaxAmount = 100000000000,
                         MaxAp = 1000000000,
                         MinAmount = 101,
                         MinAp = 101,

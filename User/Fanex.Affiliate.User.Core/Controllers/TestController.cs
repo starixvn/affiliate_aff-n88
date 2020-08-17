@@ -7,6 +7,7 @@
     using CoreService;
     using DTO;
     using Enum;
+    using Fanex.Affiliate.User.Core.MetalModels;
     using Filters;
     using MetalModels.Email;
     using ONEbook.UM.Filters;
@@ -22,6 +23,7 @@
         private readonly IAppSetting _appSetting;
 
         private const string MailContact = "hubert.duong@starixsoft.com";
+        private const string RootDomain = "http://affiliate.12ying.com/";
 
         public TestController(ISessionService sessionService,
             ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
@@ -137,6 +139,12 @@
         {
             switch (functionName)
             {
+                case "ContactUs":
+                    return GetContactUsModel();
+
+                case "Csd":
+                    return GetCSDModel();
+
                 case "RecoverPassword":
                     return GetForgetPasswordModel();
 
@@ -152,9 +160,38 @@
                 case "Signup":
                     return GetSignupModel();
 
+                case "VerificationAccount":
+                    return GetVerificationAccountModel();
+
                 default:
                     return null;
             }
+        }
+
+        private object GetContactUsModel()
+        {
+            return new ContactUsParam
+            {
+                Sender = "Sender",
+                Affiliate = "NOVAAFF0000",
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                Email = "abc@gmail.com",
+                Content = SiteDomainHelper.GetRootUrl(this),
+            };
+        }
+
+        private object GetCSDModel()
+        {
+            return new NoticeEmailParam
+            {
+                UserName = "NOVAAFF0000",
+                FirstName = "Firs Name",
+                LastName = "Last Name",
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                SiteUrl = "abc.com.vn",
+                MoreSiteUrls = "xyz.com.vn",
+                MailContact = MailContact
+            };
         }
 
         private object GetForgetPasswordModel()
@@ -163,6 +200,7 @@
             {
                 User = GetUserInfo(),
                 MailContact = MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 Code = "12345",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
                 MailTo = MailContact
@@ -178,6 +216,8 @@
             {
                 User = GetUserInfo(),
                 MailContact = MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                DefaultCurrency = _appSetting.DefaultCurrency,
                 TransId = TranId,
                 RequestDate = DateTime.Now.Date,
                 Amount = Amount,
@@ -192,9 +232,10 @@
             return new NewPasswordEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = "mailcontact@gmail.com",
+                MailContact = MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 NewPassword = "1234aa",
-                RootDomain = "http://affiliate.12ying.com/",
+                RootDomain = SiteDomainHelper.GetRootUrl(this),
                 MailTo = MailContact,
             };
         }
@@ -204,7 +245,21 @@
             return new EmailBaseParam
             {
                 User = GetUserInfo(),
-                MailContact = "mailcontact@gmail.com"
+                MailContact = MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
+            };
+        }
+
+        private object GetVerificationAccountModel()
+        {
+            return new VerificationAccountEmailParam
+            {
+                User = GetUserInfo(),
+                MailContact = MailContact,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                RootDomain = SiteDomainHelper.GetRootUrl(this),
+                Code = "123456",
+                Ip = "127.0.0.1"
             };
         }
 

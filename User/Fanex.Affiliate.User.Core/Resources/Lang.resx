@@ -345,8 +345,8 @@
   <data name="CancelRequest" xml:space="preserve">
     <value>Cancel Request</value>
   </data>
-  <data name="CancelSubject" xml:space="preserve">
-    <value>12Bet Affiliates - [{transid}] - Payment Request Notification</value>
+  <data name="PaymentRequestSubject" xml:space="preserve">
+    <value>12Bet Affiliates - [{0}] - Payment Request Notification</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -2415,5 +2415,11 @@
   </data>
   <data name="UserNameClosed" xml:space="preserve">
     <value>The payment account you entered is Closed. Please check again.</value>
+  </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>Your payment request has been cancelled</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>12Bet Affiliates - [{0}] - Your payment request has been cancelled</value>
   </data>
 </root>

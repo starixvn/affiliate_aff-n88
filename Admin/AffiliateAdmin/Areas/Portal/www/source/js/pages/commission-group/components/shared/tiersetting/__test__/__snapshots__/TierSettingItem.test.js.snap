@@ -63,8 +63,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
   </td>
   <td>
     <Input
-      id="MinAm1"
-      name="MinAm"
+      id="MinAp1"
+      name="MinAp"
       onChange={[Function]}
       type="text"
       value="0"
@@ -78,8 +78,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
       <Input
         className="form-max"
         disabled={false}
-        id="MaxAm1"
-        name="MaxAm"
+        id="MaxAp1"
+        name="MaxAp"
         onChange={[Function]}
         type="text"
         value="10"
@@ -104,8 +104,8 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
         >
           <Input
             checked={false}
-            id="MaxAmCheckbox1"
-            name="MaxAm"
+            id="MaxApCheckbox1"
+            name="MaxAp"
             onChange={[Function]}
             type="checkbox"
           />
@@ -744,7 +744,7 @@ exports[`commission group - TierSettingItem Should render correctly 1`] = `
 </tr>
 `;
 
-exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxAm 1`] = `
+exports[`commission group - TierSettingItem Should render correctly with MaxAmout, MaxAp 1`] = `
 <tr>
   <td
     className="text-center"
@@ -807,8 +807,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
   </td>
   <td>
     <Input
-      id="MinAm1"
-      name="MinAm"
+      id="MinAp1"
+      name="MinAp"
       onChange={[Function]}
       type="text"
       value="10"
@@ -822,8 +822,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       <Input
         className="form-max"
         disabled={true}
-        id="MaxAm1"
-        name="MaxAm"
+        id="MaxAp1"
+        name="MaxAp"
         onChange={[Function]}
         type="text"
         value="∞"
@@ -848,8 +848,8 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
         >
           <Input
             checked={true}
-            id="MaxAmCheckbox1"
-            name="MaxAm"
+            id="MaxApCheckbox1"
+            name="MaxAp"
             onChange={[Function]}
             type="checkbox"
           />

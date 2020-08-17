@@ -1,8 +1,10 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
+using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Payment;
 using Fanex.Affiliate.Admin.Core.MetaModels.Payment;
@@ -12,6 +14,7 @@ using Fanex.Affiliate.Admin.Core.Services.Payment;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Xunit;
 
@@ -60,8 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
         {
             // Arrange
             var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
-            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
-            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo { Code = 1, Message = "Wrong discount" });
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "abc" });
 
             var service = CreatePaymentRequestService(paymentRequestRepository: paymentRequestRepository.Object);
 
@@ -70,7 +72,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal("Wrong discount", result.Message);
+            Assert.Equal("Payment request is not valid", result.Message);
         }
 
         [Fact]
@@ -163,6 +165,206 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             // Assert
             Assert.Single(paymentMethods);
             Assert.Equal(100m, minAmount);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCallWithInvalidCustomer_ReturnError()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam(), new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.False(result.Result.IsSuccessful);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCall_UpdateFailed()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam(), new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.False(result.Result.IsSuccessful);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCallWithReject_UpdateSuccessfully()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam(), new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.True(result.Result.IsSuccessful);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCallWithApproved_UpdateSuccessfully()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
+            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo()));
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam { IsApproved = true }, new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.True(result.Result.IsSuccessful);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCallWithApproved_UpdateFailed()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
+            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = Code.GeneralErrorCode }));
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam { IsApproved = true }, new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.False(result.Result.IsSuccessful);
+        }
+
+        [Fact]
+        public void HandlePaymentRequest_WhenCallWithApproved_HaveException()
+        {
+            // Arrange
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.MemberSiteId).Returns(1);
+            appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");
+
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
+            var container = builder.Build();
+
+            this.scopeProvider = new SimpleLifetimeScopeProvider(container);
+            var resolver = new AutofacDependencyResolver(container, scopeProvider);
+            DependencyResolver.SetResolver(resolver);
+
+            var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
+            paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+
+            var affiliateService = new Mock<IAffiliateService>();
+            affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });
+
+            var licenseeService = new Mock<ILicenseeService>();
+            licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
+            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = Code.GeneralErrorCode })).Callback<PaymentRequestInfo>(p => throw new System.Exception());
+
+            var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
+
+            // Action
+            var result = controller.HandlePaymentRequest(new PaymentRequestUpdateParam { IsApproved = true }, new PaymentRequestUpdateEmail());
+
+            // Assert
+            Assert.Single(result.Exception.InnerExceptions);
         }
 
         private static PaymentService CreatePaymentRequestService(

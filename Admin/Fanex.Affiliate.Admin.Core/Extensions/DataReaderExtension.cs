@@ -18,6 +18,8 @@ namespace Fanex.Affiliate.Admin.Core.Extensions
 
             return false;
         }
+
+#pragma warning disable IDE0034 // Simplify 'default' expression
         public static T GetVal<T>(this IDataReader dataReader, string columnName, T defauleValue = default(T))
         {
             var dbValue = dataReader[columnName];

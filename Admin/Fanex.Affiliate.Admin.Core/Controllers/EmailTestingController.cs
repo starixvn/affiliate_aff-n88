@@ -14,6 +14,10 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
     [FunctionAuthorize(FunctionName = Function.UserControl)]
     public class EmailTestingController : BaseController
     {
+        private const int _transId = 123;
+        private const int _amount = 100;
+        private const string _firstName = "First Name";
+
         private readonly IMailProcessor _mailProcessor;
 
         private readonly IAppSetting _appSetting;
@@ -126,22 +130,47 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 case "AffiliateApproved":
                     return new EmailBase
                     {
-                        MailContact = _appSetting.MailContact
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName
                     };
                 case "AffiliateInformation":
                     return new AffInformationEmail
                     {
                         MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
                         UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(AffType.Asian),
-                        FirstName = "First Name",
-                        UserName = "AFF12BET00000",
+                        FirstName = _firstName,
+                        UserName = "NOVA00000",
                         Password = "qwrfsdg"
                     };
                 case "WithdrawalGuidance":
                     return new WithdrawalEmail
                     {
                         MailContact = _appSetting.MailContact,
-                        FirstName = "First Name"
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        FirstName = _firstName
+                    };
+                case "PaymentRequest/Approved":
+                    return new PaymentRequestUpdateEmail
+                    {
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        DefaultCurrency = _appSetting.DefaultCurrency,
+                        FirstName = _firstName,
+                        TransId = _transId,
+                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        Amount = _amount
+                    };
+                case "PaymentRequest/Rejected":
+                    return new PaymentRequestUpdateEmail
+                    {
+                        MailContact = _appSetting.MailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        DefaultCurrency = _appSetting.DefaultCurrency,
+                        FirstName = _firstName,
+                        TransId = _transId,
+                        TransDate = DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss"),
+                        Amount = _amount
                     };
                 default:
                     return null;

@@ -1,13 +1,10 @@
-﻿using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Data;
+﻿using Fanex.Data;
 using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.User.Core.MetalModels
 {
     public class ContactUsParam
     {
-        public int Mid { get; set; }
-
         public int Creator { get; set; }
 
         [Required]
@@ -42,6 +39,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public string SubjectRaw { get; set; }
 
         [SpParam(Ignored = true)]
-        public string SiteFiendlyName => AppSetting.Instance.SiteFriendlyName;
+        public string SiteFriendlyName { get; set; }
     }
 }

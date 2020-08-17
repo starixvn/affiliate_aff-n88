@@ -24,7 +24,7 @@ describe('commission group - TierSetting', () => {
             TierSettingList: [
                 { Commission: 0, MaxAmount: 100, MaxAp: 10, MinAmount: 0, MinAp: 0, TierId: 1 },
                 { Commission: 0, MaxAmount: 100000000000000, MaxAp: 1000000000, MinAmount: 100, MinAp: 10, TierId: 2 },
-                { Commission: 0, MaxAmount: 100000000000001, MaxAp: 1000000001, MinAmount: 100000000000001, MinAp: 1000000001, TierId: 3 }
+                { Commission: 0, MaxAmount: 100000000000001, MaxAp: 5, MinAmount: 100000000000001, MinAp: 5, TierId: 3 }
             ]
         };
         const mockSetSelectedGroup = jest.fn();
@@ -42,7 +42,7 @@ describe('commission group - TierSetting', () => {
         const wrapper = shallow(<TierSetting {...props} />);
 
         wrapper.find('button').simulate('click')
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ Commission: 0, MaxAmount: 0, MaxAp: 0, MinAmount: 0, MinAp: 0, TierId: 1 }] });
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ Commission: 0, MaxAmount: 0, MaxAp: 5, MinAmount: 0, MinAp: 5, TierId: 1 }] });
     });
 
     it('handleRemove - Should be called when click remove', () => {

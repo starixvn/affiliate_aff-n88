@@ -916,15 +916,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - [{transid}] - Payment Request Notification.
-        /// </summary>
-        public static string CancelSubject {
-            get {
-                return ResourceManager.GetString("CancelSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t Get Enough!.
         /// </summary>
         public static string CannotGetEnough {
@@ -1923,6 +1914,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string EmailTitlePayment {
             get {
                 return ResourceManager.GetString("EmailTitlePayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your payment request has been cancelled.
+        /// </summary>
+        public static string EmailTitlePaymentCancel {
+            get {
+                return ResourceManager.GetString("EmailTitlePaymentCancel", resourceCulture);
             }
         }
         
@@ -4405,6 +4405,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string PaymentRequest {
             get {
                 return ResourceManager.GetString("PaymentRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Your payment request has been cancelled.
+        /// </summary>
+        public static string PaymentRequestCancelSubject {
+            get {
+                return ResourceManager.GetString("PaymentRequestCancelSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Payment Request Notification.
+        /// </summary>
+        public static string PaymentRequestSubject {
+            get {
+                return ResourceManager.GetString("PaymentRequestSubject", resourceCulture);
             }
         }
         
