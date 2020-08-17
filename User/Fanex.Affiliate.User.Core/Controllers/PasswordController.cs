@@ -87,7 +87,7 @@
                     MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailTo = param.Email,
-                    RootDomain = SiteDomainHelper.GetRootUrl(this),
+                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     Code = code
                 };
 
@@ -102,7 +102,7 @@
         {
             if (uid == 0 || string.IsNullOrEmpty(vid))
             {
-                return Redirect(Url.Content("~/Password/RecoverPasswordResult?isSuccessful=false"));
+                return RedirectToFixedAction("RecoverPasswordResult", new { isSuccessful = false });
             }
             var newPassword = Generator.GetRandomString(10);
             var param = new PasswordRecoveryParam
@@ -123,7 +123,7 @@
                 var recoverEmailParam = new NewPasswordEmailParam
                 {
                     User = userInfo,
-                    RootDomain = SiteDomainHelper.GetRootUrl(this),
+                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     NewPassword = newPassword,
                     MailTo = userInfo.Email,
                     MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
@@ -131,20 +131,19 @@
                 };
 
                 _mailService.SendNewPasswordEmail(recoverEmailParam);
-
-                return Redirect(Url.Content("~/Password/RecoverPasswordResult?isSuccessful=true"));
             }
 
-            return Redirect(Url.Content($"~/Password/RecoverPasswordResult?isSuccessful={isSuccessful}&errCode={param.ErrCode}"));
+            return RedirectToFixedAction("RecoverPasswordResult", new { isSuccessful, errCode = param.ErrCode });
         }
 
         public ActionResult RecoverPasswordResult(bool isSuccessful = false, int errCode = 0)
         {
+            var errorMsg = Common.GetErrorMessage("RecoverPassword", errCode == RecoverPasswordFailed ? RecoverPasswordFailed : InvalidUrlAddress);
+            var msg = errorMsg?.Replace("{0}", Url.Content("~/ContactUs"));
             var result = new ResultInfo
             {
                 IsOk = false,
-                Message = Common.GetErrorMessage("RecoverPassword", errCode == RecoverPasswordFailed ? RecoverPasswordFailed : InvalidUrlAddress)
-                                    .Replace("{0}", Url.Content("~/ContactUs"))
+                Message = msg
             };
 
             if (isSuccessful)

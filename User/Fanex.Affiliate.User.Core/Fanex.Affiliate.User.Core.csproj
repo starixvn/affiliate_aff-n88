@@ -265,6 +265,7 @@
     <Compile Include="Constants\PaymentStatus.cs" />
     <Compile Include="Constants\Product.cs" />
     <Compile Include="Constants\RequestPage.cs" />
+    <Compile Include="Constants\RouteName.cs" />
     <Compile Include="Constants\SiteName.cs" />
     <Compile Include="Constants\TargetSite.cs" />
     <Compile Include="Constants\TransType.cs" />
@@ -308,7 +309,9 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Controllers\TermAndConditionController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TestController.cs">
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Controllers\UserPanel\MyAccountController.cs" />
     <Compile Include="Controllers\UserPanel\PaymentRequestController.cs" />
     <Compile Include="Controllers\UserPanel\MainController.cs" />

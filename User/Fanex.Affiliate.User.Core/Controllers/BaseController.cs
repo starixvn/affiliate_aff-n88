@@ -21,6 +21,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
         protected ISessionService SessionService { get; }
 
+        protected virtual string RouteName => Constants.RouteName.DefaultRoute;
+
         protected override void Initialize(RequestContext requestContext)
         {
             base.Initialize(requestContext);
@@ -33,6 +35,15 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 SessionService.CurrentLanguage = favoriteLanguage;
             }
             LanguageService.SetCulture(favoriteLanguage);
+        }
+
+        protected RedirectToRouteResult RedirectToFixedAction(string actionName, object routeValue)
+        {
+            var routeDic = new RouteValueDictionary(routeValue);
+            routeDic.Add("controller", RouteData.Values["controller"]);
+            routeDic.Add("action", actionName);
+            var result = RedirectToRoute(RouteName, routeDic);
+            return result;
         }
 
     }
