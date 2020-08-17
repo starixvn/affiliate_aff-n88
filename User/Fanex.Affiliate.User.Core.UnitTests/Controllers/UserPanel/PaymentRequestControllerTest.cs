@@ -315,7 +315,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 AffId = Constant.DefaultAffId,
                 Amount = 100,
                 MinAmount = 100,
-                BalBroughtForward = 150
+                BalBroughtForward = 150,
+                TransDate = new DateTime(2020, 1, 1)
             };
 
             var paymentService = new Mock<IPaymentService>();
@@ -337,7 +338,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 Language = Constant.DefaultLanguage,
                 MinAmount = 100m,
                 BalBroughtForward = 150m,
-                IsLocalTest = true
+                IsLocalTest = true,
+                TransDate = creationParam.TransDate
             };
             var expectedResult = JsonConvert.SerializeObject(expectedParam);
 

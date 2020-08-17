@@ -203,7 +203,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 Content = "Content",
                 Email = Constant.DefaultMailUser,
                 Sender = "Sender",
-                Subject = "Subject"
+                Subject = "Subject",
+                SubjectRaw = "Subject"
             };
         }
 

@@ -18,7 +18,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
         [Theory]
         [InlineData(false, "/SignUp", "javascript:;")]
-        [InlineData(true, "/UserPanel/Main/#AccountOverView", "/UserPanel/Main/#MediaGallery")]
+        [InlineData(true, "/UserPanel/Main/#AccountOverview", "/UserPanel/Main/#AccountOverview#MediaGallery")]
         public void Index_CheckIsAuthenticated_ReturnCorrectViewModel(bool isAuthenticated, string expectedSignupLink, string expectedBannerlink)
         {
             // Arrange

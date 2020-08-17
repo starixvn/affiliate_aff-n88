@@ -43,7 +43,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             const string ErrorMessage1 = "ErrorMessage1";
             const string ErrorMessage2 = "ErrorMessage2";
             var accountService = new Mock<IAccountService>();
-            var controller = CreateController(accountService.Object);
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.Environment).Returns("PRO");
+            var controller = CreateController(accountService.Object, appSetting: appSetting.Object);
             controller.ModelState.AddModelError("Error1", ErrorMessage1);
             controller.ModelState.AddModelError("Error2", ErrorMessage2);
 
@@ -69,7 +71,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             // Arrange
             var accountService = new Mock<IAccountService>();
-            var controller = CreateController(accountService.Object);
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.Environment).Returns("PRO");
+            var controller = CreateController(accountService.Object, appSetting: appSetting.Object);
             var contactAppList = CreateAppContactList();
             contactAppList.ForEach(item => item.Value = null);
 
@@ -88,7 +92,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             // Arrange
             var accountService = new Mock<IAccountService>();
-            var controller = CreateController(accountService.Object);
+            var appSetting = new Mock<IAppSetting>();
+            appSetting.Setup(a => a.Environment).Returns("PRO");
+            var captchaService = new Mock<ICaptchaService>();
+            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(false);
+            var controller = CreateController(accountService.Object, appSetting: appSetting.Object, captchaService: captchaService.Object);
             var signUpParam = new UserSignUpParam { Captcha = "Invalid" };
 
             var expectedResult = new ResultInfo { IsOk = false, Message = Lang.ValidationCode };
@@ -109,11 +117,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             UserSignUpParam passedParam = null;
             var accountService = new Mock<IAccountService>();
             accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
-                        .Callback<UserSignUpParam, EmailBaseParam>((p, e) => passedParam = p);
+            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>(), false))
+                        .ReturnsAsync(resultInfo)
+                        .Callback<UserSignUpParam, EmailBaseParam, bool>((p, e, b) => passedParam = p);
 
             var appSetting = Mock.Of<IAppSetting>(ap =>
             ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } &&
-            ap.IsLocal);
+            ap.IsLocal &&
+            ap.Environment == "LOCAL");
 
             var controller = CreateController(accountService.Object, appSetting: appSetting);
 
@@ -138,7 +149,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var accountService = new Mock<IAccountService>();
             accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>())).Returns(Task.FromResult(expectedResult));
 
-            var appSetting = Mock.Of<IAppSetting>(ap => ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian });
+            var appSetting = Mock.Of<IAppSetting>(ap => ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } 
+                && ap.Environment == "LOCAL");
 
             var controller = CreateController(accountService.Object, appSetting: appSetting);
             controller.TempData = new TempDataDictionary();
@@ -162,14 +174,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
             var accountService = new Mock<IAccountService>();
             accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
-                                .Returns(Task.FromResult(resultInfo))
-                                .Callback<UserSignUpParam, EmailBaseParam>((u, e) => passedEmailParam = e);
+                                .ReturnsAsync(resultInfo)
+                                .Callback<UserSignUpParam, EmailBaseParam, bool>((u, e, i) => passedEmailParam = e);
 
             var appSetting = Mock.Of<IAppSetting>(ap =>
             ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } &&
             ap.MailContact == Constant.DefaultMailContact &&
             ap.MailCc == Constant.DefaultMailCc &&
-            ap.MailBcc == string.Empty);
+            ap.MailBcc == string.Empty &&
+            ap.Environment == "PRO");
 
             var controller = CreateController(accountService.Object, appSetting: appSetting);
             controller.TempData = new TempDataDictionary();

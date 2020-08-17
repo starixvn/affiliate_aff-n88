@@ -10,8 +10,10 @@ using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Moq;
 using Newtonsoft.Json;
+using NSubstitute;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
@@ -44,13 +46,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Action
             var actionResult = controller.Index() as ViewResult;
-            var result = actionResult.Model as AccountInformation;
+            var result = actionResult.Model as MyAccountViewModel;
 
             // Assert
-            Assert.Equal(expectedAccount.PreferredLanguage, result.PreferredLanguage);
+            Assert.Equal(expectedAccount.PreferredLanguage, result.AccountInformation.PreferredLanguage);
             Assert.False(expectedAccount.IsRenderState);
-            Assert.Equal("English", result.LanguageName);
-            Assert.Null(result.ContactAppList);
+            Assert.Equal("English", result.AccountInformation.LanguageName);
+            Assert.Null(result.AccountInformation.ContactAppList);
         }
 
         [Fact]
@@ -70,11 +72,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Action
             var actionResult = controller.Index() as ViewResult;
-            var result = actionResult.Model as AccountInformation;
+            var result = actionResult.Model as MyAccountViewModel;
 
             // Assert
-            Assert.Equal(expectedResult, result.ContactApps);
-            Assert.Equal(contactApps.Count, result.ContactAppList.Count());
+            Assert.Equal(expectedResult, result.AccountInformation.ContactApps);
+            Assert.Equal(contactApps.Count, result.AccountInformation.ContactAppList.Count());
         }
 
         [Fact]
@@ -91,11 +93,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Action
             var actionResult = controller.Index() as ViewResult;
-            var result = actionResult.Model as AccountInformation;
+            var result = actionResult.Model as MyAccountViewModel;
 
             // Assert
-            Assert.True(result.IsRenderState);
-            Assert.Equal(ExpectedLanguageName, result.LanguageName);
+            Assert.True(result.AccountInformation.IsRenderState);
+            Assert.Equal(ExpectedLanguageName, result.AccountInformation.LanguageName);
         }
 
         [Fact]
@@ -139,7 +141,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Arrange
             var accountRepository = new Mock<IAccountRepository>();
             accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(new AccountInformation { PlayerUsername = PlayerUserName });
-            accountRepository.Setup(ac => ac.GetDepositPlayerAccount(PlayerUserName)).Returns(new DepositAccountInfo { Success = 1 });
+            accountRepository.Setup(ac => ac.UpdateAccountInformation(It.IsAny<UpdateAccountParam>())).Returns(new ResultInfo { IsOk = true });
             var controller = CreateAccountController(null, accountRepository.Object);
             var contactAppList = CreateContactAppList();
             contactAppList[0].Value = null;
@@ -152,30 +154,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         [Fact]
-        public void PostMyAccount_DepositAccountIsNotValid_ReturnCorrectResult()
-        {
-            // Arrange
-            var accountRepository = new Mock<IAccountRepository>();
-            accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(new AccountInformation { PlayerUsername = PlayerUserName });
-            accountRepository.Setup(ac => ac.GetDepositPlayerAccount(PlayerUserName)).Returns(new DepositAccountInfo { Success = 1 });
-            var controller = CreateAccountController(null, accountRepository.Object);
-
-            // Action
-            var actionResult = controller.Index(new AccountInformation { ContactAppList = CreateContactAppList() }) as JsonResult;
-            var result = actionResult.Data as ResultInfo;
-
-            // Assert
-            Assert.False(result.IsOk);
-            Assert.Equal(Lang.errDepositDBConnectFailed, result.Message);
-        }
-
-        [Fact]
         public void PostMyAccount_UpdateSuccessfully_ReturnCorrectResult()
         {
             // Arrange
             var accountRepository = new Mock<IAccountRepository>();
             accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(new AccountInformation { PlayerUsername = PlayerUserName });
-            accountRepository.Setup(ac => ac.GetDepositPlayerAccount(PlayerUserName)).Returns(new DepositAccountInfo { Success = 0 });
             accountRepository.Setup(ac => ac.UpdateAccountInformation(It.IsAny<UpdateAccountParam>())).Returns(new ResultInfo { IsOk = true });
             var controller = CreateAccountController(null, accountRepository.Object);
 
@@ -194,7 +177,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             UpdateAccountParam passedParam = null;
             var accountRepository = new Mock<IAccountRepository>();
             accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(new AccountInformation());
-            accountRepository.Setup(ac => ac.GetDepositPlayerAccount($"Encoded{PlayerUserName}")).Returns(new DepositAccountInfo { Success = 0 });
             accountRepository.Setup(ac => ac.UpdateAccountInformation(It.IsAny<UpdateAccountParam>()))
                 .Returns(new ResultInfo { IsOk = true })
                 .Callback<UpdateAccountParam>(p => passedParam = p);

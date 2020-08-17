@@ -12,6 +12,7 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Moq;
 using Newtonsoft.Json;
 using Xunit;
+using Fanex.Affiliate.User.Core.DTO.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 {
@@ -155,13 +156,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             // Arrange
             var param = CreateValidPaymentCreationParam();
-            var paymentRequest = CreatePaymentRequest(param);
             const string ErrorMessage = "Create Payment Failed";
 
-            var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { Message = ErrorMessage });
+            var userInfo = CreateUserInfo();
+            var accountInfo = CreateAccountInfo();
+            var accountRepository = new Mock<IAccountRepository>();
+            accountRepository.Setup(a => a.GetUserInfoById(param.AffId, param.IsInternal)).Returns(userInfo);
+            accountRepository.Setup(a => a.GetAccountInfo(param.AffId)).Returns(accountInfo);
 
-            var service = CreatePaymentService(paymentRepository: paymentRepository.Object);
+            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+            var paymentRepository = new Mock<IPaymentRepository>();
+            paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(new ResultInfo { Message = ErrorMessage });
+
+            var service = CreatePaymentService(paymentRepository: paymentRepository.Object, accountRepository: accountRepository.Object, accountService: accountService.Object);
 
             // Action
             var result = await service.CreatePaymentRequest(param, new PaymentEmailParam());
@@ -178,27 +185,30 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             // Arrange
             PaymentEmailParam passedEmailParam = null;
             var param = CreateValidPaymentCreationParam();
-            var paymentRequest = CreatePaymentRequest(param);
+            PaymentRequestInfo paymentRequest = null;
 
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { IsOk = true });
+            paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>()))
+                .Callback<PaymentRequestInfo>(p => { p.TransId = param.TransId; paymentRequest = p; })
+                .Returns(new ResultInfo { IsOk = true });
 
-            var userInfo = new UserInfo
-            {
-                UserName = "usernametest",
-                AffId = Constant.DefaultAffId,
-                Email = Constant.DefaultMailUser
-            };
+            var userInfo = CreateUserInfo();
+            var accountInfo = CreateAccountInfo();
             var accountRepository = new Mock<IAccountRepository>();
             accountRepository.Setup(a => a.GetUserInfoById(param.AffId, param.IsInternal)).Returns(userInfo);
+            accountRepository.Setup(a => a.GetAccountInfo(param.AffId)).Returns(accountInfo);
 
             var emailService = new Mock<IEmailService>();
             emailService.Setup(e => e.SendPaymentEmail(It.IsAny<PaymentEmailParam>())).Callback<PaymentEmailParam>(p => passedEmailParam = p);
 
+            var accountService = new Mock<IAccountService>();
+            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,
                 paymentRepository: paymentRepository.Object,
-                emailService: emailService.Object);
+                emailService: emailService.Object,
+                accountService: accountService.Object);
 
             var expectedEmailParam = new PaymentEmailParam
             {
@@ -218,6 +228,26 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             Assert.Equal(Lang.RequestPayoutSucc, result.Message);
             Assert.Equal(JsonConvert.SerializeObject(expectedEmailParam), JsonConvert.SerializeObject(passedEmailParam));
         }
+
+        private static UserInfo CreateUserInfo()
+        {
+            return new UserInfo
+            {
+                UserName = "usernametest",
+                AffId = Constant.DefaultAffId,
+                Email = Constant.DefaultMailUser
+            };
+        }
+
+        private AccountInformation CreateAccountInfo()
+            => new AccountInformation
+            {
+                Address = "abc",
+                AffCurrency = "USD",
+                AffId = 1,
+                City = "ab",
+                PlayerUsername = "username"
+            };
 
         private PaymentCreationParam CreateValidPaymentCreationParam()
         {
