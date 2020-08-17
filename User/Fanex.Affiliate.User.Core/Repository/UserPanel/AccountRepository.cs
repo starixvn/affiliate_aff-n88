@@ -28,16 +28,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public DepositAccountInfo GetDepositPlayerAccount(string playerUserName)
-        {
-            const string uSpKey = "Deposit_GetCustDataForCreateIBCACByUserName";
-
-            using (var objectDb = _builder.Build(uSpKey))
-            {
-                return objectDb.QueryEntity<DepositAccountInfo>(new { deposit_username = playerUserName });
-            }
-        }
-
         public ResultInfo UpdateAccountInformation(UpdateAccountParam accountUpdateParam)
         {
             const string uSpKey = "Aff_User_UserInfoUpd";
