@@ -595,7 +595,6 @@
     <Compile Include="Utilities\EmailHelper.cs" />
     <Compile Include="Utilities\Generator.cs" />
     <Compile Include="CoreService\IMemoryCacheService.cs" />
-    <Compile Include="Utilities\IImageHandler.cs" />
     <Compile Include="Utilities\IWrapperUtility.cs" />
     <Compile Include="Utilities\MailProcessor.cs" />
     <Compile Include="Utilities\IAppSetting.cs" />
