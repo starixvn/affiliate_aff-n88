@@ -21,7 +21,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         Task FetchFromAdjusmentDayAsync(int day);
     }
-    public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<BetRecordInfo>, IFetchBetRecordDataTask
+    public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<TransBetRecordInfo>, IFetchBetRecordDataTask
     {
         private const int API_SERVER_TIME_OFFSET = 0;
 
@@ -176,7 +176,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         protected override IEnumerable<string> GetSupportedRepoPrefix()
             => Settings.SupportedPrefix;
 
-        protected override string BuildXml(IEnumerable<BetRecordInfo> data)
+        protected override string BuildXml(IEnumerable<TransBetRecordInfo> data)
             => XmlHelper.BuildXml(data, "transaction", "trans");
 
     }

@@ -17,5 +17,9 @@
         public const string PULL_CUST_WALLET_SETTING = "PullCustWalletSetting";
 
         public const string PULL_DEPOSIT_INFO_SETTING = "PullDepositInfoSetting";
+
+        public const string PULL_CUST_REG_INFO_SETTING = "PullCustRegInfoSetting";
+
+        public const string PULL_BONUS_INFO_SETTING = "PullBonusInfoSetting";
     }
 }

@@ -87,7 +87,7 @@ namespace Affiliate.N88.Jobs.Tests
 
         [Theory]
         [MemberData(nameof(FetchBetRecordTaskTestsHelper.NoBetRecordItem), MemberType = typeof(FetchBetRecordTaskTestsHelper))]
-        public async Task FetchDataAsync_WhenCallWithApiReturnNoItem_TimeTrackerNotSave(IEnumerable<BetRecordInfo> data)
+        public async Task FetchDataAsync_WhenCallWithApiReturnNoItem_TimeTrackerNotSave(IEnumerable<TransBetRecordInfo> data)
         {
             SetUpStubConfiguration();
             Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>()).Returns(data);
@@ -117,7 +117,7 @@ namespace Affiliate.N88.Jobs.Tests
 
         private bool CheckXmlElementIsLowerString(string xmlData)
         {
-            var props = typeof(BetRecordInfo).GetProperties();
+            var props = typeof(TransBetRecordInfo).GetProperties();
             foreach (var pro in props)
             {
                 if (!xmlData.Contains(pro.Name.ToLowerInvariant()))
@@ -152,7 +152,7 @@ namespace Affiliate.N88.Jobs.Tests
         public static IEnumerable<object[]> NoBetRecordItem => new List<object[]>
         {
             new object[] { null },
-            new object[] { new List<BetRecordInfo>() }
+            new object[] { new List<TransBetRecordInfo>() }
         };
 
         public static FetchServiceSetting GetConfiguration() => new FetchServiceSetting
@@ -165,12 +165,12 @@ namespace Affiliate.N88.Jobs.Tests
             SupportedPrefix = new[] { "test1", "test2" }
         };
 
-        public static IEnumerable<BetRecordInfo> GenerateApiResponse(int count = 1)
+        public static IEnumerable<TransBetRecordInfo> GenerateApiResponse(int count = 1)
         {
             var random = new Random();
             for (int i = 0; i < count; i++)
             {
-                yield return new BetRecordInfo
+                yield return new TransBetRecordInfo
                 {
                     TpId = random.Next(100),
                     GameType = random.Next(10)

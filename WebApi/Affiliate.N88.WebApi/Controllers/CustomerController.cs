@@ -8,7 +8,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -56,7 +55,11 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
             => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
-            
+
+        [HttpGet]
+        public async Task<IEnumerable<CustRegInfo>> GetCustomerRegInfo(DateTime fromDate)
+            => await dynamicRepository.FetchAsync<CustRegInfo>(new GetCustRegInfoCriteria(fromDate));
+
         [HttpPost]
         public async Task<decimal> UpdateCustomerWallet(PaymentRequestInfo payment)
         {

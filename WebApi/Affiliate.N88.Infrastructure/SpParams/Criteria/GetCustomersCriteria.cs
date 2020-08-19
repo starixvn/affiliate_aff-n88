@@ -11,6 +11,6 @@ namespace Affiliate.N88.SpParams.Criteria
 
         public override bool IsValid() => true;
 
-        public DateTime FromDate { get; set; }
+        public DateTime FromDate { get; }
     }
 }

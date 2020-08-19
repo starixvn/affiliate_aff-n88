@@ -2,7 +2,7 @@
 
 namespace Affiliate.N88.Models
 {
-    public class BetRecordInfo
+    public class TransBetRecordInfo
     {
         public int TpId { get; set; }
 
@@ -37,5 +37,7 @@ namespace Affiliate.N88.Models
         public int? TicketKey { get; set; }
 
         public DateTime? CreateTime { get; set; }
+
+        public Decimal? ValidBet { get; set; }
     }
 }
