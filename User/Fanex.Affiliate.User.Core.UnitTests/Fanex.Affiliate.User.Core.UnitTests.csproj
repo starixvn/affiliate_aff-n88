@@ -132,9 +132,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessService\AccountServiceTest.cs" />
+    <Compile Include="BusinessService\AuthServiceTest.cs" />
+    <Compile Include="BusinessService\CaptchaServiceTest.cs" />
+    <Compile Include="BusinessService\CommissionReportServiceTest.cs" />
     <Compile Include="BusinessService\ContactServiceTest.cs" />
+    <Compile Include="BusinessService\CryptographyServiceTest.cs" />
+    <Compile Include="BusinessService\EmailServiceTest.cs" />
+    <Compile Include="BusinessService\LanguageServiceTest.cs" />
+    <Compile Include="BusinessService\MarketingServiceTest.cs" />
     <Compile Include="BusinessService\MemberInfoServiceWrapperTest.cs" />
+    <Compile Include="BusinessService\NewsServiceTest.cs" />
     <Compile Include="BusinessService\PaymentServiceTest.cs" />
+    <Compile Include="BusinessService\QrCodeGeneratorServiceTest.cs" />
+    <Compile Include="BusinessService\SecurityQuestionServiceTest.cs" />
+    <Compile Include="BusinessService\TwoFactorAuthServiceTest.cs" />
+    <Compile Include="BusinessService\VerificationServiceTest.cs" />
     <Compile Include="Controllers\AuthControllerTest.cs" />
     <Compile Include="Controllers\ContactUsControllerTest.cs" />
     <Compile Include="Controllers\FaqControllerTest.cs" />

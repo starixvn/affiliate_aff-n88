@@ -132,7 +132,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             // Assert
             emailService.Verify(e => e.SendNoticeEmailToCsd(It.IsAny<NoticeEmailParam>()), Times.Once);
-            Assert.Equal(ExpectedCsdEmail, passedParam.MailTo);
+            Assert.Equal(ExpectedCsdEmail, passedParam.MailContact);
             Assert.Equal(Constant.DefaultUserName, passedParam.UserName);
         }
 
