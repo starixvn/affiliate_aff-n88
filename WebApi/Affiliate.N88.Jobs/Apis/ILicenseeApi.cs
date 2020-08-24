@@ -32,7 +32,7 @@ namespace Affiliate.N88.Jobs.Apis
         [Get("/betreport/GetDepositInfo")]
         Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow);
 
-        [Get("/Customer/GetCustRegInfo")]
+        [Get("/Customer/GetCustomerRegInfo")]
         Task<IEnumerable<CustRegInfo>> GetCustomerRegInfo(DateTime fromDate);
 
         [Get("/BetReport/GetBonusInfo")]

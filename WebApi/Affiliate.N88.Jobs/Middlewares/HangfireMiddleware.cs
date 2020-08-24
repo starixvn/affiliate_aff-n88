@@ -4,7 +4,6 @@ using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
-using Affiliate.N88.Utitlities;
 using Hangfire;
 using Hangfire.Dashboard;
 using Hangfire.MemoryStorage;
@@ -76,6 +75,18 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_DEPOSIT_INFO_SETTING, 
                     configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
+
+            //FetchBonusInfoDataTask
+            services.AddScoped<IFetchBonusInfoDataTask, FetchBonusInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_BONUS_INFO_SETTING,
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_BONUS_INFO_SETTING}"));
+
+            //FetchCustRegInfoDataTask
+            services.AddScoped<IFetchCustRegInfoDataTask, FetchCustRegInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_CUST_REG_INFO_SETTING,
+                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_CUST_REG_INFO_SETTING}"));
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -104,6 +115,10 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchTpTransferInfoDataTask>($"{typeof(IFetchTpTransferInfoDataTask).Name}", appSettings.PullTpTransferInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullDepositInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchCustRegInfoDataTask>($"{typeof(IFetchCustRegInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

@@ -26,6 +26,10 @@
 
         public FetchServiceSetting PullTpTransferInfoSetting { get; set; }
 
+        public FetchServiceSetting PullBonusInfoSetting { get; set; }
+
+        public FetchServiceSetting PullCustRegInfoSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
