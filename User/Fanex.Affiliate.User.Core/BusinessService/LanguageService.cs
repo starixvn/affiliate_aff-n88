@@ -7,6 +7,7 @@ using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Utilities;
 
@@ -14,13 +15,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class LanguageService : ILanguageService
     {
-        private readonly ILanguageRepository LanguageRepository;
-        private readonly IMemoryCacheService CacheService;
+        private readonly ISessionService _sessionService;
+        private readonly ILanguageRepository _languageRepository;
+        private readonly IMemoryCacheService _cacheService;
 
-        public LanguageService(ILanguageRepository languageRepository, IMemoryCacheService cacheService)
+        public LanguageService(ILanguageRepository languageRepository, ISessionService sessionService, IMemoryCacheService cacheService)
         {
-            LanguageRepository = languageRepository;
-            CacheService = cacheService;
+            _languageRepository = languageRepository;
+            _sessionService = sessionService;
+            _cacheService = cacheService;
         }
 
         public string GetCurrentLanguage()
@@ -31,16 +34,44 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var preferedUrlLang = HttpContext.Current.Request["lang"]?.Trim();
             var preferedLang = SystemLanguage.LanguageList.FirstOrDefault(i => string.Equals(i.ShortedCode, preferedUrlLang, StringComparison.OrdinalIgnoreCase))?.Code ?? string.Empty;
 
-            if (!string.IsNullOrEmpty(preferedLang) && SystemLanguage.IsValid(preferedLang))
+            if (!string.IsNullOrEmpty(preferedLang) && IsValid(preferedLang))
             {
                 return preferedLang;
             }
 
             var langCookie = HttpContext.Current.Request.Cookies["afffavoritelang" + AppSetting.Instance.SiteName]?.Value;
 
-            return SystemLanguage.IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
+            return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
 
+        public IEnumerable<Language> GetSystemLanguages(bool? isInternal = null)
+        {
+            var isForInternal = isInternal ?? _sessionService.IsInternal;
+            var languageList = _cacheService.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList);
+            if (languageList == null)
+            {
+                languageList = _languageRepository.GetLanguageList(isForInternal);
+            }
+
+            if (languageList != null)
+            {
+                _cacheService.Set(CacheKey.LanguageList, languageList);
+            }
+
+            languageList = languageList ?? new List<LanguageType>();
+
+            return languageList.Select(l => new Language
+            {
+                Code = l.MarketId,
+                DisplayName = l.DisplayName,
+                EnglishName = l.MarketName,
+                NativeName = l.MarketNativeName,
+                ShortedCode = l.ShortedCode
+            });
+        }
+
+        public bool IsValid(string langCode)
+            => !string.IsNullOrWhiteSpace(langCode) && GetSystemLanguages().Any(l => Equals(l.Code, langCode));
         public void SetCulture(string languageCode)
         {
 

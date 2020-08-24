@@ -30,38 +30,38 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string IndonesiaLanguageCode = "id-ID";
 
-        public static IEnumerable<Language> LanguageList
-        {
-            get
-            {
-                IEnumerable<Language> languageList = DefaultLanguageList.Values;
+        //public static IEnumerable<Language> LanguageList
+        //{
+        //    get
+        //    {
+        //        IEnumerable<Language> languageList = DefaultLanguaList.Values;
 
-                var service = DependencyResolver.Current.GetService<ILanguageService>();
-                var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-                if (service != null && sessionService != null)
-                {
-                    try
-                    {
-                        languageList = service.GetLanguageList(sessionService.IsInternal)
-                            .Select(l => new Language
-                            {
-                                Code = l.MarketId,
-                                DisplayName = l.DisplayName,
-                                EnglishName = l.MarketName,
-                                NativeName = l.MarketNativeName,
-                                ShortedCode = l.ShortedCode
-                            })
-                            .ToList();
-                    }
-                    catch(Exception ex)
-                    {
-                        LogService.Error("Error when get language list from DB", ex);
-                    }
-                }
+        //        var service = DependencyResolver.Current.GetService<IMarketingService>();
+        //        var sessionService = DependencyResolver.Current.GetService<ISessionService>();
+        //        if (service != null && sessionService != null)
+        //        {
+        //            try
+        //            {
+        //                languageList = service.GetLanguageList(sessionService.IsInternal)
+        //                    .Select(l => new Language
+        //                    {
+        //                        Code = l.MarketId,
+        //                        DisplayName = l.DisplayName,
+        //                        EnglishName = l.MarketName,
+        //                        NativeName = l.MarketNativeName,
+        //                        ShortedCode = l.ShortedCode
+        //                    })
+        //                    .ToList();
+        //            }
+        //            catch(Exception ex)
+        //            {
+        //                LogService.Error("Error when get language list from DB", ex);
+        //            }
+        //        }
 
-                return languageList;
-            }
-        }
+        //        return languageList;
+        //    }
+        //}
 
         public static IDictionary<string,Language> DefaultLanguageList => new Dictionary<string, Language>
         {
@@ -85,9 +85,9 @@ namespace Fanex.Affiliate.User.Core.Constants
                   : Lang.ResourceManager.GetString(value.Replace(" ", "")) ?? value;
         }
 
-        public static bool IsValid(string languageCode)
-        {
-            return !string.IsNullOrEmpty(languageCode) && LanguageList.Any(l => Equals(l.Code, languageCode));
-        }
+        //public static bool IsValid(string languageCode)
+        //{
+        //    return !string.IsNullOrEmpty(languageCode) && LanguageList.Any(l => Equals(l.Code, languageCode));
+        //}
     }
 }

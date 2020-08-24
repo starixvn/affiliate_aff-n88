@@ -23,17 +23,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly IMarketingRepository _marketingRepository;
         private readonly IMemoryCacheService _cacheService;
         private readonly IAppSetting _appSetting;
+        private readonly ILanguageService _languageService;
 
 
         private const int AffiliateLink = 1;
         private const int MediaGallery = 2;
 
 
-        public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService, IAppSetting appSetting)
+        public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService, IAppSetting appSetting, ILanguageService languageService)
         {
             _marketingRepository = marketingRepository;
             _cacheService = cacheService;
             _appSetting = appSetting;
+            _languageService = languageService;
         }
 
         public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, AffiliateLinkType linkType, bool isInternal = false)
@@ -59,6 +61,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return categoryList ?? new List<CategoryType>();
         }
 
+        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
+            => _languageService.GetSystemLanguages(isInternal)
+            .Select(l => new LanguageType
+            {
+                DisplayName = l.DisplayName,
+                MarketId = l.Code,
+                MarketName = l.EnglishName,
+                MarketNativeName = l.NativeName,
+                ShortedCode = l.ShortedCode
+            });
         public IEnumerable<CurrencyType> GetCurrencyList(bool isInternal)
         {
             var currencyList = _cacheService.Get<IEnumerable<CurrencyType>>(CacheKey.CurrencyList) ?? _marketingRepository.GetCurrencyList(isInternal);
@@ -126,7 +138,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     banner.Height = Convert.ToInt32(sizes[1]);
                 }
 
-                var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.EnglishName.MatchWith(banner.Language));
+                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.EnglishName.MatchWith(banner.Language));
 
                 if (language != null)
                 {
@@ -146,7 +158,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 text.Message = HttpContext.Current.Server.HtmlDecode(text.Message.Replace("\r\n", "<br/>").Replace("\n","<br/>"));
                 text.ScriptSrc = $"{textParam.ScriptUrl}?textId={text.TextId}&targetId={textParam.TargetId}";
-                var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
+                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
 
                 if (language != null)
                 {
@@ -225,7 +237,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
             else
             {
-                var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(linkGeneratedParam.SelectedLanguage));
+                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.Code.MatchWith(linkGenerationParam.SelectedLanguage));
                 if (language != null)
                 {
                     result.Add(language.Code, language);
