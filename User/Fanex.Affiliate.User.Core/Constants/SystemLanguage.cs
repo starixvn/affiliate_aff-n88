@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Logging;
 
 namespace Fanex.Affiliate.User.Core.Constants
 {
@@ -30,39 +25,6 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public const string IndonesiaLanguageCode = "id-ID";
 
-        //public static IEnumerable<Language> LanguageList
-        //{
-        //    get
-        //    {
-        //        IEnumerable<Language> languageList = DefaultLanguaList.Values;
-
-        //        var service = DependencyResolver.Current.GetService<IMarketingService>();
-        //        var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-        //        if (service != null && sessionService != null)
-        //        {
-        //            try
-        //            {
-        //                languageList = service.GetLanguageList(sessionService.IsInternal)
-        //                    .Select(l => new Language
-        //                    {
-        //                        Code = l.MarketId,
-        //                        DisplayName = l.DisplayName,
-        //                        EnglishName = l.MarketName,
-        //                        NativeName = l.MarketNativeName,
-        //                        ShortedCode = l.ShortedCode
-        //                    })
-        //                    .ToList();
-        //            }
-        //            catch(Exception ex)
-        //            {
-        //                LogService.Error("Error when get language list from DB", ex);
-        //            }
-        //        }
-
-        //        return languageList;
-        //    }
-        //}
-
         public static IDictionary<string,Language> DefaultLanguageList => new Dictionary<string, Language>
         {
             { "vi-VN", new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"} },
@@ -84,10 +46,5 @@ namespace Fanex.Affiliate.User.Core.Constants
             return value.Equals("english (europe)", StringComparison.OrdinalIgnoreCase) ? Lang.EnglishEU
                   : Lang.ResourceManager.GetString(value.Replace(" ", "")) ?? value;
         }
-
-        //public static bool IsValid(string languageCode)
-        //{
-        //    return !string.IsNullOrEmpty(languageCode) && LanguageList.Any(l => Equals(l.Code, languageCode));
-        //}
     }
 }

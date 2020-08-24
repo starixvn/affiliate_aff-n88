@@ -352,6 +352,10 @@
     <Compile Include="DTO\UserPanel\SubAffDetail.cs" />
     <Compile Include="Filters\JsonHandlerAttribute.cs" />
     <Compile Include="Infrastructure\AuthenticatedHttpClientHandler.cs" />
+    <Compile Include="Infrastructure\DateTimeProvider.cs" />
+    <Compile Include="Infrastructure\HttpRequestParserHandler.cs" />
+    <Compile Include="Infrastructure\IDateTimeProvider.cs" />
+    <Compile Include="Infrastructure\IHttpRequestParserHandler.cs" />
     <Compile Include="Infrastructure\JsonNetResult.cs" />
     <Compile Include="MetalModels\Attributes\RequiredReplace12BetAttribute.cs" />
     <Compile Include="MetalModels\UserPanel\CommissionReportParam.cs" />
