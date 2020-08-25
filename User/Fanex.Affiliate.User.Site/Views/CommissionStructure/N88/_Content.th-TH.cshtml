@@ -1,6 +1,9 @@
-﻿<div class="banner-commission-structure">
+﻿@{
+    var maxCommisison = AppSetting.Instance.MaxCommission;
+}
+<div class="banner-commission-structure">
     <div class="text-content">
-        <p class="text-small-white">ส่วนแบ่งรายได้ <span class="text-yellow">&nbsp;45%</span> ตลอดชีพสำหรับกีฬาและคาสิโน</p>
+        <p class="text-small-white">ส่วนแบ่งรายได้ <span class="text-yellow">&nbsp;@maxCommisison</span> ตลอดชีพสำหรับกีฬาและคาสิโน</p>
     </div>
 </div>
 
@@ -26,7 +29,7 @@
     </div>
     <ul>
         <li class="text">
-            อัตราส่วนแบ่งรายได้สูงถึง 45%
+            อัตราส่วนแบ่งรายได้สูงถึง @maxCommisison
         </li>
         <li class="text">
             รับเพิ่มอีก 10% เมื่อรับสมัครเพื่อนเพื่อเข้าร่วมโปรแกรมพันธมิตร(Affiliates)ของเราในฐานะพันธมิตรย่อยของคุณ

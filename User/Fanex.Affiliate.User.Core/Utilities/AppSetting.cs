@@ -68,6 +68,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
+        public string MaxCommission => GetValue("MaxCommission");
+
         public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));

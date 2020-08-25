@@ -1783,7 +1783,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EARN UP TO &lt;br/&gt;45% REVENUE SHARE.
+        ///   Looks up a localized string similar to EARN UP TO &lt;br/&gt;{0} REVENUE SHARE.
         /// </summary>
         public static string EarnUpTo {
             get {

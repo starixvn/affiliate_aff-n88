@@ -2366,7 +2366,7 @@
     <value>Copy</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>EARN UP TO &lt;br/&gt;45% REVENUE SHARE</value>
+    <value>EARN UP TO &lt;br/&gt;{0} REVENUE SHARE</value>
   </data>
   <data name="RevenueSharePercent" xml:space="preserve">
     <value>45% REVENUE SHARE</value>

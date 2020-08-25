@@ -2097,7 +2097,7 @@
     <value>12AMBER</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>รับส่วนแบ่งสูงสุดถึง 45%</value>
+    <value>รับส่วนแบ่งสูงสุดถึง {0}</value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>มาเป็นพันธมิตรกับเรา</value>

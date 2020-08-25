@@ -2222,7 +2222,7 @@
     <value>LÊN ĐẾN 45% </value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>HOA HỒNG &lt;br/&gt;LÊN ĐẾN 45% </value>
+    <value>HOA HỒNG &lt;br/&gt;LÊN ĐẾN {0} </value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>THAM GIA VÀO CHƯƠNG TRÌNH ĐẠI LÝ TỐT NHẤT HIỆN NAY</value>

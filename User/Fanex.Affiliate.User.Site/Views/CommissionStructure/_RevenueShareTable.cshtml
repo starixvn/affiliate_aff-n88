@@ -1,6 +1,7 @@
 ﻿@using Fanex.Affiliate.User.Core.Constants
 @{
     var appSetting = AppSetting.Instance;
+    var maxCommission = appSetting.MaxCommission;
     var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 <div class="table table-responsive">
@@ -37,7 +38,7 @@
                     <td class="text-center">3</td>
                     <td class="text-center">> 40,000</td>
 
-                    <td class="text-center">45%</td>
+                    <td class="text-center">@maxCommission</td>
                 </tr>
             }
             else
@@ -50,19 +51,19 @@
                     <td class="text-center">1</td>
                     <td class="text-center">0 - 130,000,000</td>
                     <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
-                    <td class="text-center">25%</td>
+                    <td class="text-center">30%</td>
                 </tr>
                 <tr>
                     <td class="text-center">2</td>
                     <td class="text-center">130,001,000 – 1,990,000,000</td>
 
-                    <td class="text-center">35%</td>
+                    <td class="text-center">40%</td>
                 </tr>
                 <tr>
                     <td class="text-center">3</td>
                     <td class="text-center">> 1,990,000,000</td>
 
-                    <td class="text-center">45%</td>
+                    <td class="text-center">@maxCommission</td>
                 </tr>
             }
         </tbody>

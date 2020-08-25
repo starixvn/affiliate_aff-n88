@@ -1,6 +1,9 @@
-﻿<div class="banner-commission-structure">
+﻿@{
+    var maxCommisison = AppSetting.Instance.MaxCommission;
+}
+<div class="banner-commission-structure">
     <div class="text-content english">
-        <p class="text-big-yellow">45%</p>
+        <p class="text-big-yellow">@maxCommisison</p>
         <p class="text-big-white">Thưởng Hoa Hồng</p>
         <p class="text-small-white text-small">Cho</p>
         <p class="text-small-white"><span class="text-yellow">Thể Thao</span> và <span class="text-yellow">Casino</span></p>
@@ -29,7 +32,7 @@
     </div>
     <ul>
         <li class="text">
-            Chiết khấu hoa hồng lên đến 45%
+            Chiết khấu hoa hồng lên đến @maxCommisison
         </li>
         <li class="text">
             Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới
@@ -97,7 +100,7 @@
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 1,335,150,000 + 179,400,000 = <strong>1,514,550,000 VND</strong>
+        <strong>=></strong> Tổng tiền hoa hồng trong tháng bạn nhận được: 1,483,500,000 + 179,400,000 = <strong>1,662,900,000 VND</strong>
     </p>
 </div>
 <div class="info-group">

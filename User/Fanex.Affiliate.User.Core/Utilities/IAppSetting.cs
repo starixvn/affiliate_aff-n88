@@ -63,6 +63,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string DefaultCurrency { get; }
 
+        string MaxCommission { get; }
+
         string MemberSiteApiUrl { get; }
 
         int MemberSiteId { get; }

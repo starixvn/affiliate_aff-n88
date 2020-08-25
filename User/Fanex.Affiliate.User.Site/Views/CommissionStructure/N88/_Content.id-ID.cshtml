@@ -1,6 +1,9 @@
-﻿<div class="banner-commission-structure">
+﻿@{
+    var maxCommisison = AppSetting.Instance.MaxCommission;
+}
+<div class="banner-commission-structure">
     <div class="text-content english">
-        <p class="text-small-white"><span class="text-yellow">45%</span> bagi hasil seumur hidup pada Olahraga and Kasino</p>
+        <p class="text-small-white"><span class="text-yellow">@maxCommisison</span> bagi hasil seumur hidup pada Olahraga and Kasino</p>
     </div>
 </div>
 
@@ -26,7 +29,7 @@
     </div>
     <ul>
         <li class="text">
-            Tingkat pembagian penghasilan hingga 45%
+            Tingkat pembagian penghasilan hingga @maxCommisison
         </li>
         <li class="text">
             Tambahan 10% - merekrut teman untuk bergabung dengan program Afiliasi kami sebagai sub-afiliasi Anda dan dapatkan penghargaan Anda!
@@ -73,9 +76,9 @@
         <i>Gambaran 1:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian hasil Anda dari pemain yang Anda referensikan.
     </p>
     @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
-<p class="text">
-    <i>Gambaran 2:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian penghasilan Anda dari afiliasi yang anda referensikan (dan sub-afiliasi mereka)
-</p>
+    <p class="text">
+        <i>Gambaran 2:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian penghasilan Anda dari afiliasi yang anda referensikan (dan sub-afiliasi mereka)
+    </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
         <img class="img-responsive" id="revenue_share_hierarchy" />
     </div>

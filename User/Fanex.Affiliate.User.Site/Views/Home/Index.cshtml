@@ -11,7 +11,8 @@
 @{
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var shortedLangCode = SystemLanguage.GetShortedCodeForTracking(sessionService.CurrentLanguage);
-    var siteName = AppSetting.Instance.SiteName;
+    var appSetting = AppSetting.Instance;
+    var siteName = appSetting.SiteName;
     var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB");
     var casinoBannerFileName = Url.Content($"~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino." + Model.Language);
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/{siteName}/3step." + Model.Language);
@@ -37,7 +38,7 @@
                 </picture>
                 <div class="banner-text">
                     <h2 class="txt-lang">
-                        @Html.Raw(Lang.EarnUpTo)
+                        @Html.Raw(string.Format(Lang.EarnUpTo, appSetting.MaxCommission))
                     </h2>
                     <h5 class="txt-lang">@Lang.JoinIn</h5>
                     <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index"))">@Lang.RegisterNow</a>

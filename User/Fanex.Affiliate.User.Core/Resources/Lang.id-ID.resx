@@ -2077,7 +2077,7 @@
     <value>GPI LOTTERY</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>Penghasilan hingga &lt;br/&gt; 45% dari sistem bagi hasil.</value>
+    <value>Penghasilan hingga &lt;br/&gt; {0} dari sistem bagi hasil.</value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>Bergabunglah bersama affiliate terbaik.</value>
