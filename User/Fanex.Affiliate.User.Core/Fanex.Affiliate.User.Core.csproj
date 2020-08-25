@@ -400,7 +400,6 @@
     <Compile Include="DTO\UserPanel\DailyEarning.cs" />
     <Compile Include="DTO\UserPanel\DailyEarningResult.cs" />
     <Compile Include="DTO\UserPanel\DepositAccountInfo.cs" />
-    <Compile Include="DTO\UserPanel\IbcPlayerAccountInsertResult.cs" />
     <Compile Include="DTO\UserPanel\LandingPage.cs" />
     <Compile Include="DTO\UserPanel\LandingPageStatistics.cs" />
     <Compile Include="DTO\UserPanel\MarketingItem.cs" />

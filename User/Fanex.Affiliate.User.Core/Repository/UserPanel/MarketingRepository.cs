@@ -103,24 +103,11 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string SpKey = "Aff_Admin_LandingPage_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
-            var result = new List<LandingPage>();
 
-            using (var objectDb = _builder.Build(SpKey, dbMode))
+            using (var db = _builder.Build(SpKey, dbMode))
             {
-                using (var reader = objectDb.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(new LandingPage
-                        {
-                            PageName = reader.ToString("PageName"),
-                            PageCode = reader.ToString("PageCode")
-                        });
-                    }
-                }
+                return db.Query<LandingPage>();
             }
-
-            return result;
         }
 
         public (int Code, string ErrMsg) AddMarketingChannel(int userId, string channelCode, string channelName)

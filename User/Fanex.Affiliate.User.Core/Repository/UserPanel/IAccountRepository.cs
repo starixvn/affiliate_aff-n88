@@ -19,8 +19,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         UserInfo GetUserInfoById(int affId, bool isInternal);
 
-        IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo);
-
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
 
         int CreateSecretKey(int affId, string secretKey);

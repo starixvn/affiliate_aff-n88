@@ -102,50 +102,13 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo)
-        {
-            const string uSpKey = "Dot_Dep_CustomerInsMember_Ag_Cust";
-            var result = new IbcPlayerAccountInsertResult();
-            var parameterSet = new
-            {
-                accountInfo.FirstName,
-                accountInfo.LastName,
-                accountInfo.Email,
-                accountInfo.DepositUserName,
-                accountInfo.DepositUserId,
-                accountInfo.Password,
-                accountInfo.OddsType,
-                accountInfo.AgentId,
-                accountInfo.AffiliateId,
-                accountInfo.BonusCode,
-                accountInfo.Country,
-                CustId = 0,
-                UserName = string.Empty,
-                ErrCode = 0,
-                ErrMsg = string.Empty
-            };
-
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
-            {
-                objectDb.DB.ExecuteNonQuery(parameterSet);
-
-                result.IsOk = parameterSet.ErrCode == 0;
-                result.Message = parameterSet.ErrMsg;
-
-                result.CustId = parameterSet.CustId;
-                result.UserName = parameterSet.UserName;
-            }
-
-            return result;
-        }
-
         public ResultInfo CreateAffiliate(UserSignUpParam signUpParam)
         {
             const string uSpKey = "Aff_User_Affiliate_Ins";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.DB.ExecuteNonQuery(signUpParam);
+                objectDb.ExecuteNonQuery(signUpParam);
             }
 
             return new ResultInfo
@@ -160,9 +123,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             const string uSpKey = "Aff_User_CommSetting_Sel";
             var mode = isInternal ? DBMode.View : DBMode.Main;
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey, mode))
+            using (var objectDb = _builder.Build(uSpKey, mode))
             {
-                return objectDb.DB.Query<CommissionSetting>(new { affId });
+                return objectDb.Query<CommissionSetting>(new { affId });
             }
         }
 
@@ -170,16 +133,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_User_SecretKeyIns";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.DB.AddInParameter("AffId", SqlDbType.Int, affId);
-                objectDb.DB.AddInParameter("SecretKey", SqlDbType.VarChar, secretKey);
-                objectDb.DB.AddOutParameter("ErrCode", SqlDbType.Int, DbParam.ErrCodeSize);
-                objectDb.DB.AddOutParameter("ErrMsg", SqlDbType.NVarChar, DbParam.ErrMsgSize);
+                objectDb.AddInParameter("AffId", SqlDbType.Int, affId);
+                objectDb.AddInParameter("SecretKey", SqlDbType.VarChar, secretKey);
+                objectDb.AddOutParameter("ErrCode", SqlDbType.Int, DbParam.ErrCodeSize);
+                objectDb.AddOutParameter("ErrMsg", SqlDbType.NVarChar, DbParam.ErrMsgSize);
 
-                objectDb.DB.ExecuteNonQuery();
+                objectDb.ExecuteNonQuery();
 
-                var code = objectDb.DB.GetParameterValue("ErrCode");
+                var code = objectDb.GetParameterValue("ErrCode");
 
                 return code == DBNull.Value ? 0 : Convert.ToInt32(code);
             }
@@ -189,7 +152,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_Get_GeneralAffInfo";
 
-            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
                 var parameterSet = new { affId, affCode };
 

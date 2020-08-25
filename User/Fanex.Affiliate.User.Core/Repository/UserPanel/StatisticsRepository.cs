@@ -39,23 +39,14 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                using (var reader = objectDb.ExecuteReader(new { affId, trackingCode }))
+                using (var multipleReader = objectDb.QueryMultiple(new { affId, trackingCode }))
                 {
-                    while (reader.Read())
+                    while (!multipleReader.IsEmptyOrClosed)
                     {
-                        dataList.Add(BuildTrackingStatisticsItem(reader));
-                    }
-
-                    if (reader.NextResult())
-                    {
-                        while (reader.Read())
-                        {
-                            dataList.Add(BuildTrackingStatisticsItem(reader));
-                        }
+                        dataList.AddRange(multipleReader.Read<TrackingStatistics>());
                     }
                 }
             }
-
             return dataList;
         }
 
