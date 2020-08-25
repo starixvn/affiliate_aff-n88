@@ -204,6 +204,14 @@
     <Compile Include="Repository\LanguageRepositoryTest.cs" />
     <Compile Include="Repository\ObjectDBBuilderTest.cs" />
     <Compile Include="Repository\RepositoryTestBase.cs" />
+    <Compile Include="Repository\UserPanel\AccountOverviewRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\AccountRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\CommissionReportRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\MarketingRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\NewsRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\PaymentRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\StatementHistoryRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\StatisticsRepositoryTest.cs" />
     <Compile Include="Repository\VerificationRepositoryTest.cs" />
     <Compile Include="TestHelper\Constant.cs" />
     <Compile Include="TestHelper\MockingHelper.cs" />
