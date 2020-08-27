@@ -52,24 +52,5 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             return result;
         }
-
-        public void WriteAfterDeleteSuccefully(DeleteMemberParam param)
-        {
-            const string SpKey = "Aff_WriteLog";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("AffID", DbType.Int32, param.AffId);
-                objectDb.AddInParameter("Creator", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-                objectDb.AddInParameter("Typename", DbType.String, "Member");
-                objectDb.AddInParameter("SPName", DbType.String, "DEP_AdminUpdAffID");
-                objectDb.AddInParameter("Details", DbType.String, $"Remove member. DepositCustID={param.DepositMemberId} (On Deposit_DB)");
-
-                objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
-
-                objectDb.ExecuteNonQuery();
-            }
-        }
     }
 }

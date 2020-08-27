@@ -74,43 +74,5 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             return result;
         }
-
-        public void WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully(ActiveMemberParam param, int depositUserId)
-        {
-            const string SpKey = "Aff_WriteLog";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("AffID", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("Creator", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-                objectDb.AddInParameter("Typename", DbType.String, "Member");
-                objectDb.AddInParameter("SPName", DbType.String, "Dot_Dep_CustomerInsMember_Ag_Cust");
-                objectDb.AddInParameter("Details", DbType.String, $"Add {AppSetting.Instance.SiteFriendlyName} player account to IBC DepositCustID={depositUserId}");
-
-                objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
-
-                objectDb.ExecuteNonQuery();
-            }
-        }
-
-        public void WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully(ActiveMemberParam param, int ibcCustId)
-        {
-            const string SpKey = "Aff_WriteLog";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("AffID", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("Creator", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-                objectDb.AddInParameter("Typename", DbType.String, "Member");
-                objectDb.AddInParameter("SPName", DbType.String, "Deposit_MemberIBCDetail");
-                objectDb.AddInParameter("Details", DbType.String, $"Update {AppSetting.Instance.SiteFriendlyName} player status to deposit DepositCustID={ibcCustId}");
-
-                objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
-
-                objectDb.ExecuteNonQuery();
-            }
-        }
     }
 }

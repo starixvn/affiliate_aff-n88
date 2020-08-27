@@ -1,6 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.DTO.Member;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
-using Fanex.Affiliate.Admin.Core.Repository.Member;
+﻿using Fanex.Affiliate.Admin.Core.Repository.Member;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Data;
 using Moq;
@@ -83,39 +81,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             Assert.Single(result.ActivedMemeberList);
             Assert.Equal("abc", result.MemberNotExist);
             Assert.Null(item.CreatedDateText);
-        }
-
-        [Fact]
-        public void WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            repository.Setup(re => re.GetObjectDb("Aff_WriteLog", 120)).Returns(objectDb.Object);
-
-            // Action
-            repository.Object.WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully(new ActiveMemberParam { UserNames = "ABC" }, 123);
-
-            // Assert
-            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
-        }
-
-        [Fact]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
-        public void WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            repository.Setup(re => re.GetObjectDb("Aff_WriteLog", 120)).Returns(objectDb.Object);
-
-            // Action
-            repository.Object.WriteLogAfterUpdate12BetPlayerStatusToDepositSuccefully(new ActiveMemberParam(), 123456);
-
-            // Assert
-            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetInactivatedMemberList()

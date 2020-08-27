@@ -14,7 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
     public class MemberRepositoryTest
     {
         private const string SpKeyMemberListSel = "Aff_Admin_MemberList_Sel";
-        private const string SpKeyMemberDel = "Aff_MemberDel";
         private const string SpKeyWriteLog = "Aff_WriteLog";
 
         [Fact]
