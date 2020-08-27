@@ -41,7 +41,10 @@
                         @Html.Raw(string.Format(Lang.EarnUpTo, appSetting.MaxCommission))
                     </h2>
                     <h5 class="txt-lang">@Lang.JoinIn</h5>
-                    <a id="sportBanner" class="nounderline" href="@(Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index"))">@Lang.RegisterNow</a>
+                    @if (!Model.IsAuthenticated)
+                    {
+                        <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>
+                    }
                 </div>
             </div>
             @*<div class="item">

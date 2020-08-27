@@ -1970,7 +1970,7 @@
     <value>还不是我们的合作伙伴？</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>注册合作伙伴计划，赚取每月高达45%的佣金！</value>
+    <value>注册合作伙伴计划，赚取每月高达{0}的佣金！</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>立即加入！</value>
