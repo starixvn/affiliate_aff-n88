@@ -592,6 +592,16 @@ input[type=radio][disabled] + span {
 .banner-product {
   font-family: inherit; }
 
+.btn-move-top {
+  background: #3391F6;
+  opacity: 1;
+  color: #ffffff; }
+  .btn-move-top:hover {
+    background: #65acef;
+    color: #ffffff; }
+    .btn-move-top:hover i {
+      color: #ffffff; }
+
 @media only screen and (max-width: 1199px) {
   .banner-top {
     margin: 0 -160px; }
