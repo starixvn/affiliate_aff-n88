@@ -78,11 +78,5 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
                 Data = _affiliateReportService.GetDetailReportData(param)
             };
         }
-
-        [HttpGet]
-        public ActionResult GetAffiliateList(string query)
-        {
-            return Json(_affiliateReportService.SearchAffiliateList(query.Trim()), JsonRequestBehavior.AllowGet);
-        }
     }
 }

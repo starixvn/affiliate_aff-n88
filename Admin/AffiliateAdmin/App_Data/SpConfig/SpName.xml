@@ -112,10 +112,8 @@
   </Function>
   <Function Name="Member">
     <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_MemberDel" SpName="Aff_MemberDel" DbName="affiliate_n88" />
     <Setting Key="Aff_WriteLog" SpName="Aff_WriteLog" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="affiliate_n88" />
-    <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="custdb" />
   </Function>
   <Function Name="ChangeAdminPassword">
     <Setting Key="Aff_Admin_ChangePassword" SpName="Aff_Admin_ChangePassword" DbName="affiliate_n88" />

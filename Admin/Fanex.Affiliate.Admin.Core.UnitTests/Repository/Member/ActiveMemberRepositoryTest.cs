@@ -85,68 +85,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             Assert.Null(item.CreatedDateText);
         }
 
-        //[Fact]
-        //public void Get12BetPlayersDepositInfo_WhenCall_ReturnCorrectData()
-        //{
-        //    // Arrange
-        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-        //    var objectDb = new Mock<IObjectDb>();
-        //    var dataReader = new Mock<IDataReader>();
-        //    dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
-
-        //    ReaderHelper.MapReaderData(dataReader, Get12BetPlayersDepositInfo());
-        //    objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-        //    repository.Setup(r => r.GetObjectDb("Deposit_GetCustDataForCreateIBCACByUserNames", 120)).Returns(objectDb.Object);
-
-        //    // Action
-        //    var result = repository.Object.Get12BetPlayersDepositInfo("abc");
-
-        //    // Assert
-        //    Assert.Single(result);
-        //}
-
-        [Fact]
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
-        public void Add12BetPlayerAccountToIBC_WhenCallWithValidParam_AddSuccessfully()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            objectDb.Setup(obj => obj.GetParameterValue("custid")).Returns(123);
-            objectDb.Setup(obj => obj.GetParameterValue("username")).Returns(DBNull.Value);
-            repository.Setup(re => re.GetObjectDb("Dot_Dep_CustomerInsMember_Ag_Cust", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.Add12BetPlayerAccountToIBC(new DepositCustomerInfo());
-
-            // Assert
-            Assert.True(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void Add12BetPlayerAccountToIBC_WhenCallWithValidParam_AddIsFailed()
-        {
-            // Arrange
-            var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Add is failed");
-            objectDb.Setup(obj => obj.GetParameterValue("custid")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("username")).Returns("abc");
-            repository.Setup(re => re.GetObjectDb("Dot_Dep_CustomerInsMember_Ag_Cust", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.Add12BetPlayerAccountToIBC(new DepositCustomerInfo());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal("Add is failed", result.Message);
-        }
-
         [Fact]
         public void WriteLogAfterAdd12BetPlayerAccountToIBCSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
         {
@@ -162,43 +100,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             // Assert
             objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
-
-        //[Fact]
-        //public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateSuccessfully()
-        //{
-        //    // Arrange
-        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-        //    var objectDb = new Mock<IObjectDb>();
-        //    objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(DBNull.Value);
-        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns(string.Empty);
-        //    repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
-
-        //    // Action
-        //    var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
-
-        //    // Assert
-        //    Assert.True(result.IsSuccessful);
-        //}
-
-        //[Fact]
-        //public void Update12BetPlayerStatusToDeposit_WhenCallWithValidParam_UpdateIsFailed()
-        //{
-        //    // Arrange
-        //    var repository = new Mock<ActiveMemberRepository> { CallBase = true };
-        //    var objectDb = new Mock<IObjectDb>();
-        //    objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorCode")).Returns(-999);
-        //    objectDb.Setup(obj => obj.GetParameterValue("ErrorMsg")).Returns("Update is failed");
-        //    repository.Setup(re => re.GetObjectDb("Deposit_MemberIBCDetail", 120)).Returns(objectDb.Object);
-
-        //    // Action
-        //    var result = repository.Object.Update12BetPlayerStatusToDeposit("abc", 123, "xyz");
-
-        //    // Assert
-        //    Assert.False(result.IsSuccessful);
-        //    Assert.Equal("Update is failed", result.Message);
-        //}
 
         [Fact]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]

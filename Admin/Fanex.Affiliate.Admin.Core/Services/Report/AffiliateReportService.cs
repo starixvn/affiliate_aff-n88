@@ -32,15 +32,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
             return _affiliateReportRepository.GetDetailReportData(param);
         }
 
-        public IList<string> SearchAffiliateList(string userName)
-        {
-            const byte MinCharacterLength = 2;
-
-            return string.IsNullOrEmpty(userName) || userName.Length < MinCharacterLength ?
-                new List<string>() :
-                _affiliateReportRepository.SearchAffiliateList(userName);
-        }
-
         private static bool IsValidParam(AffiliateReportParam param)
         {
             const int ValidMonthArrange = 5;

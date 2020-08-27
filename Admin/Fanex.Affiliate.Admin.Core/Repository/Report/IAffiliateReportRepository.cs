@@ -10,7 +10,5 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
         EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param);
 
         EntityResult<AffiliateReport> GetDetailReportData(AffiliateReportParam param);
-
-        IList<string> SearchAffiliateList(string userName);
     }
 }

@@ -92,27 +92,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             return result;
         }
 
-        public IList<string> SearchAffiliateList(string userName)
-        {
-            const string SpKey = "Aff_AffiliateUsername_SearchEx";
-            var result = new List<string>();
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("UserName", DbType.String, userName);
-
-                using (var reader = objectDb.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(reader.ToString("UserName"));
-                    }
-                }
-            }
-
-            return result;
-        }
-
         private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportParam param)
         {
             objectDb.AddInParameter("Username", DbType.String, param.UserName);

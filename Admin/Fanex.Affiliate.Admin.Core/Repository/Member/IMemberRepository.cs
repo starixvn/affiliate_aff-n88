@@ -8,8 +8,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
     {
         EntityResult<MemberInfo> GetMemberList(MemberParam param);
 
-        ResultInfo DeleteMember(DeleteMemberParam param);
-
         void WriteAfterDeleteSuccefully(DeleteMemberParam param);
     }
 }
