@@ -15,6 +15,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
         public DeductionSetting OperationalFee { get; set; }
 
         [Required]
-        public DeductionSetting BankingFee { get; set; }
+        public DeductionSetting DepositFee { get; set; }
+
+        [Required]
+        public DeductionSetting WithdrawalFee { get; set; }
     }
 }

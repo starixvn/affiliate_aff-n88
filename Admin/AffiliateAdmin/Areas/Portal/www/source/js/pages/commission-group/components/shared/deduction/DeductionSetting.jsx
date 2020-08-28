@@ -13,7 +13,8 @@ export class DeductionSetting extends Component {
 
         this.state = {
             isInitialOperationalFee: true,
-            isInitialBankingFee: true
+            isInitialDepositFee: true,
+            isInitialWithdrawalFee: true,
         }
     }
 
@@ -24,17 +25,26 @@ export class DeductionSetting extends Component {
         });
     }
 
-    handleChangeBankingFee = (value) => {
-        const { BankingFee } = this.props.selectedGroup;
+    handleChangeDepositFee = (value) => {
+        const { DepositFee } = this.props.selectedGroup;
         this.props.setSelectedGroup({
-            BankingFee: Object.assign({}, BankingFee, value)
+            DepositFee: Object.assign({}, DepositFee, value)
+        });
+    }
+
+    handleChangeWithdrawalFee = (value) => {
+        const { WithdrawalFee } = this.props.selectedGroup;
+        this.props.setSelectedGroup({
+            WithdrawalFee: Object.assign({}, WithdrawalFee, value)
         });
     }
 
     render() {
         const { defaultCurrency } = this.props;
-        const { isInitialOperationalFee, isInitialBankingFee } = this.state;
-        const { OperationalFee, BankingFee } = this.props.selectedGroup;
+        const { isInitialOperationalFee, isInitialDepositFee, isInitialWithdrawalFee } = this.state;
+        const { OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
+
+        console.log(this.props.selectedGroup);
 
         return (
             <fieldset>
@@ -47,13 +57,19 @@ export class DeductionSetting extends Component {
                     data={OperationalFee}
                     defaultCurrency={defaultCurrency}
                     isInitial={isInitialOperationalFee} />
-
-                <FeeSettingItem label="Banking Fee" basedValueName="(Deposit + Withdrawal)"
-                    handleChange={this.handleChangeBankingFee}
-                    handleUpdateState={() => this.setState({ isInitialBankingFee: false })}
-                    data={BankingFee}
+                <p className="font-weight-bold pt-3">Banking Fee</p>
+                <FeeSettingItem label="+ Deposit" basedValueName="Deposit"
+                    handleChange={this.handleChangeDepositFee}
+                    handleUpdateState={() => this.setState({ isInitialDepositFee: false })}
+                    data={DepositFee}
                     defaultCurrency={defaultCurrency}
-                    isInitial={isInitialBankingFee} />
+                    isInitial={isInitialDepositFee} />
+                <FeeSettingItem label="+ Withdrawal" basedValueName="Withdrawal"
+                    handleChange={this.handleChangeWithdrawalFee}
+                    handleUpdateState={() => this.setState({ isInitialWithdrawalFee: false })}
+                    data={WithdrawalFee}
+                    defaultCurrency={defaultCurrency}
+                    isInitial={isInitialWithdrawalFee} />
             </fieldset>
         )
     }

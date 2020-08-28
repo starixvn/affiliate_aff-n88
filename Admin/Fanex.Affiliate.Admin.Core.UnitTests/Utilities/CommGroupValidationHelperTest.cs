@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommissionGroupSetting();
-            param.BankingFee = new DeductionSetting
+            param.DepositFee = new DeductionSetting
             {
                 DeductedPercentage = 0.07m,
                 DeductionId = 11,
@@ -279,7 +279,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             return new CommissionGroupSetting
             {
-                BankingFee = new DeductionSetting
+                DepositFee = new DeductionSetting
                 {
                     DeductedPercentage = 0.02m,
                     DeductionId = 12,

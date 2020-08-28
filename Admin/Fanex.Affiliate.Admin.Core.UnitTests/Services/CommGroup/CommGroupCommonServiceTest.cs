@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             return new CreateUpdateCommissionGroupParam
             {
-                BankingFee = new DeductionSetting
+                DepositFee = new DeductionSetting
                 {
                     DeductedPercentage = 0.02m,
                     DeductionId = 12,

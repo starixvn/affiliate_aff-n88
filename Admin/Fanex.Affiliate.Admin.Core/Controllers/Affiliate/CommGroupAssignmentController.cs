@@ -131,7 +131,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     TierSettingList = commGroup.TierSettingList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
-                    BankingFee = commGroup.BankingFee,
+                    DepositFee = commGroup.DepositFee,
+                    WithdrawalFee = commGroup.WithdrawalFee,
                     Ip = Request.UserHostAddress
                 };
 

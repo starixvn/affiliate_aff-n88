@@ -1,15 +1,16 @@
-import { formatDecimal } from "../../../modules/numberFormat";
+import { formatDecimal, format } from "../../../modules/numberFormat";
 import { globalResource } from '../../../modules/globalResource';
 
 export { globalResource };
 
-export const INFINITY_AM = 100000000000000;
+export const INFINITY_AM = 100000000000;
 export const INFINITY_QM = 1000000000;
 export const INFINITY_SYMBOL = '∞';
 
 function generateCommissionValues() {
     let min = 0,
         max = 1;
+
     const commissionList = ['0.00'];
 
     while (min < max) {
@@ -27,8 +28,10 @@ export const messages = {
     requireGroupName: 'Group Name cannot be empty. Please check!',
     requireOperationalAmount: 'Operational Fee cannot be empty. Please check!',
     invalidOperationalAmount: 'Operational Fee is invalid.',
-    requireBankingAmount: 'Banking Fee cannot be empty. Please check!',
-    invalidBankingAmount: 'Banking Fee is invalid.',
+    requireDepositAmount: 'Deposit Fee cannot be empty. Please check!',
+    invalidDepositAmount: 'Deposit Fee is invalid.',
+    requireWithdrawalAmount: 'Withdrawal Fee cannot be empty. Please check!',
+    invalidWithdrawalAmount: 'Withdrawal Fee is invalid.',
     requireTier: 'Tier Setting must have at least 1 tier',
     requireInfinity: 'Last Tier Setting must have maximum value=∞',
     qmConstrain: 'Min AP must be lesser than or equal to 1,000,000,000!',
@@ -45,7 +48,8 @@ export const messages = {
 const _deductionNameList = {
     platformFee: 'Platform Fee',
     operationalFee: 'Operational Fee',
-    bankingFee: 'Banking Fee'
+    depositFee: 'Deposit Fee',
+    withdrawalFee: 'Withdrawal Fee'
 }
 export const deductionNameList = _deductionNameList;
 
