@@ -13,6 +13,7 @@ export default class TierSettingItem extends React.Component {
         const target = event.target;
         const value = Number(target.value.replace(/,/g, ''));
         const name = target.name;
+
         const { data, onChange } = this.props;
 
         const newItem = { [name]: value || 0 };
@@ -75,10 +76,10 @@ export default class TierSettingItem extends React.Component {
                 </td>
                 <td>
                     <select className="form-control" name="Commission"
-                        onChange={this.handleChange} value={formatDecimal(Commission)}>
+                        onChange={this.handleChange} value={format(Commission || 0, 3)}>
                         {
-                            commissionValueList.map((item, i) => {
-                                return (<option key={`comm-${TierId}-${i}`} value={item}>{item}</option>);
+                            Object.keys(commissionValueList).map((key, i) => {
+                                return (<option key={`comm-${i}`} value={key}>{commissionValueList[key]}</option>);
                             })
                         }
                     </select>

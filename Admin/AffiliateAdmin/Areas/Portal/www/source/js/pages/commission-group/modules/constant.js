@@ -9,13 +9,13 @@ export const INFINITY_SYMBOL = '∞';
 
 function generateCommissionValues() {
     let min = 0,
-        max = 1;
+        max = 100;
 
-    const commissionList = ['0.00'];
+    const commissionList = { 0.0: '0.0%'};
 
     while (min < max) {
-        min = min + 0.01;
-        commissionList.push(formatDecimal(min));
+        min = min + 0.1;
+        commissionList[format(min/100, 3)] = format(min, 1) + "%";
     }
 
     return commissionList;

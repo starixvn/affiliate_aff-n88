@@ -59,11 +59,11 @@ export default class FeeSettingItem extends React.Component {
                                     </FormGroup>
                                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                                         <Input type="select" name="DeductedPercentage" className="form-control"
-                                            defaultValue={formatDecimal((data && data.DeductedPercentage) || 0)}
-                                            onChange={this.handleChange} style={{ width: 60 }}>
+                                            defaultValue={format((data && data.DeductedPercentage) || 0, 3)}
+                                            onChange={this.handleChange} style={{ width: 70 }}>
                                             {
-                                                commissionValueList.map((item, i) => {
-                                                    return (<option key={`operational-fee-comm-${i}`} value={item}>{item}</option>);
+                                                Object.keys(commissionValueList).map((key, i) => {
+                                                    return (<option key={`fee-comm-${i}`} value={key}>{commissionValueList[key]}</option>);
                                                 })
                                             }
                                         </Input>
