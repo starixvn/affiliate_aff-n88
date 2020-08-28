@@ -1962,7 +1962,7 @@
     <value>ยังไม่ได้สมัครพันธมิตรหรอคะ?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>สมัครเข้าร่วมโปรแกรมพันธมิตร โปรโมทและรับรายได้สูงสุด 45% ทุกเดือน!</value>
+    <value>สมัครเข้าร่วมโปรแกรมพันธมิตร โปรโมทและรับรายได้สูงสุด {0} ทุกเดือน!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>สมัครตอนนี้!</value>
@@ -2097,7 +2097,7 @@
     <value>12AMBER</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>รับส่วนแบ่งสูงสุดถึง 45%</value>
+    <value>รับส่วนแบ่งสูงสุดถึง {0}</value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>มาเป็นพันธมิตรกับเรา</value>

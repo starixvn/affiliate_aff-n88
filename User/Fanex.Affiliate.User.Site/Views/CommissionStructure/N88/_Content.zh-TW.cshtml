@@ -1,6 +1,9 @@
-﻿<div class="banner-commission-structure">
+﻿@{
+    var maxCommisison = AppSetting.Instance.MaxCommission;
+}
+<div class="banner-commission-structure">
     <div class="text-content english">
-        <p class="text-small-white">體育博彩和娛樂城永久<span class="text-yellow">45%</span>代理佣金。</p>
+        <p class="text-small-white">體育博彩和娛樂城永久<span class="text-yellow">@maxCommisison</span>代理佣金。</p>
     </div>
 </div>
 
@@ -26,7 +29,7 @@
     </div>
     <ul>
         <li class="text">
-            高達45%的代理佣金。
+            高達@(maxCommisison)的代理佣金。
         </li>
         <li class="text">
             額外 10% – 招募朋友作為您的子會員並加入我們的合營計劃，將獲得額外獎勵！

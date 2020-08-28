@@ -1960,7 +1960,7 @@
     <value>Belum Menjadi Member Afiliasi?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Daftar Afiliasi dan hasilkan komisi hingga 45%!</value>
+    <value>Daftar Afiliasi dan hasilkan komisi hingga {0}!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>DAFTAR SEKARANG!</value>
@@ -2077,7 +2077,7 @@
     <value>GPI LOTTERY</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>Penghasilan hingga &lt;br/&gt; 45% dari sistem bagi hasil.</value>
+    <value>Penghasilan hingga &lt;br/&gt; {0} dari sistem bagi hasil.</value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>Bergabunglah bersama affiliate terbaik.</value>

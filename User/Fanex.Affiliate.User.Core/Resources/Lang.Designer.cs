@@ -1783,7 +1783,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EARN UP TO &lt;br/&gt;45% REVENUE SHARE.
+        ///   Looks up a localized string similar to EARN UP TO &lt;br/&gt;{0} REVENUE SHARE.
         /// </summary>
         public static string EarnUpTo {
             get {
@@ -4994,15 +4994,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 45% REVENUE SHARE.
-        /// </summary>
-        public static string RevenueSharePercent {
-            get {
-                return ResourceManager.GetString("RevenueSharePercent", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to RMB (Ren Min Bi).
         /// </summary>
         public static string RMB {
@@ -5273,7 +5264,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to 45% monthly revenue share!.
+        ///   Looks up a localized string similar to Sign up to affiliate program and earn up to {0} monthly revenue share!.
         /// </summary>
         public static string SignUpToAffiliateProgram {
             get {

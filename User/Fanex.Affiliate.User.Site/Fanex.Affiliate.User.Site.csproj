@@ -834,18 +834,8 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.jpeg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.jpeg" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.jpeg" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.jpeg" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.jpeg" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.png" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.jpeg" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.png" />
@@ -1247,7 +1237,6 @@
     <Content Include="www\source\styles\scss\Themes\n8b.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8b.scss" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
     <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Summary\SubAffDetails.cshtml" />
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
@@ -1290,19 +1279,16 @@
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.id-ID.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.th-TH.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.zh-TW.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-casino_affiliate.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Commission-Structure_Banner.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Terms_conditions_banner.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
