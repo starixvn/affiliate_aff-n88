@@ -9,7 +9,7 @@ export const INFINITY_SYMBOL = '∞';
 
 function generateCommissionValues() {
     let min = 0,
-        max = 100;
+        max = 99.9;
 
     const commissionList = { 0.0: '0.0%'};
 

@@ -44,8 +44,6 @@ export class DeductionSetting extends Component {
         const { isInitialOperationalFee, isInitialDepositFee, isInitialWithdrawalFee } = this.state;
         const { OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
 
-        console.log(this.props.selectedGroup);
-
         return (
             <fieldset>
                 <legend><h6 className="font-weight-bold">Deductions</h6></legend>
@@ -58,13 +56,13 @@ export class DeductionSetting extends Component {
                     defaultCurrency={defaultCurrency}
                     isInitial={isInitialOperationalFee} />
                 <p className="font-weight-bold pt-3">Banking Fee</p>
-                <FeeSettingItem label="+ Deposit" basedValueName="Deposit"
+                <FeeSettingItem label="+ Deposit Fee" basedValueName="Deposit"
                     handleChange={this.handleChangeDepositFee}
                     handleUpdateState={() => this.setState({ isInitialDepositFee: false })}
                     data={DepositFee}
                     defaultCurrency={defaultCurrency}
                     isInitial={isInitialDepositFee} />
-                <FeeSettingItem label="+ Withdrawal" basedValueName="Withdrawal"
+                <FeeSettingItem label="+ Withdrawal Fee" basedValueName="Withdrawal"
                     handleChange={this.handleChangeWithdrawalFee}
                     handleUpdateState={() => this.setState({ isInitialWithdrawalFee: false })}
                     data={WithdrawalFee}

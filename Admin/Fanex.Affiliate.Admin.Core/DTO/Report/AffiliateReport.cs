@@ -42,7 +42,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal OperationalFee { get; set; }
 
-        public decimal BankingFee { get; set; }
+        public decimal DepositFee { get; set; }
+
+        public decimal WithdrawalFee { get; set; }
 
         public decimal TotalFee { get; set; }
 

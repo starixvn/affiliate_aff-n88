@@ -48,7 +48,7 @@ export default class FeeSettingItem extends React.Component {
 
         return (
             <FormGroup row className="align-items-center">
-                <Label sm={2} className="font-weight-bold">{label}</Label>
+                <Label sm={2} className="font-weight-bold pr-0">{label}</Label>
                 {
                     isDeductedPercent ? (
                         <Fragment>

@@ -80,34 +80,35 @@ export class GridData extends Component {
         return [
             <Row key="h1">
                 <Cell header={true} colWidth={105} rowSpan="2" title={firstColName}>{firstColName}</Cell>
-                <Cell header={true} colWidth={70} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</Cell>
-                <Cell header={true} colWidth={70} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</Cell>
-                <Cell header={true} colWidth={65} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</Cell>
+                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</Cell>
+                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</Cell>
+                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</Cell>
                 <Cell header={true} colWidth={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>
-                <Cell header={true} colSpan="9" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
+                <Cell header={true} colSpan="10" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
                 <Cell header={true} colSpan={isMainView ? 7 : 6} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
                 {isMainView && (<Cell header={true} colWidth={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
             </Row>,
             <Row key="h2">
                 <Cell header={true} colWidth={75} title={headerText.Deposit}>{headerText.Deposit}</Cell>
-                <Cell header={true} colWidth={85} title={headerText.Withdrawal}>{headerText.Withdrawal}</Cell>
-                <Cell header={true} colWidth={85} title={headerText.Turnover}>{headerText.Turnover}</Cell>
-                <Cell header={true} colWidth={85} title={headerText.Winlost}>{headerText.Winlost}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.Turnover}>{headerText.Turnover}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.Winlost}>{headerText.Winlost}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.Bonus}>{headerText.Bonus}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</Cell>
-                <Cell header={true} colWidth={80} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.BankingFee}>{headerText.BankingFee}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
+                <Cell header={true} colWidth={70} title={headerText.DepositFee}>{headerText.DepositFee}</Cell>
+                <Cell header={true} colWidth={70} title={headerText.WithdrawalFee}>{headerText.WithdrawalFee}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.TotalFee}>{headerText.TotalFee}</Cell>
 
                 <Cell header={true} colWidth={60} title={headerText.CommissionRate}>{headerText.CommissionRate}</Cell>
-                <Cell header={true} colWidth={80} title={headerText.Earning}>{headerText.Earning}</Cell>
-                <Cell header={true} colWidth={80} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</Cell>
-                <Cell header={true} colWidth={80} title={headerText.TotalEarning}>{headerText.TotalEarning}</Cell>
-                <Cell header={true} colWidth={80} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.Earning}>{headerText.Earning}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.TotalEarning}>{headerText.TotalEarning}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</Cell>
                 {isMainView && (<Cell header={true} colWidth={80} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
-                <Cell header={true} colWidth={100} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>
+                <Cell header={true} colWidth={80} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>
             </Row>
         ];
     }
@@ -168,7 +169,8 @@ export class GridData extends Component {
         const bonus = formatDecimal(dataItem.Bonus);
         const platformFee = formatDecimal(dataItem.PlatformFee);
         const operationalFee = formatDecimal(dataItem.OperationalFee);
-        const bankingFee = formatDecimal(dataItem.BankingFee);
+        const depositFee = formatDecimal(dataItem.DepositFee);
+        const withdrawalFee = formatDecimal(dataItem.WithdrawalFee)
         const totalFee = formatDecimal(dataItem.TotalFee);
         const earning = formatDecimal(dataItem.Earning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
@@ -193,7 +195,8 @@ export class GridData extends Component {
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
                 <Cell className="text-right" title={platformFee}>{platformFee}</Cell>
                 <Cell className="text-right" title={operationalFee}>{operationalFee}</Cell>
-                <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>
+                <Cell className="text-right" title={depositFee}>{depositFee}</Cell>
+                <Cell className="text-right" title={withdrawalFee}>{withdrawalFee}</Cell>
                 <Cell className="text-right" title={totalFee}>{totalFee}</Cell>
                 <Cell className="text-right" title={commRate}>{commRate}</Cell>
                 <Cell className="text-right" title={earning}>{earning}</Cell>
