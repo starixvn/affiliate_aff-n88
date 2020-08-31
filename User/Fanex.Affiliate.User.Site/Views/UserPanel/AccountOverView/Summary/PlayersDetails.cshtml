@@ -1,11 +1,11 @@
-﻿@model List<Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerDetail>
+﻿@model Fanex.Affiliate.User.Core.ViewModels.UserPanel.PlayerDetailViewModel
 
 <div class="table player-detail-table">
     <table id="player-detail-table">
         <thead>
             <tr class="player-detail-table-header">
                 <th width="8%">No.</th>
-                <th width="16%" class="th" data-name="Username">
+                <th width="10%" class="th" data-name="Username">
                     <div class="th-wrapper">
                         <span>@Lang.Username</span>
                         <div class="icon-container">
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </th>
-                <th width="16%" class="th" data-name="RegisteredDate">
+                <th width="12%" class="th" data-name="RegisteredDate">
                     <div class="th-wrapper">
                         <span>@Lang.RegisteredDate</span>
                         <div class="icon-container">
@@ -68,15 +68,31 @@
                         </div>
                     </div>
                 </th>
-                <th width="10%" class="th" data-name="BankingFee">
-                    <div class="th-wrapper">
-                        <span>@Lang.BankingFee</span>
-                        <div class="icon-container">
-                            <span class="caret asc"></span>
-                            <span class="caret desc"></span>
+                @if (Model.IsDepositFeePercent)
+                {
+                    <th width="10%" class="th" data-name="DepositFee">
+                        <div class="th-wrapper">
+                            <span>@Lang.DepositFee</span>
+                            <div class="icon-container">
+                                <span class="caret asc"></span>
+                                <span class="caret desc"></span>
+                            </div>
                         </div>
-                    </div>
-                </th>
+                    </th>
+                }
+
+                @if (Model.IsWithdrawalFeePercent)
+                {
+                    <th width="10%" class="th" data-name="WithdrawalFee">
+                        <div class="th-wrapper">
+                            <span>@Lang.WithdrawalFee</span>
+                            <div class="icon-container">
+                                <span class="caret asc"></span>
+                                <span class="caret desc"></span>
+                            </div>
+                        </div>
+                    </th>
+                }
             </tr>
         </thead>
         <tbody id="player-detail-content">

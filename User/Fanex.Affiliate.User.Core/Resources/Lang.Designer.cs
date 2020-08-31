@@ -619,15 +619,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Banking Fee.
-        /// </summary>
-        public static string BankingFee {
-            get {
-                return ResourceManager.GetString("BankingFee", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Bank Name.
         /// </summary>
         public static string BankName {
@@ -1707,6 +1698,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string DepositedPlayers {
             get {
                 return ResourceManager.GetString("DepositedPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deposit Fee.
+        /// </summary>
+        public static string DepositFee {
+            get {
+                return ResourceManager.GetString("DepositFee", resourceCulture);
             }
         }
         
@@ -6484,6 +6484,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Withdrawal {
             get {
                 return ResourceManager.GetString("Withdrawal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Withdrawal Fee.
+        /// </summary>
+        public static string WithdrawalFee {
+            get {
+                return ResourceManager.GetString("WithdrawalFee", resourceCulture);
             }
         }
         

@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class SummaryController : BaseController
     {
-        private readonly ISessionService _sessionService;
         private readonly IAccountOverviewRepository _accountOverviewRepository;
 
         public SummaryController(ISessionService sessionService,
@@ -22,7 +22,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             IAccountOverviewRepository accountOverviewRepository
             ) : base(sessionService, languageService)
         {
-            _sessionService = sessionService;
             _accountOverviewRepository = accountOverviewRepository;
         }
 
@@ -30,7 +29,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
+            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml", model: SessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]
@@ -38,7 +37,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         public ActionResult Dashboard(DateTime monthDate)
         {
             var model = _accountOverviewRepository.GetUserOverviewSummary(SessionService.UserSession.AffId, monthDate);
-            model.IsMaxSubLevel = _sessionService.UserSession.IsMaxSubLevel;
+            model.IsMaxSubLevel = SessionService.UserSession.IsMaxSubLevel;
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/Dashboard.cshtml", model);
         }
@@ -69,10 +68,16 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         public ActionResult PlayersDetails(PlayerDetailParam param)
         {
             param.AffId = SessionService.UserSession.AffId;
-            var model = _accountOverviewRepository.GetPlayerDetailList(param);
+            var playerDetailList = _accountOverviewRepository.GetPlayerDetailList(param);
 
-            ViewBag.TotalItem = param.NRows;
-            ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
+            var model = new PlayerDetailViewModel
+            {
+                PlayerDetailList = playerDetailList,
+                TotalItem = param.NRows,
+                StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1,
+                IsDepositFeePercent = SessionService.UserSession.IsDepositFeePercent,
+                IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
+            };
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetails.cshtml", model);
         }
@@ -82,10 +87,16 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         public ActionResult PlayersDetailsContent(PlayerDetailParam param)
         {
             param.AffId = SessionService.UserSession.AffId;
-            var model = _accountOverviewRepository.GetPlayerDetailList(param);
+            var playerDetailList = _accountOverviewRepository.GetPlayerDetailList(param);
 
-            ViewBag.TotalItem = param.NRows;
-            ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
+            var model = new PlayerDetailViewModel
+            {
+                PlayerDetailList = playerDetailList,
+                TotalItem = param.NRows,
+                StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1,
+                IsDepositFeePercent = SessionService.UserSession.IsDepositFeePercent,
+                IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
+            };
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetailsContent.cshtml", model);
         }

@@ -14,7 +14,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal WinLoss { get; set; }
         public decimal PlatformFee { get; set; }
         public decimal OperationalFee { get; set; }
-        public decimal BankingFee { get; set; }
+        public decimal DepositFee { get; set; }
+        public decimal WithdrawalFee { get; set; }
         public decimal Bonus { get; set; }
         public decimal CommissionRate { get; set; }
         public decimal Commission { get; set; }

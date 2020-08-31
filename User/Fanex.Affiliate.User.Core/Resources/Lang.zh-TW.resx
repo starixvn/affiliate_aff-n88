@@ -1867,9 +1867,6 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>營運費</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>銀行手續費</value>
-  </data>
   <data name="CommRate" xml:space="preserve">
     <value>傭金比例</value>
   </data>

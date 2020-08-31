@@ -1857,9 +1857,6 @@
   <data name="OperationalFee" xml:space="preserve">
     <value>Operational Fee</value>
   </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Banking Fees</value>
-  </data>
   <data name="CommRate" xml:space="preserve">
     <value>Comm. Rate</value>
   </data>
