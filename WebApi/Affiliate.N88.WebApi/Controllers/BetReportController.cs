@@ -34,6 +34,10 @@ namespace Affiliate.N88.WebApi.Controllers
 
         [HttpGet]
         public async Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount = 2000)
-            => await dynamicRepository.FetchAsync<Bonus>(new BonusInfoCriteria(id, batchCount));
+            => await dynamicRepository.FetchAsync<Bonus>(new GetBonusInfoCriteria(id, batchCount));
+
+        [HttpGet]
+        public async Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<Withdrawal>(new GetWithdrawalInfoCriteria(id, batchCount)); 
     }
 }

@@ -11,6 +11,7 @@
     <Setting Key="Affiliate_LoginCustInfo_Get" SpName="Affiliate_LoginCustInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_BonusInfo_Get" SpName="API_BonusInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_CustRegInfo_Get" SpName="API_CustRegInfo_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_WithdrawalInfo_Get" SpName="API_WithdrawalInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="Affiliate_Wallet_Set" SpName="Affiliate_Wallet_Set" DbName="N88Licensee_Write"/>
   </Function>
 </Functions>

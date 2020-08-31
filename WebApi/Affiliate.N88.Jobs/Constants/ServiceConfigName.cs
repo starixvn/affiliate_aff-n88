@@ -21,5 +21,7 @@
         public const string PULL_CUST_REG_INFO_SETTING = "PullCustRegInfoSetting";
 
         public const string PULL_BONUS_INFO_SETTING = "PullBonusInfoSetting";
+
+        public const string PULL_WITHDRAWAL_INFO = "PullWithdrawalInfoSetting";
     }
 }

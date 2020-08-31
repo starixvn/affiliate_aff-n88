@@ -87,6 +87,13 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_CUST_REG_INFO_SETTING,
                     configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_CUST_REG_INFO_SETTING}"));
+
+            //FetchWithdrawalInfoDataTask
+            services.AddScoped<IFetchWithdrawalInfoDataTask, FetchWithdrawalInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_WITHDRAWAL_INFO,
+                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_WITHDRAWAL_INFO}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -118,7 +125,9 @@ namespace Affiliate.N88.Jobs.Middlewares
 
                 RegisterTask<IFetchCustRegInfoDataTask>($"{typeof(IFetchCustRegInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
-                RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

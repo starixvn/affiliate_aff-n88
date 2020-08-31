@@ -1,13 +1,12 @@
 ﻿using Fanex.Data.Repository;
-using System;
 
 namespace Affiliate.N88.SpParams.Criteria
 {
     public class GetCustRegInfoCriteria : CriteriaBase
     {
-        public DateTime FromDate { get; }
+        public long FromDate { get; }
 
-        public GetCustRegInfoCriteria(DateTime fromDate)
+        public GetCustRegInfoCriteria(long fromDate)
             => FromDate = fromDate;
 
         public override string GetSettingKey()

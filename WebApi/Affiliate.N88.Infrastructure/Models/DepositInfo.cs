@@ -45,5 +45,11 @@ namespace Affiliate.N88.Models
         public string Comment { get; set; }
 
         public int? Status { get; set; }
+
+        public int? Flag { get; set; }
+
+        public string Operator { get; set; }
+
+        public DateTime? UpdateTime { get; set; }
     }
 }

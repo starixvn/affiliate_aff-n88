@@ -48,7 +48,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task FetchDataAsync(DateTime fromDate)
         {
             var toDate = GetAdjustmentTime();
-            var data = await _liceseeApi.GetCustomerRegInfo(fromDate);
+            var unixTime = (new DateTimeOffset(fromDate)).ToUnixTimeMilliseconds();
+            var data = await _liceseeApi.GetCustomerRegInfo(unixTime);
             await ImportDataToMultipleRepoAsync(data);
             await _timeTrackerService.SaveTimeAsync(TableName, toDate);
         }

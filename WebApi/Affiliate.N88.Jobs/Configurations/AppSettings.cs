@@ -30,6 +30,8 @@
 
         public FetchServiceSetting PullCustRegInfoSetting { get; set; }
 
+        public FetchServiceSetting PullWithdrawalInfoSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
