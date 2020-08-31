@@ -11,7 +11,7 @@ import {
 const HEADER_ROW_INDEX = 0;
 const DATA_ROW_INDEX = 1;
 
-const TOTAL_COLUMN = 10;
+const TOTAL_COLUMN = 11;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -25,32 +25,36 @@ const fields = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
-    BankingFee: 'BankingFee'
+    DepositFee: 'DepositFee',
+    WithdrawalFee: 'WithdrawalFee'
 }
 
 export default class ReportExcel {
-    constructor(data, title) {
+    constructor(data, title, isDepositFeePercent, isWithdrawalPercent) {
         this.data = data;
         this.title = title;
+        this.isDepositFeePercent = isDepositFeePercent;
+        this.isWithdrawalPercent = isWithdrawalPercent;
+        this.column = 2 - (isDepositFeePercent ? 1 : 0) - (isWithdrawalPercent ? 1 : 0);
 
         this.worksheet = {};
         this.currentRowIndex = DATA_ROW_INDEX;
         this.mergeConfig = [];
-        this.columnConfigs = this._getcolumnConfigs();
+        this.columnConfigs = this._getcolumnConfigs(isDepositFeePercent, isWithdrawalPercent);
     }
 
     export() {
         Excel.process(() => {
-            this._createHeader();
-            this._createBodyData();
-            this._createExcelConfig();
+            this._createHeader(this.column);
+            this._createBodyData(this.column);
+            this._createExcelConfig(this.isDepositFeePercent, this.isWithdrawalPercent, this.column);
 
             Excel.export(this.worksheet, this.title);
         })
     }
 
-    _createHeader() {
-        for (let i = 0; i < TOTAL_COLUMN; i++) {
+    _createHeader(column) {
+        for (let i = 0; i < TOTAL_COLUMN - column; i++) {
             const fieldName = this.columnConfigs[i].field;
 
             let address = Excel.getCellAddress({
@@ -65,13 +69,13 @@ export default class ReportExcel {
         }
     }
 
-    _createBodyData() {
+    _createBodyData(column) {
         const mainData = this.data.MainData;
 
         for (let i = 0; i < mainData.length; i++) {
             const item = mainData[i];
 
-            for (let j = 0; j < TOTAL_COLUMN; j++) {
+            for (let j = 0; j < TOTAL_COLUMN - column; j++) {
                 const address = Excel.getCellAddress({
                     c: j,
                     r: this.currentRowIndex
@@ -96,18 +100,19 @@ export default class ReportExcel {
         }
     }
 
-    _createExcelConfig() {
+    _createExcelConfig(isDepositFeePercent, isWithdrawalPercent, column) {
         const cellStart = Excel.getCellAddress({
             r: 0,
             c: 0
         });
         const cellEnd = Excel.getCellAddress({
             r: this.currentRowIndex,
-            c: TOTAL_COLUMN
+            c: TOTAL_COLUMN - column
         });
 
         this.worksheet["!ref"] = `${cellStart}:${cellEnd}`;
-        this.worksheet['!cols'] = [{
+
+        const columnList = [{
             wpx: 70
         }, {
             wpx: 200
@@ -125,13 +130,25 @@ export default class ReportExcel {
             wpx: 150
         }, {
             wpx: 150
-        }, {
-            wpx: 150
         }];
+
+        if (isDepositFeePercent) {
+            columnList.push({
+                wpx: 150
+            })
+        }
+
+        if (isWithdrawalPercent) {
+            columnList.push({
+                wpx: 150
+            })
+        }
+
+        this.worksheet['!cols'] = columnList;
     }
 
-    _getcolumnConfigs() {
-        return [{
+    _getcolumnConfigs(isDepositFeePercent, isWithdrawalPercent) {
+        const columnlist = [{
             field: fields.Index,
             [MAIN_SECTION_STYLE]: bodyCellStyle.center
         }, {
@@ -158,9 +175,22 @@ export default class ReportExcel {
         }, {
             field: fields.Bonus,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
-        }, {
-            field: fields.BankingFee,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
-        }]
+        }];
+
+        if (isDepositFeePercent) {
+            columnlist.push({
+                field: fields.DepositFee,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
+            });
+        }
+
+        if (isWithdrawalPercent) {
+            columnlist.push({
+                field: fields.WithdrawalFee,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
+            });
+        }
+
+        return columnlist;
     }
 }

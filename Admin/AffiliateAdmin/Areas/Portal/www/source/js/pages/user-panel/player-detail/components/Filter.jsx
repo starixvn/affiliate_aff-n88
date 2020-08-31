@@ -72,7 +72,7 @@ export class Filter extends PureComponent {
 
     handleExportExcel = async () => {
         const { selectedProduct, monthDate, selectedBaseCurrency, selectedCurrencyList } = this.state;
-        const { affId, sortingColumn } = this.props;
+        const { affId, sortingColumn, isDepositFeePercent, isWithdrawalFeePercent } = this.props;
 
         const param = {
             IsExportExcel: true,
@@ -89,7 +89,7 @@ export class Filter extends PureComponent {
 
         if (data) {
             const title = this._getReportTitle();
-            const reportExcel = new ReportExcel(data, title);
+            const reportExcel = new ReportExcel(data, title, isDepositFeePercent, isWithdrawalFeePercent);
             reportExcel.export();
         }
     }
@@ -184,14 +184,15 @@ export class Filter extends PureComponent {
 
 function mapStateToProps({ today, affCommonInfo, playerDetail, productList, currencyList, baseCurrencyList, isProduction }) {
     const { param, sortingColumn } = playerDetail;
-    const { affId } = affCommonInfo;
+    const { affId, isDepositFeePercent, isWithdrawalFeePercent } = affCommonInfo;
 
     return Object.assign({}, {
         param,
         affId,
         today,
         sortingColumn,
-        productList, currencyList, baseCurrencyList, isProduction
+        productList, currencyList, baseCurrencyList, isProduction,
+        isDepositFeePercent, isWithdrawalFeePercent
     });
 }
 

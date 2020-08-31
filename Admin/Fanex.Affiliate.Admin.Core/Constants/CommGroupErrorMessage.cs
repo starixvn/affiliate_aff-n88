@@ -10,8 +10,6 @@
 
         public const string InvalidOperationalFee = "Invalid Operational Fee";
 
-        public const string InvalidBankingFee = "Invalid Banking Fee";
-
         public const string InvalidDepositFee = "Invalid Deposit Fee";
 
         public const string InvalidWithdrawalFee = "Invalid Withdrawal Fee";

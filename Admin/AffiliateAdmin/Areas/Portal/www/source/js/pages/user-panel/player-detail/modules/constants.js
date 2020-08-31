@@ -13,7 +13,8 @@ export const headerText = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
-    BankingFee: 'Banking Fee'
+    DepositFee: 'Deposit Fee',
+    WithdrawalFee: 'Withdrawal Fee'
 }
 
 export const resource = {

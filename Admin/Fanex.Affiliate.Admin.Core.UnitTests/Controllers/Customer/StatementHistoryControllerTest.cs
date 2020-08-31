@@ -90,7 +90,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var param = new DailyEarningParam { AffId = 1271808 };
             DailyEarningParam passedParam = null;
             var statementHistoryService = new Mock<IStatementHistoryService>();
-            statementHistoryService.Setup(s => s.GetDailyEarning(param)).Returns(new DailyEarningResult { MainData = new List<DailyEarning> { new DailyEarning() }, Total = new DailyEarning { BankingFee = 123 } }).Callback<DailyEarningParam>(p => passedParam = p);
+            statementHistoryService.Setup(s => s.GetDailyEarning(param)).Returns(new DailyEarningResult { MainData = new List<DailyEarning> { new DailyEarning() }, Total = new DailyEarning { DepositFee = 123 } }).Callback<DailyEarningParam>(p => passedParam = p);
             var controller = CreateStatementHistoryController(statementHistoryService: statementHistoryService.Object);
 
             // Action
@@ -99,7 +99,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             // Assert
             Assert.Single(entityResult.MainData);
-            Assert.Equal(123, entityResult.Total.BankingFee);
+            Assert.Equal(123, entityResult.Total.DepositFee);
             Assert.Equal(param, passedParam);
         }
 
@@ -124,7 +124,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var param = new DailyEarningParam { AffId = 1271808 };
             DailyEarningParam passedParam = null;
             var statementHistoryService = new Mock<IStatementHistoryService>();
-            statementHistoryService.Setup(s => s.GetDailyEarningDetail(param)).Returns(new DailyEarningDetailResult { MainData = new List<DailyEarningDetail> { new DailyEarningDetail() }, Total = new DailyEarningDetail { BankingFee = 123 } }).Callback<DailyEarningParam>(p => passedParam = p);
+            statementHistoryService.Setup(s => s.GetDailyEarningDetail(param)).Returns(new DailyEarningDetailResult { MainData = new List<DailyEarningDetail> { new DailyEarningDetail() }, Total = new DailyEarningDetail { DepositFee = 123 } }).Callback<DailyEarningParam>(p => passedParam = p);
             var controller = CreateStatementHistoryController(statementHistoryService: statementHistoryService.Object);
 
             // Action
@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             // Assert
             Assert.Single(entityResult.MainData);
-            Assert.Equal(123, entityResult.Total.BankingFee);
+            Assert.Equal(123, entityResult.Total.DepositFee);
             Assert.Equal(param, passedParam);
         }
 

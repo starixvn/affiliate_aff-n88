@@ -6,6 +6,7 @@ using Fanex.Affiliate.Admin.Core.MetaModels.UserPanel;
 using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Repository;
+using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
@@ -42,15 +43,16 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         {
             return new PlayerDetail
             {
-                IbcUserName = Convert.ToString(reader["IbcUserName"]),
-                UserName = Convert.ToString(reader["UserName"]),
+                IbcUserName = reader.ToString("IbcUserName"),
+                UserName = reader.ToString("UserName"),
                 RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"]),
-                Deposit = Convert.ToDecimal(reader["Deposit"]),
-                Withdrawal = Convert.ToDecimal(reader["Withdrawal"]),
-                BankingFee = Convert.ToDecimal(reader["BankingFee"]),
-                Bonus = Convert.ToDecimal(reader["Bonus"]),
-                Turnover = Convert.ToDecimal(reader["Turnover"]),
-                Winloss = Convert.ToDecimal(reader["Winloss"])
+                Deposit = reader.ToDecimal("Deposit"),
+                Withdrawal = reader.ToDecimal("Withdrawal"),
+                DepositFee = reader.ToDecimal("DepositFee"),
+                WithdrawalFee = reader.ToDecimal("WithdrawalFee"),
+                Bonus = reader.ToDecimal("Bonus"),
+                Turnover = reader.ToDecimal("Turnover"),
+                Winloss = reader.ToDecimal("Winloss")
             };
         }
 

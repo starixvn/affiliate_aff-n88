@@ -49,7 +49,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             Phone =reader.ToString("Phone"),
                             IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) &&reader.ToBool("IsPrivate"),
                             ApprovedBy =reader.ToString("ApprovedBy"),
-                            IsDeductedPercent = reader.ToBool("IsDeductedPercent"),
+                            IsDepositFeePercent = reader.ToBool("Dep_IsDeductedPercent"),
+                            IsWithdrawalFeePercent = reader.ToBool("Wit_IsDeductedPercent"),
                         };
                     }
                 }

@@ -14,7 +14,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public decimal Withdrawal { get; set; }
 
-        public decimal BankingFee { get; set; }
+        public decimal DepositFee { get; set; }
+
+        public decimal WithdrawalFee { get; set; }
 
         public decimal Bonus { get; set; }
 
