@@ -7,7 +7,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
   <p
     className="font-weight-bold"
   >
-    Platform Fee
+    Royalty Fee
   </p>
   <PlatformFeeItem
     btnText="+"

@@ -24,19 +24,38 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
     isInitial={true}
     label="Operational Fee"
   />
+  <p
+    className="font-weight-bold pt-3"
+  >
+    Banking Fee
+  </p>
   <FeeSettingItem
-    basedValueName="(Deposit + Withdrawal)"
+    basedValueName="Deposit"
     data={
       Object {
         "DeductedPercentage": 0.02,
-        "DeductionId": 12,
+        "DeductionId": 13,
         "ProductIds": 0,
       }
     }
     handleChange={[Function]}
     handleUpdateState={[Function]}
     isInitial={true}
-    label="Banking Fee"
+    label="+ Deposit Fee"
+  />
+  <FeeSettingItem
+    basedValueName="Withdrawal"
+    data={
+      Object {
+        "DeductedPercentage": 0.02,
+        "DeductionId": 14,
+        "ProductIds": 0,
+      }
+    }
+    handleChange={[Function]}
+    handleUpdateState={[Function]}
+    isInitial={true}
+    label="+ Withdrawal Fee"
   />
 </fieldset>
 `;

@@ -98,7 +98,7 @@ exports[`commission group - TierSetting Should render correctly 1`] = `
   <div>
     <button
       className="btn btn-addTier btn-secondary"
-      disabled={true}
+      disabled={false}
       onClick={[Function]}
       type="button"
     >

@@ -15,10 +15,17 @@ describe('commission group - GridData ', () => {
         TierId: 1
     };
     const dataItem = {
-        BankingFee: {
+        DepositFee: {
             DeductedPercentage: 0.02,
-            DeductionId: 12,
-            DeductionName: "Banking Fee",
+            DeductionId: 13,
+            DeductionName: "Deposit Fee",
+            GroupId: 153,
+            ProductIds: "0"
+        },
+        WithdrawalFee: {
+            DeductedPercentage: 0.02,
+            DeductionId: 14,
+            DeductionName: "Withdrawal Fee",
             GroupId: 153,
             ProductIds: "0"
         },

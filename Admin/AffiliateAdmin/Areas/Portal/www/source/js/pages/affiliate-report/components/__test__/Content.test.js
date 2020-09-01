@@ -152,6 +152,13 @@ describe('affiliate report - Content ', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('N8B - should render correctly when currentViewLevel is Main view', () => {
+        const props = Object.assign({}, defaultProps, { reportTitle: 'Report Title - currentViewLevel is Main view', isN8B: true });
+        const result = shallow(<Content {...props} />);
+
+        expect(result).toMatchSnapshot();
+    });
+
     it('should render correctly when currentViewLevel is Month on Month view', () => {
         const props = Object.assign({}, defaultProps, { reportTitle: 'Report Title - currentViewLevel is Month on Month view', currentViewLevel: monthOnMonth });
         const result = shallow(<Content {...props} />);

@@ -5,11 +5,12 @@ import commissionValueList from '../../../../modules/constant';
 jest.mock(commissionValueList);
 
 describe('commission group - FeeSettingItem', () => {
+    const data = { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" }
     const defaultProps = {
         label: "Operational Fee%",
         basedValueName: "| Gross Win Loss |",
         handleChange: jest.fn(),
-        data: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        data,
         isCreating: true
     };
 
@@ -34,6 +35,14 @@ describe('commission group - FeeSettingItem', () => {
 
     it('Should render correctly', () => {
         const wrapper = shallow(<FeeSettingItem {...defaultProps} />);
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('Should render correctly with is fixed amount', () => {
+        const newData = Object.assign({}, data, { IsDeductedPercent: false });
+        const props = Object.assign({}, defaultProps, { data: newData });
+        const wrapper = shallow(<FeeSettingItem {...props} />);
 
         expect(wrapper).toMatchSnapshot();
     });
