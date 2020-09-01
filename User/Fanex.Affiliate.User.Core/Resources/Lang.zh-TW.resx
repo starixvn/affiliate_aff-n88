@@ -1870,9 +1870,6 @@
   <data name="CommShorted" xml:space="preserve">
     <value>傭金</value>
   </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>傭金=（總盈虧 — 平台費 — 營運費 — 銀行手續費 — 紅利）x 傭金比例</value>
-  </data>
   <data name="Temporary" xml:space="preserve">
     <value>暫時</value>
   </data>

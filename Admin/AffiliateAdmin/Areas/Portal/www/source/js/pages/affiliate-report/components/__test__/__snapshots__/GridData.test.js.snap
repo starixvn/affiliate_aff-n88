@@ -2314,9 +2314,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Platform Fee"
+            title="Royalty Fee"
           >
-            Platform Fee
+            Royalty Fee
           </t>
           <t
             asc={true}
@@ -2655,9 +2655,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Platform Fee"
+      title="Royalty Fee"
     >
-      Platform Fee
+      Royalty Fee
     </t>
     <t
       asc={true}
@@ -2961,9 +2961,9 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Platform Fee"
+      title="Royalty Fee"
     >
-      Platform Fee
+      Royalty Fee
     </t>
     <t
       asc={true}

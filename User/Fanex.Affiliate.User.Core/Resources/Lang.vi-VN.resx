@@ -1856,10 +1856,10 @@
     <value>Tổng Thắng Thua</value>
   </data>
   <data name="RoyaltyFee" xml:space="preserve">
-    <value>Chi Phí Bản Quyền</value>
+    <value>Phí Bản Quyền</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
-    <value>Chi Phí Vận Hành</value>
+    <value>Phí Vận Hành</value>
   </data>
   <data name="DepositFee" xml:space="preserve">
     <value>Phí Nạp Tiền</value>
@@ -1868,7 +1868,7 @@
     <value>Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Hoa Hồng = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x Tỷ Lệ Hoa Hồng</value>
+    <value>Hoa Hồng = (Tổng Thắng Thua - Phí Bản Quyền - Phí Vận Hành - Phí Nạp Tiền - Phí Rút Tiền - Thưởng) x Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Tạm Thời</value>

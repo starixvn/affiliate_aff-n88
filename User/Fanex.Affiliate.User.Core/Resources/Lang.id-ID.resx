@@ -1860,9 +1860,6 @@
   <data name="CommShorted" xml:space="preserve">
     <value>Comm.</value>
   </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Commission = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Comm. Rate</value>
-  </data>
   <data name="Temporary" xml:space="preserve">
     <value>Temporary</value>
   </data>

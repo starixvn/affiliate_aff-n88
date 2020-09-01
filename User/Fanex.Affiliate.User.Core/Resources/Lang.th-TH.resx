@@ -1865,9 +1865,6 @@
   <data name="CommShorted" xml:space="preserve">
     <value>ค่าคอมมิชชั่น</value>
   </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>ค่าคอมมิชชั่น = (ยอดรวมแพ้/ชนะ - ค่าธรรมเนียมแพลตฟอร์ม - ค่าธรรมเนียมดำเนินการ - ค่าธรรมเนียมธุรกรรม - โบนัส) x เรทคอมมิชชั่น</value>
-  </data>
   <data name="Temporary" xml:space="preserve">
     <value>ยอดชั่วคราว</value>
   </data>

@@ -4067,7 +4067,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue Share = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Revenue Rate.
+        ///   Looks up a localized string similar to Revenue Share = (Gross Win Loss - Royalty Fee - Operational Fee - Deposit Fee - Withdrawal Fee - Bonus) x Revenue Rate.
         /// </summary>
         public static string NoteCommissionCalculation {
             get {

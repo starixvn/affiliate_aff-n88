@@ -1873,9 +1873,6 @@
   <data name="CommShorted" xml:space="preserve">
     <value>佣金</value>
   </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>佣金 = （总盈亏—平台费—营运费—银行手续费—红利）x 佣金比例</value>
-  </data>
   <data name="Temporary" xml:space="preserve">
     <value>暂时</value>
   </data>
