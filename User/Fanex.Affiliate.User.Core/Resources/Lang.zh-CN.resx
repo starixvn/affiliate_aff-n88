@@ -1864,9 +1864,6 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>总盈亏</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>平台费</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>营运费</value>
   </data>

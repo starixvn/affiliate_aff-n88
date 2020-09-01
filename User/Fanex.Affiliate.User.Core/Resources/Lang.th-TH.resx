@@ -1856,9 +1856,6 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>ยอดรวมแพ้/ชนะ</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>ค่าธรรมเนียมแพลตฟอร์ม</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>ค่าธรรมเนียมดำเนินการ</value>
   </data>

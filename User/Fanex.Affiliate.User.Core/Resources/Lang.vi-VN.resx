@@ -1855,8 +1855,8 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Tổng Thắng Thua</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>Chi Phí Nền Tảng</value>
+  <data name="RoyaltyFee" xml:space="preserve">
+    <value>Chi Phí Bản Quyền</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>Chi Phí Vận Hành</value>

@@ -135,7 +135,7 @@ var commissionReport = (function ($) {
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 7 : 8;
+            var length = langResource.isMaxLevel ? 8 : 9;
 
             var date = dataRow.MonthDate;
 

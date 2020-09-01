@@ -1851,9 +1851,6 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Gross Win Loss</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>Platform Fee</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>Operational Fee</value>
   </data>

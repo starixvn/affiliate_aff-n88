@@ -1881,8 +1881,8 @@
     <value>Operational Fee</value>
     <comment>87923</comment>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>Platform Fee</value>
+  <data name="RoyaltyFee" xml:space="preserve">
+    <value>Royalty Fee</value>
     <comment>87923</comment>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">

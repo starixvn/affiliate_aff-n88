@@ -46,10 +46,10 @@
             var viewModel = year >= 2009 && year <= DateTime.Now.Year
                 ? _commissionReportService.GenerateCommissionReportData(new CommissionReportParam
                 {
-                    AffId = SessionService.UserSession.AffId, 
+                    AffId = SessionService.UserSession.AffId,
                     WinLostDate = new DateTime(year, 1, 1),
                     BaseCurrency = currency
-                }) 
+                })
                 : new CommissionReportDataViewModel();
 
             return Json(viewModel);
