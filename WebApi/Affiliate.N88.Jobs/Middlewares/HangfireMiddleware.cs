@@ -18,6 +18,8 @@ namespace Affiliate.N88.Jobs.Middlewares
 {
     public static class HangfireMiddleware
     {
+        private const string APPSETTING_ROOT = "AppSettings";
+
         public static void RegisterHangfire(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddOptions();
@@ -27,72 +29,72 @@ namespace Affiliate.N88.Jobs.Middlewares
             });
 
             var appSettings = new AppSettings();
-            configuration.GetSection("AppSettings").Bind(appSettings);
+            configuration.GetSection(APPSETTING_ROOT).Bind(appSettings);
 
             //FetchCustomerDataTask
             services.AddScoped<IMemberImportRepository, MemberImportRepository>();
             services.AddScoped<IFetchAffCustomerDataTask, FetchAffCustomerDataTask>();
-            services.Configure<LicenseeSiteSetting>(configuration.GetSection("AppSettings:LicenseeSetting"));
+            services.Configure<LicenseeSiteSetting>(configuration.GetSection($"{APPSETTING_ROOT}:LicenseeSetting"));
 
             //TimeTrackerService
             services.AddScoped<ITrackerRepository, TrackerRespository>();
             services.AddScoped<ITrackerService, TimeTrackerService>();
-            services.Configure<TimeTrackerSetting>(configuration.GetSection("AppSettings:TimeTrackerSetting"));
+            services.Configure<TimeTrackerSetting>(configuration.GetSection($"{APPSETTING_ROOT}:TimeTrackerSetting"));
 
             //FetchBetRecordDataTask
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
             services.AddScoped<IFetchBetRecordDataTask, FetchBetRecordDataTask>();
             services.Configure<FetchServiceSetting>(
                 ServiceConfigName.PULL_BET_RECORD_SETTING,
-                configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_BET_RECORD_SETTING}"));
+                configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_BET_RECORD_SETTING}"));
 
             //FetchCustomerDataTask
             services.AddScoped<IFetchCustomerDataTask, FetchCustomerDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_CUSTOMER_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_CUSTOMER_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUSTOMER_SETTING}"));
 
             //FetchServerInfoDataTask
             services.AddScoped<IFetchServerInfoDataTask, FetchServerInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_SERVER_INFO_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_SERVER_INFO_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_SERVER_INFO_SETTING}"));
 
             //FetchTpGameTypeDataTask
             services.AddScoped<IFetchGameTypeDataTask, FetchGameTypeDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_GAME_TYPE_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_GAME_TYPE_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_GAME_TYPE_SETTING}"));
 
             //FetchTpTransferInfoDataTask
             services.AddScoped<IFetchTpTransferInfoDataTask, FetchTpTransferInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_TPTRANSFER_INFO_SETTING}"));
 
             //FetchDepositInfoDataTask
             services.AddScoped<IFetchDepositInfoDataTask, FetchDepositInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_DEPOSIT_INFO_SETTING, 
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
 
             //FetchBonusInfoDataTask
             services.AddScoped<IFetchBonusInfoDataTask, FetchBonusInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_BONUS_INFO_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_BONUS_INFO_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_BONUS_INFO_SETTING}"));
 
             //FetchCustRegInfoDataTask
             services.AddScoped<IFetchCustRegInfoDataTask, FetchCustRegInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_CUST_REG_INFO_SETTING,
-                    configuration.GetSection($"AppSettings:{ServiceConfigName.PULL_CUST_REG_INFO_SETTING}"));
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_REG_INFO_SETTING}"));
 
             //FetchWithdrawalInfoDataTask
             services.AddScoped<IFetchWithdrawalInfoDataTask, FetchWithdrawalInfoDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_WITHDRAWAL_INFO,
-                    configuration.GetSection($"AppSetting:{ServiceConfigName.PULL_WITHDRAWAL_INFO}")
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_WITHDRAWAL_INFO}")
                 );
         }
 
