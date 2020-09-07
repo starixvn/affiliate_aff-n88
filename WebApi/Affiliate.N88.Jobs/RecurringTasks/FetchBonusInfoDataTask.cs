@@ -18,7 +18,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
 
-        //protected override int PagingSize => 500;
+        protected override int PagingSize => 500;
 
         public FetchBonusInfoDataTask(ILicenseeApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
