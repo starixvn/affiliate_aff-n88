@@ -33,8 +33,7 @@ namespace Affiliate.N88.Jobs.Middlewares
                             : null
                     })
                 {
-                    BaseAddress = new Uri(appSettings.LicenseeDataAPI)
-
+                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),                   
                 }));
 
             InitLogging(services);

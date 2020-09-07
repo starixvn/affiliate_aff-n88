@@ -137,7 +137,7 @@ namespace Affiliate.N88.Jobs.Middlewares
         {
             if (!string.IsNullOrWhiteSpace(cronExpression))
             {
-                RecurringJob.AddOrUpdate(
+                RecurringJob.AddOrUpdate<T>(
                             serviceId,
                             methodCall,
                             cronExpression);

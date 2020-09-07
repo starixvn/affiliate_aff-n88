@@ -17,7 +17,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         protected readonly ITrackerService _timeTrackerService;
 
-        protected virtual int BatchCount => MAX_ROW_COUNT;
+        protected override int PagingSize => MAX_ROW_COUNT;
 
 
         protected FetchDataByBatchForMultiRepoTaskBase(IThirdPartyImportRepository thirdPartyImportRepository, FetchServiceSetting setting, ITrackerService trackerService) 
@@ -29,7 +29,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         public override async Task FetchDataAsync()
         {
             var queryValue = await GetLastTrackingValueAsync();
-            var data = await GetDataAsync(queryValue, BatchCount);
+            var data = await GetDataAsync(queryValue, PagingSize);
 
             await ImportDataByBatchAsync(data);
         }
@@ -48,9 +48,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                         KeyValue = trackValue
                     });
 
-                if (importData.Count() == MAX_ROW_COUNT)
+                if (importData.Count() == PagingSize)
                 {
-                    importData = await GetDataAsync(trackValue, BatchCount);
+                    importData = await GetDataAsync(trackValue, PagingSize);
                 }
                 else
                 {

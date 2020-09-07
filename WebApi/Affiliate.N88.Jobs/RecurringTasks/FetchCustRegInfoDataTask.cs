@@ -8,6 +8,7 @@ using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
@@ -47,15 +48,19 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private async Task FetchDataAsync(DateTime fromDate)
         {
-            var toDate = GetAdjustmentTime();
-            var unixTime = (new DateTimeOffset(fromDate)).ToUnixTimeMilliseconds();
+            //Convert to number in format YYYYMMDD for argument use in UNIX_TIMESTAMP function 
+            var unixTime = Convert.ToInt64(fromDate.ToString("yyyyMMdd"));
             var data = await _liceseeApi.GetCustomerRegInfo(unixTime);
             await ImportDataToMultipleRepoAsync(data);
-            await _timeTrackerService.SaveTimeAsync(TableName, toDate);
+            var toDate = GetAdjustmentTime(data.Max(d => d.RegTime));
+            if (data.Any() && toDate != default(DateTime))
+            {
+                await _timeTrackerService.SaveTimeAsync(TableName, toDate.UtcDateTime);
+            }
         }
 
-        private DateTime GetAdjustmentTime()
-            => DateTime.Now.AddMinutes(Settings.AdjustmentValue);
+        private DateTimeOffset GetAdjustmentTime(DateTimeOffset date)
+            => date.AddDays(Settings.AdjustmentValue);
 
         protected override string BuildXml(IEnumerable<CustRegInfo> data)
             => XmlHelper.BuildXml(data, "root", "row");
