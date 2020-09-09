@@ -290,6 +290,7 @@
     <Content Include="Areas\Portal\www\dist\js\pages\customer\customer.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\domain\domain-control.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\domain\domain.js" />
+    <Content Include="Areas\Portal\www\dist\js\pages\domain\sub-aff-domain.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\exchange-rate\exchange-rate.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\home.js" />
     <Content Include="Areas\Portal\www\dist\js\pages\layout\pagelayout.js" />
