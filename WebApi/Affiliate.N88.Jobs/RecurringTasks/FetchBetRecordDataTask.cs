@@ -5,7 +5,6 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
-using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;

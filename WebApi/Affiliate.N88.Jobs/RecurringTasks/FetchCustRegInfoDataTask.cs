@@ -53,7 +53,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var data = await _liceseeApi.GetCustomerRegInfo(unixTime);
             await ImportDataToMultipleRepoAsync(data);
             var toDate = GetAdjustmentTime(data.Max(d => d.RegTime));
-            if (data.Any() && toDate != default(DateTime))
+            if (data.Any() && toDate != default(DateTimeOffset))
             {
                 await _timeTrackerService.SaveTimeAsync(TableName, toDate.UtcDateTime);
             }
