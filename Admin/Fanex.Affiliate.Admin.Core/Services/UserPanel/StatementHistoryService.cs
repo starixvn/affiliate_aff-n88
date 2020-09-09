@@ -41,8 +41,6 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 total.Deposit += item.Deposit;
                 total.Withdrawal += item.Withdrawal;
                 total.Bonus += item.Bonus;
-                total.DepositFee += item.DepositFee;
-                total.WithdrawalFee += item.WithdrawalFee;
             }
 
             return new DailyEarningDetailResult
