@@ -53,7 +53,7 @@ export const updateSubAffDomain = (param) => async () => {
 }
 
 export const deleteSubAffDomain = (param) => async () => {
-    const url = 'Portal/Domain/DeleteSubAffDomain';
+    const url = 'Portal/SubAffDomain/DeleteSubAffDomain';
     const response = await post(url, param);
 
     return response && response.status === 200 ? response.data : null;

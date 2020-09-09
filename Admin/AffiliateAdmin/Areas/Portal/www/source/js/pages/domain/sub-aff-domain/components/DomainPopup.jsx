@@ -92,7 +92,7 @@ export class DomainPopup extends PureComponent {
         const { selectedSubAffDomain } = this.props;
         const { isInsert, isSuccess, isShowMessage, message } = this.state;
         const isShowPopup = selectedSubAffDomain !== null;
-        const title = isInsert ? "Add Domain" : "Edit Domain";
+        const title = isInsert ? "Add Sub-Affiliate Domain" : "Edit Sub-Affiliate Domain";
         const buttonLabel = isInsert ? "Add" : "Submit";
 
         return selectedSubAffDomain && (

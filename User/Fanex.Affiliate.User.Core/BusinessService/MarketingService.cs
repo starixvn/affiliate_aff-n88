@@ -112,12 +112,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return bannerTypeList ?? new List<BannerType>();
         }
 
-        public IEnumerable<Domain> GetAvailableDomainList(int affId, bool isInternal = false)
+        public IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal = false)
         {
             var domainList = _cacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList);
             if (domainList == null)
             {
-                domainList = _marketingRepository.GetDomainList(affId, isInternal);
+                domainList = _marketingRepository.GetAvailableDomainList(affId, targetId, isInternal);
             }
 
             if (domainList != null)
@@ -126,13 +126,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             return domainList ?? new List<Domain>();
-        }
-
-        public IEnumerable<Domain> GetDomainList(int affId, int targetId, bool isInternal = false)
-        {
-            return targetId == TargetSite.TargetToMember 
-                ? GetAvailableDomainList(affId, isInternal) 
-                : GetAffiliateDomains();
         }
 
         public IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGenerationParam linkGenerationParam)
@@ -193,8 +186,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false, bool isTargetToMember = true)
         {
-            return isTargetToMember 
-                ? _marketingRepository.GetLandingPageList(isInternal) 
+            return isTargetToMember
+                ? _marketingRepository.GetLandingPageList(isInternal)
                 : GetAffLandingPages();
         }
 
@@ -280,19 +273,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                                 .Replace("{lang}", shortedLanguageCode);
 
             return result;
-        }
-
-        private IEnumerable<Domain> GetAffiliateDomains()
-        {
-            var urls = _appSetting.SubAffDomains.Select(link => new Uri(link));
-            var id = 1;
-
-            return urls.Select(u => new Domain
-            {
-                DomainId = id++,
-                DomainName = u.OriginalString.Replace($"{u.Scheme}://",""),
-                IsSsl = u.Scheme == Uri.UriSchemeHttps
-            }).ToList();
         }
 
         private IEnumerable<LandingPage> GetAffLandingPages()

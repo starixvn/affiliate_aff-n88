@@ -17,7 +17,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal);
 
-        IEnumerable<Domain> GetDomainList(int affId, bool isInternal);
+        IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal);
 
         IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam);
 

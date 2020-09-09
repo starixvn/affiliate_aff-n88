@@ -14,7 +14,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
     {
         public IEnumerable<DomainInfo> GetSubAffDomainList()
         {
-            const string SpKey = "Aff_Admin_AffiliateDomain_Sel";
+            const string SpKey = "Aff_Admin_SubAffiliateDomain_Sel";
 
             var result = new List<DomainInfo>();
 
@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo InsertSubAffDomain(InsertUpdateDomainParam param)
         {
-            const string SpKey = "Aff_Admin_AffiliateDomain_Ins";
+            const string SpKey = "Aff_Admin_SubAffiliateDomain_Ins";
 
             using (var objectDb = GetObjectDb(SpKey))
             {
@@ -48,7 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo UpdateSubAffDomain(InsertUpdateDomainParam param)
         {
-            const string SpKey = "Aff_Admin_AffiliateDomain_Upd";
+            const string SpKey = "Aff_Admin_SubAffiliateDomain_Upd";
 
             using (var objectDb = GetObjectDb(SpKey))
             {
@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         public ResultInfo DeleteSubAffDomain(DeleteDomainParam param)
         {
-            const string SpKey = "Aff_Admin_AffiliateDomain_Del";
+            const string SpKey = "Aff_Admin_SubAffiliateDomain_Del";
 
             using (var objectDb = GetObjectDb(SpKey))
             {

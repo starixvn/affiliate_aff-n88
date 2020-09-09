@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         IEnumerable<SizeType> GetSizeList(SizeParam param, bool isInternal = false);
 
-        IEnumerable<Domain> GetDomainList(int affId, int targetId, bool isInternal = false);
+        IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal = false);
 
         IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGenerationParam linkGenerationParam);
 

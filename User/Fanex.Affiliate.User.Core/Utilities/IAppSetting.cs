@@ -55,8 +55,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string MinWithdrawal { get; }
 
-        IEnumerable<string> SubAffDomains { get; }
-
         string SubAffTextLinkTemplate { get; }
 
         string DefaultLanguageCode { get; }
