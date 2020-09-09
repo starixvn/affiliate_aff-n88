@@ -217,6 +217,7 @@
     <Compile Include="Controllers\Affiliate\EmailHistoryController.cs" />
     <Compile Include="Controllers\Domain\DomainControlController.cs" />
     <Compile Include="Controllers\Domain\DomainController.cs" />
+    <Compile Include="Controllers\Domain\SubAffDomainController.cs" />
     <Compile Include="Controllers\EmailTestingController.cs" />
     <Compile Include="Controllers\ExchangeRateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -501,6 +502,8 @@
     <Compile Include="Services\Domain\DomainService.cs" />
     <Compile Include="Services\Domain\IDomainControlService.cs" />
     <Compile Include="Services\Domain\IDomainService.cs" />
+    <Compile Include="Services\Domain\ISubAffDomainService.cs" />
+    <Compile Include="Services\Domain\SubAffDomainService.cs" />
     <Compile Include="Services\EmailHistory\EmailHistoryService.cs" />
     <Compile Include="Services\EmailHistory\IEmailHistoryService.cs" />
     <Compile Include="Services\EmailService.cs" />

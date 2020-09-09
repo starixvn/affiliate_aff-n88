@@ -412,6 +412,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliate Domain.
+        /// </summary>
+        public static string SubAffiliateDomain {
+            get {
+                return ResourceManager.GetString("SubAffiliateDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 12Bet Domains.
         /// </summary>
         public static string Text12BetDomains {
