@@ -11,10 +11,10 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 const testCaseList = [
     { name: 'shouldResetScrollPosition', value: true, action: { type: types.SHOULD_RESET_SCROLL_POSITION, data: false }, expectedResult: false },
     { name: 'gridData', value: null, action: { type: types.SET_GRID_DATA, data: [{ domainName: 'abc.com' }] }, expectedResult: [{ domainName: 'abc.com' }] },
-    { name: 'selectedDomain', value: null, action: { type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 } }, expectedResult: { domainId: 123 } }
+    { name: 'selectedSubAffDomain', value: null, action: { type: types.SET_SELECTED_SUB_AFF_DOMAIN, data: { domainId: 123 } }, expectedResult: { domainId: 123 } }
 ]
 
-describe('domain reducers', () => {
+describe('sub-affiliate domain reducers', () => {
     testCaseList.forEach((item) => {
         runTestReducer(item);
     })

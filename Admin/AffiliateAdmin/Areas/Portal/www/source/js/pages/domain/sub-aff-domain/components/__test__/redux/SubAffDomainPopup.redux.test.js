@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../actions/index';
 
-describe('domain - DomainPopup - connect', () => {
+describe('sub-affiliate domain - SubAffDomainPopup - connect', () => {
     let mapStateToProps, mapDispatchToProps;
     const connectMock = jest.fn();
 
@@ -14,17 +14,15 @@ describe('domain - DomainPopup - connect', () => {
             mapDispatchToProps = mapDispatchToPropsFunc;
             return connectMock;
         });
-        require('../../DomainPopup').default;
+        require('../../SubAffDomainPopup').default;
     });
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            selectedDomain: { domainId: 123 },
-            isAffDomain: true
+            selectedSubAffDomain: { domainId: 123 }
         };
         const state = {
-            selectedDomain: { domainId: 123 },
-            isAffDomain: true,
+            selectedSubAffDomain: { domainId: 123 },
             anotherProp: "Not included"
         };
 
@@ -37,11 +35,11 @@ describe('domain - DomainPopup - connect', () => {
         const mockBindAction = jest.fn();
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
-            insertDomain: actions['insertDomain'],
+            insertSubAffDomain: actions['insertSubAffDomain'],
             fetchData: actions['fetchData'],
-            updateDomain: actions['updateDomain'],
+            updateSubAffDomain: actions['updateSubAffDomain'],
             toggleLoader: actions['toggleLoader'],
-            setSelectedDomain: actions['setSelectedDomain']
+            setSelectedSubAffDomain: actions['setSelectedSubAffDomain']
         }
 
         const dispatch = {};
@@ -51,8 +49,8 @@ describe('domain - DomainPopup - connect', () => {
     })
 
     it('returned function of connect should be called with correct parameter', () => {
-        const DomainPopup = require('../../DomainPopup').DomainPopup;
+        const SubAffDomainPopup = require('../../SubAffDomainPopup').SubAffDomainPopup;
 
-        expect(connectMock).toHaveBeenCalledWith(DomainPopup);
+        expect(connectMock).toHaveBeenCalledWith(SubAffDomainPopup);
     })
 })

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../../actions/index';
 
-describe('domain - Content - connect', () => {
+describe('sub-affiliate domain - Content - connect', () => {
     let mapStateToProps, mapDispatchToProps;
     const connectMock = jest.fn();
 
@@ -19,12 +19,10 @@ describe('domain - Content - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            isAffDomain: true,
             shouldResetScrollPosition: true,
             gridData: []
         };
         const state = {
-            isAffDomain: true,
             shouldResetScrollPosition: true,
             gridData: [],
             anotherProp: "Not included"
@@ -39,10 +37,10 @@ describe('domain - Content - connect', () => {
         const mockBindAction = jest.fn();
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
-            deleteDomain: actions['deleteDomain'],
+            deleteSubAffDomain: actions['deleteSubAffDomain'],
             fetchData: actions['fetchData'],
             toggleLoader: actions['toggleLoader'],
-            setSelectedDomain: actions['setSelectedDomain'],
+            setSelectedSubAffDomain: actions['setSelectedSubAffDomain'],
             setShouldResetScrollPosition: actions['setShouldResetScrollPosition']
         }
 

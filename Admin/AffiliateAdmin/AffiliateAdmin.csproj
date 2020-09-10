@@ -360,12 +360,12 @@
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\AppContainer.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\Content.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\DomainPopup.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\SubAffDomainPopup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\Content.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\DomainPopup.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\SubAffDomainPopup.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\redux\Content.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\redux\DomainPopup.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\components\__test__\redux\SubAffDomainPopup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\libs\constants.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\reducers\index.js" />

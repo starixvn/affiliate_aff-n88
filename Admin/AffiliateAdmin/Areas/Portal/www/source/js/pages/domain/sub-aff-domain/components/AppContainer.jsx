@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import AppLayout from '../../../../layouts/AppLayout';
 import Loader from '../../../../components/Loader';
 import Content from './Content';
-import DomainPopup from './DomainPopup';
+import SubAffDomainPopup from './SubAffDomainPopup';
 
 export const AppContainer = (props) => {
     return (
         <AppLayout>
             <Loader show={props.isShowLoader} />
             <Content />
-            <DomainPopup />
+            <SubAffDomainPopup />
         </AppLayout>
     );
 }

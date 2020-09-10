@@ -17,12 +17,12 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setSelectedDomain', type: types.SET_SELECTED_DOMAIN, data: { domainId: 123 } },
+    { name: 'setSelectedSubAffDomain', type: types.SET_SELECTED_SUB_AFF_DOMAIN, data: { domainId: 123 } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' }
 ];
 
-describe('domain actions', () => {
+describe('sub-affiliate domain actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
@@ -46,8 +46,8 @@ describe('domain actions', () => {
         ];
 
         const store = mockStore({ todos: [] });
-        return store.dispatch(actions['fetchData'](false)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/GetDomainList', { isAffDomain: false });
+        return store.dispatch(actions['fetchData']()).then(() => {
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/GetSubAffDomainList');
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
@@ -64,96 +64,90 @@ describe('domain actions', () => {
 
         const store = mockStore({ todos: [] });
         return store.dispatch(actions['fetchData'](false)).then(() => {
-            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/GetDomainList', { isAffDomain: false });
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/GetSubAffDomainList');
             expect(store.getActions()).toEqual(expectedAction)
         })
     })
 
-    it('should create action to insertDomain with insert successfully', async () => {
+    it('should create action to insertSubAffDomain with insert successfully', async () => {
         const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const param = {
             DomainId: 0,
-            DomainName: "abc.com",
-            IsAffDomain: false
+            DomainName: "abc.com"
         };
 
-        const result = await actions['insertDomain'](param)();
+        const result = await actions['insertSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/InsertDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/InsertSubAffDomain', param);
 
         expect(result).toEqual({ IsSuccessful: true, Message: "" });
     })
 
-    it('should create action to insertDomain with insert is failed', async () => {
+    it('should create action to insertSubAffDomain with insert is failed', async () => {
         ajaxRequest.post = jest.fn();
         const param = {
             DomainId: 0,
-            DomainName: "abc.com",
-            IsAffDomain: false
+            DomainName: "abc.com"
         };
 
-        const result = await actions['insertDomain'](param)();
+        const result = await actions['insertSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/InsertDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/InsertSubAffDomain', param);
         expect(result).toEqual(null);
     })
 
-    it('should create action to updateDomain with update successfully', async () => {
+    it('should create action to updateSubAffDomain with update successfully', async () => {
         const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const param = {
             DomainId: 123,
-            DomainName: "abc.com",
-            IsAffDomain: false
+            DomainName: "abc.com"
         };
 
-        const result = await actions['updateDomain'](param)();
+        const result = await actions['updateSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/UpdateDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/UpdateSubAffDomain', param);
 
         expect(result).toEqual({ IsSuccessful: true, Message: "" });
     })
 
-    it('should create action to updateDomain with update is failed', async () => {
+    it('should create action to updateSubAffDomain with update is failed', async () => {
         ajaxRequest.post = jest.fn();
         const param = {
             DomainId: 123,
-            DomainName: "abc.com",
-            IsAffDomain: false
+            DomainName: "abc.com"
         };
 
-        const result = await actions['updateDomain'](param)();
+        const result = await actions['updateSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/UpdateDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/UpdateSubAffDomain', param);
         expect(result).toEqual(null);
     })
 
-    it('should create action to deleteDomain with delete successfully', async () => {
+    it('should create action to deleteSubAffDomain with delete successfully', async () => {
         const expectedResponse = { data: { IsSuccessful: true, Message: '' }, status: 200 };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const param = {
-            DomainId: 123,
-            IsAffDomain: false
+            DomainId: 123
         };
 
-        const result = await actions['deleteDomain'](param)();
+        const result = await actions['deleteSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/DeleteDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/DeleteSubAffDomain', param);
 
         expect(result).toEqual({ IsSuccessful: true, Message: "" });
     })
 
-    it('should create action to deleteDomain with update is failed', async () => {
+    it('should create action to deleteSubAffDomain with update is failed', async () => {
         ajaxRequest.post = jest.fn();
         const param = {
-            DomainId: 123,
-            IsAffDomain: false
+            DomainId: 123
         };
 
-        const result = await actions['deleteDomain'](param)();
+        const result = await actions['deleteSubAffDomain'](param)();
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/Domain/DeleteDomain', param);
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/SubAffDomain/DeleteSubAffDomain', param);
         expect(result).toEqual(null);
     })
 });

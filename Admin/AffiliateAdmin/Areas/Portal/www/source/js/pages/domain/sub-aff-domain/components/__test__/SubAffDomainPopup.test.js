@@ -1,49 +1,48 @@
 ﻿import React from 'react';
-import { DomainPopup } from '../DomainPopup';
+import { SubAffDomainPopup } from '../SubAffDomainPopup';
 import { shallow } from 'enzyme';
 
-describe('domain - components - DomainPopup ', () => {
-    const emptyDomain = {
+describe('sub-affiliate domain - components - SubAffDomainPopup ', () => {
+    const emptySubAffDomain = {
         domainId: 0,
         domainName: '',
         isSSL: false
     };
 
-    const selectedDomain = {
+    const selectedSubAffDomain = {
         domainId: 123,
         domainName: 'abc.com',
         isSSL: true
     };
 
     const defaultProps = {
-        selectedDomain,
-        isAffDomain: true
+        selectedSubAffDomain
     };
 
     it('render correctly with insert', () => {
-        const props = Object.assign({}, defaultProps, { selectedDomain: emptyDomain });
-        const result = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { selectedSubAffDomain: emptySubAffDomain });
+        const result = shallow(<SubAffDomainPopup {...props} />);
 
         expect(result).toMatchSnapshot();
     });
 
     it('render correctly with update', () => {
-        const result = shallow(<DomainPopup {...defaultProps} />);
+        const result = shallow(<SubAffDomainPopup {...defaultProps} />);
         result.setState({ isSuccess: false });
 
         expect(result).toMatchSnapshot();
     });
 
     it('render correctly with not show popup', () => {
-        const props = Object.assign({}, defaultProps, { selectedDomain: null });
-        const result = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { selectedSubAffDomain: null });
+        const result = shallow(<SubAffDomainPopup {...props} />);
 
         expect(result).toMatchSnapshot();
     });
 
     it('componentDidUpdate should call setState', () => {
-        const props = Object.assign({}, defaultProps, { selectedDomain: emptyDomain });
-        const result = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { selectedSubAffDomain: emptySubAffDomain });
+        const result = shallow(<SubAffDomainPopup {...props} />);
 
         result.setState = jest.fn();
 
@@ -52,7 +51,7 @@ describe('domain - components - DomainPopup ', () => {
         expect(result.setState).toHaveBeenCalledWith({ isInsert: true });
     });
 
-    it('_handleChange should be called when change domain name', () => {
+    it('_handleChange should be called when change sub-affiliate domain name', () => {
         const event = {
             target: {
                 type: 'text',
@@ -60,12 +59,12 @@ describe('domain - components - DomainPopup ', () => {
                 value: '123'
             }
         };
-        const props = Object.assign({}, defaultProps, { setSelectedDomain: jest.fn() })
-        const result = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { setSelectedSubAffDomain: jest.fn() })
+        const result = shallow(<SubAffDomainPopup {...props} />);
 
         result.find('Input[type="text"][name="domainName"]').simulate('change', event);
 
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "123", "isSSL": true });
+        expect(props.setSelectedSubAffDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "123", "isSSL": true });
     });
 
     it('_handleChange should be called when change checkbox', () => {
@@ -77,17 +76,17 @@ describe('domain - components - DomainPopup ', () => {
             }
         };
 
-        const props = Object.assign({}, defaultProps, { setSelectedDomain: jest.fn() })
-        const result = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { setSelectedSubAffDomain: jest.fn() })
+        const result = shallow(<SubAffDomainPopup {...props} />);
 
         result.find('input[type="checkbox"][name="isSSL"]').simulate('change', event);
 
-        expect(props.setSelectedDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "abc.com", "isSSL": false });
+        expect(props.setSelectedSubAffDomain).toHaveBeenCalledWith({ "domainId": 123, "domainName": "abc.com", "isSSL": false });
     });
 
-    it('_handleSubmit - should be called toggleLoader and _handleShowAlert with domain is empty', async () => {
-        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), selectedDomain: emptyDomain });
-        const wrapper = shallow(<DomainPopup {...props} />);
+    it('_handleSubmit - should be called toggleLoader and _handleShowAlert with sub-affiliate domain is empty', async () => {
+        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), selectedSubAffDomain: emptySubAffDomain });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -98,13 +97,13 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Please input domain name!");
+        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Please input Sub-Affiliate Domain's name!");
     });
 
-    it('_handleSubmit - should be called toggleLoader, insertDomain and _handleShowAlert with with insert successfully', async () => {
+    it('_handleSubmit - should be called toggleLoader, insertSubAffDomain and _handleShowAlert with with insert successfully', async () => {
         const result = { IsSuccessful: true, Message: "" };
-        const props = Object.assign({}, defaultProps, { insertDomain: jest.fn(() => result), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { insertSubAffDomain: jest.fn(() => result), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -115,13 +114,13 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Add Successfully!");
+        expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Add Sub-Affiliate Domain is successful!");
     });
 
-    it('_handleSubmit - should be called toggleLoader, insertDomain and _handleShowAlert with with insert is failed', async () => {
+    it('_handleSubmit - should be called toggleLoader, insertSubAffDomain and _handleShowAlert with with insert is failed', async () => {
         const result = { IsSuccessful: false, Message: "Adding has a error" };
-        const props = Object.assign({}, defaultProps, { insertDomain: jest.fn(() => result), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { insertSubAffDomain: jest.fn(() => result), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -135,9 +134,9 @@ describe('domain - components - DomainPopup ', () => {
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Adding has a error");
     });
 
-    it('_handleSubmit - should be called toggleLoader, insertDomain and _handleShowAlert with with insert is errored', async () => {
-        const props = Object.assign({}, defaultProps, { insertDomain: jest.fn(), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+    it('_handleSubmit - should be called toggleLoader, insertSubAffDomain and _handleShowAlert with with insert is errored', async () => {
+        const props = Object.assign({}, defaultProps, { insertSubAffDomain: jest.fn(), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
@@ -148,13 +147,13 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Add Domain is failed!");
+        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Add Sub-Affiliate Domain is failed!");
     });
 
-    it('_handleSubmit - should be called toggleLoader, updateDomain and _handleShowAlert with with update successfully', async () => {
+    it('_handleSubmit - should be called toggleLoader, updateSubAffDomain and _handleShowAlert with with update successfully', async () => {
         const result = { IsSuccessful: true, Message: "" };
-        const props = Object.assign({}, defaultProps, { updateDomain: jest.fn(() => result), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { updateSubAffDomain: jest.fn(() => result), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         wrapper.setState({ isInsert: false });
         const instance = wrapper.instance();
 
@@ -166,13 +165,13 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Update Successfully!");
+        expect(instance._handleShowAlert).toHaveBeenCalledWith(true, "Update Sub-Affiliate Domain is successful!");
     });
 
-    it('_handleSubmit - should be called toggleLoader, updateDomain and _handleShowAlert with with update is failed', async () => {
+    it('_handleSubmit - should be called toggleLoader, updateSubAffDomain and _handleShowAlert with with update is failed', async () => {
         const result = { IsSuccessful: false, Message: "Update has a error" };
-        const props = Object.assign({}, defaultProps, { updateDomain: jest.fn(() => result), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+        const props = Object.assign({}, defaultProps, { updateSubAffDomain: jest.fn(() => result), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         wrapper.setState({ isInsert: false });
         const instance = wrapper.instance();
 
@@ -187,9 +186,9 @@ describe('domain - components - DomainPopup ', () => {
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Update has a error");
     });
 
-    it('_handleSubmit - should be called toggleLoader, updateDomain and _handleShowAlert with with update is errored', async () => {
-        const props = Object.assign({}, defaultProps, { updateDomain: jest.fn(), toggleLoader: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+    it('_handleSubmit - should be called toggleLoader, updateSubAffDomain and _handleShowAlert with with update is errored', async () => {
+        const props = Object.assign({}, defaultProps, { updateSubAffDomain: jest.fn(), toggleLoader: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         wrapper.setState({ isInsert: false });
         const instance = wrapper.instance();
 
@@ -201,11 +200,11 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Update Domain is failed!");
+        expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Update Sub-Affiliate Domain is failed!");
     });
 
     it('_handleShowAlert - should call setState, setTimeout and _hideMessage', async () => {
-        const wrapper = shallow(<DomainPopup {...defaultProps} />);
+        const wrapper = shallow(<SubAffDomainPopup {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, val) => fn && fn());
 
@@ -219,9 +218,9 @@ describe('domain - components - DomainPopup ', () => {
         expect(instance._hideMessage).toHaveBeenCalled();
     });
 
-    it('_hideMessage - should call setState, fetchData and setSelectedDomain', async () => {
-        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(), setSelectedDomain: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+    it('_hideMessage - should call setState, fetchData and setSelectedSubAffDomain', async () => {
+        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(), setSelectedSubAffDomain: jest.fn() });
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
         instance._handleClosePopup = jest.fn();
@@ -230,12 +229,12 @@ describe('domain - components - DomainPopup ', () => {
 
         expect(wrapper.setState).toHaveBeenCalledWith({ isShowMessage: false });
         expect(props.fetchData).toHaveBeenCalled();
-        expect(props.setSelectedDomain).toHaveBeenCalledWith(null);
+        expect(props.setSelectedSubAffDomain).toHaveBeenCalledWith(null);
     });
 
     it('_hideMessage - should call setState and not call fetchData', async () => {
         const props = Object.assign({}, defaultProps, { fetchData: jest.fn() });
-        const wrapper = shallow(<DomainPopup {...props} />);
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
         instance._handleClosePopup = jest.fn();
@@ -246,12 +245,12 @@ describe('domain - components - DomainPopup ', () => {
         expect(props.fetchData).not.toHaveBeenCalled();
     });
 
-    it('_handlePressEnter - should call _handleSubmit when press enter in domain name textbox', () => {
+    it('_handlePressEnter - should call _handleSubmit when press enter in sub-affiliate domain name textbox', () => {
         const event = {
             charCode: 13,
             preventDefault: jest.fn()
         };
-        const wrapper = shallow(<DomainPopup {...defaultProps} />);
+        const wrapper = shallow(<SubAffDomainPopup {...defaultProps} />);
         wrapper.instance()._handleSubmit = jest.fn();
 
         wrapper.find('Input[type="text"]').simulate('keyPress', event);
@@ -265,19 +264,19 @@ describe('domain - components - DomainPopup ', () => {
             charCode: 16,
             preventDefault: jest.fn()
         };
-        const wrapper = shallow(<DomainPopup {...defaultProps} />);
+        const wrapper = shallow(<SubAffDomainPopup {...defaultProps} />);
 
         wrapper.find('Input[type="text"]').simulate('keyPress', event);
 
         expect(event.preventDefault).not.toHaveBeenCalled();
     });
 
-    it('_handleClosePopup - should call setSelectedDomain', () => {
-        const props = Object.assign({}, defaultProps, { setSelectedDomain: jest.fn() })
-        const wrapper = shallow(<DomainPopup {...props} />);
+    it('_handleClosePopup - should call setSelectedSubAffDomain', () => {
+        const props = Object.assign({}, defaultProps, { setSelectedSubAffDomain: jest.fn() })
+        const wrapper = shallow(<SubAffDomainPopup {...props} />);
 
         wrapper.instance()._handleClosePopup();
 
-        expect(props.setSelectedDomain).toHaveBeenCalledWith(null);
+        expect(props.setSelectedSubAffDomain).toHaveBeenCalledWith(null);
     });
 })

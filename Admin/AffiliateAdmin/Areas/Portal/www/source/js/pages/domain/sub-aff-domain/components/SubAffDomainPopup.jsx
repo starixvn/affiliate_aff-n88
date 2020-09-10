@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { insertSubAffDomain, updateSubAffDomain, toggleLoader, fetchData, setSelectedSubAffDomain } from '../actions/index';
 
-export class DomainPopup extends PureComponent {
+export class SubAffDomainPopup extends PureComponent {
     constructor(props) {
         super(props)
 
@@ -138,4 +138,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ insertSubAffDomain, updateSubAffDomain, toggleLoader, fetchData, setSelectedSubAffDomain }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DomainPopup);
+export default connect(mapStateToProps, mapDispatchToProps)(SubAffDomainPopup);
