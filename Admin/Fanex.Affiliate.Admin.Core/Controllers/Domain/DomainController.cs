@@ -33,7 +33,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
                 new SubMenu { Name = Lang.AffiliateDomain, Url = Url.Content("~/Portal/Domain?isAffDomain=true"), IsActive = isAffDomain },
                 new SubMenu { Name = SiteFriendlyNameHelper.Replace12Bet(Lang.Text12BetDomains), Url = Url.Content("~/Portal/Domain?isAffDomain=false"), IsActive = !isAffDomain },
                 new SubMenu { Name = Lang.DomainControl, Url = Url.Content("~/Portal/DomainControl") },
-                new SubMenu { Name = Lang.SubAffiliateDomain, Url = Url.Content("~/Portal/SubAffDomain") }
+                //new SubMenu { Name = Lang.SubAffiliateDomain, Url = Url.Content("~/Portal/SubAffDomain") }
             };
 
             var model = new DomainViewModel
