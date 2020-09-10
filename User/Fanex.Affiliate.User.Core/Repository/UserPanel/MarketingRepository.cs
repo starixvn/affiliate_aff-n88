@@ -4,7 +4,6 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Common.Extensions;
-using Fanex.Affiliate.User.Core.Constants;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -71,9 +70,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal)
+        public IEnumerable<Domain> GetAvailableDomainList(int affId, bool isMember, bool isInternal)
         {
-            var isMember = targetId == TargetSite.TargetToMember;
             var uSpKey = isMember ? "Aff_User_Domain_Sel" : "Aff_User_SubAffiliateDomain_Sel";
 
             var dbMode = isInternal ? DBMode.View : DBMode.Main;

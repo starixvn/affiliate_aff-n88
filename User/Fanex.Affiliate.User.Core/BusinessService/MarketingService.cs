@@ -114,15 +114,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal = false)
         {
-            var domainList = _cacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList);
+            var isMember = targetId == TargetSite.TargetToMember;
+            var cachKey = isMember ? CacheKey.DomainList : CacheKey.SubDomainList;
+
+            var domainList = _cacheService.Get<IEnumerable<Domain>>(cachKey);
+
             if (domainList == null)
             {
-                domainList = _marketingRepository.GetAvailableDomainList(affId, targetId, isInternal);
+                domainList = _marketingRepository.GetAvailableDomainList(affId, isMember, isInternal);
             }
 
             if (domainList != null)
             {
-                _cacheService.Set(CacheKey.DomainList, domainList, Number.Ten);
+                _cacheService.Set(cachKey, domainList, Number.Ten);
             }
 
             return domainList ?? new List<Domain>();
