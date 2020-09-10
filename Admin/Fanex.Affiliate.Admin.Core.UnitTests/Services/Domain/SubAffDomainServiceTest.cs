@@ -1,12 +1,10 @@
-﻿using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Domain;
+using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
+using Fanex.Affiliate.Admin.Core.Repository.Domain;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
-using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
-using Fanex.Data;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
@@ -14,204 +12,82 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
     public class SubAffDomainServiceTest
     {
         [Fact]
-        public void GetSubAffDomainList_WhenCall_ReturnCorrectData()
+        public void GetSubAffDomainList_WhenCall_CallCorrect()
         {
             // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
 
-            ReaderHelper.MapReaderData(dataReader, GetSubAffDomainList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_SubAffiliateDomain_Sel", 120)).Returns(objectDb.Object);
+            var service = CreateSubAffDomainService(repository.Object);
 
             // Action
-            var result = service.Object.GetSubAffDomainList();
-            var item = result.FirstOrDefault();
+            var result = service.GetSubAffDomainList();
 
             // Assert
             Assert.Single(result);
-            Assert.Equal("09/10/2020", item.CreatedDateText);
+            Assert.Equal("Aff_Admin_SubAffiliateDomain_Sel", spKey);
         }
 
         [Fact]
-        public void GetSubAffDomainList_WhenCall_ReturnCorrectDataHasNull()
+        public void InsertSubAffDomain_WhenCall_CallCorrect()
         {
             // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.InsertDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
 
-            ReaderHelper.MapReaderData(dataReader, GetSubAffDomainListHasNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_SubAffiliateDomain_Sel", 120)).Returns(objectDb.Object);
+            var service = CreateSubAffDomainService(repository.Object);
 
             // Action
-            var result = service.Object.GetSubAffDomainList();
-            var item = result.FirstOrDefault();
-
-            // Assert
-            Assert.Single(result);
-            Assert.Null(item.CreatedDateText);
-        }
-
-        [Fact]
-        public void GetSubAffDomainList_WhenCall_ReturnNullData()
-        {
-            // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
-
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_SubAffiliateDomain_Sel", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.GetSubAffDomainList();
-
-            // Assert
-            Assert.Empty(result);
-        }
-
-        [Fact]
-        public void InsertSubAffDomain_WhenCallWithValidParam_InsertSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Ins", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.InsertSubAffDomain(new InsertUpdateDomainParam());
+            var result = service.InsertSubAffDomain(new InsertUpdateDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_SubAffiliateDomain_Ins", spKey);
         }
 
         [Fact]
-        public void InsertSubAffDomain_WhenCallWithInvalidParam_InsertIsFailed()
+        public void UpdateSubAffDomain_WhenCall_CallCorrect()
         {
             // Arrange
-            var message = "Insert Sub-Affiliate Domain is failed.";
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Ins", 120)).Returns(objectDb.Object);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.UpdateDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateSubAffDomainService(repository.Object);
 
             // Action
-            var result = service.Object.InsertSubAffDomain(new InsertUpdateDomainParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void UpdateSubAffDomain_WhenCallWithValidParam_UpdateSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Upd", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.UpdateSubAffDomain(new InsertUpdateDomainParam { IsAffDomain = true });
+            var result = service.UpdateSubAffDomain(new InsertUpdateDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_SubAffiliateDomain_Upd", spKey);
         }
 
         [Fact]
-        public void UpdateSubAffDomain_WhenCallWithInvalidParam_UpdateIsFailed()
+        public void DeleteSubAffDomain_WhenCall_CallCorrect()
         {
             // Arrange
-            var message = "Update Sub-Affiliate Domain is failed.";
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Upd", 120)).Returns(objectDb.Object);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateSubAffDomainService(repository.Object);
 
             // Action
-            var result = service.Object.UpdateSubAffDomain(new InsertUpdateDomainParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void DeleteSubAffDomain_WhenCallWithValidParam_DeleteSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Del", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.DeleteSubAffDomain(new DeleteDomainParam());
+            var result = service.DeleteSubAffDomain(new DeleteDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_SubAffiliateDomain_Del", spKey);
         }
 
-        [Fact]
-        public void DeleteSubAffDomain_WhenCallWithInvalidParam_DeleteIsFailed()
+        private static SubAffDomainService CreateSubAffDomainService(IDomainRepository subAffDomainRepository = null)
         {
-            // Arrange
-            var message = "Delete Sub-Affiliate Domain is failed.";
-            var service = new Mock<SubAffDomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_SubAffiliateDomain_Del", 120)).Returns(objectDb.Object);
+            var fakeSubAffDomainRepository = subAffDomainRepository ?? Mock.Of<IDomainRepository>();
 
-            // Action
-            var result = service.Object.DeleteSubAffDomain(new DeleteDomainParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        private IDictionary<string, object> GetSubAffDomainList()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["DomainId"] = 123,
-                ["DomainName"] = "abc.com",
-                ["IsSSL"] = true,
-                ["Creator"] = "sa",
-                ["CreateDate"] = new DateTime(2020, 09, 10)
-            };
-        }
-
-        private IDictionary<string, object> GetSubAffDomainListHasNull()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["DomainId"] = 123,
-                ["DomainName"] = "abc.com",
-                ["IsSSL"] = true,
-                ["Creator"] = "sa",
-                ["CreateDate"] = DBNull.Value
-            };
+            return new SubAffDomainService(fakeSubAffDomainRepository);
         }
     }
 }

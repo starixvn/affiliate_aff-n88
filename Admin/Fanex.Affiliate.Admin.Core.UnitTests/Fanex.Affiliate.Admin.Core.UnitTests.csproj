@@ -205,6 +205,7 @@
     <Compile Include="Repository\Customer\ReferrersRepositoryTest.cs" />
     <Compile Include="Repository\Customer\StatementHistoryRepositoryTest.cs" />
     <Compile Include="Repository\Customer\UserAccountRepositoryTest.cs" />
+    <Compile Include="Repository\Domain\SubAffDomainRepositoryTest.cs" />
     <Compile Include="Repository\LanguageRepositoryTest.cs" />
     <Compile Include="Repository\MediaGallery\BannerListReppositoryTest.cs" />
     <Compile Include="Repository\MediaGallery\LandingPageRepositoryTest.cs" />

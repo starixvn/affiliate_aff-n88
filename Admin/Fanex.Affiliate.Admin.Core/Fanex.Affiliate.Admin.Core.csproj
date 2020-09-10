@@ -398,6 +398,8 @@
     <Compile Include="Repository\CurrencyRepository.cs" />
     <Compile Include="Repository\Customer\CustomerLeftPanelRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerLeftPanelRepository.cs" />
+    <Compile Include="Repository\Domain\DomainRepository.cs" />
+    <Compile Include="Repository\Domain\IDomainRepository.cs" />
     <Compile Include="Repository\ICurrencyRepository.cs" />
     <Compile Include="Repository\MediaGallery\BannerListRepository.cs" />
     <Compile Include="Repository\MediaGallery\IBannerListRepository.cs" />

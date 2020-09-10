@@ -1,12 +1,10 @@
-﻿using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
+﻿using Fanex.Affiliate.Admin.Core.DTO;
+using Fanex.Affiliate.Admin.Core.DTO.Domain;
+using Fanex.Affiliate.Admin.Core.MetaModels.Domain;
+using Fanex.Affiliate.Admin.Core.Repository.Domain;
 using Fanex.Affiliate.Admin.Core.Services.Domain;
-using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
-using Fanex.Data;
 using Moq;
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
@@ -14,204 +12,154 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
     public class DomainServiceTest
     {
         [Fact]
-        public void GetDomainList_WhenCall_ReturnCorrectData()
+        public void GetDomainList_WhenCall_CallCorrect()
         {
             // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
 
-            ReaderHelper.MapReaderData(dataReader, GetDomainList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateDomain_Sel", 120)).Returns(objectDb.Object);
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.GetDomainList(true);
-            var item = result.FirstOrDefault();
+            var result = service.GetDomainList(true);
 
             // Assert
             Assert.Single(result);
-            Assert.Equal("10/25/2019", item.CreatedDateText);
+            Assert.Equal("Aff_Admin_AffiliateDomain_Sel", spKey);
         }
 
         [Fact]
-        public void GetDomainList_WhenCall_ReturnCorrectDataHasNull()
+        public void GetDomainList_WhenCallWithFalse_CallCorrect()
         {
             // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.GetDomainList(It.IsAny<string>())).Returns(new List<DomainInfo> { new DomainInfo() }).Callback<string>(p => spKey = p);
 
-            ReaderHelper.MapReaderData(dataReader, GetDomainListHasNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateDomain_Sel", 120)).Returns(objectDb.Object);
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.GetDomainList(true);
-            var item = result.FirstOrDefault();
+            var result = service.GetDomainList(false);
 
             // Assert
             Assert.Single(result);
-            Assert.Null(item.CreatedDateText);
+            Assert.Equal("Aff_Admin_LicenseeDomain_Sel", spKey);
         }
 
         [Fact]
-        public void GetDomainList_WhenCall_ReturnNullData()
+        public void InsertDomain_WhenCall_CallCorrect()
         {
             // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.InsertDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            service.Setup(r => r.GetObjectDb("Aff_Admin_LicenseeDomain_Sel", 120)).Returns(objectDb.Object);
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.GetDomainList(false);
-
-            // Assert
-            Assert.Empty(result);
-        }
-
-        [Fact]
-        public void InsertDomain_WhenCallWithValidParam_InsertSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_AffiliateDomain_Ins", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.InsertDomain(new InsertUpdateDomainParam { IsAffDomain = true });
+            var result = service.InsertDomain(new InsertUpdateDomainParam { IsAffDomain = true });
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_AffiliateDomain_Ins", spKey);
         }
 
         [Fact]
-        public void InsertDomain_WhenCallWithInvalidParam_InsertIsFailed()
+        public void InsertDomain_WhenCallWithFalse_CallCorrect()
         {
             // Arrange
-            var message = "Insert Domain is failed.";
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Ins", 120)).Returns(objectDb.Object);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.InsertDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.InsertDomain(new InsertUpdateDomainParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void UpdateDomain_WhenCallWithValidParam_UpdateSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_AffiliateDomain_Upd", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.UpdateDomain(new InsertUpdateDomainParam { IsAffDomain = true });
+            var result = service.InsertDomain(new InsertUpdateDomainParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_LicenseeDomain_Ins", spKey);
         }
 
         [Fact]
-        public void UpdateDomain_WhenCallWithInvalidParam_UpdateIsFailed()
+        public void UpdateDomain_WhenCall_CallCorrect()
         {
             // Arrange
-            var message = "Update Domain is failed.";
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Upd", 120)).Returns(objectDb.Object);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.UpdateDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.UpdateDomain(new InsertUpdateDomainParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void DeleteDomain_WhenCallWithValidParam_DeleteSuccessfully()
-        {
-            // Arrange
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_AffiliateDomain_Del", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = service.Object.DeleteDomain(new DeleteDomainParam { IsAffDomain = true });
+            var result = service.UpdateDomain(new InsertUpdateDomainParam { IsAffDomain = true });
 
             // Assert
             Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_AffiliateDomain_Upd", spKey);
         }
 
         [Fact]
-        public void DeleteDomain_WhenCallWithInvalidParam_DeleteIsFailed()
+        public void UpdateDomain_WhenCallWithFalse_CallCorrect()
         {
             // Arrange
-            var message = "Delete Domain is failed.";
-            var service = new Mock<DomainService> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            service.Setup(re => re.GetObjectDb("Aff_Admin_LicenseeDomain_Del", 120)).Returns(objectDb.Object);
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.UpdateDomain(It.IsAny<InsertUpdateDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<InsertUpdateDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateDomainService(repository.Object);
 
             // Action
-            var result = service.Object.DeleteDomain(new DeleteDomainParam());
+            var result = service.UpdateDomain(new InsertUpdateDomainParam());
 
             // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
+            Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_LicenseeDomain_Upd", spKey);
         }
 
-        private IDictionary<string, object> GetDomainList()
+        [Fact]
+        public void DeleteDomain_WhenCall_CallCorrect()
         {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["DomainId"] = 123,
-                ["DomainName"] = "abc.com",
-                ["IsSSL"] = true,
-                ["Creator"] = "sa",
-                ["CreateDate"] = new DateTime(2019, 10, 25)
-            };
+            // Arrange
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateDomainService(repository.Object);
+
+            // Action
+            var result = service.DeleteDomain(new DeleteDomainParam { IsAffDomain = true });
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_AffiliateDomain_Del", spKey);
         }
 
-        private IDictionary<string, object> GetDomainListHasNull()
+        [Fact]
+        public void DeleteDomain_WhenCallWithFalse_CallCorrect()
         {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["DomainId"] = 123,
-                ["DomainName"] = "abc.com",
-                ["IsSSL"] = true,
-                ["Creator"] = "sa",
-                ["CreateDate"] = DBNull.Value
-            };
+            // Arrange
+            var spKey = string.Empty;
+            var repository = new Mock<IDomainRepository> { CallBase = true };
+            repository.Setup(r => r.DeleteDomain(It.IsAny<DeleteDomainParam>(), It.IsAny<string>())).Returns(new ResultInfo()).Callback<DeleteDomainParam, string>((p, s) => spKey = s);
+
+            var service = CreateDomainService(repository.Object);
+
+            // Action
+            var result = service.DeleteDomain(new DeleteDomainParam());
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+            Assert.Equal("Aff_Admin_LicenseeDomain_Del", spKey);
+        }
+
+        private static DomainService CreateDomainService(IDomainRepository domainRepository = null)
+        {
+            var fakeDomainRepository = domainRepository ?? Mock.Of<IDomainRepository>();
+
+            return new DomainService(fakeDomainRepository);
         }
     }
 }
