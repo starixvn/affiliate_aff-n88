@@ -43,7 +43,7 @@
             var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
             var selectedLanguageList = MarketingHelper.GetLanguageList(languageList, SessionService.UserSession.PreferredLanguage);
 
-            var linkList = isTargetToMemberSite 
+            var linkList = isTargetToMemberSite
                 ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
                 : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
 
@@ -68,10 +68,10 @@
             var subCategoryList = MarketingService.GetCategoryList(true, targetId, SessionService.IsInternal)
                 .Where(c => c.Category.MatchWith(category) && !string.IsNullOrEmpty(c.SubCategory));
 
-            return Json(subCategoryList.Select(i => new SelectListItem 
-                { 
-                    Value = i.SubCategory, 
-                    Text = Lang.ResourceManager.GetString(i.SubCategory.Trim()) ?? i.SubCategory 
+            return Json(subCategoryList.Select(i => new SelectListItem
+                {
+                    Value = i.SubCategory,
+                    Text = Lang.ResourceManager.GetString(i.SubCategory.Trim()) ?? i.SubCategory
                 }),
                 JsonRequestBehavior.AllowGet);
         }
@@ -92,7 +92,7 @@
         public ActionResult GetBanner(MarketingBannerParam bannerParam)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, bannerParam.TargetId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, bannerParam.TargetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == bannerParam.SelectedDomainId);
 
             var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
@@ -116,7 +116,7 @@
         public ActionResult GetText(MarketingTextParam textParam)
         {
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, textParam.TargetId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, textParam.TargetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == textParam.SelectedDomainId);
 
             textParam.AffId = userSession.AffId;
@@ -189,7 +189,7 @@
 
             IDictionary<string, QrCodeLinkViewModel> result;
             var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetDomainList(userSession.AffId, targetId, SessionService.IsInternal)
+            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, targetId, SessionService.IsInternal)
                                                     .FirstOrDefault(d => d.DomainId == selectedDomainId);
             var languageList = string.IsNullOrEmpty(selectedLanguage) ?
                 MarketingHelper.GetLanguageList(MarketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;

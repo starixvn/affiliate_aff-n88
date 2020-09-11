@@ -7,20 +7,20 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
     public class SubAffLinkController : BaseMarketingController
     {
-        public SubAffLinkController(ISessionService sessionService, 
+        public SubAffLinkController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService) 
+            IMarketingService marketingService)
             : base(sessionService,
                 appSetting,
                 languageService,
                 marketingService)
-        { 
+        {
         }
 
         public ActionResult Index()
         {
-            return RedirectToRoute("UserPanel", new { controller = "AffiliateLink", isTargetToMemberSite = false }); 
+            return RedirectToRoute("UserPanel", new { controller = "AffiliateLink", isTargetToMemberSite = false });
         }
     }
 }

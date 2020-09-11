@@ -7,7 +7,8 @@ const emptyCommGroup = {
     TierSettingList: [],
     PlatformFeeList: [],
     OperationalFee: {},
-    BankingFee: {}
+    DepositFee: {},
+    WithdrawalFee: {}
 }
 
 export const buildDefaultCommGroup = (deductionList, productList) => {
@@ -17,12 +18,14 @@ export const buildDefaultCommGroup = (deductionList, productList) => {
     const platformFeeList = buildPlatformFeeList(platformFeeParam);
 
     const operationalFee = createDefaultOperationalSetting(deductionSetting.operationalFeeSetting);
-    const bankingFee = createDefaultBankingSetting(deductionSetting.bankingFeeSetting);
+    const depositFee = createDefaultDepositSetting(deductionSetting.depositFeeSetting);
+    const withdrawalFee = createDefaultWithdrawalSetting(deductionSetting.withdrawalFeeSetting);
 
     return Object.assign({}, emptyCommGroup, {
         PlatformFeeList: platformFeeList,
         OperationalFee: operationalFee,
-        BankingFee: bankingFee
+        DepositFee: depositFee,
+        WithdrawalFee: withdrawalFee
     });
 }
 
@@ -30,12 +33,14 @@ export const getDeductionSetting = (deductionList) => {
     const deductionObj = convertDeductionList(deductionList);
     const platformFeeSetting = deductionObj[deductionNameList.platformFee];
     const operationalFeeSetting = deductionObj[deductionNameList.operationalFee];
-    const bankingFeeSetting = deductionObj[deductionNameList.bankingFee];
+    const depositFeeSetting = deductionObj[deductionNameList.depositFee];
+    const withdrawalFeeSetting = deductionObj[deductionNameList.withdrawalFee];
 
     return {
         platformFeeSetting,
         operationalFeeSetting,
-        bankingFeeSetting
+        depositFeeSetting,
+        withdrawalFeeSetting
     }
 }
 
@@ -49,13 +54,23 @@ export const createDefaultOperationalSetting = (operationalFeeSetting) => {
     }
 }
 
-export const createDefaultBankingSetting = (bankingFeeSetting) => {
+export const createDefaultDepositSetting = (depositFeeSetting) => {
     return {
-        DeductionId: bankingFeeSetting.DeductionId,
+        DeductionId: depositFeeSetting.DeductionId,
         ProductIds: 0,
-        DeductedPercentage: bankingFeeSetting.DeductedPercentage,
-        DeductedAmount: bankingFeeSetting.DeductedAmount,
-        IsDeductedPercent: bankingFeeSetting.IsDeductedPercent
+        DeductedPercentage: depositFeeSetting.DeductedPercentage,
+        DeductedAmount: depositFeeSetting.DeductedAmount,
+        IsDeductedPercent: depositFeeSetting.IsDeductedPercent
+    }
+}
+
+export const createDefaultWithdrawalSetting = (withdrawalFeeSetting) => {
+    return {
+        DeductionId: withdrawalFeeSetting.DeductionId,
+        ProductIds: 0,
+        DeductedPercentage: withdrawalFeeSetting.DeductedPercentage,
+        DeductedAmount: withdrawalFeeSetting.DeductedAmount,
+        IsDeductedPercent: withdrawalFeeSetting.IsDeductedPercent
     }
 }
 
@@ -106,18 +121,19 @@ export const convertProductList = (productList, productIds = '') => {
 }
 
 export const validate = (selectedGroup) => {
-    const { GroupName, TierSettingList, PlatformFeeList, OperationalFee, BankingFee } = selectedGroup;
+    const { GroupName, TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = selectedGroup;
 
     const groupNameValidation = validateGroupName(GroupName);
     const tierSettingValidation = validateTierSettingList(TierSettingList);
     const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
     const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
-    const bankingFeeValidation = validateDeductedFees(BankingFee, messages.requireBankingAmount, messages.invalidBankingAmount);
+    const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
+    const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
     const isValid = groupNameValidation.isValid && tierSettingValidation.isValid && platformFeeListValidation.isValid
-        && operationalFeeValidation.isValid && bankingFeeValidation.isValid;
+        && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
     const messageList = [...groupNameValidation.messageList, ...tierSettingValidation.messageList, ...platformFeeListValidation.messageList,
-        ...operationalFeeValidation.messageList, ...bankingFeeValidation.messageList
+        ...operationalFeeValidation.messageList, ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList
     ];
 
     return { isValid, messageList };

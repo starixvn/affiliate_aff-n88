@@ -50,7 +50,9 @@ describe('players detail - components - Filter', () => {
         setSortingColumn: jest.fn(),
         productList,
         currencyList,
-        baseCurrencyList
+        baseCurrencyList,
+        isDepositFeePercent: true,
+        isWithdrawalFeePercent: true
     };
 
     it('render correctly', () => {
@@ -146,7 +148,7 @@ describe('players detail - components - Filter', () => {
         await instance.handleExportExcel();
 
         expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
-        expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, "ABC");
+        expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, "ABC", true, true);
     });
 
     it('_getReportTitle - should call handleFormatMonthPicker', () => {

@@ -107,6 +107,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 DeductedAmount = "-1"
             };
 
+            param.WithdrawalFee = new DeductionSetting
+            {
+                DeductedPercentage = 0.07m,
+                DeductionId = 14,
+                ProductIds = "0",
+                IsDeductedPercent = false,
+                DeductedAmount = "-1"
+            };
+
             var helper = CreateCommGroupValidationHelper();
 
             // Action
@@ -121,10 +130,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommissionGroupSetting();
-            param.BankingFee = new DeductionSetting
+            param.DepositFee = new DeductionSetting
             {
                 DeductedPercentage = 0.07m,
-                DeductionId = 11,
+                DeductionId = 13,
                 ProductIds = "0",
                 IsDeductedPercent = false,
                 DeductedAmount = "abc"
@@ -279,10 +288,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             return new CommissionGroupSetting
             {
-                BankingFee = new DeductionSetting
+                DepositFee = new DeductionSetting
                 {
                     DeductedPercentage = 0.02m,
-                    DeductionId = 12,
+                    DeductionId = 13,
+                    ProductIds = "0",
+                    IsDeductedPercent = true,
+                    DeductedAmount = ""
+                },
+                WithdrawalFee = new DeductionSetting
+                {
+                    DeductedPercentage = 0.02m,
+                    DeductionId = 14,
                     ProductIds = "0",
                     IsDeductedPercent = true,
                     DeductedAmount = ""

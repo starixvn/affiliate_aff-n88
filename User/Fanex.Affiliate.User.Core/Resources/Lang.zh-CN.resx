@@ -1864,23 +1864,14 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>总盈亏</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>平台费</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>营运费</value>
-  </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>银行手续费</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>佣金比例</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
     <value>佣金</value>
-  </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>佣金 = （总盈亏—平台费—营运费—银行手续费—红利）x 佣金比例</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>暂时</value>

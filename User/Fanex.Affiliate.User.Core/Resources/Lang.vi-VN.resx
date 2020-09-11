@@ -1855,20 +1855,20 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Tổng Thắng Thua</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>Chi Phí Nền Tảng</value>
+  <data name="RoyaltyFee" xml:space="preserve">
+    <value>Phí Bản Quyền</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
-    <value>Chi Phí Vận Hành</value>
+    <value>Phí Vận Hành</value>
   </data>
-  <data name="BankingFee" xml:space="preserve">
-    <value>Phí Ngân Hàng</value>
+  <data name="DepositFee" xml:space="preserve">
+    <value>Phí Nạp Tiền</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Hoa Hồng = (Tổng Thắng Thua - Chi Phí Nền Tảng - Chi Phí Vận Hành - Chi Phí Ngân Hàng - Thưởng) x Tỷ Lệ Hoa Hồng</value>
+    <value>Hoa Hồng = (Tổng Thắng Thua - Phí Bản Quyền - Phí Vận Hành - Phí Nạp Tiền - Phí Rút Tiền - Thưởng) x Tỷ Lệ Hoa Hồng</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Tạm Thời</value>
@@ -2262,5 +2262,8 @@
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
     <value>12Bet Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
+  </data>
+  <data name="WithdrawalFee" xml:space="preserve">
+    <value>Phí Rút Tiền</value>
   </data>
 </root>

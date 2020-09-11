@@ -1861,23 +1861,14 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>總盈虧</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>平台費</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>營運費</value>
-  </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>銀行手續費</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>傭金比例</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
     <value>傭金</value>
-  </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>傭金=（總盈虧 — 平台費 — 營運費 — 銀行手續費 — 紅利）x 傭金比例</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>暫時</value>

@@ -79,7 +79,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2">No.Aff</Cell>
                 <Cell header={true} colWidth={150} rowSpan="2">Description</Cell>
                 <Cell header={true} colWidth={80} rowSpan="2">Creation</Cell>
-                <Cell header={true} colSpan="9">Policy</Cell>
+                <Cell header={true} colSpan="10">Policy</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2">Action</Cell>
             </Row>,
             <Row key="sub-theard">
@@ -91,7 +91,8 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={80} title="Maximum number of active players">Max AP</Cell>
                 <Cell header={true} colWidth={80}>Revenue Rate</Cell>
                 <Cell header={true} colWidth={80}>Operational Fee</Cell>
-                <Cell header={true} colWidth={80}>Banking Fee</Cell>
+                <Cell header={true} colWidth={80}>Deposit Fee</Cell>
+                <Cell header={true} colWidth={80}>Withdrawal Fee</Cell>
             </Row>
         ];
     }
@@ -104,13 +105,14 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, PlatformFeeList, OperationalFee, BankingFee, ...group } = item;
+                const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const rowSpan = tierSettingRowSpan + platformFeeRowSpan;
 
-                const operationalFee = OperationalFee && formatDecimal(OperationalFee.IsDeductedPercent ? OperationalFee.DeductedPercentage : Number(OperationalFee.DeductedAmount))
-                const bankingFee = BankingFee && formatDecimal(BankingFee.IsDeductedPercent ? BankingFee.DeductedPercentage : Number(BankingFee.DeductedAmount))
+                const operationalFee = OperationalFee && (OperationalFee.IsDeductedPercent ? `${format(OperationalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(OperationalFee.DeductedAmount)))
+                const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)))
+                const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)))
 
                 for (let iTier = 0; iTier < TierSettingList.length; iTier++) {
                     const tierSetting = TierSettingList[iTier];
@@ -139,12 +141,14 @@ export class GridData extends Component {
                             <Cell className="text-right cell-tier">{tierSetting.MaxAmount === INFINITY_AM ? INFINITY_SYMBOL : format(tierSetting.MaxAmount)}</Cell>
                             <Cell className="text-right cell-tier">{format(tierSetting.MinAp)}</Cell>
                             <Cell className="text-right cell-tier">{tierSetting.MaxAp === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAp)}</Cell>
-                            <Cell className="text-right cell-tier">{formatDecimal(tierSetting.Commission)}</Cell>
+                            <Cell className="text-right cell-tier">{`${format(tierSetting.Commission * 100, 1)}%`}</Cell>
 
                             {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={operationalFee}>
                                 {operationalFee}</Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={bankingFee}>
-                                {bankingFee}</Cell>)}
+                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={depositFee}>
+                                {depositFee}</Cell>)}
+                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={withdrawalFee}>
+                                {withdrawalFee}</Cell>)}
 
                             {isFirstItem && (
                                 <Cell className="text-center" rowSpan={rowSpan}>
@@ -170,9 +174,9 @@ export class GridData extends Component {
 
                     rows.push(
                         (<Row key={`row-platform-${index}-${iPlatformFee}`}>
-                            {isFirstItem && (<Cell className="text-center font-weight-bold cell-platform" rowSpan={platformFeeRowSpan}>Platform Fee</Cell>)}
+                            {isFirstItem && (<Cell className="text-center font-weight-bold cell-platform" rowSpan={platformFeeRowSpan}>Royalty Fee</Cell>)}
                             <Cell className="cell-platform" colSpan="5">{this._convertToProductNameText(platformFee.ProductIds)}</Cell>
-                            <Cell className="text-right cell-platform">{formatDecimal(platformFee.DeductedPercentage)}</Cell>
+                            <Cell className="text-right cell-platform">{`${format(platformFee.DeductedPercentage * 100, 1)}%`}</Cell>
                         </Row>)
                     );
                 }

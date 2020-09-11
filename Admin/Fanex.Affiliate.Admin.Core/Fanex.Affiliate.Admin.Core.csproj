@@ -118,6 +118,7 @@
     </Reference>
     <Reference Include="Refit, Version=5.0.0.0, Culture=neutral, PublicKeyToken=2f9b1262776509f5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Refit.5.0.23\lib\net461\Refit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
@@ -217,6 +218,7 @@
     <Compile Include="Controllers\Affiliate\EmailHistoryController.cs" />
     <Compile Include="Controllers\Domain\DomainControlController.cs" />
     <Compile Include="Controllers\Domain\DomainController.cs" />
+    <Compile Include="Controllers\Domain\SubAffDomainController.cs" />
     <Compile Include="Controllers\EmailTestingController.cs" />
     <Compile Include="Controllers\ExchangeRateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -396,6 +398,8 @@
     <Compile Include="Repository\CurrencyRepository.cs" />
     <Compile Include="Repository\Customer\CustomerLeftPanelRepository.cs" />
     <Compile Include="Repository\Customer\ICustomerLeftPanelRepository.cs" />
+    <Compile Include="Repository\Domain\DomainRepository.cs" />
+    <Compile Include="Repository\Domain\IDomainRepository.cs" />
     <Compile Include="Repository\ICurrencyRepository.cs" />
     <Compile Include="Repository\MediaGallery\BannerListRepository.cs" />
     <Compile Include="Repository\MediaGallery\IBannerListRepository.cs" />
@@ -501,6 +505,8 @@
     <Compile Include="Services\Domain\DomainService.cs" />
     <Compile Include="Services\Domain\IDomainControlService.cs" />
     <Compile Include="Services\Domain\IDomainService.cs" />
+    <Compile Include="Services\Domain\ISubAffDomainService.cs" />
+    <Compile Include="Services\Domain\SubAffDomainService.cs" />
     <Compile Include="Services\EmailHistory\EmailHistoryService.cs" />
     <Compile Include="Services\EmailHistory\IEmailHistoryService.cs" />
     <Compile Include="Services\EmailService.cs" />

@@ -1,8 +1,8 @@
 import React from "react";
 import MultipleSelect from "../../../../../components/multiple-select";
-import { Col, FormGroup, Input, Label, Form, FormFeedback } from 'reactstrap';
+import { Col, FormGroup, Input, Label, Form } from 'reactstrap';
 import { commissionValueList } from '../../../modules/constant';
-import { formatDecimal } from '../../../../../modules/numberFormat';
+import { format } from '../../../../../modules/numberFormat';
 
 export default class PlatformFeeItem extends React.Component {
     constructor(props) {
@@ -49,11 +49,11 @@ export default class PlatformFeeItem extends React.Component {
                         </FormGroup>
                         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                             <select name="DeductedPercentage" className="form-control"
-                                value={formatDecimal(commission || 0)}
-                                onChange={this.handleChangeComm} style={{ width: 60 }}>
+                                value={format(commission || 0, 3)}
+                                onChange={this.handleChangeComm} style={{ width: 70 }}>
                                 {
-                                    commissionValueList.map((item, i) => {
-                                        return (<option key={`platformfee-comm-${i}`} value={item}>{item}</option>);
+                                    Object.keys(commissionValueList).map((key, i) => {
+                                        return (<option key={`platformfee-comm-${i}`} value={key}>{commissionValueList[key]}</option>);
                                     })
                                 }
                             </select>

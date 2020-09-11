@@ -14,8 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public decimal Bonus { get; set; }
 
-        public decimal BankingFee { get; set; }
-
         public string Date => WinlostDate.HasValue ? WinlostDate.Value.ToString("dd MMMM yyyy") : string.Empty;
     }
 }

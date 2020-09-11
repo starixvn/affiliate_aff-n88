@@ -340,6 +340,7 @@
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\LanguageLinkViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\MyAccountViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\PlayerDetailViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\QrCodeLinkModel.cs" />

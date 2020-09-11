@@ -135,7 +135,7 @@
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 7 : 8;
+            var length = langResource.isMaxLevel ? 8 : 9;
 
             var date = dataRow.MonthDate;
 
@@ -149,7 +149,8 @@
             if (isSummaryRow) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.OperationalFee)));
-                rowItems.push(_me.buildCell(formatDecimal(dataRow.BankingFee)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.DepositFee)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.WithdrawalFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
@@ -174,7 +175,8 @@
                     _me.buildCell(formatDecimal(dataRow.WinLoss)) +
                     _me.buildCell(formatDecimal(dataRow.PlatformFee)) +
                     _me.buildCell(formatDecimal(dataRow.OperationalFee)) +
-                    _me.buildCell(formatDecimal(dataRow.BankingFee)) +
+                    _me.buildCell(formatDecimal(dataRow.DepositFee)) +
+                    _me.buildCell(formatDecimal(dataRow.WithdrawalFee)) +
                     _me.buildCell(formatDecimal(dataRow.Bonus)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +

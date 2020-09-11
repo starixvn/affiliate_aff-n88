@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
@@ -47,7 +47,6 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Bonus}>{resource.Bonus}</Cell>
-                {param.isDeductedPercent && <Cell header={true} colWidth={100} title={resource.BankingFee}>{resource.BankingFee}</Cell>}
             </Row>
         )
     }
@@ -65,7 +64,7 @@ export class Content extends PureComponent {
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(this._buildDataRow(dataItem, isTotalRow ? null : i + 1, productColumnClassName, param.isDeductedPercent));
+                dataRows.push(this._buildDataRow(dataItem, isTotalRow ? null : i + 1, productColumnClassName));
             }
         }
         else {
@@ -77,12 +76,11 @@ export class Content extends PureComponent {
         return dataRows;
     }
 
-    _buildDataRow(dataItem, rowNumber, productColumnClassName, isDeductedPercent) {
+    _buildDataRow(dataItem, rowNumber, productColumnClassName) {
         const winlost = formatDecimal(dataItem.MemberWinLost);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const bonus = formatDecimal(dataItem.Bonus);
-        const bankingFee = formatDecimal(dataItem.BankingFee);
 
         const dailyEarningDetailParam = Object.assign({}, this.props.param, { monthDate: dataItem.Date });
 
@@ -100,7 +98,6 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
-                {isDeductedPercent && <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>}
             </Row>
         )
     }

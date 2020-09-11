@@ -1856,23 +1856,14 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>ยอดรวมแพ้/ชนะ</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>ค่าธรรมเนียมแพลตฟอร์ม</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>ค่าธรรมเนียมดำเนินการ</value>
-  </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>ค่าธรรมเนียมธุรกรรม</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>เรทคอมมิชชั่น</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
     <value>ค่าคอมมิชชั่น</value>
-  </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>ค่าคอมมิชชั่น = (ยอดรวมแพ้/ชนะ - ค่าธรรมเนียมแพลตฟอร์ม - ค่าธรรมเนียมดำเนินการ - ค่าธรรมเนียมธุรกรรม - โบนัส) x เรทคอมมิชชั่น</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>ยอดชั่วคราว</value>

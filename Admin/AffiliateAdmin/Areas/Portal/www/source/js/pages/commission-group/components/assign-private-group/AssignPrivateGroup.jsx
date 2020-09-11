@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, setSelectedGroup } from '../../actions';
-import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList } from '../../modules/service';
+import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList, validateDeductedFees } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/deduction';
@@ -92,12 +92,16 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { TierSettingList, PlatformFeeList } = this.props.selectedGroup;
+        const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
         const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
+        const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
+        const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
+        const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
-        const isValid = tierSettingValidation.isValid && platformFeeListValidation.isValid;
-        const messageList = [...tierSettingValidation.messageList, ...platformFeeListValidation.messageList];
+        const isValid = tierSettingValidation.isValid && platformFeeListValidation.isValid && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
+        const messageList = [...tierSettingValidation.messageList, ...platformFeeListValidation.messageList, ...operationalFeeValidation.messageList,
+                            ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList];
 
         return { isValid, messageList };
     }

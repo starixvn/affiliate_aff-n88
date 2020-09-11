@@ -252,4 +252,7 @@
   <data name="PaymentRequestNotValid" xml:space="preserve">
     <value>Payment request is not valid</value>
   </data>
+  <data name="SubAffiliateDomain" xml:space="preserve">
+    <value>Sub-Affiliate Domain</value>
+  </data>
 </root>

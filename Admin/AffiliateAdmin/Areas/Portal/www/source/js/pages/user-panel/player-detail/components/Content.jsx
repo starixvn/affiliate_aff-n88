@@ -61,7 +61,7 @@ export class Content extends PureComponent {
         }
     }
     _renderHeader() {
-        const { sortingColumn, isDeductedPercent } = this.props;
+        const { sortingColumn, isDepositFeePercent, isWithdrawalFeePercent } = this.props;
 
         return (
             <Row>
@@ -74,7 +74,8 @@ export class Content extends PureComponent {
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Withdrawal'} title={headerText.Withdrawal} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Bonus'} title={headerText.Bonus} handleClickHeader={this.handleClickHeader} />
-                {isDeductedPercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'BankingFee'} title={headerText.BankingFee} handleClickHeader={this.handleClickHeader} />}
+                {isDepositFeePercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'DepositFee'} title={headerText.DepositFee} handleClickHeader={this.handleClickHeader} />}
+                {isWithdrawalFeePercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'WithdrawalFee'} title={headerText.WithdrawalFee} handleClickHeader={this.handleClickHeader} />}
             </Row>
         )
     }
@@ -85,13 +86,13 @@ export class Content extends PureComponent {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption, isDeductedPercent } = this.props;
+            const { pagingOption, isDepositFeePercent, isWithdrawalFeePercent } = this.props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
 
-                dataRows.push(this._buildDataRow(dataItem, startIndex + i, productColumnClassName, isDeductedPercent));
+                dataRows.push(this._buildDataRow(dataItem, startIndex + i, productColumnClassName, isDepositFeePercent, isWithdrawalFeePercent));
             }
         }
         else {
@@ -103,13 +104,14 @@ export class Content extends PureComponent {
         return dataRows;
     }
 
-    _buildDataRow(dataItem, rowNumber, productColumnClassName, isDeductedPercent) {
+    _buildDataRow(dataItem, rowNumber, productColumnClassName, isDepositFeePercent, isWithdrawalFeePercent) {
         const turnover = formatDecimal(dataItem.Turnover);
         const winloss = formatDecimal(dataItem.Winloss);
         const bonus = formatDecimal(dataItem.Bonus);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
-        const bankingFee = formatDecimal(dataItem.BankingFee);
+        const depositFee = formatDecimal(dataItem.DepositFee);
+        const withdrawalFee = formatDecimal(dataItem.WithdrawalFee);
         const userName = htmlDecode(dataItem.UserName);
 
         return (
@@ -124,7 +126,10 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
                 {
-                    isDeductedPercent && <Cell className="text-right" title={bankingFee}>{bankingFee}</Cell>
+                    isDepositFeePercent && <Cell className="text-right" title={depositFee}>{depositFee}</Cell>
+                }
+                {
+                    isWithdrawalFeePercent && <Cell className="text-right" title={withdrawalFee}>{withdrawalFee}</Cell>
                 }
             </Row>
         )
@@ -166,9 +171,9 @@ export class Content extends PureComponent {
 
 function mapStateToProps({ affCommonInfo, playerDetail }) {
     const { param, pagingOption, sortingColumn } = playerDetail;
-    const { affId, isDeductedPercent } = affCommonInfo;
+    const { affId, isDepositFeePercent, isWithdrawalFeePercent } = affCommonInfo;
 
-    return Object.assign({}, { param, pagingOption, affId, sortingColumn, isDeductedPercent });
+    return Object.assign({}, { param, pagingOption, affId, sortingColumn, isDepositFeePercent, isWithdrawalFeePercent });
 }
 
 function mapDispatchToProps(dispatch) {

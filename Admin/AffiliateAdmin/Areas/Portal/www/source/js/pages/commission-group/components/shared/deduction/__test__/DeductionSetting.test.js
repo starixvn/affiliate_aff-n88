@@ -7,7 +7,8 @@ jest.mock('../../../../modules/constant');
 describe('commission group - DeductionSetting', () => {
     const defaultProps = {
         selectedGroup: {
-            BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+            DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0 },
+            WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0 },
             Description: "A B C",
             GroupId: 0,
             GroupName: "ABC",
@@ -26,13 +27,22 @@ describe('commission group - DeductionSetting', () => {
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 } });
     });
 
-    it('handleSelectBankingFee  - should call setSelectedGroup when change Banking Fee%', () => {
+    it('handleSelectDepositFee  - should call setSelectedGroup when change Banking Fee%', () => {
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<DeductionSetting {...props} />);
 
         wrapper.find(FeeSettingItem).at(1).props().handleChange();
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 } });
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0 } });
+    });
+
+    it('handleSelectWithdrawalFee  - should call setSelectedGroup when change Banking Fee%', () => {
+        const mockSetSelectedGroup = jest.fn();
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+        const wrapper = shallow(<DeductionSetting {...props} />);
+
+        wrapper.find(FeeSettingItem).at(2).props().handleChange();
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0 } });
     });
 
     it('Should render correctly', () => {

@@ -15,7 +15,5 @@
         public decimal Withdrawal { get; set; }
 
         public decimal Bonus { get; set; }
-
-        public decimal BankingFee { get; set; }
     }
 }

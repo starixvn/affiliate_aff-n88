@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 result.Message = validatePlatformFeeList.Message;
             }
 
-            var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, true);
+            var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, CommGroupErrorMessage.InvalidOperationalFee);
 
             if (!validateOperationalFee.IsSuccessful)
             {
@@ -54,12 +54,20 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 result.Message = string.Join(result.Message + brElementHtml, validateOperationalFee.Message);
             }
 
-            var validateBankingFee = ValidateFixedAmountDeductedFee(commGroup.BankingFee, false);
+            var validateDepositFee = ValidateFixedAmountDeductedFee(commGroup.DepositFee, CommGroupErrorMessage.InvalidDepositFee);
 
-            if (!validateBankingFee.IsSuccessful)
+            if (!validateDepositFee.IsSuccessful)
             {
                 result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, validateBankingFee.Message);
+                result.Message = string.Join(result.Message + brElementHtml, validateDepositFee.Message);
+            }
+
+            var validateWithdrawalFee = ValidateFixedAmountDeductedFee(commGroup.WithdrawalFee, CommGroupErrorMessage.InvalidWithdrawalFee);
+
+            if (!validateWithdrawalFee.IsSuccessful)
+            {
+                result.Code = Code.GeneralErrorCode;
+                result.Message = string.Join(result.Message + brElementHtml, validateWithdrawalFee.Message);
             }
 
             return result;
@@ -145,12 +153,12 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return new ResultInfo();
         }
 
-        private static ResultInfo ValidateFixedAmountDeductedFee(DeductionSetting deductedFee, bool isOperationlFee)
+        private static ResultInfo ValidateFixedAmountDeductedFee(DeductionSetting deductedFee, string message)
         {
             var result = new ResultInfo
             {
                 Code = Code.GeneralErrorCode,
-                Message = isOperationlFee ? CommGroupErrorMessage.InvalidOperationalFee : CommGroupErrorMessage.InvalidBankingFee
+                Message = message
             };
 
             if(!deductedFee.IsDeductedPercent)

@@ -1851,23 +1851,14 @@
   <data name="GrossWinLoss" xml:space="preserve">
     <value>Gross Win Loss</value>
   </data>
-  <data name="PlatformFee" xml:space="preserve">
-    <value>Platform Fee</value>
-  </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>Operational Fee</value>
-  </data>
-  <data name="BankingFees" xml:space="preserve">
-    <value>Banking Fees</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Comm. Rate</value>
   </data>
   <data name="CommShorted" xml:space="preserve">
     <value>Comm.</value>
-  </data>
-  <data name="NoteCommissionCalculation" xml:space="preserve">
-    <value>Commission = (Gross Win Loss - Platform Fee - Operational Fee - Banking Fees - Bonus) x Comm. Rate</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Temporary</value>

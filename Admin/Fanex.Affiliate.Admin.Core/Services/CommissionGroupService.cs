@@ -44,7 +44,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
                              TierSettingList = groupTierSetting,
                              PlatformFeeList = groupDeduction.Where(p => p.DeductionId == DeductionId.PlatformFee),
                              OperationalFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.OperationalFee),
-                             BankingFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.BankingFee)
+                             DepositFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.DepositFee),
+                             WithdrawalFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.WithdrawalFee)
                          };
 
             return result;

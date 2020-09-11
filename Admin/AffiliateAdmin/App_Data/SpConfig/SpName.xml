@@ -129,6 +129,10 @@
     <Setting Key="Aff_Admin_DomainControl_Ins" SpName="Aff_Admin_DomainControl_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Upd" SpName="Aff_Admin_DomainControl_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_DomainControl_Del" SpName="Aff_Admin_DomainControl_Del" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_SubAffiliateDomain_Sel" SpName="Aff_Admin_SubAffiliateDomain_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_SubAffiliateDomain_Ins" SpName="Aff_Admin_SubAffiliateDomain_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_SubAffiliateDomain_Upd" SpName="Aff_Admin_SubAffiliateDomain_Upd" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_SubAffiliateDomain_Del" SpName="Aff_Admin_SubAffiliateDomain_Del" DbName="affiliate_n88" />
   </Function>
   <Function Name="Administrator">
     <Setting Key="Aff_Con_GroupInfoSel" SpName="Aff_Con_GroupInfoSel" DbName="affiliate_n88" />

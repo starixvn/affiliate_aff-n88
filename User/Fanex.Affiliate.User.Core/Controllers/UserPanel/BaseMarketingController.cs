@@ -46,20 +46,20 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             {
                 var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal);
                 viewModel.CurrencyList = currencyList
-                    .Select(i => new SelectListItem 
-                    { 
-                        Value = i.Currency, 
-                        Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency 
-                    });              
+                    .Select(i => new SelectListItem
+                    {
+                        Value = i.Currency,
+                        Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency
+                    });
             }
 
             if (isMediaPage)
             {
-                var sizeList = MarketingService.GetSizeList(new SizeParam 
-                { 
-                    AffType = userSession.AffType, 
-                    Language = userSession.PreferredLanguage 
-                }, 
+                var sizeList = MarketingService.GetSizeList(new SizeParam
+                {
+                    AffType = userSession.AffType,
+                    Language = userSession.PreferredLanguage
+                },
                 SessionService.IsInternal);
 
                 viewModel.SizeList = sizeList.Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
@@ -76,7 +76,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             var viewModel = new LinkFormViewModel
             {
-                DomainList = MarketingService.GetDomainList(userSession.AffId, targetId, isInternal),
+                DomainList = MarketingService.GetAvailableDomainList(userSession.AffId, targetId, isInternal),
                 MemberSitePageList = MarketingService.GetLandingPageList(isInternal, isTargetToMemberSite)
             };
 
@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 SelectedLanguage = selectedLanguage,
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
-                LanguageList = languageList,            
+                LanguageList = languageList,
             };
 
             return MarketingService.GenerateLinkList(linkGenerationParam);

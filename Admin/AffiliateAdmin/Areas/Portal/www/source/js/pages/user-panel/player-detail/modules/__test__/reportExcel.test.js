@@ -22,7 +22,7 @@ describe('players detail - Report Excel ', () => {
     const title = 'Player Detail - All Products - Nov-2019';
 
     it('contrustor - should call _getcolumnConfigs', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
         instance._getcolumnConfigs = jest.fn();
 
         instance.constructor(data, title);
@@ -31,7 +31,7 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('export - should call Excel.process', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
         instance._createHeader = jest.fn();
         instance._createBodyData = jest.fn();
         instance._createExcelConfig = jest.fn();
@@ -50,13 +50,13 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('_createHeader - should Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
         instance._buildColspanColumn = jest.fn();
         Excel.getCellAddress = jest.fn();
 
-        instance._createHeader();
+        instance._createHeader(0);
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(10);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(11);
 
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
@@ -71,14 +71,14 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('_createBodyData - should call _buildDataRow, Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
 
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
 
-        instance._createBodyData();
+        instance._createBodyData(0);
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(10);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(11);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 1 });
@@ -87,7 +87,7 @@ describe('players detail - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[9][0]).toEqual({ "c": 9, "r": 1 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(10);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(11);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toEqual(0);
@@ -105,7 +105,7 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('_buildDataRow - should call Excel.getCellType with field Index', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
         Excel.getCellType = jest.fn();
         const columnConfig = { field: "Index", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 70 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
@@ -115,7 +115,7 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('_buildDataRow - should call Excel.getCellType with other', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
         Excel.getCellType = jest.fn();
         const columnConfig = { field: "Username", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 1);
@@ -125,14 +125,26 @@ describe('players detail - Report Excel ', () => {
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress', () => {
-        const instance = new ReportExcel(data, title);
+        const instance = new ReportExcel(data, title, true, true);
 
         Excel.getCellAddress = jest.fn();
 
-        instance._createExcelConfig();
+        instance._createExcelConfig(true, true, 0);
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 10, "r": 1 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 11, "r": 1 });
+    });
+
+    it('_createExcelConfig - should call Excel.getCellAddress with fixed amount', () => {
+        const instance = new ReportExcel(data, title, false, false);
+
+        Excel.getCellAddress = jest.fn();
+
+        instance._createExcelConfig(false, false, 2);
+
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
+        expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 9, "r": 1 });
     });
 });

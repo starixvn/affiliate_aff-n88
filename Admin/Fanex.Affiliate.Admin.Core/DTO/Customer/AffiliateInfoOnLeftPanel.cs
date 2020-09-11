@@ -59,6 +59,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         public string ApprovedBy { get; set; }
 
-        public bool IsDeductedPercent { get; set; }
+        public bool IsDepositFeePercent { get; set; }
+
+        public bool IsWithdrawalFeePercent { get; set; }
     }
 }

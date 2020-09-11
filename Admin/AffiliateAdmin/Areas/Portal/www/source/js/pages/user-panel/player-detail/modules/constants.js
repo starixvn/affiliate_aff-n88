@@ -13,7 +13,8 @@ export const headerText = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
-    BankingFee: 'Banking Fee'
+    DepositFee: 'Deposit Fee',
+    WithdrawalFee: 'Withdrawal Fee'
 }
 
 export const resource = {
@@ -28,8 +29,9 @@ export const SortByIdList = {
     Turnover: 5,
     Winloss: 6,
     Bonus: 7,
-    BankingFee: 8,
-    IbcUsername: 9
+    DepositFee: 8,
+    WithdrawalFee: 9,
+    IbcUsername: 10
 };
 
 export const SortingColumnDefault = {

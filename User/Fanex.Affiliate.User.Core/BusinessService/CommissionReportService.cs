@@ -53,7 +53,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 total.WinLoss += item.Data.WinLoss;
                 total.PlatformFee += item.Data.PlatformFee;
                 total.OperationalFee += item.Data.OperationalFee;
-                total.BankingFee += item.Data.BankingFee;
+                total.DepositFee += item.Data.DepositFee;
+                total.WithdrawalFee += item.Data.WithdrawalFee;
                 total.Bonus += item.Data.Bonus;
                 total.Commission += item.Data.Commission;
                 total.SubAffCommission += item.Data.SubAffCommission;

@@ -27,7 +27,7 @@ export const getAffiliateInfo = (affName, selectedUserPanel = userPanelMenuKey.s
     const response = await post(url, param);
     const data = response && response.status === 200 && response.data ? response.data : null;
 
-    const affCommonInfo = data && { affId: data.AffId, affName, status: data.Status, isDeductedPercent: data.IsDeductedPercent };
+    const affCommonInfo = data && { affId: data.AffId, affName, status: data.Status, isDepositFeePercent: data.IsDepositFeePercent, isWithdrawalFeePercent: data.IsWithdrawalFeePercent };
     dispatch(setAffCommonInfo(affCommonInfo));
     dispatch(receiveLeftMenuInfo(data));
     data && dispatch(setSelectedUserPanel(selectedUserPanel));

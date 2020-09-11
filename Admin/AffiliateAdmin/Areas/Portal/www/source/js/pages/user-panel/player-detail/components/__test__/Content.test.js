@@ -12,7 +12,8 @@ describe('players detail - components - Content', () => {
             RegisteredDate: "2009-01-21T21:13:00",
             Deposit: 0,
             Withdrawal: 0,
-            BankingFee: 0,
+            DepositFee: 0,
+            WithdrawalFee: 0,
             Bonus: 0,
             Turnover: 5367360,
             Winloss: -26050,
@@ -24,7 +25,8 @@ describe('players detail - components - Content', () => {
             RegisteredDate: "2013-03-07T00:30:00",
             Deposit: 0,
             Withdrawal: 0,
-            BankingFee: 0,
+            DepositFee: 0,
+            WithdrawalFee: 0,
             Bonus: 0,
             Turnover: 23.7056,
             Winloss: -11.9332,
@@ -33,6 +35,8 @@ describe('players detail - components - Content', () => {
     ];
     const defaultProps = {
         affId: 1271808,
+        isDepositFeePercent: false,
+        isWithdrawalFeePercent: false,
         pagingOption: defaultPagingOption,
         param,
         setPagingOption: jest.fn(),
@@ -54,7 +58,7 @@ describe('players detail - components - Content', () => {
 
     it('render correctly with not selected All Product', () => {
         const newParam = Object.assign({}, defaultProps.param, { productId: 1 });
-        const props = Object.assign({}, defaultProps, { param: newParam });
+        const props = Object.assign({}, defaultProps, { param: newParam, isDepositFeePercent: true, isWithdrawalFeePercent: true });
         const result = shallow(<Content {...props} />);
 
         result.setState({ data: gridData });

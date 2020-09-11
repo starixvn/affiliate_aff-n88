@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -71,15 +70,15 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<Domain> GetDomainList(int affId, bool isInternal)
+        public IEnumerable<Domain> GetAvailableDomainList(int affId, bool isMember, bool isInternal)
         {
-            const string uSpKey = "Aff_User_Domain_Sel";
+            var uSpKey = isMember ? "Aff_User_Domain_Sel" : "Aff_User_SubAffiliateDomain_Sel";
 
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
             using (var objectDb = _builder.Build(uSpKey, dbMode))
             {
-                return objectDb.Query<Domain>(new { AffId = affId });
+                return isMember ? objectDb.Query<Domain>(new { AffId = affId }) : objectDb.Query<Domain>();
             }
         }
 

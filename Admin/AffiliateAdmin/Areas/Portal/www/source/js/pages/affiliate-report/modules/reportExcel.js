@@ -7,14 +7,14 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 23;
+const TOTAL_COLUMN = 24;
 
 const INDEX_MEMBER_STATISTICS_COLUMN = 7;
 const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
 
 const INDEX_DEPOSIT_COLUMN = 7;
-const COLSPAN_MEMBER_STATISTICS = 9;
-const INDEX_COMM_COLUMN = 16;
+const COLSPAN_MEMBER_STATISTICS = 10;
+const INDEX_COMM_COLUMN = 17;
 const COLSPAN_AFFILIATE_STATISTICS = 7;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -37,7 +37,8 @@ const fields = {
     Bonus: 'Bonus',
     PlatformFee: 'PlatformFee',
     OperationalFee: 'OperationalFee',
-    BankingFee: 'BankingFee',
+    DepositFee: 'DepositFee',
+    WithdrawalFee: 'WithdrawalFee',
     TotalFee: 'TotalFee',
     CommissionRate: 'CommissionRate',
     Earning: 'Earning',
@@ -272,6 +273,8 @@ export default class ReportExcel {
             wpx: 120
         }, {
             wpx: 120
+        }, {
+            wpx: 120
         },
         {
             wpx: 100
@@ -363,7 +366,12 @@ export default class ReportExcel {
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },
         {
-            field: fields.BankingFee,
+            field: fields.DepositFee,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+            },
+        {
+            field: fields.WithdrawalFee,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },

@@ -83,7 +83,9 @@ namespace Fanex.Affiliate.User.Core.CoreService
                 OnUserId = authorizedUser.OnUserId,
                 AffType = authorizedUser.AffType,
                 GroupName = authorizedUser.GroupName,
-                IsMaxSubLevel = authorizedUser.IsMaxSubLevel
+                IsMaxSubLevel = authorizedUser.IsMaxSubLevel,
+                IsDepositFeePercent = authorizedUser.IsDepositFeePercent,
+                IsWithdrawalFeePercent = authorizedUser.IsWithdrawalFeePercent
             };
 
             HttpContext.Current.Session[UserSessionKey] = userSession;

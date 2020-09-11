@@ -21,7 +21,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public ResultInfo CreateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
             param.TierList = BuildTierSettingXml(param.TierSettingList);
             param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 
@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public ResultInfo UpdateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.BankingFee });
+            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
             param.TierList = BuildTierSettingXml(param.TierSettingList);
             param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
 

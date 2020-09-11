@@ -108,7 +108,7 @@ export class PlatformFeeSetting extends Component {
 
         return (
             <div className="platformfee-group">
-                <p className="font-weight-bold">Platform Fee</p>
+                <p className="font-weight-bold">Royalty Fee</p>
                 {
                     platformFeeData.map((item, i) => {
                         const isFirst = i === 0;

@@ -6,23 +6,25 @@ jest.mock('../../../modules/constant');
 
 describe('commission group - assign private group', () => {
     const expectParam = {
-        BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+        DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
         Description: "",
         GroupId: 0,
         GroupName: "",
-        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
+        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6", IsDeductedPercent: true, DeductedAmount: "" }],
         TierSettingList: []
     };
 
     const selectedGroup = {
-        BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
+        DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
         Description: "",
         GroupId: 0,
         GroupName: "",
-        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
+        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
-        TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+        TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
     };
 
     const defaultProps = {
@@ -39,9 +41,10 @@ describe('commission group - assign private group', () => {
             UserName: "12BETAFF001"
         },
         deductionList: [
-            { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17 },
-            { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07 },
-            { DeductionId: 12, DeductionName: "Banking Fee", DeductedPercentage: 0.02 }
+            { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" }
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
@@ -208,7 +211,7 @@ describe('commission group - assign private group', () => {
     })
 
     it('_validate - TierSettingList has MinAmount > MaxAmount', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 1000000000000000, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }] });
+        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 1000000000000, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
 
@@ -218,7 +221,7 @@ describe('commission group - assign private group', () => {
     })
 
     it('_validate - TierSettingList has MinAp > MaxAp', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000000, MinAp: 10000000000, MaxAp: 1000000000, Commission: 0 }] });
+        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinAp: 10000000000, MaxAp: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
 
