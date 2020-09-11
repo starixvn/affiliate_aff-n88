@@ -105,8 +105,11 @@ namespace Fanex.Affiliate.Link.Controllers
                     if (!string.IsNullOrEmpty(redirectPattern))
                     {
                         var redirectUri = new Uri(redirectUrl);
-                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affId.ToString());
-                        redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
+                        if (pageId.ToLowerInvariant() == "signup")
+                        {
+                            var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affId.ToString());
+                            redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
+                        }
                     }
 
                     return Redirect(redirectUrl);
