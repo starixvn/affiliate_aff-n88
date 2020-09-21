@@ -1290,6 +1290,14 @@ label.require:after {
     .info-group .item .value {
       text-align: right; }
 
+ul.dash-style {
+  list-style-type: none; }
+  ul.dash-style > li {
+    text-indent: -10px; }
+  ul.dash-style > li:before {
+    content: "-";
+    padding-right: 5px; }
+
 .btn {
   display: inline-block;
   padding: 0 8px;

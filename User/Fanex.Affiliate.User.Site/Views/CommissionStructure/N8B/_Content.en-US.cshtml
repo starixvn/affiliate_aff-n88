@@ -56,17 +56,34 @@
         <li class="text-block">
             <strong>Multi-tier Revenue Share Structure:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
-            <ul>
-                <li class="text" style="margin-top: 15px;">
-                    <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to Bwing.
-                </li>
-                <li class="text">
-                    <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
-                </li>
-                <li class="text">
-                    Negative revenue share for any given month will be carried forward to the following month.
-                </li>
-            </ul>
+        <ul>
+            <li class="text" style="margin-top: 15px;">
+                <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to Bwing.
+            </li>
+            <li class="text">
+                <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
+            </li>
+            <li class="text">
+                Negative revenue share for any given month will be carried forward to the following month.
+            </li>
+            <li class="text">
+                All affiliates are subject to administrative and marketing costs incurred directly for the acquisition of members.
+            </li>
+            <li class="text">
+                The cost deducted from the revenue on a monthly basis. This cost may include the following:
+                <ul class="dash-style">
+                    <li>
+                        Banking Fee - Deposit and Withdrawal charges for each involving all the affiliate's customers.
+                    </li>
+                    <li>
+                        Royalty Fee - Product royalty fees incurred involving all affiliate customers
+                    </li>
+                    <li>
+                        Promotion bonuses - Monetary bonuses or rebates given to the affiliate customers.
+                    </li>
+                </ul>
+            </li>
+        </ul>
         </li>
         <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
     </ol>

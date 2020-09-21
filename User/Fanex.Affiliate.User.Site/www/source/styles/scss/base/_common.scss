@@ -187,3 +187,15 @@ label {
         }
     }
 }
+ul.dash-style {
+    list-style-type: none;
+
+    & > li {
+        text-indent: -10px;
+    }
+
+    & > li:before {
+        content: "-";
+        padding-right: 5px;
+    }
+}
