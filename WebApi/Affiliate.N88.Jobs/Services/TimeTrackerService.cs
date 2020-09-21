@@ -59,6 +59,7 @@ namespace Affiliate.N88.Jobs.Services
                 {
                     CalledTime = tracker.CalledTime,
                     KeyValue = tracker.KeyValue,
+                    IsReset = tracker.IsReset,
                     DataSource = source,
                     ErrCode = SqlResponseCode.Success,
                     ErrMsg = String.Empty
