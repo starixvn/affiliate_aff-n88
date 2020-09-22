@@ -55,13 +55,30 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>公司纯赢利:</strong> 您向Nova88推荐的所有玩家每月负盈利.
+                    <strong>公司纯赢利:</strong> 您向Nova88推荐的所有玩家每月负盈利。
                 </li>
                 <li class="text">
                     <strong>活跃玩家:</strong> 会员在该月份至少一(1)次下注。
                 </li>
                 <li class="text">
                     如该月份负盈利将结转到下个月份结算。
+                </li>
+                <li class="text">
+                    代理将支付的费用。
+                </li>
+                <li class="text">
+                    代理将支付的费用,这些费用将会累计并且在代理每月的毛利中扣除。这些费用包括:
+                    <ul class="dash">
+                        <li>
+                            银行费用 - 代理名下的会员每次存款和取款将各收取的手续费。
+                        </li>
+                        <li>
+                            平台费用 – 代理名下会员所投注的平台将收取的平台费。
+                        </li>
+                        <li>
+                            优惠红利 - 给予代理会员的现金红利或是折扣（返水）。
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
