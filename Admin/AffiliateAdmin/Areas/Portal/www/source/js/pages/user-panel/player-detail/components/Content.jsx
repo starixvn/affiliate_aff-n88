@@ -74,6 +74,7 @@ export class Content extends PureComponent {
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Withdrawal'} title={headerText.Withdrawal} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Bonus'} title={headerText.Bonus} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Rebate'} title={headerText.Rebate} handleClickHeader={this.handleClickHeader} />
                 {isDepositFeePercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'DepositFee'} title={headerText.DepositFee} handleClickHeader={this.handleClickHeader} />}
                 {isWithdrawalFeePercent && <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'WithdrawalFee'} title={headerText.WithdrawalFee} handleClickHeader={this.handleClickHeader} />}
             </Row>
@@ -108,6 +109,7 @@ export class Content extends PureComponent {
         const turnover = formatDecimal(dataItem.Turnover);
         const winloss = formatDecimal(dataItem.Winloss);
         const bonus = formatDecimal(dataItem.Bonus);
+        const rebate = formatDecimal(dataItem.Rebate);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const depositFee = formatDecimal(dataItem.DepositFee);
@@ -125,6 +127,7 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
+                <Cell className="text-right" title={rebate}>{rebate}</Cell>
                 {
                     isDepositFeePercent && <Cell className="text-right" title={depositFee}>{depositFee}</Cell>
                 }

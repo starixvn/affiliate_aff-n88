@@ -15,25 +15,26 @@
     {
         foreach (var item in Model.PlayerDetailList)
         {
-            <tr>
-                <td class="text-center">@startRowNumber</td>
-                <td class="text-center break-all">@item.Username</td>
-                <td class="text-center">@(item.RegisteredDate?.ToString("dd-MMM-yyyy hh:mm tt") ?? string.Empty)</td>
-                <td class="text-center">@item.Turnover.FormatDecimal()</td>
-                <td class="text-center">@item.Winloss.FormatDecimal()</td>
-                <td class="text-center">@item.Deposit.FormatDecimal()</td>
-                <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
-                <td class="text-center">@item.Bonus.FormatDecimal()</td>
-                @if (isDepositFeePercent)
-                {
-                    <td class="text-center">@item.DepositFee.FormatDecimal()</td>
-                }
+    <tr>
+        <td class="text-center">@startRowNumber</td>
+        <td class="text-center break-all">@item.Username</td>
+        <td class="text-center">@(item.RegisteredDate?.ToString("dd-MMM-yyyy hh:mm tt") ?? string.Empty)</td>
+        <td class="text-center">@item.Turnover.FormatDecimal()</td>
+        <td class="text-center">@item.Winloss.FormatDecimal()</td>
+        <td class="text-center">@item.Deposit.FormatDecimal()</td>
+        <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
+        <td class="text-center">@item.Bonus.FormatDecimal()</td>
+        <td class="text-center">@item.Rebate.FormatDecimal()</td>
+        @if (isDepositFeePercent)
+        {
+            <td class="text-center">@item.DepositFee.FormatDecimal()</td>
+        }
 
-                @if (isWithdrawalFeePercent)
-                {
-                    <td class="text-center">@item.WithdrawalFee.FormatDecimal()</td>
-                }
-            </tr>
+        @if (isWithdrawalFeePercent)
+        {
+            <td class="text-center">@item.WithdrawalFee.FormatDecimal()</td>
+        }
+    </tr>
 
             startRowNumber++;
         }
@@ -41,7 +42,7 @@
     else
     {
         <tr>
-            <td class="text-center" colspan=@(8 + columnDepositFee + columnWithdrawalFee)>@Lang.NoInfo</td>
+            <td class="text-center" colspan=@(9 + columnDepositFee + columnWithdrawalFee)>@Lang.NoInfo</td>
         </tr>
     }
 }

@@ -11,7 +11,7 @@ import {
 const HEADER_ROW_INDEX = 0;
 const DATA_ROW_INDEX = 1;
 
-const TOTAL_COLUMN = 11;
+const TOTAL_COLUMN = 12;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -25,6 +25,7 @@ const fields = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
+    Rebate: 'Rebate',
     DepositFee: 'DepositFee',
     WithdrawalFee: 'WithdrawalFee'
 }
@@ -130,6 +131,8 @@ export default class ReportExcel {
             wpx: 150
         }, {
             wpx: 150
+        }, {
+            wpx: 150
         }];
 
         if (isDepositFeePercent) {
@@ -174,6 +177,9 @@ export default class ReportExcel {
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
             field: fields.Bonus,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
+        },{
+            field: fields.Rebate,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }];
 

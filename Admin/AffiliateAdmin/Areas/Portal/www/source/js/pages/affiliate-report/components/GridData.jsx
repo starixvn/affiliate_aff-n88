@@ -86,7 +86,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>
-                <Cell header={true} colSpan="10" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
+                <Cell header={true} colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
                 <Cell header={true} colSpan={isMainView ? 7 : 6} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
                 {isMainView && (<Cell header={true} colWidth={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
             </Row>,
@@ -96,6 +96,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={75} title={headerText.Turnover}>{headerText.Turnover}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.Winlost}>{headerText.Winlost}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.Bonus}>{headerText.Bonus}</Cell>
+                <Cell header={true} colWidth={70} title={headerText.Rebate}>{headerText.Rebate}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.DepositFee}>{headerText.DepositFee}</Cell>
@@ -167,6 +168,7 @@ export class GridData extends Component {
         const turnover = formatDecimal(dataItem.Turnover);
         const winlost = formatDecimal(dataItem.Winlost);
         const bonus = formatDecimal(dataItem.Bonus);
+        const rebate = formatDecimal(dataItem.Rebate);
         const platformFee = formatDecimal(dataItem.PlatformFee);
         const operationalFee = formatDecimal(dataItem.OperationalFee);
         const depositFee = formatDecimal(dataItem.DepositFee);
@@ -193,6 +195,7 @@ export class GridData extends Component {
                 <Cell className={productColumnClassName} title={turnover}>{turnover}</Cell>
                 <Cell className={productColumnClassName} title={winlost}>{winlost}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
+                <Cell className="text-right" title={rebate}>{rebate}</Cell>
                 <Cell className="text-right" title={platformFee}>{platformFee}</Cell>
                 <Cell className="text-right" title={operationalFee}>{operationalFee}</Cell>
                 <Cell className="text-right" title={depositFee}>{depositFee}</Cell>

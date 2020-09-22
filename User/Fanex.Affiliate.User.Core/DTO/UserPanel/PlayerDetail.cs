@@ -14,6 +14,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal Bonus { get; set; }
 
+        public decimal Rebate { get; set; }
+
         public decimal Deposit { get; set; }
 
         public decimal Withdrawal { get; set; }

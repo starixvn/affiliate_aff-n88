@@ -105,7 +105,7 @@ var commissionReport = (function ($) {
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "11" : "12") + '>' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "12" : "13") + '>' + langResource.noInfo + '</td></tr>');
             }
         },
 
@@ -135,7 +135,7 @@ var commissionReport = (function ($) {
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 8 : 9;
+            var length = langResource.isMaxLevel ? 9 : 10;
 
             var date = dataRow.MonthDate;
 
@@ -152,6 +152,7 @@ var commissionReport = (function ($) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.DepositFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.WithdrawalFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
@@ -178,6 +179,7 @@ var commissionReport = (function ($) {
                     _me.buildCell(formatDecimal(dataRow.DepositFee)) +
                     _me.buildCell(formatDecimal(dataRow.WithdrawalFee)) +
                     _me.buildCell(formatDecimal(dataRow.Bonus)) +
+                    _me.buildCell(formatDecimal(dataRow.Rebate)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
                     (langResource.isMaxLevel ? '' : _me.buildCell(formatDecimal(dataRow.SubAffCommission))) +

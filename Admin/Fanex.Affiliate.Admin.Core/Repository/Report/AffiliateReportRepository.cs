@@ -137,6 +137,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 Turnover =reader.ToDecimal("Turnover"),
                 Winlost =reader.ToDecimal("Winlost"),
                 Bonus =reader.ToDecimal("Bonus"),
+                Rebate = reader.ToDecimal("Rebate"),
                 PlatformFee =reader.ToDecimal("PlatformFee"),
                 OperationalFee =reader.ToDecimal("OperationalFee"),
                 DepositFee =reader.ToDecimal("DepositFee"),

@@ -51,6 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 DepositFee = reader.ToDecimal("DepositFee"),
                 WithdrawalFee = reader.ToDecimal("WithdrawalFee"),
                 Bonus = reader.ToDecimal("Bonus"),
+                Rebate = reader.ToDecimal("Rebate"),
                 Turnover = reader.ToDecimal("Turnover"),
                 Winloss = reader.ToDecimal("Winloss")
             };

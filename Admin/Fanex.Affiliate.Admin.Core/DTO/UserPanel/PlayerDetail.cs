@@ -20,6 +20,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public decimal Bonus { get; set; }
 
+        public decimal Rebate { get; set; }
+
         public decimal Turnover { get; set; }
 
         public decimal Winloss { get; set; }
