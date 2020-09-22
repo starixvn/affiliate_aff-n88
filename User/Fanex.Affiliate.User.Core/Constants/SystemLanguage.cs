@@ -15,13 +15,9 @@ namespace Fanex.Affiliate.User.Core.Constants
         {
             ["en-US"] = "en",
             ["zh-CN"] = "cs",
-            ["zh-TW"] = "ch",
             ["th-TH"] = "th",
             ["vi-VN"] = "vn",
             ["id-ID"] = "id",
-            ["hi-IN"] = "hi",
-            ["ko-KR"] = "ko",
-            ["ja-JP"] = "jp"
         };
 
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;
@@ -74,10 +70,8 @@ namespace Fanex.Affiliate.User.Core.Constants
             { "vi-VN", new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"} },
             { "en-US", new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"} },
             { "zh-CN", new Language { Code = "zh-CN", NativeName = "中文简体", DisplayName = "Chinese Simplified", EnglishName = "Chinese Simplified", ShortedCode = "cs"} },
-            { "zh-TW", new Language { Code = "zh-TW", NativeName = "中文繁体", DisplayName = "Chinese Traditional", EnglishName = "Chinese Traditional", ShortedCode = "ch"} },
             { "id-ID", new Language { Code = "id-ID", NativeName = "Indonesia", DisplayName = "Bahasa Indonesia", EnglishName = "Indonesian", ShortedCode = "id"} },
-            { "th-TH", new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"} },
-            { "ko-KR", new Language { Code = "ko-KR", NativeName = "한국어", DisplayName = "Korean", EnglishName = "Korean", ShortedCode = "ko"} }
+            { "th-TH", new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"} }
         };
 
         public static string GetShortedCodeForTracking(string currentLanguage)
