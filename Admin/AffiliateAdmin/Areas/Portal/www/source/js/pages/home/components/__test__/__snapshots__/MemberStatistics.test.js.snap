@@ -127,6 +127,18 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
               509.19
             </td>
           </tr>
+          <tr
+            key="Total Rebate"
+          >
+            <td
+              className="title"
+            >
+              Total Rebate
+            </td>
+            <td
+              className="content"
+            />
+          </tr>
           <tr>
             <td
               className="title-total"
@@ -276,6 +288,18 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             >
               0.00
             </td>
+          </tr>
+          <tr
+            key="Total Rebate"
+          >
+            <td
+              className="title"
+            >
+              Total Rebate
+            </td>
+            <td
+              className="content"
+            />
           </tr>
           <tr>
             <td

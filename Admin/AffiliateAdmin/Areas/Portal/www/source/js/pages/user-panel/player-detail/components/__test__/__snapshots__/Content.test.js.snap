@@ -108,6 +108,17 @@ exports[`players detail - components - Content render correctly 1`] = `
           >
             0.00
           </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
         </t>,
         <t>
           <t
@@ -207,6 +218,17 @@ exports[`players detail - components - Content render correctly 1`] = `
           >
             0.00
           </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
         </t>,
       ]
     }
@@ -279,6 +301,13 @@ exports[`players detail - components - Content render correctly 1`] = `
           isSortAsc={false}
           sortingColumn="Turnover"
           title="Bonus"
+        />
+        <Memo(SortingCell)
+          columnName="Rebate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="Rebate"
         />
       </t>
     }
@@ -400,6 +429,13 @@ exports[`players detail - components - Content render correctly with have data i
           isSortAsc={false}
           sortingColumn="Turnover"
           title="Bonus"
+        />
+        <Memo(SortingCell)
+          columnName="Rebate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="Rebate"
         />
       </t>
     }
@@ -542,6 +578,17 @@ exports[`players detail - components - Content render correctly with not selecte
             onClick={[Function]}
             sortable={false}
             sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
             title="0.00"
           >
             0.00
@@ -663,6 +710,17 @@ exports[`players detail - components - Content render correctly with not selecte
             onClick={[Function]}
             sortable={false}
             sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
             title="0.00"
           >
             0.00
@@ -750,6 +808,13 @@ exports[`players detail - components - Content render correctly with not selecte
           isSortAsc={false}
           sortingColumn="Turnover"
           title="Bonus"
+        />
+        <Memo(SortingCell)
+          columnName="Rebate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="Rebate"
         />
         <Memo(SortingCell)
           columnName="DepositFee"
