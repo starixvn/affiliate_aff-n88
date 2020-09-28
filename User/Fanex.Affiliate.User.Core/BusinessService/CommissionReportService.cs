@@ -56,6 +56,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 total.DepositFee += item.Data.DepositFee;
                 total.WithdrawalFee += item.Data.WithdrawalFee;
                 total.Bonus += item.Data.Bonus;
+                total.Rebate += item.Data.Rebate;
                 total.Commission += item.Data.Commission;
                 total.SubAffCommission += item.Data.SubAffCommission;
             }

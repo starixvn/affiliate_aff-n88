@@ -143,7 +143,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                             WinLost = reader.ToDecimal("Winlost"),
                             Deposit = reader.ToDecimal("Deposit"),
                             Withdrawal = reader.ToDecimal("Withdrawal"),
-                            Bonus = reader.ToDecimal("Bonus")
+                            Bonus = reader.ToDecimal("Bonus"),
+                            Rebate = reader.ToDecimal("Rebate")
                         });
                     }
                 }
@@ -168,7 +169,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 MemberWinLost = reader.ToDecimal("MemberWinLost"),
-                Bonus = reader.ToDecimal("Bonus")
+                Bonus = reader.ToDecimal("Bonus"),
+                Rebate = reader.ToDecimal("Rebate")
             };
         }
         private static SubAffiliate BuildSubAffilliateItem(IDataReader reader)

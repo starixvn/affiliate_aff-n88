@@ -591,25 +591,21 @@
     <Content Include="Views\Shared\Email\RecoverPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\RecoverPassword\Content.zh-TW.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.id-ID.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentCancel\Content.zh-TW.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.id-ID.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\PaymentRequest\Content.zh-TW.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.id-ID.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\NewPassword\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\NewPassword\Content.zh-TW.cshtml" />
     <Content Include="Views\Shared\Email\Csd\Content.en-US.cshtml" />
     <Content Include="Views\Shared\Email\ContactUs\Content.en-US.cshtml" />
     <Content Include="Web.config">
@@ -831,7 +827,6 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
@@ -861,12 +856,10 @@
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-TW.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.th-TH.png" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-TW.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
@@ -1033,10 +1026,8 @@
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_id-ID.png" />
-    <Content Include="www\source\styles\Images\email\n88\banner_ko-KR.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_th-TH.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_zh-CN.png" />
-    <Content Include="www\source\styles\Images\email\n88\banner_zh-TW.png" />
     <Content Include="www\source\styles\Images\email\n88\bgMain.png" />
     <Content Include="www\source\styles\Images\email\n88\button.png" />
     <Content Include="www\source\styles\Images\email\n88\header.png" />
@@ -1072,7 +1063,6 @@
     <Content Include="Views\Shared\Email\Signup\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\Signup\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.zh-TW.cshtml" />
     <Content Include="www\source\styles\scss\components\_flag.scss" />
     <Content Include="www\source\styles\pages\products.scss" />
     <Content Include="Views\TermAndCondition\Index.cshtml" />
@@ -1120,15 +1110,12 @@
     <Content Include="www\source\styles\fonts\tahoma\font.css" />
     <Content Include="Views\TermAndCondition\_Content.en-US.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.id-ID.cshtml" />
-    <Content Include="Views\TermAndCondition\_Content.ko-KR.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.th-TH.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.vi-VN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.zh-CN.cshtml" />
-    <Content Include="Views\TermAndCondition\_Content.zh-TW.cshtml" />
     <Content Include="Views\Product\_CasinoProductTable.cshtml" />
     <Content Include="Views\Product\_Content.en-US.cshtml" />
     <Content Include="Views\Product\_Content.id-ID.cshtml" />
-    <Content Include="Views\Product\_Content.ko-KR.cshtml" />
     <Content Include="Views\Product\_Content.th-TH.cshtml" />
     <Content Include="Views\Product\_Content.vi-VN.cshtml" />
     <Content Include="www\source\styles\fonts\tahoma\Tahoma-Regular.ttf" />
@@ -1140,7 +1127,6 @@
     <Content Include="www\build\styles\fonts\tahoma\TAHOMABD.TTF" />
     <Content Include="www\build\styles\fonts\tahoma\TAHOMA_0.TTF" />
     <Content Include="Views\Product\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Product\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTable.cshtml" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.eot" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.ttf" />
@@ -1161,7 +1147,6 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.th-TH.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.vi-VN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.zh-CN.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.zh-TW.cshtml" />
     <Content Include="Views\Signup\_SecurityQuestion.cshtml" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.webp" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.webp" />
@@ -1254,8 +1239,6 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-TW.webp" />
-    <Content Include="Views\CommissionStructure\N88\_Content.zh-TW.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.th-TH.cshtml" />
@@ -1268,7 +1251,6 @@
     <Content Include="Views\Faq\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\Faq\N88\_Content.th-TH.cshtml" />
     <Content Include="Views\Faq\N88\_Content.zh-CN.cshtml" />
-    <Content Include="Views\Faq\N88\_Content.zh-TW.cshtml" />
     <Content Include="Views\Faq\N8B\_Content.en-US.cshtml" />
     <Content Include="Views\Faq\N8B\_Content.vi-VN.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.en-US.cshtml" />
@@ -1289,6 +1271,7 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
+    <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1537,7 +1520,6 @@
     <Content Include="www\source\styles\pages\marketing.scss" />
     <Content Include="Views\UserPanel\Statistics\TrackingStatistics\Index.cshtml" />
     <Content Include="Views\UserPanel\Statistics\ReferrersStatistics\Index.cshtml" />
-    <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
     <Content Include="Views\Signup\Index.cshtml" />
     <Content Include="www\source\styles\scss\base\_common.scss" />
     <Content Include="Views\Password\Index.cshtml" />

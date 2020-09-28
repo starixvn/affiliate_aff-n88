@@ -55,13 +55,30 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Kemenangan bersih perusahaan:</strong> kerugian bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
+                    <strong>Kemenangan bersih perusahaan:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
                 </li>
                 <li class="text">
-                    <strong>Pemain Aktif:</strong> anggota yang telah menempatkan setidaknya satu (1) taruhan dibulan tersebut.
+                    <strong>Pemain Aktif:</strong> member yang telah menempatkan setidaknya satu (1) taruhan di bulan tersebut.
                 </li>
                 <li class="text">
-                    Pembagian hasil yang negative untuk bulan tertentu akan diteruskan ke bulan berikutnya.
+                    Jumlah dari pembagian hasil adalah minus pada bulan berjalan, akan diteruskan ke bulan berikutnya.
+                </li>
+                <li class="text">
+                    Semua Affiliate dikenakan biaya administrasi dan pemasaran untuk pengakuisisi member.
+                </li>
+                <li class="text">
+                    Biaya yang di kurangi dari kemenangan bersih perusahaan adalah secara bulanan. Biaya ini meliputi:
+                    <ul class="dash">
+                        <li>
+                            Biaya perbankan – Biaya Deposit dan Withdrawal untuk setiap transaksi pemain yang dibawa Affiliate.
+                        </li>
+                        <li>
+                            Biaya Royalty – Biaya royalty produk untuk produk yang dipakai oleh pemain yang dibawa Affiliate.
+                        </li>
+                        <li>
+                            Bonus Promosi – Bonus uang asli atau rebate yang diberkan kepada pemain yang dibawa Affiliate.
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>

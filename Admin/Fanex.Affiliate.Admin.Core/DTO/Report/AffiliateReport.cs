@@ -38,6 +38,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal Bonus { get; set; }
 
+        public decimal Rebate { get; set; }
+
         public decimal PlatformFee { get; set; }
 
         public decimal OperationalFee { get; set; }

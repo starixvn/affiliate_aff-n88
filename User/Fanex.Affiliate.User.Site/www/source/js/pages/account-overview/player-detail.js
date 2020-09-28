@@ -11,8 +11,9 @@
         Turnover: 5,
         Winloss: 6,
         Bonus: 7,
-        DepositFee: 8,
-        WithdrawalFee: 9
+        Rebate: 8,
+        DepositFee: 9,
+        WithdrawalFee: 10
     };
 
     function initPager() {

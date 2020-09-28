@@ -7,14 +7,14 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 24;
+const TOTAL_COLUMN = 25;
 
 const INDEX_MEMBER_STATISTICS_COLUMN = 7;
 const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
 
 const INDEX_DEPOSIT_COLUMN = 7;
-const COLSPAN_MEMBER_STATISTICS = 10;
-const INDEX_COMM_COLUMN = 17;
+const COLSPAN_MEMBER_STATISTICS = 11;
+const INDEX_COMM_COLUMN = 18;
 const COLSPAN_AFFILIATE_STATISTICS = 7;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -35,6 +35,7 @@ const fields = {
     Turnover: 'Turnover',
     Winlost: 'Winlost',
     Bonus: 'Bonus',
+    Rebate: 'Rebate',
     PlatformFee: 'PlatformFee',
     OperationalFee: 'OperationalFee',
     DepositFee: 'DepositFee',
@@ -275,6 +276,8 @@ export default class ReportExcel {
             wpx: 120
         }, {
             wpx: 120
+        }, {
+            wpx: 120
         },
         {
             wpx: 100
@@ -289,7 +292,7 @@ export default class ReportExcel {
         }, {
             wpx: 120
         }, {
-            wpx: 120
+            wpx: 150
         }
         ];
     }
@@ -352,6 +355,11 @@ export default class ReportExcel {
         },
         {
             field: fields.Bonus,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+        },
+        {
+            field: fields.Rebate,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },

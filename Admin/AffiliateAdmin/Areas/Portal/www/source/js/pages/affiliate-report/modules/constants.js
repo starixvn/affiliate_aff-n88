@@ -45,6 +45,7 @@ export const headerText = {
     Turnover: 'Turnover',
     Winlost: 'Winloss',
     Bonus: 'Bonus',
+    Rebate: 'Rebate',
     PlatformFee: 'Royalty Fee',
     OperationalFee: 'Operational Fee',
     DepositFee: 'Deposit Fee',

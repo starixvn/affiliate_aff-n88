@@ -79,6 +79,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                             MemberWinLost = reader.ToDecimal("MemberWinLost"),
                             MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
                             Bonus = reader.ToDecimal("Bonus"),
+                            Rebate = reader.ToDecimal("Rebate"),
                         });
                     }
                     dailyEarningResult.MainDataList = dataList;
@@ -92,6 +93,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                             MemberWinLost = reader.ToDecimal("MemberWinLost"),
                             MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
                             Bonus = reader.ToDecimal("Bonus"),
+                            Rebate = reader.ToDecimal("Rebate"),
                         };
                     }
                 }

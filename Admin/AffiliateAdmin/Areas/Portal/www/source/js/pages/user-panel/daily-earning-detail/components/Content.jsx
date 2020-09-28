@@ -51,6 +51,7 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Bonus}>{resource.Bonus}</Cell>
+                <Cell header={true} colWidth={100} title={resource.Rebate}>{resource.Rebate}</Cell>
             </Row>
         )
     }
@@ -85,6 +86,7 @@ export class Content extends PureComponent {
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const bonus = formatDecimal(dataItem.Bonus);
+        const rebate = formatDecimal(dataItem.Rebate);
 
         return (
             <Row>
@@ -95,6 +97,7 @@ export class Content extends PureComponent {
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>
+                <Cell className="text-right" title={rebate}>{rebate}</Cell>
             </Row>
         )
     }

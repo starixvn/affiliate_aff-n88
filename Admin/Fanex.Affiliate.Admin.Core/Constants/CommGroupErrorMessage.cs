@@ -6,7 +6,7 @@
 
         public const string InvalidGroupId = "Invalid GroupId";
 
-        public const string InvalidPlatformFee = "Invalid Platform Fee";
+        public const string InvalidPlatformFee = "Invalid Royalty Fee";
 
         public const string InvalidOperationalFee = "Invalid Operational Fee";
 

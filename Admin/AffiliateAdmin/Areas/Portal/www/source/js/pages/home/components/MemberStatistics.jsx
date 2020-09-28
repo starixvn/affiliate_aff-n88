@@ -17,6 +17,7 @@ export class MemberStatistics extends PureComponent {
                 {this._buildRow('Total PSP fees', formatDecimalWithCurrencySymbol(isUpToNow ? (generalInfo.AllPSPFeeNumber) : (generalInfo.AllPSPFeeMonthNumber)))}
                 {this._buildRow('Total Winlost', formatDecimalWithCurrencySymbol(isUpToNow ? generalInfo.AllWinlostNumber : generalInfo.AllWinlostMonthNumber))}
                 {this._buildRow('Total Bonus', formatDecimalWithCurrencySymbol(isUpToNow ? generalInfo.AllBonusNumber : generalInfo.AllBonusMonthNumber))}
+                {this._buildRow('Total Rebate', formatDecimalWithCurrencySymbol(isUpToNow ? generalInfo.AllRebateNumber : generalInfo.AllRebateMonthNumber))}
                 <tr>
                     <td className="title-total"><strong>Total Net Winlost</strong></td>
                     <td className="content-total"><strong>{formatDecimalWithCurrencySymbol(isUpToNow ? generalInfo.AllNetWinlostNumber : generalInfo.AllNetWinlostMonthNumber)}</strong></td>

@@ -106,6 +106,17 @@ exports[`daily earning detail - components - Content render correctly 1`] = `
         >
           Bonus
         </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
+          title="Rebate"
+        >
+          Rebate
+        </t>
       </t>
     }
     isPaging={false}
@@ -205,6 +216,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           >
             0.00
           </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
         </t>,
         <t>
           <t
@@ -285,6 +307,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           >
             0.00
           </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
         </t>,
       ]
     }
@@ -348,6 +381,17 @@ exports[`daily earning detail - components - Content render correctly with have 
             title="0.00"
           >
             0.00
+          </t>
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
           </t>
         </t>,
       ]
@@ -429,6 +473,17 @@ exports[`daily earning detail - components - Content render correctly with have 
           title="Bonus"
         >
           Bonus
+        </t>
+        <t
+          asc={true}
+          colWidth={100}
+          header={true}
+          onClick={[Function]}
+          sortable={false}
+          sorting={false}
+          title="Rebate"
+        >
+          Rebate
         </t>
       </t>
     }

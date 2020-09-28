@@ -56,7 +56,7 @@ describe('players detail - Report Excel ', () => {
 
         instance._createHeader(0);
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(11);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(12);
 
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
@@ -78,7 +78,7 @@ describe('players detail - Report Excel ', () => {
 
         instance._createBodyData(0);
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(11);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(12);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 1 });
@@ -87,7 +87,7 @@ describe('players detail - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 1 });
         expect(Excel.getCellAddress.mock.calls[9][0]).toEqual({ "c": 9, "r": 1 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(11);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(12);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(item);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toEqual(0);
@@ -133,7 +133,7 @@ describe('players detail - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 11, "r": 1 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 12, "r": 1 });
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress with fixed amount', () => {
@@ -145,6 +145,6 @@ describe('players detail - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 9, "r": 1 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 10, "r": 1 });
     });
 });

@@ -4067,7 +4067,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue Share = (Gross Win Loss - Royalty Fee - Operational Fee - Deposit Fee - Withdrawal Fee - Bonus) x Revenue Rate.
+        ///   Looks up a localized string similar to Revenue Share = (Gross Win Loss - Royalty Fee - Operational Fee - Deposit Fee - Withdrawal Fee - Bonus - Rebate) x Revenue Rate.
         /// </summary>
         public static string NoteCommissionCalculation {
             get {
@@ -4792,6 +4792,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Racebook {
             get {
                 return ResourceManager.GetString("Racebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rebate.
+        /// </summary>
+        public static string Rebate {
+            get {
+                return ResourceManager.GetString("Rebate", resourceCulture);
             }
         }
         
