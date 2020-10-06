@@ -3,8 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
     using System.Threading.Tasks;
+    using System.Web;
     using System.Web.Mvc;
+    using System.Web.SessionState;
     using BusinessService;
     using CoreService;
     using DTO;
@@ -20,6 +23,7 @@
         private readonly IAppSetting _appSetting;
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
+        private const string ParentIdCookieName = "Fanex.UserSite.RefId";
 
         public SignupController(
             ISessionService sessionService,
@@ -53,7 +57,17 @@
                 var result = _accountService.GetLevelAffiliate(parentAffId);
                 vm.IsValidParentId = result.IsValidAffId;
             }
+            if (vm.IsValidParentId)
+            {
+                var cookie = new HttpCookie(ParentIdCookieName)
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.Now.AddHours(6),
+                    Value = vm.ParentAffId.ToString(),
+                };
 
+                HttpContext.Response.Cookies.Add(cookie);
+            }
             return View(vm);
         }
 
@@ -72,6 +86,7 @@
         {
             var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
+            var refId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value;
             if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
@@ -111,7 +126,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffId = param.ParentAffId
+                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
                 };
 
                 var emailParam = new EmailBaseParam
