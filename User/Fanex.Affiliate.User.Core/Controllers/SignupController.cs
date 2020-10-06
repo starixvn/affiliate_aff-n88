@@ -48,8 +48,10 @@
 
             bool isParsable = int.TryParse(refId, out int parentAffId);
 
-            var vm = new UserSignUpParam();
-            vm.ParentAffId = parentAffId;
+            var vm = new UserSignUpParam
+            {
+                ParentAffId = parentAffId
+            };
 
             if (isParsable)
             {
