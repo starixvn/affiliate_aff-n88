@@ -3,11 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using System.Web.SessionState;
     using BusinessService;
     using CoreService;
     using DTO;
@@ -24,6 +22,7 @@
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
         private const string ParentIdCookieName = "Fanex.UserSite.RefId";
+        private const int CookieTimeOut = 6;
 
         public SignupController(
             ISessionService sessionService,
@@ -62,7 +61,7 @@
                 var cookie = new HttpCookie(ParentIdCookieName)
                 {
                     HttpOnly = true,
-                    Expires = DateTime.Now.AddHours(6),
+                    Expires = DateTime.Now.AddHours(CookieTimeOut),
                     Value = vm.ParentAffId.ToString(),
                 };
 
