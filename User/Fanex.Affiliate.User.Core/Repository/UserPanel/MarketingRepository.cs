@@ -26,17 +26,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
-        {
-            const string uSpKey = "Aff_Market_Sel";
-            var dbMode = isInternal ? DBMode.View : DBMode.Main;
-
-            using (var objectDb = _builder.Build(uSpKey, dbMode))
-            {
-                return objectDb.Query<LanguageType>();
-            }
-        }
-
         public IEnumerable<CurrencyType> GetCurrencyList(bool isInternal)
         {
             const string uSpKey = "Aff_Admin_MediaCurrency_Sel";

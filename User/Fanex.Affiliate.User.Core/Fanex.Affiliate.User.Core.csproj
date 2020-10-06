@@ -332,6 +332,8 @@
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
+    <Compile Include="Repository\ILanguageRepository.cs" />
+    <Compile Include="Repository\LanguageRepository.cs" />
     <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />
     <Compile Include="Repository\UserPanel\CurrencyRepository.cs" />
     <Compile Include="Utilities\CurrencyHelper.cs" />

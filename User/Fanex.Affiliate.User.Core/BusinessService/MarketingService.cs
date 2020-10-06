@@ -8,7 +8,6 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Extensions;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.DTO;
@@ -57,22 +56,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             return categoryList ?? new List<CategoryType>();
-        }
-
-        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
-        {
-            var languageList = _cacheService.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList);
-            if (languageList == null)
-            {
-                languageList = _marketingRepository.GetLanguageList(isInternal);
-            }
-
-            if (languageList != null)
-            {
-                _cacheService.Set(CacheKey.LanguageList, languageList);
-            }
-
-            return languageList ?? new List<LanguageType>();
         }
 
         public IEnumerable<CurrencyType> GetCurrencyList(bool isInternal)

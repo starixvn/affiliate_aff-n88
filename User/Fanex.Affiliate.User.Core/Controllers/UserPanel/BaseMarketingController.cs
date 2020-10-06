@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
@@ -32,7 +31,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage, int targetId = TargetSite.TargetToMember)
         {
             var categoryList = MarketingService.GetCategoryList(isMediaPage, targetId, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
-            var languageList = MarketingService.GetLanguageList(SessionService.IsInternal);
+            var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
 
             var userSession = SessionService.UserSession;
             var viewModel = new SearchFormViewModel
