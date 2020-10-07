@@ -10,7 +10,7 @@
 
 @{
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-    var shortedLangCode = SystemLanguage.GetShortedCodeForTracking(sessionService.CurrentLanguage);
+    var shortedLangCode = SystemLanguage.GetUppercaseShortedCode(sessionService.CurrentLanguage);
     var appSetting = AppSetting.Instance;
     var siteName = appSetting.SiteName;
     var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB");

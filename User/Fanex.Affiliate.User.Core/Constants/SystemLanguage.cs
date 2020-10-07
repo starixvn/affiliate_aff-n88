@@ -60,9 +60,9 @@ namespace Fanex.Affiliate.User.Core.Constants
             { "th-TH", new Language { Code = "th-TH", NativeName = "ภาษาไทย", DisplayName = "Thai", EnglishName = "Thai", ShortedCode = "th"} }
         };
 
-        public static string GetShortedCodeForTracking(string currentLanguage)
+        public static string GetUppercaseShortedCode(string languageCode)
         {
-            string shortedCode = LanguageList.FirstOrDefault(l => string.Equals(l.Code, currentLanguage, StringComparison.OrdinalIgnoreCase))?.ShortedCode ?? ShortedDefaultCode;
+            string shortedCode = LanguageList.FirstOrDefault(l => string.Equals(l.Code, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedCode ?? ShortedDefaultCode;
 
             return shortedCode.ToUpperInvariant();
         }

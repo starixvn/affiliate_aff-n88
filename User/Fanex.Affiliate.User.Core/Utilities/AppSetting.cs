@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
 
 namespace Fanex.Affiliate.User.Core.Utilities
@@ -53,6 +54,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SymmetricSalt => GetValue("SymmetricSalt");
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
+
+        public string GetMailContactByLanguageCode(string languageCode) => ConfigurationManager.AppSettings["MailContact" + SystemLanguage.GetUppercaseShortedCode(languageCode)] ?? MailContact;
 
         public string SiteName => GetValue("SiteName");
 

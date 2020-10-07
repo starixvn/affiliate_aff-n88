@@ -130,14 +130,15 @@
                     ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
                 };
 
+                var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
                 var emailParam = new EmailBaseParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = mailContact,
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
-                    MailTo = _appSetting.MailContact
+                    MailTo = mailContact
                 };
 
                 result = await _accountService.CreateAffiliate(signUpParam, emailParam);

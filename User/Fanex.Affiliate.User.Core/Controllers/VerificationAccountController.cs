@@ -153,7 +153,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 IntervalInMinute = Convert.ToInt32(AppSetting.GetValue("SendCodeIntervalInMinute")),
                 VerificationEmailParam = new VerificationAccountEmailParam
                 {
-                    MailContact = AppSetting.MailContact,
+                    MailContact = AppSetting.GetMailContactByLanguageCode(verificationSession.PreferredLanguage ?? SessionService.CurrentLanguage),
                     SiteFriendlyName = AppSetting.SiteFriendlyName,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, AppSetting),
                     Ip = RequestHelper.GetClientIPAddress(Request)

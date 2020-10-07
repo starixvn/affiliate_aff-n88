@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
     {
         string GetValue(string key);
 
+        string GetMailContactByLanguageCode(string languageCode);
+
         string Environment { get; }
 
         bool IsLocal { get; }

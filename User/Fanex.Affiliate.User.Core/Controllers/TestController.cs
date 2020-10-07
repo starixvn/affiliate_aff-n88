@@ -22,8 +22,7 @@
         private readonly ILanguageService _languageService;
         private readonly IAppSetting _appSetting;
 
-        private const string MailContact = "hubert.duong@starixsoft.com";
-        private const string RootDomain = "http://affiliate.12ying.com/";
+        private readonly string _mailContact;
 
         public TestController(ISessionService sessionService,
             ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
@@ -31,6 +30,7 @@
             _mailProcessor = new MailProcessor();
             _languageService = languageService;
             _appSetting = appSetting;
+            _mailContact = appSetting.GetMailContactByLanguageCode(sessionService.UserSession?.PreferredLanguage ?? sessionService.CurrentLanguage);
         }
 
         [HttpGet]
@@ -190,7 +190,7 @@
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 SiteUrl = "abc.com.vn",
                 MoreSiteUrls = "xyz.com.vn",
-                MailContact = MailContact
+                MailContact = _mailContact
             };
         }
 
@@ -199,11 +199,11 @@
             return new RecoverPasswordEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
+                MailContact = _mailContact,
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 Code = "12345",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact
+                MailTo = _mailContact
             };
         }
 
@@ -215,14 +215,14 @@
             return new PaymentEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
+                MailContact = _mailContact,
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 DefaultCurrency = _appSetting.DefaultCurrency,
                 TransId = TranId,
                 RequestDate = DateTime.Now.Date,
                 Amount = Amount,
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact,
+                MailTo = _mailContact,
                 PaymentType = type
             };
         }
@@ -232,11 +232,11 @@
             return new NewPasswordEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
+                MailContact = _mailContact,
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 NewPassword = "1234aa",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact,
+                MailTo = _mailContact,
             };
         }
 
@@ -245,7 +245,7 @@
             return new EmailBaseParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
+                MailContact = _mailContact,
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
             };
         }
@@ -255,7 +255,7 @@
             return new VerificationAccountEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
+                MailContact = _mailContact,
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
                 Code = "123456",
