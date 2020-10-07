@@ -72,7 +72,7 @@
             {
                 landingPageParam.LanguageCode = SystemLanguage.LanguageList
                                                 .FirstOrDefault(l => l.Code.Equals(selectedLanguage))
-                                                ?.ShortedCode ?? SystemLanguage.ShortedDefaultCode;
+                                                ?.ShortedCode ?? SystemLanguage.DefaultShortedLanguageCode;
             }
 
             var viewModel = new LandingPageStatisticsViewModel

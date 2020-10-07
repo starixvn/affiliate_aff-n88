@@ -6,6 +6,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
     {
         string GetValue(string key);
 
+        string GetMailContactByShortedCode(string shortedCode);
+
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string InternalEuropeanAffiliateUrl { get; }
 

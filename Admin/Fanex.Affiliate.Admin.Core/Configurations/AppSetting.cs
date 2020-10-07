@@ -36,6 +36,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
 
+        public string GetMailContactByShortedCode(string shortedCode) => ConfigurationManager.AppSettings["MailContact" + shortedCode] ?? MailContact;
+
         public string SentryDsn => GetValue("Dsn");
 
         public string LoggingCategory => GetValue("LoggingCategory");

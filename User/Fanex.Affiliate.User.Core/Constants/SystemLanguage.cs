@@ -12,18 +12,21 @@ namespace Fanex.Affiliate.User.Core.Constants
 {
     public static class SystemLanguage
     {
+        private static IAppSetting _appSetting = AppSetting.Instance;
+
         public static string DefaultLanguageCode
         {
-            get { return AppSetting.Instance.DefaultLanguageCode; }
+            get { return _appSetting.DefaultLanguageCode; }
+        }
+
+        public static string DefaultShortedLanguageCode
+        {
+            get { return _appSetting.DefaultShortedLanguageCode; }
         }
 
         public const string EnglishLanguageCode = "en-US";
 
         public const string IndonesiaLanguageCode = "id-ID";
-
-        public const string ShortedDefaultCode = "en";
-
-        public const string ShortedEuroCode = "eneuro";
 
         public static IEnumerable<Language> LanguageList
         {
@@ -62,7 +65,7 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public static string GetUppercaseShortedCode(string languageCode)
         {
-            string shortedCode = LanguageList.FirstOrDefault(l => string.Equals(l.Code, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedCode ?? ShortedDefaultCode;
+            string shortedCode = LanguageList.FirstOrDefault(l => string.Equals(l.Code, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedCode ?? DefaultShortedLanguageCode;
 
             return shortedCode.ToUpperInvariant();
         }

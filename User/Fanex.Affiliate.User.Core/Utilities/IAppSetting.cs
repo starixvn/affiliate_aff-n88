@@ -61,6 +61,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string DefaultLanguageCode { get; }
 
+        string DefaultShortedLanguageCode { get; }
+
         string DefaultCurrency { get; }
 
         string MaxCommission { get; }
