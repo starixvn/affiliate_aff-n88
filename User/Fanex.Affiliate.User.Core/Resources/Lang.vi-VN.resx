@@ -1519,7 +1519,7 @@
     <value>Đây là email do hệ thống tạo tự động, vui lòng không trả lời trực tiếp email này.</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>Cấp</value>
+    <value>Cấp Bậc</value>
   </data>
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Mật khẩu mới sẽ được gửi tới địa chỉ email mà bạn đã cung cấp.
