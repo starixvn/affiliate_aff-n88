@@ -1723,7 +1723,7 @@
   <data name="MoreDetailProduct" xml:space="preserve">
     <value>Xem Danh Sách Sản Phẩm 12BET</value>
   </data>
-  <data name="SupportTime" xml:space="preserve">
+  <data name="SupportTimeN88" xml:space="preserve">
     <value>09:00 - 18:00 (GMT+8)&lt;br&gt;Thứ Hai - Thứ Bảy</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
@@ -1741,7 +1741,7 @@
   <data name="IndianSupport" xml:space="preserve">
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
+  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
     <value>Mọi thắc mắc về chương trình Đại Lý 12BET, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
@@ -2268,5 +2268,14 @@
   </data>
   <data name="Rebate" xml:space="preserve">
     <value>Hoàn Tiền</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Thời Gian Làm Việc:&lt;br/&gt;Thứ Hai - Thứ Bảy | &lt;strong&gt;09:00 - 18:00&lt;/strong&gt;&lt;br&gt;GMT +8</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Điện Thoại</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>Nếu có bất kỳ góp ý hay thắc mắc nào, vui lòng liên hệ:</value>
   </data>
 </root>

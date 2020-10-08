@@ -14,6 +14,7 @@
     var affiliate = Model?.UserName;
     var email = Model?.Email;
     var mailContact = appSetting.GetMailContactByLanguageCode(sessionService.CurrentLanguage);
+    var phoneNumber = appSetting.PhoneNumber;
     var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 
@@ -36,28 +37,30 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="date-time">
-                    <div class="img-support">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
-                    </div>
-                    <div class="date-time-info">
-                        <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
+        @if (isN88)
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="date-time">
+                        <div class="img-support">
+                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
+                        </div>
+                        <div class="date-time-info">
+                            <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12">
-                <div class="contact-form text-center">
-                    @*<div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
+                <div class="col-sm-12">
+                    <div class="contact-form text-center">
+                        @*<div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
                             @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.MessageSentReview.Replace("{br}", "<br>")))
                         </div>
 
                         <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>*@
 
-                    <div id="mainContent">
-                        <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyComment), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
-                        @*<form id="contactForm" class="form">
+                        <div id="mainContent">
+                            <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyCommentN88), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
+                            @*<form id="contactForm" class="form">
                                 @Html.AntiForgeryToken()
                                 <div class="form-group">
                                     <div class="group group-small">
@@ -116,9 +119,61 @@
                                     </div>
                                 </div>
                             </form>*@
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
+        else
+        {
+            <div class="row contact-title">
+                <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
+            </div>
+            <div class="row contact-icon-group">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>@Lang.Phone</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Email</strong>
+                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Telegram</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") />
+                    </div>
+                    <div class="text-center">
+                        <strong>Zalo</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="date-time-info">
+                        <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-</div>
+    </div>

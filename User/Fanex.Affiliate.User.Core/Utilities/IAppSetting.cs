@@ -77,5 +77,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         bool IsUseMemberSiteProxy { get; }
 
+        string PhoneNumber { get; }
+
     }
 }

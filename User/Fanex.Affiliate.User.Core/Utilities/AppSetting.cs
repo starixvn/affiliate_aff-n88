@@ -82,5 +82,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
+
+        public string PhoneNumber => GetValue("PhoneNumber");
     }
 }

@@ -1724,7 +1724,7 @@
   <data name="MoreDetailProduct" xml:space="preserve">
     <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ 12BET</value>
   </data>
-  <data name="SupportTime" xml:space="preserve">
+  <data name="SupportTimeN88" xml:space="preserve">
     <value>วันจันทร์ - วันเสาร์&lt;br&gt;เวลา 08.00 น. - 17.00 น. (เวลาไทย)</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
@@ -1742,7 +1742,7 @@
   <data name="IndianSupport" xml:space="preserve">
     <value>ทีมงานภาษาอินเดีย</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
+  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
     <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่ {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
@@ -2128,5 +2128,8 @@
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>ผู้เล่นที่มีการใช้งาน</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
   </data>
 </root>

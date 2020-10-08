@@ -4499,6 +4499,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Phone.
+        /// </summary>
+        public static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Contact Number no more than 50 characters..
         /// </summary>
         public static string PhoneMaxLength {
@@ -4544,11 +4553,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to {0}.
+        ///   Looks up a localized string similar to Please direct any comments or questions to following contact points:.
         /// </summary>
         public static string PleaseDirectAnyComment {
             get {
                 return ResourceManager.GetString("PleaseDirectAnyComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please direct any comments or questions to {0}.
+        /// </summary>
+        public static string PleaseDirectAnyCommentN88 {
+            get {
+                return ResourceManager.GetString("PleaseDirectAnyCommentN88", resourceCulture);
             }
         }
         
@@ -5633,11 +5651,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8).
+        ///   Looks up a localized string similar to Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8.
         /// </summary>
         public static string SupportTime {
             get {
                 return ResourceManager.GetString("SupportTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8).
+        /// </summary>
+        public static string SupportTimeN88 {
+            get {
+                return ResourceManager.GetString("SupportTimeN88", resourceCulture);
             }
         }
         
