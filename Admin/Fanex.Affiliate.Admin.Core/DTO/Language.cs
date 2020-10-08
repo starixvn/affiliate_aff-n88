@@ -6,6 +6,6 @@
 
         public string LanguageName { get; set; }
 
-        public string LanguageShortCode { get; set; }
+        public string ShortedLanguageCode { get; set; }
     }
 }

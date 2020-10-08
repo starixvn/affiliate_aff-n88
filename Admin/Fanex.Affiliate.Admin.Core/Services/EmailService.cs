@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System;
+using System.Linq;
+using System.Web;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
@@ -29,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             SendApprovedAffEmail(emailParam);
             SendAffInforEmail(emailParam);
             SendWithdrawalGuidanceEmail(emailParam);
-            _languageService.SetCulture(LanguageSystem.DefaultLanguage);
+            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         private void SendApprovedAffEmail(AffInformationEmail emailParam)
@@ -37,7 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             const string TemplateName = "AffiliateApproved";
             var model = new EmailBase
             {
-                MailContact = _appSetting.MailContact,
+                MailContact = GetMailContactByLanguageCode(emailParam.Language),
                 SiteFriendlyName = _appSetting.SiteFriendlyName
             };
 
@@ -55,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             const string TemplateName = "AffiliateInformation";
             var model = new AffInformationEmail
             {
-                MailContact = _appSetting.MailContact,
+                MailContact = GetMailContactByLanguageCode(emailParam.Language),
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(2),
                 FirstName = emailParam.FirstName,
@@ -77,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             const string TemplateName = "WithdrawalGuidance";
             var model = new WithdrawalEmail
             {
-                MailContact = _appSetting.MailContact,
+                MailContact = GetMailContactByLanguageCode(emailParam.Language),
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 FirstName = emailParam.FirstName
             };
@@ -118,7 +120,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
         public void SendPaymentRequestUpdateEmail(PaymentRequestUpdateEmail emailParam)
         {
             _languageService.SetCulture(MappingLanguage(emailParam.Language));
-            emailParam.MailContact = _appSetting.MailContact;
+            emailParam.MailContact = GetMailContactByLanguageCode(emailParam.Language);
             emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             emailParam.DefaultCurrency = _appSetting.DefaultCurrency;
 
@@ -135,14 +137,14 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 content;
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail);
-            _languageService.SetCulture(LanguageSystem.DefaultLanguage);
+            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         public void SendDisapprovedEmail(AffInformationEmail emailParam)
         {
             _languageService.SetCulture(MappingLanguage(emailParam.Language));
             SendDisapprovedAffiliateEmail(emailParam);
-            _languageService.SetCulture(LanguageSystem.DefaultLanguage);
+            _languageService.SetCulture(_appSetting.DefaultLanguageCode);
         }
 
         private void SendDisapprovedAffiliateEmail(AffInformationEmail emailParam)
@@ -150,7 +152,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             const string TemplateName = "AffiliateDisapproved";
             var model = new AffInformationEmail
             {
-                MailContact = _appSetting.MailContact,
+                MailContact = GetMailContactByLanguageCode(emailParam.Language),
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 FirstName = emailParam.FirstName
             };
@@ -164,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, _appSetting.BccMail, _appSetting.CcMail);
         }
 
-        public static string MappingLanguage(string language)
+        private static string MappingLanguage(string language)
         {
             if (language == "vi-VN")
             {
@@ -172,6 +174,14 @@ namespace Fanex.Affiliate.Admin.Core.Services
             }
 
             return "en-US";
+        }
+
+        private string GetMailContactByLanguageCode(string languageCode)
+        {
+            var shortedLanguageCode = _languageService.GetLanguageList()
+                .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
+
+            return _appSetting.GetMailContactByShortedLanguageCode(shortedLanguageCode.ToUpperInvariant());
         }
     }
 }
