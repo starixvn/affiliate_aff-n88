@@ -2,11 +2,13 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Controllers;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Moq;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -49,9 +51,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void Preview_WhenCallWithAffiliateApproved_ReturnView()
         {
             // Arrange
+            var languageService = new Mock<ILanguageService>();
+            languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language { LanguageCode = "en-US", ShortedLanguageCode = "en" } });
+
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -61,10 +67,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(null, null, appSetting.Object, languageService.Object);
 
             // Action
-            var viewResult = controller.Preview(string.Empty, "AffiliateApproved", string.Empty) as ViewResult;
+            var viewResult = controller.Preview("en-US", "AffiliateApproved", string.Empty) as ViewResult;
             var viewName = viewResult.ViewName;
 
             // Assert
@@ -78,6 +84,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.DefaultShortedLanguageCode).Returns("en");
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -87,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
             var viewResult = controller.Preview(string.Empty, "AffiliateInformation", string.Empty) as ViewResult;
@@ -104,6 +112,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.DefaultShortedLanguageCode).Returns("en");
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -113,7 +123,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
             var viewResult = controller.Preview(string.Empty, "WithdrawalGuidance", string.Empty) as ViewResult;
@@ -130,6 +140,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.DefaultShortedLanguageCode).Returns("en");
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -139,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
             var viewResult = controller.Preview(string.Empty, "PaymentRequest/Approved", string.Empty) as ViewResult;
@@ -156,6 +168,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.DefaultShortedLanguageCode).Returns("en");
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -165,7 +179,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
             var viewResult = controller.Preview(string.Empty, "PaymentRequest/Rejected", string.Empty) as ViewResult;
@@ -196,6 +210,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.Environment).Returns("UAT");
             appSetting.Setup(a => a.IsProduction).Returns(true);
+            appSetting.Setup(a => a.DefaultShortedLanguageCode).Returns("en");
+            appSetting.Setup(a => a.GetMailContactByShortedLanguageCode(It.IsAny<string>())).Returns("abc@gmail.com");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -205,7 +221,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var controller = CreateEmailTestingController();
+            var controller = CreateEmailTestingController(appSetting: appSetting.Object);
 
             // Action
             var jsonResult = controller.SendEmail(string.Empty, null, string.Empty, string.Empty) as JsonResult;
