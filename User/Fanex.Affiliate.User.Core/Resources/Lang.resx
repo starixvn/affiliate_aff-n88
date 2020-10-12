@@ -1929,7 +1929,7 @@
     <value>PRAGMATIC PLAY</value>
     <comment>87923</comment>
   </data>
-  <data name="SupportTime" xml:space="preserve">
+  <data name="SupportTimeN88" xml:space="preserve">
     <value>Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8)</value>
     <comment>87923</comment>
   </data>
@@ -1953,7 +1953,7 @@
     <value>Indian Support</value>
     <comment>87923</comment>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
+  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
     <value>Please direct any comments or questions to {0}</value>
     <comment>87923</comment>
   </data>
@@ -2424,5 +2424,15 @@
   </data>
   <data name="Rebate" xml:space="preserve">
     <value>Rebate</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
+    <comment>87923</comment>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>Please direct any comments or questions to following contact points:</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
   </data>
 </root>

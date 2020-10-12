@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
 
 namespace Fanex.Affiliate.User.Core.Utilities
@@ -54,6 +55,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
 
+        public string GetMailContactByLanguageCode(string languageCode) => ConfigurationManager.AppSettings["MailContact" + SystemLanguage.GetUppercaseShortedCode(languageCode)] ?? MailContact;
+
         public string SiteName => GetValue("SiteName");
 
         public string SiteFriendlyName => GetValue("SiteFriendlyName");
@@ -63,6 +66,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SubAffTextLinkTemplate => GetValue("SubAffTextLinkTemplate");
 
         public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
+
+        public string DefaultShortedLanguageCode => GetValue("DefaultShortedLanguageCode");
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
@@ -77,5 +82,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
+
+        public string PhoneNumber => GetValue("PhoneNumber");
     }
 }

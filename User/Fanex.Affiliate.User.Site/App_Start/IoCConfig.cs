@@ -73,6 +73,7 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<SessionService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AppSetting>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<LanguageService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<LanguageRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AuthService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AccountRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MarketingRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -123,7 +124,7 @@ namespace Fanex.Affiliate.User.Site
                 new HttpClient(handler)
                 {
                     BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
-                })); 
+                }));
         }
     }
 }

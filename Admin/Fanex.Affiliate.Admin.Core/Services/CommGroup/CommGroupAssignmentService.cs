@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
         private void SendEmailApprove(AffInformationEmail emailParam, AffiliateBasicInfo affInfo, string password)
         {
             emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
-            emailParam.Language = affInfo.PreferredLanguage ?? LanguageSystem.DefaultLanguage;
+            emailParam.Language = affInfo.PreferredLanguage;
             emailParam.FirstName = affInfo.FirstName;
             emailParam.UserName = affInfo.UserName;
             emailParam.MailTo = affInfo.Email;

@@ -76,13 +76,14 @@
             }
             else if (ModelState.IsValid)
             {
+                var isLoggedIn = SessionService.UserSession != null;
                 param.SubjectRaw = param.Subject;
                 param.Sender = Server.HtmlEncode(param.Sender);
                 param.Email = Server.HtmlEncode(param.Email);
                 param.Affiliate = Server.HtmlEncode(param.Affiliate);
                 param.Subject = Server.HtmlEncode(param.Subject);
                 param.Content = Server.HtmlEncode(param.Content);
-                param.Creator = SessionService.UserSession == null ? -1 : SessionService.UserSession.AffId;
+                param.Creator = isLoggedIn ? SessionService.UserSession.AffId : -1;
                 param.Ip = Request.UserHostAddress;
                 param.SessionId = Session.SessionID;
                 param.Browser = Request.Browser.Browser;
@@ -90,7 +91,7 @@
 
                 var emailParam = new EmailBaseParam
                 {
-                    MailTo = _appSetting.MailContact,
+                    MailTo = _appSetting.GetMailContactByLanguageCode(isLoggedIn ? SessionService.UserSession.PreferredLanguage : SessionService.CurrentLanguage),
                     MailCc = _appSetting.MailCc
                 };
 

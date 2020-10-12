@@ -17,8 +17,8 @@
     [CustomAuthorize]
     public class LandingPageStatisticsController : BaseController
     {
-        private readonly IStatisticsRepository _statisticsRepository;
-        private readonly IMarketingService _marketingService;
+        private readonly IStatisticsRepository StatisticsRepository;
+        private readonly IMarketingService MarketingService;
 
         public LandingPageStatisticsController(ISessionService sessionService,
             ILanguageService languageService,
@@ -26,8 +26,8 @@
             IMarketingService marketingService
             ) : base(sessionService, languageService)
         {
-            _statisticsRepository = statisticsRepository;
-            _marketingService = marketingService;
+            StatisticsRepository = statisticsRepository;
+            MarketingService = marketingService;
         }
 
 
@@ -49,8 +49,8 @@
 
             var viewModel = new LandingPageStatisticsViewModel
             {
-                LanguageList = MarketingHelper.GetLanguageList(_marketingService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage),
-                MemberSitePageList = _marketingService.GetLandingPageList(isInternal),
+                LanguageList = MarketingHelper.GetLanguageList(LanguageService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage),
+                MemberSitePageList = MarketingService.GetLandingPageList(isInternal),
                 FromDate = landingPageParam.FromDate,
                 ToDate = landingPageParam.ToDate,
                 DataList = GetLandingPageStatisticsData(landingPageParam),
@@ -72,7 +72,7 @@
             {
                 landingPageParam.LanguageCode = SystemLanguage.LanguageList
                                                 .FirstOrDefault(l => l.Code.Equals(selectedLanguage))
-                                                ?.ShortedCode ?? SystemLanguage.ShortedDefaultCode;
+                                                ?.ShortedCode ?? SystemLanguage.DefaultShortedLanguageCode;
             }
 
             var viewModel = new LandingPageStatisticsViewModel
@@ -86,7 +86,7 @@
 
         private IEnumerable<LandingPageStatistics> GetLandingPageStatisticsData(LandingPageStatisticsParam landingPageParam)
         {
-            var dataList = _statisticsRepository.GetLandingPageStatistics(landingPageParam);
+            var dataList = StatisticsRepository.GetLandingPageStatistics(landingPageParam);
 
             foreach (var item in dataList)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Configurations;
@@ -100,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         {
             var viewPath = string.Format(TemplateString.EmailTemplatePath, function, language);
             var physicalPath = Server.MapPath(viewPath);
-            var model = GetModelByFunction(function);
+            var model = GetModelByFunction(function, language);
 
             return model == null ? string.Empty : _mailProcessor.BuildTemplateContent(physicalPath, model);
         }
@@ -123,20 +124,25 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
         }
 
-        private object GetModelByFunction(string functionName)
+        private object GetModelByFunction(string functionName, string languageCode)
         {
+            var shortedLanguageCode = _languageService.GetLanguageList()
+                .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
+
+            var mailContact = _appSetting.GetMailContactByShortedLanguageCode(shortedLanguageCode.ToUpperInvariant());
+
             switch (functionName)
             {
                 case "AffiliateApproved":
                     return new EmailBase
                     {
-                        MailContact = _appSetting.MailContact,
+                        MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName
                     };
                 case "AffiliateInformation":
                     return new AffInformationEmail
                     {
-                        MailContact = _appSetting.MailContact,
+                        MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(AffType.Asian),
                         FirstName = _firstName,
@@ -146,14 +152,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 case "WithdrawalGuidance":
                     return new WithdrawalEmail
                     {
-                        MailContact = _appSetting.MailContact,
+                        MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         FirstName = _firstName
                     };
                 case "PaymentRequest/Approved":
                     return new PaymentRequestUpdateEmail
                     {
-                        MailContact = _appSetting.MailContact,
+                        MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         DefaultCurrency = _appSetting.DefaultCurrency,
                         FirstName = _firstName,
@@ -164,7 +170,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 case "PaymentRequest/Rejected":
                     return new PaymentRequestUpdateEmail
                     {
-                        MailContact = _appSetting.MailContact,
+                        MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
                         DefaultCurrency = _appSetting.DefaultCurrency,
                         FirstName = _firstName,

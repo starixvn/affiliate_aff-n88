@@ -22,8 +22,9 @@
         private readonly ILanguageService _languageService;
         private readonly IAppSetting _appSetting;
 
-        private const string MailContact = "hubert.duong@starixsoft.com";
-        private const string RootDomain = "http://affiliate.12ying.com/";
+        private readonly string _mailContact;
+        private readonly string _userName;
+        private readonly string _siteFriendlyName;
 
         public TestController(ISessionService sessionService,
             ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
@@ -31,6 +32,9 @@
             _mailProcessor = new MailProcessor();
             _languageService = languageService;
             _appSetting = appSetting;
+            _siteFriendlyName = appSetting.SiteFriendlyName;
+            _mailContact = appSetting.GetMailContactByLanguageCode(sessionService.UserSession?.PreferredLanguage ?? sessionService.CurrentLanguage);
+            _userName = sessionService.UserSession?.UserName ?? "NovaAff0000";
         }
 
         [HttpGet]
@@ -80,7 +84,7 @@
             try
             {
                 var content = GetEmailContent(criteria);
-                var Subject = $"Affilite {AppSetting.Instance.SiteFriendlyName} testing";
+                var Subject = $"Affilite {_siteFriendlyName} testing";
 
                 _mailProcessor.Send(content, criteria.EmailAddress, Subject);
             }
@@ -173,9 +177,9 @@
             return new ContactUsParam
             {
                 Sender = "Sender",
-                Affiliate = "NOVAAFF0000",
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
-                Email = "abc@gmail.com",
+                Affiliate = _userName,
+                SiteFriendlyName = _siteFriendlyName,
+                Email = "abc@nova.com",
                 Content = SiteDomainHelper.GetRootUrl(this),
             };
         }
@@ -184,13 +188,13 @@
         {
             return new NoticeEmailParam
             {
-                UserName = "NOVAAFF0000",
+                UserName = _userName,
                 FirstName = "Firs Name",
                 LastName = "Last Name",
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                SiteFriendlyName = _siteFriendlyName,
                 SiteUrl = "abc.com.vn",
                 MoreSiteUrls = "xyz.com.vn",
-                MailContact = MailContact
+                MailContact = _mailContact
             };
         }
 
@@ -199,11 +203,11 @@
             return new RecoverPasswordEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                MailContact = _mailContact,
+                SiteFriendlyName = _siteFriendlyName,
                 Code = "12345",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact
+                MailTo = _mailContact
             };
         }
 
@@ -215,14 +219,14 @@
             return new PaymentEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                MailContact = _mailContact,
+                SiteFriendlyName = _siteFriendlyName,
                 DefaultCurrency = _appSetting.DefaultCurrency,
                 TransId = TranId,
                 RequestDate = DateTime.Now.Date,
                 Amount = Amount,
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact,
+                MailTo = _mailContact,
                 PaymentType = type
             };
         }
@@ -232,11 +236,11 @@
             return new NewPasswordEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                MailContact = _mailContact,
+                SiteFriendlyName = _siteFriendlyName,
                 NewPassword = "1234aa",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
-                MailTo = MailContact,
+                MailTo = _mailContact,
             };
         }
 
@@ -245,8 +249,8 @@
             return new EmailBaseParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                MailContact = _mailContact,
+                SiteFriendlyName = _siteFriendlyName,
             };
         }
 
@@ -255,8 +259,8 @@
             return new VerificationAccountEmailParam
             {
                 User = GetUserInfo(),
-                MailContact = MailContact,
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
+                MailContact = _mailContact,
+                SiteFriendlyName = _siteFriendlyName,
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
                 Code = "123456",
                 Ip = "127.0.0.1"
@@ -268,10 +272,10 @@
             return new UserInfo
             {
                 AffId = 1,
-                FirstName = "hubert fisrt name",
-                UserName = "hubert",
-                Email = "hubert.duong@starixsoft.com",
-                LastName = "hubert last name",
+                FirstName = "Fisrt name",
+                UserName = _userName,
+                Email = "abc@nova.com",
+                LastName = "Last name",
                 MailOption = false,
                 PreferredLanguage = "en-US"
             };

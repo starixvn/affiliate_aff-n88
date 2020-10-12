@@ -261,7 +261,7 @@
       height: auto;
       padding: 10px 0; } }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .details-section-content .table {
     overflow-x: scroll; }
     .details-section-content .table table.has-total tbody {

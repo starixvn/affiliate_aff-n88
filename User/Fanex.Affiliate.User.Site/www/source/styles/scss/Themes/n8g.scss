@@ -10,7 +10,7 @@ body {
         color: $link-color;
 
         &:hover {
-            color: $link-color; 
+            color: $link-color;
         }
     }
 }
@@ -21,11 +21,11 @@ body {
 .news {
     background: $bg-main-color;
 }
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
     color: $color-placeholder;
 }
 
-:-ms-input-placeholder { 
+:-ms-input-placeholder {
     color: $color-placeholder;
 }
 
@@ -256,7 +256,7 @@ select {
     }
 }
 
-    
+
 
 .form-group .form-control {
     background-color: $input-bg;
@@ -379,7 +379,7 @@ select {
     left: 200px;
     z-index: 10;
     max-width: 42%;
-    width: 42%; 
+    width: 42%;
 
     .txt-lang {
         color: $banner-color-text;
@@ -508,7 +508,7 @@ select {
     }
 }
 
- 
+
 
 //title in my account
 #account-overview-content {
@@ -712,7 +712,7 @@ select.form-control {
         background-color: $button-login-bg-color-hover !important;
     }
 }
- 
+
 
 
 //date picker
@@ -1226,7 +1226,7 @@ div.summary-content {
     margin: 0 0 10px 0;
 }
 
- 
+
 
 //my account
 .control-label {
@@ -1771,7 +1771,6 @@ div.summary-content {
 //updatePasswordForm
 #updatePasswordForm {
     padding-top: 20px;
-    
 }
 //forgotPasswordForm
 #forgotPasswordForm {
@@ -1790,7 +1789,7 @@ div.summary-content {
     .table{
         table{
             min-width: 1000px;
-        } 
+        }
     }
 }
 #statisticsDetailPager {
@@ -1850,6 +1849,11 @@ div.summary-content {
         margin: 0 auto;
     }
 }
+
+.contact-title{
+    margin-top: -3.3rem;
+}
+
 //modal popup
 .login-dialog {
 
@@ -1889,9 +1893,11 @@ div.summary-content {
                 color: $modal-header-color;
                 border-radius: 0;
                 border: 0;
-                .close{
+
+                .close {
                     width: 30px;
                 }
+
                 .modal-title {
                     font-weight: bold;
                     font-size: 2.4rem;
@@ -1936,8 +1942,7 @@ div.summary-content {
                 }
 
                 .btn-login-mobile {
-                            
-                    margin: 0;                 
+                    margin: 0;
                 }
 
                 .link-login-popup {
@@ -1974,7 +1979,7 @@ div.summary-content {
             margin-left: 0;
             padding-left: 0;
 
-            
+
         }
     }
 }
@@ -2121,7 +2126,7 @@ div.summary-content {
             padding-right: 20px !important;
         }
     }
-    
+
     .commission-report {
         .row-wrapper{
             padding-right: 22px;
@@ -2136,14 +2141,14 @@ div.summary-content {
             }
         }
     }
-} 
+}
 
 @media only screen and (max-width: 992px) {
     .header-top {
         .logo {
             padding: 1rem;
             text-align: left;
-        } 
+        }
     }
 
     .navbar {
@@ -2469,6 +2474,11 @@ div.summary-content {
         max-width: 190px;
         margin-top: 0;
     }
+
+    .contact-title {
+        margin-top: -10px;
+    }
+
     .commission-report, .payment-history, #statementDataList, .details-section-content {
         table {
             min-width: 1200px;
@@ -2488,8 +2498,8 @@ div.summary-content {
             }
         }
     }
-  
-        
+
+
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -2786,7 +2796,7 @@ div.summary-content {
                     }
                     .img-icon {
                         width: 60px;
-                        padding: 0; 
+                        padding: 0;
                         height: auto;
                     }
 
@@ -2831,7 +2841,7 @@ div.summary-content {
             }
         }
     }
-    
+
 }
 
 @media only screen and (max-width: 375px) {
@@ -2896,7 +2906,7 @@ div.summary-content {
     width: 100%;
 
     .content {
-        margin-top: 33px;
+        margin-top: 3.3rem;
         padding-left: 0;
         padding-right: 0;
 

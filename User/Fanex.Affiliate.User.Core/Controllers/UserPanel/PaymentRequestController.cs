@@ -75,7 +75,7 @@
                 var emailParam = new PaymentEmailParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage ?? SessionService.CurrentLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,
@@ -107,7 +107,7 @@
                 var emailParam = new PaymentEmailParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage ?? SessionService.CurrentLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,

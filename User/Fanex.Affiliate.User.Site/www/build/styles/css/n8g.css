@@ -1214,6 +1214,9 @@ div.custom-panel {
   .date-time .img-support .img-responsive {
     margin: 0 auto; }
 
+.contact-title {
+  margin-top: -3.3rem; }
+
 .login-dialog .modal-content {
   background-color: #10192F;
   border: 2px solid #FAB617;
@@ -1559,6 +1562,8 @@ div.custom-panel {
   .date-time .img-support {
     max-width: 190px;
     margin-top: 0; }
+  .contact-title {
+    margin-top: -10px; }
   .commission-report table, .payment-history table, #statementDataList table, .details-section-content table {
     min-width: 1200px; }
   #requestPayoutForm .form-group label {
@@ -1770,7 +1775,7 @@ div.custom-panel {
 .page-container {
   width: 100%; }
   .page-container .content {
-    margin-top: 33px;
+    margin-top: 3.3rem;
     padding-left: 0;
     padding-right: 0; }
     .page-container .content p {

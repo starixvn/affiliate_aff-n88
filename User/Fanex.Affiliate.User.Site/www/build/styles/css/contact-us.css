@@ -6,6 +6,13 @@
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
     overflow: hidden;*/ }
 
+.contact-icon-group {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+  .contact-icon-group .contact-icon {
+    width: 160px;
+    margin: 20px auto; }
+
 .date-time-info {
   /*color: #fff;*/
   padding: 10px;

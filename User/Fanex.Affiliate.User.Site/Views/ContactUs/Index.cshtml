@@ -1,9 +1,11 @@
 ﻿@using Fanex.Affiliate.User.Core.Utilities
 @using Fanex.Affiliate.User.Core.Constants
+@using Fanex.Affiliate.User.Core.CoreService
 
 @model Fanex.Affiliate.User.Core.DTO.UserInfo
 @{
     var appSetting = AppSetting.Instance;
+    var sessionService = DependencyResolver.Current.GetService<ISessionService>();
 
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
     ViewBag.Title = $"{appSetting.SiteFriendlyName} Affiliate Program | Contact Us";
@@ -11,7 +13,8 @@
     var name = Model != null ? $"{Model?.FirstName} {Model?.LastName}" : string.Empty;
     var affiliate = Model?.UserName;
     var email = Model?.Email;
-    var mailContact = appSetting.MailContact;
+    var mailContact = appSetting.GetMailContactByLanguageCode(sessionService.CurrentLanguage);
+    var phoneNumber = appSetting.PhoneNumber;
     var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }
 
@@ -34,89 +37,143 @@
     </div>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="date-time">
-                    <div class="img-support">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
+        @if (isN88)
+        {
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="date-time">
+                        <div class="img-support">
+                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
+                        </div>
+                        <div class="date-time-info">
+                            <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="contact-form text-center">
+                        @*<div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
+                            @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.MessageSentReview.Replace("{br}", "<br>")))
+                        </div>
+
+                        <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>*@
+
+                        <div id="mainContent">
+                            <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyCommentN88), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
+                            @*<form id="contactForm" class="form">
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <div class="group group-small">
+                                        <label class="require" for="Sender">@Lang.Name</label>
+                                        <input class="field" type="text" name="Sender" id="Sender" value="@name" />
+                                        <div class="validation-input">
+                                            <span class="help-block hide">@Lang.NameIsInvalid</span>
+                                        </div>
+                                    </div>
+                                    <div class="group group-small">
+                                        <label for="Affiliate">@Lang.AffiliateID</label>
+                                        <input class="field" type="text" name="Affiliate" id="Affiliate" value="@affiliate" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="group group-small">
+                                        <label class="require" for="Subject">@Lang.Subject</label>
+                                        <input class="field" type="text" name="Subject" id="Subject" />
+                                        <div class="validation-input">
+                                            <span class="help-block hide">@Lang.SubjectIsInvalid</span>
+                                        </div>
+                                    </div>
+                                    <div class="group group-small">
+                                        <label class="require" for="Email">@Lang.Email1</label>
+                                        <input class="field emailInput" type="text" name="Email" id="Email" value="@email" />
+                                        <div class="validation-input">
+                                            <span class="help-block hide">@Lang.EmailAddressIsInvalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="group group-full">
+                                        <label class="require" for="Content">@Lang.Comment</label>
+                                        <textarea class="field" name="Content" id="Content"></textarea>
+                                        <div class="validation-input">
+                                            <span class="help-block hide">@Lang.CommentsIsInvalid</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="group group-small captcha">
+                                        <label class="require" for="Captcha">@Lang.ValidationCodeLabel</label>
+                                        <input class="field" type="text" name="Captcha" id="Captcha" autocomplete="off" />
+                                        <div class="validation-input">
+                                            <span class="help-block hide">@Lang.ErrmsgEntryValidCode</span>
+                                        </div>
+                                    </div>
+                                    <div class="validation-value"><img id="captchaContactUs" src="@Url.Content("~/Auth/CaptchaImage?type=1&_v="+DateTime.Now.ToLongTimeString())" alt="captcha" /></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="group">
+                                        <label></label>
+                                        <button class="btn btn-submit" type="submit">@Lang.Submit</button>
+                                        <button class="btn btn-submit" type="reset" id="btnReset">@Lang.Reset</button>
+                                    </div>
+                                </div>
+                            </form>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row contact-title">
+                <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
+            </div>
+            <div class="row contact-icon-group">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>@Lang.Phone</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Email</strong>
+                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Telegram</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") />
+                    </div>
+                    <div class="text-center">
+                        <strong>Zalo</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="date-time-info">
                         <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="contact-form text-center">
-                    @*<div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
-                        @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.MessageSentReview.Replace("{br}", "<br>")))
-                    </div>
-
-                    <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>*@
-
-                    <div id="mainContent">
-                        <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyComment), "<a href=\"mailto:" + mailContact + "\">" + mailContact + "</a>"))</p>
-                        @*<form id="contactForm" class="form">
-                            @Html.AntiForgeryToken()
-                            <div class="form-group">
-                                <div class="group group-small">
-                                    <label class="require" for="Sender">@Lang.Name</label>
-                                    <input class="field" type="text" name="Sender" id="Sender" value="@name" />
-                                    <div class="validation-input">
-                                        <span class="help-block hide">@Lang.NameIsInvalid</span>
-                                    </div>
-                                </div>
-                                <div class="group group-small">
-                                    <label for="Affiliate">@Lang.AffiliateID</label>
-                                    <input class="field" type="text" name="Affiliate" id="Affiliate" value="@affiliate" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="group group-small">
-                                    <label class="require" for="Subject">@Lang.Subject</label>
-                                    <input class="field" type="text" name="Subject" id="Subject" />
-                                    <div class="validation-input">
-                                        <span class="help-block hide">@Lang.SubjectIsInvalid</span>
-                                    </div>
-                                </div>
-                                <div class="group group-small">
-                                    <label class="require" for="Email">@Lang.Email1</label>
-                                    <input class="field emailInput" type="text" name="Email" id="Email" value="@email" />
-                                    <div class="validation-input">
-                                        <span class="help-block hide">@Lang.EmailAddressIsInvalid</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="group group-full">
-                                    <label class="require" for="Content">@Lang.Comment</label>
-                                    <textarea class="field" name="Content" id="Content"></textarea>
-                                    <div class="validation-input">
-                                        <span class="help-block hide">@Lang.CommentsIsInvalid</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="group group-small captcha">
-                                    <label class="require" for="Captcha">@Lang.ValidationCodeLabel</label>
-                                    <input class="field" type="text" name="Captcha" id="Captcha" autocomplete="off" />
-                                    <div class="validation-input">
-                                        <span class="help-block hide">@Lang.ErrmsgEntryValidCode</span>
-                                    </div>
-                                </div>
-                                <div class="validation-value"><img id="captchaContactUs" src="@Url.Content("~/Auth/CaptchaImage?type=1&_v="+DateTime.Now.ToLongTimeString())" alt="captcha" /></div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="group">
-                                    <label></label>
-                                    <button class="btn btn-submit" type="submit">@Lang.Submit</button>
-                                    <button class="btn btn-submit" type="reset" id="btnReset">@Lang.Reset</button>
-                                </div>
-                            </div>
-                        </form>*@
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
     </div>
-</div>
+    </div>

@@ -67,7 +67,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 return Json(requestValidation);
             }
-             
+
             userParam.LoginIp = RequestHelper.GetClientIPAddress(Request);
             userParam.Language = SessionService.CurrentLanguage;
             userParam.UserAgent = Request.UserAgent;
@@ -78,7 +78,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             if (loginResult.Result.ShouldVerifyAccount)
             {
-                SessionService.VerificationSession = new VerificationSession { AffId = loginResult.UserInfo.AffId };
+                SessionService.VerificationSession = new VerificationSession { AffId = loginResult.UserInfo.AffId, PreferredLanguage = loginResult.UserInfo.PreferredLanguage };
                 return Json(loginResult.Result);
             }
 

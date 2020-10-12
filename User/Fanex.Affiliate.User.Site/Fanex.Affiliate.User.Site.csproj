@@ -854,6 +854,11 @@
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
+    <Content Include="www\build\styles\Images\contact-us\bwing.jpg" />
+    <Content Include="www\build\styles\Images\contact-us\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\goal123.jpg" />
+    <Content Include="www\build\styles\Images\contact-us\phone.png" />
+    <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />

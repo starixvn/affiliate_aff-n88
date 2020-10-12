@@ -36,6 +36,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
 
+        public string GetMailContactByShortedLanguageCode(string shortedLanguageCode) => ConfigurationManager.AppSettings["MailContact" + shortedLanguageCode] ?? MailContact;
+
         public string SentryDsn => GetValue("Dsn");
 
         public string LoggingCategory => GetValue("LoggingCategory");
@@ -57,12 +59,18 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string DefaultLanguage => GetValue("DefaultLanguage");
 
+        public string DefaultLanguageCode => GetValue("DefaultLanguageCode");
+
+        public string DefaultShortedLanguageCode => GetValue("DefaultShortedLanguageCode");
+
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string MemberSiteProxyUrl => GetValue("MemberSiteProxyUrl");
 
         public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");

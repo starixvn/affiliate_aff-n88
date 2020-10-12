@@ -1732,7 +1732,7 @@
   <data name="MoreDetailProduct" xml:space="preserve">
     <value>有关12BET产品的更多详细信息</value>
   </data>
-  <data name="SupportTime" xml:space="preserve">
+  <data name="SupportTimeN88" xml:space="preserve">
     <value>周一至周六上午 9 时至下午6 时（北京时间）</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
@@ -1750,7 +1750,7 @@
   <data name="IndianSupport" xml:space="preserve">
     <value>印地语</value>
   </data>
-  <data name="PleaseDirectAnyComment" xml:space="preserve">
+  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
     <value>如有任何意见或问题，欢迎电邮至{0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
@@ -2112,5 +2112,8 @@
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>活跃玩家</value>
+  </data>
+  <data name="SupportTime" xml:space="preserve">
+    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
   </data>
 </root>

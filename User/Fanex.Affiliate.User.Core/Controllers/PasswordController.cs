@@ -84,7 +84,7 @@
                 var recoverEmailParam = new RecoverPasswordEmailParam
                 {
                     User = userInfo,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage ?? SessionService.CurrentLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailTo = param.Email,
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
@@ -129,7 +129,7 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
                     NewPassword = newPassword,
                     MailTo = userInfo.Email,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage ?? SessionService.CurrentLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                 };
 

@@ -16,7 +16,7 @@ const languages = {};
 
 for (let i = 0; i < languageList.length; i++) {
     const languageItem = languageList[i];
-    const key = 'MessageContent' + languageItem.LanguageShortCode;
+    const key = 'MessageContent' + languageItem.ShortedLanguageCode;
     defaultMessageContentList[key] = '';
     languages[key] = languageItem.LanguageName;
 }

@@ -22,7 +22,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         {
                             LanguageCode =reader.ToString("MarketId"),
                             LanguageName = reader.ToString("MarketName"),
-                            LanguageShortCode = reader.ToString("ShortedCode")
+                            ShortedLanguageCode = reader.ToString("ShortedCode")
                         });
                     }
                 }

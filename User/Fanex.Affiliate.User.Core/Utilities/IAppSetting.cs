@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
     {
         string GetValue(string key);
 
+        string GetMailContactByLanguageCode(string languageCode);
+
         string Environment { get; }
 
         bool IsLocal { get; }
@@ -59,6 +61,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string DefaultLanguageCode { get; }
 
+        string DefaultShortedLanguageCode { get; }
+
         string DefaultCurrency { get; }
 
         string MaxCommission { get; }
@@ -72,6 +76,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string MemberSiteApiAuthenticationKey { get; }
 
         bool IsUseMemberSiteProxy { get; }
+
+        string PhoneNumber { get; }
 
     }
 }

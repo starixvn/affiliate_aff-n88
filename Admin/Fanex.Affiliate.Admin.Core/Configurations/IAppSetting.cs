@@ -6,6 +6,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
     {
         string GetValue(string key);
 
+        string GetMailContactByShortedLanguageCode(string shortedLanguageCode);
+
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string InternalEuropeanAffiliateUrl { get; }
 
@@ -53,12 +55,18 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         string DefaultLanguage { get; }
 
+        string DefaultLanguageCode { get; }
+
+        string DefaultShortedLanguageCode { get; }
+
         string DefaultCurrency { get; }
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string MemberSiteApiUrl { get; }
 
         int MemberSiteId { get; }
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string MemberSiteProxyUrl { get; }
 
         string MemberSiteApiAuthenticationKey { get; }

@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using System.Web;
     using System.Web.Mvc;
     using BusinessService;
     using CoreService;
@@ -20,6 +21,8 @@
         private readonly IAppSetting _appSetting;
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
+        private const string ParentIdCookieName = "Fanex.UserSite.RefId";
+        private const int CookieTimeOut = 6;
 
         public SignupController(
             ISessionService sessionService,
@@ -45,15 +48,27 @@
 
             bool isParsable = int.TryParse(refId, out int parentAffId);
 
-            var vm = new UserSignUpParam();
-            vm.ParentAffId = parentAffId;
+            var vm = new UserSignUpParam
+            {
+                ParentAffId = parentAffId
+            };
 
             if (isParsable)
             {
                 var result = _accountService.GetLevelAffiliate(parentAffId);
                 vm.IsValidParentId = result.IsValidAffId;
             }
+            if (vm.IsValidParentId)
+            {
+                var cookie = new HttpCookie(ParentIdCookieName)
+                {
+                    HttpOnly = true,
+                    Expires = DateTime.Now.AddHours(CookieTimeOut),
+                    Value = vm.ParentAffId.ToString(),
+                };
 
+                HttpContext.Response.Cookies.Add(cookie);
+            }
             return View(vm);
         }
 
@@ -72,6 +87,7 @@
         {
             var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
+            var refId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value;
             if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
@@ -111,17 +127,18 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffId = param.ParentAffId
+                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
                 };
 
+                var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
                 var emailParam = new EmailBaseParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.MailContact,
+                    MailContact = mailContact,
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
-                    MailTo = _appSetting.MailContact
+                    MailTo = mailContact
                 };
 
                 result = await _accountService.CreateAffiliate(signUpParam, emailParam);
