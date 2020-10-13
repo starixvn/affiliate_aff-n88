@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.User.Core.Constants
     {
         private static readonly IAppSetting _appSetting = AppSetting.Instance;
 
-        private static IDictionary<string, string> _supportedLanguageForGoogleAnalytics = new Dictionary<string, string>
+        private static readonly IDictionary<string, string> _supportedLanguageForGoogleAnalytics = new Dictionary<string, string>
         {
             ["en-US"] = "en",
             ["zh-CN"] = "cs",

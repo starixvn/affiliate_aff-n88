@@ -185,7 +185,6 @@
     <Compile Include="Controllers\Domain\SubAffDomainControllerTest.cs" />
     <Compile Include="Controllers\Domain\DomainControllerTest.cs" />
     <Compile Include="Controllers\EmailTestingControllerTest.cs" />
-    <Compile Include="Controllers\ExchangeRate\ExchangeRateControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
     <Compile Include="Controllers\LoginControllerTest.cs" />
     <Compile Include="Controllers\MediaGallery\LandingPageControllerTest.cs" />
@@ -247,7 +246,6 @@
     <Compile Include="Services\EmailServiceTest.cs" />
     <Compile Include="Services\Home\HomeServiceTest.cs" />
     <Compile Include="Services\LanguageServiceTest.cs" />
-    <Compile Include="Services\ExchangeRate\ExchangeRateServiceTest.cs" />
     <Compile Include="Services\LicenseeServiceTest.cs" />
     <Compile Include="Services\MediaGallery\BannerListServiceTest.cs" />
     <Compile Include="Services\MediaGallery\BannerValidationServiceTest.cs" />
