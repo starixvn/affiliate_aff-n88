@@ -14,7 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
     public class MemberRepositoryTest
     {
         private const string SpKeyMemberListSel = "Aff_Admin_MemberList_Sel";
-        private const string SpKeyWriteLog = "Aff_WriteLog";
 
         [Fact]
         public void GetMemberList_WhenCallWithSpKeyBannerSel_ReturnCorrectData()
@@ -83,22 +82,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             // Assert
             Assert.Empty(result.MainData);
             Assert.Equal(0, result.TotalItem);
-        }
-
-        [Fact]
-        public void WriteAfterDeleteSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
-        {
-            // Arrange
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            repository.Setup(re => re.GetObjectDb(SpKeyWriteLog, 120)).Returns(objectDb.Object);
-
-            // Action
-            repository.Object.WriteAfterDeleteSuccefully(new DeleteMemberParam());
-
-            // Assert
-            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetMemberList()

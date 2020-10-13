@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
+using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
@@ -8,6 +9,7 @@ using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Moq;
 using NSubstitute;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
@@ -81,7 +83,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             var emailParam = new AffInformationEmail
             {
-                Language = "en-US"
+                Language = "vi-VN"
             };
             var mainContent = "mail content";
             MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
@@ -130,6 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             };
             var mainContent = "mail content";
             MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            LanguageService.GetLanguageList().Returns(new List<Language> { new Language { LanguageCode = "en-US"} });
 
             //Action
             var service = CreateEmailService();

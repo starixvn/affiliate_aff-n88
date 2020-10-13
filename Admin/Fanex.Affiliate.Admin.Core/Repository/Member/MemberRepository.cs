@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
-using DNAide.Core;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Common.Extensions;
 
