@@ -40,7 +40,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             {
                 new PlayerDetail
                 {
-                    BankingFee = 100, Bonus = 100, Deposit = 100, RegisteredDate= DateTime.Now, Turnover = 100, Username = "name", Winloss = 100, Withdrawal = 100
+                    Bonus = 100, Deposit = 100, RegisteredDate= DateTime.Now, Turnover = 100, Username = "name", Winloss = 100, Withdrawal = 100
                 }
             });
 

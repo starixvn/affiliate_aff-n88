@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             {
                 new AffiliateCommission
                 {
-                    BankingFee = 100, Bonus = 100, CalculatedType =1, Commission = 100, CommissionRate =100,
+                    Bonus = 100, CalculatedType =1, Commission = 100, CommissionRate =100,
                     MonthDate = DateTime.Now, OperationalFee = 100, PlatformFee = 100, ProductId = 1, ProductName = "saba", TurnOver = 100, WinLoss = 100
                 }
             });

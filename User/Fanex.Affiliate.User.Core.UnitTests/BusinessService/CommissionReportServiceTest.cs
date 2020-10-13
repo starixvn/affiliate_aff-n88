@@ -36,7 +36,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 new AffiliateCommission
                 {
                     MonthDate = new DateTime(2020, 01,01),
-                    BankingFee = 100,
                     Bonus = 100,
                     CalculatedType = 0,
                     Commission = 100,
@@ -51,7 +50,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 new AffiliateCommission
                 {
                     MonthDate = new DateTime(2020, 01,01),
-                    BankingFee = 100,
                     Bonus = 100,
                     CalculatedType = 0,
                     Commission = 100,
@@ -66,7 +64,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 new AffiliateCommission
                 {
                     MonthDate = new DateTime(2020, 01,01),
-                    BankingFee = 100,
                     Bonus = 100,
                     CalculatedType = 0,
                     Commission = 100,
@@ -81,7 +78,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 new AffiliateCommission
                 {
                     MonthDate = new DateTime(2020, 02,01),
-                    BankingFee = 100,
                     Bonus = 100,
                     CalculatedType = 1,
                     Commission = 100,

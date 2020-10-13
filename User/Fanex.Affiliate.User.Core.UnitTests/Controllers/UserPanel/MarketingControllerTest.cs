@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void GetBanner_WhenCallWithNoSelectedDomain_ReturnEmptyModelItem()
         {
             var controller = CreateMarketingController();
-            MarketingService.GetDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
+            //MarketingService.GetDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
             var param = new MarketingBannerParam();
 
             var result = controller.GetBanner(param) as ViewResult;
@@ -135,7 +135,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void GetText_WhenCallWithNoSelectedDomain_ReturnEmptyModelList()
         {
             var controller = CreateMarketingController();
-            MarketingService.GetDomainList(Arg.Compat.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
+            MarketingService.GetAvailableDomainList(Arg.Compat.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
             var param = new MarketingTextParam();
 
             var result = controller.GetText(param) as ViewResult;

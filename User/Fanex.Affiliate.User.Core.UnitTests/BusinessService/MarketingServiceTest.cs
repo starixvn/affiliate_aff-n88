@@ -153,11 +153,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
             CacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList).ReturnsNull();
-            Repo.GetDomainList(0, false).ReturnsForAnyArgs(Constant.DomainList);
+            Repo.GetAvailableDomainList(0, true, false).ReturnsForAnyArgs(Constant.DomainList);
 
-            var result = service.GetDomainList(0, TargetSite.TargetToMember, false);
+            var result = service.GetAvailableDomainList(0, TargetSite.TargetToMember, false);
 
-            Repo.Received().GetDomainList(0, false);
+            Repo.Received().GetAvailableDomainList(0, true, false);
             CacheService.Received().Set(CacheKey.DomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
             Assert.NotEmpty(result);
         }
@@ -167,11 +167,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
             CacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList).ReturnsNull();
-            Repo.GetDomainList(0, false).ReturnsNullForAnyArgs();
+            Repo.GetAvailableDomainList(0, true, false).ReturnsNullForAnyArgs();
 
-            var result = service.GetDomainList(0, TargetSite.TargetToMember, false);
+            var result = service.GetAvailableDomainList(0, TargetSite.TargetToMember, false);
 
-            Repo.Received().GetDomainList(0, false);
+            Repo.Received().GetAvailableDomainList(0, true, false);
             CacheService.DidNotReceiveWithAnyArgs().Set(CacheKey.DomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
             Assert.Empty(result);
         }

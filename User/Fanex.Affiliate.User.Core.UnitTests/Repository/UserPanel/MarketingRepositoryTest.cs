@@ -112,7 +112,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var db = Builder.Build(uSpKey, dbMode);
             db.Query<Domain>(Arg.Compat.Is<object>(o => CheckPropertyValue(o, "AffId", 1))).Returns(new List<Domain> { new Domain() });
 
-            var result = repo.GetDomainList(1, isInternal);
+            var result = repo.GetAvailableDomainList(1, true, isInternal);
 
             Assert.Equal(key, db.SettingKey);
             Assert.NotEmpty(result);
