@@ -733,6 +733,7 @@
     <Content Include="www\build\js\validation.min.js">
       <DependentUpon>validation.js</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\bootstrap-3.3.7.min.css" />
     <Content Include="www\build\styles\css\commissionreport.css" />
     <Content Include="www\build\styles\css\commissionreport.min.css">
       <DependentUpon>commissionreport.css</DependentUpon>
@@ -1412,6 +1413,7 @@
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutLeft.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutRight.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutUp.scss" />
+    <Content Include="www\source\styles\scss\vendors\bootstrap-3.3.7.min.css" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_alerts.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_background-variant.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_border-radius.scss" />
