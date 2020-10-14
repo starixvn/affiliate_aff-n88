@@ -758,6 +758,8 @@ body {
       width: 100%;
       height: 100%;
       object-fit: cover; }
+      .carousel.slide .carousel-inner > .item .img-responsive.img-scale {
+        object-fit: unset; }
   @media (min-width: 1600px) {
     .carousel.slide .carousel-inner {
       height: 500px; } }
