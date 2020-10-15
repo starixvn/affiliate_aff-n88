@@ -381,7 +381,7 @@ select {
     padding-top: 5px;
     padding-bottom: 5px; }
   .table table .overview-table-header, .table table .player-detail-table-header {
-    background: #282828 !important; }
+    background: #0f1c33 !important; }
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: none; }
   .table table .total {
@@ -772,8 +772,7 @@ select.form-control {
 
 div.summary-content {
   padding: 30px 0 0 0;
-  border: 0;
-  overflow: hidden; }
+  border: 0; }
   div.summary-content .dashboard-section {
     display: flex;
     justify-content: space-between;
@@ -823,6 +822,9 @@ div.summary-content {
       background-color: #259176; }
   div.summary-content .details-section {
     padding-top: 29px; }
+  div.summary-content .details-section-sticky {
+    width: calc(100% - 400px);
+    background: #152849; }
   div.summary-content .details-section-menu .menu {
     border-bottom: 1px solid #435068;
     margin-bottom: 14px; }
@@ -1111,9 +1113,11 @@ div.custom-panel {
   border: 1px solid #435068 !important; }
   #account-overview-content .table table thead tr th, #paymentList .table table thead tr th, .report-container .table table thead tr th, #statementDataList .table table thead tr th {
     background-color: #0F1C33; }
-  #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th, #statementDataList .table table thead tr.overview-table-total th {
-    background-color: #15366F !important;
-    color: #ffffff; }
+  #account-overview-content .table table thead tr.overview-table-total, #paymentList .table table thead tr.overview-table-total, .report-container .table table thead tr.overview-table-total, #statementDataList .table table thead tr.overview-table-total {
+    background: #15366F; }
+    #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th, #statementDataList .table table thead tr.overview-table-total th {
+      background-color: #15366F;
+      color: #ffffff; }
   #account-overview-content .table table tbody tr:nth-child(even), #paymentList .table table tbody tr:nth-child(even), .report-container .table table tbody tr:nth-child(even), #statementDataList .table table tbody tr:nth-child(even) {
     background-color: #182E56; }
   #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd), #statementDataList .table table tbody tr:nth-child(odd) {
@@ -1838,3 +1842,11 @@ div.custom-panel {
   font-size: 1.4rem;
   line-height: 24px;
   letter-spacing: 0.02em; }
+
+@media only screen and (min-width: 1199px) and (max-width: 1366px) {
+  div.summary-content .details-section-sticky {
+    width: calc(100% - 200px); } }
+
+@media only screen and (max-width: 1198px) {
+  div.summary-content .details-section-sticky {
+    width: calc(100% - 20px); } }

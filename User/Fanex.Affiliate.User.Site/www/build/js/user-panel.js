@@ -1,5 +1,5 @@
 var SUPPORT_MIN_WITDH = 716;
-var SUB_MENU_HEIGHT = 42;
+var SUB_MENU_HEIGHT = 41;
 var DETAILS_SECTION_MENU_HEIGHT = 33;
 
 function handleSetTop() {
