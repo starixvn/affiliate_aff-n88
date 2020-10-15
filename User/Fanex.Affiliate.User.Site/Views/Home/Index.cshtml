@@ -16,8 +16,8 @@
     var isN8G = string.Equals(siteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
     var isN88 = string.Equals(siteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 
-    var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB" + (isN88 ? $".{Model.Language}" : string.Empty));
-    //var casinoBannerFileName = Url.Content($"~/www/build/styles/Images/casino-banners/AFF-Home-banner-Casino");
+    var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/{siteName}/AFF-Home-banner-SB");
+    var casinoBannerFileName = isN88 ? Url.Content($"~/www/build/styles/Images/casino-banners/{siteName}/AFF-Home-banner-Casino.{Model.Language}") : string.Empty;
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/{siteName}/3step." + Model.Language);
 }
 
@@ -34,23 +34,25 @@
         <div class="carousel-inner" role="listbox">
             @if (isN88)
             {
-                var redirectLink = Model.IsAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/Signup/Index");
+                var redirectLink = Url.Content("~/Signup/Index");
 
-                if ((string.Equals(Model.Language, "en-US", StringComparison.CurrentCultureIgnoreCase) || string.Equals(Model.Language, "zh-CN", StringComparison.CurrentCultureIgnoreCase)))
-                {
-                    <div class="item active">
-                        <a id="sportBanner" class="nounderline" href="@redirectLink">
-                            <picture>
-                                <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
-                                <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
-                                <img class="img-item img-responsive img-scale" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
-                            </picture>
-                        </a>
-                    </div>
-                }
-                else
-                {
-                    <div class="item active">
+                <div class="item active">
+                    @if (Model.IsAuthenticated)
+                    {
+                        <picture>
+                            <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
+                            <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
+                            <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
+                        </picture>
+                        <div class="banner-text">
+                            <h2 class="txt-lang">
+                                @Html.Raw(string.Format(Lang.EarnUpTo, appSetting.MaxCommission))
+                            </h2>
+                            <h5 class="txt-lang">@Lang.JoinIn</h5>
+                        </div>
+                    }
+                    else
+                    {
                         <a id="sportBanner" href="@redirectLink">
                             <picture>
                                 <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
@@ -65,6 +67,30 @@
                                 <span class="nounderline">@Lang.RegisterNow</span>
                             </div>
                         </a>
+                    }
+                </div>
+
+                if ((string.Equals(Model.Language, "en-US", StringComparison.CurrentCultureIgnoreCase) || string.Equals(Model.Language, "zh-CN", StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    <div class="item">
+                        @if (Model.IsAuthenticated)
+                        {
+                            <picture>
+                                <source srcset="@(casinoBannerFileName + ".Login.webp")" type="image/webp" />
+                                <source srcset="@(casinoBannerFileName + ".Login.jpg")" type="image/jpeg" />
+                                <img class="img-item img-responsive img-scale" src="@(casinoBannerFileName + ".Login.jpg")" alt="Casino Banner" />
+                            </picture>
+                        }
+                        else
+                        {
+                            <div id="casinoBanner" class="nounderline" href="#javascipt;">
+                                <picture>
+                                    <source srcset="@(casinoBannerFileName + ".webp")" type="image/webp" />
+                                    <source srcset="@(casinoBannerFileName + ".jpg")" type="image/jpeg" />
+                                    <img class="img-item img-responsive img-scale" src="@(casinoBannerFileName + ".jpg")" alt="Casino Banner" />
+                                </picture>
+                            </div>
+                        }
                     </div>
                 }
             }
