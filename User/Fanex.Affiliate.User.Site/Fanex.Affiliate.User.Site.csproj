@@ -854,8 +854,6 @@
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.jpg" />
     <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.Login.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.Login.jpg" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -1284,8 +1282,6 @@
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.webp" />
     <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.Login.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.Login.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

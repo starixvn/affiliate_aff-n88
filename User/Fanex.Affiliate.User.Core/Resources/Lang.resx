@@ -2435,4 +2435,7 @@
   <data name="Phone" xml:space="preserve">
     <value>Phone</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More!</value>
+  </data>
 </root>
