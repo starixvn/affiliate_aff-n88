@@ -223,6 +223,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Affiliate&lt;br /&gt;Launching&lt;br /&gt;Pack.
+        /// </summary>
+        public static string AffiliateLaunching {
+            get {
+                return ResourceManager.GetString("AffiliateLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AFFILIATE LOGIN.
         /// </summary>
         public static string AffiliateLogin {
@@ -6619,6 +6628,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Yourlogindetail {
             get {
                 return ResourceManager.GetString("Yourlogindetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your partner to success.
+        /// </summary>
+        public static string YourPartner {
+            get {
+                return ResourceManager.GetString("YourPartner", resourceCulture);
             }
         }
         

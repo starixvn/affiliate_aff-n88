@@ -2119,4 +2119,10 @@
   <data name="ReadMore" xml:space="preserve">
     <value>更多详情</value>
   </data>
+  <data name="AffiliateLaunching" xml:space="preserve">
+    <value>代理计划开业包</value>
+  </data>
+  <data name="YourPartner" xml:space="preserve">
+    <value>您通往成功的伙伴</value>
+  </data>
 </root>

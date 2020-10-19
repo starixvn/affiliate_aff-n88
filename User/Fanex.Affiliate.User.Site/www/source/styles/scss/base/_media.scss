@@ -5,7 +5,7 @@ $desktop: "(min-width: 1024px)";
 
 @media (min-width: 1024px) and (max-width: 1279px) {
     .banner-text {
-      
+
         h2 {
             font-size: 40px;
         }
@@ -17,8 +17,8 @@ $desktop: "(min-width: 1024px)";
 }
 @media (min-width: 1280px) and (max-width: 1366px) {
     .banner-text {
-         
-        
+
+
     }
 }
 
@@ -50,7 +50,7 @@ $desktop: "(min-width: 1024px)";
             right: 8px;
         }
     }
-    
+
 }
 
 @media #{$tablet-horizontal} {
@@ -68,7 +68,7 @@ $desktop: "(min-width: 1024px)";
     }
     .banner-text {
         left: 36px;
-   
+
 
         h2 {
             font-size: 40px;
@@ -118,7 +118,7 @@ $desktop: "(min-width: 1024px)";
 
     .banner-text {
         left: 32px;
-    
+
 
         h2 {
             font-size: 24px;
@@ -172,7 +172,7 @@ $desktop: "(min-width: 1024px)";
 
     .table .game-list tr .game-name {
         width: 100px;
-    }    
+    }
 
     .user-login {
         text-align: center;
@@ -183,7 +183,7 @@ $desktop: "(min-width: 1024px)";
         overflow-x: auto; /* [2] */
         -webkit-overflow-scrolling: touch; /* [3] */
         -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
-        
+
 
         /*&::-webkit-scrollbar {
             display: none;

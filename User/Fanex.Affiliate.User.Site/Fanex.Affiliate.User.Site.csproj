@@ -852,8 +852,13 @@
     <Content Include="www\build\styles\Images\apply\n8g\Vietnam.svg" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.jpg" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -1280,8 +1285,13 @@
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
