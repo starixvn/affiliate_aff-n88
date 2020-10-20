@@ -128,6 +128,10 @@
     }
 
     @media screen and (max-width: 767px) {
+        &-text {
+            max-width: 24rem;
+        }
+
         &-btn {
             width: 12.25rem;
             height: 3rem;
@@ -137,6 +141,18 @@
                 width: 7.5rem;
                 height: 1.2rem;
             }
+        }
+    }
+
+    @media screen and (max-width: 530px) {
+        &-text {
+            max-width: 16rem;
+        }
+    }
+
+    @media screen and (max-width: 374px) {
+        &-text {
+            max-width: 14rem;
         }
     }
 }

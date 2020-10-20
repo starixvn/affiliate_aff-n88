@@ -830,6 +830,8 @@ body {
     height: 2rem; }
 
 @media screen and (max-width: 767px) {
+  .casino-banner-text {
+    max-width: 24rem; }
   .casino-banner-btn {
     width: 12.25rem;
     height: 3rem;
@@ -837,6 +839,14 @@ body {
     .casino-banner-btn .btn-text {
       width: 7.5rem;
       height: 1.2rem; } }
+
+@media screen and (max-width: 530px) {
+  .casino-banner-text {
+    max-width: 16rem; } }
+
+@media screen and (max-width: 374px) {
+  .casino-banner-text {
+    max-width: 14rem; } }
 
 .no-webp .casino-banner-btn {
   background-image: url("../Images/casino-banners/n88/btn-background.png"); }
