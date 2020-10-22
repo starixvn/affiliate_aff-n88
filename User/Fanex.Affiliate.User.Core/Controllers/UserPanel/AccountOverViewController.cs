@@ -27,10 +27,12 @@
         [AjaxOnly]
         public ActionResult Index()
         {
-            var lastLoginInfo = _accountOverviewRepository.GetLastLoginInfo(SessionService.UserSession.AffId);
+            var affId = SessionService.UserSession.AffId;
+            var lastLoginInfo = _accountOverviewRepository.GetLastLoginInfo(affId);
 
             var model = new AccountOverviewViewModel
             {
+                AffId = affId,
                 LastLoginInfo = lastLoginInfo,
                 IsMaxLevel = _sessionService.UserSession.IsMaxSubLevel
             };

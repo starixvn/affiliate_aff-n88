@@ -89,7 +89,8 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ErrMsg { get; set; }
 
-        public int ParentAffId { get; set; }
+        [RegularExpression("^([0-9]{5})$", ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "AffiliateIdIsInvalid")]
+        public string ParentAffId { get; set; }
 
         public int Player_CustId { get; set; }
 

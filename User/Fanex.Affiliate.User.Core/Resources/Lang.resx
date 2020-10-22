@@ -2444,4 +2444,7 @@
   <data name="YourPartner" xml:space="preserve">
     <value>Your partner to success</value>
   </data>
+  <data name="AffiliateIdIsInvalid" xml:space="preserve">
+    <value>Affiliate ID Is Invalid!</value>
+  </data>
 </root>
