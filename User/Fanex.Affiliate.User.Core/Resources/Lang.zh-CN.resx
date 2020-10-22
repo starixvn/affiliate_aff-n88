@@ -2116,4 +2116,13 @@
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>更多详情</value>
+  </data>
+  <data name="AffiliateLaunching" xml:space="preserve">
+    <value>代理计划开业包</value>
+  </data>
+  <data name="YourPartner" xml:space="preserve">
+    <value>您通往成功的伙伴</value>
+  </data>
 </root>

@@ -14,13 +14,16 @@ body {
         }
     }
 }
+
 .btn.focus, .btn:focus, .btn:hover {
     color: #ffffff;
     outline: none;
 }
+
 .news {
     background: $bg-main-color;
 }
+
 ::-webkit-input-placeholder {
     color: $color-placeholder;
 }
@@ -32,21 +35,24 @@ body {
 ::placeholder {
     color: $color-placeholder;
 }
+
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: $date-picker-bg url("../../../../build/styles/Images/apply/n8g/icon-select.svg") no-repeat right 5px center!important;
-    padding-right: 24px!important;
-    padding-left: 5px!important;
+    background: $date-picker-bg url("../../../../build/styles/Images/apply/n8g/icon-select.svg") no-repeat right 5px center !important;
+    padding-right: 24px !important;
+    padding-left: 5px !important;
 }
 // Header
 
 .header-top {
     background-color: $header-bg-color;
-    .sign-up{
+
+    .sign-up {
         vertical-align: top;
     }
+
     .logo {
         padding-top: .2rem;
         padding-left: 1.5rem;
@@ -154,6 +160,7 @@ select {
         }
     }
 }
+
 .footer {
     background: $footer-bg-color;
     border-top: 8px solid $footer-bg-color-red;
@@ -263,6 +270,7 @@ select {
     border: 1px solid $input-border;
     color: $text-color;
     max-width: 300px;
+
     &:focus {
         color: $text-color-white;
         border: 1px solid $input-border-focus !important;
@@ -498,6 +506,7 @@ select {
     background: none;
     padding-left: 0;
 }
+
 .page-container .content {
     .title-block {
         color: $group-title-color;
@@ -560,7 +569,7 @@ select {
     }
 
     .overview-table-header, .player-detail-table-header {
-        background: #282828 !important;
+        background: $home-card-news-first !important;
 
         th {
             border: none;
@@ -665,9 +674,10 @@ select.form-control {
 .btn, button {
     font-weight: bold;
     font-size: 1.4rem;
-    vertical-align: top!important;
+    vertical-align: top !important;
     height: 30px;
     line-height: 30px;
+
     &:hover, &:focus {
         box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
@@ -750,6 +760,7 @@ select.form-control {
         }
     }
 }
+
 .date-wrapper {
     background: $date-picker-bg;
     border: 1px solid $date-picker-border;
@@ -1111,7 +1122,6 @@ select.form-control {
 div.summary-content {
     padding: 30px 0 0 0;
     border: 0;
-    overflow: hidden;
 
     .dashboard-section {
         display: flex;
@@ -1188,6 +1198,11 @@ div.summary-content {
         padding-top: 29px;
     }
 
+    .details-section-sticky {
+        width: calc(100% - 400px);
+        background: $bg-main-color;
+    }
+
     .details-section-menu {
         .menu {
             border-bottom: 1px solid #435068;
@@ -1225,9 +1240,6 @@ div.summary-content {
 .form-horizontal .form-group {
     margin: 0 0 10px 0;
 }
-
-
-
 //my account
 .control-label {
     color: $text-color !important;
@@ -1417,41 +1429,39 @@ div.summary-content {
         padding-left: 0;
     }
 }
-
-    //PaymentRequest
-    #paymentRequest {
-        .info-group .title {
-            padding-left: 0;
+//PaymentRequest
+#paymentRequest {
+    .info-group .title {
+        padding-left: 0;
+        background: none;
+    }
+}
+//account-information
+.account-information, .sign-up-page {
+    .info-group {
+        .title {
+            padding: 0;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
             background: none;
+            margin-bottom: 16px;
         }
     }
+}
 
-    //account-information
-    .account-information, .sign-up-page {
-        .info-group {
-            .title {
-                padding: 0;
-                font-weight: 500;
-                font-size: 20px;
-                line-height: 23px;
-                background: none;
-                margin-bottom: 16px;
+
+.main.after-login {
+    .main-content {
+        > .container-fluid {
+            padding: 0;
+
+            @media only screen and (max-width: 1199px) {
+                padding: 0 10px;
             }
         }
     }
-
-
-    .main.after-login {
-        .main-content {
-            > .container-fluid {
-                padding: 0;
-
-                @media only screen and (max-width: 1199px) {
-                    padding: 0 10px;
-                }
-            }
-        }
-    }
+}
 
 .main-content {
     #mainPanel, .sub-content {
@@ -1607,7 +1617,8 @@ div.summary-content {
 
         .flex {
             width: 100% !important;
-            .control-label{
+
+            .control-label {
                 max-width: 100px;
                 margin: 0 0 10px 0;
             }
@@ -1615,10 +1626,10 @@ div.summary-content {
     }
 }
 
-    div.custom-panel {
-        background-color: transparent;
-        border: 0;
-    }
+div.custom-panel {
+    background-color: transparent;
+    border: 0;
+}
 
 
 .page-container {
@@ -1648,7 +1659,6 @@ div.summary-content {
         }
     }
 }
-
 // Table my account
 #account-overview-content, #paymentList, .report-container, #statementDataList {
     .table {
@@ -1662,8 +1672,10 @@ div.summary-content {
                     }
 
                     &.overview-table-total {
+                        background: #15366F;
+
                         th {
-                            background-color: #15366F !important;
+                            background-color: #15366F;
                             color: $table-color;
                         }
                     }
@@ -1680,7 +1692,7 @@ div.summary-content {
                         background-color: #0f2346;
                     }
 
-                    &:last-child{
+                    &:last-child {
                         border-bottom: 0 !important;
                     }
 
@@ -1735,6 +1747,7 @@ div.summary-content {
         padding: 10px;
     }
 }
+
 #statementDataList {
     table {
         thead {
@@ -1746,17 +1759,18 @@ div.summary-content {
         }
     }
 }
+
 #forgotPasswordForm {
-    #emailInputGroup{
+    #emailInputGroup {
         margin-bottom: 10px;
     }
 }
-
 //form filter
 .form-inline.form-filter {
 
     .form-group {
         margin-bottom: 10px;
+
         label {
             width: 100px;
             margin: 0;
@@ -1767,7 +1781,6 @@ div.summary-content {
         }
     }
 }
-
 //updatePasswordForm
 #updatePasswordForm {
     padding-top: 20px;
@@ -1785,17 +1798,19 @@ div.summary-content {
     }
 }
 //page report-container
-.report-container{
-    .table{
-        table{
+.report-container {
+    .table {
+        table {
             min-width: 1000px;
         }
     }
 }
+
 #statisticsDetailPager {
     width: 100% !important;
     margin: 20px 0 !important;
 }
+
 #statisticsDetailTable {
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -1838,7 +1853,6 @@ div.summary-content {
         box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.16);
     }
 }
-
 //contact
 .date-time .img-support {
     max-width: 375px;
@@ -1850,10 +1864,9 @@ div.summary-content {
     }
 }
 
-.contact-title{
+.contact-title {
     margin-top: -3.3rem;
 }
-
 //modal popup
 .login-dialog {
 
@@ -1956,7 +1969,6 @@ div.summary-content {
         }
     }
 }
-
 //subAffEarning
 #subAffEarning {
     table + p {
@@ -1978,8 +1990,6 @@ div.summary-content {
         .col-sm-offset-3 {
             margin-left: 0;
             padding-left: 0;
-
-
         }
     }
 }
@@ -1999,7 +2009,7 @@ div.summary-content {
         tbody {
             tr.sumrow {
                 .title-cell {
-                    .row-wrapper{
+                    .row-wrapper {
                         padding-right: 20px;
                     }
                 }
@@ -2007,14 +2017,16 @@ div.summary-content {
         }
     }
 }
+
 #dataContainerList, #dataContainerList {
     .info-group .title {
         margin-bottom: 20px;
     }
-}//.custom-panel
+}
+//.custom-panel
 .custom-panel {
-    .panel-body{
-        padding: 0!important;
+    .panel-body {
+        padding: 0 !important;
     }
 }
 //responsive
@@ -2128,10 +2140,11 @@ div.summary-content {
     }
 
     .commission-report {
-        .row-wrapper{
+        .row-wrapper {
             padding-right: 22px;
         }
     }
+
     #textLinkList {
         .marketing-qrcode {
             .flex {
@@ -2484,7 +2497,6 @@ div.summary-content {
             min-width: 1200px;
         }
     }
-
     //requestPayoutForm
     #requestPayoutForm {
         .form-group {
@@ -2492,14 +2504,13 @@ div.summary-content {
                 padding: 0;
                 margin: 0;
             }
-            p{
+
+            p {
                 padding: 0;
                 margin: 0;
             }
         }
     }
-
-
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
@@ -2511,11 +2522,12 @@ div.summary-content {
         margin-bottom: 10px;
         margin-top: 5px;
     }
+
     #account-overview-content {
         .col-lg-9 {
             .info-group {
-                .title{
-                    padding-left: 0!important;
+                .title {
+                    padding-left: 0 !important;
                 }
             }
         }
@@ -2553,11 +2565,10 @@ div.summary-content {
                 margin-left: 3px;
             }
 
-            .user-login{
-                .btn{
+            .user-login {
+                .btn {
                     margin-bottom: 5px;
                 }
-
             }
         }
     }
@@ -2600,7 +2611,6 @@ div.summary-content {
 
             #searchForm.info-group {
                 margin-bottom: 0;
-
             }
         }
 
@@ -2748,28 +2758,34 @@ div.summary-content {
             }
         }
     }
+
     #updatePasswordForm {
-        .form-group{
-            > *{
+        .form-group {
+            > * {
                 padding: 0;
             }
         }
     }
+
     .account-information {
         .info-group {
             margin-bottom: 2rem;
+
             .form-group {
                 margin-bottom: 10px;
-                .control-label{
+
+                .control-label {
                     margin: 0;
                     padding: 0;
                 }
-                p{
+
+                p {
                     padding: 0;
                 }
             }
         }
     }
+
     #statisticsTable {
         table {
             min-width: 800px;
@@ -2781,9 +2797,11 @@ div.summary-content {
     div.summary-content .dashboard-section .info-panel:before {
         display: none;
     }
-    .form-group .form-control{
+
+    .form-group .form-control {
         max-width: 100%;
     }
+
     .account-overview {
         .summary-content {
             .dashboard-section {
@@ -2791,9 +2809,11 @@ div.summary-content {
                     display: flex !important;
                     padding: 10px 0;
                     border-radius: 8px !important;
-                    > *{
+
+                    > * {
                         min-height: 50px;
                     }
+
                     .img-icon {
                         width: 60px;
                         padding: 0;
@@ -2841,7 +2861,6 @@ div.summary-content {
             }
         }
     }
-
 }
 
 @media only screen and (max-width: 375px) {
@@ -2859,6 +2878,7 @@ div.summary-content {
             padding-right: 10px;
         }
     }
+
     .news .item-wrapper {
         padding-left: 10px;
         padding-right: 10px;
@@ -2898,7 +2918,6 @@ div.summary-content {
     .signup-block .btn-link {
         font-size: 1.4rem !important;
     }
-
 }
 
 
@@ -2951,6 +2970,7 @@ div.summary-content {
         }
     }
 }
+
 @media only screen and (max-width: 992px) {
     .webp .banner-commission-structure {
         padding: 16px 10px 32px 25px;
@@ -3007,3 +3027,18 @@ div.summary-content {
     letter-spacing: 0.02em;
 }
 
+@media only screen and (min-width: 1199px ) and (max-width: 1366px) {
+    div.summary-content {
+        .details-section-sticky {
+            width: calc(100% - 200px);
+        }
+    }
+}
+
+@media only screen and (max-width: 1198px ) {
+    div.summary-content {
+        .details-section-sticky {
+            width: calc(100% - 20px);
+        }
+    }
+}

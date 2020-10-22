@@ -2278,4 +2278,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>Nếu có bất kỳ góp ý hay thắc mắc nào, vui lòng liên hệ:</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Đọc Thêm</value>
+  </data>
 </root>

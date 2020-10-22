@@ -733,6 +733,7 @@
     <Content Include="www\build\js\validation.min.js">
       <DependentUpon>validation.js</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\bootstrap-3.3.7.min.css" />
     <Content Include="www\build\styles\css\commissionreport.css" />
     <Content Include="www\build\styles\css\commissionreport.min.css">
       <DependentUpon>commissionreport.css</DependentUpon>
@@ -851,6 +852,13 @@
     <Content Include="www\build\styles\Images\apply\n8g\Vietnam.svg" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -873,6 +881,7 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
@@ -884,7 +893,6 @@
     <Content Include="www\build\styles\Images\notify\note_icon.gif" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\themes\n88.png" />
@@ -1262,7 +1270,6 @@
     <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
@@ -1277,6 +1284,14 @@
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.webp" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1412,6 +1427,7 @@
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutLeft.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutRight.scss" />
     <Content Include="www\source\styles\scss\vendors\animate\_zooming-exits\_zoomOutUp.scss" />
+    <Content Include="www\source\styles\scss\vendors\bootstrap-3.3.7.min.css" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_alerts.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_background-variant.scss" />
     <Content Include="www\source\styles\scss\vendors\bootstrap\mixins\_border-radius.scss" />
