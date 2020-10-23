@@ -289,13 +289,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">@Lang.AffiliateID</label>
                             <div class="col-sm-4">
-                                @if (string.IsNullOrEmpty(Model.ParentAffId))
-                                {
-                                    @Html.TextBoxFor(p => p.ParentAffId, new { @class = "form-control" });
-                                } else
-                                {
-                                    @Html.TextBoxFor(p => p.ParentAffId, new { @class = "form-control", @disabled = "disabled" });
-                                }
+                                @Html.ToggleDisabledTextBoxFor(p => p.ParentAffId, new { @class = "form-control" }, !string.IsNullOrEmpty(Model.ParentAffId))
                             </div>
                             <div class="col-sm-offset-3 col-sm-9">
                                 @Html.ValidationMessageFor(x => x.ParentAffId, string.Empty, new { @class = "help-block hide" })

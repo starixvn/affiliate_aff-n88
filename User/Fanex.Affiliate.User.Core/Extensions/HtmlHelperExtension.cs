@@ -1,6 +1,10 @@
-﻿using System.Web;
+﻿using System;
+using System.Linq.Expressions;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
 using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace Fanex.Affiliate.User.Core.Extensions
 {
@@ -35,6 +39,21 @@ namespace Fanex.Affiliate.User.Core.Extensions
             var bundleResponse = bundle.GenerateBundleResponse(bundleContext);
 
             return bundleResponse.Content;
+        }
+
+        public static IHtmlString ToggleDisabledTextBoxFor<TModel, TProperty>(
+            this HtmlHelper<TModel> htmlHelper,
+            Expression<Func<TModel, TProperty>> expression,
+            object htmlAttributes,
+            bool disabled = false
+        )
+        {
+            var attributes = new RouteValueDictionary(htmlAttributes);
+            if (disabled)
+            {
+                attributes["disabled"] = "disabled";
+            }
+            return htmlHelper.TextBoxFor(expression, attributes);
         }
     }
 }
