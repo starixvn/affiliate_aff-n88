@@ -16,8 +16,8 @@
   </Function>
 
   <Function Name="AccountInformation">
-    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88_view" />
+    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel_xtest" DbName="affiliate_n88_view" />
     <Setting Key="Aff_User_UserInfoUpd" SpName="Aff_User_UserInfoUpd" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUpdPwd" SpName="Aff_AffiliateUpdPwd" DbName="affiliate_n88" />
     <Setting Key="Aff_User_SecretKeyIns" SpName="Aff_User_SecretKeyIns" DbName="affiliate_n88" />
@@ -116,7 +116,7 @@
     <Setting Key="Aff_User_Overview_PlayersDetail_Sel" SpName="Aff_User_Overview_PlayersDetail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_Overview_Detail_Sel" SpName="Aff_User_Overview_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_Overview_Summary_Sel" SpName="Aff_User_Overview_Summary_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_LoginInfo_Sel" SpName="Aff_User_LoginInfo_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_LoginInfo_Sel" SpName="Aff_User_LoginInfo_Sel_xtest" DbName="affiliate_n88" />
 
     <Setting Key="Aff_Admin_MediaCategory_Sel" SpName="Aff_Admin_MediaCategory_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Market_Sel" SpName="Aff_Market_Sel" DbName="affiliate_n88" />

@@ -11,6 +11,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
     {
         public int AffId { get; set; }
 
+        public string AffCode { get; set; }
+
         public string UserName { get; set; }
 
         public bool Gender { get; set; }
