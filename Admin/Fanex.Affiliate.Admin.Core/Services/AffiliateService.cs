@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             return result;
         }
 
-        public ResultInfo ApproveAffiliate(ApproveAffiliateParam param)
+        public (ResultInfo, string) ApproveAffiliate(ApproveAffiliateParam param)
         {
             const string SpKey = "Aff_Admin_Affiliate_Approved";
 
@@ -49,9 +49,9 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
                 objectDb.ExecuteNonQuery();
 
-                param.AffCode = objectDb.GetParameterValue("AffCode").ToString();
+                var affCode = objectDb.GetParameterValue("AffCode").ToString();
 
-                return GetResultInfo(objectDb);
+                return (GetResultInfo(objectDb), affCode);
             }
         }
 

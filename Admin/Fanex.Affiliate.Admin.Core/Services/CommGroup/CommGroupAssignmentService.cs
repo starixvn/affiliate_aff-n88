@@ -80,6 +80,18 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
         private ResultInfo ProcessApproveAffiliate(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
         {
             var password = Generator.GetRandomString(10);
+            var (approvedResult, affCode) = ApproveAffiliate(param, password);
+
+            if (approvedResult.IsSuccessful)
+            {
+                SendEmailApprove(emailParam, affInfo, password, affCode);
+            }
+
+            return approvedResult;
+        }
+
+        private (ResultInfo, string) ApproveAffiliate(AssignGroupParam param, string password)
+        {
             var approveParam = new ApproveAffiliateParam
             {
                 UserId = param.UserId,
@@ -88,19 +100,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                 Ip = param.Ip,
                 Status = AffStatus.Approved
             };
-            var approvedResult = _affiliateService.ApproveAffiliate(approveParam);
 
-            if (approvedResult.IsSuccessful)
-            {
-                emailParam.AffCode = approveParam.AffCode;
-
-                SendEmailApprove(emailParam, affInfo, password);
-            }
-
-            return approvedResult;
+            return _affiliateService.ApproveAffiliate(approveParam);
         }
 
-        private void SendEmailApprove(AffInformationEmail emailParam, AffiliateBasicInfo affInfo, string password)
+        private void SendEmailApprove(AffInformationEmail emailParam, AffiliateBasicInfo affInfo, string password, string affCode)
         {
             emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
             emailParam.Language = affInfo.PreferredLanguage;
@@ -109,6 +113,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             emailParam.MailTo = affInfo.Email;
             emailParam.IsHtml = !affInfo.MailOption;
             emailParam.Password = password;
+            emailParam.AffCode = affCode;
 
             _emailService.SendApprovedEmail(emailParam);
         }

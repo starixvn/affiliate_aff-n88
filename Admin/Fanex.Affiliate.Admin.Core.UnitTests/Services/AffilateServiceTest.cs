@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             service.Setup(re => re.GetObjectDb("Aff_Admin_Affiliate_Approved", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = service.Object.ApproveAffiliate(new ApproveAffiliateParam());
+            var (result, affCode) = service.Object.ApproveAffiliate(new ApproveAffiliateParam());
 
             // Assert
             Assert.True(result.IsSuccessful);
