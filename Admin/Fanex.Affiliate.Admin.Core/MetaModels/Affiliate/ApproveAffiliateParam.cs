@@ -5,5 +5,7 @@
         public string Password { get; set; }
 
         public string Status { get; set; }
+
+        public string AffCode { get; set; }
     }
 }

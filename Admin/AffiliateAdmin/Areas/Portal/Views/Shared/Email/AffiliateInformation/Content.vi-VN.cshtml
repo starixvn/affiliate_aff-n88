@@ -1,4 +1,4 @@
-﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.AffInformationEmail
+@model Fanex.Affiliate.Admin.Core.DTO.Email.AffInformationEmail
 
 <div>
     Kính gửi @Raw(Model.FirstName),<br /><br />
@@ -9,7 +9,8 @@
 
     Text link: <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a><br />
     Tên tài khoản: @Model.UserName<br />
-    Mật mã: @Model.Password<br /><br />
+    Mật khẩu: @Model.Password<br />
+    Mã số đại lý: @Model.AffCode<br /><br />
 
     Sau khi đăng nhập, bạn sẽ tìm thấy liên kết URL, biểu ngữ và tài liệu quảng cáo. Hãy gửi lưu lượng Web đến và bắt đầu kiếm tiền ngay hôm nay.<br /><br />
 

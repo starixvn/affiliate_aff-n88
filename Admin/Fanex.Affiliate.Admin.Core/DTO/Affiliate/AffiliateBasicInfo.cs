@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         [Range(Validation.MinId, Validation.MaxId, ErrorMessage = "AffId not exists!")]
         public int AffId { get; set; }
 
+        public string AffCode { get; set; }
+
         public int GroupId { get; set; }
 
         [Required(ErrorMessage = "User Name is required!")]

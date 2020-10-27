@@ -38,12 +38,13 @@ export const GeneralInfo = (props) => {
                         isApproved && !affiliateInfo.IsClosed ?
                             (<a href={affiliateInfo.AffLink} target='_blank'>{affiliateInfo.AffName}</a>) :
                             (<span>{affiliateInfo.AffName}</span>)
-                    }
+                    }{' '}
+                    [<span>{affiliateInfo.AffId}</span>]
                 </Col>
             </Row>
             <Row>
                 <Col sm={5}>{resource.AffiliateId}</Col>
-                <Col sm={7} className='text-right'>{affiliateInfo.AffId}</Col>
+                <Col sm={7} className='text-right'>{affiliateInfo.AffCode}</Col>
             </Row>
             <Row>
                 <Col sm={5}>{resource.FirstName}</Col>

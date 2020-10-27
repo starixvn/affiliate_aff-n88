@@ -80,28 +80,24 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
         private ResultInfo ProcessApproveAffiliate(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
         {
             var password = Generator.GetRandomString(10);
-            var approvedResult = ApproveAffiliate(param.UserId, param.AffId, param.Ip, password);
+            var approveParam = new ApproveAffiliateParam
+            {
+                UserId = param.UserId,
+                AffId = param.AffId,
+                Password = CryptographyHelper.Encrypt(password),
+                Ip = param.Ip,
+                Status = AffStatus.Approved
+            };
+            var approvedResult = _affiliateService.ApproveAffiliate(approveParam);
 
             if (approvedResult.IsSuccessful)
             {
+                emailParam.AffCode = approveParam.AffCode;
+
                 SendEmailApprove(emailParam, affInfo, password);
             }
 
             return approvedResult;
-        }
-
-        private ResultInfo ApproveAffiliate(int userId, int affId, string ip, string password)
-        {
-            var approveParam = new ApproveAffiliateParam
-            {
-                UserId = userId,
-                AffId = affId,
-                Password = CryptographyHelper.Encrypt(password),
-                Ip = ip,
-                Status = AffStatus.Approved
-        };
-
-            return _affiliateService.ApproveAffiliate(approveParam);
         }
 
         private void SendEmailApprove(AffInformationEmail emailParam, AffiliateBasicInfo affInfo, string password)
