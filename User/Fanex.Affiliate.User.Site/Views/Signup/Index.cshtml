@@ -51,6 +51,7 @@
             @using (Html.BeginForm("Index", "Signup", FormMethod.Post, new { @id = "accountForm", @class = "form-horizontal" }))
             {
                 @Html.AntiForgeryToken()
+                @Html.HiddenFor(p => p.ParentAffId)
                 <div class="info-group">
                     <div class="title">
                         <span class="text">@Lang.ContactInfo</span>
@@ -283,16 +284,6 @@
                             </div>
                             <div class="col-sm-offset-3 col-sm-9">
                                 @Html.ValidationMessageFor(x => x.Captcha, string.Empty, new { @class = "help-block hide" })
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">@Lang.AffiliateID</label>
-                            <div class="col-sm-4">
-                                @Html.ToggleDisabledTextBoxFor(p => p.ParentAffId, new { @class = "form-control" }, !string.IsNullOrEmpty(Model.ParentAffId))
-                            </div>
-                            <div class="col-sm-offset-3 col-sm-9">
-                                @Html.ValidationMessageFor(x => x.ParentAffId, string.Empty, new { @class = "help-block hide" })
                             </div>
                         </div>
                     </div>

@@ -223,15 +223,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Affiliate ID Is Invalid!.
-        /// </summary>
-        public static string AffiliateIdIsInvalid {
-            get {
-                return ResourceManager.GetString("AffiliateIdIsInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Affiliate&lt;br /&gt;Launching&lt;br /&gt;Pack.
         /// </summary>
         public static string AffiliateLaunching {

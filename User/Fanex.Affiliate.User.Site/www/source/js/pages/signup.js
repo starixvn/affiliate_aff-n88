@@ -93,7 +93,7 @@
             var inputList = $("input, select, textarea", $("#accountForm"));
             for (var i = 0; i < inputList.length; i++) {
                 var element = inputList[i];
-                if (element.type !== "radio" && element.type !== "hidden" && element.id !== "ParentAffId") {
+                if (element.type !== "radio" && element.type !== "hidden") {
                     $(element).val("");
                 }
             }

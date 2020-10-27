@@ -43,15 +43,14 @@
         {
             if(string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
             {
-
-                return View(new UserSignUpParam { IsValidParentId = true, ParentAffId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value });
+                return View(new UserSignUpParam { IsValidParentId = true });
             }
 
             bool isParsable = int.TryParse(refId, out int parentAffId);
 
             var vm = new UserSignUpParam
             {
-                ParentAffId = parentAffId.ToString()
+                ParentAffId = parentAffId
             };
 
             if (isParsable)
@@ -128,7 +127,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : refId
+                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
