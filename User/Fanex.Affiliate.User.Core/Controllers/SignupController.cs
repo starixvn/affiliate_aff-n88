@@ -85,10 +85,9 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(UserSignUpParam param)
         {
-            var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
             var refId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value;
-            if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
+            if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
             }
@@ -141,7 +140,7 @@
                     MailTo = mailContact
                 };
 
-                result = await _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
+                result = await _accountService.CreateAffiliate(signUpParam, emailParam);
             }
             else
             {

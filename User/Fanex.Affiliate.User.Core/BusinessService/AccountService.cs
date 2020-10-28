@@ -31,22 +31,18 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _appSetting = appSetting;
         }
 
-        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false)
+        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam)
         {
             var cust = await GetMemberSiteCustomer(signUpParam.Player_UserName);
-
             var validInfo = CheckPlayerUserNameValid(cust);
 
-            if (!isLocalEnvironment)
+            if (!validInfo.IsOk)
             {
-                if (!validInfo.IsOk)
-                {
-                    return validInfo;
-                }
-
-                signUpParam.Player_CustId = cust.CustId;
-                signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
+                return validInfo;
             }
+
+            signUpParam.Player_CustId = cust.CustId;
+            signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
 
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)
