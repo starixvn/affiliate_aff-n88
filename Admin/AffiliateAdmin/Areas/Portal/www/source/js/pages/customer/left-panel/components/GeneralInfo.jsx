@@ -38,8 +38,7 @@ export const GeneralInfo = (props) => {
                         isApproved && !affiliateInfo.IsClosed ?
                             (<a href={affiliateInfo.AffLink} target='_blank'>{affiliateInfo.AffName}</a>) :
                             (<span>{affiliateInfo.AffName}</span>)
-                    }{' '}
-                    [<span>{affiliateInfo.AffId}</span>]
+                    }
                 </Col>
             </Row>
             <Row>
