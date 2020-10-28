@@ -141,7 +141,7 @@
                     MailTo = mailContact
                 };
 
-                result = await _accountService.CreateAffiliate(signUpParam, emailParam);
+                result = await _accountService.CreateAffiliate(signUpParam, emailParam, isLocalEnvironment);
             }
             else
             {
