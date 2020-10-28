@@ -37,13 +37,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var validInfo = CheckPlayerUserNameValid(cust);
 
-            if (!isLocalEnvironment && !validInfo.IsOk)
+            if (!isLocalEnvironment)
             {
-                return validInfo;
-            }
+                if (!validInfo.IsOk)
+                {
+                    return validInfo;
+                }
 
-            signUpParam.Player_CustId = cust.CustId;
-            signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
+                signUpParam.Player_CustId = cust.CustId;
+                signUpParam.Player_Currency = cust.IsTest.GetValueOrDefault(true) ? TEST_CURRENCY : cust.CurrencyId.GetValueOrDefault();
+            }
 
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)
