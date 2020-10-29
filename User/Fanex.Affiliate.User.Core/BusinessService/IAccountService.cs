@@ -10,7 +10,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     {
         Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam);
 
-        MaxLevelInfo GetLevelAffiliate(int affId);
+        MaxLevelInfo GetLevelAffiliate(int affCode);
+
+        int? GetAffCodeByAffId(int affId);
 
         Task<ResultInfo> CheckPlayerUserNameValid(string userName);
 

@@ -195,15 +195,27 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public MaxLevelInfo GetLevelAffiliate(int affId)
+        public MaxLevelInfo GetLevelAffiliate(int affCode)
         {
             const string uSpKey = "Aff_CheckMaxSubAffLevel";
 
             using (var objectDb = new ObjectDBBuilder(uSpKey))
             {
-                var parameterSet = new { affId };
+                var parameterSet = new { affCode };
 
                 return objectDb.DB.QueryEntity<MaxLevelInfo>(parameterSet);
+            }
+        }
+
+        public int? GetAffCodeByAffId(int affId)
+        {
+            const string uSpKey = "Aff_Get_AffCodeByAffId";
+
+            using (var objectDb = new ObjectDBBuilder(uSpKey))
+            {
+                var parameterSet = new { affId = 0 };
+
+                return objectDb.DB.QueryEntity<int?>(parameterSet);
             }
         }
     }

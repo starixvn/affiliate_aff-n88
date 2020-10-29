@@ -4,4 +4,7 @@
 
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_UserInfoSel" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_LoginInfo_Sel" Suffix="_xtest"></item>
+  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_Affiliate_Ins" Suffix="_xtest"></item>
+  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Get_AffCodeByAffId" Suffix="_xtest"></item>
+  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_CheckMaxSubAffLevel" Suffix="_xtest"></item>
 </Root>

@@ -6,6 +6,6 @@
 
         public bool IsMaxSubLevel { get; set; }
 
-        public bool IsValidAffId => AffId > 0 && !IsMaxSubLevel;
+        public bool IsValidAff => AffId > 0 && !IsMaxSubLevel;
     }
 }

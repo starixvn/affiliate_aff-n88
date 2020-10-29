@@ -21,7 +21,7 @@
         private readonly IAppSetting _appSetting;
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
-        private const string ParentIdCookieName = "Fanex.UserSite.RefId";
+        private const string ParentCodeCookieName = "Fanex.UserSite.RefCode";
         private const int CookieTimeOut = 6;
 
         public SignupController(
@@ -39,36 +39,51 @@
         }
 
         [HttpGet]
-        public ActionResult Index(string refId = null)
+        public ActionResult Index(string refId = null, string refCode = null)
         {
-            if(string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
+            if(!string.IsNullOrEmpty(refId))
             {
-                return View(new UserSignUpParam { IsValidParentId = true });
+                bool isParsableId = int.TryParse(refId, out int parentAffId);
+
+                if (isParsableId)
+                {
+                    var affCode = _accountService.GetAffCodeByAffId(parentAffId);
+
+                    refCode = affCode.ToString();
+                }
             }
 
-            bool isParsable = int.TryParse(refId, out int parentAffId);
+            if((string.IsNullOrEmpty(refCode)) || string.Equals(refCode, "index", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return View(new UserSignUpParam { IsValidParentCode = true });
+            }
+
+            bool isParsable = int.TryParse(refCode, out int parentAffCode);
 
             var vm = new UserSignUpParam
             {
-                ParentAffId = parentAffId
+                ParentAffCode = parentAffCode
             };
 
             if (isParsable)
             {
-                var result = _accountService.GetLevelAffiliate(parentAffId);
-                vm.IsValidParentId = result.IsValidAffId;
-            }
-            if (vm.IsValidParentId)
-            {
-                var cookie = new HttpCookie(ParentIdCookieName)
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.Now.AddHours(CookieTimeOut),
-                    Value = vm.ParentAffId.ToString(),
-                };
+                var result = _accountService.GetLevelAffiliate(parentAffCode);
 
-                HttpContext.Response.Cookies.Add(cookie);
+                if (result.IsValidAff)
+                {
+                    vm.IsValidParentCode = result.IsValidAff;
+
+                    var cookie = new HttpCookie(ParentCodeCookieName)
+                    {
+                        HttpOnly = true,
+                        Expires = DateTime.Now.AddHours(CookieTimeOut),
+                        Value = vm.ParentAffCode.ToString(),
+                    };
+
+                    HttpContext.Response.Cookies.Add(cookie);
+                }
             }
+
             return View(vm);
         }
 
@@ -86,7 +101,7 @@
         public async Task<ActionResult> Index(UserSignUpParam param)
         {
             var result = new ResultInfo { IsOk = false };
-            var refId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value;
+            var refId = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
             if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
@@ -126,7 +141,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
+                    ParentAffCode = string.IsNullOrWhiteSpace(refId) ? param.ParentAffCode : Convert.ToInt32(refId)
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
