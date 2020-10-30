@@ -77,14 +77,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        public MaxLevelInfo GetLevelAffiliate(int affCode)
+        public GeneralAffInfo GetGeneralAffInfo(int? affId = null, string affCode = null)
         {
-            return _accountRepository.GetLevelAffiliate(affCode) ?? new MaxLevelInfo();
-        }
-
-        public string GetAffCodeByAffId(int affId)
-        {
-            return _accountRepository.GetAffCodeByAffId(affId);
+            return _accountRepository.GetGeneralAffInfo(affId, affCode) ?? new GeneralAffInfo();
         }
 
         public async Task<ResultInfo> CheckPlayerUserNameValid(string userName)

@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ErrMsg { get; set; }
 
-        public int ParentAffCode { get; set; }
+        public string ParentAffCode { get; set; }
 
         public int Player_CustId { get; set; }
 
@@ -114,6 +114,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public bool HasWebSite { get; set; } = true;
 
         [SpParam(Ignored = true)]
-        public bool IsValidParentCode { get; set; }
+        public bool IsValidParentCode { get; set; } = true;
     }
 }

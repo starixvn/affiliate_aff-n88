@@ -96,7 +96,7 @@
 
   <Function Name="SignUp">
     <Setting Key="Aff_User_Affiliate_Ins" SpName="Aff_User_Affiliate_Ins" DbName="affiliate_n88" />
-		<Setting Key="Aff_Get_AffCodeByAffId" SpName="Aff_Get_AffCodeByAffId" DbName="affiliate_n88" />
+		<Setting Key="Aff_Get_GeneralAffInfo" SpName="Aff_Get_GeneralAffInfo" DbName="affiliate_n88" />
   </Function>
 
   <Function Name="Member">
@@ -141,9 +141,6 @@
     <Setting Key="Aff_Admin_LandingPage_Sel_view" SpName="Aff_Admin_LandingPage_Sel" DbName="affiliate_n88_view" />
     <Setting Key="Aff_Admin_Text_Sel_view" SpName="Aff_Admin_Text_Sel" DbName="affiliate_n88_view" />
     <Setting Key="Aff_Admin_Banner_Sel_view" SpName="Aff_Admin_Banner_Sel" DbName="affiliate_n88_view" />
-  </Function>
-  <Function Name="CheckMaxSubAffiliateLevel">
-    <Setting Key="Aff_CheckMaxSubAffLevel" SpName="Aff_CheckMaxSubAffLevel" DbName="affiliate_n88" />
   </Function>
 
 	<Function Name="Currency">

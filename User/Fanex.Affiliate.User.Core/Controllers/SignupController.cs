@@ -43,30 +43,29 @@
         {
             if ((string.IsNullOrEmpty(refId) && string.IsNullOrEmpty(refCode)) || string.Equals(refCode, "index", StringComparison.CurrentCultureIgnoreCase) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
             {
-                return View(new UserSignUpParam { IsValidParentCode = true });
+                return View(new UserSignUpParam());
             }
+
+            var affInfo = new GeneralAffInfo();
 
             if (int.TryParse(refId, out int parentAffId))
             {
-                var affCode = _accountService.GetAffCodeByAffId(parentAffId);
-
-                if (!string.IsNullOrEmpty(affCode))
-                {
-                    return View(GetViewModel(Convert.ToInt32(affCode)));
-                }
+                affInfo = _accountService.GetGeneralAffInfo(affId: parentAffId);
             }
 
-            if (int.TryParse(refCode, out int parentAffCode))
+            if (int.TryParse(refCode, out _))
             {
-                var result = _accountService.GetLevelAffiliate(parentAffCode);
-
-                if (result.IsValidAff)
-                {
-                    return View(GetViewModel(parentAffCode));
-                }
+                affInfo = _accountService.GetGeneralAffInfo(affCode: refCode);
             }
 
-            return View(new UserSignUpParam());
+            if (affInfo.IsValidAff)
+            {
+                SetCookie(affInfo.AffCode);
+
+                return View(new UserSignUpParam());
+            }
+
+            return View(new UserSignUpParam { IsValidParentCode = false });
         }
 
         [HttpGet]
@@ -83,7 +82,7 @@
         public async Task<ActionResult> Index(UserSignUpParam param)
         {
             var result = new ResultInfo { IsOk = false };
-            var refId = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
+            var parentAffCode = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
             if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
@@ -123,7 +122,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffCode = string.IsNullOrWhiteSpace(refId) ? param.ParentAffCode : Convert.ToInt32(refId)
+                    ParentAffCode = parentAffCode
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
@@ -153,24 +152,13 @@
             return contactAppList != null && !contactAppList.All(c => string.IsNullOrEmpty(c.Value));
         }
 
-        private UserSignUpParam GetViewModel(int parentAffCode)
-        {
-            SetCookie(parentAffCode);
-
-            return new UserSignUpParam
-            {
-                IsValidParentCode = true,
-                ParentAffCode = parentAffCode
-            };
-        }
-
-        private void SetCookie(int parentAffCode)
+        private void SetCookie(string parentAffCode)
         {
             var cookie = new HttpCookie(ParentCodeCookieName)
             {
                 HttpOnly = true,
                 Expires = DateTime.Now.AddHours(CookieTimeOut),
-                Value = parentAffCode.ToString()
+                Value = parentAffCode
             };
 
             HttpContext.Response.Cookies.Add(cookie);
