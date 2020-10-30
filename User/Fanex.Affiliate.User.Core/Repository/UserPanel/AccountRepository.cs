@@ -213,7 +213,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objectDb = new ObjectDBBuilder(uSpKey))
             {
-                var parameterSet = new { affId = 0 };
+                var parameterSet = new { affId };
 
                 return objectDb.DB.QueryEntity<int?>(parameterSet);
             }

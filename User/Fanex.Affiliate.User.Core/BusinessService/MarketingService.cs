@@ -255,7 +255,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var result = template.Replace("{scheme}", scheme)
                                 .Replace("{domain}", selectedDomain.DomainName)
-                                .Replace("{custid}", linkParam.AffId.ToString())
+                                .Replace("{custid}", (linkParam.IsSubAffTab ? linkParam.AffCode : linkParam.AffId).ToString())
                                 .Replace("{target}", HttpUtility.UrlPathEncode(linkParam.SelectedPage))
                                 .Replace("{lang}", shortedLanguageCode);
 

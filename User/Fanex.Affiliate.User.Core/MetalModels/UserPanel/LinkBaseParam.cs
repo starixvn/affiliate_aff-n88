@@ -9,6 +9,12 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         public int AffId { get; set; }
 
         [SpParam(Ignored = true)]
+        public int AffCode { get; set; }
+
+        [SpParam(Ignored = true)]
+        public bool IsSubAffTab { get; set; }
+
+        [SpParam(Ignored = true)]
         public string TextLinkTemplate { get; set; }
 
         [SpParam(Ignored = true)]

@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return viewModel;
         }
 
-        protected IDictionary<string, LanguageLinkViewModel> GetTextLinkList(string selectedLanguage, string selectedPage,
+        protected IDictionary<string, LanguageLinkViewModel> GetLinkForMemberList(string selectedLanguage, string selectedPage,
             Domain selectedDomain, IEnumerable<SelectListItem> languageList)
         {
             if (selectedDomain == null)
@@ -95,6 +95,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var linkGenerationParam = new LinkGenerationParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
                 TextLinkTemplate = AppSetting.TextLinkTemplate,
                 PreferredLanguage = userSession.PreferredLanguage,
                 SelectedLanguage = selectedLanguage,
@@ -106,7 +107,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return MarketingService.GenerateLinkList(linkGenerationParam);
         }
 
-        protected IDictionary<string, LanguageLinkViewModel> GetAffLinks(string selectedLanguage, string selectedPage,
+        protected IDictionary<string, LanguageLinkViewModel> GetLinkForSubAffList(string selectedLanguage, string selectedPage,
             Domain selectedDomain, IEnumerable<SelectListItem> languageList)
         {
             if (selectedDomain == null)
@@ -119,6 +120,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var linkGenerationParam = new LinkGenerationParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
+                IsSubAffTab = true,
                 TextLinkTemplate = AppSetting.SubAffTextLinkTemplate,
                 PreferredLanguage = userSession.PreferredLanguage,
                 SelectedLanguage = selectedLanguage,

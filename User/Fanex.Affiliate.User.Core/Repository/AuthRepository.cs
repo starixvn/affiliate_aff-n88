@@ -45,6 +45,7 @@ namespace Fanex.Affiliate.User.Core.Repository
                     return reader.Read() ? new AuthorizedUserInfo
                     {
                         AffId = reader.ToInt("AffId"),
+                        AffCode = reader.ToInt("AffCode"),
                         UserName = reader.ToString("UserName"),
                         Password = reader.ToString("Password"),
                         GroupName = reader.ToString("GroupName"),

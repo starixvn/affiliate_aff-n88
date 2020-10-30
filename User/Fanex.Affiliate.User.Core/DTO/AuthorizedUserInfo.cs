@@ -4,6 +4,8 @@
     {
         public int AffId { get; set; }
 
+        public int AffCode { get; set; }
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
