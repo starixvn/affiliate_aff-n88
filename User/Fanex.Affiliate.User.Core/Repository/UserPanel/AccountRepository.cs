@@ -207,15 +207,20 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public int? GetAffCodeByAffId(int affId)
+        public string GetAffCodeByAffId(int affId)
         {
             const string uSpKey = "Aff_Get_AffCodeByAffId";
 
             using (var objectDb = new ObjectDBBuilder(uSpKey))
             {
-                var parameterSet = new { affId };
+                objectDb.DB.AddInParameter("AffId", SqlDbType.Int, affId);
+                objectDb.DB.AddOutParameter("AffCode", SqlDbType.VarChar, DbParam.StringSize);
 
-                return objectDb.DB.QueryEntity<int?>(parameterSet);
+                objectDb.DB.ExecuteNonQuery();
+
+                var code = objectDb.DB.GetParameterValue("AffCode");
+
+                return code?.ToString();
             }
         }
     }

@@ -31,6 +31,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         MaxLevelInfo GetLevelAffiliate(int affCode);
 
-        int? GetAffCodeByAffId(int affId);
+        string GetAffCodeByAffId(int affId);
     }
 }

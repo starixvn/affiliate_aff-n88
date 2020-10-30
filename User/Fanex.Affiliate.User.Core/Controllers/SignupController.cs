@@ -41,50 +41,32 @@
         [HttpGet]
         public ActionResult Index(string refId = null, string refCode = null)
         {
-            if(!string.IsNullOrEmpty(refId))
-            {
-                bool isParsableId = int.TryParse(refId, out int parentAffId);
-
-                if (isParsableId)
-                {
-                    var affCode = _accountService.GetAffCodeByAffId(parentAffId);
-
-                    refCode = affCode.ToString();
-                }
-            }
-
-            if((string.IsNullOrEmpty(refCode)) || string.Equals(refCode, "index", StringComparison.CurrentCultureIgnoreCase))
+            if ((string.IsNullOrEmpty(refId) && string.IsNullOrEmpty(refCode)) || string.Equals(refCode, "index", StringComparison.CurrentCultureIgnoreCase) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
             {
                 return View(new UserSignUpParam { IsValidParentCode = true });
             }
 
-            bool isParsable = int.TryParse(refCode, out int parentAffCode);
-
-            var vm = new UserSignUpParam
+            if (int.TryParse(refId, out int parentAffId))
             {
-                ParentAffCode = parentAffCode
-            };
+                var affCode = _accountService.GetAffCodeByAffId(parentAffId);
 
-            if (isParsable)
+                if (!string.IsNullOrEmpty(affCode))
+                {
+                    return View(GetViewModel(Convert.ToInt32(affCode)));
+                }
+            }
+
+            if (int.TryParse(refCode, out int parentAffCode))
             {
                 var result = _accountService.GetLevelAffiliate(parentAffCode);
 
                 if (result.IsValidAff)
                 {
-                    vm.IsValidParentCode = result.IsValidAff;
-
-                    var cookie = new HttpCookie(ParentCodeCookieName)
-                    {
-                        HttpOnly = true,
-                        Expires = DateTime.Now.AddHours(CookieTimeOut),
-                        Value = vm.ParentAffCode.ToString(),
-                    };
-
-                    HttpContext.Response.Cookies.Add(cookie);
+                    return View(GetViewModel(parentAffCode));
                 }
             }
 
-            return View(vm);
+            return View(new UserSignUpParam());
         }
 
         [HttpGet]
@@ -169,6 +151,29 @@
         private static bool IsValidAppContactList(IEnumerable<ContactApp> contactAppList)
         {
             return contactAppList != null && !contactAppList.All(c => string.IsNullOrEmpty(c.Value));
+        }
+
+        private UserSignUpParam GetViewModel(int parentAffCode)
+        {
+            SetCookie(parentAffCode);
+
+            return new UserSignUpParam
+            {
+                IsValidParentCode = true,
+                ParentAffCode = parentAffCode
+            };
+        }
+
+        private void SetCookie(int parentAffCode)
+        {
+            var cookie = new HttpCookie(ParentCodeCookieName)
+            {
+                HttpOnly = true,
+                Expires = DateTime.Now.AddHours(CookieTimeOut),
+                Value = parentAffCode.ToString()
+            };
+
+            HttpContext.Response.Cookies.Add(cookie);
         }
     }
 }

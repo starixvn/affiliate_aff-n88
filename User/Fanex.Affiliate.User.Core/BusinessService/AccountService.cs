@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return _accountRepository.GetLevelAffiliate(affCode) ?? new MaxLevelInfo();
         }
 
-        public int? GetAffCodeByAffId(int affId)
+        public string GetAffCodeByAffId(int affId)
         {
             return _accountRepository.GetAffCodeByAffId(affId);
         }

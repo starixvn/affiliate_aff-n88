@@ -8,6 +8,8 @@
 
         public const int MoneySize = 16;
 
+        public const int StringSize = 16;
+
         public const int PreferPaymentSize = 16;
     }
 }
