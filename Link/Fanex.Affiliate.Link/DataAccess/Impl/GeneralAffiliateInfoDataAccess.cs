@@ -23,6 +23,7 @@
             using (var objectDb = new ObjectDb(uSpKey))
             {
                 objectDb.AddInParameter("AffId", DbType.Int32, affId);
+                objectDb.AddInParameter("AffCode", DbType.Int32, affCode);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

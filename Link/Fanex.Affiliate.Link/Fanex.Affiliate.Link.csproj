@@ -161,7 +161,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Criterias\GeneralAffiliateInfoCriteria.cs" />
     <Compile Include="Criterias\TrackingSystemCriteria.cs" />
     <Compile Include="DataAccess\Impl\GeneralAffiliateInfoDataAccess.cs" />
     <Compile Include="DataAccess\Impl\TrackingSystemDataAccess.cs" />

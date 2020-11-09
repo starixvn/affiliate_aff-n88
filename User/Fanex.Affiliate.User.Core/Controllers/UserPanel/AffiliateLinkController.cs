@@ -87,7 +87,6 @@
             {
                 AffId = userSession.AffId,
                 AffCode = userSession.AffCode,
-                IsSubAffTab = true,
                 Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,

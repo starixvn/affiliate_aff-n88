@@ -99,7 +99,6 @@
 
             bannerParam.AffId = userSession.AffId;
             bannerParam.AffCode = userSession.AffCode;
-            bannerParam.IsSubAffTab = bannerParam.TargetId == TargetSite.TargetToSubAff;
             bannerParam.AffType = userSession.AffType;
             bannerParam.SelectedDomain = selectedDomain;
             bannerParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(bannerParam.TargetId);
@@ -123,7 +122,6 @@
 
             textParam.AffId = userSession.AffId;
             textParam.AffCode = userSession.AffCode;
-            textParam.IsSubAffTab = textParam.TargetId == TargetSite.TargetToSubAff;
             textParam.SelectedDomain = selectedDomain;
             textParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(textParam.TargetId);
             textParam.ScriptUrl = AppSetting.MediaScriptUrl;

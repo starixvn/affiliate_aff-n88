@@ -121,7 +121,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             {
                 AffId = userSession.AffId,
                 AffCode = userSession.AffCode,
-                IsSubAffTab = true,
                 TextLinkTemplate = AppSetting.SubAffTextLinkTemplate,
                 PreferredLanguage = userSession.PreferredLanguage,
                 SelectedLanguage = selectedLanguage,
