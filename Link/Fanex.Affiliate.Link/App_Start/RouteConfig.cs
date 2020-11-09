@@ -28,6 +28,19 @@
                 });
 
             routes.MapRoute(
+               name: "NewLink",
+               url: "{pageId}/AffId/{affCode}/{lang}/index.html",
+               defaults:
+               new
+               {
+                   controller = "Home",
+                   action = "NewLink",
+                   pageId = UrlParameter.Optional,
+                   affCode = UrlParameter.Optional,
+                   lang = UrlParameter.Optional
+               });
+
+            routes.MapRoute(
                name: "Link",
                url: "{affId}/{pageId}/{lang}/index.html",
                defaults:
@@ -47,7 +60,7 @@
                 new
                 {
                     controller = "Home",
-                    action = "OldLink",
+                    action = "Link",
                     affId = UrlParameter.Optional,
                     pageId = UrlParameter.Optional,
                     lang = UrlParameter.Optional,
