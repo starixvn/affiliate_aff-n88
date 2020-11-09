@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
         public ActionResult Link(int affId, string pageId, string lang, string deviceType)
         {
-            var affDomain = GetFullAffDomain(Request.Url.ToString(), affId);
+            var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString(CultureInfo.InvariantCulture));
             var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: affId);
 
             return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
@@ -60,7 +60,7 @@ namespace Fanex.Affiliate.Link.Controllers
         public ActionResult NewLink(string pageId, int affCode, string lang)
         {
             var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: affCode);
-            var affDomain = GetFullAffDomain(Request.Url.ToString(), affCode);
+            var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
 
             return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
         }
@@ -124,7 +124,7 @@ namespace Fanex.Affiliate.Link.Controllers
             return View("Link");
         }
 
-        private string GetFullAffDomain(string url, int affCode)
+        private string GetFullAffDomain(string url, string endPointOfAffDomain)
         {
             if (byte.Parse(ConfigurationManager.AppSettings["RemovePortFromUrl"]) == 1)
             {
@@ -134,7 +134,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
             const string slashString = "://";
             var pos1 = url.IndexOf(slashString, 0, StringComparison.OrdinalIgnoreCase);
-            var pos2 = url.IndexOf("/" + affCode.ToString(CultureInfo.InvariantCulture), 0, StringComparison.OrdinalIgnoreCase);
+            var pos2 = url.IndexOf("/" + endPointOfAffDomain, 0, StringComparison.OrdinalIgnoreCase);
 
             return url.Substring(pos1 + slashString.Length, pos2 - (pos1 + slashString.Length));
         }
