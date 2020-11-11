@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
                 if (!string.IsNullOrEmpty(redirectUrl))
                 {
-                    var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_{pageId.ToLowerInvariant()}_pattern"];
+                    var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_pattern"];
                     if (!string.IsNullOrEmpty(redirectPattern))
                     {
                         var redirectUri = new Uri(redirectUrl);
