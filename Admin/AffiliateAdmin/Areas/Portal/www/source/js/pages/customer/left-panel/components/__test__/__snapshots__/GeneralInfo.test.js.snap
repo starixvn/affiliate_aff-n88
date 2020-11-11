@@ -85,13 +85,40 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
       >
         N88AFF002
       </a>
-       
-      [
-      <span>
-        1271808
-      </span>
-      ]
     </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Affiliate ID
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    />
   </Row>
   <Row
     tag="div"
@@ -507,13 +534,40 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
       <span>
         N88AFF002
       </span>
-       
-      [
-      <span>
-        1219631
-      </span>
-      ]
     </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Affiliate ID
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    />
   </Row>
   <Row
     tag="div"
@@ -927,13 +981,40 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
       >
         N88AFF002
       </a>
-       
-      [
-      <span>
-        927841
-      </span>
-      ]
     </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Affiliate ID
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    />
   </Row>
   <Row
     tag="div"
@@ -1352,13 +1433,40 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
       >
         N88AFF002
       </a>
-       
-      [
-      <span>
-        927841
-      </span>
-      ]
     </Col>
+  </Row>
+  <Row
+    tag="div"
+  >
+    <Col
+      sm={5}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    >
+      Affiliate ID
+    </Col>
+    <Col
+      className="text-right"
+      sm={7}
+      tag="div"
+      widths={
+        Array [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+        ]
+      }
+    />
   </Row>
   <Row
     tag="div"

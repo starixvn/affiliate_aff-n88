@@ -61,6 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
+            objectDb.Setup(obj => obj.GetParameterValue("AffCode")).Returns("12345");
             service.Setup(re => re.GetObjectDb("Aff_Admin_Affiliate_Approved", 120)).Returns(objectDb.Object);
 
             // Action
