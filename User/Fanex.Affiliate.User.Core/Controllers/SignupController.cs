@@ -132,8 +132,7 @@
                     MailContact = mailContact,
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailBcc = _appSetting.MailBcc,
-                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
-                    MailTo = mailContact
+                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 
                 result = await _accountService.CreateAffiliate(signUpParam, emailParam);
