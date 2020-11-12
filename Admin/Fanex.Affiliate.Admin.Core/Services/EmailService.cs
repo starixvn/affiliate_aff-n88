@@ -62,7 +62,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(2),
                 FirstName = emailParam.FirstName,
                 UserName = emailParam.UserName,
-                Password = emailParam.Password
+                Password = emailParam.Password,
+                AffCode = emailParam.AffCode
             };
 
             var content = GetEmailTextContent(TemplateName, emailParam.Language, model);

@@ -29,6 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             ParentAffId = reader["ParentAffId"] == DBNull.Value ? (int?)null :reader.ToInt("ParentAffId"),
                             ParentAffName =reader.ToString("ParentAffName"),
                             AffId =reader.ToInt(Field.AffId),
+                            AffCode = reader.ToString("AffCode"),
                             GroupId =reader.ToInt("GroupId"),
                             AffName =reader.ToString("UserName"),
                             FirstName =reader.ToString("FirstName"),

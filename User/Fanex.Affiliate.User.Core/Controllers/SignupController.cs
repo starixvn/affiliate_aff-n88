@@ -21,7 +21,7 @@
         private readonly IAppSetting _appSetting;
         private readonly ICaptchaService _captchaService;
         private readonly ISecurityQuestionService _securityQuestionService;
-        private const string ParentIdCookieName = "Fanex.UserSite.RefId";
+        private const string ParentCodeCookieName = "Fanex.UserSite.RefCode";
         private const int CookieTimeOut = 6;
 
         public SignupController(
@@ -39,37 +39,33 @@
         }
 
         [HttpGet]
-        public ActionResult Index(string refId = null)
+        public ActionResult Index(string refId = null, string affId = null)
         {
-            if(string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase))
+            if ((string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase)) && string.IsNullOrEmpty(affId))
             {
-                return View(new UserSignUpParam { IsValidParentId = true });
+                return View(new UserSignUpParam());
             }
 
-            bool isParsable = int.TryParse(refId, out int parentAffId);
+            var affInfo = new GeneralAffInfo();
 
-            var vm = new UserSignUpParam
+            if (int.TryParse(refId, out int parentAffId))
             {
-                ParentAffId = parentAffId
-            };
-
-            if (isParsable)
-            {
-                var result = _accountService.GetLevelAffiliate(parentAffId);
-                vm.IsValidParentId = result.IsValidAffId;
+                affInfo = _accountService.GetGeneralAffInfo(affId: parentAffId);
             }
-            if (vm.IsValidParentId)
-            {
-                var cookie = new HttpCookie(ParentIdCookieName)
-                {
-                    HttpOnly = true,
-                    Expires = DateTime.Now.AddHours(CookieTimeOut),
-                    Value = vm.ParentAffId.ToString(),
-                };
 
-                HttpContext.Response.Cookies.Add(cookie);
+            if (int.TryParse(affId, out _))
+            {
+                affInfo = _accountService.GetGeneralAffInfo(affCode: affId);
             }
-            return View(vm);
+
+            if (affInfo.IsValidAff)
+            {
+                SetCookie(affInfo.AffCode);
+
+                return View(new UserSignUpParam());
+            }
+
+            return View(new UserSignUpParam { IsValidParentCode = false });
         }
 
         [HttpGet]
@@ -85,10 +81,9 @@
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(UserSignUpParam param)
         {
-            var isLocalEnvironment = _appSetting.Environment.Equals("LOCAL", StringComparison.CurrentCultureIgnoreCase);
             var result = new ResultInfo { IsOk = false };
-            var refId = HttpContext.Request.Cookies[ParentIdCookieName]?.Value;
-            if (!isLocalEnvironment && !_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
+            var affParentCode = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
+            if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
             }
@@ -127,7 +122,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffId = string.IsNullOrWhiteSpace(refId) ? param.ParentAffId : Convert.ToInt32(refId)
+                    AffParentCode = affParentCode
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
@@ -137,8 +132,7 @@
                     MailContact = mailContact,
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailBcc = _appSetting.MailBcc,
-                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
-                    MailTo = mailContact
+                    RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 
                 result = await _accountService.CreateAffiliate(signUpParam, emailParam);
@@ -155,6 +149,18 @@
         private static bool IsValidAppContactList(IEnumerable<ContactApp> contactAppList)
         {
             return contactAppList != null && !contactAppList.All(c => string.IsNullOrEmpty(c.Value));
+        }
+
+        private void SetCookie(string parentAffCode)
+        {
+            var cookie = new HttpCookie(ParentCodeCookieName)
+            {
+                HttpOnly = true,
+                Expires = DateTime.Now.AddHours(CookieTimeOut),
+                Value = parentAffCode
+            };
+
+            HttpContext.Response.Cookies.Add(cookie);
         }
     }
 }

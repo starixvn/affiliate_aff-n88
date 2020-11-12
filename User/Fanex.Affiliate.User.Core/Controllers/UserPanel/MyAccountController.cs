@@ -44,6 +44,7 @@
             {
                 AffId = accountInfo.AffId,
                 UserName = accountInfo.UserName,
+                AffCode = accountInfo.AffCode,
                 Gender = accountInfo.Gender,
                 Email = Server.HtmlDecode(accountInfo.Email),
                 Phone = Server.HtmlDecode(accountInfo.Phone),

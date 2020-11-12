@@ -44,8 +44,8 @@
             var selectedLanguageList = MarketingHelper.GetLanguageList(languageList, SessionService.UserSession.PreferredLanguage);
 
             var linkList = isTargetToMemberSite
-                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
-                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
+                ? GetLinkForMemberList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
+                : GetLinkForSubAffList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
 
             var qrCodes = GetQrCodes(linkList, true);
 
@@ -98,6 +98,7 @@
             var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
 
             bannerParam.AffId = userSession.AffId;
+            bannerParam.AffCode = userSession.AffCode;
             bannerParam.AffType = userSession.AffType;
             bannerParam.SelectedDomain = selectedDomain;
             bannerParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(bannerParam.TargetId);
@@ -120,6 +121,7 @@
                                                     .FirstOrDefault(d => d.DomainId == textParam.SelectedDomainId);
 
             textParam.AffId = userSession.AffId;
+            textParam.AffCode = userSession.AffCode;
             textParam.SelectedDomain = selectedDomain;
             textParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(textParam.TargetId);
             textParam.ScriptUrl = AppSetting.MediaScriptUrl;
@@ -195,8 +197,8 @@
                 MarketingHelper.GetLanguageList(LanguageService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
 
             var textLinkList = targetId == TargetSite.TargetToMember
-                ? GetTextLinkList(selectedLanguage, selectedPage, selectedDomain, languageList)
-                : GetAffLinks(selectedLanguage, selectedPage, selectedDomain, languageList);
+                ? GetLinkForMemberList(selectedLanguage, selectedPage, selectedDomain, languageList)
+                : GetLinkForSubAffList(selectedLanguage, selectedPage, selectedDomain, languageList);
 
             result = GetQrCodes(textLinkList, includePrefix);
             return result;

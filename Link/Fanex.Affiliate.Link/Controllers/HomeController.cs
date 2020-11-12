@@ -18,6 +18,7 @@ namespace Fanex.Affiliate.Link.Controllers
         #region Services
 
         private readonly ITrackingSystemService _trackingSystemService;
+        private readonly IGeneralAffiliateInfoService _generalAffiliateInfoService;
 
         #endregion Services
 
@@ -26,6 +27,7 @@ namespace Fanex.Affiliate.Link.Controllers
         public HomeController()
         {
             _trackingSystemService = new TrackingSystemService();
+            _generalAffiliateInfoService = new GeneralAffiliateInfoService();
         }
 
         #endregion Constructor
@@ -47,23 +49,28 @@ namespace Fanex.Affiliate.Link.Controllers
             return View();
         }
 
-        public ActionResult Link(int affId, string pageId, string lang)
+        public ActionResult Link(int affId, string pageId, string lang, string deviceType)
         {
-            return InsertAffiliate(affId, pageId, lang);
+            var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString(CultureInfo.InvariantCulture));
+            var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: affId);
+
+            return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
         }
 
-        public ActionResult OldLink(int affId, string pageId, string lang, string deviceType)
+        public ActionResult NewLink(string pageId, int affCode, string lang)
         {
-            return InsertAffiliate(affId, pageId, lang);
+            var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: affCode);
+            var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
+
+            return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
         }
 
-        private ActionResult InsertAffiliate(int affId, string pageId, string lang)
+        private ActionResult InsertAffiliate(int affId, int affCode, string pageId, string lang, string affDomain)
         {
             if (Request.Url != null)
             {
-                var affDomain = GetFullAffDomain(Request.Url.ToString(), affId);
-                var urlReferrer = Request.UrlReferrer != null ? Request.UrlReferrer.AbsoluteUri : null;
-                var domainReferrer = Request.UrlReferrer != null ? Request.UrlReferrer.Host : null;
+                var urlReferrer = Request.UrlReferrer?.AbsoluteUri;
+                var domainReferrer = Request.UrlReferrer?.Host;
 
                 if (string.IsNullOrEmpty(urlReferrer) && !string.IsNullOrEmpty(Request["ref"]))
                 {
@@ -94,7 +101,6 @@ namespace Fanex.Affiliate.Link.Controllers
                     Country = Common.ResolveCountry() != null
                                       ? Common.ResolveCountry().EnglishName
                                       : CultureInfo.CurrentCulture.ToString(),
-                        
                 };
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
@@ -105,7 +111,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     if (!string.IsNullOrEmpty(redirectPattern))
                     {
                         var redirectUri = new Uri(redirectUrl);
-                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affId.ToString());
+                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affCode.ToString());
                         redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
                     }
 
@@ -118,7 +124,7 @@ namespace Fanex.Affiliate.Link.Controllers
             return View("Link");
         }
 
-        private string GetFullAffDomain(string url, int affId)
+        private string GetFullAffDomain(string url, string endPointOfAffDomain)
         {
             if (byte.Parse(ConfigurationManager.AppSettings["RemovePortFromUrl"]) == 1)
             {
@@ -128,7 +134,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
             const string slashString = "://";
             var pos1 = url.IndexOf(slashString, 0, StringComparison.OrdinalIgnoreCase);
-            var pos2 = url.IndexOf("/" + affId.ToString(CultureInfo.InvariantCulture), 0, StringComparison.OrdinalIgnoreCase);
+            var pos2 = url.IndexOf("/" + endPointOfAffDomain, 0, StringComparison.OrdinalIgnoreCase);
 
             return url.Substring(pos1 + slashString.Length, pos2 - (pos1 + slashString.Length));
         }

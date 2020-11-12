@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.User.Site
             );
 
             routes.MapRoute(
-                name: "SignUp",
+                name: "SignUpUsingAffID",
                 url: "Signup/{refId}/{action}",
                 defaults: new { controller = "Signup", action = IndexAction, refId = UrlParameter.Optional },
                 namespaces: new[] { "Fanex.Affiliate.User.Core.Controllers"}

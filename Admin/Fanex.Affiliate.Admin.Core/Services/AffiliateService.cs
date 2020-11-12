@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             return result;
         }
 
-        public ResultInfo ApproveAffiliate(ApproveAffiliateParam param)
+        public (ResultInfo, string) ApproveAffiliate(ApproveAffiliateParam param)
         {
             const string SpKey = "Aff_Admin_Affiliate_Approved";
 
@@ -43,16 +43,15 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 objectDb.AddInParameter("Password", DbType.String, param.Password);
                 objectDb.AddInParameter("Status", DbType.String, param.Status);
                 objectDb.AddInParameter("Ip", DbType.String, param.Ip);
-                objectDb.AddOutParameter("ErrCode", DbType.Int32, Size.SizeOfInt);
-                objectDb.AddOutParameter("ErrMsg", DbType.String, Size.SizeOfString);
+
+                AssignResultOutputParam(objectDb);
+                objectDb.AddOutParameter("AffCode", DbType.String, Size.SizeOfString);
 
                 objectDb.ExecuteNonQuery();
 
-                return new ResultInfo
-                {
-                    Code = Convert.ToInt32(objectDb.GetParameterValue("ErrCode")),
-                    Message = objectDb.GetParameterValue("ErrMsg").ToString()
-                };
+                var affCode = objectDb.GetParameterValue("AffCode").ToString();
+
+                return (GetResultInfo(objectDb), affCode);
             }
         }
 
@@ -61,6 +60,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             return new AffiliateBasicInfo
             {
                 AffId = Convert.ToInt32(reader["AffId"]),
+                AffCode = Convert.ToString(reader["AffCode"]),
                 GroupId = Convert.ToInt32(reader["GroupId"]),
                 UserName = Convert.ToString(reader["UserName"]),
                 FirstName = Convert.ToString(reader["FirstName"]),

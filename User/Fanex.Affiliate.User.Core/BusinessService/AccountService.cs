@@ -31,13 +31,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _appSetting = appSetting;
         }
 
-        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam, bool isLocalEnvironment = false)
+        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam)
         {
             var cust = await GetMemberSiteCustomer(signUpParam.Player_UserName);
-
             var validInfo = CheckPlayerUserNameValid(cust);
 
-            if (!isLocalEnvironment && !validInfo.IsOk)
+            if (!validInfo.IsOk)
             {
                 return validInfo;
             }
@@ -59,7 +58,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
                 var csdEmailParam = new NoticeEmailParam
                 {
-                    MailTo = emailParam.MailTo,
+                    MailTo = emailParam.MailContact,
                     MailBcc = emailParam.MailBcc,
                     MailCc = emailParam.MailCc,
                     MailContact = emailParam.MailContact,
@@ -78,9 +77,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        public MaxLevelInfo GetLevelAffiliate(int affId)
+        public GeneralAffInfo GetGeneralAffInfo(int? affId = null, string affCode = null)
         {
-            return _accountRepository.GetLevelAffiliate(affId) ?? new MaxLevelInfo();
+            return _accountRepository.GetGeneralAffInfo(affId, affCode) ?? new GeneralAffInfo();
         }
 
         public async Task<ResultInfo> CheckPlayerUserNameValid(string userName)

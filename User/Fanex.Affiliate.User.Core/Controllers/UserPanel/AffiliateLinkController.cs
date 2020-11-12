@@ -52,6 +52,7 @@
             var textParam = new MarketingTextParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
                 Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,
@@ -85,6 +86,7 @@
             var textParam = new MarketingTextParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
                 Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 SelectedDomain = selectedDomain,
                 SelectedPage = selectedPage,

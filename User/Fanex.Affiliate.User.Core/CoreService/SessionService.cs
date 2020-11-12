@@ -76,6 +76,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
             var userSession = new UserSession
             {
                 AffId = authorizedUser.AffId,
+                AffCode = authorizedUser.AffCode,
                 UserName = authorizedUser.UserName,
                 PreferredLanguage = string.IsNullOrEmpty(authorizedUser.PreferredLanguage) ?
                                         SystemLanguage.DefaultLanguageCode :

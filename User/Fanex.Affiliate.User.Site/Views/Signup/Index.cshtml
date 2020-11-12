@@ -29,7 +29,7 @@
 }
 
 <div class="content sign-up-page">
-    @if (Model.IsValidParentId)
+    @if (Model.IsValidParentCode)
     {
         <div class="page-title">
             <span class="text">@Lang.RegisForm</span>
@@ -51,7 +51,6 @@
             @using (Html.BeginForm("Index", "Signup", FormMethod.Post, new { @id = "accountForm", @class = "form-horizontal" }))
             {
                 @Html.AntiForgeryToken()
-                @Html.HiddenFor(p => p.ParentAffId)
                 <div class="info-group">
                     <div class="title">
                         <span class="text">@Lang.ContactInfo</span>

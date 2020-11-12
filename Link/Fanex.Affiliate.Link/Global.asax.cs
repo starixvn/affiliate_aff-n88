@@ -36,7 +36,7 @@
             }
 
             var message = exception.Message + Environment.NewLine + exception.StackTrace;
-            LogService.Error("Affiliate Link Error!" + Environment.NewLine + message + Environment.NewLine + Request.Url);
+            //LogService.Error("Affiliate Link Error!" + Environment.NewLine + message + Environment.NewLine + Request.Url);
        }
     }
 }

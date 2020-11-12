@@ -230,7 +230,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
-    <Content Include="App_Data\SpConfig\SpName.xml" />
+    <Content Include="App_Data\SpConfig\SpName.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.master.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.sit.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\_SpName.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>_SpName.txt</LastGenOutput>
+    </Content>
+    <Content Include="App_Data\SpConfig\_SpName.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\_SpNameConfig.xml" />
+    <Content Include="App_Data\SpConfig\_SpNameOriginal.xml" />
     <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner.png" />
     <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_en-US.png" />
     <Content Include="Areas\Portal\www\dist\imgs\email\n88\banner_id-ID.png" />
@@ -355,6 +383,7 @@
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\customer\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\types.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\__test__\index.test.js" />

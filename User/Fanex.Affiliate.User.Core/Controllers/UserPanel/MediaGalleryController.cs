@@ -44,6 +44,7 @@
             var bannerParam = new MarketingBannerParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
                 Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 AffType = userSession.AffType,
                 SelectedDomain = selectedDomain,
@@ -81,6 +82,7 @@
             var bannerParam = new MarketingBannerParam
             {
                 AffId = userSession.AffId,
+                AffCode = userSession.AffCode,
                 Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 AffType = userSession.AffType,
                 SelectedDomain = selectedDomain,

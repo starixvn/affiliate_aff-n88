@@ -6,8 +6,6 @@
 
         public string AffId { get; set; }
 
-        public int AffIdNumber { get; set; }
-
         public int GroupId { get; set; }
 
         public string Language { get; set; }

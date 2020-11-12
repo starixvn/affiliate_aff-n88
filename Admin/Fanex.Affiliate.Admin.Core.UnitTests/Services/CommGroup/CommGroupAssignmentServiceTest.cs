@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             commGroupRepository.Setup(comm => comm.AssignGroup(param)).Returns(expectedResult);
 
             var affiliateService = new Mock<IAffiliateService>();
-            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(new ResultInfo { Code = 999 });
+            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((new ResultInfo { Code = 999 }, "12345"));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
 
@@ -117,7 +117,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             commGroupRepository.Setup(comm => comm.AssignGroup(param)).Returns(expectedResult);
 
             var affiliateService = new Mock<IAffiliateService>();
-            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(expectedResult);
+            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((expectedResult, "12345"));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
 
@@ -223,7 +223,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             commGroupRepository.Setup(comm => comm.AssignGroup(It.IsAny<AssignGroupParam>())).Returns(expectedResult);
 
             var affiliateService = new Mock<IAffiliateService>();
-            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(new ResultInfo { Code = 999 });
+            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((new ResultInfo { Code = 999 }, "12345"));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 
@@ -262,7 +262,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             commGroupRepository.Setup(comm => comm.AssignGroup(It.IsAny<AssignGroupParam>())).Returns(expectedResult);
 
             var affiliateService = new Mock<IAffiliateService>();
-            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns(expectedResult);
+            affiliateService.Setup(aff => aff.ApproveAffiliate(It.IsAny<ApproveAffiliateParam>())).Returns((expectedResult, "12345"));
 
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 

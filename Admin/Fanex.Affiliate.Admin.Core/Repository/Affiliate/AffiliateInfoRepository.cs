@@ -67,7 +67,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
         private static void AssignAffiliateInfoParam(IObjectDb objectDb, AffiliateInfoParam param)
         {
-            objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffIdNumber);
+            objectDb.AddInParameter("AffCode", DbType.String, param.AffId);
             objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
             objectDb.AddInParameter("GroupID", DbType.Int32, param.GroupId);
             objectDb.AddInParameter("PreferredLanguage", DbType.String, param.Language);
