@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public string ErrMsg { get; set; }
 
-        public string ParentAffCode { get; set; }
+        public string AffParentCode { get; set; }
 
         public int Player_CustId { get; set; }
 

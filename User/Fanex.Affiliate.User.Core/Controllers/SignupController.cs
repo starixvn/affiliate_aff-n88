@@ -82,7 +82,7 @@
         public async Task<ActionResult> Index(UserSignUpParam param)
         {
             var result = new ResultInfo { IsOk = false };
-            var parentAffCode = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
+            var affParentCode = HttpContext.Request.Cookies[ParentCodeCookieName]?.Value;
             if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
             {
                 result.Message = Lang.ValidationCode;
@@ -122,7 +122,7 @@
                     AffType = _appSetting.AllowedAffiliateTypes.FirstOrDefault(),
                     Ip = Request.UserHostAddress,
                     IsLocal = _appSetting.IsLocal,
-                    ParentAffCode = parentAffCode
+                    AffParentCode = affParentCode
                 };
 
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
