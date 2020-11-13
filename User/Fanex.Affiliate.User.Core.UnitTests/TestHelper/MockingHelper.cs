@@ -55,6 +55,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             mockHttpRequest.Setup(p => p.Url).Returns(new Uri(Constant.DefaultRootDomain));
             mockHttpRequest.Setup(p => p.ServerVariables).Returns(new NameValueCollection());
             mockHttpRequest.Setup(p => p.Browser.Browser).Returns(Constant.Browser);
+            mockHttpRequest.Setup(p => p.Cookies).Returns(new HttpCookieCollection());
 
             return mockHttpRequest.Object;
         }

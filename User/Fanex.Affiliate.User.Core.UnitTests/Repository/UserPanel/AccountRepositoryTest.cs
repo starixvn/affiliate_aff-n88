@@ -235,16 +235,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         }
 
         [Fact]
-        public void GetLevelAffiliate_WhenCall_CallQuery()
+        public void GetUserInfoById_WhenCall_CallQuery()
         {
-            const string uSpKey = "Aff_CheckMaxSubAffLevel";
+            const string uSpKey = "Aff_User_GeneralInfo_Sel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
 
-            repo.GetLevelAffiliate(1);
+            repo.GetUserInfoById(1, false);
 
             Assert.Equal(uSpKey, db.SettingKey);
-            db.Received().QueryEntity<MaxLevelInfo>(Arg.Any<object>());
+            db.Received().QueryEntity<UserInfo>(Arg.Any<object>());
         }
 
         private static UpdateAccountParam CreateUpdateAccountParam()

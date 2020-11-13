@@ -456,7 +456,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             return Mock.Of<IAppSetting>(ap =>
                 ap.IsLocal &&
-                ap.MailContact == Constant.DefaultMailContact &&
+                ap.GetMailContactByLanguageCode(It.IsAny<string>()) == Constant.DefaultMailContact &&
                 ap.MailBcc == string.Empty &&
                 ap.MailCc == Constant.DefaultMailCc);
         }

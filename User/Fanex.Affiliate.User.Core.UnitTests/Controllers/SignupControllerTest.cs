@@ -61,7 +61,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.Data as ResultInfo;
 
             // Assert
-            accountService.Verify(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()), Times.Never);
+            accountService.Verify(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()), Times.Never);
             Assert.Equal(expectedResult.IsOk, result.IsOk);
             Assert.Equal(expectedResult.Message, result.Message);
         }
@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.Data as ResultInfo;
 
             // Assert
-            accountService.Verify(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()), Times.Never);
+            accountService.Verify(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()), Times.Never);
             Assert.False(result.IsOk);
             Assert.Equal(Error.RequireIMAccount, result.Message);
         }
@@ -115,9 +115,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             // Arrange
             UserSignUpParam passedParam = null;
+            var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
-            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>(), false))
+            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
                         .ReturnsAsync(resultInfo)
                         .Callback<UserSignUpParam, EmailBaseParam, bool>((p, e, b) => passedParam = p);
 
@@ -147,9 +147,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             // Arrange
             var expectedResult = new ResultInfo { IsOk = true };
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>())).Returns(Task.FromResult(expectedResult));
+            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>())).Returns(Task.FromResult(expectedResult));
 
-            var appSetting = Mock.Of<IAppSetting>(ap => ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } 
+            var appSetting = Mock.Of<IAppSetting>(ap => ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian }
                 && ap.Environment == "LOCAL");
 
             var controller = CreateController(accountService.Object, appSetting: appSetting);
@@ -173,7 +173,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             EmailBaseParam passedEmailParam = null;
             var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliate(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
+            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
                                 .ReturnsAsync(resultInfo)
                                 .Callback<UserSignUpParam, EmailBaseParam, bool>((u, e, i) => passedEmailParam = e);
 

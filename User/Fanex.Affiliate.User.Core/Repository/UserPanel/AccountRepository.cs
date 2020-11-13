@@ -156,7 +156,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             {
                 var parameterSet = new { affId, affCode };
 
-                return objectDb.DB.QueryEntity<GeneralAffInfo>(parameterSet);
+                return objectDb.QueryEntity<GeneralAffInfo>(parameterSet);
             }
         }
     }

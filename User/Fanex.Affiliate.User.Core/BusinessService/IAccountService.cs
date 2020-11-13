@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public interface IAccountService
     {
-        Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam);
+        Task<ResultInfo> CreateAffiliateAsync(UserSignUpParam signUpParam, EmailBaseParam emailParam);
 
         GeneralAffInfo GetGeneralAffInfo(int? affId = null, string affCode = null);
 

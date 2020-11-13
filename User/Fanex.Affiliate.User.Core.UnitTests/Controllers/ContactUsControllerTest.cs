@@ -114,9 +114,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 .Callback<ContactUsParam, EmailBaseParam>((p, e) => passedParam = e);
 
             var captchaService = new Mock<ICaptchaService>();
-            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(true);
-            var appSetting = Mock.Of<IAppSetting>(ap => ap.MailContact == Constant.DefaultMailContact && ap.MailCc == Constant.DefaultMailCc);
+            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            var appSetting = Mock.Of<IAppSetting>(ap => ap.GetMailContactByLanguageCode(It.IsAny<string>()) == Constant.DefaultMailContact && ap.MailCc == Constant.DefaultMailCc);
             var controller = CreateController(service.Object, appSetting: appSetting, captchaService: captchaService.Object);
 
             var expectedParam = JsonConvert.SerializeObject(new EmailBaseParam

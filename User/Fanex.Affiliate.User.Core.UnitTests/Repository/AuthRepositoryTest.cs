@@ -67,19 +67,22 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository
             var authUserInfo = new AuthorizedUserInfo
             {
                 AffId = 1,
-                AffType = "asia",
-                GroupName = "group",
-                IsClosed = false,
-                OnUserId = 1,
+                AffCode = 12345,
+                UserName = "Name",
                 Password = "pass",
-                PreferredLanguage = "vi-VN",
+                GroupName = "group",
+                AffType = "asia",
+                IsClosed = false,
                 Status = "Approved",
-                UserName = "Name"
+                PreferredLanguage = "vi-VN",
+                IsMaxSubLevel = false
             };
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
             var reader = db.ExecuteReader();
             reader.Read().Returns(true);
+            reader["Dep_IsDeductedPercent"].Returns(true);
+            reader["Wit_IsDeductedPercent"].Returns(true);
             AssignObjectToReader(reader, authUserInfo);
 
             var userInfo = repo.GetUserInfo("username", isInternal);

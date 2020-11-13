@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _appSetting = appSetting;
         }
 
-        public async Task<ResultInfo> CreateAffiliate(UserSignUpParam signUpParam, EmailBaseParam emailParam)
+        public async Task<ResultInfo> CreateAffiliateAsync(UserSignUpParam signUpParam, EmailBaseParam emailParam)
         {
             var cust = await GetMemberSiteCustomer(signUpParam.Player_UserName);
             var validInfo = CheckPlayerUserNameValid(cust);
