@@ -2,7 +2,6 @@
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
@@ -35,12 +34,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
         {
             new Language {Code = "en-UK", DisplayName="English", EnglishName="English", NativeName="English", ShortedCode="en" },
             new Language {Code ="vi-VN", DisplayName="VietNam", EnglishName= "VietNamese", NativeName="Tieng viet", ShortedCode = "vn" },
-            new Language {Code = "en-US",  DisplayName="English", EnglishName="English", NativeName="English", ShortedCode="us"}
+            new Language {Code = "en-US",  DisplayName="English", EnglishName="English", NativeName="English", ShortedCode="en"}
         };
 
         public static IEnumerable<LanguageType> LanguageTypeList = new List<LanguageType>
         {
-            new LanguageType {DisplayName = "English", MarketId = "en-UK", MarketName = "England", MarketNativeName = "England", ShortedCode = "en" }
+            new LanguageType {DisplayName = "English", MarketId = "en-US", MarketName = "English", MarketNativeName = "English", ShortedCode = "en" }
         };
 
         public static IEnumerable<CategoryType> CategoryList = new List<CategoryType>

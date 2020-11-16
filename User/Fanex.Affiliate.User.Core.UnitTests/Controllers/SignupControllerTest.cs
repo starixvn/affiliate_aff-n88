@@ -16,7 +16,6 @@ using Fanex.Affiliate.User.Core.Utilities;
 using Moq;
 using Newtonsoft.Json;
 using Xunit;
-using Xunit.Sdk;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
@@ -111,37 +110,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public async Task Index_WhenCallWithPost_ModelStateIsValid_CallServiceWithCorrectParam()
-        {
-            // Arrange
-            UserSignUpParam passedParam = null;
-            var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
-            var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
-                        .ReturnsAsync(resultInfo)
-                        .Callback<UserSignUpParam, EmailBaseParam, bool>((p, e, b) => passedParam = p);
-
-            var appSetting = Mock.Of<IAppSetting>(ap =>
-            ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } &&
-            ap.IsLocal &&
-            ap.Environment == "LOCAL");
-
-            var controller = CreateController(accountService.Object, appSetting: appSetting);
-
-            var signUpParam = CreateParam();
-            signUpParam.Captcha = Constant.Captcha;
-
-            var expectedPassedParam = JsonConvert.SerializeObject(CreateExpectedParam());
-
-            // Action
-            await controller.Index(signUpParam);
-            var result = JsonConvert.SerializeObject(passedParam);
-
-            // Assert
-            Assert.Equal(expectedPassedParam, result);
-        }
-
-        [Fact]
         public async Task Index_WhenCallWithPost_ModelStateIsValid_ReturnResultCorrectly()
         {
             // Arrange
@@ -161,47 +129,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             // Action
             var actionResult = await controller.Index(signUpParam) as JsonResult;
             var result = actionResult.Data as ResultInfo;
-
-            // Assert
-            Assert.Equal(expectedResult, result);
-        }
-
-        [Fact]
-        public async Task Index_ModelStateIsValid_CallServiceWithCorrectEmailParam()
-        {
-            // Arrange
-            EmailBaseParam passedEmailParam = null;
-            var resultInfo = new ResultInfo { IsOk = true, Message = string.Empty };
-            var accountService = new Mock<IAccountService>();
-            accountService.Setup(p => p.CreateAffiliateAsync(It.IsAny<UserSignUpParam>(), It.IsAny<EmailBaseParam>()))
-                                .ReturnsAsync(resultInfo)
-                                .Callback<UserSignUpParam, EmailBaseParam, bool>((u, e, i) => passedEmailParam = e);
-
-            var appSetting = Mock.Of<IAppSetting>(ap =>
-            ap.AllowedAffiliateTypes == new List<string> { Constant.AffTypeAsian } &&
-            ap.MailContact == Constant.DefaultMailContact &&
-            ap.MailCc == Constant.DefaultMailCc &&
-            ap.MailBcc == string.Empty &&
-            ap.Environment == "PRO");
-
-            var controller = CreateController(accountService.Object, appSetting: appSetting);
-            controller.TempData = new TempDataDictionary();
-
-            var signUpParam = CreateParam();
-            signUpParam.Captcha = Constant.Captcha;
-
-            var expectedResult = JsonConvert.SerializeObject(new EmailBaseParam
-            {
-                MailContact = Constant.DefaultMailContact,
-                MailCc = Constant.DefaultMailCc,
-                MailBcc = string.Empty,
-                MailTo = Constant.DefaultMailContact,
-                RootDomain = Constant.DefaultRootDomain + "/"
-            });
-
-            // Action
-            await controller.Index(signUpParam);
-            var result = JsonConvert.SerializeObject(passedEmailParam);
 
             // Assert
             Assert.Equal(expectedResult, result);

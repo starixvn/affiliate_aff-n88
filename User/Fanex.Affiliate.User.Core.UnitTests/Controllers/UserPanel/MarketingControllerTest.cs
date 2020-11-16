@@ -59,7 +59,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
                 QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
                     .Returns(BASE64_IMAGE);
-
+                MarketingService.GetLanguageList(Arg.Compat.Any<bool>()).Returns(Constant.LanguageTypeList);
+                MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
                 var controller = new MarketingController(SessionService, AppSetting, LanguageService, MarketingService, QrCodeService);
                 controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
                 controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
@@ -105,7 +106,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void GetBanner_WhenCallWithNoSelectedDomain_ReturnEmptyModelItem()
         {
             var controller = CreateMarketingController();
-            //MarketingService.GetDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
+            MarketingService.GetAvailableDomainList(Arg.Compat.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
             var param = new MarketingBannerParam();
 
             var result = controller.GetBanner(param) as ViewResult;
@@ -121,6 +122,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = CreateMarketingController();
             var bannerItems = MarketingItems;
             MarketingService.GetBannerList(Arg.Compat.Any<MarketingBannerParam>()).Returns(bannerItems);
+            MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
             var domainId = Constant.DomainList.First().DomainId;
             var param = new MarketingBannerParam { SelectedDomainId = domainId };
 
@@ -151,6 +153,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = CreateMarketingController();
             var items = MarketingItems;
             MarketingService.GetTextList(Arg.Compat.Any<MarketingTextParam>()).Returns(items);
+            MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
             var domainId = Constant.DomainList.First().DomainId;
             var param = new MarketingTextParam { SelectedDomainId = domainId };
 

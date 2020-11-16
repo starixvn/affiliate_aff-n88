@@ -10,6 +10,7 @@ using System;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -75,12 +76,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Action
             var partialViewResult = controller.PlayersDetails(param) as PartialViewResult;
-            var result = partialViewResult.Model as IEnumerable<PlayerDetail>;
+            var result = partialViewResult.Model as PlayerDetailViewModel;
 
             // Assert
             Assert.Equal("~/Views/UserPanel/AccountOverView/Summary/PlayersDetails.cshtml", partialViewResult.ViewName);
             Assert.Equal(param.MonthDate, passedParam.MonthDate);
-            Assert.Single(result);
+            Assert.Single(result.PlayerDetailList);
         }
 
         [Fact]
@@ -95,12 +96,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Action
             var partialViewResult = controller.PlayersDetailsContent(param) as PartialViewResult;
-            var result = partialViewResult.Model as IEnumerable<PlayerDetail>;
+            var result = partialViewResult.Model as PlayerDetailViewModel;
 
             // Assert
             Assert.Equal("~/Views/UserPanel/AccountOverView/Summary/PlayersDetailsContent.cshtml", partialViewResult.ViewName);
             Assert.Equal(param.MonthDate, passedParam.MonthDate);
-            Assert.Single(result);
+            Assert.Single(result.PlayerDetailList);
         }
 
         private static SummaryController CreateController(

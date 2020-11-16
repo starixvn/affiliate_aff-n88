@@ -58,12 +58,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             {
                 ["en-US"] = reader[MessagePrefix + "en"]?.ToString(),
                 ["zh-CN"] = reader[MessagePrefix + "cn"]?.ToString(),
-                ["zh-TW"] = reader[MessagePrefix + "tw"]?.ToString(),
-                ["es-ES"] = reader[MessagePrefix + "es"]?.ToString(),
                 ["th-TH"] = reader[MessagePrefix + "th"]?.ToString(),
                 ["vi-VN"] = reader[MessagePrefix + "vi"]?.ToString(),
-                ["id-ID"] = reader[MessagePrefix + "id"]?.ToString(),
-                ["ko-KR"] = reader[MessagePrefix + "kr"]?.ToString()
+                ["id-ID"] = reader[MessagePrefix + "id"]?.ToString()
             };
         }
     }
