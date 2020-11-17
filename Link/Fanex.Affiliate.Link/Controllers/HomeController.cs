@@ -20,6 +20,8 @@ namespace Fanex.Affiliate.Link.Controllers
         private readonly ITrackingSystemService _trackingSystemService;
         private readonly IGeneralAffiliateInfoService _generalAffiliateInfoService;
 
+        private const string LinkIsInvalidMessage = "This link does not exists. Please contact administrator!";
+
         #endregion Services
 
         #region Constructor
@@ -49,20 +51,36 @@ namespace Fanex.Affiliate.Link.Controllers
             return View();
         }
 
-        public ActionResult Link(int affId, string pageId, string lang, string deviceType)
+        public ActionResult Link(string affId, string pageId, string lang = null, string deviceType = null)
         {
-            var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString(CultureInfo.InvariantCulture));
-            var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: affId);
+            try
+            {
+                var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString());
+                var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: Convert.ToInt32(affId));
 
-            return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
+                return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
+            }
+            catch(Exception)
+            {
+                ViewBag.Result = LinkIsInvalidMessage;
+                return View("Link");
+            }
         }
 
-        public ActionResult NewLink(string pageId, int affCode, string lang)
+        public ActionResult NewLink(string pageId, string affCode = null, string lang = null)
         {
-            var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: affCode);
-            var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
+            try
+            {
+                var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: Convert.ToInt32(affCode));
+                var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
 
-            return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
+                return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
+            }
+            catch (Exception)
+            {
+                ViewBag.Result = LinkIsInvalidMessage;
+                return View("Link");
+            }
         }
 
         private ActionResult InsertAffiliate(int affId, int affCode, string pageId, string lang, string affDomain)
@@ -118,7 +136,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     return Redirect(redirectUrl);
                 }
 
-                ViewBag.Result = "This link does not exists. Please contact administrator!";
+                ViewBag.Result = LinkIsInvalidMessage;
             }
 
             return View("Link");
