@@ -21,6 +21,7 @@ namespace Fanex.Affiliate.Link.Controllers
         private readonly IGeneralAffiliateInfoService _generalAffiliateInfoService;
 
         private const string LinkIsInvalidMessage = "This link does not exists. Please contact administrator!";
+        private const string LinkIsIncorrectMessage = "This link is incorrect. Please contact administrator!";
 
         #endregion Services
 
@@ -62,7 +63,7 @@ namespace Fanex.Affiliate.Link.Controllers
             }
             catch(Exception)
             {
-                ViewBag.Result = LinkIsInvalidMessage;
+                ViewBag.Result = LinkIsIncorrectMessage;
                 return View("Link");
             }
         }
@@ -71,19 +72,19 @@ namespace Fanex.Affiliate.Link.Controllers
         {
             try
             {
-                var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: Convert.ToInt32(affCode));
+                var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: affCode);
                 var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
 
                 return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
             }
             catch (Exception)
             {
-                ViewBag.Result = LinkIsInvalidMessage;
+                ViewBag.Result = LinkIsIncorrectMessage;
                 return View("Link");
             }
         }
 
-        private ActionResult InsertAffiliate(int affId, int affCode, string pageId, string lang, string affDomain)
+        private ActionResult InsertAffiliate(int affId, string affCode, string pageId, string lang, string affDomain)
         {
             if (Request.Url != null)
             {
@@ -129,7 +130,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     if (!string.IsNullOrEmpty(redirectPattern))
                     {
                         var redirectUri = new Uri(redirectUrl);
-                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affCode.ToString());
+                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affCode);
                         redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
                     }
 
