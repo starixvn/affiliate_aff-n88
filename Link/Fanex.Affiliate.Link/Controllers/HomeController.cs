@@ -55,8 +55,8 @@ namespace Fanex.Affiliate.Link.Controllers
         {
             try
             {
-                var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString());
                 var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: Convert.ToInt32(affId));
+                var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString());
 
                 return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
             }
