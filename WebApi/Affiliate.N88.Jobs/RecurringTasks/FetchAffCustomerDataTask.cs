@@ -144,6 +144,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                             , $"firstdepositdate=\"{customer?.FirstDepositDate}\""
                             , $"status=\"{customer?.Status}\""
                             , $"istest=\"{customer?.IsTest}\""
+                            , $"affcode=\"{customer?.AffCode}\""
                             , "/>");
                         return builder.ToString();
                     }));

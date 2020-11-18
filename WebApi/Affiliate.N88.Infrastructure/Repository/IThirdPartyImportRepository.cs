@@ -8,3 +8,4 @@ namespace Affiliate.N88.Repository
         Task ImportRecordAsync(InsertThirdPartyRecodInfoCommand betRecord);
     }
 }
+ 

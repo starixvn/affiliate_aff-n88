@@ -25,5 +25,7 @@ namespace Affiliate.N88.Models
         public int? AffId { get; set; }
 
         public bool? IsTest { get; set; }
+
+        public string AffCode { get; set; }
     }
 }
