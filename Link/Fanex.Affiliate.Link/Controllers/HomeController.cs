@@ -130,7 +130,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     if (!string.IsNullOrEmpty(redirectPattern))
                     {
                         var redirectUri = new Uri(redirectUrl);
-                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affid#", affCode);
+                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affCode#", affCode);
                         redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
                     }
 
