@@ -40,7 +40,8 @@ namespace Affiliate.N88.WebApi.Controllers
                 UserName = c.UserName,
                 AffId = c.AffId,
                 FirstDepositDate = c.FirstDepositTime,
-                IsTest = c.IsTest
+                IsTest = c.IsTest,
+                AffCode = c.AffCode
             });
         }
 
