@@ -1,5 +1,4 @@
-﻿using System;
-using Fanex.Affiliate.User.Core.DTO.Auth;
+﻿using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Data;
@@ -8,7 +7,6 @@ using Xunit;
 using System.Data;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
-using System.Collections;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Repository
 {

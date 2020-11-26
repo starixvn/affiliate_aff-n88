@@ -18,30 +18,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_UserInfoSel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.QueryEntity<AccountInformation>(null).ReturnsForAnyArgs(new AccountInformation
-            {
-                Address = "abc",
-                AffId = 1,
-                City = "city",
-                ContactAppList = new List<ContactApp> { new ContactApp { Name = "zalo", Order = 1, Value = "abc" } },
-                ContactApps = "skype",
-                Country = "vietnam",
-                Email = "abc@gmail.com",
-                Gender = true,
-                HasWebSite = false,
-                IsRenderState = true,
-                LanguageName = "VietName",
-                MoreSiteUrls = "",
-                NoSiteDesc = "",
-                Phone = "",
-                PlayerUsername = "",
-                Postal = "",
-                PreferredLanguage = "vi-VN",
-                PreferredPayment = "perf",
-                SiteUrl = "",
-                State = "pending",
-                UserName = "aff1"
-            });
+            db.QueryEntity<AccountInformation>(null).ReturnsForAnyArgs(new AccountInformation());
 
             var result = repo.GetAccountInfo(1);
 
@@ -193,10 +170,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var key = uSpKey + mode;
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.Query<CommissionSetting>().ReturnsForAnyArgs(new List<CommissionSetting>
-            {
-                new CommissionSetting {Commission = 100, MaxAmount = 1000, MaxQm = 3, MinAmount =10, MinQm =1 , TierId=2 }
-            });
+            db.Query<CommissionSetting>().ReturnsForAnyArgs(new List<CommissionSetting>{ new CommissionSetting () });
 
             var result = repo.GetCommissionSettingList(1, isInternal);
 
@@ -245,6 +219,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
 
             Assert.Equal(uSpKey, db.SettingKey);
             db.Received().QueryEntity<UserInfo>(Arg.Any<object>());
+        }
+
+        [Fact]
+        public void GetGeneralAffInfo_WhenCall_CallQuery()
+        {
+            const string uSpKey = "Aff_Get_GeneralAffInfo";
+            var repo = CreateRepo();
+            var db = Builder.Build(null, null);
+
+            repo.GetGeneralAffInfo(1, null);
+
+            Assert.Equal(uSpKey, db.SettingKey);
+            db.Received().QueryEntity<GeneralAffInfo>(Arg.Any<object>());
         }
 
         private static UpdateAccountParam CreateUpdateAccountParam()

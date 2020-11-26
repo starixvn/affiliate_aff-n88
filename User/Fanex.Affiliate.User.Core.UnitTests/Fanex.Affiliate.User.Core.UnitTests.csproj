@@ -207,6 +207,7 @@
     <Compile Include="Repository\UserPanel\AccountOverviewRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\AccountRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\CommissionReportRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\CurrencyRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\MarketingRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\NewsRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\PaymentRepositoryTest.cs" />

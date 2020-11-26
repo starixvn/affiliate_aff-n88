@@ -76,8 +76,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objecDb = _builder.Build(uSpKey, mode))
             {
-                var result = objecDb.Query<SubAffComInfo>(subAffParam);
-                return result;
+                return objecDb.Query<SubAffComInfo>(subAffParam);
             }
         }
 

@@ -76,5 +76,27 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             Assert.NotEmpty(result.MainDataList);
             Assert.NotNull(result.Total);
         }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void GetSubAffCommission_WhenCall_ReturnSubAffCommission(bool isInternal)
+        {
+            const string uSpKey = "Aff_SubAffiliate_Commission_Sel";
+            var dbMode = isInternal ? DBMode.View : DBMode.Main;
+            var key = uSpKey + dbMode;
+            var param = new SubAffComParam
+            {
+                IsInternal = isInternal
+            };
+            var repo = CreateRepo();
+            var db = Builder.Build(uSpKey, dbMode);
+            db.Query<SubAffComInfo>(param).Returns(new List<SubAffComInfo> { new SubAffComInfo { } });
+
+            var result = repo.GetSubAffCommission(param);
+
+            Assert.Equal(key, db.SettingKey);
+            Assert.NotEmpty(result);
+        }
     }
 }

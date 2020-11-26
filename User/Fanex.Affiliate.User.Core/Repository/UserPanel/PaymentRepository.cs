@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
-                    { 
+                    {
                         paymentList.Add(BuildPaymentItem(reader));
                     }
                 }
@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         public (IEnumerable<PaymentMethodInfo> PaymentMethods, decimal MinAmount) GetPaymentMethods()
         {
             const string uSpKey = "Aff_PaymentMethod_Sel";
-            using (var objectDb = new ObjectDb(uSpKey))
+            using (var objectDb = _builder.Build(uSpKey))
             {
                 var paymentMethods = objectDb.Query<PaymentMethodInfo>();
                 var minAmountParam = objectDb.GetParameterValue("MinAmount");

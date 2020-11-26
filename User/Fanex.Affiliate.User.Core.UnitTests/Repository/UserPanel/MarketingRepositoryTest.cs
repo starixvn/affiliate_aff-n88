@@ -103,19 +103,35 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public void GetDomainList_WhenCall_QueryDomain(bool isInternal)
+        public void GetDomainList_WhenCallWithIsMember_QueryDomain(bool isInternal)
         {
             const string uSpKey = "Aff_User_Domain_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpKey + dbMode;
             var repo = CreateRepo();
-            var db = Builder.Build(uSpKey, dbMode);
-            db.Query<Domain>(Arg.Compat.Is<object>(o => CheckPropertyValue(o, "AffId", 1))).Returns(new List<Domain> { new Domain() });
+            var db = Builder.Build(null, null);
 
-            var result = repo.GetAvailableDomainList(1, true, isInternal);
+            repo.GetAvailableDomainList(1, true, isInternal);
 
             Assert.Equal(key, db.SettingKey);
-            Assert.NotEmpty(result);
+            db.Received().Query<Domain>(Arg.Compat.Is<object>(o => CheckPropertyValue(o, "AffId", 1)));
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void GetDomainList_WhenCallWithIsSubAff_QueryDomain(bool isInternal)
+        {
+            const string uSpKey = "Aff_User_SubAffiliateDomain_Sel";
+            var dbMode = isInternal ? DBMode.View : DBMode.Main;
+            var key = uSpKey + dbMode;
+            var repo = CreateRepo();
+            var db = Builder.Build(null, null);
+
+            repo.GetAvailableDomainList(1, false, isInternal);
+
+            Assert.Equal(key, db.SettingKey);
+            db.Received().Query<Domain>();
         }
 
         [Theory]

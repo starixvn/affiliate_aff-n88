@@ -1,14 +1,9 @@
 ﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.UnitTests.Repository;
 using NSubstitute;
 using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
@@ -99,6 +94,36 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
 
             Assert.Equal(uSpKey, db.SettingKey);
             Assert.True(result.IsOk);
+        }
+
+        [Fact]
+        public void GetPaymentMethods_WhenCall_ReturnCorrectDataHasMinAmount()
+        {
+            const string uSpKey = "Aff_PaymentMethod_Sel";
+            var repo = CreateRepo();
+            var db = Builder.Build(null);
+            db.GetParameterValue("MinAmount").Returns(100);
+
+            var (_, MinAmount) = repo.GetPaymentMethods();
+
+            Assert.Equal(uSpKey, db.SettingKey);
+            Assert.Equal(100, MinAmount);
+            db.Received().Query<PaymentMethodInfo>();
+        }
+
+        [Fact]
+        public void GetPaymentMethods_WhenCall_ReturnCorrectDataNotHasMinAmount()
+        {
+            const string uSpKey = "Aff_PaymentMethod_Sel";
+            var repo = CreateRepo();
+            var db = Builder.Build(null);
+            db.GetParameterValue("MinAmount").Returns(null);
+
+            var (_, MinAmount) = repo.GetPaymentMethods();
+
+            Assert.Equal(uSpKey, db.SettingKey);
+            Assert.Equal(0, MinAmount);
+            db.Received().Query<PaymentMethodInfo>();
         }
     }
 }
