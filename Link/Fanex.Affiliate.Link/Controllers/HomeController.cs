@@ -126,15 +126,9 @@ namespace Fanex.Affiliate.Link.Controllers
 
                 if (!string.IsNullOrEmpty(redirectUrl))
                 {
-                    var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_{pageId.ToLowerInvariant()}_pattern"];
-                    if (!string.IsNullOrEmpty(redirectPattern))
-                    {
-                        var redirectUri = new Uri(redirectUrl);
-                        var pathAndQueryString = redirectPattern.Replace("#language#", criteria.LanguageCode).Replace("#affCode#", affCode);
-                        redirectUrl = $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
-                    }
+                    var result = HandleRedirectUrl(redirectUrl, pageId, criteria.LanguageCode, affCode);
 
-                    return Redirect(redirectUrl);
+                    return Redirect(result);
                 }
 
                 ViewBag.Result = LinkIsInvalidMessage;
@@ -161,6 +155,22 @@ namespace Fanex.Affiliate.Link.Controllers
         private byte GetDeviceType()
         {
             return (byte)(Common.IsMobile() ? 1 : 0);
+        }
+
+        private string HandleRedirectUrl(string redirectUrl, string pageId, string languageCode, string affCode)
+        {
+            var redirectPattern = ConfigurationManager.AppSettings[$"Redirect_{pageId.ToLowerInvariant()}_pattern"];
+            if (!string.IsNullOrEmpty(redirectPattern))
+            {
+                var redirectUri = new Uri(redirectUrl);
+                var pathAndQueryString = redirectPattern.Replace("#language#", languageCode).Replace("#affCode#", affCode);
+                return $"{redirectUri.Scheme}://{redirectUri.Host}{pathAndQueryString}";
+            }
+            else
+            {
+                var url = redirectUrl.Split('?');
+                return $"{url[0]}?affCode={affCode}";
+            }
         }
     }
 }
