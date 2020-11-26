@@ -39,9 +39,14 @@
         }
 
         [HttpGet]
-        public ActionResult Index(string refId = null, string affId = null)
+        public ActionResult Index(string refId = null, string affCode = null, string affId = null)
         {
-            if ((string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase)) && string.IsNullOrEmpty(affId))
+            if(string.IsNullOrEmpty(affCode) && !string.IsNullOrEmpty(affId))
+            {
+                affCode = affId;
+            }
+
+            if ((string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase)) && string.IsNullOrEmpty(affCode))
             {
                 return View(new UserSignUpParam());
             }
@@ -53,9 +58,9 @@
                 affInfo = _accountService.GetGeneralAffInfo(affId: parentAffId);
             }
 
-            if (int.TryParse(affId, out _))
+            if (int.TryParse(affCode, out _))
             {
-                affInfo = _accountService.GetGeneralAffInfo(affCode: affId);
+                affInfo = _accountService.GetGeneralAffInfo(affCode: affCode);
             }
 
             if (affInfo.IsValidAff)
