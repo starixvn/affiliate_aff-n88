@@ -57,7 +57,5 @@
 
             return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", vm);
         }
-
-
     }
 }

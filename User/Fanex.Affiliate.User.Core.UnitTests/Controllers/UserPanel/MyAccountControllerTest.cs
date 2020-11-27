@@ -157,12 +157,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         [Fact]
-        public void PostMyAccount_UpdateSuccessfully_ReturnCorrectResult()
+        public void PostMyAccount_UpdateFailed_ReturnCorrectResult()
         {
             // Arrange
             var accountRepository = new Mock<IAccountRepository>();
-            accountRepository.Setup(ac => ac.GetAccountInfo(Constant.DefaultAffId)).Returns(new AccountInformation { PlayerUsername = PlayerUserName });
-            accountRepository.Setup(ac => ac.UpdateAccountInformation(It.IsAny<UpdateAccountParam>())).Returns(new ResultInfo { IsOk = true });
+            accountRepository.Setup(ac => ac.UpdateAccountInformation(It.IsAny<UpdateAccountParam>())).Returns(new ResultInfo { IsOk = false });
             var controller = CreateAccountController(null, accountRepository.Object);
 
             // Action
@@ -170,11 +169,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var result = actionResult.Data as ResultInfo;
 
             // Assert
-            Assert.True(result.IsOk);
+            Assert.False(result.IsOk);
         }
 
         [Fact]
-        public void PostMyAccount_UpdateAccount_PasssedParamCorrectly()
+        public void PostMyAccount_UpdateSuccessfully_PasssedParamCorrectly()
         {
             // Arrange
             UpdateAccountParam passedParam = null;
@@ -198,11 +197,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             };
 
             // Action
-            controller.Index(requestParam);
-            var result = JsonConvert.SerializeObject(passedParam);
+
+            var actionResult = controller.Index(requestParam) as JsonResult;
+            var result = actionResult.Data as ResultInfo;
 
             // Assert
-            Assert.Equal(expectedResult, result);
+            Assert.True(result.IsOk);
+            Assert.Equal(expectedResult, JsonConvert.SerializeObject(passedParam));
         }
 
         private UpdateAccountParam CreateExpectedParam()

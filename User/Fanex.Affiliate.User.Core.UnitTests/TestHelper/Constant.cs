@@ -45,8 +45,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
         public static IEnumerable<CategoryType> CategoryList = new List<CategoryType>
         {
             new CategoryType {Category = "test", SubCategory= "testSub1" },
-            new CategoryType { Category = "test", SubCategory = "testSub2" },
-            new CategoryType { Category = "test1", SubCategory = "testSub3" },
+            new CategoryType { Category = "test1", SubCategory = "testSub2" },
+            new CategoryType { Category = "Casino", SubCategory = "CasinoClubs" },
             new CategoryType { Category = "test2" }
         };
 
@@ -70,7 +70,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
 
         public static IEnumerable<BannerType> BannerTypeList = new List<BannerType>
         {
-            new BannerType {Type = "Image", TypeId =1 }
+            new BannerType {Type = "Image", TypeId =1 },
+            new BannerType {Type = "test", TypeId = 2 }
         };
 
         public static UserSession Session = new UserSession

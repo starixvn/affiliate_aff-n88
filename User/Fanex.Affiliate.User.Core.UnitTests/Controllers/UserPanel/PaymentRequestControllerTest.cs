@@ -25,10 +25,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         private static PaymentRequestController CreatePaymentRequestController(ISessionService sessionService = null,
             IAppSetting appSetting = null,
             ILanguageService languageService = null,
-            IPaymentService paymentServic = null)
+            IPaymentService paymentService = null)
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
-            var fakePaymentService = paymentServic ?? (new Mock<IPaymentService>()).Object;
+            var fakePaymentService = paymentService ?? (new Mock<IPaymentService>()).Object;
             var fakeAppsetting = appSetting ?? (new Mock<IAppSetting>()).Object;
             var fakeLanguageService = languageService ?? (new Mock<ILanguageService>()).Object;
             var controller = new PaymentRequestController(fakeSessionService, fakeAppsetting, fakeLanguageService, fakePaymentService);
@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var paymentService = new Mock<IPaymentService>();
             paymentService.Setup(p => p.GetPaymentList(It.IsAny<PaymentParam>())).Returns(paymentList);
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             var expectedResult = new PaymentViewModel { PaymentList = paymentList };
 
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                     p.PreferredPayment = ExpectedPreferredPayment;
                 });
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             var expectedResult = new PaymentViewModel
             {
@@ -94,6 +94,62 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Theory]
+        [InlineData(2008)]
+        [InlineData(2020)]
+        public void GetPaymentListByYear_WhenCall_ReturnCorrectView(int year)
+        {
+            // Arrange
+            const decimal ExpectedBalBroughtForward = 100m;
+            const decimal ExpectedMinAmount = 10m;
+            const string ExpectedPreferredPayment = "PlayerAccount";
+
+            var paymentService = new Mock<IPaymentService>();
+            paymentService.Setup(p => p.GetPaymentList(It.IsAny<PaymentParam>()))
+                .Returns(new List<Payment>())
+                .Callback<PaymentParam>(p =>
+                {
+                    p.BalBroughtForward = ExpectedBalBroughtForward;
+                    p.MinAmount = ExpectedMinAmount;
+                    p.PreferredPayment = ExpectedPreferredPayment;
+                });
+
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
+
+            // Action
+            var partialViewResult = controller.GetPaymentListByYear(year) as PartialViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/UserPanel/PaymentRequest/PaymentPartial/_PaymentList.cshtml", partialViewResult.ViewName);
+        }
+
+        [Fact]
+        public void PaymentRequestPartial_WhenCall_ReturnCorrectView()
+        {
+            // Arrange
+            const decimal ExpectedBalBroughtForward = 100m;
+            const decimal ExpectedMinAmount = 10m;
+            const string ExpectedPreferredPayment = "PlayerAccount";
+
+            var paymentService = new Mock<IPaymentService>();
+            paymentService.Setup(p => p.GetPaymentList(It.IsAny<PaymentParam>()))
+                .Returns(new List<Payment>())
+                .Callback<PaymentParam>(p =>
+                {
+                    p.BalBroughtForward = ExpectedBalBroughtForward;
+                    p.MinAmount = ExpectedMinAmount;
+                    p.PreferredPayment = ExpectedPreferredPayment;
+                });
+
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
+
+            // Action
+            var partialViewResult = controller.PaymentRequestPartial() as PartialViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/UserPanel/PaymentRequest/PaymentPartial/_Main.cshtml", partialViewResult.ViewName);
+        }
+
+        [Theory]
         [MemberData(nameof(PaymentViewModelData.GetTestCaseForPendingPayment), MemberType = typeof(PaymentViewModelData))]
         public void PaymentRequest_CheckPendingPaymentInPaymentList_PendingPaymentHasCorrectValue(IEnumerable<Payment> paymentList, bool expected)
         {
@@ -102,7 +158,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             paymentService.Setup(p => p.GetPaymentList(It.IsAny<PaymentParam>()))
                 .Returns(paymentList);
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             // Action
             var actionResult = controller.Index() as ViewResult;
@@ -132,7 +188,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                     passedParam = p;
                 });
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
             // Action
             var actionResult = controller.Index() as ViewResult;
             var result = actionResult.Model as PaymentViewModel;
@@ -188,7 +244,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                             .Returns(new ResultInfo())
                             .Callback<PaymentCancelParam, PaymentEmailParam>((p, e) => passedParam = p);
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             var expectedResult = JsonConvert.SerializeObject(new PaymentCancelParam
             {
@@ -218,7 +274,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             paymentService.Setup(p => p.CancelPaymentRequest(It.IsAny<PaymentCancelParam>(), It.IsAny<PaymentEmailParam>()))
                             .Returns(expectedResult);
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             // Action
             var actionResult = controller.CancelPaymentRequest(param) as JsonResult;
@@ -249,7 +305,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var appSetting = GetMockAppSetting();
 
-            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentService: paymentService.Object);
 
             var expectedEmailParam = GetExpectedEmailParam(PaymentRequestType.Cancel);
             expectedEmailParam.PaymentType = 0;
@@ -280,7 +336,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             paymentService.Setup(p => p.CancelPaymentRequest(It.IsAny<PaymentCancelParam>(), It.IsAny<PaymentEmailParam>()))
                             .Returns(resultInfo);
 
-            var controller = CreatePaymentRequestController(paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(paymentService: paymentService.Object);
 
             // Action
             controller.CancelPaymentRequest(param);
@@ -328,7 +384,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 });
 
             var appSetting = GetMockAppSetting();
-            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentService: paymentService.Object);
 
             var expectedParam = new PaymentCreationParam
             {
@@ -372,7 +428,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 .Returns(Task.FromResult(checkingActiveResult));
             var appSetting = Mock.Of<IAppSetting>(ap => ap.IsLocal);
 
-            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentService: paymentService.Object);
 
             // Action
             var actionResult = await controller.CreatePaymentRequest(creationParam) as JsonResult;
@@ -405,7 +461,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var appSetting = Mock.Of<IAppSetting>(ap => ap.IsLocal);
 
-            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentService: paymentService.Object);
 
             // Action
             var actionResult = await controller.CreatePaymentRequest(creationParam) as JsonResult;
@@ -435,7 +491,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                             });
 
             var appSetting = GetMockAppSetting();
-            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentServic: paymentService.Object);
+            var controller = CreatePaymentRequestController(appSetting: appSetting, paymentService: paymentService.Object);
 
 
             var expectedEmailParam = GetExpectedEmailParam(PaymentRequestType.Create);

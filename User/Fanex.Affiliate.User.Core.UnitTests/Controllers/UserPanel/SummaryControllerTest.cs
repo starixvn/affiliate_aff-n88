@@ -104,6 +104,22 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             Assert.Single(result.PlayerDetailList);
         }
 
+        [Fact]
+        public void SubAffDetails_WhenCall_ReturnCorrectPartialView()
+        {
+            // Arrange
+            var accountOverviewRepository = new Mock<IAccountOverviewRepository>();
+            accountOverviewRepository.Setup(a => a.GetSubAffDetails(It.IsAny<SubAffDetailParam>())).Returns(new List<SubAffDetail> { new SubAffDetail() });
+            var controller = CreateController(accountOverviewRepository: accountOverviewRepository.Object);
+
+            // Action
+            var partialViewResult = controller.SubAffDetails(new SubAffDetailParam()) as PartialViewResult;
+            var result = partialViewResult.Model as List<SubAffDetail>;
+            // Assert
+            Assert.Equal("~/Views/UserPanel/AccountOverView/Summary/SubAffDetails.cshtml", partialViewResult.ViewName);
+            Assert.NotEmpty(result);
+        }
+
         private static SummaryController CreateController(
         ISessionService sessionService = null,
         ILanguageService languageService = null,

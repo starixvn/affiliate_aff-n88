@@ -88,12 +88,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.False(data.IsOk);
         }
 
-        [Fact]
-        public void Forgot_WhenRepoReturnNoErrorCode_SendMail()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Forgot_WhenRepoReturnNoErrorCode_SendMail(bool isValid)
         {
             var controller = CreateController();
             NSubtituteMockingHelper.FakeController(controller);
             controller.Url = new UrlHelper(new RequestContext(controller.HttpContext, controller.RouteData));
+            LanguageService.IsValid(Arg.Any<string>()).Returns(isValid);
             AccountRepo.GetUserInfoByEmail(default(UserInfoByEmailParam))
                 .ReturnsForAnyArgs(c =>
                 {
@@ -143,9 +146,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Equal(1001, (int)result.RouteValues["errCode"]);
         }
 
-        [Fact]
-        public void RecoverPassword_WhenRecoverPasswordSuccess_RedirectToResultPageWithNoErrorCode()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void RecoverPassword_WhenRecoverPasswordSuccess_RedirectToResultPageWithNoErrorCode(bool isValid)
         {
+            LanguageService.IsValid(Arg.Any<string>()).Returns(isValid);
             var controller = CreateController();
             NSubtituteMockingHelper.FakeController(controller, GetControlerRouteData());
             AccountRepo.RecoverPassword(default(PasswordRecoveryParam))
@@ -163,7 +169,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void RecoverPasswordResult_WhenCallWithErrorCodtRecoverPasswordFailed_ReturnMessageReconverPasswordFailed()
+        public void RecoverPasswordResult_WhenCallWithErrorCodeRecoverPasswordFailed_ReturnMessageReconverPasswordFailed()
         {
             var controller = CreateController();
             NSubtituteMockingHelper.FakeController(controller);

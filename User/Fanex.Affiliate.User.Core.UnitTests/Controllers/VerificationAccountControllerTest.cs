@@ -87,8 +87,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void SendCode_WhenEmailNull_ReturnErrorMessage()
         {
             var controller = CreateController();
-            var sessionSevice = new VerificationSession();
-            SessionService.VerificationSession.Returns(sessionSevice);
 
             var result = controller.SendCode(null) as JsonResult;
 
@@ -96,6 +94,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var data = result.Data as ResultInfo;
             Assert.False(data.IsOk);
             Assert.Equal(Error.General, data.Message);
+        }
+
+        [Fact]
+        public void SendCode_WhereVerifactionFailed_SessionUpdate()
+        {
+            var controller = CreateController();
+            var verficationSession = new VerificationSession();
+            SessionService.VerificationSession.Returns(verficationSession);
+            var sendCodeResult = GetFailedSendCodeResult();
+            VerificationService.SendCode(null).ReturnsForAnyArgs(sendCodeResult);
+            SetUpAppSetting();
+
+            var result = controller.SendCode("abc@gmail.com") as JsonResult;
+
+            Assert.NotNull(result);
+            Assert.Equal(sendCodeResult.NewCounter, verficationSession.Counter);
+            Assert.Equal(sendCodeResult.NewSendCodeTime, verficationSession.SentCodeTime);
         }
 
         [Fact]
@@ -130,6 +145,29 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var data = result.Data as VerifyAccountResult;
             Assert.False(data.IsOk);
             Assert.Contains(Error.General, data.Message);
+        }
+
+        [Fact]
+        public void VerifyAccount_WhenVerifyFailed_SignIn()
+        {
+            var controller = CreateController();
+            var verificationSession = new VerificationSession { AffId = 1 };
+            SessionService.VerificationSession.Returns(verificationSession);
+            var sendCodeResult = GetSuccessSendCodeResult();
+            VerificationService.SendCode(null).ReturnsForAnyArgs(sendCodeResult);
+            SetUpAppSetting();
+            AccountRepo.GetUserInfoById(0, false).ReturnsForAnyArgs(new UserInfo());
+            CaptchaService.IsValid(null, null, null).ReturnsForAnyArgs(true);
+            VerificationService.IsValidOtp(null).ReturnsForAnyArgs(true);
+            var loginResult = GetFailedLoginResult();
+            AuthService.GetLoginResult(null, false).ReturnsForAnyArgs(loginResult);
+            AppSetting.AllowedAffiliateTypes.Returns(new List<string> { "Asia" });
+
+            var result = controller.VerifyAccount(new MetalModels.VerificationAccountParam()) as JsonResult;
+
+            Assert.NotNull(result);
+            var data = result.Data as VerifyAccountResult;
+            Assert.False(data.IsOk);
         }
 
         [Fact]
@@ -262,6 +300,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 UserName = "abc"
             };
 
+        private static LoginResultViewModel GetFailedLoginResult()
+            => new LoginResultViewModel
+            {
+                Result = new LoginResultInfo
+                {
+                    IsOk = false
+                },
+                UserInfo = new DTO.Auth.AuthorizedUserInfo
+                {
+                    AffId = 1,
+                    AffType = "Asia"
+                }
+            };
+
         private static LoginResultViewModel GetSuccessLoginResult()
             => new LoginResultViewModel
             {
@@ -291,6 +343,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 NewSendCodeTime = 1234
             };
 
+        private SendCodeResult GetFailedSendCodeResult()
+            => new SendCodeResult
+            {
+                CanSendCode = false,
+                IsValidEmail = false
+            };
         private VerificationAccountController CreateController()
         {
             var controller = new VerificationAccountController(SessionService,

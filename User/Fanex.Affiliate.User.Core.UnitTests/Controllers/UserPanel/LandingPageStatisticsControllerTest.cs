@@ -83,6 +83,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("en-US", "en")]
+        [InlineData("th-TH", null)]
         public void IndexPost_WhenCall_ReturnViewWithCorrectModelData(string languageCode, string expectedShortedCode)
         {
             // Arrange
