@@ -48,10 +48,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
             var languageList = _cacheService.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList);
-            if (languageList == null)
-            {
-                languageList = _languageRepository.GetLanguageList(isForInternal);
-            }
+            languageList = languageList ?? _languageRepository.GetLanguageList(isForInternal);
 
             if (languageList != null)
             {

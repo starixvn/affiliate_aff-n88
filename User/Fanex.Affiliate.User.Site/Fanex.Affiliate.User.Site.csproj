@@ -295,6 +295,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\.sonarlint\aff.n88usersite\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="12monitor.aspx" />
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.backupmnl.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
@@ -1660,9 +1663,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="www\build\styles\Images\casino-banners\" />

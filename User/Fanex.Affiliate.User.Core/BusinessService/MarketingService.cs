@@ -119,6 +119,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var languages = GetLanguageUsedForGeneration(linkGeneratedParam);
             return GenerateLink(languages, linkGeneratedParam);
+
         }
 
         public IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
