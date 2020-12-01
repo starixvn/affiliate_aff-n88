@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        public async Task<MemberSiteCustomerInfo> GetMemberSiteCustomer(string userName)
+        private async Task<MemberSiteCustomerInfo> GetMemberSiteCustomer(string userName)
         {
             var siteId = _appSetting.MemberSiteId;
             return await _licenseeApi.GetCustomerInfoAsync(userName, siteId);

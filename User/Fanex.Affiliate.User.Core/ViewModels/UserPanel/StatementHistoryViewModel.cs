@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 {
@@ -10,7 +7,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
     {
         public DateTime MonthDate { get; set; }
 
-        public byte TransType { get; set; }
+        public int TransType { get; set; }
 
         public decimal Amount { get; set; }
 

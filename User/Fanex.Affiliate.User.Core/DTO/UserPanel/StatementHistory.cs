@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
     {
         public DateTime MonthDate { get; set; }
 
-        public byte TransType { get; set; }
+        public int TransType { get; set; }
 
         public decimal Amount { get; set; }
 

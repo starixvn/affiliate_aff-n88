@@ -13,9 +13,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class PaymentService : IPaymentService
     {
-        private const int BeginDay = 8;
-        private const int EndDay = 15;
-
         private readonly IAccountRepository _accountRepository;
         private readonly IPaymentRepository _paymentRepository;
         private readonly IEmailService _emailService;
@@ -37,8 +34,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             return _paymentRepository.GetPaymentList(paymentParam);
         }
-
-
 
         public ResultInfo CancelPaymentRequest(PaymentCancelParam cancelParam, PaymentEmailParam emailParam)
         {
@@ -93,12 +88,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return resultInfo;
         }
 
-        public bool IsInDateRange()
-        {
-            var currentDay = DateTime.Now.Day;
-            return (currentDay >= BeginDay && currentDay <= EndDay);
-        }
-
         private async Task<ResultInfo> ValidatePaymentRequest(PaymentCreationParam paymentCreationParam)
         {
             var resultInfo = new ResultInfo { IsOk = false };
@@ -150,11 +139,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 .PaymentMethods
                 .ToDictionary(m => m.PaymentId, m => m.PaymentName);
             return paymentMethods;
-        }
-
-        public decimal GetMinAmountPaymentMoney()
-        {
-            return _paymentRepository.GetPaymentMethods().MinAmount;
         }
     }
 }
