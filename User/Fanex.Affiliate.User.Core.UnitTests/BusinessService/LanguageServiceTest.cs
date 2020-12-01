@@ -31,6 +31,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
+        public void GetCurrentLanguage_WhenCall_ReturnCorrectCurrentLanguage()
+        {
+            var service = CreateService();
+
+            var result = service.GetCurrentLanguage();
+
+            Assert.Equal("en-US", result);
+        }
+
+        [Fact]
         public void GetFavoriteLanguage_WhenLangFromRequestIsValid_ReturnLang()
         {
             var validLang = SystemLanguage.SupportedLanguage.FirstOrDefault().Key;

@@ -68,7 +68,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void PlayersDetails_WhenCall_ReturnCorrectPartialView()
         {
             // Arrange
-            var param = new PlayerDetailParam { MonthDate = monthDate };
+            var param = new PlayerDetailParam { MonthDate = monthDate, IsSortAsc = true };
             PlayerDetailParam passedParam = null;
             var accountOverviewRepository = new Mock<IAccountOverviewRepository>();
             accountOverviewRepository.Setup(a => a.GetPlayerDetailList(param)).Returns(new List<PlayerDetail> { new PlayerDetail() }).Callback<PlayerDetailParam>(p => passedParam = p);
@@ -113,7 +113,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = CreateController(accountOverviewRepository: accountOverviewRepository.Object);
 
             // Action
-            var partialViewResult = controller.SubAffDetails(new SubAffDetailParam()) as PartialViewResult;
+            var partialViewResult = controller.SubAffDetails(new SubAffDetailParam { MonthDate = new DateTime(2020, 12, 01)}) as PartialViewResult;
             var result = partialViewResult.Model as List<SubAffDetail>;
             // Assert
             Assert.Equal("~/Views/UserPanel/AccountOverView/Summary/SubAffDetails.cshtml", partialViewResult.ViewName);

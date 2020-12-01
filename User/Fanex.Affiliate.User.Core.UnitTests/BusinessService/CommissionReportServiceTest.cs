@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 {
                     MonthDate = new DateTime(2020, 01,01),
                     Bonus = 100,
-                    CalculatedType = 0,
+                    CalculatedType = 1,
                     Commission = 100,
                     CommissionRate = 0.222m,
                     OperationalFee = 100,
@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 {
                     MonthDate = new DateTime(2020, 02,01),
                     Bonus = 100,
-                    CalculatedType = 1,
+                    CalculatedType = 2,
                     Commission = 100,
                     CommissionRate = 0.222m,
                     OperationalFee = 100,

@@ -311,7 +311,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 {
                     AffId = 1,
                     AffType = "Asia"
-                }
+                },
+                VerificationSession = new VerificationSession()
             };
 
         private static LoginResultViewModel GetSuccessLoginResult()
@@ -325,7 +326,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 {
                     AffId = 1,
                     AffType = "Asia"
-                }
+                },
+                VerificationSession = new VerificationSession()
             };
 
         private void SetUpAppSetting()

@@ -158,6 +158,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
 
             Assert.Equal(uSpKey, db.SettingKey);
             Assert.True(result.IsOk);
+            Assert.Equal("Player", UserSignUpParam.PreferredPayment);
         }
 
         [Theory]
@@ -170,7 +171,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var key = uSpKey + mode;
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.Query<CommissionSetting>().ReturnsForAnyArgs(new List<CommissionSetting>{ new CommissionSetting () });
+            db.Query<CommissionSetting>().ReturnsForAnyArgs(new List<CommissionSetting>
+            {
+                new CommissionSetting {Commission = 100, MaxAmount = 1000, MaxQm = 3, MinAmount =10, MinQm =1 , TierId=2 }
+            });
 
             var result = repo.GetCommissionSettingList(1, isInternal);
 
@@ -273,23 +277,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                 PreferredLanguage = "",
                 SecretKey = "abc",
                 UserName = "name"
-            };
-
-        private static DepositAccountInfo CreateDepositAccountInfo()
-            => new DepositAccountInfo
-            {
-                AffiliateId = 1,
-                AgentId = 1,
-                BonusCode = "",
-                Country = "",
-                DepositUserId = 1,
-                DepositUserName = "aff1",
-                Email = "",
-                FirstName = "",
-                LastName = "",
-                OddsType = "hongkong",
-                Password = "",
-                Success = 1
             };
     }
 }

@@ -13,7 +13,6 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Moq;
 using Newtonsoft.Json;
-using NSubstitute;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
@@ -100,6 +99,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Assert
             Assert.True(result.AccountInformation.IsRenderState);
+            Assert.Empty(result.AccountInformation.MoreWebsiteUrlList);
             Assert.Equal(ExpectedLanguageName, result.AccountInformation.LanguageName);
         }
 
@@ -193,7 +193,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 SiteUrl = "SiteUrl",
                 MoreSiteUrls = "MoreSiteUrls",
                 NoSiteDesc = "NoSiteDesc",
-                AffId = Constant.DefaultAffId
+                AffId = Constant.DefaultAffId,
+                PreferredPayment = PlayerUserName
             };
 
             // Action
@@ -203,6 +204,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Assert
             Assert.True(result.IsOk);
+            Assert.True(requestParam.IsPlayerAccount);
+            Assert.Single(requestParam.MoreWebsiteUrlList);
             Assert.Equal(expectedResult, JsonConvert.SerializeObject(passedParam));
         }
 

@@ -5,9 +5,6 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
@@ -22,10 +19,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_StatementHistory_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpKey + dbMode;
-            var param = new StatementHistoryParam();
-            param.IsInternal = isInternal;
+            var param = new StatementHistoryParam
+            {
+                IsInternal = isInternal
+            };
             var db = Builder.Build(uSpKey, dbMode);
-            db.Query<StatementHistory>(param).Returns(new List<StatementHistory> { new StatementHistory { } });
+            db.Query<StatementHistory>(param).Returns(new List<StatementHistory> { new StatementHistory {
+                TransType = 123,
+                Amount = 100,
+                CalculatedType = 1,
+                Description = string.Empty,
+                MonthDate = new DateTime(2020, 12, 01),
+                Status = "Payment"
+            } });
             var repo = CreateRepo();
 
             var result = repo.GetStatementHistory(param);
@@ -65,7 +71,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var multipleQuery = db.QueryMultiple(param);
             multipleQuery.Read<DailyEarning>().Returns(new List<DailyEarning>
             {
-                new DailyEarning { Bonus = 100, Deposit = 100, MemberWinLost = 100, MemberWinLostFake = 100, WinlostDate = DateTime.Now, Withdrawal = 100 }
+                new DailyEarning { Bonus = 100, Deposit = 100, MemberWinLost = 100, MemberWinLostFake = 100, WinlostDate = DateTime.Now, Withdrawal = 100, Rebate = 10 }
             });
             multipleQuery.ReadFirstOrDefault<DailyEarning>().Returns(new DailyEarning { });
             var repo = CreateRepo();
@@ -87,11 +93,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var key = uSpKey + dbMode;
             var param = new SubAffComParam
             {
+                AffId = 123,
+                MonthDate = new DateTime(2020, 12, 01),
+                BaseCurrency = 1,
                 IsInternal = isInternal
             };
             var repo = CreateRepo();
             var db = Builder.Build(uSpKey, dbMode);
-            db.Query<SubAffComInfo>(param).Returns(new List<SubAffComInfo> { new SubAffComInfo { } });
+            db.Query<SubAffComInfo>(param).Returns(new List<SubAffComInfo> { new SubAffComInfo {
+                AffId = 123,
+                UserName = "Nova",
+                Commission = 100,
+                SubAffCommission = 0
+            } });
 
             var result = repo.GetSubAffCommission(param);
 

@@ -5,8 +5,6 @@ using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
@@ -38,7 +36,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var result = repo.GetAffiliateCommission(param);
 
             Assert.Equal(uSpKey, db.SettingKey);
-            Assert.NotEmpty(result);
+            Assert.Equal(100, result.FirstOrDefault().TotalCommission);
         }
     }
 }

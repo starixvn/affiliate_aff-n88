@@ -30,7 +30,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_Overview_PlayersDetail_Sel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.Query<PlayerDetail>(null).ReturnsForAnyArgs(new List<PlayerDetail>{ new PlayerDetail() });
+            db.Query<PlayerDetail>(null).ReturnsForAnyArgs(new List<PlayerDetail>
+            {
+                new PlayerDetail
+                {
+                    Bonus = 100, Deposit = 100, RegisteredDate= DateTime.Now, Turnover = 100, Username = "name", Winloss = 100, Withdrawal = 100, DepositFee = 0, Rebate = 0, WithdrawalFee = 0
+                }
+            });
 
             var result = repo.GetPlayerDetailList(new PlayerDetailParam());
 
@@ -46,7 +52,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var db = Builder.Build(null, null);
             db.Query<SubAffDetail>(null).ReturnsForAnyArgs(new List<SubAffDetail>
             {
-                new SubAffDetail()
+                new SubAffDetail
+                {
+                    AffId = 1,
+                    UserName = "Nova",
+                    FirstName = "Nova",
+                    LastName = "Nova",
+                    IsSuspended = true,
+                    ApprovedDate = DateTime.Now,
+                    SuspendedDate = DateTime.Now,
+                    Turnover = 10,
+                    ActivePlayer = 1,
+                    Commission = 10,
+                    Winloss = 1,
+                }
             });
 
             var result = repo.GetSubAffDetails(new SubAffDetailParam());
@@ -61,7 +80,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_Overview_Detail_Sel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.Query<OverviewDetail>(null).ReturnsForAnyArgs(new List<OverviewDetail> { new OverviewDetail() });
+            db.Query<OverviewDetail>(null).ReturnsForAnyArgs(new List<OverviewDetail> { new OverviewDetail { WinlostDate = new DateTime(2020, 12, 01)} });
 
             var result = repo.GetUserOverviewDetailList(1, DateTime.Now);
 
@@ -75,7 +94,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_Overview_Summary_Sel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.QueryEntity<OverviewSummary>(null).ReturnsForAnyArgs(new OverviewSummary());
+            db.QueryEntity<OverviewSummary>(null).ReturnsForAnyArgs(new OverviewSummary
+            {
+                ActivePlayers = 2,
+                BalanceBroughtForward = 100,
+                Commission = 10,
+                Deposit = 100,
+                DepositedMembers = 2,
+                QualifiedActivePlayers = 1,
+                Signups = 2,
+                Turnover = 100,
+                NoOfSubAff = 0,
+                SubAffCommission = 0
+            });
 
             var result = repo.GetUserOverviewSummary(1, DateTime.Now);
 

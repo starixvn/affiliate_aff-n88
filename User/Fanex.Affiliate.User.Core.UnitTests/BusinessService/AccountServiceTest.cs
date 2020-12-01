@@ -59,12 +59,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public async Task CreateAffiliate_InvalidPlayerDepositInfo_ReturnExpectedResult()
+        public async Task CreateAffiliate_WhenCallWithClosedPlayerDepositInfo_ReturnExpectedResult()
         {
             // Arrange
             var signUpParam = new UserSignUpParam { IsLocal = false };
-            var accountRepository = new Mock<IAccountRepository>();
-            accountRepository.Setup(ac => ac.CreateAffiliate(signUpParam)).Returns(new ResultInfo { IsOk = false, Message = "Failed" });
 
             var mockApi = new Mock<ILicenseeApi>();
             mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
@@ -72,7 +70,51 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             var expectedResult = new ResultInfo { IsOk = false, Message = Lang.UserNameClosed };
 
-            var accountService = CreateAccountService(accountRepository.Object, mockApi.Object);
+            var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
+
+            // Action
+            var result = await accountService.CreateAffiliateAsync(signUpParam, new EmailBaseParam());
+
+            // Assert
+            Assert.Equal(expectedResult.IsOk, result.IsOk);
+            Assert.Equal(expectedResult.Message, result.Message);
+        }
+
+        [Fact]
+        public async Task CreateAffiliate_WhenCallWithSuspendedPlayerDepositInfo_ReturnExpectedResult()
+        {
+            // Arrange
+            var signUpParam = new UserSignUpParam { IsLocal = false };
+
+            var mockApi = new Mock<ILicenseeApi>();
+            mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
+                            .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.SUSPENDED });
+
+            var expectedResult = new ResultInfo { IsOk = false, Message = Lang.UserNameSuspended };
+
+            var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
+
+            // Action
+            var result = await accountService.CreateAffiliateAsync(signUpParam, new EmailBaseParam());
+
+            // Assert
+            Assert.Equal(expectedResult.IsOk, result.IsOk);
+            Assert.Equal(expectedResult.Message, result.Message);
+        }
+
+        [Fact]
+        public async Task CreateAffiliate_WhenCallWithInvalidPlayerDepositInfo_ReturnExpectedResult()
+        {
+            // Arrange
+            var signUpParam = new UserSignUpParam { IsLocal = false };
+
+            var mockApi = new Mock<ILicenseeApi>();
+            mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
+                            .ReturnsAsync(new MemberSiteCustomerInfo { Status = null });
+
+            var expectedResult = new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) };
+
+            var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
 
             // Action
             var result = await accountService.CreateAffiliateAsync(signUpParam, new EmailBaseParam());
@@ -92,7 +134,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var mockApi = new Mock<ILicenseeApi>();
             accountRepository.Setup(ac => ac.CreateAffiliate(signUpParam)).Returns(expectedResultInfo);
             mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
-                 .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.RUNNING });
+                 .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.RUNNING, CurrencyId = 123 });
 
             var accountService = CreateAccountService(accountRepository.Object, mockApi.Object);
 
@@ -134,6 +176,54 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             emailService.Verify(e => e.SendNoticeEmailToCsd(It.IsAny<NoticeEmailParam>()), Times.Once);
             Assert.Equal(ExpectedCsdEmail, passedParam.MailContact);
             Assert.Equal(Constant.DefaultUserName, passedParam.UserName);
+        }
+
+        [Fact]
+        public void GetGeneralAffInfo_WhenCallWithValidParam_ReturnCorrectData()
+        {
+            //Arrange
+            var affId = 1;
+            var accountRepository = new Mock<IAccountRepository>();
+            accountRepository.Setup(a => a.GetGeneralAffInfo(affId, It.IsAny<string>())).Returns(new GeneralAffInfo { AffId = affId, AffCode = "12345" });
+
+            var service = CreateAccountService(accountRepository.Object);
+
+            //Action
+            var result = service.GetGeneralAffInfo(affId, string.Empty);
+
+            //Assert
+            Assert.Equal(affId, result.AffId);
+            Assert.True(result.IsValidAff);
+        }
+
+        [Fact]
+        public void GetGeneralAffInfo_WhenCallWithInvalid_ReturnCorrectData()
+        {
+            //Arrange
+            var service = CreateAccountService(Mock.Of<IAccountRepository>());
+
+            //Action
+            var result = service.GetGeneralAffInfo(123, string.Empty);
+
+            //Assert
+            Assert.Equal(0, result.AffId);
+        }
+
+        [Fact]
+        public async Task CheckPlayerUserNameValidAsync_WhenCall_ReturnCorrectResult()
+        {
+            // Arrange
+            var mockApi = new Mock<ILicenseeApi>();
+            mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
+                 .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.RUNNING });
+
+            var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
+
+            // Action
+            var result = await accountService.CheckPlayerUserNameValidAsync("123abc");
+
+            // Assert
+            Assert.True(result.IsOk);
         }
 
         private static AccountService CreateAccountService(IAccountRepository repository, ILicenseeApi api = null,IEmailService emailService = null)
