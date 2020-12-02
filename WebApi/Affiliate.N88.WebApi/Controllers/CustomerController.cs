@@ -40,7 +40,7 @@ namespace Affiliate.N88.WebApi.Controllers
                 UserName = c.UserName,
                 AffId = c.AffId,
                 FirstDepositDate = c.FirstDepositTime,
-                IsTest = c.IsTest,
+                IsTest = c.IsTest,            
                 AffCode = c.AffCode
             });
         }
@@ -58,8 +58,17 @@ namespace Affiliate.N88.WebApi.Controllers
             => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
 
         [HttpGet]
-        public async Task<IEnumerable<CustRegInfo>> GetCustomerRegInfo(long unixTime)
-            => await dynamicRepository.FetchAsync<CustRegInfo>(new GetCustRegInfoCriteria(unixTime));
+        public async Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime)
+        {
+            var infos = await dynamicRepository.FetchAsync<CustRegInfo>(new GetCustRegInfoCriteria(unixTime));
+            return infos.Select(i => new CustRegModel
+            {
+                CustId = i.CustId,
+                RegTime = DateTimeOffset.Parse(i.RegTime),
+                SignUpUrl = i.SignUpUrl,
+                SiteId = i.SiteId
+            });
+        }
 
         [HttpPost]
         public async Task<decimal> UpdateCustomerWallet(PaymentRequestInfo payment)
