@@ -1114,10 +1114,6 @@
     <Content Include="www\source\js\recheckin.js" />
     <Content Include="www\source\js\site.js" />
     <Content Include="www\source\js\spec\layout.spec.js" />
-    <Content Include="www\source\styles\css\bootstrap.css" />
-    <Content Include="www\source\styles\css\bootstrap.min.css" />
-    <Content Include="www\source\styles\css\main.css" />
-    <Content Include="www\source\styles\css\main.min.css" />
     <Content Include="www\source\styles\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="www\source\styles\fonts\font_bebas\Flat-it License.txt" />
     <Content Include="www\source\styles\fonts\Montserrat\font.css" />

@@ -1,11 +1,8 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
@@ -26,6 +23,44 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var hashingPass = service.EncryptPassword(base64EncodePrivateKey, encryptPass);
 
             Assert.Equal(CryptographyHelper.Encrypt(password), hashingPass);
+        }
+
+        [Fact]
+        public void EncryptPassword_WhenCall_ThrowException()
+        {
+            var cipherText = "123abc";
+            var keyPair = GetXmlKeyPair();
+            var base64EncodePrivateKey = ConvertToBase64(keyPair);
+            var service = CreateService();
+
+            var hashingPass = service.EncryptPassword(base64EncodePrivateKey, cipherText);
+
+            Assert.Equal(CryptographyHelper.Encrypt(cipherText), hashingPass);
+        }
+
+        [Fact]
+        public void EncryptPassword_WhenCall_ReturnCorrect()
+        {
+            var password = "test";
+            var service = CreateService();
+
+            var hashingPass = service.EncryptPassword(password);
+
+            Assert.Equal(CryptographyHelper.Encrypt(password), hashingPass);
+        }
+
+        [Fact]
+        public void RsaDecrypt_WhenCall_ReturnCorrectHashingPassword()
+        {
+            var password = "test";
+            var keyPair = GetXmlKeyPair();
+            var encryptPass = RsaEncrypt(keyPair, password);
+            var base64EncodePrivateKey = ConvertToBase64(keyPair);
+            var service = CreateService();
+
+            var decryptPass = service.RsaDecrypt(base64EncodePrivateKey, encryptPass);
+
+            Assert.Equal(password, decryptPass);
         }
 
         [Fact]

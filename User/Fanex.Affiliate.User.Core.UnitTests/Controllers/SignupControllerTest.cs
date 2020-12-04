@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -14,7 +13,6 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Moq;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
@@ -25,14 +23,77 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void Index_WhenCallWithGet_ReturnView()
         {
             // Arrange
-            var accountService = new Mock<IAccountService>();
-            var controller = CreateController(accountService.Object);
+            var controller = CreateController();
 
             // Action
             var result = controller.Index() as ViewResult;
+            var model = result.Model as UserSignUpParam;
 
             // Assert
             Assert.Empty(result.ViewName);
+            Assert.True(model.IsValidParentCode);
+        }
+
+        [Fact]
+        public void Index_WhenCallWithRefIdNotNull_ReturnView()
+        {
+            // Arrange
+            var accountService = new Mock<IAccountService>();
+            accountService.Setup(a => a.GetGeneralAffInfo(123, null)).Returns(new GeneralAffInfo { AffId = 123, AffCode = "12345" });
+            var controller = CreateController(accountService.Object);
+
+            // Action
+            var result = controller.Index("123", "abc") as ViewResult;
+            var model = result.Model as UserSignUpParam;
+
+            // Assert
+            Assert.Empty(result.ViewName);
+            Assert.True(model.IsValidParentCode);
+        }
+
+        [Fact]
+        public void Index_WhenCallWithAffIdIdNotNullAndAffCodeIsNull_ReturnView()
+        {
+            // Arrange
+            var accountService = new Mock<IAccountService>();
+            accountService.Setup(a => a.GetGeneralAffInfo(null, "12345")).Returns(new GeneralAffInfo { AffId = 123, AffCode = "12345" });
+            var controller = CreateController(accountService.Object);
+
+            // Action
+            var result = controller.Index("abc", null, "12345") as ViewResult;
+            var model = result.Model as UserSignUpParam;
+
+            // Assert
+            Assert.Empty(result.ViewName);
+            Assert.True(model.IsValidParentCode);
+        }
+
+        [Fact]
+        public void Index_WhenCallWithInvalidParam_ReturnView()
+        {
+            // Arrange
+            var controller = CreateController();
+
+            // Action
+            var result = controller.Index("index", "abc", "abc") as ViewResult;
+            var model = result.Model as UserSignUpParam;
+
+            // Assert
+            Assert.Empty(result.ViewName);
+            Assert.False(model.IsValidParentCode);
+        }
+
+        [Fact]
+        public void SecurityQuestion_WhenCall_ReturnView()
+        {
+            // Arrange
+            var controller = CreateController();
+
+            // Action
+            var result = controller.SecurityQuestion() as PartialViewResult;
+
+            // Assert
+            Assert.Equal("~/Views/Signup/_SecurityQuestion.cshtml", result.ViewName);
         }
 
         [Fact]
@@ -90,12 +151,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public async Task Index_WhenCallWithPost_CaptchaIsInvalid_SetResultCorrectly()
         {
             // Arrange
-            var accountService = new Mock<IAccountService>();
-            var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.Environment).Returns("PRO");
             var captchaService = new Mock<ICaptchaService>();
             captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(false);
-            var controller = CreateController(accountService.Object, appSetting: appSetting.Object, captchaService: captchaService.Object);
+            var controller = CreateController(captchaService: captchaService.Object);
+            controller.HttpContext.Request.Cookies.Add(new HttpCookie("Fanex.UserSite.RefCode", "12345"));
+
             var signUpParam = new UserSignUpParam { Captcha = "Invalid" };
 
             var expectedResult = new ResultInfo { IsOk = false, Message = Lang.ValidationCode };
@@ -135,7 +195,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private static SignupController CreateController(
-            IAccountService accountService,
+            IAccountService accountService = null,
             ISessionService sessionService = null,
             IAppSetting appSetting = null,
             ICaptchaService captchaService = null,
@@ -144,6 +204,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             sessionService.SignUpCaptchaCode = Constant.Captcha;
+            accountService = accountService ?? Mock.Of<IAccountService>();
             appSetting = appSetting ?? Mock.Of<IAppSetting>();
             captchaService = captchaService ?? CreateDefaultCaptchaService();
             languageService = languageService ?? Mock.Of<ILanguageService>();
@@ -151,12 +212,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             var controller = new SignupController(sessionService, appSetting, accountService, languageService, captchaService, securityQuestionService);
             var request = MockingHelper.GetHttpRequest();
+            var response = new Mock<HttpResponseBase>();
+            response.Setup(p => p.Cookies).Returns(new HttpCookieCollection());
+
             var server = new Mock<HttpServerUtilityBase>();
             server.Setup(s => s.HtmlEncode(It.IsAny<string>())).Returns<string>(s => $"Encoded{s}");
 
             controller.ControllerContext = Mock.Of<ControllerContext>(ctx =>
                 ctx.HttpContext.Request == request &&
-                ctx.HttpContext.Server == server.Object
+                ctx.HttpContext.Server == server.Object &&
+                ctx.HttpContext.Response == response.Object
             );
 
             var context = Mock.Of<HttpContextBase>(ctx => ctx.Request == request);
@@ -198,42 +263,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 State = "State",
                 ContactApps = "ContactApps",
                 ContactAppList = CreateAppContactList()
-            };
-        }
-
-        private UserSignUpParam CreateExpectedParam()
-        {
-            var appContactList = CreateAppContactList().Select(p => new ContactApp
-            {
-                Name = $"Encoded{p.Name}",
-                Value = $"Encoded{p.Value}",
-                Order = p.Order
-            });
-
-            return new UserSignUpParam
-            {
-                FirstName = "EncodedFirstName",
-                LastName = "EncodedLastName",
-                Email = "EncodedEmail",
-                Phone = "EncodedPhone",
-                Address = "EncodedAddress",
-                City = "EncodedCity",
-                Postal = "EncodedPostal",
-                Country = "EncodedCountry",
-                SiteUrl = "EncodedSiteUrl",
-                MoreSiteUrls = "EncodedMoreSiteUrls",
-                NoSiteDesc = "EncodedNoSiteDesc",
-                PreferredLanguage = "EncodedPreferredLanguage",
-                QuestionId = 1,
-                Answer = "EncodedAnswer",
-                Player_UserName = "EncodedPlayer_UserName",
-                Gender = true,
-                State = "EncodedState",
-                Language = Constant.DefaultLanguage,
-                AffType = Constant.AffTypeAsian,
-                Ip = "::1",
-                IsLocal = true,
-                ContactApps = JsonConvert.SerializeObject(appContactList)
             };
         }
 
