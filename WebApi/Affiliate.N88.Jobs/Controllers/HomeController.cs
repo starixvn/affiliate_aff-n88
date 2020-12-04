@@ -28,6 +28,12 @@ namespace Affiliate.N88.Jobs.Controllers
             return Task.FromResult("Site is running in api");
         }
 
+        [HttpGet("CheckConnection")]
+        public async Task<string> CheckConnection()
+        {
+            return await  _licenseeApi.CheckConnection();
+        }
+
         [HttpGet("GetCustomers")]
         public async Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime date)
         {

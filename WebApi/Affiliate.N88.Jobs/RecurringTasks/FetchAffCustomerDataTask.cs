@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
@@ -135,16 +136,16 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     {
                         var builder = new StringBuilder();
                         builder.AppendJoin(" ", "<row"
-                            , $"custid=\"{customer?.CustId}\""
-                            , $"username=\"{customer?.UserName}\""
-                            , $"currencyid=\"{customer?.CurrencyId}\""
-                            , $"actstatus=\"{customer?.ActStatus}\""
-                            , $"affid=\"{customer?.AffId}\""
-                            , $"regtime=\"{customer?.RegTime}\""
+                            , $"custid=\"{HttpUtility.HtmlEncode(customer?.CustId)}\""
+                            , $"username=\"{HttpUtility.HtmlEncode(customer?.UserName)}\""
+                            , $"currencyid=\"{HttpUtility.HtmlEncode(customer?.CurrencyId)}\""
+                            , $"actstatus=\"{HttpUtility.HtmlEncode(customer?.ActStatus)}\""
+                            , $"affid=\"{HttpUtility.HtmlEncode(customer?.AffId)}\""
+                            , $"regtime=\"{HttpUtility.HtmlEncode(customer?.RegTime)}\""
                             , $"firstdepositdate=\"{customer?.FirstDepositDate}\""
-                            , $"status=\"{customer?.Status}\""
-                            , $"istest=\"{customer?.IsTest}\""
-                            , $"affcode=\"{customer?.AffCode}\""
+                            , $"status=\"{HttpUtility.HtmlEncode(customer?.Status)}\""
+                            , $"istest=\"{HttpUtility.HtmlEncode(customer?.IsTest)}\""
+                            , $"affcode=\"{HttpUtility.HtmlEncode(customer?.AffCode)}\""
                             , "/>");
                         return builder.ToString();
                     }));

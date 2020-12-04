@@ -8,6 +8,9 @@ namespace Affiliate.N88.Jobs.Apis
 {
     public interface ILicenseeApi
     {
+        [Get("/Home/Index")]
+        Task<string> CheckConnection();
+
         [Get("/customer/GetAffCustomers")]
         Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime fromDate);
 
@@ -33,7 +36,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow);
 
         [Get("/Customer/GetCustomerRegInfo")]
-        Task<IEnumerable<CustRegInfo>> GetCustomerRegInfo(long unixTime);
+        Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime);
 
         [Get("/BetReport/GetBonusInfo")]
         Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount);

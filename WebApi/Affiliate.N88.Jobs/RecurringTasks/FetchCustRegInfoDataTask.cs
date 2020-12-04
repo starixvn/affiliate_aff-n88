@@ -15,7 +15,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchCustRegInfoDataTask : IFetchDataTask { }
 
-    public class FetchCustRegInfoDataTask : FetchDataForMultipleRepositoryTaskBase<CustRegInfo>, IFetchCustRegInfoDataTask
+    public class FetchCustRegInfoDataTask : FetchDataForMultipleRepositoryTaskBase<CustRegModel>, IFetchCustRegInfoDataTask
     {
         private readonly ITrackerService _timeTrackerService;
         private readonly ILicenseeApi _liceseeApi;
@@ -62,7 +62,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private DateTimeOffset GetAdjustmentTime(DateTimeOffset date)
             => date.AddDays(Settings.AdjustmentValue);
 
-        protected override string BuildXml(IEnumerable<CustRegInfo> data)
+        protected override string BuildXml(IEnumerable<CustRegModel> data)
             => XmlHelper.BuildXml(data, "root", "row");
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
