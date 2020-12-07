@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
+    using Fanex.Affiliate.User.Core.Constants;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.DTO.UserPanel;
-    using Fanex.Affiliate.User.Core.Enum;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
     using Fanex.Affiliate.User.Core.Utilities;
     using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
@@ -98,7 +98,7 @@
 
             foreach (var item in statementHistoryList)
             {
-                if (item.TransType == (byte)TransType.Commission || item.TransType == (byte)TransType.SubAffBonus)
+                if (item.TransType == TransType.Commission || item.TransType == TransType.SubAffBonus)
                 {
                     if (CheckIfExistMonthlyTotal(item.MonthDate, vms))
                     {
@@ -118,9 +118,9 @@
         private static StatementHistoryViewModel CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
             var transItems = statementHistoryList.Where(s => s.MonthDate == monthDate)
-                .Where(s => s.TransType == (byte)TransType.SubAffBonus || s.TransType == (byte)TransType.Commission);
+                .Where(s => s.TransType == TransType.SubAffBonus || s.TransType == TransType.Commission);
 
-            var monthlyCom = transItems.FirstOrDefault(s => s.TransType == (byte)TransType.Commission);
+            var monthlyCom = transItems.FirstOrDefault(s => s.TransType == TransType.Commission);
             var children = transItems.Select(s => CreateViewModelFromStatementHistoryItem(s));
 
             var monthlyTotal = new StatementHistoryViewModel
@@ -129,7 +129,7 @@
                 MonthDate = monthDate,
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
-                TransType = (byte)TransType.MonthlyTotal,
+                TransType = TransType.MonthlyTotal,
                 CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault()?.CalculatedType
             };
             return monthlyTotal;
@@ -137,7 +137,7 @@
 
         private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistoryViewModel> vms)
         {
-            return vms.Any(m => m.MonthDate == monthDate && m.TransType == (byte)TransType.MonthlyTotal);
+            return vms.Any(m => m.MonthDate == monthDate && m.TransType == TransType.MonthlyTotal);
         }
 
         private static StatementHistoryViewModel CreateViewModelFromStatementHistoryItem(StatementHistory item)

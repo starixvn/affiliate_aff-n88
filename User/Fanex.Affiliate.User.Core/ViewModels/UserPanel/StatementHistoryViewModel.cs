@@ -21,8 +21,8 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
         {
             get
             {
-                return TransType == (byte)Enum.TransType.Payment
-                    || TransType == (byte)Enum.TransType.Adjustment
+                return TransType == Constants.TransType.Payment
+                    || TransType == Constants.TransType.Adjustment
                     ? MonthDate.ToString("MM-dd-yyyy")
                     : MonthDate.ToString("MMMM-yyyy");
             }

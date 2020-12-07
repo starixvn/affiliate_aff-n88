@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Assert
             Assert.Equal("2020-06-10", result[0].NormalizeDateText);
             Assert.Equal("Monthly Total", result[1].DescriptionDisplay);
-            Assert.Equal("Uncaculated Month", result[0].DescriptionDisplay);
+            Assert.Equal("Uncalculated Month", result[0].DescriptionDisplay);
             Assert.Equal("Current Month Statistics", result[2].DescriptionDisplay);
             Assert.Equal("Current Month Statistics", result[3].DescriptionDisplay);
             Assert.Equal("test", result[4].DescriptionDisplay);
