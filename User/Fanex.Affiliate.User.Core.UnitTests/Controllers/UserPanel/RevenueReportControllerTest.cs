@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var thisYear = DateTime.Now.Year;
             var controller = CreateController();
 
-            controller.Index(thisYear);
+            controller.Index(thisYear, 1);
 
             CommissionService.Received().GenerateCommissionReportData(Arg.Any<CommissionReportParam>());
         }

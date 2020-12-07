@@ -179,6 +179,7 @@
     <Compile Include="Controllers\ProductControllerTest.cs" />
     <Compile Include="Controllers\RevenueSharingStructureCotronllerTest.cs" />
     <Compile Include="Controllers\TermAndConditionControllerTest.cs" />
+    <Compile Include="Controllers\TestingEmailControllerTest.cs" />
     <Compile Include="Controllers\UnderMaintenanceControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\AffiliateLinkControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\DailyEarningControllerTest.cs" />
@@ -191,6 +192,9 @@
     <Compile Include="Controllers\UserPanel\RevenueReportControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\StatementHistoryControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\StatisticsControllerTest.cs" />
+    <Compile Include="Controllers\UserPanel\SubAffEarningControllerTest.cs" />
+    <Compile Include="Controllers\UserPanel\SubAffLinkControllerTest.cs" />
+    <Compile Include="Controllers\UserPanel\SubAffMediaGalleryControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\SummaryControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\TrackingStatisticsControllerTest.cs" />
     <Compile Include="Controllers\VerificationAccountControllerTest.cs" />

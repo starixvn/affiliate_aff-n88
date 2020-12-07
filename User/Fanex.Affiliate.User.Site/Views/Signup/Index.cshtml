@@ -3,10 +3,12 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
+    var languageService = DependencyResolver.Current.GetService<ILanguageService>();
     var currentLanguage = sessionService.CurrentLanguage;
 }
 
 @using Fanex.Affiliate.User.Core.CoreService
+@using Fanex.Affiliate.User.Core.BusinessService
 @using Fanex.Affiliate.User.Core.Constants
 
 @model Fanex.Affiliate.User.Core.MetalModels.UserSignUpParam
@@ -245,7 +247,7 @@
                             <div class="col-sm-4">
                                 <select class="form-control" name="PreferredLanguage" id="PreferredLanguage" data-val="true" data-val-required="@Lang.PreferLangErr">
                                     <option value="">@Lang.SelectOne</option>
-                                    @foreach (var item in SystemLanguage.LanguageList)
+                                    @foreach (var item in languageService.GetSystemLanguages())
                                     {
                                         <option value="@item.Code">@item.NativeName</option>
                                     }

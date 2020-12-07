@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             marketingService.GetLanguageList(Arg.Any<bool>()).Returns(Constant.LanguageTypeList);
             marketingService.GetCurrencyList(Arg.Any<bool>()).Returns(Constant.CurrencyType);
             marketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
-            marketingService.GetLandingPageList(Arg.Any<bool>()).Returns(Constant.LandingPageList);
+            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<bool>()).Returns(Constant.LandingPageList);
             marketingService.GenerateLinkList(Arg.Any<LinkGenerationParam>()).Returns(GetGeneratedLinkList());
             marketingService.GetBannerTypeList(Arg.Compat.Any<bool>()).Returns(Constant.BannerTypeList);
 
@@ -49,6 +49,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             var service = Substitute.For<ILanguageService>();
             service.GetFavoriteLanguage().Returns(Constant.DefaultLanguage);
             service.GetCurrentLanguage().ReturnsForAnyArgs(Constant.DefaultLanguage);
+            service.GetSystemLanguages().Returns(Constant.LanguageList);
             return service;
         }
 

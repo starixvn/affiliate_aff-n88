@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             AffType = "asian",
             GroupName = "admin",
             OnUserId = 1,
-            PreferredLanguage = "vn",
+            PreferredLanguage = "vi-VN",
             UserName = "test"
         };
 

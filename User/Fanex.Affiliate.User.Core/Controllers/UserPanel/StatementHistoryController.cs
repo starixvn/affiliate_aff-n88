@@ -128,9 +128,9 @@
                 Amount = transItems.Sum(s => s.Amount),
                 MonthDate = monthDate,
                 Children = children,
-                Status = monthlyCom?.Status ?? children.FirstOrDefault()?.Status,
+                Status = monthlyCom?.Status ?? children.FirstOrDefault().Status,
                 TransType = TransType.MonthlyTotal,
-                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault()?.CalculatedType
+                CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault().CalculatedType
             };
             return monthlyTotal;
         }

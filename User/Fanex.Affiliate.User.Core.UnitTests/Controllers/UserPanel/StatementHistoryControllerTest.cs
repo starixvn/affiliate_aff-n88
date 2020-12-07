@@ -216,14 +216,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                     param.NRows = 4;
                 });
             Repo.GetStatementHistory(Arg.Any<StatementHistoryParam>()).Returns(new List<StatementHistory> {
-                        new StatementHistory { TransType = 201, MonthDate = new DateTime(2020, 06, 10), Status = "Current", CalculatedType = 1 },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 06, 10) },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 05, 10) },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 05, 10) },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 04, 10), Status = "Current", CalculatedType = 2 },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 04, 10), Status = "Current", CalculatedType = 2 },
-                        new StatementHistory { TransType = 201, MonthDate = new DateTime(2020, 03, 10), Status = "Current", CalculatedType = 0 },
-                        new StatementHistory { TransType = 204, MonthDate = new DateTime(2020, 03, 10), Status = "Current", CalculatedType = 0 }
+                        new StatementHistory { TransType = TransType.SubAffBonus, MonthDate = new DateTime(2020, 09, 10), Status = null, CalculatedType = null },
+
+                        new StatementHistory { TransType = TransType.Commission, MonthDate = new DateTime(2020, 07, 10), Status = null, CalculatedType = null },
+
+                        new StatementHistory { TransType = TransType.Commission, MonthDate = new DateTime(2020, 06, 10), Status = null, CalculatedType = null },
+                        new StatementHistory { TransType = TransType.SubAffBonus, MonthDate = new DateTime(2020, 06, 10), Status = null, CalculatedType = null },
+
+                        new StatementHistory { TransType = TransType.Commission, MonthDate = new DateTime(2020, 05, 10), Status = null, CalculatedType = null },
+                        new StatementHistory { TransType = TransType.SubAffBonus, MonthDate = new DateTime(2020, 05, 10), Status = "Current", CalculatedType = 1 },
+
+                        new StatementHistory { TransType = TransType.Commission, MonthDate = new DateTime(2020, 04, 10), Status = "Current", CalculatedType = 1 },
+                        new StatementHistory { TransType = TransType.SubAffBonus, MonthDate = new DateTime(2020, 04, 10), Status = "Current", CalculatedType = 1 },
+
+                        new StatementHistory { TransType = TransType.Payment, MonthDate = new DateTime(2020, 03, 10), Status = "Current", CalculatedType = 0 }
                     });
 
             var result = controller.Index(param) as PartialViewResult;

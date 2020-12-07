@@ -1,8 +1,8 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Controllers.UserPanel;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
@@ -14,17 +14,44 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
     public class AffiliateLinkControllerTest
     {
-        [Fact]
-        public void Index_WhenCall_ReturnCorrectView()
+        private readonly ISessionService sessionService;
+        private readonly IAppSetting appSetting;
+        private readonly ILanguageService languageService;
+        private readonly IMarketingService marketingService;
+
+        public AffiliateLinkControllerTest()
         {
-            var sessionService = Substitute.For<ISessionService>();
-            var appSetting = Substitute.For<IAppSetting>();
-            var languageService = Substitute.For<ILanguageService>();
-            var marketingService = NSubtituteMockingHelper.FakeMarkengtingService();
+            sessionService = NSubtituteMockingHelper.FakeSessionService();
+            appSetting = Substitute.For<IAppSetting>();
+            languageService = NSubtituteMockingHelper.FakeLanguageService();
+            marketingService = NSubtituteMockingHelper.FakeMarkengtingService();
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Index_WhenCall_ReturnCorrectView(bool isTargetToMemberSite)
+        {
+            //Arrange
             var controller = new AffiliateLinkController(sessionService, appSetting, languageService, marketingService);
 
-            sessionService.UserSession.Returns(Constant.Session);
-            var result = controller.Index() as ViewResult;
+            //Action
+            var result = controller.Index(isTargetToMemberSite) as ViewResult;
+
+            //Assert
+            Assert.Contains("AffiliateLink/Index.cshtml", result.ViewName);
+        }
+
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Index_WhenCallWithLanguageInvalid_ReturnCorrectView(bool isTargetToMemberSite)
+        {
+            languageService.GetSystemLanguages().Returns(new List<Language>());
+            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<bool>()).Returns(new List<LandingPage>());
+            var controller = new AffiliateLinkController(sessionService, appSetting, languageService, marketingService);
+
+            var result = controller.Index(isTargetToMemberSite) as ViewResult;
 
             Assert.Contains("AffiliateLink/Index.cshtml", result.ViewName);
         }
