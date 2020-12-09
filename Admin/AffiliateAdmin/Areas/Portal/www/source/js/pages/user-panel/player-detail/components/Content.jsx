@@ -82,12 +82,12 @@ export class Content extends PureComponent {
     }
 
     _renderDataSection(dataList) {
-        const { param } = this.props;
+        const { param, isDepositFeePercent, isWithdrawalFeePercent } = this.props;
         const productColumnClassName = param.productId === selectedAllProduct ? 'text-right' : 'text-right highlight';
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { pagingOption, isDepositFeePercent, isWithdrawalFeePercent } = this.props;
+            const { pagingOption } = this.props;
             const startIndex = (pagingOption.PageIndex - 1) * pagingOption.PageSize + 1;
 
             for (let i = 0; i < dataList.length; i++) {
@@ -97,8 +97,9 @@ export class Content extends PureComponent {
             }
         }
         else {
+            const colSpan = 10 + (isDepositFeePercent ? 1 : 0) + (isWithdrawalFeePercent ? 1 : 0)
             dataRows.push(<Row>
-                <Cell className="text-center" colSpan="9">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan={colSpan}>{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
@@ -139,15 +140,9 @@ export class Content extends PureComponent {
     }
 
     handlePaging = (pageIndex, pageSize) => {
-        const newPaging = {
-            PageIndex: pageIndex,
-            PageSize: pageSize
-        }
         const { param } = this.props;
 
-        this.props.setPagingOption(newPaging);
-
-        const newParam = { productId: param.productId, monthDate: param.monthDate, pageIndex, pageSize };
+        const newParam = Object.assign({}, param, { pageIndex, pageSize });
         this._fetchData(newParam);
     }
 
