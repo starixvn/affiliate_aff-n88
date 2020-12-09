@@ -56,7 +56,6 @@ export class Content extends PureComponent {
         const dataRows = [];
 
         if (dataList && dataList.length) {
-            const { param } = this.props;
             const isTotalRow = dataList.length === 1 && !dataList[0].Date;
 
             if (isTotalRow) {
