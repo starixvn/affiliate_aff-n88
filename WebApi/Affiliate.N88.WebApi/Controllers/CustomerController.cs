@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -52,10 +53,17 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<CustWalletInfo>> GetCustWallets(DateTime fromDate)
             => await dynamicRepository.FetchAsync<CustWalletInfo>(new GetCustWalletCriteria(fromDate));
-            
+
         [HttpGet]
         public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
-            => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
+        {
+            CustomerInfo cust = null;
+            if (HasNonASCIIChars(userName))
+            {
+                await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
+            }
+            return cust;
+        }
 
         [HttpGet]
         public async Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime)
@@ -109,5 +117,8 @@ namespace Affiliate.N88.WebApi.Controllers
 
             return context.Request.ServerVariables["REMOTE_ADDR"];
         }
+
+        private bool HasNonASCIIChars(string str)
+            => Encoding.UTF8.GetByteCount(str) != str.Length;
     }
 }
