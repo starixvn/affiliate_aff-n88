@@ -12,6 +12,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
+using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -191,6 +192,36 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
         }
 
+        public ResultInfo AddMarketingChannel(int userId, string channelName)
+        {
+            var channelCode = NormalizeName(channelName);
+            var result =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
+
+            return new ResultInfo
+            {
+                IsOk = result.Code == 0,
+                Message = result.ErrMsg
+            };
+        }
+
+        public IDictionary<string, string> GetChannels(int userId)
+            => _marketingRepository.GetMarketingChannels(userId).ToDictionary(c => c.ChannelCode, c => c.ChannelName);
+
+
+        public ResultInfo MarkLinkWillUsedInChannel(MarketingLinkParam param)
+        {
+            var result = _marketingRepository.MarkLinkIsTrackedByChannel(param);
+
+            return new ResultInfo
+            {
+                IsOk = result.Code == 0,
+                Message = result.ErrMsg
+            };
+        }
+
+        public IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsedMarketingLinks(int userId)
+            => _marketingRepository.GetUsedMarketingLink(userId).GroupBy(c => c.ChannelCode);
+
         private static Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGenerationParam linkGenerationParam)
         {
             var result = new Dictionary<string, Language>();
@@ -268,6 +299,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 new LandingPage{PageCode = "Signup", PageName="SignUp"}
             };
+        }
+
+        private string NormalizeName(string channelName)
+        {
+            return channelName.Replace(" ", String.Empty).ToLowerInvariant();
         }
     }
 }

@@ -296,8 +296,11 @@
     <Compile Include="CoreService\ISessionService.cs" />
     <Compile Include="CoreService\SessionService.cs" />
     <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
+    <Compile Include="DTO\MarketingChannelLink.cs" />
     <Compile Include="DTO\ContactApp.cs" />
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
+    <Compile Include="DTO\MarketingChannel.cs" />
+    <Compile Include="MetalModels\MarketingLinkParam.cs" />
     <Compile Include="DTO\UserPanel\Currency.cs" />
     <Compile Include="DTO\DailyEarningDetail.cs" />
     <Compile Include="DTO\DBMode.cs" />

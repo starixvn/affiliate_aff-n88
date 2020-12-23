@@ -15,6 +15,7 @@
     using System.Drawing;
     using ViewModels.UserPanel.Marketing;
     using System;
+    using Fanex.Affiliate.User.Core.MetalModels;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
@@ -151,6 +152,7 @@
         }
 
         [HttpGet]
+        [AjaxOnly]
         public ActionResult DownloadQrCode(QrCodeParam param)
         {
             var qrCodes = GenerateQrCodeViewModel(param, false);
@@ -161,6 +163,47 @@
             var qrCode = qrCodes.First();
             var imageFile = Convert.FromBase64String(qrCode.Value.QrCode);
             return File(imageFile, "image/png", $"{param.SelectedLanguage}.png");
+        }
+
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult AddChannel(string channelName)
+        {
+            var userId = SessionService.UserSession.AffId;
+            return Json(MarketingService.AddMarketingChannel(userId, channelName));
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult GetChannels()
+        {
+            var userId = SessionService.UserSession.AffId;
+            return Json(MarketingService.GetChannels(userId));
+        }
+
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult MarkLinkWillUsedtInChannel(MarketingLinkViewModel model)
+        {
+            var userId = SessionService.UserSession.AffId;
+            var param = new MarketingLinkParam
+            {
+                AffId = userId,
+                AffMediaLink = model.AffRefLink,
+                ChannelCode = model.ChannelCode,
+                LanguageCode = model.LanguageCode
+            };
+            var result = MarketingService.MarkLinkWillUsedInChannel(param);
+
+            return Json(result);
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult GetUsedMarketingLinks()
+        {
+            var userId = SessionService.UserSession.AffId;
+            return Json(MarketingService.GetUsedMarketingLinks(userId));
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
