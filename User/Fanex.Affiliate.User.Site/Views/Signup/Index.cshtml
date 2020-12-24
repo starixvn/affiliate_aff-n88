@@ -37,7 +37,7 @@
 
         <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
             <p class="text-center">@Html.Raw(Lang.UnderReview)</p>
-            @Html.Raw(SiteFriendlyNameHelper.Replace12Bet(Lang.RegisSuccess))
+            @Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.RegisSuccess), Url.Content("~/ContactUs")))
         </div>
 
         <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>

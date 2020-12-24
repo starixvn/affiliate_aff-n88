@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var currentLanguage = languageService.GetCurrentLanguage();
 
-            languageService.SetCulture(MappingLanguage(language));
+            languageService.SetCulture(language);
 
             return currentLanguage;
         }
@@ -142,7 +142,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
-            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, MappingLanguage(prefrerredLanguage));
+            var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
 
             var encodedContent = _mailProcessor.BuildTemplateContent(physicalPath, model);
@@ -156,7 +156,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 RootUrl = domain,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = MappingLanguage(language),
+                Language = language,
                 Content = content,
                 Title = title
             };

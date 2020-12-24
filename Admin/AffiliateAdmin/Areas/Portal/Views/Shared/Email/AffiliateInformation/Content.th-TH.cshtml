@@ -1,22 +1,20 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.AffInformationEmail
 
 <div>
-    Dear @Raw(Model.FirstName),<br /><br />
+    เรียน @(Model.FirstName),<br /><br />
 
-    Congratulations, your application to become a @(Model.SiteFriendlyName) Affiliates has been approved!<br /><br />
+    ขอแสดงความยินดีด้วยครับ ใบสมัครของคุณในการเป็นพันธมิตรกับ @(Model.SiteFriendlyName) ได้รับการอนุมัติเรียบร้อยแล้ว<br /><br />
 
-    We are glad to have you as part of our Affiliates family and we are looking forward to building a profitable business relationship with you.  Please use the below information to sign into your @(Model.SiteFriendlyName) affiliate account:<br /><br />
+    เรามีความยินดีเป็นอย่างมากที่ได้คุณมาเป็นส่วนหนึ่งในในครอบครับพันธมิตร เราหวังเป็นอย่างยิ่งที่จะได้สร้างผลกำไรจากความร่วมมือกันกับคุณ  กรุณาใช้ข้อมูลด้านล่างนี้เพื่อล๊อคอินเข้าไปยังบัญชีพันธมิตรของคุณ<br /><br />
 
-    Text link: <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a><br />
-    Username: @Model.UserName<br />
-    Password: @Model.Password<br />
-    Affiliate ID: @Model.AffCode<br /><br />
+    ลิ๊งค์ข้อความ <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a><br />
+    ชื่อที่ใช้เข้าระบบ @Model.UserName<br />
+    รหัสผ่านที่ใช้เข้าระบบ @Model.Password<br />
+    พันธมิตร ID: @Model.AffCode<br /><br />
 
-    In your account you will find your affiliate tracking URL as well as banners and promotional materials. Send your traffic and start earning today!<br /><br />
+    ในบัญชีพันธมิตรของคุณคุณจะเห็นลิ๊งค์พันธมิตรของคุณเช่นเดียวกับแบบเนอร์ที่จะใช้ในการโปรโมต เริ่มรับรายได้ตั้งแต่วันนี้เป็นต้นไป  ถ้าคุณมีคำถามหรือต้องการความช่วยเหลือ กรุณาอย่าลังเลที่จะติดต่อเรา<br /><br />
 
-    If you have any questions and require any help please do not hesitate to contact us. <br /><br />
-
-    Sincerely,<br /><br />
-    @(Model.SiteFriendlyName) Affiliates Team<br />
+    ขอแสดงความนับถือ<br /><br />
+    ทีมงานพันธมิตร @(Model.SiteFriendlyName)<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

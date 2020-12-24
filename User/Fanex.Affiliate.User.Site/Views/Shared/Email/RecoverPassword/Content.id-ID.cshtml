@@ -3,23 +3,22 @@
     var userInfo = Model.User;
     var recoverUrl = Model.RootDomain + "Password/RecoverPassword?uid=" + userInfo.AffId + "&vid=" + Model.Code;
 }
-    <div>
-        Dear @userInfo.FirstName,<br /><br />
+<div>
+    Yang terhotmat @userInfo.FirstName,<br /><br />
 
-        You have requested to recover your username or password. If you did not request it, please ignore this email.<br />
-        Otherwise please visit the following link, then your new password will be emailed to you shortly:<br />
-        <a href='@recoverUrl'>@recoverUrl</a><br /><br />
+    Anda melakukan permintaan untuk mendapatkan kembali username atau password.<br />
+    Jika anda tidak melakukan permintaan ini, tolong hiraukan email ini.<br />
+    Sebaliknya silakan klik link berikut ini, maka password baru akan segera diemailkan kepada anda :<br />
+    <a href='@recoverUrl'>@recoverUrl</a><br /><br />
 
-        Please note<br />
-        * Your username is: @userInfo.UserName <br />
-        * Due to security reason, we must provide you a new password (you can change this at anytime later).<br />
-        * The above link will be expired and become useless in 24 hours time.<br /><br />
+    Catatan :<br />
+    * Username anda: @userInfo.UserName <br />
+    * Untuk alasan keamanan, kami akan memberikan password baru pada anda (anda dapat mengubahnya kapan saja nanti).<br />
+    * Link yang diberikan diatas akan kadaluarsa dan menjadi tidak berguna setelah 24 jam.<br /><br />
 
-        Have a great day!<br /><br />
+    Salam Sejahtera, <br /><br />
 
-        Best regards,<br /><br />
+    Tim di @Model.SiteFriendlyName Afiliasi<br />
 
-        The team at @Model.SiteFriendlyName Affiliates<br />
-
-        <a href="mailto:@Model.MailContact">@Model.MailContact</a>
-    </div>
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+</div>

@@ -1,18 +1,18 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
-    <div>
-        Dear @Model.User.FirstName,<br /><br />
+<div>
+    尊敬的 @Model.User.FirstName,<br /><br />
 
-        Thank you for your payment request dated @Model.RequestDate.ToString("MM/dd/yyyy") for the amount of @Model.Amount @Model.DefaultCurrency .<br />
-        Your request reference number is @Model.TransId .<br /><br />
+    您好，<br /><br />
 
-        Your payment request will be processed within 7 working days. All requests are reviewed in the order in which they are received.<br /><br />
+    我们已经收到了您日期为@(Model.RequestDate.ToString("MM/dd/yyyy"))，金额@(Model.Amount)@(Model.DefaultCurrency), 交易单号为@(Model.TransId)的支付申请。<br /><br />
 
-        This is a system auto generated email, please do not reply to this email directly.<br />
-        Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
+    我们会按照收到顺序依次审核所有支付申请，您的申请会在七个工作日内被审核完毕。<br /><br />
 
-        Have a great day!<br /><br />
+    此邮件为系统邮件，请不要直接回复。<br /><br />
 
-        Best regards,<br /><br />
+    如有任何疑问，欢迎致信<a href="mailto:@Model.MailContact">@Model.MailContact</a>
 
-        The team at @Model.SiteFriendlyName Affiliates
-    </div>
+    诚挚的<br />
+
+    @(Model.SiteFriendlyName)合作伙伴团队
+</div>

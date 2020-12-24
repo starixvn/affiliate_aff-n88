@@ -65,7 +65,7 @@
                 Language = SessionService.CurrentLanguage
             };
 
-            var contactUsForAnyReasonText = Lang.Foranyreasonyou.Replace("{0}", Url.Content($"~/{ControllerName.ContactUs}"));
+            var contactUsForAnyReasonText = Lang.ForAnyReason.Replace("{0}", Url.Content($"~/{ControllerName.ContactUs}"));
             var result = new ResultInfo
             {
                 IsOk = true,
@@ -156,7 +156,7 @@
             if (isSuccessful)
             {
                 result.IsOk = true;
-                result.Message = $"{Lang.Yourlogindetail}<br>{Lang.Pleasecheckyour}<br>{Lang.Foranyreasonyou.Replace("{0}", Url.Content("~/ContactUs"))}";
+                result.Message = $"{Lang.Yourlogindetail}<br>{Lang.Pleasecheckyour}<br>{Lang.ForAnyReason.Replace("{0}", Url.Content("~/ContactUs"))}";
             }
 
             return View(result);
