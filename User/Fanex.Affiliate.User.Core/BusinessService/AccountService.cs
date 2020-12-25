@@ -47,12 +47,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var result = _accountRepository.CreateAffiliate(signUpParam);
             if (result.IsOk)
             {
-                emailParam.MailTo = signUpParam.Email;
-                emailParam.User = new UserInfo
+                var userInfo = new UserInfo
                 {
                     PreferredLanguage = signUpParam.PreferredLanguage,
                     FirstName = signUpParam.FirstName
                 };
+
+                emailParam.MailTo = signUpParam.Email;
+                emailParam.User = userInfo;
 
                 _emailService.SendSignUpEmail(emailParam);
 
@@ -68,7 +70,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     UserName = signUpParam.UserName,
                     SiteUrl = signUpParam.SiteUrl,
                     MoreSiteUrls = signUpParam.MoreSiteUrls,
-                    NoSiteDesc = signUpParam.NoSiteDesc
+                    NoSiteDesc = signUpParam.NoSiteDesc,
+                    User = userInfo
                 };
 
                 _emailService.SendNoticeEmailToCsd(csdEmailParam);

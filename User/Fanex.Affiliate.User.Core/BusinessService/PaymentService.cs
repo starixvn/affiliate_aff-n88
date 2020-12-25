@@ -8,7 +8,6 @@ using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
-using NPOI.HSSF.Record.Chart;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {

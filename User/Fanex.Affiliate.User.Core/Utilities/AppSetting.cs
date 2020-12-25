@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
@@ -32,10 +31,15 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string BannerDomain => GetValue("BannerDomain");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string MediaScriptUrl => GetValue("MediaScriptUrl");
 
         public string MailContact => GetValue("MailContact");
+
+        public string GetMailContactByLanguageCode(string languageCode) => GetValue("MailContact" + SystemLanguage.GetUppercaseShortedCode(languageCode)) ?? MailContact;
+
+        public string AppMailId => GetValue("app_mail_id");
+
+        public string GetAppMailIdByLanguageCode(string languageCode) => GetValue("app_mail_id_" + SystemLanguage.GetUppercaseShortedCode(languageCode)) ?? AppMailId;
 
         public string MailCc => GetValue("MailCc");
 
@@ -54,8 +58,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string SymmetricSalt => GetValue("SymmetricSalt");
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
-
-        public string GetMailContactByLanguageCode(string languageCode) => ConfigurationManager.AppSettings["MailContact" + SystemLanguage.GetUppercaseShortedCode(languageCode)] ?? MailContact;
 
         public string SiteName => GetValue("SiteName");
 

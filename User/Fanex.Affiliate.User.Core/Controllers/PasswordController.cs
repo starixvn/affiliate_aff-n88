@@ -84,17 +84,14 @@
                 var recoverEmailParam = new RecoverPasswordEmailParam
                 {
                     User = userInfo,
-                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage ?? SessionService.CurrentLanguage),
+                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailTo = param.Email,
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
                     Code = code
                 };
 
-                var userLang = SystemLanguage.IsValid(userInfo.PreferredLanguage) ? userInfo.PreferredLanguage : SystemLanguage.DefaultLanguageCode;
-                LanguageService.SetCulture(userLang);
                 _mailService.SendRecoverPasswordEmail(recoverEmailParam);
-                LanguageService.SetCulture(SessionService.CurrentLanguage);
             }
 
             return Json(result);
@@ -129,14 +126,11 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this),
                     NewPassword = newPassword,
                     MailTo = userInfo.Email,
-                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage ?? SessionService.CurrentLanguage),
+                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                 };
 
-                var userLang = SystemLanguage.IsValid(userInfo.PreferredLanguage) ? userInfo.PreferredLanguage : SystemLanguage.DefaultLanguageCode;
-                LanguageService.SetCulture(userLang);
                 _mailService.SendNewPasswordEmail(recoverEmailParam);
-                LanguageService.SetCulture(SessionService.CurrentLanguage);
 
                 return Redirect(Url.Content("~/Password/RecoverPasswordResult?isSuccessful=true"));
             }

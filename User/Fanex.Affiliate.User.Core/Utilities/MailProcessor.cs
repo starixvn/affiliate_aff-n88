@@ -14,8 +14,9 @@
             return Engine.Razor.RunCompile(templateContent, path, model: model);
         }
 
-        public void Send(string content, string mailTo, string subject, string mailBcc = "", string mailCc = "")
+        public void Send(string content, string mailTo, string subject, string mailBcc = "", string mailCc = "", int appMailId = 0)
         {
+            var mailConfig = new MailConfig { AppID = appMailId };
             var mailItem = new MailRecord
             {
                 MailTo = mailTo,
@@ -23,7 +24,8 @@
                 Title = SiteFriendlyNameHelper.Replace12Bet(subject),
                 Body = SiteFriendlyNameHelper.Replace12Bet(content),
                 MailBcc = mailBcc,
-                MailCc = mailCc
+                MailCc = mailCc,
+                Config = mailConfig
             };
 
             using (var client = new MailDeliver())

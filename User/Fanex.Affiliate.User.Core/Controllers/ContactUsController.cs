@@ -77,6 +77,7 @@
             else if (ModelState.IsValid)
             {
                 var isLoggedIn = SessionService.UserSession != null;
+                var language = isLoggedIn ? SessionService.UserSession.PreferredLanguage : SessionService.CurrentLanguage;
                 param.SubjectRaw = param.Subject;
                 param.Sender = Server.HtmlEncode(param.Sender);
                 param.Email = Server.HtmlEncode(param.Email);
@@ -91,7 +92,8 @@
 
                 var emailParam = new EmailBaseParam
                 {
-                    MailTo = _appSetting.GetMailContactByLanguageCode(isLoggedIn ? SessionService.UserSession.PreferredLanguage : SessionService.CurrentLanguage),
+                    User = new UserInfo { PreferredLanguage = language },
+                    MailTo = _appSetting.GetMailContactByLanguageCode(language),
                     MailCc = _appSetting.MailCc
                 };
 
