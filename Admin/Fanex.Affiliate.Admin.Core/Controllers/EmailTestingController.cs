@@ -71,8 +71,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 _languageService.SetCulture(language);
                 var content = GetEmailContent(language, function, format);
+                var shortedLanguageCode = GetShortedLanguageCode(language);
 
-                _mailProcessor.Send(content, emailAddress, $"Affilite {AppSetting.Instance.SiteFriendlyName} testing");
+                var appMailId = _appSetting.GetAppMailIdByShortedLanguageCode(shortedLanguageCode);
+                var subject = $"Affilite {AppSetting.Instance.SiteFriendlyName} testing";
+
+                _mailProcessor.Send(content, emailAddress, subject, string.Empty, string.Empty, Convert.ToInt32(appMailId));
                 _languageService.SetCulture("en-US");
             }
             catch (Exception ex)
@@ -126,10 +130,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private object GetModelByFunction(string functionName, string languageCode)
         {
-            var shortedLanguageCode = _languageService.GetLanguageList()
-                .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
+            var shortedLanguageCode = GetShortedLanguageCode(languageCode);
 
-            var mailContact = _appSetting.GetMailContactByShortedLanguageCode(shortedLanguageCode.ToUpperInvariant());
+            var mailContact = _appSetting.GetMailContactByShortedLanguageCode(shortedLanguageCode);
 
             switch (functionName)
             {
@@ -181,6 +184,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 default:
                     return null;
             }
+        }
+
+        private string GetShortedLanguageCode(string languageCode)
+        {
+            var shortedLanguageCode = _languageService.GetLanguageList()
+                .FirstOrDefault(l => string.Equals(l.LanguageCode, languageCode, StringComparison.OrdinalIgnoreCase))?.ShortedLanguageCode ?? _appSetting.DefaultShortedLanguageCode;
+
+            return shortedLanguageCode.ToUpperInvariant();
         }
     }
 }
