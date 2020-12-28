@@ -1,21 +1,21 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.WithdrawalEmail
 
 <div>
-    Dear @Raw(Model.FirstName),<br /><br />
+    敬爱的@(Raw(Model.FirstName)),<br /><br />
 
-    Congratulation on becoming our @(Model.SiteFriendlyName) affiliate!<br /><br />
+    恭喜您成为我们的@(Model.SiteFriendlyName)合作伙伴！<br /><br />
 
-    To ensure for a faster payout for your affiliate, please take some time to read the following procedure for withdrawal:<br /><br />
+    为了确保您更快获取合作佣金，请花一些时间阅读以下提款程序：<br /><br />
 
-    1. We will settle affiliate's revenue share payout once in a month, please access your affiliate account and click on Payment request, enter the amount and request Payout.<br /><br />
-    2. If your withdrawal request is approved, your fund will be automatically transferred to your @(Model.SiteFriendlyName) betting account.<br /><br />
+    1. 我们将每月结算一次合营代理佣金，请登入您的合营代理帐户，然后点击提款请求，输入金额并请求支付。<br /><br />
+    2. 如果您的提款申请获得批准，您的代理佣金将自动转入您的 @(Model.SiteFriendlyName)投注帐户。<br /><br />
 
-    Please take note:<br /><br />
-    1. Your @(Model.SiteFriendlyName) betting account registered name must be the same registered name that you had registered in your affiliate account, and it must be your real name.<br /><br />
+    请注意：<br /><br />
+    1. 您的@(Model.SiteFriendlyName)投注帐户注册名称必须与您在合营代理帐户中注册的名称相同，并且必须是您的真实姓名。<br /><br />
 
-    Please do not hesitate to contact us if you have any further question.<br /><br />
+    如有其他疑问，请随时与我们联系。<br /><br />
 
-    Sincerely,<br /><br />
-    @(Model.SiteFriendlyName) Affiliates Team<br />
+    谨启<br /><br />
+    @(Model.SiteFriendlyName)合营团队<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>
