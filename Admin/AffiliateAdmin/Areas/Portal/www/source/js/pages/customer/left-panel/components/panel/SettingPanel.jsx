@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import Panel from '../Panel';
 import { Row, Col, Button } from 'reactstrap';
 
-import { resource, status, messages } from '../../libs/constants';
+import { resource, status, messages, statusForSuspend, approved } from '../../libs/constants';
 import { updateAffType, updateClosedStatus, updateStatus, getAffiliateInfo } from '../../actions';
 import CommissionGroupPopup from '../../../../common/components/CommissionGroupPopup';
 import { NotificationPopup } from '../../../../common/components/NotificationPopup';
@@ -59,7 +59,7 @@ export class SettingPanel extends PureComponent {
     }
 
     _changeStatus = async (selectedStatus) => {
-        if (selectedStatus && selectedStatus.toLowerCase() === status.Approved) {
+        if (selectedStatus && !this.props.affiliateInfo.GroupId && selectedStatus.toLowerCase() === approved) {
             this.setState({ isAssignCommissionGroup: true });
         } else {
             const param = Object.assign({}, { AffId: this.props.affiliateInfo.AffId, Status: selectedStatus });
@@ -137,26 +137,22 @@ export class SettingPanel extends PureComponent {
                 <Row>
                     <Col>{resource.Status}</Col>
                     <Col className="text-right">
-                        {
-                            isApproved ?
-                                affiliateInfo.Status :
-                                (
-                                    <div className="text-primary">
-                                        <select style={{ display: isChangingAffStatus ? 'inline-block' : 'none' }} value={affiliateInfo.Status}
-                                            onChange={this._handleChangeStatus}
-                                            onBlur={() => this.toggleChangingAffStatus(false)}
-                                            ref={this.affStatusDropdown}>
-                                            <option value="Approved">Approved</option>
-                                            <option value="Disapproved">Disapproved</option>
-                                            <option value="Pending">Pending</option>
-                                        </select>
-                                        <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffStatus ? 'none' : 'inline-block' }}
-                                            onClick={() => this.toggleChangingAffStatus(true)}>
-                                            {affiliateInfo.Status}
-                                        </Button>
-                                    </div>
-                                )
-                        }
+                        <div className="text-primary">
+                            <select style={{ display: isChangingAffStatus ? 'inline-block' : 'none' }} value={affiliateInfo.Status}
+                                onChange={this._handleChangeStatus}
+                                onBlur={() => this.toggleChangingAffStatus(false)}
+                                ref={this.affStatusDropdown}>
+                                {
+                                    Object.keys(isApproved ? statusForSuspend : status).map(key => {
+                                        return (<option value={key} key={`status-${key}`}>{key}</option>)
+                                    })
+                                }
+                            </select>
+                            <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffStatus ? 'none' : 'inline-block' }}
+                                onClick={() => this.toggleChangingAffStatus(true)}>
+                                {affiliateInfo.Status}
+                            </Button>
+                        </div>
                         <CommissionGroupPopup
                             showPopupCommGroup={isAssignCommissionGroup}
                             isPrivateGroup={false}
