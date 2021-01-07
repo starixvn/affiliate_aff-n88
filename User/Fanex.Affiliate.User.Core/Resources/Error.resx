@@ -168,4 +168,7 @@
   <data name="YourSessionHasExpired" xml:space="preserve">
     <value>Your session has expired!</value>
   </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>Your account has been suspended. Please contact your Account Manager for more information.</value>
+  </data>
 </root>

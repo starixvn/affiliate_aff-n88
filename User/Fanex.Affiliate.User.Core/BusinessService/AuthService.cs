@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private LoginResultViewModel GetLoginResultForInternalAdmin(UserLoginParam userParam)
         {
             var user = _authRepository.GetUserInfo(userParam.UserName, true);
-            var checkingActiveUserResult = CheckActiveUser(user);
+            var checkingActiveUserResult = CheckActiveUser(user, true);
 
             return new LoginResultViewModel
             {
@@ -112,12 +112,23 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             };
         }
 
-        private static LoginResultInfo CheckActiveUser(AuthorizedUserInfo user)
+        private static LoginResultInfo CheckActiveUser(AuthorizedUserInfo user, bool isInternal = false)
         {
-            if (user == null || user.IsClosed)
+            const string Approved = "Approved";
+            const string Suspended = "Suspended";
+            if (user == null)
             {
-                var message = user == null ? Error.LoginWrongInfo : Error.LoginClosedAccount;
-                return new LoginResultInfo { IsOk = false, Message = message };
+                return new LoginResultInfo { IsOk = false, Message = Error.LoginWrongInfo };
+            }
+
+            if (!string.Equals(Approved, user.Status, StringComparison.CurrentCultureIgnoreCase))
+            {
+                if(isInternal && string.Equals(Suspended, user.Status, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return new LoginResultInfo { IsOk = true };
+                }
+
+                return new LoginResultInfo { IsOk = false, Message = Error.YourAccountHasBeenSuspended };
             }
 
             return new LoginResultInfo { IsOk = true };

@@ -159,4 +159,7 @@
   <data name="Wait60Seconds" xml:space="preserve">
     <value>Anda harus menunggu 60 detik sebelum kode baru akan dikirimkan</value>
   </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>Akun Anda telah di-suspend. Silahkan hubungi Akun Manager Anda untuk informasi lebih lanjut.</value>
+  </data>
 </root>

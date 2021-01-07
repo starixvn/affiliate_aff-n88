@@ -162,4 +162,7 @@
   <data name="PaymentAmountInvalid" xml:space="preserve">
     <value>Số tiền yêu cầu không hợp lệ</value>
   </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>Tài khoản của bạn đã bị tạm khóa. Vui lòng liên hệ với Người quản lý tài khoản của bạn để biết thêm thông tin.</value>
+  </data>
 </root>
