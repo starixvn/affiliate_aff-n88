@@ -2,9 +2,4 @@
 <Root>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="test" Suffix="_xtest"></item>
 
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Admin_AffiliateInfo_Sel" Suffix="_xtest"></item>
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Admin_AffiliateInfo_Upd" Suffix="_xtest"></item>
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Admin_AffiliateStatus_Upd" Suffix="_xtest"></item>
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Admin_Affiliate_Sel" Suffix="_xtest"></item>
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_Admin_GeneralInfo_Sel" Suffix="_xtest"></item>
 </Root>
