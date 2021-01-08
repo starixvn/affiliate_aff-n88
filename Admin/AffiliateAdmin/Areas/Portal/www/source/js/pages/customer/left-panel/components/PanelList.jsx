@@ -4,13 +4,14 @@ import { connect } from 'react-redux';
 import CommissionPanel from './panel/CommissionPanel';
 import SettingPanel from './panel/SettingPanel';
 import OnlineInfoPanel from './panel/OnlineInfoPanel';
-import { status } from '../libs/constants';
+import { statusForSuspend } from '../libs/constants';
 
 export const PanelList = (props) => {
     const { affiliateInfo } = props;
-    const isApproved = affiliateInfo && affiliateInfo.Status && affiliateInfo.Status.toLowerCase() === status.Approved;
+    const status = affiliateInfo.Status.toLowerCase();
+    const isApproved = status === statusForSuspend.Approved || status === statusForSuspend.Suspended;
 
-    return affiliateInfo && (
+    return (
         <React.Fragment>
             {isApproved && <CommissionPanel />}
             {<SettingPanel isApproved={isApproved} />}

@@ -159,4 +159,7 @@
   <data name="Wait60Seconds" xml:space="preserve">
     <value>คุณต้องรออีก 60 วินาทีก่อนที่จะส่งขอรหัสยืนยันอีกครั้ง</value>
   </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>บัญชีของคุณถูกระงับ โปรดติดต่อผู้จัดการบัญชีของคุณสำหรับข้อมูลเพิ่มเติม</value>
+  </data>
 </root>

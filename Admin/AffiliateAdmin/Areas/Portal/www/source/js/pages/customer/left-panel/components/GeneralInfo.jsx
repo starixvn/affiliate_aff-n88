@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Row, Col, Button } from 'reactstrap';
 
-import { status, resource } from '../libs/constants';
+import { statusForSuspend, resource } from '../libs/constants';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import Language from './general-info/Language';
 import ContactApp from './general-info/ContactApp';
@@ -13,15 +13,16 @@ import { getAffiliateInfo } from '../../mainpage/actions/loadingDataAction';
 
 export const GeneralInfo = (props) => {
     const { affiliateInfo } = props;
-    const isApproved = affiliateInfo && affiliateInfo.Status && affiliateInfo.Status.toLowerCase() === status.Approved;
-    const siteUrl = affiliateInfo && (affiliateInfo.SiteUrl.indexOf('http://') === -1 ? 'http://' + affiliateInfo.SiteUrl : affiliateInfo.SiteUrl);
+    const status = affiliateInfo.Status.toLowerCase();
+    const isApproved = status === statusForSuspend.Approved || status === statusForSuspend.Suspended;
+    const siteUrl = affiliateInfo.SiteUrl.indexOf('http://') === -1 ? 'http://' + affiliateInfo.SiteUrl : affiliateInfo.SiteUrl;
 
     const _handleClickParentAffiliate = (parentAffName) => {
         props.setAffName(parentAffName);
         props.getAffiliateInfo(parentAffName);
     }
 
-    return affiliateInfo && (
+    return (
         <div className="general-info pt-2">
             <Row className="border-0 py-1">
                 <Col sm={5}>{resource.ParentAffiliate}</Col>

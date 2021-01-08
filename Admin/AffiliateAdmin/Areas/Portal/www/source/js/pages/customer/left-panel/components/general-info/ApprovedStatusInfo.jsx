@@ -23,11 +23,11 @@ export const ApprovedStatusInfo = (props) => {
                     <Button color="link left-panel-btn-link" onClick={() => toggleChangingPassword(true)}>
                         [{resource.Change}]
                     </Button>
-                    {affiliateInfo && <ChangePasswordForm
+                    <ChangePasswordForm
                         showPopupPassword={isChangingPassword}
                         selectedId={affiliateInfo.AffId}
                         setShowPopupPassword={toggleChangingPassword}
-                    />}
+                    />
                 </Col>
             </Row>
             <Row>

@@ -50,7 +50,6 @@ namespace Fanex.Affiliate.User.Core.Repository
                         Password = reader.ToString("Password"),
                         GroupName = reader.ToString("GroupName"),
                         AffType = reader.ToString("AffType"),
-                        IsClosed = reader.ToBool("IsClosed"),
                         Status = reader.ToString("Status"),
                         PreferredLanguage = reader.ToString("PreferredLanguage"),
                         IsMaxSubLevel = reader.ToBool("IsMaxSubLevel"),

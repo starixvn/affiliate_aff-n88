@@ -75,7 +75,6 @@ namespace Fanex.Affiliate.User.Core.Controllers
             userParam.LoginInfo = Uri.UnescapeDataString(userParam.LoginInfo);
             var loginResult = AuthService.GetLoginResult(userParam, false);
 
-
             if (loginResult.Result.ShouldVerifyAccount)
             {
                 SessionService.VerificationSession = new VerificationSession { AffId = loginResult.UserInfo.AffId, PreferredLanguage = loginResult.UserInfo.PreferredLanguage };

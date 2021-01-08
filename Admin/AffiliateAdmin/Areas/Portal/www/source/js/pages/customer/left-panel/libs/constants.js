@@ -1,7 +1,14 @@
+export const approved = 'approved';
+
 export const status = {
-    Approved: 'approved',
+    Approved: approved,
     Disapproved: 'disapproved',
     Pending: 'pending'
+}
+
+export const statusForSuspend = {
+    Approved: approved,
+    Suspended: 'suspended'
 }
 
 export const resource = {

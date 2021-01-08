@@ -159,4 +159,7 @@
   <data name="Wait60Seconds" xml:space="preserve">
     <value>在重新发送密码前，请先等待60秒。</value>
   </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>您的账号已被停用。 请联系您的客户经理了解更多信息</value>
+  </data>
 </root>
