@@ -21,7 +21,6 @@
             {
                 MailTo = mailTo,
                 Subject = SiteFriendlyNameHelper.Replace12Bet(subject),
-                Title = SiteFriendlyNameHelper.Replace12Bet(subject),
                 Body = SiteFriendlyNameHelper.Replace12Bet(content),
                 MailBcc = mailBcc,
                 MailCc = mailCc,
