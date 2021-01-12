@@ -54,6 +54,20 @@
                });
 
             routes.MapRoute(
+               name: "ChannelLink",
+               url: "{pageId}/AffCode/{affCode}/{lang}/{channel}/index.html",
+               defaults:
+               new
+               {
+                   controller = "Home",
+                   action = "NewLink",
+                   pageId = UrlParameter.Optional,
+                   affCode = UrlParameter.Optional,
+                   lang = UrlParameter.Optional,
+                   channel = UrlParameter.Optional
+               });
+
+            routes.MapRoute(
                name: "Link",
                url: "{affId}/{pageId}/{lang}/index.html",
                defaults:
