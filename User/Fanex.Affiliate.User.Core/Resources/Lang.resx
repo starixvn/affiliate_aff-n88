@@ -2447,4 +2447,34 @@
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>A Confirmation Email is sending to your Email.</value>
   </data>
+  <data name="AffiliateLinkType" xml:space="preserve">
+    <value>Link type</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="TrackingAndQrCode" xml:space="preserve">
+    <value>Tracking Links &amp; QR Codes</value>
+  </data>
+  <data name="MarketingPage" xml:space="preserve">
+    <value>Marketing Page</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Add new...</value>
+  </data>
+  <data name="NumberOfLink" xml:space="preserve">
+    <value>No. of Links</value>
+  </data>
+  <data name="SearchAndGenQR" xml:space="preserve">
+    <value>Search and Generate</value>
+  </data>
+  <data name="MarketLinkStatistics" xml:space="preserve">
+    <value>Marketing Page Statistic</value>
+  </data>
+  <data name="IncludeInActiveLink" xml:space="preserve">
+    <value>Include Inactive Tracking Link</value>
+  </data>
+  <data name="PageName" xml:space="preserve">
+    <value>Page Name</value>
+  </data>
 </root>

@@ -381,6 +381,8 @@ body {
 }
 
 .account-overview {
+    background: $account-overview-bgrd;
+    border: 1px solid #C7C7C7;
     #account-overview-menu {
         background: $tab-bg-color;
 
@@ -403,6 +405,10 @@ body {
     .bg-orange {
         background: $tab-item-bg-color-active;
         color: $tab-item-color-active;
+    }
+
+    .account-overview-content {
+        background: white;
     }
 }
 
@@ -495,3 +501,25 @@ body {
         margin: 0;
     }
 }
+
+//Qrcode
+.qr-item {
+    .main-panel {
+        background: $qr-panel-bgrd;
+    }
+}
+
+.qr-btn-group {
+    button {
+        background: $qr-panel-btn-background;
+        color: $qr-panel-btn-color;
+    }
+}
+
+.qr-footer {
+    button {
+        background: $qr-footer-btn-background;
+        color: $qr-footer-btn-color;
+    }
+}
+

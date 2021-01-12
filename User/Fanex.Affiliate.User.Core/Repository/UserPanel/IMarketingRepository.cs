@@ -29,8 +29,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         IEnumerable<MarketingChannel> GetMarketingChannels(int userId);
 
-        (int Code, string ErrMsg) MarkLinkIsTrackedByChannel(MarketingLinkParam param);
+        (int Code, string ErrMsg) ToggleMarketingLink(MarketingLinkParam param);
 
-        IEnumerable<MarketingChannelLink> GetUsedMarketingLink(int userId);
+        IEnumerable<MarketingChannelLink> GetUsingMarketingLink(int userId);
     }
 }

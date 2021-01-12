@@ -151,6 +151,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new....
+        /// </summary>
+        public static string AddNew {
+            get {
+                return ResourceManager.GetString("AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -237,6 +246,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string AffiliateLaunching {
             get {
                 return ResourceManager.GetString("AffiliateLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link type.
+        /// </summary>
+        public static string AffiliateLinkType {
+            get {
+                return ResourceManager.GetString("AffiliateLinkType", resourceCulture);
             }
         }
         
@@ -1083,6 +1101,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ChangePassword {
             get {
                 return ResourceManager.GetString("ChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel.
+        /// </summary>
+        public static string Channel {
+            get {
+                return ResourceManager.GetString("Channel", resourceCulture);
             }
         }
         
@@ -2971,6 +2998,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Include Inactive Tracking Link.
+        /// </summary>
+        public static string IncludeInActiveLink {
+            get {
+                return ResourceManager.GetString("IncludeInActiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to India .
         /// </summary>
         public static string India {
@@ -3493,11 +3529,29 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marketing Page.
+        /// </summary>
+        public static string MarketingPage {
+            get {
+                return ResourceManager.GetString("MarketingPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marketing Tools.
         /// </summary>
         public static string MarketingTools {
             get {
                 return ResourceManager.GetString("MarketingTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marketing Page Statistic.
+        /// </summary>
+        public static string MarketLinkStatistics {
+            get {
+                return ResourceManager.GetString("MarketLinkStatistics", resourceCulture);
             }
         }
         
@@ -4121,6 +4175,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of Links.
+        /// </summary>
+        public static string NumberOfLink {
+            get {
+                return ResourceManager.GetString("NumberOfLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to October.
         /// </summary>
         public static string October {
@@ -4252,6 +4315,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Page {
             get {
                 return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Name.
+        /// </summary>
+        public static string PageName {
+            get {
+                return ResourceManager.GetString("PageName", resourceCulture);
             }
         }
         
@@ -5174,6 +5246,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search and Generate.
+        /// </summary>
+        public static string SearchAndGenQR {
+            get {
+                return ResourceManager.GetString("SearchAndGenQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your security question and answer have been updated!.
         /// </summary>
         public static string SecurityQuestionUpdated {
@@ -6034,6 +6115,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalWinLoss {
             get {
                 return ResourceManager.GetString("TotalWinLoss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking Links &amp; QR Codes.
+        /// </summary>
+        public static string TrackingAndQrCode {
+            get {
+                return ResourceManager.GetString("TrackingAndQrCode", resourceCulture);
             }
         }
         

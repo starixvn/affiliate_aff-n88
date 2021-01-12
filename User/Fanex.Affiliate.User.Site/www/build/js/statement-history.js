@@ -278,8 +278,7 @@ var StatementHistory = (function ($) {
         },
 
         initEvent: function () {
-            $("#base-currency").change(function () {
-                console.log(11);
+            $("#base-currency").change(function () {;
                 var params = _me.getStatementHistoryParam();
                 _me.renderStatementHistory(params);
             })

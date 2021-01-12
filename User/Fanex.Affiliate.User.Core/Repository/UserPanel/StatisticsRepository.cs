@@ -130,6 +130,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
+        public IEnumerable<MarketingPageStatistics> GetMarketingPageStatistics(MarketingPageStatisticsParam param)
+        {
+            const string spKey = "Aff_User_Rpt_MarketingPage_Statistics";
+            
+            using(var objectDb = _builder.Build(spKey))
+            {
+                return objectDb.Query<MarketingPageStatistics>(param);
+            }
+        }
+
         private TrackingStatistics BuildTrackingStatisticsItem(IDataReader reader)
         {
             var date = reader.ToDateTime("Date");
@@ -141,5 +151,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 UniqueClick = reader.ToInt(UniqueClickColumn)
             };
         }
+
     }
 }

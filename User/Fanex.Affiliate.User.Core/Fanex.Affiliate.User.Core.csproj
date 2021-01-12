@@ -239,7 +239,10 @@
     <Compile Include="Constants\CommGroupName.cs" />
     <Compile Include="Constants\CommissionType.cs" />
     <Compile Include="Constants\ControllerName.cs" />
-    <Compile Include="Constants\DbParam.cs" />
+    <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
+    <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
+    <Compile Include="Enum\DbParam.cs" />
+    <Compile Include="Enum\AffiliatLinkType.cs" />
     <Compile Include="Constants\Number.cs" />
     <Compile Include="Constants\Page.cs" />
     <Compile Include="Constants\PaymentStatus.cs" />
@@ -331,6 +334,7 @@
     <Compile Include="Infrastructure\JsonNetResult.cs" />
     <Compile Include="MetalModels\Attributes\RequiredReplace12BetAttribute.cs" />
     <Compile Include="MetalModels\UserPanel\CommissionReportParam.cs" />
+    <Compile Include="MetalModels\UserPanel\MarketingPageStatisticsParam.cs" />
     <Compile Include="MetalModels\UserPanel\MediaCategoryParam.cs" />
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
@@ -343,7 +347,11 @@
     <Compile Include="ViewModels\PopupViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Marketing\AffiliateLinkViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\LanguageLinkViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Marketing\MarketingLinkViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Marketing\MediaGallerySearchFormViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Marketing\RefLinkViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\MyAccountViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\PlayerDetailViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\StatementHistoryViewModel.cs" />
@@ -586,6 +594,7 @@
     <Compile Include="ViewModels\UserPanel\MessageHistoryViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\PaymentViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\LandingPageStatisticsViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\Statistics\MarketingPageStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\ReferrerStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\TrackingStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\SubAffComViewModel.cs" />

@@ -6,7 +6,7 @@
 
         public const string BannerCategoryList = "Affiliate.12Bet.BannerCategoryList";
 
-        public const string LanguageList = "Affiliate.12Bet.LanguageList";
+        public const string LanguageList = "Affiliate.12Bet.Languages";
 
         public const string CurrencyList = "Affiliate.12Bet.CurrencyList";
 

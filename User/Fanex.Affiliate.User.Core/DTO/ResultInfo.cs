@@ -9,4 +9,10 @@ namespace Fanex.Affiliate.User.Core.DTO
 
         public string Message { get; set; }
     }
+
+    [Serializable]
+    public class ResultInfo<T> : ResultInfo
+    {
+        public T Data { get; set; }
+    }
 }

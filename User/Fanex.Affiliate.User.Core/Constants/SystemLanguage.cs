@@ -32,29 +32,20 @@ namespace Fanex.Affiliate.User.Core.Constants
         {
             get
             {
-                IEnumerable<Language> languageList = DefaultLanguaList.Values;
+                IEnumerable<Language> languageList = DefaultLanguageList.Values;
 
                 var service = DependencyResolver.Current.GetService<ILanguageService>();
                 var sessionService = DependencyResolver.Current.GetService<ISessionService>();
                 if (service != null && sessionService != null)
                 {
-                    languageList = service.GetLanguageList(sessionService.IsInternal)
-                        .Select(l => new Language
-                        {
-                            Code = l.MarketId,
-                            DisplayName = l.DisplayName ?? DefaultLanguaList[l.MarketId].DisplayName,
-                            EnglishName = l.MarketName ?? DefaultLanguaList[l.MarketId].EnglishName,
-                            NativeName = l.MarketNativeName ?? DefaultLanguaList[l.MarketId].NativeName,
-                            ShortedCode = l.ShortedCode ?? DefaultLanguaList[l.MarketId].ShortedCode
-                        })
-                        .ToList();
+                    languageList = service.GetLanguageList(sessionService.IsInternal);
                 }
 
                 return languageList;
             }
         }
 
-        public static IDictionary<string,Language> DefaultLanguaList => new Dictionary<string, Language>
+        public static IDictionary<string,Language> DefaultLanguageList => new Dictionary<string, Language>
         {
             { "vi-VN", new Language { Code = "vi-VN", NativeName = "Tiếng Việt", DisplayName = "Vietnamese", EnglishName = "Vietnamese", ShortedCode = "vn"} },
             { "en-US", new Language { Code = "en-US", NativeName = "English", DisplayName = "English", EnglishName = "English", ShortedCode = "en"} },

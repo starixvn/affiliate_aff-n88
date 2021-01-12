@@ -147,9 +147,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public (int Code, string ErrMsg) MarkLinkIsTrackedByChannel(MarketingLinkParam param)
+        public (int Code, string ErrMsg) ToggleMarketingLink(MarketingLinkParam param)
         {
-            const string spKey = "Aff_User_AffMediaLink_AddChannel";
+            const string spKey = "Aff_User_AffMediaLink_ToggleChannel";
 
             using (var objectDb = _builder.Build(spKey))
             {
@@ -159,7 +159,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        public IEnumerable<MarketingChannelLink> GetUsedMarketingLink(int userId)
+        public IEnumerable<MarketingChannelLink> GetUsingMarketingLink(int userId)
         {
             const string spKey = "Aff_User_AffMediaChannel_Statistics";
 

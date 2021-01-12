@@ -1,4 +1,5 @@
-﻿using Fanex.Data;
+﻿using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {
@@ -18,6 +19,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public string AffType { get; set; }
 
-        public byte TargetId { get; set; } = 1;
+        public AffiliateLinkType TargetId { get; set; }
     }
 }

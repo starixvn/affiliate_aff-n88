@@ -1,109 +1,123 @@
 ﻿var AffiliateLink = (function ($) {
-    var _pageSize = 20;
-    var _pageIndex = 0;
-    const _targetToMemberSite = 1;
-    const _targetToAffiliateSite = 2;
 
-    function initPager() {
-        $("#marketingPager").pager({
-            totalItems: parseInt($("#TotalItem").val()),
-            pageSize: _pageSize,
-            pageIndex: _pageIndex,
-            languageCode: Site.getCurrentLanguage(),
-            onChange: function (pageIndex, pageSize) {
-                _pageIndex = pageIndex;
-                _pageSize = pageSize;
+    function initChannelSelectEvent() {
+        if ($("#Channel").children().length > 1) {
+            document.getElementById("Channel").selectedIndex = 1;
+        }
 
-                var searchParams = _me.getSearchParam();
-                _me.getTextList(searchParams);
-            },
-        });
-    }
+        $("#Channel").focusin(function () {
+            window.previousChannelIndex = this.selectedIndex;
+            this.selectedIndex = -1;
+        })
 
-    function initCopyEvent() {
-        new ClipboardJS('.btn-marketing-copy', {
-            text: function (trigger) {
-                let copyText = $(trigger).parent().next().text();
-                return copyText;
+        $("#Channel").focusout(function () {
+            console.log(window.previousChannelIndex);
+            if (this.selectedIndex === -1) {
+                this.selectedIndex = window.previousChannelIndex;
             }
         })
+
+        $("#Channel").change(function () {
+            if ($(this).val() === 'add-new') {
+                let text = prompt();
+                if (text) {
+                    let addPromise = MarketingBase.addChannel(text);
+                    addPromise.then(result => {
+                        if (result) {
+                            if (result.IsOk) {
+                                alert("Add channel succeded")
+                                $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
+                            }
+                            else {
+                                alert(result.Message);
+                            }
+                        }
+                    })
+                }
+            }
+            $(this).blur();
+        })
     }
+
+    function handleFalseResponse(response) {
+        let data;
+        switch (response.status) {
+            case 403:
+                data = response.json();
+                alert(data.ErrMsg);
+                break;
+            default:
+                alert('Internal error');
+                break;
+        }
+    }
+
 
     var _me = {
         initialize: function () {
             _me.initEvent();
-            initPager();
-            _me.togglePager();
+            _me.renderLinkChannelStatisticPage();
         },
 
         initEvent: function () {
-            $("#btnMarketingSearch").on("click", function () {
-                _me.submitSearch();
+            $("#AffLinkType").change(function () {
+                let selectedVal = $(this).val();
+                let selectedItem = window.searchOption.RefLinks.find(r => r.AffLinkType == selectedVal);
 
-                MarketingBase.generateTextLink();
+                let domains = selectedItem.Domains.map(item => new Option(item.DomainName, item.DomainId));
+                let pages = selectedItem.SitePages.map(item => new Option(item.PageName, item.PageCode));
+
+                $("#Page").empty().append(pages);
+                $("#Domain").empty().append(domains);
+            })
+
+            $("#btnGenQRCode").click(function () {
+                Site.showLoader();
+                Promise.all([_me.renderLinkChannelStatisticPage(), _me.renderQrCodePage()])
+                    .then(() => {
+                        Site.hideLoader();
+                        MarketingBase.registerToggleLinkEvent(_me.renderLinkChannelStatisticPage);
+                        MarketingBase.resiterQrcodeEvent();
+                    })
             });
 
-            $("#dataContainerList").on("change", "#DeviceType", function () {
-                var params = _me.getSearchParam();
-                _me.getTextList(params, _me.updatePager);
-            });
-
-            $("#btnGenerateLink").on("click", function () {
-                _me.submitSearch();
-
-                MarketingBase.generateTextLink();
-            });
-
-            initCopyEvent();
+            initChannelSelectEvent();
         },
 
-        togglePager: function () {
-            var totalItem = parseInt($("#TotalItem").val());
-            $("#marketingPager").toggle(totalItem !== 0);
+        renderLinkChannelStatisticPage: function () {
+             return MarketingBase.renderLinkChannelStatisticPage()
+                .then((response) => {
+                    if (response.ok)
+                        return response.text()
+                    else {
+                        handleFalseResponse(response);
+                    }
+                })
+                .then(html => {
+                    $("#link-statistic").empty().html(html);
+                })
         },
 
-        submitSearch: function () {
-            _pageIndex = 0;
-            var searchParams = _me.getSearchParam();
-            _me.getTextList(searchParams, _me.updatePager);
-        },
-
-        getSearchParam: function () {
-            return {
-                category: $("#Category").val(),
-                language: $("#Language").val(),
-                currency: $("#Currency").val(),
-                deviceType: $("#DeviceType").val(),
-                selectedDomainId: $("#Domain").val(),
-                selectedPage: $("#MemberSitePage").val(),
-                targetId: $("#TargetId").val(),
-                pageIndex: _pageIndex + 1,
-                pageSize: _pageSize
+        renderQrCodePage: function () {
+            let param = {
+                selectedLanguage: $('#Language').val(),
+                selectedPage: $('#Page').val(),
+                selectedChannel: $('#Channel').val(),
+                selectedDomainId: $('#Domain').val(),
+                selectedLinkType: $('#AffLinkType').val()
             }
+            return MarketingBase.renderQrCodePage(param)
+                .then((response) => {
+                    if (response.ok)
+                        return response.text()
+                    else {
+                        handleFalseResponse(response);
+                    }
+                })
+                .then(html => {
+                    $("#qr-code").empty().html(html);
+                });
         },
-
-        getTextList: function (params, onSuccess) {
-            $.ajax({
-                type: "GET",
-                dataType: "html",
-                cache: false,
-                data: params,
-                url: Site.resolveRelativeUrl("UserPanel/Marketing/GetText"),
-                success: function (response) {
-                    $("#marketingDataList").html(response);
-                    onSuccess && onSuccess();
-
-                    _me.togglePager();
-                }
-            });
-        },
-
-        updatePager: function () {
-            $("#marketingPager").pager("update", {
-                pageIndex: _pageIndex,
-                totalItems: parseInt($("#TotalItem").val())
-            });
-        }
     };
 
     return _me;

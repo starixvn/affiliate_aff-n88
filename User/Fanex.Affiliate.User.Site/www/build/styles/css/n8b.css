@@ -408,6 +408,17 @@ label {
   background: #3391F6;
   color: #ffffff; }
 
+.qr-item .main-panel {
+  background: rgba(255, 255, 255, 0.1); }
+
+.qr-btn-group button {
+  background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+  color: #333333; }
+
+.qr-footer button {
+  background: transparent;
+  color: #3391F6; }
+
 .sub-content {
   border-top: 1px solid #3391F6;
   background: #111111; }
@@ -539,10 +550,6 @@ input[type=radio][disabled] + span {
 
 .main-container .page-container {
   color: #d0d0d0; }
-
-.btn-copy-link, .btn-copy-qr, .btn-save-img {
-  color: #3391F6 !important;
-  font-size: 14px; }
 
 .table .table {
   background-color: transparent; }

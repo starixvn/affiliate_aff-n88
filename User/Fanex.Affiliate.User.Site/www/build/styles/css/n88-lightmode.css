@@ -221,19 +221,23 @@
     background: #FFE8BC !important;
     color: #001942; }
 
-.account-overview #account-overview-menu {
-  background: #E5E5E5; }
-  .account-overview #account-overview-menu .menu-item {
-    color: #001942; }
-    .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-      color: #fff;
-      background-color: #001942; }
-  .account-overview #account-overview-menu .menu li:not(:last-child) {
-    border-right: none !important; }
-
-.account-overview .bg-orange {
-  background: #001942;
-  color: #fff; }
+.account-overview {
+  background: #ffffff;
+  border: 1px solid #C7C7C7; }
+  .account-overview #account-overview-menu {
+    background: #E5E5E5; }
+    .account-overview #account-overview-menu .menu-item {
+      color: #001942; }
+      .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
+        color: #fff;
+        background-color: #001942; }
+    .account-overview #account-overview-menu .menu li:not(:last-child) {
+      border-right: none !important; }
+  .account-overview .bg-orange {
+    background: #001942;
+    color: #fff; }
+  .account-overview .account-overview-content {
+    background: white; }
 
 .login-dialog .btn-signup {
   border: 1px solid #FF5D00; }
@@ -296,3 +300,14 @@
 @media (min-width: 1024px) {
   .content .news {
     margin: 0; } }
+
+.qr-item .main-panel {
+  background: #BAC2D2; }
+
+.qr-btn-group button {
+  background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+  color: #333333; }
+
+.qr-footer button {
+  background: transparent;
+  color: #0B71DF; }

@@ -273,25 +273,27 @@
 .summary-content .details-section-sticky {
   background: #1E1F21 !important; }
 
-.account-overview #account-overview-menu {
-  background: transparent;
-  position: relative;
-  top: 1.5px; }
-  .account-overview #account-overview-menu .menu-item {
-    color: #fff;
-    border: 1px solid transparent;
-    position: relative; }
-    .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-      color: #FF6D3E;
-      background-color: #282828;
-      border: 1px solid #000;
-      border-bottom-color: transparent; }
-  .account-overview #account-overview-menu .menu li:not(:last-child) {
-    border-right: none !important; }
-
-.account-overview .bg-orange {
-  background: #282828;
-  color: #fff; }
+.account-overview {
+  background: #1A1A1A;
+  border: 1px solid #000000; }
+  .account-overview #account-overview-menu {
+    background: transparent;
+    position: relative;
+    top: 1.5px; }
+    .account-overview #account-overview-menu .menu-item {
+      color: #fff;
+      border: 1px solid transparent;
+      position: relative; }
+      .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
+        color: #FF6D3E;
+        background-color: #282828;
+        border: 1px solid #000;
+        border-bottom-color: transparent; }
+    .account-overview #account-overview-menu .menu li:not(:last-child) {
+      border-right: none !important; }
+  .account-overview .bg-orange {
+    background: #282828;
+    color: #fff; }
 
 .user-login .text-field::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
@@ -370,3 +372,14 @@
 @media (min-width: 1024px) {
   .content .news {
     margin: 0; } }
+
+.qr-item .main-panel {
+  background: rgba(255, 255, 255, 0.1); }
+
+.qr-btn-group button {
+  background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+  color: #333333; }
+
+.qr-footer button {
+  background: transparent;
+  color: #3391F6; }

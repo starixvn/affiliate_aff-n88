@@ -25,6 +25,10 @@
     flex-wrap: wrap;
 }
 
+.flex.space-between{
+    justify-content: space-between;
+}
+
 @media(min-width: 1280px) {
     .flex {
         .flex-lg-3 {
@@ -76,10 +80,6 @@
 
         &.flex-center {
             align-items: center;
-
-            label {
-                padding-bottom: 10px;
-            }
         }
     }
 }

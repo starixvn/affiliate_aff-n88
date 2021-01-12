@@ -8,6 +8,7 @@
     using Extensions;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
@@ -31,90 +32,28 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index(bool isTargetToMemberSite = true)
+        public ActionResult Index()
         {
-            ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
-
-            return isTargetToMemberSite ? GetViewForMemberSiteTextLink() : GetViewForSubAffSiteTextLink();
-        }
-
-        private ActionResult GetViewForMemberSiteTextLink()
-        {
-            var userSession = SessionService.UserSession;
-
-            var searchForm = GetSearchFormViewModel(false);
-            var linkForm = GetLinkFormViewModel();
-
-            var selectedLanguage = userSession.PreferredLanguage;
-            var selectedDomain = linkForm.DomainList.FirstOrDefault();
-            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
-
-            var textParam = new MarketingTextParam
+            var langs = LanguageService.GetLanguageList(SessionService.IsInternal);
+            var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
+            var refs = new List<RefLinkViewModel>
             {
-                AffId = userSession.AffId,
-                AffCode = userSession.AffCode,
-                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
-                SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                ScriptUrl = AppSetting.MediaScriptUrl,
-                TextLinkTemplate = AppSetting.TextLinkTemplate,
-                TargetId = TargetSite.TargetToMember
+                GetAffLinkTypeViewModel(),
+                GetSubAffLinkTypeViewModel()
             };
 
-            var viewModel = new MarketingViewModel
+            var vm = new AffiliateLinkViewModel
             {
-                SearchForm = searchForm,
-                LinkForm = linkForm,
-                MarketingDataList = GetTextList(textParam)
+                Channels = channels,
+                Languages = langs,
+                RefLinks = refs
             };
 
-            ViewBag.TotalItem = textParam.Nrows;
+            ViewBag.SelectedLang = SessionService.UserSession.PreferredLanguage;
 
-            return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", viewModel);
+            return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", vm);
         }
 
-        private ActionResult GetViewForSubAffSiteTextLink()
-        {
-            var userSession = SessionService.UserSession;
 
-            var searchForm = GetSearchFormViewModel(false, TargetSite.TargetToSubAff);
-            var linkForm = GetLinkFormViewModel(false);
-
-            var selectedLanguage = userSession.PreferredLanguage;
-            var selectedDomain = linkForm.DomainList.FirstOrDefault();
-            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
-            var textParam = new MarketingTextParam
-            {
-                AffId = userSession.AffId,
-                AffCode = userSession.AffCode,
-                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
-                SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                ScriptUrl = AppSetting.MediaScriptUrl,
-                TextLinkTemplate = AppSetting.SubAffTextLinkTemplate,
-                TargetId = TargetSite.TargetToSubAff
-            };
-
-            var viewModel = new MarketingViewModel
-            {
-                SearchForm = searchForm,
-                LinkForm = linkForm,
-                MarketingDataList = GetTextList(textParam)
-            };
-
-            ViewBag.TotalItem = textParam.Nrows;
-
-            return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", viewModel);
-        }
-
-        private IEnumerable<MarketingItem> GetTextList(MarketingTextParam textParam)
-        {
-            if (textParam.SelectedDomain == null)
-            {
-                return new List<MarketingItem>();
-            }
-
-            return MarketingService.GetTextList(textParam);
-        }
     }
 }

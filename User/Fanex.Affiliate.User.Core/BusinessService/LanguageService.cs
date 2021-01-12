@@ -6,7 +6,7 @@ using System.Threading;
 using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Utilities;
 
@@ -51,9 +51,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             Thread.CurrentThread.CurrentCulture.NumberFormat = CultureInfo.CreateSpecificCulture("en-US").NumberFormat;
         }
 
-        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
+        public IEnumerable<Language> GetLanguageList(bool isInternal)
         {
-            var languageList = CacheService.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList);
+            var languageList = CacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList);
             if (languageList == null)
             {
                 languageList = LanguageRepository.GetLanguageList(isInternal);
@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 CacheService.Set(CacheKey.LanguageList, languageList);
             }
 
-            return languageList ?? new List<LanguageType>();
+            return languageList ?? new List<Language>();
         }
     }
 }

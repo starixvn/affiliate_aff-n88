@@ -1,6 +1,9 @@
 ﻿@import "../scss/components/monthpicker";
 @import "../scss/abstracts/mixins";
 @import "../scss/components/pager";
+@import "../scss/components/_toogle-button.scss";
+@import "../scss/components/_qr_code.scss";
+@import "../scss/base/_common.scss";
 
 .account-overview {
     .menu {
@@ -235,6 +238,25 @@
             }
         }
     }
+}
+
+#aff-link, #media-gallery{
+    margin-left: -50px;
+    margin-right:-50px;
+    >div{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+}
+.info-group > .title {
+    margin-left: 10px;
+}
+
+td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 @media (max-width: 640px) {

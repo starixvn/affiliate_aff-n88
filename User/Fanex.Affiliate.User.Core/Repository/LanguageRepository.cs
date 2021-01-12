@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {
@@ -13,14 +14,22 @@ namespace Fanex.Affiliate.User.Core.Repository
             Builder = builder;
         }
 
-        public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
+        public IEnumerable<Language> GetLanguageList(bool isInternal)
         {
             const string uSpKey = "Aff_Market_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
 
             using (var objectDb = Builder.Build(uSpKey, dbMode))
             {
-                return objectDb.Query<LanguageType>();
+                return objectDb.Query<LanguageType>()
+                    .Select(l => new Language
+                    {
+                        Code = l.MarketId,
+                        DisplayName = l.DisplayName,
+                        EnglishName = l.MarketName,
+                        NativeName = l.MarketNativeName,
+                        ShortedCode = l.ShortedCode
+                    });
             }
         }
     }

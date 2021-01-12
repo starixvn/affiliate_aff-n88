@@ -29,7 +29,7 @@ label {
     margin-left: 2px;
     vertical-align: middle;
     border-top: 4px dashed;
-    border-top: 4px solid\9;
+    border-top: 4px solid;
     border-right: 4px solid transparent;
     border-left: 4px solid transparent;
 }
@@ -132,7 +132,7 @@ label {
     .title {
         position: relative;
         font-weight: bold;
-        margin-bottom: 8px;
+        margin-bottom: 20px;
         padding-bottom: 5px;
 
         &:before {
@@ -198,4 +198,12 @@ ul.dash-style {
         content: "-";
         padding-right: 5px;
     }
+}
+
+.btn.btn-transparent {
+    margin-right: 5px;
+}
+
+.display-none {
+    display: none;
 }

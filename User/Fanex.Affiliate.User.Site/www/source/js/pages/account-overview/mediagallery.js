@@ -23,21 +23,66 @@
         });
     }
 
+    function initChannelSelectEvent() {
+        if ($("#Channel").children().length > 1) {
+            document.getElementById("Channel").selectedIndex = 1;
+        }
+
+        $("#Channel").focusin(function () {
+            window.previousChannelIndex = this.selectedIndex;
+            this.selectedIndex = -1;
+        })
+
+        $("#Channel").focusout(function () {
+            console.log(window.previousChannelIndex);
+            if (this.selectedIndex === -1) {
+                this.selectedIndex = window.previousChannelIndex;
+            }
+        })
+
+        $("#Channel").change(function () {
+            if ($(this).val() === 'add-new') {
+                let text = prompt();
+                if (text) {
+                    let addPromise = MarketingBase.addChannel(text);
+                    addPromise.then(result => {
+                        if (result) {
+                            if (result.IsOk) {
+                                alert("Add channel succeded")
+                                $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
+                            }
+                            else {
+                                alert(result.Message);
+                            }
+                        }
+                    })
+                }
+            }
+            $(this).blur();
+        })
+    }
+
     var _me = {
         initialize: function () {
             _me.initEvent();
             initPager();
             _me.togglePager();
+            initChannelSelectEvent();
         },
 
         initEvent: function () {
             $("#Category").on("change", function () {
                 var selectedValue = $(this).val().toLowerCase();
+                var selectedLinkType = $("#AffLinkType").val();
+                var param = {
+                    category: selectedValue,
+                    linkType: selectedLinkType
+                }
                 var $subCategoryContainer = $("#SubCategory").closest(".form-group");
 
                 if (selectedValue === CATEGORY_CASINO || selectedValue === CATEGORY_SPORTSBOOK) {
                     $subCategoryContainer.removeClass("hide");
-                    _me.getSubcategory(selectedValue);
+                    _me.getSubcategory(param);
                 }
                 else {
                     $("#SubCategory").html(optionAll);
@@ -46,6 +91,21 @@
 
                 _me.getSize();
             });
+
+            $("#AffLinkType").change(function () {
+                let selectedVal = $(this).val();
+                let selectedItem = window.searchOption.RefLinks.find(r => r.AffLinkType == selectedVal);
+
+
+                let domains = selectedItem.Domains.map(item => new Option(item.DomainName, item.DomainId));
+                let pages = selectedItem.SitePages.map(item => new Option(item.PageName, item.PageCode));
+                let category = [new Option("All", "")];
+                category.push(...window.searchOption.CategoryList[selectedVal].map(item => new Option(item.Text, item.Value)));
+
+                $("#Page").empty().append(pages);
+                $("#Domain").empty().append(domains);
+                $("#Category").empty().append(category);
+            })
 
             $("#SubCategory").on("change", function () {
                 _me.getSize();
@@ -69,18 +129,15 @@
 
             $("#btnMarketingSearch").on("click", function () {
                 _me.submitSearch();
-
-                MarketingBase.generateTextLink();
+                _me.renderQrCodePage()
+                    .then(function () {
+                        MarketingBase.registerToggleLinkEvent();
+                        MarketingBase.resiterQrcodeEvent();
+                    });
             });
 
             $("#dataContainerList").on("change", "#DeviceType", function () {
                 _me.submitSearch();
-            });
-
-            $("#btnGenerateLink").on("click", function () {
-                _me.submitSearch();
-
-                MarketingBase.generateTextLink();
             });
 
             new ClipboardJS('.copy-banner-code');
@@ -97,12 +154,12 @@
             _me.getBannerList(searchParams, _me.updatePager);
         },
 
-        getSubcategory: function (category) {
+        getSubcategory: function (param) {
             $.ajax({
                 type: "GET",
                 dataType: "json",
                 cache: false,
-                data: { category: category },
+                data: param,
                 url: Site.resolveRelativeUrl("UserPanel/Marketing/GetSubCategory"),
                 success: function (response) {
                     var html = _me.buildOptionList(response, "Value", "Value", true);
@@ -125,7 +182,7 @@
                 currency: $("#Currency").val(),
                 imageType: $("#ImageType").val(),
                 deviceType: $("#DeviceType").val(),
-                targetId: $("#TargetId").val()
+                targetId: $("#AffLinkType").val()
             };
 
             $.ajax({
@@ -170,7 +227,7 @@
                 deviceType: $("#DeviceType").val(),
                 selectedDomainId: $("#Domain").val(),
                 selectedPage: $("#MemberSitePage").val(),
-                targetId: $("#TargetId").val(),
+                targetId: $("#AffLinkType").val(),
                 pageIndex: _pageIndex + 1,
                 pageSize: _pageSize
             };
@@ -197,7 +254,28 @@
                 pageIndex: _pageIndex,
                 totalItems: parseInt($("#TotalItem").val())
             });
-        }
+        },
+
+        renderQrCodePage: function () {
+            let param = {
+                selectedLanguage: $('#Language').val(),
+                selectedPage: $('#Page').val(),
+                selectedChannel: $('#Channel').val(),
+                selectedDomainId: $('#Domain').val(),
+                selectedLinkType: $('#AffLinkType').val()
+            }
+            return MarketingBase.renderQrCodePage(param)
+                .then((response) => {
+                    if (response.ok)
+                        return response.text()
+                    else {
+                        handleFalseResponse(response);
+                    }
+                })
+                .then(html => {
+                    $("#qr-code").empty().html(html);
+                });
+        },
     };
 
     return _me;

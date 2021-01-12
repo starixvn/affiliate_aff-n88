@@ -4,11 +4,11 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web.Mvc;
-    using Constants;
-    using DTO.UserPanel;
-    using Extensions;
+    using System.Web.Mvc.Html;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.Enum;
+    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
@@ -25,95 +25,62 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index(bool isTargetToMemberSite = true)
+        public ActionResult Index()
         {
-            return isTargetToMemberSite ? GetViewForMemberSite() : GetViewForAffiliateSite();
+            var searchFormVM = GetSearchFormViewModel();
+            return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", searchFormVM);
         }
 
-        private ActionResult GetViewForMemberSite()
-        {
-            var userSession = SessionService.UserSession;
-            var searchForm = GetSearchFormViewModel(true);
-            var linkForm = GetLinkFormViewModel();
 
-            var selectedLanguage = userSession.PreferredLanguage;
-            var selectedDomain = linkForm.DomainList.FirstOrDefault();
-            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
-            var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
-
-            var bannerParam = new MarketingBannerParam
-            {
-                AffId = userSession.AffId,
-                AffCode = userSession.AffCode,
-                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
-                AffType = userSession.AffType,
-                SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToMember),
-                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain,
-                TargetId = TargetSite.TargetToMember,
-                DeviceType = 0,
-                PageIndex = 1,
-                PageSize = 20
-            };
-
-            var viewModel = new MarketingViewModel
-            {
-                SearchForm = searchForm,
-                MarketingDataList = GetBannerList(bannerParam)
-            };
-
-            ViewBag.TotalItem = bannerParam.Nrows;
-
-            return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", viewModel);
-        }
-
-        private ActionResult GetViewForAffiliateSite()
+        private MediaGallerySearchFormViewModel GetSearchFormViewModel()
         {
             var userSession = SessionService.UserSession;
-            var searchForm = GetSearchFormViewModel(true, TargetSite.TargetToSubAff);
-            var linkForm = GetLinkFormViewModel(false);
 
-            var selectedLanguage = userSession.PreferredLanguage;
-            var selectedDomain = linkForm.DomainList.FirstOrDefault();
-            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
-            var bannerSettingKey = userSession.PreferredLanguage.Replace("-", string.Empty).ToUpperInvariant();
+            var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
+            var categoryList = Enum.GetValues(typeof(AffiliateLinkType)).Cast<int>()
+                .ToDictionary(t => t.ToString(), t => GetMediaMainCategory((AffiliateLinkType)t));
+            var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
+            var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal)
+                .Select(i => new SelectListItem
+                {
+                    Value = i.Currency,
+                    Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency
+                });
 
-            var bannerParam = new MarketingBannerParam
+
+            var sizeParam = new SizeParam
             {
-                AffId = userSession.AffId,
-                AffCode = userSession.AffCode,
-                Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(selectedLanguage))?.EnglishName,
                 AffType = userSession.AffType,
-                SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                TextLinkTemplate = MarketingService.GetTextLinkTemplate(TargetSite.TargetToSubAff),
-                BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ?? AppSetting.BannerDomain,
-                TargetId = TargetSite.TargetToSubAff,
-                DeviceType = 0,
-                PageIndex = 1,
-                PageSize = 20
+                Language = userSession.PreferredLanguage
+            };
+            var sizeList = MarketingService.GetSizeList(sizeParam, SessionService.IsInternal)
+                .Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
+
+            var refs = new List<RefLinkViewModel>
+            {
+                GetAffLinkTypeViewModel(),
+                GetSubAffLinkTypeViewModel()
             };
 
-            var viewModel = new MarketingViewModel
+            return new MediaGallerySearchFormViewModel
             {
-                SearchForm = searchForm,
-                MarketingDataList = GetBannerList(bannerParam)
+                CategoryList = categoryList,
+                Channels = channels,
+                CurrencyList = currencyList,
+                DeviceList = EnumHelper.GetSelectList(typeof(DeviceType)),
+                Languages = languageList,
+                RefLinks = refs,
+                SizeList = sizeList
             };
-
-            ViewBag.TotalItem = bannerParam.Nrows;
-
-            return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", viewModel);
         }
 
-        private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
-        {
-            if (bannerParam.SelectedDomain == null)
+        private IEnumerable<SelectListItem> GetMediaMainCategory(AffiliateLinkType type)
+            => MarketingService.GetCategoryList(true, type, SessionService.IsInternal)
+            .Where(c => string.IsNullOrEmpty(c.SubCategory))
+            .Select(c => new SelectListItem
             {
-                return new List<MarketingItem>();
-            }
-
-            return MarketingService.GetBannerList(bannerParam);
-        }
+                Value = c.Category,
+                Text = Lang.ResourceManager.GetString(c.Category.Trim()) ?? c.Category
+            });
     }
 }

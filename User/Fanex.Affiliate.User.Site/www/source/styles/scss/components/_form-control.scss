@@ -59,13 +59,27 @@
     }
 }
 
+.checkbox label {
+    margin-bottom: 5px;
+    &.text-bold {
+        font-weight: 600;
+    }
+
+    input {
+        width: 1.2em;
+        height: 1.2em;
+        margin-right:10px;
+    }
+}
+
 .form-inline {
     margin-bottom: 5px;
 
     .form-group {
         label {
-            display: inline-block;
-            margin-right: 10px;
+            display: inline-flex;
+            align-content: center;
+            margin-right: 20px;
         }
     }
 }

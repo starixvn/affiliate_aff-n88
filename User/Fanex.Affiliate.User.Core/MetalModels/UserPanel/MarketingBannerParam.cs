@@ -1,4 +1,5 @@
-﻿using Fanex.Data;
+﻿using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {
@@ -20,7 +21,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public byte? DeviceType { get; set; }
 
-        public byte TargetId { get; set; } = 1;
+        public AffiliateLinkType TargetId { get; set; } = AffiliateLinkType.AffiliateLink;
 
         [SpParam(Ignored = true)]
         public int TotalPages { get; set; }

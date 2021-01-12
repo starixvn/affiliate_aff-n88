@@ -2284,4 +2284,28 @@
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>Email xác nhận sẽ được gửi đến Email của bạn.</value>
   </data>
+  <data name="AffiliateLinkType" xml:space="preserve">
+    <value>Kiểu đường dẫn</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>Kênh</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>Thêm mới...</value>
+  </data>
+  <data name="NumberOfLink" xml:space="preserve">
+    <value>Số lượng liên kết</value>
+  </data>
+  <data name="SearchAndGenQR" xml:space="preserve">
+    <value>Tìm kiếm và sinh mã</value>
+  </data>
+  <data name="MarketLinkStatistics" xml:space="preserve">
+    <value>Thống Kê Marketing</value>
+  </data>
+  <data name="IncludeInActiveLink" xml:space="preserve">
+    <value>Đường dẫn không giám sát</value>
+  </data>
+  <data name="PageName" xml:space="preserve">
+    <value>Tên trang</value>
+  </data>
 </root>

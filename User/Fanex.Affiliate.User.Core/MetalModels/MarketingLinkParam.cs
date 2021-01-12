@@ -10,5 +10,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public string LanguageCode { get; set; }
 
         public string AffMediaLink { get; set; }
+
+        public bool IsOn { get; set; }
     }
 }
