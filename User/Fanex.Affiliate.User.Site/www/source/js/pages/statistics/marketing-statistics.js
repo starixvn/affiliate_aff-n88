@@ -17,35 +17,51 @@
         }));
     }
 
+    function toggleCollapseButton(btn) {
+        $(btn).children("span").toggleClass("glyphicon-chevron-right");
+        $(btn).children("span").toggleClass("glyphicon-chevron-down");
+    }
+
+    function toggleChildrenElem(children) {
+        $(children).toggleClass("display-none");
+    }
+
+    function initExpandBtnEvent() {
+        $(".row-toogleable-table").on("click", ".btn.btn-transparent", function () {
+            console.log("test");
+            let parentRow = $(this).parents("tr");
+            let id = parentRow.data("id");
+            let children = parentRow.siblings(`tr[data-parent='${id}']`);
+            toggleCollapseButton(this);
+            toggleChildrenElem(children);
+        });
+    }
+
     var _me = {
 
         initialize: function () {
             initDatePicker('FromDate', 'fromPicker');
             initDatePicker('ToDate', 'toPicker');
             _me.initEvent();
+            _me.renderMainView();
         },
 
         initEvent: function () {
             $('#btnStatisticsSubmit').on('click', function () {
-                $('#statisticsDetailTable').html('');
-
-                var params = {
-                    fromDate: $('#FromDate').val(),
-                    toDate: $('#ToDate').val(),
-                    language: $('#Language').val(),
-                    includeInActiveLink: $("#includeInActive").val()
-                };
-                _me.getMainView(params);
+                _me.renderMainView();
             });
+        },
 
-            $('#statisticsTable').on('click', '.statisticsItem', function () {
-                _selectedDomain = $(this).data('domain');
-                _pageIndex = 0;
-                var params = _me.getDetailParam();
+        renderMainView: function () {
+            $('#statisticsDetailTable').html('');
 
-                $('#statisticsDetailPager').show();
-                _me.getDetailView(params, initPager);
-            });
+            var params = {
+                fromDate: $('#FromDate').val(),
+                toDate: $('#ToDate').val(),
+                language: $('#Language').val(),
+                includeInActiveLink: $('#includeInActive').is(':checked')
+            };
+            _me.getMainView(params);
         },
 
         getMainView: function (params) {
@@ -58,6 +74,7 @@
                 contentType: "application/json; charset=UTF-8",
                 success: function (response) {
                     $("#statisticsTable").html(response);
+                    initExpandBtnEvent();
                 },
                 beforeSend: function () {
                     Site.showLoader();

@@ -16,11 +16,14 @@
 
     public class MediaGalleryController : BaseMarketingController
     {
+        private IAccountService AccountService { get; }
         public MediaGalleryController(ISessionService sessionService, IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService) :
+            IMarketingService marketingService,
+            IAccountService accountService) :
             base(sessionService, appSetting, languageService, marketingService)
         {
+            AccountService = accountService;
         }
 
         [HttpGet]
@@ -59,8 +62,14 @@
             var refs = new List<RefLinkViewModel>
             {
                 GetAffLinkTypeViewModel(),
-                GetSubAffLinkTypeViewModel()
             };
+
+
+            var affId = SessionService.UserSession.AffId;
+            if (!AccountService.GetGeneralAffInfo(affId).IsMaxSubLevel)
+            {
+                refs.Add(GetSubAffLinkTypeViewModel());
+            }
 
             return new MediaGallerySearchFormViewModel
             {

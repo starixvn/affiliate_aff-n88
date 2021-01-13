@@ -28,16 +28,11 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         {
             var now = DateTime.Now;
             var startMonth = new DateTime(now.Year, now.Month, 1);
-            var languages = new List<SelectListItem>
-            {
-                new SelectListItem{ Text = Lang.All, Value = ""}
-            };
-
-            languages.AddRange(LanguageService.GetLanguageList(SessionService.IsInternal).Select(l => new SelectListItem
+            var languages = LanguageService.GetLanguageList(SessionService.IsInternal).Select(l => new SelectListItem
             {
                 Text = l.EnglishName,
                 Value = l.Code
-            }));
+            });
 
             var viewModel = new MarketingPageStatisticsViewModel
             {

@@ -45,6 +45,7 @@
             case 403:
                 data = response.json();
                 alert(data.ErrMsg);
+                location.reload();
                 break;
             default:
                 alert('Internal error');

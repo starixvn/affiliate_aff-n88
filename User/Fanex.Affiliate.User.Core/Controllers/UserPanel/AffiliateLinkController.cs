@@ -19,15 +19,19 @@
     [CustomAuthorize]
     public class AffiliateLinkController : BaseMarketingController
     {
+        private IAccountService AccountService { get; }
+
         public AffiliateLinkController(ISessionService sessionService,
             IAppSetting appSetting,
             ILanguageService languageService,
-            IMarketingService marketingService)
+            IMarketingService marketingService,
+            IAccountService accountService)
             : base(sessionService,
                 appSetting,
                 languageService,
                 marketingService)
         {
+            AccountService = accountService;
         }
 
         [HttpGet]
@@ -36,11 +40,17 @@
         {
             var langs = LanguageService.GetLanguageList(SessionService.IsInternal);
             var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
+
             var refs = new List<RefLinkViewModel>
             {
                 GetAffLinkTypeViewModel(),
-                GetSubAffLinkTypeViewModel()
             };
+
+            var affId = SessionService.UserSession.AffId;
+            if (!AccountService.GetGeneralAffInfo(affId).IsMaxSubLevel)
+            {
+                refs.Add(GetSubAffLinkTypeViewModel());
+            }
 
             var vm = new AffiliateLinkViewModel
             {
