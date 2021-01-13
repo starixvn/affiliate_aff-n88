@@ -36,5 +36,10 @@
          HTTP_PROXY_CONNECTION:
         <%= Request.ServerVariables["HTTP_PROXY_CONNECTION"]%>
     </div>
+        <div>
+         HTTP_PROXY_CONNECTION:
+        <%= Request["HTTP_X_FORWARDED_PROTO"]%>
+                    <%= Request["X_FORWARDED_PROTO"]%>
+    </div>
 </body>
 </html>

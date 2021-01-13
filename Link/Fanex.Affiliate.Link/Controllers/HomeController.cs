@@ -3,7 +3,9 @@
 namespace Fanex.Affiliate.Link.Controllers
 {
     using System;
+    using System.Collections.Specialized;
     using System.Globalization;
+    using System.Text;
     using System.Web.Mvc;
     using Criterias;
     using Helpers;
@@ -90,6 +92,14 @@ namespace Fanex.Affiliate.Link.Controllers
             {
                 var urlReferrer = Request.UrlReferrer?.AbsoluteUri;
                 var domainReferrer = Request.UrlReferrer?.Host;
+                var protocol = string.IsNullOrWhiteSpace(Request.Headers["X-Forwarded-Proto"])
+                    ? Request.Url.Scheme
+                    : Request.Headers["X-Forwarded-Proto"];
+
+                var uri = new UriBuilder(Request.Url.ToString())
+                {
+                    Scheme = protocol
+                };
 
                 if (string.IsNullOrEmpty(urlReferrer) && !string.IsNullOrEmpty(Request["ref"]))
                 {
@@ -120,7 +130,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     Country = Common.ResolveCountry() != null
                                       ? Common.ResolveCountry().EnglishName
                                       : CultureInfo.CurrentCulture.ToString(),
-                    AffMediaLink = Request.Url.ToString()
+                    AffMediaLink = GetAllHeader(Request.ServerVariables)
                 };
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
@@ -172,6 +182,17 @@ namespace Fanex.Affiliate.Link.Controllers
                 var url = redirectUrl.Split('?');
                 return $"{url[0]}?affCode={affCode}";
             }
+        }
+
+        private string GetAllHeader(NameValueCollection headers)
+        {
+            var builder = new StringBuilder();
+            foreach (var key in headers.AllKeys)
+            {
+                builder.AppendLine($"{key}: {headers[key]}");
+            }
+
+            return builder.ToString();
         }
     }
 }
