@@ -120,6 +120,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     Country = Common.ResolveCountry() != null
                                       ? Common.ResolveCountry().EnglishName
                                       : CultureInfo.CurrentCulture.ToString(),
+                    AffMediaLink = Request.Url.ToString()
                 };
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
