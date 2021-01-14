@@ -8,6 +8,7 @@ namespace Fanex.Affiliate.Link.Controllers
     using System.Text;
     using System.Web.Mvc;
     using Criterias;
+    using Fanex.Logging;
     using Helpers;
     using Services.Impl;
     using Services.Interface;
@@ -92,14 +93,7 @@ namespace Fanex.Affiliate.Link.Controllers
             {
                 var urlReferrer = Request.UrlReferrer?.AbsoluteUri;
                 var domainReferrer = Request.UrlReferrer?.Host;
-                var protocol = string.IsNullOrWhiteSpace(Request.Headers["X-Forwarded-Proto"])
-                    ? Request.Url.Scheme
-                    : Request.Headers["X-Forwarded-Proto"];
-
-                var uri = new UriBuilder(Request.Url.ToString())
-                {
-                    Scheme = protocol
-                };
+                Logger.Log.Error(GetAllHeader(Request.ServerVariables));
 
                 if (string.IsNullOrEmpty(urlReferrer) && !string.IsNullOrEmpty(Request["ref"]))
                 {
@@ -130,7 +124,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     Country = Common.ResolveCountry() != null
                                       ? Common.ResolveCountry().EnglishName
                                       : CultureInfo.CurrentCulture.ToString(),
-                    AffMediaLink = GetAllHeader(Request.ServerVariables)
+                    AffMediaLink = Request.Url.ToString()
                 };
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
