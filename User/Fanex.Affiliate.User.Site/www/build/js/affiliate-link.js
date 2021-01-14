@@ -1231,9 +1231,10 @@ var MarketingBase = (function ($) {
         return cheked ? "on" : "off";
     }
 
+
+
     var _me = {
         resiterQrcodeEvent: function () {
-            console.log("register btn copy qr")
             new ClipboardJS('.btn-copy-link', {
                 text: function (trigger) {
                     let parent = $(trigger).parents(".qr-item").first();
@@ -1244,7 +1245,7 @@ var MarketingBase = (function ($) {
 
             new ClipboardJS('.btn-copy-qr', {
                 text: function (trigger) {
-                    let imgTag = $(trigger).parents(".qr-action").prev().children("img.qrcode")[0];               
+                    let imgTag = $(trigger).parents(".qr-action").prev().children("img.qrcode")[0];
                     return imgTag.outerHTML;
                 }
             });
@@ -1259,6 +1260,44 @@ var MarketingBase = (function ($) {
             });
         },
 
+        initChannelSelectEvent: function () {
+            if ($("#Channel").children().length > 1) {
+                document.getElementById("Channel").selectedIndex = 1;
+            }
+
+            $("#Channel").focusin(function () {
+                window.previousChannelIndex = this.selectedIndex;
+                this.selectedIndex = -1;
+            })
+
+            $("#Channel").focusout(function () {
+                console.log(window.previousChannelIndex);
+                if (this.selectedIndex === -1) {
+                    this.selectedIndex = window.previousChannelIndex === 0 ? 1 : window.previousChannelIndex;
+                }
+            })
+
+            $("#Channel").change(function () {
+                if ($(this).val() === 'add-new') {
+                    let text = prompt();
+                    if (text) {
+                        let addPromise = MarketingBase.addChannel(text);
+                        addPromise.then(result => {
+                            if (result) {
+                                if (result.IsOk) {
+                                    alert("Add channel succeded")
+                                    $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
+                                }
+                                else {
+                                    alert(result.Message);
+                                }
+                            }
+                        })
+                    }
+                }
+                $(this).blur();
+            })
+        },
 
         addChannel: function (text) {
             Site.showLoader();
@@ -1337,8 +1376,8 @@ var MarketingBase = (function ($) {
                 }
                 let checked = $(this).prop('checked');
                 let confirmText = checked
-                    ? "Are you sure about this action?/nBy confirming this action, you will active this tracking link"
-                    : "Are you sure about this action?/nBy confirming this action, you will deactive this tracking link"
+                    ? "Are you sure about this action? By confirming this action, you will active this tracking link"
+                    : "Are you sure about this action? By confirming this action, you will deactive this tracking link"
 
                 if (confirm(confirmText)) {
                     let parent = $(this).parents(".qr-item").first();
@@ -1383,45 +1422,6 @@ var MarketingBase = (function ($) {
 })(jQuery);
 var AffiliateLink = (function ($) {
 
-    function initChannelSelectEvent() {
-        if ($("#Channel").children().length > 1) {
-            document.getElementById("Channel").selectedIndex = 1;
-        }
-
-        $("#Channel").focusin(function () {
-            window.previousChannelIndex = this.selectedIndex;
-            this.selectedIndex = -1;
-        })
-
-        $("#Channel").focusout(function () {
-            console.log(window.previousChannelIndex);
-            if (this.selectedIndex === -1) {
-                this.selectedIndex = window.previousChannelIndex;
-            }
-        })
-
-        $("#Channel").change(function () {
-            if ($(this).val() === 'add-new') {
-                let text = prompt();
-                if (text) {
-                    let addPromise = MarketingBase.addChannel(text);
-                    addPromise.then(result => {
-                        if (result) {
-                            if (result.IsOk) {
-                                alert("Add channel succeded")
-                                $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
-                            }
-                            else {
-                                alert(result.Message);
-                            }
-                        }
-                    })
-                }
-            }
-            $(this).blur();
-        })
-    }
-
     function handleFalseResponse(response) {
         let data;
         switch (response.status) {
@@ -1465,7 +1465,7 @@ var AffiliateLink = (function ($) {
                     })
             });
 
-            initChannelSelectEvent();
+            MarketingBase.initChannelSelectEvent();
         },
 
         renderLinkChannelStatisticPage: function () {

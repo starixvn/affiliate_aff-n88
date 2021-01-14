@@ -23,51 +23,12 @@
         });
     }
 
-    function initChannelSelectEvent() {
-        if ($("#Channel").children().length > 1) {
-            document.getElementById("Channel").selectedIndex = 1;
-        }
-
-        $("#Channel").focusin(function () {
-            window.previousChannelIndex = this.selectedIndex;
-            this.selectedIndex = -1;
-        })
-
-        $("#Channel").focusout(function () {
-            console.log(window.previousChannelIndex);
-            if (this.selectedIndex === -1) {
-                this.selectedIndex = window.previousChannelIndex;
-            }
-        })
-
-        $("#Channel").change(function () {
-            if ($(this).val() === 'add-new') {
-                let text = prompt();
-                if (text) {
-                    let addPromise = MarketingBase.addChannel(text);
-                    addPromise.then(result => {
-                        if (result) {
-                            if (result.IsOk) {
-                                alert("Add channel succeded")
-                                $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
-                            }
-                            else {
-                                alert(result.Message);
-                            }
-                        }
-                    })
-                }
-            }
-            $(this).blur();
-        })
-    }
-
     var _me = {
         initialize: function () {
             _me.initEvent();
             initPager();
             _me.togglePager();
-            initChannelSelectEvent();
+            MarketingBase.initChannelSelectEvent();
         },
 
         initEvent: function () {
