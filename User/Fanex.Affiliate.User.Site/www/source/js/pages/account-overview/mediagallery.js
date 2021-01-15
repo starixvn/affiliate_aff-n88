@@ -187,7 +187,8 @@
                 currency: $("#Currency").val(),
                 deviceType: $("#DeviceType").val(),
                 selectedDomainId: $("#Domain").val(),
-                selectedPage: $("#MemberSitePage").val(),
+                selectedPage: $("#Page").val(),
+                selectedChannel: $("#Channel").val(),
                 targetId: $("#AffLinkType").val(),
                 pageIndex: _pageIndex + 1,
                 pageSize: _pageSize
