@@ -162,10 +162,10 @@ namespace Fanex.Affiliate.Link.Controllers
 
         private string GetOriginalUrl()
         {
-            var host = Request["Host"] ?? Request.Url.Host;
+            var host = Request.Headers["Host"] ?? Request.Url.Host;
             var scheme = GetOriginalProtocol();
             var path = Request.Url.PathAndQuery;
-            return $"{scheme}://{host}/{path}";
+            return $"{scheme}://{host}{path}";
         }
 
         private byte GetDeviceType()
