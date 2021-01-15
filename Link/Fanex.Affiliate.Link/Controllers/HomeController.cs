@@ -164,7 +164,7 @@ namespace Fanex.Affiliate.Link.Controllers
         {
             var host = Request.Headers["Host"] ?? Request.Url.Host;
             var scheme = GetOriginalProtocol();
-            var path = Request.Url.PathAndQuery;
+            var path = Request.Url.AbsolutePath;
             return $"{scheme}://{host}{path}";
         }
 
