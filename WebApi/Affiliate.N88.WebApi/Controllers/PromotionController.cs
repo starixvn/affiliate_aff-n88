@@ -3,9 +3,6 @@ using Affiliate.N88.SpParams.Criteria;
 using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -21,7 +18,7 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<PromotionModel>> GetPromtions(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<PromotionModel>> GetPromotions(DateTime fromDate, DateTime toDate)
             => await Repo.FetchAsync<PromotionModel>(new GetPromotionCriteria(fromDate, toDate));
 
         [HttpGet]

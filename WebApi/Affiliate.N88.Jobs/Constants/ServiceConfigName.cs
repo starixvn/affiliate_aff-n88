@@ -24,7 +24,7 @@
 
         public const string PULL_WITHDRAWAL_INFO = "PullWithdrawalInfoSetting";
 
-        public const string PULL_PROMOTION_SETTING = "PullPrommotionSetting";
+        public const string PULL_PROMOTION_SETTING = "PullPromotionSetting";
 
         public const string PULL_PROMOTIONSPECIFIC_SETTING = "PullPromotionSpecificSetting";
 

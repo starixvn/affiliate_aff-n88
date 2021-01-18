@@ -101,7 +101,7 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRollOver(int id, int batchCount = 2000)
+        public async Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRollOvers(int id, int batchCount = 2000)
             => await dynamicRepository.FetchAsync<CustBonusRolloverModel>(new GetCustBonusRolloverCriteria(id, batchCount));
 
         private string GetIpAddress()

@@ -32,6 +32,14 @@
 
         public FetchServiceSetting PullWithdrawalInfoSetting { get; set; }
 
+        public FetchServiceSetting PullPromotionSetting { get; set; }
+
+        public FetchServiceSetting PullPromotionSpecificSetting { get; set; }
+
+        public FetchServiceSetting PullRebateMLogSetting { get; set; }
+
+        public FetchServiceSetting PullCustBonusRolloverSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }

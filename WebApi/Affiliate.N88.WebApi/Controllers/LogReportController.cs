@@ -18,7 +18,7 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<RebateMLogModel>> GetRebateMLog(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<RebateMLogModel>> GetRebateMLogs(DateTime fromDate, DateTime toDate)
             => await Repo.FetchAsync<RebateMLogModel>(new GetRebateMLogCriteria(fromDate, toDate));
     }
 }

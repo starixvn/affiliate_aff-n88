@@ -33,7 +33,19 @@ namespace Affiliate.N88.Jobs.Middlewares
                             : null
                     })
                 {
-                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),                   
+                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),
+                }));
+
+            services.AddSingleton(RestService.For<IPromotionApi>(
+                new HttpClient(
+                    new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)
+                    {
+                        Proxy = appSettings.ProxySetting != null && appSettings.ProxySetting.IsUseProxy
+                            ? new WebProxy(new Uri(appSettings.ProxySetting.ProxyUrl))
+                            : null
+                    })
+                {
+                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),
                 }));
 
             InitLogging(services);

@@ -43,5 +43,11 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/BetReport/GetWithdrawalInfo")]
         Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount);
+
+        [Get("/Customer/GetCustBonusRollovers")]
+        Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRolloversAsync(int id, int batchCount);
+
+        [Get("/LogReport/GetRebateMLogs")]
+        Task<IEnumerable<RebateMLogModel>> GetRebateMLogs(DateTime fromDate, DateTime toDate);
     }
 }

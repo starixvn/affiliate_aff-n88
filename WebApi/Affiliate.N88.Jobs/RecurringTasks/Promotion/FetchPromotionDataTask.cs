@@ -3,6 +3,7 @@ using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
+using Affiliate.N88.Utitlities;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -11,38 +12,115 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
 {
-    public interface IFetchPromotionDataTask
+    public interface IFetchPromotionDataTask: IFetchDataTask
     {
+        Task FetchDataDailyTask();
     }
 
     public class FetchPromotionDataTask : FetchDataForMultipleRepositoryTaskBase<PromotionModel>, IFetchPromotionDataTask
     {
-        private readonly ILicenseeApi _licenseeApi;
-        private readonly ILogger _logger;
+        private IPromotionApi Api { get; }
+        private ILogger Logger { get; }
+        private ITrackerService TrackerService { get; }
 
-        public FetchPromotionDataTask(ILicenseeApi licenseeApi,
+        private const int API_SERVER_TIME_OFFSET = 0;
+
+        public FetchPromotionDataTask(IPromotionApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
             ILogger logger,
             ITrackerService timeTrackerService,
             IOptionsSnapshot<FetchServiceSetting> configuration)
-            : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_PROMOTION_SETTING), timeTrackerService)
+            : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_PROMOTION_SETTING))
         {
-
+            Api = licenseeApi;
+            Logger = logger;
+            TrackerService = timeTrackerService;
         }
 
-        public override Task FetchDataAsync()
+        public override async Task FetchDataAsync()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var fromDate = await TrackerService.GetTimeAsync(TableName);
+                var toDate = GetAdjustmentTime();
+                await FetchDataAndTrackTimeAsync(fromDate, toDate);
+            }
+            catch (Exception ex)
+            {
+
+                await Logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+            }
         }
+
+        public async Task FetchDataDailyTask()
+        {
+            try
+            {
+                var fromDate = GetAdjustmentApiServerDate(new TimeSpan(-1, 0, 0, 0));
+                var toDate = GetAdjustmentTime();
+                var intervalTime = GetApiMaxTimeRange();
+                var timeRanges = DateTimeHelper.GetProportionTimeRange(fromDate, toDate, intervalTime);
+                foreach (var range in timeRanges)
+                {
+                    try
+                    {
+                        await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                    }
+                    catch
+                    {
+                        Logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                        throw;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await Logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+            }
+        }
+
+        private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)
+        {
+            var intervalTime = GetApiMaxTimeRange();
+            var timeRanges = DateTimeHelper.GetProportionTimeRange(fromDate, toDate, intervalTime);
+            foreach (var range in timeRanges)
+            {
+                try
+                {
+                    await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                    await TrackerService.SaveTimeAsync(TableName, range.ToDate);
+                }
+                catch
+                {
+                    Logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                    throw;
+                }
+            }
+        }
+
+        private async Task FetchAndInsertDataAsync(DateTime fromDate, DateTime toDate)
+        {
+            var datas = await Api.GetPromotionsAsync(fromDate, toDate);
+            await ImportDataToMultipleRepoAsync(datas);
+        }
+
+        private DateTime GetAdjustmentTime() => GetAdjustmentApiServerDate(new TimeSpan(0, Settings.AdjustmentValue, 0));
 
         protected override string BuildXml(IEnumerable<PromotionModel> data)
-        {
-            throw new NotImplementedException();
-        }
+            => XmlHelper.BuildXml(data, "root", "row");
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
+            => Settings.SupportedPrefix;
+
+        private TimeSpan GetApiMaxTimeRange() => TimeSpan.FromMinutes(Settings.MaxTimeRange);
+
+        private DateTime GetAdjustmentApiServerDate(TimeSpan ajustmentTime)
         {
-            throw new NotImplementedException();
+            var date = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(API_SERVER_TIME_OFFSET));
+            var adjustDate = date.Add(ajustmentTime);
+            return adjustDate.DateTime;
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
+using Affiliate.N88.Jobs.RecurringTasks.Promotion;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
@@ -75,7 +76,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             //FetchDepositInfoDataTask
             services.AddScoped<IFetchDepositInfoDataTask, FetchDepositInfoDataTask>()
                 .Configure<FetchServiceSetting>(
-                    ServiceConfigName.PULL_DEPOSIT_INFO_SETTING, 
+                    ServiceConfigName.PULL_DEPOSIT_INFO_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_DEPOSIT_INFO_SETTING}"));
 
             //FetchBonusInfoDataTask
@@ -96,6 +97,34 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_WITHDRAWAL_INFO,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_WITHDRAWAL_INFO}")
                 );
+
+            //FetchPromotionDataTask
+            services.AddScoped<IFetchPromotionDataTask, FetchPromotionDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_PROMOTION_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_PROMOTION_SETTING}")
+                );
+
+            //FetchPromotionDataTask
+            services.AddScoped<IFetchPromotionSpecificDataTask, FetchPromotionSpecificDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_PROMOTIONSPECIFIC_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_PROMOTIONSPECIFIC_SETTING}")
+                );
+
+            //FetchRebateMLogDataTask
+            services.AddScoped<IFetchRebateMLogDataTask, FetchRebateMLogDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_REBATEMLOG_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REBATEMLOG_SETTING}")
+                );
+
+            //FetchCustBonusRollOver
+            services.AddScoped<IFetchCustBonusRolloverDataTask, FetchCustBonusRolloverDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_CUST_BONUS_ROLLOVER_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_BONUS_ROLLOVER_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -111,7 +140,7 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(12), job => job.FetchFromAdjusmentDayAsync(3));
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchFromAdjusmentDayAsync(3));
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
 
                 RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
@@ -130,6 +159,16 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}", appSettings.PullPromotionSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+
+                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}", appSettings.PullPromotionSpecificSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+
+                RegisterTask<IFetchRebateMLogDataTask>($"{typeof(IFetchRebateMLogDataTask).Name}", appSettings.PullRebateMLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchCustBonusRolloverDataTask>($"{typeof(IFetchCustBonusRolloverDataTask).Name}", appSettings.PullCustBonusRolloverSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 
