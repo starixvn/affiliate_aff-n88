@@ -10,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi.Controllers
@@ -100,6 +99,10 @@ namespace Affiliate.N88.WebApi.Controllers
             await LogService.InfoAsync($"AfterAmount: {criteria.AfterAmount}");
             return criteria.AfterAmount;
         }
+
+        [HttpGet]
+        public async Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRollOver(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<CustBonusRolloverModel>(new GetCustBonusRolloverCriteria(id, batchCount));
 
         private string GetIpAddress()
         {
