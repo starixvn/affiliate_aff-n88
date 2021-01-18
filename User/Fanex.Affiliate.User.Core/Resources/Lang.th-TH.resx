@@ -2138,4 +2138,16 @@
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>อีเมลยืนยันกำลังส่งไปยังอีเมลของคุณ</value>
   </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>คำขอการชำระเงินของท่านถูกยกเลิก</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>ยืนยันรายละเอียดบัญชีของท่าน</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>พันธมิตร 12Bet - ยืนยันรายละเอียดบัญชีของท่าน</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>พันธมิตร 12Bet - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
+  </data>
 </root>

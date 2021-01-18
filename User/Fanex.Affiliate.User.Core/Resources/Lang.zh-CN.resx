@@ -2127,4 +2127,16 @@
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>确认邮件已发送到您的电子邮箱。</value>
   </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>您的付款请求已被取消</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>验证您的帐户详细信息</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>12Bet 合营代理 - 请验证您的帐户详细信息</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>12Bet 合营代理 [{0}] - 您的付款请求已被取消</value>
+  </data>
 </root>

@@ -2118,4 +2118,16 @@
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>Email konfirmasi dikirimkan ke email Anda.</value>
   </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>Permintaan pembayaran Anda telah dibatalkan</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>Verifikasi detail akun Anda</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>Afiliasi 12Bet - Verifikasi detail akun Anda</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>Afiliasi 12Bet - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
+  </data>
 </root>
