@@ -16,6 +16,10 @@ namespace Affiliate.N88.Models
 
         public int? TpId { get; set; }
 
+        public long PeriodFrom { get; set; }
+
+        public long PeriodTo { get; set; }
+
         public DateTime StartDate { get; set; }
 
         public DateTime EndDate { get; set; }
