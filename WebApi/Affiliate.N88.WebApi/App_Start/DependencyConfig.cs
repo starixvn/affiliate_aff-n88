@@ -1,4 +1,5 @@
-﻿using Fanex.Data;
+﻿using Affiliate.N88.WebApi.Repository;
+using Fanex.Data;
 using Fanex.Data.MySql;
 using Fanex.Data.Repository;
 using Fanex.Logging;
@@ -26,6 +27,7 @@ namespace Affiliate.N88.WebApi.App_Start
 
             // Register your types, for instance:
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
+            container.Register<IPromotionRepository, PromotionRepository>(Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());

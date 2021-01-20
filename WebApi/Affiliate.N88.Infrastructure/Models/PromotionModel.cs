@@ -28,7 +28,7 @@ namespace Affiliate.N88.Models
 
         public int Sort { get; set; }
 
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         public int Status { get; set; }
 

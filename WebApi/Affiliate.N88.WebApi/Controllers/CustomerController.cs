@@ -57,9 +57,9 @@ namespace Affiliate.N88.WebApi.Controllers
         public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
         {
             CustomerInfo cust = null;
-            if (HasNonASCIIChars(userName))
+            if (!HasNonASCIIChars(userName))
             {
-                await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
+                cust = await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
             }
             return cust;
         }
