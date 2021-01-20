@@ -22,7 +22,6 @@
             new ClipboardJS('.btn-copy-link', {
                 text: function (trigger) {
                     let parent = $(trigger).parents(".qr-item").first();
-                    console.log(parent);
                     return parent.data("link");
                 }
             });
@@ -71,6 +70,7 @@
                                 if (result.IsOk) {
                                     alert("Add channel succeded")
                                     $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
+                                    $("button .btn-gen").attr("disabled", false);
                                 }
                                 else {
                                     alert(result.Message);

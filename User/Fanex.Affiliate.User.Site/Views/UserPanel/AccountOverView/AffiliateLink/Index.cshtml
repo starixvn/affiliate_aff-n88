@@ -9,10 +9,11 @@
     var landingPages = (Model.RefLinks.FirstOrDefault()?.SitePages ?? new List<Fanex.Affiliate.User.Core.DTO.UserPanel.LandingPage>())
         .Select(l => new SelectListItem { Value = l.PageName, Text = l.PageCode });
 
-    var languages = Model.Languages.Select(l => new SelectListItem { Value = l.Code, Text = l.DisplayName, Selected = l.Code == ViewBag.SelectedLang });
+    var languages = Model.Languages.Select(l => new SelectListItem { Value = l.Code, Text = l.EnglishName, Selected = l.Code == ViewBag.SelectedLang });
 
     var channels = new List<SelectListItem> { new SelectListItem { Text = Lang.AddNew, Value = "add-new" } };
     channels.AddRange(Model.Channels.Select(c => new SelectListItem { Value = c.Key, Text = c.Value }));
+    var disabled = channels.Count > 1 ? "" : "disabled";
 }
 
 @Html.InlineStyles("~/www/build/styles/css/marketing.min.css")
@@ -40,7 +41,7 @@
 
                             <div class="form-group">
                                 <div class="col-sm-offset-3 col-sm-1">
-                                    <button type="button" class="btn btn-submit" id="btnGenQRCode">@Lang.GenerateLink</button>
+                                    <button @disabled type="button" class="btn btn-submit btn-gen" id="btnGenQRCode">@Lang.GenerateLink</button>
                                 </div>
                             </div>
                         </div>

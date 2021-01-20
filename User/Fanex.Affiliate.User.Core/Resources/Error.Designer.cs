@@ -133,6 +133,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name too long (Max 20 characters.
+        /// </summary>
+        public static string NameToLong20 {
+            get {
+                return ResourceManager.GetString("NameToLong20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid request amount.
         /// </summary>
         public static string PaymentAmountInvalid {

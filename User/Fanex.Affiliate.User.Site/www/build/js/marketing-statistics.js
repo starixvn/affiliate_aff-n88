@@ -1539,12 +1539,13 @@ var ReferrerStatistics = (function ($) {
         renderMainView: function () {
             $('#statisticsDetailTable').html('');
 
-            var params = {
+            let params = {
                 fromDate: $('#FromDate').val(),
                 toDate: $('#ToDate').val(),
-                language: $('#Language').val(),
+                language: $('#language').val(),
                 includeInActiveLink: $('#includeInActive').is(':checked')
             };
+            console.log(params);
             _me.getMainView(params);
         },
 

@@ -17,6 +17,7 @@
     using System;
     using Fanex.Affiliate.User.Core.MetalModels;
     using Fanex.Affiliate.User.Core.Enum;
+    using Fanex.Affiliate.User.Core.DTO;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
@@ -129,6 +130,14 @@
         [AjaxOnly]
         public ActionResult AddChannel(string channelName)
         {
+            if (channelName.Length > 20)
+            {
+                return Json(new ResultInfo
+                {
+                    IsOk = false,
+                    Message = Error.NameToLong20
+                });
+            }    
             var userId = SessionService.UserSession.AffId;
             return Json(MarketingService.AddMarketingChannel(userId, channelName));
         }

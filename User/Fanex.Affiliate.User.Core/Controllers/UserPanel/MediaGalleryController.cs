@@ -31,6 +31,7 @@
         public ActionResult Index()
         {
             var searchFormVM = GetSearchFormViewModel();
+            ViewBag.SelectedLang = SessionService.UserSession.PreferredLanguage;
             return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", searchFormVM);
         }
 

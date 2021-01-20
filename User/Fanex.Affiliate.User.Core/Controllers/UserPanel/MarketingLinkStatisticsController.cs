@@ -14,6 +14,7 @@ using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
+    [CustomAuthorize]
     public class MarketingLinkStatisticsController : BaseController
     {
         private readonly IStatisticsRepository _statisticsRepository;

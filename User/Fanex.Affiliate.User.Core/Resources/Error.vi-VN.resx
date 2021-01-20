@@ -165,4 +165,7 @@
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>Tài khoản của bạn đã bị tạm khóa. Vui lòng liên hệ với Người quản lý tài khoản của bạn để biết thêm thông tin.</value>
   </data>
+  <data name="NameToLong20" xml:space="preserve">
+    <value>Tên quá dài (Tối đa 20 ký tự)</value>
+  </data>
 </root>
