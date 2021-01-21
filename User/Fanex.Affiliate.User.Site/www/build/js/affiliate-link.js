@@ -1285,8 +1285,8 @@ var MarketingBase = (function ($) {
                             if (result) {
                                 if (result.IsOk) {
                                     alert("Add channel succeded")
-                                    $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
-                                    $("button .btn-gen").attr("disabled", false);
+                                    $(this).append(new Option(result.Data.ChannelNauhme, result.Data.ChannelCode, false, true));
+                                    $("button .btn-gen").removeAttr("disabled");
                                 }
                                 else {
                                     alert(result.Message);
@@ -1376,8 +1376,8 @@ var MarketingBase = (function ($) {
                 }
                 let checked = $(this).prop('checked');
                 let confirmText = checked
-                    ? "Are you sure about this action? By confirming this action, you will active this tracking link"
-                    : "Are you sure about this action? By confirming this action, you will deactive this tracking link"
+                    ? "Are you sure about this action? By confirming this action, you will active this tracking link."
+                    : "Are you sure about this action? By confirming this action, you will deactive this tracking link."
 
                 if (confirm(confirmText)) {
                     let parent = $(this).parents(".qr-item").first();

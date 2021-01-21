@@ -3547,7 +3547,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Marketing Page Statistic.
+        ///   Looks up a localized string similar to Marketing Page Statistics.
         /// </summary>
         public static string MarketLinkStatistics {
             get {
