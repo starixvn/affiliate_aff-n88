@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Name too long (Max 20 characters.
+        ///   Looks up a localized string similar to Channel Name cannot exceed 20 characters. Please check again.
         /// </summary>
         public static string NameToLong20 {
             get {

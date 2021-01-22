@@ -172,6 +172,6 @@
     <value>Your account has been suspended. Please contact your Account Manager for more information.</value>
   </data>
   <data name="NameToLong20" xml:space="preserve">
-    <value>Name too long (Max 20 characters</value>
+    <value>Channel Name cannot exceed 20 characters. Please check again</value>
   </data>
 </root>

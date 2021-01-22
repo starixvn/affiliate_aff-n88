@@ -1271,20 +1271,20 @@ var MarketingBase = (function ($) {
 
             $("#Channel").focusout(function () {
                 console.log(window.previousChannelIndex);
-                if (this.selectedIndex === -1) {
+                if (this.selectedIndex <= 0) {
                     this.selectedIndex = window.previousChannelIndex === 0 ? 1 : window.previousChannelIndex;
                 }
             })
 
             $("#Channel").change(function () {
                 if ($(this).val() === 'add-new') {
-                    let text = prompt();
+                    let text = prompt("Please enter Channel Name:");
                     if (text) {
                         let addPromise = MarketingBase.addChannel(text);
                         addPromise.then(result => {
                             if (result) {
                                 if (result.IsOk) {
-                                    alert("Add channel succeded")
+                                    alert("Add channel succeeded")
                                     $(this).append(new Option(result.Data.ChannelNauhme, result.Data.ChannelCode, false, true));
                                     $("button .btn-gen").removeAttr("disabled");
                                 }
@@ -1293,6 +1293,9 @@ var MarketingBase = (function ($) {
                                 }
                             }
                         })
+                    }
+                    else {
+                        console.log("tst");
                     }
                 }
                 $(this).blur();
