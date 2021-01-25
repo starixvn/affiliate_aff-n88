@@ -89,9 +89,6 @@ var MarketingBase = (function ($) {
                             }
                         })
                     }
-                    else {
-                        console.log("tst");
-                    }
                 }
                 $(this).blur();
             })
@@ -167,7 +164,6 @@ var MarketingBase = (function ($) {
             $checkBox.off("change");
 
             $checkBox.on("change", function () {
-                console.log(isCancelConfirm);
                 if (isCancelConfirm) {
                     isCancelConfirm = false;
                     return;
