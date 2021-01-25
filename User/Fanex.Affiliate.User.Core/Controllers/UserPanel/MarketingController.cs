@@ -99,7 +99,7 @@
                 {
                     foreach (var item in result)
                     {
-                        item.Value.IsShow = usingLinks.Any(l => l.AffMediaLink == item.Value.Link);
+                        item.Value.IsShow = usingLinks.Any(l => l.AffMediaLink.Equals(item.Value.Link, StringComparison.OrdinalIgnoreCase));
                     }
                 }
             }

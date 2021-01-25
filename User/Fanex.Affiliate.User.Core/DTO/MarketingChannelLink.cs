@@ -9,6 +9,6 @@ namespace Fanex.Affiliate.User.Core.DTO
 
         public string AffMediaLink { get; set; }
 
-        public string DisplayName { get; set; }
+        public string MarketName { get; set; }
     }
 }
