@@ -151,6 +151,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add channel succeeded.
+        /// </summary>
+        public static string AddChannelSuccess {
+            get {
+                return ResourceManager.GetString("AddChannelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add new....
         /// </summary>
         public static string AddNew {
@@ -1366,6 +1375,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure about this action? By confirming this action, you will active this tracking link..
+        /// </summary>
+        public static string ConfirmActiveLink {
+            get {
+                return ResourceManager.GetString("ConfirmActiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure about this action? By confirming this action, you will deactive this tracking link..
+        /// </summary>
+        public static string ConfrimDeactiveLink {
+            get {
+                return ResourceManager.GetString("ConfrimDeactiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Congo(Rep) .
         /// </summary>
         public static string CongoRep {
@@ -2022,6 +2049,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string EnglishSupport {
             get {
                 return ResourceManager.GetString("EnglishSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter Channel Name:.
+        /// </summary>
+        public static string EnterChannel {
+            get {
+                return ResourceManager.GetString("EnterChannel", resourceCulture);
             }
         }
         

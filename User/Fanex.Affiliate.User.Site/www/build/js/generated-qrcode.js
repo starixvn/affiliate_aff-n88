@@ -15,7 +15,19 @@ var MarketingBase = (function ($) {
         return cheked ? "on" : "off";
     }
 
-
+    function handleFalseResponse(response) {
+        let data;
+        switch (response.status) {
+            case 403:
+                data = response.json();
+                alert(data.ErrMsg);
+                location.reload();
+                break;
+            default:
+                alert("Internal Error");
+                break;
+        }
+    }
 
     var _me = {
         resiterQrcodeEvent: function () {
@@ -54,7 +66,6 @@ var MarketingBase = (function ($) {
             })
 
             $("#Channel").focusout(function () {
-                console.log(window.previousChannelIndex);
                 if (this.selectedIndex <= 0) {
                     this.selectedIndex = window.previousChannelIndex === 0 ? 1 : window.previousChannelIndex;
                 }
@@ -62,13 +73,13 @@ var MarketingBase = (function ($) {
 
             $("#Channel").change(function () {
                 if ($(this).val() === 'add-new') {
-                    let text = prompt("Please enter Channel Name:");
+                    let text = prompt(window.dic.enterChannel);
                     if (text) {
                         let addPromise = MarketingBase.addChannel(text);
                         addPromise.then(result => {
                             if (result) {
                                 if (result.IsOk) {
-                                    alert("Add channel succeeded")
+                                    alert(window.dic.addChannelSuccess)
                                     $(this).append(new Option(result.Data.ChannelNauhme, result.Data.ChannelCode, false, true));
                                     $("button .btn-gen").removeAttr("disabled");
                                 }
@@ -106,7 +117,7 @@ var MarketingBase = (function ($) {
                         return data;
                     }
                     else {
-                        alert("Internal error. Please contact admin");
+                        handleFalseResponse(response);
                     }
                 }))
             return Promise.resolve(fetchData);
@@ -163,8 +174,8 @@ var MarketingBase = (function ($) {
                 }
                 let checked = $(this).prop('checked');
                 let confirmText = checked
-                    ? "Are you sure about this action? By confirming this action, you will active this tracking link."
-                    : "Are you sure about this action? By confirming this action, you will deactive this tracking link."
+                    ? window.dic.confirmActiveLink
+                    : window.dic.confirmDeactiveLink
 
                 if (confirm(confirmText)) {
                     let parent = $(this).parents(".qr-item").first();
@@ -177,14 +188,13 @@ var MarketingBase = (function ($) {
 
                     _me.toggleMarketingLink(param)
                         .then(response => {
-                            console.log(response.ok && response.json().IsOk);
                             if (response.ok) {
                                 $(parent).find("button").prop('disabled', !checked);
                                 $(parent).find(".qr-img").toggleClass("disabled");
                                 callback && callback();
                             }
                             else {
-                                alert("Update fail");
+                                handleFalseResponse(response);
                                 isCancelConfirm = true;
                                 $(this).bootstrapToggle(getToggleBtnStatus(!checked));
                             }

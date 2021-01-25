@@ -2477,4 +2477,16 @@
   <data name="PageName" xml:space="preserve">
     <value>Page Name</value>
   </data>
+  <data name="EnterChannel" xml:space="preserve">
+    <value>Please enter Channel Name:</value>
+  </data>
+  <data name="AddChannelSuccess" xml:space="preserve">
+    <value>Add channel succeeded</value>
+  </data>
+  <data name="ConfirmActiveLink" xml:space="preserve">
+    <value>Are you sure about this action? By confirming this action, you will active this tracking link.</value>
+  </data>
+  <data name="ConfrimDeactiveLink" xml:space="preserve">
+    <value>Are you sure about this action? By confirming this action, you will deactive this tracking link.</value>
+  </data>
 </root>

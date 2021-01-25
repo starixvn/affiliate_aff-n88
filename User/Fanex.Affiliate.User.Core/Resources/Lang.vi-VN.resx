@@ -2308,4 +2308,16 @@
   <data name="PageName" xml:space="preserve">
     <value>Tên trang</value>
   </data>
+  <data name="EnterChannel" xml:space="preserve">
+    <value>Nhập tên kênh</value>
+  </data>
+  <data name="AddChannelSuccess" xml:space="preserve">
+    <value>Thêm kênh thành công</value>
+  </data>
+  <data name="ConfirmActiveLink" xml:space="preserve">
+    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ kích hoạt việc theo dỗi đường dân này.</value>
+  </data>
+  <data name="ConfrimDeactiveLink" xml:space="preserve">
+    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ hủy kích hoạt việc theo dỗi đường dân này.</value>
+  </data>
 </root>

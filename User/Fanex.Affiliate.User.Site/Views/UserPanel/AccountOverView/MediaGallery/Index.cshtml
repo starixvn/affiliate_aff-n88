@@ -105,6 +105,13 @@
 
 <script>
     window.searchOption = @Html.Raw(Json.Encode(Model));
+    var dic = {
+        'enterChannel': '@Lang.EnterChannel',
+        'addChannelSuccess': '@Lang.AddChannelSuccess',
+        'confirmActiveLink': '@Lang.ConfirmActiveLink',
+        'confirmDeactiveLink': '@Lang.ConfrimDeactiveLink'
+    }
+    window.dic = Object.assign({}, window.dic, dic)
 </script>
 
 <script src="@Url.RenderLink("~/www/build/js/mediagallery.js")"></script>
