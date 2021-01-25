@@ -4,7 +4,7 @@
 
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_Rpt_MarketingPage_Statistics" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_AffMediaChannel_Statistics" Suffix="_xtest"></item>
-  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_AffMediaLink_ToggleChannel" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_AffMediaChannel_Ins" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_AffMediaChannel_Sel" Suffix="_xtest"></item>
+  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_AffMediaLink_ToggleChannel" Suffix="_xtest"></item>
 </Root>
