@@ -274,7 +274,7 @@
     <value>เบอร์มิวด้า</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>ยูสเซอร์เนม 12bet จำเป็นต้องมี</value>
+    <value>ยูสเซอร์เนม N88 จำเป็นต้องมี</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>ภูฐาน</value>
@@ -424,7 +424,7 @@
     <value>วันที่เสร็จสมบูรณ์</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>กรุณากรอกแบบฟอร์มนี้เพื่อสมัครสมาชิกกับโปรแกรมพันธมิตร 12BET</value>
+    <value>กรุณากรอกแบบฟอร์มนี้เพื่อสมัครสมาชิกกับโปรแกรมพันธมิตร N88</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>คองโก</value>
@@ -445,7 +445,7 @@
     <value>เกาะ คุ๊ก</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© ลิขสิทธิ์ 2020| 12BET. สงวนลิขสิทธิ์ | 21+</value>
+    <value>© ลิขสิทธิ์ 2020| N88. สงวนลิขสิทธิ์ | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>คอสตาริกา</value>
@@ -517,7 +517,7 @@
     <value>รายละเอียด</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>กรุณาระบุว่าคุณจะแนะนำเพื่อนหรือบุคคลอื่น มาสมัครที่เว็บไซต์ 12BET ได้ยังไง</value>
+    <value>กรุณาระบุว่าคุณจะแนะนำเพื่อนหรือบุคคลอื่น มาสมัครที่เว็บไซต์ N88 ได้ยังไง</value>
   </data>
   <data name="DominicaCommonwealthof" xml:space="preserve">
     <value>โดมินิกา</value>
@@ -670,7 +670,7 @@
     <value>ไม่สามารถหาแหล่งที่มาได้  มีข้อผิดพลาด</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>เกิดความผิดพลาดในการเข้าสู่ข้อมูลผู้เล่น 12BET แนะนำติดต่อเจ้าหน้าที่บริการคะ !</value>
+    <value>เกิดความผิดพลาดในการเข้าสู่ข้อมูลผู้เล่น N88 แนะนำติดต่อเจ้าหน้าที่บริการคะ !</value>
   </data>
   <data name="ErrEmailInvalid" xml:space="preserve">
     <value>อีเมลล์แอดเดรสไม่ถูกต้อง</value>
@@ -826,7 +826,7 @@
     <value>ฮังการี</value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>ฉันยอมรับในกติกาและเงื่อนไขในโปรแกรม พันธมิตร 12BET</value>
+    <value>ฉันยอมรับในกติกาและเงื่อนไขในโปรแกรม พันธมิตร N88</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>ไอซ์แลนด์</value>
@@ -1009,7 +1009,7 @@
         กรุณาติดต่อเราได้ที่เบอร์ 1-34354-3454 ถ้าคุณมีคำถามเพิ่มเติม. {br}{br}
         ขอให้มีวันที่ดี{br}{br}
         ขอแสดงความนับถือ, {br}{br}
-       ทีมงานพันธมิตร 12bet
+       ทีมงานพันธมิตร N88
     </value>
   </data>
   <data name="Mexico" xml:space="preserve">
@@ -1304,10 +1304,10 @@
     <value>แบบฟอร์มการสมัคร</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>พันธมิตร 12bet - การสมัครของคุณ</value>
+    <value>พันธมิตร N88 - การสมัครของคุณ</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร 12BET &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร 12BET.&lt;br/&gt;&lt;br/&gt;ไม่ว่ากรณีใดก็ตาม หากคุณยังไม่ได้รับอีเมลโปรดตรวจสอบที่กล่องจดหมายขยะก่อน หรือ&lt;a href='{0}'&gt;ติดต่อเจ้าหน้าที่เพื่อการช่วยเหลือ&lt;/a&gt;</value>
+    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร N88 &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร N88.&lt;br/&gt;&lt;br/&gt;ไม่ว่ากรณีใดก็ตาม หากคุณยังไม่ได้รับอีเมลโปรดตรวจสอบที่กล่องจดหมายขยะก่อน หรือ&lt;a href='{0}'&gt;ติดต่อเจ้าหน้าที่เพื่อการช่วยเหลือ&lt;/a&gt;</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>ถูกปฏิเสธแล้ว</value>
@@ -1463,13 +1463,13 @@
     <value>หัวเรื่อง</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>บัญชีพันธมิตร 12bet รายละเอียดการล๊อคอินของคุณ</value>
+    <value>บัญชีพันธมิตร N88 รายละเอียดการล๊อคอินของคุณ</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
     <value>เรื่องไม่ถูกต้อง</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>พันธมิตร 12bet - รหัสผ่านตัวใหม่ของคุณ</value>
+    <value>พันธมิตร N88 - รหัสผ่านตัวใหม่ของคุณ</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>ส่งข้อมูล</value>
@@ -1680,13 +1680,13 @@
     <value>ซิมบัฟเวย์</value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>บัญชีที่ใช้เล่นใน 12BET</value>
+    <value>บัญชีที่ใช้เล่นใน N88</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>รหัสผ่านตัวใหม่ของคุณ</value>
   </data>
   <data name="EmailTitlePasswordRecovery" xml:space="preserve">
-    <value>บัญชีพันธมิตร 12bet รายละเอียดการล๊อคอินของคุณ</value>
+    <value>บัญชีพันธมิตร N88 รายละเอียดการล๊อคอินของคุณ</value>
   </data>
   <data name="EmailTitlePayment" xml:space="preserve">
     <value>จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
@@ -1695,7 +1695,7 @@
     <value>เรื่อง   สถานะการสมัครของท่าน</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>คลับคาสิโน 12BET</value>
+    <value>คลับคาสิโน N88</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>คาสิโนออนไลน์สด</value>
@@ -1722,7 +1722,7 @@
     <value>ผลิตภัณฑ์ทั้งหมด</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ 12BET</value>
+    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>วันจันทร์ - วันเสาร์&lt;br&gt;เวลา 08.00 น. - 17.00 น. (เวลาไทย)</value>
@@ -1770,22 +1770,22 @@
     <value>ล็อตเตอร์รี่</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>สมัครร่วมโปรแกรมพันธมิตร12BETเลยสิคะ!</value>
+    <value>สมัครร่วมโปรแกรมพันธมิตรN88เลยสิคะ!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>สมัครเป็นพันธมิตร</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>สมัครพันธมิตรกับ 12BET</value>
+    <value>สมัครพันธมิตรกับ N88</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>ในฐานะพันธมิตรในเครือ คุณจะได้รับส่วนแบ่งรายได้จากผู้เล่นทุกคนที่คุณแนะนำเข้ามาใน 12BET ตลอดอายุการใช้งานบัญชีของผู้เล่น. ระบบออนไลน์ของคุณจะให้บริการคุณตลอด 24 ชั่วโมง.</value>
+    <value>ในฐานะพันธมิตรในเครือ คุณจะได้รับส่วนแบ่งรายได้จากผู้เล่นทุกคนที่คุณแนะนำเข้ามาใน N88 ตลอดอายุการใช้งานบัญชีของผู้เล่น. ระบบออนไลน์ของคุณจะให้บริการคุณตลอด 24 ชั่วโมง.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>ข่าวใหม่ในพันธมิตร</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>ข่าวสารพันธมิตรของ 12BET</value>
+    <value>ข่าวสารพันธมิตรของ N88</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>ข่าวสาร</value>
@@ -1797,7 +1797,7 @@
     <value>ตอนนี้คุณสามารถเข้าสู่บัญชีพันธมิตรของคุณเพื่อรับแบนเนอร์ใหม่เพื่อโปรโมตในเว็บไซต์ของคุณ</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>ข่าวโปรโมชั่นใหม่ของโนวา 12BET</value>
+    <value>ข่าวโปรโมชั่นใหม่ของโนวา N88</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>มารู้จักโปรโมชั่นสุดฮอตในเดือนนี้. โพสต์ลงในเว็บไซต์และช่องทางโซเชียลของคุณเพื่อหาลูกค้าและส่วนแบ่งรายได้มากขึ้น!</value>
@@ -1824,7 +1824,7 @@
     <value>ตลอดฤดูกาลฟุตบอล 2018/2019</value>
   </data>
   <data name="Update12BetBannersfromYourMediaGallery" xml:space="preserve">
-    <value>โดยอัพเดทแบนเนอร์12BETจากสื่อโฆษณาเสมอ</value>
+    <value>โดยอัพเดทแบนเนอร์N88จากสื่อโฆษณาเสมอ</value>
   </data>
   <data name="AndPostPromotionsInYourWebsite" xml:space="preserve">
     <value>และแนะนำโปรโมชั่นใหม่ในเว็บไซต์ของคุณ</value>
@@ -1848,7 +1848,7 @@
     <value>คุณยังไม่ได้ร่วมพันธมิตรหรอคะ?</value>
   </data>
   <data name="SignUpAffiliatesNow" xml:space="preserve">
-    <value>สมัครเป็นพันธมิตรกับ12BETตอนนี้</value>
+    <value>สมัครเป็นพันธมิตรกับN88ตอนนี้</value>
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>รายงานค่าคอมมิชชั่น</value>
@@ -1989,10 +1989,10 @@
     <value>ภาษา</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>ร่วมเป็นหุ้นส่วนธุรกิจกับ12BET | โปรแกรมพันธมิตร12BET</value>
+    <value>ร่วมเป็นหุ้นส่วนธุรกิจกับN88 | โปรแกรมพันธมิตรN88</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>เป็นพันธมิตรในการโปรโมทเดิมพันกีฬาและคาสิโนให้กับเว็บไซต์12BETแล้วรับค่าคอมมิชชั่นรายเดือนจากลูกค้าที่แนะนำจากเว็บไซต์คุณ</value>
+    <value>เป็นพันธมิตรในการโปรโมทเดิมพันกีฬาและคาสิโนให้กับเว็บไซต์N88แล้วรับค่าคอมมิชชั่นรายเดือนจากลูกค้าที่แนะนำจากเว็บไซต์คุณ</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>อีเมลล์แอดเดรส</value>
@@ -2145,9 +2145,9 @@
     <value>ยืนยันรายละเอียดบัญชีของท่าน</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>พันธมิตร 12Bet - ยืนยันรายละเอียดบัญชีของท่าน</value>
+    <value>พันธมิตร N88 - ยืนยันรายละเอียดบัญชีของท่าน</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>พันธมิตร 12Bet - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
+    <value>พันธมิตร N88 - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
   </data>
 </root>

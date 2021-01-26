@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry! The payment via {0} is not available. At the moment, only &apos;12Bet Player Account&apos; method is supported. Please &lt;a href=&apos;{1}&apos;&gt;click here&lt;/a&gt; to make a change..
+        ///   Looks up a localized string similar to Sorry! The payment via {0} is not available. At the moment, only &apos;N88 Player Account&apos; method is supported. Please &lt;a href=&apos;{1}&apos;&gt;click here&lt;/a&gt; to make a change..
         /// </summary>
         public static string PaymentMethodInvalid {
             get {

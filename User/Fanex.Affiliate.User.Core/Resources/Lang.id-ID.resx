@@ -274,7 +274,7 @@
     <value>Bermuda </value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>Nama Pengguna 12BET diperlukan</value>
+    <value>Nama Pengguna N88 diperlukan</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>Bhutan </value>
@@ -331,7 +331,7 @@
     <value>Batalkan Permintaan</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>Afiliasi 12Bet - [{0}] - Pemberitahuan Permintaan Pembayaran</value>
+    <value>Afiliasi N88 - [{0}] - Pemberitahuan Permintaan Pembayaran</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -424,7 +424,7 @@
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>12BET tidak akan memberikan informasi pribadi Anda pada pihak mana pun. Informasi pribadi Anda dijamin kerahasiaannya dan aman.</value>
+    <value>N88 tidak akan memberikan informasi pribadi Anda pada pihak mana pun. Informasi pribadi Anda dijamin kerahasiaannya dan aman.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Kongo(Rep) </value>
@@ -448,7 +448,7 @@
     <value>Kep. Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© hak cipta 2020 | 12BET. Seluruh hak dilindungi | 21+</value>
+    <value>© hak cipta 2020 | N88. Seluruh hak dilindungi | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Kosta Rika </value>
@@ -469,7 +469,7 @@
     <value>Kroasia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>Rekening baru Afiliasi 12Bet ﾖ  menunggu persetujuan</value>
+    <value>Rekening baru Afiliasi N88 ﾖ  menunggu persetujuan</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Mata Uang</value>
@@ -520,7 +520,7 @@
     <value>Keterangan</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>Mohon jelaskan bagaimana Anda mempromosikan 12BET meskipun Anda tidak punya situs web (website)?</value>
+    <value>Mohon jelaskan bagaimana Anda mempromosikan N88 meskipun Anda tidak punya situs web (website)?</value>
   </data>
   <data name="DominicaCommonwealthof" xml:space="preserve">
     <value>Dominika (Commonwealth) </value>
@@ -673,7 +673,7 @@
     <value>Kesalahan Tidak Diketahui!</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>Terdapat kesalahan ketika mengambil informasi pemain 12Bet. Harap menghubungi administrator Anda!</value>
+    <value>Terdapat kesalahan ketika mengambil informasi pemain N88. Harap menghubungi administrator Anda!</value>
   </data>
   <data name="ErrEmailInvalid" xml:space="preserve">
     <value>Alamat email - tidak valid</value>
@@ -829,7 +829,7 @@
     <value>Hungaria </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Saya menyetujui Persyaratan &amp; Ketentuan Afiliasi 12BET.</value>
+    <value>Saya menyetujui Persyaratan &amp; Ketentuan Afiliasi N88.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Islandia </value>
@@ -1011,7 +1011,7 @@
        Silakan menghubungi kami di 1-34354-3454 jika ada pertanyaan apa pun. {br}{br}
        Semoga hari Anda menyenangkan! {br}{br}
        Salam hormat, {br}{br}
-       Tim Dukungan Afiliasi 12BET
+       Tim Dukungan Afiliasi N88
    </value>
   </data>
   <data name="Mexico" xml:space="preserve">
@@ -1306,10 +1306,10 @@
     <value>Formulir Permohonan</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>Afiliasi 12Bet - Permohonan Anda</value>
+    <value>Afiliasi N88 - Permohonan Anda</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet.&lt;br/&gt;&lt;br/&gt;Periksa folder Spam apabila Anda tidak menerima email atau &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt; untuk bantuan lebih lanjut. </value>
+    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi N88 untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi N88.&lt;br/&gt;&lt;br/&gt;Periksa folder Spam apabila Anda tidak menerima email atau &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt; untuk bantuan lebih lanjut. </value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
@@ -1465,13 +1465,13 @@
     <value>Subject</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>Afiliasi 12Bet - Rincian login Anda</value>
+    <value>Afiliasi N88 - Rincian login Anda</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
     <value>Subjek tidak valid</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>Afiliasi 12Bet - Kata sandi baru Anda</value>
+    <value>Afiliasi N88 - Kata sandi baru Anda</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Ajukan</value>
@@ -1678,7 +1678,7 @@
     <value>Zimbabwe </value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>Melalui Akun 12BET</value>
+    <value>Melalui Akun N88</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>Kata sandi baru Anda</value>
@@ -1693,7 +1693,7 @@
     <value>Permohonan Anda</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET Kasino Klub</value>
+    <value>N88 Kasino Klub</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>Kasino Siaran Langsung / Live casino</value>
@@ -1720,7 +1720,7 @@
     <value>Semua produk</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Lebih lengkap tentang Produk 12BET</value>
+    <value>Lebih lengkap tentang Produk N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>Senin - Sabtu&lt;br&gt;8:00 - 17:00 WIB</value>
@@ -1765,22 +1765,22 @@
     <value>LOTERE</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>Daftarkan diri anda untuk program affilasi 12BET Sekarang juga !!</value>
+    <value>Daftarkan diri anda untuk program affilasi N88 Sekarang juga !!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>daftar afiliasi</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Ajukan Affiliasi 12BET</value>
+    <value>Ajukan Affiliasi N88</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada 12BET. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
+    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada N88. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>Apa yang baru di affiliasi ??</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>Berita affiliasi 12BET</value>
+    <value>Berita affiliasi N88</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>Baru!</value>
@@ -1792,7 +1792,7 @@
     <value>Sekarang Kamu sudah bisa login ke akun affiliasi anda untuk mendapatkan spanduk baru yang akan kalian gunakan untuk promosi di website anda.</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>Apa yang baru di Promosi 12BET ??</value>
+    <value>Apa yang baru di Promosi N88 ??</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>Cari tau Promosi terhangat di bulan ini !! Posting spanduk di website anda dan sosial media anda untuk mendapatkan customer baru dan perbesar pendapatan anda.</value>
@@ -1819,10 +1819,10 @@
     <value>SEPANJANG MUSIM KOMPETISI 2018/19</value>
   </data>
   <data name="Update12BetBannersfromYourMediaGallery" xml:space="preserve">
-    <value>Update Banner 12BET dan</value>
+    <value>Update Banner N88 dan</value>
   </data>
   <data name="AndPostPromotionsInYourWebsite" xml:space="preserve">
-    <value>Post Promosi 12BET di Website Anda</value>
+    <value>Post Promosi N88 di Website Anda</value>
   </data>
   <data name="ToBeatTheBestCommission" xml:space="preserve">
     <value>Untuk Dapat Komisi Terbaik!</value>
@@ -1990,13 +1990,13 @@
     <value>IDR (Indonesian Rupiah)</value>
   </data>
   <data name="Player" xml:space="preserve">
-    <value>Melalui Akun 12BET</value>
+    <value>Melalui Akun N88</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Jadilah Mitra Bisnis 12BET | Program Afiliasi 12BET</value>
+    <value>Jadilah Mitra Bisnis N88 | Program Afiliasi N88</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Menjadi Mitra Bisnis Afiliasi 12BET untuk mempromosikan Olahraga dan Kasino 12BET, serta menghasilkan komisi bulanan dari pelanggan yang datang dari situs Anda.</value>
+    <value>Menjadi Mitra Bisnis Afiliasi N88 untuk mempromosikan Olahraga dan Kasino N88, serta menghasilkan komisi bulanan dari pelanggan yang datang dari situs Anda.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>E-mail</value>
@@ -2020,7 +2020,7 @@
     <value>Permainan Meja / Kartu</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
-    <value>YTH Member 12BET,</value>
+    <value>YTH Member N88,</value>
   </data>
   <data name="DueTo" xml:space="preserve">
     <value>Dikarenakan banyaknya melakukan kesalahan login, silahkan verifikasi tambahan keamanan Akun Anda</value>
@@ -2125,9 +2125,9 @@
     <value>Verifikasi detail akun Anda</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>Afiliasi 12Bet - Verifikasi detail akun Anda</value>
+    <value>Afiliasi N88 - Verifikasi detail akun Anda</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>Afiliasi 12Bet - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
+    <value>Afiliasi N88 - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
   </data>
 </root>

@@ -346,7 +346,7 @@
     <value>Cancel Request</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>12Bet Affiliates - [{0}] - Payment Request Notification</value>
+    <value>N88 Affiliates - [{0}] - Payment Request Notification</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -443,7 +443,7 @@
     <value>Completed Date</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>Please complete this form to register for your 12BET affiliate account.</value>
+    <value>Please complete this form to register for your N88 affiliate account.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Congo(Rep) </value>
@@ -468,7 +468,7 @@
     <value>Cook Islands </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Copyright 2020 | 12BET. All Rights Reserved | 21+</value>
+    <value>© Copyright 2020 | N88. All Rights Reserved | 21+</value>
     <comment>87923</comment>
   </data>
   <data name="CostaRica" xml:space="preserve">
@@ -490,7 +490,7 @@
     <value>Croatia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>12Bet Affiliate – New account {0} awaiting approval</value>
+    <value>N88 Affiliate – New account {0} awaiting approval</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Currency</value>
@@ -701,7 +701,7 @@
     <value>Unknown Error!</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>There was an error when getting 12Bet player information. Please contact your administrator!</value>
+    <value>There was an error when getting N88 player information. Please contact your administrator!</value>
   </data>
   <data name="ErrEmailInvalid" xml:space="preserve">
     <value>Email address - is invalid</value>
@@ -865,7 +865,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>I agree to the Terms &amp; Conditions of 12BET Affiliate.</value>
+    <value>I agree to the Terms &amp; Conditions of N88 Affiliate.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -1057,7 +1057,7 @@
         Feel free to call us at 1-34354-3454 if you have any question. {br}{br}
         Have a great day! {br}{br}
         Best regards, {br}{br}
-        12Bet Affiliate Support Team
+        N88 Affiliate Support Team
     </value>
   </data>
   <data name="Mexico" xml:space="preserve">
@@ -1379,10 +1379,10 @@
     <value>Application Form</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>12Bet Affiliate - Your Application</value>
+    <value>N88 Affiliate - Your Application</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at 12Bet Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at 12Bet Affiliates&lt;br/&gt;&lt;br/&gt;For any reason, you do not receive the email, please check your Spam box or &lt;a href='{0}'&gt;Contact Us&lt;/a&gt; and we will glad to assist you.</value>
+    <value>Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at N88 Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at N88 Affiliates&lt;br/&gt;&lt;br/&gt;For any reason, you do not receive the email, please check your Spam box or &lt;a href='{0}'&gt;Contact Us&lt;/a&gt; and we will glad to assist you.</value>
   </data>
   <data name="RegisteredDate" xml:space="preserve">
     <value>Registered Date</value>
@@ -1556,13 +1556,13 @@
     <comment>87923</comment>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>12Bet Affiliates - Your login detail</value>
+    <value>N88 Affiliates - Your login detail</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
     <value>Subject is invalid</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>12Bet Affiliates - Your new password</value>
+    <value>N88 Affiliates - Your new password</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Submit</value>
@@ -1799,7 +1799,7 @@
     <value>Zimbabwe </value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>12BET Player Account</value>
+    <value>N88 Player Account</value>
   </data>
   <data name="CommissionStructure" xml:space="preserve">
     <value>Revenue Sharing Structure</value>
@@ -1826,7 +1826,7 @@
     <comment>87923</comment>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>More details about 12BET products</value>
+    <value>More details about N88 products</value>
     <comment>87923</comment>
   </data>
   <data name="RevenueShare" xml:space="preserve">
@@ -1894,7 +1894,7 @@
     <comment>87923</comment>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET CASINO CLUBS</value>
+    <value>N88 CASINO CLUBS</value>
     <comment>87923</comment>
   </data>
   <data name="LiveCasino" xml:space="preserve">
@@ -1962,15 +1962,15 @@
     <comment>87923</comment>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>SIGN UP 12BET AFFILIATE PROGRAM NOW!</value>
+    <value>SIGN UP N88 AFFILIATE PROGRAM NOW!</value>
     <comment>87923</comment>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Apply 12BET Affiliate</value>
+    <value>Apply N88 Affiliate</value>
     <comment>87923</comment>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>As affiliates, you will earn revenue share on every player you referred to 12BET  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
+    <value>As affiliates, you will earn revenue share on every player you referred to N88  over the course of the player's account life. Your online system will be  serving  you 24/7 for your usage.</value>
     <comment>87923</comment>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
@@ -1978,7 +1978,7 @@
     <comment>87923</comment>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>12BET Affiliate News</value>
+    <value>N88 Affiliate News</value>
     <comment>87923</comment>
   </data>
   <data name="NewBannerIsNowAvailable" xml:space="preserve">
@@ -1990,7 +1990,7 @@
     <comment>87923</comment>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>What's New in 12BET Promotion ! </value>
+    <value>What's New in N88 Promotion ! </value>
     <comment>87923</comment>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
@@ -2020,7 +2020,7 @@
     <value>THROUGH SOCCER SEASON 2018/2019</value>
   </data>
   <data name="Update12BetBannersfromYourMediaGallery" xml:space="preserve">
-    <value>Update 12BET Banners from your Media Gallery</value>
+    <value>Update N88 Banners from your Media Gallery</value>
   </data>
   <data name="AndPostPromotionsInYourWebsite" xml:space="preserve">
     <value>And Post Promotions in Your Websites</value>
@@ -2113,10 +2113,10 @@
     <value>Player</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Be A Business Partner of 12BET | Affiliate Program - 12BET</value>
+    <value>Be A Business Partner of N88 | Affiliate Program - N88</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly revenue share from customers brought from your websites.</value>
+    <value>Become N88 Affiliate Business Partner to promote N88 Sportsbook and Casino and earn monthly revenue share from customers brought from your websites.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>Email Address</value>
@@ -2146,7 +2146,7 @@
     <value>Verification your account detail</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>12Bet Affiliates - Verification your account detail</value>
+    <value>N88 Affiliates - Verification your account detail</value>
   </data>
   <data name="ErrmsgEntryCaptcha" xml:space="preserve">
     <value>Please enter captcha!</value>
@@ -2417,7 +2417,7 @@
     <value>Your payment request has been cancelled</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>12Bet Affiliates - [{0}] - Your payment request has been cancelled</value>
+    <value>N88 Affiliates - [{0}] - Your payment request has been cancelled</value>
   </data>
   <data name="WithdrawalFee" xml:space="preserve">
     <value>Withdrawal Fee</value>

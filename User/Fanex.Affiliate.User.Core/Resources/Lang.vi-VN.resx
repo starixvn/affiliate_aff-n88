@@ -331,7 +331,7 @@
     <value>Yêu cầu hủy</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>12Bet Đại Lý - [{0}] - Thông báo yêu cầu thanh toán</value>
+    <value>N88 Đại Lý - [{0}] - Thông báo yêu cầu thanh toán</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -421,7 +421,7 @@
     <value>Ngày hoàn thành</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>Vui lòng hoàn thành mẫu này để đăng ký tài khoản đại lý 12BET.</value>
+    <value>Vui lòng hoàn thành mẫu này để đăng ký tài khoản đại lý N88.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Cộng hòa Congo </value>
@@ -445,7 +445,7 @@
     <value>Quần đảo Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Bản quyền 2020 | Toàn bộ thuộc 12BET.com | 21+</value>
+    <value>© Bản quyền 2020 | Toàn bộ thuộc N88.com | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Costa Rica </value>
@@ -466,7 +466,7 @@
     <value>Croatia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>12Bet Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
+    <value>N88 Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
@@ -670,7 +670,7 @@
     <value>Lỗi không xác định!</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>Đã xảy ra lỗi khi lấy thông tin người chơi 12Bet. Vui lòng liên hệ với quản trị viên của bạn!</value>
+    <value>Đã xảy ra lỗi khi lấy thông tin người chơi N88. Vui lòng liên hệ với quản trị viên của bạn!</value>
   </data>
   <data name="ErrEmailInvalid" xml:space="preserve">
     <value>Địa chỉ email không hợp lệ</value>
@@ -826,7 +826,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của Đại Lý 12BET.</value>
+    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của Đại Lý N88.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -1008,7 +1008,7 @@
        Hãy gọi ngay cho chúng tôi theo số 1-34354-3454 nếu bạn có bất kỳ câu hỏi nào. {br}{br}
        Chúc bạn một ngày tốt lành! {br}{br}
        Trân trọng, {br}{br}
-       Nhóm hỗ trợ hội viên 12BET
+       Nhóm hỗ trợ hội viên N88
    </value>
   </data>
   <data name="Mexico" xml:space="preserve">
@@ -1300,10 +1300,10 @@
     <value>Mẫu đơn</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>12Bet Đại Lý - Đơn của bạn</value>
+    <value>N88 Đại Lý - Đơn của bạn</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm 12Bet Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên 12BET.&lt;br/&gt;&lt;br/&gt;Vì bất kỳ lý do gì, bạn không nhận được email, vui lòng kiểm tra hộp Thư rác của bạn hoặc &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt; và chúng tôi sẽ sẵn sàng hỗ trợ bạn.</value>
+    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm N88 Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên N88.&lt;br/&gt;&lt;br/&gt;Vì bất kỳ lý do gì, bạn không nhận được email, vui lòng kiểm tra hộp Thư rác của bạn hoặc &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt; và chúng tôi sẽ sẵn sàng hỗ trợ bạn.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Bị từ chối</value>
@@ -1459,13 +1459,13 @@
     <value>Tiêu Đề</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>Hội viên 12BET - Chi tiết đăng nhập của bạn</value>
+    <value>Hội viên N88 - Chi tiết đăng nhập của bạn</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
     <value>Tiêu đề không hợp lệ</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>Hội viên 12BET - Mật khẩu mới của bạn</value>
+    <value>Hội viên N88 - Mật khẩu mới của bạn</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Gửi</value>
@@ -1673,7 +1673,7 @@
     <value>Zimbabwe </value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>Tài khoản người chơi 12BET</value>
+    <value>Tài khoản người chơi N88</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>Mật khẩu mới của bạn</value>
@@ -1685,10 +1685,10 @@
     <value>Thông Báo Yêu Cầu Thanh Toán</value>
   </data>
   <data name="EmailTitleSignUp" xml:space="preserve">
-    <value>Xác nhận đơn đăng ký chương trình kết nối 12BET</value>
+    <value>Xác nhận đơn đăng ký chương trình kết nối N88</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET CASINO CLUBS</value>
+    <value>N88 CASINO CLUBS</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>Live Casino</value>
@@ -1721,7 +1721,7 @@
     <value>Tất Cả Sản Phẩm</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Xem Danh Sách Sản Phẩm 12BET</value>
+    <value>Xem Danh Sách Sản Phẩm N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>09:00 - 18:00 (GMT+8)&lt;br&gt;Thứ Hai - Thứ Bảy</value>
@@ -1742,7 +1742,7 @@
     <value>Hỗ trợ tiếng Ấn Độ</value>
   </data>
   <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình Đại Lý 12BET, vui lòng gửi về {0}</value>
+    <value>Mọi thắc mắc về chương trình Đại Lý N88, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>
@@ -1769,22 +1769,22 @@
     <value>XỔ SỐ</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>Đăng Ký Tham Gia Chương Trình Đại Lý 12BET</value>
+    <value>Đăng Ký Tham Gia Chương Trình Đại Lý N88</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>ĐĂNG KÝ ĐẠI LÝ</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Tham Gia Đại Lý 12BET</value>
+    <value>Tham Gia Đại Lý N88</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>Mỗi tháng, Đại lý 12BET sẽ nhận Hoa hồng dựa trên số lượng Thành viên mới tham gia chơi tại 12BET do bạn giới thiệu,  mỗi đại lý có thể theo dõi báo cáo cập nhật liên tục trong ngày.</value>
+    <value>Mỗi tháng, Đại lý N88 sẽ nhận Hoa hồng dựa trên số lượng Thành viên mới tham gia chơi tại N88 do bạn giới thiệu,  mỗi đại lý có thể theo dõi báo cáo cập nhật liên tục trong ngày.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>Cập Nhật Thông Tin Mới Nhất</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>Bản Tin Đại Lý 12BET</value>
+    <value>Bản Tin Đại Lý N88</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>MỚI! </value>
@@ -1799,7 +1799,7 @@
     <value>KHUYẾN MÃI ĐẶC BIỆT</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
-    <value>Nhiều ưu đãi độc quyền tại 12BET mỗi tháng. Bạn tham khảo &amp; giới thiệu đến các Thành viên của mình thúc đẩy doanh thu, tăng thưởng hoa hồng ngay!</value>
+    <value>Nhiều ưu đãi độc quyền tại N88 mỗi tháng. Bạn tham khảo &amp; giới thiệu đến các Thành viên của mình thúc đẩy doanh thu, tăng thưởng hoa hồng ngay!</value>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
     <value>Bạn muốn kiếm tiền nhiều hơn,</value>
@@ -1823,7 +1823,7 @@
     <value>MẠNG XÃ HỘI &amp; TRANG WEB RIÊNG CỦA MÌNH!</value>
   </data>
   <data name="Update12BetBannersfromYourMediaGallery" xml:space="preserve">
-    <value>Cập Nhật 12BET Banner Tại Thư Viện Ảnh</value>
+    <value>Cập Nhật N88 Banner Tại Thư Viện Ảnh</value>
   </data>
   <data name="AndPostPromotionsInYourWebsite" xml:space="preserve">
     <value>Để Tăng Sức Hấp Dẫn Riêng</value>
@@ -1844,7 +1844,7 @@
     <value>&lt;p class="text-white"&gt;DOANH THU CỦA&lt;span class="text-red"&gt; TẤT CẢ SẢN PHẨM&lt;/span&gt;&lt;/p&gt;</value>
   </data>
   <data name="YouAreNotAffiliateYet" xml:space="preserve">
-    <value>BẠN CHƯA LÀ ĐẠI LÝ 12BET?</value>
+    <value>BẠN CHƯA LÀ ĐẠI LÝ N88?</value>
   </data>
   <data name="SignUpAffiliatesNow" xml:space="preserve">
     <value>ĐĂNG KÝ NGAY!</value>
@@ -1958,7 +1958,7 @@
     <value>Chưa là Hội Viên?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý 12BET để nhận thưởng {0} Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký tham gia Đại lý N88 để nhận thưởng {0} Hoa Hồng Mỗi Tháng!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>ĐĂNG KÝ</value>
@@ -1976,7 +1976,7 @@
     <value>Di động</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
-    <value>Tên truy cập 12BET</value>
+    <value>Tên truy cập N88</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>≥ 5 </value>
@@ -1991,10 +1991,10 @@
     <value>Ngôn ngữ</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Trở thành đối tác thương mại của 12BET | Chương trình Đại Lý 12BET</value>
+    <value>Trở thành đối tác thương mại của N88 | Chương trình Đại Lý N88</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Trở thành đối tác chính thức của 12BET, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
+    <value>Trở thành đối tác chính thức của N88, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>Địa chỉ email</value>
@@ -2261,7 +2261,7 @@
     <value>Yêu cầu thanh toán của bạn đã bị hủy</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>12Bet Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
+    <value>N88 Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
   </data>
   <data name="WithdrawalFee" xml:space="preserve">
     <value>Phí Rút Tiền</value>

@@ -139,7 +139,7 @@
     <value>您的帐户余额不足，不能要求提款</value>
   </data>
   <data name="PaymentMethodInvalid" xml:space="preserve">
-    <value>非常抱歉，{0}支付方式暂不可用。&lt;a href='{1}'&gt;请点击这里&lt;/a&gt;改选“12BET玩家帐户”支付。</value>
+    <value>非常抱歉，{0}支付方式暂不可用。&lt;a href='{1}'&gt;请点击这里&lt;/a&gt;改选“N88玩家帐户”支付。</value>
   </data>
   <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
     <value>每月8号至15号为申请提款时间.</value>

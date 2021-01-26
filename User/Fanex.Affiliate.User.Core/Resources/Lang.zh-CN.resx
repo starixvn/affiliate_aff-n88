@@ -274,7 +274,7 @@
     <value>百幕大</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>请填写12BET用户名</value>
+    <value>请填写N88用户名</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>不丹</value>
@@ -331,7 +331,7 @@
     <value>取消申请</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>12Bet合作伙伴 - [{0}] - 支付申请通知</value>
+    <value>N88合作伙伴 - [{0}] - 支付申请通知</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>维德角岛</value>
@@ -424,7 +424,7 @@
     <value>完成日期</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>请完整填写此页注册表，以确保成功注册12BET合作伙伴账号</value>
+    <value>请完整填写此页注册表，以确保成功注册N88合作伙伴账号</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>刚果共和国</value>
@@ -445,7 +445,7 @@
     <value>库克群岛</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© 版权 2020 | 12BET 版权所有 | 21+</value>
+    <value>© 版权 2020 | N88 版权所有 | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>哥斯达黎加</value>
@@ -466,7 +466,7 @@
     <value>克罗地亚</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>12BET合作伙伴 — 新帐户等待核准</value>
+    <value>N88合作伙伴 — 新帐户等待核准</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>外匯</value>
@@ -828,7 +828,7 @@
     <value>匈牙利</value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>我同意12BET合作伙伴的规则与条款</value>
+    <value>我同意N88合作伙伴的规则与条款</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>冰岛</value>
@@ -1011,7 +1011,7 @@
         如有任何问题，欢迎随时致电1-34354-3454 {br}{br}
         祝您好运！ {br}{br}
         致以敬意， {br}{br}
-        12BET合作伙伴团队
+        N88合作伙伴团队
     </value>
   </data>
   <data name="Mexico" xml:space="preserve">
@@ -1306,14 +1306,14 @@
     <value>申请表格</value>
   </data>
   <data name="RegisSubject" xml:space="preserve">
-    <value>12BET 合作伙伴 - 您的申请</value>
+    <value>N88 合作伙伴 - 您的申请</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
     <value>感谢您提交申请。&lt;br /&gt;&lt;br /&gt;
-我们12Bet合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
+我们N88合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
 我们将在5天内回复您的申请。一旦您的申请被核准，您将立即获得全权参与进入我们的合作伙伴项目。&lt;br /&gt;&lt;br /&gt;
 致以敬意，&lt;br /&gt;&lt;br /&gt;
-12Bet合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
+N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
 如您未收到任何邮件，请检查您的垃圾邮件或&lt;a href='{0}'&gt;联系在线客服&lt;/a&gt;寻找协助。</value>
   </data>
   <data name="Rejected" xml:space="preserve">
@@ -1470,13 +1470,13 @@
     <value>主题</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>12BET 合作伙伴 — 您的登录详情</value>
+    <value>N88 合作伙伴 — 您的登录详情</value>
   </data>
   <data name="SubjectIsInvalid" xml:space="preserve">
     <value>主题无效</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>12BET 合作伙伴 — 您的新密码</value>
+    <value>N88 合作伙伴 — 您的新密码</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>提交</value>
@@ -1687,7 +1687,7 @@
     <value>津巴布韦</value>
   </data>
   <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>12BET玩家帐户</value>
+    <value>N88玩家帐户</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>您的新密码</value>
@@ -1702,7 +1702,7 @@
     <value>您的加盟申请</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>12BET 娱乐城</value>
+    <value>N88 娱乐城</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>真人娱乐场</value>
@@ -1729,7 +1729,7 @@
     <value>所有产品</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>有关12BET产品的更多详细信息</value>
+    <value>有关N88产品的更多详细信息</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>周一至周六上午 9 时至下午6 时（北京时间）</value>
@@ -1777,22 +1777,22 @@
     <value>彩票</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>立即注册12BET合营代理！</value>
+    <value>立即注册N88合营代理！</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>注册合营</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>申请12BET 合营</value>
+    <value>申请N88 合营</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>成为12BET合营代理后，您所推荐的12BET每位玩家，只要使用账户就可以为您带来即时的佣金。我们的在线系统将全天候24/7为您服务。</value>
+    <value>成为N88合营代理后，您所推荐的N88每位玩家，只要使用账户就可以为您带来即时的佣金。我们的在线系统将全天候24/7为您服务。</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>合营代理有什么新功能</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>12BET合营代理资讯</value>
+    <value>N88合营代理资讯</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>全新！</value>
@@ -1804,7 +1804,7 @@
     <value>您可以登入你的代理账号以获取您想要在网站上推广的新横幅广告。</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>12BET 最新优惠活动！</value>
+    <value>N88 最新优惠活动！</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>了解本月最新的优惠活动. 将信息发布至在您的网站与社交媒体，以获取更多的顾客及佣金。</value>
@@ -1981,7 +1981,7 @@
     <value>仅限未存款玩家</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
-    <value>12BET玩家账号</value>
+    <value>N88玩家账号</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>≥ 5 </value>
@@ -1996,10 +1996,10 @@
     <value>语言</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>成为12BET代理 | 12BET合作伙伴</value>
+    <value>成为N88代理 | N88合作伙伴</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>成为12BET代理，推广体育与娱乐城游戏赚取丰厚佣金</value>
+    <value>成为N88代理，推广体育与娱乐城游戏赚取丰厚佣金</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>电邮地址</value>
@@ -2134,9 +2134,9 @@
     <value>验证您的帐户详细信息</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>12Bet 合营代理 - 请验证您的帐户详细信息</value>
+    <value>N88 合营代理 - 请验证您的帐户详细信息</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>12Bet 合营代理 [{0}] - 您的付款请求已被取消</value>
+    <value>N88 合营代理 [{0}] - 您的付款请求已被取消</value>
   </data>
 </root>
