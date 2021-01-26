@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Aff-Link">
-    <Setting Key="Aff_AffiliateInsClickStatistics" SpName="Aff_ClickStatistics_Ins_xtest" DbName="affiliate_n88" Plain="0" />
+    <Setting Key="Aff_AffiliateInsClickStatistics" SpName="Aff_ClickStatistics_Ins" DbName="affiliate_n88" Plain="0" />
     <Setting Key="Aff_Get_GeneralAffInfo" SpName="Aff_Get_GeneralAffInfo" DbName="affiliate_n88" Plain="0" />
   </Function>
 </Functions>
