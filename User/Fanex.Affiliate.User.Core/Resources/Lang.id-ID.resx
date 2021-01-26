@@ -753,8 +753,8 @@
   <data name="For" xml:space="preserve">
     <value>Bulan</value>
   </data>
-  <data name="Foranyreasonyou" xml:space="preserve">
-    <value>Bila Anda tidak menerima email untuk alasan apa pun, silakan &lt;a href='{0}'&gt;hubungi kami&lt;/a&gt; dan kami dengan senang hati akan membantu Anda.  </value>
+  <data name="ForAnyReason" xml:space="preserve">
+    <value>Periksa folder Spam apabila Anda tidak menerima email atau &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt; untuk bantuan lebih lanjut. </value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>Lupa password</value>
@@ -1309,7 +1309,7 @@
     <value>Afiliasi 12Bet - Permohonan Anda</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 3 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet</value>
+    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi 12Bet untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi 12Bet.&lt;br/&gt;&lt;br/&gt;Periksa folder Spam apabila Anda tidak menerima email atau &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt; untuk bantuan lebih lanjut. </value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
@@ -2114,5 +2114,20 @@
   </data>
   <data name="ReadMore" xml:space="preserve">
     <value>Baca Detail</value>
+  </data>
+  <data name="AConfirmationEmail" xml:space="preserve">
+    <value>Email konfirmasi dikirimkan ke email Anda.</value>
+  </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>Permintaan pembayaran Anda telah dibatalkan</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>Verifikasi detail akun Anda</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>Afiliasi 12Bet - Verifikasi detail akun Anda</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>Afiliasi 12Bet - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
   </data>
 </root>

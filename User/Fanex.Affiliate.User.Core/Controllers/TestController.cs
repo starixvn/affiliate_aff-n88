@@ -8,6 +8,7 @@
     using DTO;
     using Enum;
     using Fanex.Affiliate.User.Core.MetalModels;
+    using Fanex.Affiliate.User.Core.Resources;
     using Filters;
     using MetalModels.Email;
     using ONEbook.UM.Filters;
@@ -83,10 +84,14 @@
 
             try
             {
+                _languageService.SetCulture(criteria.Language);
                 var content = GetEmailContent(criteria);
-                var Subject = $"Affilite {_siteFriendlyName} testing";
+                string Subject = GetSubject(criteria.Function);
+                _languageService.SetCulture("en-US");
 
-                _mailProcessor.Send(content, criteria.EmailAddress, Subject);
+                var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
+
+                _mailProcessor.Send(content, criteria.EmailAddress, Subject, string.Empty, string.Empty, appMailId);
             }
             catch (Exception ex)
             {
@@ -112,7 +117,7 @@
 
         private string GetEmailTextContent(TestCriteria criteria)
         {
-            var language = EmailService.MappingLanguage(criteria.Language);
+            var language = criteria.Language;
             var function = criteria.Function;
 
             var viewPath = string.Format(TemplateString.EmailTemplatePath, function, language);
@@ -130,13 +135,43 @@
             {
                 RootUrl = domain,
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
-                Language = EmailService.MappingLanguage(language),
+                Language = language,
                 Content = content,
                 Title = "This is title"
             };
             var viewPath = Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
 
             return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+        }
+
+        private string GetSubject(string functionName)
+        {
+            switch (functionName)
+            {
+                case "Csd":
+                    return Lang.CsdSubject;
+
+                case "RecoverPassword":
+                    return Lang.SubjectForgetPass;
+
+                case "PaymentCancel":
+                    return string.Format(Lang.PaymentRequestCancelSubject, 12345);
+
+                case "PaymentRequest":
+                    return string.Format(Lang.PaymentRequestSubject, 12345);
+
+                case "NewPassword":
+                    return Lang.SubjectNewPass;
+
+                case "Signup":
+                    return Lang.RegisSubject;
+
+                case "VerificationAccount":
+                    return Lang.SubjectVerificationAccount;
+
+                default:
+                    return Lang.AffiliateProgram;
+            }
         }
 
         private object GetModelByFunction(string functionName)

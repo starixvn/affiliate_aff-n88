@@ -1,16 +1,17 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
-    <div>
-        Dear @Raw(Model.FirstName),  <br /><br />
+<div>
+    เรียน @Model.FirstName,  <br /><br />
 
-        Request reference number is @Model.TransId, dated @Model.TransDate.<br /><br />
+    @Model.TransId หมายเลขอ้างอิงการถอนเงิน, วันที่  @Model.TransDate.<br /><br />
 
-        We regret to inform you that your payment request amount of @Model.Amount @Model.DefaultCurrency has been rejected.<br /><br />
+    ราขอแสดงความเสียใจที่จะแจ้งให้คุณทราบว่าการขอถอนเงินของคุณจำนวน @Model.Amount @Model.DefaultCurrency ได้ถูกปฎิเสธ<br /><br />
 
-        Please contact us at <a href="mailto:@Model.MailContact">@Model.MailContact</a> for assistance.<br />
-        This is a system auto generated email, please do not reply to this email directly.<br /><br />
+    กรุณาติดต่อเรา สำหรับข้อมูลเพิ่มเติม<br /><br />
+    อีเมลล์นี้ถูกส่งโดยระบบ กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง<br /><br />
+    กรุณาอย่าลังเลที่จะติดต่อเรา หากคุณมีคำถามหรือความคิดเห็นเพิ่มเติม<br /><br />
 
-        Sincerely,<br /><br />
-        @(Model.SiteFriendlyName) Affiliates Team<br />
-        <a href="mailto:@Model.MailContact">@Model.MailContact</a>
-    </div>
+    ขอแสดงความนับถือ<br /><br />
+    ทีมงานพันธมิตร @(Model.SiteFriendlyName)<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+</div>

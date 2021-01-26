@@ -28,15 +28,20 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string AsianAffSiteUrl => GetValue("AsianAffiliateURL");
 
-        public string MailContact => GetValue("MailContact");
-
         public string JsVersion => GetValue("JsVersion");
 
         public bool IsLocal => Environment.Equals("LOCAL", StringComparison.OrdinalIgnoreCase);
 
         public string GetValue(string key) => ConfigurationManager.AppSettings[key];
 
-        public string GetMailContactByShortedLanguageCode(string shortedLanguageCode) => ConfigurationManager.AppSettings["MailContact" + shortedLanguageCode] ?? MailContact;
+        public string MailContact => GetValue("MailContact");
+
+        public string GetMailContactByShortedLanguageCode(string shortedLanguageCode) => GetValue("MailContact" + shortedLanguageCode) ?? MailContact;
+
+        public string AppMailId => GetValue("app_mail_id");
+
+        public string GetAppMailIdByShortedLanguageCode(string shortedLanguageCode) => GetValue("app_mail_id_" + shortedLanguageCode) ?? AppMailId;
+
 
         public string SentryDsn => GetValue("Dsn");
 

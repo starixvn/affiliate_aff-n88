@@ -1,17 +1,20 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
-    <div>
-        Dear @Model.User.FirstName,<br /><br />
+<div>
+    เรียน คุณ  Mr./Mrs. @Model.User.FirstName<br /><br />
 
-        Request reference number is @Model.TransId, dated @Model.RequestDate.ToString("MM/dd/yyyy") .<br /><br />
+    ตามที่คุณได้ขอถอนเงินมาวันที่ @Model.RequestDate.ToString("MM/dd/yyyy") จำนวนเงิน @Model.Amount @Model.DefaultCurrency<br /><br />
 
-        Your payment request amount of @Model.Amount @Model.DefaultCurrency has been cancelled.<br /><br />
+    หมายเลขอ้างอิงการถอนเงิน คือ @Model.TransId<br /><br />
 
-        This is a system auto generated email, please do not reply to this email directly.<br />
-        Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
+    การถอนเงินของคุณจำนวนเงินดังกล่าวได้รับการปฏิเสธ<br /><br />
 
-        Have a great day!<br /><br />
+    อีเมลล์นี้เป็นการอีเมลล์ที่ถูกส่งโดยระบบ  กรุณาอย่าตอบกลับอีเมลล์นี้โดยตรง<br /><br />
 
-        Best regards,<br /><br />
+    หากมีข้อสงสัยกรุณาอย่าลังเลที่จะติดต่อเรา สำหรับคำถามหรือความคิดเห็นเพิ่มเติม ส่งมาที่  <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
 
-        The team at @Model.SiteFriendlyName Affiliates
-    </div>
+    ขอให้คุณโชคดี<br /><br />
+
+    ขอแสดงความนับถือ<br /><br />
+
+    ทีมงานพันธมิตร @Model.SiteFriendlyName
+</div>

@@ -750,8 +750,8 @@
   <data name="For" xml:space="preserve">
     <value>สำหรับ</value>
   </data>
-  <data name="Foranyreasonyou" xml:space="preserve">
-    <value>หากคุณไม่ได้รับอีเมลล์ กรุณา &lt;a href='{0}'&gt; ติดต่อเรา &lt;/a&gt; เรายินดีช่วยเหลือ คะ</value>
+  <data name="ForAnyReason" xml:space="preserve">
+    <value>ไม่ว่ากรณีใดก็ตาม หากคุณยังไม่ได้รับอีเมลโปรดตรวจสอบที่กล่องจดหมายขยะก่อน หรือ&lt;a href='{0}'&gt;ติดต่อเจ้าหน้าที่เพื่อการช่วยเหลือ&lt;/a&gt;</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>ลิมรหัสผ่าน</value>
@@ -1307,7 +1307,7 @@
     <value>พันธมิตร 12bet - การสมัครของคุณ</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร 12BET &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 3 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร 12BET</value>
+    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร 12BET &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร 12BET.&lt;br/&gt;&lt;br/&gt;ไม่ว่ากรณีใดก็ตาม หากคุณยังไม่ได้รับอีเมลโปรดตรวจสอบที่กล่องจดหมายขยะก่อน หรือ&lt;a href='{0}'&gt;ติดต่อเจ้าหน้าที่เพื่อการช่วยเหลือ&lt;/a&gt;</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>ถูกปฏิเสธแล้ว</value>
@@ -2134,5 +2134,20 @@
   </data>
   <data name="ReadMore" xml:space="preserve">
     <value>อ่านเพิ่มเติม</value>
+  </data>
+  <data name="AConfirmationEmail" xml:space="preserve">
+    <value>อีเมลยืนยันกำลังส่งไปยังอีเมลของคุณ</value>
+  </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>คำขอการชำระเงินของท่านถูกยกเลิก</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>ยืนยันรายละเอียดบัญชีของท่าน</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>พันธมิตร 12Bet - ยืนยันรายละเอียดบัญชีของท่าน</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>พันธมิตร 12Bet - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
   </data>
 </root>

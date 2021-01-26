@@ -45,6 +45,7 @@
             </form>
             <div class="hide" id="verificationAccountGroup">
                 <p>@Lang.AVerificationCode</p>
+                <p>@Html.Raw(string.Format(Lang.ForAnyReason, Url.Content("~/ContactUs")))</p>
                 <br />
                 <form id="verificationAccountForm">
                     @Html.AntiForgeryToken()

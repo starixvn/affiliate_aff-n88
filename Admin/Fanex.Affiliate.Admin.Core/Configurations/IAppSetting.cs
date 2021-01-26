@@ -6,7 +6,13 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
     {
         string GetValue(string key);
 
+        string MailContact { get; }
+
         string GetMailContactByShortedLanguageCode(string shortedLanguageCode);
+
+        string AppMailId { get; }
+
+        string GetAppMailIdByShortedLanguageCode(string shortedLanguageCode);
 
         [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string InternalEuropeanAffiliateUrl { get; }
@@ -29,8 +35,6 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         string CcMail { get; }
 
         string BccMail { get; }
-
-        string MailContact { get; }
 
         string JsVersion { get; }
 

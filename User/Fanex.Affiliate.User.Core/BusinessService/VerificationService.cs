@@ -8,7 +8,6 @@ using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using OtpNet;
 
@@ -18,7 +17,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     {
         private const int SecretKeyExistedCode = 101;
 
-        private readonly ILanguageService _languageService;
         private readonly ITwoFactorAuthService _twoFactorAuthService;
         private readonly IAccountRepository _accountRepository;
         private readonly IEmailService _mailService;
@@ -30,7 +28,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             ITwoFactorAuthService twoFactorAuthService,
             IAccountRepository accountRepository,
             IEmailService mailService,
-            ILanguageService languageService,
             ICryptographyService cryptographyService,
             IWrapperUtility wrapperUtility,
             IVerificationRepository verificationRepository)
@@ -38,7 +35,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _twoFactorAuthService = twoFactorAuthService;
             _accountRepository = accountRepository;
             _mailService = mailService;
-            _languageService = languageService;
             _cryptographyService = cryptographyService;
             _wrapperUtility = wrapperUtility;
             _verificationRepository = verificationRepository;
@@ -73,10 +69,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     Ip = emailParam.Ip
                 };
 
-                var userLang = SystemLanguage.IsValid(userInfo.PreferredLanguage) ? userInfo.PreferredLanguage : SystemLanguage.DefaultLanguageCode;
-                _languageService.SetCulture(userLang);
                 _mailService.SendVerificationEmail(verificationAccountEmailParam);
-                _languageService.SetCulture(param.CurrentLanguage);
 
                 return new SendCodeResult
                 {

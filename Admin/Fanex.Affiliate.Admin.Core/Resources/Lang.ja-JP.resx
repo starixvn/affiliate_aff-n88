@@ -117,46 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Affiliate" xml:space="preserve">
-    <value>アフィリエイト</value>
-  </data>
-  <data name="EmailAutoNotification" xml:space="preserve">
-    <value>このメールはシステムから自動的に送信されています。このメールに対する返信はできませんのでご了承ください。</value>
-  </data>
-  <data name="EmailSubjectAffApproved" xml:space="preserve">
-    <value>12BET アフィリエイト –　「アフィリエイト」 ご登録完了しました。</value>
-  </data>
-  <data name="EmailSubjectAffInfor" xml:space="preserve">
-    <value>12BET アフィリエイト – 「アフィリエイト情報」 について</value>
-  </data>
-  <data name="EmailSubjectWithdrawalGuidance" xml:space="preserve">
-    <value>12BET アフィリエイト –「お引出しの手引き」 について</value>
-  </data>
-  <data name="EmailTitleAffApproved" xml:space="preserve">
-    <value>「アフィリエイト」 ご登録完了しました</value>
-  </data>
-  <data name="EmailTitleAffInfor" xml:space="preserve">
-    <value>「アフィリエイト情報」 について</value>
-  </data>
-  <data name="EmailTitleWithdrawalGuidance" xml:space="preserve">
-    <value>「お引出しの手引き」 について</value>
-  </data>
-  <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
-    <value>12BET – アフィリエイト - [{0}] - お支払い申請完了のご報告 </value>
-  </data>
-  <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
-    <value>お支払い申請完了のご報告 </value>
-  </data>
-  <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
-    <value>12BET アフィリエイト - [{0}] - お支払い申請は却下されました</value>
-  </data>
-  <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
-    <value>お支払い申請は却下されました</value>
-  </data>
-  <data name="EmailTitleAffDisapproved" xml:space="preserve">
-    <value>「支払い申請」 について</value>
-  </data>
-  <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>12BET アフィリエイト – 「支払い申請」 について</value>
-  </data>
 </root>

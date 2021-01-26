@@ -1,17 +1,16 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
-    <div>
-        Dear @Model.User.FirstName,<br /><br />
+<div>
+    尊敬的 @Model.User.FirstName,<br /><br />
 
-        Request reference number is @Model.TransId, dated @Model.RequestDate.ToString("MM/dd/yyyy") .<br /><br />
+    您好，<br /><br />
 
-        Your payment request amount of @Model.Amount @Model.DefaultCurrency has been cancelled.<br /><br />
+    您交易代码@(Model.TransId)，日期@(Model.RequestDate.ToString("MM/dd/yyyy"))，金额为 @(Model.Amount)@(Model.DefaultCurrency)的支付申请已被取消。<br /><br />
 
-        This is a system auto generated email, please do not reply to this email directly.<br />
-        Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
+    此邮件为系统邮件，请不要直接回复。<br /><br />
 
-        Have a great day!<br /><br />
+    如有任何疑问，欢迎致信<a href="mailto:@Model.MailContact">@Model.MailContact</a>联系我们<br /><br />
 
-        Best regards,<br /><br />
+    诚挚的<br />
 
-        The team at @Model.SiteFriendlyName Affiliates
-    </div>
+    @(Model.SiteFriendlyName)合作伙伴团队
+</div>

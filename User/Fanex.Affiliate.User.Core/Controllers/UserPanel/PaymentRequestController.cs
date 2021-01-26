@@ -75,7 +75,7 @@
                 var emailParam = new PaymentEmailParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage ?? SessionService.CurrentLanguage),
+                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,
@@ -83,6 +83,11 @@
                 };
 
                 resultInfo = await _paymentService.CreatePaymentRequest(paymentCreationParam, emailParam);
+
+                if (resultInfo.IsOk)
+                {
+                    resultInfo.Message = $"{Lang.RequestPayoutSucc}<br>{Lang.AConfirmationEmail}<br>{Lang.ForAnyReason.Replace("{0}", Url.Content("~/ContactUs"))}";
+                }
             }
 
             return Json(resultInfo);
@@ -107,7 +112,7 @@
                 var emailParam = new PaymentEmailParam
                 {
                     MailCc = _appSetting.MailCc,
-                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage ?? SessionService.CurrentLanguage),
+                    MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
                     SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,
@@ -118,6 +123,11 @@
                 };
 
                 resultInfo = _paymentService.CancelPaymentRequest(cancelParam, emailParam);
+
+                if (resultInfo.IsOk)
+                {
+                    resultInfo.Message = $"{Lang.CancelPayoutSucc}<br>{Lang.AConfirmationEmail}<br>{Lang.ForAnyReason.Replace("{0}", Url.Content("~/ContactUs"))}";
+                }
             }
 
             return Json(resultInfo);

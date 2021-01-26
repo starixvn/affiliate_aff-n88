@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.User.Core.Utilities
 {
@@ -8,7 +7,13 @@ namespace Fanex.Affiliate.User.Core.Utilities
     {
         string GetValue(string key);
 
+        string MailContact { get; }
+
         string GetMailContactByLanguageCode(string languageCode);
+
+        string AppMailId { get; }
+
+        string GetAppMailIdByLanguageCode(string languageCode);
 
         string Environment { get; }
 
@@ -30,10 +35,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string BannerDomain { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string MediaScriptUrl { get; }
-
-        string MailContact { get; }
 
         string MailCc { get; }
 

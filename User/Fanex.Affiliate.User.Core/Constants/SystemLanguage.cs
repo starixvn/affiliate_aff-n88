@@ -12,7 +12,7 @@ namespace Fanex.Affiliate.User.Core.Constants
 {
     public static class SystemLanguage
     {
-        private static IAppSetting _appSetting = AppSetting.Instance;
+        private static readonly IAppSetting _appSetting = AppSetting.Instance;
 
         public static string DefaultLanguageCode
         {

@@ -1,5 +1,4 @@
 ﻿using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.Email
 {

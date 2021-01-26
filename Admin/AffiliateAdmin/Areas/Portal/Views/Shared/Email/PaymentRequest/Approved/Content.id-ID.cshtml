@@ -1,16 +1,16 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
-    <div>
-        Dear @Raw(Model.FirstName),  <br /><br />
+<div>
+    Dear @Model.FirstName, <br /><br />
 
-        Request reference number is @Model.TransId, dated @Model.TransDate.<br /><br />
+    Permintaan nomor referensi adalah @Model.TransId, tanggal @Model.TransDate. <br /><br />
 
-        We are pleased to inform that your payment request amount of @Model.Amount @Model.DefaultCurrency has been completed successfully and money sent to your payment processor.<br /><br />
+    Pihak kami memberitahu pihak tuan  bahwa permintaan pembayaran  sebesar @Model.Amount @Model.DefaultCurrency telah selesai dengan sukses dan wang sudah dikirim ke prosesor pembayaran Anda. <br /><br />
 
-        This is a system auto generated email, please do not reply to this email directly. <br />
-        Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /> <br />
+    Ini adalah sistem yang dihasilkan otomatis email, harap jangan balas email ini secara langsung.<br />
+    Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan di <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /> <br />
 
-        Sincerely,<br /><br />
-        @(Model.SiteFriendlyName) Affiliates Team<br />
-        <a href="mailto:@Model.MailContact">@Model.MailContact</a>
-    </div>
+    Hormat kami, <br /><br />
+    Afiliasi @(Model.SiteFriendlyName) Tim<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+</div>

@@ -1,21 +1,21 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.WithdrawalEmail
 
 <div>
-    Dear @Raw(Model.FirstName),<br /><br />
+    Halo @Raw(Model.FirstName),<br /><br />
 
-    Congratulation on becoming our @(Model.SiteFriendlyName) affiliate!<br /><br />
+    Terima Kasih telah menjadi Affiliate @(Model.SiteFriendlyName)!<br /><br />
 
-    To ensure for a faster payout for your affiliate, please take some time to read the following procedure for withdrawal:<br /><br />
+    Untuk memastikan pembayaran komisi Anda, silahkan meluangkan waktu sejenak untuk membaca prosedur berikut:<br /><br />
 
-    1. We will settle affiliate's revenue share payout once in a month, please access your affiliate account and click on Payment request, enter the amount and request Payout.<br /><br />
-    2. If your withdrawal request is approved, your fund will be automatically transferred to your @(Model.SiteFriendlyName) betting account.<br /><br />
+    1. Kami akan melakukan penghitungan dan pembayaran atas komisi affiliate sekali per bulan, silahkan mengakses akun affiliate Anda dan klik pada permintaan pembayaran, masukan jumlah dan klik permintaan pembayaran.<br /><br />
+    2. Apabila permintaan penarikan anda di setujui, komisi Anda akan di transfer otomatis ke akun member @(Model.SiteFriendlyName) Anda.<br /><br />
 
-    Please take note:<br /><br />
-    1. Your @(Model.SiteFriendlyName) betting account registered name must be the same registered name that you had registered in your affiliate account, and it must be your real name.<br /><br />
+    Untuk diperhatikan:<br /><br />
+    1. Akun member @(Model.SiteFriendlyName) anda harus terdaftar dengan nama yang Anda daftarkan pada akun Affiliate Anda, dan harus merupakan nama asli.<br /><br />
 
-    Please do not hesitate to contact us if you have any further question.<br /><br />
+    Silahkan hubungi kami apabila Anda mempunyai pertanyaan lain.<br /><br />
 
-    Sincerely,<br /><br />
-    @(Model.SiteFriendlyName) Affiliates Team<br />
-    Email: <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+    Salam,<br /><br />
+    Tim Affiliate @(Model.SiteFriendlyName)<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

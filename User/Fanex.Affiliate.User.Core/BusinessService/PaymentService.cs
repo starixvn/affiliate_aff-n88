@@ -8,7 +8,6 @@ using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
-using NPOI.HSSF.Record.Chart;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -49,8 +48,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (resultInfo.IsOk)
             {
-                resultInfo.Message = Lang.CancelPayoutSucc;
-
                 var userInfo = _accountRepository.GetUserInfoById(cancelParam.AffId, cancelParam.IsInternal);
 
                 if (userInfo != null)
@@ -87,7 +84,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 if (resultInfo.IsOk)
                 {
                     paymentCreationParam.TransId = param.TransId;
-                    resultInfo.Message = Lang.RequestPayoutSucc;
 
                     AssignEmailParam(emailParam, paymentCreationParam, PaymentRequestType.Create);
                     SendEmail(emailParam);

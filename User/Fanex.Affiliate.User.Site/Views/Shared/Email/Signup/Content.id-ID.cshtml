@@ -1,16 +1,16 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.EmailBaseParam
-    <div>
-        Dear @Model.User.FirstName,<br /><br />
+<div>
+    Yang terhormat @Model.User.FirstName,<br /><br />
 
-        Thank you for applying to become a @Model.SiteFriendlyName affiliate!<br /><br />
+    Terima kasih kerana Anda sudah berjaya  mendaftar untuk menjadi afiliasi @(Model.SiteFriendlyName)!<br /><br />
 
-        One of our Affiliate Accounts Manager will be contacting you by email within 3 business days to determine the status of your application.<br /><br />
+    Salah satu Afiliasi Account Manager kami akan menghubungi Anda melalui email dalam waktu 3 hari kerja untuk menentukan status aplikasi Anda.<br /><br />
 
-        If you have any questions and require any help please do not hesitate to contact me.<br /><br />
+    Jika Anda memiliki pertanyaan dan memerlukan bantuan jangan ragu untuk menghubungi saya.<br /><br />
 
-        Sincerely,<br /><br />
+    Hormat kami,<br /><br />
 
-        Affiliate Services Manager,<br />
-        @Model.SiteFriendlyName Affiliates Team<br />
-        <a href="mailto:@Model.MailContact">@Model.MailContact</a>
-    </div>
+    Afiliasi Services Manager,<br />
+    Afiliasi @Model.SiteFriendlyName Tim<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+</div>
