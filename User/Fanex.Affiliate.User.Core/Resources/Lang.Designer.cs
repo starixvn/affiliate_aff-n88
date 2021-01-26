@@ -6461,6 +6461,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User Name no more than 30 characters..
+        /// </summary>
+        public static string UserNameMaxLength30 {
+            get {
+                return ResourceManager.GetString("UserNameMaxLength30", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The payment account you entered does not exist. Please check again..
         /// </summary>
         public static string UserNameNotExist {

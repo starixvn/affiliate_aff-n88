@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public static string PreferredPayment => "Player";
 
         [RequiredReplace12Bet(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "BETUserNameIsRequired")]
-        [MaxLength(Number.OneHundred, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "UserNameMaxLength")]
+        [MaxLength(Number.Thirdty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "UserNameMaxLength30")]
         public string Player_UserName { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "errSecQuestionEmpty")]

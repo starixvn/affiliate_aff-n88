@@ -2489,4 +2489,7 @@
   <data name="ConfrimDeactiveLink" xml:space="preserve">
     <value>Are you sure about this action? By confirming this action, you will deactive this tracking link.</value>
   </data>
+  <data name="UserNameMaxLength30" xml:space="preserve">
+    <value>User Name no more than 30 characters.</value>
+  </data>
 </root>
