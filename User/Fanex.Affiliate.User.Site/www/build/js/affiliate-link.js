@@ -1296,7 +1296,7 @@ var MarketingBase = (function ($) {
                             if (result) {
                                 if (result.IsOk) {
                                     alert(window.dic.addChannelSuccess)
-                                    $(this).append(new Option(result.Data.ChannelNauhme, result.Data.ChannelCode, false, true));
+                                    $(this).append(new Option(result.Data.ChannelName, result.Data.ChannelCode, false, true));
                                     $("button .btn-gen").removeAttr("disabled");
                                 }
                                 else {
