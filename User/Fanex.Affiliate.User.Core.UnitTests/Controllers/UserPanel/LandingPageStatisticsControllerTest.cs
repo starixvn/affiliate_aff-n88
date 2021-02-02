@@ -97,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             statisticsRepository.Setup(m => m.GetLandingPageStatistics(param)).Returns(landingPageStisticsList);
 
             var languageService = new Mock<ILanguageService>();
-            languageService.Setup(m => m.GetSystemLanguages(It.IsAny<bool?>())).Returns(Constant.LanguageList);
+            languageService.Setup(m => m.GetLanguageList(It.IsAny<bool?>())).Returns(Constant.LanguageList);
             var controller = CreateController(null, languageService.Object, statisticsRepository.Object);
 
             // Action

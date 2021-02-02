@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 using NSubstitute;
@@ -23,12 +24,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             {
                 new MarketingItem { BannerId = 1, TextId = 1 }
             });
-            marketingService.GetCategoryList(Arg.Any<bool>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.CategoryList);
+            marketingService.GetCategoryList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.CategoryList);
             marketingService.GetLanguageList(Arg.Any<bool>()).Returns(Constant.LanguageTypeList);
             marketingService.GetCurrencyList(Arg.Any<bool>()).Returns(Constant.CurrencyType);
-            marketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
-            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<bool>()).Returns(Constant.LandingPageList);
-            marketingService.GenerateLinkList(Arg.Any<LinkGenerationParam>()).Returns(GetGeneratedLinkList());
+            marketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.DomainList);
+            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>()).Returns(Constant.LandingPageList);
+            marketingService.GenerateLinkList(Arg.Any<LinkGeneratingParam>()).Returns(GetGeneratedLinkList());
             marketingService.GetBannerTypeList(Arg.Compat.Any<bool>()).Returns(Constant.BannerTypeList);
 
             return marketingService;
@@ -49,7 +50,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             var service = Substitute.For<ILanguageService>();
             service.GetFavoriteLanguage().Returns(Constant.DefaultLanguage);
             service.GetCurrentLanguage().ReturnsForAnyArgs(Constant.DefaultLanguage);
-            service.GetSystemLanguages().Returns(Constant.LanguageList);
+            service.GetLanguageList().Returns(Constant.LanguageList);
             return service;
         }
 

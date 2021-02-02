@@ -18,6 +18,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.Enum;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -29,7 +30,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly IMarketingService MarketingService;
         private readonly IQrCodeGeneratorService QrCodeService;
 
-        private const string BASE64_IMAGE = "base64Image";
         private static IEnumerable<SizeType> SizeTypes => new List<SizeType>
         {
             new SizeType { SizeId = 1, Size = "1080x1920" },
@@ -42,8 +42,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             new MarketingItem {BannerId  = 2 }
         };
 
-        private static Image Image => Image.FromStream(new MemoryStream(Convert.FromBase64String(Constant.LogoImageBase64)));
-
         public MarketingControllerTest()
         {
             SessionService = NSubtituteMockingHelper.FakeSessionService();
@@ -51,51 +49,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             MarketingService = NSubtituteMockingHelper.FakeMarkengtingService();
             QrCodeService = Substitute.For<IQrCodeGeneratorService>();
-        }
-
-        [Fact]
-        public void Index_WhenCall_ReturnCorrectView()
-        {
-            using (var image = Image)
-            {
-                QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
-                QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
-                    .Returns(BASE64_IMAGE);
-                MarketingService.GetLanguageList(Arg.Compat.Any<bool>()).Returns(Constant.LanguageTypeList);
-                MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
-                var controller = new MarketingController(SessionService, AppSetting, LanguageService, MarketingService, QrCodeService);
-                controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
-                controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
-
-                var result = controller.Index(false) as ViewResult;
-                var model = result.Model as MarketingViewModel;
-
-                Assert.Contains("AccountOverview/Partial/_GeneratedQrCode.cshtml", result.ViewName);
-                Assert.Equal(Constant.LanguageList.Count(), model.QrCodeList.Count);
-            }
-        }
-
-        [Fact]
-        public void Index_WhenCallMemberSitePageListIsEmpty_ReturnCorrectView()
-        {
-            using (var image = Image)
-            {
-                QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
-                QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
-                    .Returns(BASE64_IMAGE);
-                MarketingService.GetLanguageList(Arg.Compat.Any<bool>()).Returns(Constant.LanguageTypeList);
-                MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
-                MarketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<bool>()).Returns(new List<LandingPage>());
-                var controller = new MarketingController(SessionService, AppSetting, LanguageService, MarketingService, QrCodeService);
-                controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
-                controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
-
-                var result = controller.Index() as ViewResult;
-                var model = result.Model as MarketingViewModel;
-
-                Assert.Contains("AccountOverview/Partial/_GeneratedQrCode.cshtml", result.ViewName);
-                Assert.Equal(Constant.LanguageList.Count(), model.QrCodeList.Count);
-            }
         }
 
         [Theory]
@@ -106,7 +59,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             var subCate = Constant.CategoryList.Where(c => c.Category.MatchWith(category) && !string.IsNullOrEmpty(c.SubCategory));
             var controller = CreateMarketingController();
-            var result = controller.GetSubCategory(category) as JsonResult;
+            var result = controller.GetSubCategory(category, AffiliateLinkType.AffiliateLink) as JsonResult;
             var model = result.Data as IEnumerable<SelectListItem>;
             Assert.Equal(subCate.Count(), model.Count());
             Assert.Equal(JsonRequestBehavior.AllowGet, result.JsonRequestBehavior);
@@ -131,7 +84,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void GetSize_WhenCallWithLanguageIsEmpty_ReturnCorrectJson()
         {
             var controller = CreateMarketingController();
-            LanguageService.GetSystemLanguages().Returns(new List<Language>());
+            LanguageService.GetLanguageList().Returns(new List<Language>());
             MarketingService.GetSizeList(Arg.Compat.Any<SizeParam>(), Arg.Compat.Any<bool>())
                 .Returns(SizeTypes);
             var param = new SizeParam { Language = Constant.DefaultLanguage };
@@ -147,7 +100,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void GetBanner_WhenCallWithNoSelectedDomain_ReturnEmptyModelItem()
         {
             var controller = CreateMarketingController();
-            MarketingService.GetAvailableDomainList(Arg.Compat.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
+            MarketingService.GetAvailableDomainList(Arg.Compat.Any<int>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(new List<Domain>());
             var param = new MarketingBannerParam();
 
             var result = controller.GetBanner(param) as ViewResult;
@@ -163,7 +116,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = CreateMarketingController();
             var bannerItems = MarketingItems;
             MarketingService.GetBannerList(Arg.Compat.Any<MarketingBannerParam>()).Returns(bannerItems);
-            MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
+            MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.DomainList);
             var domainId = Constant.DomainList.First().DomainId;
             var param = new MarketingBannerParam { SelectedDomainId = domainId, Language = "vi-VN" };
 
@@ -173,112 +126,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             Assert.Contains("AccountOverview/Partial/_BannerList.cshtml", result.ViewName);
             Assert.NotEmpty(model);
         }
-
-        [Fact]
-        public void GetText_WhenCallWithNoSelectedDomain_ReturnEmptyModelList()
-        {
-            var controller = CreateMarketingController();
-            MarketingService.GetAvailableDomainList(Arg.Compat.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(new List<Domain>());
-            var param = new MarketingTextParam();
-
-            var result = controller.GetText(param) as ViewResult;
-            var model = result.Model as IEnumerable<MarketingItem>;
-
-            Assert.Equal("~/Views/UserPanel/AccountOverview/Partial/_TextList.cshtml", result.ViewName);
-            Assert.Empty(model);
-        }
-
-        [Fact]
-        public void GetText_WhenCallWithSelectedDomain_ReturnNotEmptyList()
-        {
-            var controller = CreateMarketingController();
-            var items = MarketingItems;
-            MarketingService.GetTextList(Arg.Compat.Any<MarketingTextParam>()).Returns(items);
-            MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<int>(), Arg.Any<bool>()).Returns(Constant.DomainList);
-            var domainId = Constant.DomainList.First().DomainId;
-            var param = new MarketingTextParam { SelectedDomainId = domainId };
-
-            var result = controller.GetText(param) as ViewResult;
-            var model = result.Model as IEnumerable<MarketingItem>;
-
-            Assert.Equal("~/Views/UserPanel/AccountOverview/Partial/_TextList.cshtml", result.ViewName);
-            Assert.NotEmpty(model);
-        }
-
-        [Fact]
-        public void GenerateLink_WhenCall_ReturnCorrectView()
-        {
-            using (var image = Image)
-            {
-                QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
-                QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
-                    .Returns(BASE64_IMAGE);
-
-                var controller = CreateMarketingController();
-                controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
-                controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
-                var param = GetCodeParam();
-
-                var result = controller.GenerateLink(param) as ViewResult;
-
-                Assert.Equal("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result.ViewName);
-            }
-        }
-
-        [Theory]
-        [InlineData(TargetSite.TargetToMember)]
-        [InlineData(TargetSite.TargetToSubAff)]
-        public void GenerateLink_WhenCallWithSelectedLanguageIsEmpty_ReturnCorrectView(int targetId)
-        {
-            using (var image = Image)
-            {
-                QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
-                QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
-                    .Returns(BASE64_IMAGE);
-
-                var controller = CreateMarketingController();
-                controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
-                controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
-                var param = GetCodeParam();
-                param.TargetId = targetId;
-                param.SelectedLanguage = string.Empty;
-                param.SelectedDomainId = 123;
-
-                var result = controller.GenerateLink(param) as ViewResult;
-
-                Assert.Equal("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result.ViewName);
-            }
-        }
-
-        [Fact]
-        public void GenerateLink_WhenCallWithSelectedDomainIdIsNull_ReturnCorrectView()
-        {
-            using (var image = Image)
-            {
-                QrCodeService.GetImage(Arg.Compat.Any<string>()).Returns(image);
-                QrCodeService.GenerateBase64QrCode(Arg.Compat.Any<string>(), Arg.Compat.Any<Image>(), Arg.Compat.Any<bool>())
-                    .Returns(BASE64_IMAGE);
-
-                var controller = CreateMarketingController();
-                controller = NSubtituteMockingHelper.FakeController(controller) as MarketingController;
-                controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
-                var param = GetCodeParam();
-                param.SelectedDomainId = null;
-
-                var result = controller.GenerateLink(param) as ViewResult;
-
-                Assert.Equal("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result.ViewName);
-            }
-        }
-
-        private QrCodeParam GetCodeParam()
-            => new QrCodeParam
-            {
-                SelectedDomainId = 1,
-                SelectedLanguage = "en",
-                SelectedPage = "SignUp",
-                TargetId = TargetSite.TargetToMember
-            };
 
         private MarketingController CreateMarketingController()
             => new MarketingController(SessionService, AppSetting, LanguageService, MarketingService, QrCodeService);

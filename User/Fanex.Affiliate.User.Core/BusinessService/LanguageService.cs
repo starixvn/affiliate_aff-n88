@@ -44,10 +44,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return IsValid(langCookie) ? langCookie : SystemLanguage.DefaultLanguageCode;
         }
 
-        public IEnumerable<Language> GetSystemLanguages(bool? isInternal = null)
+        public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var languageList = _cacheService.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList);
+            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList);
             languageList = languageList ?? _languageRepository.GetLanguageList(isForInternal);
 
             if (languageList != null)
@@ -55,20 +55,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 _cacheService.Set(CacheKey.LanguageList, languageList);
             }
 
-            languageList = languageList ?? new List<LanguageType>();
-
-            return languageList.Select(l => new Language
-            {
-                Code = l.MarketId,
-                DisplayName = l.DisplayName,
-                EnglishName = l.MarketName,
-                NativeName = l.MarketNativeName,
-                ShortedCode = l.ShortedCode
-            });
+            return languageList ?? new List<Language>();
         }
 
         public bool IsValid(string langCode)
-            => !string.IsNullOrWhiteSpace(langCode) && GetSystemLanguages().Any(l => Equals(l.Code, langCode));
+            => !string.IsNullOrWhiteSpace(langCode) && GetLanguageList().Any(l => Equals(l.Code, langCode));
         public void SetCulture(string languageCode)
         {
 

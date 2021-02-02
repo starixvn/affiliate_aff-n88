@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
         public IEnumerable<LanguageType> GetLanguageList(bool isInternal)
-            => _languageService.GetSystemLanguages(isInternal)
+            => _languageService.GetLanguageList(isInternal)
             .Select(l => new LanguageType
             {
                 DisplayName = l.DisplayName,
@@ -139,7 +139,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     banner.Height = Convert.ToInt32(sizes[1]);
                 }
 
-                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.EnglishName.MatchWith(banner.Language));
+                var language = _languageService.GetLanguageList().FirstOrDefault(l => l.EnglishName.MatchWith(banner.Language));
 
                 if (language != null)
                 {
@@ -159,7 +159,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 text.Message = HttpContext.Current.Server.HtmlDecode(text.Message.Replace("\r\n", "<br/>").Replace("\n","<br/>"));
                 text.ScriptSrc = $"{textParam.ScriptUrl}?textId={text.TextId}&targetId={textParam.TargetId}";
-                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
+                var language = _languageService.GetLanguageList().FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
 
                 if (language != null)
                 {
@@ -225,20 +225,21 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsingMarketingLinks(int userId)
             => _marketingRepository.GetUsingMarketingLink(userId).GroupBy(c => c.ChannelCode);
 
-        private static Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGeneratingParam linkGeneratedParam)
+        private Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGeneratingParam linkGeneratedParam)
         {
             var result = new Dictionary<string, Language>();
+            var languageList = _languageService.GetLanguageList();
 
             if (string.IsNullOrEmpty(linkGeneratedParam.SelectedLanguage))
             {
-                foreach (var language in SystemLanguage.LanguageList)
+                foreach (var language in languageList)
                 {
                     result.Add(language.Code, language);
                 }
             }
             else
             {
-                var language = _languageService.GetSystemLanguages().FirstOrDefault(l => l.Code.MatchWith(linkGenerationParam.SelectedLanguage));
+                var language = languageList.FirstOrDefault(l => l.Code.MatchWith(linkGeneratedParam.SelectedLanguage));
                 if (language != null)
                 {
                     result.Add(language.Code, language);

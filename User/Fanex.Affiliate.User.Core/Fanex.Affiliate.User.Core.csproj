@@ -321,6 +321,7 @@
     <Compile Include="DTO\ContactApp.cs" />
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
     <Compile Include="DTO\MarketingChannel.cs" />
+    <Compile Include="Enum\TransType.cs" />
     <Compile Include="MetalModels\Api\AccountParam.cs" />
     <Compile Include="MetalModels\Api\TransferMoneyParam.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />

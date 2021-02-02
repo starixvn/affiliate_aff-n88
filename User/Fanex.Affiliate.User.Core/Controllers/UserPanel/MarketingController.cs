@@ -56,7 +56,7 @@
         public ActionResult GetSize(SizeParam param)
         {
             param.AffType = SessionService.UserSession.AffType;
-            param.Language = LanguageService.GetSystemLanguages().FirstOrDefault(l => l.Code.MatchWith(param.Language))?.EnglishName;
+            param.Language = LanguageService.GetLanguageList().FirstOrDefault(l => l.Code.MatchWith(param.Language))?.EnglishName;
             var sizeList = MarketingService.GetSizeList(param, SessionService.IsInternal);
 
             return Json(sizeList, JsonRequestBehavior.AllowGet);
@@ -231,7 +231,7 @@
 
         private string GetEnglishName(string languageCode)
         {
-            return LanguageService.GetSystemLanguages().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
+            return LanguageService.GetLanguageList().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
         }
     }
 }

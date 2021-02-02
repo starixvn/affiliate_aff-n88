@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
@@ -40,7 +41,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreateService();
             CacheService.Get<IEnumerable<CategoryType>>(null).ReturnsForAnyArgs(Constant.CategoryList);
 
-            service.GetCategoryList(false, TargetSite.TargetToMember, false);
+            service.GetCategoryList(false, AffiliateLinkType.AffiliateLink, false);
 
             Repo.DidNotReceiveWithAnyArgs().GetCategoryList(null, false);
         }
@@ -54,7 +55,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<CategoryType>>(null).ReturnsNullForAnyArgs();
             Repo.GetCategoryList(null ,false).ReturnsNullForAnyArgs();
 
-            var result = service.GetCategoryList(isMediaPage, TargetSite.TargetToMember, false);
+            var result = service.GetCategoryList(isMediaPage, AffiliateLinkType.AffiliateLink, false);
 
             Repo.ReceivedWithAnyArgs().GetCategoryList(null, false);
             CacheService.ReceivedWithAnyArgs().Set(null, default(IEnumerable<CategoryType>));
@@ -68,7 +69,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             service.GetLanguageList(false);
 
-            LanguageService.Received().GetSystemLanguages(false);
+            LanguageService.Received().GetLanguageList(false);
         }
 
         [Fact]
@@ -176,7 +177,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<Domain>>(CacheKey.DomainList).ReturnsNull();
             Repo.GetAvailableDomainList(0, true, false).ReturnsForAnyArgs(Constant.DomainList);
 
-            var result = service.GetAvailableDomainList(0, TargetSite.TargetToMember, false);
+            var result = service.GetAvailableDomainList(0, AffiliateLinkType.AffiliateLink, false);
 
             Repo.Received().GetAvailableDomainList(0, true, false);
             CacheService.Received().Set(CacheKey.DomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
@@ -190,7 +191,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheService.Get<IEnumerable<Domain>>(CacheKey.SubDomainList).ReturnsNull();
             Repo.GetAvailableDomainList(0, true, false).ReturnsNullForAnyArgs();
 
-            var result = service.GetAvailableDomainList(0, TargetSite.TargetToSubAff, false);
+            var result = service.GetAvailableDomainList(0, AffiliateLinkType.SubAffiliateLink, false);
 
             Repo.Received().GetAvailableDomainList(0, false, false);
             CacheService.DidNotReceiveWithAnyArgs().Set(CacheKey.SubDomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
@@ -203,7 +204,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GenerateLinkList_WhenSelectAllLanguagesAndLanguagesInSystemNotEmpty_ReturnNotEmptyList(bool isSsl)
         {
             var service = CreateService();
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
             var param = CreateLinkGenerationParam(isSsl);
             param.SelectedLanguage = null;
 
@@ -216,13 +217,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GenerateLinkList_WhenNotExistLanguageListFromSite_ReturnOneItem()
         {
             var service = CreateService();
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
             var param = CreateLinkGenerationParam();
             param.SelectedLanguage = null;
-            param.LanguageList = new List<SelectListItem>
-                {
-                    new SelectListItem {Text = "Thai", Selected = true, Value = "th-TH" }
-                };
 
             var result = service.GenerateLinkList(param);
 
@@ -233,9 +230,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GenerateLinkList_WhenSelectedLanguageNotEmpty_ReturnEmpty()
         {
             var service = CreateService();
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
             var param = CreateLinkGenerationParam();
-            param.LanguageList = null;
             param.SelectedLanguage = null;
 
             var result = service.GenerateLinkList(param);
@@ -248,7 +244,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GenerateLinkList_WhenSelectedLanguageNotEmpty_ReturnNotEmpty()
         {
             var service = CreateService();
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
             var param = CreateLinkGenerationParam();
 
             var result = service.GenerateLinkList(param);
@@ -265,7 +261,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var param = CreateMarketingBannerParam();
             var bannerList = CreateMarketingItemList(language);
             Repo.GetBannerList(param).Returns(bannerList);
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
 
             var result = service.GetBannerList(param);
 
@@ -282,7 +278,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var param = CreateMarketingTextParam();
             var textList = CreateMarketingItemList(language);
             Repo.GetTextList(param).Returns(textList);
-            LanguageService.GetSystemLanguages().Returns(GetLanguageList());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
             SetUpContext();
 
             var result = service.GetTextList(param);
@@ -306,7 +302,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var servcice = CreateService();
 
-            var result = servcice.GetLandingPageList(false, false);
+            var result = servcice.GetLandingPageList(false, AffiliateLinkType.SubAffiliateLink);
 
             Assert.NotEmpty(result);
         }
@@ -317,7 +313,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             AppSetting.TextLinkTemplate.Returns("TargetToMember");
             var servcice = CreateService();
 
-            var result = servcice.GetTextLinkTemplate(TargetSite.TargetToMember);
+            var result = servcice.GetTextLinkTemplate(AffiliateLinkType.AffiliateLink);
 
             Assert.Equal("TargetToMember", result);
         }
@@ -328,7 +324,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             AppSetting.SubAffTextLinkTemplate.Returns("TargetToSubAff");
             var servcice = CreateService();
 
-            var result = servcice.GetTextLinkTemplate(TargetSite.TargetToSubAff);
+            var result = servcice.GetTextLinkTemplate(AffiliateLinkType.SubAffiliateLink);
 
             Assert.Equal("TargetToSubAff", result);
         }
@@ -339,7 +335,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             AppSetting.TextLinkTemplate.Returns("InvalidTarget");
             var servcice = CreateService();
 
-            var result = servcice.GetTextLinkTemplate(123);
+            var result = servcice.GetTextLinkTemplate(0);
 
             Assert.Equal("InvalidTarget", result);
         }
@@ -429,17 +425,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 }
             };
 
-        private LinkGenerationParam CreateLinkGenerationParam(bool isSsl = false)
-            => new LinkGenerationParam
+        private LinkGeneratingParam CreateLinkGenerationParam(bool isSsl = false)
+            => new LinkGeneratingParam
             {
                 AffId = 1,
                 DomainId = 1,
                 IsInternal = false,
-                LanguageList = new List<SelectListItem>
-                {
-                    new SelectListItem {Text = "VietNam", Selected = true, Value="vi-VN" },
-                    new SelectListItem {Text = "Thai", Selected = true, Value = "th-TH" }
-                },
                 PreferredLanguage = "vi-VN",
                 SelectedDomain = new Domain { DomainId = 1, DomainName = "abc.com", IsSsl = isSsl },
                 SelectedDomainId = 1,

@@ -39,9 +39,11 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
         protected RedirectToRouteResult RedirectToFixedAction(string actionName, object routeValue)
         {
-            var routeDic = new RouteValueDictionary(routeValue);
-            routeDic.Add("controller", RouteData.Values["controller"]);
-            routeDic.Add("action", actionName);
+            var routeDic = new RouteValueDictionary(routeValue)
+            {
+                { "controller", RouteData.Values["controller"] },
+                { "action", actionName }
+            };
             var result = RedirectToRoute(RouteName, routeDic);
             return result;
         }

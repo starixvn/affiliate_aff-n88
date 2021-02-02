@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
@@ -10,8 +11,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using Xunit;
 
@@ -45,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var validLang = SystemLanguage.SupportedLanguage.FirstOrDefault().Key;
             var code = SystemLanguage.SupportedLanguage[validLang];
-            CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).Returns(CreateLanguages());
+            CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).Returns(CreateLanguages());
             SetUpContext(code);
             var service = CreateService();
 
@@ -58,7 +57,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GetFavoriteLanguage_WhenCookieLangIsValid_ReturnCookieLang()
         {
             var validLang = SystemLanguage.SupportedLanguage.FirstOrDefault().Key;
-            CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).Returns(CreateLanguages());
+            CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).Returns(CreateLanguages());
             SetUpContext();
             HttpContext.Current.Request.Cookies.Add(new HttpCookie("afffavoritelang", validLang));
             var service = CreateService();
@@ -84,9 +83,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GetSystemLanguages_WhenHaveInfoInCache_NotQueryFromRepo()
         {
             var service = CreateService();
-            CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).Returns(CreateLanguages());
+            CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).Returns(CreateLanguages());
 
-            service.GetSystemLanguages();
+            service.GetLanguageList();
 
             Repo.DidNotReceiveWithAnyArgs().GetLanguageList(false);
         }
@@ -98,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).ReturnsNull();
             Repo.GetLanguageList(false).ReturnsNullForAnyArgs();
 
-            var result = service.GetSystemLanguages();
+            var result = service.GetLanguageList();
 
             Repo.ReceivedWithAnyArgs().GetLanguageList(false);
             Assert.Empty(result);
@@ -111,7 +110,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).ReturnsNull();
             Repo.GetLanguageList(false).ReturnsForAnyArgs(CreateLanguages());
 
-            var result = service.GetSystemLanguages();
+            var result = service.GetLanguageList();
 
             Repo.ReceivedWithAnyArgs().GetLanguageList(false);
             CacheServive.ReceivedWithAnyArgs().Set(null, default(IEnumerable<LanguageType>));
@@ -136,11 +135,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             HttpContext.Current = new HttpContext(request, response);
         }
 
-        private static IEnumerable<LanguageType> CreateLanguages()
-            => new List<LanguageType>
+        private static IEnumerable<Language> CreateLanguages()
+            => new List<Language>
             {
-                new LanguageType { DisplayName="VietNam", MarketId="vi-VN", MarketName="VietNam", MarketNativeName="Viet Nam", ShortedCode="vn" },
-                new LanguageType { DisplayName="American", MarketId="en-US", MarketName="American", MarketNativeName="American", ShortedCode="en" }
+                new Language { DisplayName="VietNam", Code="vi-VN", EnglishName="VietNam", NativeName="Viet Nam", ShortedCode="vn" },
+                new Language { DisplayName="American", Code="en-US", EnglishName="American", NativeName="American", ShortedCode="en" }
             };
 
         private LanguageService CreateService()

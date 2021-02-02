@@ -3,6 +3,7 @@ using Fanex.Affiliate.User.Core.Controllers.UserPanel;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
@@ -16,6 +17,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
     {
         private readonly ISessionService sessionService;
         private readonly IAppSetting appSetting;
+        private readonly IAccountService accountService;
         private readonly ILanguageService languageService;
         private readonly IMarketingService marketingService;
 
@@ -23,36 +25,33 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             sessionService = NSubtituteMockingHelper.FakeSessionService();
             appSetting = Substitute.For<IAppSetting>();
+            accountService = Substitute.For<IAccountService>();
             languageService = NSubtituteMockingHelper.FakeLanguageService();
             marketingService = NSubtituteMockingHelper.FakeMarkengtingService();
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void Index_WhenCall_ReturnCorrectView(bool isTargetToMemberSite)
+        [Fact]
+        public void Index_WhenCall_ReturnCorrectView()
         {
             //Arange
             appSetting.GetValue(Arg.Any<string>()).ReturnsForAnyArgs("abc");
-            var controller = new MediaGalleryController(sessionService, appSetting,languageService, marketingService);
+            var controller = new MediaGalleryController(sessionService, appSetting,languageService, marketingService, accountService);
 
             //Action
-            var result = controller.Index(isTargetToMemberSite) as ViewResult;
+            var result = controller.Index() as ViewResult;
 
             //Assert
             Assert.Equal("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", result.ViewName);
         }
 
-        [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void Index_WhenCallWithLanguageInvalid_ReturnCorrectView(bool isTargetToMemberSite)
+        [Fact]
+        public void Index_WhenCallWithLanguageInvalid_ReturnCorrectView()
         {
-            languageService.GetSystemLanguages().Returns(new List<Language>());
-            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<bool>()).Returns(new List<LandingPage>());
-            var controller = new MediaGalleryController(sessionService, appSetting, languageService, marketingService);
+            languageService.GetLanguageList().Returns(new List<Language>());
+            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>()).Returns(new List<LandingPage>());
+            var controller = new MediaGalleryController(sessionService, appSetting, languageService, marketingService, accountService);
 
-            var result = controller.Index(isTargetToMemberSite) as ViewResult;
+            var result = controller.Index() as ViewResult;
 
             Assert.Contains("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", result.ViewName);
         }
