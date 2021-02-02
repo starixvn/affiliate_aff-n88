@@ -188,7 +188,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
                 AffId = 1,
                 AffType = "asia",
                 GroupName = "group",
-                IsClosed = false,
                 OnUserId = 1,
                 Password = "abc",
                 PreferredLanguage = "vi-VN",

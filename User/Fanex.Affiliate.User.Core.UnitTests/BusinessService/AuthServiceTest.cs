@@ -46,18 +46,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void GetLoginResult_WhenLoginWithInternalClosedAdminUser_ReturnErrorResult()
+        public void GetLoginResult_WhenLoginWithInternalSuspendedAfUser_ReturnOK()
         {
             var param = CreateLoginParam();
-            var userInfo = CreateAutherizedUserInfo();
-            userInfo.IsClosed = true;
+            var userInfo = CreateSuspendedUserInfo();
             var service = CreateService();
             AuthRepo.GetUserInfo(Arg.Compat.Any<string>(), true).Returns(userInfo);
 
             var result = service.GetLoginResult(param, true);
 
-            Assert.False(result.Result.IsOk);
-            Assert.Equal(Error.LoginClosedAccount, result.Result.Message);
+            Assert.True(result.Result.IsOk);
         }
 
         [Fact]
@@ -123,19 +121,18 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void GetLoginResult_WhenUserIsClosed_ReturnFailResult()
+        public void GetLoginResult_WhenUserIsSuspended_ReturnFailResult()
         {
             var service = CreateService();
             var param = CreateLoginParam();
             SetUpLoginNormaiUserPassedAllCheckCondition();
-            var user = CreateAutherizedUserInfo();
-            user.IsClosed = true;
+            var user = CreateSuspendedUserInfo();
             AuthRepo.GetUserInfo(null, false).ReturnsForAnyArgs(user);
 
             var result = service.GetLoginResult(param, false);
 
             Assert.False(result.Result.IsOk);
-            Assert.Contains(Error.LoginClosedAccount, result.Result.Message);
+            Assert.Contains(Error.YourAccountHasBeenSuspended, result.Result.Message);
         }
 
         [Fact]
@@ -274,11 +271,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 AffId = 1,
                 AffType = "Asia",
                 GroupName = "group",
-                IsClosed = false,
                 OnUserId = 1,
                 Password = "password",
                 PreferredLanguage = "vn-vi",
-                Status = "active",
+                Status = "Approved",
+                UserName = "test"
+            };
+
+        private static AuthorizedUserInfo CreateSuspendedUserInfo()
+            => new AuthorizedUserInfo
+            {
+                AffId = 1,
+                AffType = "Asia",
+                GroupName = "group",
+                OnUserId = 1,
+                Password = "password",
+                PreferredLanguage = "vn-vi",
+                Status = "Suspended",
                 UserName = "test"
             };
 

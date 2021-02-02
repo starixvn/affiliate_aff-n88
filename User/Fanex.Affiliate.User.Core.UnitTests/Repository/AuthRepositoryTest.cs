@@ -70,7 +70,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository
                 Password = "pass",
                 GroupName = "group",
                 AffType = "asia",
-                IsClosed = false,
                 Status = "Approved",
                 PreferredLanguage = "vi-VN",
                 IsMaxSubLevel = false

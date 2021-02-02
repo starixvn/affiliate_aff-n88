@@ -83,10 +83,10 @@
 
             try
             {
-                _languageService.SetCulture(criteria.Language);
+                LanguageService.SetCulture(criteria.Language);
                 var content = GetEmailContent(criteria);
                 string Subject = GetSubject(criteria.Function);
-                _languageService.SetCulture("en-US");
+                LanguageService.SetCulture("en-US");
 
                 var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
 

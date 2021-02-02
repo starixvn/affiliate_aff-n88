@@ -15,7 +15,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 {
     public class VerificationServiceTest
     {
-        private readonly ILanguageService LanguageService;
         private readonly ITwoFactorAuthService TwoFactorAuthService;
         private readonly IAccountRepository AccountRepo;
         private readonly IEmailService MailService;
@@ -25,7 +24,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
         public VerificationServiceTest()
         {
-            LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             TwoFactorAuthService = Substitute.For<ITwoFactorAuthService>();
             AccountRepo = Substitute.For<IAccountRepository>();
             MailService = Substitute.For<IEmailService>();
@@ -77,7 +75,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             WrapperUtility.GetRandomGenerator().Returns(new Random());
             AccountRepo.GetUserInfoById(1, false).ReturnsForAnyArgs(userInfo);
             TwoFactorAuthService.GenerateHotp(null, 0).ReturnsForAnyArgs("12345");
-            LanguageService.IsValid(null).ReturnsForAnyArgs(false);
             AccountRepo.CreateSecretKey(0, null).ReturnsForAnyArgs(101, 102);
 
             service.SendCode(param);
@@ -96,7 +93,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             WrapperUtility.GetRandomGenerator().Returns(new Random());
             AccountRepo.GetUserInfoById(1, false).ReturnsForAnyArgs(userInfo);
             TwoFactorAuthService.GenerateHotp(null, 0).ReturnsForAnyArgs("12345");
-            LanguageService.IsValid(null).ReturnsForAnyArgs(true);
 
             service.SendCode(param);
 
@@ -230,6 +226,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             };
 
         private VerificationService CreateService()
-            => new VerificationService(TwoFactorAuthService, AccountRepo, MailService, LanguageService, CryptoService, WrapperUtility, VerificationRepo);
+            => new VerificationService(TwoFactorAuthService, AccountRepo, MailService, CryptoService, WrapperUtility, VerificationRepo);
     }
 }
