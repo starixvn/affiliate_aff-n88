@@ -15,6 +15,9 @@
     using System.Drawing;
     using ViewModels.UserPanel.Marketing;
     using System;
+    using Fanex.Affiliate.User.Core.MetalModels;
+    using Fanex.Affiliate.User.Core.Enum;
+    using Fanex.Affiliate.User.Core.DTO;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
@@ -32,40 +35,9 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index(bool isTargetToMemberSite = true)
+        public ActionResult GetSubCategory(string category, AffiliateLinkType linkType)
         {
-            var userSession = SessionService.UserSession;
-            var linkForm = GetLinkFormViewModel(isTargetToMemberSite);
-            var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
-
-            var selectedLanguage = userSession.PreferredLanguage;
-            var selectedDomain = linkForm.DomainList.FirstOrDefault();
-            var selectedPage = linkForm.MemberSitePageList.FirstOrDefault()?.PageCode ?? string.Empty;
-            var selectedLanguageList = MarketingHelper.GetLanguageList(languageList, SessionService.UserSession.PreferredLanguage);
-
-            var linkList = isTargetToMemberSite
-                ? GetLinkForMemberList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList)
-                : GetLinkForSubAffList(selectedLanguage, selectedPage, selectedDomain, selectedLanguageList);
-
-            var qrCodes = GetQrCodes(linkList, true);
-
-            var marketingViewModel = new MarketingViewModel
-            {
-                QrCodeList = qrCodes,
-                LinkForm = linkForm
-            };
-            ViewBag.IsTargetToMemberSite = isTargetToMemberSite;
-            ViewBag.SelectedDomainId = selectedDomain?.DomainId;
-            ViewBag.SelectedPage = selectedPage;
-
-            return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", marketingViewModel);
-        }
-
-        [HttpGet]
-        [AjaxOnly]
-        public ActionResult GetSubCategory(string category, int targetId = TargetSite.TargetToMember)
-        {
-            var subCategoryList = MarketingService.GetCategoryList(true, targetId, SessionService.IsInternal)
+            var subCategoryList = MarketingService.GetCategoryList(true, linkType, SessionService.IsInternal)
                 .Where(c => c.Category.MatchWith(category) && !string.IsNullOrEmpty(c.SubCategory));
 
             return Json(subCategoryList.Select(i => new SelectListItem
@@ -114,40 +86,31 @@
 
         [HttpGet]
         [AjaxOnly]
-        public ActionResult GetText(MarketingTextParam textParam)
-        {
-            var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, textParam.TargetId, SessionService.IsInternal)
-                                                    .FirstOrDefault(d => d.DomainId == textParam.SelectedDomainId);
-
-            textParam.AffId = userSession.AffId;
-            textParam.AffCode = userSession.AffCode;
-            textParam.SelectedDomain = selectedDomain;
-            textParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(textParam.TargetId);
-            textParam.ScriptUrl = AppSetting.MediaScriptUrl;
-            textParam.Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(textParam.Language))?.EnglishName;
-
-            var textList = GetTextList(textParam);
-            ViewBag.TotalItem = textParam.Nrows;
-
-            return View("~/Views/UserPanel/AccountOverview/Partial/_TextList.cshtml", textList);
-        }
-
-        [HttpGet]
-        [AjaxOnly]
-        public ActionResult GenerateLink(QrCodeParam param)
+        public ActionResult RenderQrCodePage(QrCodeParam param)
         {
             IDictionary<string, QrCodeLinkViewModel> result = new Dictionary<string, QrCodeLinkViewModel>();
 
             if (param.SelectedDomainId != null)
             {
                 result = GenerateQrCodeViewModel(param);
+                var usingLinks = MarketingService.GetUsingMarketingLinks(SessionService.UserSession.AffId)
+                    .FirstOrDefault(l => l.Key == param.SelectedChannel);
+                if (usingLinks != null)
+                {
+                    foreach (var item in result)
+                    {
+                        item.Value.IsShow = usingLinks.Any(l => l.AffMediaLink.Equals(item.Value.Link, StringComparison.OrdinalIgnoreCase));
+                    }
+                }
             }
 
             ViewBag.SelectedDomainId = param.SelectedDomainId;
             ViewBag.SelectedPage = param.SelectedPage;
+            ViewBag.SelectedLinkType = param.SelectedLinkType;
+            ViewBag.SelectedChannel = param.SelectedChannel;
+            ViewBag.Language = param.SelectedLanguage;
 
-            return View("~/Views/UserPanel/AccountOverview/Partial/_TextLink.cshtml", result);
+            return View("~/Views/UserPanel/AccountOverview/Partial/_GeneratedQrCode.cshtml", result.Values);
         }
 
         [HttpGet]
@@ -163,6 +126,56 @@
             return File(imageFile, "image/png", $"{param.SelectedLanguage}.png");
         }
 
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult AddChannel(string channelName)
+        {
+            if (channelName.Length > 20)
+            {
+                return Json(new ResultInfo
+                {
+                    IsOk = false,
+                    Message = Error.NameToLong20
+                });
+            }    
+            var userId = SessionService.UserSession.AffId;
+            return Json(MarketingService.AddMarketingChannel(userId, channelName));
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult GetChannels()
+        {
+            var userId = SessionService.UserSession.AffId;
+            return Json(MarketingService.GetChannels(userId));
+        }
+
+        [HttpPost]
+        [AjaxOnly]
+        public ActionResult ToggleMarketingLink(MarketingLinkViewModel model)
+        {
+            var userId = SessionService.UserSession.AffId;
+            var param = new MarketingLinkParam
+            {
+                AffId = userId,
+                AffMediaLink = model.AffRefLink,
+                ChannelCode = model.ChannelCode,
+                LanguageCode = model.LanguageCode,
+                IsOn = model.IsOn
+            };
+            var result = MarketingService.ToggleMarketingLink(param);
+
+            return Json(result);
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult RenderUsingMarketLinkPage()
+        {
+            var userId = SessionService.UserSession.AffId;
+            return View("~/Views/UserPanel/AccountOverview/Partial/_ChannelLinkStatistic.cshtml", MarketingService.GetUsingMarketingLinks(userId));
+        }
+
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
         {
             if (bannerParam.SelectedDomain == null)
@@ -172,36 +185,15 @@
             return MarketingService.GetBannerList(bannerParam);
         }
 
-        private IEnumerable<MarketingItem> GetTextList(MarketingTextParam textParam)
-        {
-            if (textParam.SelectedDomain == null)
-            {
-                return new List<MarketingItem>();
-            }
-
-            return MarketingService.GetTextList(textParam);
-        }
-
         private IDictionary<string, QrCodeLinkViewModel> GenerateQrCodeViewModel(QrCodeParam param, bool includePrefix = true)
         {
-            var selectedLanguage = param.SelectedLanguage;
-            var selectedDomainId = param.SelectedDomainId;
-            var targetId = param.TargetId;
-            var selectedPage = param.SelectedPage;
+            var selectedLInkType = param.SelectedLinkType;
 
-            IDictionary<string, QrCodeLinkViewModel> result;
-            var userSession = SessionService.UserSession;
-            var selectedDomain = MarketingService.GetAvailableDomainList(userSession.AffId, targetId, SessionService.IsInternal)
-                                                    .FirstOrDefault(d => d.DomainId == selectedDomainId);
-            var languageList = string.IsNullOrEmpty(selectedLanguage) ?
-                MarketingHelper.GetLanguageList(LanguageService.GetLanguageList(SessionService.IsInternal), userSession.PreferredLanguage) : null;
+            var linkList = selectedLInkType == Core.Enum.AffiliateLinkType.AffiliateLink
+                ? GetLinkForMemberList(param)
+                : GetLinkForSubAffList(param);
 
-            var textLinkList = targetId == TargetSite.TargetToMember
-                ? GetLinkForMemberList(selectedLanguage, selectedPage, selectedDomain, languageList)
-                : GetLinkForSubAffList(selectedLanguage, selectedPage, selectedDomain, languageList);
-
-            result = GetQrCodes(textLinkList, includePrefix);
-            return result;
+            return GetQrCodes(linkList, includePrefix);
         }
 
         private IDictionary<string, QrCodeLinkViewModel> GetQrCodes(IDictionary<string, LanguageLinkViewModel> txtLinkList, bool includePrefix)

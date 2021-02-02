@@ -12,7 +12,8 @@
             return text
                 .Replace("12Bet", AppSetting.Instance.SiteFriendlyName)
                 .Replace("12bet", AppSetting.Instance.SiteFriendlyName)
-                .Replace("12BET", AppSetting.Instance.SiteFriendlyName);
+                .Replace("12BET", AppSetting.Instance.SiteFriendlyName)
+                .Replace("N88", AppSetting.Instance.SiteFriendlyName);
         }
     }
 }

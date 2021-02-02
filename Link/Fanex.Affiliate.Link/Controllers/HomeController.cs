@@ -3,9 +3,12 @@
 namespace Fanex.Affiliate.Link.Controllers
 {
     using System;
+    using System.Collections.Specialized;
     using System.Globalization;
+    using System.Text;
     using System.Web.Mvc;
     using Criterias;
+    using Fanex.Logging;
     using Helpers;
     using Services.Impl;
     using Services.Interface;
@@ -57,12 +60,13 @@ namespace Fanex.Affiliate.Link.Controllers
             try
             {
                 var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affId: Convert.ToInt32(affId));
-                var affDomain = GetFullAffDomain(Request.Url.ToString(), affId.ToString());
+                var affDomain = GetFullAffDomain(GetOriginalUrl(), affId.ToString());
 
                 return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
             }
-            catch(Exception)
+            catch(Exception ex)
             {
+                LogService.Error($"{ex.Message}", ex);
                 ViewBag.Result = LinkIsIncorrectMessage;
                 return View("Link");
             }
@@ -73,12 +77,13 @@ namespace Fanex.Affiliate.Link.Controllers
             try
             {
                 var affInfo = _generalAffiliateInfoService.GetGeneralAffiliateInfo(affCode: affCode);
-                var affDomain = GetFullAffDomain(Request.Url.ToString(), pageId);
+                var affDomain = GetFullAffDomain(GetOriginalUrl(), pageId);
 
                 return InsertAffiliate(affInfo.affId, affInfo.affCode, pageId, lang, affDomain);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LogService.Error($"{ex.Message}", ex);
                 ViewBag.Result = LinkIsIncorrectMessage;
                 return View("Link");
             }
@@ -97,6 +102,8 @@ namespace Fanex.Affiliate.Link.Controllers
                     var referrerUri = new Uri(urlReferrer);
                     domainReferrer = string.IsNullOrEmpty(referrerUri.Host) ? null : referrerUri.Host;
                 }
+
+                LogService.Info(GetAllHeader(Request.ServerVariables));
 
                 var criteria = new TrackingSystemCriteria
                 {
@@ -120,6 +127,7 @@ namespace Fanex.Affiliate.Link.Controllers
                     Country = Common.ResolveCountry() != null
                                       ? Common.ResolveCountry().EnglishName
                                       : CultureInfo.CurrentCulture.ToString(),
+                    AffMediaLink = GetOriginalUrl()
                 };
 
                 var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
@@ -152,6 +160,14 @@ namespace Fanex.Affiliate.Link.Controllers
             return url.Substring(pos1 + slashString.Length, pos2 - (pos1 + slashString.Length));
         }
 
+        private string GetOriginalUrl()
+        {
+            var host = Request.Headers["Host"] ?? Request.Url.Host;
+            var scheme = GetOriginalProtocol();
+            var path = Request.Url.AbsolutePath;
+            return $"{scheme}://{host}{path}";
+        }
+
         private byte GetDeviceType()
         {
             return (byte)(Common.IsMobile() ? 1 : 0);
@@ -171,6 +187,26 @@ namespace Fanex.Affiliate.Link.Controllers
                 var url = redirectUrl.Split('?');
                 return $"{url[0]}?affCode={affCode}";
             }
+        }
+
+        private string GetAllHeader(NameValueCollection headers)
+        {
+            var builder = new StringBuilder();
+            foreach (var key in headers.AllKeys)
+            {
+                builder.AppendLine($"{key}: {headers[key]}");
+            }
+
+            return builder.ToString();
+        }
+
+        private string GetOriginalProtocol()
+        {
+            var refLink = Request["Referer"];
+            var url = string.IsNullOrWhiteSpace(refLink) ? Request.Url : new Uri(refLink);
+            var protos = Request.ServerVariables["HTTP_X_FORWARDED_PROTO"]?.Split(',');
+            var origProto = protos != null && protos.Length > 0 ? protos[0].Trim() : url.Scheme;
+            return origProto;
         }
     }
 }

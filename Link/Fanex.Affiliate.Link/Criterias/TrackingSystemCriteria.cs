@@ -47,6 +47,8 @@
 
         public string ErrMsg { get; set; }
 
+        public string AffMediaLink { get; set; }
+
         public override string GetSettingKey()
         {
             return "Aff_AffiliateInsClickStatistics";

@@ -13,10 +13,10 @@ namespace Fanex.Affiliate.User.Core.Filters
         {
             var sessionService = DependencyResolver.Current.GetService<ISessionService>();
 
-            var skipAuthorization = filterContext.ActionDescriptor.IsDefined(typeof(AllowAnonymousAttribute), true)
-            || filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowAnonymousAttribute), true);
+            var skipAuthorization = CheckExistAttribute(filterContext, typeof(AllowAnonymousAttribute));
             var context = filterContext.RequestContext.HttpContext;
             base.OnAuthorization(filterContext);
+
             if (!skipAuthorization)
             {
                 var authorized = sessionService.UserSession != null && context.Request.IsAuthenticated
@@ -53,5 +53,9 @@ namespace Fanex.Affiliate.User.Core.Filters
 
 
         }
+
+        private bool CheckExistAttribute(AuthorizationContext filterContext, Type attrType)
+            => filterContext.ActionDescriptor.IsDefined(attrType, true)
+            || filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(attrType, true);
     }
 }

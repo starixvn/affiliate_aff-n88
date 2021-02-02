@@ -627,6 +627,10 @@
     <Content Include="www\build\js\changepassword.min.js">
       <DependentUpon>changepassword.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\channel-link-statistic.js" />
+    <Content Include="www\build\js\channel-link-statistic.min.js">
+      <DependentUpon>channel-link-statistic.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\contactus.js" />
     <Content Include="www\build\js\contactus.min.js">
       <DependentUpon>contactus.js</DependentUpon>
@@ -656,6 +660,10 @@
       <DependentUpon>layout.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\lib\bootstrap.min.js" />
+    <Content Include="www\build\js\lib\bootstrap2-toggle.js" />
+    <Content Include="www\build\js\lib\bootstrap2-toggle.min.js">
+      <DependentUpon>bootstrap2-toggle.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\lib\hmac-sha256.js" />
     <Content Include="www\build\js\lib\hmac-sha256.min.js" />
     <Content Include="www\build\js\lib\jquery-3.3.1.min.js" />
@@ -666,6 +674,10 @@
     <Content Include="www\build\js\login.js" />
     <Content Include="www\build\js\login.min.js">
       <DependentUpon>login.js</DependentUpon>
+    </Content>
+    <Content Include="www\build\js\marketing-statistics.js" />
+    <Content Include="www\build\js\marketing-statistics.min.js">
+      <DependentUpon>marketing-statistics.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\mediagallery.js" />
     <Content Include="www\build\js\mediagallery.min.js">
@@ -680,7 +692,9 @@
       <DependentUpon>myaccount.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\overview.js" />
-    <Content Include="www\build\js\overview.min.js" />
+    <Content Include="www\build\js\overview.min.js">
+      <DependentUpon>overview.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\pages\changepassword.js" />
     <Content Include="www\build\js\pages\changepassword.min.js">
       <DependentUpon>changepassword.js</DependentUpon>
@@ -710,7 +724,9 @@
       <DependentUpon>payment-request.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\player-detail.js" />
-    <Content Include="www\build\js\player-detail.min.js" />
+    <Content Include="www\build\js\player-detail.min.js">
+      <DependentUpon>player-detail.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\revenue-structure.js" />
     <Content Include="www\build\js\revenue-structure.min.js">
       <DependentUpon>revenue-structure.js</DependentUpon>
@@ -724,7 +740,9 @@
       <DependentUpon>sub-affiliate-earning.js</DependentUpon>
     </Content>
     <Content Include="www\build\js\summary.js" />
-    <Content Include="www\build\js\summary.min.js" />
+    <Content Include="www\build\js\summary.min.js">
+      <DependentUpon>summary.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\user-panel.js" />
     <Content Include="www\build\js\user-panel.min.js">
       <DependentUpon>user-panel.js</DependentUpon>
@@ -747,9 +765,13 @@
       <DependentUpon>messagehistory.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\n88-darkmode.css" />
-    <Content Include="www\build\styles\css\n88-darkmode.min.css" />
+    <Content Include="www\build\styles\css\n88-darkmode.min.css">
+      <DependentUpon>n88-darkmode.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\n88-lightmode.css" />
-    <Content Include="www\build\styles\css\n88-lightmode.min.css" />
+    <Content Include="www\build\styles\css\n88-lightmode.min.css">
+      <DependentUpon>n88-lightmode.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\n8b.css" />
     <Content Include="www\build\styles\css\n8b.min.css">
       <DependentUpon>n8b.css</DependentUpon>
@@ -869,6 +891,7 @@
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
+    <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
@@ -882,6 +905,9 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
+    <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
+    <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
+    <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
@@ -1292,6 +1318,11 @@
     <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.webp" />
     <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.webp" />
     <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.webp" />
+    <Content Include="Views\UserPanel\AccountOverView\Partial\_ChannelLinkStatistic.cshtml" />
+    <Content Include="www\source\styles\scss\components\_toogle-button.scss" />
+    <Content Include="www\source\styles\scss\components\_qr_code.scss" />
+    <Content Include="Views\UserPanel\Statistics\MarketingPageStatistics\Index.cshtml" />
+    <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_MarketingPageStatsticsContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

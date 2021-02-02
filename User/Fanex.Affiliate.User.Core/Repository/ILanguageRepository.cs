@@ -1,10 +1,10 @@
-﻿using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {
     public interface ILanguageRepository
     {
-        IEnumerable<LanguageType> GetLanguageList(bool isInternal);
+        IEnumerable<Language> GetLanguageList(bool isInternal);
     }
 }

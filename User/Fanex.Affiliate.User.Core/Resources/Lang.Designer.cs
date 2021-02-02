@@ -151,6 +151,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add channel succeeded.
+        /// </summary>
+        public static string AddChannelSuccess {
+            get {
+                return ResourceManager.GetString("AddChannelSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new....
+        /// </summary>
+        public static string AddNew {
+            get {
+                return ResourceManager.GetString("AddNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {
@@ -237,6 +255,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string AffiliateLaunching {
             get {
                 return ResourceManager.GetString("AffiliateLaunching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Link type.
+        /// </summary>
+        public static string AffiliateLinkType {
+            get {
+                return ResourceManager.GetString("AffiliateLinkType", resourceCulture);
             }
         }
         
@@ -1087,6 +1114,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel.
+        /// </summary>
+        public static string Channel {
+            get {
+                return ResourceManager.GetString("Channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cheque.
         /// </summary>
         public static string Cheque {
@@ -1335,6 +1371,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string CompleteForm {
             get {
                 return ResourceManager.GetString("CompleteForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure about this action? By confirming this action, you will active this tracking link..
+        /// </summary>
+        public static string ConfirmActiveLink {
+            get {
+                return ResourceManager.GetString("ConfirmActiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure about this action? By confirming this action, you will deactive this tracking link..
+        /// </summary>
+        public static string ConfrimDeactiveLink {
+            get {
+                return ResourceManager.GetString("ConfrimDeactiveLink", resourceCulture);
             }
         }
         
@@ -1995,6 +2049,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string EnglishSupport {
             get {
                 return ResourceManager.GetString("EnglishSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter Channel Name:.
+        /// </summary>
+        public static string EnterChannel {
+            get {
+                return ResourceManager.GetString("EnterChannel", resourceCulture);
             }
         }
         
@@ -2971,6 +3034,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Include Inactive Tracking Link.
+        /// </summary>
+        public static string IncludeInActiveLink {
+            get {
+                return ResourceManager.GetString("IncludeInActiveLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to India .
         /// </summary>
         public static string India {
@@ -3493,11 +3565,29 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Marketing Page.
+        /// </summary>
+        public static string MarketingPage {
+            get {
+                return ResourceManager.GetString("MarketingPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Marketing Tools.
         /// </summary>
         public static string MarketingTools {
             get {
                 return ResourceManager.GetString("MarketingTools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Marketing Page Statistics.
+        /// </summary>
+        public static string MarketLinkStatistics {
+            get {
+                return ResourceManager.GetString("MarketLinkStatistics", resourceCulture);
             }
         }
         
@@ -4121,6 +4211,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No. of Links.
+        /// </summary>
+        public static string NumberOfLink {
+            get {
+                return ResourceManager.GetString("NumberOfLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to October.
         /// </summary>
         public static string October {
@@ -4252,6 +4351,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Page {
             get {
                 return ResourceManager.GetString("Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Name.
+        /// </summary>
+        public static string PageName {
+            get {
+                return ResourceManager.GetString("PageName", resourceCulture);
             }
         }
         
@@ -5174,6 +5282,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search and Generate.
+        /// </summary>
+        public static string SearchAndGenQR {
+            get {
+                return ResourceManager.GetString("SearchAndGenQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your security question and answer have been updated!.
         /// </summary>
         public static string SecurityQuestionUpdated {
@@ -6038,6 +6155,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tracking Links &amp; QR Codes.
+        /// </summary>
+        public static string TrackingAndQrCode {
+            get {
+                return ResourceManager.GetString("TrackingAndQrCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tracking Code.
         /// </summary>
         public static string TrackingCode {
@@ -6331,6 +6457,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string UserNameMaxLength {
             get {
                 return ResourceManager.GetString("UserNameMaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name no more than 30 characters..
+        /// </summary>
+        public static string UserNameMaxLength30 {
+            get {
+                return ResourceManager.GetString("UserNameMaxLength30", resourceCulture);
             }
         }
         

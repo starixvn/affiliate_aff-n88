@@ -24,6 +24,10 @@
          HTTP_X_FORWARDED_FOR:
         <%= Request.ServerVariables["HTTP_X_FORWARDED_FOR"]%>
     </div>
+        <div>
+        HTTP_X_FORWARDED_PROTO:
+        <%= Request.ServerVariables["HTTP_X_FORWARDED_PROTO"]%>
+    </div>
     <div>
          HTTP_X_REAL_IP:
         <%= Request.ServerVariables["HTTP_X_REAL_IP"]%>

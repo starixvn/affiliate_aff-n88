@@ -1064,6 +1064,17 @@ div.summary-content {
     padding: 5px 18px;
     white-space: nowrap; }
 
+.qr-item .main-panel {
+  background: rgba(255, 255, 255, 0.1); }
+
+.qr-btn-group button {
+  background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+  color: #333333; }
+
+.qr-footer button {
+  background: transparent;
+  color: #3391F6; }
+
 #textLinkList .marketing-qrcode button {
   margin-bottom: 0;
   -webkit-appearance: none;
@@ -1162,6 +1173,8 @@ div.custom-panel {
     margin: 0; }
   .form-inline.form-filter .form-group select, .form-inline.form-filter .form-group .date-wrapper {
     flex: 1; }
+  .form-inline.form-filter .form-group.checkbox label {
+    width: unset; }
 
 #updatePasswordForm {
   padding-top: 20px; }
@@ -1687,7 +1700,7 @@ div.custom-panel {
         width: 100%; }
       .form-inline.form-filter .form-group .form-control {
         width: 100%; }
-      .form-inline.form-filter .form-group .date-wrapper {
+      .form-inline.form-filter .form-group .date-wrapper, .form-inline.form-filter .form-group select {
         width: 100%;
         display: block;
         max-width: 100%; }

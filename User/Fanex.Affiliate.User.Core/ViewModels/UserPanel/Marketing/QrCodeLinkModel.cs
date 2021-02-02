@@ -12,5 +12,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing
         public Language Language { get; set; }
 
         public string DisplayName { get; set; }
+
+        public bool IsShow { get; set; }
     }
 }

@@ -2,6 +2,8 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -22,5 +24,13 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         IEnumerable<MarketingItem> GetTextList(MarketingTextParam textParam);
 
         IEnumerable<LandingPage> GetLandingPageList(bool isInternal);
+
+        (int Code, string ErrMsg) AddMarketingChannel(int userId, string channelCode, string channelName);
+
+        IEnumerable<MarketingChannel> GetMarketingChannels(int userId);
+
+        (int Code, string ErrMsg) ToggleMarketingLink(MarketingLinkParam param);
+
+        IEnumerable<MarketingChannelLink> GetUsingMarketingLink(int userId);
     }
 }

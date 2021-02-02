@@ -262,6 +262,9 @@ input[type="checkbox"], input[type="radio"] {
 .flex.flex-wrap {
   flex-wrap: wrap; }
 
+.flex.space-between {
+  justify-content: space-between; }
+
 @media (min-width: 1280px) {
   .flex .flex-lg-3 {
     width: 25%; }
@@ -288,9 +291,7 @@ input[type="checkbox"], input[type="radio"] {
   .flex-sm-boostrap {
     display: flex; }
     .flex-sm-boostrap.flex-center {
-      align-items: center; }
-      .flex-sm-boostrap.flex-center label {
-        padding-bottom: 10px; } }
+      align-items: center; } }
 
 .flag {
   width: 16px;
@@ -1224,7 +1225,7 @@ label.require:after {
   margin-left: 2px;
   vertical-align: middle;
   border-top: 4px dashed;
-  border-top: 4px solid\9;
+  border-top: 4px solid;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent; }
 
@@ -1301,7 +1302,7 @@ label.require:after {
   .info-group .title {
     position: relative;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
     padding-bottom: 5px; }
     .info-group .title:before {
       content: '';
@@ -1348,6 +1349,12 @@ ul.dash-style {
   ul.dash-style > li:before {
     content: "-";
     padding-right: 5px; }
+
+.btn.btn-transparent {
+  margin-right: 5px; }
+
+.display-none {
+  display: none; }
 
 .btn {
   display: inline-block;
@@ -1564,11 +1571,21 @@ table + .button-group {
   .form-filter .form-group .form-control {
     width: 200px; }
 
+.checkbox label {
+  margin-bottom: 5px; }
+  .checkbox label.text-bold {
+    font-weight: 600; }
+  .checkbox label input {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 10px; }
+
 .form-inline {
   margin-bottom: 5px; }
   .form-inline .form-group label {
-    display: inline-block;
-    margin-right: 10px; }
+    display: inline-flex;
+    align-content: center;
+    margin-right: 20px; }
 
 .form-control-static {
   min-height: 28px;

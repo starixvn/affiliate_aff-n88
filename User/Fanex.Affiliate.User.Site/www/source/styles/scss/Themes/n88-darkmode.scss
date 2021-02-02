@@ -457,6 +457,8 @@ body {
 }
 
 .account-overview {
+    background: $account-overview-bgrd;
+    border: 1px solid #000000;
 
     #account-overview-menu {
         background: $tab-bg-color;
@@ -597,6 +599,26 @@ body {
 @media (min-width: 1024px) {
     .content .news {
         margin: 0;
+    }
+}
+
+//Qrcode
+.qr-item{
+    .main-panel{
+        background: $qr-panel-bgrd;
+    }
+}
+.qr-btn-group {
+    button {
+        background: $qr-panel-btn-background;
+        color: $qr-panel-btn-color;
+    }
+}
+
+.qr-footer{
+    button{
+        background: $qr-footer-btn-background;
+        color: $qr-footer-btn-color;
     }
 }
 

@@ -40,14 +40,18 @@
   {
     "outputFileName": "www/build/js/mediagallery.js",
     "inputFiles": [
+      "www/source/js/components/clipboard.js",
       "www/source/js/components/pager.js",
+      "www/source/js/pages/account-overview/marketingbase.js",
       "www/source/js/pages/account-overview/mediagallery.js"
     ]
   },
   {
     "outputFileName": "www/build/js/affiliate-link.js",
     "inputFiles": [
+      "www/source/js/components/clipboard.js",
       "www/source/js/components/pager.js",
+      "www/source/js/pages/account-overview/marketingbase.js",
       "www/source/js/pages/account-overview/affiliate-link.js"
     ]
   },
@@ -71,6 +75,14 @@
       "www/source/js/lib/pikaday.js",
       "www/source/js/components/pager.js",
       "www/source/js/pages/statistics/landingpagestatistics.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/marketing-statistics.js",
+    "inputFiles": [
+      "www/source/js/lib/pikaday.js",
+      "www/source/js/components/pager.js",
+      "www/source/js/pages/statistics/marketing-statistics.js"
     ]
   },
   {
@@ -155,7 +167,15 @@
     "inputFiles": [ "www/source/js/pages/commission-report.js" ]
   },
   {
+    "outputFileName": "www/build/js/channel-link-statistic.js",
+    "inputFiles": [ "www/source/js/pages/account-overview/partial/channel-link-statistic.js" ]
+  },
+  {
     "outputFileName": "www/build/styles/css/bootstrap-3.3.7.min.css",
     "inputFiles": [ "www/source/styles/scss/vendors/bootstrap-3.3.7.min.css" ]
+  },
+  {
+    "outputFileName": "www/build/js/lib/bootstrap2-toggle.js",
+    "inputFiles": [ "www/source/js/lib/bootstrap2-toggle.js" ]
   }
 ]

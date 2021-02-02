@@ -148,7 +148,7 @@
     <value>You cannot request payout because of insufficient balance.</value>
   </data>
   <data name="PaymentMethodInvalid" xml:space="preserve">
-    <value>Sorry! The payment via {0} is not available. At the moment, only '12Bet Player Account' method is supported. Please &lt;a href='{1}'&gt;click here&lt;/a&gt; to make a change.</value>
+    <value>Sorry! The payment via {0} is not available. At the moment, only 'N88 Player Account' method is supported. Please &lt;a href='{1}'&gt;click here&lt;/a&gt; to make a change.</value>
   </data>
   <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
     <value>You can only request payout from 8th to 15th of the month.</value>
@@ -170,5 +170,8 @@
   </data>
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>Your account has been suspended. Please contact your Account Manager for more information.</value>
+  </data>
+  <data name="NameToLong20" xml:space="preserve">
+    <value>Channel Name cannot exceed 20 characters. Please check again</value>
   </data>
 </root>

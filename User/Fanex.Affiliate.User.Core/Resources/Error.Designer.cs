@@ -133,6 +133,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel Name cannot exceed 20 characters. Please check again.
+        /// </summary>
+        public static string NameToLong20 {
+            get {
+                return ResourceManager.GetString("NameToLong20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid request amount.
         /// </summary>
         public static string PaymentAmountInvalid {
@@ -151,7 +160,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sorry! The payment via {0} is not available. At the moment, only &apos;12Bet Player Account&apos; method is supported. Please &lt;a href=&apos;{1}&apos;&gt;click here&lt;/a&gt; to make a change..
+        ///   Looks up a localized string similar to Sorry! The payment via {0} is not available. At the moment, only &apos;N88 Player Account&apos; method is supported. Please &lt;a href=&apos;{1}&apos;&gt;click here&lt;/a&gt; to make a change..
         /// </summary>
         public static string PaymentMethodInvalid {
             get {

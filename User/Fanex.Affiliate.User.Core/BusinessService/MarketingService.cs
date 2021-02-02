@@ -12,6 +12,8 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
+using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.Enum;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -26,8 +28,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private const int MediaGallery = 2;
 
 
-        private const string DEFAULT = "Default";
-
         public MarketingService(IMarketingRepository marketingRepository, IMemoryCacheService cacheService, IAppSetting appSetting)
         {
             _marketingRepository = marketingRepository;
@@ -35,19 +35,19 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _appSetting = appSetting;
         }
 
-        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, int targetId, bool isInternal = false)
+        public IEnumerable<CategoryType> GetCategoryList(bool isMediaPage, AffiliateLinkType linkType, bool isInternal = false)
         {
             var cacheKey = isMediaPage ? CacheKey.BannerCategoryList : CacheKey.TextCategoryList;
-            cacheKey = $"{cacheKey}-{targetId}";
+            cacheKey = $"{cacheKey}-{linkType}";
 
             var categoryList = _cacheService.Get<IEnumerable<CategoryType>>(cacheKey);
             if (categoryList == null)
             {
                 var mediaType = isMediaPage ? AffiliateLink : MediaGallery;
-                var target = targetId;
+                var target = linkType;
                 var param = new MediaCategoryParam
                 {
-                    TargetId = target,
+                    TargetId = (int)target,
                     TypeId = mediaType
                 };
                 categoryList = _marketingRepository.GetCategoryList(param, isInternal);
@@ -95,9 +95,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return bannerTypeList ?? new List<BannerType>();
         }
 
-        public IEnumerable<Domain> GetAvailableDomainList(int affId, int targetId, bool isInternal = false)
+        public IEnumerable<Domain> GetAvailableDomainList(int affId, AffiliateLinkType linkType, bool isInternal = false)
         {
-            var isMember = targetId == TargetSite.TargetToMember;
+            var isMember = linkType == AffiliateLinkType.AffiliateLink;
             var cachKey = isMember ? CacheKey.DomainList : CacheKey.SubDomainList;
 
             var domainList = _cacheService.Get<IEnumerable<Domain>>(cachKey);
@@ -115,11 +115,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return domainList ?? new List<Domain>();
         }
 
-        public IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGenerationParam linkGenerationParam)
+        public IDictionary<string, LanguageLinkViewModel> GenerateLinkList(LinkGeneratingParam linkGeneratedParam)
         {
-
-            var languages = GetLanguageUsedForGeneration(linkGenerationParam);
-            return GenerateLink(languages, linkGenerationParam);
+            var languages = GetLanguageUsedForGeneration(linkGeneratedParam);
+            return GenerateLink(languages, linkGeneratedParam);
         }
 
         public IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)
@@ -171,48 +170,72 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return textList;
         }
 
-        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false, bool isTargetToMember = true)
+        public IEnumerable<LandingPage> GetLandingPageList(bool isInternal = false, AffiliateLinkType linkType = AffiliateLinkType.AffiliateLink)
         {
+            var isTargetToMember = linkType == AffiliateLinkType.AffiliateLink;
             return isTargetToMember
                 ? _marketingRepository.GetLandingPageList(isInternal)
-                : GetAffLandingPages();
+                : GetSubAffLandingPages();
         }
 
-        public string GetTextLinkTemplate(int targetId)
+        public string GetTextLinkTemplate(AffiliateLinkType linkType)
         {
-            switch (targetId)
+            switch (linkType)
             {
-                case TargetSite.TargetToMember:
+                case AffiliateLinkType.AffiliateLink:
                     return _appSetting.TextLinkTemplate;
-                case TargetSite.TargetToSubAff:
+                case AffiliateLinkType.SubAffiliateLink:
                     return _appSetting.SubAffTextLinkTemplate;
                 default:
                     return _appSetting.TextLinkTemplate;
             }
         }
 
-        private static Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGenerationParam linkGenerationParam)
+        public ResultInfo<MarketingChannel> AddMarketingChannel(int userId, string channelName)
+        {
+            var channelCode = NormalizeName(channelName);
+            var result =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
+
+            return new ResultInfo<MarketingChannel>()
+            {
+                IsOk = result.Code == 0,
+                Message = result.ErrMsg,
+                Data = new MarketingChannel { ChannelCode = channelCode, ChannelName = channelName }
+            };
+        }
+
+        public IDictionary<string, string> GetChannels(int userId)
+            => _marketingRepository.GetMarketingChannels(userId).ToDictionary(c => c.ChannelCode, c => c.ChannelName);
+
+
+        public ResultInfo ToggleMarketingLink(MarketingLinkParam param)
+        {
+            var result = _marketingRepository.ToggleMarketingLink(param);
+
+            return new ResultInfo
+            {
+                IsOk = result.Code == 0,
+                Message = result.ErrMsg
+            };
+        }
+
+        public IEnumerable<IGrouping<string, MarketingChannelLink>> GetUsingMarketingLinks(int userId)
+            => _marketingRepository.GetUsingMarketingLink(userId).GroupBy(c => c.ChannelCode);
+
+        private static Dictionary<string, Language> GetLanguageUsedForGeneration(LinkGeneratingParam linkGeneratedParam)
         {
             var result = new Dictionary<string, Language>();
 
-            var websiteLanguages = linkGenerationParam.LanguageList;
-            if (string.IsNullOrEmpty(linkGenerationParam.SelectedLanguage) &&
-                websiteLanguages != null && websiteLanguages.Any())
+            if (string.IsNullOrEmpty(linkGeneratedParam.SelectedLanguage))
             {
-                foreach (var item in websiteLanguages)
+                foreach (var language in SystemLanguage.LanguageList)
                 {
-                    var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(item.Value));
-                    if (language != null)
-                    {
-                        result.Add(language.Code, language);
-                    }
+                    result.Add(language.Code, language);
                 }
-                var preferredLanguage = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(linkGenerationParam.PreferredLanguage));
-                result.Add(DEFAULT, preferredLanguage);
             }
             else
             {
-                var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(linkGenerationParam.SelectedLanguage));
+                var language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(linkGeneratedParam.SelectedLanguage));
                 if (language != null)
                 {
                     result.Add(language.Code, language);
@@ -222,13 +245,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        private static IDictionary<string, LanguageLinkViewModel> GenerateLink(Dictionary<string, Language> languages, LinkGenerationParam param)
+        private static IDictionary<string, LanguageLinkViewModel> GenerateLink(Dictionary<string, Language> languages, LinkGeneratingParam param)
         {
             var linkDics = new Dictionary<string, LanguageLinkViewModel>();
 
             foreach (var item in languages)
             {
-                var key = item.Key;
                 var lang = item.Value;
                 var linkViewModel = new LanguageLinkViewModel
                 {
@@ -236,11 +258,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     Link = GenerateLink(param, lang.ShortedCode)
                 };
 
-                if (key.Equals(DEFAULT))
-                {
-                    linkDics.Add(key, linkViewModel);
-                    continue;
-                }
                 linkDics.Add(lang.NativeName, linkViewModel);
             }
 
@@ -257,17 +274,23 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                                 .Replace("{domain}", selectedDomain.DomainName)
                                 .Replace("{custid}", linkParam.AffCode.ToString())
                                 .Replace("{target}", HttpUtility.UrlPathEncode(linkParam.SelectedPage))
-                                .Replace("{lang}", shortedLanguageCode);
+                                .Replace("{lang}", shortedLanguageCode)
+                                .Replace("{channel}", linkParam.SelectedChannel);
 
             return result;
         }
 
-        private IEnumerable<LandingPage> GetAffLandingPages()
+        private IEnumerable<LandingPage> GetSubAffLandingPages()
         {
             return new List<LandingPage>
             {
                 new LandingPage{PageCode = "Signup", PageName="SignUp"}
             };
+        }
+
+        private string NormalizeName(string channelName)
+        {
+            return channelName.Replace(" ", String.Empty).ToLowerInvariant();
         }
     }
 }

@@ -4,11 +4,18 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Common.Extensions;
+using Fanex.Data;
+using Fanex.Affiliate.User.Core.Constants;
+using System;
+using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public class MarketingRepository : IMarketingRepository
     {
+        private const string ERR_CODE = "ErrCode";
+        private const string ERR_MSG = "ErrMsg";
+
         private readonly IObjectDBBuilder _builder;
 
         public MarketingRepository(IObjectDBBuilder builder)
@@ -117,5 +124,63 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             return result;
         }
+
+        public (int Code, string ErrMsg) AddMarketingChannel(int userId, string channelCode, string channelName)
+        {
+            const string spKey = "Aff_User_AffMediaChannel_Ins";
+            
+            using(var objectDb = _builder.Build(spKey))
+            {
+                AddOutputParam(objectDb);
+                objectDb.ExecuteNonQuery(new { AffId = userId, ChannelCode = channelCode, channelName = channelName });
+                return GetResult(objectDb);
+            }
+        }
+
+        public IEnumerable<MarketingChannel> GetMarketingChannels(int userId)
+        {
+            const string spKey = "Aff_User_AffMediaChannel_Sel";
+
+            using (var objectDb = _builder.Build(spKey))
+            {
+                return objectDb.Query<MarketingChannel>(new { AffId = userId });
+            }
+        }
+
+        public (int Code, string ErrMsg) ToggleMarketingLink(MarketingLinkParam param)
+        {
+            const string spKey = "Aff_User_AffMediaLink_ToggleChannel";
+
+            using (var objectDb = _builder.Build(spKey))
+            {
+                AddOutputParam(objectDb);
+                objectDb.ExecuteNonQuery(param);
+                return GetResult(objectDb);
+            }
+        }
+
+        public IEnumerable<MarketingChannelLink> GetUsingMarketingLink(int userId)
+        {
+            const string spKey = "Aff_User_AffMediaChannel_Statistics";
+
+            using (var objectDb = _builder.Build(spKey))
+            {
+                return objectDb.Query<MarketingChannelLink>(new { AffId = userId });
+            }
+        }
+
+        private (int, string) GetResult(IObjectDb objectDb)
+        {
+            var code = Convert.ToInt32(objectDb.GetOuputParams()[ERR_CODE]);
+            var msg = Convert.ToString(objectDb.GetOuputParams()[ERR_MSG]);
+            return (code, msg);
+        }
+
+        private void AddOutputParam(IObjectDb objectDb)
+        {
+            objectDb.AddOutParameter(ERR_CODE, System.Data.SqlDbType.Int, DbParam.ErrCodeSize);
+            objectDb.AddOutParameter(ERR_MSG, System.Data.SqlDbType.NVarChar, DbParam.ErrMsgSize);
+        }
+
     }
 }

@@ -681,6 +681,28 @@ label {
         color: $tab-item-color-active;
     }
 }
+
+//Qrcode
+.qr-item {
+    .main-panel {
+        background: $qr-panel-bgrd;
+    }
+}
+
+.qr-btn-group {
+    button {
+        background: $qr-panel-btn-background;
+        color: $qr-panel-btn-color;
+    }
+}
+
+.qr-footer {
+    button {
+        background: $qr-footer-btn-background;
+        color: $qr-footer-btn-color;
+    }
+}
+
 //user panel
 .sub-content {
     border-top: 1px solid $border-content;
@@ -888,10 +910,7 @@ input[type=radio][disabled] + span{
         color: $text-color-white;
     }
 }
-.btn-copy-link, .btn-copy-qr, .btn-save-img {
-    color: $color-primary !important;
-    font-size: 14px;
-}
+
 .table .table {
     background-color: transparent;
 }

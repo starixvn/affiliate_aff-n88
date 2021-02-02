@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
@@ -28,9 +28,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             MarketingService = marketingService;
             AppSetting = appSetting;
         }
-        protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage, int targetId = TargetSite.TargetToMember)
+        protected SearchFormViewModel GetSearchFormViewModel(bool isMediaPage, AffiliateLinkType linkType = AffiliateLinkType.AffiliateLink)
         {
-            var categoryList = MarketingService.GetCategoryList(isMediaPage, targetId, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
+            var categoryList = MarketingService.GetCategoryList(isMediaPage, linkType, SessionService.IsInternal).Where(c => string.IsNullOrEmpty(c.SubCategory));
             var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
 
             var userSession = SessionService.UserSession;
@@ -38,10 +38,10 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             {
                 CategoryList = categoryList.Select(i => new SelectListItem { Value = i.Category, Text = Lang.ResourceManager.GetString(i.Category.Trim()) ?? i.Category }),
                 LanguageList = MarketingHelper.GetLanguageList(languageList, userSession.PreferredLanguage),
-                TargetId = targetId
+                TargetId = (int)linkType
             };
 
-            if (targetId == TargetSite.TargetToMember)
+            if (linkType == AffiliateLinkType.AffiliateLink)
             {
                 var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal);
                 viewModel.CurrencyList = currencyList
@@ -71,20 +71,21 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         {
             var userSession = SessionService.UserSession;
             var isInternal = SessionService.IsInternal;
-            var targetId = isTargetToMemberSite ? TargetSite.TargetToMember : TargetSite.TargetToSubAff;
+            var targetId = isTargetToMemberSite ? AffiliateLinkType.AffiliateLink : AffiliateLinkType.SubAffiliateLink;
 
             var viewModel = new LinkFormViewModel
             {
                 DomainList = MarketingService.GetAvailableDomainList(userSession.AffId, targetId, isInternal),
-                MemberSitePageList = MarketingService.GetLandingPageList(isInternal, isTargetToMemberSite)
+                MemberSitePageList = MarketingService.GetLandingPageList(isInternal, targetId)
             };
 
             return viewModel;
         }
 
-        protected IDictionary<string, LanguageLinkViewModel> GetLinkForMemberList(string selectedLanguage, string selectedPage,
-            Domain selectedDomain, IEnumerable<SelectListItem> languageList)
+        protected IDictionary<string, LanguageLinkViewModel> GetLinkForMemberList(QrCodeParam param)
         {
+            var selectedDomain = GetDomain(param.SelectedDomainId, param.SelectedLinkType);
+
             if (selectedDomain == null)
             {
                 return new Dictionary<string, LanguageLinkViewModel>();
@@ -92,24 +93,25 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             var userSession = SessionService.UserSession;
 
-            var linkGenerationParam = new LinkGenerationParam
+            var linkGenerationParam = new LinkGeneratingParam
             {
                 AffId = userSession.AffId,
                 AffCode = userSession.AffCode,
                 TextLinkTemplate = AppSetting.TextLinkTemplate,
                 PreferredLanguage = userSession.PreferredLanguage,
-                SelectedLanguage = selectedLanguage,
+                SelectedLanguage = param.SelectedLanguage,
                 SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                LanguageList = languageList,
+                SelectedPage = param.SelectedPage,
+                SelectedChannel = param.SelectedChannel,
             };
 
             return MarketingService.GenerateLinkList(linkGenerationParam);
         }
 
-        protected IDictionary<string, LanguageLinkViewModel> GetLinkForSubAffList(string selectedLanguage, string selectedPage,
-            Domain selectedDomain, IEnumerable<SelectListItem> languageList)
+        protected IDictionary<string, LanguageLinkViewModel> GetLinkForSubAffList(QrCodeParam param)
         {
+            var selectedDomain = GetDomain(param.SelectedDomainId, param.SelectedLinkType);
+
             if (selectedDomain == null)
             {
                 return new Dictionary<string, LanguageLinkViewModel>();
@@ -117,20 +119,56 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             var userSession = SessionService.UserSession;
 
-            var linkGenerationParam = new LinkGenerationParam
+            var linkGenerationParam = new LinkGeneratingParam
             {
                 AffId = userSession.AffId,
                 AffCode = userSession.AffCode,
                 TextLinkTemplate = AppSetting.SubAffTextLinkTemplate,
                 PreferredLanguage = userSession.PreferredLanguage,
-                SelectedLanguage = selectedLanguage,
+                SelectedLanguage = param.SelectedLanguage,
                 SelectedDomain = selectedDomain,
-                SelectedPage = selectedPage,
-                LanguageList = languageList
+                SelectedPage = param.SelectedPage,
+                SelectedChannel = param.SelectedChannel
             };
 
             return MarketingService.GenerateLinkList(linkGenerationParam);
         }
+
+        protected RefLinkViewModel GetAffLinkTypeViewModel()
+        {
+            var affId = SessionService.UserSession.AffId;
+            var domains = MarketingService.GetAvailableDomainList(affId, Enum.AffiliateLinkType.AffiliateLink, SessionService.IsInternal);
+            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal, Enum.AffiliateLinkType.AffiliateLink);
+
+            return new RefLinkViewModel
+            {
+                AffLinkType = Enum.AffiliateLinkType.AffiliateLink,
+                AffTypeDisplayName = Lang.AffilateLink,
+                Domains = domains,
+                SitePages = pages
+            };
+        }
+
+        protected RefLinkViewModel GetSubAffLinkTypeViewModel()
+        {
+            var affId = SessionService.UserSession.AffId;
+            var domains = MarketingService.GetAvailableDomainList(affId, Enum.AffiliateLinkType.SubAffiliateLink, SessionService.IsInternal);
+            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal, Enum.AffiliateLinkType.SubAffiliateLink);
+
+            return new RefLinkViewModel
+            {
+                AffLinkType = Enum.AffiliateLinkType.SubAffiliateLink,
+                AffTypeDisplayName = Lang.SubAffiliateLink,
+                Domains = domains,
+                SitePages = pages
+            };
+        }
+
+        private Domain GetDomain(int? domainId, AffiliateLinkType linkType)
+            => MarketingService
+            .GetAvailableDomainList(SessionService.UserSession.AffId, linkType, SessionService.IsInternal)
+            .FirstOrDefault(d => d.DomainId == domainId);
+
 
     }
 }

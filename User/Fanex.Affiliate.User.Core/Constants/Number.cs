@@ -18,6 +18,8 @@
 
         public const int Twenty = 20;
 
+        public const int Thirdty = 30;
+
         public const int Fifty = 50;
 
         public const int OneHundred = 100;

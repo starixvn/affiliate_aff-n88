@@ -5,7 +5,6 @@
     using System.Web.Mvc;
     using System.Web.Routing;
     using Data.Configuration;
-    using Logging;
 
     /// <summary>
     /// Global for Affiliate link.
@@ -20,6 +19,7 @@
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            LoggingConfig.RegisterSentry();
         }
 
         /// <summary>
