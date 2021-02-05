@@ -61,6 +61,33 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The channel already exists. Please check again..
+        /// </summary>
+        public static string ErrChannelExisted {
+            get {
+                return ResourceManager.GetString("ErrChannelExisted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal error. Please contact to administrator..
+        /// </summary>
+        public static string ErrInternalError {
+            get {
+                return ResourceManager.GetString("ErrInternalError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Affiliate.
+        /// </summary>
+        public static string ErrInValidAff {
+            get {
+                return ResourceManager.GetString("ErrInValidAff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have not entered an email address that we recognise. Please try again or  &lt;a href=&quot;{0}&quot; class=&apos;err-msg&apos;&gt;Contact us&lt;/a&gt;..
         /// </summary>
         public static string ForgotPassword1001 {

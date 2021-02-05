@@ -14,6 +14,7 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Resources;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -195,11 +196,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var channelCode = NormalizeName(channelName);
             var result =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
+            var message = GenAddChannelErrMsg(result.Code);
 
             return new ResultInfo<MarketingChannel>()
             {
                 IsOk = result.Code == 0,
-                Message = result.ErrMsg,
+                Message = string.IsNullOrWhiteSpace(message) ? result.ErrMsg : message,
                 Data = new MarketingChannel { ChannelCode = channelCode, ChannelName = channelName }
             };
         }
@@ -211,11 +213,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public ResultInfo ToggleMarketingLink(MarketingLinkParam param)
         {
             var result = _marketingRepository.ToggleMarketingLink(param);
+            var message = GenToggleErrMsg(result.Code);
 
             return new ResultInfo
             {
                 IsOk = result.Code == 0,
-                Message = result.ErrMsg
+                Message = string.IsNullOrWhiteSpace(message) ? result.ErrMsg : message
             };
         }
 
@@ -287,6 +290,36 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 new LandingPage{PageCode = "Signup", PageName="SignUp"}
             };
         }
+
+        private string GenAddChannelErrMsg(int code)
+        {
+            switch (code)
+            {
+                case 101:
+                    return Error.ErrInValidAff;
+                case 102:
+                    return Error.ErrChannelExisted;
+                case 103:
+                    return Error.ErrInternalError;
+                default:
+                    return string.Empty;
+            }
+        }
+
+
+        private string GenToggleErrMsg(int code)
+        {
+            switch (code)
+            {
+                case 101:
+                    return Error.ErrInValidAff;
+                case 102:
+                    return Error.ErrInternalError;
+                default:
+                    return string.Empty;
+            }
+        }
+
 
         private string NormalizeName(string channelName)
         {
