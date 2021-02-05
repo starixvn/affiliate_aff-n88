@@ -168,4 +168,13 @@
   <data name="NameToLong20" xml:space="preserve">
     <value>Tên quá dài (Tối đa 20 ký tự)</value>
   </data>
+  <data name="ErrInValidAff" xml:space="preserve">
+    <value>Đại lý không hợp lệ</value>
+  </data>
+  <data name="ErrChannelExisted" xml:space="preserve">
+    <value>Tên kênh đã tồn tại. Hãy kiểm tra lại lần nữa.</value>
+  </data>
+  <data name="ErrInternalError" xml:space="preserve">
+    <value>Lỗi hệ thống. Hãy liên hệ với admin.</value>
+  </data>
 </root>

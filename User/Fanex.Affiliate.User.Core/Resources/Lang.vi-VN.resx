@@ -2315,10 +2315,10 @@
     <value>Thêm kênh thành công</value>
   </data>
   <data name="ConfirmActiveLink" xml:space="preserve">
-    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ kích hoạt việc theo dỗi đường dân này.</value>
+    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ kích hoạt việc theo dỗi đường dẫn này.</value>
   </data>
   <data name="ConfrimDeactiveLink" xml:space="preserve">
-    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ hủy kích hoạt việc theo dỗi đường dân này.</value>
+    <value>Bạn có chắc chắn về hành động này? Nếu xác nhận hành động này, bạn sẽ hủy kích hoạt việc theo dỗi đường dẫn này.</value>
   </data>
   <data name="UserNameMaxLength30" xml:space="preserve">
     <value>Tên truy cập không được nhiều hơn 30 ký tự</value>

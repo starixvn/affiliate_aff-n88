@@ -61,7 +61,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12BET Player Account.
+        ///   Looks up a localized string similar to N88 Player Account.
         /// </summary>
         public static string _12BETPlayerAcc {
             get {
@@ -394,7 +394,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply 12BET Affiliate.
+        ///   Looks up a localized string similar to Apply N88 Affiliate.
         /// </summary>
         public static string ApplyOneTwoBetAffiliate {
             get {
@@ -457,7 +457,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to As affiliates, you will earn revenue share on every player you referred to 12BET  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
+        ///   Looks up a localized string similar to As affiliates, you will earn revenue share on every player you referred to N88  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
         /// </summary>
         public static string AsAOneTwoBetYouWillEarnCommission {
             get {
@@ -1006,7 +1006,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12BET CASINO CLUBS.
+        ///   Looks up a localized string similar to N88 CASINO CLUBS.
         /// </summary>
         public static string CasinoClubs {
             get {
@@ -1366,7 +1366,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please complete this form to register for your 12BET affiliate account..
+        ///   Looks up a localized string similar to Please complete this form to register for your N88 affiliate account..
         /// </summary>
         public static string CompleteForm {
             get {
@@ -1504,7 +1504,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © Copyright 2020 | 12BET. All Rights Reserved | 21+.
+        ///   Looks up a localized string similar to © Copyright 2020 | N88. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
             get {
@@ -1567,7 +1567,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliate – New account {0} awaiting approval.
+        ///   Looks up a localized string similar to N88 Affiliate – New account {0} awaiting approval.
         /// </summary>
         public static string CsdSubject {
             get {
@@ -2395,7 +2395,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There was an error when getting 12Bet player information. Please contact your administrator!.
+        ///   Looks up a localized string similar to There was an error when getting N88 player information. Please contact your administrator!.
         /// </summary>
         public static string errDepositDBConnectFailed {
             get {
@@ -2962,7 +2962,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I agree to the Terms &amp; Conditions of 12BET Affiliate..
+        ///   Looks up a localized string similar to I agree to the Terms &amp; Conditions of N88 Affiliate..
         /// </summary>
         public static string IagreetotheTerm {
             get {
@@ -3679,7 +3679,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         ///        Feel free to call us at 1-34354-3454 if you have any question. {br}{br}
         ///        Have a great day! {br}{br}
         ///        Best regards, {br}{br}
-        ///        12Bet Affiliate Support Team
+        ///        N88 Affiliate Support Team
         ///    .
         /// </summary>
         public static string MessageSentReview {
@@ -3689,7 +3689,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Become 12BET Affiliate Business Partner to promote 12BET Sportsbook and Casino and earn monthly revenue share from customers brought from your websites..
+        ///   Looks up a localized string similar to Become N88 Affiliate Business Partner to promote N88 Sportsbook and Casino and earn monthly revenue share from customers brought from your websites..
         /// </summary>
         public static string MetaDescription {
             get {
@@ -3698,7 +3698,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Be A Business Partner of 12BET | Affiliate Program - 12BET.
+        ///   Looks up a localized string similar to Be A Business Partner of N88 | Affiliate Program - N88.
         /// </summary>
         public static string MetaTitle {
             get {
@@ -3860,7 +3860,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to More details about 12BET products.
+        ///   Looks up a localized string similar to More details about N88 products.
         /// </summary>
         public static string MoreDetailProduct {
             get {
@@ -4283,7 +4283,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12BET Affiliate News.
+        ///   Looks up a localized string similar to N88 Affiliate News.
         /// </summary>
         public static string OneTwoBetAffiliateNews {
             get {
@@ -4535,7 +4535,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Your payment request has been cancelled.
+        ///   Looks up a localized string similar to N88 Affiliates - [{0}] - Your payment request has been cancelled.
         /// </summary>
         public static string PaymentRequestCancelSubject {
             get {
@@ -4544,7 +4544,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Payment Request Notification.
+        ///   Looks up a localized string similar to N88 Affiliates - [{0}] - Payment Request Notification.
         /// </summary>
         public static string PaymentRequestSubject {
             get {
@@ -5012,7 +5012,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliate - Your Application.
+        ///   Looks up a localized string similar to N88 Affiliate - Your Application.
         /// </summary>
         public static string RegisSubject {
             get {
@@ -5021,7 +5021,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at 12Bet Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at 12Bet Affiliates&lt;br/&gt;&lt;br/&gt;For any reason, you do not receive the email, pl [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at N88 Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at N88 Affiliates&lt;br/&gt;&lt;br/&gt;For any reason, you do not receive the email, please [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RegisSuccess {
             get {
@@ -5417,7 +5417,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SIGN UP 12BET AFFILIATE PROGRAM NOW!.
+        ///   Looks up a localized string similar to SIGN UP N88 AFFILIATE PROGRAM NOW!.
         /// </summary>
         public static string SignUpAffiliateProgramNow {
             get {
@@ -5732,7 +5732,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - Your login detail.
+        ///   Looks up a localized string similar to N88 Affiliates - Your login detail.
         /// </summary>
         public static string SubjectForgetPass {
             get {
@@ -5750,7 +5750,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - Your new password.
+        ///   Looks up a localized string similar to N88 Affiliates - Your new password.
         /// </summary>
         public static string SubjectNewPass {
             get {
@@ -5759,7 +5759,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - Verification your account detail.
+        ///   Looks up a localized string similar to N88 Affiliates - Verification your account detail.
         /// </summary>
         public static string SubjectVerificationAccount {
             get {
@@ -6353,7 +6353,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update 12BET Banners from your Media Gallery.
+        ///   Looks up a localized string similar to Update N88 Banners from your Media Gallery.
         /// </summary>
         public static string Update12BetBannersfromYourMediaGallery {
             get {
@@ -6659,7 +6659,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What&apos;s New in 12BET Promotion ! .
+        ///   Looks up a localized string similar to What&apos;s New in N88 Promotion ! .
         /// </summary>
         public static string WhatNewInOneTwoBetPromotion {
             get {
