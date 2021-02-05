@@ -39,5 +39,7 @@ namespace Affiliate.N88.Models
         public DateTime? CreateTime { get; set; }
 
         public Decimal? ValidBet { get; set; }
+
+        public int? BonusId { get; set; }
     }
 }
