@@ -7,11 +7,11 @@ import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
 import { showPopupPassword } from '../../common/reducers';
 
-export const commGroupList = createReducer({}, {});
+const commGroupList = createReducer({}, {});
 
-export const languageList = createReducer({}, {});
+const languageList = createReducer({}, {});
 
-export const groupId = createReducer(0, {});
+const groupId = createReducer(0, {});
 
 export const reportTitle = createReducer('', {
     [SET_REPORT_TITLE](prevState, action) {

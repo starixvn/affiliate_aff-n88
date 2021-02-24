@@ -116,7 +116,7 @@ export class Filter extends Component {
                     <FormGroup className="my-2 mr-sm-2">
                         <Label for="SearchBy" className="mr-sm-2">{resource.SearchBy}</Label>
                         <Input type="select" name="selectedCommGroup" id="searchBy" value={selectedCommGroup} onChange={this.handleChange} >
-                            <option key="commGroup-all" value={0}>{resource.AllCommGroups}</option>
+                            <option key="commGroup-all" value="0">{resource.AllCommGroups}</option>
                             {
                                 Object.keys(commGroupList).map(commGroup => {
                                     return (<option key={'commGroup-' + commGroup} value={commGroup}>{htmlDecode(commGroupList[commGroup])}</option>)

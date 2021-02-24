@@ -30,6 +30,11 @@ export const sortDirectionType = {
 
 export const totalText = 'Total (all pages)';
 
+export const allCommGroups = {
+    Id: 0,
+    Name: 'All Revenue Groups'
+};
+
 export const headerText = {
     UserName: 'Affiliate',
     MonthDateString: 'Month',

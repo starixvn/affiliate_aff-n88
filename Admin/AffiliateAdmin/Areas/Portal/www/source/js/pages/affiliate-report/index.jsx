@@ -6,7 +6,7 @@ import reducer from './reducers';
 import AppContainer from "./components/AppContainer";
 import { configureStore } from '../../modules/store';
 
-const { productList, languageList, currencyList, baseCurrencyList, isProduction, today, isN8B } = window.initialState;
+const { productList, languageList, currencyList, baseCurrencyList, isProduction, today, isN8B, commGroupList } = window.initialState;
 
 const newProductList = productList.map(p => {
     return Object.assign({}, p, { Checked: true });
@@ -26,7 +26,13 @@ const newCurrencyList = currencyList.map(item => {
     };
 });
 
-const store = configureStore({ productList: newProductList, languageList: language, today, currencyList: newCurrencyList, baseCurrencyList, isProduction, isN8B }, reducer);
+const commGroup = {};
+for (let i = 0; i < commGroupList.length; i++) {
+    const commGroupItem = commGroupList[i];
+    commGroup[commGroupItem.Id] = commGroupItem.Name;
+}
+
+const store = configureStore({ productList: newProductList, commGroupList: commGroup, languageList: language, today, currencyList: newCurrencyList, baseCurrencyList, isProduction, isN8B }, reducer);
 
 export default class App extends React.Component {
     constructor(props) {

@@ -102,7 +102,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             IProductRepository productRepository = null,
             ILanguageService languageService = null,
             IAffiliateReportService affiliateReportService = null,
-            ICurrencyRepository currencyRepository = null
+            ICurrencyRepository currencyRepository = null,
+            ICommissionGroupRepository commissionGroupRepository = null
             )
         {
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
@@ -110,8 +111,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeAffiliateReportService = affiliateReportService ?? Mock.Of<IAffiliateReportService>();
             var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
+            var fakeCommissionGroupRepository = commissionGroupRepository ?? Mock.Of<ICommissionGroupRepository>();
 
-            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService, fakeCurrencyRepository);
+            return new ReportController(fakeSessionService, fakeProductRepository, fakeLanguageService, fakeAffiliateReportService, fakeCurrencyRepository, fakeCommissionGroupRepository);
         }
     }
 }

@@ -22,17 +22,21 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         private readonly ICurrencyRepository _currencyRepository;
 
+        private readonly ICommissionGroupRepository _commissionGroupRepository;
+
         public ReportController(
             ISessionService sessionService,
             IProductRepository productRepository,
             ILanguageService languageService,
             IAffiliateReportService affiliateReportService,
-            ICurrencyRepository currencyRepository) : base(sessionService)
+            ICurrencyRepository currencyRepository,
+            ICommissionGroupRepository commissionGroupRepository) : base(sessionService)
         {
             _productRepository = productRepository;
             _languageService = languageService;
             _affiliateReportService = affiliateReportService;
             _currencyRepository = currencyRepository;
+            _commissionGroupRepository = commissionGroupRepository;
         }
 
 
@@ -44,7 +48,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 ProductList = _productRepository.GetProductList(),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _currencyRepository.GetCurrencies(),
-                BaseCurrencyList = _currencyRepository.GetBaseCurrencies()
+                BaseCurrencyList = _currencyRepository.GetBaseCurrencies(),
+                CommGroupList = _commissionGroupRepository.GetAllCommGroups(),
             };
 
             return View(viewModel);

@@ -139,6 +139,29 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             return result;
         }
 
+        public IEnumerable<SelectItem> GetAllCommGroups()
+        {
+            const string SpKey = "Aff_CommGroup_Sel";
+            var result = new List<SelectItem>();
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                using (var reader = objectDb.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(new SelectItem
+                        {
+                            Id = reader.ToString(Field.GroupId),
+                            Name = reader.ToString(Field.GroupName)
+                        });
+                    }
+                }
+            }
+
+            return result;
+        }
+
         public ResultInfo AssignGroup(AssignGroupParam param)
         {
             const string SpKey = "Aff_Admin_CommGroup_Assign";

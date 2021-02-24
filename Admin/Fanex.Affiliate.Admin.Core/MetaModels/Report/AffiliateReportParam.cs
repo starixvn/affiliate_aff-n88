@@ -13,6 +13,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         public string PreferredLanguage { get; set; }
 
+        public int GroupId { get; set; }
+
         public bool IsGetAll { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]

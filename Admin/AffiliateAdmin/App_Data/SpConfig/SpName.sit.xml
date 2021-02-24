@@ -13,6 +13,7 @@
   <Function Name="Commission">
     <Setting Key="Aff_ProductList_Sel" SpName="Aff_ProductList_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_CommGroup_Deductions_Sel" SpName="Aff_Admin_CommGroup_Deductions_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_CommGroup_Sel" SpName="Aff_CommGroup_Sel_xtest" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_CommGroup_Sel" SpName="Aff_Admin_CommGroup_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_CommGroup_Ins" SpName="Aff_Admin_CommGroup_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_CommGroup_Upd" SpName="Aff_Admin_CommGroup_Upd" DbName="affiliate_n88" />
@@ -30,7 +31,7 @@
     <Setting Key="Aff_Logout" SpName="Aff_Logout" DbName="affiliate_n88" />
   </Function>
   <Function Name="Report">
-    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel_xtest" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Info">
