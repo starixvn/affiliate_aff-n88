@@ -195,11 +195,12 @@ export class Filter extends Component {
     }
 
     _buildMainReportTitle(isCheckedAllProduct) {
-        const { languageList, baseCurrencyList } = this.props;
-        const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
+        const { languageList, baseCurrencyList, commGroupList } = this.props;
+        const { selectedLanguage, selectedCommGroup, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
 
         const userNameTitle = `${userName && '- Username contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
+        const commGroup = commGroupList[selectedCommGroup] || allCommGroups.Name;
 
         const productList = this._getProductDataSource();
         const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.Checked).map(p => p.ProductName).join(',');
@@ -208,7 +209,7 @@ export class Filter extends Component {
         const reportName = 'AFFILIATE REPORT ';
         const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
-        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${language} - ${productName} - ${fromToTitle}`;
+        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
