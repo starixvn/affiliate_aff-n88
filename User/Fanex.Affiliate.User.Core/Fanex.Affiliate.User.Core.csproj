@@ -246,6 +246,7 @@
     <Compile Include="Constants\GMT.cs" />
     <Compile Include="Constants\TransferBalanceStatus.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
+    <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\PlayerTransferBalanceHistoryController.cs" />
     <Compile Include="Controllers\UserPanel\PlayerTransferBalanceController.cs" />
