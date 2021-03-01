@@ -30,12 +30,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private readonly IMarketingService MarketingService;
         private readonly IQrCodeGeneratorService QrCodeService;
 
-        private static IEnumerable<SizeType> SizeTypes => new List<SizeType>
-        {
-            new SizeType { SizeId = 1, Size = "1080x1920" },
-            new SizeType { SizeId = 2, Size = "640x256" },
-        };
-
         private static IEnumerable<MarketingItem> MarketingItems => new List<MarketingItem>
         {
             new MarketingItem {BannerId =1 },
@@ -70,13 +64,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             var controller = CreateMarketingController();
             MarketingService.GetSizeList(Arg.Compat.Any<SizeParam>(), Arg.Compat.Any<bool>())
-                .Returns(SizeTypes);
+                .Returns(Constant.SizeTypes);
             var param = new SizeParam { Language = Constant.DefaultLanguage };
 
             var result = controller.GetSize(param) as JsonResult;
             var model = result.Data as IEnumerable<SizeType>;
 
-            Assert.Collection(model, t => Assert.Contains(SizeTypes, s => s.SizeId == t.SizeId), t => Assert.Contains(SizeTypes, s => s.SizeId == t.SizeId));
+            Assert.Collection(model, t => Assert.Contains(Constant.SizeTypes, s => s.SizeId == t.SizeId), t => Assert.Contains(Constant.SizeTypes, s => s.SizeId == t.SizeId));
             Assert.Equal(JsonRequestBehavior.AllowGet, result.JsonRequestBehavior);
         }
 
@@ -86,13 +80,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = CreateMarketingController();
             LanguageService.GetLanguageList().Returns(new List<Language>());
             MarketingService.GetSizeList(Arg.Compat.Any<SizeParam>(), Arg.Compat.Any<bool>())
-                .Returns(SizeTypes);
+                .Returns(Constant.SizeTypes);
             var param = new SizeParam { Language = Constant.DefaultLanguage };
 
             var result = controller.GetSize(param) as JsonResult;
             var model = result.Data as IEnumerable<SizeType>;
 
-            Assert.Collection(model, t => Assert.Contains(SizeTypes, s => s.SizeId == t.SizeId), t => Assert.Contains(SizeTypes, s => s.SizeId == t.SizeId));
+            Assert.Collection(model, t => Assert.Contains(Constant.SizeTypes, s => s.SizeId == t.SizeId), t => Assert.Contains(Constant.SizeTypes, s => s.SizeId == t.SizeId));
             Assert.Equal(JsonRequestBehavior.AllowGet, result.JsonRequestBehavior);
         }
 

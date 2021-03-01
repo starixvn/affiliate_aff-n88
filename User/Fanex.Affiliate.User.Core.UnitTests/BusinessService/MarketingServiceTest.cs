@@ -214,31 +214,17 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void GenerateLinkList_WhenNotExistLanguageListFromSite_ReturnOneItem()
-        {
-            var service = CreateService();
-            LanguageService.GetLanguageList().Returns(GetLanguageList());
-            var param = CreateLinkGenerationParam();
-            param.SelectedLanguage = null;
-
-            var result = service.GenerateLinkList(param);
-
-            Assert.Equal(1, result.Count);
-        }
-
-        [Fact]
         public void GenerateLinkList_WhenSelectedLanguageNotEmpty_ReturnEmpty()
         {
             var service = CreateService();
             LanguageService.GetLanguageList().Returns(GetLanguageList());
             var param = CreateLinkGenerationParam();
-            param.SelectedLanguage = null;
+            param.SelectedLanguage = "abc";
 
             var result = service.GenerateLinkList(param);
 
             Assert.Empty(result);
         }
-
 
         [Fact]
         public void GenerateLinkList_WhenSelectedLanguageNotEmpty_ReturnNotEmpty()

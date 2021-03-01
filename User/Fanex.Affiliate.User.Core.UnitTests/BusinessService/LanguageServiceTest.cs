@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GetSystemLanguage_WhenNotHaveInfoInCacheAndRepo_ReturnEmptyList()
         {
             var service = CreateService();
-            CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).ReturnsNull();
+            CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).ReturnsNull();
             Repo.GetLanguageList(false).ReturnsNullForAnyArgs();
 
             var result = service.GetLanguageList();
@@ -107,13 +107,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public void GetSystemLange_WhenRepoHaveInfoButCacheIsNot_SaveInfoInCache()
         {
             var service = CreateService();
-            CacheServive.Get<IEnumerable<LanguageType>>(CacheKey.LanguageList).ReturnsNull();
+            CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).ReturnsNull();
             Repo.GetLanguageList(false).ReturnsForAnyArgs(CreateLanguages());
 
             var result = service.GetLanguageList();
 
             Repo.ReceivedWithAnyArgs().GetLanguageList(false);
-            CacheServive.ReceivedWithAnyArgs().Set(null, default(IEnumerable<LanguageType>));
+            CacheServive.ReceivedWithAnyArgs().Set(null, default(IEnumerable<Language>));
             Assert.NotEmpty(result);
         }
 

@@ -53,7 +53,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
         public static IEnumerable<CurrencyType> CurrencyType = new List<CurrencyType>
         {
             new CurrencyType {Currency = "VND", CurrencyId=1 },
-            new CurrencyType { CurrencyId = 2, Currency = "USD" }
+            new CurrencyType { CurrencyId = 2, Currency = "USD" },
+            new CurrencyType { CurrencyId = 2, Currency = "Test" }
         };
 
         public static IEnumerable<Domain> DomainList = new List<Domain>
@@ -72,6 +73,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
         {
             new BannerType {Type = "Image", TypeId =1 },
             new BannerType {Type = "test", TypeId = 2 }
+        };
+        public static IEnumerable<SizeType> SizeTypes => new List<SizeType>
+        {
+            new SizeType { SizeId = 1, Size = "1080x1920" },
+            new SizeType { SizeId = 2, Size = "640x256" },
         };
 
         public static UserSession Session = new UserSession

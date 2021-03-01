@@ -2,8 +2,8 @@
 using Fanex.Affiliate.User.Core.Controllers.UserPanel;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
@@ -30,11 +30,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             marketingService = NSubtituteMockingHelper.FakeMarkengtingService();
         }
 
-        [Fact]
-        public void Index_WhenCall_ReturnCorrectView()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Index_WhenCall_ReturnCorrectView(bool isMaxSubLevel)
         {
             //Arange
-            appSetting.GetValue(Arg.Any<string>()).ReturnsForAnyArgs("abc");
+            marketingService.GetChannels(Arg.Any<int>()).Returns(new Dictionary<string, string> { ["Abc"] = "123" });
+            marketingService.GetCategoryList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).ReturnsForAnyArgs(Constant.CategoryList);
+            marketingService.GetCurrencyList(Arg.Any<bool>()).ReturnsForAnyArgs(Constant.CurrencyType);
+            marketingService.GetSizeList(Arg.Any<SizeParam>(), Arg.Any<bool>()).ReturnsForAnyArgs(Constant.SizeTypes);
+
+            accountService.GetGeneralAffInfo(Arg.Any<int?>(), Arg.Any<string>()).ReturnsForAnyArgs(new GeneralAffInfo { IsMaxSubLevel = isMaxSubLevel });
+
             var controller = new MediaGalleryController(sessionService, appSetting,languageService, marketingService, accountService);
 
             //Action
@@ -42,18 +50,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             //Assert
             Assert.Equal("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", result.ViewName);
-        }
-
-        [Fact]
-        public void Index_WhenCallWithLanguageInvalid_ReturnCorrectView()
-        {
-            languageService.GetLanguageList().Returns(new List<Language>());
-            marketingService.GetLandingPageList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>()).Returns(new List<LandingPage>());
-            var controller = new MediaGalleryController(sessionService, appSetting, languageService, marketingService, accountService);
-
-            var result = controller.Index() as ViewResult;
-
-            Assert.Contains("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", result.ViewName);
         }
     }
 }

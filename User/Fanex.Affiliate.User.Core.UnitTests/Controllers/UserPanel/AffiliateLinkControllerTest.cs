@@ -30,17 +30,25 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             marketingService = NSubtituteMockingHelper.FakeMarkengtingService();
         }
 
-        [Fact]
-        public void Index_WhenCall_ReturnCorrectView()
+        [Theory]
+        [InlineData(true)]
+        [InlineData(false)]
+        public void Index_WhenCall_ReturnCorrectView(bool isMaxSubLevel)
         {
             //Arrange
+            marketingService.GetChannels(Arg.Any<int>()).Returns(new Dictionary<string, string> { ["Abc"] = "123" });
+            languageService.GetLanguageList(Arg.Any<bool>()).ReturnsForAnyArgs(Constant.LanguageList);
+
+            accountService.GetGeneralAffInfo(Arg.Any<int?>(), Arg.Any<string>()).ReturnsForAnyArgs(new GeneralAffInfo { IsMaxSubLevel = isMaxSubLevel });
+
+
             var controller = new AffiliateLinkController(sessionService, appSetting, languageService, marketingService, accountService);
 
             //Action
             var result = controller.Index() as ViewResult;
 
             //Assert
-            Assert.Contains("AffiliateLink/Index.cshtml", result.ViewName);
+            Assert.Contains("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", result.ViewName);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
@@ -39,14 +38,23 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                using (var multipleReader = objectDb.QueryMultiple(new { affId, trackingCode }))
+                using (var reader = objectDb.ExecuteReader(new { affId, trackingCode }))
                 {
-                    while (!multipleReader.IsEmptyOrClosed)
+                    while (reader.Read())
                     {
-                        dataList.AddRange(multipleReader.Read<TrackingStatistics>());
+                        dataList.Add(BuildTrackingStatisticsItem(reader));
+                    }
+
+                    if (reader.NextResult())
+                    {
+                        while (reader.Read())
+                        {
+                            dataList.Add(BuildTrackingStatisticsItem(reader));
+                        }
                     }
                 }
             }
+
             return dataList;
         }
 
@@ -124,7 +132,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         public IEnumerable<MarketingPageStatistics> GetMarketingPageStatistics(MarketingPageStatisticsParam param)
         {
             const string spKey = "Aff_User_Rpt_MarketingPage_Statistics";
-            
+
             using(var objectDb = _builder.Build(spKey))
             {
                 return objectDb.Query<MarketingPageStatistics>(param);
