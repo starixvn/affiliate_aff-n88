@@ -9,6 +9,7 @@ import { format, formatDecimal } from '../../../modules/numberFormat';
 import { setPagingOption, setViewLevel, setParam } from '../actions';
 import { post } from '../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../actions/loaderAction';
+import { globalResource } from '../../../modules/globalResource';
 import { allProduct, viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../modules/constants';
 
 export class GridData extends Component {
@@ -115,15 +116,23 @@ export class GridData extends Component {
     }
 
     _renderDataSection(dataList) {
-        const { param } = this.props;
-
-        const isSelectedAllProducts = param.ProductIds === allProduct;
-        const productColumnClassName = isSelectedAllProducts ? 'text-right' : 'text-right highlight';
         const dataRows = [];
 
-        for (let i = 0; i < dataList.length; i++) {
-            const dataItem = dataList[i];
-            dataRows.push(this._buildDataRow(dataItem, productColumnClassName, i));
+        if (dataList.length) {
+            const { param } = this.props;
+
+            const isSelectedAllProducts = param.ProductIds === allProduct;
+            const productColumnClassName = isSelectedAllProducts ? 'text-right' : 'text-right highlight';
+
+            for (let i = 0; i < dataList.length; i++) {
+                const dataItem = dataList[i];
+                dataRows.push(this._buildDataRow(dataItem, productColumnClassName, i));
+            }
+        }
+        else {
+            dataRows.push(<Row>
+                <Cell className="text-center" colSpan={25 + this._isMainView()}>{globalResource.NoInfo}</Cell>
+            </Row>);
         }
 
         return dataRows;
@@ -241,7 +250,7 @@ export class GridData extends Component {
     render() {
         const { gridData, total } = this.state;
 
-        return gridData && total && (
+        return gridData && (
             <div className="table-responsive table-striped">
                 <Table
                     minWidth={1000}
@@ -249,7 +258,7 @@ export class GridData extends Component {
                     bodyHeight={300}
                     header={this._renderHeader()}
                     body={this._renderDataSection(gridData)}
-                    footer={this._renderDataSection([total])}
+                    footer={total && this._renderDataSection([total])}
                     containerPadding={20}
                     isPaging={true}
                     pageOption={this.props.pagingOption}

@@ -19,6 +19,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param);
 
+        IEnumerable<SelectItem> GetAllCommGroups();
+
         ResultInfo AssignGroup(AssignGroupParam param);
     }
 }

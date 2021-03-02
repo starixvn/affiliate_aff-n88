@@ -199,22 +199,24 @@ export default class ReportExcel {
 
     _createTotalRow() {
         const totalData = this.data.Total;
-        const customTotalData = this.isMainView ? {
-            [fields.UserName]: totalText,
-            [fields.CommissionRate]: "N/A"
-        } : {
-                [fields.MonthDateString]: totalText,
-                [fields.CommissionRate]: formatDecimal(totalData.CommissionRate) + '%'
+        if (totalData) {
+            const customTotalData = this.isMainView ? {
+                [fields.UserName]: totalText,
+                [fields.CommissionRate]: "N/A"
+            } : {
+                    [fields.MonthDateString]: totalText,
+                    [fields.CommissionRate]: formatDecimal(totalData.CommissionRate) + '%'
+                }
+            const total = Object.assign({}, totalData, customTotalData);
+
+            for (let j = 0; j < this.totalColumn; j++) {
+                const address = Excel.getCellAddress({
+                    c: j,
+                    r: this.currentRowIndex
+                });
+
+                this.worksheet[address] = this._buildDataRow(total, TOTAL_SECTION_STYLE, j);
             }
-        const total = Object.assign({}, totalData, customTotalData);
-
-        for (let j = 0; j < this.totalColumn; j++) {
-            const address = Excel.getCellAddress({
-                c: j,
-                r: this.currentRowIndex
-            });
-
-            this.worksheet[address] = this._buildDataRow(total, TOTAL_SECTION_STYLE, j);
         }
     }
 
