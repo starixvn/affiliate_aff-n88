@@ -41,5 +41,7 @@ namespace Affiliate.N88.Models
         public Decimal? ValidBet { get; set; }
 
         public int? BonusId { get; set; }
+
+        public decimal? Revenue { get; set; }
     }
 }
