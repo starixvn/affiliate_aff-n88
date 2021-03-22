@@ -137,15 +137,8 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
         {
             var result = new ResultInfo { Code = Code.GeneralErrorCode };
 
-            var inputProductIdListCount = productIdOfPlatform.Count();
-            if (productIdOfDB.Count() != inputProductIdListCount)
-            {
-                return result;
-            }
-
             var distinctProductIdOfPlatform = productIdOfPlatform.Distinct();
-            if (inputProductIdListCount != distinctProductIdOfPlatform.Count() ||
-                distinctProductIdOfPlatform.Any(item => !productIdOfDB.Contains(item)))
+            if (distinctProductIdOfPlatform.Any(item => !productIdOfDB.Contains(item)))
             {
                 return result;
             }

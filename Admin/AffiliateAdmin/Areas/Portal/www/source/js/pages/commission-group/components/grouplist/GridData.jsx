@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,6 +10,7 @@ import { format, formatDecimal } from '../../../../modules/numberFormat';
 import { deleteCommGroup, getGroupSettingList } from '../../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { NotificationPopup } from '../../../common/components/NotificationPopup';
+import {convertStringToArrayNumber} from '../../modules/service';
 
 export class GridData extends Component {
     constructor(props) {
@@ -38,6 +39,31 @@ export class GridData extends Component {
 
             return accumulator;
         }, []).join(',');
+    }
+
+    _buildProductsText = item => {
+        const {productList} = this.props;
+        const productsInGroup = item.PlatformFeeList.map(p => p.ProductIds)
+            .map(ids => convertStringToArrayNumber(ids))
+            .reduce((acc, cur) => [...acc, ...cur]);
+
+        return <React.Fragment>
+            {productList.map((p, index) => {
+                const elems = [];
+                if (index > 0)
+                {
+                    elems.push(<span>, </span>)
+                }
+                if (!productsInGroup.find(i => i === p.ProductId))
+                {
+                    elems.push(<span className='text-danger'><del>{p.ProductName}</del></span>)
+                }
+                else{
+                    elems.push(<span>{p.ProductName}</span>)
+                }
+                return <React.Fragment>{elems}</React.Fragment>
+            })}
+        </React.Fragment>
     }
 
     handleCloseNotificationPopup = (confirmResult) => {
@@ -79,6 +105,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2">No.Aff</Cell>
                 <Cell header={true} colWidth={150} rowSpan="2">Description</Cell>
                 <Cell header={true} colWidth={80} rowSpan="2">Creation</Cell>
+                <Cell header={true} colWidth={150} rowSpan="2">Product</Cell>
                 <Cell header={true} colSpan="10">Policy</Cell>
                 <Cell header={true} colWidth={70} rowSpan="2">Action</Cell>
             </Row>,
@@ -104,7 +131,7 @@ export class GridData extends Component {
         if (gridData && gridData.length) {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
-
+                
                 const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
@@ -114,6 +141,7 @@ export class GridData extends Component {
                 const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)))
                 const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)))
 
+                const productsText = this._buildProductsText(item);
                 for (let iTier = 0; iTier < TierSettingList.length; iTier++) {
                     const tierSetting = TierSettingList[iTier];
                     const isFirstItem = iTier === 0;
@@ -134,6 +162,7 @@ export class GridData extends Component {
                             )}
                             {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}>{htmlDecode(group.Description)}</Cell>)}
                             {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}><p>{group.Creator}</p><p>{group.CreatedDateText}</p></Cell>)}
+                            {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}>{productsText}</Cell>)}
 
                             {isFirstItem && (<Cell className="text-center font-weight-bold cell-tier" rowSpan={tierSettingRowSpan}>Tier Setting</Cell>)}
                             <Cell className="text-center cell-tier">{tierSetting.TierId}</Cell>
