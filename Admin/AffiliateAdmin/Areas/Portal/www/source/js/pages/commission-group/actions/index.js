@@ -86,7 +86,7 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
 
     const selectedProductIds = data.PlatformFeeList.map(p => p.ProductIds)
         .map(ids => convertStringToArrayNumber(ids))
-        .reduce((cul, cur, []) => [...cul, ...cur]);
+        .reduce((cul, cur) => [...cul, ...cur], []);
     dispatch(setSelectedProductIds(selectedProductIds));
     dispatch(setSelectedGroup(data));
 }

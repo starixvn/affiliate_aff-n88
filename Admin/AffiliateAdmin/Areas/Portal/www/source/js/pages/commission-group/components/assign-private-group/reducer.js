@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { selectedGroup, productList, deductionList, defaultCurrency } from '../../reducers';
+import { selectedGroup, productList, deductionList, defaultCurrency, selectedProductIds } from '../../reducers';
 import createReducer from '../../../../modules/createReducer';
 
 export const affInfo = createReducer({}, {});
 
-export default combineReducers({ productList, deductionList, selectedGroup, affInfo, defaultCurrency });
+export default combineReducers({ productList, deductionList, selectedGroup, affInfo, defaultCurrency, selectedProductIds });

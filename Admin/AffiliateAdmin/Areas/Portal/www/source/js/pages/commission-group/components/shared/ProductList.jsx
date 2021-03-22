@@ -31,7 +31,7 @@ function ProductList(props) {
     }
 
     const getPlatformFeeListIds = (curSelProductIds, prePlatformFeeIds) => {
-        const preSelProductIds = prePlatformFeeIds.reduce((acc, cur, []) => acc.push(cur));
+        const preSelProductIds = prePlatformFeeIds.reduce((acc, cur) => acc.concat(cur), []);
         const additionIds = getAdditionId(curSelProductIds, preSelProductIds);
         const platformFeeIdsAfterRemoveProduct = removeUnCheckedProductId(curSelProductIds, prePlatformFeeIds);
         const firstPlatformFeeProductIds = platformFeeIdsAfterRemoveProduct[0];
@@ -44,8 +44,6 @@ function ProductList(props) {
     }
 
     const removeUnCheckedProductId = (curSelIds, preListIds) => {
-        console.log(curSelIds);
-        console.log(preListIds);
         const newList = [];
         preListIds.forEach(list => {
             newList.push(list.filter(i => !!curSelIds.find(p => p===i)));

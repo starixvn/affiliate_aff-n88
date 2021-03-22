@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
-import { getSelectedCommGroup, setSelectedGroup } from '../../actions';
+import { getSelectedCommGroup, setSelectedGroup, setSelectedProductIds } from '../../actions';
 import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList, validateDeductedFees } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
@@ -12,6 +12,7 @@ import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
+import ProductList from '../shared/ProductList';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -27,8 +28,11 @@ export class AssignPrivateGroup extends React.Component {
 
     componentDidMount() {
         this.setState({ isShowLoader: true });
+
         const { deductionList, productList, affInfo } = this.props;
         const { GroupId, IsUsingPrivateCommGroup } = affInfo;
+        const productIds = productList.map(p => p.ProductId);
+        this.props.setSelectedProductIds(productIds);
 
         if (IsUsingPrivateCommGroup) {
             this.props.getSelectedCommGroup({ GroupId });
@@ -116,6 +120,7 @@ export class AssignPrivateGroup extends React.Component {
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
+                <ProductList />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -125,12 +130,12 @@ export class AssignPrivateGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, selectedGroup, affInfo }) {
-    return { deductionList, productList, selectedGroup, affInfo };
+function mapStateToProp({ deductionList, productList, selectedGroup, affInfo, selectedProductIds }) {
+    return { deductionList, productList, selectedGroup, affInfo, selectedProductIds };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getSelectedCommGroup, setSelectedGroup }, dispatch);
+    return bindActionCreators({ getSelectedCommGroup, setSelectedGroup, setSelectedProductIds }, dispatch);
 }
 
 export default connect(mapStateToProp, mapDispatchToProps)(AssignPrivateGroup);
