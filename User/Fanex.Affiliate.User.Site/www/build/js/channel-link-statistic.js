@@ -8,26 +8,9 @@ var StatementHistory = (function ($) {
         $(children).toggleClass("display-none");
     }
 
-    function expandChannels(channels) {
-        channels.forEach(function (id) {
-            let parent = $("#channel-table").find(`data-id='${id}'`);
-            let btn = parent.find(".btn.btn-transparent");
-            let children = parentRow.siblings(`tr[data-parent='${id}']`);
-            if (!isExpandRow(parent)) {
-                toggleCollapseButton(btn);
-                toggleChildrenElem(children);
-            }
-        })
-    }
-
     var _me = {
         initialize: function () {
-            StatementHistory.initEvent();
-            if (!window.currentExpandedChannel || !Array.isArray(window.currentExpandedChannel)) {
-                window.currentExpandedChannel = [];
-            }
-
-            expandChannels(window.currentExpandedChannel);
+            _me.initEvent();
         },
 
         initEvent: function () {
@@ -37,13 +20,6 @@ var StatementHistory = (function ($) {
                 let children = parentRow.siblings(`tr[data-parent='${id}']`);
                 toggleCollapseButton(this);
                 toggleChildrenElem(children);
-                if (isExpandRow(parentRow)) {
-                    currentExpandedChannel.push(id);
-                }
-                else {
-                    let index = currentExpandedChannel.indexOf(id);
-                    currentExpandedChannel.splice(index, 1);
-                }
             });
         },
     };
