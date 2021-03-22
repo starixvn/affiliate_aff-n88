@@ -71,7 +71,7 @@ export class WebSite extends PureComponent {
         this.props.setUserAccountInfo(newUserAccountInfo);
     }
 
-    _renderMoreSiteUrl(moreSiteUrlsList) {
+    _renderMoreSiteUrl(moreSiteUrlsList, hasWebSite) {
         return (
             <React.Fragment>
                 {
@@ -80,9 +80,9 @@ export class WebSite extends PureComponent {
                             <FormGroup row key={`siteUrl${index} ${123}`}>
                                 <Label for={`${index}`} sm={3} xl={2} className="required">Website URL {index + 2}</Label>
                                 <Col sm={5} xl={6}>
-                                    <input className="form-control" name={index} value={value} onChange={this.handleChangeMoreUrl} ref={this.moreSiteUrlRefs[index]} />
+                                    <input className="form-control" disabled={!hasWebSite} name={index} value={value} onChange={this.handleChangeMoreUrl} ref={this.moreSiteUrlRefs[index]} />
                                 </Col>
-                                <Button outline color="danger" className="mb-2" onClick={() => this.handleDeleteUrl(index)}><span aria-hidden>Del</span></Button>
+                                <Button outline color="danger" disabled={!hasWebSite} className="mb-2" onClick={() => this.handleDeleteUrl(index)}><span aria-hidden>Del</span></Button>
                             </FormGroup>
                         )
                     })
@@ -94,6 +94,7 @@ export class WebSite extends PureComponent {
     render() {
         const { messageNotification } = this.state;
         const { userAccountInfo, moreSiteUrlsList } = this.props;
+        const hasWebSite = userAccountInfo.HasWebSite;
 
         return (
             <React.Fragment>
@@ -101,30 +102,30 @@ export class WebSite extends PureComponent {
                     <FormGroup>
                         <FormGroup check>
                             <Label check>
-                                <Input type="radio" checked={userAccountInfo.HasWebSite} onChange={() => this.handleChangeHasWebSite(true)} />I have my own website
+                                <Input type="radio" checked={hasWebSite} onChange={() => this.handleChangeHasWebSite(true)} />I have my own website
                         </Label>
                         </FormGroup>
                         <FormGroup row className="pt-1">
                             <Label for="siteUrl" sm={3} xl={2} className="required">Website URL</Label>
                             <Col sm={5} xl={6}>
-                                <Input type="text" name="siteUrl" disabled={!userAccountInfo.HasWebSite} value={userAccountInfo.SiteUrl} onChange={this.handleChange} />
+                                <Input type="text" name="siteUrl" disabled={!hasWebSite} value={userAccountInfo.SiteUrl} onChange={this.handleChange} />
                             </Col>
-                            <Button outline color="secondary" className="mb-2" onClick={this.handleAddUrl}>Add Url</Button>
+                            <Button outline color="secondary" disabled={!hasWebSite} className="mb-2" onClick={this.handleAddUrl}>Add Url</Button>
                         </FormGroup>
                         {
-                            this._renderMoreSiteUrl(moreSiteUrlsList)
+                            this._renderMoreSiteUrl(moreSiteUrlsList, hasWebSite)
                         }
                     </FormGroup>
                     <FormGroup className="pt-3">
                         <FormGroup check>
                             <Label check>
-                                <Input type="radio" checked={!userAccountInfo.HasWebSite} onChange={() => this.handleChangeHasWebSite(false)} />I don't have a website
+                                <Input type="radio" checked={!hasWebSite} onChange={() => this.handleChangeHasWebSite(false)} />I don't have a website
                         </Label>
                         </FormGroup>
                         <FormGroup row className="pt-1">
                             <Label for="noSiteDescription" sm={3} xl={2} className="required">{`Please describe how you would like to promote ${this.props.licenseeName} if you don't have the URL`}</Label>
                             <Col sm={6} xl={7}>
-                                <Input type="textarea" disabled={userAccountInfo.HasWebSite} style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
+                                <Input type="textarea" disabled={hasWebSite} style={{ height: 70 }} id="noSiteDescription" name="noSiteDescription" value={userAccountInfo.NoSiteDescription} onChange={this.handleChange} />
                             </Col>
                         </FormGroup>
                     </FormGroup>
@@ -140,7 +141,6 @@ export class WebSite extends PureComponent {
         )
     }
 }
-
 function mapStateToProps({ edit, licenseeName }) {
     const { userAccountInfo, moreSiteUrlsList } = edit;
     return Object.assign({}, { userAccountInfo, moreSiteUrlsList, licenseeName });
