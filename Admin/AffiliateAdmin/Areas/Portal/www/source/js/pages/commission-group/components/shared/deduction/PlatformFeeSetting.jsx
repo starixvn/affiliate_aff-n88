@@ -95,11 +95,13 @@ export class PlatformFeeSetting extends Component {
     }
 
     render() {
-        const { productList, selectedGroup } = this.props;
+        const { productList, selectedGroup, selectedProductIds } = this.props;
         const { PlatformFeeList, GroupId } = selectedGroup;
+        const selectProducts = productList.filter(p => !!selectedProductIds.find(i => i === p.ProductId));
+
         const platformFeeData = PlatformFeeList.map(item => {
             return {
-                productList: convertProductList(productList, item.ProductIds),
+                productList: convertProductList(selectProducts, item.ProductIds),
                 commission: item.DeductedPercentage
             }
         });
@@ -131,8 +133,8 @@ export class PlatformFeeSetting extends Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, selectedGroup }) {
-    return { deductionList, productList, selectedGroup };
+function mapStateToProp({ deductionList, productList, selectedGroup, selectedProductIds }) {
+    return { deductionList, productList, selectedGroup, selectedProductIds };
 }
 
 function mapDispatchToProps(dispatch) {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
-import { insertCommissionGroup, getGroupSettingList, setSelectedGroup } from '../../actions';
+import { insertCommissionGroup, getGroupSettingList, setSelectedGroup, setSelectedProductIds } from '../../actions';
 import { buildDefaultCommGroup, validate } from '../../modules/service';
 
 import DeductionSetting from '../shared/deduction';
@@ -11,6 +11,7 @@ import TierSetting from '../shared/tiersetting';
 import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { toggleLoader } from '../../../../actions/loaderAction';
+import  ProductList  from '../shared/ProductList';
 
 export class AddGroup extends React.Component {
     constructor(props) {
@@ -27,11 +28,14 @@ export class AddGroup extends React.Component {
         const { deductionList, productList } = this.props;
         const commGroup = buildDefaultCommGroup(deductionList, productList);
 
+        const productIds = productList.map(p => p.ProductId);
         this.props.setSelectedGroup(commGroup);
+        this.props.setSelectedProductIds(productIds);
     }
 
     componentWillUnmount() {
         this.props.setSelectedGroup(null);
+        this.props.setSelectedProductIds(null);
     }
 
     handleSave = async () => {
@@ -80,6 +84,7 @@ export class AddGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
+                <ProductList />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -94,7 +99,7 @@ function mapStateToProp({ deductionList, productList, selectedGroup, searchedGro
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ insertCommissionGroup, getGroupSettingList, setSelectedGroup, toggleLoader }, dispatch);
+    return bindActionCreators({ insertCommissionGroup, getGroupSettingList, setSelectedProductIds, setSelectedGroup, toggleLoader }, dispatch);
 }
 
 export default connect(mapStateToProp, mapDispatchToProps)(AddGroup);

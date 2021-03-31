@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
-import { getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup } from '../../actions';
+import { getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup, setSelectedProductIds } from '../../actions';
 
 import DeductionSetting from '../shared/deduction';
 import TierSetting from '../shared/tiersetting';
@@ -11,6 +11,7 @@ import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { validate } from '../../modules/service';
 import { toggleLoader } from '../../../../actions/loaderAction';
+import ProductList from '../shared/ProductList';
 
 export class EditGroup extends React.Component {
     constructor(props) {
@@ -24,11 +25,15 @@ export class EditGroup extends React.Component {
     }
 
     componentDidMount() {
+        const { productList } = this.props;
+        const productIds = productList.map(p => p.ProductId);
+        this.props.setSelectedProductIds(productIds)
         this.props.getSelectedCommGroup({ GroupId: this.props.itemId });
     }
 
     componentWillUnmount() {
         this.props.setSelectedGroup(null);
+        this.props.setSelectedProductIds(null);
     }
 
     handleSave = async () => {
@@ -79,6 +84,7 @@ export class EditGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
+                <ProductList />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -88,12 +94,12 @@ export class EditGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ selectedGroup, searchedGroupName, pagingOption }) {
-    return { selectedGroup, searchedGroupName, pagingOption };
+function mapStateToProp({ selectedGroup, searchedGroupName, pagingOption, selectedProductIds, productList }) {
+    return { selectedGroup, searchedGroupName, pagingOption, selectedProductIds, productList };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup, toggleLoader }, dispatch);
+    return bindActionCreators({ getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup, toggleLoader, setSelectedProductIds }, dispatch);
 }
 
 export default connect(mapStateToProp, mapDispatchToProps)(EditGroup);

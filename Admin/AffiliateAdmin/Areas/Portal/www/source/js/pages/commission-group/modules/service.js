@@ -108,7 +108,8 @@ export const convertDeductionList = (deductionList) => {
 }
 
 export const convertProductList = (productList, productIds = '') => {
-    const idList = productIds.split(',').filter(p => !!p);
+
+    const idList = Array.isArray(productIds) ? productIds : productIds.split(',').filter(p => !!p);
     const isCheckAll = idList.length === productList.length;
 
     return productList.map(item => {
@@ -118,6 +119,10 @@ export const convertProductList = (productList, productIds = '') => {
             Checked: isCheckAll || idList.filter(i => Number(i) === item.ProductId).length > 0
         }
     })
+}
+
+export const convertStringToArrayNumber = (stringIds) => {
+    return stringIds.split(',').filter(id => !!id).map(i => Number(i));
 }
 
 export const validate = (selectedGroup) => {
