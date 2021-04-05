@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{74A5E082-F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88.UnitTests", "WebApi\Test\Affiliate.N88.UnitTests\Affiliate.N88.UnitTests.csproj", "{DB2E6D3D-BDC1-4C7D-9798-4509068AE061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.Jobs.UnitTests", "WebApi\Test\Affiliate.N88.Jobs.Tests\Affiliate.N88.Jobs.UnitTests.csproj", "{5800DC69-F941-4421-97B4-8D8074C7A9C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Affiliate.N88.Jobs.UnitTests", "WebApi\Test\Affiliate.N88.Jobs.Tests\Affiliate.N88.Jobs.UnitTests.csproj", "{5800DC69-F941-4421-97B4-8D8074C7A9C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Affiliate.N88.RepullToolWinform", "Affiliate.N88.RepullToolWinform\Affiliate.N88.RepullToolWinform.csproj", "{0B603FCB-BA60-4B23-9F22-03B4F556EEA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{5800DC69-F941-4421-97B4-8D8074C7A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5800DC69-F941-4421-97B4-8D8074C7A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5800DC69-F941-4421-97B4-8D8074C7A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B603FCB-BA60-4B23-9F22-03B4F556EEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B603FCB-BA60-4B23-9F22-03B4F556EEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B603FCB-BA60-4B23-9F22-03B4F556EEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B603FCB-BA60-4B23-9F22-03B4F556EEA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

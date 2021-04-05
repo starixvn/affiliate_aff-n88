@@ -8,6 +8,9 @@ namespace Affiliate.N88.Jobs.Apis
 {
     public interface ILicenseeApi
     {
+        [Get("/Home/Index")]
+        Task<string> CheckConnection();
+
         [Get("/customer/GetAffCustomers")]
         Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime fromDate);
 
@@ -15,7 +18,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate);
 
         [Get("/BetReport/GetBetRecord")]
-        Task<IEnumerable<BetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate);
+        Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate);
 
         [Get("/setting/GetServerInfo")]
         Task<IEnumerable<ServerInfo>> GetServerInfoAsync();
@@ -31,5 +34,20 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/betreport/GetDepositInfo")]
         Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow);
+
+        [Get("/Customer/GetCustomerRegInfo")]
+        Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime);
+
+        [Get("/BetReport/GetBonusInfo")]
+        Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount);
+
+        [Get("/BetReport/GetWithdrawalInfo")]
+        Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount);
+
+        [Get("/Customer/GetCustBonusRollovers")]
+        Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRolloversAsync(int id, int batchCount);
+
+        [Get("/LogReport/GetRebateMLogs")]
+        Task<IEnumerable<RebateMLogModel>> GetRebateMLogs(DateTime fromDate, DateTime toDate);
     }
 }

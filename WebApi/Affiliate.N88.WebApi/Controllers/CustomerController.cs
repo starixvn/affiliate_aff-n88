@@ -8,9 +8,8 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi.Controllers
@@ -41,7 +40,8 @@ namespace Affiliate.N88.WebApi.Controllers
                 UserName = c.UserName,
                 AffId = c.AffId,
                 FirstDepositDate = c.FirstDepositTime,
-                IsTest = c.IsTest
+                IsTest = c.IsTest,            
+                AffCode = c.AffCode
             });
         }
 
@@ -52,11 +52,31 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<CustWalletInfo>> GetCustWallets(DateTime fromDate)
             => await dynamicRepository.FetchAsync<CustWalletInfo>(new GetCustWalletCriteria(fromDate));
-            
+
         [HttpGet]
         public async Task<CustomerInfo> GetLoginCustomerInfo(string userName, int siteId)
-            => await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
-            
+        {
+            CustomerInfo cust = null;
+            if (!HasNonASCIIChars(userName))
+            {
+                cust = await dynamicRepository.GetAsync<CustomerInfo>(new GetLoginCustInfoCriteria() { UserName = userName, SiteId = siteId });
+            }
+            return cust;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime)
+        {
+            var infos = await dynamicRepository.FetchAsync<CustRegInfo>(new GetCustRegInfoCriteria(unixTime));
+            return infos.Select(i => new CustRegModel
+            {
+                CustId = i.CustId,
+                RegTime = DateTimeOffset.Parse(i.RegTime),
+                SignUpUrl = i.SignUpUrl,
+                SiteId = i.SiteId
+            });
+        }
+
         [HttpPost]
         public async Task<decimal> UpdateCustomerWallet(PaymentRequestInfo payment)
         {
@@ -80,6 +100,10 @@ namespace Affiliate.N88.WebApi.Controllers
             return criteria.AfterAmount;
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRollOvers(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<CustBonusRolloverModel>(new GetCustBonusRolloverCriteria(id, batchCount));
+
         private string GetIpAddress()
         {
             System.Web.HttpContext context = System.Web.HttpContext.Current;
@@ -96,5 +120,8 @@ namespace Affiliate.N88.WebApi.Controllers
 
             return context.Request.ServerVariables["REMOTE_ADDR"];
         }
+
+        private bool HasNonASCIIChars(string str)
+            => Encoding.UTF8.GetByteCount(str) != str.Length;
     }
 }

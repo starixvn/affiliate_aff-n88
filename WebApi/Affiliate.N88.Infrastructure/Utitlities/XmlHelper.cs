@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using System.Web;
 
 namespace Affiliate.N88.Utitlities
 {
@@ -33,7 +34,7 @@ namespace Affiliate.N88.Utitlities
             {
                 var propName = prop.Name;
                 var value = type.GetProperty(propName).GetValue(item, null) ?? "";
-                elem.Add(new XAttribute(propName.ToLowerInvariant(), value));
+                elem.Add(new XAttribute(propName.ToLowerInvariant(), HttpUtility.HtmlEncode(value)));
             }
         }
     }

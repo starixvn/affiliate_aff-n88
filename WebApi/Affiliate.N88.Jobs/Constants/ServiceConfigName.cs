@@ -17,5 +17,19 @@
         public const string PULL_CUST_WALLET_SETTING = "PullCustWalletSetting";
 
         public const string PULL_DEPOSIT_INFO_SETTING = "PullDepositInfoSetting";
+
+        public const string PULL_CUST_REG_INFO_SETTING = "PullCustRegInfoSetting";
+
+        public const string PULL_BONUS_INFO_SETTING = "PullBonusInfoSetting";
+
+        public const string PULL_WITHDRAWAL_INFO = "PullWithdrawalInfoSetting";
+
+        public const string PULL_PROMOTION_SETTING = "PullPromotionSetting";
+
+        public const string PULL_PROMOTIONSPECIFIC_SETTING = "PullPromotionSpecificSetting";
+
+        public const string PULL_REBATEMLOG_SETTING = "PullRebateMLogSetting";
+
+        public const string PULL_CUST_BONUS_ROLLOVER_SETTING = "PullCustBonusRolloverSetting";
     }
 }

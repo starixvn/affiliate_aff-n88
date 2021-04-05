@@ -28,6 +28,12 @@ namespace Affiliate.N88.Jobs.Controllers
             return Task.FromResult("Site is running in api");
         }
 
+        [HttpGet("CheckConnection")]
+        public async Task<string> CheckConnection()
+        {
+            return await  _licenseeApi.CheckConnection();
+        }
+
         [HttpGet("GetCustomers")]
         public async Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime date)
         {
@@ -35,7 +41,7 @@ namespace Affiliate.N88.Jobs.Controllers
         }
 
         [HttpGet("GetBetRecord")]
-        public async Task<IEnumerable<BetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate)
         {
             return await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
         }

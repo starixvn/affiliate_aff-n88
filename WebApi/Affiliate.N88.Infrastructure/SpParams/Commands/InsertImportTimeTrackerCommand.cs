@@ -14,6 +14,8 @@ namespace Affiliate.N88.SpParams.Commands
 
         public DateTime CalledTime { get; set; }
 
+        public bool IsReset { get; set; }
+
         public string KeyValue { get; set; } = String.Empty;
 
         public int ErrCode { get; set; } = 0;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 
 namespace Affiliate.N88.DTO
 {
@@ -37,5 +38,7 @@ namespace Affiliate.N88.DTO
         public bool? IsRisk { get; set; }
 
         public int? Status { get; set; }
+
+        public string AffCode { get; set; }
     }
 }

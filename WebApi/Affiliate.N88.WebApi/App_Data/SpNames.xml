@@ -1,14 +1,20 @@
 ﻿<Functions>
   <Function Name="N88Licensee">
-    <Setting Key="N8G_AffiliateSel" SpName="N8G_AffiliateSel" DbName="N88Licensee_Read" />
     <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Read" />
     <Setting Key="N88_Get_TpBetRecord" SpName="N88_Get_TpBetRecord" DbName="N88Licensee_Read" />
     <Setting Key="N88_Get_TpGameType" SpName="N88_Get_TpGameType" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_Customer" SpName="N88_Get_Customer" DbName="N88Licensee_Read"/>
+    <Setting Key="API_CustBonusRollover_Get" SpName="API_CustBonusRollover_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_CustRegInfo_Get" SpName="API_CustRegInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_ServerInfo" SpName="N88_Get_ServerInfo" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_TpTransferInfo" SpName="API_TpTransferInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_DepositInfo" SpName="API_DepositInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="Affiliate_LoginCustInfo_Get" SpName="Affiliate_LoginCustInfo_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_BonusInfo_Get" SpName="API_BonusInfo_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_WithdrawalInfo_Get" SpName="API_WithdrawalInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="Affiliate_Wallet_Set" SpName="Affiliate_Wallet_Set" DbName="N88Licensee_Write"/>
+    <Setting Key="API_Promotion_Get" SpName="API_Promotion_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_PromotionSpecific_Get" SpName="API_PromotionSpecific_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_RebateMLog_Get" SpName="API_RebateMLog_Get" DbName="N88Licensee_Read"/>
   </Function>
 </Functions>

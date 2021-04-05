@@ -50,15 +50,16 @@ namespace Affiliate.N88.Jobs.Services
 
         }
 
-        public Task SaveTrackerAsync(string source, TrackerInfo tracker)
+        public async Task SaveTrackerAsync(string source, TrackerInfo tracker)
         {
             var supportedPrefix = Setting.SourcePrefix;
-            Parallel.ForEach(supportedPrefix, async p =>
+            foreach (var p in supportedPrefix)
             {
                 var param = new InsertImportTrackerCommand(new PrefixProvider(p))
                 {
                     CalledTime = tracker.CalledTime,
                     KeyValue = tracker.KeyValue,
+                    IsReset = tracker.IsReset,
                     DataSource = source,
                     ErrCode = SqlResponseCode.Success,
                     ErrMsg = String.Empty
@@ -68,8 +69,8 @@ namespace Affiliate.N88.Jobs.Services
                 {
                     throw new ImporterException(param.ErrCode, param.ErrMsg);
                 }
-            });
-            return Task.CompletedTask;
+            }
+
         }
 
         private async Task<IEnumerable<TrackerInfo>> GetListTrackerAsync(string source)

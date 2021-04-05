@@ -18,9 +18,9 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<BetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate)
         {
-            var betlist = await dynamicRepository.FetchAsync<BetRecordInfo>(new GetBetRecordCriteria(fromDate, toDate));
+            var betlist = await dynamicRepository.FetchAsync<TransBetRecordInfo>(new GetBetRecordCriteria(fromDate, toDate));
             return betlist;
         }
 
@@ -31,5 +31,13 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow)
             => await dynamicRepository.FetchAsync<DepositInfo>(new GetDepositInfoCriteria(id, totalRow));
+
+        [HttpGet]
+        public async Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<Bonus>(new GetBonusInfoCriteria(id, batchCount));
+
+        [HttpGet]
+        public async Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<Withdrawal>(new GetWithdrawalInfoCriteria(id, batchCount)); 
     }
 }
