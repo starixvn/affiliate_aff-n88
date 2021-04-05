@@ -2139,4 +2139,22 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
     <value>N88 合营代理 [{0}] - 您的付款请求已被取消</value>
   </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>优惠</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>天</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>时</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="Sec" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>已经结束</value>
+  </data>
 </root>

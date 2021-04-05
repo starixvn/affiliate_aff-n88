@@ -36,54 +36,23 @@
         <div class="carousel-inner" role="listbox">
             @if (isN88)
             {
-                var redirectLink = Url.Content("~/Signup/Index");
-
+                {
+                    sportBannerFileName = $"{sportBannerFileName}.{Model.Language}";
+                    casinoBannerFileName = $"{casinoBannerFileName}.{Model.Language}";
+                }
                 <div class="item active">
                     <picture>
-                        <source srcset="@(sportBannerFileName + ".webp")" type="image/webp" />
                         <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
                         <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
                     </picture>
-                    <div class="banner-text">
-                        <h2 class="txt-lang">
-                            @Html.Raw(string.Format(Lang.EarnUpTo, appSetting.MaxCommission))
-                        </h2>
-                        <h5 class="txt-lang">@Lang.JoinIn</h5>
-                        @if (Model.IsAuthenticated)
-                        {
-                            <a id="sportBanner" class="nounderline" href="@Url.Content("~/RevenueSharingStructure/Index")">@Lang.ReadMore</a>
-                        }
-                        else
-                        {
-                            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>
-                        }
-                    </div>
                 </div>
 
-                if ((string.Equals(Model.Language, "en-US", StringComparison.CurrentCultureIgnoreCase) || string.Equals(Model.Language, "zh-CN", StringComparison.CurrentCultureIgnoreCase)))
-                {
-                    <div class="item">
-                        <picture>
-                            <source srcset="@(casinoBannerFileName + ".webp")" type="image/webp" />
-                            <source srcset="@(casinoBannerFileName + ".png")" type="image/jpeg" />
-                            <img class="img-item img-responsive" src="@(casinoBannerFileName + ".png")" alt="Sport Banner" />
-                        </picture>
-                        <div class="banner-text casino-banner">
-                            <picture>
-                                <source srcset="@(casinoBannerTextFileName + ".webp")" type="image/webp" />
-                                <source srcset="@(casinoBannerTextFileName + ".png")" type="image/jpeg" />
-                                <img class="img-item img-responsive casino-banner-text" src="@(casinoBannerTextFileName + ".png")" alt="Banner Text" />
-                            </picture>
-                            <a id="casinoBanner" class="casino-banner-btn" href="@(Model.IsAuthenticated ? Url.Content("~/ContactUs/Index") : Url.Content("~/Signup/Index"))">
-                                <picture>
-                                    <source srcset="@(casinoBannerBtnTextFileName + ".webp")" type="image/webp" />
-                                    <source srcset="@(casinoBannerBtnTextFileName + ".png")" type="image/jpeg" />
-                                    <img class="btn-text" src="@(casinoBannerBtnTextFileName + ".png")" alt="Button Text" />
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
-                }
+                <div class="item">
+                    <picture>
+                        <source srcset="@(casinoBannerFileName + ".jpg")" type="image/jpeg" />
+                        <img class="img-item img-responsive" src="@(casinoBannerFileName + ".jpg")" alt="Sport Banner" />
+                    </picture>
+                </div>
             }
             else
             {
@@ -106,15 +75,6 @@
                 </div>
             }
 
-            @*<div class="item">
-            <a id="casinoBanner" class="nounderline" href="@Url.Content("~/Product/Index")">
-                <picture>
-                    <source srcset="@(casinoBannerFileName + ".webp")" type="image/webp" />
-                    <source srcset="@(casinoBannerFileName + ".jpg")" type="image/jpeg" />
-                    <img class="img-item img-responsive" src="@(casinoBannerFileName + ".jpg")" alt="Casino Banner" />
-                </picture>
-            </a>
-        </div>*@
         </div>
         <a class="left carousel-control" href="#mainBanner" role="button" data-slide="prev">
             <span class="chevron left" aria-hidden="true"></span>

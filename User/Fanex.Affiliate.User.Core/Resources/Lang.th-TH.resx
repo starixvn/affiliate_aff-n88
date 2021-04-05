@@ -2150,4 +2150,10 @@
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
     <value>พันธมิตร N88 - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
   </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>โปรโมชั่น</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>สิ้นสุดแล้ว</value>
+  </data>
 </root>

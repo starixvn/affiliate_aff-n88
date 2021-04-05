@@ -1,10 +1,65 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = Lang.Promotion;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promo.{Model}.jpg");
 }
 
-<div class="content">
-    Need to fill content
-</div>
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/promotion.css")
+}
 
+@model string
+@{
+    var contentView = "~/Views/Promotion/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
+
+    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
+}
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/pages/promotion.js")
+}
+
+<div id="promotion" class="content">
+    <div class="page-title">
+        <span class="text">@Lang.Promotion</span>
+    </div>
+
+    <div class="count-down">
+        <div class="count-down-content">
+            <div class="count-down-item day">
+                <div class="number">0</div>
+                <div class="count-down-text">@Lang.Day</div>
+            </div>
+            <div class="count-down-item hour">
+                <div class="number">0</div>
+                <div class="count-down-text">@Lang.Hour</div>
+            </div>
+            <div class="count-down-item min">
+                <div class="number">0</div>
+                <div class="count-down-text">@Lang.Min</div>
+            </div>
+            <div class="count-down-item sec">
+                <div class="number">0</div>
+                <div class="count-down-text">@Lang.Sec</div>
+            </div>
+        </div>
+        <div class="count-down-btn">
+            <a class="btn btn-login" href="~/Signup/Index">@Lang.JoinNow</a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="@bannerSrc" />
+    </div>
+
+    <div class="main-content">
+        @Html.Raw(htmlString)
+    </div>
+
+
+    @RazorHelper.RenderMovingTopButton()
+</div>
+<script>
+    window.dic = { Finished: '@Lang.Finished' };
+</script>

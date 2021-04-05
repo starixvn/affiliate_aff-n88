@@ -1,0 +1,36 @@
+﻿#promotion {
+  display: flex;
+  flex-direction: column; }
+  #promotion .banner, #promotion .count-down {
+    align-self: center; }
+  #promotion .banner img {
+    max-width: 100%; }
+  #promotion .main-content {
+    margin: 40px 5px; }
+
+.count-down {
+  margin-bottom: 50px;
+  font-size: 20px; }
+  .count-down .btn {
+    padding: 3px 0px;
+    height: unset;
+    font-size: 25px;
+    margin: 0px;
+    width: 100%; }
+
+.count-down-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .count-down-item .number {
+    color: #FF6D3E; }
+
+.count-down-content {
+  display: inline-flex;
+  margin-bottom: 10px; }
+
+.count-down-item {
+  padding: 5px 10px; }
+
+.count-down-text {
+  text-transform: uppercase; }

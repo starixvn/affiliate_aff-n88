@@ -24,6 +24,10 @@
     "inputFile": "www/source/styles/pages/faq.scss"
   },
   {
+    "outputFile": "www/build/styles/css/promotion.css",
+    "inputFile": "www/source/styles/pages/promotion.scss"
+  },
+  {
     "outputFile": "www/build/styles/css/contact-us.css",
     "inputFile": "www/source/styles/pages/contact-us.scss"
   },
@@ -118,6 +122,10 @@
   {
     "outputFile": "www/build/js/pages/home.js",
     "inputFile": "www/source/js/pages/home.js"
+  },
+  {
+    "outputFile": "www/build/js/pages/promotion.js",
+    "inputFile": "www/source/js/pages/promotion.js"
   },
   {
     "outputFile": "www/build/js/pagetracking.js",
