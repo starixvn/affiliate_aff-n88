@@ -1330,6 +1330,9 @@
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_MarketingPageStatsticsContent.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.en-US.cshtml" />
     <Content Include="www\source\styles\pages\promotion.scss" />
+    <Content Include="Views\Promotion\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.id-ID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
