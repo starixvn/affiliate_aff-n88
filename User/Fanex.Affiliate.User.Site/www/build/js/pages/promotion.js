@@ -5,13 +5,16 @@ var Promo = (function ($) {
     var one_hour = 60 * 60 * 1000;
     var one_min = 60 * 1000;
     var one_sec = 1000;
+    var countDownInterval = undefined;
 
-    var startCountDown = setInterval(countDown, 1000);
+    function startCountDown() {
+        countDownInterval = setInterval(countDown, 1000);
+    }
 
     function countDown() {
         var now = new Date();
         if (now > endDate) {
-            clearInterval(startCountDown);
+            clearInterval(countDownInterval);
             $('.count-down-content').empty().html('<div class="count-down-text">' + window.dic.Finished + '</div>');
         } else {
             var diffDate = endDate - now;
@@ -34,7 +37,6 @@ var Promo = (function ($) {
         initEvent: function initEvent() {
             startCountDown();
         }
-
     };
 
     return _me;

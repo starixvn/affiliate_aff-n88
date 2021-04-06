@@ -1,7 +1,7 @@
 ﻿#promotion {
   display: flex;
   flex-direction: column; }
-  #promotion .banner, #promotion .count-down {
+  #promotion .banner {
     align-self: center; }
   #promotion .banner img {
     max-width: 100%; }
@@ -9,28 +9,35 @@
     margin: 40px 5px; }
 
 .count-down {
-  margin-bottom: 50px;
-  font-size: 20px; }
+  margin-top: -40px;
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 20px;
+  justify-content: flex-end; }
   .count-down .btn {
-    padding: 3px 0px;
+    padding: 3px 12px;
     height: unset;
-    font-size: 25px;
+    font-size: 20px;
     margin: 0px;
     width: 100%; }
 
 .count-down-item {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center; }
   .count-down-item .number {
-    color: #FF6D3E; }
+    color: #FF6D3E;
+    margin-right: 5px; }
 
 .count-down-content {
   display: inline-flex;
-  margin-bottom: 10px; }
+  margin-right: 15px; }
 
 .count-down-item {
-  padding: 5px 10px; }
+  padding: 0px 10px; }
 
 .count-down-text {
   text-transform: uppercase; }
+
+@media (max-width: 668px) {
+  .count-down {
+    margin-top: 0px; } }

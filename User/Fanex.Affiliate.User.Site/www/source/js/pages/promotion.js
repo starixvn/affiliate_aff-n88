@@ -3,13 +3,16 @@
     const one_hour = 60 * 60 * 1000;
     const one_min = 60 * 1000;
     const one_sec = 1000;
+    let countDownInterval;
 
-    let startCountDown = setInterval(countDown, 1000);
+    function startCountDown() {
+        countDownInterval = setInterval(countDown, 1000);
+    }
 
     function countDown() {
         let now = new Date();
         if (now > endDate) {
-            clearInterval(startCountDown);
+            clearInterval(countDownInterval);
             $('.count-down-content').empty().html(`<div class="count-down-text">${window.dic.Finished}</div>`)
         }
         else {

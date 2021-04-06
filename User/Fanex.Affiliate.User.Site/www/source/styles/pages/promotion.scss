@@ -1,48 +1,61 @@
-﻿#promotion{
-    display:flex;
+﻿#promotion {
+    display: flex;
     flex-direction: column;
-    .banner, .count-down{
+
+    .banner {
         align-self: center;
     }
-    .banner img{
+
+    .banner img {
         max-width: 100%;
     }
 
-    .main-content{
+    .main-content {
         margin: 40px 5px;
     }
 }
 
 .count-down {
-    margin-bottom: 50px;
+    margin-top: -40px;
+    display: flex;
+    margin-bottom: 10px;
     font-size: 20px;
-    .btn{
-        padding: 3px 0px;
+    justify-content: flex-end;
+
+    .btn {
+        padding: 3px 12px;
         height: unset;
-        font-size:25px;
+        font-size: 20px;
         margin: 0px;
         width: 100%;
     }
 }
+
 .count-down-item {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
     align-items: center;
 
     .number {
         color: #FF6D3E;
+        margin-right: 5px;
     }
 }
 
-.count-down-content{
+.count-down-content {
     display: inline-flex;
-    margin-bottom: 10px;
-}
-.count-down-item{
-    padding: 5px 10px;
+    margin-right: 15px;
 }
 
-.count-down-text{
+.count-down-item {
+    padding: 0px 10px;
+}
+
+.count-down-text {
     text-transform: uppercase;
 }
 
+@media(max-width: 668px) {
+    .count-down {
+        margin-top: 0px;
+    }
+}
