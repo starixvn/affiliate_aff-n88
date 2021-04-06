@@ -1,0 +1,94 @@
+﻿@{
+    var siteName = AppSetting.Instance.SiteFriendlyName;
+}
+<div class="adv text-center">
+    <img src="~/www/build/styles/Images/products/N88/upper-banner.zh-CN.jpg" />
+</div>
+<div>
+    <p class="text-block">
+        最重要的是，这在线博彩将提供您更专业，更安全的在线游戏服务。 每个游戏界面都提供视觉上令人满意的美学效果和独特的设计元素的游戏玩法，让玩家拥有丰富多彩的游戏体验。
+    </p>
+    <p class="text-block">
+        我们非常荣幸地欢迎大家加入@(siteName)的合营代理。让@(siteName)所有产品给你赚取更多的代理佣金。
+    </p>
+</div>
+<div>
+    <p class="text-bold text-uppercase title-block">1. 体育博彩产品</p>
+    <p>
+        @(siteName)受到来自世界各地数百万博彩玩家的青睐，因为涵盖所有体育运动。 通过代理广告在网站上成功注册后，玩家即可完全访问以下内容：足球，乒乓球，篮球，高尔夫，拳击，排球，赛车，冰球，棒球，手球，水球，橄榄球，飞镖，游泳， 斯诺克和板球。 玩家在2个平台的投注，皆会被计算入合营代理佣金。
+    </p>
+    <div class="table table-responsive">
+        <table class="game-list">
+            <tbody>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name" width="30%">
+                        @Lang.ProductSportsBook
+                    </td>
+                    <td>
+                        市场上最着名的体育博彩最佳赔率是体育博彩平台的核心，该平台提供广泛的赛事，投注类型，多种赔率产品和覆盖各亚洲语言。 此外，我们每月覆盖100多个足球联赛，每月至少5,000个滚球赛事和18,000个滚球盘口。 这是客户梦寐以求的顶级平台。
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name">
+                        @Lang.ProductVirtualSports
+                    </td>
+                    <td>
+                        虚拟运动是受实际运动启发的电子游戏，有足球、赛马、赛车、网球等。不同的是，虚拟运动全程只有3~5分钟，为玩家提供了即使比赛结果。
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name">
+                        @Lang.ProductNumberGame
+                    </td>
+                    <td>
+                        百练赛游戏非常有吸引力。 这就像是从宾果游戏中汲取灵感的彩票游戏，要求所有玩家将赌注押在机器上绘制的数字上。 最着名的是实时直播中的漂亮女孩会在等待抽奖的同时为玩家带来娱乐。
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name">
+                        @Lang.ProductRngKeno
+                    </td>
+                    <td>
+                        快乐彩是从80个编号的球（01至80）中随机抽取20个球。 这20个数字的组合被划分，并且有几种赢得方式以及几种下注类型，例如大/小，单/双，龙/虎等等。 不仅只有一款游戏，它同时拥有超过10款以上的快乐彩游戏。 所有游戏都是一分钟赢取的快速支付游戏。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="adv text-center">
+        <img src="~/www/build/styles/Images/products/N88/lower-banner.zh-CN.jpg" />
+    </div>
+</div>
+<div>
+    <p class="text-bold text-uppercase title-block">2. 娱乐城</p>
+    <p>
+        在@(siteName)，根据不同的游戏供应商作区别，每个平台有其归属的娱乐厅。@(siteName)每个俱乐部，其中包含数百个真人娱乐场，桌面游戏，RNG游戏，老虎机游戏等。这些游戏都集中在娱乐城及真人娱乐场，带给顾客最佳的游戏体验。
+    </p>
+    <p class="text-block">想了解更多娱乐城游戏和高端平台技术吗？产品如下：</p>
+    <div class="table table-responsive">
+        <table class="game-list">
+            <tbody>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name">
+                        @Lang.ProductAllbet
+                    </td>
+                    <td>
+                        Allbet Gaming运用顶尖开发技术，将实体赌场完整搬进眼前、掌中的荧幕。首创超级多台百家乐，一次尽览12张桌台路，玩家可及时掌握时机下注；也可依喜好选择下注卓台数，任选4、8、16、36桌显示模式。此外，Allbet提供特殊360度咪牌，还有VIP包桌与好友同乐。
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-bold text-uppercase game-name">
+                        @Lang.ProductPragmaticPlay
+                    </td>
+                    <td>
+                        PP老虎机提供创新，规范和以移动设备为重点的多产品组合。 凭借屡获殊荣的老虎机，产品组合包含独特的内部内容，其中包括100多种经过验证的HTML5游戏，这些游戏可以多种货币提供，并且可以在所有主要的认证市场中使用。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml"); }
+<p class="text-block">
+    所有投注产品都列在@(siteName)会员计划中。 我们邀请您成为我们的长期合作伙伴之一。 以我们的品牌知名度贡献给您的广告以吸引客户。 共同提高您稳定的收入与更高的提成金额； 立即加入我们的@(siteName)合营代理！
+</p>
+</div>

@@ -897,8 +897,16 @@
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
-    <Content Include="www\build\styles\Images\promotion-banners\promo.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.th-TH.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.en-US.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.id-ID.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.th-TH.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
@@ -1166,10 +1174,6 @@
     <Content Include="Views\TermAndCondition\_Content.vi-VN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\_CasinoProductTable.cshtml" />
-    <Content Include="Views\Product\_Content.en-US.cshtml" />
-    <Content Include="Views\Product\_Content.id-ID.cshtml" />
-    <Content Include="Views\Product\_Content.th-TH.cshtml" />
-    <Content Include="Views\Product\_Content.vi-VN.cshtml" />
     <Content Include="www\source\styles\fonts\tahoma\Tahoma-Regular.ttf" />
     <Content Include="www\source\styles\fonts\tahoma\Tahoma-Bold.TTF" />
     <Content Include="www\source\styles\fonts\tahoma\TAHOMABD.TTF" />
@@ -1178,7 +1182,6 @@
     <Content Include="www\build\styles\fonts\tahoma\Tahoma-Bold.TTF" />
     <Content Include="www\build\styles\fonts\tahoma\TAHOMABD.TTF" />
     <Content Include="www\build\styles\fonts\tahoma\TAHOMA_0.TTF" />
-    <Content Include="Views\Product\_Content.zh-CN.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTable.cshtml" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.eot" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.ttf" />
@@ -1333,6 +1336,21 @@
     <Content Include="Views\Promotion\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.th-TH.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.zh-CN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

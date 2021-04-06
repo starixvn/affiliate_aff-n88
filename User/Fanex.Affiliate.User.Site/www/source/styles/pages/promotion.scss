@@ -3,7 +3,14 @@
     flex-direction: column;
 
     .banner {
+        display:flex;
+        flex-direction: column;
+        align-items:center;
         align-self: center;
+        width: 100%;
+        .count-down{
+            align-self: flex-end;
+        }
     }
 
     .banner img {
@@ -21,7 +28,7 @@
     margin-bottom: 10px;
     font-size: 20px;
     justify-content: flex-end;
-
+    flex-wrap:wrap;
     .btn {
         padding: 3px 12px;
         height: unset;
@@ -34,7 +41,7 @@
 .count-down-item {
     display: inline-flex;
     align-items: center;
-
+    flex-grow: 1;
     .number {
         color: #FF6D3E;
         margin-right: 5px;
@@ -43,11 +50,16 @@
 
 .count-down-content {
     display: inline-flex;
-    margin-right: 15px;
+    flex-wrap: wrap;
+}
+
+.count-down-btn{
+    margin-left: 15px;
 }
 
 .count-down-item {
-    padding: 0px 10px;
+    padding: 0px;
+    padding-left: 20px;
 }
 
 .count-down-text {
