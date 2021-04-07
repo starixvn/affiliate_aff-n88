@@ -925,6 +925,8 @@
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.id-ID.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
+    <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
     <Content Include="www\source\js\pages\promotion.js" />
@@ -942,7 +944,6 @@
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
-    <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\build\styles\Images\themes\n8g.png" />
     <Content Include="www\build\styles\Images\themes\n88-qrcode.png" />

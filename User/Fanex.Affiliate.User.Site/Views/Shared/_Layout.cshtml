@@ -53,7 +53,14 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-                <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
+                @if (isN88 && sessionService.CurrentLanguage == "zh-CN")
+                {
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png") alt="logo" class="logo-image" />
+                }
+                else
+                {
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
+                }
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
