@@ -55,11 +55,11 @@
             <a href="@Url.Content("~")">
                 @if (isN88 && sessionService.CurrentLanguage == "zh-CN")
                 {
-                    <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png") alt="logo" class="logo-image" />
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
                 }
                 else
                 {
-                    <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
                 }
             </a>
         </div>
@@ -201,7 +201,8 @@
     <script>
         window.Lang = {
             ServerError: '@Lang.ServerError'
-        }
+        };
+        window.JsVersion = '@AppSetting.Instance.JsVersion';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")
