@@ -2,7 +2,6 @@
     ViewBag.Title = Lang.Promotion;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 
-    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promo.{Model}.jpg");
 }
 
 @section styles{
@@ -14,6 +13,7 @@
     var contentView = "~/Views/Promotion/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
 
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promo.{Model}.jpg?v={AppSetting.Instance.JsVersion}");
 }
 
 <div id="promotion" class="content">

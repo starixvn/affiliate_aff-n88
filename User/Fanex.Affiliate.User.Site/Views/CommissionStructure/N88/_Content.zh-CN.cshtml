@@ -1,10 +1,9 @@
 ﻿@{
     var maxCommisison = AppSetting.Instance.MaxCommission;
+    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.zh-CN.jpg?v={AppSetting.Instance.JsVersion}");
 }
-<div class="banner-commission-structure">
-    <div class="text-content english">
-        <p class="text-small-white">体育博彩和娱乐城永久<span class="text-yellow">@maxCommisison</span>代理佣金。</p>
-    </div>
+<div class="banner">
+    <img src="@bannerSrc" />
 </div>
 
 <div class="info-group">

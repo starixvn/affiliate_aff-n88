@@ -28,6 +28,10 @@
     "inputFile": "www/source/styles/pages/promotion.scss"
   },
   {
+    "outputFile": "www/build/styles/css/revenue-structure.css",
+    "inputFile": "www/source/styles/pages/revenue-structure.scss"
+  },
+  {
     "outputFile": "www/build/styles/css/contact-us.css",
     "inputFile": "www/source/styles/pages/contact-us.scss"
   },

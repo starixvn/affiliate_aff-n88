@@ -800,6 +800,10 @@
     <Content Include="www\build\styles\css\promotion.min.css">
       <DependentUpon>promotion.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\revenue-structure.css" />
+    <Content Include="www\build\styles\css\revenue-structure.min.css">
+      <DependentUpon>revenue-structure.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\signup.css" />
     <Content Include="www\build\styles\css\signup.min.css">
       <DependentUpon>signup.css</DependentUpon>
@@ -905,8 +909,8 @@
     <Content Include="www\build\styles\Images\products\N88\upper-banner.en-US.jpg" />
     <Content Include="www\build\styles\Images\products\N88\upper-banner.id-ID.jpg" />
     <Content Include="www\build\styles\Images\products\N88\upper-banner.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\promo.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.id-ID.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\promo.th-TH.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
@@ -917,6 +921,10 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.en-US.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
@@ -1352,6 +1360,7 @@
     <Content Include="Views\Product\N8G\_Content.th-TH.cshtml" />
     <Content Include="Views\Product\N8G\_Content.vi-VN.cshtml" />
     <Content Include="Views\Product\N8G\_Content.zh-CN.cshtml" />
+    <Content Include="www\source\styles\pages\revenue-structure.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
