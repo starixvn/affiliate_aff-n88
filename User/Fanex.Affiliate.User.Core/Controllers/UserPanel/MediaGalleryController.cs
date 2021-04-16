@@ -40,7 +40,7 @@
             var userSession = SessionService.UserSession;
 
             var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
-            var categoryList = Enum.GetValues(typeof(AffiliateLinkType)).Cast<int>()
+            var categoryList = System.Enum.GetValues(typeof(AffiliateLinkType)).Cast<int>()
                 .ToDictionary(t => t.ToString(), t => GetMediaMainCategory((AffiliateLinkType)t));
             var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
             var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal)

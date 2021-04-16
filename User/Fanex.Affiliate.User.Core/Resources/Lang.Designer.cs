@@ -1684,6 +1684,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dear Customer,.
         /// </summary>
         public static string DearCustomer {
@@ -2620,6 +2629,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Finished.
+        /// </summary>
+        public static string Finished {
+            get {
+                return ResourceManager.GetString("Finished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finland .
         /// </summary>
         public static string Finland {
@@ -2940,6 +2958,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string HotNews {
             get {
                 return ResourceManager.GetString("HotNews", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hour.
+        /// </summary>
+        public static string Hour {
+            get {
+                return ResourceManager.GetString("Hour", resourceCulture);
             }
         }
         
@@ -3712,6 +3739,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Mexico {
             get {
                 return ResourceManager.GetString("Mexico", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min.
+        /// </summary>
+        public static string Min {
+            get {
+                return ResourceManager.GetString("Min", resourceCulture);
             }
         }
         
@@ -4895,6 +4931,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Promotions.
+        /// </summary>
+        public static string Promotion {
+            get {
+                return ResourceManager.GetString("Promotion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PSP.
         /// </summary>
         public static string PSP {
@@ -5287,6 +5332,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string SearchAndGenQR {
             get {
                 return ResourceManager.GetString("SearchAndGenQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sec.
+        /// </summary>
+        public static string Sec {
+            get {
+                return ResourceManager.GetString("Sec", resourceCulture);
             }
         }
         

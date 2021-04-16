@@ -53,7 +53,14 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-                <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png") alt="logo" class="logo-image" />
+                @if (isN88 && sessionService.CurrentLanguage == "zh-CN")
+                {
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
+                }
+                else
+                {
+                    <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
+                }
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
@@ -143,6 +150,14 @@
                                         @Lang.TermAndCondition
                                     </a>
                                 </li>
+                                @if (isN88)
+                                {
+                                    <li>
+                                        <a class="menu-item @(controllerName == "Promotion" ? "active" : string.Empty)" href="@Url.Content("~/Promotion")">
+                                            @Lang.Promotion
+                                        </a>
+                                    </li>
+                                }                   
                                 <li>
                                     <a class="menu-item @(controllerName == "FAQ" ? "active" : string.Empty)" href="@Url.Content("~/FAQ")">
                                         @Lang.Faqs
@@ -186,7 +201,8 @@
     <script>
         window.Lang = {
             ServerError: '@Lang.ServerError'
-        }
+        };
+        window.JsVersion = '@AppSetting.Instance.JsVersion';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")

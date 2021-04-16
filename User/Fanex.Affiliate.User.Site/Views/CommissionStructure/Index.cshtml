@@ -6,12 +6,18 @@
 @{
     var viewName = "~/Views/CommissionStructure/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
 
-    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
+    var htmlString = Html.Partial(viewName).ToHtmlString();
+}
+
+@section styles{
+    <link rel="stylesheet" href="@Url.RenderLink("~/www/build/styles/css/revenue-structure.css")"/>
 }
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/revenue-structure.js")
 }
+
+
 
 <div class="content">
     <div class="page-title">

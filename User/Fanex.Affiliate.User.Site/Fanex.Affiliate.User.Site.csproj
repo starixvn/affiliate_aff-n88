@@ -711,6 +711,10 @@
     <Content Include="www\build\js\pages\login.min.js">
       <DependentUpon>login.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\pages\promotion.js" />
+    <Content Include="www\build\js\pages\promotion.min.js">
+      <DependentUpon>promotion.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\pages\verification-account.js" />
     <Content Include="www\build\js\pages\verification-account.min.js">
       <DependentUpon>verification-account.js</DependentUpon>
@@ -791,6 +795,14 @@
     <Content Include="www\build\styles\css\pages\payment-request.css" />
     <Content Include="www\build\styles\css\pages\payment-request.min.css">
       <DependentUpon>payment-request.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\promotion.css" />
+    <Content Include="www\build\styles\css\promotion.min.css">
+      <DependentUpon>promotion.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\revenue-structure.css" />
+    <Content Include="www\build\styles\css\revenue-structure.min.css">
+      <DependentUpon>revenue-structure.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\signup.css" />
     <Content Include="www\build\styles\css\signup.min.css">
@@ -874,13 +886,10 @@
     <Content Include="www\build\styles\Images\apply\n8g\Vietnam.svg" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.png" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.png" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.en-US.jpg" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.th-TH.jpg" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -892,6 +901,18 @@
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\lower-banner.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\upper-banner.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.en-US.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\promo.th-TH.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
@@ -900,13 +921,23 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.en-US.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\revenue.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.en-US.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
+    <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
+    <Content Include="www\source\js\pages\promotion.js" />
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
@@ -921,7 +952,6 @@
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
-    <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\build\styles\Images\themes\n8g.png" />
     <Content Include="www\build\styles\Images\themes\n88-qrcode.png" />
@@ -1153,10 +1183,6 @@
     <Content Include="Views\TermAndCondition\_Content.vi-VN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\_CasinoProductTable.cshtml" />
-    <Content Include="Views\Product\_Content.en-US.cshtml" />
-    <Content Include="Views\Product\_Content.id-ID.cshtml" />
-    <Content Include="Views\Product\_Content.th-TH.cshtml" />
-    <Content Include="Views\Product\_Content.vi-VN.cshtml" />
     <Content Include="www\source\styles\fonts\tahoma\Tahoma-Regular.ttf" />
     <Content Include="www\source\styles\fonts\tahoma\Tahoma-Bold.TTF" />
     <Content Include="www\source\styles\fonts\tahoma\TAHOMABD.TTF" />
@@ -1165,7 +1191,6 @@
     <Content Include="www\build\styles\fonts\tahoma\Tahoma-Bold.TTF" />
     <Content Include="www\build\styles\fonts\tahoma\TAHOMABD.TTF" />
     <Content Include="www\build\styles\fonts\tahoma\TAHOMA_0.TTF" />
-    <Content Include="Views\Product\_Content.zh-CN.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTable.cshtml" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.eot" />
     <Content Include="www\build\styles\fonts\myriadPro\MYRIADPROREGULAR.ttf" />
@@ -1310,19 +1335,32 @@
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\AFF-Home-banner-Casino.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\text.en-US.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\text.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.en-US.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-text.zh-CN.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background-hover.webp" />
-    <Content Include="www\build\styles\Images\casino-banners\n88\btn-background.webp" />
     <Content Include="Views\UserPanel\AccountOverView\Partial\_ChannelLinkStatistic.cshtml" />
     <Content Include="www\source\styles\scss\components\_toogle-button.scss" />
     <Content Include="www\source\styles\scss\components\_qr_code.scss" />
     <Content Include="Views\UserPanel\Statistics\MarketingPageStatistics\Index.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_MarketingPageStatsticsContent.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.en-US.cshtml" />
+    <Content Include="www\source\styles\pages\promotion.scss" />
+    <Content Include="Views\Promotion\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N88\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N88\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N88\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N88\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N8B\_Content.zh-CN.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.en-US.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.id-ID.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.th-TH.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N8G\_Content.zh-CN.cshtml" />
+    <Content Include="www\source\styles\pages\revenue-structure.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -239,6 +239,7 @@
     <Compile Include="Constants\CommGroupName.cs" />
     <Compile Include="Constants\CommissionType.cs" />
     <Compile Include="Constants\ControllerName.cs" />
+    <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
     <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
     <Compile Include="Enum\DbParam.cs" />

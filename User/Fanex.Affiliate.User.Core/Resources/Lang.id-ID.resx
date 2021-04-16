@@ -2130,4 +2130,10 @@
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
     <value>Afiliasi N88 - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
   </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>Promosi</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>SELESAI</value>
+  </data>
 </root>

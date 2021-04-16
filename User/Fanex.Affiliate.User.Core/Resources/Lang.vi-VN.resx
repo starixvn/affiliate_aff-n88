@@ -2323,4 +2323,7 @@
   <data name="UserNameMaxLength30" xml:space="preserve">
     <value>Tên truy cập không được nhiều hơn 30 ký tự</value>
   </data>
+  <data name="Finished" xml:space="preserve">
+    <value>ĐÃ KẾT THÚC</value>
+  </data>
 </root>
