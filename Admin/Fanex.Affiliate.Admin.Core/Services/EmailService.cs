@@ -28,31 +28,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
         public void SendApprovedEmail(AffInformationEmail emailParam)
         {
             _languageService.SetCulture(emailParam.Language);
-            SendApprovedAffEmail(emailParam);
             SendAffInforEmail(emailParam);
-            SendWithdrawalGuidanceEmail(emailParam);
             _languageService.SetCulture(_appSetting.DefaultLanguageCode);
-        }
-
-        private void SendApprovedAffEmail(AffInformationEmail emailParam)
-        {
-            const string TemplateName = "AffiliateApproved";
-            var language = emailParam.Language;
-
-            var model = new EmailBase
-            {
-                MailContact = GetMailContactByLanguageCode(language),
-                SiteFriendlyName = _appSetting.SiteFriendlyName
-            };
-
-            var content = GetEmailTextContent(TemplateName, language, model);
-
-            var contentToSend = emailParam.IsHtml ?
-                GetEmailHtmlContent(content, Lang.EmailTitleAffApproved, language, emailParam.RootUrl) :
-                content;
-            var appMailId = GetAppMailIdByLanguageCode(language);
-
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffApproved, _appSetting.BccMail, _appSetting.CcMail, appMailId);
         }
 
         private void SendAffInforEmail(AffInformationEmail emailParam)
@@ -79,28 +56,6 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var appMailId = GetAppMailIdByLanguageCode(language);
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffInfor, _appSetting.BccMail, _appSetting.CcMail, appMailId);
-        }
-
-        private void SendWithdrawalGuidanceEmail(AffInformationEmail emailParam)
-        {
-            const string TemplateName = "WithdrawalGuidance";
-            var language = emailParam.Language;
-
-            var model = new WithdrawalEmail
-            {
-                MailContact = GetMailContactByLanguageCode(language),
-                SiteFriendlyName = _appSetting.SiteFriendlyName,
-                FirstName = emailParam.FirstName
-            };
-
-            var content = GetEmailTextContent(TemplateName, language, model);
-
-            var contentToSend = emailParam.IsHtml ?
-                GetEmailHtmlContent(content, Lang.EmailTitleWithdrawalGuidance, language, emailParam.RootUrl) :
-                content;
-            var appMailId = GetAppMailIdByLanguageCode(language);
-
-            _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectWithdrawalGuidance, _appSetting.BccMail, _appSetting.CcMail, appMailId);
         }
 
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)

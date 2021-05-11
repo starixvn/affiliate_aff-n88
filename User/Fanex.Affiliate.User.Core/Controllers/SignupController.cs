@@ -73,15 +73,6 @@
             return View(new UserSignUpParam { IsValidParentCode = false });
         }
 
-        [HttpGet]
-        [ChildActionOnly]
-        public ActionResult SecurityQuestion()
-        {
-            var model = _securityQuestionService.GetSecurityQuestions(SessionService.CurrentLanguage);
-
-            return PartialView("~/Views/Signup/_SecurityQuestion.cshtml", model);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(UserSignUpParam param)
@@ -149,6 +140,15 @@
             }
 
             return Json(result);
+        }
+
+        [HttpGet]
+        [ChildActionOnly]
+        public ActionResult SecurityQuestion()
+        {
+            var model = _securityQuestionService.GetSecurityQuestions(SessionService.CurrentLanguage);
+
+            return PartialView("~/Views/Signup/_SecurityQuestion.cshtml", model);
         }
 
         private static bool IsValidAppContactList(IEnumerable<ContactApp> contactAppList)
