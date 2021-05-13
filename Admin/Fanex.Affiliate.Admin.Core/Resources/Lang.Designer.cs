@@ -178,7 +178,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates – Your Application.
+        ///   Looks up a localized string similar to 12Bet Affiliates – Your application on 12BET affiliate program has been rejected.
         /// </summary>
         public static string EmailSubjectAffDisapproved {
             get {
@@ -232,7 +232,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your Application.
+        ///   Looks up a localized string similar to Your application on 12BET affiliate program has been rejected.
         /// </summary>
         public static string EmailTitleAffDisapproved {
             get {

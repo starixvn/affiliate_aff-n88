@@ -205,10 +205,10 @@
     <value>Update is failed!</value>
   </data>
   <data name="EmailTitleAffDisapproved" xml:space="preserve">
-    <value>Your Application</value>
+    <value>Your application on 12BET affiliate program has been rejected</value>
   </data>
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>12Bet Affiliates – Your Application</value>
+    <value>12Bet Affiliates – Your application on 12BET affiliate program has been rejected</value>
   </data>
   <data name="PleaseEnterContent" xml:space="preserve">
     <value>Please enter the content of message, one language at least.</value>
