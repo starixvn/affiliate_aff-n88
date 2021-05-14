@@ -100,24 +100,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             ResetLanguage(prevLanguage);
         }
 
-        public void SendSignUpEmail(EmailBaseParam emailParam)
-        {
-            var preferredLanguage = emailParam.User.PreferredLanguage;
-            var prevLanguage = SetLanguage(preferredLanguage);
-            var appMailId = GetAppMailIdByLanguageCode(preferredLanguage);
-
-            const string TemplateName = "Signup";
-            var emailContent = GetEmailTextContent(TemplateName, preferredLanguage, emailParam);
-            if (!emailParam.User.MailOption)
-            {
-                emailContent = GetEmailHtmlContent(emailContent, Lang.EmailTitleSignUp, preferredLanguage, emailParam.RootDomain);
-            }
-
-            _mailProcessor.Send(emailContent, emailParam.MailTo, Lang.RegisSubject, emailParam.MailBcc, emailParam.MailCc, appMailId);
-
-            ResetLanguage(prevLanguage);
-        }
-
         public void SendNoticeEmailToCsd(NoticeEmailParam emailParam)
         {
             var preferredLanguage = emailParam.User.PreferredLanguage;

@@ -2008,15 +2008,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your Application.
-        /// </summary>
-        public static string EmailTitleSignUp {
-            get {
-                return ResourceManager.GetString("EmailTitleSignUp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Verification your account detail.
         /// </summary>
         public static string EmailTittleVerificationAccount {
@@ -5053,15 +5044,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string RegisForm {
             get {
                 return ResourceManager.GetString("RegisForm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliate - Your Application.
-        /// </summary>
-        public static string RegisSubject {
-            get {
-                return ResourceManager.GetString("RegisSubject", resourceCulture);
             }
         }
         

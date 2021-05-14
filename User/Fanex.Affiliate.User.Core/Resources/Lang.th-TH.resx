@@ -1303,9 +1303,6 @@
   <data name="RegisForm" xml:space="preserve">
     <value>แบบฟอร์มการสมัคร</value>
   </data>
-  <data name="RegisSubject" xml:space="preserve">
-    <value>พันธมิตร N88 - การสมัครของคุณ</value>
-  </data>
   <data name="RegisSuccess" xml:space="preserve">
     <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร N88 &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร N88.&lt;br/&gt;&lt;br/&gt;ถ้าคุณมีคำถามหรือต้องการความช่วยเหลือ กรุณา&lt;a href='{0}'&gt;อย่าลังเลที่จะติดต่อเรา&lt;/a&gt;.</value>
   </data>
@@ -1690,9 +1687,6 @@
   </data>
   <data name="EmailTitlePayment" xml:space="preserve">
     <value>จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
-  </data>
-  <data name="EmailTitleSignUp" xml:space="preserve">
-    <value>เรื่อง   สถานะการสมัครของท่าน</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
     <value>คลับคาสิโน N88</value>

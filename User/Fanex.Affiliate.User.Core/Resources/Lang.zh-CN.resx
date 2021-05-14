@@ -1305,9 +1305,6 @@
   <data name="RegisForm" xml:space="preserve">
     <value>申请表格</value>
   </data>
-  <data name="RegisSubject" xml:space="preserve">
-    <value>N88 合作伙伴 - 您的申请</value>
-  </data>
   <data name="RegisSuccess" xml:space="preserve">
     <value>感谢您提交申请。&lt;br /&gt;&lt;br /&gt;
 我们N88合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
@@ -1697,9 +1694,6 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="EmailTitlePayment" xml:space="preserve">
     <value>支付申请通知</value>
-  </data>
-  <data name="EmailTitleSignUp" xml:space="preserve">
-    <value>您的加盟申请</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
     <value>N88 娱乐城</value>

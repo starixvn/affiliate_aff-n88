@@ -163,9 +163,6 @@
                 case "NewPassword":
                     return Lang.SubjectNewPass;
 
-                case "Signup":
-                    return Lang.RegisSubject;
-
                 case "VerificationAccount":
                     return Lang.SubjectVerificationAccount;
 
@@ -195,9 +192,6 @@
 
                 case "NewPassword":
                     return GetRecoverPasswordModel();
-
-                case "Signup":
-                    return GetSignupModel();
 
                 case "VerificationAccount":
                     return GetVerificationAccountModel();
@@ -276,16 +270,6 @@
                 NewPassword = "1234aa",
                 RootDomain = SiteDomainHelper.GetRootUrl(this),
                 MailTo = _mailContact,
-            };
-        }
-
-        private object GetSignupModel()
-        {
-            return new EmailBaseParam
-            {
-                User = GetUserInfo(),
-                MailContact = _mailContact,
-                SiteFriendlyName = _siteFriendlyName,
             };
         }
 
