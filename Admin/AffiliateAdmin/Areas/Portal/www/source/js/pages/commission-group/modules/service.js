@@ -78,15 +78,13 @@ export const buildPlatformFeeList = ({ productList, deductionSetting, productIds
     const { platformFeeSetting } = deductionSetting;
 
     const products = convertProductList(productList, productIds);
-    const convertedPlatformFeeList = platformFeeList.length ? platformFeeList : [{
+    return !!platformFeeList.length ? platformFeeList : [{
         DeductionId: platformFeeSetting.DeductionId,
         ProductIds: products.map(p => p.ProductId).join(','),
         DeductedPercentage: platformFeeSetting.DeductedPercentage,
         DeductedAmount: platformFeeSetting.DeductedAmount,
         IsDeductedPercent: platformFeeSetting.IsDeductedPercent
     }];
-
-    return convertedPlatformFeeList;
 }
 
 export const createDefaultPlatformfee = (productList, platformFeeSetting) => {
@@ -99,8 +97,7 @@ export const createDefaultPlatformfee = (productList, platformFeeSetting) => {
 
 export const convertDeductionList = (deductionList) => {
     const deductions = {};
-    for (let i = 0; i < deductionList.length; i++) {
-        const item = deductionList[i];
+    for (let item of deductionList) {
         deductions[item.DeductionName] = item;
     }
 

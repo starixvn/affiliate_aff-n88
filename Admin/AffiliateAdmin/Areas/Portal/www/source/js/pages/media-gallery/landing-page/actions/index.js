@@ -49,8 +49,8 @@ export const fetchData = () => async (dispatch) => {
 
 function _convertCheckedLandingPages(dataList) {
     const checkedLandingPages = {};
-    for (let i = 0; i < dataList.length; i++) {
-        const itemId = dataList[i].PageId;
+    for (let item of dataList) {
+        const itemId = item.PageId;
         checkedLandingPages[itemId] = false;
     }
 

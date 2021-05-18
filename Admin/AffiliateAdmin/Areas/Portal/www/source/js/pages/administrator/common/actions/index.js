@@ -84,8 +84,8 @@ export const fetchData = (param) => async () => {
 
 function _convertCheckedUsers(dataList) {
     const checkedUsers = {};
-    for (let i = 0; i < dataList.length; i++) {
-        const userId = `${dataList[i].UserId}`;
+    for (let item of dataList) {
+        const userId = `${item.UserId}`;
         checkedUsers[userId] = false;
     }
 
@@ -94,16 +94,16 @@ function _convertCheckedUsers(dataList) {
 
 function _convertCheckedAccountPolicy(dataList) {
     const checkedPolicies = {};
-    for (let i = 0; i < dataList.length; i++) {
-        const itemId = dataList[i].FunctionId;
+    for (let item of dataList) {
+        const itemId = item.FunctionId;
         checkedPolicies[itemId] = {
             individualPermission: {
-                HasRead: !!dataList[i].Policy,
-                HasHost: dataList[i].Policy === 3
+                HasRead: !!item.Policy,
+                HasHost: item.Policy === 3
             },
             groupPermission: {
-                HasRead: !!dataList[i].GroupPolicy,
-                HasHost: dataList[i].GroupPolicy === 3
+                HasRead: !!item.GroupPolicy,
+                HasHost: item.GroupPolicy === 3
             }
         };
     }
@@ -113,13 +113,13 @@ function _convertCheckedAccountPolicy(dataList) {
 
 function _convertCheckedRolePolicy(dataList) {
     const checkedPolicies = {};
-    for (let i = 0; i < dataList.length; i++) {
-        const itemId = dataList[i].FunctionId;
+    for (let item of dataList) {
+        const itemId = item.FunctionId;
         checkedPolicies[itemId] = {
             individualPermission: {},
             groupPermission: {
-                HasRead: !!dataList[i].Policy,
-                HasHost: dataList[i].Policy === 3
+                HasRead: !!item.Policy,
+                HasHost: item.Policy === 3
             }
         };
     }

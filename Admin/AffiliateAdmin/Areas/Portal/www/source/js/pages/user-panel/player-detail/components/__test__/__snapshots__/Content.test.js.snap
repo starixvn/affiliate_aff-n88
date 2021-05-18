@@ -349,7 +349,7 @@ exports[`players detail - components - Content render correctly with have data i
           <t
             asc={true}
             className="text-center"
-            colSpan="9"
+            colSpan={10}
             header={false}
             onClick={[Function]}
             sortable={false}

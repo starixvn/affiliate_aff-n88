@@ -80,6 +80,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="secondary"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -127,6 +128,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
+            disabled={true}
             name={0}
             onChange={[Function]}
             value="www.sportsbookie.com"
@@ -135,6 +137,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -186,6 +189,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
+            disabled={true}
             name={1}
             onChange={[Function]}
             value="www.gzyyy.com"
@@ -194,6 +198,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -245,6 +250,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
+            disabled={true}
             name={2}
             onChange={[Function]}
             value="www.123.com"
@@ -253,6 +259,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -430,6 +437,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="secondary"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -477,6 +485,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
+            disabled={true}
             name={0}
             onChange={[Function]}
             value="www.sportsbookie.com"
@@ -485,6 +494,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -536,6 +546,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
+            disabled={true}
             name={1}
             onChange={[Function]}
             value="www.gzyyy.com"
@@ -544,6 +555,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -595,6 +607,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
+            disabled={true}
             name={2}
             onChange={[Function]}
             value="www.123.com"
@@ -603,6 +616,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
+          disabled={true}
           onClick={[Function]}
           outline={true}
           tag="button"

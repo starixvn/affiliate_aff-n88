@@ -111,7 +111,7 @@ export default class Content extends PureComponent {
     _renderDataSection(dataList) {
         const dataRows = [];
 
-        if (dataList && dataList.length) {
+        if (dataList.length) {
             const { isPopup } = this.props;
 
             for (let i = 0; i < dataList.length; i++) {

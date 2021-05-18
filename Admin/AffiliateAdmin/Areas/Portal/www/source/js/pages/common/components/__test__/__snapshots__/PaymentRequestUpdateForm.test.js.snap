@@ -396,7 +396,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly 1`] = `
               }
             >
               <strong>
-                 (undefined)
+                - (undefined)
               </strong>
             </Label>
           </FormGroup>
@@ -1064,7 +1064,7 @@ exports[`common - components - PaymentRequestUpdateForm render correctly with no
               }
             >
               <strong>
-                 (undefined)
+                - (undefined)
               </strong>
             </Label>
           </FormGroup>

@@ -37,7 +37,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       >
         <option
           key="commGroup-all"
-          value={0}
+          value="0"
         >
           All Revenue Groups
         </option>
@@ -114,6 +114,12 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
           value="Disapproved"
         >
           Disapproved
+        </option>
+        <option
+          key="status-Suspended"
+          value="Suspended"
+        >
+          Suspended
         </option>
         <option
           key="status-Closed"

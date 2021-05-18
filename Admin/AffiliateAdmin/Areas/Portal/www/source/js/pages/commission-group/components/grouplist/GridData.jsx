@@ -18,8 +18,8 @@ export class GridData extends Component {
 
         const { productList } = this.props;
         this.products = {};
-        for (let i = 0; i < productList.length; i++) {
-            this.products[productList[i].ProductId] = productList[i].ProductName;
+        for (let product of productList) {
+            this.products[product.ProductId] = product.ProductName;
         }
 
         this.state = {
@@ -131,7 +131,7 @@ export class GridData extends Component {
         if (gridData && gridData.length) {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
-                
+
                 const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;

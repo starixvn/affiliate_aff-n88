@@ -116,10 +116,14 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
         </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
       </tr>
       <tr
         key="Turnover"
@@ -131,10 +135,14 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
         </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
       </tr>
       <tr
         key="Winlost"
@@ -146,10 +154,14 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
         </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
         <td
           className="text-right"
-        />
+        >
+          -
+        </td>
       </tr>
       <tr
         key="Tracking Rate for PC/Laptop (Unique/Total)"

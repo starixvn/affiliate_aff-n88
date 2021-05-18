@@ -137,7 +137,9 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             </td>
             <td
               className="content"
-            />
+            >
+              -
+            </td>
           </tr>
           <tr>
             <td
@@ -299,7 +301,9 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             </td>
             <td
               className="content"
-            />
+            >
+              -
+            </td>
           </tr>
           <tr>
             <td
