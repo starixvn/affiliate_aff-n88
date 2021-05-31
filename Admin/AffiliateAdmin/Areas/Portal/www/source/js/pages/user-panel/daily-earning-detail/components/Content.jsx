@@ -40,8 +40,6 @@ export class Content extends PureComponent {
     }
 
     _renderHeader() {
-        const { param } = this.props;
-
         return (
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>

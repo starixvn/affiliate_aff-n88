@@ -22,7 +22,7 @@ exports[`home - components - AppContainer render correctly 1`] = `
         "xl",
       ]
     }
-    xl={6}
+    xl={7}
   >
     <Row
       tag="div"

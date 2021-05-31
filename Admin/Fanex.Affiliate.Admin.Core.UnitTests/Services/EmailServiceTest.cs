@@ -2,6 +2,7 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
+using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.Admin.Core.Utilities;
@@ -25,6 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
         {
             MailProcessor = Substitute.For<IMailProcessor>();
             AppSetting = Substitute.For<IAppSetting>();
+            AppSetting.GetAppMailIdByShortedLanguageCode(Arg.Any<string>()).Returns("3");
             LanguageService = Substitute.For<ILanguageService>();
         }
 
@@ -40,7 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this.ScopeProvider = new SimpleLifetimeScopeProvider(container);
+            ScopeProvider = new SimpleLifetimeScopeProvider(container);
             var resolver = new AutofacDependencyResolver(container, ScopeProvider);
             DependencyResolver.SetResolver(resolver);
 
@@ -57,8 +59,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             service.SendApprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received(3).BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
-            MailProcessor.Received(3).Send(mainContent, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
         }
 
         [Fact]
@@ -73,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
             var container = builder.Build();
 
-            this.ScopeProvider = new SimpleLifetimeScopeProvider(container);
+            ScopeProvider = new SimpleLifetimeScopeProvider(container);
             var resolver = new AutofacDependencyResolver(container, ScopeProvider);
             DependencyResolver.SetResolver(resolver);
 
@@ -90,8 +92,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             service.SendApprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received(3).BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
-            MailProcessor.Received(3).Send(mainContent, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<string>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
         }
 
         [Fact]
@@ -114,7 +116,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, "12Bet Affiliates - [123] - Your payment request has been processed and completed successfully", AppSetting.BccMail, AppSetting.CcMail);
+            MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
         [Fact]
@@ -135,7 +137,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, "12Bet Affiliates - [123] - Your payment request has been rejected", AppSetting.BccMail, AppSetting.CcMail);
+            MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
         [Fact]
@@ -156,7 +158,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, "12Bet Affiliates – Your Application", AppSetting.BccMail, AppSetting.CcMail);
+            MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
         [Fact]
@@ -176,7 +178,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, "12Bet Affiliates – Your Application", AppSetting.BccMail, AppSetting.CcMail);
+            MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
         private EmailService CreateEmailService()

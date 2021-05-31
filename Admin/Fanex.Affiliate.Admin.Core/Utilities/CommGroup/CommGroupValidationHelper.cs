@@ -132,7 +132,6 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
             return result;
         }
-
         private static ResultInfo ValidateProductIds(IEnumerable<string> productIdOfDB, IEnumerable<string> productIdOfPlatform)
         {
             var result = new ResultInfo { Code = Code.GeneralErrorCode };

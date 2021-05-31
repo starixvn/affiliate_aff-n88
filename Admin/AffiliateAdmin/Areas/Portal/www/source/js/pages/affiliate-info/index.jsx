@@ -9,15 +9,13 @@ import { headerText } from './libs/constants';
 
 const commGroupList = [...window.initialState.commGroupList];
 const commGroup = {};
-for (let i = 0; i < commGroupList.length; i++) {
-    const commGroupItem = commGroupList[i];
+for (let commGroupItem in commGroupList) {
     commGroup[commGroupItem.Id] = commGroupItem.Name;
 }
 
 const languageList = [...window.initialState.languageList];
 const language = {};
-for (let i = 0; i < languageList.length; i++) {
-    const languageItem = languageList[i];
+for (let languageItem in languageList) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 

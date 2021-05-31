@@ -11,8 +11,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         void SendPaymentEmail(PaymentEmailParam emailParam);
 
-        void SendSignUpEmail(EmailBaseParam emailParam);
-
         void SendNoticeEmailToCsd(NoticeEmailParam emailParam);
 
         void SendContactUsEmail(EmailBaseParam emailParam, ContactUsParam model);

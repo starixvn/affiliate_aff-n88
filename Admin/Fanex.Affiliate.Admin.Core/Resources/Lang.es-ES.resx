@@ -123,23 +123,11 @@
   <data name="EmailAutoNotification" xml:space="preserve">
     <value>Este es un sistema de correo electrónico generado de forma automática; no responda a este correo electrónico directamente.</value>
   </data>
-  <data name="EmailSubjectAffApproved" xml:space="preserve">
-    <value>Afiliados de 12BET: Notificación de afiliado</value>
-  </data>
   <data name="EmailSubjectAffInfor" xml:space="preserve">
     <value>Afiliados de 12BET: Información de afiliado</value>
   </data>
-  <data name="EmailSubjectWithdrawalGuidance" xml:space="preserve">
-    <value>Guía de retirada de fondos del afiliado</value>
-  </data>
-  <data name="EmailTitleAffApproved" xml:space="preserve">
-    <value>Notificación de afiliado</value>
-  </data>
   <data name="EmailTitleAffInfor" xml:space="preserve">
     <value>Información de afiliado</value>
-  </data>
-  <data name="EmailTitleWithdrawalGuidance" xml:space="preserve">
-    <value>Guía de retirada de fondos del afiliado</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
     <value>Afiliados de 12BET - [{0}] - Su solicitud de pago se ha procesado y completado correctamente.</value>

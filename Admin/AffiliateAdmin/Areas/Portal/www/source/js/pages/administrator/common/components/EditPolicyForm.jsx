@@ -128,11 +128,10 @@ export class EditPolicyForm extends PureComponent {
         const dataRows = [];
         const { isAccountPolicy } = this.props;
 
-        if (dataList && dataList.length) {
+        if (dataList.length) {
             const { checkedPolicies } = this.state;
 
-            for (let i = 0; i < dataList.length; i++) {
-                const dataItem = dataList[i];
+            for (let dataItem of dataList) {
                 dataRows.push(this._buildDataRow(dataItem, checkedPolicies, isAccountPolicy));
             }
         }

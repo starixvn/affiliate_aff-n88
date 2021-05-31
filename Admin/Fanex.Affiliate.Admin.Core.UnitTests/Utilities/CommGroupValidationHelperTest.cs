@@ -42,32 +42,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidatePlatformFeeList_WhenCallWithInvalidProductIdsLenght_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommissionGroupSetting();
-            param.PlatformFeeList = new List<DeductionSetting>
-            {
-                new DeductionSetting
-                {
-                    DeductedPercentage = 0.17m,
-                    DeductionId = 10,
-                    ProductIds = "1,2",
-                    IsDeductedPercent = true,
-                    DeductedAmount = ""
-                }
-            };
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
         public void ValidateCommGroup_ValidatePlatformFeeList_WhenCallWithInvalidProductIds_ReturnError()
         {
             // Arrange

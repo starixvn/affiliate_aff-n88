@@ -169,16 +169,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - Affiliate Notification.
-        /// </summary>
-        public static string EmailSubjectAffApproved {
-            get {
-                return ResourceManager.GetString("EmailSubjectAffApproved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates – Your Application.
+        ///   Looks up a localized string similar to 12Bet Affiliates – Your application on 12BET affiliate program has been rejected.
         /// </summary>
         public static string EmailSubjectAffDisapproved {
             get {
@@ -214,25 +205,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Affiliate Withdrawal Guidance.
-        /// </summary>
-        public static string EmailSubjectWithdrawalGuidance {
-            get {
-                return ResourceManager.GetString("EmailSubjectWithdrawalGuidance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Affiliate Notification.
-        /// </summary>
-        public static string EmailTitleAffApproved {
-            get {
-                return ResourceManager.GetString("EmailTitleAffApproved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Your Application.
+        ///   Looks up a localized string similar to Your application on 12BET affiliate program has been rejected.
         /// </summary>
         public static string EmailTitleAffDisapproved {
             get {
@@ -264,15 +237,6 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string EmailTitlePaymentRequestRejected {
             get {
                 return ResourceManager.GetString("EmailTitlePaymentRequestRejected", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Affiliate Withdrawal Guidance.
-        /// </summary>
-        public static string EmailTitleWithdrawalGuidance {
-            get {
-                return ResourceManager.GetString("EmailTitleWithdrawalGuidance", resourceCulture);
             }
         }
         

@@ -136,12 +136,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
             switch (functionName)
             {
-                case "AffiliateApproved":
-                    return new EmailBase
-                    {
-                        MailContact = mailContact,
-                        SiteFriendlyName = _appSetting.SiteFriendlyName
-                    };
                 case "AffiliateInformation":
                     return new AffInformationEmail
                     {
@@ -151,13 +145,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                         FirstName = _firstName,
                         UserName = "NOVA00000",
                         Password = "qwrfsdg"
-                    };
-                case "WithdrawalGuidance":
-                    return new WithdrawalEmail
-                    {
-                        MailContact = mailContact,
-                        SiteFriendlyName = _appSetting.SiteFriendlyName,
-                        FirstName = _firstName
                     };
                 case "PaymentRequest/Approved":
                     return new PaymentRequestUpdateEmail

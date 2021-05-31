@@ -53,11 +53,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     FirstName = signUpParam.FirstName
                 };
 
-                emailParam.MailTo = signUpParam.Email;
-                emailParam.User = userInfo;
-
-                _emailService.SendSignUpEmail(emailParam);
-
                 var csdEmailParam = new NoticeEmailParam
                 {
                     MailTo = emailParam.MailContact,

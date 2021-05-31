@@ -70,6 +70,12 @@ exports[`home - components - AffiliateStatistics render correctly 1`] = `
         </a>
          Disapproved / 
         <a
+          href="/Portal/Affiliate?Status=Suspended&IsFromHome=true"
+        >
+          <strong />
+        </a>
+         Suspended / 
+        <a
           href="/Portal/Affiliate?Status=Closed&IsFromHome=true"
         >
           <strong>
@@ -140,6 +146,8 @@ exports[`home - components - AffiliateStatistics render correctly with this mont
           0
         </strong>
          Disapproved / 
+        <strong />
+         Suspended / 
         <strong>
           0
         </strong>

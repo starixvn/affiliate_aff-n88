@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Button } from 'reactstrap';
@@ -37,8 +37,6 @@ export class Content extends PureComponent {
     }
 
     _renderHeader() {
-        const { param } = this.props;
-
         return (
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>

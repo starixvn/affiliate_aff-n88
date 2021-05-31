@@ -1127,11 +1127,6 @@
     <Content Include="www\source\styles\Images\shadown.png" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.css" />
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
-    <Content Include="Views\Shared\Email\Signup\Content.en-US.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.id-ID.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.th-TH.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.vi-VN.cshtml" />
-    <Content Include="Views\Shared\Email\Signup\Content.zh-CN.cshtml" />
     <Content Include="www\source\styles\scss\components\_flag.scss" />
     <Content Include="www\source\styles\pages\products.scss" />
     <Content Include="Views\TermAndCondition\Index.cshtml" />

@@ -374,7 +374,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="Affiliate"
-        name="Affiliate"
+        name="userName"
         onChange={[Function]}
         onKeyPress={[Function]}
         type="text"
@@ -403,7 +403,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="BaseCurrency"
-        name="BaseCurrency"
+        name="selectedBaseCurrency"
         onChange={[Function]}
         type="select"
         value={20}
@@ -615,7 +615,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="SortBy"
-        name="SortBy"
+        name="sortBy"
         onChange={[Function]}
         type="select"
         value={1}

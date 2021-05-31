@@ -137,8 +137,8 @@ export const fetchData = (param) => async (dispatch) => {
 
 function _convertCheckedBanners(dataList) {
     const checkedBanners = {};
-    for (let i = 0; i < dataList.length; i++) {
-        const itemId = dataList[i].BannerId;
+    for (let item of dataList) {
+        const itemId = item.BannerId;
         checkedBanners[itemId] = false;
     }
 
@@ -152,16 +152,16 @@ export const getBannerDetail = (selectedBannerId, userType) => async () => {
     return response && response.status === 200 ? response.data : null;
 }
 
-export const insertBanner = (param) => async () => {
+export const insertBanner = (param) => () => {
     const url = 'Portal/MediaGallery/insertBanner';
 
-    return await handleExcute(url, param);
+    return handleExcute(url, param);
 }
 
-export const updateBanner = (param) => async () => {
+export const updateBanner = (param) => () => {
     const url = 'Portal/MediaGallery/UpdateBanner';
 
-    return await handleExcute(url, param);
+    return handleExcute(url, param);
 }
 
 const handleExcute = async (url, param) => {
@@ -173,8 +173,8 @@ const handleExcute = async (url, param) => {
     const files = param['files'];
 
     if (files) {
-        for (let i = 0; i < files.length; i++) {
-            formData.append('files', files[i]);
+        for (let file of files) {
+            formData.append('files', file);
         }
     }
 

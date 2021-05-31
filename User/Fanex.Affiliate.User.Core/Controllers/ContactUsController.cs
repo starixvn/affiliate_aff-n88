@@ -38,26 +38,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            if (SessionService.UserSession == null)
-            {
-                return View();
-            }
-
-            var model = _accountRepository.GetUserInfoById(SessionService.UserSession.AffId, SessionService.IsInternal);
-
-            var userInfo = new UserInfo
-            {
-                AffId = model.AffId,
-                FirstName = Server.HtmlDecode(model.FirstName),
-                LastName = Server.HtmlDecode(model.LastName),
-                Email = Server.HtmlDecode(model.Email),
-                MailOption = model.MailOption,
-                PreferredLanguage = model.PreferredLanguage,
-                SecretKey = model.SecretKey,
-                UserName = model.UserName
-            };
-
-            return View(userInfo);
+            return View();
         }
 
         [HttpPost]
