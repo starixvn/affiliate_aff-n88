@@ -12,7 +12,6 @@
     var mailContact = appSetting.GetMailContactByLanguageCode(sessionService.CurrentLanguage);
     var phoneNumber = appSetting.PhoneNumber;
     var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
-    var isN8B = string.Equals(appSetting.SiteName, SiteName.N8B, StringComparison.CurrentCultureIgnoreCase);
 }
 
 @section styles{
@@ -61,61 +60,44 @@
             <div class="row contact-title">
                 <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
             </div>
-            if (isN8B)
-            {
-                <div class="row contact-icon-group">
-                    <div class="col-xs-12">
-                        <div class="contact-icon">
-                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
-                        </div>
-                        <div class="text-center">
-                            <strong>Email</strong>
-                            <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
-                        </div>
+            <div class="row contact-icon-group">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>@Lang.Phone</strong>
+                        <p>@phoneNumber</p>
                     </div>
                 </div>
-            }
-            else
-            {
-                <div class="row contact-icon-group">
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="contact-icon">
-                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" />
-                        </div>
-                        <div class="text-center">
-                            <strong>@Lang.Phone</strong>
-                            <p>@phoneNumber</p>
-                        </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="contact-icon">
-                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
-                        </div>
-                        <div class="text-center">
-                            <strong>Email</strong>
-                            <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="contact-icon">
-                            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" />
-                        </div>
-                        <div class="text-center">
-                            <strong>Telegram</strong>
-                            <p>@phoneNumber</p>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3">
-                        <div class="contact-icon">
-                            <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") />
-                        </div>
-                        <div class="text-center">
-                            <strong>Zalo</strong>
-                            <p>@phoneNumber</p>
-                        </div>
+                    <div class="text-center">
+                        <strong>Email</strong>
+                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
                     </div>
                 </div>
-            }
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Telegram</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="contact-icon">
+                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") />
+                    </div>
+                    <div class="text-center">
+                        <strong>Zalo</strong>
+                        <p>@phoneNumber</p>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="date-time-info">
