@@ -18,7 +18,7 @@ export default class AppContainer extends PureComponent {
             message: '',
             year: now.getFullYear(),
             isLightMode: true,
-            isClicked: false
+            isClickedLogin: false
         }
     }
 
@@ -53,8 +53,9 @@ export default class AppContainer extends PureComponent {
         this._handleShowAlert(false, !isValidUserName ? 'User Name is empty. Please check!' : 'Password is empty. Please check!');
         return false;
     }
+
     _handleLogin = () => {
-        this.setState({ isClicked: true }, this._login);
+        !this.state.isClickedLogin && this.setState({ isClickedLogin: true }, this._login);
     }
 
     _login = async () => {
@@ -79,7 +80,7 @@ export default class AppContainer extends PureComponent {
             }
         }
 
-        this.setState({ isClicked: false });
+        this.setState({ isClickedLogin: false });
     }
 
     _handlePressEnter = (event) => {
@@ -103,7 +104,7 @@ export default class AppContainer extends PureComponent {
     }
 
     render() {
-        const { userName, password, isShowMessage, message, year, isLightMode, isClicked } = this.state;
+        const { userName, password, isShowMessage, message, year, isLightMode } = this.state;
         const { licenseeName } = window.initialState;
 
         return (
@@ -147,7 +148,7 @@ export default class AppContainer extends PureComponent {
                         </FormGroup>
 
                         <div className="bt">
-                            <a href="javascript:;" class="bt-login" onClick={!isClicked && this._handleLogin} >Log On</a>
+                            <a href="javascript:;" class="bt-login" onClick={this._handleLogin} >Log On</a>
                         </div>
                     </Form>
                 </div>
