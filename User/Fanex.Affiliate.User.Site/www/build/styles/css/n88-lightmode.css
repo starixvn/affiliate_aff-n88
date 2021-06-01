@@ -311,3 +311,17 @@
 .qr-footer button {
   background: transparent;
   color: #0B71DF; }
+
+.carousel.slide .carousel-control {
+  width: 2.5rem;
+  background: transparent;
+  text-shadow: 0 0 #fff; }
+  .carousel.slide .carousel-control .chevron {
+    background: rgba(255, 255, 255, 0.5);
+    top: calc(50% - 24px);
+    width: 100%;
+    padding: 10px 0; }
+
+@media (max-width: 767px) {
+  .carousel.slide .carousel-inner {
+    height: auto; } }

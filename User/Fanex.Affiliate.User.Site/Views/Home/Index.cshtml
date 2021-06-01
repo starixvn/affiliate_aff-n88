@@ -36,21 +36,26 @@
         <div class="carousel-inner" role="listbox">
             @if (isN88)
             {
-                {
-                    sportBannerFileName = $"{sportBannerFileName}.{Model.Language}";
-                    casinoBannerFileName = $"{casinoBannerFileName}.{Model.Language}";
-                }
+                
+                    var orgSportBannerFileName = $"{sportBannerFileName}.{Model.Language}";
+                    var orgCasinoBannerFileName = $"{casinoBannerFileName}.{Model.Language}";
+                    var mobileSportBannerFileName = $"{sportBannerFileName}.mobile.{Model.Language}";
+                    var mobileCasinoBannerFileName = $"{casinoBannerFileName}.mobile.{Model.Language}";
+                
+
                 <div class="item active">
                     <picture>
-                        <source srcset="@(sportBannerFileName + ".jpg")" type="image/jpeg" />
-                        <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg")" alt="Sport Banner" />
+                        <source media="(min-width:480px)" srcset="@(orgSportBannerFileName + ".jpg")" type="image/jpeg" />
+                        <source srcset="@(mobileSportBannerFileName + ".jpg")" type="image/jpeg" />
+                        <img class="img-item img-responsive" src="@(orgCasinoBannerFileName + ".jpg")" alt="Sport Banner" />
                     </picture>
                 </div>
 
                 <div class="item">
                     <picture>
-                        <source srcset="@(casinoBannerFileName + ".jpg")" type="image/jpeg" />
-                        <img class="img-item img-responsive" src="@(casinoBannerFileName + ".jpg")" alt="Sport Banner" />
+                        <source media="(min-width:480px)" srcset="@(orgCasinoBannerFileName + ".jpg")" type="image/jpeg" />
+                        <source srcset="@(mobileCasinoBannerFileName + ".jpg")" type="image/jpeg" />
+                        <img class="img-item img-responsive" src="@(orgCasinoBannerFileName + ".jpg")" alt="Sport Banner" />
                     </picture>
                 </div>
             }

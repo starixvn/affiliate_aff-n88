@@ -383,3 +383,7 @@
 .qr-footer button {
   background: transparent;
   color: #3391F6; }
+
+@media (max-width: 767px) {
+  .carousel-inner {
+    height: auto; } }

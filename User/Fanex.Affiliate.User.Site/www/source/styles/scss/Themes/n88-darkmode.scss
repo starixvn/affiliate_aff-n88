@@ -622,3 +622,10 @@ body {
     }
 }
 
+.carousel-inner {
+
+    @media (max-width: 767px) {
+        height: auto;
+    }
+}
+
