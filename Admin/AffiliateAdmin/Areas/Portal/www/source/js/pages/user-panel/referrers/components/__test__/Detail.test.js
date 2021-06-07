@@ -4,9 +4,6 @@ import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('referrers - components - Detail', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const affId = 1271808;
     const selectedSiteUrl = 'www.12-bet.com';
     const defaultProps = {

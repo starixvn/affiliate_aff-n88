@@ -13,7 +13,7 @@ const newProductList = productList.map(p => {
 })
 
 const language = {};
-for (let languageItem in languageList) {
+for (let languageItem of languageList) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
@@ -26,7 +26,7 @@ const newCurrencyList = currencyList.map(item => {
 });
 
 const commGroup = {};
-for (let commGroupItem in commGroupList) {
+for (let commGroupItem of commGroupList) {
     commGroup[commGroupItem.Id] = commGroupItem.Name;
 }
 

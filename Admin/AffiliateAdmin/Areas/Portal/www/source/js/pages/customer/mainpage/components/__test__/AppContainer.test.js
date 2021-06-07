@@ -3,9 +3,6 @@ import { AppContainer, CustomerStatistics } from '../AppContainer';
 import { shallow } from 'enzyme';
 
 describe('customer - mainpage - components - AppContainer', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const defaultProps = {
         selectedUserPanel: 'statementHistory',
         affId: 1198168,

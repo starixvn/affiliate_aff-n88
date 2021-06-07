@@ -27,6 +27,8 @@ describe('commission group - assign private group', () => {
         TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
     };
 
+    const selectedProductIds = [1, 2, 3, 4, 5, 6];
+
     const defaultProps = {
         selectedGroup: { GroupId: 102 },
         affInfo: {
@@ -53,7 +55,10 @@ describe('commission group - assign private group', () => {
             { ProductId: 5, ProductName: "Virtual Sports" },
             { ProductId: 6, ProductName: "Keno" }
         ],
-        setSelectedGroup: jest.fn()
+        setSelectedGroup: jest.fn(),
+        selectedProductIds,
+        setSelectedProductIds: jest.fn(),
+        getSelectedCommGroup: jest.fn()
     };
 
     it('componentDidMount - should call setState and setSelectedGroup', () => {

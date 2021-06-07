@@ -4,10 +4,6 @@ import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('landing page statistics - components - Detail', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const selectedPage = {
         languageCode: "hien",
         selectedPage: "sportsbook"

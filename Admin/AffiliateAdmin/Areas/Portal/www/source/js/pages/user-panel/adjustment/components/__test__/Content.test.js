@@ -6,9 +6,6 @@ describe('Adjustment - components - Content', () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const affInfo = {
         AffId: 1271808,
         AffName: "12BETAFF226"

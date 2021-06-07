@@ -894,8 +894,6 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
 </div>
 `;
 
-exports[`left panel - components - Content render correctly with affiliateInfo is null 1`] = `""`;
-
 exports[`left panel - components - Content render correctly with affiliateInfo not has http in siteurl 1`] = `
 <div
   className="general-info pt-2"

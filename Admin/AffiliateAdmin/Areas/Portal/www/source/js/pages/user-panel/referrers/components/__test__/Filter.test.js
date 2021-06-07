@@ -4,9 +4,6 @@ import { shallow } from 'enzyme';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
 describe('referrers - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     afterEach(() => {
         jest.clearAllMocks();
     });

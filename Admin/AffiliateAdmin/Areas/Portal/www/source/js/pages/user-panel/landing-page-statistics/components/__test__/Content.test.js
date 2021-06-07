@@ -3,10 +3,6 @@ import { Content } from '../Content';
 import { shallow } from 'enzyme';
 
 describe('landing page statistics - components - Content', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const shortCodeLanguageList = {
         ch: "Chinese Traditional",
         cs: "Chinese Simplified",

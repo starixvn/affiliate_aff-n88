@@ -3,10 +3,6 @@ import { Filter } from '../Filter';
 import { shallow } from 'enzyme';
 
 describe('daily earning detail - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const productList = [
         {
             ProductId: 1,

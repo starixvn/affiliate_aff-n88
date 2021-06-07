@@ -4,10 +4,6 @@ import { shallow } from 'enzyme';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
 describe('landing page statistics - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const today = '07/12/2019';
     const languageList = [
         {

@@ -3,10 +3,6 @@ import { Language } from '../Language';
 import { shallow } from 'enzyme';
 
 describe('left panel - components - general-info - Language', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const affiliateInfo = {
         AffId: 1271808,
         AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",

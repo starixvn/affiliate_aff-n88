@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import PlatformFeeItem from "../PlatformFeeItem";
 jest.mock('../../../../modules/constant');
 
-describe('commission group - assign private group', () => {
+describe('commission group - platform fee setting', () => {
     const defaultSelectedGroup = {
         BankingFee: { DeductedPercentage: 0.02, DeductionId: 12, ProductIds: 0 },
         Description: "",
@@ -39,7 +39,8 @@ describe('commission group - assign private group', () => {
             { ProductId: 4, ProductName: "Number Game" },
             { ProductId: 5, ProductName: "Virtual Sports" },
             { ProductId: 6, ProductName: "Keno" }
-        ]
+        ],
+        selectedProductIds: [1, 2, 3, 4, 5, 6]
     };
 
     it('handleAdd - should call setSelectedGroup', () => {

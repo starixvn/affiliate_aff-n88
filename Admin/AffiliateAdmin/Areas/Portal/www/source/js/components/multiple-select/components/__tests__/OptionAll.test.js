@@ -16,10 +16,6 @@ const defaultProps = {
 }
 
 describe('OptionAll ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     it('changeHandler - props.onChange function should be called with correct parameter', () => {
         const onChange = jest.fn();
         const props = Object.assign({}, defaultProps, { onChange });

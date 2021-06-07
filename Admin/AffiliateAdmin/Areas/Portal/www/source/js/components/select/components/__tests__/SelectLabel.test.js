@@ -9,10 +9,6 @@ const defaultProps = {
 }
 
 describe('SelectLabel ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     describe('render', () => {
         it('rendered content should match to snap shot', () => {
             const label = renderer.create(<SelectLabel {...defaultProps} />);

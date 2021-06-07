@@ -17,10 +17,6 @@ const defaultProps = {
 }
 
 describe('MultipleSelectLabel ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     describe('render', () => {
         it('rendered content should match to snap shot', () => {
             const label = renderer.create(<MultipleSelectLabel {...defaultProps} />);

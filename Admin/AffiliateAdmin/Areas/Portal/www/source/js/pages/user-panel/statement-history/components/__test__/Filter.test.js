@@ -4,10 +4,6 @@ import { shallow } from 'enzyme';
 import { DatePicker } from '@9softstudio/react-datepicker';
 
 describe('statement history - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const today = '03/12/2020';
     const defaultProps = {
         today

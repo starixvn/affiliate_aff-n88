@@ -52,16 +52,16 @@ export class GridData extends Component {
                 const elems = [];
                 if (index > 0)
                 {
-                    elems.push(<span>, </span>)
+                    elems.push(<span key={`index-${p.index}`}>, </span>)
                 }
                 if (!productsInGroup.find(i => i === p.ProductId))
                 {
-                    elems.push(<span className='text-danger'><del>{p.ProductName}</del></span>)
+                    elems.push(<span className='text-danger' key={`${p.ProductName}-true`}><del>{p.ProductName}</del></span>)
                 }
                 else{
-                    elems.push(<span>{p.ProductName}</span>)
+                    elems.push(<span key={`${p.ProductName}-false`}>{p.ProductName}</span>)
                 }
-                return <React.Fragment>{elems}</React.Fragment>
+                return <React.Fragment key={`${p.ProductId}-${p.ProductName}`}>{elems}</React.Fragment>
             })}
         </React.Fragment>
     }

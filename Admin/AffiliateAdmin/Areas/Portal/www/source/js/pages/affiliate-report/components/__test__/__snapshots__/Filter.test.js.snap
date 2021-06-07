@@ -30,7 +30,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="Affiliate"
-        name="Affiliate"
+        name="userName"
         onChange={[Function]}
         onKeyPress={[Function]}
         type="text"
@@ -59,7 +59,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="BaseCurrency"
-        name="BaseCurrency"
+        name="selectedBaseCurrency"
         onChange={[Function]}
         type="select"
         value={20}
@@ -123,8 +123,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       tag="div"
     >
       <Input
-        id="Language"
-        name="Language"
+        name="selectedLanguage"
         onChange={[Function]}
         type="select"
         value=""
@@ -172,6 +171,30 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
           className="oi oi-info"
         />
       </div>
+    </FormGroup>
+    <FormGroup
+      className="my-2 mr-sm-2"
+      tag="div"
+    >
+      <Input
+        name="selectedCommGroup"
+        onChange={[Function]}
+        type="select"
+        value={0}
+      >
+        <option
+          key="commGroup-all"
+          value={0}
+        >
+          All Revenue Groups
+        </option>
+        <option
+          key="commGroup-1"
+          value="1"
+        >
+          Test
+        </option>
+      </Input>
     </FormGroup>
     <FormGroup
       className="mb-2 mr-sm-2 mb-sm-0"
@@ -270,7 +293,7 @@ exports[`affiliate report - Filter  should render correctly when currentMainView
       </Label>
       <Input
         id="SortBy"
-        name="SortBy"
+        name="sortBy"
         onChange={[Function]}
         type="select"
         value={1}

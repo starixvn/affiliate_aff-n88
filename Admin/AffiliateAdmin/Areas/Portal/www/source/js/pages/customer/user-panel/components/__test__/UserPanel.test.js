@@ -3,9 +3,6 @@ import { UserPanel } from '../UserPanel';
 import { shallow } from 'enzyme';
 
 describe('customer - user-panel - components - UserPanel', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const defaultProps = {
         selectedUserPanel: 'statementHistory',
         isShowLoader: true,

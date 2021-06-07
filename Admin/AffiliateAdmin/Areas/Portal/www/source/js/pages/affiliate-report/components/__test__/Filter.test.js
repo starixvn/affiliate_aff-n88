@@ -30,6 +30,11 @@ describe('affiliate report - Filter ', () => {
             checked: true
         }
     ]
+
+    const commGroupList = {
+        1: 'Test'
+    }
+
     const defaultProps = {
         productList: [],
         pagingOption: {
@@ -43,6 +48,7 @@ describe('affiliate report - Filter ', () => {
         currentViewLevel: mainView,
         param: {},
         currencyList,
+        commGroupList,
         baseCurrencyList
     };
 
@@ -159,7 +165,7 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handleChangeAffiliate when Affiliate change', () => {
-        const event = { target: { value: "abc" } }
+        const event = { target: { name: "userName", value: "abc" } }
 
         const wrapper = shallow(<Filter {...defaultProps} />);
         const instance = wrapper.instance();
@@ -172,14 +178,14 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handleChangeLanguage when Language change', () => {
-        const event = { target: { value: "English" } }
+        const event = { target: { name: 'selectedLanguage', value: "English" } }
 
         const wrapper = shallow(<Filter {...defaultProps} />);
         const instance = wrapper.instance();
 
         instance.setState = jest.fn();
 
-        wrapper.find('Input[type="select"][id="Language"]').simulate('change', event);
+        wrapper.find('Input[type="select"][name="selectedLanguage"]').simulate('change', event);
 
         expect(instance.setState).toHaveBeenCalledWith({ selectedLanguage: event.target.value });
     });
@@ -274,7 +280,7 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handleChangeSortBy when Sort By change', () => {
-        const event = { target: { value: 2 } };
+        const event = { target: { name: "sortBy", value: 2 } };
         const wrapper = shallow(<Filter {...defaultProps} />);
         const instance = wrapper.instance();
 
@@ -325,6 +331,7 @@ describe('affiliate report - Filter ', () => {
             SortDirectionType: 0,
             PageIndex: 1,
             PageSize: 20,
+            GroupId: 0,
             IsGetAll: false
         };
 
@@ -360,6 +367,7 @@ describe('affiliate report - Filter ', () => {
             SortDirectionType: 1,
             PageIndex: 1,
             PageSize: 20,
+            GroupId: 0,
             IsGetAll: false
         };
         const selectedProductList = '1,2';
@@ -400,6 +408,7 @@ describe('affiliate report - Filter ', () => {
             SortDirectionType: 1,
             PageIndex: 1,
             PageSize: 20,
+            GroupId: 0,
             IsGetAll: false
         };
         const selectedProductList = '1,2';
@@ -458,7 +467,7 @@ describe('affiliate report - Filter ', () => {
         const result = componentInstance._buildMainReportTitle(isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('AFFILIATE REPORT  - Base Currency VND - All languages - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual('AFFILIATE REPORT  - Base Currency VND - All languages - All Products - All Revenue Groups - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMainReportTitle - return corrected value with incorrect parameter', () => {
@@ -468,12 +477,13 @@ describe('affiliate report - Filter ', () => {
 
         const componentInstance = new Filter(defaultProps);
         componentInstance.state.userName = 'Bwing';
+        componentInstance.state.selectedCommGroup = 1;
         componentInstance._getProductDataSource = jest.fn(() => productList);
 
         const result = componentInstance._buildMainReportTitle(!isCheckedAllProduct);
 
         expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual("AFFILIATE REPORT - Username contains 'Bwing' - Base Currency VND - All languages - Sportsbook - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual("AFFILIATE REPORT - Username contains 'Bwing' - Base Currency VND - All languages - Sportsbook - Test - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMonthOnMonthReportTile - return corrected value with correct parameter', () => {
