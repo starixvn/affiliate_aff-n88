@@ -3,10 +3,6 @@ import { Filter } from '../Filter';
 import { shallow } from 'enzyme';
 
 describe('daily earning - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const baseCurrencyList = [
         {
             ExchangeId: 20,

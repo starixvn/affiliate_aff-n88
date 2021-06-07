@@ -29,6 +29,7 @@ const runTestActionReturnPost = ({ name, url }) => {
 const actionList = [
     { name: 'setGridData', type: types.SET_GRIDDATA, data: 'setGridData' },
     { name: 'setSelectedGroup', type: types.SET_SELECTED_GROUP, data: 'setSelectedGroup' },
+    { name: 'setSelectedProductIds', type: types.SET_SELECTED_PRODUCT_IDS, data: '1,2,3' },
     { name: 'setSearchedGroupName', type: types.SET_SEARCHED_GROUPNAME, data: 'setSearchedGroupName' }
 ];
 
@@ -199,7 +200,10 @@ describe('commission group actions', () => {
         };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
-        const expectedAction = [{ type: types.SET_SELECTED_GROUP, data: expectedResponse.data }];
+        const expectedAction = [
+            { type: types.SET_SELECTED_PRODUCT_IDS, data: [1, 3, 4] },
+            { type: types.SET_SELECTED_GROUP, data: expectedResponse.data }
+        ];
         const param = {
             GroupId: 102
         }
@@ -214,7 +218,10 @@ describe('commission group actions', () => {
     it('should create action to getSelectedCommGroup with incorrect parameter', () => {
         ajaxRequest.post = jest.fn();
 
-        const expectedAction = [{ type: types.SET_SELECTED_GROUP, data: null }];
+        const expectedAction = [
+            { type: types.SET_SELECTED_PRODUCT_IDS, data: [] },
+            { type: types.SET_SELECTED_GROUP, data: null }
+        ];
         const param = {
             GroupId: 'abc'
         }

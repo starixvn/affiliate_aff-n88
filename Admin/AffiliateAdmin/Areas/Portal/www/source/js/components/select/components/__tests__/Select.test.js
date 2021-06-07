@@ -17,10 +17,6 @@ const defaultProps = {
 }
 
 describe('Select ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     describe('Initial State', () => {
         it('has id prop - id value should be correct', () => {
             let defaultId = 1;

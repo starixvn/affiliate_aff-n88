@@ -16,6 +16,15 @@ describe('commission group - EditGroup', () => {
             PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
             TierSettingList: []
         },
+        productList: [
+            { ProductId: 1, ProductName: "Sportsbook" },
+            { ProductId: 3, ProductName: "Playtech Casino" },
+            { ProductId: 4, ProductName: "Number Game" },
+            { ProductId: 5, ProductName: "Virtual Sports" },
+            { ProductId: 6, ProductName: "Keno" }
+        ],
+        setSelectedProductIds: jest.fn(),
+        getSelectedCommGroup: jest.fn(),
         onClose: jest.fn(),
         onSave: jest.fn(),
         itemId: 1,

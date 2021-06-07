@@ -3,10 +3,6 @@ import { Content } from '../Content';
 import { shallow } from 'enzyme';
 
 describe('referrers - components - Content', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const defaultProps = {
         affId: 1271808,
         param: {

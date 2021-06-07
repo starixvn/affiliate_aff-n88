@@ -39,7 +39,8 @@ describe('commission group - AddGroup', () => {
         },
         pagingOption: defaultPagingOption,
         searchedGroupName: '',
-        onClose: jest.fn(), onSave: jest.fn()
+        onClose: jest.fn(), onSave: jest.fn(),
+        setSelectedProductIds: jest.fn()
     };
     it('componentDidMount - should call setSelectedGroup', () => {
         const mockSetSelectedGroup = jest.fn();

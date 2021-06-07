@@ -5,9 +5,6 @@ import ReportExcel from '../../modules/reportExcel';
 jest.mock('../../modules/reportExcel');
 
 describe('players detail - components - Filter', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     afterEach(() => {
         jest.clearAllMocks();
     });

@@ -14,10 +14,6 @@ const defaultProps = {
 }
 
 describe('Option ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     describe('onChange', () => {
         const event = {
             stopPropagation: jest.fn()

@@ -279,6 +279,7 @@
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\SelectOptionList.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\components\__tests__\Option.test.js" />
     <Content Include="Areas\Portal\www\source\js\components\select\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\ProductList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\index.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\types.js" />

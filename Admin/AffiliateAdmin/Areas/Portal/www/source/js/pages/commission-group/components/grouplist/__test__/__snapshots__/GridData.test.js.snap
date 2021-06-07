@@ -79,31 +79,49 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      <span>
+      <span
+        key="Sportsbook-false"
+      >
         Sportsbook
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Playtech Casino-false"
+      >
         Playtech Casino
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Number Game-false"
+      >
         Number Game
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Virtual Sports-false"
+      >
         Virtual Sports
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Keno-false"
+      >
         Keno
       </span>
     </t>
@@ -348,31 +366,49 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      <span>
+      <span
+        key="Sportsbook-false"
+      >
         Sportsbook
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Playtech Casino-false"
+      >
         Playtech Casino
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Number Game-false"
+      >
         Number Game
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Virtual Sports-false"
+      >
         Virtual Sports
       </span>
-      <span>
+      <span
+        key="index-undefined"
+      >
         , 
       </span>
-      <span>
+      <span
+        key="Keno-false"
+      >
         Keno
       </span>
     </t>

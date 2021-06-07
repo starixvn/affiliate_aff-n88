@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`commission group - assign private group should render correctly 1`] = `
+exports[`commission group - platform fee setting should render correctly 1`] = `
 <div
   className="platformfee-group"
 >

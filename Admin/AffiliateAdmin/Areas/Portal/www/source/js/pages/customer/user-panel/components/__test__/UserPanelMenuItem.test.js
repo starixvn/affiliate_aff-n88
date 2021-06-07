@@ -3,9 +3,6 @@ import { UserPanelMenuItem } from '../UserPanelMenuItem';
 import { shallow } from 'enzyme';
 
 describe('customer - user-panel - components - UserPanelMenuItem', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const defaultProps = {
         isActive: true,
         item: {

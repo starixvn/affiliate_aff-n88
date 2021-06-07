@@ -4,10 +4,6 @@ import { shallow } from 'enzyme';
 import PaymentRequestUpdateForm from '../../../../common/components/PaymentRequestUpdateForm';
 
 describe('statement history - components - AppContainer', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
-
     const defaultProps = {
         affName: "12BETAFF226",
         transactionId: 1262276211,

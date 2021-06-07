@@ -9,10 +9,6 @@ const defaultProps = {
 }
 
 describe('MultipleSelectOptionList ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     it('rendered content should match with snapshot', () => {
         const dataSource = [{
             key: "key1",

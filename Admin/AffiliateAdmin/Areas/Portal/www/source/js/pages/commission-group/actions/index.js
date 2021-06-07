@@ -81,12 +81,12 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
     const url = 'Portal/RevenueGroup/GetCommissionGroup';
 
     const response = await post(url, param);
-
     const data = response && response.status === 200 ? response.data : null;
 
-    const selectedProductIds = data.PlatformFeeList.map(p => p.ProductIds)
+    const selectedProductIds = data ? data.PlatformFeeList.map(p => p.ProductIds)
         .map(ids => convertStringToArrayNumber(ids))
-        .reduce((cul, cur) => [...cul, ...cur], []);
+        .reduce((cul, cur) => [...cul, ...cur], []) : [];
+
     dispatch(setSelectedProductIds(selectedProductIds));
     dispatch(setSelectedGroup(data));
 }

@@ -22,10 +22,6 @@ const defaultOption = { code: "SB", name: "Sportsbook", status: true };
 const defaultDataSource = [defaultOption];
 
 describe('MultipleSelect ', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    })
-
     describe('Initial State', () => {
         it('has id prop - id value should be correct', () => {
             let defaultId = 1;

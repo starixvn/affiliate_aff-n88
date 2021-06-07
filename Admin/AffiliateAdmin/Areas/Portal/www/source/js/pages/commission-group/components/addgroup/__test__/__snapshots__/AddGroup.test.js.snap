@@ -40,6 +40,7 @@ exports[`commission group - AddGroup should render correctly with isSuccess is f
     />
   </Alert>
   <Connect(CommGroupInfo) />
+  <Connect(ProductList) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p
@@ -97,6 +98,7 @@ exports[`commission group - AddGroup should render correctly with isSuccess is t
     />
   </Alert>
   <Connect(CommGroupInfo) />
+  <Connect(ProductList) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p

@@ -3,9 +3,6 @@ import { UserPanelMenu } from '../UserPanelMenu';
 import { shallow } from 'enzyme';
 
 describe('customer - user-panel - components - UserPanelMenu', () => {
-    afterAll(() => {
-        jest.resetAllMocks();
-    });
     const defaultProps = {
         selectedUserPanel: 'statementHistory',
         onClickMenu: jest.fn(),
