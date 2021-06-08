@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using NSubstitute;
@@ -189,6 +190,64 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var result = repo.GetLandingPageList(isInternal);
 
             Assert.Equal(key, db.SettingKey);
+            Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public void AddMarketingChannel_WhenCall_AddSuccessfully()
+        {
+            const string SpKey = "Aff_User_AffMediaChannel_Ins";
+            var repo = CreateRepo();
+            var db = Builder.Build(SpKey);
+            db.When(d => d.ExecuteNonQuery(Arg.Any<object>()))
+                .Do(c => (c.Args()[0]).ReturnsForAnyArgs(0));
+
+            var (Code, ErrMsg) = repo.AddMarketingChannel(123, "abc", "Abc");
+
+            Assert.Equal(SpKey, db.SettingKey);
+            Assert.Equal(0, Code);
+        }
+
+        [Fact]
+        public void GetMarketingChannels_WhenCall_QueryMarketingChannels()
+        {
+            const string SpKey = "Aff_User_AffMediaChannel_Sel";
+            var repo = CreateRepo();
+            var db = Builder.Build(SpKey);
+            db.Query<MarketingChannel>(Arg.Any<object>()).Returns(new List<MarketingChannel> { new MarketingChannel() });
+
+            var result = repo.GetMarketingChannels(123);
+
+            Assert.Equal(SpKey, db.SettingKey);
+            Assert.NotEmpty(result);
+        }
+
+        [Fact]
+        public void ToggleMarketingLink_WhenCall_ToggleSuccessfully()
+        {
+            const string SpKey = "Aff_User_AffMediaLink_ToggleChannel";
+            var repo = CreateRepo();
+            var db = Builder.Build(SpKey);
+            db.When(d => d.ExecuteNonQuery(Arg.Any<object>()))
+                .Do(c => (c.Args()[0]).ReturnsForAnyArgs(0));
+
+            var (Code, ErrMsg) = repo.ToggleMarketingLink(new MarketingLinkParam());
+
+            Assert.Equal(SpKey, db.SettingKey);
+            Assert.Equal(0, Code);
+        }
+
+        [Fact]
+        public void GetUsingMarketingLink_WhenCall_QueryUsingMarketingLink()
+        {
+            const string SpKey = "Aff_User_AffMediaChannel_Statistics";
+            var repo = CreateRepo();
+            var db = Builder.Build(SpKey);
+            db.Query<MarketingChannelLink>(Arg.Any<object>()).Returns(new List<MarketingChannelLink> { new MarketingChannelLink() });
+
+            var result = repo.GetUsingMarketingLink(123);
+
+            Assert.Equal(SpKey, db.SettingKey);
             Assert.NotEmpty(result);
         }
     }

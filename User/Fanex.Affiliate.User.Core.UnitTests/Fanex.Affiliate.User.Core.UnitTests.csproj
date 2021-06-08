@@ -174,9 +174,11 @@
     <Compile Include="Controllers\ContactUsControllerTest.cs" />
     <Compile Include="Controllers\FaqControllerTest.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\MarketingLinkStatisticsControllerTest.cs" />
     <Compile Include="Controllers\NotifyControllerTest.cs" />
     <Compile Include="Controllers\PasswordControllerTest.cs" />
     <Compile Include="Controllers\ProductControllerTest.cs" />
+    <Compile Include="Controllers\PromotionControllerTest.cs" />
     <Compile Include="Controllers\RevenueSharingStructureCotronllerTest.cs" />
     <Compile Include="Controllers\TermAndConditionControllerTest.cs" />
     <Compile Include="Controllers\TestingEmailControllerTest.cs" />

@@ -6,6 +6,7 @@ using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -32,13 +33,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void Index_WhenCallWith_ReturnCorrectView()
         {
             //Arrange
-            StatementHistoryRepository.GetSubAffCommission(Arg.Any<SubAffComParam>()).Returns(new List<SubAffComInfo> { new SubAffComInfo() });
+            StatementHistoryRepository.GetSubAffCommission(Arg.Any<SubAffComParam>()).Returns(new List<SubAffComInfo> {
+                new SubAffComInfo
+                {
+                    UserName = "ABC",
+                    Commission = 1000m,
+                    SubAffCommission = 500m
+                }
+            });
+
             var controller = new SubAffEarningController(SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
 
             //Action
             var result = controller.Index(new SubAffComParam{ MonthDate = new DateTime(2020, 12, 08)}) as ViewResult;
+            var model = result.Model as List<SubAffComViewModel>;
 
             //Assert
+            Assert.Null(model);
             Assert.Equal("~/Views/UserPanel/StatementHistory/SubAffEarning.cshtml", result.ViewName);
         }
 
@@ -46,13 +57,22 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void Index_WhenCallWithIsOnlyContent_ReturnCorrectView()
         {
             //Arrange
-            StatementHistoryRepository.GetSubAffCommission(Arg.Any<SubAffComParam>()).Returns(new List<SubAffComInfo> { new SubAffComInfo() });
+            StatementHistoryRepository.GetSubAffCommission(Arg.Any<SubAffComParam>()).Returns(new List<SubAffComInfo> {
+                new SubAffComInfo
+                {
+                    UserName = "ABC",
+                    Commission = 1000m,
+                    SubAffCommission = 500m
+                }
+            });
             var controller = new SubAffEarningController(SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
 
             //Action
             var result = controller.Index(new SubAffComParam { IsOnlyContent = true, RequestPage = "abc", MonthDate = null }) as ViewResult;
+            var model = result.Model as List<SubAffComViewModel>;
 
             //Assert
+            Assert.Null(model);
             Assert.Equal("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", result.ViewName);
         }
     }

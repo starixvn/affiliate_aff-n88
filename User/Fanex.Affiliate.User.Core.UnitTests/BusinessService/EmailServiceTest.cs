@@ -137,40 +137,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public void SendSignUpEmail_WhenCallWithTextContent_SendMail()
-        {
-            var service = CreateService();
-            var param = CreateEmailBaseParam();
-            param.User.MailOption = true;
-
-            var mainContent = "mail content";
-            MockingHelper.SetUpEnviroment();
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
-
-            service.SendSignUpEmail(param);
-
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBaseParam>());
-            MailProcessor.DidNotReceive().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailTemplateViewModel>());
-            MailProcessor.Received().Send(mainContent, param.MailTo, Lang.RegisSubject, param.MailBcc, param.MailCc, AppMailId);
-        }
-
-        [Fact]
-        public void SendSignUpEmail_WhenCall_SendMail()
-        {
-            var service = CreateService();
-            var param = CreateEmailBaseParam();
-            var mainContent = "mail content";
-            MockingHelper.SetUpEnviroment();
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
-
-            service.SendSignUpEmail(param);
-
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBaseParam>());
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailTemplateViewModel>());
-            MailProcessor.Received().Send(mainContent, param.MailTo, Lang.RegisSubject, param.MailBcc, param.MailCc, AppMailId);
-        }
-
-        [Fact]
         public void SendNoticeEmailToCsd_WhenCall_SendMail()
         {
             var service = CreateService();

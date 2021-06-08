@@ -146,9 +146,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-            var mockApi = new Mock<ILicenseeApi>();
-            mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
-                .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.RUNNING });
         public async Task CreateAffiliate_CreateSuccessfully_SendEmailToCsdWithCorrectParameter()
         {
             // Arrange

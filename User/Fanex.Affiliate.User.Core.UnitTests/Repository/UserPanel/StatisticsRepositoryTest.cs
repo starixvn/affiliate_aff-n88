@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var db = Builder.Build(uSpkey, dbMode);
             var reader = db.ExecuteReader(Arg.Any<object>());
             reader.Read().Returns(true, true, false);
-            reader.NextResult().Returns(isNextResult, false);
+            reader.NextResult().Returns(isNextResult, true, false);
             reader["Date"].Returns(new DateTime(2021, 03, 01));
             reader["TotalClick"].Returns(1);
             reader["UniqueClick"].Returns(1);

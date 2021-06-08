@@ -129,9 +129,6 @@
                 case "NewPassword":
                     return Lang.SubjectNewPass;
 
-                case "Signup":
-                    return Lang.RegisSubject;
-
                 case "VerificationAccount":
                     return Lang.SubjectVerificationAccount;
 

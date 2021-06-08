@@ -121,7 +121,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                 DeviceType = 1,
                 ImageType = "png",
                 Language = "vi-VN",
-                SubCategory = "sub"
+                SubCategory = "sub",
+                TargetId = AffiliateLinkType.AffiliateLink
             };
 
             service.GetSizeList(param, false);

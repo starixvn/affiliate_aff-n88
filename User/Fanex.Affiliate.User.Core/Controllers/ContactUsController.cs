@@ -17,6 +17,7 @@
         private readonly IContactService _contactService;
         private readonly ICaptchaService _captchaService;
         private readonly IAppSetting _appSetting;
+
         public ContactUsController(
             ISessionService sessionService,
             IAppSetting appSetting,
