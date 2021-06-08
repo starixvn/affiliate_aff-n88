@@ -146,7 +146,6 @@ namespace Fanex.Affiliate.Admin.Core.Services
         private int GetAppMailIdByLanguageCode(string languageCode)
         {
             var shortedLanguageCode = GetShortedLanguageCode(languageCode);
-            var a = _appSetting.GetAppMailIdByShortedLanguageCode(shortedLanguageCode);
 
             return Convert.ToInt32(_appSetting.GetAppMailIdByShortedLanguageCode(shortedLanguageCode));
         }
