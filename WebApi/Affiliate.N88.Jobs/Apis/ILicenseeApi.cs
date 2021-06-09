@@ -49,5 +49,8 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/LogReport/GetRebateMLogs")]
         Task<IEnumerable<RebateMLogModel>> GetRebateMLogs(DateTime fromDate, DateTime toDate);
+
+        [Get("/customer/GetCustClosingBalance")]
+        Task<IEnumerable<CustClosingBalanceModel>> GetCustClosingBalance(DateTime lastGetTime, int batchCount);
     }
 }

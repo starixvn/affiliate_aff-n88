@@ -40,6 +40,8 @@
 
         public FetchServiceSetting PullCustBonusRolloverSetting { get; set; }
 
+        public FetchServiceSetting PullCustClosingBalanceSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }

@@ -125,6 +125,13 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_CUST_BONUS_ROLLOVER_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_BONUS_ROLLOVER_SETTING}")
                 );
+
+            //FetchCustClosingBalance
+            services.AddScoped<IFetchCustClosingBalanceDataTask, FetchCustClosingBalanceDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_CUST_CLOSING_BALANCE_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_CLOSING_BALANCE_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -169,6 +176,8 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchRebateMLogDataTask>($"{typeof(IFetchRebateMLogDataTask).Name}", appSettings.PullRebateMLogSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchCustBonusRolloverDataTask>($"{typeof(IFetchCustBonusRolloverDataTask).Name}", appSettings.PullCustBonusRolloverSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchCustClosingBalanceDataTask>($"{typeof(IFetchCustClosingBalanceDataTask).Name}", appSettings.PullCustClosingBalanceSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

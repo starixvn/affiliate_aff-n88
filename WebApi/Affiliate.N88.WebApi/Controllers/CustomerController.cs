@@ -104,6 +104,10 @@ namespace Affiliate.N88.WebApi.Controllers
         public async Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRollOvers(int id, int batchCount = 2000)
             => await dynamicRepository.FetchAsync<CustBonusRolloverModel>(new GetCustBonusRolloverCriteria(id, batchCount));
 
+        [HttpGet]
+        public async Task<IEnumerable<CustClosingBalanceModel>> GetCustClosingBalance(DateTime lastGetTime, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<CustClosingBalanceModel>(new GetCustClosingBalanceCriteria(lastGetTime, batchCount));
+
         private string GetIpAddress()
         {
             System.Web.HttpContext context = System.Web.HttpContext.Current;
