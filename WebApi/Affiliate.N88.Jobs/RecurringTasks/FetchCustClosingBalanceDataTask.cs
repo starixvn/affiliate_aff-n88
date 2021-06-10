@@ -33,11 +33,52 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
+        public override async Task FetchDataAsync()
+        {
+            try
+            {
+                var queryValue = await GetLastTrackingValueAsync();
+                var fromDate = Convert.ToDateTime(queryValue);
+                var pageIndex = 0;
+                while (true)
+                {
+                    var data = await GetDataAsync(fromDate, pageIndex, PagingSize);
+                    await ImportDataByBatchAsync(data);
+                    pageIndex++;
+                    if (data.Count() < PagingSize)
+                    {
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex.Message, ex);
+            }
+
+        }
+
+        protected override async Task ImportDataByBatchAsync(IEnumerable<CustClosingBalanceModel> data)
+        {
+            var importData = data;
+            await ImportDataToMultipleRepoAsync(importData);
+            var trackValue = GetInsertTrackingValue(importData);
+            await _timeTrackerService.SaveTrackerAsync(TableName,
+                new TrackerInfo
+                {
+                    CalledTime = DateTime.Now,
+                    KeyValue = trackValue
+                });
+
+        }
+
         protected override Task<IEnumerable<CustClosingBalanceModel>> GetDataAsync(string trackValue, int batchCount)
         {
-            var date = Convert.ToDateTime(trackValue);
-            return _licenseeApi.GetCustClosingBalance(date, batchCount);
+            throw new NotImplementedException();
         }
+
+        private Task<IEnumerable<CustClosingBalanceModel>> GetDataAsync(DateTime fromDate, int pageIndex, int pageSize)
+            => _licenseeApi.GetCustClosingBalance(fromDate, pageIndex, pageSize);
 
         protected override string GetInsertTrackingValue(IEnumerable<CustClosingBalanceModel> data)
             => data.Max(d => d.Time).ToString(DateTimeFormat);

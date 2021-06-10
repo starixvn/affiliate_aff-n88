@@ -9,10 +9,11 @@ namespace Affiliate.N88.SpParams.Criteria
 {
     public class GetCustClosingBalanceCriteria : CriteriaBase
     {
-        public GetCustClosingBalanceCriteria(DateTime lastGetTime, int batchCount)
+        public GetCustClosingBalanceCriteria(DateTime lastGetTime, int pageIndex, int pageSize)
         {
             LastGetTime = lastGetTime;
-            BatchCount = batchCount;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public override string GetSettingKey() => "API_CustClosingBalance_Get";
@@ -21,6 +22,8 @@ namespace Affiliate.N88.SpParams.Criteria
 
         public DateTime LastGetTime { get; set; }
 
-        public int BatchCount { get; set; }
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; set; }
     }
 }
