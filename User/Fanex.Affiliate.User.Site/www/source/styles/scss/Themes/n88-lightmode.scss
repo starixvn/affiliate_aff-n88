@@ -523,3 +523,25 @@ body {
     }
 }
 
+.carousel.slide {
+    .carousel-control {
+        width: 2.5rem;
+        background: transparent;
+        text-shadow: 0 0 #fff;
+
+        .chevron {
+            background: rgba(255,255,255,.5);
+            top: calc(50% - 24px);
+            width: 100%;
+            padding: 10px 0;
+        }
+    }
+
+    .carousel-inner {
+
+        @media (max-width: 767px) {
+            height: auto;
+        }
+    }
+}
+

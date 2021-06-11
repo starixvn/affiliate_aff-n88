@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 {
                     bitmap = new Bitmap((Bitmap)Image.FromStream(streamBitmap));
                 }
-            }    
+            }
             var base64Img =  GenerateBase64QrCode(content, bitmap, includePrefix);
             bitmap?.Dispose();
             return base64Img;
@@ -64,5 +64,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             _imgHandler.Write(base64Img, path);
         }
+
+        public Image GetImage(string path)
+            => Image.FromFile(path);
     }
 }

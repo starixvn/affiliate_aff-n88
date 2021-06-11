@@ -35,6 +35,5 @@
 
             return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_ReferrersStatisticsContent.cshtml", viewModel);
         }
-
     }
 }

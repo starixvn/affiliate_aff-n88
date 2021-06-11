@@ -1,6 +1,4 @@
-﻿using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using System;
-using System.Linq;
+﻿using System;
 
 namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics
 {
@@ -13,7 +11,5 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics
         public string Language { get; set; }
 
         public bool IncludeInActiveLink { get; set; }
-
-        public IGrouping<string, MarketingPageStatistics> Datas { get; set; }
     }
 }

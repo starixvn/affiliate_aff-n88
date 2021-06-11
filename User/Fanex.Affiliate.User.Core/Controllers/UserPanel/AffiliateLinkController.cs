@@ -32,15 +32,15 @@
         [AjaxOnly]
         public ActionResult Index()
         {
+            var affId = SessionService.UserSession.AffId;
             var langs = LanguageService.GetLanguageList(SessionService.IsInternal);
-            var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
+            var channels = MarketingService.GetChannels(affId);
 
             var refs = new List<RefLinkViewModel>
             {
                 GetAffLinkTypeViewModel(),
             };
 
-            var affId = SessionService.UserSession.AffId;
             if (!AccountService.GetGeneralAffInfo(affId).IsMaxSubLevel)
             {
                 refs.Add(GetSubAffLinkTypeViewModel());

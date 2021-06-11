@@ -35,6 +35,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             param.MonthDate = param.MonthDate.HasValue ? param.MonthDate.Value : DateTime.Now.AddDays(-1);
 
             var subAffComs = _statementHistoryRepository.GetSubAffCommission(param);
+            var requestPage = param.RequestPage;
             var vms = subAffComs.Select(s => new SubAffComViewModel
             {
                 Commission = s.Commission,
@@ -42,9 +43,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 SubAffUserName = s.UserName
             });
 
-            var requestPage = param.RequestPage;
-            BreadcrumbViewModel breadcrumb = null;
-            if(!Constants.RequestPage.Links.TryGetValue(requestPage, out breadcrumb))
+            if(!Constants.RequestPage.Links.TryGetValue(requestPage, out BreadcrumbViewModel breadcrumb))
             {
                 breadcrumb = Constants.RequestPage.Links[Constants.RequestPage.StatementHistory];
             }
