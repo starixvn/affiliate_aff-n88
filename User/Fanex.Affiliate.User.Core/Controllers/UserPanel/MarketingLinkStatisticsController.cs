@@ -36,7 +36,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 FromDate = startMonth,
                 ToDate = now,
                 IncludeInActiveLink = false
-                
             };
 
             ViewBag.Languages = languages;
@@ -44,12 +43,10 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             return View("~/Views/UserPanel/Statistics/MarketingPageStatistics/Index.cshtml", viewModel);
         }
 
-
         [HttpPost]
         [AjaxOnly]
         public ActionResult Index(MarketingPageStatisticsViewModel vm)
         {
-
             var param = new MarketingPageStatisticsParam
             {
                 AffId = SessionService.UserSession.AffId,
@@ -62,12 +59,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var model = _statisticsRepository.GetMarketingPageStatistics(param)
                 .GroupBy(s => s.ChannelName);
 
-
             return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_MarketingPageStatsticsContent.cshtml", model);
         }
-
-
     }
-
-
 }

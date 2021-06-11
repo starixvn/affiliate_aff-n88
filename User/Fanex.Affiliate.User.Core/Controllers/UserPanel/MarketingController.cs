@@ -24,13 +24,16 @@
     {
 
         private readonly IQrCodeGeneratorService QrCodeGeneratorService;
+        private readonly IFileSystem FileSystem;
 
         public MarketingController(ISessionService sessionService, IAppSetting appSetting,
             ILanguageService languageService,
             IMarketingService marketingService,
-            IQrCodeGeneratorService qrCodeGeneratorService) : base(sessionService, appSetting, languageService, marketingService)
+            IQrCodeGeneratorService qrCodeGeneratorService,
+            IFileSystem fileSystem) : base(sessionService, appSetting, languageService, marketingService)
         {
             QrCodeGeneratorService = qrCodeGeneratorService;
+            FileSystem = fileSystem;
         }
 
         [HttpGet]
@@ -137,7 +140,7 @@
                     IsOk = false,
                     Message = Error.NameToLong20
                 });
-            }    
+            }
             var userId = SessionService.UserSession.AffId;
             return Json(MarketingService.AddMarketingChannel(userId, channelName));
         }
@@ -221,9 +224,9 @@
         {
             var logoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}.png");
             var qrLogoPath = HttpContext.Server.MapPath($"~/www/build/styles/Images/themes/{AppSetting.SiteName}-qrcode.png");
-            var path = System.IO.File.Exists(qrLogoPath) ? qrLogoPath : logoPath;
-            var img = new Bitmap(path);
-            return img;
+            var path = FileSystem.Exists(qrLogoPath) ? qrLogoPath : logoPath;
+
+            return QrCodeGeneratorService.GetImage(path);
         }
     }
 }

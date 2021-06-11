@@ -345,6 +345,8 @@
     <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />
     <Compile Include="Repository\UserPanel\CurrencyRepository.cs" />
     <Compile Include="Utilities\CurrencyHelper.cs" />
+    <Compile Include="Utilities\FileSystem.cs" />
+    <Compile Include="Utilities\IFileSystem.cs" />
     <Compile Include="ViewModels\PopupViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />

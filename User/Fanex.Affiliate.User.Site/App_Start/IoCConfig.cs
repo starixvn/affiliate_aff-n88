@@ -107,6 +107,7 @@ namespace Fanex.Affiliate.User.Site
 
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<FileSystem>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ObjectDBBuilder>().AsImplementedInterfaces().UsingConstructor().InstancePerLifetimeScope();
         }
 

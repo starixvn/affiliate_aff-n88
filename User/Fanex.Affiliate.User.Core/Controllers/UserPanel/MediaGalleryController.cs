@@ -34,36 +34,34 @@
             return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", searchFormVM);
         }
 
-
         private MediaGallerySearchFormViewModel GetSearchFormViewModel()
         {
+            var isInternal = SessionService.IsInternal;
             var userSession = SessionService.UserSession;
 
-            var channels = MarketingService.GetChannels(SessionService.UserSession.AffId);
+            var channels = MarketingService.GetChannels(userSession.AffId);
             var categoryList = System.Enum.GetValues(typeof(AffiliateLinkType)).Cast<int>()
                 .ToDictionary(t => t.ToString(), t => GetMediaMainCategory((AffiliateLinkType)t));
-            var languageList = LanguageService.GetLanguageList(SessionService.IsInternal);
-            var currencyList = MarketingService.GetCurrencyList(SessionService.IsInternal)
+            var languageList = LanguageService.GetLanguageList(isInternal);
+            var currencyList = MarketingService.GetCurrencyList(isInternal)
                 .Select(i => new SelectListItem
                 {
                     Value = i.Currency,
                     Text = Lang.ResourceManager.GetString(i.Currency.Trim()) ?? i.Currency
                 });
 
-
             var sizeParam = new SizeParam
             {
                 AffType = userSession.AffType,
                 Language = userSession.PreferredLanguage
             };
-            var sizeList = MarketingService.GetSizeList(sizeParam, SessionService.IsInternal)
+            var sizeList = MarketingService.GetSizeList(sizeParam, isInternal)
                 .Select(i => new SelectListItem { Value = i.Size, Text = i.Size });
 
             var refs = new List<RefLinkViewModel>
             {
                 GetAffLinkTypeViewModel(),
             };
-
 
             var affId = SessionService.UserSession.AffId;
             if (!AccountService.GetGeneralAffInfo(affId).IsMaxSubLevel)
