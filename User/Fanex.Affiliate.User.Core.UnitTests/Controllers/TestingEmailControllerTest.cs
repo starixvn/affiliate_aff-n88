@@ -4,7 +4,6 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
-using Moq;
 using NSubstitute;
 using System;
 using System.Web.Mvc;
@@ -151,6 +150,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void SendEmail_WhenCall_SendMailSuccess(string function)
         {
             //Arrange
+            AppSetting.GetAppMailIdByLanguageCode(Arg.Any<string>()).Returns("1");
             SessionService.IsInternal.Returns(true);
             MockingHelper.SetUpEnviroment();
             var controller = CreateTestingEmailController();
@@ -158,7 +158,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             controller.HttpContext.Server.MapPath(Arg.Compat.Any<string>()).Returns(String.Empty);
 
             //Action
-            var result = controller.SendEmail(new TestCriteria { Function = function }) as JsonResult;
+            var result = controller.SendEmail(new TestCriteria { Function = function, Language = Constant.DefaultLanguage, EmailAddress = "abc@gmail.com" }) as JsonResult;
 
             //Assert
             Assert.NotNull(result);

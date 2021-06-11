@@ -6,8 +6,6 @@ namespace Fanex.Affiliate.User.Core.ViewModels
 {
     public class EmailTemplateViewModel
     {
-        private static readonly IAppSetting _appSetting = AppSetting.Instance;
-
         public string RootUrl { get; set; }
 
         public string ImageRootUrl { get; set; }

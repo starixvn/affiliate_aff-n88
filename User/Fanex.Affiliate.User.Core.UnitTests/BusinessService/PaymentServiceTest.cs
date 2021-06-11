@@ -164,7 +164,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             accountRepository.Setup(a => a.GetUserInfoById(param.AffId, param.IsInternal)).Returns(userInfo);
             accountRepository.Setup(a => a.GetAccountInfo(param.AffId)).Returns(accountInfo);
 
-            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+            var accountService = new Mock<IAccountService>();
+            accountService.Setup(a => a.CheckAndUnlockUserIfLocked(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(new ResultInfo { Message = ErrorMessage });
 
@@ -205,7 +206,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             emailService.Setup(e => e.SendPaymentEmail(It.IsAny<PaymentEmailParam>())).Callback<PaymentEmailParam>(p => passedEmailParam = p);
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+            accountService.Setup(a => a.CheckAndUnlockUserIfLocked(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
 
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,
@@ -257,7 +258,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             emailService.Setup(e => e.SendPaymentEmail(It.IsAny<PaymentEmailParam>())).Callback<PaymentEmailParam>(p => passedEmailParam = p);
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+            accountService.Setup(a => a.CheckAndUnlockUserIfLocked(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
 
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,
@@ -297,7 +298,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             emailService.Setup(e => e.SendPaymentEmail(It.IsAny<PaymentEmailParam>())).Callback<PaymentEmailParam>(p => passedEmailParam = p);
 
             var accountService = new Mock<IAccountService>();
-            accountService.Setup(a => a.CheckPlayerUserNameValidAsync(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
+            accountService.Setup(a => a.CheckAndUnlockUserIfLocked(accountInfo.PlayerUsername)).ReturnsAsync(new ResultInfo { IsOk = true });
 
             var service = CreatePaymentService(
                 accountRepository: accountRepository.Object,

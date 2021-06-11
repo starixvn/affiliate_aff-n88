@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             {
                 new PlayerDetail
                 {
-                    Bonus = 100, Deposit = 100, RegisteredDate= DateTime.Now, Turnover = 100, Username = "name", Winloss = 100, Withdrawal = 100, DepositFee = 0, Rebate = 0, WithdrawalFee = 0
+                    Bonus = 100, Deposit = 100, RegisteredDate= DateTime.Now, Turnover = 100, Username = "name", GGR = 100, Withdrawal = 100, DepositFee = 0, Rebate = 0, WithdrawalFee = 0
                 }
             });
 
@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                     Turnover = 10,
                     ActivePlayer = 1,
                     Commission = 10,
-                    Winloss = 1,
+                    GGR = 1,
                 }
             });
 

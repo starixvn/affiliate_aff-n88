@@ -59,28 +59,32 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         }
 
         [Theory]
-        [InlineData(true)]
-        [InlineData(false)]
-        public void GetDailyEarning_WhenCall_ReturnDailyEarningResult(bool isInternal)
+        [InlineData(true, true)]
+        [InlineData(false, false)]
+        public void GetDailyEarning_WhenCall_ReturnDailyEarningResult(bool isInternal, bool isNextResult)
         {
             const string uSpKey = "Aff_DailyEarning_Sel";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpKey + dbMode;
             var param = new DailyEarningParam { IsInternal = isInternal };
             var db = Builder.Build(uSpKey, dbMode);
-            var multipleQuery = db.QueryMultiple(param);
-            multipleQuery.Read<DailyEarning>().Returns(new List<DailyEarning>
-            {
-                new DailyEarning { Bonus = 100, Deposit = 100, MemberWinLost = 100, MemberWinLostFake = 100, WinlostDate = DateTime.Now, Withdrawal = 100, Rebate = 10 }
-            });
-            multipleQuery.ReadFirstOrDefault<DailyEarning>().Returns(new DailyEarning { });
+
+            var reader = db.ExecuteReader(Arg.Any<object>());
+            reader.Read().Returns(true, false, true);
+            reader.NextResult().Returns(isNextResult, true, false);
+            reader["Deposit"].Returns(100);
+            reader["Withdrawal"].Returns(100);
+            reader["GGR"].Returns(100);
+            reader["Bonus"].Returns(100);
+            reader["Rebate"].Returns(10);
+            reader["WinlostDate"].Returns(new DateTime(2021, 10, 25));
+
             var repo = CreateRepo();
 
             var result = repo.GetDailyEarning(param);
 
             Assert.Equal(key, db.SettingKey);
             Assert.NotEmpty(result.MainDataList);
-            Assert.NotNull(result.Total);
         }
 
         [Theory]

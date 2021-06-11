@@ -72,11 +72,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public IEnumerable<Language> GetLanguageList(bool isInternal)
         {
-            var languageList = CacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList) ?? LanguageRepository.GetLanguageList(isInternal);
+            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList) ?? _languageRepository.GetLanguageList(isInternal);
 
             if (languageList != null)
             {
-                CacheService.Set(CacheKey.LanguageList, languageList);
+                _cacheService.Set(CacheKey.LanguageList, languageList);
             }
 
             return languageList ?? new List<Language>();

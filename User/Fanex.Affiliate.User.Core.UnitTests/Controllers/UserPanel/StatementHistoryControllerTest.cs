@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 PageSize = 20
             };
             Repo.GetStatementHistory(Arg.Compat.Any<StatementHistoryParam>()).Returns(new List<StatementHistory>());
-            var result = controller.Index() as ViewResult;
+            var result = controller.Index("123") as ViewResult;
 
             Repo.Received().GetStatementHistory(Arg.Compat.Is<StatementHistoryParam>(param =>
                 param.AffId == defaultParam.AffId &&
@@ -97,9 +97,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         [Theory]
-        [InlineData(TransType.Commission, "running", "December-2020", "Processing", "Monthly Winlost", "Current Monthly Earning", 0)]
-        [InlineData(TransType.Commission, "pending", "December-2020", "Processing", "Monthly Winlost", "Uncalculated Monthly Earning", 1)]
-        [InlineData(TransType.Commission, "completed", "December-2020", "Approved", "Monthly Winlost", "Monthly Earning", 2)]
+        [InlineData(TransType.Commission, "running", "December-2020", "Processing", "Monthly Earning", "Current Monthly Earning", 0)]
+        [InlineData(TransType.Commission, "pending", "December-2020", "Processing", "Monthly Earning", "Uncalculated Monthly Earning", 1)]
+        [InlineData(TransType.Commission, "completed", "December-2020", "Approved", "Monthly Earning", "Monthly Earning", 2)]
         [InlineData(TransType.SubAffBonus, "cancelled", "December-2020", "Cancelled", "Sub-Affiliate", "Current Revenue Share", 0)]
         [InlineData(TransType.SubAffBonus, "approved", "December-2020", "Approved", "Sub-Affiliate", "Uncalculated Revenue Share", 1)]
         [InlineData(TransType.SubAffBonus, "rejected", "December-2020", "Rejected", "Sub-Affiliate", "Revenue Share", 2)]
@@ -146,7 +146,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         [Theory]
-        [InlineData(TransType.Commission, "running", "December-2020", "Processing", "Monthly Winlost", "Current Monthly Earning")]
+        [InlineData(TransType.Commission, "running", "December-2020", "Processing", "Monthly Earning", "Current Monthly Earning")]
         [InlineData(TransType.SubAffBonus, "cancelled", "December-2020", "Cancelled", "Sub-Affiliate", "Current Revenue Share")]
         [InlineData(TransType.MonthlyTotal, "current", "December-2020", "Current", "Transaction", "Current Month Statistics")]
         public void Index_WhenCallWithIsMaxSubLevelAndCalculatedTypeNull_ReturnPartialView(int transType, string status, string dateString, string displayStatus,

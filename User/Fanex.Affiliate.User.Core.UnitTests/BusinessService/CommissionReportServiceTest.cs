@@ -45,7 +45,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
-                    WinLoss = 300
+                    GGR = 300
                 },
                 new AffiliateCommission
                 {
@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 2,
                     ProductName = "test",
                     TurnOver = 1000,
-                    WinLoss = 300
+                    GGR = 300
                 },
                 new AffiliateCommission
                 {
@@ -73,7 +73,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
-                    WinLoss = 300
+                    GGR = 300
                 },
                 new AffiliateCommission
                 {
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
                     ProductId = 0,
                     ProductName = "test",
                     TurnOver = 1000,
-                    WinLoss = 300
+                    GGR = 300
                 }
             };
     }

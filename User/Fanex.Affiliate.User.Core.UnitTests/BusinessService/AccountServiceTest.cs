@@ -4,7 +4,6 @@ using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Constants.Apis;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Api;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
@@ -128,7 +127,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task CreateAffiliate_CreateSuccessfully_ReturnCorrectResult()
         {
             // Arrange
-            var expectedResultInfo = new ResultInfo { IsOk = true };
+            var expectedResultInfo = new ResultInfo { IsOk = true, Message = SiteFriendlyNameHelper.Replace12Bet(string.Empty) };
             var signUpParam = new UserSignUpParam { IsLocal = true };
             var accountRepository = new Mock<IAccountRepository>();
             var mockApi = new Mock<ILicenseeApi>();
@@ -217,7 +216,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
 
             // Action
-            var result = await accountService.CheckPlayerUserNameValidAsync("123abc");
+            var result = await accountService.CheckAndUnlockUserIfLocked("123abc");
 
             // Assert
             Assert.True(result.IsOk);

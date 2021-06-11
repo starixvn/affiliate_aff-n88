@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.Diagnostics.CodeAnalysis;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -13,7 +11,6 @@ namespace Fanex.Affiliate.User.Site
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        [SuppressMessage("Sonar Code Smell", "S2325:Methods and properties should be static", Justification = "Reviewed.")]
         protected void Application_Start()
         {
             IoCConfig.Register();
@@ -37,11 +34,9 @@ namespace Fanex.Affiliate.User.Site
             LoggingConfig.RegisterSentry();
         }
 
-        [SuppressMessage("Sonar Code Smell", "S2325:Methods and properties should be static", Justification = "Reviewed.")]
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            var application = sender as HttpApplication;
-            if (application != null && application.Context != null)
+            if (sender is HttpApplication application && application.Context != null)
             {
                 application.Context.Response.Headers.Remove("Server");
             }

@@ -46,10 +46,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             //Action
             var result = controller.Index(new SubAffComParam{ MonthDate = new DateTime(2020, 12, 08)}) as ViewResult;
-            var model = result.Model as List<SubAffComViewModel>;
+            var model = result.Model as IEnumerable<SubAffComViewModel>;
 
             //Assert
-            Assert.Null(model);
+            Assert.Single(model);
             Assert.Equal("~/Views/UserPanel/StatementHistory/SubAffEarning.cshtml", result.ViewName);
         }
 
@@ -69,10 +69,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             //Action
             var result = controller.Index(new SubAffComParam { IsOnlyContent = true, RequestPage = "abc", MonthDate = null }) as ViewResult;
-            var model = result.Model as List<SubAffComViewModel>;
+            var model = result.Model as IEnumerable<SubAffComViewModel>;
 
             //Assert
-            Assert.Null(model);
+            Assert.Single(model);
             Assert.Equal("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", result.ViewName);
         }
     }

@@ -107,36 +107,6 @@
             return Json(result);
         }
 
-        private static string GetSubject(string functionName)
-        {
-            switch (functionName)
-            {
-                case "ContactUs":
-                    return Lang.ContactUs;
-
-                case "Csd":
-                    return Lang.CsdSubject;
-
-                case "RecoverPassword":
-                    return Lang.SubjectForgetPass;
-
-                case "PaymentCancel":
-                    return string.Format(Lang.PaymentRequestCancelSubject, "12345");
-
-                case "PaymentRequest":
-                    return string.Format(Lang.PaymentRequestSubject, "12345");
-
-                case "NewPassword":
-                    return Lang.SubjectNewPass;
-
-                case "VerificationAccount":
-                    return Lang.SubjectVerificationAccount;
-
-                default:
-                    return Lang.AffiliateProgram;
-            }
-        }
-
         private string GetEmailContent(TestCriteria criteria)
         {
             var content = GetEmailTextContent(criteria);

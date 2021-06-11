@@ -5,6 +5,7 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
@@ -15,7 +16,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
-using System.Web.Mvc;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
@@ -239,6 +239,18 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             Assert.NotEmpty(result);
         }
 
+        [Fact]
+        public void GenerateLinkList_WhenSelectedLanguageEmpty_ReturnEmpty()
+        {
+            var service = CreateService();
+            LanguageService.GetLanguageList().Returns(new List<Language>());
+            var param = CreateLinkGenerationParam();
+
+            var result = service.GenerateLinkList(param);
+
+            Assert.Empty(result);
+        }
+
         [Theory]
         [InlineData("English")]
         [InlineData("Thai")]
@@ -254,6 +266,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             Repo.Received().GetBannerList(param);
             Assert.Equal(bannerList, result);
+        }
+
+        [Fact]
+        public void GetBannerList_WhenCall_RepoCallReturnNull()
+        {
+            var service = CreateService();
+            var param = CreateMarketingBannerParam();
+            Repo.GetBannerList(param).Returns(new List<MarketingItem>());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
+
+            var result = service.GetBannerList(param);
+
+            Repo.Received().GetBannerList(param);
+            Assert.Empty(result);
         }
 
         [Theory]
@@ -272,6 +298,21 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             Repo.Received().GetTextList(param);
             Assert.Equal(textList, result);
+        }
+
+        [Fact]
+        public void GetTextLink_WhenCall_RepoCallReturnNull()
+        {
+            var service = CreateService();
+            var param = CreateMarketingTextParam();
+            Repo.GetTextList(param).Returns(new List<MarketingItem>());
+            LanguageService.GetLanguageList().Returns(GetLanguageList());
+            SetUpContext();
+
+            var result = service.GetTextList(param);
+
+            Repo.Received().GetTextList(param);
+            Assert.Empty(result);
         }
 
         [Fact]
@@ -325,6 +366,60 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var result = servcice.GetTextLinkTemplate(0);
 
             Assert.Equal("InvalidTarget", result);
+        }
+
+        [Theory]
+        [InlineData(ErrCodes.OneHundredOne, "", false)]
+        [InlineData(ErrCodes.OneHundredTwo, "", false)]
+        [InlineData(ErrCodes.OneHundredThree, "", false)]
+        [InlineData(123, "Abc", false)]
+        [InlineData(0, "", true)]
+        public void AddMarketingChannel_WhenCall_RepoCall(int code, string errMsg, bool isOk)
+        {
+            var service = CreateService();
+            Repo.AddMarketingChannel(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns((code, errMsg));
+
+            var result = service.AddMarketingChannel(1, "xyz");
+
+            Repo.Received().AddMarketingChannel(1, "xyz", "xyz");
+            Assert.Equal(isOk, result.IsOk);
+        }
+
+        [Fact]
+        public void GetChannels_WhenCall_RepoCall()
+        {
+            var servcice = CreateService();
+
+            servcice.GetChannels(123);
+
+            Repo.Received().GetMarketingChannels(123);
+        }
+
+        [Theory]
+        [InlineData(ErrCodes.OneHundredOne, "", false)]
+        [InlineData(ErrCodes.OneHundredTwo, "", false)]
+        [InlineData(123, "Abc", false)]
+        [InlineData(0, "", true)]
+        public void ToggleMarketingLink_WhenCall_RepoCall(int code, string errMsg, bool isOk)
+        {
+            var service = CreateService();
+            var param = new MarketingLinkParam();
+            Repo.ToggleMarketingLink(Arg.Any<MarketingLinkParam>()).Returns((code, errMsg));
+
+            var result = service.ToggleMarketingLink(param);
+
+            Repo.Received().ToggleMarketingLink(param);
+            Assert.Equal(isOk, result.IsOk);
+        }
+
+        [Fact]
+        public void GetUsingMarketingLinks_WhenCall_RepoCall()
+        {
+            var servcice = CreateService();
+
+            servcice.GetUsingMarketingLinks(123);
+
+            Repo.Received().GetUsingMarketingLink(123);
         }
 
         private MarketingTextParam CreateMarketingTextParam()

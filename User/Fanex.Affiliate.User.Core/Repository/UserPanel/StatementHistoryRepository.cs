@@ -43,7 +43,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var dbMode = dailyEarningParam.IsInternal ? DBMode.View : DBMode.Main;
 
             var dailyEarningResult = new DailyEarningResult();
-            using (var db = _builder.Build(uSpKey, dbMode))
             var dataList = new List<DailyEarning>();
 
             using (var objectDb = _builder.Build(uSpKey, dbMode))

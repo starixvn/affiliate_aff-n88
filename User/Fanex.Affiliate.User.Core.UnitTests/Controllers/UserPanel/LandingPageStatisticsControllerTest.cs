@@ -14,7 +14,6 @@ using Moq;
 using Xunit;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.DTO;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {

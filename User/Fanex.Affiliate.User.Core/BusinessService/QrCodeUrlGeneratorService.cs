@@ -1,10 +1,11 @@
-﻿using QRCoder;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using QRCoder;
 using System;
 using System.Drawing;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
-    public class QrCodeGeneratorService : IQrCodeGeneratorService
+    public class QrCodeUrlGeneratorService : IQrCodeGeneratorService
     {
         private const int SizeDefault = 7;
         private const int IconSizePercentDefault = 30;
@@ -41,7 +42,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     bitmap = new Bitmap((Bitmap)Image.FromStream(streamBitmap));
                 }
             }
-            var base64Img =  GenerateBase64QrCode(content, bitmap, includePrefix);
+            var base64Img = GenerateBase64QrCode(content, bitmap, includePrefix);
             bitmap?.Dispose();
             return base64Img;
         }
@@ -54,7 +55,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var base64Img = icon == null ? qrCode.GetGraphic(Size) : qrCode.GetGraphic(Size, Color.Black, Color.White, icon, IconSizePercentDefault);
             if (includePrefix)
             {
-                base64Img = $"{Base64Prefix}{base64Img}";
+                base64Img = $"{_imgHandler.Base64Prefix}{base64Img}";
             }
             return base64Img;
         }
@@ -65,5 +66,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
         public Image GetImage(string path)
-            => Image.FromFile(path);
+            => _imgHandler.GetImage(path);
+    }
 }
