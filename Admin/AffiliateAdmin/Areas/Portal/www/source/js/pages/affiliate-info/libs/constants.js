@@ -56,7 +56,7 @@ export const resource = {
     UsernameContains: 'USERNAME CONTAINS ',
     EmailContains: 'EMAIL CONTAINS ',
     AffIdContains: 'AFFILIATE ID ',
-    AffPlayerContains: 'AFFILIATE PLAYER',
+    AffPlayerContains: 'AFFILIATE PLAYER CONTAINS ',
     SearchBy: 'Search By',
     SortBy: 'Sort By',
     AZ: 'A-Z',
