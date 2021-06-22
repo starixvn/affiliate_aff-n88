@@ -1,18 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Moq;
-using Newtonsoft.Json;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
@@ -101,40 +98,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public async Task CreateAffiliate_CreateSuccessfully_SendEmailToUserWithCorrectParameter()
-        {
-            // Arrange
-            EmailBaseParam passedParam = null;
-
-            var signUpParam = new UserSignUpParam { IsLocal = true, Email = Constant.DefaultMailUser };
-            var accountRepository = GetMockAccountRepository(signUpParam: signUpParam);
-
-            var emailService = new Mock<IEmailService>();
-            emailService.Setup(e => e.SendSignUpEmail(It.IsAny<EmailBaseParam>())).Callback<EmailBaseParam>(p => passedParam = p);
-
-            var accountService = CreateAccountService(accountRepository, emailService.Object);
-
-            var expectedEmailParam = CreateEmailParam();
-            expectedEmailParam.MailTo = signUpParam.Email;
-            expectedEmailParam.User = new UserInfo
-            {
-                PreferredLanguage = signUpParam.PreferredLanguage,
-                FirstName = signUpParam.FirstName
-            };
-            var expectedResult = JsonConvert.SerializeObject(expectedEmailParam);
-
-            var emailParam = CreateEmailParam();
-
-            // Action
-            await accountService.CreateAffiliate(signUpParam, emailParam);
-            var result = JsonConvert.SerializeObject(passedParam);
-
-            // Assert
-            emailService.Verify(e => e.SendSignUpEmail(It.IsAny<EmailBaseParam>()), Times.Once);
-            Assert.Equal(expectedResult, result);
-        }
-
-        [Fact]
         public async Task CreateAffiliate_CreateSuccessfully_SendEmailToCsdWithCorrectParameter()
         {
             // Arrange
@@ -164,25 +127,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         private static AccountService CreateAccountService(IAccountRepository repository, IEmailService emailService = null)
         {
             return new AccountService(repository, emailService ?? Mock.Of<IEmailService>(), Mock.Of<ILicenseeApi>(), Mock.Of<IAppSetting>());
-        }
-
-        private DepositAccountInfo GetDepositAccount()
-        {
-            return new DepositAccountInfo
-            {
-                Success = 0,
-                AffiliateId = Constant.DefaultAffId,
-                AgentId = 1,
-                BonusCode = "Code",
-                Country = "Brazil",
-                DepositUserId = 2,
-                DepositUserName = Constant.DefaultUserName,
-                Email = Constant.DefaultMailUser,
-                FirstName = "test",
-                LastName = "test",
-                OddsType = "OddsType",
-                Password = "1234aa"
-            };
         }
 
         private IAccountRepository GetMockAccountRepository(UserSignUpParam signUpParam = null)

@@ -52,7 +52,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public bool IsValid(string inputCaptcha, string sessionCaptcha, string userHostAddress)
         {
-            return inputCaptcha == sessionCaptcha || IsValidSecretCaptcha(inputCaptcha, userHostAddress);
+            return inputCaptcha == sessionCaptcha || IsValidSecretCaptcha(inputCaptcha);
         }
 
         public byte[] GenerateImageBuffer(string captcha, int width, int height, bool isComplex = false)
@@ -135,7 +135,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
         }
 
-        private bool IsValidSecretCaptcha(string inputCaptcha, string userHostAddress)
+        private bool IsValidSecretCaptcha(string inputCaptcha)
         {
             var isAllowAutomationCaptchaCode = _appSetting.GetValue("AllowAutomationCaptchaCode") == "1";
             var secretCaptcha = _appSetting.GetValue("SecretCaptcha");

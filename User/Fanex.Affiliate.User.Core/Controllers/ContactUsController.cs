@@ -15,9 +15,6 @@
     public class ContactUsController : BaseController
     {
         private readonly IContactService _contactService;
-
-        private readonly IAccountRepository _accountRepository;
-
         private readonly ICaptchaService _captchaService;
         private readonly IAppSetting _appSetting;
         public ContactUsController(
@@ -25,12 +22,10 @@
             IAppSetting appSetting,
             ILanguageService languageService,
             IContactService contactService,
-            IAccountRepository accountRepository,
             ICaptchaService captchaService)
             : base(sessionService, languageService)
         {
             _contactService = contactService;
-            _accountRepository = accountRepository;
             _captchaService = captchaService;
             _appSetting = appSetting;
         }

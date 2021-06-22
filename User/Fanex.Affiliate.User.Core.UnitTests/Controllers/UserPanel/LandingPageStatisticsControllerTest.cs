@@ -13,6 +13,8 @@ using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using Moq;
 using Xunit;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.Enum;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -25,7 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             // Arrange
             var marketingService = new Mock<IMarketingService>();
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal, true)).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
 
             var languageService = new Mock<ILanguageService>();
             var languageList = CreateFakeLanguageList();
@@ -56,7 +58,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Arrange
             LandingPageStatisticsParam passedParam = null;
             var marketingService = new Mock<IMarketingService>();
-            marketingService.Setup(m => m.GetLandingPageList(IsInternal, true)).Returns(new List<LandingPage>());
+            marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
 
             var languageService = new Mock<ILanguageService>();
             var languageList = CreateFakeLanguageList();
@@ -112,19 +114,19 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             Assert.Equal(expectedShortedCode, param.LanguageCode);
         }
 
-        private IEnumerable<LanguageType> CreateFakeLanguageList()
+        private IEnumerable<Language> CreateFakeLanguageList()
         {
-            return new List<LanguageType>
+            return new List<Language>
             {
-                new LanguageType
+                new Language
                 {
-                    MarketId = "en-US",
-                    MarketName = "English",
+                    Code = "en-US",
+                    DisplayName = "English",
                 },
-                new LanguageType
+                new Language
                 {
-                    MarketId = "vi-VN",
-                    MarketName = "Vietnamese",
+                    Code = "vi-VN",
+                    DisplayName = "Vietnamese",
                 }
             };
         }
