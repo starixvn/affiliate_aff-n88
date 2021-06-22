@@ -189,6 +189,20 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       className="my-2 mr-sm-2"
       tag="div"
     >
+      <Input
+        id="affPlayer"
+        name="affPlayer"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Affiliate Player"
+        type="text"
+        value=""
+      />
+    </FormGroup>
+    <FormGroup
+      className="my-2 mr-sm-2"
+      tag="div"
+    >
       <Label
         className="mr-sm-2"
         for="SortBy"

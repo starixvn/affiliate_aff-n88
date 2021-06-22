@@ -56,6 +56,7 @@ export const resource = {
     UsernameContains: 'USERNAME CONTAINS ',
     EmailContains: 'EMAIL CONTAINS ',
     AffIdContains: 'AFFILIATE ID ',
+    AffPlayerContains: 'AFFILIATE PLAYER',
     SearchBy: 'Search By',
     SortBy: 'Sort By',
     AZ: 'A-Z',
@@ -72,10 +73,11 @@ export const defaultState = {
     selectedCommGroup: 0,
     selectedLanguage: '',
     selectedStatus: '',
+    parentAffName: '',
     userName: '',
     email: '',
     affId: '',
-    parentAffName: '',
+    affPlayer: '',
     selectedSortBy: defaultSortBy,
     isSortAscending: true
 }

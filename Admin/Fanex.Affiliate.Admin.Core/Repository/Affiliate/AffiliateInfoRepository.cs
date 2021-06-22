@@ -74,6 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
             objectDb.AddInParameter("Status", DbType.String, param.Status);
             objectDb.AddInParameter("ParentAffName", DbType.String, param.ParentAffName);
             objectDb.AddInParameter("UserName", DbType.String, param.UserName);
+            objectDb.AddInParameter("Player_UserName", DbType.String, param.AffPlayer);
             objectDb.AddInParameter("Email", DbType.String, param.Email);
             objectDb.AddInParameter("SortType", DbType.Byte, param.SortBy);
             objectDb.AddInParameter("SortDirectionType", DbType.Boolean, param.SortDirectionType);
