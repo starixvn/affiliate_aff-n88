@@ -23,9 +23,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void Index_WhenCallWithGet_ReturnCorrectView()
         {
             // Arrange
-            var accountRepository = new Mock<IAccountRepository>();
-            accountRepository.Setup(ac => ac.GetUserInfoById(Constant.DefaultAffId, false)).Returns(new UserInfo());
-            var controller = CreateController(accountRepository: accountRepository.Object);
+            var controller = CreateController();
 
             // Action
             var actionResult = controller.Index() as ViewResult;
@@ -33,53 +31,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 
             // Assert
             Assert.Empty(result);
-        }
-
-        [Fact]
-        public void Index_UserNotSignedIn_ReturnCorrectModel()
-        {
-            // Arrange
-            var accountRepository = new Mock<IAccountRepository>();
-
-            var sessionService = MockingHelper.GetSessionService();
-            var sessionServiceMock = Mock.Get(sessionService);
-
-            UserSession expectedUserSession = null;
-            sessionServiceMock.Setup(s => s.UserSession).Returns(expectedUserSession);
-
-            var controller = CreateController(accountRepository: accountRepository.Object, sessionService: sessionService);
-
-            // Action
-            var actionResult = controller.Index() as ViewResult;
-            var result = actionResult.Model;
-
-            // Assert
-            Assert.Null(result);
-            accountRepository.Verify(ac => ac.GetUserInfoById(It.IsAny<int>(), It.IsAny<bool>()), Times.Never);
-        }
-
-        [Fact]
-        public void Index_UserSignedIn_ReturnCorrectModel()
-        {
-            // Arrange
-            var userInfo = new UserInfo
-            {
-                AffId = 1271808,
-                UserName = Constant.DefaultUserName,
-                FirstName = "FirstName",
-                LastName = "LastName",
-                Email = Constant.DefaultMailUser
-            };
-            var accountRepository = new Mock<IAccountRepository>();
-            accountRepository.Setup(ac => ac.GetUserInfoById(Constant.DefaultAffId, false)).Returns(userInfo);
-            var controller = CreateController(accountRepository: accountRepository.Object);
-
-            // Action
-            var actionResult = controller.Index() as ViewResult;
-            var result = actionResult.Model as UserInfo;
-
-            // Assert
-            Assert.Equal(userInfo.AffId, result.AffId);
         }
 
         [Fact]
@@ -220,18 +171,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             IContactService contactService = null,
             ISessionService sessionService = null,
             IAppSetting appSetting = null,
-            IAccountRepository accountRepository = null,
             ICaptchaService captchaService = null,
             ILanguageService languageService = null)
         {
             contactService = contactService ?? Mock.Of<IContactService>();
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             appSetting = appSetting ?? Mock.Of<IAppSetting>();
-            accountRepository = accountRepository ?? Mock.Of<IAccountRepository>();
             captchaService = captchaService ?? Mock.Of<ICaptchaService>();
             languageService = languageService ?? Mock.Of<ILanguageService>();
 
-            var controller = new ContactUsController(sessionService, appSetting, languageService, contactService, accountRepository, captchaService);
+            var controller = new ContactUsController(sessionService, appSetting, languageService, contactService, captchaService);
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();
             server.Setup(s => s.HtmlEncode(It.IsAny<string>())).Returns<string>(s => $"Encoded{s}");

@@ -16,6 +16,8 @@
 
         public string UserName { get; set; }
 
+        public string AffPlayer { get; set; }
+
         public string Email { get; set; }
 
         public byte SortBy { get; set; }

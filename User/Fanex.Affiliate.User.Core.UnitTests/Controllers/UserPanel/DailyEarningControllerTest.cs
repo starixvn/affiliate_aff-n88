@@ -110,7 +110,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 IsInternal = false
             };
 
-            var extraUserInfo = new ExtraUserInfo();
             var productList = new List<ProductItem>();
             var dailyEarningResult = new DailyEarningResult();
 
@@ -139,7 +138,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 IsInternal = false
             };
 
-            var extraUserInfo = new ExtraUserInfo();
             var productList = new List<ProductItem>();
             var dailyEarningResult = new DailyEarningResult();
 

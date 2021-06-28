@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         {
             param.AffId = SessionService.UserSession.AffId;
             param.IsInternal = SessionService.IsInternal;
-            param.MonthDate = param.MonthDate.HasValue ? param.MonthDate.Value : DateTime.Now.AddDays(-1);
+            param.MonthDate = param.MonthDate ?? DateTime.Now.AddDays(-1);
 
             var subAffComs = _statementHistoryRepository.GetSubAffCommission(param);
             var requestPage = param.RequestPage;

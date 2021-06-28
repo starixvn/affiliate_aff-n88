@@ -23,12 +23,10 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
             using (MemoryStream buffer = new MemoryStream())
             {
-                using (CryptoStream stream = new CryptoStream(buffer, transform, CryptoStreamMode.Write))
+                CryptoStream stream = new CryptoStream(buffer, transform, CryptoStreamMode.Write);
+                using (StreamWriter writer = new StreamWriter(stream, Encoding.Unicode))
                 {
-                    using (StreamWriter writer = new StreamWriter(stream, Encoding.Unicode))
-                    {
-                        writer.Write(value);
-                    }
+                    writer.Write(value);
                 }
 
                 return Convert.ToBase64String(buffer.ToArray());

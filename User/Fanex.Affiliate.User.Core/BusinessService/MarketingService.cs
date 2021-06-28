@@ -195,13 +195,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public ResultInfo<MarketingChannel> AddMarketingChannel(int userId, string channelName)
         {
             var channelCode = NormalizeName(channelName);
-            var result =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
-            var message = GenAddChannelErrMsg(result.Code);
+            var (Code, ErrMsg) =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
+            var message = GenAddChannelErrMsg(Code);
 
             return new ResultInfo<MarketingChannel>()
             {
-                IsOk = result.Code == 0,
-                Message = string.IsNullOrWhiteSpace(message) ? result.ErrMsg : message,
+                IsOk = Code == 0,
+                Message = string.IsNullOrWhiteSpace(message) ? ErrMsg : message,
                 Data = new MarketingChannel { ChannelCode = channelCode, ChannelName = channelName }
             };
         }
@@ -212,13 +212,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public ResultInfo ToggleMarketingLink(MarketingLinkParam param)
         {
-            var result = _marketingRepository.ToggleMarketingLink(param);
-            var message = GenToggleErrMsg(result.Code);
+            var (Code, ErrMsg) = _marketingRepository.ToggleMarketingLink(param);
+            var message = GenToggleErrMsg(Code);
 
             return new ResultInfo
             {
-                IsOk = result.Code == 0,
-                Message = string.IsNullOrWhiteSpace(message) ? result.ErrMsg : message
+                IsOk = Code == 0,
+                Message = string.IsNullOrWhiteSpace(message) ? ErrMsg : message
             };
         }
 

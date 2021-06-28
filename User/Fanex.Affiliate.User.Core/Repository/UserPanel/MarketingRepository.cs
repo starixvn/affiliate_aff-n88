@@ -128,11 +128,11 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         public (int Code, string ErrMsg) AddMarketingChannel(int userId, string channelCode, string channelName)
         {
             const string spKey = "Aff_User_AffMediaChannel_Ins";
-            
+
             using(var objectDb = _builder.Build(spKey))
             {
                 AddOutputParam(objectDb);
-                objectDb.ExecuteNonQuery(new { AffId = userId, ChannelCode = channelCode, channelName = channelName });
+                objectDb.ExecuteNonQuery(new { AffId = userId, ChannelCode = channelCode, ChannelName = channelName });
                 return GetResult(objectDb);
             }
         }

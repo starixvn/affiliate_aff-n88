@@ -75,7 +75,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
         >
           AFFILIATE REPORT
         </a>
-         &gt; 
+         &gt; 
         Report Title - currentViewLevel is Month on Month view
         <button
           className="ml-auto btn btn-link btn-excel"
@@ -125,7 +125,7 @@ exports[`affiliate report - Content  should render correctly with _buildReportTi
     >
       AFFILIATE REPORT
     </a>
-     &gt; 
+     &gt; 
     <button
       className="ml-auto btn btn-link btn-excel"
       onClick={[Function]}
