@@ -26,6 +26,7 @@
         private readonly string _mailContact;
         private readonly string _userName;
         private readonly string _siteFriendlyName;
+        private const int AffId = 123456;
 
         public TestController(ISessionService sessionService,
             ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
@@ -91,7 +92,7 @@
 
                 var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
 
-                _mailProcessor.Send(content, criteria.EmailAddress, Subject, string.Empty, string.Empty, appMailId);
+                _mailProcessor.Send(content, criteria.EmailAddress, Subject, appMailId: appMailId);
             }
             catch (Exception ex)
             {
@@ -144,7 +145,7 @@
             return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
         }
 
-        private string GetSubject(string functionName)
+        private static string GetSubject(string functionName)
         {
             switch (functionName)
             {
@@ -155,10 +156,10 @@
                     return Lang.SubjectForgetPass;
 
                 case "PaymentCancel":
-                    return string.Format(Lang.PaymentRequestCancelSubject, 12345);
+                    return string.Format(Lang.PaymentRequestCancelSubject, AffId);
 
                 case "PaymentRequest":
-                    return string.Format(Lang.PaymentRequestSubject, 12345);
+                    return string.Format(Lang.PaymentRequestSubject, AffId);
 
                 case "NewPassword":
                     return Lang.SubjectNewPass;
@@ -290,7 +291,7 @@
         {
             return new UserInfo
             {
-                AffId = 1,
+                AffId = AffId,
                 FirstName = "Fisrt name",
                 UserName = _userName,
                 Email = "abc@nova.com",

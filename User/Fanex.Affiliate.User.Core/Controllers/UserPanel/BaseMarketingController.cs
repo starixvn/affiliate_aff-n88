@@ -84,8 +84,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         protected RefLinkViewModel GetAffLinkTypeViewModel()
         {
             var affId = SessionService.UserSession.AffId;
-            var domains = MarketingService.GetAvailableDomainList(affId, Enum.AffiliateLinkType.AffiliateLink, SessionService.IsInternal);
-            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal, Enum.AffiliateLinkType.AffiliateLink);
+            var domains = MarketingService.GetAvailableDomainList(affId, AffiliateLinkType.AffiliateLink, SessionService.IsInternal);
+            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal);
 
             return new RefLinkViewModel
             {

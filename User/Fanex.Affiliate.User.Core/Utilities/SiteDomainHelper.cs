@@ -6,6 +6,7 @@
 
     public static class SiteDomainHelper
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "<Pending>")]
         public static string GetRootUrl(Controller controller, IAppSetting appSetting = null)
         {
             var setting = appSetting ?? DependencyResolver.Current.GetService<IAppSetting>();
