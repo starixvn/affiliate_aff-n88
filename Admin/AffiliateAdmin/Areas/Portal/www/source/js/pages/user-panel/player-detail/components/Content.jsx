@@ -142,7 +142,7 @@ export class Content extends PureComponent {
     handlePaging = (pageIndex, pageSize) => {
         const { param, sortingColumn } = this.props;
 
-        const newParam = Object.assign({}, param, { pageIndex, pageSize, sortById: SortByIdList[sortingColumn.ColumnName], isSortAsc: sortingColumn.isSortAsc });
+        const newParam = Object.assign({}, param, { pageIndex, pageSize, sortById: SortByIdList[sortingColumn.ColumnName], isSortAsc: sortingColumn.IsSortAsc });
         this._fetchData(newParam);
     }
 
