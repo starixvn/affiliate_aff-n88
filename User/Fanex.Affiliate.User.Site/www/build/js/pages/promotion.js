@@ -29,7 +29,7 @@ var Promo = (function ($) {
         }
     }
 
-    var endDate = new Date("2021-06-30T16:00:00.000Z");
+    var endDate = new Date("2021-07-31T16:00:00.000Z");
     var _me = {
         initialize: function initialize() {
             _me.initEvent();

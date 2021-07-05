@@ -133,7 +133,7 @@
         [AjaxOnly]
         public ActionResult AddChannel(string channelName)
         {
-            if (channelName.Length > 20)
+            if (channelName.Length > Number.Twenty)
             {
                 return Json(new ResultInfo
                 {

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -39,6 +40,7 @@
         }
 
         [HttpGet]
+        [SuppressMessage("Minor Bug", "S1226:Method parameters, caught exceptions and foreach variables' initial values should not be ignored", Justification = "<Pending>")]
         public ActionResult Index(string refId = null, string affCode = null, string affId = null)
         {
             if(string.IsNullOrEmpty(affCode) && !string.IsNullOrEmpty(affId))

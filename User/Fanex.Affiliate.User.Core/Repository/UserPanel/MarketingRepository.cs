@@ -169,14 +169,14 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             }
         }
 
-        private (int, string) GetResult(IObjectDb objectDb)
+        private static (int, string) GetResult(IObjectDb objectDb)
         {
             var code = Convert.ToInt32(objectDb.GetOuputParams()[ERR_CODE]);
             var msg = Convert.ToString(objectDb.GetOuputParams()[ERR_MSG]);
             return (code, msg);
         }
 
-        private void AddOutputParam(IObjectDb objectDb)
+        private static void AddOutputParam(IObjectDb objectDb)
         {
             objectDb.AddOutParameter(ERR_CODE, System.Data.SqlDbType.Int, DbParam.ErrCodeSize);
             objectDb.AddOutParameter(ERR_MSG, System.Data.SqlDbType.NVarChar, DbParam.ErrMsgSize);

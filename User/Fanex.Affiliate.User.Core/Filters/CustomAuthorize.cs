@@ -54,7 +54,7 @@ namespace Fanex.Affiliate.User.Core.Filters
 
         }
 
-        private bool CheckExistAttribute(AuthorizationContext filterContext, Type attrType)
+        private static bool CheckExistAttribute(AuthorizationContext filterContext, Type attrType)
             => filterContext.ActionDescriptor.IsDefined(attrType, true)
             || filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(attrType, true);
     }

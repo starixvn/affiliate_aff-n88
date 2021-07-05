@@ -28,7 +28,7 @@
         }
     }
 
-    const endDate = new Date("2021-06-30T16:00:00.000Z");
+    const endDate = new Date("2021-07-31T16:00:00.000Z");
     var _me = {
         initialize: function () {
             _me.initEvent();

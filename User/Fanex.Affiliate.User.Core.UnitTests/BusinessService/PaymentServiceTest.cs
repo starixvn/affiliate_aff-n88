@@ -158,8 +158,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var paymentRequest = CreatePaymentRequest(param);
             const string ErrorMessage = "Create Payment Failed";
 
-            var accountService = new Mock<IAccountService>();
-
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(paymentRequest)).Returns(new ResultInfo { Message = ErrorMessage });
 

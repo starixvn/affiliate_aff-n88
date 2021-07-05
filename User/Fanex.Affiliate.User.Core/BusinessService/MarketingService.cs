@@ -198,7 +198,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var (Code, ErrMsg) =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
             var message = GenAddChannelErrMsg(Code);
 
-            return new ResultInfo<MarketingChannel>()
+            return new ResultInfo<MarketingChannel>
             {
                 IsOk = Code == 0,
                 Message = string.IsNullOrWhiteSpace(message) ? ErrMsg : message,
@@ -291,15 +291,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             };
         }
 
-        private string GenAddChannelErrMsg(int code)
+        private static string GenAddChannelErrMsg(int code)
         {
             switch (code)
             {
-                case 101:
+                case ErrCodes.OneHundredOne:
                     return Error.ErrInValidAff;
-                case 102:
+                case ErrCodes.OneHundredTwo:
                     return Error.ErrChannelExisted;
-                case 103:
+                case ErrCodes.OneHundredThree:
                     return Error.ErrInternalError;
                 default:
                     return string.Empty;
@@ -307,13 +307,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
 
-        private string GenToggleErrMsg(int code)
+        private static string GenToggleErrMsg(int code)
         {
             switch (code)
             {
-                case 101:
+                case ErrCodes.OneHundredOne:
                     return Error.ErrInValidAff;
-                case 102:
+                case ErrCodes.OneHundredTwo:
                     return Error.ErrInternalError;
                 default:
                     return string.Empty;
@@ -321,7 +321,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
 
-        private string NormalizeName(string channelName)
+        private static string NormalizeName(string channelName)
         {
             return channelName.Replace(" ", String.Empty).ToLowerInvariant();
         }
