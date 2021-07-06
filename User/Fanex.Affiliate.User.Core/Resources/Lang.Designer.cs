@@ -4382,6 +4382,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to (P2P included).
+        /// </summary>
+        public static string P2pIncluded {
+            get {
+                return ResourceManager.GetString("P2pIncluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P2P Rev. Share.
+        /// </summary>
+        public static string P2pRevenueShare {
+            get {
+                return ResourceManager.GetString("P2pRevenueShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page.
         /// </summary>
         public static string Page {

@@ -2502,5 +2502,10 @@
   </data>
   <data name="LimitedTime" xml:space="preserve">
     <value>*Limited time only,&lt;br /&gt; terms &amp; conditions apply</value>
+  <data name="P2pRevenueShare" xml:space="preserve">
+    <value>P2P Rev. Share</value>
+  </data>
+  <data name="P2pIncluded" xml:space="preserve">
+    <value>(P2P included)</value>
   </data>
 </root>

@@ -58,6 +58,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 total.Bonus += item.Data.Bonus;
                 total.Rebate += item.Data.Rebate;
                 total.Commission += item.Data.Commission;
+                total.P2pRevenueShare += item.Data.P2pRevenueShare;
                 total.SubAffCommission += item.Data.SubAffCommission;
             }
 
