@@ -21,7 +21,7 @@ const relativeOutputPath = projectPath.relativeOutputPath;
 
 module.exports = env => {
     env = environment[env] || environment.development;
-    const isDevBuild = !(env === environment.production);
+    const isDevBuild = env !== environment.production;
 
     const sharedConfig = () => ({
         mode: env,

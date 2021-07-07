@@ -88,7 +88,7 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
                 <Cell header={true} colWidth={60} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>
                 <Cell header={true} colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
-                <Cell header={true} colSpan={isMainView ? 7 : 6} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
+                <Cell header={true} colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
                 {isMainView && (<Cell header={true} colWidth={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
             </Row>,
             <Row key="h2">
@@ -104,12 +104,13 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={70} title={headerText.WithdrawalFee}>{headerText.WithdrawalFee}</Cell>
                 <Cell header={true} colWidth={70} title={headerText.TotalFee}>{headerText.TotalFee}</Cell>
 
-                <Cell header={true} colWidth={60} title={headerText.CommissionRate}>{headerText.CommissionRate}</Cell>
+                <Cell header={true} colWidth={65} title={headerText.CommissionRate}>{headerText.CommissionRate}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.Earning}>{headerText.Earning}</Cell>
+                <Cell header={true} colWidth={75} title={headerText.P2pEarning}>{headerText.P2pEarning}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.TotalEarning}>{headerText.TotalEarning}</Cell>
                 <Cell header={true} colWidth={75} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</Cell>
-                {isMainView && (<Cell header={true} colWidth={80} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
+                {isMainView && (<Cell header={true} colWidth={75} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
                 <Cell header={true} colWidth={80} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>
             </Row>
         ];
@@ -131,7 +132,7 @@ export class GridData extends Component {
         }
         else {
             dataRows.push(<Row>
-                <Cell className="text-center" colSpan={25 + this._isMainView()}>{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan={26 + Number(this._isMainView())}>{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
@@ -184,6 +185,7 @@ export class GridData extends Component {
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee)
         const totalFee = formatDecimal(dataItem.TotalFee);
         const earning = formatDecimal(dataItem.Earning);
+        const p2pEarning = formatDecimal(dataItem.P2pEarning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
@@ -212,6 +214,7 @@ export class GridData extends Component {
                 <Cell className="text-right" title={totalFee}>{totalFee}</Cell>
                 <Cell className="text-right" title={commRate}>{commRate}</Cell>
                 <Cell className="text-right" title={earning}>{earning}</Cell>
+                <Cell className="text-right" title={p2pEarning}>{p2pEarning}</Cell>
                 <Cell className="text-right" title={subAffEarning}>{subAffEarning}</Cell>
                 <Cell className="text-right" title={totalEarning}>{totalEarning}</Cell>
                 <Cell className="text-right" title={affWithdrawal}>{affWithdrawal}</Cell>
@@ -253,7 +256,7 @@ export class GridData extends Component {
         return gridData && (
             <div className="table-responsive table-striped">
                 <Table
-                    minWidth={1000}
+                    minWidth={1440}
                     autoWidth={true}
                     bodyHeight={300}
                     header={this._renderHeader()}

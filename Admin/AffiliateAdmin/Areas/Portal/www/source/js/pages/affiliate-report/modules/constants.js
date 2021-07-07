@@ -58,6 +58,7 @@ export const headerText = {
     TotalFee: 'Total Fee',
     CommissionRate: 'Share%',
     Earning: 'Earning',
+    P2pEarning: 'P2P Earning',
     SubAffEarning: 'Sub-Affiliate Earning',
     TotalEarning: 'Total Earning',
     AffWithdrawal: 'Withdrawal',

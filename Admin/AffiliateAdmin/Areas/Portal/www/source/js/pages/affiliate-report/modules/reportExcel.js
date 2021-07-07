@@ -7,7 +7,7 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 25;
+const TOTAL_COLUMN = 26;
 
 const INDEX_MEMBER_STATISTICS_COLUMN = 7;
 const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
@@ -15,7 +15,7 @@ const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
 const INDEX_DEPOSIT_COLUMN = 7;
 const COLSPAN_MEMBER_STATISTICS = 11;
 const INDEX_COMM_COLUMN = 18;
-const COLSPAN_AFFILIATE_STATISTICS = 7;
+const COLSPAN_AFFILIATE_STATISTICS = 8;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
@@ -43,6 +43,7 @@ const fields = {
     TotalFee: 'TotalFee',
     CommissionRate: 'CommissionRate',
     Earning: 'Earning',
+    P2pEarning: 'P2pEarning',
     SubAffEarning: 'SubAffEarning',
     TotalEarning: 'TotalEarning',
     AffWithdrawal: 'AffWithdrawal',
@@ -172,8 +173,7 @@ export default class ReportExcel {
     _createBodyData() {
         const mainData = this.data.MainData;
 
-        for (let i = 0; i < mainData.length; i++) {
-            const item = mainData[i];
+        for (let item of mainData) {
             item.CommissionRate = formatDecimal(item.CommissionRate) + '%';
 
             if (!this.isMainView) {
@@ -283,6 +283,8 @@ export default class ReportExcel {
         },
         {
             wpx: 100
+        }, {
+            wpx: 120
         }, {
             wpx: 120
         }, {
@@ -397,6 +399,11 @@ export default class ReportExcel {
         },
         {
             field: fields.Earning,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+        },
+        {
+            field: fields.P2pEarning,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },
