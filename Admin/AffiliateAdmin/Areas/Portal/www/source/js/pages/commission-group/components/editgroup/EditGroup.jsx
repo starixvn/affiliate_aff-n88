@@ -11,7 +11,7 @@ import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { validate } from '../../modules/service';
 import { toggleLoader } from '../../../../actions/loaderAction';
-import ProductList from '../shared/ProductList';
+import P2pProductSetting from '../shared/p2p-deduction';
 
 export class EditGroup extends React.Component {
     constructor(props) {
@@ -25,9 +25,6 @@ export class EditGroup extends React.Component {
     }
 
     componentDidMount() {
-        const { productList } = this.props;
-        const productIds = productList.map(p => p.ProductId);
-        this.props.setSelectedProductIds(productIds)
         this.props.getSelectedCommGroup({ GroupId: this.props.itemId });
     }
 
@@ -37,6 +34,8 @@ export class EditGroup extends React.Component {
     }
 
     handleSave = async () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         const { selectedGroup } = this.props;
         const validationResult = validate(selectedGroup);
 
@@ -49,11 +48,8 @@ export class EditGroup extends React.Component {
         }
         else {
             this.props.toggleLoader(true);
-            const platformFeeList = selectedGroup.PlatformFeeList.filter(item => !!item.ProductIds);
 
-            const param = { ...selectedGroup, PlatformFeeList: platformFeeList };
-
-            const response = await this.props.updateCommissionGroup(param);
+            const response = await this.props.updateCommissionGroup(selectedGroup);
             if (response && response.status === 200) {
                 const result = response.data;
 
@@ -84,7 +80,7 @@ export class EditGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
-                <ProductList />
+                <P2pProductSetting />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -94,8 +90,8 @@ export class EditGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ selectedGroup, searchedGroupName, pagingOption, selectedProductIds, productList }) {
-    return { selectedGroup, searchedGroupName, pagingOption, selectedProductIds, productList };
+function mapStateToProp({ selectedGroup, searchedGroupName, pagingOption, p2pProductList }) {
+    return { selectedGroup, searchedGroupName, pagingOption, p2pProductList };
 }
 
 function mapDispatchToProps(dispatch) {

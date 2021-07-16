@@ -151,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                 var result = _paymentRequestRepository.UpdatePaymentRequest(param);
                 return result;
             }
-            return new ResultInfo { Code = Code.GeneralErrorCode, Message = Lang.PaymentRequestNotValid };
+            return new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = Lang.PaymentRequestNotValid };
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         ResultInfo DeleteCommissionGroup(DeleteCommissionGroupParam param);
 
-        IEnumerable<Deduction> GetDeductionList();
+        IEnumerable<DeductionItem> GetDeductionList();
 
         IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param);
 

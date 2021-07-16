@@ -63,7 +63,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             return new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = Lang.UpdateIsFailed
             };
         }
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 return new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Website URL is required"
                 };
             }
@@ -83,7 +83,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             {
                 return new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = $"Please describe how you would like to promote {_appSetting.SiteFriendlyName} if you don't have the URL is required"
                 };
             }

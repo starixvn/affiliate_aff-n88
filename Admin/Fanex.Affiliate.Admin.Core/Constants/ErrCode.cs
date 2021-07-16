@@ -1,11 +1,8 @@
 ﻿namespace Fanex.Affiliate.Admin.Core.Constants
 {
-    public static class Code
+    public static class ErrCode
     {
         public const int GeneralErrorCode = -999;
-        public const int MonthlyWinlost = 201;
-        public const int SubAffiliate = 204;
-        public const int MonthlyTotal = 0;
         public const int ErrCodeSessionExpired = 401;
         public const int ErrCodeAccessDenied = 401;
         public const int ErrCodeUserAlreadyHasIBCAccount = 102;

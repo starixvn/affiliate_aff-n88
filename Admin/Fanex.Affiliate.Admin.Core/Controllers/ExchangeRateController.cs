@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "The rate is invalid."
                 }
             };

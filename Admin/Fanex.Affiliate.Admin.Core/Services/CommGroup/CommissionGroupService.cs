@@ -1,13 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 
-namespace Fanex.Affiliate.Admin.Core.Services
+namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 {
     public class CommissionGroupService : ICommissionGroupService
     {
@@ -27,11 +25,13 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
             var commGroupList = rawData.CommGroupList;
             var tierSettingList = rawData.TierSettingList;
-            var deductionSettingList = rawData.DeductionSettingList;
+            var tierDeductionSettingList = rawData.TierDeductionSettingList;
+            var p2pDeductionSettingList = rawData.P2pDeductionSettingList;
 
             var result = from c in commGroupList
                          join t in tierSettingList on c.GroupId equals t.GroupId into groupTierSetting
-                         join d in deductionSettingList on c.GroupId equals d.GroupId into groupDeduction
+                         join d in tierDeductionSettingList on c.GroupId equals d.GroupId into groupTierDeductionSetting
+                         join p in p2pDeductionSettingList on c.GroupId equals p.GroupId into groupP2pDeductionSetting
                          select new CommissionGroupSetting
                          {
                              RowIdx = c.RowIdx,
@@ -42,10 +42,11 @@ namespace Fanex.Affiliate.Admin.Core.Services
                              Description = c.Description,
                              NoAffs = c.NoAffs,
                              TierSettingList = groupTierSetting,
-                             PlatformFeeList = groupDeduction.Where(p => p.DeductionId == DeductionId.PlatformFee),
-                             OperationalFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.OperationalFee),
-                             DepositFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.DepositFee),
-                             WithdrawalFee = groupDeduction.FirstOrDefault(p => p.DeductionId == DeductionId.WithdrawalFee)
+                             P2pDeductionList = groupP2pDeductionSetting,
+                             PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId),
+                             OperationalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.OperationalFeeId),
+                             DepositFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.DepositFeeId),
+                             WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId)
                          };
 
             return result;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
+using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             _productRepository = productRepository;
         }
 
-        public ResultInfo ValidateCommGroup(CommissionGroupSetting commGroup)
+        public ResultInfo ValidateCommGroup(CommGroupSettingParam commGroup)
         {
             var result = ValidateAllFees(commGroup);
 
@@ -27,116 +27,102 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 
             if(!validateTierSettingList.IsSuccessful)
             {
-                result.Code = Code.GeneralErrorCode;
+                result.Code = ErrCode.GeneralErrorCode;
                 result.Message = string.Join(result.Message, validateTierSettingList.Message);
             }
 
             return result;
         }
 
-        private ResultInfo ValidateAllFees(CommissionGroupSetting commGroup)
+        private ResultInfo ValidateAllFees(CommGroupSettingParam commGroup)
         {
             var result = new ResultInfo();
+            var productIdOfDB = _productRepository.GetProductList().Select(p => p.ProductId.ToString());
 
-            var validatePlatformFeeList = ValidatePlatformFeeList(commGroup.PlatformFeeList);
+            var validateP2pDeductionList = ValidateDeductionList(commGroup.P2pDeductionList, productIdOfDB, CommGroupErrorMessage.InvalidP2pDeduction);
+            if (!validateP2pDeductionList.IsSuccessful)
+            {
+                UpdateResult(result, validateP2pDeductionList.Message);
+            }
 
+            var validatePlatformFeeList = ValidateDeductionList(commGroup.PlatformFeeList, productIdOfDB, CommGroupErrorMessage.InvalidPlatformFee);
             if(!validatePlatformFeeList.IsSuccessful)
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = validatePlatformFeeList.Message;
+                UpdateResult(result, validatePlatformFeeList.Message);
             }
 
             var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, CommGroupErrorMessage.InvalidOperationalFee);
-
             if (!validateOperationalFee.IsSuccessful)
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, validateOperationalFee.Message);
+                UpdateResult(result, validateOperationalFee.Message);
             }
 
             var validateDepositFee = ValidateFixedAmountDeductedFee(commGroup.DepositFee, CommGroupErrorMessage.InvalidDepositFee);
-
             if (!validateDepositFee.IsSuccessful)
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, validateDepositFee.Message);
+                UpdateResult(result, validateDepositFee.Message);
             }
 
             var validateWithdrawalFee = ValidateFixedAmountDeductedFee(commGroup.WithdrawalFee, CommGroupErrorMessage.InvalidWithdrawalFee);
-
             if (!validateWithdrawalFee.IsSuccessful)
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, validateWithdrawalFee.Message);
+                UpdateResult(result, validateWithdrawalFee.Message);
             }
 
             return result;
         }
 
-        private ResultInfo ValidatePlatformFeeList(IEnumerable<DeductionSetting> platformFeeList)
-        {
-            var result = new ResultInfo
-            {
-                Code = Code.GeneralErrorCode,
-                Message = CommGroupErrorMessage.InvalidPlatformFee
-            };
-
-            if (platformFeeList == null || !platformFeeList.Any() || platformFeeList.Any(item => string.IsNullOrEmpty(item.ProductIds)))
-            {
-                return result;
-            }
-
-            var productIdOfDB = _productRepository.GetProductList().Select(p => p.ProductId.ToString());
-            var productIdOfPlatform = string.Join(",", platformFeeList.Select(p => p.ProductIds.Replace(" ", "")))
-                                        .Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-
-            var productIdValidation = ValidateProductIds(productIdOfDB, productIdOfPlatform);
-            if (!productIdValidation.IsSuccessful)
-            {
-                return result;
-            }
-
-            return new ResultInfo();
-        }
-
-        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSetting> tierSettingList)
+        private static ResultInfo ValidateTierSettingList(IEnumerable<TierSettingParam> tierSettingList)
         {
             var result = new ResultInfo();
 
             if (tierSettingList == null || !tierSettingList.Any())
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Tier Setting must have at least 1 tier!");
+                UpdateResult(result, "Tier Setting must have at least 1 tier!");
                 return result;
             }
 
             if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAp == Validation.InfinityQualifiedMember)))
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Last Tier Setting must have maximum value=∞!");
+                UpdateResult(result, "Last Tier Setting must have maximum value=∞!");
                 return result;
             }
 
             if (tierSettingList.Any(item => item.MinAmount > item.MaxAmount))
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Max Amount must be greater than or equal to Min Amount!");
+                UpdateResult(result, "Max Amount must be greater than or equal to Min Amount!");
                 return result;
             }
 
             if (tierSettingList.Any(item => item.MinAp > item.MaxAp))
             {
-                result.Code = Code.GeneralErrorCode;
-                result.Message = string.Join(result.Message + brElementHtml, "Min AP must be lesser than or equal to 1,000,000,000!");
+                UpdateResult(result, "Min AP must be lesser than or equal to 1,000,000,000!");
             }
 
             return result;
         }
-        private static ResultInfo ValidateProductIds(IEnumerable<string> productIdOfDB, IEnumerable<string> productIdOfPlatform)
+        private ResultInfo ValidateDeductionList(IEnumerable<DeductionSettingParam> deductionList, IEnumerable<string> productIdOfDB, string message)
         {
-            var result = new ResultInfo { Code = Code.GeneralErrorCode };
+            var result = new ResultInfo
+            {
+                Code = ErrCode.GeneralErrorCode,
+                Message = message
+            };
 
-            var distinctProductIdOfPlatform = productIdOfPlatform.Distinct();
+            if (deductionList == null || !deductionList.Any())
+            {
+                return result;
+            }
+
+            if (deductionList.Any(item => string.IsNullOrEmpty(item.ProductIds)))
+            {
+                return deductionList.Count() == Validation.OnlyOneRow ? new ResultInfo() : result;
+            }
+
+            var productIdOfDeduction = string.Join(",", deductionList.Select(p => p.ProductIds.Replace(" ", "")))
+                                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            var distinctProductIdOfPlatform = productIdOfDeduction.Distinct();
+
             if (distinctProductIdOfPlatform.Any(item => !productIdOfDB.Contains(item)))
             {
                 return result;
@@ -145,11 +131,11 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             return new ResultInfo();
         }
 
-        private static ResultInfo ValidateFixedAmountDeductedFee(DeductionSetting deductedFee, string message)
+        private static ResultInfo ValidateFixedAmountDeductedFee(TierDeductionSettingParam deductedFee, string message)
         {
             var result = new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = message
             };
 
@@ -171,6 +157,12 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
             }
 
             return new ResultInfo();
+        }
+
+        private static void UpdateResult(ResultInfo initialResult, string message)
+        {
+            initialResult.Code = ErrCode.GeneralErrorCode;
+            initialResult.Message = string.Join(initialResult.Message + brElementHtml, message);
         }
     }
 }

@@ -8,7 +8,6 @@
         public const int MaxPageIndex = int.MaxValue;
         public const int MinPageSize = 1;
         public const int MaxPageSize = 500;
-        public const int MinSearchBy = 0;
         public const int MaxSearchBy = int.MaxValue;
 
         public const long InfinityAmount = 100_000_000_000;
@@ -19,5 +18,10 @@
 
         public const int MaxLengthCommGroupDescription = 100;
         public const int MaxLengthLandingPage = 100;
+
+        public const int OnlyOneRow = 1;
+
+        public const int Zero = 0;
+        public const int MaxPercentage = 1;
     }
 }

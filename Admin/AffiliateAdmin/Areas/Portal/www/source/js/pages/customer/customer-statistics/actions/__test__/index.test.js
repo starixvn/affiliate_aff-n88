@@ -29,7 +29,6 @@ describe('customer statistics actions', () => {
                 NewFdmTotal: 1829,
                 NewSignUpByMonth: 0,
                 NewSignUpTotal: 3742,
-                QualifiedMemberByMonth: 0,
                 TotalClickByMonth: 0,
                 TotalClickMobileByMonth: 0,
                 TotalClickPcLaptopByMonth: 0,

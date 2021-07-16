@@ -190,9 +190,9 @@
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\Apis\PaymentType.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
-    <Compile Include="Constants\Code.cs" />
+    <Compile Include="Constants\ErrCode.cs" />
     <Compile Include="Constants\CommGroupErrorMessage.cs" />
-    <Compile Include="Constants\DeductionId.cs" />
+    <Compile Include="Constants\Deduction.cs" />
     <Compile Include="Constants\Field.cs" />
     <Compile Include="Constants\Function.cs" />
     <Compile Include="Constants\LanguageSystem.cs" />
@@ -200,6 +200,7 @@
     <Compile Include="Constants\PaymentMethod.cs" />
     <Compile Include="Constants\Size.cs" />
     <Compile Include="Constants\TemplateString.cs" />
+    <Compile Include="Constants\TransType.cs" />
     <Compile Include="Constants\UserType.cs" />
     <Compile Include="Constants\Validation.cs" />
     <Compile Include="Controllers\AccessDeniedController.cs" />
@@ -250,6 +251,10 @@
     <Compile Include="DTO\AffTypeInfo.cs" />
     <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
     <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
+    <Compile Include="DTO\CommissionGroup\TierDeduction.cs" />
+    <Compile Include="DTO\CommissionGroup\DeductionSetting.cs" />
+    <Compile Include="DTO\CommissionGroup\P2pDeduction.cs" />
+    <Compile Include="DTO\CommissionGroup\P2pDeductionSetting.cs" />
     <Compile Include="DTO\Currency.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
@@ -259,8 +264,7 @@
     <Compile Include="DTO\CommissionGroup\CommGroup.cs" />
     <Compile Include="DTO\CommissionGroup\CommissionGroupResultEntity.cs" />
     <Compile Include="DTO\CommissionGroup\CommissionGroupSetting.cs" />
-    <Compile Include="DTO\CommissionGroup\Deduction.cs" />
-    <Compile Include="DTO\CommissionGroup\DeductionSetting.cs" />
+    <Compile Include="DTO\CommissionGroup\DeductionItem.cs" />
     <Compile Include="DTO\CommissionGroup\TierSetting.cs" />
     <Compile Include="DTO\Customer\AffiliateInfoOnLeftPanel.cs" />
     <Compile Include="DTO\Customer\CustomerStatistics.cs" />
@@ -296,6 +300,13 @@
     <Compile Include="MetaModels\Administrator\UpdateUserParam.cs" />
     <Compile Include="MetaModels\ChangeAdminPassword\ChangeAdminPasswordParam.cs" />
     <Compile Include="MetaModels\CheckPermissionParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\AffInfoParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\CommGroupInfoParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\CommGroupSettingParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\TierDeductionSettingParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\DeductionSettingParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\P2pDeductionSettingParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\TierSettingParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainControlParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainParam.cs" />
     <Compile Include="MetaModels\Domain\InsertUpdateDomainControlParam.cs" />
@@ -493,7 +504,7 @@
     <Compile Include="Services\CommGroup\CommGroupCommonService.cs" />
     <Compile Include="Services\CommGroup\ICommGroupAssignmentService.cs" />
     <Compile Include="Services\CommGroup\ICommGroupCommonService.cs" />
-    <Compile Include="Services\CommissionGroupService.cs" />
+    <Compile Include="Services\CommGroup\CommissionGroupService.cs" />
     <Compile Include="Services\Common\ISessionService.cs" />
     <Compile Include="DTO\Common\UserPermission.cs" />
     <Compile Include="Services\Common\SessionService.cs" />
@@ -516,7 +527,7 @@
     <Compile Include="Services\Home\IHomeService.cs" />
     <Compile Include="Services\IAffiliateService.cs" />
     <Compile Include="Services\IAffTypeService.cs" />
-    <Compile Include="Services\ICommissionGroupService.cs" />
+    <Compile Include="Services\CommGroup\ICommissionGroupService.cs" />
     <Compile Include="Services\IEmailService.cs" />
     <Compile Include="Services\ILanguageService.cs" />
     <Compile Include="Services\ILicenseeService.cs" />

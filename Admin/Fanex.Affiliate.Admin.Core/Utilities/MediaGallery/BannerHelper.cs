@@ -25,7 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.MediaGallery
         {
             return new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = Lang.InvalidBannerExtensionFile
             };
         }

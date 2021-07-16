@@ -12,8 +12,6 @@
 
         public int ActivePlayerByMonth { get; set; }
 
-        public int QualifiedMemberByMonth { get; set; }
-
         public decimal DepositByMonth { get; set; }
 
         public decimal DepositTotal { get; set; }

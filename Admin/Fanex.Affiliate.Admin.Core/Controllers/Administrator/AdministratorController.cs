@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -137,7 +137,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -170,7 +170,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -195,7 +195,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Account Id is invalid"
                 }
             };
@@ -224,7 +224,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "The account policy is invalid."
                 }
             };
@@ -249,7 +249,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join(BreakLine, ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };

@@ -100,7 +100,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
             return Json(new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = "Update Favorite failed!"
             });
         }
@@ -119,7 +119,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             }
             return Json(new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = "Change Password is failed!"
             });
         }

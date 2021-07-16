@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Extensions;
@@ -72,7 +71,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult AssignGroup(AssignGroupParam assignParam, AffiliateBasicInfo affInfo)
+        public ActionResult AssignGroup(AssignGroupParam assignParam, AffInfoParam affInfo)
         {
             if (!ModelState.IsValid || assignParam.GroupId < Validation.MinId)
             {
@@ -97,14 +96,18 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [HttpGet]
         public ActionResult AssignPrivateGroup(int affId)
         {
-            var viewModel = affId >= Validation.MinId ?
-                new AssignPrivateGroupViewModel
+            var viewModel = new AssignPrivateGroupViewModel();
+            if (affId >= Validation.MinId)
+            {
+                var productList = _productRepository.GetProductList();
+                viewModel = new AssignPrivateGroupViewModel
                 {
-                    ProductList = _productRepository.GetProductList(),
+                    ProductList = productList,
+                    P2pProductList = productList.Where(p => p.IsP2P),
                     DeductionList = _commGroupCommonService.GetDeductionList(),
                     AffInfo = _affiliateService.GetAffiliateBasicInfo(affId)
-                } :
-                new AssignPrivateGroupViewModel();
+                };
+            }
 
             return View("~/Areas/Portal/Views/Affiliate/AssignPrivateGroup.cshtml", viewModel);
         }
@@ -112,7 +115,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult AssignPrivateGroup(CommissionGroupSetting commGroup, AffiliateBasicInfo affInfo)
+        public ActionResult AssignPrivateGroup(CommGroupSettingParam commGroup, AffInfoParam affInfo)
         {
             if (!ModelState.IsValid)
             {
@@ -151,7 +154,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = result.Message
                 }
             };
@@ -163,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };

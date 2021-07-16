@@ -182,7 +182,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
 
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
-            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });
 
             var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
 
@@ -209,7 +209,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
 
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
-            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+            licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });
 
             var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
 
@@ -319,7 +319,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
             licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
-            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = Code.GeneralErrorCode }));
+            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = ErrCode.GeneralErrorCode }));
 
             var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
 
@@ -356,7 +356,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(a => a.GetMemberSiteCustomerInfo(It.IsAny<string>(), It.IsAny<int>())).Returns(Task.FromResult(new MemberSiteCustomerInfo()));
             licenseeService.Setup(a => a.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo());
-            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = Code.GeneralErrorCode })).Callback<PaymentRequestInfo>(p => throw new System.Exception());
+            licenseeService.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestInfo>())).Returns(Task.FromResult(new ResultInfo { Code = ErrCode.GeneralErrorCode })).Callback<PaymentRequestInfo>(p => throw new System.Exception());
 
             var controller = CreatePaymentRequestService(null, affiliateService.Object, paymentRequestRepository.Object, licenseeService.Object, appSetting.Object);
 

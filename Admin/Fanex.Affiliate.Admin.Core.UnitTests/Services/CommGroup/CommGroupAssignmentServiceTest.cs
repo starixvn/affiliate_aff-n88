@@ -1,10 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
-using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -12,7 +9,6 @@ using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
-using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 using Moq;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -53,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { GroupId = 123 };
+            var affInfo = new AffInfoParam { GroupId = 123 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -74,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 3 };
+            var affInfo = new AffInfoParam { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -109,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             DependencyResolver.SetResolver(resolver);
 
             var param = new AssignGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 3 };
+            var affInfo = new AffInfoParam { AffType = 3 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -133,7 +129,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo
@@ -160,7 +156,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
             param.GroupId = 123;
-            var affInfo = new AffiliateBasicInfo { GroupId = 123 };
+            var affInfo = new AffInfoParam { GroupId = 123 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo
@@ -186,7 +182,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -211,7 +207,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -250,7 +246,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             DependencyResolver.SetResolver(resolver);
 
             var param = CreateValidCreateUpdateCommissionGroupParam();
-            var affInfo = new AffiliateBasicInfo { AffType = 3, PreferredLanguage = "US", PlayerUsername = "12Bet" };
+            var affInfo = new AffInfoParam { AffType = 3, PreferredLanguage = "US" };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();
@@ -279,7 +275,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
             param.GroupId = 123;
-            var affInfo = new AffiliateBasicInfo { GroupId = 123 };
+            var affInfo = new AffInfoParam { GroupId = 123 };
             var emailParam = new AffInformationEmail();
 
             var expectedResult = new ResultInfo();

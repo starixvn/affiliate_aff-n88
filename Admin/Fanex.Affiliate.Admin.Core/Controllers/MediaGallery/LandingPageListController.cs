@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("\n", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };

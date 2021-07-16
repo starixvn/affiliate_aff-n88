@@ -150,7 +150,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = Lang.InvalidBannerBrowser
                 }
             };
@@ -177,7 +177,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidBannerId ? "Banner Id is invalid." : Lang.PleaseEnterFileName
                 }
             };
@@ -202,7 +202,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please select Banner(s) to delete."
                 }
             };

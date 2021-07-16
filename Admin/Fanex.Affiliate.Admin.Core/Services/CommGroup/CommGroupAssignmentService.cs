@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.MetaModels.Affiliate;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -37,12 +36,12 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return _commGroupRepository.GetNormalCommGroupList(param);
         }
 
-        public ResultInfo AssignGroup(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
+        public ResultInfo AssignGroup(AssignGroupParam param, AffInfoParam affInfo, AffInformationEmail emailParam)
         {
             return ProcessAssignGroup(param, affInfo, emailParam);
         }
 
-        public ResultInfo AssignPrivateGroup(CreateUpdateCommissionGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
+        public ResultInfo AssignPrivateGroup(CreateUpdateCommissionGroupParam param, AffInfoParam affInfo, AffInformationEmail emailParam)
         {
             param.IsPrivate = param.GroupId == 0;
 
@@ -65,7 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return commGroupResult;
         }
 
-        private ResultInfo ProcessAssignGroup(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
+        private ResultInfo ProcessAssignGroup(AssignGroupParam param, AffInfoParam affInfo, AffInformationEmail emailParam)
         {
             var assignResult = _commGroupRepository.AssignGroup(param);
             var isApproved = affInfo.GroupId != 0;
@@ -77,7 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return assignResult;
         }
 
-        private ResultInfo ProcessApproveAffiliate(AssignGroupParam param, AffiliateBasicInfo affInfo, AffInformationEmail emailParam)
+        private ResultInfo ProcessApproveAffiliate(AssignGroupParam param, AffInfoParam affInfo, AffInformationEmail emailParam)
         {
             var password = Generator.GetRandomString(10);
             var (approvedResult, affCode) = ApproveAffiliate(param, password);
@@ -104,7 +103,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return _affiliateService.ApproveAffiliate(approveParam);
         }
 
-        private void SendEmailApprove(AffInformationEmail emailParam, AffiliateBasicInfo affInfo, string password, string affCode)
+        private void SendEmailApprove(AffInformationEmail emailParam, AffInfoParam affInfo, string password, string affCode)
         {
             emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
             emailParam.Language = affInfo.PreferredLanguage;

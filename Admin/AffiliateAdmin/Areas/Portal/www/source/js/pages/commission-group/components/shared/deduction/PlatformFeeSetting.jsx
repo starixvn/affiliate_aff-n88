@@ -6,6 +6,7 @@ import { setSelectedGroup } from '../../../actions';
 
 import PlatformFeeItem from "./PlatformFeeItem";
 import { deepClone, updateObjectInArray } from "../../../../../modules/dataHandler";
+import { FIRST_ITEM_INDEX } from '../../../modules/constant';
 import { convertProductList, createDefaultPlatformfee, getDeductionSetting } from '../../../modules/service';
 
 export class PlatformFeeSetting extends Component {
@@ -94,8 +95,8 @@ export class PlatformFeeSetting extends Component {
 
     render() {
         const { productList, selectedGroup, selectedProductIds } = this.props;
-        const { PlatformFeeList, GroupId } = selectedGroup;
-        const selectProducts = productList.filter(p => !!selectedProductIds.find(i => i === p.ProductId));
+        const { PlatformFeeList } = selectedGroup;
+        const selectProducts = productList.filter(p => !selectedProductIds.find(i => i === p.ProductId));
 
         const platformFeeData = PlatformFeeList.map(item => {
             return {
@@ -111,8 +112,7 @@ export class PlatformFeeSetting extends Component {
                 <p className="font-weight-bold">Royalty Fee</p>
                 {
                     platformFeeData.map((item, i) => {
-                        const isFirst = i === 0;
-                        const isInserting = GroupId === 0;
+                        const isFirst = i === FIRST_ITEM_INDEX;
                         const handleClick = isFirst ? this.handleAdd : () => this.handleRemove(i);
 
                         return (
@@ -121,7 +121,7 @@ export class PlatformFeeSetting extends Component {
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}
                                 btnText={isFirst ? '+' : '-'}
-                                isInserting={isInserting}>
+                                isFirst={isFirst} >
                             </PlatformFeeItem>
                         )
                     })

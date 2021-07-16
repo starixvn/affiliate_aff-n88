@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Update Language is failed!"
                 }
             };
@@ -111,7 +111,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Update Affiliate Type is failed!"
                 }
             };
@@ -145,7 +145,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Update Status is failed!"
                 }
             };
@@ -167,7 +167,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Update Closed Status is failed!"
                 }
             };

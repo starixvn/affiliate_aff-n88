@@ -26,8 +26,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public int ActiveMember { get; set; }
 
-        public int QualifiedMember { get; set; }
-
         public decimal Deposit { get; set; }
 
         public decimal Withdrawal { get; set; }

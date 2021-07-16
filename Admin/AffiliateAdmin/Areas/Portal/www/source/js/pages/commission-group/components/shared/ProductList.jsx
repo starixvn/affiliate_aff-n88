@@ -22,12 +22,12 @@ function ProductList(props) {
         const feeIdListInArrayForm = platformFeeList.map(fee => convertStringToArrayNumber(fee.ProductIds));
         const newFeeListIds = getPlatformFeeListIds(ids, feeIdListInArrayForm);
         const newPlatformFeeList = [];
-        newFeeListIds.forEach((ids, index) => {
+        newFeeListIds.forEach((arrId, index) => {
             const platformFee = platformFeeList[index];
-            const newplatformFee = Object.assign({}, platformFee, {ProductIds: ids.join(',')} )
+            const newplatformFee = Object.assign({}, platformFee, { ProductIds: arrId.join(',')} )
             newPlatformFeeList.push(newplatformFee);
         })
-        props.setSelectedGroup({PlatformFeeList: newPlatformFeeList}); 
+        props.setSelectedGroup({PlatformFeeList: newPlatformFeeList});
     }
 
     const getPlatformFeeListIds = (curSelProductIds, prePlatformFeeIds) => {

@@ -46,7 +46,7 @@ export class DeductionSetting extends Component {
 
         return (
             <fieldset>
-                <legend><h6 className="font-weight-bold">Deductions</h6></legend>
+                <legend><h6 className="font-weight-bold">Tier Rated Products Deduction</h6></legend>
                 <PlatformFeeSetting />
 
                 <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"

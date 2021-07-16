@@ -131,12 +131,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 UniqueClick = reader.ToInt("UniqueClick"),
                 Signup = reader.ToInt("Signup"),
                 Fdm = reader.ToInt("FDM"),
-                ActiveMember = reader.ToInt("ActiveMember"),
-                QualifiedMember = reader.ToInt("QualifiedMember"),
+                ActiveMember = reader.ToInt("ActivePlayer"),
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 Turnover = reader.ToDecimal("Turnover"),
-                Winlost = reader.ToDecimal("Winlost"),
+                Winlost = reader.ToDecimal("Winloss"),
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate"),
                 PlatformFee = reader.ToDecimal("PlatformFee"),
@@ -151,7 +150,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 BalanceBf = reader.ToDecimal("BFF"),
                 NoOfSubAff = reader.ToInt("NoOfSubAff"),
                 SubAffEarning = reader.ToDecimal("SubAffEarning"),
-                P2pEarning = reader.HasColumn("P2pEarning") ? reader.ToDecimal("P2pEarning") : 0m
+                P2pEarning = reader.ToDecimal("P2PEarning")
             };
         }
     }

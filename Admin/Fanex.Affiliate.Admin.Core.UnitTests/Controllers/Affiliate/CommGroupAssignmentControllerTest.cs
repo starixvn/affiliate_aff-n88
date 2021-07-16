@@ -72,13 +72,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         {
             // Arrange
             var assignParam = new AssignGroupParam { AffId = 1271808, GroupId = 133 };
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             const string ErrorMessage1 = "ErrorMessage1";
             var controller = CreateCommGroupAssignmentController();
             controller.ModelState.AddModelError("Error01", ErrorMessage1);
             var expectResult = new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = ErrorMessage1
             };
             // Action
@@ -96,11 +96,11 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         {
             // Arrange
             var assignParam = new AssignGroupParam { AffId = 1271808 };
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             var controller = CreateCommGroupAssignmentController();
             var expectResult = new ResultInfo
             {
-                Code = Code.GeneralErrorCode
+                Code = ErrCode.GeneralErrorCode
             };
             // Action
             var jsonNetResult = controller.AssignGroup(assignParam, affInfo) as JsonNetResult;
@@ -128,7 +128,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             DependencyResolver.SetResolver(resolver);
 
             var assignParam = new AssignGroupParam { AffId = 1271808, GroupId = 133 };
-            var affInfo = new AffiliateBasicInfo();
+            var affInfo = new AffInfoParam();
             var commGroupAssignmentService = new Mock<ICommGroupAssignmentService>();
             commGroupAssignmentService.Setup(c => c.AssignGroup(It.IsAny<AssignGroupParam>(), affInfo, It.IsAny<AffInformationEmail>())).Returns(new ResultInfo());
             var controller = CreateCommGroupAssignmentController(commGroupAssignmentService: commGroupAssignmentService.Object);
@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             // Arrange
             int affId = 1271808;
             var productList = new List<Product> { new Product { ProductId = 123, ProductName = "Casino" } };
-            var deductionList = new List<Deduction> { new Deduction { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m, IsDeductedPercent = true, DeductedAmount = "" } };
+            var deductionList = new List<TierDeduction> { new TierDeduction { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m, IsDeductedPercent = true, DeductedAmount = "" } };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(productList);
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
@@ -186,14 +186,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         public void AssignPrivateGroup_WhenCallPostWithInvalidParam_ReturnError()
         {
             // Arrange
-            var commGroup = new CommissionGroupSetting();
-            var affInfo = new AffiliateBasicInfo();
+            var commGroup = new CommGroupSettingParam();
+            var affInfo = new AffInfoParam();
             const string ErrorMessage1 = "ErrorMessage1";
             var controller = CreateCommGroupAssignmentController();
             controller.ModelState.AddModelError("Error01", ErrorMessage1);
             var expectResult = new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = ErrorMessage1
             };
             // Action
@@ -210,8 +210,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
         public void AssignPrivateGroup_WhenCallWithInvalidPlatformFee_ExcuteIncorrect()
         {
             // Arrange
-            var commGroup = CreateCommissionGroupSetting();
-            var affInfo = new AffiliateBasicInfo { AffId = 1271808 };
+            var commGroup = CreateCommGroupSettingParam();
+            var affInfo = new AffInfoParam { AffId = 1271808 };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product>
             {
@@ -221,7 +221,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             });
 
             var commGroupValidation = new Mock<ICommGroupValidation>();
-            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommissionGroupSetting>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommGroupSettingParam>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });
 
             var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupValidation: commGroupValidation.Object);
 
@@ -249,8 +249,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var resolver = new AutofacDependencyResolver(container, scopeProvider);
             DependencyResolver.SetResolver(resolver);
 
-            var commGroup = CreateCommissionGroupSetting();
-            var affInfo = new AffiliateBasicInfo { AffId = 1271808 };
+            var commGroup = CreateCommGroupSettingParam();
+            var affInfo = new AffInfoParam { AffId = 1271808 };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product>
             {
@@ -262,7 +262,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             commGroupAssignmentService.Setup(c => c.AssignPrivateGroup(It.IsAny<CreateUpdateCommissionGroupParam>(), affInfo, It.IsAny<AffInformationEmail>())).Returns(new ResultInfo());
 
             var commGroupValidation = new Mock<ICommGroupValidation>();
-            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommissionGroupSetting>())).Returns(new ResultInfo());
+            commGroupValidation.Setup(e => e.ValidateCommGroup(It.IsAny<CommGroupSettingParam>())).Returns(new ResultInfo());
 
             var controller = CreateCommGroupAssignmentController(productRepository: productRepository.Object, commGroupAssignmentService: commGroupAssignmentService.Object, commGroupValidation: commGroupValidation.Object);
 
@@ -313,9 +313,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             return controller;
         }
 
-        private static CommissionGroupSetting CreateCommissionGroupSetting()
+        private static CommGroupSettingParam CreateCommGroupSettingParam()
         {
-            return new CommissionGroupSetting
+            return new CommGroupSettingParam
             {
                 Description = "Test",
                 GroupId = 0,

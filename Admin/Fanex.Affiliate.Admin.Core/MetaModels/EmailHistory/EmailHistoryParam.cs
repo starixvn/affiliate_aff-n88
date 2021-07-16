@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.EmailHistory
 {
     public class EmailHistoryParam
     {
-        [Range(Validation.MinSearchBy, Validation.MaxSearchBy)]
+        [Range(Validation.Zero, Validation.MaxSearchBy)]
         public int SearchById { get; set; }
 
         public bool IsGetAll { get; set; }

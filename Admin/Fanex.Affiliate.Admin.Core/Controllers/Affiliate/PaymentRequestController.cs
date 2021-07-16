@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Transaction not exists!"
                 }
             };

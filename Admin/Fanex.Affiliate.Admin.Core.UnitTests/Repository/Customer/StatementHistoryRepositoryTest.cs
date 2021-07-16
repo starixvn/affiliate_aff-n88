@@ -286,7 +286,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
             {
                 ["Deposit"] = 123,
                 ["Withdrawal"] = 123,
-                ["MemberWinLost"] = 123,
+                ["Winloss"] = 123,
                 ["Bonus"] = 123,
                 ["BankingFee"] = 123,
             };
@@ -298,7 +298,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
             {
                 ["Deposit"] = 123,
                 ["Withdrawal"] = 123,
-                ["MemberWinLost"] = 123,
+                ["Winloss"] = 123,
                 ["Bonus"] = 123,
                 ["BankingFee"] = DBNull.Value,
                 ["WinlostDate"] = new DateTime(2019, 11, 22)
@@ -312,7 +312,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
                 ["CustId"] = 123,
                 ["UserName"] = "abc",
                 ["IBCUsername"] = "abc",
-                ["Winlost"] = 123,
+                ["Winloss"] = 123,
                 ["Deposit"] = 123,
                 ["Withdrawal"] = 123,
                 ["Bonus"] = 123,

@@ -42,7 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Single(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
-            Assert.Empty(result.DeductionSettingList);
+            Assert.Empty(result.TierDeductionSettingList);
             Assert.Equal("07/11/2018 00:00:00", commGroupItem.CreatedDateText);
         }
 
@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Empty(result.CommGroupList);
             Assert.Single(result.TierSettingList);
-            Assert.Empty(result.DeductionSettingList);
+            Assert.Empty(result.TierDeductionSettingList);
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Empty(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
-            Assert.Single(result.DeductionSettingList);
+            Assert.Single(result.TierDeductionSettingList);
         }
 
         [Fact]
@@ -282,7 +282,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetDeductionList();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<Deduction>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<DeductionItem>(null, null, true, 120), Times.Once);
         }
 
         [Fact]

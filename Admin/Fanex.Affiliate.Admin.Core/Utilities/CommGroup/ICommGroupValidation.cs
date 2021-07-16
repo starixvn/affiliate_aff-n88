@@ -1,10 +1,10 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
+using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 
 namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
 {
     public interface ICommGroupValidation
     {
-        ResultInfo ValidateCommGroup(CommissionGroupSetting commGroup);
+        ResultInfo ValidateCommGroup(CommGroupSettingParam commGroup);
     }
 }

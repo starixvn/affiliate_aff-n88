@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Moq;
 using System;
@@ -33,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         NoAffs = 2
                     }
                 },
-                DeductionSettingList = new List<DeductionSetting>
+                TierDeductionSettingList = new List<DeductionSetting>
                 {
                     new DeductionSetting
                     {

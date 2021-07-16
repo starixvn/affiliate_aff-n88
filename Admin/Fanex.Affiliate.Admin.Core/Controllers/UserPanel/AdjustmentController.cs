@@ -70,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                 {
                     Data = new ResultInfo
                     {
-                        Code = Code.GeneralErrorCode,
+                        Code = ErrCode.GeneralErrorCode,
                         Message = Lang.AmountIsInvalid
                     }
                 };
@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Affiliate not exists!"
                 }
             };
