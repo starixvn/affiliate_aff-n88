@@ -55,13 +55,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var result = actionResult.Model as DailyEarningViewModel;
 
             var expectSelectedProduct = 1;
-            var expectHasDailyDetail = false;
             var expectIsKoreanAgentCommGroup = false;
 
 
             //Assert
             Assert.Equal(expectSelectedProduct, result.SelectedProduct);
-            Assert.Equal(expectHasDailyDetail, result.HasDailyDetail);
             Assert.Equal(expectIsKoreanAgentCommGroup, result.IsKoreanAgentCommGroup);
             Assert.Equal(expectProductList, result.ProductList);
             Assert.Equal(expectDailyEarningResult, result.Data);

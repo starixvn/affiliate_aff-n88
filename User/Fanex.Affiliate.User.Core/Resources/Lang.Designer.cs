@@ -4382,7 +4382,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to (P2P included).
+        ///   Looks up a localized string similar to Revenue Share (P2P included).
         /// </summary>
         public static string P2pIncluded {
             get {

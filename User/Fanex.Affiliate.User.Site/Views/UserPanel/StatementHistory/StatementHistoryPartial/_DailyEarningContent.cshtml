@@ -2,7 +2,6 @@
     Layout = null;
 }
 
-@using Fanex.Affiliate.User.Core.Constants
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.DailyEarningViewModel
 
 <table>
@@ -29,16 +28,7 @@
                 <tr>
                     <td>@index</td>
                     <td class="text-center">
-                        @if (Model.HasDailyDetail)
-                        {
-                            <a class="dateItem" data-date="@date" data-sporttype="@Model.SelectedProduct" href="javascript:;">
-                                @date
-                            </a>
-                        }
-                        else
-                        {
-                            @date
-                        }
+                        @date
                     </td>
                     <td class="text-right">@item.Deposit.ToStringMoneyWithSymbol()</td>
 
@@ -48,14 +38,7 @@
                     }
 
                     <td class="text-right">
-                        @if (Model.HasDailyDetail)
-                        {
-                            @item.MemberWinLost.ToStringMoneyWithSymbol()
-                        }
-                        else
-                        {
-                            @item.MemberWinLostFake.ToStringMoneyWithSymbol()
-                        }
+                        @item.MemberWinLost.ToStringMoneyWithSymbol()
                     </td>
                     <td class="text-right">@item.Bonus.ToStringMoneyWithSymbol()</td>
                     <td class="text-right">@item.Rebate.ToStringMoneyWithSymbol()</td>
@@ -69,32 +52,25 @@
         @if (Model.Data.Total != null)
         {
             var total = Model.Data.Total;
-    <tr class="total">
-        <td class="text-center" colspan="2">@Lang.Total</td>
-        <td class="text-right">@total.Deposit.ToStringMoneyWithSymbol()</td>
+            <tr class="total">
+                <td class="text-center" colspan="2">@Lang.Total</td>
+                <td class="text-right">@total.Deposit.ToStringMoneyWithSymbol()</td>
 
-        @if (Model.IsKoreanAgentCommGroup)
-        {
-            <td class="text-right">@total.Withdrawal.ToStringMoneyWithSymbol()</td>
-        }
+                @if (Model.IsKoreanAgentCommGroup)
+                {
+                    <td class="text-right">@total.Withdrawal.ToStringMoneyWithSymbol()</td>
+                }
 
-        <td class="text-right">
-            @if (Model.HasDailyDetail)
-            {
-                @total.MemberWinLost.ToStringMoneyWithSymbol()
-            }
-            else
-            {
-                @total.MemberWinLostFake.ToStringMoneyWithSymbol()
-            }
-        </td>
-        <td class="text-right">@total.Bonus.ToStringMoneyWithSymbol()</td>
-        <td class="text-right">@total.Rebate.ToStringMoneyWithSymbol()</td>
-    </tr>
+                <td class="text-right">
+                    @total.MemberWinLost.ToStringMoneyWithSymbol()
+                </td>
+                <td class="text-right">@total.Bonus.ToStringMoneyWithSymbol()</td>
+                <td class="text-right">@total.Rebate.ToStringMoneyWithSymbol()</td>
+            </tr>
         }
     </tbody>
 </table>
-@if(!Model.Data.MainDataList.Any())
+@if(!Model.Data.MainDataList.Any() && Model.Data.Total == null)
 {
     <p class="text-center">@Lang.NoInfo</p>
 }

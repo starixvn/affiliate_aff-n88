@@ -56,8 +56,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 Turnover = model.Sum(item => item.Turnover),
                 Winloss = model.Sum(item => item.Winloss),
                 Withdrawal = model.Sum(item => item.Withdrawal),
-                DepositedMembers = model.Sum(item => item.DepositedMembers),
-                QualifiedActiveMembers = model.Sum(item => item.QualifiedActiveMembers),
+                DepositedMembers = model.Sum(item => item.DepositedMembers)
             };
 
             return PartialView("~/Views/UserPanel/AccountOverView/Summary/Overview.cshtml", model.Concat(new List<OverviewDetail> { itemTotal }));
