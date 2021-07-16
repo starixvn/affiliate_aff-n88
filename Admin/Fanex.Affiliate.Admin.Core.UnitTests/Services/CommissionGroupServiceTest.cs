@@ -32,6 +32,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         NoAffs = 2
                     }
                 },
+                P2pDeductionSettingList = new List<DeductionSetting>
+                {
+                    new DeductionSetting
+                    {
+                        GroupId = 101,
+                        DeductionId = 1,
+                        DeductionName = "DeductionName",
+                        ProductIds = "1,2,3",
+                        DeductedPercentage = 0.7m,
+                        Commission = 0.1m
+                    }
+                },
                 TierDeductionSettingList = new List<DeductionSetting>
                 {
                     new DeductionSetting

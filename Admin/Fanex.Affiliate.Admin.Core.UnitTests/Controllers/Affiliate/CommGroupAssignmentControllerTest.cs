@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             // Arrange
             int affId = 1271808;
             var productList = new List<Product> { new Product { ProductId = 123, ProductName = "Casino" } };
-            var deductionList = new List<TierDeduction> { new TierDeduction { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m, IsDeductedPercent = true, DeductedAmount = "" } };
+            var deductionList = new List<DeductionItem> { new DeductionItem { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m, IsDeductedPercent = true, DeductedAmount = "" } };
             var productRepository = new Mock<IProductRepository>();
             productRepository.Setup(p => p.GetProductList()).Returns(productList);
             var commGroupCommonService = new Mock<ICommGroupCommonService>();

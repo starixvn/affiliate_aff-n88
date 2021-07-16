@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
 
             // Action
             var result = controller.GetCommissionGroup(param) as JsonNetResult;
-            var model = result.Data as CommGroupSettingParam;
+            var model = result.Data as CommissionGroupSetting;
 
             // Assert
             Assert.Equal(param.GroupId, model.GroupId);

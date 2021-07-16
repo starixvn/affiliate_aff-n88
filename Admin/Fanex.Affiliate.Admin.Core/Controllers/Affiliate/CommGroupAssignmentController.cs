@@ -132,6 +132,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     GroupName = affInfo.UserName,
                     Description = PrivateGroupName,
                     TierSettingList = commGroup.TierSettingList,
+                    P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
                     DepositFee = commGroup.DepositFee,

@@ -286,6 +286,16 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     IsDeductedPercent = false,
                     DeductedAmount = "123"
                 },
+                P2pDeductionList = new List<P2pDeductionSettingParam>
+                {
+                    new P2pDeductionSettingParam
+                    {
+                        DeductedPercentage = 0.17m,
+                        DeductionId = 10,
+                        ProductIds = "1,2,3",
+                        Commission = 0.1m
+                    }
+                },
                 PlatformFeeList = new List<TierDeductionSettingParam>
                 {
                     new TierDeductionSettingParam

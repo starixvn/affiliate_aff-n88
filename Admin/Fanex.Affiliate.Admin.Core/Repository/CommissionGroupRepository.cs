@@ -252,14 +252,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             return deductionSettingList;
         }
 
-        private static IEnumerable<P2pDeductionSetting> GetP2pDeductionSettingList(IDataReader reader)
+        private static IEnumerable<DeductionSetting> GetP2pDeductionSettingList(IDataReader reader)
         {
-            var p2pDeductionSettingList = new List<P2pDeductionSetting>();
+            var p2pDeductionSettingList = new List<DeductionSetting>();
             if (reader.NextResult())
             {
                 while (reader.Read())
                 {
-                    p2pDeductionSettingList.Add(new P2pDeductionSetting
+                    p2pDeductionSettingList.Add(new DeductionSetting
                     {
                         GroupId = reader.ToInt(Field.GroupId),
                         DeductionId = Deduction.P2pDeductionId,
