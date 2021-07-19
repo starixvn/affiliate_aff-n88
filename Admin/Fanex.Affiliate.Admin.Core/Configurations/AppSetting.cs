@@ -42,7 +42,6 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string GetAppMailIdByShortedLanguageCode(string shortedLanguageCode) => GetValue("app_mail_id_" + shortedLanguageCode) ?? AppMailId;
 
-
         public string SentryDsn => GetValue("Dsn");
 
         public string LoggingCategory => GetValue("LoggingCategory");
@@ -82,6 +81,11 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        public string AffSiteUrl => GetValue("AffSiteUrl");
+
+        [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]
+        public string GetAffSiteUrlByShortedLanguageCode(string shortedLanguageCode) => GetValue("AffSiteUrl_" + shortedLanguageCode) ?? AffSiteUrl;
 
     }
 }
