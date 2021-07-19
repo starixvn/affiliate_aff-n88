@@ -141,7 +141,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                     {
                         MailContact = mailContact,
                         SiteFriendlyName = _appSetting.SiteFriendlyName,
-                        UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(AffType.Asian),
+                        UserSiteUrl = _appSetting.GetAffSiteUrlByShortedLanguageCode(shortedLanguageCode),
                         FirstName = _firstName,
                         UserName = "NOVA00000",
                         Password = "qwrfsdg"

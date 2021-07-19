@@ -77,5 +77,10 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         bool IsUseMemberSiteProxy { get; }
 
+        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        string AffSiteUrl { get; }
+
+        [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]
+        string GetAffSiteUrlByShortedLanguageCode(string shortedLanguageCode);
     }
 }

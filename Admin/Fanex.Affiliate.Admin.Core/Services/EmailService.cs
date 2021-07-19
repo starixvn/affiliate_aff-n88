@@ -36,12 +36,13 @@ namespace Fanex.Affiliate.Admin.Core.Services
         {
             const string TemplateName = "AffiliateInformation";
             var language = emailParam.Language;
+            var shortedLanguageCode = GetShortedLanguageCode(language);
 
             var model = new AffInformationEmail
             {
-                MailContact = GetMailContactByLanguageCode(language),
+                MailContact = GetMailContactByLanguageCode(shortedLanguageCode),
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
-                UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(2),
+                UserSiteUrl = _appSetting.GetAffSiteUrlByShortedLanguageCode(shortedLanguageCode),
                 FirstName = emailParam.FirstName,
                 UserName = emailParam.UserName,
                 Password = emailParam.Password,
@@ -53,7 +54,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffInfor, language, emailParam.RootUrl) :
                 content;
-            var appMailId = GetAppMailIdByLanguageCode(language);
+            var appMailId = GetAppMailIdByLanguageCode(shortedLanguageCode);
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffInfor, _appSetting.BccMail, _appSetting.CcMail, appMailId);
         }
@@ -86,7 +87,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
         {
             var language = emailParam.Language;
             _languageService.SetCulture(language);
-            emailParam.MailContact = GetMailContactByLanguageCode(language);
+            var shortedLanguageCode = GetShortedLanguageCode(language);
+            emailParam.MailContact = GetMailContactByLanguageCode(shortedLanguageCode);
             emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             emailParam.DefaultCurrency = _appSetting.DefaultCurrency;
 
@@ -101,7 +103,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, title, language, emailParam.RootUrl) :
                 content;
-            var appMailId = GetAppMailIdByLanguageCode(language);
+            var appMailId = GetAppMailIdByLanguageCode(shortedLanguageCode);
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, subject, _appSetting.BccMail, _appSetting.CcMail, appMailId);
             _languageService.SetCulture(_appSetting.DefaultLanguageCode);
@@ -118,10 +120,11 @@ namespace Fanex.Affiliate.Admin.Core.Services
         {
             const string TemplateName = "AffiliateDisapproved";
             var language = emailParam.Language;
+            var shortedLanguageCode = GetShortedLanguageCode(language);
 
             var model = new AffInformationEmail
             {
-                MailContact = GetMailContactByLanguageCode(language),
+                MailContact = GetMailContactByLanguageCode(shortedLanguageCode),
                 SiteFriendlyName = _appSetting.SiteFriendlyName,
                 FirstName = emailParam.FirstName
             };
@@ -131,22 +134,18 @@ namespace Fanex.Affiliate.Admin.Core.Services
             var contentToSend = emailParam.IsHtml ?
                 GetEmailHtmlContent(content, Lang.EmailTitleAffDisapproved, language, emailParam.RootUrl) :
                 content;
-            var appMailId = GetAppMailIdByLanguageCode(language);
+            var appMailId = GetAppMailIdByLanguageCode(shortedLanguageCode);
 
             _mailProcessor.Send(contentToSend, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, _appSetting.BccMail, _appSetting.CcMail, appMailId);
         }
 
-        private string GetMailContactByLanguageCode(string languageCode)
+        private string GetMailContactByLanguageCode(string shortedLanguageCode)
         {
-            var shortedLanguageCode = GetShortedLanguageCode(languageCode);
-
             return _appSetting.GetMailContactByShortedLanguageCode(shortedLanguageCode);
         }
 
-        private int GetAppMailIdByLanguageCode(string languageCode)
+        private int GetAppMailIdByLanguageCode(string shortedLanguageCode)
         {
-            var shortedLanguageCode = GetShortedLanguageCode(languageCode);
-
             return Convert.ToInt32(_appSetting.GetAppMailIdByShortedLanguageCode(shortedLanguageCode));
         }
 
