@@ -20,12 +20,11 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal Rebate { get; set; }
         public decimal CommissionRate { get; set; }
         public decimal Commission { get; set; }
-        public decimal P2PCommission { get; set; }
+        public decimal P2pCommission { get; set; }
         public decimal SubAffCommission { get; set; }
         public int CalculatedType { get; set; }
 
         [SpParam(Ignored = true)]
-        public decimal TotalCommission => Commission + P2PCommission + SubAffCommission;
-
+        public decimal TotalCommission => Commission + P2pCommission + SubAffCommission;
     }
 }

@@ -154,7 +154,7 @@ var commissionReport = (function ($) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
-                rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pRevenueShare)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
@@ -182,7 +182,7 @@ var commissionReport = (function ($) {
                     _me.buildCell(formatDecimal(dataRow.Rebate)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
-                    _me.buildCell(formatDecimal(dataRow.P2pRevenueShare)) +
+                    _me.buildCell(formatDecimal(dataRow.P2pCommission)) +
                     (langResource.isMaxLevel ? '' : _me.buildCell(formatDecimal(dataRow.SubAffCommission))) +
                     _me.buildCell(formatDecimal(dataRow.TotalCommission)) +
                     '</tr>';
