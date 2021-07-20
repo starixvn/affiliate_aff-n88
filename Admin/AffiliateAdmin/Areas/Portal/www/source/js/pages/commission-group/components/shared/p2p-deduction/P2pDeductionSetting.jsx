@@ -112,6 +112,8 @@ export class P2pProductSetting extends PureComponent {
             return newItem;
         });
 
+        const isOnlyOneP2pDeductionRow = p2pDeductionData.length === 1;
+
         return (
             <fieldset className="p2p-product-group">
                 <legend><h6 className="font-weight-bold">P2P Products Deduction</h6></legend>
@@ -122,6 +124,7 @@ export class P2pProductSetting extends PureComponent {
 
                         return (
                             <P2pDeductionItem data={item} key={`p2p-${i}`}
+                                isOnlyOneP2pDeductionRow={isOnlyOneP2pDeductionRow}
                                 onSelectProduct={(selectedItem) => this.handleSelect(i, selectedItem)}
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,7 +9,7 @@ import { deepClone, updateObjectInArray } from "../../../../../modules/dataHandl
 import { FIRST_ITEM_INDEX } from '../../../modules/constant';
 import { convertProductList, createDefaultPlatformfee, getDeductionSetting } from '../../../modules/service';
 
-export class PlatformFeeSetting extends Component {
+export class PlatformFeeSetting extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -70,14 +70,16 @@ export class PlatformFeeSetting extends Component {
                 }
             }
             else {
-                platformFeeList[index].ProductIds = platformFeeList[index].ProductIds.split(',')
-                    .filter(p => p && p !== selectedItem.ProductId.toString())
-                    .join(',');
+                if (index == FIRST_ITEM_INDEX) {
+                    platformFeeList[index].ProductIds = platformFeeList[index].ProductIds.split(',')
+                        .filter(p => p && p !== selectedItem.ProductId.toString())
+                        .join(',');
 
-                const firstItemProductIds = platformFeeList[0].ProductIds.split(',').filter(p => !!p);
-                firstItemProductIds.push(selectedItem.ProductId.toString());
+                    const firstItemProductIds = platformFeeList[0].ProductIds.split(',').filter(p => !!p);
+                    firstItemProductIds.push(selectedItem.ProductId.toString());
 
-                platformFeeList[0].ProductIds = firstItemProductIds.join(',');
+                    platformFeeList[0].ProductIds = firstItemProductIds.join(',');
+                }
             }
         }
 
@@ -105,7 +107,7 @@ export class PlatformFeeSetting extends Component {
             }
         });
 
-        const isDisable = platformFeeData.length === 1;
+        const isOnlyPlatformFeeRow = platformFeeData.length === 1;
 
         return (
             <div className="platformfee-group">
@@ -116,7 +118,8 @@ export class PlatformFeeSetting extends Component {
                         const handleClick = isFirst ? this.handleAdd : () => this.handleRemove(i);
 
                         return (
-                            <PlatformFeeItem data={item} key={`platformfee-${i}`} isDisable={isDisable}
+                            <PlatformFeeItem data={item} key={`platformfee-${i}`}
+                                isOnlyPlatformFeeRow={isOnlyPlatformFeeRow}
                                 onSelectProduct={(selectedItem) => this.handleSelect(i, selectedItem)}
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}

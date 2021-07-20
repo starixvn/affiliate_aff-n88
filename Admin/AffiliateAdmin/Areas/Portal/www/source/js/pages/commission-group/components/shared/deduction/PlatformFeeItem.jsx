@@ -19,10 +19,10 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText, isDisable, isFirst } = this.props;
+        const { data, handleClick, btnText, isOnlyPlatformFeeRow, isFirst } = this.props;
 
         const { productList, commission } = data;
-        const isValid = isFirst || productList.filter(p => !p.Checked).length < productList.length;
+        const isValid = (isFirst && isOnlyPlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
         const isDisableAddButton = isFirst && productList.length < 2;
 
         return (
@@ -35,11 +35,11 @@ export default class PlatformFeeItem extends React.Component {
                             valueField="ProductName"
                             statusField="Checked"
                             hasAllOption={false}
-                            hasInputOption={!isDisable}
+                            hasInputOption={!isOnlyPlatformFeeRow}
                             maxDisplayItemCount={1}
-                            noneSelectedLabel="Please Select"
+                            noneSelectedLabel={isFirst ? "None" : "Please Select"}
                             onChange={this.handleChange}
-                            isDisable={isDisable} />
+                            isDisable={isOnlyPlatformFeeRow} />
                     </div>
                 </Col>
                 <Col sm={7}>

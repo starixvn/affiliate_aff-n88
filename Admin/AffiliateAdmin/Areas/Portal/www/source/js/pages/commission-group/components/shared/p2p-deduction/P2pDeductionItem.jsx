@@ -21,10 +21,10 @@ export default class P2pDeductionItem extends PureComponent {
     }
 
     render() {
-        const { data, handleClick, btnText, isFirst } = this.props;
+        const { data, handleClick, btnText, isOnlyOneP2pDeductionRow, isFirst } = this.props;
 
         const { productList, deductedPercentage, commission } = data;
-        const isValid = isFirst || productList.filter(p => !p.Checked).length < productList.length;
+        const isValid = (isFirst && isOnlyOneP2pDeductionRow) || productList.filter(p => !p.Checked).length < productList.length;
 
         return (
             <FormGroup row className="align-items-center">
@@ -38,14 +38,14 @@ export default class P2pDeductionItem extends PureComponent {
                             hasAllOption={false}
                             hasInputOption={true}
                             maxDisplayItemCount={1}
-                            noneSelectedLabel="None"
+                            noneSelectedLabel={isFirst ? "None" : "Please Select"}
                             onChange={this.handleChange} />
                     </div>
                 </Col>
                 <Col sm={4}>
                     <Form inline>
                         <FormGroup className="mr-2">
-                            <Label>Royal Fee</Label>
+                            <Label>Royalty Fee</Label>
                         </FormGroup>
                         <DeductedPercentageGroup
                             value={deductedPercentage}
