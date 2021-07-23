@@ -65,7 +65,7 @@ export class Content extends Component {
         const { reportTitle, isN8B } = this.props;
 
         return (
-            <div className="data-content my-2">
+            <div className="data-content my-2 report-content-container">
                 {
                     reportTitle && (
                         <React.Fragment>

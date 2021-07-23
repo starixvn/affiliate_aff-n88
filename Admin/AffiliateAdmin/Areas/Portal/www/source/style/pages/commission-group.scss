@@ -7,10 +7,6 @@
             margin-left: 3px;
         }
 
-        .label-amount {
-            margin-left: 0.175rem;
-        }
-
         .deducted-amount {
             margin-left: -3.15rem;
         }
@@ -80,8 +76,13 @@
         }
     }
 
-    .label-amount {
-        margin-right: 0.705rem;
+    .label-group {
+        flex-basis: 28.5%;
+
+        .label-amount {
+            flex: 1;
+            text-align: right;
+        }
     }
 
     .deducted-amount {

@@ -65,7 +65,7 @@ export default class FeeSettingItem extends React.Component {
                             <Fragment>
                                 <Col sm={4}>
                                     <Form inline>
-                                        <FormGroup className="ml-2">
+                                        <FormGroup className="label-group">
                                             <Label className="label-amount">Amount</Label>
                                         </FormGroup>
                                         <FormGroup>
