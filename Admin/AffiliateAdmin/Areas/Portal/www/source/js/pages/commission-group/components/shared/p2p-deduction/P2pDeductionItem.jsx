@@ -42,7 +42,7 @@ export default class P2pDeductionItem extends PureComponent {
                             onChange={this.handleChange} />
                     </div>
                 </Col>
-                <Col sm={4}>
+                <Col sm={7}>
                     <Form inline>
                         <FormGroup className="mr-2">
                             <Label>Royalty Fee</Label>
@@ -51,14 +51,10 @@ export default class P2pDeductionItem extends PureComponent {
                             value={deductedPercentage}
                             label="| Revenue |"
                             handleChange={this.handleChangeComm} />
-                    </Form>
-                </Col>
-                <Col sm={3}>
-                    <Form inline>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0 fixed-rate">
                             <Label>Fixed Rate</Label>
                         </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                        <FormGroup className="mb-2 mb-sm-0">
                             <select name="Commission" className="form-control"
                                 value={format(commission || 0, 3)}
                                 onChange={this.handleChangeComm} style={{ width: 70 }}>

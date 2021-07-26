@@ -50,10 +50,14 @@ describe('commission group - assign private group', () => {
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
+            { ProductId: 2, ProductName: "Poker" },
             { ProductId: 3, ProductName: "Playtech Casino" },
             { ProductId: 4, ProductName: "Number Game" },
-            { ProductId: 5, ProductName: "Virtual Sports" },
-            { ProductId: 6, ProductName: "Keno" }
+            { ProductId: 5, ProductName: "V8 Poker" }
+        ],
+        p2pProductList: [
+            { ProductId: 2, ProductName: "Poker" },
+            { ProductId: 5, ProductName: "V8 Poker" }
         ],
         setSelectedGroup: jest.fn(),
         selectedProductIds,

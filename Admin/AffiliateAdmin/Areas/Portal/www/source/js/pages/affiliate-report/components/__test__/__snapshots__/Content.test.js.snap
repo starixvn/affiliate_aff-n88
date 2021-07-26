@@ -2,7 +2,7 @@
 
 exports[`affiliate report - Content  N8B - should render correctly when currentViewLevel is Main view 1`] = `
 <div
-  className="data-content my-2"
+  className="data-content my-2 report-content-container"
 >
   <p
     className="affiliate-report-note"
@@ -34,7 +34,7 @@ exports[`affiliate report - Content  N8B - should render correctly when currentV
 
 exports[`affiliate report - Content  should render correctly when currentViewLevel is Main view 1`] = `
 <div
-  className="data-content my-2"
+  className="data-content my-2 report-content-container"
 >
   <ReportTitle
     content={
@@ -61,7 +61,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
 
 exports[`affiliate report - Content  should render correctly when currentViewLevel is Month on Month view 1`] = `
 <div
-  className="data-content my-2"
+  className="data-content my-2 report-content-container"
 >
   <ReportTitle
     content={

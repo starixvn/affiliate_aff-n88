@@ -283,6 +283,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\P2pDeductionItem.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\P2pDeductionSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\__test__\redux\P2pDeductionSetting.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\ProductList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\domain\sub-aff-domain\actions\index.js" />

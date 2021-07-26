@@ -24,8 +24,14 @@ describe('commission group - AddGroup', () => {
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
+            { ProductId: 2, ProductName: "Poker" },
             { ProductId: 3, ProductName: "Playtech Casino" },
-            { ProductId: 4, ProductName: "Number Game" }
+            { ProductId: 4, ProductName: "Number Game" },
+            { ProductId: 5, ProductName: "V8 Poker" }
+        ],
+        p2pProductList: [
+            { ProductId: 2, ProductName: "Poker" },
+            { ProductId: 5, ProductName: "V8 Poker" }
         ],
         selectedGroup: {
             DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },

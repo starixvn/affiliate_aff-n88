@@ -631,17 +631,6 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={150}
-      header={true}
-      onClick={[Function]}
-      rowSpan="2"
-      sortable={false}
-      sorting={false}
-    >
-      Product
-    </t>
-    <t
-      asc={true}
       colSpan="10"
       header={true}
       onClick={[Function]}
@@ -652,7 +641,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
-      colWidth={70}
+      colWidth={50}
       header={true}
       onClick={[Function]}
       rowSpan="2"
@@ -667,7 +656,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
   >
     <t
       asc={true}
-      colWidth={80}
+      colWidth={150}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -675,7 +664,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     />
     <t
       asc={true}
-      colWidth={80}
+      colWidth={50}
       header={true}
       onClick={[Function]}
       sortable={false}
@@ -1284,7 +1273,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             <t
               asc={true}
               className="text-center"
-              colSpan="14"
+              colSpan="16"
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -1355,17 +1344,6 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={150}
-              header={true}
-              onClick={[Function]}
-              rowSpan="2"
-              sortable={false}
-              sorting={false}
-            >
-              Product
-            </t>
-            <t
-              asc={true}
               colSpan="10"
               header={true}
               onClick={[Function]}
@@ -1376,7 +1354,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             </t>
             <t
               asc={true}
-              colWidth={70}
+              colWidth={50}
               header={true}
               onClick={[Function]}
               rowSpan="2"
@@ -1389,7 +1367,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
           <t>
             <t
               asc={true}
-              colWidth={80}
+              colWidth={150}
               header={true}
               onClick={[Function]}
               sortable={false}
@@ -1397,7 +1375,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             />
             <t
               asc={true}
-              colWidth={80}
+              colWidth={50}
               header={true}
               onClick={[Function]}
               sortable={false}

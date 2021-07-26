@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Button } from 'reactstrap';
-import { Pager, Row, Cell } from '@9softstudio/react-fixed-table-header';
+import { Pager } from '@9softstudio/react-fixed-table-header';
 
 import { format, formatDecimal } from '../../../modules/numberFormat';
 import { setPagingOption, setViewLevel, setParam } from '../actions';
@@ -149,8 +149,8 @@ export class GridData extends PureComponent {
             (isMainView ? dataItem.UserName : this._buildMonthCell(dataItem.MonthDateString, dataItem.Description));
 
         return (
-            <Row key={`dataRow-${index}`}>
-                <Cell className="freeze-column" title={firstColValue}>{firstColValue}</Cell>
+            <tr key={`dataRow-${index}`}>
+                <td className="freeze-column" title={firstColValue}>{firstColValue}</td>
                 {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow)}
                 {
                     isMainView && (
@@ -160,7 +160,7 @@ export class GridData extends PureComponent {
                                     onClick={() => this.handleViewMonthOnMonth(dataItem.UserName)}>View</Button>) : ''}
                         </td>)
                 }
-            </Row>
+            </tr>
         )
     }
 
