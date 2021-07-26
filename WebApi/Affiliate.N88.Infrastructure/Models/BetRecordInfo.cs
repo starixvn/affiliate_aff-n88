@@ -43,5 +43,9 @@ namespace Affiliate.N88.Models
         public int? BonusId { get; set; }
 
         public decimal? Revenue { get; set; }
+
+        public decimal? ProgressiveBet { get; set; }
+
+        public decimal? ProgressiveWin { get; set; }
     }
 }
