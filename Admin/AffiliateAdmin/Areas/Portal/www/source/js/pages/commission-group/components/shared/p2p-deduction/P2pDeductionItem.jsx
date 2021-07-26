@@ -38,7 +38,7 @@ export default class P2pDeductionItem extends PureComponent {
                             hasAllOption={false}
                             hasInputOption={true}
                             maxDisplayItemCount={1}
-                            noneSelectedLabel={isFirst ? "None" : "Please Select"}
+                            noneSelectedLabel={isValid ? "None" : "Please Select"}
                             onChange={this.handleChange} />
                     </div>
                 </Col>

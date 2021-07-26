@@ -37,7 +37,7 @@ export default class PlatformFeeItem extends React.Component {
                             hasAllOption={false}
                             hasInputOption={!isOnlyPlatformFeeRow}
                             maxDisplayItemCount={1}
-                            noneSelectedLabel={isFirst ? "None" : "Please Select"}
+                            noneSelectedLabel={isValid ? "None" : "Please Select"}
                             onChange={this.handleChange}
                             isDisable={isOnlyPlatformFeeRow} />
                     </div>
