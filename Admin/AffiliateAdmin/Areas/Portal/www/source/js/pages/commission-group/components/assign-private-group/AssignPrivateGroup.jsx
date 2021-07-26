@@ -116,7 +116,7 @@ export class AssignPrivateGroup extends React.Component {
         const { affInfo, selectedGroup } = this.props;
 
         return affInfo && selectedGroup && (
-            <div className="comm-popup-container" style={{ padding: 10 }}>
+            <div className="comm-popup-container" style={{ padding: 3 }}>
                 <Loader show={isShowLoader} />
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
