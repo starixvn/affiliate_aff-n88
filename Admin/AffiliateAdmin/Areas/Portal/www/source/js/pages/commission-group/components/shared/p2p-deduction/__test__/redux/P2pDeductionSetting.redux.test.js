@@ -15,17 +15,17 @@ describe('commission group - P2pDeductionSetting - connect', () => {
             selectedGroup: {}
         }
         store = mockStore(initialState)
-        wrapper = shallow(<P2pDeductionSetting store={store} />)
+        wrapper = shallow(<P2pDeductionSetting store={store} />).dive()
     })
 
     it('should show correct value', () => {
-        expect(wrapper.props().productList).toEquals({})
+        expect(wrapper.props().selectedGroup).toEqual({})
     })
 
     it('should call correct action', () => {
         wrapper.props().setSelectedGroup({ Abc: 123 })
 
         const actions = store.getActions();
-        expect(actions).toEquals([{ type: SET_SELECTED_GROUP, data: { Abc: 123 }}])
+        expect(actions).toEqual([{ type: SET_SELECTED_GROUP, data: { Abc: 123 }}])
     })
 })

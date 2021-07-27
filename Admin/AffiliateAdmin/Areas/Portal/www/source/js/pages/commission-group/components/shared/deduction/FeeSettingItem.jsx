@@ -57,7 +57,7 @@ export default class FeeSettingItem extends React.Component {
                                     <DeductedPercentageGroup
                                         value={data && data.DeductedPercentage}
                                         label={basedValueName}
-                                        handleChange={this.handleChange} />
+                                        onChange={this.handleChange} />
                                 </Form>
                             </Col>
                         </Fragment>

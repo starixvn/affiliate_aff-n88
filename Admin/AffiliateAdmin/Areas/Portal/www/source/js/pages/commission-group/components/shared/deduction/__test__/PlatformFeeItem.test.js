@@ -3,15 +3,14 @@ import PlatformFeeItem from '../PlatformFeeItem';
 import { shallow } from 'enzyme';
 import commissionValueList from '../../../../modules/constant';
 import MultipleSelect from "../../../../../../components/multiple-select";
+import DeductedPercentageForm from '../DeductedPercentageGroup';
 jest.mock(commissionValueList);
 
 describe('commission group - PlatformFeeItem', () => {
     const dataItem = {
         productList: [{ ProductId: 1, ProductName: 'Sportsbook', Checked: true },
         { ProductId: 3, ProductName: 'Playtech Casino', Checked: true },
-        { ProductId: 4, ProductName: 'Number Game', Checked: true },
-        { ProductId: 5, ProductName: 'Virtual Sports', Checked: true },
-        { ProductId: 6, ProductName: 'Keno', Checked: true }
+        { ProductId: 4, ProductName: 'Number Game', Checked: true }
         ],
         commission: 0.12,
         nextCommission: 0.17
@@ -38,7 +37,7 @@ describe('commission group - PlatformFeeItem', () => {
         const mockEvent = { target: { name: 'DeductedPercentage', value: '0.15' } };
         const wrapper = shallow(<PlatformFeeItem {...defaultProps} />);
 
-        wrapper.find('select[name="DeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
@@ -48,7 +47,7 @@ describe('commission group - PlatformFeeItem', () => {
         const props = Object.assign({}, defaultProps, { isInserting: false });
         const wrapper = shallow(<PlatformFeeItem {...props} />);
 
-        wrapper.find('select[name="DeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });

@@ -14,7 +14,23 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
     data={
       Object {
         "commission": 0.17,
-        "productList": Array [],
+        "productList": Array [
+          Object {
+            "Checked": true,
+            "ProductId": 1,
+            "ProductName": "Sportsbook",
+          },
+          Object {
+            "Checked": true,
+            "ProductId": 3,
+            "ProductName": "Playtech Casino",
+          },
+          Object {
+            "Checked": false,
+            "ProductId": 4,
+            "ProductName": "Number Game",
+          },
+        ],
       }
     }
     handleClick={[Function]}
@@ -29,7 +45,23 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
     data={
       Object {
         "commission": 0.12,
-        "productList": Array [],
+        "productList": Array [
+          Object {
+            "Checked": false,
+            "ProductId": 1,
+            "ProductName": "Sportsbook",
+          },
+          Object {
+            "Checked": false,
+            "ProductId": 3,
+            "ProductName": "Playtech Casino",
+          },
+          Object {
+            "Checked": true,
+            "ProductId": 4,
+            "ProductName": "Number Game",
+          },
+        ],
       }
     }
     handleClick={[Function]}

@@ -11,8 +11,10 @@ describe('commission group - platform fee setting', () => {
         GroupId: 0,
         GroupName: "",
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" },
-        { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" }],
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }],
+        P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2", Commission: 0.1 },
+            { DeductedPercentage: 0.1, DeductionId: 15, ProductIds: "5", Commission: 0.15 }],
         TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
     };
     const defaultProps = {
@@ -29,25 +31,29 @@ describe('commission group - platform fee setting', () => {
             UserName: "12BETAFF001"
         },
         deductionList: [
-            { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17 },
-            { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07 },
-            { DeductionId: 12, DeductionName: "Banking Fee", DeductedPercentage: 0.02 }
+            { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 }
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
             { ProductId: 3, ProductName: "Playtech Casino" },
-            { ProductId: 4, ProductName: "Number Game" },
-            { ProductId: 5, ProductName: "Virtual Sports" },
-            { ProductId: 6, ProductName: "Keno" }
+            { ProductId: 4, ProductName: "Number Game" }
         ],
-        selectedProductIds: [1, 2, 3, 4, 5, 6]
+        p2pProductList: [
+            { ProductId: 2, ProductName: "Poker" },
+            { ProductId: 5, ProductName: "V8 Poker" }
+        ],
+        selectedProductIds: [2, 5]
     };
 
     it('handleAdd - should call setSelectedGroup', () => {
         const expectParam = {
             PlatformFeeList: [
-                { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" },
-                { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" },
+                { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+                { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" },
                 { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }
             ]
         }
@@ -74,7 +80,7 @@ describe('commission group - platform fee setting', () => {
         const wrapper = shallow(<PlatformFeeSetting {...props} />);
         wrapper.instance().handleRemove(1);
 
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,1,3,4,5,6,7,8" }] });
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }] });
     })
 
     it('handleSelect - should be called when change product', () => {
@@ -87,21 +93,21 @@ describe('commission group - platform fee setting', () => {
 
     it('handleSelect - should call setSelectedGroup with checked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6,1" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "3,4,5,6,7,8" }]
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,5" },
+            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<PlatformFeeSetting {...props} />);
-        wrapper.instance().handleSelect(0, { ProductId: 1, ProductName: "Sportsbook", Checked: true });
+        wrapper.instance().handleSelect(0, { ProductId: 5, ProductName: "V8 Poker", Checked: true });
 
         expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
     })
 
     it('handleSelect - should call setSelectedGroup with not checked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "3,4,5,6,1" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" }]
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "3,1" },
+            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
@@ -131,8 +137,8 @@ describe('commission group - platform fee setting', () => {
 
     it('handleChangeCommission - should call setSelectedGroup', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "1,3,4,5,6,7,8" }]
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });

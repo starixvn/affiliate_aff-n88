@@ -47,7 +47,7 @@ export default class PlatformFeeItem extends React.Component {
                         <DeductedPercentageForm
                             value={commission}
                             label="| Gross Win Loss |"
-                            handleChange={this.handleChangeComm} />
+                            onChange={this.handleChangeComm} />
                     </Form>
                 </Col>
                 <Col sm={1}>

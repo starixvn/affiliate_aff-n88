@@ -90,6 +90,15 @@ describe('commission group actions', () => {
                                 ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
                             }
                         ],
+                        P2pDeductionList: [
+                            {
+                                DeductedPercentage: 0.17,
+                                DeductionId: 15,
+                                DeductionName: "P2P Fee",
+                                GroupId: 133,
+                                ProductIds: "2,9,10,11,12"
+                            }
+                        ],
                         RowIdx: 1,
                         TierSettingList: [
                             {
@@ -194,6 +203,7 @@ describe('commission group actions', () => {
                 GroupName: "",
                 OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
                 PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
+                P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
                 TierSettingList: []
             },
             status: 200
@@ -201,7 +211,7 @@ describe('commission group actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const expectedAction = [
-            { type: types.SET_SELECTED_PRODUCT_IDS, data: [1, 3, 4] },
+            { type: types.SET_SELECTED_PRODUCT_IDS, data: [2, 5] },
             { type: types.SET_SELECTED_GROUP, data: expectedResponse.data }
         ];
         const param = {

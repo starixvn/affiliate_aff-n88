@@ -5,7 +5,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
   className="comm-popup-container"
   style={
     Object {
-      "padding": 10,
+      "padding": 3,
     }
   }
 >
@@ -47,7 +47,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     />
   </Alert>
-  <Connect(ProductList) />
+  <Connect(P2pProductSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p
@@ -70,7 +70,7 @@ exports[`commission group - assign private group should render correctly with is
   className="comm-popup-container"
   style={
     Object {
-      "padding": 10,
+      "padding": 3,
     }
   }
 >
@@ -112,7 +112,7 @@ exports[`commission group - assign private group should render correctly with is
       }
     />
   </Alert>
-  <Connect(ProductList) />
+  <Connect(P2pProductSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p

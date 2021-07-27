@@ -81,7 +81,7 @@ export class GridData extends PureComponent {
         const firstColName = isMainView ? headerText.UserName : headerText.MonthDateString;
 
         return [
-            <tr className="feeze-row feeze-row-h1">
+            <tr className="feeze-row feeze-row-h1" key="thead-1">
                 <th className="freeze-column-header" width={100} rowSpan="2" title={firstColName}>{firstColName}</th>
                 <th width={50} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</th>
                 <th width={50} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</th>
@@ -93,7 +93,7 @@ export class GridData extends PureComponent {
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
             </tr>,
-            <tr className="feeze-row feeze-row-h2">
+            <tr className="feeze-row feeze-row-h2" key="thead-1">
                 <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
                 <th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>
                 <th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>

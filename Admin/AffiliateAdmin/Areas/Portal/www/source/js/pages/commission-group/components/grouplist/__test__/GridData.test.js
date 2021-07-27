@@ -52,6 +52,16 @@ describe('commission group - GridData ', () => {
                 ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
             }
         ],
+        P2pDeductionList: [
+            {
+                DeductedPercentage: 0.15,
+                DeductionId: 15,
+                DeductionName: "P2P Fee",
+                GroupId: 153,
+                ProductIds: "2,5,9,10,11,12",
+                Commission: 0.1
+            }
+        ],
         RowIdx: 6,
         TierSettingList: [
             tierSettingItem
@@ -77,8 +87,8 @@ describe('commission group - GridData ', () => {
     };
 
     it('_convertToProductNameText - return correct data with correct parameter', () => {
-        const productIdList = "1,3,4,5,6,7,8,13,14,15,16,17,18";
-        const expectResult = "Sportsbook,Playtech Casino,Number Game,Virtual Sports,Keno";
+        const productIdList = "1,3,4";
+        const expectResult = "Sportsbook,Playtech Casino,Number Game";
         const wrapper = shallow(<GridData {...defaultProps} />);
 
         const result = wrapper.instance()._convertToProductNameText(productIdList);
@@ -227,6 +237,16 @@ describe('commission group - GridData ', () => {
                     DeductionName: "Platform Fee",
                     GroupId: 1271808,
                     ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
+                }
+            ],
+            P2pDeductionList: [
+                {
+                    DeductedPercentage: 0.15,
+                    DeductionId: 15,
+                    DeductionName: "P2P Fee",
+                    GroupId: 153,
+                    ProductIds: "2,5,9,10,11,12",
+                    Commission: 0.1
                 }
             ],
             RowIdx: 6,

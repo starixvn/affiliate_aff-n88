@@ -746,6 +746,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
       <thead>
         <tr
           className="feeze-row feeze-row-h1"
+          key="thead-1"
         >
           <th
             className="freeze-column-header"
@@ -819,6 +820,7 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
         </tr>
         <tr
           className="feeze-row feeze-row-h2"
+          key="thead-1"
         >
           <th
             title="Deposit"
@@ -1396,6 +1398,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
 <div>
   <tr
     className="feeze-row feeze-row-h1"
+    key="thead-1"
   >
     <th
       className="freeze-column-header"
@@ -1469,6 +1472,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
   </tr>
   <tr
     className="feeze-row feeze-row-h2"
+    key="thead-1"
   >
     <th
       title="Deposit"
@@ -1592,6 +1596,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
 <div>
   <tr
     className="feeze-row feeze-row-h1"
+    key="thead-1"
   >
     <th
       className="freeze-column-header"
@@ -1658,6 +1663,7 @@ exports[`affiliate report - GridData  should render correctly with _renderHeader
   </tr>
   <tr
     className="feeze-row feeze-row-h2"
+    key="thead-1"
   >
     <th
       title="Deposit"

@@ -40,16 +40,6 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
               "ProductId": 4,
               "ProductName": "Number Game",
             },
-            Object {
-              "Checked": true,
-              "ProductId": 5,
-              "ProductName": "Virtual Sports",
-            },
-            Object {
-              "Checked": true,
-              "ProductId": 6,
-              "ProductName": "Keno",
-            },
           ]
         }
         hasAllOption={false}
@@ -82,8 +72,8 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        handleChange={[Function]}
         label="| Gross Win Loss |"
+        onChange={[Function]}
         value={0.12}
       />
     </Form>
@@ -194,8 +184,8 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        handleChange={[Function]}
         label="| Gross Win Loss |"
+        onChange={[Function]}
       />
     </Form>
   </Col>

@@ -2,6 +2,7 @@
 import FeeSettingItem from '../FeeSettingItem';
 import { shallow } from 'enzyme';
 import commissionValueList from '../../../../modules/constant';
+import DeductedPercentageForm from '../DeductedPercentageGroup';
 jest.mock(commissionValueList);
 
 describe('commission group - FeeSettingItem', () => {
@@ -18,7 +19,7 @@ describe('commission group - FeeSettingItem', () => {
         const mockEvent = { target: { name: 'DeductedPercentage', value: '0.15' } };
         const wrapper = shallow(<FeeSettingItem {...defaultProps} />);
 
-        wrapper.find('Input[type="select"][name="DeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.handleChange).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
@@ -28,7 +29,7 @@ describe('commission group - FeeSettingItem', () => {
         const props = Object.assign({}, defaultProps, { isCreating: false });
         const wrapper = shallow(<FeeSettingItem {...props} />);
 
-        wrapper.find('Input[type="select"][name="DeductedPercentage"]').simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.handleChange).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });

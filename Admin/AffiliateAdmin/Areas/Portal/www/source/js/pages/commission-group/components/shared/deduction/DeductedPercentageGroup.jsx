@@ -8,7 +8,7 @@ export const DeductedPercentageGroup = (props) => {
             <FormGroup className="mr-2">
                 <select name="DeductedPercentage" className="form-control"
                     value={format(props.value || 0, 3)}
-                    onChange={props.handleChange} style={{ width: 70 }}>
+                    onChange={props.onChange} style={{ width: 70 }}>
                     {
                         Object.keys(commissionValueList).map((key, i) => {
                             return (<option key={`deducted-percentage-${i}`} value={key}>{commissionValueList[key]}</option>);

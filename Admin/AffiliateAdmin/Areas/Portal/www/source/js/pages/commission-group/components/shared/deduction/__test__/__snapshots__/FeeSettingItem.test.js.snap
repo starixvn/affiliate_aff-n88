@@ -45,8 +45,8 @@ exports[`commission group - FeeSettingItem Should render correctly 1`] = `
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        handleChange={[Function]}
         label="| Gross Win Loss |"
+        onChange={[Function]}
         value={0.07}
       />
     </Form>
@@ -293,8 +293,8 @@ exports[`commission group - FeeSettingItem Should render correctly with isCreati
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        handleChange={[Function]}
         label="| Gross Win Loss |"
+        onChange={[Function]}
         value={0.07}
       />
     </Form>

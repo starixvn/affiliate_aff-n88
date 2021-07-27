@@ -12,7 +12,8 @@ describe('commission group - assign private group', () => {
         GroupId: 0,
         GroupName: "",
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6", IsDeductedPercent: true, DeductedAmount: "" }],
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
+        P2pDeductionList: [{ DeductedPercentage: 0.02, DeductionId: 15, ProductIds: "2,5", Commission: 0.01 }],
         TierSettingList: []
     };
 
@@ -23,11 +24,12 @@ describe('commission group - assign private group', () => {
         GroupId: 0,
         GroupName: "",
         OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
+        P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
         TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
     };
 
-    const selectedProductIds = [1, 2, 3, 4, 5, 6];
+    const selectedProductIds = [2, 5];
 
     const defaultProps = {
         selectedGroup: { GroupId: 102 },
@@ -46,7 +48,8 @@ describe('commission group - assign private group', () => {
             { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
-            { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" }
+            { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
+            { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 }
         ],
         productList: [
             { ProductId: 1, ProductName: "Sportsbook" },
@@ -105,6 +108,7 @@ describe('commission group - assign private group', () => {
         const wrapper = shallow(<AssignPrivateGroup {...defaultProps} />);
         wrapper.setState = jest.fn((obj, fn) => fn && fn());
         window.setTimeout = jest.fn((fn, time) => fn());
+        window.scrollTo = jest.fn();
         wrapper.instance()._validate = jest.fn(() => ({ isValid: false, messageList: 'failed!' }));
 
         await wrapper.find('button').simulate('click');
@@ -112,7 +116,7 @@ describe('commission group - assign private group', () => {
         expect(wrapper.setState).toHaveBeenCalledTimes(2);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowMessage: true, isSuccess: false, message: 'failed!' });
         expect(wrapper.setState.mock.calls[0][1]).toEqual(expect.any(Function));
-
+        expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
         expect(wrapper.setState.mock.calls[1][0]).toEqual({ isShowMessage: false });
     })
 
@@ -197,7 +201,7 @@ describe('commission group - assign private group', () => {
 
         expect(wrapper.setState).toHaveBeenCalledTimes(1);
         expect(wrapper.setState.mock.calls[0][0]).toEqual({ isShowLoader: true });
-        expect(window.scrollTo).not.toHaveBeenCalled()
+        expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
     })
 
     it('_validate', () => {
@@ -240,7 +244,7 @@ describe('commission group - assign private group', () => {
     })
 
     it('_validate - PlatformFeeList has ProductId is null', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }] });
+        const selected_Group = Object.assign({}, selectedGroup, { PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }, { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
         const wrapper = shallow(<AssignPrivateGroup {...props} />);
 
