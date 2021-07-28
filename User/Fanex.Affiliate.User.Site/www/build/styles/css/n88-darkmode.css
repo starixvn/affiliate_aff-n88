@@ -145,6 +145,10 @@
     background-color: #282828;
     border: 1px solid #000; }
 
+.login-dialog .modal-content .modal-logo {
+  width: 168px;
+  height: 87px; }
+
 .login-dialog .modal-content .login-side {
   border-left: none; }
 
@@ -384,6 +388,6 @@
   background: transparent;
   color: #3391F6; }
 
-@media (max-width: 767px) {
+@media (max-width: 374px) {
   .carousel-inner {
-    height: auto; } }
+    height: 150px !important; } }

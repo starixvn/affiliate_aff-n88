@@ -161,6 +161,7 @@ body {
         }
     }
 }
+
 .banner-product.banner-product-casino {
     .text-red {
         font-size: 3.2rem;
@@ -242,8 +243,15 @@ body {
         }
     }
 
-    .modal-content .login-side {
-        border-left: none;
+    .modal-content {
+        .modal-logo {
+            width: 168px;
+            height: 87px;
+        }
+
+        .login-side {
+            border-left: none;
+        }
     }
 }
 
@@ -603,11 +611,12 @@ body {
 }
 
 //Qrcode
-.qr-item{
-    .main-panel{
+.qr-item {
+    .main-panel {
         background: $qr-panel-bgrd;
     }
 }
+
 .qr-btn-group {
     button {
         background: $qr-panel-btn-background;
@@ -615,8 +624,8 @@ body {
     }
 }
 
-.qr-footer{
-    button{
+.qr-footer {
+    button {
         background: $qr-footer-btn-background;
         color: $qr-footer-btn-color;
     }
@@ -624,8 +633,7 @@ body {
 
 .carousel-inner {
 
-    @media (max-width: 767px) {
-        height: auto;
+    @media (max-width: 374px) {
+        height: 150px !important;
     }
 }
-

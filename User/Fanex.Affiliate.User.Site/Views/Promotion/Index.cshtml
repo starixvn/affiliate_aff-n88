@@ -10,10 +10,14 @@
 
 @model string
 @{
-    var contentView = "~/Views/Promotion/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
+    var appSetting = AppSetting.Instance;
+    var contentView = "~/Views/Promotion/" + appSetting.SiteName + "/_Content." + Model + ".cshtml";
 
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
-    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promo.{Model}.jpg?v={AppSetting.Instance.JsVersion}");
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promotion");
+
+    var orgBannerSrc = $"{bannerSrc}.{Model}";
+    var mobileBannerSrc = $"{bannerSrc}.mobile.{Model}";
 }
 
 <div id="promotion" class="content">
@@ -44,9 +48,11 @@
                 <a class="btn btn-login" href="~/Signup/Index">@Lang.JoinNow</a>
             </div>
         </div>
-        <div class="image">
-            <img src="@bannerSrc" />
-        </div>
+        <picture>
+            <source media="(max-width:480px)" srcset="@(mobileBannerSrc + ".jpg?v=158572")" type="image/jpeg" />
+            <source srcset="@(orgBannerSrc + ".jpg?v=158572")" type="image/jpeg" />
+            <img class="img-item img-responsive" src="@(orgBannerSrc + ".jpg?v=158572")" alt="promtion banner" />
+        </picture>
     </div>
 
     <div class="main-content">

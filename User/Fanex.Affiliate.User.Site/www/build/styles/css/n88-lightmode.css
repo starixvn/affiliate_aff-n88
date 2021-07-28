@@ -96,6 +96,10 @@
     .table table .overview-table-header th, .table table .player-detail-table-header th {
       border: 1px solid #c1c1c1; }
 
+.login-dialog .modal-content .modal-logo {
+  width: 168px;
+  height: 87px; }
+
 .login-dialog .modal-main-content {
   background-color: unset; }
 
@@ -322,6 +326,6 @@
     width: 100%;
     padding: 10px 0; }
 
-@media (max-width: 767px) {
+@media (max-width: 374px) {
   .carousel.slide .carousel-inner {
-    height: auto; } }
+    height: 150px !important; } }

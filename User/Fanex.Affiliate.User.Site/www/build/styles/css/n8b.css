@@ -565,6 +565,19 @@ input[type=radio][disabled] + span {
   left: 0;
   pointer-events: none; }
 
+.carousel-inner special-yellow-text {
+  color: #EBFF00; }
+
+.carousel-inner .special-text {
+  max-width: 750px; }
+  .carousel-inner .special-text-big {
+    font-size: 6rem; }
+  .carousel-inner .special-text-title {
+    font-size: 4.75rem;
+    margin-bottom: unset !important; }
+  .carousel-inner .special-text-subtitle {
+    font-size: 3.75rem; }
+
 .form-horizontal .form-group {
   margin: 0; }
 
@@ -658,12 +671,50 @@ input[type=radio][disabled] + span {
   .webp .adv-contact.N8B {
     padding-right: 13%; } }
 
+@media (max-width: 1199px) {
+  .carousel-inner .special-text-big {
+    font-size: 4.75rem; }
+  .carousel-inner .special-text-title {
+    font-size: 3.75rem; }
+  .carousel-inner .special-text-subtitle {
+    font-size: 2.75rem; } }
+
+@media (max-width: 1023px) {
+  .carousel-inner .special-text {
+    max-width: 455px; }
+    .carousel-inner .special-text .special-text-big {
+      font-size: 3rem; }
+    .carousel-inner .special-text .special-text-title {
+      font-size: 2.25rem; }
+    .carousel-inner .special-text .special-text-subtitle {
+      font-size: 1.75rem; } }
+
 @media (max-width: 767px) {
   .banner-text {
-    width: 160px; }
+    width: 100%; }
   .webp .adv-contact.N8B {
     padding-right: 21%; } }
 
 @media (max-width: 376px) {
+  .banner-text {
+    max-width: 355px; }
+    .banner-text.special-text .special-text-big {
+      font-size: 2.75rem; }
+    .banner-text.special-text .special-text-title {
+      font-size: 2.1rem; }
+    .banner-text.special-text .special-text-subtitle {
+      font-size: 1.5rem; }
+  .webp .adv-contact.N8B {
+    padding-right: 0%; } }
+
+@media (max-width: 326px) {
+  .banner-text {
+    max-width: 300px; }
+    .banner-text.special-text .special-text-big {
+      font-size: 3rem; }
+    .banner-text.special-text .special-text-title {
+      font-size: 1.75rem; }
+    .banner-text.special-text .special-text-subtitle {
+      font-size: 1.25rem; }
   .webp .adv-contact.N8B {
     padding-right: 0%; } }

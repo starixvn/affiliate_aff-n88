@@ -1,6 +1,7 @@
 ﻿@{
-    var maxCommisison = AppSetting.Instance.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.id-ID.jpg?v={AppSetting.Instance.JsVersion}");
+    var appSetting = AppSetting.Instance;
+    var maxCommisison = appSetting.MaxCommission;
+    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.id-ID.jpg?v={appSetting.JsVersion}");
 }
 <div class="banner">
     <img src="@bannerSrc" />

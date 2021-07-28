@@ -383,11 +383,31 @@ select {
 }
 
 .banner-text {
-    margin: 0;
     left: 200px;
     z-index: 10;
-    max-width: 42%;
-    width: 42%;
+    max-width: 60%;
+    width: 60%;
+
+    .commission-text {
+        color: #FAB617;
+    }
+
+    &.special-text {
+        .special-text-title {
+            margin-bottom: 0px !important;
+        }
+
+        .special-text-subtitle {
+            font-size: 3.2rem;
+            font-weight: 600;
+
+            .special-text-yellow {
+                font-size: 4.8rem;
+                color: #FAB617;
+                font-weight: 900;
+            }
+        }
+    }
 
     .txt-lang {
         color: $banner-color-text;
@@ -403,8 +423,6 @@ select {
 
     h5 {
         font-size: 2.8rem;
-        line-height: 33px;
-        text-transform: none;
     }
 
     .nounderline {
@@ -2074,10 +2092,6 @@ div.custom-panel {
 
 @media only screen and (max-width: 1500px) {
     .banner-text {
-        margin: 0;
-        max-width: 40%;
-        width: 40%;
-
         h2 {
             font-size: 4rem;
         }
@@ -2139,16 +2153,12 @@ div.custom-panel {
 
     .banner-text {
         left: 100px;
-        max-width: 45%;
-        width: 45%;
     }
 }
 
 @media only screen and (max-width: 1199px) {
     .banner-text {
         left: 40px;
-        width: 51%;
-        max-width: 51%;
     }
 
     .main .page-container:before {
@@ -2241,14 +2251,10 @@ div.custom-panel {
         height: 3rem;
     }
 
-    .carousel.slide {
-        .carousel-inner {
-            height: 230px;
-        }
-    }
-
     .banner-center {
         .carousel-inner {
+            height: 230px;
+
             .item:after {
                 background: -webkit-gradient(linear, left top, right top, from(#000000), to(rgba(0, 0, 0, 0)));
                 background: -o-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 100%);
@@ -2260,23 +2266,29 @@ div.custom-panel {
     }
 
     .banner-text {
-        width: 52%;
-        max-width: 52%;
+        width: 92%;
+        max-width: 92%;
         margin: 3px 0 0 0;
         left: 20px;
 
-        .txt-lang {
-            text-transform: none;
+        &.special-text {
+            .special-text-title {
+                margin-bottom: 10px !important;
+            }
+
+            .special-text-subtitle {
+                font-size: 1.8rem;
+
+                .special-text-yellow {
+                    font-size: 2.5rem;
+                }
+            }
         }
 
         h2 {
             font-size: 2.4rem;
             line-height: 28px !important;
             margin-bottom: 7px !important;
-
-            br {
-                display: none;
-            }
         }
 
         h5 {
@@ -2285,7 +2297,9 @@ div.custom-panel {
             line-height: 21px !important;
             padding-top: 0;
         }
-
+        /*        br {
+            display: none;
+        }*/
         .nounderline {
             font-size: 1.6rem;
             padding: 3px 26px 1px 22px;
@@ -2890,14 +2904,46 @@ div.custom-panel {
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 540px) {
     .banner-text {
+        &.special-text {
+            .special-text-subtitle {
+                font-size: 1.75rem;
+
+                .special-text-yellow {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
         h2 {
-            font-size: 19px;
+            font-size: 2.25rem;
         }
 
         h5 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .banner-text {
+        &.special-text {
+            .special-text-subtitle {
+                font-size: 1.25rem;
+
+                .special-text-yellow {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        h5 {
+            font-size: 1.25rem;
         }
 
         .nounderline {
