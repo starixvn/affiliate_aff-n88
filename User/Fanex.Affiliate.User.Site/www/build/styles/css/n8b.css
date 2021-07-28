@@ -565,7 +565,7 @@ input[type=radio][disabled] + span {
   left: 0;
   pointer-events: none; }
 
-.carousel-inner special-yellow-text {
+.carousel-inner .special-yellow-text {
   color: #EBFF00; }
 
 .carousel-inner .special-text {
