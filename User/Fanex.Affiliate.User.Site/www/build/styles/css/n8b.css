@@ -683,7 +683,7 @@ input[type=radio][disabled] + span {
   .carousel-inner .special-text {
     max-width: 455px; }
     .carousel-inner .special-text .special-text-big {
-      font-size: 3rem; }
+      font-size: 2.75rem; }
     .carousel-inner .special-text .special-text-title {
       font-size: 2.25rem; }
     .carousel-inner .special-text .special-text-subtitle {
@@ -699,7 +699,7 @@ input[type=radio][disabled] + span {
   .banner-text {
     max-width: 355px; }
     .banner-text.special-text .special-text-big {
-      font-size: 2.75rem; }
+      font-size: 2.65rem; }
     .banner-text.special-text .special-text-title {
       font-size: 2.1rem; }
     .banner-text.special-text .special-text-subtitle {
@@ -711,7 +711,7 @@ input[type=radio][disabled] + span {
   .banner-text {
     max-width: 300px; }
     .banner-text.special-text .special-text-big {
-      font-size: 3rem; }
+      font-size: 2.25rem; }
     .banner-text.special-text .special-text-title {
       font-size: 1.75rem; }
     .banner-text.special-text .special-text-subtitle {
