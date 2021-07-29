@@ -325,6 +325,6 @@
     width: 100%;
     padding: 10px 0; }
 
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .carousel.slide .carousel-inner {
     height: 150px !important; } }

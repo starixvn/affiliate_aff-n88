@@ -1192,6 +1192,14 @@ input[type=radio][disabled] + span {
     }
 }
 
+@media (max-width: 449px) {
+    .banner-text {
+        .sub-title {
+            max-width: 130px;
+        }
+    }
+}
+
 @media (max-width: 376px) {
     .banner-text {
         max-width: 355px;

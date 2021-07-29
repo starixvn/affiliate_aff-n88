@@ -1294,14 +1294,10 @@
     <Content Include="www\source\styles\scss\Themes\n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\Themes\n88-lightmode.scss" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.webp" />
     <Content Include="Views\CommissionStructure\_ExampleTable.cshtml" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
     <Content Include="Views\CommissionStructure\N88\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.th-TH.cshtml" />
@@ -1329,10 +1325,6 @@
     <Content Include="www\build\styles\Images\apply\n8g\bg-FAQ_banner.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-sports_affiliate.webp" />
     <Content Include="www\build\styles\Images\apply\n8g\bg-Terms_conditions_banner.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
     <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\Index.cshtml" />
     <Content Include="Views\UserPanel\AccountOverView\Partial\_ChannelLinkStatistic.cshtml" />
     <Content Include="www\source\styles\scss\components\_toogle-button.scss" />
@@ -1367,6 +1359,14 @@
     <Content Include="Views\Home\N8B\_CarouselItems.vi-VN.cshtml" />
     <Content Include="Views\Home\N8G\_CarouselItems.vi-VN.cshtml" />
     <Content Include="Views\Home\N8G\_CarouselItems.en-US.cshtml" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
+    <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

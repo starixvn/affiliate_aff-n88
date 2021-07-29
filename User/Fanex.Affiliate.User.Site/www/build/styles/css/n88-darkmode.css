@@ -387,6 +387,6 @@
   background: transparent;
   color: #3391F6; }
 
-@media (max-width: 374px) {
+@media (max-width: 767px) {
   .carousel-inner {
     height: 150px !important; } }
