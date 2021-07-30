@@ -35,28 +35,45 @@
     <div class="container-fluid">
         @if (isN88)
         {
-            <div class="row">
-            <div class="col-sm-12">
-                <div class="date-time">
-                    <div class="img-support">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/contact.png" />
+            <div class="row contact-title">
+                <p>@Html.Raw(Lang.PleaseDirectAnyCommentN88)</p>
+            </div>
+            <div class="row contact-icon-group">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="contact-icon">
+                        <img class="img-responsive" id="email_icon" alt="email icon" />
                     </div>
+                    <div class="text-center">
+                        <strong>Email</strong>
+                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="contact-icon">
+                        <img class="img-responsive" id="telegram_icon" alt="telegram icon" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Telegram</strong>
+                        <p class="intro"><a href="https://t.me/nova88affiliate">Nova88 affiliate</a></p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="contact-icon">
+                        <img class="img-responsive" id="whatsapp_icon" alt="whatsapp icon" />
+                    </div>
+                    <div class="text-center">
+                        <strong>Whatsapp</strong>
+                        <p class="intro"><a href="https://cli.re/nova88affiliate">Nova88 affiliate</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
                     <div class="date-time-info">
                         <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12">
-                <div class="contact-form text-center">
-                    <div id="mainContent">
-                        <p class="intro">@Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.PleaseDirectAnyCommentN88), "<a href=\"mailto:" + mailContact + "\">Email</a>",
-                                        "<a href=\"https://t.me/nova88affiliate\" >Telegram</a>", "<a href=\"https://cli.re/nova88affiliate\">WhatsApp</a>"))</p>
-            @*<p class="intro">Telegram: <a href="https://t.me/nova88affiliate">Nova88 affiliate</a></p>
-            <p class="intro">WhatsApp: <a href="https://cli.re/nova88affiliate">Nova88 affiliate</a></p>*@
-            </div>
-                </div>
-            </div>
-        </div>
         }
         else
         {
@@ -66,7 +83,7 @@
             <div class="row contact-icon-group">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" />
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" alt="phone icon" />
                     </div>
                     <div class="text-center">
                         <strong>@Lang.Phone</strong>
@@ -75,7 +92,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" />
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" alt="email icon" />
                     </div>
                     <div class="text-center">
                         <strong>Email</strong>
@@ -84,7 +101,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" />
+                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" alt="telegram icon" />
                     </div>
                     <div class="text-center">
                         <strong>Telegram</strong>
@@ -93,7 +110,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="contact-icon">
-                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") />
+                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") alt="zalo icon" />
                     </div>
                     <div class="text-center">
                         <strong>Zalo</strong>

@@ -1719,7 +1719,7 @@
     <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>วันจันทร์ - วันเสาร์&lt;br&gt;&lt;strong&gt;เวลา 11.00 น. - 20.00 น. &lt;/strong&gt;(เวลาไทย)</value>
+    <value>&lt;strong&gt;วันจันทร์ - วันเสาร์&lt;/strong&gt;&lt;br&gt;เวลา 11.00 น. - 20.00 น. (เวลาไทย)</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
     <value>ทีมงานภาษาจีน</value>
@@ -1737,7 +1737,7 @@
     <value>ทีมงานภาษาอินเดีย</value>
   </data>
   <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่ {0}, {1}, {2}</value>
+    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่:</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>หมายเลขตรวจสอบ</value>

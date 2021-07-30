@@ -22,8 +22,8 @@ var selectedLinkType = (int)ViewBag.SelectedLinkType;
          >
         <div class="main-panel flex">
             <div class="qr-img @disabled">
-                <img class="default" src="@defaultImg" />
-                <img class="qrcode" src="@item.QrCode" />
+                <img class="default" src="@defaultImg" alt="default" />
+                <img class="qrcode" src="@item.QrCode" alt="QR code" />
             </div>
             <div class="qr-action">
                 <div class="flex space-between">

@@ -892,6 +892,12 @@
     <Content Include="www\build\styles\Images\contact-us\bwing.jpg" />
     <Content Include="www\build\styles\Images\contact-us\email.png" />
     <Content Include="www\build\styles\Images\contact-us\goal123.jpg" />
+    <Content Include="www\build\styles\Images\contact-us\N88\darkmode\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\N88\darkmode\telegram.png" />
+    <Content Include="www\build\styles\Images\contact-us\N88\darkmode\whatsapp.png" />
+    <Content Include="www\build\styles\Images\contact-us\N88\lightmode\email.png" />
+    <Content Include="www\build\styles\Images\contact-us\N88\lightmode\telegram.png" />
+    <Content Include="www\build\styles\Images\contact-us\N88\lightmode\whatsapp.png" />
     <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />

@@ -4715,7 +4715,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to {0}, {1} or {2}.
+        ///   Looks up a localized string similar to Please direct any comments or questions to following contact points:.
         /// </summary>
         public static string PleaseDirectAnyCommentN88 {
             get {
@@ -5840,7 +5840,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monday - Saturday&lt;br&gt;&lt;strong&gt;11:00 am - 08:00 pm&lt;/strong&gt;&lt;br&gt;(GMT +8).
+        ///   Looks up a localized string similar to &lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8).
         /// </summary>
         public static string SupportTimeN88 {
             get {

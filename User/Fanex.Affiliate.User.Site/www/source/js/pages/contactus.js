@@ -2,6 +2,7 @@
     var _me = {
         initialize: function () {
             _me.initEvent();
+            Site.isN88 && Site.getImageByMode();
         },
 
         initEvent: function () {
@@ -22,8 +23,7 @@
         reset: function () {
             var requiredInputList = $("input,textarea", $("#contactForm"));
 
-            for (var i = 0; i < requiredInputList.length; i++) {
-                var element = requiredInputList[i];
+            for (var element of requiredInputList) {
                 var $element = $(element);
                 $element.val("");
                 var $container = $element.closest(".group");
@@ -69,8 +69,7 @@
             var requiredInputList = $("input[type=text],textarea", $("#contactForm"));
             var isValid = true;
 
-            for (var i = 0; i < requiredInputList.length; i++) {
-                var element = requiredInputList[i];
+            for (var element of requiredInputList) {
                 if (element.name !== "Affiliate") {
                     var $element = $(element);
                     var hasValue = !!$element.val();
