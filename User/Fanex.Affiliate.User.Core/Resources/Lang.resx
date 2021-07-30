@@ -1947,10 +1947,6 @@
     <value>Indian Support</value>
     <comment>87923</comment>
   </data>
-  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>Please direct any comments or questions to following contact points:</value>
-    <comment>87923</comment>
-  </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Validation Code</value>
     <comment>87923</comment>

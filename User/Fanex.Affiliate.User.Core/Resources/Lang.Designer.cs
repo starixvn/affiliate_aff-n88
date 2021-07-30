@@ -4715,15 +4715,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to following contact points:.
-        /// </summary>
-        public static string PleaseDirectAnyCommentN88 {
-            get {
-                return ResourceManager.GetString("PleaseDirectAnyCommentN88", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Poker.
         /// </summary>
         public static string Poker {

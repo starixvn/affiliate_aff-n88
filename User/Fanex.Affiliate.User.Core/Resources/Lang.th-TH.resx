@@ -1736,9 +1736,6 @@
   <data name="IndianSupport" xml:space="preserve">
     <value>ทีมงานภาษาอินเดีย</value>
   </data>
-  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>กรุณาส่งข้อแนะนำหรือคำถามมาได้ที่:</value>
-  </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>หมายเลขตรวจสอบ</value>
   </data>

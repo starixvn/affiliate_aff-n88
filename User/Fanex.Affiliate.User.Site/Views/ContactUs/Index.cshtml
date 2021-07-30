@@ -33,11 +33,11 @@
     </div>
 
     <div class="container-fluid">
+        <div class="row contact-title">
+            <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
+        </div>
         @if (isN88)
         {
-            <div class="row contact-title">
-                <p>@Html.Raw(Lang.PleaseDirectAnyCommentN88)</p>
-            </div>
             <div class="row contact-icon-group">
                 <div class="col-xs-12 col-sm-4">
                     <div class="contact-icon">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="text-center">
                         <strong>Telegram</strong>
-                        <p class="intro"><a href="https://t.me/nova88affiliate">Nova88 affiliate</a></p>
+                        <p class="intro"><a href="https://t.me/nova88affiliate">https://t.me/nova88affiliate</a></p>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
@@ -63,7 +63,7 @@
                     </div>
                     <div class="text-center">
                         <strong>Whatsapp</strong>
-                        <p class="intro"><a href="https://cli.re/nova88affiliate">Nova88 affiliate</a></p>
+                        <p class="intro"><a href="https://cli.re/nova88affiliate">https://cli.re/nova88affiliate</a></p>
                     </div>
                 </div>
             </div>
@@ -77,9 +77,6 @@
         }
         else
         {
-            <div class="row contact-title">
-                <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
-            </div>
             <div class="row contact-icon-group">
                 <div class="col-xs-12 col-sm-6 col-md-3">
                     <div class="contact-icon">
