@@ -2148,4 +2148,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="Finished" xml:space="preserve">
     <value>已经结束</value>
   </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>请将任何意见或问题发送至以下联络：</value>
+  </data>
 </root>

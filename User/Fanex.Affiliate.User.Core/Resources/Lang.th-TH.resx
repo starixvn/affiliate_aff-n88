@@ -2147,4 +2147,7 @@
   <data name="Finished" xml:space="preserve">
     <value>สิ้นสุดแล้ว</value>
   </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>กรุณาส่งความคิดเห็นหรือคำถามของท่านมายังช่องทางดังต่อไปนี้ :</value>
+  </data>
 </root>
