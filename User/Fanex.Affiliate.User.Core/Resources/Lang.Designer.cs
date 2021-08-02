@@ -1429,9 +1429,9 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to 
+        ///   Looks up a localized string similar to Please direct any comments or questions to
         ///            {email}
-        ///            or using the form below.                   
+        ///            or using the form below.
         ///    .
         /// </summary>
         public static string ContactTitle {
