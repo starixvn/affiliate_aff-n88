@@ -4715,15 +4715,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to {0}.
-        /// </summary>
-        public static string PleaseDirectAnyCommentN88 {
-            get {
-                return ResourceManager.GetString("PleaseDirectAnyCommentN88", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Poker.
         /// </summary>
         public static string Poker {
@@ -5840,7 +5831,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8).
+        ///   Looks up a localized string similar to &lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8).
         /// </summary>
         public static string SupportTimeN88 {
             get {

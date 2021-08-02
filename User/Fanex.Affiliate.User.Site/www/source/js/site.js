@@ -42,8 +42,7 @@
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
             var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
+            for (var c of ca) {
                 while (c.charAt(0) == ' ') {
                     c = c.substring(1);
                 }
@@ -68,7 +67,12 @@
             var mode = newMode || _me.getCookie("mode");
             var src = _me.resolveRelativeUrl("www/build/styles/Images/revenue-share-structure/N88/" + mode + "/revenue_share_hierarchy." + language + ".png");
             $("#revenue_share_hierarchy").attr("src", src);
-        }
+
+            var iconSrc = _me.resolveRelativeUrl("www/build/styles/Images/contact-us/N88/" + mode);
+            $("#email_icon").attr("src", iconSrc + "/email.png");
+            $("#telegram_icon").attr("src", iconSrc + "/telegram.png");
+            $("#whatsapp_icon").attr("src", iconSrc + "/whatsapp.png");
+        },
     };
 
     return _me;

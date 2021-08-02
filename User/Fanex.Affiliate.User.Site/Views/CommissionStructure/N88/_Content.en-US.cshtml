@@ -1,9 +1,10 @@
 ﻿@{
-    var maxCommisison = AppSetting.Instance.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.en-US.jpg?v={AppSetting.Instance.JsVersion}");
+    var appSetting = AppSetting.Instance;
+    var maxCommisison = appSetting.MaxCommission;
+    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.en-US.jpg?v={appSetting.JsVersion}");
 }
 <div class="banner">
-    <img src="@bannerSrc"/>
+    <img src="@bannerSrc" alt="commission banner" />
 </div>
 
 <div class="info-group">
@@ -96,7 +97,7 @@
         <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" />
+        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
     </div>
     <p class="text">
         Your revenue share earned from the referred affiliates:

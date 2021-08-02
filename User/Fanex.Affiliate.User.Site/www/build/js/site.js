@@ -44,15 +44,36 @@ var Site = (function ($) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
             var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = ca[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var c = _step.value;
+
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
                 }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator["return"]) {
+                        _iterator["return"]();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
                 }
             }
+
             return "";
         },
 
@@ -70,6 +91,11 @@ var Site = (function ($) {
             var mode = newMode || _me.getCookie("mode");
             var src = _me.resolveRelativeUrl("www/build/styles/Images/revenue-share-structure/N88/" + mode + "/revenue_share_hierarchy." + language + ".png");
             $("#revenue_share_hierarchy").attr("src", src);
+
+            var iconSrc = _me.resolveRelativeUrl("www/build/styles/Images/contact-us/N88/" + mode);
+            $("#email_icon").attr("src", iconSrc + "/email.png");
+            $("#telegram_icon").attr("src", iconSrc + "/telegram.png");
+            $("#whatsapp_icon").attr("src", iconSrc + "/whatsapp.png");
         }
     };
 

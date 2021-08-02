@@ -11,15 +11,15 @@
             <div class="flex-9">
                 <button class="btn-copy-link" data-clipboard-text="@Model[key].Link">@Lang.CopyLink</button>
                 <button class="btn-copy-qr">@Lang.CopyQRCode</button>
-                @{ 
+                @{
                     var downloadName = Model[key].DisplayName + "_qrcode";
                 }
-                <button class="btn-save-img" 
-                        data-image-name="@downloadName" 
-                        data-selected-page="@ViewBag.SelectedPage" 
-                        data-selected-domain-id="@ViewBag.SelectedDomainId" 
+                <button class="btn-save-img"
+                        data-image-name="@downloadName"
+                        data-selected-page="@ViewBag.SelectedPage"
+                        data-selected-domain-id="@ViewBag.SelectedDomainId"
                         data-selected-language="@Model[key].Language.Code">@Lang.SaveQRCode</button>
-                <img class="qr-code" src="@Model[key].QrCode"/>
+                <img class="qr-code" src="@Model[key].QrCode" alt="QR code" />
             </div>
         </div>
     }

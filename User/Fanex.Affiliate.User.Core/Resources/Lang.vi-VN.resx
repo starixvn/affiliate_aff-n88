@@ -1718,7 +1718,7 @@
     <value>Xem Danh Sách Sản Phẩm N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>09:00 - 18:00 (GMT+8)&lt;br&gt;Thứ Hai - Thứ Bảy</value>
+    <value>&lt;strong&gt;11:00 - 20:00&lt;/strong&gt; (GMT+8)&lt;br&gt;Thứ Hai - Thứ Bảy</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
     <value>Hỗ trợ tiếng Trung</value>
@@ -1734,9 +1734,6 @@
   </data>
   <data name="IndianSupport" xml:space="preserve">
     <value>Hỗ trợ tiếng Ấn Độ</value>
-  </data>
-  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>Mọi thắc mắc về chương trình Đại Lý N88, vui lòng gửi về {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Mã Xác Thực</value>
@@ -2213,7 +2210,7 @@
     <value>Sao chép</value>
   </data>
   <data name="EarnUpTo" xml:space="preserve">
-    <value>HOA HỒNG &lt;br/&gt;LÊN ĐẾN {0} </value>
+    <value>HOA HỒNG&lt;br/&gt;LÊN ĐẾN {0} </value>
   </data>
   <data name="JoinIn" xml:space="preserve">
     <value>THAM GIA VÀO CHƯƠNG TRÌNH ĐẠI LÝ TỐT NHẤT HIỆN NAY</value>

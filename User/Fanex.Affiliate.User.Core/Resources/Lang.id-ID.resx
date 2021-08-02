@@ -1717,7 +1717,7 @@
     <value>Lebih lengkap tentang Produk N88</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>Senin - Sabtu&lt;br&gt;8:00 - 17:00 WIB</value>
+    <value>&lt;strong&gt;Senin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 - 20:00 WIB</value>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
     <value>Bantuan Dalam Bahasa Cina</value>
@@ -1733,9 +1733,6 @@
   </data>
   <data name="IndianSupport" xml:space="preserve">
     <value>Bantuan Dalam Bahasa India</value>
-  </data>
-  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>Untuk komen atau pertanyaan tentang apapun silahkan kirim ke email kami {0}</value>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">
     <value>Kode Validasi</value>
@@ -2129,5 +2126,8 @@
   </data>
   <data name="Finished" xml:space="preserve">
     <value>SELESAI</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>Silakan kirim komentar atau pertanyaan ke kontak berikut:</value>
   </data>
 </root>

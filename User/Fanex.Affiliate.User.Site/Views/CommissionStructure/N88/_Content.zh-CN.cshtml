@@ -1,9 +1,10 @@
 ﻿@{
-    var maxCommisison = AppSetting.Instance.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.zh-CN.jpg?v={AppSetting.Instance.JsVersion}");
+    var appSetting = AppSetting.Instance;
+    var maxCommisison = appSetting.MaxCommission;
+    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.zh-CN.jpg?v={appSetting.JsVersion}");
 }
 <div class="banner">
-    <img src="@bannerSrc" />
+    <img src="@bannerSrc" alt="commission banner" />
 </div>
 
 <div class="info-group">
@@ -96,7 +97,7 @@
         <i>图2:</i> 举例展示如何计算从你所推荐的下线合营伙伴（与他们再推荐的下线合营伙伴）的佣金盈利。
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" />
+        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
     </div>
     <p class="text">
         您下线合营伙伴的佣金盈利计算:

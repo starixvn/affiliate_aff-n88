@@ -1924,7 +1924,7 @@
     <comment>87923</comment>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>Monday - Saturday&lt;br&gt;09:00 am - 06:00 pm&lt;br&gt;(GMT +8)</value>
+    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8)</value>
     <comment>87923</comment>
   </data>
   <data name="ChinaSupport" xml:space="preserve">
@@ -1945,10 +1945,6 @@
   </data>
   <data name="IndianSupport" xml:space="preserve">
     <value>Indian Support</value>
-    <comment>87923</comment>
-  </data>
-  <data name="PleaseDirectAnyCommentN88" xml:space="preserve">
-    <value>Please direct any comments or questions to {0}</value>
     <comment>87923</comment>
   </data>
   <data name="ValidationCodeLabel" xml:space="preserve">

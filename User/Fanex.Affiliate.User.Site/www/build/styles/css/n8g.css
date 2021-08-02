@@ -252,11 +252,21 @@ select {
   z-index: 10; }
 
 .banner-text {
-  margin: 0;
   left: 200px;
   z-index: 10;
-  max-width: 42%;
-  width: 42%; }
+  max-width: 60%;
+  width: 60%; }
+  .banner-text .commission-text {
+    color: #FAB617; }
+  .banner-text.special-text .special-text-title {
+    margin-bottom: 0px !important; }
+  .banner-text.special-text .special-text-subtitle {
+    font-size: 3.2rem;
+    font-weight: 600; }
+    .banner-text.special-text .special-text-subtitle .special-text-yellow {
+      font-size: 4.8rem;
+      color: #FAB617;
+      font-weight: 900; }
   .banner-text .txt-lang {
     color: #ffffff;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32); }
@@ -266,9 +276,7 @@ select {
     margin-bottom: 13px !important;
     font-weight: 900; }
   .banner-text h5 {
-    font-size: 2.8rem;
-    line-height: 33px;
-    text-transform: none; }
+    font-size: 2.8rem; }
   .banner-text .nounderline {
     font-size: 2.4rem;
     line-height: 28px;
@@ -1333,14 +1341,10 @@ div.custom-panel {
       top: -50px; } }
 
 @media only screen and (max-width: 1500px) {
-  .banner-text {
-    margin: 0;
-    max-width: 40%;
-    width: 40%; }
-    .banner-text h2 {
-      font-size: 4rem; }
-    .banner-text h5 {
-      font-size: 2.4rem; }
+  .banner-text h2 {
+    font-size: 4rem; }
+  .banner-text h5 {
+    font-size: 2.4rem; }
   .card .card-content .card-title {
     padding-left: 50px; }
     .card .card-content .card-title .text:before {
@@ -1370,15 +1374,11 @@ div.custom-panel {
     width: calc(100% + 200px);
     left: -100px; }
   .banner-text {
-    left: 100px;
-    max-width: 45%;
-    width: 45%; } }
+    left: 100px; } }
 
 @media only screen and (max-width: 1199px) {
   .banner-text {
-    left: 40px;
-    width: 51%;
-    max-width: 51%; }
+    left: 40px; }
   .main .page-container:before {
     width: 100%;
     left: 0; }
@@ -1421,27 +1421,32 @@ div.custom-panel {
     text-align: left; }
   .main .page-container:before {
     height: 3rem; }
-  .carousel.slide .carousel-inner {
+  .banner-center .carousel-inner {
     height: 230px; }
-  .banner-center .carousel-inner .item:after {
-    background: -webkit-gradient(linear, left top, right top, from(#000000), to(transparent));
-    background: -o-linear-gradient(left, #000000 0%, transparent 100%);
-    background: linear-gradient(90deg, #000000 0%, transparent 100%);
-    width: 100%;
-    opacity: 1; }
+    .banner-center .carousel-inner .item:after {
+      background: -webkit-gradient(linear, left top, right top, from(#000000), to(transparent));
+      background: -o-linear-gradient(left, #000000 0%, transparent 100%);
+      background: linear-gradient(90deg, #000000 0%, transparent 100%);
+      width: 100%;
+      opacity: 1; }
   .banner-text {
-    width: 52%;
-    max-width: 52%;
+    width: 92%;
+    max-width: 92%;
     margin: 3px 0 0 0;
-    left: 20px; }
-    .banner-text .txt-lang {
-      text-transform: none; }
+    left: 20px;
+    /*        br {
+            display: none;
+        }*/ }
+    .banner-text.special-text .special-text-title {
+      margin-bottom: 10px !important; }
+    .banner-text.special-text .special-text-subtitle {
+      font-size: 1.8rem; }
+      .banner-text.special-text .special-text-subtitle .special-text-yellow {
+        font-size: 2.5rem; }
     .banner-text h2 {
       font-size: 2.4rem;
       line-height: 28px !important;
       margin-bottom: 7px !important; }
-      .banner-text h2 br {
-        display: none; }
     .banner-text h5 {
       font-weight: 500;
       font-size: 1.8rem;
@@ -1760,11 +1765,25 @@ div.custom-panel {
       .account-overview .summary-content .dashboard-section .group .info-panel:nth-child(3) {
         flex: 1; } }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 540px) {
+  .banner-text.special-text .special-text-subtitle {
+    font-size: 1.75rem; }
+    .banner-text.special-text .special-text-subtitle .special-text-yellow {
+      font-size: 2.5rem; }
   .banner-text h2 {
-    font-size: 19px; }
+    font-size: 2.25rem; }
   .banner-text h5 {
-    font-size: 1.6rem; }
+    font-size: 1.5rem; } }
+
+@media only screen and (max-width: 375px) {
+  .banner-text.special-text .special-text-subtitle {
+    font-size: 1.25rem; }
+    .banner-text.special-text .special-text-subtitle .special-text-yellow {
+      font-size: 2rem; }
+  .banner-text h2 {
+    font-size: 1.75rem; }
+  .banner-text h5 {
+    font-size: 1.25rem; }
   .banner-text .nounderline {
     padding-left: 10px;
     padding-right: 10px; }
