@@ -950,7 +950,7 @@ input[type=radio][disabled] + span {
     }
 
     .special-text {
-        max-width: 750px;
+        max-width: 850px;
 
         &-big {
             font-size: 6rem;
@@ -958,11 +958,14 @@ input[type=radio][disabled] + span {
 
         &-title {
             font-size: 4.75rem;
-            margin-bottom: unset !important;
         }
+    }
 
-        &-subtitle {
-            font-size: 3.75rem;
+    .sub-title {
+        color: #FFFFFF;
+
+        br {
+            display: none;
         }
     }
 }
@@ -1154,10 +1157,6 @@ input[type=radio][disabled] + span {
             &-title {
                 font-size: 3.75rem;
             }
-
-            &-subtitle {
-                font-size: 2.75rem;
-            }
         }
     }
 }
@@ -1174,10 +1173,6 @@ input[type=radio][disabled] + span {
             .special-text-title {
                 font-size: 2.25rem;
             }
-
-            .special-text-subtitle {
-                font-size: 1.75rem;
-            }
         }
     }
 }
@@ -1185,6 +1180,12 @@ input[type=radio][disabled] + span {
 @media (max-width: 767px) {
     .banner-text {
         width: 100%;
+
+        .sub-title {
+            br {
+                display: block;
+            }
+        }
     }
 
     .webp .adv-contact.N8B {
@@ -1194,8 +1195,16 @@ input[type=radio][disabled] + span {
 
 @media (max-width: 449px) {
     .banner-text {
-        .sub-title {
-            max-width: 130px;
+        max-width: 395px;
+
+        &.special-text {
+            .special-text-big {
+                font-size: 2.65rem;
+            }
+
+            .special-text-title {
+                font-size: 2rem;
+            }
         }
     }
 }
@@ -1205,16 +1214,8 @@ input[type=radio][disabled] + span {
         max-width: 355px;
 
         &.special-text {
-            .special-text-big {
-                font-size: 2.65rem;
-            }
-
             .special-text-title {
-                font-size: 2.1rem;
-            }
-
-            .special-text-subtitle {
-                font-size: 1.5rem;
+                font-size: 1.75rem;
             }
         }
     }
@@ -1234,11 +1235,7 @@ input[type=radio][disabled] + span {
             }
 
             .special-text-title {
-                font-size: 1.75rem;
-            }
-
-            .special-text-subtitle {
-                font-size: 1.25rem;
+                font-size: 1.5rem;
             }
         }
     }

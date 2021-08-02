@@ -393,19 +393,18 @@ select {
     }
 
     &.special-text {
-        .special-text-title {
-            margin-bottom: 0px !important;
+        .special-text-yellow {
+            font-size: 6.5rem;
+            color: #FAB617;
+            font-weight: 900;
         }
+    }
 
-        .special-text-subtitle {
-            font-size: 3.2rem;
-            font-weight: 600;
+    .sub-title {
+        color: #FFFFFF;
 
-            .special-text-yellow {
-                font-size: 4.8rem;
-                color: #FAB617;
-                font-weight: 900;
-            }
+        br {
+            display: none;
         }
     }
 
@@ -419,10 +418,6 @@ select {
         line-height: 56px;
         margin-bottom: 13px !important;
         font-weight: 900;
-    }
-
-    h5 {
-        font-size: 2.8rem;
     }
 
     .nounderline {
@@ -1819,9 +1814,9 @@ div.custom-panel {
             flex: 1;
         }
 
-        &.checkbox{
-            label{
-                width:unset;
+        &.checkbox {
+            label {
+                width: unset;
             }
         }
     }
@@ -2095,10 +2090,6 @@ div.custom-panel {
         h2 {
             font-size: 4rem;
         }
-
-        h5 {
-            font-size: 2.4rem;
-        }
     }
 
     .card .card-content {
@@ -2159,6 +2150,8 @@ div.custom-panel {
 @media only screen and (max-width: 1199px) {
     .banner-text {
         left: 40px;
+        max-width: 90%;
+        width: 90%;
     }
 
     .main .page-container:before {
@@ -2266,22 +2259,12 @@ div.custom-panel {
     }
 
     .banner-text {
-        width: 92%;
-        max-width: 92%;
         margin: 3px 0 0 0;
         left: 20px;
 
         &.special-text {
-            .special-text-title {
-                margin-bottom: 10px !important;
-            }
-
-            .special-text-subtitle {
-                font-size: 1.8rem;
-
-                .special-text-yellow {
-                    font-size: 2.5rem;
-                }
+            .special-text-yellow {
+                font-size: 3.5rem;
             }
         }
 
@@ -2291,15 +2274,6 @@ div.custom-panel {
             margin-bottom: 7px !important;
         }
 
-        h5 {
-            font-weight: 500;
-            font-size: 1.8rem;
-            line-height: 21px !important;
-            padding-top: 0;
-        }
-        /*        br {
-            display: none;
-        }*/
         .nounderline {
             font-size: 1.6rem;
             padding: 3px 26px 1px 22px;
@@ -2627,6 +2601,14 @@ div.custom-panel {
         height: 120px
     }
 
+    .banner-text {
+        .sub-title {
+            br {
+                display: block;
+            }
+        }
+    }
+
     .account-overview {
         .summary-content {
             .dashboard-section {
@@ -2907,8 +2889,50 @@ div.custom-panel {
 @media only screen and (max-width: 540px) {
     .banner-text {
         &.special-text {
-            .special-text-subtitle {
-                font-size: 1.75rem;
+            .special-text-yellow {
+                font-size: 3.25rem;
+            }
+        }
+
+        h2 {
+            font-size: 2.25rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 444px) {
+    .banner-text {
+        &.special-text {
+            .special-text-title {
+                font-size: 2rem;
+
+                .special-text-yellow {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .banner-text {
+        &.special-text {
+            .special-text-title {
+                font-size: 1.85rem;
+
+                .special-text-yellow {
+                    font-size: 2.75rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .banner-text {
+        &.special-text {
+            .special-text-title {
+                font-size: 1.5rem;
 
                 .special-text-yellow {
                     font-size: 2.5rem;
@@ -2917,33 +2941,7 @@ div.custom-panel {
         }
 
         h2 {
-            font-size: 2.25rem;
-        }
-
-        h5 {
-            font-size: 1.5rem;
-        }
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    .banner-text {
-        &.special-text {
-            .special-text-subtitle {
-                font-size: 1.25rem;
-
-                .special-text-yellow {
-                    font-size: 2rem;
-                }
-            }
-        }
-
-        h2 {
             font-size: 1.75rem;
-        }
-
-        h5 {
-            font-size: 1.25rem;
         }
 
         .nounderline {

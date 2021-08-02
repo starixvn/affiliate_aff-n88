@@ -2317,4 +2317,7 @@
   <data name="Finished" xml:space="preserve">
     <value>ĐÃ KẾT THÚC</value>
   </data>
+  <data name="LimitedTime" xml:space="preserve">
+    <value>*Áp dụng thời gian,&lt;br /&gt; điều khoản và điều kiện</value>
+  </data>
 </root>

@@ -13,9 +13,9 @@
     </picture>
     <div class="banner-text">
         <h2 class="txt-lang">
-            @Html.Raw(string.Format(Lang.EarnUpTo, "<span class=\"special-yellow-text\"/>" + maxCommission +"</span>"))
+            @Html.Raw(string.Format(Lang.EarnUpTo, "<span class=\"special-yellow-text\"/>" + maxCommission + "</span>"))
         </h2>
-        <h5 class="txt-lang sub-title">@Lang.JoinIn</h5>
+        <p class="sub-title">@Html.Raw(Lang.LimitedTime)</p>
         @if (!Model.IsAuthenticated)
         {
             <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>

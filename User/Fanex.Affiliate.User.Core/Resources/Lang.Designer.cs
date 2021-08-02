@@ -3412,6 +3412,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *Limited time only,&lt;br /&gt; terms &amp; conditions apply.
+        /// </summary>
+        public static string LimitedTime {
+            get {
+                return ResourceManager.GetString("LimitedTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Link to.
         /// </summary>
         public static string LinkTo {
