@@ -331,6 +331,27 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             Assert.Equal(0, param.GroupId);
         }
 
+        [Fact]
+        public void GetAllCommGroups_WhenCall_ReturnCorrectCommGroupList()
+        {
+            // Arrange
+            var repository = new Mock<CommissionGroupRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+
+            var expectedValue = GetExpectedNomalCommGroup();
+            ReaderHelper.MapReaderData(dataReader, expectedValue);
+            objectDb.Setup(obj => obj.ExecuteReader()).Returns(dataReader.Object);
+            repository.Setup(re => re.GetObjectDb("Aff_CommGroup_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetAllCommGroups();
+
+            // Assert
+            Assert.Single(result);
+        }
+
         private IDictionary<string, object> GetExpectedCommGroup()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)

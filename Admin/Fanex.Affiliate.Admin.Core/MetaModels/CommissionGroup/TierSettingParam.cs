@@ -5,8 +5,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 {
     public class TierSettingParam
     {
-        public int GroupId { get; set; }
-
         [Range(Validation.MinId, Validation.MaxId, ErrorMessage = "TierId not exists!")]
         public int TierId { get; set; }
 

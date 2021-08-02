@@ -252,6 +252,25 @@ describe('affiliate report - Filter ', () => {
         expect(instance.setState).toHaveBeenCalledWith({ toMonth });
     });
 
+    it('should call handleChangeCurrency when change the selected currency list', () => {
+        const item = {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        };
+        const selectedCurrencyList = '20';
+        const props = { ...defaultProps, setCurrencyList: jest.fn() }
+        const wrapper = shallow(<Filter {...props} />);
+        const instance = wrapper.instance();
+
+        instance.setState = jest.fn();
+
+        instance.handleChangeCurrency(item, selectedCurrencyList);
+
+        expect(instance.setState).toHaveBeenCalledWith({ selectedCurrencyList });
+        expect(props.setCurrencyList).toHaveBeenCalledWith([item]);
+    });
+
     it('should call handleChangeProduct when change the selected product list', () => {
         const item = {
             Checked: false,

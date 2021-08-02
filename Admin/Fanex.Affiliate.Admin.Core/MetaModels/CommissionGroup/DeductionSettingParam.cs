@@ -5,8 +5,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 {
     public class DeductionSettingParam
     {
-        public int GroupId { get; set; }
-
         [Range(Validation.MinId, Validation.MaxId, ErrorMessage = "Deduction Id not exists!")]
         public int DeductionId { get; set; }
 
