@@ -13,12 +13,10 @@
     </picture>
     <div class="banner-text special-text">
         <h2 class="txt-lang special-text-title">
-            đăng ký đại lý ngay<br/>
-            trên tay hoa hồng khủng
+            đăng ký đại lý ngay<br />
+            trên tay hoa hồng khủng <span class="special-text-yellow">@maxCommission</span>
         </h2>
-        <h5 class="txt-lang special-text-subtitle">
-            lên đến <span class="special-text-yellow">@maxCommission</span>
-        </h5>
+        <p class="sub-title">@Html.Raw(Lang.LimitedTime)</p>
         @if (!Model.IsAuthenticated)
         {
             <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>

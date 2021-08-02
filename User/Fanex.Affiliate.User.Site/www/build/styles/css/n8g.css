@@ -258,15 +258,14 @@ select {
   width: 60%; }
   .banner-text .commission-text {
     color: #FAB617; }
-  .banner-text.special-text .special-text-title {
-    margin-bottom: 0px !important; }
-  .banner-text.special-text .special-text-subtitle {
-    font-size: 3.2rem;
-    font-weight: 600; }
-    .banner-text.special-text .special-text-subtitle .special-text-yellow {
-      font-size: 4.8rem;
-      color: #FAB617;
-      font-weight: 900; }
+  .banner-text.special-text .special-text-yellow {
+    font-size: 6.5rem;
+    color: #FAB617;
+    font-weight: 900; }
+  .banner-text .sub-title {
+    color: #FFFFFF; }
+    .banner-text .sub-title br {
+      display: none; }
   .banner-text .txt-lang {
     color: #ffffff;
     text-shadow: 0px 4px 16px rgba(0, 0, 0, 0.32); }
@@ -275,8 +274,6 @@ select {
     line-height: 56px;
     margin-bottom: 13px !important;
     font-weight: 900; }
-  .banner-text h5 {
-    font-size: 2.8rem; }
   .banner-text .nounderline {
     font-size: 2.4rem;
     line-height: 28px;
@@ -1343,8 +1340,6 @@ div.custom-panel {
 @media only screen and (max-width: 1500px) {
   .banner-text h2 {
     font-size: 4rem; }
-  .banner-text h5 {
-    font-size: 2.4rem; }
   .card .card-content .card-title {
     padding-left: 50px; }
     .card .card-content .card-title .text:before {
@@ -1378,7 +1373,9 @@ div.custom-panel {
 
 @media only screen and (max-width: 1199px) {
   .banner-text {
-    left: 40px; }
+    left: 40px;
+    max-width: 90%;
+    width: 90%; }
   .main .page-container:before {
     width: 100%;
     left: 0; }
@@ -1430,28 +1427,14 @@ div.custom-panel {
       width: 100%;
       opacity: 1; }
   .banner-text {
-    width: 92%;
-    max-width: 92%;
     margin: 3px 0 0 0;
-    left: 20px;
-    /*        br {
-            display: none;
-        }*/ }
-    .banner-text.special-text .special-text-title {
-      margin-bottom: 10px !important; }
-    .banner-text.special-text .special-text-subtitle {
-      font-size: 1.8rem; }
-      .banner-text.special-text .special-text-subtitle .special-text-yellow {
-        font-size: 2.5rem; }
+    left: 20px; }
+    .banner-text.special-text .special-text-yellow {
+      font-size: 3.5rem; }
     .banner-text h2 {
       font-size: 2.4rem;
       line-height: 28px !important;
       margin-bottom: 7px !important; }
-    .banner-text h5 {
-      font-weight: 500;
-      font-size: 1.8rem;
-      line-height: 21px !important;
-      padding-top: 0; }
     .banner-text .nounderline {
       font-size: 1.6rem;
       padding: 3px 26px 1px 22px;
@@ -1627,6 +1610,8 @@ div.custom-panel {
     font-size: 20px; }
   .page-container .content .banner-faqs, .webp .banner-terms-condition {
     height: 120px; }
+  .banner-text .sub-title br {
+    display: block; }
   .account-overview .summary-content .dashboard-section .img-responsive {
     margin: 0 auto; }
   div.summary-content .dashboard-section span.my-account {
@@ -1766,24 +1751,30 @@ div.custom-panel {
         flex: 1; } }
 
 @media only screen and (max-width: 540px) {
-  .banner-text.special-text .special-text-subtitle {
-    font-size: 1.75rem; }
-    .banner-text.special-text .special-text-subtitle .special-text-yellow {
-      font-size: 2.5rem; }
+  .banner-text.special-text .special-text-yellow {
+    font-size: 3.25rem; }
   .banner-text h2 {
-    font-size: 2.25rem; }
-  .banner-text h5 {
-    font-size: 1.5rem; } }
+    font-size: 2.25rem; } }
+
+@media only screen and (max-width: 444px) {
+  .banner-text.special-text .special-text-title {
+    font-size: 2rem; }
+    .banner-text.special-text .special-text-title .special-text-yellow {
+      font-size: 3rem; } }
+
+@media only screen and (max-width: 399px) {
+  .banner-text.special-text .special-text-title {
+    font-size: 1.85rem; }
+    .banner-text.special-text .special-text-title .special-text-yellow {
+      font-size: 2.75rem; } }
 
 @media only screen and (max-width: 375px) {
-  .banner-text.special-text .special-text-subtitle {
-    font-size: 1.25rem; }
-    .banner-text.special-text .special-text-subtitle .special-text-yellow {
-      font-size: 2rem; }
+  .banner-text.special-text .special-text-title {
+    font-size: 1.5rem; }
+    .banner-text.special-text .special-text-title .special-text-yellow {
+      font-size: 2.5rem; }
   .banner-text h2 {
     font-size: 1.75rem; }
-  .banner-text h5 {
-    font-size: 1.25rem; }
   .banner-text .nounderline {
     padding-left: 10px;
     padding-right: 10px; }

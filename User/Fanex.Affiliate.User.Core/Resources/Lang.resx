@@ -2500,4 +2500,7 @@
   <data name="Finished" xml:space="preserve">
     <value>Finished</value>
   </data>
+  <data name="LimitedTime" xml:space="preserve">
+    <value>*Limited time only,&lt;br /&gt; terms &amp; conditions apply</value>
+  </data>
 </root>
