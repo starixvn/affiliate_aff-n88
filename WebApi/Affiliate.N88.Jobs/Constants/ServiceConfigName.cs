@@ -31,5 +31,7 @@
         public const string PULL_REBATEMLOG_SETTING = "PullRebateMLogSetting";
 
         public const string PULL_CUST_BONUS_ROLLOVER_SETTING = "PullCustBonusRolloverSetting";
+
+        public const string PULL_CUST_CLOSING_BALANCE_SETTING = "PullCustClosingBalanceSetting";
     }
 }

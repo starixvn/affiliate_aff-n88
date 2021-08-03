@@ -16,5 +16,6 @@
     <Setting Key="API_Promotion_Get" SpName="API_Promotion_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_PromotionSpecific_Get" SpName="API_PromotionSpecific_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_RebateMLog_Get" SpName="API_RebateMLog_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_CustClosingBalance_Get" SpName="API_CustClosingBalance_Get" DbName="N88Licensee_Read"/>
   </Function>
 </Functions>
