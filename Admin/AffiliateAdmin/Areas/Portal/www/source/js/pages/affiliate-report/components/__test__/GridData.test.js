@@ -455,7 +455,6 @@ describe('affiliate report - GridData ', () => {
     });
 
     it('handleViewMonthOnMonth - should setViewLevel, setParam with correct paramaters', () => {
-        const monthOnMonth = 2;
         const userName = 'handleViewMonthOnMonth';
         const mockSetViewLevel = jest.fn();
         const mockSetParam = jest.fn();
@@ -463,7 +462,7 @@ describe('affiliate report - GridData ', () => {
         const componentInstance = new GridData(props);
         componentInstance.handleViewMonthOnMonth(userName);
 
-        expect(props.setViewLevel).toHaveBeenCalledWith(monthOnMonth);
+        expect(props.setViewLevel).toHaveBeenCalledWith(2);
         expect(props.setParam).toHaveBeenCalledWith({ PageIndex: 1, PageSize: 20, SortDirectionType: 1, SortType: 1, UserName: "handleViewMonthOnMonth" });
     });
 
@@ -543,6 +542,17 @@ describe('affiliate report - GridData ', () => {
                 Winlost: 0,
                 Withdrawal: 0,
             }
+        ];
+
+        const wrapper = shallow(<GridData {...defaultProps} />);
+        wrapper.instance().setState({ gridData: dataList, total });
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('should render correctly with empty data', () => {
+        const total = 0;
+        const dataList = [
         ];
 
         const wrapper = shallow(<GridData {...defaultProps} />);

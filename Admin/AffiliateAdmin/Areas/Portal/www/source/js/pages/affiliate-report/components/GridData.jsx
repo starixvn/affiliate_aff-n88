@@ -93,7 +93,7 @@ export class GridData extends PureComponent {
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
             </tr>,
-            <tr className="feeze-row feeze-row-h2" key="thead-1">
+            <tr className="feeze-row feeze-row-h2" key="thead-2">
                 <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
                 <th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>
                 <th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>
@@ -133,7 +133,7 @@ export class GridData extends PureComponent {
             }
         }
         else {
-            dataRows.push(<tr>
+            dataRows.push(<tr key="no-info">
                 <td className="text-center" colSpan={26 + Number(this._isMainView())}>{globalResource.NoInfo}</td>
             </tr>);
         }

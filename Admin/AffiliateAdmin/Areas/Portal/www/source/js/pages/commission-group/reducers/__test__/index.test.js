@@ -12,6 +12,8 @@ const testCaseList = [
     { name: 'gridData', value: null, action: { type: types.SET_GRIDDATA, data: [{ gridData: 'gridData' }] }, expectedResult: [{ gridData: 'gridData' }] },
     { name: 'searchedGroupName', value: '', action: { type: types.SET_SEARCHED_GROUPNAME, data: 'abc' }, expectedResult: 'abc' },
     { name: 'selectedGroup', value: null, action: { type: types.SET_SELECTED_GROUP, data: { selectedGroup: 'selectedGroup' } }, expectedResult: { selectedGroup: 'selectedGroup' } },
+    { name: 'selectedGroup', value: null, action: { type: types.SET_SELECTED_GROUP, data: undefined }, expectedResult: null },
+    { name: 'selectedProductIds', value: [], action: { type: types.SET_SELECTED_PRODUCT_IDS, data: [1, 2, 3] }, expectedResult: [ 1, 2, 3 ] },
 ]
 
 describe('commission group reducers', () => {
