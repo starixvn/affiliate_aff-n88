@@ -70,7 +70,7 @@ export class PlatformFeeSetting extends PureComponent {
                 }
             }
             else {
-                if (index == FIRST_ITEM_INDEX) {
+                if (index != FIRST_ITEM_INDEX) {
                     platformFeeList[index].ProductIds = platformFeeList[index].ProductIds.split(',')
                         .filter(p => p && p !== selectedItem.ProductId.toString())
                         .join(',');
