@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { CommGroupInfo } from '../CommGroupInfo';
 import { shallow } from 'enzyme';
-jest.mock('../../../modules/constant');
 
 describe('commission group - CommGroupInfo', () => {
     const defaultProps = {

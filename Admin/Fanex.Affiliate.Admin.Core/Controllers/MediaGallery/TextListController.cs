@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please input text to upload."
                 }
             };
@@ -145,7 +145,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidTextId ? "TextId is invalid." : "Please input text to update."
                 }
             };
@@ -170,7 +170,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.MediaGallery
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please select texts to delete."
                 }
             };

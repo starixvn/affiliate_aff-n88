@@ -6,7 +6,7 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
     <h6
       className="font-weight-bold"
     >
-      Deductions
+      Tier Rated Products Deduction
     </h6>
   </legend>
   <Connect(PlatformFeeSetting) />

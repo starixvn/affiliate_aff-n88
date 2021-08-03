@@ -12,8 +12,6 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public int ActiveMembers { get; set; }
 
-        public int QualifiedActiveMembers { get; set; }
-
         public decimal Deposit { get; set; }
 
         public decimal Withdrawal { get; set; }

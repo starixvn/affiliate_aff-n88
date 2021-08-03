@@ -26,8 +26,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public int ActiveMember { get; set; }
 
-        public int QualifiedMember { get; set; }
-
         public decimal Deposit { get; set; }
 
         public decimal Withdrawal { get; set; }
@@ -64,6 +62,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal SubAffEarning { get; set; }
 
-        public decimal TotalEarning => Earning + SubAffEarning;
+        public decimal P2pEarning { get; set; }
+
+        public decimal TotalEarning => Earning + SubAffEarning + P2pEarning;
     }
 }

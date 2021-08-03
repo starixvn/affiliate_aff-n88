@@ -1,11 +1,12 @@
 import { formatDecimal, format } from "../../../modules/numberFormat";
 import { globalResource } from '../../../modules/globalResource';
 
-export { globalResource };
+export { globalResource, formatDecimal, format };
 
 export const INFINITY_AM = 100000000000;
 export const INFINITY_QM = 1000000000;
 export const INFINITY_SYMBOL = '∞';
+export const FIRST_ITEM_INDEX = 0;
 
 function generateCommissionValues() {
     let min = 0,
@@ -46,6 +47,7 @@ export const messages = {
 }
 
 const _deductionNameList = {
+    p2pDeduction: 'P2P Fee',
     platformFee: 'Platform Fee',
     operationalFee: 'Operational Fee',
     depositFee: 'Deposit Fee',

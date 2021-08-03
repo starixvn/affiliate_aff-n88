@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Fanex.Affiliate.Admin.Core.MetaModels
 {
     public class CheckPermissionParam
@@ -16,7 +11,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels
 
         public int ErrCode { get; set; }
 
-        public string ErrMsg { get; set; } = String.Empty;
+        public string ErrMsg { get; set; }
 
     }
 }

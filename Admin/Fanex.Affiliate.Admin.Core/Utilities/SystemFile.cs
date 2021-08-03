@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
                     Logger.Log.Error(ex.Message, ex);
                     return new ResultInfo
                     {
-                        Code = Code.ErrCanNotAccessFolder,
+                        Code = ErrCode.ErrCanNotAccessFolder,
                         Message = "Can not access folder."
                     };
                 }
@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             {
                 return new ResultInfo
                 {
-                    Code = Code.ErrTheFileNameAlreadyExists,
+                    Code = ErrCode.ErrTheFileNameAlreadyExists,
                     Message = "This file name belong to an existing banner. Please change the file name."
                 };
             }

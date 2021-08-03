@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             var result = _statementHistoryRepository.GetStatementHistoryList(param);
             foreach (var item in result.MainData)
             {
-                if (item.TransType == Code.MonthlyWinlost || item.TransType == Code.SubAffiliate)
+                if (item.TransType == TransType.MonthlyWinlost || item.TransType == TransType.SubAffiliate)
                 {
                     if (CheckIfExistMonthlyTotal(item.Date, vms))
                     {
@@ -80,9 +80,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
             var children = statementHistoryList.Where(s => s.Date == monthDate)
-                .Where(s => s.TransType == Code.SubAffiliate || s.TransType == Code.MonthlyWinlost);
+                .Where(s => s.TransType == TransType.SubAffiliate || s.TransType == TransType.MonthlyWinlost);
 
-            var monthlyCom = children.FirstOrDefault(s => s.TransType == Code.MonthlyWinlost);
+            var monthlyCom = children.FirstOrDefault(s => s.TransType == TransType.MonthlyWinlost);
 
             var monthlyTotal = new StatementHistory
             {
@@ -91,7 +91,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 Date = monthDate,
                 Children = children,
                 Status = monthlyCom?.Status ?? children.FirstOrDefault().Status,
-                TransType = Code.MonthlyTotal,
+                TransType = TransType.MonthlyTotal,
                 CalculatedType = monthlyCom?.CalculatedType ?? children.FirstOrDefault().CalculatedType
             };
             return monthlyTotal;
@@ -99,7 +99,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static bool CheckIfExistMonthlyTotal(DateTime monthDate, List<StatementHistory> vms)
         {
-            return vms.Any(m => m.Date == monthDate && m.TransType == Code.MonthlyTotal);
+            return vms.Any(m => m.Date == monthDate && m.TransType == TransType.MonthlyTotal);
         }
     }
 }

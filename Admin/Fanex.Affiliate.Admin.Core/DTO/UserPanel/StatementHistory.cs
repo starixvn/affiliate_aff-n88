@@ -1,5 +1,4 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -26,7 +25,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public byte? CalculatedType { get; set; }
 
-        public string DateText => (TransType == Code.MonthlyWinlost || TransType == Code.MonthlyTotal || TransType == Code.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
+        public string DateText => (TransType == Constants.TransType.MonthlyWinlost || TransType == Constants.TransType.MonthlyTotal
+            || TransType == Constants.TransType.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
 
         public string NormalizeDateText => Date.ToString("yyyy-MM-dd");
 
@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
         {
             get
             {
-                if (TransType == Code.MonthlyTotal)
+                if (TransType == Constants.TransType.MonthlyTotal)
                 {
                     return GetMonthlyTotalDescription(CalculatedType);
                 }

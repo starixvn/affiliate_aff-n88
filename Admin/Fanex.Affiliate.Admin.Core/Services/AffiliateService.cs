@@ -24,7 +24,20 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 {
                     if (reader.Read())
                     {
-                        result = BuildAffiliateBasicInfo(reader);
+                        result = new AffiliateBasicInfo
+                        {
+                            AffId = Convert.ToInt32(reader["AffId"]),
+                            AffCode = Convert.ToString(reader["AffCode"]),
+                            GroupId = Convert.ToInt32(reader["GroupId"]),
+                            UserName = Convert.ToString(reader["UserName"]),
+                            FirstName = Convert.ToString(reader["FirstName"]),
+                            Email = Convert.ToString(reader["Email"]),
+                            MailOption = Convert.ToBoolean(reader["MailOption"]),
+                            PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
+                            PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
+                            AffType = Convert.ToByte(reader["AffType"]),
+                            IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])
+                        };
                     }
                 }
             }
@@ -53,24 +66,6 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
                 return (GetResultInfo(objectDb), affCode);
             }
-        }
-
-        private static AffiliateBasicInfo BuildAffiliateBasicInfo(IDataReader reader)
-        {
-            return new AffiliateBasicInfo
-            {
-                AffId = Convert.ToInt32(reader["AffId"]),
-                AffCode = Convert.ToString(reader["AffCode"]),
-                GroupId = Convert.ToInt32(reader["GroupId"]),
-                UserName = Convert.ToString(reader["UserName"]),
-                FirstName = Convert.ToString(reader["FirstName"]),
-                Email = Convert.ToString(reader["Email"]),
-                MailOption = Convert.ToBoolean(reader["MailOption"]),
-                PreferredLanguage = Convert.ToString(reader["PreferredLanguage"]),
-                PlayerUsername = Convert.ToString(reader["PlayerUsername"]),
-                AffType = Convert.ToByte(reader["AffType"]),
-                IsUsingPrivateCommGroup = (reader["IsPrivate"] != DBNull.Value) && Convert.ToBoolean(reader["IsPrivate"])
-            };
         }
     }
 }

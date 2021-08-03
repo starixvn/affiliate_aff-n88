@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+﻿import React, { PureComponent } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
-import { Button } from 'reactstrap';
+import { Table, Button } from 'reactstrap';
+import { Pager } from '@9softstudio/react-fixed-table-header';
 
 import { format, formatDecimal } from '../../../modules/numberFormat';
 import { setPagingOption, setViewLevel, setParam } from '../actions';
@@ -12,7 +12,7 @@ import { toggleLoader } from '../../../actions/loaderAction';
 import { globalResource } from '../../../modules/globalResource';
 import { allProduct, viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../modules/constants';
 
-export class GridData extends Component {
+export class GridData extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -24,6 +24,8 @@ export class GridData extends Component {
             gridData: null,
             total: null
         }
+
+        this.tableHeight = window.innerHeight - 275;
     }
 
     componentDidUpdate(prevProps) {
@@ -79,39 +81,40 @@ export class GridData extends Component {
         const firstColName = isMainView ? headerText.UserName : headerText.MonthDateString;
 
         return [
-            <Row key="h1">
-                <Cell header={true} colWidth={105} rowSpan="2" title={firstColName}>{firstColName}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</Cell>
-                <Cell header={true} colWidth={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</Cell>
-                <Cell header={true} colWidth={60} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>
-                <Cell header={true} colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</Cell>
-                <Cell header={true} colSpan={isMainView ? 7 : 6} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</Cell>
-                {isMainView && (<Cell header={true} colWidth={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</Cell>)}
-            </Row>,
-            <Row key="h2">
-                <Cell header={true} colWidth={75} title={headerText.Deposit}>{headerText.Deposit}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.Turnover}>{headerText.Turnover}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.Winlost}>{headerText.Winlost}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.Bonus}>{headerText.Bonus}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.Rebate}>{headerText.Rebate}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.OperationalFee}>{headerText.OperationalFee}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.DepositFee}>{headerText.DepositFee}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.WithdrawalFee}>{headerText.WithdrawalFee}</Cell>
-                <Cell header={true} colWidth={70} title={headerText.TotalFee}>{headerText.TotalFee}</Cell>
+            <tr className="feeze-row feeze-row-h1" key="thead-1">
+                <th className="freeze-column-header" width={100} rowSpan="2" title={firstColName}>{firstColName}</th>
+                <th width={50} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</th>
+                <th width={50} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</th>
+                <th width={50} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</th>
+                <th width={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</th>
+                <th width={50} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
+                <th width={50} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
+                <th colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
+                <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
+                {isMainView && (<th width={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
+            </tr>,
+            <tr className="feeze-row feeze-row-h2" key="thead-2">
+                <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
+                <th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>
+                <th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>
+                <th width={75} title={headerText.Winlost}>{headerText.Winlost}</th>
+                <th width={70} title={headerText.Bonus}>{headerText.Bonus}</th>
+                <th width={70} title={headerText.Rebate}>{headerText.Rebate}</th>
+                <th width={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</th>
+                <th width={75} title={headerText.OperationalFee}>{headerText.OperationalFee}</th>
+                <th width={70} title={headerText.DepositFee}>{headerText.DepositFee}</th>
+                <th width={70} title={headerText.WithdrawalFee}>{headerText.WithdrawalFee}</th>
+                <th width={70} title={headerText.TotalFee}>{headerText.TotalFee}</th>
 
-                <Cell header={true} colWidth={60} title={headerText.CommissionRate}>{headerText.CommissionRate}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.Earning}>{headerText.Earning}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.TotalEarning}>{headerText.TotalEarning}</Cell>
-                <Cell header={true} colWidth={75} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</Cell>
-                {isMainView && (<Cell header={true} colWidth={80} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</Cell>)}
-                <Cell header={true} colWidth={80} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>
-            </Row>
+                <th width={65} title={headerText.CommissionRate}>{headerText.CommissionRate}</th>
+                <th width={75} title={headerText.Earning}>{headerText.Earning}</th>
+                <th width={75} title={headerText.P2pEarning}>{headerText.P2pEarning}</th>
+                <th width={75} title={headerText.SubAffEarning}>{headerText.SubAffEarning}</th>
+                <th width={75} title={headerText.TotalEarning}>{headerText.TotalEarning}</th>
+                <th width={75} title={headerText.AffWithdrawal}>{headerText.AffWithdrawal}</th>
+                {isMainView && (<th width={75} title={headerText.AffAdjustment}>{headerText.AffAdjustment}</th>)}
+                <th width={80} title={headerText.BalanceBf}>{headerText.BalanceBf}</th>
+            </tr>
         ];
     }
 
@@ -130,9 +133,9 @@ export class GridData extends Component {
             }
         }
         else {
-            dataRows.push(<Row>
-                <Cell className="text-center" colSpan={25 + this._isMainView()}>{globalResource.NoInfo}</Cell>
-            </Row>);
+            dataRows.push(<tr key="no-info">
+                <td className="text-center" colSpan={26 + Number(this._isMainView())}>{globalResource.NoInfo}</td>
+            </tr>);
         }
 
         return dataRows;
@@ -146,18 +149,18 @@ export class GridData extends Component {
             (isMainView ? dataItem.UserName : this._buildMonthCell(dataItem.MonthDateString, dataItem.Description));
 
         return (
-            <Row key={`dataRow-${index}`}>
-                <Cell title={firstColValue}>{firstColValue}</Cell>
+            <tr key={`dataRow-${index}`}>
+                <td className="freeze-column" title={firstColValue}>{firstColValue}</td>
                 {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow)}
                 {
                     isMainView && (
-                        <Cell className="text-center">
+                        <td className="text-center">
                             {dataItem.AffId > 0 ? (
                                 <Button color="link" className="p-0"
                                     onClick={() => this.handleViewMonthOnMonth(dataItem.UserName)}>View</Button>) : ''}
-                        </Cell>)
+                        </td>)
                 }
-            </Row>
+            </tr>
         )
     }
 
@@ -184,6 +187,7 @@ export class GridData extends Component {
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee)
         const totalFee = formatDecimal(dataItem.TotalFee);
         const earning = formatDecimal(dataItem.Earning);
+        const p2pEarning = formatDecimal(dataItem.P2pEarning);
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
@@ -193,30 +197,31 @@ export class GridData extends Component {
 
         return (
             <React.Fragment>
-                <Cell className="text-right" title={totalClick}>{totalClick}</Cell>
-                <Cell className="text-right" title={uniqueClick}>{uniqueClick}</Cell>
-                <Cell className="text-right" title={signup}>{signup}</Cell>
-                <Cell className="text-right" title={fdm}>{fdm}</Cell>
-                <Cell className="text-right" title={activeMember}>{activeMember}</Cell>
-                <Cell className="text-right" title={noOfSubAff}>{noOfSubAff}</Cell>
-                <Cell className="text-right" title={deposit}>{deposit}</Cell>
-                <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
-                <Cell className={productColumnClassName} title={turnover}>{turnover}</Cell>
-                <Cell className={productColumnClassName} title={winlost}>{winlost}</Cell>
-                <Cell className="text-right" title={bonus}>{bonus}</Cell>
-                <Cell className="text-right" title={rebate}>{rebate}</Cell>
-                <Cell className="text-right" title={platformFee}>{platformFee}</Cell>
-                <Cell className="text-right" title={operationalFee}>{operationalFee}</Cell>
-                <Cell className="text-right" title={depositFee}>{depositFee}</Cell>
-                <Cell className="text-right" title={withdrawalFee}>{withdrawalFee}</Cell>
-                <Cell className="text-right" title={totalFee}>{totalFee}</Cell>
-                <Cell className="text-right" title={commRate}>{commRate}</Cell>
-                <Cell className="text-right" title={earning}>{earning}</Cell>
-                <Cell className="text-right" title={subAffEarning}>{subAffEarning}</Cell>
-                <Cell className="text-right" title={totalEarning}>{totalEarning}</Cell>
-                <Cell className="text-right" title={affWithdrawal}>{affWithdrawal}</Cell>
-                {this._isMainView() && (<Cell className="text-right" title={affAdjustment}>{affAdjustment}</Cell>)}
-                <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>
+                <td className="text-right" title={totalClick}>{totalClick}</td>
+                <td className="text-right" title={uniqueClick}>{uniqueClick}</td>
+                <td className="text-right" title={signup}>{signup}</td>
+                <td className="text-right" title={fdm}>{fdm}</td>
+                <td className="text-right" title={activeMember}>{activeMember}</td>
+                <td className="text-right" title={noOfSubAff}>{noOfSubAff}</td>
+                <td className="text-right" title={deposit}>{deposit}</td>
+                <td className="text-right" title={withdrawal}>{withdrawal}</td>
+                <td className={productColumnClassName} title={turnover}>{turnover}</td>
+                <td className={productColumnClassName} title={winlost}>{winlost}</td>
+                <td className="text-right" title={bonus}>{bonus}</td>
+                <td className="text-right" title={rebate}>{rebate}</td>
+                <td className="text-right" title={platformFee}>{platformFee}</td>
+                <td className="text-right" title={operationalFee}>{operationalFee}</td>
+                <td className="text-right" title={depositFee}>{depositFee}</td>
+                <td className="text-right" title={withdrawalFee}>{withdrawalFee}</td>
+                <td className="text-right" title={totalFee}>{totalFee}</td>
+                <td className="text-right" title={commRate}>{commRate}</td>
+                <td className="text-right" title={earning}>{earning}</td>
+                <td className="text-right" title={p2pEarning}>{p2pEarning}</td>
+                <td className="text-right" title={subAffEarning}>{subAffEarning}</td>
+                <td className="text-right" title={totalEarning}>{totalEarning}</td>
+                <td className="text-right" title={affWithdrawal}>{affWithdrawal}</td>
+                {this._isMainView() && (<td className="text-right" title={affAdjustment}>{affAdjustment}</td>)}
+                <td className="text-right" title={balanceBf}>{balanceBf}</td>
             </React.Fragment>
         )
     }
@@ -251,20 +256,28 @@ export class GridData extends Component {
         const { gridData, total } = this.state;
 
         return gridData && (
-            <div className="table-responsive table-striped">
-                <Table
-                    minWidth={1000}
-                    autoWidth={true}
-                    bodyHeight={300}
-                    header={this._renderHeader()}
-                    body={this._renderDataSection(gridData)}
-                    footer={total && this._renderDataSection([total])}
-                    containerPadding={20}
-                    isPaging={true}
+            <React.Fragment>
+                <div className="table-responsive report-table-container" style={{ 'max-height': this.tableHeight }}>
+                    <Table className="freeze-table">
+                        <thead>
+                            {
+                                this._renderHeader()
+                            }
+                        </thead>
+                        <tbody>
+                            {
+                                this._renderDataSection(gridData)
+                            }
+                        </tbody>
+                        <tfoot>
+                            {total && this._renderDataSection([total])}
+                        </tfoot>
+                    </Table>
+                </div>
+                <Pager
                     pageOption={this.props.pagingOption}
-                    onPaging={this.handlePaging}
-                />
-            </div>
+                    onPaging={this.handlePaging} />
+            </React.Fragment>
         );
     }
 }

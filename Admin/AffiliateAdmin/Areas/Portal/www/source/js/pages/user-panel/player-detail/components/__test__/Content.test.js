@@ -131,7 +131,7 @@ describe('players detail - components - Content', () => {
         const wrapper = shallow(<Content {...props} />);
         const instance = wrapper.instance();
         instance.setState = jest.fn();
-        const param = Object.assign({}, defaultProps.param, { productId: 'abc', pageIndex: 1, pageSize: 20 });
+        const param = Object.assign({}, defaultProps.param, { pageIndex: 1, pageSize: 20 });
         await instance._fetchData(param);
 
         expect(props.toggleLoaderUserPanel).toHaveBeenCalledTimes(2);
@@ -171,7 +171,7 @@ describe('players detail - components - Content', () => {
         const setPagingOption = jest.fn();
         const pageIndex = 2;
         const pageSize = 50;
-        const paramExpect = Object.assign({}, defaultProps.param, { pageIndex, pageSize });
+        const paramExpect = Object.assign({}, defaultProps.param, { pageIndex, pageSize, isSortAsc: false, sortById: 5 });
 
         const props = Object.assign({}, defaultProps, { setPagingOption });
         const wrapper = shallow(<Content {...props} />);

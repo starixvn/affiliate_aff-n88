@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please input Sub-Affiliate Domain's name."
                 }
             };
@@ -101,7 +101,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidDomainId ? "Sub-Affiliate Domain Id is invalid." : "Please input Sub-Affiliate Domain's name."
                 }
             };
@@ -126,7 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Sub-Affiliate Domain Id is incorrect."
                 }
             };

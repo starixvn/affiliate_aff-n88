@@ -24,7 +24,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                 {
                     result.CommGroupList = GetCommGroupList(reader);
                     result.TierSettingList = GetTierSettingList(reader);
-                    result.DeductionSettingList = GetDeductionSettingList(reader);
+                    result.TierDeductionSettingList = GetFeeDeductionSettingList(reader);
+                    result.P2pDeductionSettingList = GetP2pDeductionSettingList(reader);
                 }
 
                 param.Nrows = Convert.ToInt32(objectDb.GetParameterValue("Nrows"));
@@ -101,16 +102,15 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             }
         }
 
-        public IEnumerable<Deduction> GetDeductionList()
+        public IEnumerable<DeductionItem> GetDeductionList()
         {
             const string SpKey = "Aff_Admin_CommGroup_Deductions_Sel";
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                return objectDb.Query<Deduction>();
+                return objectDb.Query<DeductionItem>();
             }
         }
-
         public IEnumerable<SelectItem> GetNormalCommGroupList(GetGroupListParam param)
         {
             const string SpKey = "Aff_Admin_CommGroupNormal_Sel";
@@ -229,7 +229,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             return tierSettingList;
         }
 
-        private static IEnumerable<DeductionSetting> GetDeductionSettingList(IDataReader reader)
+        private static IEnumerable<DeductionSetting> GetFeeDeductionSettingList(IDataReader reader)
         {
             var deductionSettingList = new List<DeductionSetting>();
             if (reader.NextResult())
@@ -252,13 +252,36 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             return deductionSettingList;
         }
 
+        private static IEnumerable<DeductionSetting> GetP2pDeductionSettingList(IDataReader reader)
+        {
+            var p2pDeductionSettingList = new List<DeductionSetting>();
+            if (reader.NextResult())
+            {
+                while (reader.Read())
+                {
+                    p2pDeductionSettingList.Add(new DeductionSetting
+                    {
+                        GroupId = reader.ToInt(Field.GroupId),
+                        DeductionId = Deduction.P2pDeductionId,
+                        DeductionName = Deduction.P2pDeductionName,
+                        ProductIds = reader.ToString("ProductIds"),
+                        DeductedPercentage = reader.ToDecimal("DeductedPercentage"),
+                        Commission = reader.ToDecimal("Commission")
+                    });
+                }
+            }
+
+            return p2pDeductionSettingList;
+        }
+
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
             objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
             objectDb.AddInParameter(Field.GroupName, DbType.String, param.GroupName);
             objectDb.AddInParameter("Description", DbType.String, param.Description);
-            objectDb.AddInParameter("DeductionList", DbType.Xml, param.DeductionList);
-            objectDb.AddInParameter("TierList", DbType.Xml, param.TierList);
+            objectDb.AddInParameter("DeductionList", DbType.Xml, param.TierDeductionsXml);
+            objectDb.AddInParameter("StraightList", DbType.Xml, param.P2pDeductionsXml);
+            objectDb.AddInParameter("TierList", DbType.Xml, param.TierSettingXml);
             objectDb.AddInParameter("IP", DbType.String, param.Ip);
 
             AssignResultOutputParam(objectDb);

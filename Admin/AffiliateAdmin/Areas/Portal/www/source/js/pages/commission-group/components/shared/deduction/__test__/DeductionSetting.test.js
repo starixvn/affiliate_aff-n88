@@ -2,7 +2,6 @@
 import { DeductionSetting } from '../DeductionSetting';
 import { shallow } from 'enzyme';
 import FeeSettingItem from '../FeeSettingItem';
-jest.mock('../../../../modules/constant');
 
 describe('commission group - DeductionSetting', () => {
     const defaultProps = {

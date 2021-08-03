@@ -13,5 +13,7 @@
         public const string InvalidDepositFee = "Invalid Deposit Fee";
 
         public const string InvalidWithdrawalFee = "Invalid Withdrawal Fee";
+
+        public const string InvalidP2pDeduction = "Invalid P2P Products Deduction";
     }
 }

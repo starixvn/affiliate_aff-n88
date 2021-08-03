@@ -1429,9 +1429,9 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please direct any comments or questions to 
+        ///   Looks up a localized string similar to Please direct any comments or questions to
         ///            {email}
-        ///            or using the form below.                   
+        ///            or using the form below.
         ///    .
         /// </summary>
         public static string ContactTitle {
@@ -4378,6 +4378,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string OwnWebsite {
             get {
                 return ResourceManager.GetString("OwnWebsite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revenue Share (P2P included).
+        /// </summary>
+        public static string P2pIncluded {
+            get {
+                return ResourceManager.GetString("P2pIncluded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to P2P Rev. Share.
+        /// </summary>
+        public static string P2pRevenueShare {
+            get {
+                return ResourceManager.GetString("P2pRevenueShare", resourceCulture);
             }
         }
         

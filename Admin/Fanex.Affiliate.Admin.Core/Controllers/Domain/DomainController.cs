@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please input Domain's name."
                 }
             };
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidDomainId ? "Domain Id is invalid." : "Please input Domain's name."
                 }
             };
@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Domain id is incorrect."
                 }
             };

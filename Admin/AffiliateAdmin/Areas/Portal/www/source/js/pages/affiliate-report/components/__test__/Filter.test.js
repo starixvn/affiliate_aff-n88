@@ -4,7 +4,6 @@ import { Filter } from '../Filter';
 
 import MonthPicker from '@9softstudio/react-monthpicker';
 import MultipleSelect from '../../../../components/multiple-select';
-jest.mock('../../modules/constants');
 
 describe('affiliate report - Filter ', () => {
     const mainView = 1;
@@ -250,6 +249,25 @@ describe('affiliate report - Filter ', () => {
         wrapper.find(MonthPicker).at(1).simulate('select', now.getMonth(), now.getFullYear());
 
         expect(instance.setState).toHaveBeenCalledWith({ toMonth });
+    });
+
+    it('should call handleChangeCurrency when change the selected currency list', () => {
+        const item = {
+            key: 20,
+            name: 'UUS',
+            checked: true
+        };
+        const selectedCurrencyList = '20';
+        const props = { ...defaultProps, setCurrencyList: jest.fn() }
+        const wrapper = shallow(<Filter {...props} />);
+        const instance = wrapper.instance();
+
+        instance.setState = jest.fn();
+
+        instance.handleChangeCurrency(item, selectedCurrencyList);
+
+        expect(instance.setState).toHaveBeenCalledWith({ selectedCurrencyList });
+        expect(props.setCurrencyList).toHaveBeenCalledWith([item]);
     });
 
     it('should call handleChangeProduct when change the selected product list', () => {

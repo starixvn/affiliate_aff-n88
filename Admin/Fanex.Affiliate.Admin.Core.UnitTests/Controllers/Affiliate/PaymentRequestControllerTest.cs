@@ -154,7 +154,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var param = new PaymentRequestUpdateParam { TransId = 123 };
 
             var authRepository = new Mock<IAuthRepository>();
-            authRepository.Setup(a => a.CheckPermission(It.IsAny<CheckPermissionParam>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
+            authRepository.Setup(a => a.CheckPermission(It.IsAny<CheckPermissionParam>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode });
             var controller = CreatePaymentRequestController(null, null, authRepository.Object);
 
             // Action

@@ -105,7 +105,7 @@ var commissionReport = (function ($) {
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "13" : "14") + '>' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "14" : "15") + '>' + langResource.noInfo + '</td></tr>');
             }
         },
 
@@ -119,8 +119,7 @@ var commissionReport = (function ($) {
                 htmlRowList.push(_me.buildRow(summaryDataRow, true, i, dataItem.DiplayMonth));
 
                 var detailRowList = dataItem.ProductData;
-                for (var j = 0; j < detailRowList.length; j++) {
-                    var productRow = detailRowList[j];
+                for (var productRow of detailRowList) {
                     htmlRowList.push(_me.buildRow(productRow, false));
                 }
             }
@@ -135,7 +134,7 @@ var commissionReport = (function ($) {
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 9 : 10;
+            var length = langResource.isMaxLevel ? 10 : 11;
 
             var date = dataRow.MonthDate;
 
@@ -155,6 +154,7 @@ var commissionReport = (function ($) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
                 rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
+                rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {
@@ -171,7 +171,7 @@ var commissionReport = (function ($) {
             var dataRow = _reportData.Total;
             if (dataRow) {
                 return '<tr class="total">' +
-                    '<td class="text-right" colspan="2">' + 'Total' + '</td>' +
+                    '<td class="text-right" colspan="2">' + langResource.total + '</td>' +
                     _me.buildCell(formatDecimal(dataRow.TurnOver)) +
                     _me.buildCell(formatDecimal(dataRow.WinLoss)) +
                     _me.buildCell(formatDecimal(dataRow.PlatformFee)) +
@@ -182,6 +182,7 @@ var commissionReport = (function ($) {
                     _me.buildCell(formatDecimal(dataRow.Rebate)) +
                     _me.buildCell('') +
                     _me.buildCell(formatDecimal(dataRow.Commission)) +
+                    _me.buildCell(formatDecimal(dataRow.P2pCommission)) +
                     (langResource.isMaxLevel ? '' : _me.buildCell(formatDecimal(dataRow.SubAffCommission))) +
                     _me.buildCell(formatDecimal(dataRow.TotalCommission)) +
                     '</tr>';

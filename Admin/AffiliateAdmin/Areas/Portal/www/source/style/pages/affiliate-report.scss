@@ -1,29 +1,88 @@
 ﻿@import "../components/multiple-select";
 @import "../components/monthpicker";
 
-.multiple-select-container {
-    flex: 1;
-}
+.filter-container {
+    .note-info {
+        background: #fff;
+        border: 1px solid #ccc;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+    }
 
-.note-info {
-    background: #fff;
-    border: 1px solid #ccc;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-}
+    .multiple-select-container {
+        flex: 1;
+    }
 
-.mp-form-container {
-    &.disable {
-        .oi-calendar {
-            cursor: none;
-            color: #99a0a7
+    .mp-form-container {
+        &.disable {
+            .oi-calendar {
+                cursor: none;
+                color: #99a0a7
+            }
         }
     }
 }
 
-.affiliate-report-note {
-    font-size: 17px;
-    font-weight: bold;
-    color: red;
+.report-content-container {
+
+    .affiliate-report-note {
+        font-size: 17px;
+        font-weight: bold;
+        color: red;
+    }
+
+    .report-table-container {
+        .freeze-table {
+            min-width: 1640px;
+
+            thead {
+                .feeze-row {
+                    & th {
+                        border: 1px solid #cccccc;
+                        outline: 1px solid #cccccc;
+                        outline-offset: -1px;
+                        position: sticky;
+                    }
+
+                    &-h1 th {
+                        top: -0.5px;
+                    }
+
+                    &-h2 th {
+                        top: 24.5px;
+                    }
+
+                    .freeze-column-header {
+                        left: 0px;
+                        z-index: 50;
+                    }
+                }
+            }
+
+            tfoot {
+                font-weight: bold;
+                background: #ffc4a8;
+
+                td {
+                    padding: 5px;
+                    bottom: -1px;
+                    position: sticky;
+                    background: #ffc4a8;
+                    vertical-align: middle;
+                    border: 1px solid #cccccc;
+                    outline: 1px solid #cccccc;
+                    outline-offset: -1px;
+                }
+            }
+
+            .freeze-column {
+                position: sticky;
+                left: 0px;
+                z-index: 20;
+                outline: 1px solid #cccccc;
+                outline-offset: -1px;
+            }
+        }
+    }
 }

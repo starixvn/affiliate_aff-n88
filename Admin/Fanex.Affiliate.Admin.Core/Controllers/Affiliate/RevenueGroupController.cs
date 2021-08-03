@@ -7,7 +7,6 @@ using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
@@ -52,10 +51,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                 new SubMenu { Name = Lang.PaymentRequest, Url = Url.Content("~/Portal/PaymentRequest") },
                 new SubMenu { Name = Lang.CommGroup, Url = Url.Content("~/Portal/RevenueGroup"), IsActive = true }
             };
+            var productList = _productRepository.GetProductList();
 
             var viewModel = new CommissionGroupViewModel
             {
-                ProductList = _productRepository.GetProductList(),
+                ProductList = productList,
+                P2pProductList = productList.Where(p => p.IsP2P),
                 DeductionList = _commGroupCommonService.GetDeductionList(),
                 SubMenuList = subMenu
             };
@@ -105,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = CommGroupErrorMessage.InvalidGroupId
                 }
             };
@@ -114,7 +115,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult CreateCommissionGroup(CommissionGroupSetting commGroup)
+        public ActionResult CreateCommissionGroup(CommGroupSettingParam commGroup)
         {
             if (!ModelState.IsValid)
             {
@@ -133,10 +134,11 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     GroupName = Server.HtmlEncode(commGroup.GroupName.Trim()),
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
+                    P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
                     DepositFee = commGroup.DepositFee,
-                    WithdrawalFee = commGroup.WithdrawalFee,
+                    WithdrawalFee = commGroup.WithdrawalFee
                 };
 
                 return new JsonNetResult
@@ -149,7 +151,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = groupNameValidation.Message + result.Message
                 }
             };
@@ -158,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult UpdateCommissionGroup(CommissionGroupSetting commGroup)
+        public ActionResult UpdateCommissionGroup(CommGroupSettingParam commGroup)
         {
             if (!ModelState.IsValid || commGroup.GroupId < Validation.MinId)
             {
@@ -178,6 +180,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     Ip = Request.UserHostAddress,
                     Description = Server.HtmlEncode(commGroup.Description?.Trim()),
                     TierSettingList = commGroup.TierSettingList,
+                    P2pDeductionList = commGroup.P2pDeductionList,
                     PlatformFeeList = commGroup.PlatformFeeList,
                     OperationalFee = commGroup.OperationalFee,
                     DepositFee = commGroup.DepositFee,
@@ -194,7 +197,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = groupNameValidation.Message + result.Message
                 }
             };
@@ -225,7 +228,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = string.Join("<br />", ModelState.Values.SelectMany(x => x.Errors).Select(x => x.ErrorMessage))
                 }
             };
@@ -236,7 +239,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
             var result = new ResultInfo();
             if (string.IsNullOrEmpty(groupName) || groupName.Length > MaxLength)
             {
-                result.Code = Code.GeneralErrorCode;
+                result.Code = ErrCode.GeneralErrorCode;
                 result.Message = CommGroupErrorMessage.InvalidGroupName;
             }
 

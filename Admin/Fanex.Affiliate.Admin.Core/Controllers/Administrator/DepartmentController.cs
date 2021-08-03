@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please input Department's name."
                 }
             };
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidDepartmentId ? "Department Id is invalid." : "Please input Department's name."
                 }
             };
@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Department id is incorrect."
                 }
             };
@@ -166,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Administrator
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "The role policy is invalid."
                 }
             };

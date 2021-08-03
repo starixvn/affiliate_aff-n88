@@ -26,26 +26,16 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "ProductName": "Playtech Casino",
           },
           Object {
-            "Checked": true,
+            "Checked": false,
             "ProductId": 4,
             "ProductName": "Number Game",
-          },
-          Object {
-            "Checked": true,
-            "ProductId": 5,
-            "ProductName": "Virtual Sports",
-          },
-          Object {
-            "Checked": true,
-            "ProductId": 6,
-            "ProductName": "Keno",
           },
         ],
       }
     }
     handleClick={[Function]}
-    isDisable={false}
-    isInserting={true}
+    isFirst={true}
+    isOnlyPlatformFeeRow={false}
     key="platformfee-0"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}
@@ -57,12 +47,12 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
         "commission": 0.12,
         "productList": Array [
           Object {
-            "Checked": true,
+            "Checked": false,
             "ProductId": 1,
             "ProductName": "Sportsbook",
           },
           Object {
-            "Checked": true,
+            "Checked": false,
             "ProductId": 3,
             "ProductName": "Playtech Casino",
           },
@@ -71,22 +61,12 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
             "ProductId": 4,
             "ProductName": "Number Game",
           },
-          Object {
-            "Checked": true,
-            "ProductId": 5,
-            "ProductName": "Virtual Sports",
-          },
-          Object {
-            "Checked": true,
-            "ProductId": 6,
-            "ProductName": "Keno",
-          },
         ],
       }
     }
     handleClick={[Function]}
-    isDisable={false}
-    isInserting={true}
+    isFirst={false}
+    isOnlyPlatformFeeRow={false}
     key="platformfee-1"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}

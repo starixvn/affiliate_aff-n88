@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             // Arrange
             var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = "Please select Currency." });
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             // Arrange
             var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = ErrorMessage });
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = ErrorMessage });
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
@@ -215,7 +215,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             // Arrange
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "The file name already exists." });
+            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = "The file name already exists." });
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
@@ -234,7 +234,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             // Arrange
             var bannerValidationService = new Mock<IBannerValidationService>();
             bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo());
-            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.ErrCanNotAccessFolder, Message = "Can not access folder." });
+            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = ErrCode.ErrCanNotAccessFolder, Message = "Can not access folder." });
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object, systemFile: systemFile.Object);
@@ -252,7 +252,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
         {
             // Arrange
             var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Please select Currency." });
+            bannerValidationService.Setup(b => b.ValidateFile(It.IsAny<string>(), It.IsAny<int>())).Returns(new ResultInfo { Code = ErrCode.GeneralErrorCode, Message = "Please select Currency." });
             var service = CreateBannerListService(bannerValidationService: bannerValidationService.Object);
 
             // Action
@@ -325,7 +325,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.MediaGallery
             var systemFile = new Mock<ISystemFile>();
             systemFile.Setup(s => s.GetExtension(It.IsAny<string>())).Returns(".gif");
             var bannerValidationService = new Mock<IBannerValidationService>();
-            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = Code.ErrTheFileNameAlreadyExists, Message = "The file name already exists." });
+            bannerValidationService.Setup(b => b.CheckFileInFolder(It.IsAny<string>(), It.IsAny<string>())).Returns(new ResultInfo { Code = ErrCode.ErrTheFileNameAlreadyExists, Message = "The file name already exists." });
             var bannerListRepository = new Mock<IBannerListRepository>();
             bannerListRepository.Setup(s => s.GetBannerDetail(It.IsAny<int>(), 1)).Returns(new BannerInfo { FileName = "abc.gif" });
             var service = CreateBannerListService(bannerListRepository.Object, null, systemFile.Object, bannerValidationService.Object);

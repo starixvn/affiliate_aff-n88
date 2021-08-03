@@ -11,7 +11,7 @@ import TierSetting from '../shared/tiersetting';
 import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { toggleLoader } from '../../../../actions/loaderAction';
-import  ProductList  from '../shared/ProductList';
+import P2pProductSetting from '../shared/p2p-deduction';
 
 export class AddGroup extends React.Component {
     constructor(props) {
@@ -25,10 +25,10 @@ export class AddGroup extends React.Component {
     }
 
     componentDidMount() {
-        const { deductionList, productList } = this.props;
-        const commGroup = buildDefaultCommGroup(deductionList, productList);
+        const { deductionList, productList, p2pProductList } = this.props;
+        const commGroup = buildDefaultCommGroup(deductionList, productList, p2pProductList);
 
-        const productIds = productList.map(p => p.ProductId);
+        const productIds = p2pProductList.map(p => p.ProductId);
         this.props.setSelectedGroup(commGroup);
         this.props.setSelectedProductIds(productIds);
     }
@@ -39,6 +39,8 @@ export class AddGroup extends React.Component {
     }
 
     handleSave = async () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        
         const { selectedGroup } = this.props;
         const validationResult = validate(selectedGroup);
 
@@ -84,7 +86,7 @@ export class AddGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
-                <ProductList />
+                <P2pProductSetting />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -94,8 +96,8 @@ export class AddGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, selectedGroup, searchedGroupName, pagingOption }) {
-    return { deductionList, productList, selectedGroup, searchedGroupName, pagingOption };
+function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption }) {
+    return { deductionList, productList, p2pProductList, selectedGroup, searchedGroupName, pagingOption };
 }
 
 function mapDispatchToProps(dispatch) {

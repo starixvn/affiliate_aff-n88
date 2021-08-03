@@ -1,7 +1,7 @@
 import { post } from '../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { setPagingOption } from '../../../actions/pagingAction';
-import { convertStringToArrayNumber } from '../modules/service';
+import { getSelectedProductIds } from '../modules/service';
 
 import { SET_GRIDDATA, SET_SELECTED_GROUP, SET_SEARCHED_GROUPNAME, SET_SELECTED_PRODUCT_IDS } from './types';
 
@@ -83,9 +83,7 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
     const response = await post(url, param);
     const data = response && response.status === 200 ? response.data : null;
 
-    const selectedProductIds = data ? data.PlatformFeeList.map(p => p.ProductIds)
-        .map(ids => convertStringToArrayNumber(ids))
-        .reduce((cul, cur) => [...cul, ...cur], []) : [];
+    const selectedProductIds = data ? getSelectedProductIds(data.P2pDeductionList) : [];
 
     dispatch(setSelectedProductIds(selectedProductIds));
     dispatch(setSelectedGroup(data));

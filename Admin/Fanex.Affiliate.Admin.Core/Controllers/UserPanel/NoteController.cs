@@ -77,7 +77,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Insert Note is failed!"
                 }
             };
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Update Note is failed!"
                 }
             };

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -71,30 +72,16 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 {
                     while (reader.Read())
                     {
-                        dataList.Add(new DailyEarning
-                        {
-                            WinlostDate = reader.ToDateTime("WinlostDate"),
-                            Deposit = reader.ToDecimal("Deposit"),
-                            Withdrawal = reader.ToDecimal("Withdrawal"),
-                            MemberWinLost = reader.ToDecimal("MemberWinLost"),
-                            MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
-                            Bonus = reader.ToDecimal("Bonus"),
-                            Rebate = reader.ToDecimal("Rebate"),
-                        });
+                        var item = BuildDailyEarningItem(reader);
+                        item.WinlostDate = reader.ToDateTime("WinlostDate");
+
+                        dataList.Add(item);
                     }
                     dailyEarningResult.MainDataList = dataList;
 
                     if (reader.NextResult() && reader.Read())
                     {
-                        dailyEarningResult.Total = new DailyEarning
-                        {
-                            Deposit = reader.ToDecimal("Deposit"),
-                            Withdrawal = reader.ToDecimal("Withdrawal"),
-                            MemberWinLost = reader.ToDecimal("MemberWinLost"),
-                            MemberWinLostFake = reader.ToDecimal("MemberWinLostFake"),
-                            Bonus = reader.ToDecimal("Bonus"),
-                            Rebate = reader.ToDecimal("Rebate"),
-                        };
+                        dailyEarningResult.Total = BuildDailyEarningItem(reader);
                     }
                 }
             }
@@ -112,6 +99,18 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 var result = objecDb.Query<SubAffComInfo>(subAffParam);
                 return result;
             }
+        }
+
+        private DailyEarning BuildDailyEarningItem(IDataReader reader)
+        {
+            return new DailyEarning
+            {
+                Deposit = reader.ToDecimal("Deposit"),
+                Withdrawal = reader.ToDecimal("Withdrawal"),
+                MemberWinLost = reader.ToDecimal("Winloss"),
+                Bonus = reader.ToDecimal("Bonus"),
+                Rebate = reader.ToDecimal("Rebate"),
+            };
         }
     }
 }

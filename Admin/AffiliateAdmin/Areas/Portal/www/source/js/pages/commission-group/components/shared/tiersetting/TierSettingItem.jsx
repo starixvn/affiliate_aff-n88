@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { INFINITY_SYMBOL, INFINITY_AM, INFINITY_QM, commissionValueList } from '../../../modules/constant';
-import { formatDecimal, format } from '../../../../../modules/numberFormat';
+import { INFINITY_SYMBOL, INFINITY_AM, INFINITY_QM, commissionValueList, format } from '../../../modules/constant';
 
 export default class TierSettingItem extends React.Component {
     constructor(props) {

@@ -16,6 +16,7 @@ export const globalResource = {
     ChooseFile: "Choose File",
     Currency: 'Currency',
     BaseCurrency: 'Base Currency',
-    UserName: "User Name",
-    SystemUserName: "System Name"
+    UserName: 'User Name',
+    SystemUserName: 'System Name',
+    NA: 'N/A'
 }

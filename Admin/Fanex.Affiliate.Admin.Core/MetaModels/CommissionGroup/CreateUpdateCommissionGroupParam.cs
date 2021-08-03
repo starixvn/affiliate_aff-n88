@@ -1,33 +1,17 @@
-﻿using System.Collections.Generic;
-using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
-
+﻿
 namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 {
-    public class CreateUpdateCommissionGroupParam
+    public class CreateUpdateCommissionGroupParam : CommGroupSettingParam
     {
         public int UserId { get; set; }
 
-        public int GroupId { get; set; }
+        public string TierDeductionsXml { get; set; }
 
-        public string GroupName { get; set; }
+        public string P2pDeductionsXml { get; set; }
 
-        public string Description { get; set; }
-
-        public string DeductionList { get; set; }
-
-        public string TierList { get; set; }
+        public string TierSettingXml { get; set; }
 
         public string Ip { get; set; }
-
-        public IEnumerable<TierSetting> TierSettingList { get; set; }
-
-        public IEnumerable<DeductionSetting> PlatformFeeList { get; set; }
-
-        public DeductionSetting OperationalFee { get; set; }
-
-        public DeductionSetting DepositFee { get; set; }
-
-        public DeductionSetting WithdrawalFee { get; set; }
 
         public bool IsPrivate { get; set; }
     }

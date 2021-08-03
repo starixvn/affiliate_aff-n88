@@ -1,8 +1,7 @@
 import React from "react";
 import MultipleSelect from "../../../../../components/multiple-select";
-import { Col, FormGroup, Input, Label, Form } from 'reactstrap';
-import { commissionValueList } from '../../../modules/constant';
-import { format } from '../../../../../modules/numberFormat';
+import { Col, Form, FormGroup } from 'reactstrap';
+import DeductedPercentageForm from './DeductedPercentageGroup';
 
 export default class PlatformFeeItem extends React.Component {
     constructor(props) {
@@ -20,10 +19,11 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText, isDisable } = this.props;
+        const { data, handleClick, btnText, isOnlyPlatformFeeRow, isFirst } = this.props;
 
         const { productList, commission } = data;
-        const isValid = productList.filter(p => !p.Checked).length < productList.length;
+        const isValid = (isFirst && isOnlyPlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
+        const isDisableAddButton = isFirst && productList.length < 2;
 
         return (
             <FormGroup row className="align-items-center">
@@ -35,36 +35,23 @@ export default class PlatformFeeItem extends React.Component {
                             valueField="ProductName"
                             statusField="Checked"
                             hasAllOption={false}
-                            hasInputOption={!isDisable}
+                            hasInputOption={!isOnlyPlatformFeeRow}
                             maxDisplayItemCount={1}
-                            noneSelectedLabel="Please Select"
+                            noneSelectedLabel={isValid ? "None" : "Please Select"}
                             onChange={this.handleChange}
-                            isDisable={isDisable} />
+                            isDisable={isOnlyPlatformFeeRow} />
                     </div>
                 </Col>
-                <Col sm={5} className="select-comm">
+                <Col sm={7}>
                     <Form inline>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <Label className="mr-sm-2">New Revenue Share </Label>
-                        </FormGroup>
-                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                            <select name="DeductedPercentage" className="form-control"
-                                value={format(commission || 0, 3)}
-                                onChange={this.handleChangeComm} style={{ width: 70 }}>
-                                {
-                                    Object.keys(commissionValueList).map((key, i) => {
-                                        return (<option key={`platformfee-comm-${i}`} value={key}>{commissionValueList[key]}</option>);
-                                    })
-                                }
-                            </select>
-                        </FormGroup>
+                        <DeductedPercentageForm
+                            value={commission}
+                            label="| Gross Win Loss |"
+                            onChange={this.handleChangeComm} />
                     </Form>
                 </Col>
-                <Col sm={2}>
-                    <Input plaintext tag="p">| Gross Win Loss |</Input>
-                </Col>
                 <Col sm={1}>
-                    <button type="button" className="btn btn-action" onClick={handleClick}>{btnText}</button>
+                    <button type="button" className="btn btn-action" disabled={isDisableAddButton} onClick={handleClick}>{btnText}</button>
                 </Col>
             </FormGroup>
         )

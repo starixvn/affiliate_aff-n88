@@ -12,11 +12,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal MemberWinLost { get; set; }
 
-        public decimal MemberWinLostFake { get; set; }
-
         public decimal Bonus { get; set; }
 
         public decimal Rebate { get; set; }
-
     }
 }

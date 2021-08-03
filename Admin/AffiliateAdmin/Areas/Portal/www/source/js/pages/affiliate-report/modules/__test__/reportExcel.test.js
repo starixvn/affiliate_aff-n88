@@ -8,7 +8,7 @@ describe('affiliate report - Report Excel ', () => {
     const INDEX_DEPOSIT_COLUMN = 7;
     const COLSPAN_MEMBER_STATISTICS = 11;
     const INDEX_COMM_COLUMN = 18;
-    const COLSPAN_AFFILIATE_STATISTICS = 7;
+    const COLSPAN_AFFILIATE_STATISTICS = 8;
 
     const MAIN_SECTION_STYLE = 'mainSectionStyle';
     const TOTAL_SECTION_STYLE = 'totalSectionStyle';
@@ -32,7 +32,6 @@ describe('affiliate report - Report Excel ', () => {
         MonthDateString: "",
         OperationalFee: 0,
         PlatformFee: 0,
-        QualifiedMember: 0,
         Signup: 0,
         TotalClick: 0,
         TotalFee: 0,
@@ -60,7 +59,6 @@ describe('affiliate report - Report Excel ', () => {
         MonthDateString: "",
         OperationalFee: 0,
         PlatformFee: 0,
-        QualifiedMember: 0,
         Signup: 0,
         TotalClick: 1,
         TotalFee: 0,
@@ -231,6 +229,32 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createBodyData();
 
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(52);
+        expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 3, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
+
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(52);
+        expect(instance._buildDataRow.mock.calls[0][0]).toBe(itemHaveDescription);
+        expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
+        expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
+
+        expect(instance._buildDataRow.mock.calls[1][0]).toBe(itemHaveDescription);
+        expect(instance._buildDataRow.mock.calls[1][1]).toBe(MAIN_SECTION_STYLE);
+        expect(instance._buildDataRow.mock.calls[1][2]).toBe(1);
+    });
+
+    it('_createBodyData - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
+        const instance = new ReportExcel(data, title, !isMainView);
+
+        instance._buildDataRow = jest.fn();
+        Excel.getCellAddress = jest.fn();
+
+        instance._createBodyData();
+
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(50);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
@@ -249,32 +273,6 @@ describe('affiliate report - Report Excel ', () => {
         expect(instance._buildDataRow.mock.calls[1][2]).toBe(1);
     });
 
-    it('_createBodyData - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
-        const instance = new ReportExcel(data, title, !isMainView);
-
-        instance._buildDataRow = jest.fn();
-        Excel.getCellAddress = jest.fn();
-
-        instance._createBodyData();
-
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(48);
-        expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
-        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
-        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 3, "r": 3 });
-        expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
-        expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
-
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(48);
-        expect(instance._buildDataRow.mock.calls[0][0]).toBe(itemHaveDescription);
-        expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
-
-        expect(instance._buildDataRow.mock.calls[1][0]).toBe(itemHaveDescription);
-        expect(instance._buildDataRow.mock.calls[1][1]).toBe(MAIN_SECTION_STYLE);
-        expect(instance._buildDataRow.mock.calls[1][2]).toBe(1);
-    });
-
     it('_createTotalRow - should call _buildDataRow, Excel.getCellAddress with Main view', () => {
         const customTotalData = { CommissionRate: "N/A", UserName: "Total (all pages)" };
         const instance = new ReportExcel(data, title, isMainView);
@@ -283,7 +281,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createTotalRow();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(25);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(26);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -291,7 +289,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(25);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(26);
         expect(instance._buildDataRow.mock.calls[0][0]).toEqual(customTotalData);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(TOTAL_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -309,7 +307,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createTotalRow();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(24);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(25);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -317,7 +315,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(24);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(25);
         expect(instance._buildDataRow.mock.calls[0][0]).toEqual(customTotalData);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(TOTAL_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -347,7 +345,7 @@ describe('affiliate report - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 25, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 26, "r": 3 });
     });
 
     it('_getcolumnConfigs - return correct', () => {
@@ -372,6 +370,7 @@ describe('affiliate report - Report Excel ', () => {
             { field: "TotalFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "CommissionRate", mainSectionStyle: { "alignment": { horizontal: "right", vertical: "center" } }, totalSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true } } },
             { field: "Earning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
+            { field: "P2pEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "SubAffEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "TotalEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "AffWithdrawal", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },

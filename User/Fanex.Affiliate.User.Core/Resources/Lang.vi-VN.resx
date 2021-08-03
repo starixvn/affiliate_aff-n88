@@ -2258,7 +2258,7 @@
     <value>Phí Rút Tiền</value>
   </data>
   <data name="Rebate" xml:space="preserve">
-    <value>Hoàn Tiền</value>
+    <value>Khuyến Mãi Hoàn Trả</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Thời Gian Làm Việc:&lt;br/&gt;Thứ Hai - Thứ Bảy | &lt;strong&gt;09:00 - 18:00&lt;/strong&gt;&lt;br&gt;GMT +8</value>
@@ -2316,6 +2316,12 @@
   </data>
   <data name="Finished" xml:space="preserve">
     <value>ĐÃ KẾT THÚC</value>
+  </data>
+  <data name="P2pIncluded" xml:space="preserve">
+    <value>Hoa Hồng (đã bao gồm P2P)</value>
+  </data>
+  <data name="P2pRevenueShare" xml:space="preserve">
+    <value>Hoa Hồng P2P</value>
   </data>
   <data name="LimitedTime" xml:space="preserve">
     <value>*Áp dụng thời gian,&lt;br /&gt; điều khoản và điều kiện</value>

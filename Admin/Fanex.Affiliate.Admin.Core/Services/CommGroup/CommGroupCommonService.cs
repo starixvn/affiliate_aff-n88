@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
-using Fanex.Affiliate.Admin.Core.Utilities.CommGroup;
 
 namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 {
@@ -21,33 +20,37 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public ResultInfo CreateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
-            param.TierList = BuildTierSettingXml(param.TierSettingList);
-            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
+            BuildXml(param);
 
             return _commGroupRepository.CreateCommissionGroup(param);
         }
 
         public ResultInfo UpdateCommissionGroup(CreateUpdateCommissionGroupParam param)
         {
-            var deductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
-            param.TierList = BuildTierSettingXml(param.TierSettingList);
-            param.DeductionList = BuildDeductionSettingXml(deductionSettingList);
+            BuildXml(param);
 
             return _commGroupRepository.UpdateCommissionGroup(param);
         }
 
-        public IEnumerable<Deduction> GetDeductionList()
+        public IEnumerable<DeductionItem> GetDeductionList()
         {
             return _commGroupRepository.GetDeductionList();
         }
 
-        private static string BuildTierSettingXml(IEnumerable<TierSetting> tierSettingList)
+        private static void BuildXml(CreateUpdateCommissionGroupParam param)
+        {
+            var tierDeductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
+            param.TierSettingXml = BuildTierSettingXml(param.TierSettingList);
+            param.TierDeductionsXml = BuildTierDeductionSettingXml(tierDeductionSettingList);
+            param.P2pDeductionsXml = BuildP2pDeductionSettingXml(param.P2pDeductionList);
+        }
+
+        private static string BuildTierSettingXml(IEnumerable<TierSettingParam> tierSettingParamList)
         {
             var result = new StringBuilder();
             result.Append("<root>");
 
-            foreach (var item in tierSettingList)
+            foreach (var item in tierSettingParamList)
             {
                 var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAp}\" maxam=\"{item.MaxAp}\" commission=\"{item.Commission}\" />";
                 result.Append(row);
@@ -58,15 +61,32 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return result.ToString();
         }
 
-        private static string BuildDeductionSettingXml(IEnumerable<DeductionSetting> deductionSettingList)
+        private static string BuildTierDeductionSettingXml(IEnumerable<TierDeductionSettingParam> feeDeductionSettingList)
         {
             var result = new StringBuilder();
             result.Append("<root>");
 
-            foreach (var item in deductionSettingList)
+            foreach (var item in feeDeductionSettingList)
             {
                 var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
                     $" amount=\"{item.DeductedAmount}\" isdeductedpercent=\"{item.IsDeductedPercent}\" />";
+                result.Append(row);
+            }
+
+            result.Append("</root>");
+
+            return result.ToString();
+        }
+
+        private static string BuildP2pDeductionSettingXml(IEnumerable<P2pDeductionSettingParam> p2pDeductionSettingList)
+        {
+            var result = new StringBuilder();
+            result.Append("<root>");
+
+            foreach (var item in p2pDeductionSettingList)
+            {
+                var row = $"<row id=\"{item.DeductionId}\" productids=\"{item.ProductIds}\" percent=\"{item.DeductedPercentage}\"" +
+                    $" commission=\"{item.Commission}\" />";
                 result.Append(row);
             }
 

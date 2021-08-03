@@ -5,12 +5,10 @@ import { bindActionCreators } from 'redux';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
 
 import { resolveClientUrl } from '../../../../modules/utils';
-import { INFINITY_AM, INFINITY_QM, INFINITY_SYMBOL, globalResource } from '../../modules/constant';
-import { format, formatDecimal } from '../../../../modules/numberFormat';
+import { INFINITY_AM, INFINITY_QM, INFINITY_SYMBOL, globalResource, format, formatDecimal } from '../../modules/constant';
 import { deleteCommGroup, getGroupSettingList } from '../../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { NotificationPopup } from '../../../common/components/NotificationPopup';
-import {convertStringToArrayNumber} from '../../modules/service';
 
 export class GridData extends Component {
     constructor(props) {
@@ -39,31 +37,6 @@ export class GridData extends Component {
 
             return accumulator;
         }, []).join(',');
-    }
-
-    _buildProductsText = item => {
-        const {productList} = this.props;
-        const productsInGroup = item.PlatformFeeList.map(p => p.ProductIds)
-            .map(ids => convertStringToArrayNumber(ids))
-            .reduce((acc, cur) => [...acc, ...cur]);
-
-        return <React.Fragment>
-            {productList.map((p, index) => {
-                const elems = [];
-                if (index > 0)
-                {
-                    elems.push(<span key={`index-${p.index}`}>, </span>)
-                }
-                if (!productsInGroup.find(i => i === p.ProductId))
-                {
-                    elems.push(<span className='text-danger' key={`${p.ProductName}-true`}><del>{p.ProductName}</del></span>)
-                }
-                else{
-                    elems.push(<span key={`${p.ProductName}-false`}>{p.ProductName}</span>)
-                }
-                return <React.Fragment key={`${p.ProductId}-${p.ProductName}`}>{elems}</React.Fragment>
-            })}
-        </React.Fragment>
     }
 
     handleCloseNotificationPopup = (confirmResult) => {
@@ -105,13 +78,12 @@ export class GridData extends Component {
                 <Cell header={true} colWidth={50} rowSpan="2">No.Aff</Cell>
                 <Cell header={true} colWidth={150} rowSpan="2">Description</Cell>
                 <Cell header={true} colWidth={80} rowSpan="2">Creation</Cell>
-                <Cell header={true} colWidth={150} rowSpan="2">Product</Cell>
                 <Cell header={true} colSpan="10">Policy</Cell>
-                <Cell header={true} colWidth={70} rowSpan="2">Action</Cell>
+                <Cell header={true} colWidth={50} rowSpan="2">Action</Cell>
             </Row>,
             <Row key="sub-theard">
-                <Cell header={true} colWidth={80}></Cell>
-                <Cell header={true} colWidth={80}>Tier</Cell>
+                <Cell header={true} colWidth={150}></Cell>
+                <Cell header={true} colWidth={50}>Tier</Cell>
                 <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min Amount</Cell>
                 <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
                 <Cell header={true} colWidth={80} title="Minimum number of active players">Min AP</Cell>
@@ -132,89 +104,104 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee, ...group } = item;
+                const { TierSettingList, P2pDeductionList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
-                const rowSpan = tierSettingRowSpan + platformFeeRowSpan;
+                const p2pDeductionRowSpan = P2pDeductionList.length;
+                const operationalFeeRowSpan = tierSettingRowSpan + platformFeeRowSpan;
+                const rowSpan = tierSettingRowSpan + platformFeeRowSpan + p2pDeductionRowSpan;
 
                 const operationalFee = OperationalFee && (OperationalFee.IsDeductedPercent ? `${format(OperationalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(OperationalFee.DeductedAmount)))
                 const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)))
                 const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)))
 
-                const productsText = this._buildProductsText(item);
                 for (let iTier = 0; iTier < TierSettingList.length; iTier++) {
                     const tierSetting = TierSettingList[iTier];
                     const isFirstItem = iTier === 0;
                     const isPrivateGroup = group.GroupId > 1000;
+                    const minAmount = format(tierSetting.MinAmount);
+                    const maxAmount = tierSetting.MaxAmount === INFINITY_AM ? INFINITY_SYMBOL : format(tierSetting.MaxAmount);
+                    const minAp = format(tierSetting.MinAp);
+                    const maxAp = tierSetting.MaxAp === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAp);
 
                     rows.push(
                         (<Row key={`row-${index}-${iTier}`} className={isPrivateGroup ? "private" : ""}>
-                            {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}>{group.RowIdx}</Cell>)}
-                            {isFirstItem && (
-                                <Cell className="text-center" rowSpan={rowSpan} title={isPrivateGroup && "Private Group"}>
-                                    {isPrivateGroup && (<span className="oi oi-person"></span>)}{htmlDecode(group.GroupName)}
-                                </Cell>
+                            { isFirstItem && (
+                                <Fragment>
+                                    <Cell className="text-center" rowSpan={rowSpan}>{group.RowIdx}</Cell>
+                                    <Cell className="text-center" rowSpan={rowSpan} title={isPrivateGroup && "Private Group"}>
+                                        {isPrivateGroup && (<span className="oi oi-person"></span>)}{htmlDecode(group.GroupName)}
+                                    </Cell>
+                                    <Cell className="text-center" rowSpan={rowSpan}>
+                                        <a href={resolveClientUrl("Portal/Affiliate?groupId=") + group.GroupId} target="_top">{group.NoAffs}</a>
+                                    </Cell>
+                                    <Cell className="text-center" rowSpan={rowSpan}>{htmlDecode(group.Description)}</Cell>
+                                    <Cell className="text-center" rowSpan={rowSpan}><p>{group.Creator}</p><p>{group.CreatedDateText}</p></Cell>
+                                    <Cell className="font-weight-bold cell-tier" rowSpan={tierSettingRowSpan}>Tier Setting</Cell>
+                                </Fragment>
                             )}
-                            {isFirstItem && (
-                                <Cell className="text-center" rowSpan={rowSpan}>
-                                    <a href={resolveClientUrl("Portal/Affiliate?groupId=") + group.GroupId} target="_top">{group.NoAffs}</a>
-                                </Cell>
-                            )}
-                            {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}>{htmlDecode(group.Description)}</Cell>)}
-                            {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}><p>{group.Creator}</p><p>{group.CreatedDateText}</p></Cell>)}
-                            {isFirstItem && (<Cell className="text-center" rowSpan={rowSpan}>{productsText}</Cell>)}
 
-                            {isFirstItem && (<Cell className="text-center font-weight-bold cell-tier" rowSpan={tierSettingRowSpan}>Tier Setting</Cell>)}
                             <Cell className="text-center cell-tier">{tierSetting.TierId}</Cell>
-                            <Cell className="text-right cell-tier">{format(tierSetting.MinAmount)}</Cell>
-                            <Cell className="text-right cell-tier">{tierSetting.MaxAmount === INFINITY_AM ? INFINITY_SYMBOL : format(tierSetting.MaxAmount)}</Cell>
-                            <Cell className="text-right cell-tier">{format(tierSetting.MinAp)}</Cell>
-                            <Cell className="text-right cell-tier">{tierSetting.MaxAp === INFINITY_QM ? INFINITY_SYMBOL : format(tierSetting.MaxAp)}</Cell>
+                            <Cell className="text-right cell-tier" title={minAmount}>{minAmount}</Cell>
+                            <Cell className="text-right cell-tier" title={maxAmount}>{maxAmount}</Cell>
+                            <Cell className="text-right cell-tier" title={minAp}>{minAp}</Cell>
+                            <Cell className="text-right cell-tier" title={maxAp}>{maxAp}</Cell>
                             <Cell className="text-right cell-tier">{`${format(tierSetting.Commission * 100, 1)}%`}</Cell>
+                            <Cell className="text-right" rowSpan={operationalFeeRowSpan} title={operationalFee}>{operationalFee}</Cell>
 
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={operationalFee}>
-                                {operationalFee}</Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={depositFee}>
-                                {depositFee}</Cell>)}
-                            {isFirstItem && (<Cell className="text-right" rowSpan={rowSpan} title={withdrawalFee}>
-                                {withdrawalFee}</Cell>)}
+                            { isFirstItem && (
+                                <Fragment>
+                                    <Cell className="text-right" rowSpan={rowSpan} title={depositFee}>{depositFee}</Cell>
+                                    <Cell className="text-right" rowSpan={rowSpan} title={withdrawalFee}>{withdrawalFee}</Cell>
+                                    <Cell className="text-center" rowSpan={rowSpan}>
+                                        <button className="btn btn-link" onClick={(e) => this.props.onEdit(item.GroupId)}>
+                                            <span className="oi oi-pencil text-secondary"></span>
+                                        </button>
 
-                            {isFirstItem && (
-                                <Cell className="text-center" rowSpan={rowSpan}>
-                                    <button className="btn btn-link" onClick={(e) => this.props.onEdit(item.GroupId)}>
-                                        <span className="oi oi-pencil text-secondary"></span>
-                                    </button>
-
-                                    {
-                                        group.NoAffs === 0 && (
-                                            <button className="btn btn-link" onClick={() => this._handleDeleteCommGroup(item.GroupId, item.GroupName)}>
-                                                <span className="oi oi-x text-danger"></span>
-                                            </button>)
-                                    }
-                                </Cell>)
-                            }
+                                        {
+                                            group.NoAffs === 0 && (
+                                                <button className="btn btn-link" onClick={() => this._handleDeleteCommGroup(item.GroupId, item.GroupName)}>
+                                                    <span className="oi oi-x text-danger"></span>
+                                                </button>)
+                                        }
+                                    </Cell>
+                                </Fragment>
+                            )}
                         </Row>)
                     );
                 }
 
-                for (let iPlatformFee = 0; iPlatformFee < PlatformFeeList.length; iPlatformFee++) {
-                    const platformFee = PlatformFeeList[iPlatformFee];
-                    const isFirstItem = iPlatformFee === 0;
+                for (let platformFee of PlatformFeeList) {
+                    const percent = `${format(platformFee.DeductedPercentage * 100, 1)}%`;
+                    const productIds = platformFee.ProductIds;
 
                     rows.push(
-                        (<Row key={`row-platform-${index}-${iPlatformFee}`}>
-                            {isFirstItem && (<Cell className="text-center font-weight-bold cell-platform" rowSpan={platformFeeRowSpan}>Royalty Fee</Cell>)}
-                            <Cell className="cell-platform" colSpan="5">{this._convertToProductNameText(platformFee.ProductIds)}</Cell>
-                            <Cell className="text-right cell-platform">{`${format(platformFee.DeductedPercentage * 100, 1)}%`}</Cell>
+                        (<Row key={`row-platform-${index}-${productIds}`}>
+                            <Cell className="font-weight-bold cell-tier">{`Royalty Fee ${percent}`}</Cell>
+                            <Cell className="cell-tier" colSpan="6">{this._convertToProductNameText(productIds)}</Cell>
                         </Row>)
                     );
                 }
 
+                for (let p2pDeduction of P2pDeductionList) {
+                    const p2pFixedRate = `${format(p2pDeduction.Commission * 100, 1)}%`;
+                    const royaltyFee = `${format(p2pDeduction.DeductedPercentage * 100, 1)}%`;
+                    const productIds = p2pDeduction.ProductIds;
+
+                    rows.push(
+                        (<Row key={`row-platform-${index}-${productIds}`}>
+                            <Cell className="font-weight-bold cell-deduction">{`P2P Fixed Rate ${p2pFixedRate}`}</Cell>
+                            <Cell className="font-weight-bold cell-deduction" colSpan="2">{`Royalty Fee ${royaltyFee}`}</Cell>
+                            <Cell className="cell-deduction" colSpan="4">{this._convertToProductNameText(productIds)}</Cell>
+                            <Cell className="text-right cell-while">{globalResource.NA}</Cell>
+                        </Row>)
+                    );
+                }
             }
         }
         else {
             rows.push(<Row>
-                <Cell className="text-center" colSpan="14">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="16">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 

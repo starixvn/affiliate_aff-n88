@@ -1,6 +1,5 @@
-﻿using Fanex.Affiliate.Admin.Core.Constants;
+﻿using Newtonsoft.Json;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 {
@@ -12,11 +11,11 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         public string GroupName { get; set; }
 
+        [JsonIgnore]
         public DateTime CreatedDate { get; set; }
 
         public string Creator { get; set; }
 
-        [MaxLength(Validation.MaxLengthCommGroupDescription, ErrorMessage = "Description should shorter than 100 characters!")]
         public string Description { get; set; }
 
         public int NoAffs { get; set; }

@@ -92,7 +92,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = Lang.PleaseEnterContent
                 }
             };
@@ -119,7 +119,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = !isValidMessageId ? Lang.MessageIdIsInvalid : Lang.PleaseEnterContent
                 }
             };
@@ -144,7 +144,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             {
                 Data = new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = Lang.PleaseSelectMessage
                 }
             };

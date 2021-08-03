@@ -36,7 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             {
                 return new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = RestricedCharacterErrorMessage
                 };
             }
@@ -50,7 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             {
                 return new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = RestricedCharacterErrorMessage
                 };
             }

@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, setSelectedGroup, setSelectedProductIds } from '../../actions';
-import { buildDefaultCommGroup, validateTierSettingList, validatePlatformFeeList, validateDeductedFees } from '../../modules/service';
+import { buildDefaultCommGroup, validateTierSettingList, validateItemMustHaveAProduct, validateDeductedFees } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
 import DeductionSetting from '../shared/deduction';
@@ -12,7 +12,7 @@ import TierSetting from '../shared/tiersetting';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
-import ProductList from '../shared/ProductList';
+import P2pProductSetting from '../shared/p2p-deduction';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -29,16 +29,17 @@ export class AssignPrivateGroup extends React.Component {
     componentDidMount() {
         this.setState({ isShowLoader: true });
 
-        const { deductionList, productList, affInfo } = this.props;
-        const { GroupId, IsUsingPrivateCommGroup } = affInfo;
-        const productIds = productList.map(p => p.ProductId);
-        this.props.setSelectedProductIds(productIds);
+        const { GroupId, IsUsingPrivateCommGroup } = this.props.affInfo;
 
-        if (IsUsingPrivateCommGroup) {
+        if (IsUsingPrivateCommGroup && !!GroupId) {
             this.props.getSelectedCommGroup({ GroupId });
         }
         else {
-            const commGroup = productList && deductionList && buildDefaultCommGroup(deductionList, productList);
+            const { deductionList, productList, p2pProductList } = this.props;
+            const productIds = p2pProductList.map(p => p.ProductId);
+            this.props.setSelectedProductIds(productIds);
+
+            const commGroup = buildDefaultCommGroup(deductionList, productList, p2pProductList);
             this.props.setSelectedGroup(commGroup);
         }
         this.setState({ isShowLoader: false });
@@ -49,6 +50,8 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     handleSave = async () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
         const validationResult = this._validate();
 
         if (!validationResult.isValid) {
@@ -74,8 +77,6 @@ export class AssignPrivateGroup extends React.Component {
                     (affInfo.GroupId > 0 ? messages.updateGroupSuccessfully : messages.assignGroupSuccessfully) :
                     result.Message;
 
-                window.scrollTo({ top: 0, behavior: "smooth" });
-
                 this.setState({
                     isShowMessage: true,
                     isSuccess: result.IsSuccessful,
@@ -96,15 +97,15 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { TierSettingList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
+        const { TierSettingList, P2pDeductionList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
-        const platformFeeListValidation = validatePlatformFeeList(PlatformFeeList);
+        const selectedProductValidation = validateItemMustHaveAProduct(P2pDeductionList, PlatformFeeList);
         const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
         const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
         const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
-        const isValid = tierSettingValidation.isValid && platformFeeListValidation.isValid && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
-        const messageList = [...tierSettingValidation.messageList, ...platformFeeListValidation.messageList, ...operationalFeeValidation.messageList,
+        const isValid = tierSettingValidation.isValid && selectedProductValidation.isValid && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
+        const messageList = [...tierSettingValidation.messageList, ...selectedProductValidation.messageList, ...operationalFeeValidation.messageList,
                             ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList];
 
         return { isValid, messageList };
@@ -115,12 +116,12 @@ export class AssignPrivateGroup extends React.Component {
         const { affInfo, selectedGroup } = this.props;
 
         return affInfo && selectedGroup && (
-            <div className="comm-popup-container" style={{ padding: 10 }}>
+            <div className="comm-popup-container" style={{ padding: 3 }}>
                 <Loader show={isShowLoader} />
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
-                <ProductList />
+                <P2pProductSetting />
                 <DeductionSetting />
                 <TierSetting />
                 <p className="text-danger">{messages.note}</p>
@@ -130,8 +131,8 @@ export class AssignPrivateGroup extends React.Component {
     }
 }
 
-function mapStateToProp({ deductionList, productList, selectedGroup, affInfo, selectedProductIds }) {
-    return { deductionList, productList, selectedGroup, affInfo, selectedProductIds };
+function mapStateToProp({ deductionList, productList, p2pProductList, selectedGroup, affInfo }) {
+    return { deductionList, productList, p2pProductList, selectedGroup, affInfo };
 }
 
 function mapDispatchToProps(dispatch) {

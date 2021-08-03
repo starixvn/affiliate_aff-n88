@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                     {
                         return new ResultInfo
                         {
-                            Code = Code.GeneralErrorCode,
+                            Code = ErrCode.GeneralErrorCode,
                             Message = "File Name is unique, please enter other file name!"
                         };
                     }
@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
                     if (file.FileName.Length > MaxLength)
                     {
-                        result.Code = Code.GeneralErrorCode;
+                        result.Code = ErrCode.GeneralErrorCode;
                         message.Append($"The maximum length of file name is 50. Please choose another name for File Name {i + 1} or select another File.<br />");
                     }
                 }
@@ -118,13 +118,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 {
                     if (!BannerHelper.IsValidExtension(_systemFile.GetExtension(inputFileName)))
                     {
-                        result.Code = Code.GeneralErrorCode;
+                        result.Code = ErrCode.GeneralErrorCode;
                         message.Append($"File Name {i + 1} is incorrect.<br />" + Lang.InvalidBannerExtensionFile);
                     }
 
                     if (inputFileName.Length > MaxLength)
                     {
-                        result.Code = Code.GeneralErrorCode;
+                        result.Code = ErrCode.GeneralErrorCode;
                         message.Append($"The maximum length of file name is 50. Please choose another name File Name {i + 1}.<br />");
                     }
                 }
@@ -147,12 +147,12 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
                 if (!result.IsSuccessful)
                 {
-                    if (result.Code == Code.ErrCanNotAccessFolder)
+                    if (result.Code == ErrCode.ErrCanNotAccessFolder)
                     {
                         return result;
                     }
 
-                    resultCheckMultipleFilesInFolder.Code = Code.GeneralErrorCode;
+                    resultCheckMultipleFilesInFolder.Code = ErrCode.GeneralErrorCode;
                     message.Append($"{inputFileName}, ");
                 }
             }
@@ -168,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             if(param.UserType == UserType.Player && string.IsNullOrEmpty(param.Currencies))
             {
                 return new ResultInfo {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = "Please select Currency."
                 };
             }
@@ -211,7 +211,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             {
                 return new ResultInfo
                 {
-                    Code = Code.GeneralErrorCode,
+                    Code = ErrCode.GeneralErrorCode,
                     Message = Lang.FileNameCanNotContain
                 };
             }
@@ -266,7 +266,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 {
                     return new ResultInfo
                     {
-                        Code = Code.GeneralErrorCode,
+                        Code = ErrCode.GeneralErrorCode,
                         Message = Lang.FileNameCanNotContain
                     };
                 }
@@ -283,7 +283,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             return param.InputFileNames.Length > MaxLength ? new ResultInfo
             {
-                Code = Code.GeneralErrorCode,
+                Code = ErrCode.GeneralErrorCode,
                 Message = Lang.MaxLenghtOfFileName
             } : new ResultInfo();
         }
@@ -417,7 +417,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
             var result = _bannerValidationService.CheckFileInFolder($"CategoryMedia/{param.Folder}/", path);
             param.FilePaths.Add(path);
 
-            if (result.Code == Code.ErrTheFileNameAlreadyExists && string.Compare(path, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)
+            if (result.Code == ErrCode.ErrTheFileNameAlreadyExists && string.Compare(path, oldFilePath, StringComparison.CurrentCultureIgnoreCase) == 0)
             {
                 return new ResultInfo();
             }

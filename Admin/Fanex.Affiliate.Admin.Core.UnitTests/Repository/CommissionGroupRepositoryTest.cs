@@ -42,7 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Single(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
-            Assert.Empty(result.DeductionSettingList);
+            Assert.Empty(result.TierDeductionSettingList);
             Assert.Equal("07/11/2018 00:00:00", commGroupItem.CreatedDateText);
         }
 
@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Empty(result.CommGroupList);
             Assert.Single(result.TierSettingList);
-            Assert.Empty(result.DeductionSettingList);
+            Assert.Empty(result.TierDeductionSettingList);
         }
 
         [Fact]
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             Assert.Empty(result.CommGroupList);
             Assert.Empty(result.TierSettingList);
-            Assert.Single(result.DeductionSettingList);
+            Assert.Single(result.TierDeductionSettingList);
         }
 
         [Fact]
@@ -282,7 +282,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetDeductionList();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<Deduction>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<DeductionItem>(null, null, true, 120), Times.Once);
         }
 
         [Fact]
@@ -329,6 +329,27 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
 
             // Assert
             Assert.Equal(0, param.GroupId);
+        }
+
+        [Fact]
+        public void GetAllCommGroups_WhenCall_ReturnCorrectCommGroupList()
+        {
+            // Arrange
+            var repository = new Mock<CommissionGroupRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+
+            var expectedValue = GetExpectedNomalCommGroup();
+            ReaderHelper.MapReaderData(dataReader, expectedValue);
+            objectDb.Setup(obj => obj.ExecuteReader()).Returns(dataReader.Object);
+            repository.Setup(re => re.GetObjectDb("Aff_CommGroup_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetAllCommGroups();
+
+            // Assert
+            Assert.Single(result);
         }
 
         private IDictionary<string, object> GetExpectedCommGroup()

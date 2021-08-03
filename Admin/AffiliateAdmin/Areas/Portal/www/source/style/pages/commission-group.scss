@@ -21,13 +21,8 @@
         font-size: 1rem;
     }
 
-    .platformfee-group {
+    .platformfee-group, .p2p-product-group {
         margin-bottom: 0.5rem;
-
-        .bullet {
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
 
         .btn-action {
             font-weight: bold;
@@ -39,7 +34,7 @@
             border: 1px solid #7b7c7d;
             background-color: #ecf6ff;
 
-            &:hover {
+            &:hover, &:disabled {
                 background-color: #d8d8d8;
             }
         }
@@ -68,18 +63,30 @@
         }
     }
 
-    .select-comm {
-        &::after {
-            content: 'x';
-            display: inline-block;
-            position: absolute;
-            right: -5px;
-            top: 2px;
+    .x-group {
+        position: relative;
+
+        .x-content {
+            &::before {
+                content: 'x';
+                display: inline-block;
+                position: absolute;
+                left: 2px;
+            }
+        }
+    }
+
+    .label-group {
+        flex-basis: 28.5%;
+
+        .label-amount {
+            flex: 1;
+            text-align: right;
         }
     }
 
     .deducted-amount {
-        margin-left: -2.75rem;
+        margin-left: -2.5rem;
     }
 
     .form-max {
@@ -108,7 +115,7 @@
             background: #fff4ed;
         }
 
-        .cell-platform {
+        .cell-deduction {
             background: #def6fc;
         }
     }
@@ -120,8 +127,12 @@
             background: #fff4ed;
         }
 
-        &.cell-platform {
+        &.cell-deduction {
             background: #def6fc;
+        }
+
+        &.cell-while {
+            background: #FFFFFF;
         }
     }
 }

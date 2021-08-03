@@ -50,8 +50,8 @@
                     <table id="dataTable">
                         <thead>
                             <tr>
-                                <th class="th numberId">#</th>
-                                <th class="th" data-name="Month">
+                                <th width="3%" class="th">#</th>
+                                <th width="10%" class="th" data-name="Month">
                                     <div class="th-wrapper">
                                         <span>@Lang.Month</span>
                                         <div class="icon-container">
@@ -144,9 +144,18 @@
                                 <th class="th" data-name="Commission">
                                     <div class="th-wrapper col-comm">
                                         <span>@(Lang.Commission)</span>
-                                        <div class="info-container">
+                                        @*<div class="info-container">
                                             <span title="@Lang.NoteCommissionCalculation" class="glyphicon glyphicon-info-sign"></span>
+                                        </div>*@
+                                        <div class="icon-container">
+                                            <span class="caret asc"></span>
+                                            <span class="caret desc"></span>
                                         </div>
+                                    </div>
+                                </th>
+                                <th class="th" data-name="P2pRevenueShare">
+                                    <div class="th-wrapper">
+                                        <span>@Lang.P2pRevenueShare</span>
                                         <div class="icon-container">
                                             <span class="caret asc"></span>
                                             <span class="caret desc"></span>
@@ -185,6 +194,7 @@
     <script>
         var langResource = {
             noInfo: '@Lang.NoInfo',
+            total: '@Lang.Total',
             isMaxLevel: '@Model'.toLowerCase() === 'true'
         }
     </script>

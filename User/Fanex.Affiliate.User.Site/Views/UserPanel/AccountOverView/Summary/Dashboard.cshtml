@@ -21,7 +21,10 @@
             <img class="img-responsive" src="~/www/build/styles/Images/account-overview/commission.png" alt="commission icon" />
         </div>
         <div class="info-panel">
-            <span class="info-panel-title">@Lang.Commission</span>
+            <div class="info-panel-title">
+                <span class="">@Lang.Commission</span>
+                <span title="@Lang.P2pIncluded" class="glyphicon glyphicon-info-sign"></span>
+            </div>
             <span class="info-panel-content">@Model.Commission.ToStringMoneyWithSymbol()</span>
         </div>
         <div class="info-panel">
