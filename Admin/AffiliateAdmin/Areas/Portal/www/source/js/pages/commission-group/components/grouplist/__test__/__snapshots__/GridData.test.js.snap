@@ -98,7 +98,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="0"
+    >
+      0
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -106,7 +109,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="∞"
+    >
+      ∞
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -114,7 +120,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="0"
+    >
+      0
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -134,7 +143,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      undefined%
+      2.0%
     </t>
     <t
       asc={true}
@@ -144,7 +153,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       rowSpan={2}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-right"
@@ -153,7 +165,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       rowSpan={3}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-right"
@@ -162,7 +177,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       rowSpan={3}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-center"
@@ -193,7 +211,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      Royalty Fee undefined%
+      Royalty Fee 17.0%
     </t>
     <t
       asc={true}
@@ -218,7 +236,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      P2P Fixed Rate undefined%
+      P2P Fixed Rate 10.0%
     </t>
     <t
       asc={true}
@@ -229,7 +247,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       sortable={false}
       sorting={false}
     >
-      Royalty Fee undefined%
+      Royalty Fee 15.0%
     </t>
     <t
       asc={true}
@@ -357,7 +375,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="0"
+    >
+      0
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -365,7 +386,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="100"
+    >
+      100
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -373,7 +397,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="0"
+    >
+      0
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -381,7 +408,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       onClick={[Function]}
       sortable={false}
       sorting={false}
-    />
+      title="10"
+    >
+      10
+    </t>
     <t
       asc={true}
       className="text-right cell-tier"
@@ -390,7 +420,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      undefined%
+      2.0%
     </t>
     <t
       asc={true}
@@ -400,7 +430,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       rowSpan={2}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-right"
@@ -409,7 +442,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       rowSpan={3}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-right"
@@ -418,7 +454,10 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       rowSpan={3}
       sortable={false}
       sorting={false}
-    />
+      title="10.00"
+    >
+      10.00
+    </t>
     <t
       asc={true}
       className="text-center"
@@ -449,7 +488,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      Royalty Fee undefined%
+      Royalty Fee 17.0%
     </t>
     <t
       asc={true}
@@ -474,7 +513,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      P2P Fixed Rate undefined%
+      P2P Fixed Rate 10.0%
     </t>
     <t
       asc={true}
@@ -485,7 +524,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
       sortable={false}
       sorting={false}
     >
-      Royalty Fee undefined%
+      Royalty Fee 15.0%
     </t>
     <t
       asc={true}
@@ -811,7 +850,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="0"
+            >
+              0
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -819,7 +861,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="∞"
+            >
+              ∞
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -827,7 +872,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="0"
+            >
+              0
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -847,7 +895,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              undefined%
+              2.0%
             </t>
             <t
               asc={true}
@@ -857,7 +905,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               rowSpan={2}
               sortable={false}
               sorting={false}
-            />
+              title="10.00"
+            >
+              10.00
+            </t>
             <React.Fragment>
               <t
                 asc={true}
@@ -867,7 +918,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
                 rowSpan={3}
                 sortable={false}
                 sorting={false}
-              />
+                title="10.00"
+              >
+                10.00
+              </t>
               <t
                 asc={true}
                 className="text-right"
@@ -876,7 +930,10 @@ exports[`commission group - GridData  Should render correctly 1`] = `
                 rowSpan={3}
                 sortable={false}
                 sorting={false}
-              />
+                title="10.00"
+              >
+                10.00
+              </t>
               <t
                 asc={true}
                 className="text-center"
@@ -906,7 +963,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              Royalty Fee undefined%
+              Royalty Fee 17.0%
             </t>
             <t
               asc={true}
@@ -929,7 +986,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              P2P Fixed Rate undefined%
+              P2P Fixed Rate 10.0%
             </t>
             <t
               asc={true}
@@ -940,7 +997,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               sortable={false}
               sorting={false}
             >
-              Royalty Fee undefined%
+              Royalty Fee 15.0%
             </t>
             <t
               asc={true}
@@ -1384,7 +1441,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
 </Fragment>
 `;
 
-exports[`commission group - GridData  Should render correctly with is private group 1`] = `
+exports[`commission group - GridData  Should render correctly with fees is amount 1`] = `
 <Fragment>
   <div
     className="table-responsive table-group-setting"
@@ -1396,7 +1453,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
       body={
         Array [
           <t
-            className="private"
+            className=""
           >
             <React.Fragment>
               <t
@@ -1418,12 +1475,9 @@ exports[`commission group - GridData  Should render correctly with is private gr
                 rowSpan={3}
                 sortable={false}
                 sorting={false}
-                title="Private Group"
+                title={false}
               >
-                <span
-                  className="oi oi-person"
-                />
-                12BETAFF226
+                CG22125
               </t>
               <t
                 asc={true}
@@ -1435,7 +1489,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
                 sorting={false}
               >
                 <a
-                  href="/Portal/Affiliate?groupId=1271808"
+                  href="/Portal/Affiliate?groupId=153"
                   target="_top"
                 >
                   2
@@ -1497,7 +1551,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="0"
+            >
+              0
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -1505,7 +1562,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="∞"
+            >
+              ∞
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -1513,7 +1573,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
               onClick={[Function]}
               sortable={false}
               sorting={false}
-            />
+              title="0"
+            >
+              0
+            </t>
             <t
               asc={true}
               className="text-right cell-tier"
@@ -1533,7 +1596,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              undefined%
+              2.0%
             </t>
             <t
               asc={true}
@@ -1543,7 +1606,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
               rowSpan={2}
               sortable={false}
               sorting={false}
-            />
+              title="15.0%"
+            >
+              15.0%
+            </t>
             <React.Fragment>
               <t
                 asc={true}
@@ -1553,7 +1619,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
                 rowSpan={3}
                 sortable={false}
                 sorting={false}
-              />
+                title="2.0%"
+              >
+                2.0%
+              </t>
               <t
                 asc={true}
                 className="text-right"
@@ -1562,7 +1631,10 @@ exports[`commission group - GridData  Should render correctly with is private gr
                 rowSpan={3}
                 sortable={false}
                 sorting={false}
-              />
+                title="2.0%"
+              >
+                2.0%
+              </t>
               <t
                 asc={true}
                 className="text-center"
@@ -1592,7 +1664,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              Royalty Fee undefined%
+              Royalty Fee 17.0%
             </t>
             <t
               asc={true}
@@ -1615,7 +1687,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              P2P Fixed Rate undefined%
+              P2P Fixed Rate 10.0%
             </t>
             <t
               asc={true}
@@ -1626,7 +1698,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sortable={false}
               sorting={false}
             >
-              Royalty Fee undefined%
+              Royalty Fee 15.0%
             </t>
             <t
               asc={true}
@@ -1845,5 +1917,492 @@ exports[`commission group - GridData  Should render correctly with is private gr
       width={0}
     />
   </div>
+</Fragment>
+`;
+
+exports[`commission group - GridData  Should render correctly with is private group 1`] = `
+<Fragment>
+  <div
+    className="table-responsive table-group-setting"
+  >
+    <t
+      adjustedHeight={0}
+      autoHeight={true}
+      autoWidth={true}
+      body={
+        Array [
+          <t
+            className="private"
+          >
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                6
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="Private Group"
+              >
+                <span
+                  className="oi oi-person"
+                />
+                12BETAFF226
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <a
+                  href="/Portal/Affiliate?groupId=1271808"
+                  target="_top"
+                >
+                  2
+                </a>
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <p>
+                  AAnina
+                </p>
+                <p>
+                  08/15/2018 01:59:32
+                </p>
+              </t>
+              <t
+                asc={true}
+                className="font-weight-bold cell-tier"
+                header={false}
+                onClick={[Function]}
+                rowSpan={1}
+                sortable={false}
+                sorting={false}
+              >
+                Tier Setting
+              </t>
+            </React.Fragment>
+            <t
+              asc={true}
+              className="text-center cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              1
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="0"
+            >
+              0
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="∞"
+            >
+              ∞
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="0"
+            >
+              0
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="∞"
+            >
+              ∞
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              2.0%
+            </t>
+            <t
+              asc={true}
+              className="text-right"
+              header={false}
+              onClick={[Function]}
+              rowSpan={2}
+              sortable={false}
+              sorting={false}
+              title="10.00"
+            >
+              10.00
+            </t>
+            <React.Fragment>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-right"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+                title="10.00"
+              >
+                10.00
+              </t>
+              <t
+                asc={true}
+                className="text-center"
+                header={false}
+                onClick={[Function]}
+                rowSpan={3}
+                sortable={false}
+                sorting={false}
+              >
+                <button
+                  className="btn btn-link"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="oi oi-pencil text-secondary"
+                  />
+                </button>
+              </t>
+            </React.Fragment>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              className="font-weight-bold cell-tier"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Royalty Fee 17.0%
+            </t>
+            <t
+              asc={true}
+              className="cell-tier"
+              colSpan="6"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Sportsbook,Playtech Casino,Number Game,V8 Poker
+            </t>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              className="font-weight-bold cell-deduction"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              P2P Fixed Rate 10.0%
+            </t>
+            <t
+              asc={true}
+              className="font-weight-bold cell-deduction"
+              colSpan="2"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Royalty Fee 15.0%
+            </t>
+            <t
+              asc={true}
+              className="cell-deduction"
+              colSpan="4"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Poker,V8 Poker
+            </t>
+            <t
+              asc={true}
+              className="text-right cell-while"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              N/A
+            </t>
+          </t>,
+        ]
+      }
+      bodyHeight={300}
+      containerPadding={20}
+      header={
+        Array [
+          <t>
+            <t
+              asc={true}
+              colWidth={40}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            />
+            <t
+              asc={true}
+              colWidth={150}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Name
+            </t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              No.Aff
+            </t>
+            <t
+              asc={true}
+              colWidth={150}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Description
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Creation
+            </t>
+            <t
+              asc={true}
+              colSpan="10"
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Policy
+            </t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Action
+            </t>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              colWidth={150}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            />
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Tier
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Minimum all members' winlost amount"
+            >
+              Min Amount
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Maximum all members' winlost amount"
+            >
+              Max Amount
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Minimum number of active players"
+            >
+              Min AP
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Maximum number of active players"
+            >
+              Max AP
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Revenue Rate
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Operational Fee
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Deposit Fee
+            </t>
+            <t
+              asc={true}
+              colWidth={80}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              Withdrawal Fee
+            </t>
+          </t>,
+        ]
+      }
+      isPaging={false}
+      maxWidth={0}
+      minWidth={1000}
+      shouldResetScrollPosition={true}
+      width={0}
+    />
+  </div>
+  <NotificationPopup
+    isConfirmPopup={true}
+    message="Private Group"
+    onClose={[Function]}
+  />
 </Fragment>
 `;

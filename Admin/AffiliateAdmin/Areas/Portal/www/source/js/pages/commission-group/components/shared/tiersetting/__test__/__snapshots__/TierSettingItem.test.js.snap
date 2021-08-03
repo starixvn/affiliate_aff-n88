@@ -6167,12 +6167,12 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
     >
       <Input
         className="form-max"
-        disabled={false}
+        disabled={true}
         id="MaxAmount1"
         name="MaxAmount"
         onChange={[Function]}
         type="text"
-        value="100,000,000,000,000"
+        value="∞"
       />
       <FormGroup
         check={true}
@@ -6193,7 +6193,7 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
           }
         >
           <Input
-            checked={false}
+            checked={true}
             disabled={true}
             id="MinAmountCheckbox1"
             name="MaxAmount"
@@ -6263,7 +6263,7 @@ exports[`commission group - TierSettingItem Should render correctly with MaxAmou
       className="form-control"
       name="Commission"
       onChange={[Function]}
-      value="0.010"
+      value="0.000"
     >
       <option
         key="comm-0"

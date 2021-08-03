@@ -3,7 +3,6 @@ import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
 
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-jest.mock('../../modules/constants');
 
 describe('affiliate report - GridData ', () => {
     const mainView = 1;

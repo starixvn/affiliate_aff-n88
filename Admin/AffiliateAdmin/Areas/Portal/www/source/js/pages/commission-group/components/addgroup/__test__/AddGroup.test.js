@@ -2,7 +2,6 @@
 import { AddGroup } from '../AddGroup';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
-jest.mock('../../../modules/constant');
 
 describe('commission group - AddGroup', () => {
     const expectParam = {

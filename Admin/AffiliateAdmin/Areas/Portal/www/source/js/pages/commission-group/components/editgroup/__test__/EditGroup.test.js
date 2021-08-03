@@ -2,7 +2,6 @@
 import { EditGroup } from '../EditGroup';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
-jest.mock('../../../modules/constant');
 
 describe('commission group - EditGroup', () => {
     const defaultProps = {

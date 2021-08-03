@@ -2,7 +2,6 @@
 import { PlatformFeeSetting } from '../PlatformFeeSetting';
 import { shallow } from 'enzyme';
 import PlatformFeeItem from "../PlatformFeeItem";
-jest.mock('../../../../modules/constant');
 
 describe('commission group - platform fee setting', () => {
     const defaultSelectedGroup = {
@@ -104,15 +103,28 @@ describe('commission group - platform fee setting', () => {
         expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
     })
 
-    it('handleSelect - should call setSelectedGroup with not checked', () => {
+    it('handleSelect - should call setSelectedGroup with unchecked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "3,1" },
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
             { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<PlatformFeeSetting {...props} />);
         wrapper.instance().handleSelect(0, { ProductId: 1, ProductName: "Sportsbook", Checked: false });
+
+        expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
+    })
+
+    it('handleSelect - should call setSelectedGroup with the second row is unchecked', () => {
+        const expectParam = {
+            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" },
+            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "" }]
+        };
+        const mockSetSelectedGroup = jest.fn();
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+        const wrapper = shallow(<PlatformFeeSetting {...props} />);
+        wrapper.instance().handleSelect(1, { ProductId: 4, ProductName: "Number Game", Checked: false });
 
         expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
     })

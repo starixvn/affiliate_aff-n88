@@ -2,7 +2,6 @@
 import { TierSetting } from '../TierSetting';
 import TierSettingItem from '../TierSettingItem';
 import { shallow } from 'enzyme';
-jest.mock('../../../../modules/constant');
 
 describe('commission group - TierSetting', () => {
     const defaultSelectedGroup = {

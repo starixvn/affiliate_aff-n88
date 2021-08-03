@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 import GridData from '../grouplist/GridData';
 import AddGroup from '../addgroup';
 import EditGroup from '../editgroup';
-jest.mock('../../modules/constant');
 
 describe('commission group - Content', () => {
     const gridData = {

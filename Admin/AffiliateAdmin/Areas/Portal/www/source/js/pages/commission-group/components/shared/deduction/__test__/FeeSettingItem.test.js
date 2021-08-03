@@ -1,9 +1,7 @@
 ﻿import React from 'react';
 import FeeSettingItem from '../FeeSettingItem';
 import { shallow } from 'enzyme';
-import commissionValueList from '../../../../modules/constant';
 import DeductedPercentageForm from '../DeductedPercentageGroup';
-jest.mock(commissionValueList);
 
 describe('commission group - FeeSettingItem', () => {
     const data = { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" }

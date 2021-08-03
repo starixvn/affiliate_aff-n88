@@ -2,13 +2,12 @@
 import { GridData } from '../GridData';
 import { shallow } from 'enzyme';
 import { defaultPagingOption } from '../../../../../modules/constants';
-jest.mock('../../../modules/constant');
 
 describe('commission group - GridData ', () => {
     const tierSettingItem = {
         Commission: 0.02,
         GroupId: 153,
-        MaxAmount: 100000000000000,
+        MaxAmount: 100000000000,
         MaxAp: 1000000000,
         MinAmount: 0,
         MinAp: 0,
@@ -20,6 +19,8 @@ describe('commission group - GridData ', () => {
             DeductionId: 13,
             DeductionName: "Deposit Fee",
             GroupId: 153,
+            IsDeductedPercent: false,
+            DeductedAmount: 10.0000,
             ProductIds: "0"
         },
         WithdrawalFee: {
@@ -27,6 +28,8 @@ describe('commission group - GridData ', () => {
             DeductionId: 14,
             DeductionName: "Withdrawal Fee",
             GroupId: 153,
+            IsDeductedPercent: false,
+            DeductedAmount: 10.0000,
             ProductIds: "0"
         },
         CreatedDate: "/Date(1534273172607)/",
@@ -41,6 +44,8 @@ describe('commission group - GridData ', () => {
             DeductionId: 11,
             DeductionName: "Operational Fee",
             GroupId: 153,
+            IsDeductedPercent: false,
+            DeductedAmount: 10.0000,
             ProductIds: "0"
         },
         PlatformFeeList: [
@@ -209,11 +214,22 @@ describe('commission group - GridData ', () => {
 
     it('Should render correctly with is private group', () => {
         const dataPrivateGroupItem = {
-            BankingFee: {
+            DepositFee: {
                 DeductedPercentage: 0.02,
-                DeductionId: 12,
-                DeductionName: "Banking Fee",
-                GroupId: 1271808,
+                DeductionId: 13,
+                DeductionName: "Deposit Fee",
+                GroupId: 153,
+                IsDeductedPercent: false,
+                DeductedAmount: 10.0000,
+                ProductIds: "0"
+            },
+            WithdrawalFee: {
+                DeductedPercentage: 0.02,
+                DeductionId: 14,
+                DeductionName: "Withdrawal Fee",
+                GroupId: 153,
+                IsDeductedPercent: false,
+                DeductedAmount: 10.0000,
                 ProductIds: "0"
             },
             CreatedDate: "/Date(1534273172607)/",
@@ -228,6 +244,8 @@ describe('commission group - GridData ', () => {
                 DeductionId: 11,
                 DeductionName: "Operational Fee",
                 GroupId: 1271808,
+                IsDeductedPercent: false,
+                DeductedAmount: 10.0000,
                 ProductIds: "0"
             },
             PlatformFeeList: [
@@ -255,6 +273,73 @@ describe('commission group - GridData ', () => {
             ]
         };
         const props = Object.assign({}, defaultProps, { gridData: [dataPrivateGroupItem] });
+        const wrapper = shallow(<GridData {...props} />);
+        wrapper.instance().setState({ messageNotification: 'Private Group' })
+
+        expect(wrapper).toMatchSnapshot();
+    });
+
+    it('Should render correctly with fees is amount', () => {
+        const amountDataItem = {
+            DepositFee: {
+                DeductedPercentage: 0.02,
+                DeductionId: 13,
+                DeductionName: "Deposit Fee",
+                GroupId: 153,
+                IsDeductedPercent: true,
+                DeductedAmount: 10.0000,
+                ProductIds: "0"
+            },
+            WithdrawalFee: {
+                DeductedPercentage: 0.02,
+                DeductionId: 14,
+                DeductionName: "Withdrawal Fee",
+                GroupId: 153,
+                IsDeductedPercent: true,
+                DeductedAmount: 10.0000,
+                ProductIds: "0"
+            },
+            CreatedDate: "/Date(1534273172607)/",
+            CreatedDateText: "08/15/2018 01:59:32",
+            Creator: "AAnina",
+            Description: "",
+            GroupId: 153,
+            GroupName: "CG22125",
+            NoAffs: 2,
+            OperationalFee: {
+                DeductedPercentage: 0.15,
+                DeductionId: 11,
+                DeductionName: "Operational Fee",
+                GroupId: 153,
+                IsDeductedPercent: true,
+                DeductedAmount: 10.0000,
+                ProductIds: "0"
+            },
+            PlatformFeeList: [
+                {
+                    DeductedPercentage: 0.17,
+                    DeductionId: 10,
+                    DeductionName: "Platform Fee",
+                    GroupId: 153,
+                    ProductIds: "1,3,4,5,6,7,8,13,14,15,16,17,18"
+                }
+            ],
+            P2pDeductionList: [
+                {
+                    DeductedPercentage: 0.15,
+                    DeductionId: 15,
+                    DeductionName: "P2P Fee",
+                    GroupId: 153,
+                    ProductIds: "2,5,9,10,11,12",
+                    Commission: 0.1
+                }
+            ],
+            RowIdx: 6,
+            TierSettingList: [
+                tierSettingItem
+            ]
+        };
+        const props = Object.assign({}, defaultProps, { gridData: [amountDataItem] });
         const wrapper = shallow(<GridData {...props} />);
 
         expect(wrapper).toMatchSnapshot();

@@ -1,10 +1,8 @@
 ﻿import React from 'react';
 import PlatformFeeItem from '../PlatformFeeItem';
 import { shallow } from 'enzyme';
-import commissionValueList from '../../../../modules/constant';
 import MultipleSelect from "../../../../../../components/multiple-select";
 import DeductedPercentageForm from '../DeductedPercentageGroup';
-jest.mock(commissionValueList);
 
 describe('commission group - PlatformFeeItem', () => {
     const dataItem = {

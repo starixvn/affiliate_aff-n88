@@ -2,7 +2,6 @@
 import { AssignPrivateGroup } from '../AssignPrivateGroup';
 import { shallow } from 'enzyme';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
-jest.mock('../../../modules/constant');
 
 describe('commission group - assign private group', () => {
     const expectParam = {

@@ -4,7 +4,6 @@ import { Filter } from '../Filter';
 
 import MonthPicker from '@9softstudio/react-monthpicker';
 import MultipleSelect from '../../../../components/multiple-select';
-jest.mock('../../modules/constants');
 
 describe('affiliate report - Filter ', () => {
     const mainView = 1;

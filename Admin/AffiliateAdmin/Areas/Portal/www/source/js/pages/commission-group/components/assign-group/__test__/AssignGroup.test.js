@@ -2,7 +2,6 @@
 import AssignGroup from '../AssignGroup';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 import { shallow } from 'enzyme';
-jest.mock('../../../modules/constant');
 
 describe('commission group - AssignGroup', () => {
     beforeEach(() => {
