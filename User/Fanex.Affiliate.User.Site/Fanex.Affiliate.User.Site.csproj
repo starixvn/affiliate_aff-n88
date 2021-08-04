@@ -923,10 +923,10 @@
     <Content Include="www\build\styles\Images\promotion-banners\N8B\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N8B\promotion.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N8B\promotion.en-US.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.mobile.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.en-US.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.mobile.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\N8G\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
