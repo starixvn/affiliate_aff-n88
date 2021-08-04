@@ -1,57 +1,31 @@
-﻿jest.mock('redux');
-jest.mock('react-redux');
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../../../../actions/index';
+﻿import React from 'react'
+import PlatformFeeSetting from '../../PlatformFeeSetting'
+import { shallow } from 'enzyme'
+import configureMockStore from 'redux-mock-store'
+import { SET_SELECTED_GROUP } from '../../../../../actions/types'
 
-describe('commission group - PlatformFeeSetting - connect', () => {
-    let mapStateToProps, mapDispatchToProps;
-    const connectMock = jest.fn();
+const mockStore = configureMockStore()
 
-    beforeAll(() => {
-        connect.mockImplementationOnce((mapStateToPropsFunc, mapDispatchToPropsFunc) => {
-            mapStateToProps = mapStateToPropsFunc;
-            mapDispatchToProps = mapDispatchToPropsFunc;
-            return connectMock;
-        });
-        require('../../PlatformFeeSetting').default;
-    });
+describe('commission group - DeductionSetting - connect', () => {
+    let wrapper
+    let store
 
-    it('props should be mapped correctly', () => {
-        const expectedResult = {
-            deductionList: { abc: 123 },
-            productList: { abc: 123 },
-            selectedGroup: 123
-        };
-
-        const state = {
-            deductionList: { abc: 123 },
-            productList: { abc: 123 },
-            selectedGroup: 123,
-            anotherProp: "Not included"
-        };
-
-        const result = mapStateToProps(state);
-
-        expect(result).toEqual(expectedResult);
-    })
-
-    it('bindActionCreators should be called with correct parameter', () => {
-        const mockBindAction = jest.fn();
-        bindActionCreators.mockImplementationOnce(mockBindAction);
-        const expectedActionCreator = {
-            setSelectedGroup: actions['setSelectedGroup']
+    beforeEach(() => {
+        const initialState = {
+            selectedGroup: {}
         }
-
-        const dispatch = {};
-        mapDispatchToProps(dispatch);
-
-        expect(mockBindAction).toHaveBeenCalledWith(expectedActionCreator, dispatch);
+        store = mockStore(initialState)
+        wrapper = shallow(<PlatformFeeSetting store={store} />).dive()
     })
 
-    it('returned function of connect should be called with correct parameter', () => {
-        const PlatformFeeSetting = require('../../PlatformFeeSetting').PlatformFeeSetting;
+    it('should show correct value', () => {
+        expect(wrapper.props().selectedGroup).toEqual({})
+    })
 
-        expect(connectMock).toHaveBeenCalledWith(PlatformFeeSetting);
+    it('should call correct action', () => {
+        wrapper.props().setSelectedGroup({ Abc: 123 })
+
+        const actions = store.getActions();
+        expect(actions).toEqual([{ type: SET_SELECTED_GROUP, data: { Abc: 123 } }])
     })
 })

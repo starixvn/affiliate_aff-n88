@@ -35,7 +35,7 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
     }
     handleClick={[Function]}
     isFirst={true}
-    isOnlyPlatformFeeRow={false}
+    isOnlyOnePlatformFeeRow={false}
     key="platformfee-0"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}
@@ -66,7 +66,7 @@ exports[`commission group - platform fee setting should render correctly 1`] = `
     }
     handleClick={[Function]}
     isFirst={false}
-    isOnlyPlatformFeeRow={false}
+    isOnlyOnePlatformFeeRow={false}
     key="platformfee-1"
     onChangeCommission={[Function]}
     onSelectProduct={[Function]}

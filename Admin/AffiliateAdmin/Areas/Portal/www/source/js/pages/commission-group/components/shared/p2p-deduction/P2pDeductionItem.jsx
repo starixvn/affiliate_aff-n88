@@ -11,8 +11,7 @@ export default class P2pDeductionItem extends PureComponent {
     }
 
     handleChange = (selectedItem) => {
-        const { onSelectProduct } = this.props;
-        selectedItem && onSelectProduct && onSelectProduct(selectedItem);
+        selectedItem && this.props.onSelectProduct(selectedItem);
     }
 
     handleChangeComm = (event) => {

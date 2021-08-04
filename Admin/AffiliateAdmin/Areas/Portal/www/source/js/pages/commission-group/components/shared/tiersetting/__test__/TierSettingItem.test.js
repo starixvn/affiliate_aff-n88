@@ -48,6 +48,15 @@ describe('commission group - TierSettingItem', () => {
         expect(wrapper.instance().props.onChange).toHaveBeenCalledWith(1, { Commission: 0 });
     });
 
+    it('handleCheck - should call onChange when unchecked checkbox is MaxAp', () => {
+        const mockEvent = { target: { checked: false, name: 'MaxAp' } };
+        const wrapper = shallow(<TierSettingItem {...defaultProps} />);
+
+        wrapper.find('Input[type="checkbox"]').at(0).simulate('change', mockEvent);
+
+        expect(wrapper.instance().props.onChange).toHaveBeenCalledWith(1, { Commission: 0 });
+    });
+
     it('Should render correctly', () => {
         const wrapper = shallow(<TierSettingItem {...defaultProps} />);
 

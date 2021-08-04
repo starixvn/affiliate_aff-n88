@@ -17,7 +17,7 @@ describe('commission group - assign private group', () => {
     };
 
     const selectedGroup = {
-        DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0, IsDeductedPercent: false, DeductedAmount: "10" },
         WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
         Description: "",
         GroupId: 0,
@@ -231,7 +231,6 @@ describe('commission group - assign private group', () => {
 
         expect(result).toEqual({ isValid: false, messageList: ["Max Amount must be greater than or equal to Min Amount"] });
     })
-
     it('_validate - TierSettingList has MinAp > MaxAp', () => {
         const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinAp: 10000000000, MaxAp: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
@@ -250,6 +249,26 @@ describe('commission group - assign private group', () => {
         const result = wrapper.instance()._validate();
 
         expect(result).toEqual({ isValid: false, messageList: ["At least 1 product must be selected per group"] });
+    })
+
+    it('_validate - validateDeductedFees has IsDeductedPercent is true but empty amount', () => {
+        const selected_Group = Object.assign({}, selectedGroup, { DepositFee: { DeductionId: 10, DeductionName: "Deposit Fee", DeductedPercentage: 0.17, IsDeductedPercent: false, DeductedAmount: "" } });
+        const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
+        const wrapper = shallow(<AssignPrivateGroup {...props} />);
+
+        const result = wrapper.instance()._validate();
+
+        expect(result).toEqual({ isValid: false, messageList: ["Deposit Fee cannot be empty. Please check!"] });
+    })
+
+    it('_validate - validateDeductedFees has IsDeductedPercent is true but invalid amount', () => {
+        const selected_Group = Object.assign({}, selectedGroup, { DepositFee: { DeductionId: 10, DeductionName: "Deposit Fee", DeductedPercentage: 0.17, IsDeductedPercent: false, DeductedAmount: "1." } });
+        const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
+        const wrapper = shallow(<AssignPrivateGroup {...props} />);
+
+        const result = wrapper.instance()._validate();
+
+        expect(result).toEqual({ isValid: false, messageList: ["Deposit Fee is invalid."] });
     })
 
     it('should render correctly', () => {

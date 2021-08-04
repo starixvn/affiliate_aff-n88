@@ -6,10 +6,10 @@ import { setSelectedGroup, setSelectedProductIds } from '../../../actions';
 
 import P2pDeductionItem from "./P2pDeductionItem";
 import { deepClone, updateObjectInArray } from "../../../../../modules/dataHandler";
-import { FIRST_ITEM_INDEX } from '../../../modules/constant';
+import { FIRST_ITEM_INDEX, ONLY_ONE_ITEM } from '../../../modules/constant';
 import { convertProductList, createDefaultP2pDeduction, getDeductionSetting, convertStringToArrayNumber, getSelectedProductIds, updatePlatfromFeeList } from '../../../modules/service';
 
-export class P2pProductSetting extends PureComponent {
+export class P2pDeductionSetting extends PureComponent {
     constructor(props) {
         super(props);
 
@@ -112,7 +112,7 @@ export class P2pProductSetting extends PureComponent {
             return newItem;
         });
 
-        const isOnlyOneP2pDeductionRow = p2pDeductionData.length === 1;
+        const isOnlyOneP2pDeductionRow = p2pDeductionData.length === ONLY_ONE_ITEM;
 
         return (
             <fieldset className="p2p-product-group">
@@ -147,4 +147,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ setSelectedGroup, setSelectedProductIds }, dispatch);
 }
 
-export default connect(mapStateToProp, mapDispatchToProps)(P2pProductSetting);
+export default connect(mapStateToProp, mapDispatchToProps)(P2pDeductionSetting);

@@ -2,13 +2,14 @@
 import PlatformFeeItem from '../PlatformFeeItem';
 import { shallow } from 'enzyme';
 import MultipleSelect from "../../../../../../components/multiple-select";
-import DeductedPercentageForm from '../DeductedPercentageGroup';
+import DeductedPercentageGroup from '../DeductedPercentageGroup';
 
 describe('commission group - PlatformFeeItem', () => {
     const dataItem = {
-        productList: [{ ProductId: 1, ProductName: 'Sportsbook', Checked: true },
-        { ProductId: 3, ProductName: 'Playtech Casino', Checked: true },
-        { ProductId: 4, ProductName: 'Number Game', Checked: true }
+        productList: [
+            { ProductId: 1, ProductName: 'Sportsbook', Checked: false },
+            { ProductId: 3, ProductName: 'Playtech Casino', Checked: false },
+            { ProductId: 4, ProductName: 'Number Game', Checked: false }
         ],
         commission: 0.12,
         nextCommission: 0.17
@@ -16,11 +17,10 @@ describe('commission group - PlatformFeeItem', () => {
     const defaultProps = {
         data: dataItem,
         key: `platformfee-0`,
-        isInserting: true,
         onSelectProduct: jest.fn(),
         onChangeCommission: jest.fn(),
         handleClick: jest.fn(),
-        btnText: '+'
+        btnText: '-'
     };
 
     it('handleChange', () => {
@@ -35,7 +35,7 @@ describe('commission group - PlatformFeeItem', () => {
         const mockEvent = { target: { name: 'DeductedPercentage', value: '0.15' } };
         const wrapper = shallow(<PlatformFeeItem {...defaultProps} />);
 
-        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageGroup).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
@@ -45,7 +45,7 @@ describe('commission group - PlatformFeeItem', () => {
         const props = Object.assign({}, defaultProps, { isInserting: false });
         const wrapper = shallow(<PlatformFeeItem {...props} />);
 
-        wrapper.find(DeductedPercentageForm).simulate('change', mockEvent);
+        wrapper.find(DeductedPercentageGroup).simulate('change', mockEvent);
 
         expect(wrapper.instance().props.onChangeCommission).toHaveBeenCalledWith({ DeductedPercentage: 0.15 });
     });
@@ -56,15 +56,10 @@ describe('commission group - PlatformFeeItem', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('Should render correctly with isInserting is false', () => {
-        const productList = [{ ProductId: 1, ProductName: 'Sportsbook', Checked: false },
-        { ProductId: 3, ProductName: 'Playtech Casino', Checked: false },
-        { ProductId: 4, ProductName: 'Number Game', Checked: false },
-        { ProductId: 5, ProductName: 'Virtual Sports', Checked: false },
-        { ProductId: 6, ProductName: 'Keno', Checked: false }
-        ];
+    it('Should render correctly with only one row', () => {
+        const productList = [{ ProductId: 1, ProductName: 'Sportsbook', Checked: true }];
         const data = Object.assign({}, defaultProps, { productList: productList });
-        const props = Object.assign({}, defaultProps, { isInserting: false, data: data });
+        const props = Object.assign({}, defaultProps, { isOnlyPlatformFeeRow: true, isFirst: true, data: data, btnText: '+' });
         const wrapper = shallow(<PlatformFeeItem {...props} />);
 
         expect(wrapper).toMatchSnapshot();
