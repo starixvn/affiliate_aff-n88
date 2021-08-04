@@ -2326,4 +2326,7 @@
   <data name="LimitedTime" xml:space="preserve">
     <value>*Áp dụng thời gian,&lt;br /&gt; điều khoản và điều kiện</value>
   </data>
+  <data name="Promotion" xml:space="preserve">
+    <value>KHUYẾN MÃI</value>
+  </data>
 </root>

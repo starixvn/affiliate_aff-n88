@@ -11,13 +11,15 @@
 @model string
 @{
     var appSetting = AppSetting.Instance;
+    var siteName = appSetting.SiteName;
+    var jsVer = appSetting.JsVersion;
     var contentView = "~/Views/Promotion/" + appSetting.SiteName + "/_Content." + Model + ".cshtml";
 
     var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(contentView).ToHtmlString());
-    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/promotion");
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{siteName}/promotion");
 
-    var orgBannerSrc = $"{bannerSrc}.{Model}";
-    var mobileBannerSrc = $"{bannerSrc}.mobile.{Model}";
+    var orgBannerSrc = $"{bannerSrc}.{Model}.jpg?v={jsVer}";
+    var mobileBannerSrc = $"{bannerSrc}.mobile.{Model}.jpg?v={jsVer}";
 }
 
 <div id="promotion" class="content">
@@ -49,9 +51,9 @@
             </div>
         </div>
         <picture>
-            <source media="(max-width:480px)" srcset="@(mobileBannerSrc + ".jpg?v=158572")" type="image/jpeg" />
-            <source srcset="@(orgBannerSrc + ".jpg?v=158572")" type="image/jpeg" />
-            <img class="img-item img-responsive" src="@(orgBannerSrc + ".jpg?v=158572")" alt="promtion banner" />
+            <source media="(max-width:480px)" srcset="@(mobileBannerSrc)" type="image/jpeg" />
+            <source srcset="@(orgBannerSrc)" type="image/jpeg" />
+            <img class="img-item img-responsive" src="@(orgBannerSrc)" alt="promtion banner" />
         </picture>
     </div>
 

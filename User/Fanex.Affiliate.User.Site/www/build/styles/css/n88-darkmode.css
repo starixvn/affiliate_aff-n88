@@ -387,6 +387,10 @@
   background: transparent;
   color: #3391F6; }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) and (min-width: 480px) {
   .carousel-inner {
     height: 150px !important; } }
+
+@media (max-width: 480px) {
+  .carousel-inner {
+    height: auto; } }
