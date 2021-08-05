@@ -36,6 +36,7 @@ describe('user account - components - sections - Payment', () => {
     const defaultProps = {
         userAccountInfo,
         setUserAccountInfo: jest.fn(),
+        paymentMethodList: [{ Key: 123, Value: 'ABC' }],
         licenseeName: 'Bwing'
     }
 

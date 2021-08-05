@@ -26,6 +26,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
           }
         >
           <Input
+            checked={true}
             onChange={[Function]}
             type="radio"
           />
@@ -70,7 +71,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
           xl={6}
         >
           <Input
-            disabled={true}
+            disabled={false}
             name="siteUrl"
             onChange={[Function]}
             type="text"
@@ -80,7 +81,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="secondary"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -128,7 +129,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={0}
             onChange={[Function]}
             value="www.sportsbookie.com"
@@ -137,7 +138,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -189,7 +190,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={1}
             onChange={[Function]}
             value="www.gzyyy.com"
@@ -198,7 +199,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -250,7 +251,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={2}
             onChange={[Function]}
             value="www.123.com"
@@ -259,7 +260,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -294,7 +295,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
           }
         >
           <Input
-            checked={true}
+            checked={false}
             onChange={[Function]}
             type="radio"
           />
@@ -339,6 +340,7 @@ exports[`user account - components - sections - WebSite render correctly 1`] = `
           xl={7}
         >
           <Input
+            disabled={true}
             id="noSiteDescription"
             name="noSiteDescription"
             onChange={[Function]}
@@ -383,6 +385,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
           }
         >
           <Input
+            checked={true}
             onChange={[Function]}
             type="radio"
           />
@@ -427,7 +430,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
           xl={6}
         >
           <Input
-            disabled={true}
+            disabled={false}
             name="siteUrl"
             onChange={[Function]}
             type="text"
@@ -437,7 +440,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="secondary"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -485,7 +488,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={0}
             onChange={[Function]}
             value="www.sportsbookie.com"
@@ -494,7 +497,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -546,7 +549,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={1}
             onChange={[Function]}
             value="www.gzyyy.com"
@@ -555,7 +558,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -607,7 +610,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         >
           <input
             className="form-control"
-            disabled={true}
+            disabled={false}
             name={2}
             onChange={[Function]}
             value="www.123.com"
@@ -616,7 +619,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
         <Button
           className="mb-2"
           color="danger"
-          disabled={true}
+          disabled={false}
           onClick={[Function]}
           outline={true}
           tag="button"
@@ -651,7 +654,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
           }
         >
           <Input
-            checked={true}
+            checked={false}
             onChange={[Function]}
             type="radio"
           />
@@ -696,6 +699,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
           xl={7}
         >
           <Input
+            disabled={true}
             id="noSiteDescription"
             name="noSiteDescription"
             onChange={[Function]}

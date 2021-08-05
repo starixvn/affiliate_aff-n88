@@ -45,7 +45,14 @@ exports[`user account - components - sections - Payment render correctly 1`] = `
         onChange={[Function]}
         type="select"
         value="Player"
-      />
+      >
+        <option
+          key="123"
+          value={123}
+        >
+          ABC
+        </option>
+      </Input>
     </Col>
     <p>
       Minimum payment amount is 

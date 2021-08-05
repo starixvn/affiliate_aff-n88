@@ -37,7 +37,9 @@ describe('daily earning detail - components - Filter', () => {
         param: {
             affId: 1271808,
             monthDate: "06 January 2019",
-            productId: 0
+            productId: 0,
+            baseCurrencyId: '',
+            currencyIds: ''
         },
         setParam: jest.fn(),
         productList,
@@ -72,6 +74,30 @@ describe('daily earning detail - components - Filter', () => {
         instance.handleChangeProduct(1);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ selectedProduct: 1 }, expect.any(Function));
+        expect(wrapper.instance().handleSetParam).toHaveBeenCalled();
+    });
+
+    it('handleChangeBaseCurrency - should call setState and handleSetParam', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState = jest.fn((obj, func) => func && func());
+        const instance = wrapper.instance();
+        instance.handleSetParam = jest.fn();
+
+        instance.handleChangeBaseCurrency({ target: { value: '123' } });
+
+        expect(wrapper.setState).toHaveBeenCalledWith({ selectedBaseCurrency: 123 }, expect.any(Function));
+        expect(wrapper.instance().handleSetParam).toHaveBeenCalled();
+    });
+
+    it('handleChangeCurrency - should call setState and handleSetParam', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
+        wrapper.setState = jest.fn((obj, func) => func && func());
+        const instance = wrapper.instance();
+        instance.handleSetParam = jest.fn();
+
+        instance.handleChangeCurrency({}, '20');
+
+        expect(wrapper.setState).toHaveBeenCalledWith({ currencyList, selectedCurrencyList: '20' }, expect.any(Function));
         expect(wrapper.instance().handleSetParam).toHaveBeenCalled();
     });
 
