@@ -108,6 +108,28 @@ namespace Affiliate.N88.WebApi.Controllers
         public async Task<IEnumerable<CustClosingBalanceModel>> GetCustClosingBalance(DateTime lastGetTime, int pageIndex, int pageSize = 2000)
             => await dynamicRepository.FetchAsync<CustClosingBalanceModel>(new GetCustClosingBalanceCriteria(lastGetTime, pageIndex, pageSize));
 
+        [HttpPost]
+        public async Task<ResultInfo> UnlockUser(int[] userIds)
+        {
+            try
+            {
+                var strIds = String.Join(",", userIds);
+                await dynamicRepository.ExecuteAsync(new UnlockUsersCommand { CustIdList = strIds });
+                return new ResultInfo
+                {
+                    IsSuccess = true
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResultInfo
+                {
+                    IsSuccess = false,
+                    ErrMsg = ex.Message
+                };
+            }
+        }
+
         private string GetIpAddress()
         {
             System.Web.HttpContext context = System.Web.HttpContext.Current;

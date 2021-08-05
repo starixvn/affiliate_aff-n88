@@ -75,6 +75,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
             var cust = await _licenseeService.GetMemberSiteCustomerInfo(affInfo.PlayerUsername, siteId);
             var result = _licenseeService.CheckCustomerIsValid(cust);
 
+            if (result.Code == CustomerStatus.LOCKED)
+            {
+                result = await _licenseeService.UnlockUser(cust.CustId);
+            }
+
             if (!result.IsSuccessful)
             {
                 return result;
