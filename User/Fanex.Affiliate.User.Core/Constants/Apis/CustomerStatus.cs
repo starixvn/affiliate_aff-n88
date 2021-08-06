@@ -5,6 +5,6 @@
         public const int RUNNING = 1;
         public const int SUSPENDED = 2;
         public const int CLOSED = 3;
-        public const int LOCKED = 5;
+        public const int LOCKED = 4;
     }
 }

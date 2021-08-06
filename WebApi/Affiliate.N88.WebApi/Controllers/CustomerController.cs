@@ -113,8 +113,8 @@ namespace Affiliate.N88.WebApi.Controllers
         {
             try
             {
-                var strIds = String.Join(",", userIds);
-                await dynamicRepository.ExecuteAsync(new UnlockUsersCommand { CustIdList = strIds });
+                var json = BuildJson(userIds);
+                await dynamicRepository.ExecuteAsync(new UnlockUsersCommand { CustIdList = json });
                 return new ResultInfo
                 {
                     IsSuccess = true
@@ -129,6 +129,9 @@ namespace Affiliate.N88.WebApi.Controllers
                 };
             }
         }
+
+        private string BuildJson(int[] userIds)
+            => $"[{String.Join(",", userIds)}]"; 
 
         private string GetIpAddress()
         {
