@@ -27,4 +27,21 @@ describe('banner list - components - AppContainer', () => {
         expect(props.fetchData).toHaveBeenCalledWith(param);
     });
 
+    it('deleteBanners - should be called when call deleteItems in ControlButons', () => {
+        const param = {
+            PageIndex: 1,
+            PageSize: 20,
+            category: "",
+            currency: "",
+            deviceType: 0,
+            language: "",
+            userType: '1'
+        }
+        const props = Object.assign({}, { isShowLoader: true, deleteBanners: jest.fn(), param })
+        const result = shallow(<AppContainer {...props} />);
+
+        result.find(ControlButtons).props().deleteItems('1,2,3');
+
+        expect(props.deleteBanners).toHaveBeenCalledWith({ bannerIdList: '1,2,3', userType: param.userType });
+    });
 });

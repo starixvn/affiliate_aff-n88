@@ -297,6 +297,9 @@ exports[`banner list - components - Content  render correctly 1`] = `
               sorting={false}
             >
               <p>
+                PC / Laptop
+              </p>
+              <p>
                 Mobile
               </p>
             </t>

@@ -5,7 +5,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { setParam, getCategoryList, setDisableCurrency } from '../actions';
 import { headerText } from '../libs/constants';
-import { globalResource, deviceTypes, pcLaptop, userTypeList, affiliateBanner, allUserType } from '../../common/libs/constants';
+import { globalResource, deviceTypes, userTypeList, affiliateBanner, allUserType } from '../../common/libs/constants';
 
 export const Filter = (props) => {
     const { categoryList, languageList, currencyList, isDisableCurrency } = props;
@@ -31,7 +31,7 @@ export const Filter = (props) => {
         props.setParam(param);
     }
 
-    const _handleChange = (e) => {
+    const _handleChangeUserType = (e) => {
         const value = e.target.value;
         setCategory('');
         setCurrency('');
@@ -46,7 +46,7 @@ export const Filter = (props) => {
             <Form inline tag="div">
                 <FormGroup className="mr-sm-3">
                     <Label for="userType" className="mr-sm-2">{headerText.UserType}</Label>
-                    <Input type="select" name="userType" id="userType" value={userType} onChange={_handleChange}>
+                    <Input type="select" name="userType" id="userType" value={userType} onChange={_handleChangeUserType}>
                         <option key={'userType-all'} value={allUserType}>{globalResource.All}</option>
                         {
                             Object.keys(userTypeList).map(key => {

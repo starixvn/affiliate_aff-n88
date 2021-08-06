@@ -114,6 +114,22 @@ describe('banner list - components - Filter ', () => {
         expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "Sportsbook", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", userType: 0 });
     });
 
+    it("_handleChange - should call setDisableCurrency, getCategoryList, getSizeList and setState", () => {
+        const event = {
+            target: { name: 'userType', value: '1' }
+        };
+        const props = Object.assign({}, defaultProps, { getSizeList: jest.fn(), setDisableCurrency: jest.fn(), getCategoryList: jest.fn() });
+        const wrapper = shallow(<Filter {...props} />);
+        wrapper.setState = jest.fn();
+
+        wrapper.instance()._handleChange(event)
+
+        expect(wrapper.setState).toHaveBeenCalledWith({ "affType": 1, "category": "", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", "userType": '1' });
+        expect(props.setDisableCurrency).toHaveBeenCalledWith(false);
+        expect(props.getCategoryList).toHaveBeenCalledWith('1');
+        expect(props.getSizeList).toHaveBeenCalledWith({ "affType": 1, "category": "", "currency": "", "deviceType": "", "language": "", "size": "", "subCategory": "", "userType": '1' });
+    });
+
     it("_handleChange - should call getSizeList and setState", () => {
         const event = {
             target: { name: 'currency', value: 'USD' }

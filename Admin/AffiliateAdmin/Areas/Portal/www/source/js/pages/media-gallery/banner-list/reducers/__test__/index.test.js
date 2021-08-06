@@ -16,6 +16,7 @@ const testCaseList = [
     { name: 'selectedBannerId', value: null, action: { type: types.SET_SELECTED_BANNER_ID, data: 123 }, expectedResult: 123 },
     { name: 'checkedBanners', value: null, action: { type: types.SET_CHECKED_BANNERS, data: { 123: true } }, expectedResult: { 123: true } },
     { name: 'shouldResetScrollPosition', value: true, action: { type: types.SHOULD_RESET_SCROLL_POSITION, data: false }, expectedResult: false },
+    { name: 'isDisableCurrency', value: false, action: { type: types.SET_DISABLE_CURRENCY, data: true }, expectedResult: true },
     { name: 'gridData', value: null, action: { type: types.SET_GRID_DATA, data: [{ name: 'abc' }] }, expectedResult: [{ name: 'abc' }] },
     { name: 'sizeList', value: null, action: { type: types.SET_SIZE_LIST, data: [{ Id: 123, Name: "320x50" }] }, expectedResult: [{ Id: 123, Name: "320x50" }] }
 ]
