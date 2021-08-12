@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
                         break;
                     case CustomerStatus.LOCKED:
                         result.Code = cust.Status.Value;
-                        result.Message = Lang.UserNameClosed;
+                        result.Message = Lang.UserNameLocked;
                         break;
                     default:
                         result.Code = cust.Status.GetValueOrDefault(CustomerStatus.NO_STATUS_CODE);

@@ -243,4 +243,7 @@
   <data name="SubAffiliateDomain" xml:space="preserve">
     <value>Sub-Affiliate Domain</value>
   </data>
+  <data name="UserNameLocked" xml:space="preserve">
+    <value>The payment account you entered is Locked. Please check again.</value>
+  </data>
 </root>
