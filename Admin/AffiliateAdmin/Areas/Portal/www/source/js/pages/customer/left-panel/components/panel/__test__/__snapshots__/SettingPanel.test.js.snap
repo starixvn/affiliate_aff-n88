@@ -197,7 +197,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
             "display": "none",
           }
         }
-        value={2}
+        value={1}
       >
         <option
           key="affinfo-type-1"
@@ -217,7 +217,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
         }
         tag="button"
       >
-        2
+        Asian
       </Button>
     </Col>
   </Row>
@@ -301,5 +301,10 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
       />
     </Col>
   </Row>
+  <NotificationPopup
+    isConfirmPopup={true}
+    message="abc"
+    onClose={[Function]}
+  />
 </Memo(Panel)>
 `;

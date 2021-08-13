@@ -24,7 +24,7 @@ export const UserPanel = (props) => {
             <Loader show={isShowLoader} style={{ top: spinnerLoaderUserPanelHeight, left: spinnerLoaderWidth }}/>
             <UserPanelMenu selectedUserPanel={selectedUserPanel} onClickMenu={onClickMenu} isPending={isPending} menuList={menuList} />
 
-            <div class="user-panel-content-container">
+            <div className="user-panel-content-container">
                 {
                     componentIndex !== -1 &&
                     <Suspense fallback={null}>

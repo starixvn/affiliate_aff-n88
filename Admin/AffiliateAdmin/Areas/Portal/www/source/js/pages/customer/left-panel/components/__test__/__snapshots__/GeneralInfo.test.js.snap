@@ -737,7 +737,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
         ]
       }
     >
-      undefined
+      N/A
     </Col>
   </Row>
   <Row
@@ -1188,7 +1188,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
-      undefined
+      sa
     </Col>
   </Row>
   <Row
@@ -1640,7 +1640,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
-      undefined
+      sa
     </Col>
   </Row>
   <Row

@@ -190,10 +190,10 @@ exports[`commission group - FeeSettingItem Should render correctly with is fixed
     }
   >
     <p
-      class="deducted-amount"
+      className="deducted-amount"
     >
       <span
-        class="text-danger required"
+        className="text-danger required"
       >
         *
       </span>

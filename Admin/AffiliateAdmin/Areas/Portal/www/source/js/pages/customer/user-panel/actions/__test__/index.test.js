@@ -58,6 +58,22 @@ describe('user panel actions', () => {
         expect(store.getActions()).toEqual(expectedAction)
     })
 
+    it('should create action to redirectToSubAffiliate', () => {
+        const param = {
+            affId: 1271808,
+            monthDate: "Jan-2019",
+            productId: 0
+        }
+        const expectedAction = [
+            { type: 'USER_PANEL/SET_SELECTED_USERPANEL', data: 'subAffiliate' },
+            { type: 'USER_PANEL/SUB_AFFILIATE/SET_PARAM', data: param },
+        ];
+
+        const store = mockStore({ todos: [] });
+        store.dispatch(actions['redirectToSubAffiliate'](param));
+        expect(store.getActions()).toEqual(expectedAction);
+    })
+
     it('should create action to redirectToPlayerDetail', () => {
         const param = {
             isClickLink: true,

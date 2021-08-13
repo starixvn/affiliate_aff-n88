@@ -7,7 +7,7 @@ export const UserPanelMenuItem = (props) => {
         <li key={item.key} className="up-item">
             <a href="javascript:;" className={`upitem-link ${isActive ? 'active' : ''}`}
                 onClick={() => onClickMenu(item.key)}>
-                <span class="menu-text">{item.name}</span>
+                <span className="menu-text">{item.name}</span>
             </a>
         </li>
     )

@@ -11,7 +11,7 @@ exports[`customer - user-panel - components - UserPanelMenuItem Should render co
     onClick={[Function]}
   >
     <span
-      class="menu-text"
+      className="menu-text"
     >
       Edit
     </span>
@@ -30,7 +30,7 @@ exports[`customer - user-panel - components - UserPanelMenuItem Should render co
     onClick={[Function]}
   >
     <span
-      class="menu-text"
+      className="menu-text"
     >
       Edit
     </span>

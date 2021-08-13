@@ -8,7 +8,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         AffId: 1271808,
         AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
         AffName: "12BETAFF226",
-        AffType: 2,
+        AffType: 1,
         BalanceBf: 9802280.5446,
         CommGroupName: "NoCommission",
         ContactApps: '[{"Name":"MSN/YM/QQ","Value":"@123","Order":0}]',
@@ -68,6 +68,7 @@ describe('left panel - components - panel - SettingPanel', () => {
     it('render correctly with isApproved is true', () => {
         const props = Object.assign({}, defaultProps, { affiliateInfo })
         const result = shallow(<SettingPanel {...props} isApproved={true} />);
+        result.instance().setState({ messageNotification: 'abc' })
 
         expect(result).toMatchSnapshot();
     });
