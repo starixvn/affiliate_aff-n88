@@ -109,7 +109,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             var affInfo = _accountRepository.GetAccountInfo(paymentCreationParam.AffId);
-            resultInfo = await _accountService.CheckPlayerUserNameValid(affInfo.PlayerUsername);
+            resultInfo = await _accountService.CheckAndUnlockUserIfLocked(affInfo.PlayerUsername);
 
             return resultInfo;
         }

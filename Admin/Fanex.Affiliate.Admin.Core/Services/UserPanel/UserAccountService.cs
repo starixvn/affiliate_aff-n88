@@ -40,11 +40,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             }
 
             var isValidPaymentMethod = ValidatePaymentMethod(param);
+
+            var curUserAccInfo = GetUserAccountInfo(param.AffId);
+
             if(isValidPaymentMethod)
             {
-                if(PaymentMethod.PlayerAccount.Equals(param.PreferredPayment))
+                if(PaymentMethod.PlayerAccount.Equals(param.PreferredPayment) && curUserAccInfo.PlayerUsername != param.PlayerUsername)
                 {
-                    var memberSiteId = _appSetting.MemberSiteId;
+                    var memberSiteId = _appSetting.MemberSiteId;                       
                     var memberSiteCust = await _licenseeService
                         .GetMemberSiteCustomerInfo(param.PlayerUsername, memberSiteId);
 

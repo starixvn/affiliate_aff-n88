@@ -421,6 +421,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The payment account you entered is Locked. Please check again..
+        /// </summary>
+        public static string UserNameLocked {
+            get {
+                return ResourceManager.GetString("UserNameLocked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The payment account you entered does not exist. Please check again..
         /// </summary>
         public static string UserNameNotExist {

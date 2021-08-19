@@ -8,5 +8,8 @@ namespace Fanex.Affiliate.User.Core.Apis
     {
         [Get("/api/customer/GetLoginCustomerInfo")]
         Task<MemberSiteCustomerInfo> GetCustomerInfoAsync(string userName, int siteId);
+
+        [Post("/api/customer/UnlockUser")]
+        Task<ApiResultInfo> UnlockUser(int[] userIds);
     }
 }

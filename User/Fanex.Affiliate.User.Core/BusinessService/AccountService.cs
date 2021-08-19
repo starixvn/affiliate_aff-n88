@@ -7,6 +7,7 @@ using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
+using System;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
@@ -80,10 +81,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return _accountRepository.GetGeneralAffInfo(affId, affCode) ?? new GeneralAffInfo();
         }
 
-        public async Task<ResultInfo> CheckPlayerUserNameValid(string userName)
+        public async Task<ResultInfo> CheckAndUnlockUserIfLocked(string userName)
         {
             var cust = await GetMemberSiteCustomer(userName);
-            return CheckPlayerUserNameValid(cust);
+            var result = CheckPlayerUserNameValid(cust);
+            if (cust.Status == CustomerStatus.LOCKED)
+            {
+                var apiResult = await _licenseeApi.UnlockUser(new [] { cust.CustId});
+                result.IsOk = apiResult.IsSuccess;
+                result.Message = apiResult.ErrMsg;
+            }
+            return result;
         }
 
         public async Task<MemberSiteCustomerInfo> GetMemberSiteCustomer(string userName)
@@ -92,7 +100,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return await _licenseeApi.GetCustomerInfoAsync(userName, siteId);
         }
 
-        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust)
+        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust, bool isSkipLockUser = false)
         {
             var validInfo = new ResultInfo
             {
@@ -116,6 +124,17 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     case CustomerStatus.CLOSED:
                         validInfo.IsOk = false;
                         validInfo.Message = Lang.UserNameClosed;
+                        break;
+                    case CustomerStatus.LOCKED:
+                        if (isSkipLockUser)
+                        {
+                            validInfo.IsOk = true;
+                        }
+                        else
+                        {
+                            validInfo.IsOk = false;
+                            validInfo.Message = Lang.UserNameClosed;
+                        }
                         break;
                     default:
                         validInfo.IsOk = false;

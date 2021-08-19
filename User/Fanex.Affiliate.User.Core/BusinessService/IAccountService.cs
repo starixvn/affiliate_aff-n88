@@ -12,7 +12,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         GeneralAffInfo GetGeneralAffInfo(int? affId = null, string affCode = null);
 
-        Task<ResultInfo> CheckPlayerUserNameValid(string userName);
+        Task<ResultInfo> CheckAndUnlockUserIfLocked(string userName);
 
         Task<MemberSiteCustomerInfo> GetMemberSiteCustomer(string userName);
     }

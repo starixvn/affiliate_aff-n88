@@ -44,6 +44,10 @@ namespace Fanex.Affiliate.Admin.Core.Services
                         result.Code = cust.Status.Value;
                         result.Message = Lang.UserNameClosed;
                         break;
+                    case CustomerStatus.LOCKED:
+                        result.Code = cust.Status.Value;
+                        result.Message = Lang.UserNameLocked;
+                        break;
                     default:
                         result.Code = cust.Status.GetValueOrDefault(CustomerStatus.NO_STATUS_CODE);
                         result.Message = Lang.ErrInApi;
@@ -57,6 +61,16 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
         public async Task<MemberSiteCustomerInfo> GetMemberSiteCustomerInfo(string userName, int siteId)
             => await _licenseeApi.GetCustomerInfoAsync(userName, siteId).ConfigureAwait(false);
+
+        public async Task<ResultInfo> UnlockUser(int userId)
+        {
+            var result = await _licenseeApi.UnlockUser(new[] { userId });
+            return new ResultInfo
+            {
+                Code = result.IsSuccess ? 0 : CustomerStatus.INTERNAL_ERR,
+                Message = result.ErrMsg
+            };
+        }
 
         public async Task<ResultInfo> UpdatePaymentRequest(PaymentRequestInfo paymentRequest)
         {

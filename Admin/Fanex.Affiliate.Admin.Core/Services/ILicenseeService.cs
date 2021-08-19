@@ -13,5 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
         ResultInfo CheckCustomerIsValid(MemberSiteCustomerInfo cust);
 
         Task<ResultInfo> UpdatePaymentRequest(PaymentRequestInfo paymentRequest);
+
+        Task<ResultInfo> UnlockUser(int userId);
     }
 }

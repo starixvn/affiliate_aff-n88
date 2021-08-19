@@ -249,6 +249,7 @@
     <Compile Include="DTO\Affiliate\AffiliateBasicInfo.cs" />
     <Compile Include="DTO\Affiliate\AffiliateInfo.cs" />
     <Compile Include="DTO\AffTypeInfo.cs" />
+    <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
     <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
     <Compile Include="DTO\CommissionGroup\DeductionSetting.cs" />

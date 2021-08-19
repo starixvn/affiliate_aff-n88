@@ -15,5 +15,8 @@ namespace Fanex.Affiliate.Admin.Core.Apis
 
         [Post("/api/customer/UpdateCustomerWallet")]
         Task<decimal> UpdatePaymentRequestAsync(PaymentRequestInfo paymentInfo);
+
+        [Post("/api/customer/UnlockUser")]
+        Task<ApiResultInfo> UnlockUser(int[] userIds);
     }
 }

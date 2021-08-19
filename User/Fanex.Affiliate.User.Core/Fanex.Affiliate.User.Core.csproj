@@ -242,6 +242,7 @@
     <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
+    <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
     <Compile Include="Enum\DbParam.cs" />
     <Compile Include="Enum\AffiliatLinkType.cs" />
