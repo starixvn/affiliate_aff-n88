@@ -76,7 +76,7 @@ export default class FeeSettingItem extends React.Component {
                                     </Form>
                                 </Col>
                                 <Col sm={1}>
-                                    <p class="deducted-amount"><span class="text-danger required">*</span>{` (${defaultCurrency})`}</p>
+                                    <p className="deducted-amount"><span className="text-danger required">*</span>{` (${defaultCurrency})`}</p>
                                 </Col>
                             </Fragment>
                         )

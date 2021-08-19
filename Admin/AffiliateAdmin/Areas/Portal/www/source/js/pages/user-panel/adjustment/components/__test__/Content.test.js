@@ -71,6 +71,21 @@ describe('Adjustment - components - Content', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ amount: '123,456' });
     });
 
+    it('handleChangeAmount - should call setState with correct amount but not format', async () => {
+        const event = {
+            target: {
+                name: 'amount',
+                value: '123.456'
+            }
+        }
+        const wrapper = shallow(<Content {...defaultProps} />);
+        wrapper.setState = jest.fn();
+
+        wrapper.find('Input[type="text"][name="amount"][id="amount"]').simulate('change', event);
+
+        expect(wrapper.setState).toHaveBeenCalledWith({ amount: '123.456' });
+    });
+
     it('handleChangeAmount - should call setState with incorrect amount', async () => {
         const event = {
             target: {

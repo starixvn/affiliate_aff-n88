@@ -231,7 +231,14 @@ exports[`text list - components - TextDetailForm  render correctly with insert 1
                 onChange={[Function]}
                 type="select"
                 value="Basketball"
-              />
+              >
+                <option
+                  key="category-Basketball"
+                  value="Basketball"
+                >
+                  Basketball
+                </option>
+              </Input>
             </Col>
           </FormGroup>
           <FormGroup
@@ -693,7 +700,14 @@ exports[`text list - components - TextDetailForm  render correctly with not show
                 onChange={[Function]}
                 type="select"
                 value="Basketball"
-              />
+              >
+                <option
+                  key="category-Basketball"
+                  value="Basketball"
+                >
+                  Basketball
+                </option>
+              </Input>
             </Col>
           </FormGroup>
           <FormGroup
@@ -1155,7 +1169,14 @@ exports[`text list - components - TextDetailForm  render correctly with update 1
                 onChange={[Function]}
                 type="select"
                 value="Basketball"
-              />
+              >
+                <option
+                  key="category-Bonus"
+                  value="Bonus"
+                >
+                  Bonus
+                </option>
+              </Input>
             </Col>
           </FormGroup>
           <FormGroup
@@ -1210,62 +1231,6 @@ exports[`text list - components - TextDetailForm  render correctly with update 1
                   value="Vietnamese"
                 >
                   Vietnamese
-                </option>
-              </Input>
-            </Col>
-          </FormGroup>
-          <FormGroup
-            className="mb-2"
-            row={true}
-            tag="div"
-          >
-            <Label
-              for="currency"
-              sm={2}
-              tag="label"
-              widths={
-                Array [
-                  "xs",
-                  "sm",
-                  "md",
-                  "lg",
-                  "xl",
-                ]
-              }
-            >
-              Currency
-            </Label>
-            <Col
-              sm={5}
-              tag="div"
-              widths={
-                Array [
-                  "xs",
-                  "sm",
-                  "md",
-                  "lg",
-                  "xl",
-                ]
-              }
-            >
-              <Input
-                id="currency"
-                name="currency"
-                onChange={[Function]}
-                type="select"
-                value="EURO"
-              >
-                <option
-                  key="currency-EURO"
-                  value="EURO"
-                >
-                  EURO
-                </option>
-                <option
-                  key="currency-VND"
-                  value="VND"
-                >
-                  VND
                 </option>
               </Input>
             </Col>

@@ -10,7 +10,7 @@ import { htmlDecode } from '../../../../modules/htmlHelper';
 import NotificationPopup from '../../../common/components/NotificationPopup';
 import { validateFileExtension, validateInputFile } from '../libs/utils';
 import MultipleSelect from '../../../../components/multiple-select';
-import InputFile from '../../common/components/InputFile';
+import InputFile from '../../../common/components/InputFile';
 
 const regexSpecialCharacters = new RegExp(regSpecialCharacters);
 
@@ -384,18 +384,6 @@ export class EditBannerForm extends PureComponent {
         return newSubCategoryList;
     }
 
-    removeFileAtIndex = (index) => {
-        let currentFiles = Array.from(this.state.files);
-        currentFiles.splice(index, 1);
-        let files =
-            currentFiles.forEach((value, index) => {
-                files.index = value;
-            });
-
-        return files;
-
-    }
-
     handleChangeMultipleSelected = (initialList, selectedKey, isCategory) => {
         const selectedList = typeof (selectedKey) === "string" ? selectedKey.split(',').filter(p => !!p) : selectedKey;
 
@@ -487,8 +475,11 @@ export class EditBannerForm extends PureComponent {
                                         <Label sm={3} for="file" className={isInsert ? "required" : ""}>File</Label>
                                         <Col sm={9} >
                                             <InputFile id="file" className={`border ${(isInsert && isDisabled) || files.length === 0 ? "text-danger" : "text-success"}`}
+                                                lblText="No file choosen"
+                                                btnName={globalResource.ChooseFile}
                                                 isMultiple={isInsert} files={files}
-                                                handleOnChangeFiles={this._handleFile}></InputFile>
+                                                handleOnChangeFiles={this._handleFile}
+                                                accept="image/jpg, image/gif, image/png, image/jpeg" />
                                         </Col>
                                     </FormGroup>
                                     {

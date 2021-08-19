@@ -2,6 +2,7 @@ import React from "react";
 import MultipleSelect from "../../../../../components/multiple-select";
 import { Col, Form, FormGroup } from 'reactstrap';
 import DeductedPercentageForm from './DeductedPercentageGroup';
+import { ONLY_ONE_ITEM } from '../../../modules/constant';
 
 export default class PlatformFeeItem extends React.Component {
     constructor(props) {
@@ -9,8 +10,7 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     handleChange = (selectedItem) => {
-        const { onSelectProduct } = this.props;
-        selectedItem && onSelectProduct && onSelectProduct(selectedItem);
+        selectedItem && this.props.onSelectProduct(selectedItem);
     }
 
     handleChangeComm = (event) => {
@@ -19,11 +19,11 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     render() {
-        const { data, handleClick, btnText, isOnlyPlatformFeeRow, isFirst } = this.props;
+        const { data, handleClick, btnText, isOnlyOnePlatformFeeRow, isFirst } = this.props;
 
         const { productList, commission } = data;
-        const isValid = (isFirst && isOnlyPlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
-        const isDisableAddButton = isFirst && productList.length < 2;
+        const isValid = (isFirst && isOnlyOnePlatformFeeRow) || productList.filter(p => !p.Checked).length < productList.length;
+        const isDisableAddButton = isFirst && productList.length === ONLY_ONE_ITEM;
 
         return (
             <FormGroup row className="align-items-center">
@@ -35,11 +35,11 @@ export default class PlatformFeeItem extends React.Component {
                             valueField="ProductName"
                             statusField="Checked"
                             hasAllOption={false}
-                            hasInputOption={!isOnlyPlatformFeeRow}
+                            hasInputOption={!isOnlyOnePlatformFeeRow}
                             maxDisplayItemCount={1}
                             noneSelectedLabel={isValid ? "None" : "Please Select"}
                             onChange={this.handleChange}
-                            isDisable={isOnlyPlatformFeeRow} />
+                            isDisable={isOnlyOnePlatformFeeRow} />
                     </div>
                 </Col>
                 <Col sm={7}>

@@ -23,7 +23,7 @@ describe('banner list - components - Content ', () => {
             Categories: ["Number Game"],
             SubCategories: [""],
             Currencies: ["EURO"],
-            DeviceTypes: ["1"],
+            DeviceTypes: ["0", "1"],
             FileName: "CategoryMedia/step1.jpg",
             ImageType: "Image",
             Language: "Chinese Simplified",

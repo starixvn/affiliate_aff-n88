@@ -190,10 +190,10 @@ exports[`commission group - FeeSettingItem Should render correctly with is fixed
     }
   >
     <p
-      class="deducted-amount"
+      className="deducted-amount"
     >
       <span
-        class="text-danger required"
+        className="text-danger required"
       >
         *
       </span>
@@ -236,105 +236,6 @@ exports[`commission group - FeeSettingItem Should render correctly with is fixed
         >
           <Input
             checked={true}
-            name="IsDeductionPercent"
-            onChange={[Function]}
-            type="checkbox"
-          />
-           Fixed Amount
-        </Label>
-      </FormGroup>
-    </Form>
-  </Col>
-</FormGroup>
-`;
-
-exports[`commission group - FeeSettingItem Should render correctly with isCreating is false 1`] = `
-<FormGroup
-  className="align-items-center"
-  row={true}
-  tag="div"
->
-  <Label
-    className="font-weight-bold"
-    sm={3}
-    tag="label"
-    widths={
-      Array [
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-      ]
-    }
-  >
-    Operational Fee%
-  </Label>
-  <Col
-    sm={
-      Object {
-        "offset": 1,
-        "size": 4,
-      }
-    }
-    tag="div"
-    widths={
-      Array [
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-      ]
-    }
-  >
-    <Form
-      inline={true}
-      tag="form"
-    >
-      <Memo(DeductedPercentageGroup)
-        label="| Gross Win Loss |"
-        onChange={[Function]}
-        value={0.07}
-      />
-    </Form>
-  </Col>
-  <Col
-    sm={3}
-    tag="div"
-    widths={
-      Array [
-        "xs",
-        "sm",
-        "md",
-        "lg",
-        "xl",
-      ]
-    }
-  >
-    <Form
-      inline={true}
-      tag="form"
-    >
-      <FormGroup
-        check={true}
-        tag="div"
-      >
-        <Label
-          check={true}
-          tag="label"
-          widths={
-            Array [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "xl",
-            ]
-          }
-        >
-          <Input
-            checked={false}
             name="IsDeductionPercent"
             onChange={[Function]}
             type="checkbox"

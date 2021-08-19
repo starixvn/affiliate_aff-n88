@@ -117,7 +117,7 @@ export default class AppContainer extends PureComponent {
                             <p>Please sign in to continue to work</p>
                         </div>
                         {
-                            licenseeName === nova88 && <div class="switch-mode-theme">
+                            licenseeName === nova88 && <div className="switch-mode-theme">
                                 <input type="checkbox" id="switch" checked={!isLightMode} onChange={this._handleChangeMode} /><label for="switch"></label>
                             </div>
                         }
@@ -148,7 +148,7 @@ export default class AppContainer extends PureComponent {
                         </FormGroup>
 
                         <div className="bt">
-                            <a href="javascript:;" class="bt-login" onClick={this._handleLogin} >Log On</a>
+                            <a href="javascript:;" className="bt-login" onClick={this._handleLogin} >Log On</a>
                         </div>
                     </Form>
                 </div>

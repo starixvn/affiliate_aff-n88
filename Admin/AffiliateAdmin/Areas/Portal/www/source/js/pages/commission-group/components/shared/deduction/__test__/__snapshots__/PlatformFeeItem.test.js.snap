@@ -20,23 +20,23 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
     }
   >
     <div
-      className="select-product "
+      className="select-product is-invalid"
     >
       <MultipleSelect
         dataSource={
           Array [
             Object {
-              "Checked": true,
+              "Checked": false,
               "ProductId": 1,
               "ProductName": "Sportsbook",
             },
             Object {
-              "Checked": true,
+              "Checked": false,
               "ProductId": 3,
               "ProductName": "Playtech Casino",
             },
             Object {
-              "Checked": true,
+              "Checked": false,
               "ProductId": 4,
               "ProductName": "Number Game",
             },
@@ -47,7 +47,7 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
         isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
-        noneSelectedLabel="None"
+        noneSelectedLabel="Please Select"
         onChange={[Function]}
         statusField="Checked"
         valueField="ProductName"
@@ -96,13 +96,13 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
       onClick={[MockFunction]}
       type="button"
     >
-      +
+      -
     </button>
   </Col>
 </FormGroup>
 `;
 
-exports[`commission group - PlatformFeeItem Should render correctly with isInserting is false 1`] = `
+exports[`commission group - PlatformFeeItem Should render correctly with only one row 1`] = `
 <FormGroup
   className="align-items-center"
   row={true}
@@ -122,35 +122,15 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
     }
   >
     <div
-      className="select-product is-invalid"
+      className="select-product "
     >
       <MultipleSelect
         dataSource={
           Array [
             Object {
-              "Checked": false,
+              "Checked": true,
               "ProductId": 1,
               "ProductName": "Sportsbook",
-            },
-            Object {
-              "Checked": false,
-              "ProductId": 3,
-              "ProductName": "Playtech Casino",
-            },
-            Object {
-              "Checked": false,
-              "ProductId": 4,
-              "ProductName": "Number Game",
-            },
-            Object {
-              "Checked": false,
-              "ProductId": 5,
-              "ProductName": "Virtual Sports",
-            },
-            Object {
-              "Checked": false,
-              "ProductId": 6,
-              "ProductName": "Keno",
             },
           ]
         }
@@ -159,7 +139,7 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
         isDisable={false}
         keyField="ProductId"
         maxDisplayItemCount={1}
-        noneSelectedLabel="Please Select"
+        noneSelectedLabel="None"
         onChange={[Function]}
         statusField="Checked"
         valueField="ProductName"
@@ -204,6 +184,7 @@ exports[`commission group - PlatformFeeItem Should render correctly with isInser
   >
     <button
       className="btn btn-action"
+      disabled={true}
       onClick={[MockFunction]}
       type="button"
     >

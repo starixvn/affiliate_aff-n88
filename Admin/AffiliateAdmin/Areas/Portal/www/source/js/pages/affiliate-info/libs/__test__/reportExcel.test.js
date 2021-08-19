@@ -4,7 +4,6 @@ import Excel from '../../../../modules/excel';
 describe('affiliate info - Report Excel ', () => {
     const REPORT_TITLE_ROW_INDEX = 0;
     const HEADER_ROW_INDEX = 1;
-    const DATA_ROW_INDEX = 2;
     const MAIN_SECTION_STYLE = 'mainSectionStyle';
     const selectedColumnList = {
         Index: true,
@@ -39,6 +38,8 @@ describe('affiliate info - Report Excel ', () => {
         Member: 6,
         IsFavorite: true,
         IsClosed: false,
+        NoOfSubAff: 2,
+        ParentAffName: 'ABC',
         RegistrationDateText: "05/22/2008 06:49:00",
         ApprovalDateText: "05/22/2008 06:50:00"
     };
@@ -56,6 +57,8 @@ describe('affiliate info - Report Excel ', () => {
         CommissionGroup: "12BETAFF001",
         BalanceBf: null,
         Member: null,
+        NoOfSubAff: null,
+        ParentAffName: '',
         IsFavorite: true,
         IsClosed: false,
         RegistrationDateText: "05/22/2008 06:49:00",
@@ -254,6 +257,46 @@ describe('affiliate info - Report Excel ', () => {
         const instance = new ReportExcel(dataHasNull, title, languageList, selectedColumnList);
         Excel.getCellType = jest.fn();
         const columnConfig = { field: "Member", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
+        const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
+
+        expect(Excel.getCellType).toHaveBeenCalledTimes(1);
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "N/A" });
+    });
+
+    it('_buildDataRow - should call Excel.getCellType with field NoOfSubAff', () => {
+        const instance = new ReportExcel(data, title, languageList, selectedColumnList);
+        Excel.getCellType = jest.fn();
+        const columnConfig = { field: "NoOfSubAff", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
+        const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
+
+        expect(Excel.getCellType).toHaveBeenCalledTimes(1);
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "2" });
+    });
+
+    it('_buildDataRow - should call Excel.getCellType with field NoOfSubAff is Null', () => {
+        const instance = new ReportExcel(dataHasNull, title, languageList, selectedColumnList);
+        Excel.getCellType = jest.fn();
+        const columnConfig = { field: "NoOfSubAff", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
+        const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
+
+        expect(Excel.getCellType).toHaveBeenCalledTimes(1);
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "N/A" });
+    });
+
+    it('_buildDataRow - should call Excel.getCellType with field ParentAffName', () => {
+        const instance = new ReportExcel(data, title, languageList, selectedColumnList);
+        Excel.getCellType = jest.fn();
+        const columnConfig = { field: "ParentAffName", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
+        const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 0);
+
+        expect(Excel.getCellType).toHaveBeenCalledTimes(1);
+        expect(result).toEqual({ s: { alignment: { horizontal: "right", vertical: "center" } }, t: undefined, v: "ABC" });
+    });
+
+    it('_buildDataRow - should call Excel.getCellType with field ParentAffName is Null', () => {
+        const instance = new ReportExcel(dataHasNull, title, languageList, selectedColumnList);
+        Excel.getCellType = jest.fn();
+        const columnConfig = { field: "ParentAffName", mainSectionStyle: { alignment: { horizontal: "right", vertical: "center" } }, width: 200 };
         const result = instance._buildDataRow(itemHasNull, MAIN_SECTION_STYLE, columnConfig, 0);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);

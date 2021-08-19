@@ -27,8 +27,8 @@ describe('text list - components - TextDetailForm ', () => {
         selectedTextId: 0,
         param,
         categoryList: [
-            { CategoryName: "Basketball" },
-            { CategoryName: "Bonus" }
+            { CategoryName: "Basketball", UserType: 1 },
+            { CategoryName: "Bonus", UserType: 2 }
         ],
         languageList: [
             { LanguageName: "English" },
@@ -50,7 +50,7 @@ describe('text list - components - TextDetailForm ', () => {
     it('render correctly with update', () => {
         const props = Object.assign({}, defaultProps, { selectedTextId: 2437, getTextDetail: jest.fn() });
         const result = shallow(<TextDetailForm {...props} />);
-        result.setState({ isSuccess: false });
+        result.setState({ isSuccess: false, isPlayer: false });
 
         expect(result).toMatchSnapshot();
     });
@@ -138,11 +138,11 @@ describe('text list - components - TextDetailForm ', () => {
         expect(result.setState).toHaveBeenCalledWith({ category: 'Bonus' });
     });
 
-    it('_handleChange should be called when change language select', () => {
+    it('_handleChange should be called when change userType select', () => {
         const event = {
             target: {
-                name: 'language',
-                value: 'English'
+                name: 'userType',
+                value: '1'
             }
         };
 
@@ -150,9 +150,30 @@ describe('text list - components - TextDetailForm ', () => {
 
         result.setState = jest.fn();
 
-        result.find('Input[type="select"][id="language"]').simulate('change', event);
+        result.find('Input[type="select"][id="userType"]').simulate('change', event);
 
-        expect(result.setState).toHaveBeenCalledWith({ language: 'English' });
+        expect(result.setState).toHaveBeenCalledTimes(2);
+        expect(result.setState.mock.calls[0][0]).toEqual({ userType: '1' });
+        expect(result.setState.mock.calls[1][0]).toEqual({ isPlayer: true, category: 'Basketball', currency: 'EURO' });
+    });
+
+    it('_handleChange should be called when change userType select', () => {
+        const event = {
+            target: {
+                name: 'userType',
+                value: '2'
+            }
+        };
+
+        const result = shallow(<TextDetailForm {...defaultProps} />);
+
+        result.setState = jest.fn();
+
+        result.find('Input[type="select"][id="userType"]').simulate('change', event);
+
+        expect(result.setState).toHaveBeenCalledTimes(2);
+        expect(result.setState.mock.calls[0][0]).toEqual({ userType: '2' });
+        expect(result.setState.mock.calls[1][0]).toEqual({ isPlayer: false, category: 'Sign up', currency: 'EURO' });
     });
 
     it('_handleChange should be called when change currency select', () => {
@@ -169,6 +190,7 @@ describe('text list - components - TextDetailForm ', () => {
 
         result.find('Input[type="select"][id="currency"]').simulate('change', event);
 
+        expect(result.setState).toHaveBeenCalledTimes(1);
         expect(result.setState).toHaveBeenCalledWith({ currency: 'VND' });
     });
 
@@ -300,7 +322,7 @@ describe('text list - components - TextDetailForm ', () => {
         const instance = wrapper.instance();
 
         instance._handleShowAlert = jest.fn();
-        instance.setState({ textContent: 'test', isInsert: false });
+        instance.setState({ textContent: 'test', isInsert: false, isPlayer: false });
         instance.setState = jest.fn();
 
         await instance._handleSubmit();
@@ -308,7 +330,7 @@ describe('text list - components - TextDetailForm ', () => {
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);
         expect(props.toggleLoader.mock.calls[0][0]).toBeTruthy();
         expect(props.toggleLoader.mock.calls[1][0]).toBeFalsy();
-        expect(props.updateText).toHaveBeenCalledWith({ "TextId": 2437, "category": "Basketball", "currency": "EURO", "deviceType": 0, "language": "Vietnamese", "textContent": "test", "userType": 1 });
+        expect(props.updateText).toHaveBeenCalledWith({ "TextId": 2437, "category": "Basketball", "currency": "", "deviceType": 0, "language": "Vietnamese", "textContent": "test", "userType": 1 });
         expect(instance._handleShowAlert).toHaveBeenCalledWith(false, "Updating has a error");
     });
 
@@ -387,6 +409,30 @@ describe('text list - components - TextDetailForm ', () => {
             textContent: '',
             category: 'Basketball',
             language: 'Vietnamese',
+            currency: 'EURO',
+            deviceType: 0,
+            isInsert: true,
+            isShowMessage: false,
+            isSuccess: true,
+            message: '',
+            isPlayer: true,
+            userType: 1
+        });
+    });
+
+    it('_handleClosePopup - not has defaultLanguage - should call setselectedTextId and setState', async () => {
+        const props = Object.assign({}, defaultProps, { setSelectedTextId: jest.fn(), defaultLanguage: '' });
+        const wrapper = shallow(<TextDetailForm {...props} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        instance._handleClosePopup();
+
+        expect(props.setSelectedTextId).toHaveBeenCalledWith(null);
+        expect(instance.setState).toHaveBeenCalledWith({
+            textContent: '',
+            category: 'Basketball',
+            language: 'English',
             currency: 'EURO',
             deviceType: 0,
             isInsert: true,

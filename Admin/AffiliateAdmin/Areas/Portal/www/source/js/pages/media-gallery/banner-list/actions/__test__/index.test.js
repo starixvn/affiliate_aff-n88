@@ -24,6 +24,7 @@ const actionList = [
     { name: 'setSelectedBannerId', type: types.SET_SELECTED_BANNER_ID, data: 123456 },
     { name: 'setCheckedBanners', type: types.SET_CHECKED_BANNERS, data: { 123456: false } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
+    { name: 'setDisableCurrency', type: types.SET_DISABLE_CURRENCY, data: true },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' },
     { name: 'setSizeList', type: types.SET_SIZE_LIST, data: [{ id: 234, name: '320x50' }] },
 ];
@@ -32,6 +33,30 @@ describe('banner list actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
+
+    it('should create action to getCategories', async () => {
+        const expectedResponse = { data: [{ CategoryName: "name" }], status: 200 };
+        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+
+        const result = await actions['getCategories'](1)();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/MediaGallery/GetCategoryList', { userType: 1 });
+        expect(result).toEqual([{
+            categoryName: 'name',
+            key: 'name',
+            name: 'name',
+            checked: false
+        }]);
+    })
+
+    it('should create action to getCategories', async () => {
+        ajaxRequest.post = jest.fn();
+
+        const result = await actions['getCategories'](1)();
+
+        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/MediaGallery/GetCategoryList', { userType: 1 });
+        expect(result).toEqual([]);
+    })
 
     it('should create action to getCategoryList', async () => {
         const expectedResponse = { data: [{ Id: 123, Name: 'SP Bonus' }], status: 200 };

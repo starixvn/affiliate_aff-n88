@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
+import { async } from 'regenerator-runtime';
 
 describe('user account - components - Content', () => {
     afterEach(() => {
@@ -71,12 +72,27 @@ describe('user account - components - Content', () => {
         expect(result).toMatchSnapshot();
     });
 
-    it('componentDidMount - should call getUserAccountInfo', () => {
+    it('componentDidMount - should call getUserAccountInfo', async () => {
         const result = shallow(<Content {...defaultProps} />);
+        const instance = result.instance();
+        instance.setState = jest.fn();
 
-        result.instance().componentDidMount();
+        await instance.componentDidMount();
 
         expect(defaultProps.getUserAccountInfo).toHaveBeenCalledWith(1271808);
+        expect(instance.setState).toHaveBeenCalled();
+    });
+
+    it('componentDidMount - should call getUserAccountInfo, but getPaymentMethod return empty', async () => {
+        const props = { ...defaultProps, getPaymentMethod: jest.fn() }
+        const result = shallow(<Content {...props} />);
+        const instance = result.instance();
+        instance.setState = jest.fn();
+
+        await instance.componentDidMount();
+
+        expect(defaultProps.getUserAccountInfo).toHaveBeenCalledWith(1271808);
+        expect(instance.setState).not.toHaveBeenCalled();
     });
 
     it('handleGetMoreSiteUrls - should return correct data', () => {
@@ -87,7 +103,7 @@ describe('user account - components - Content', () => {
         expect(siteUrlList).toEqual('www.sportsbookie.com;www.gzyyy.com;www.123.com');
     });
 
-    it('handleTrimObject - should return correct data', () => {
+    it('handleTrimObject - should return correct data with Has Website', () => {
         const newUserAccountInfo = Object.assign({}, userAccountInfo, { AffName: "    N8BAFF226    " });
         const props = Object.assign({}, defaultProps, { userAccountInfo: newUserAccountInfo });
         const result = shallow(<Content {...props} />);
@@ -95,6 +111,16 @@ describe('user account - components - Content', () => {
         const objectAfterTrim = result.instance().handleTrimObject(newUserAccountInfo);
 
         expect(objectAfterTrim).toEqual(userAccountInfo);
+    });
+
+    it('handleTrimObject - should return correct data with Do not Has Website', () => {
+        const newUserAccountInfo = Object.assign({}, userAccountInfo, { AffName: "    N8BAFF226    ", HasWebSite: false });
+        const props = Object.assign({}, defaultProps, { userAccountInfo: newUserAccountInfo });
+        const result = shallow(<Content {...props} />);
+
+        const objectAfterTrim = result.instance().handleTrimObject(newUserAccountInfo);
+
+        expect(objectAfterTrim).toEqual({ ...userAccountInfo, HasWebSite: false, SiteUrl: '' });
     });
 
     it('handleSubmit - should update successfully', async () => {
@@ -174,7 +200,7 @@ describe('user account - components - Content', () => {
     });
 
     it('handleSubmit - invalid Moneybookers PreferredPayment', async () => {
-        const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Moneybookers', MoneybookersEmail: "" });
+        const newUserAccountInfo = Object.assign({}, userAccountInfo, { PreferredPayment: 'Moneybookers', MoneybookersEmail: "", HasWebSite: false });
         const props = Object.assign({}, defaultProps, { updateUserAccount: jest.fn(), userAccountInfo: newUserAccountInfo, moreSiteUrlsList: null });
         const result = shallow(<Content {...props} />);
         const instance = result.instance();

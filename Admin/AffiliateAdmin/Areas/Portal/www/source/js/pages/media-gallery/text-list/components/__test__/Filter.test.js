@@ -37,6 +37,20 @@ describe('text list - components - Filter ', () => {
         expect(props.setParam).toHaveBeenCalledWith({ category: '', language: '', currency: '', deviceType: '', userType: 0, PageIndex: 1, PageSize: 20 });
     });
 
+    it('_handleChangeUserType - should call setDisableCurrency and getCategoryList when change UserType select', () => {
+        const event = {
+            target: { value: '1' }
+        };
+        const props = { ...defaultProps, setDisableCurrency: jest.fn(), getCategoryList: jest.fn() }
+        const wrapper = shallow(<Filter {...props} />);
+
+        wrapper.find('Input[type="select"][id="userType"]').simulate('change', event);
+
+        expect(wrapper.find('Input[type="select"][id="userType"]').prop('value')).toEqual('1');
+        expect(props.setDisableCurrency).toHaveBeenCalledWith(false);
+        expect(props.getCategoryList).toHaveBeenCalledWith('1');
+    });
+
     it('setCategory - should change category when change category select', () => {
         const event = {
             target: { value: 'category' }

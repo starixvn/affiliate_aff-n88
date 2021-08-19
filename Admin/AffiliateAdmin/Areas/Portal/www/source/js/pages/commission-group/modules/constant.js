@@ -7,6 +7,7 @@ export const INFINITY_AM = 100000000000;
 export const INFINITY_QM = 1000000000;
 export const INFINITY_SYMBOL = '∞';
 export const FIRST_ITEM_INDEX = 0;
+export const ONLY_ONE_ITEM = 1;
 
 function generateCommissionValues() {
     let min = 0,

@@ -14,12 +14,12 @@ const emptyCommGroup = {
 export const buildDefaultCommGroup = (deductionList, productList, p2pProductList) => {
     const deductionSetting = getDeductionSetting(deductionList);
 
-    const p2pProductParam = { p2pProductList, deductionSetting, p2pDeductionList: [] };
+    const p2pProductParam = { p2pProductList, deductionSetting };
     const p2pDeductionList = buildP2pDeductionList(p2pProductParam);
 
     const p2pProductIds = p2pProductList.map(i => i.ProductId);
     const platformFeeProductList = productList.filter(i => !p2pProductIds.includes(i.ProductId));
-    const platformFeeParam = { platformFeeProductList, deductionSetting, platformFeeList: [] };
+    const platformFeeParam = { platformFeeProductList, deductionSetting };
     const platformFeeList = buildPlatformFeeList(platformFeeParam);
 
     const operationalFee = createDefaultOperationalSetting(deductionSetting.operationalFeeSetting);
@@ -82,11 +82,11 @@ export const createDefaultWithdrawalSetting = (withdrawalFeeSetting) => {
     }
 }
 
-export const buildP2pDeductionList = ({ p2pProductList, deductionSetting, productIds, p2pDeductionList = [] }) => {
+export const buildP2pDeductionList = ({ p2pProductList, deductionSetting }) => {
     const { p2pDeductionSetting } = deductionSetting;
 
-    const products = convertProductList(p2pProductList, productIds);
-    return !!p2pDeductionList.length ? p2pDeductionList : [{
+    const products = convertProductList(p2pProductList);
+    return [{
         DeductionId: p2pDeductionSetting.DeductionId,
         ProductIds: products.map(p => p.ProductId).join(','),
         DeductedPercentage: p2pDeductionSetting.DeductedPercentage,
@@ -94,11 +94,11 @@ export const buildP2pDeductionList = ({ p2pProductList, deductionSetting, produc
     }];
 }
 
-export const buildPlatformFeeList = ({ platformFeeProductList, deductionSetting, productIds, platformFeeList = [] }) => {
+export const buildPlatformFeeList = ({ platformFeeProductList, deductionSetting }) => {
     const { platformFeeSetting } = deductionSetting;
 
-    const products = convertProductList(platformFeeProductList, productIds);
-    return !!platformFeeList.length ? platformFeeList : [{
+    const products = convertProductList(platformFeeProductList);
+    return [{
         DeductionId: platformFeeSetting.DeductionId,
         ProductIds: products.map(p => p.ProductId).join(','),
         DeductedPercentage: platformFeeSetting.DeductedPercentage,
@@ -134,7 +134,7 @@ export const convertDeductionList = (deductionList) => {
 }
 
 export const convertProductList = (productList, productIds = '') => {
-    const idList = Array.isArray(productIds) ? productIds : productIds.split(',').filter(p => !!p);
+    const idList = productIds.split(',').filter(p => !!p);
     const isCheckAll = idList.length === productList.length;
 
     return productList.map(item => {
@@ -259,7 +259,7 @@ const getPlatformFeeListIds = (selectedProductIdsOfP2p, prePlatformFeeIds, allPr
     const additionIds = getAdditionId(selectedProductIdsOfP2p, preSelProductIds, allProductIds);
     const platformFeeIdsAfterRemoveProduct = removeCheckedProductId(selectedProductIdsOfP2p, prePlatformFeeIds);
     const firstPlatformFeeProductIds = platformFeeIdsAfterRemoveProduct[0];
-    firstPlatformFeeProductIds.push(additionIds);
+    additionIds.length && firstPlatformFeeProductIds.push(additionIds);
 
     return [firstPlatformFeeProductIds, ...platformFeeIdsAfterRemoveProduct.slice(1)]
 }

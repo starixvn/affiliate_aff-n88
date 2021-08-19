@@ -62,6 +62,18 @@ describe('commission group - AddGroup', () => {
 
     });
 
+    it('componentDidMount - should call setSelectedGroup with ', () => {
+        const mockSetSelectedGroup = jest.fn();
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+
+        const componentInstance = new AddGroup(props);
+
+        componentInstance.componentDidMount();
+
+        expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
+
+    });
+
     it('componentWillUnmount - should call setSelectedGroup', () => {
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });

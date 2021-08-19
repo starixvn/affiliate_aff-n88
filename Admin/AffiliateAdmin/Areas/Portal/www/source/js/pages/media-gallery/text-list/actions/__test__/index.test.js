@@ -21,6 +21,8 @@ const actionList = [
     { name: 'setSelectedTextId', type: types.SET_SELECTED_TEXT_ID, data: 123456 },
     { name: 'setCheckedTexts', type: types.SET_CHECKED_TEXTS, data: { 123456: false } },
     { name: 'setShouldResetScrollPosition', type: types.SHOULD_RESET_SCROLL_POSITION, data: false },
+    { name: 'setDisableCurrency', type: types.SET_DISABLE_CURRENCY, data: true },
+    { name: 'setCategoryList', type: types.SET_CATEGORY_LIST, data: [{ id: 234, name: 'SP Bonus' }] },
     { name: 'setGridData', type: types.SET_GRID_DATA, data: 'setGridData' }
 ];
 
@@ -28,6 +30,35 @@ describe('text list actions', () => {
     actionList.forEach(item => {
         runTestAction(item);
     });
+
+    it('should create action to getCategoryList', async () => {
+        const expectedResponse = { data: [{ Id: 123, Name: 'SP Bonus' }], status: 200 };
+        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+
+        const expectedAction = [
+            { type: 'SET_CATEGORY_LIST', data: [{ Id: 123, Name: 'SP Bonus' }] }
+        ];
+
+        const store = mockStore({ todos: [] });
+        return store.dispatch(actions['getCategoryList'](1)).then(() => {
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/GetCategoryList', { userType: 1 });
+            expect(store.getActions()).toEqual(expectedAction);
+        })
+    })
+
+    it('should create action to getCategoryList', async () => {
+        ajaxRequest.post = jest.fn();
+
+        const expectedAction = [
+            { type: 'SET_CATEGORY_LIST', data: [] }
+        ];
+
+        const store = mockStore({ todos: [] });
+        return store.dispatch(actions['getCategoryList'](1)).then(() => {
+            expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/TextList/GetCategoryList', { userType: 1 });
+            expect(store.getActions()).toEqual(expectedAction);
+        })
+    })
 
     it('should create action to fetchData with correct parameter', () => {
         const expectedResponse = {

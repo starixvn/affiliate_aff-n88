@@ -47,7 +47,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     />
   </Alert>
-  <Connect(P2pProductSetting) />
+  <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p
@@ -112,7 +112,7 @@ exports[`commission group - assign private group should render correctly with is
       }
     />
   </Alert>
-  <Connect(P2pProductSetting) />
+  <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p

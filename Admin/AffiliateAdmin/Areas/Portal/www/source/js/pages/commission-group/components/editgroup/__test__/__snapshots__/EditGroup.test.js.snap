@@ -40,7 +40,7 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
     />
   </Alert>
   <Connect(CommGroupInfo) />
-  <Connect(P2pProductSetting) />
+  <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p
@@ -98,7 +98,7 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
     />
   </Alert>
   <Connect(CommGroupInfo) />
-  <Connect(P2pProductSetting) />
+  <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <Connect(TierSetting) />
   <p

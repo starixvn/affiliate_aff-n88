@@ -7,8 +7,7 @@ import { SET_SELECTED_GROUP } from '../../../../../actions/types'
 const mockStore = configureMockStore()
 
 describe('commission group - P2pDeductionSetting - connect', () => {
-    let wrapper
-    let store
+    let wrapper, store
 
     beforeEach(() => {
         const initialState = {

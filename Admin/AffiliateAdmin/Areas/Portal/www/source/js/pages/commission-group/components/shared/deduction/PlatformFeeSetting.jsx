@@ -6,7 +6,7 @@ import { setSelectedGroup } from '../../../actions';
 
 import PlatformFeeItem from "./PlatformFeeItem";
 import { deepClone, updateObjectInArray } from "../../../../../modules/dataHandler";
-import { FIRST_ITEM_INDEX } from '../../../modules/constant';
+import { FIRST_ITEM_INDEX, ONLY_ONE_ITEM } from '../../../modules/constant';
 import { convertProductList, createDefaultPlatformfee, getDeductionSetting } from '../../../modules/service';
 
 export class PlatformFeeSetting extends PureComponent {
@@ -107,7 +107,7 @@ export class PlatformFeeSetting extends PureComponent {
             }
         });
 
-        const isOnlyPlatformFeeRow = platformFeeData.length === 1;
+        const isOnlyOnePlatformFeeRow = platformFeeData.length === ONLY_ONE_ITEM;
 
         return (
             <div className="platformfee-group">
@@ -119,7 +119,7 @@ export class PlatformFeeSetting extends PureComponent {
 
                         return (
                             <PlatformFeeItem data={item} key={`platformfee-${i}`}
-                                isOnlyPlatformFeeRow={isOnlyPlatformFeeRow}
+                                isOnlyOnePlatformFeeRow={isOnlyOnePlatformFeeRow}
                                 onSelectProduct={(selectedItem) => this.handleSelect(i, selectedItem)}
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}

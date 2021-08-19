@@ -18,6 +18,14 @@ describe('Login - components - AppContainer', () => {
         expect(result).toMatchSnapshot();
     });
 
+    it('render correctly with is not Nova88', () => {
+        window.initialState.licenseeName = 'Bwing';
+        const result = shallow(<AppContainer />);
+        result.setState({ year: '2019' });
+
+        expect(result).toMatchSnapshot();
+    });
+
     it('handleChange - should call setState when change userName input', () => {
         const event = {
             target: {
@@ -46,6 +54,15 @@ describe('Login - components - AppContainer', () => {
         wrapper.find('Input[type="password"][name="password"][id="password"]').simulate('change', event);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ password: '123' });
+    });
+
+    it('_handleChangeMode - should call setState when change mode', () => {
+        const wrapper = shallow(<AppContainer />);
+        wrapper.setState = jest.fn();
+
+        wrapper.find('input[type="checkbox"][id="switch"]').simulate('change');
+
+        expect(wrapper.setState).toHaveBeenCalledWith({ isLightMode: false });
     });
 
     it('handlePressEnter - should call handleSubmit when press Enter in userName input', () => {

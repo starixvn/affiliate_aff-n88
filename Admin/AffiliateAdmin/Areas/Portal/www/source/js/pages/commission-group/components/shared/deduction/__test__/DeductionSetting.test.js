@@ -26,7 +26,16 @@ describe('commission group - DeductionSetting', () => {
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 } });
     });
 
-    it('handleSelectDepositFee  - should call setSelectedGroup when change Banking Fee%', () => {
+    it('handleUpdateState  - should call setState when change Operational Fee%', () => {
+        const wrapper = shallow(<DeductionSetting {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        wrapper.find(FeeSettingItem).at(0).props().handleUpdateState();
+        expect(instance.setState).toHaveBeenCalledWith({ isInitialOperationalFee: false });
+    });
+
+    it('handleSelectDepositFee  - should call setSelectedGroup when change Deposit Fee%', () => {
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<DeductionSetting {...props} />);
@@ -35,13 +44,31 @@ describe('commission group - DeductionSetting', () => {
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ DepositFee: { DeductedPercentage: 0.02, DeductionId: 13, ProductIds: 0 } });
     });
 
-    it('handleSelectWithdrawalFee  - should call setSelectedGroup when change Banking Fee%', () => {
+    it('handleUpdateState  - should call setState when change Deposit Fee%', () => {
+        const wrapper = shallow(<DeductionSetting {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        wrapper.find(FeeSettingItem).at(1).props().handleUpdateState();
+        expect(instance.setState).toHaveBeenCalledWith({ isInitialDepositFee: false });
+    });
+
+    it('handleSelectWithdrawalFee  - should call setSelectedGroup when change Withdrawal Fee%', () => {
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<DeductionSetting {...props} />);
 
         wrapper.find(FeeSettingItem).at(2).props().handleChange();
         expect(props.setSelectedGroup).toHaveBeenCalledWith({ WithdrawalFee: { DeductedPercentage: 0.02, DeductionId: 14, ProductIds: 0 } });
+    });
+
+    it('handleUpdateState  - should call setState when change Withdrawal Fee%', () => {
+        const wrapper = shallow(<DeductionSetting {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        wrapper.find(FeeSettingItem).at(2).props().handleUpdateState();
+        expect(instance.setState).toHaveBeenCalledWith({ isInitialWithdrawalFee: false });
     });
 
     it('Should render correctly', () => {
