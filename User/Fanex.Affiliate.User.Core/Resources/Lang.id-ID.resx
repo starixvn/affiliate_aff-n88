@@ -2130,4 +2130,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>Silakan kirim komentar atau pertanyaan ke kontak berikut:</value>
   </data>
+  <data name="FdmDate" xml:space="preserve">
+    <value>Tanggal FDM</value>
+  </data>
 </root>

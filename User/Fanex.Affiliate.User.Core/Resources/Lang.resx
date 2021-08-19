@@ -2509,4 +2509,7 @@
   <data name="P2pIncluded" xml:space="preserve">
     <value>Revenue Share (P2P included)</value>
   </data>
+  <data name="FdmDate" xml:space="preserve">
+    <value>FDM Date</value>
+  </data>
 </root>

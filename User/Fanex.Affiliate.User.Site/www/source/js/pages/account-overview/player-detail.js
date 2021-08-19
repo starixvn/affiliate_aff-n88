@@ -13,7 +13,8 @@
         Bonus: 7,
         Rebate: 8,
         DepositFee: 9,
-        WithdrawalFee: 10
+        WithdrawalFee: 10,
+        FdmDate: 11,
     };
 
     function initPager() {

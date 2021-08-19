@@ -2329,4 +2329,7 @@
   <data name="Promotion" xml:space="preserve">
     <value>KHUYẾN MÃI</value>
   </data>
+  <data name="FdmDate" xml:space="preserve">
+    <value>Ngày FDM</value>
+  </data>
 </root>
