@@ -20,6 +20,8 @@ const fields = {
     UserName: 'UserName',
     IbcUserName: 'IbcUserName',
     RegisteredDateText: 'RegisteredDateText',
+    FirstDepositDateText: 'FirstDepositDateText',
+    FirstDepositAmount: 'FirstDepositAmount',
     Turnover: 'Turnover',
     Winloss: 'Winloss',
     Deposit: 'Deposit',
@@ -92,7 +94,11 @@ export default class ReportExcel {
     _buildDataRow(item, sectionStyleName, rowIndex, colIndex) {
         const columnConfig = this.columnConfigs[colIndex];
         const fieldName = columnConfig.field;
-        const value = fieldName === fields.Index ? rowIndex + 1 : item[fieldName];
+        let value = fieldName === fields.Index ? rowIndex + 1 : item[fieldName];
+
+        if (fieldName === fields.FirstDepositAmount) {
+            value = value === null ? '' : value
+        }
 
         return {
             t: Excel.getCellType(value),
@@ -121,6 +127,10 @@ export default class ReportExcel {
             wpx: 200
         }, {
             wpx: 200
+        }, {
+            wpx: 200
+        }, {
+            wpx: 150
         }, {
             wpx: 150
         }, {
@@ -163,6 +173,12 @@ export default class ReportExcel {
         }, {
             field: fields.RegisteredDateText,
             [MAIN_SECTION_STYLE]: bodyCellStyle.center
+        }, {
+            field: fields.FirstDepositDateText,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.center
+        }, {
+            field: fields.FirstDepositAmount,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
             field: fields.Turnover,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal

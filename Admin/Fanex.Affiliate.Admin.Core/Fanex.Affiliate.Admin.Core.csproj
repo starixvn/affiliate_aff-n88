@@ -335,7 +335,6 @@
     <Compile Include="DTO\UserPanel\Note.cs" />
     <Compile Include="DTO\UserPanel\NoteDetail.cs" />
     <Compile Include="DTO\UserPanel\PlayerDetail.cs" />
-    <Compile Include="DTO\UserPanel\PlayerDetailResult.cs" />
     <Compile Include="DTO\UserPanel\Referrers.cs" />
     <Compile Include="DTO\UserPanel\StatementHistory.cs" />
     <Compile Include="DTO\UserPanel\TrackingStatistics.cs" />

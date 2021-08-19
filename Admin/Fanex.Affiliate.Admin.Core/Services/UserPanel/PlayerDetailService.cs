@@ -7,15 +7,16 @@ using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Common.Extensions;
+using Fanex.Affiliate.Admin.Core.DTO;
 
 namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 {
     public class PlayerDetailService : BaseRepository, IPlayerDetailService
     {
-        public PlayerDetailResult GetPlayerDetailList(PlayerDetailParam param)
+        public EntityResult<PlayerDetail> GetPlayerDetailList(PlayerDetailParam param)
         {
             const string SpKey = "Aff_Admin_PlayersDetail_Sel";
-            var result = new PlayerDetailResult();
+            var result = new EntityResult<PlayerDetail>();
             var dataList = new List<PlayerDetail>();
 
             using (var objectDb = GetObjectDb(SpKey))
@@ -46,6 +47,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 IbcUserName = reader.ToString("IbcUserName"),
                 UserName = reader.ToString("UserName"),
                 RegisteredDate = reader["RegisteredDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["RegisteredDate"]),
+                FirstDepositDate = reader["FirstDepositDate"] == DBNull.Value ? (DateTime?)null : Convert.ToDateTime(reader["FirstDepositDate"]),
+                FirstDepositAmount = reader["FirstDepositAmount"] == DBNull.Value ? (decimal?)null : Convert.ToDecimal(reader["FirstDepositAmount"]),
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 DepositFee = reader.ToDecimal("DepositFee"),
