@@ -118,7 +118,7 @@ export class Content extends PureComponent {
         const depositFee = formatDecimal(dataItem.DepositFee);
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee);
         const userName = htmlDecode(dataItem.UserName);
-        const firstDepositAmount = dataItem.FirstDepositAmount == null ? '' : htmlDecode(dataItem.FirstDepositAmount);
+        const firstDepositAmount = dataItem.FirstDepositAmount == null ? '' : formatDecimal(dataItem.FirstDepositAmount);
 
         return (
             <Row>
