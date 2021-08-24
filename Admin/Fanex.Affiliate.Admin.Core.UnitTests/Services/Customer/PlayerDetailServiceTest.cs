@@ -34,6 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Assert
             Assert.Single(result.MainData);
             Assert.Equal("11/24/2019 00:00:00", item.RegisteredDateText);
+            Assert.Equal("11/24/2019 00:00:00", item.FirstDepositDateText);
         }
 
         [Fact]
@@ -57,6 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             // Assert
             Assert.Single(result.MainData);
             Assert.Equal(string.Empty, item.RegisteredDateText);
+            Assert.Equal(string.Empty, item.FirstDepositDateText);
         }
 
         [Fact]
@@ -87,6 +89,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["UserName"] = "12BetAff226",
                 ["Deposit"] = 1234,
                 ["RegisteredDate"] = new DateTime(2019, 11, 24),
+                ["FirstDepositDate"] = new DateTime(2019, 11, 24),
+                ["FirstDepositAmount"] = 50,
                 ["Withdrawal"] = 37,
                 ["BankingFee"] = 123,
                 ["Bonus"] = 123,
@@ -103,6 +107,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["UserName"] = "12BetAff226",
                 ["Deposit"] = 1234,
                 ["RegisteredDate"] = DBNull.Value,
+                ["FirstDepositDate"] = DBNull.Value,
+                ["FirstDepositAmount"] = 50,
                 ["Withdrawal"] = 37,
                 ["BankingFee"] = 123,
                 ["Bonus"] = 123,
