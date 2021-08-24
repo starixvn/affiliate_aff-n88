@@ -16,6 +16,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public DateTime? RegisteredDate { get; set; }
 
-        public string RegisteredDateString => RegisteredDate?.ToString("MM/dd/yyyy hh:mm:ss tt");
+        public string RegisteredDateString => RegisteredDate?.ToString("MM/dd/yyyy HH:mm:ss");
     }
 }

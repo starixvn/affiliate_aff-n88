@@ -21,9 +21,9 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Payment
 
         public string AffDesc { get; set; }
 
-        public new string TransDateText => TransDate.ToString("MM/dd/yyyy HH:mm:ss tt");
+        public new string TransDateText => TransDate.ToString("MM/dd/yyyy HH:mm:ss");
 
-        public new string CompletedDateText => CompletedDate.ToString("MM/dd/yyyy HH:mm:ss tt");
+        public new string CompletedDateText => CompletedDate.ToString("MM/dd/yyyy HH:mm:ss");
 
         public decimal TransAmount { get; set; }
 
