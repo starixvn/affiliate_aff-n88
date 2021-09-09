@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 
 import SelectLabel from './SelectLabel';
@@ -13,6 +13,7 @@ export default class Select extends Component {
     constructor(props) {
         super(props);
         this.id = `select-${props.id || id++}`;
+        this.selectOptionsRef = createRef();
 
         const { dataSource, keyField, valueField, selectedKey } = props;
 
@@ -96,6 +97,7 @@ export default class Select extends Component {
         const clickOutside = this.wrapper && !this.wrapper.contains(event.target);
 
         if (clickOutside && this.state.showOptionList) {
+            this.selectOptionsRef.current._resetSelectingOption();
             this._close();
         }
     }
@@ -123,6 +125,7 @@ export default class Select extends Component {
 
                     <SelectOptionList
                         id={this.id}
+                        ref={this.selectOptionsRef}
                         dataSource={dataSource}
                         onChange={this.onChangeHandler} />
                 </div>

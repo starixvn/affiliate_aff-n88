@@ -6,7 +6,7 @@ import { SET_AFF_NAME } from '../../../actions/types'
 
 const mockStore = configureMockStore()
 
-describe('payment request - GeneralInfo - connect', () => {
+describe('customer - left panel - GeneralInfo - connect', () => {
     let wrapper, store
 
     beforeEach(() => {

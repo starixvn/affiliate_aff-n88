@@ -239,9 +239,9 @@ exports[`member list - components - Content  render correctly 1`] = `
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Created Date"
+            title="Registration Date"
           >
-            Created Date
+            Registration Date
           </t>
           <t
             asc={true}
@@ -521,9 +521,9 @@ exports[`member list - components - Content  render correctly with NotificationP
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Created Date"
+            title="Registration Date"
           >
-            Created Date
+            Registration Date
           </t>
           <t
             asc={true}
@@ -663,9 +663,9 @@ exports[`member list - components - Content  render correctly with gridData is e
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="Created Date"
+            title="Registration Date"
           >
-            Created Date
+            Registration Date
           </t>
           <t
             asc={true}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Option = (props) => {
+const Option = React.forwardRef((props, ref) => {
     const { itemData, onChange, id } = props;
 
     const handleChange = (event) => {
@@ -16,13 +16,13 @@ const Option = (props) => {
     }
 
     return (
-        <li className="select-item" id={id} onClick={handleChange}>
+        <li className="select-item" id={id} onClick={handleChange} ref={ref}>
             <label className="option-label">
                 {itemData.value}
             </label>
         </li>
     );
-}
+})
 
 Option.propTypes = {
     itemData: PropTypes.object.isRequired,
