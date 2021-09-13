@@ -89,7 +89,6 @@ export class AssignPrivateGroup extends React.Component {
             }
         }
     }
-
     hideMessage = () => {
         this.setState({
             isShowMessage: false

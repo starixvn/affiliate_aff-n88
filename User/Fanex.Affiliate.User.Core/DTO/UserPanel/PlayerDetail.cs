@@ -8,6 +8,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public DateTime? RegisteredDate { get; set; }
 
+        public DateTime? FirstDepositDate { get; set; }
+
         public decimal Turnover { get; set; }
 
         public decimal Winloss { get; set; }

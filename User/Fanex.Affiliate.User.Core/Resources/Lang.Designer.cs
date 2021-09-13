@@ -2593,6 +2593,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FDM Date.
+        /// </summary>
+        public static string FdmDate {
+            get {
+                return ResourceManager.GetString("FdmDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to February.
         /// </summary>
         public static string February {
@@ -5075,7 +5084,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registered Date.
+        ///   Looks up a localized string similar to Registration Date.
         /// </summary>
         public static string RegisteredDate {
             get {

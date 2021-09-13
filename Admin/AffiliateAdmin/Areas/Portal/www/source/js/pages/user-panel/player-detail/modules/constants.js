@@ -7,7 +7,9 @@ export const headerText = {
     Index: '#',
     UserName: 'User Name',
     IbcUserName: globalResource.SystemUserName,
-    RegisteredDateText: 'Registered Date',
+    RegisteredDateText: 'Registration Date',
+    FirstDepositDateText: 'FDM Date',
+    FirstDepositAmount: 'FDM Amt',
     Turnover: 'Turnover',
     Winloss: 'Winlost',
     Deposit: 'Deposit',
@@ -33,7 +35,9 @@ export const SortByIdList = {
     Rebate: 8,
     DepositFee: 9,
     WithdrawalFee: 10,
-    IbcUsername: 11
+    IbcUsername: 11,
+    FirstDepositDate: 12,
+    FirstDepositAmount: 13,
 };
 
 export const SortingColumnDefault = {

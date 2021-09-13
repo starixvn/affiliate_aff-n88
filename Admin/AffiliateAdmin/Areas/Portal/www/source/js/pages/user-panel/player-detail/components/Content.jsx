@@ -69,6 +69,8 @@ export class Content extends PureComponent {
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Username'} title={headerText.UserName} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'IbcUsername'} title={headerText.IbcUserName} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'RegisteredDate'} title={headerText.RegisteredDateText} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'FirstDepositDate'} title={headerText.FirstDepositDateText} handleClickHeader={this.handleClickHeader} />
+                <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'FirstDepositAmount'} title={headerText.FirstDepositAmount} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Turnover'} title={headerText.Turnover} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Winloss'} title={headerText.Winloss} handleClickHeader={this.handleClickHeader} />
                 <SortingCell isSortAsc={sortingColumn.IsSortAsc} sortingColumn={sortingColumn.ColumnName} columnName={'Deposit'} title={headerText.Deposit} handleClickHeader={this.handleClickHeader} />
@@ -97,7 +99,7 @@ export class Content extends PureComponent {
             }
         }
         else {
-            const colSpan = 10 + (isDepositFeePercent ? 1 : 0) + (isWithdrawalFeePercent ? 1 : 0)
+            const colSpan = 12 + (isDepositFeePercent ? 1 : 0) + (isWithdrawalFeePercent ? 1 : 0)
             dataRows.push(<Row>
                 <Cell className="text-center" colSpan={colSpan}>{globalResource.NoInfo}</Cell>
             </Row>);
@@ -116,6 +118,7 @@ export class Content extends PureComponent {
         const depositFee = formatDecimal(dataItem.DepositFee);
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee);
         const userName = htmlDecode(dataItem.UserName);
+        const firstDepositAmount = dataItem.FirstDepositAmount == null ? '' : formatDecimal(dataItem.FirstDepositAmount);
 
         return (
             <Row>
@@ -123,6 +126,8 @@ export class Content extends PureComponent {
                 <Cell title={userName}>{userName}</Cell>
                 <Cell title={dataItem.IbcUserName}>{dataItem.IbcUserName}</Cell>
                 <Cell className="text-center" title={dataItem.RegisteredDateText}>{dataItem.RegisteredDateText}</Cell>
+                <Cell className="text-center" title={dataItem.FirstDepositDateText}>{dataItem.FirstDepositDateText}</Cell>
+                <Cell className="text-right" title={firstDepositAmount}>{firstDepositAmount}</Cell>
                 <Cell className={productColumnClassName} title={turnover}>{turnover}</Cell>
                 <Cell className={productColumnClassName} title={winloss}>{winloss}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>

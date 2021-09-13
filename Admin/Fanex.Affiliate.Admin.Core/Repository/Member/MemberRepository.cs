@@ -39,7 +39,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                             IbcUserName = reader.ToString("IBCUserName"),
                             FirstName =  reader.ToString("FirstName"),
                             LastName = reader.ToString("LastName"),
-                            CreatedDate = reader.GetVal<DateTime?>("CreatedDate"),
+                            CreatedDate = reader.GetVal<DateTime?>("RegisteredDate"),
                             AffName = reader.ToString("AffUserName")
                         });
                     }

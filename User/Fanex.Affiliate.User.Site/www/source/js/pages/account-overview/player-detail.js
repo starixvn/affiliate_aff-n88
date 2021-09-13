@@ -2,6 +2,7 @@
     var _pageSize = 20;
     var _pageIndex = 0;
     var _sortingColumn = 'Turnover';
+    var _sortById = 5;
     var _isSortingAsc = false;
     const SortByIdList = {
         Username: 1,
@@ -13,7 +14,8 @@
         Bonus: 7,
         Rebate: 8,
         DepositFee: 9,
-        WithdrawalFee: 10
+        WithdrawalFee: 10,
+        FdmDate: 11,
     };
 
     function initPager() {
@@ -52,13 +54,13 @@
             $("#player-detail-pager").toggle(totalItem !== 0);
         },
 
-        getPlayersDetailsParam: function (sortById, isSortAsc) {
+        getPlayersDetailsParam: function () {
             return {
                 MonthDate: $("#MonthDate").data("original-date"),
                 PageSize: _pageSize,
                 PageIndex: _pageIndex + 1,
-                SortById: sortById || SortByIdList.Turnover,
-                IsSortAsc: isSortAsc
+                SortById: _sortById,
+                IsSortAsc: _isSortingAsc
             };
         },
 
@@ -94,11 +96,12 @@
                 _sortingColumn = columnName;
             }
 
+            _sortById = SortByIdList[columnName];
             var sortingSelector = _isSortingAsc ? '.asc' : '.desc';
             var $sortIcon = $element.find(sortingSelector);
             _me.activeSortIcon($sortIcon);
 
-            var params = _me.getPlayersDetailsParam(SortByIdList[columnName], _isSortingAsc);
+            var params = _me.getPlayersDetailsParam();
             _me.renderPlayersDetails(params);
         },
         activeSortIcon: function ($element) {

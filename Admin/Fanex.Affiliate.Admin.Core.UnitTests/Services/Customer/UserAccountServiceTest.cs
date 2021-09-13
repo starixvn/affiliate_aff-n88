@@ -56,6 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             // Arrange
             var repository = new Mock<IUserAccountRepository>();
+            repository.Setup(r => r.GetUserAccountInfo(It.IsAny<int>())).Returns(new UserAccount { PlayerUsername = "Abc" });
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(s => s.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>()))
                 .Returns(new ResultInfo {Code = 0 });
@@ -78,6 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(ap => ap.SiteFriendlyName).Returns("N88");
             var repository = new Mock<IUserAccountRepository>();
+            repository.Setup(r => r.GetUserAccountInfo(It.IsAny<int>())).Returns(new UserAccount { PlayerUsername = "Abc" });
             var licenseeService = new Mock<ILicenseeService>();
             licenseeService.Setup(s => s.CheckCustomerIsValid(It.IsAny<MemberSiteCustomerInfo>())).Returns(new ResultInfo { Code = 100 });
 

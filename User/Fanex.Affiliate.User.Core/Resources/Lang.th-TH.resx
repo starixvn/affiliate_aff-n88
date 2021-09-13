@@ -2150,4 +2150,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>กรุณาส่งความคิดเห็นหรือคำถามของท่านมายังช่องทางดังต่อไปนี้ :</value>
   </data>
+  <data name="FdmDate" xml:space="preserve">
+    <value>วันที่ฝากเงินแรก</value>
+  </data>
 </root>

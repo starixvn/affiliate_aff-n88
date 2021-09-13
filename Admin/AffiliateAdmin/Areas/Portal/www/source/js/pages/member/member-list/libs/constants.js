@@ -9,7 +9,7 @@ export const headerText = {
     IbcUserName: globalResource.SystemUserName,
     FirstName: 'First Name',
     LastName: 'Last Name',
-    CreatedDate: 'Created Date',
+    CreatedDate: 'Registration Date',
     Remove: 'Remove',
     AffType: 'Affiliate Type',
     Device: 'Device',

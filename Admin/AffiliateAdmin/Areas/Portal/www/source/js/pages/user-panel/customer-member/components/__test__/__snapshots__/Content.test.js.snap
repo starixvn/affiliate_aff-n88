@@ -209,9 +209,9 @@ exports[`customer member - components - Content render correctly with have data 
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Register Date"
+          title="Registration Date"
         >
-          Register Date
+          Registration Date
         </t>
       </t>
     }
@@ -477,9 +477,9 @@ exports[`customer member - components - Content render correctly with have data 
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Register Date"
+          title="Registration Date"
         >
-          Register Date
+          Registration Date
         </t>
       </t>
     }
@@ -597,9 +597,9 @@ exports[`customer member - components - Content render correctly with have data 
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Register Date"
+          title="Registration Date"
         >
-          Register Date
+          Registration Date
         </t>
       </t>
     }

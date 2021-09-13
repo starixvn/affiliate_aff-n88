@@ -55,6 +55,25 @@ exports[`players detail - components - Content render correctly 1`] = `
           </t>
           <t
             asc={true}
+            className="text-center"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+          />
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right"
             header={false}
             onClick={[Function]}
@@ -165,6 +184,25 @@ exports[`players detail - components - Content render correctly 1`] = `
           </t>
           <t
             asc={true}
+            className="text-center"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+          />
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right"
             header={false}
             onClick={[Function]}
@@ -265,7 +303,21 @@ exports[`players detail - components - Content render correctly 1`] = `
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Registered Date"
+          title="Registration Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositDate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositAmount"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Amt"
         />
         <Memo(SortingCell)
           columnName="Turnover"
@@ -349,7 +401,7 @@ exports[`players detail - components - Content render correctly with have data i
           <t
             asc={true}
             className="text-center"
-            colSpan={10}
+            colSpan={12}
             header={false}
             onClick={[Function]}
             sortable={false}
@@ -393,7 +445,21 @@ exports[`players detail - components - Content render correctly with have data i
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Registered Date"
+          title="Registration Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositDate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositAmount"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Amt"
         />
         <Memo(SortingCell)
           columnName="Turnover"
@@ -518,6 +584,25 @@ exports[`players detail - components - Content render correctly with not selecte
           </t>
           <t
             asc={true}
+            className="text-center"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+          />
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -650,6 +735,25 @@ exports[`players detail - components - Content render correctly with not selecte
           </t>
           <t
             asc={true}
+            className="text-center"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+          />
+          <t
+            asc={true}
+            className="text-right"
+            header={false}
+            onClick={[Function]}
+            sortable={false}
+            sorting={false}
+            title=""
+          >
+            
+          </t>
+          <t
+            asc={true}
             className="text-right highlight"
             header={false}
             onClick={[Function]}
@@ -772,7 +876,21 @@ exports[`players detail - components - Content render correctly with not selecte
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Registered Date"
+          title="Registration Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositDate"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Date"
+        />
+        <Memo(SortingCell)
+          columnName="FirstDepositAmount"
+          handleClickHeader={[Function]}
+          isSortAsc={false}
+          sortingColumn="Turnover"
+          title="FDM Amt"
         />
         <Memo(SortingCell)
           columnName="Turnover"

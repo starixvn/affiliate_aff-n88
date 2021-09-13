@@ -16,5 +16,5 @@ export const resource = {
     LastName: 'Last Name',
     EmailAddress: 'Email Address',
     Currency: 'Currency',
-    RegisterDate: 'Register Date'
+    RegisterDate: 'Registration Date'
 }
