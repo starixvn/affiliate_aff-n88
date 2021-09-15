@@ -213,6 +213,7 @@ export class Filter extends Component {
                             statusField="checked"
                             maxDisplayItemCount={1}
                             noneSelectedLabel="Please Select"
+                            selectedAllLabel="All"
                             onChange={this.handleChangeColumn} />
                     </FormGroup>
 

@@ -25,14 +25,20 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("GroupId", DbType.Int32, param.GroupId);
+                objectDb.AddInParameter("GroupIds", DbType.String, param.GroupIds);
                 objectDb.AddInParameter("PreferredLanguage", DbType.String, param.PreferredLanguage);
+                objectDb.AddInParameter("PaymentCurrencies", DbType.String, param.PaymentCurrencyIds);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        dataList.Add(BuildDataItem(reader));
+                        var item = BuildDataItem(reader);
+                        item.AffId = reader.ToInt("AffId");
+                        item.UserName = reader.ToString("Username");
+                        item.PaymentCurrency = reader.ToString("PaymentCurrency");
+
+                        dataList.Add(item);
                     }
 
                     if (reader.NextResult() && reader.Read())
@@ -65,7 +71,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 {
                     while (reader.Read())
                     {
-                        dataList.Add(BuildDataItem(reader));
+                        var item = BuildDataItem(reader);
+                        item.MonthDate = reader.ToDateTime("MonthDate");
+                        item.Description = reader.ToString("Description");
+
+                        dataList.Add(item);
                     }
 
                     if (reader.NextResult() && reader.Read())
@@ -123,10 +133,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
         {
             return new AffiliateReport
             {
-                AffId = reader.HasColumn("AffId") ? reader.ToInt("AffId") : 0,
-                UserName = reader.HasColumn("Username") ?reader.ToString("Username") : string.Empty,
-                MonthDate = reader.HasColumn("MonthDate") ?reader.ToDateTime("MonthDate") : (DateTime?)null,
-                Description = reader.HasColumn("Description") ?reader.ToString("Description") : string.Empty,
                 TotalClick = reader.ToInt("TotalClick"),
                 UniqueClick = reader.ToInt("UniqueClick"),
                 Signup = reader.ToInt("Signup"),

@@ -155,6 +155,7 @@ export class Filter extends PureComponent {
                                 statusField="checked"
                                 maxDisplayItemCount={1}
                                 noneSelectedLabel="None Select"
+                                selectedAllLabel="All Currencies"
                                 onChange={this.handleChangeCurrency} />
                         </FormGroup>
                     }

@@ -9,6 +9,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public string UserName { get; set; }
 
+        public string PaymentCurrency { get; set; }
+
         [JsonIgnore]
         public DateTime? MonthDate { get; set; }
 

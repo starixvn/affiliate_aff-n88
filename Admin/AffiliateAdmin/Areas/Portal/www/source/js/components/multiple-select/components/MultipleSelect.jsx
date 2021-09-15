@@ -154,7 +154,8 @@ export default class MultipleSelect extends Component {
 
     render() {
         const { inputOption } = this.state;
-        const { noneSelectedLabel, maxDisplayItemCount, hasAllOption, isDisable, hasInputOption } = this.props;
+        const { noneSelectedLabel, maxDisplayItemCount, hasAllOption, isDisable, hasInputOption, statusField, selectedAllLabel } = this.props;
+        const isSelectedAll = this.props.dataSource.every(d => d[statusField]);
         const inputOptionTrim = inputOption.trim();
         const dataSource = this._convertDataSource(inputOptionTrim.toLowerCase());
         const dataSourceLabel = this._convertDataSource();
@@ -166,6 +167,8 @@ export default class MultipleSelect extends Component {
                     selectedItems={selectedItems}
                     onToggle={this.onToggle}
                     noneSelectedLabel={noneSelectedLabel}
+                    isSelectedAll={isSelectedAll}
+                    selectedAllLabel={selectedAllLabel}
                     maxDisplayItemCount={maxDisplayItemCount} />
 
                 <div className="multiple-select-default multiple-select-options-container"

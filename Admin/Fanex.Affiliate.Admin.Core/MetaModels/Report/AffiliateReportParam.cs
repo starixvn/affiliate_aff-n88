@@ -13,7 +13,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         public string PreferredLanguage { get; set; }
 
-        public int GroupId { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string GroupIds { get; set; }
 
         public bool IsGetAll { get; set; }
 
@@ -34,5 +35,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string CurrencyIds { get; set; }
+
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string PaymentCurrencyIds { get; set; }
     }
 }

@@ -8,5 +8,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         IEnumerable<Currency> GetBaseCurrencies();
 
         IEnumerable<Currency> GetCurrencies();
+
+        IEnumerable<Currency> GetPaymentCurrencies();
     }
 }

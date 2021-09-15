@@ -159,5 +159,6 @@
   <Function Name="Currency">
     <Setting Key="Aff_Currency_Sel" SpName="Aff_Currency_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_BaseCurrency_Sel" SpName="Aff_BaseCurrency_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_PaymentCurrency_Sel" SpName="Aff_PaymentCurrency_Sel" DbName="affiliate_n88" />
   </Function>
 </Functions>

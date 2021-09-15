@@ -49,6 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _currencyRepository.GetCurrencies(),
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies(),
+                PaymentCurrencyList = _currencyRepository.GetPaymentCurrencies(),
                 CommGroupList = _commissionGroupRepository.GetAllCommGroups(),
             };
 

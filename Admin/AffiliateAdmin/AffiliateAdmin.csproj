@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\..\packages\Microsoft.Net.Compilers.3.3.1\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
@@ -24,7 +24,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <IISExpressSSLPort>44372</IISExpressSSLPort>
+    <IISExpressSSLPort>44331</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -283,6 +283,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\Content.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\components\__test__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\components\__test__\redux\Content.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\affiliate-report\modules\utils.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\addgroup\__test__\redux\AddGroup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\assign-private-group\__test__\redux\AssignPrivateGroup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\editgroup\__test__\redux\EditGroup.redux.test.js" />
@@ -1390,12 +1391,12 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>44331</DevelopmentServerPort>
           <DevelopmentServerVPath>
           </DevelopmentServerVPath>
-          <IISUrl>http://localhost:44331</IISUrl>
+          <IISUrl>http://localhost:44336</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

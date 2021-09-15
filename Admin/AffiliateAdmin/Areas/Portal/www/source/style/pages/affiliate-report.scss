@@ -22,6 +22,21 @@
             }
         }
     }
+
+    .currencies {
+        .multiple-select-container {
+            width: 95px;
+        }
+    }
+
+    .comm-group {
+        width: 135px;
+        white-space: nowrap;
+
+        .multiple-select-options-container {
+            width: auto;
+        }
+    }
 }
 
 .report-content-container {
@@ -34,7 +49,7 @@
 
     .report-table-container {
         .freeze-table {
-            min-width: 1640px;
+            min-width: 1880px;
 
             thead {
                 .feeze-row {
@@ -55,7 +70,7 @@
 
                     .freeze-column-header {
                         left: 0px;
-                        z-index: 50;
+                        z-index: 9;
                     }
                 }
             }
@@ -79,7 +94,7 @@
             .freeze-column {
                 position: sticky;
                 left: 0px;
-                z-index: 20;
+                z-index: 8;
                 outline: 1px solid #cccccc;
                 outline-offset: -1px;
             }
