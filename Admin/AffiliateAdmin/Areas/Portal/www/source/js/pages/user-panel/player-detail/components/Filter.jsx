@@ -146,7 +146,7 @@ export class Filter extends PureComponent {
                     }
                     {
                         !isProduction && currencyList && currencyList.length !== 0 &&
-                        <FormGroup className="mr-sm-2">
+                        <FormGroup className="mr-sm-2 multiple-currency-filter">
                             <Label for="Currency" className="mr-2">{globalResource.Currency}</Label>
                             <MultipleSelect
                                 dataSource={currencyList}
@@ -155,7 +155,7 @@ export class Filter extends PureComponent {
                                 statusField="checked"
                                 maxDisplayItemCount={1}
                                 noneSelectedLabel="None Select"
-                                selectedAllLabel="All Currencies"
+                                selectedAllLabel="All"
                                 onChange={this.handleChangeCurrency} />
                         </FormGroup>
                     }

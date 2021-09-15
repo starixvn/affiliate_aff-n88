@@ -4,17 +4,15 @@ export const resolveClientUrl = (relativeUrl) => {
     return _rootUrl + relativeUrl;
 }
 
-const getCookie = (cname) => {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+const getCookie = (cookieName) => {
+    const name = cookieName + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookies = decodedCookie.split(';');
+    for (const cookie of cookies) {
+        const cookieAfterTrim = cookie.trim();
+
+        if (cookieAfterTrim.indexOf(name) == 0) {
+            return cookieAfterTrim.substring(name.length, cookieAfterTrim.length);
         }
     }
     return "";
@@ -30,7 +28,7 @@ export const renderMode = () => {
         document.cookie = "mode=lightmode; path=/";
     }
 
-    return !(mode === 'darkmode');
+    return mode !== 'darkmode';
 }
 
 export const changeMode = (isLightMode) => {
@@ -69,14 +67,14 @@ export const formatDateTime = (dateTimeValue, format) => {
 
     var result = format.replace("MM", formatUnit(month))
         .replace("dd", formatUnit(date))
-        .replace("yyyy", dateTime.getFullYear())
-        .replace("hh", formatUnit(shortedHours))
+        .replace("yyyy", dateTime.getFullYear());
+
+    return result.replace("hh", formatUnit(shortedHours))
         .replace("mm", formatUnit(minutes))
         .replace("ss", formatUnit(seconds))
         .replace("tt", ampm)
-        .replace("HH", dateTime.getHours());
-
-    return result;
+        .replace("HH", formatUnit(dateTime.getHours()))
+        .replace("SSS", formatMilisecond(miliseconds));
 }
 
 export const parseDateTime = (value) => {
@@ -114,6 +112,16 @@ export function getDateRange(selectedFromDate, toDateString) {
 export const isValidNumber = (inputValue) => {
     const regex = /^\d*$/;
     return regex.test(inputValue);
+}
+
+export const convertListToMutilpleSelected = (currencyList, key, name, checked = true) => {
+    return currencyList.map(item => {
+        return {
+            key: item[key],
+            name: item[name],
+            checked
+        };
+    });
 }
 
 export const handleChangeMultipleSelected = (initialList, selectedKey) => {

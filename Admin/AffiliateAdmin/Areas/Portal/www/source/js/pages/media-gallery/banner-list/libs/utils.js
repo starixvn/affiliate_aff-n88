@@ -51,12 +51,13 @@ export const resizeWidthHeight = (realWidth, realHeight, size = 500) => {
     return { width, height }
 }
 
-export const rearrangeCurrencyAndSizeItems = (arr = []) => {
-    return arr.map(item => {
+export const convertCatelogyListByUserTypeToMuptileSelected = (categoryList, userType) => {
+    return categoryList.filter(c => c.UserType === userType).map(item => {
         return {
-            key: item.Name,
-            name: item.Name,
-            checked: false
+            categoryName: item.CategoryName,
+            key: item.CategoryName,
+            name: item.CategoryName,
+            checked: true
         };
-    })
+    });
 };

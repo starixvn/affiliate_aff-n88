@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import reducer from './reducers';
 import AppContainer from "./components/AppContainer";
 import { configureStore } from '../../modules/store';
-import { convertToMutilSelectList } from './modules/utils'
+import { convertListToMutilpleSelected } from '../../modules/utils';
 
 const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, today, isN8B, commGroupList } = window.initialState;
 
@@ -14,10 +14,10 @@ for (let languageItem of languageList) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
-const newProductList = convertToMutilSelectList(productList, 'ProductId', 'ProductName')
-const newCurrencyList = convertToMutilSelectList(currencyList, 'ExchangeId', 'Code')
-const newPaymentCurrencyList = convertToMutilSelectList(paymentCurrencyList, 'ExchangeId', 'Code')
-const newCommGroupList = convertToMutilSelectList(commGroupList, 'Id', 'Name')
+const newProductList = convertListToMutilpleSelected(productList, 'ProductId', 'ProductName')
+const newCurrencyList = convertListToMutilpleSelected(currencyList, 'ExchangeId', 'Code')
+const newPaymentCurrencyList = convertListToMutilpleSelected(paymentCurrencyList, 'ExchangeId', 'Code')
+const newCommGroupList = convertListToMutilpleSelected(commGroupList, 'Id', 'Name')
 
 const store = configureStore({
     productList: newProductList,

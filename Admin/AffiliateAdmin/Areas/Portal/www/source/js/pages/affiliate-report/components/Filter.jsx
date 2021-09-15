@@ -308,7 +308,7 @@ export class Filter extends Component {
                     }
                     {
                         paymentCurrencyList && paymentCurrencyList.length !== 0 &&
-                        <FormGroup className="my-sm-1 mr-sm-2 currencies">
+                        <FormGroup className="my-sm-1 mr-sm-2 multiple-currency-filter">
                             <Label className="mr-sm-2">Linked Acc. Currency</Label>
                             <MultipleSelect
                                 dataSource={paymentCurrencyList}
@@ -323,7 +323,7 @@ export class Filter extends Component {
                     }
                     {
                         !isProduction && currencyList && currencyList.length !== 0 &&
-                        <FormGroup className="my-sm-1 mr-sm-2 currencies">
+                        <FormGroup className="my-sm-1 mr-sm-2 multiple-currency-filter">
                             <Label className="mr-sm-2">{globalResource.Currency}</Label>
                             <MultipleSelect
                                 dataSource={currencyList}
