@@ -26,7 +26,6 @@ export class GridData extends PureComponent {
         }
 
         this.tableRef = createRef();
-        this.tableHeight = (window.innerHeight || 775) - 275;
     }
 
     componentDidUpdate(prevProps) {
@@ -60,6 +59,7 @@ export class GridData extends PureComponent {
     }
 
     async fetchData(param) {
+        this._resetScroll();
         this.props.toggleLoader(true);
         const isMainView = this._isMainView();
         const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
@@ -259,8 +259,10 @@ export class GridData extends PureComponent {
     }
 
     _resetScroll = () => {
-        this.tableRef.current.scrollTop = 0;
-        this.tableRef.current.scrollLeft = 0;
+        if (!!this.tableRef.current) {
+            this.tableRef.current.scrollTop = 0;
+            this.tableRef.current.scrollLeft = 0;
+        }
     }
 
     render() {
@@ -268,7 +270,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive report-table-container" style={{ 'max-height': this.tableHeight }} ref={this.tableRef}>
+                <div className="table-responsive report-table-container" style={{ 'max-height': (window.innerHeight || 775) - 275 }} ref={this.tableRef}>
                     <Table className="freeze-table">
                         <thead>
                             {

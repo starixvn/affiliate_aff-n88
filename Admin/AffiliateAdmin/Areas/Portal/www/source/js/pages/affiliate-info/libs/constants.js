@@ -23,10 +23,13 @@ export const sortByList = {
     'Player': 5
 }
 
+export const defaultColumns = ['ParentAffName', 'UserName', 'AffCode', 'Password'];
+
 export const headerText = {
     Index: '#',
     ParentAffName: 'Parent Affiliate',
     UserName: 'Username',
+    AffCode: 'Affiliate Id',
     Status: 'Status',
     FirstName: 'First Name',
     LastName: 'Last Name',

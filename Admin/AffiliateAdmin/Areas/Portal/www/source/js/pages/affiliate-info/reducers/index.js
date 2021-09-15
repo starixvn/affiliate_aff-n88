@@ -1,56 +1,60 @@
 ﻿import { combineReducers } from 'redux';
 
 import createReducer from '../../../modules/createReducer';
-import { SET_REPORT_TITLE, SET_PARAM, SET_SHOW_POPUP_COMMGROUP, SET_AFFID, SET_COMM_GROUP, SET_SELECTED_COLUMN, SET_PARENT_AFF_NAME } from '../actions/types';
+import * as types from '../actions/types';
 
 import { pagingOption } from '../../../reducers/pagingReducer';
 import { isShowLoader } from '../../../reducers/loaderReducer';
 import { showPopupPassword } from '../../common/reducers';
 
-const commGroupList = createReducer({}, {});
+const commGroupList = createReducer(null, {
+    [types.SET_COMM_GROUP_LIST](prevState, action) {
+        return action.data;
+    }
+});
 
 const languageList = createReducer({}, {});
 
 const groupId = createReducer(0, {});
 
 export const reportTitle = createReducer('', {
-    [SET_REPORT_TITLE](prevState, action) {
+    [types.SET_REPORT_TITLE](prevState, action) {
         return action.data;
     }
 })
 
 export const param = createReducer(null, {
-    [SET_PARAM](prevState, action) {
+    [types.SET_PARAM](prevState, action) {
         return Object.assign({}, prevState, action.data);
     }
 })
 
 export const showPopupCommGroup = createReducer(false, {
-    [SET_SHOW_POPUP_COMMGROUP](prevState, action) {
+    [types.SET_SHOW_POPUP_COMMGROUP](prevState, action) {
         return action.data;
     }
 })
 
 export const affId = createReducer(0, {
-    [SET_AFFID](prevState, action) {
+    [types.SET_AFFID](prevState, action) {
         return action.data;
     }
 })
 
 export const parentAffName = createReducer(null, {
-    [SET_PARENT_AFF_NAME](prevState, action) {
+    [types.SET_PARENT_AFF_NAME](prevState, action) {
         return action.data;
     }
 })
 
 export const commGroup = createReducer(0, {
-    [SET_COMM_GROUP](prevState, action) {
+    [types.SET_COMM_GROUP](prevState, action) {
         return action.data;
     }
 })
 
 export const columnList = createReducer(0, {
-    [SET_SELECTED_COLUMN](prevState, action) {
+    [types.SET_SELECTED_COLUMN](prevState, action) {
         return [...action.data];
     }
 })

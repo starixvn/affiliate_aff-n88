@@ -7,6 +7,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
     {
         public int AffId { get; set; }
 
+        public int AffCode { get; set; }
+
         public int? ParentAffId { get; set; }
 
         public string ParentAffName { get; set; }

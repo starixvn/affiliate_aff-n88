@@ -83,8 +83,9 @@ export class GridData extends Component {
         return (
             <Row key="theard">
                 {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
-                {selectedColumnList['ParentAffName'] && <Cell header={true} colWidth={225} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>}
+                <Cell header={true} colWidth={225} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>
                 <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
+                <Cell header={true} colWidth={200} title={headerText.AffCode}>{headerText.AffCode}</Cell>
                 {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell header={true} colWidth={200} title={headerText.LastName}>{headerText.LastName}</Cell>}
@@ -166,7 +167,7 @@ export class GridData extends Component {
         return (
             <Row key={`dataRow-${index}`}>
                 {selectedColumnList['Index'] && <Cell className="text-center" title={index}>{index}</Cell>}
-                {selectedColumnList['ParentAffName'] && <Cell title={dataItem.ParentAffName}>
+                <Cell title={dataItem.ParentAffName}>
                     {
                         dataItem.ParentAffName ? (
                             <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
@@ -175,13 +176,13 @@ export class GridData extends Component {
                         ) : 'N/A'
                     }
                 </Cell>
-                }
                 <Cell title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}
                     </a>
                     <span className={classNameFavorite} onClick={() => this.handleToggleFavorite(dataItem.AffId, isFavorite)}></span>
                 </Cell>
+                <Cell title={dataItem.AffCode}>{dataItem.AffCode}</Cell>
                 {selectedColumnList['Status'] && <Cell title={dataItem.Status}>{dataItem.Status}</Cell>}
                 {selectedColumnList['FirstName'] && <Cell title={firstName}>{firstName}</Cell>}
                 {selectedColumnList['LastName'] && <Cell title={lastName}>{lastName}</Cell>}
@@ -273,7 +274,7 @@ export class GridData extends Component {
             <React.Fragment>
                 <div className="table-responsive table-striped">
                     <Table
-                        minWidth={1000}
+                        minWidth={1500}
                         autoWidth={true}
                         bodyHeight={300}
                         header={this._renderHeader(selectedColumnList)}

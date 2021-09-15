@@ -290,25 +290,21 @@ export class Filter extends Component {
                             onChange={this.handleChange}
                             value={userName} />
                     </FormGroup>
+                    <FormGroup className="my-sm-1 mr-sm-2">
+                        <Label className="mr-sm-2">{globalResource.BaseCurrency}</Label>
+                        <Input type="select" name="selectedBaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChange}>
+                            {
+                                baseCurrencyList.map(c => {
+                                    return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
+                                })
+                            }
+                            {
+                                !isProduction && <option value="20">UUS</option>
+                            }
+                        </Input>
+                    </FormGroup>
                     {
-                        baseCurrencyList && baseCurrencyList.length !== 0 &&
-                        <FormGroup className="my-sm-1 mr-sm-2">
-                            <Label className="mr-sm-2">{globalResource.BaseCurrency}</Label>
-                            <Input type="select" name="selectedBaseCurrency" id="BaseCurrency" value={selectedBaseCurrency} onChange={this.handleChange}>
-                                {
-                                    baseCurrencyList && baseCurrencyList.map(c => {
-                                        return (<option key={c.ExchangeId} value={c.ExchangeId}>{c.Code}</option>)
-                                    })
-                                }
-                                {
-                                    !isProduction && <option value="20">UUS</option>
-                                }
-                            </Input>
-                        </FormGroup>
-                    }
-                    {
-                        paymentCurrencyList && paymentCurrencyList.length !== 0 &&
-                        <FormGroup className="my-sm-1 mr-sm-2 multiple-currency-filter">
+                        isMainView && <FormGroup className="my-sm-1 mr-sm-2 multiple-currency-filter">
                             <Label className="mr-sm-2">Linked Acc. Currency</Label>
                             <MultipleSelect
                                 dataSource={paymentCurrencyList}
@@ -322,7 +318,7 @@ export class Filter extends Component {
                         </FormGroup>
                     }
                     {
-                        !isProduction && currencyList && currencyList.length !== 0 &&
+                        !isProduction &&
                         <FormGroup className="my-sm-1 mr-sm-2 multiple-currency-filter">
                             <Label className="mr-sm-2">{globalResource.Currency}</Label>
                             <MultipleSelect
@@ -366,7 +362,7 @@ export class Filter extends Component {
                         </div>
                     </FormGroup>
                     {
-                        isMainView && commGroupList && commGroupList.length !== 0 &&
+                        isMainView &&
                         <FormGroup className="my-sm-1 mr-sm-2 comm-group">
                             <MultipleSelect
                                 dataSource={commGroupList}
@@ -400,7 +396,7 @@ export class Filter extends Component {
                             enable={!isGetAll} />
                     </FormGroup>
                     {
-                        isMainView ? null : (
+                        isMainView && (
                             <FormGroup check>
                                 <Label check>
                                     Get All

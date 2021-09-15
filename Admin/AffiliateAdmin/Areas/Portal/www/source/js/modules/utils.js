@@ -114,14 +114,14 @@ export const isValidNumber = (inputValue) => {
     return regex.test(inputValue);
 }
 
-export const convertListToMutilpleSelected = (currencyList, key, name, checked = true) => {
-    return currencyList.map(item => {
+export const convertListToMutilpleSelected = (initialList, key, name, checked = true) => {
+    return initialList ? initialList.map(item => {
         return {
             key: item[key],
             name: item[name],
             checked
         };
-    });
+    }) : [];
 }
 
 export const handleChangeMultipleSelected = (initialList, selectedKey) => {
