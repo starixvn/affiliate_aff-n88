@@ -1,9 +1,9 @@
-﻿import React, { Component } from 'react';
+﻿import React, { Component, Fragment, createRef } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button } from 'reactstrap';
-import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
+import { Button, Table } from 'reactstrap';
+import { Pager } from '@9softstudio/react-fixed-table-header';
 
 import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../libs/constants';
 import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
@@ -25,6 +25,8 @@ export class GridData extends Component {
             shouldResetScrollPosition: true,
             messageNotification: ''
         }
+
+        this.tableRef = createRef();
     }
 
     componentDidUpdate(prevProps) {
@@ -39,6 +41,7 @@ export class GridData extends Component {
     }
 
     async fetchData(param) {
+        this._resetScroll();
         this.props.toggleLoader(true);
         const regexCheckAffId = new RegExp(regExp.CheckAffId);
 
@@ -81,29 +84,29 @@ export class GridData extends Component {
     }
     _renderHeader(selectedColumnList) {
         return (
-            <Row key="theard">
-                {selectedColumnList['Index'] && <Cell header={true} colWidth={80} title={headerText.Index}>{headerText.Index}</Cell>}
-                <Cell header={true} colWidth={225} title={headerText.ParentAffName}>{headerText.ParentAffName}</Cell>
-                <Cell header={true} colWidth={300} title={headerText.UserName}>{headerText.UserName}</Cell>
-                <Cell header={true} colWidth={200} title={headerText.AffCode}>{headerText.AffCode}</Cell>
-                {selectedColumnList['Status'] && <Cell header={true} colWidth={200} title={headerText.Status}>{headerText.Status}</Cell>}
-                {selectedColumnList['FirstName'] && <Cell header={true} colWidth={200} title={headerText.FirstName}>{headerText.FirstName}</Cell>}
-                {selectedColumnList['LastName'] && <Cell header={true} colWidth={200} title={headerText.LastName}>{headerText.LastName}</Cell>}
-                {selectedColumnList['Language'] && <Cell header={true} colWidth={200} title={headerText.Language}>{headerText.Language}</Cell>}
-                {selectedColumnList['Phone'] && <Cell header={true} colWidth={200} title={headerText.Phone}>{headerText.Phone}</Cell>}
-                {selectedColumnList['Email'] && <Cell header={true} colWidth={350} title={headerText.Email}>{headerText.Email}</Cell>}
-                {selectedColumnList['RegistrationDateText'] && <Cell header={true} colWidth={300} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</Cell>}
-                {selectedColumnList['ApprovalDateText'] && <Cell header={true} colWidth={300} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</Cell>}
-                {selectedColumnList['ApprovedByText'] && <Cell header={true} colWidth={200} title={headerText.ApprovedByText}>{headerText.ApprovedByText}</Cell>}
-                {selectedColumnList['CommissionGroup'] && <Cell header={true} colWidth={200} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</Cell>}
-                {selectedColumnList['BalanceBf'] && <Cell header={true} colWidth={200} title={headerText.BalanceBf}>{headerText.BalanceBf}</Cell>}
-                {selectedColumnList['Currency'] && <Cell header={true} colWidth={150} title={headerText.Currency}>{headerText.Currency}</Cell>}
-                {selectedColumnList['PlayerUserName'] && <Cell header={true} colWidth={200} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</Cell>}
-                {selectedColumnList['PlayerCurrency'] && <Cell header={true} colWidth={150} title={headerText.PlayerCurrency}>{headerText.PlayerCurrency}</Cell>}
-                {selectedColumnList['Member'] && <Cell header={true} colWidth={150} title={headerText.Member}>{headerText.Member}</Cell>}
-                {selectedColumnList['NoOfSubAff'] && <Cell header={true} colWidth={150} title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</Cell>}
-                <Cell header={true} colWidth={130} title={headerText.Password}>{headerText.Password}</Cell>
-            </Row>
+            <tr className="freeze-row" key="theard">
+                {selectedColumnList['Index'] && <th width={50} title={headerText.Index}>{headerText.Index}</th>}
+                <th className="freeze-column-header freeze-column-header-0" width={90} title={headerText.ParentAffName}>{headerText.ParentAffName}</th>
+                <th className="freeze-column-header freeze-column-header-1" width={125} title={headerText.UserName}>{headerText.UserName}</th>
+                <th className="freeze-column-header freeze-column-header-2" width={75} title={headerText.AffCode}>{headerText.AffCode}</th>
+                {selectedColumnList['Status'] && <th width={75} title={headerText.Status}>{headerText.Status}</th>}
+                {selectedColumnList['FirstName'] && <th width={75} title={headerText.FirstName}>{headerText.FirstName}</th>}
+                {selectedColumnList['LastName'] && <th width={75} title={headerText.LastName}>{headerText.LastName}</th>}
+                {selectedColumnList['Language'] && <th width={75} title={headerText.Language}>{headerText.Language}</th>}
+                {selectedColumnList['Phone'] && <th width={100} title={headerText.Phone}>{headerText.Phone}</th>}
+                {selectedColumnList['Email'] && <th width={175} title={headerText.Email}>{headerText.Email}</th>}
+                {selectedColumnList['RegistrationDateText'] && <th width={100} title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</th>}
+                {selectedColumnList['ApprovalDateText'] && <th width={100} title={headerText.ApprovalDateText}>{headerText.ApprovalDateText}</th>}
+                {selectedColumnList['ApprovedByText'] && <th width={100} title={headerText.ApprovedByText}>{headerText.ApprovedByText}</th>}
+                {selectedColumnList['CommissionGroup'] && <th width={100} title={headerText.CommissionGroup}>{headerText.CommissionGroup}</th>}
+                {selectedColumnList['BalanceBf'] && <th width={100} title={headerText.BalanceBf}>{headerText.BalanceBf}</th>}
+                {selectedColumnList['Currency'] && <th width={75} title={headerText.Currency}>{headerText.Currency}</th>}
+                {selectedColumnList['PlayerUserName'] && <th width={100} title={headerText.PlayerUserName}>{headerText.PlayerUserName}</th>}
+                {selectedColumnList['PlayerCurrency'] && <th width={75} title={headerText.PlayerCurrency}>{headerText.PlayerCurrency}</th>}
+                {selectedColumnList['Member'] && <th width={50} title={headerText.Member}>{headerText.Member}</th>}
+                {selectedColumnList['NoOfSubAff'] && <th width={90} title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>}
+                <th width={70} title={headerText.Password}>{headerText.Password}</th>
+            </tr>
         );
     }
 
@@ -122,9 +125,9 @@ export class GridData extends Component {
         }
         else {
             const selectedColumnNumber = Object.keys(selectedColumnList).filter(key => !!selectedColumnList[key]).length
-            dataRows.push(<Row>
-                <Cell className="text-center" colSpan={defaultSelectedColumnNumber + selectedColumnNumber}>{globalResource.NoInfo}</Cell>
-            </Row>);
+            dataRows.push(<tr>
+                <td className="text-center" colSpan={defaultSelectedColumnNumber + selectedColumnNumber}>{globalResource.NoInfo}</td>
+            </tr>);
         }
 
         return dataRows;
@@ -165,9 +168,9 @@ export class GridData extends Component {
         const classNameFavorite = (isApproved || status == "closed") ? checkFavorite : "";
 
         return (
-            <Row key={`dataRow-${index}`}>
-                {selectedColumnList['Index'] && <Cell className="text-center" title={index}>{index}</Cell>}
-                <Cell title={dataItem.ParentAffName}>
+            <tr key={`dataRow-${index}`}>
+                {selectedColumnList['Index'] && <td className="text-center" title={index}>{index}</td>}
+                <td className="freeze-column-body freeze-column-body-0" title={dataItem.ParentAffName}>
                     {
                         dataItem.ParentAffName ? (
                             <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
@@ -175,38 +178,38 @@ export class GridData extends Component {
                             </a>
                         ) : 'N/A'
                     }
-                </Cell>
-                <Cell title={dataItem.UserName}>
+                </td>
+                <td className="freeze-column-body freeze-column-body-1" title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}
                     </a>
                     <span className={classNameFavorite} onClick={() => this.handleToggleFavorite(dataItem.AffId, isFavorite)}></span>
-                </Cell>
-                <Cell title={dataItem.AffCode}>{dataItem.AffCode}</Cell>
-                {selectedColumnList['Status'] && <Cell title={dataItem.Status}>{dataItem.Status}</Cell>}
-                {selectedColumnList['FirstName'] && <Cell title={firstName}>{firstName}</Cell>}
-                {selectedColumnList['LastName'] && <Cell title={lastName}>{lastName}</Cell>}
-                {selectedColumnList['Language'] && <Cell title={language}>{language}</Cell>}
-                {selectedColumnList['Phone'] && <Cell title={phone}>{phone}</Cell>}
-                {selectedColumnList['Email'] && <Cell title={email}>{email}</Cell>}
-                {selectedColumnList['RegistrationDateText'] && <Cell title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</Cell>}
-                {selectedColumnList['ApprovalDateText'] && <Cell title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</Cell>}
-                {selectedColumnList['ApprovedByText'] && <Cell title={approvedBy}>{approvedBy}</Cell>}
-                {selectedColumnList['CommissionGroup'] && <Cell title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</Cell>}
-                {selectedColumnList['BalanceBf'] && <Cell className="text-right" title={balanceBf}>{balanceBf}</Cell>}
-                {selectedColumnList['Currency'] && <Cell title={dataItem.Currency}>{dataItem.Currency}</Cell>}
-                {selectedColumnList['PlayerUserName'] && <Cell title={playerUserName}>{playerUserName}</Cell>}
-                {selectedColumnList['PlayerCurrency'] && <Cell title={dataItem.PlayerCurrency}>{dataItem.PlayerCurrency}</Cell>}
-                {selectedColumnList['Member'] && <Cell className="text-right" title={formattedMemberValue}>{member}</Cell>}
-                {selectedColumnList['NoOfSubAff'] && <Cell className="text-right" title={formattedSubAffValue}>{noOfSubAff}</Cell>}
-                <Cell className="text-center" title="Change Password">
+                </td>
+                <td className="freeze-column-body freeze-column-body-2" title={dataItem.AffCode}>{dataItem.AffCode}</td>
+                {selectedColumnList['Status'] && <td title={dataItem.Status}>{dataItem.Status}</td>}
+                {selectedColumnList['FirstName'] && <td title={firstName}>{firstName}</td>}
+                {selectedColumnList['LastName'] && <td title={lastName}>{lastName}</td>}
+                {selectedColumnList['Language'] && <td title={language}>{language}</td>}
+                {selectedColumnList['Phone'] && <td title={phone}>{phone}</td>}
+                {selectedColumnList['Email'] && <td title={email}>{email}</td>}
+                {selectedColumnList['RegistrationDateText'] && <td title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</td>}
+                {selectedColumnList['ApprovalDateText'] && <td title={dataItem.ApprovalDateText}>{dataItem.ApprovalDateText}</td>}
+                {selectedColumnList['ApprovedByText'] && <td title={approvedBy}>{approvedBy}</td>}
+                {selectedColumnList['CommissionGroup'] && <td title={typeof commissionGroup === 'string' ? commissionGroup : commissionGroupName}>{commissionGroup}</td>}
+                {selectedColumnList['BalanceBf'] && <td className="text-right" title={balanceBf}>{balanceBf}</td>}
+                {selectedColumnList['Currency'] && <td title={dataItem.Currency}>{dataItem.Currency}</td>}
+                {selectedColumnList['PlayerUserName'] && <td title={playerUserName}>{playerUserName}</td>}
+                {selectedColumnList['PlayerCurrency'] && <td title={dataItem.PlayerCurrency}>{dataItem.PlayerCurrency}</td>}
+                {selectedColumnList['Member'] && <td className="text-right" title={formattedMemberValue}>{member}</td>}
+                {selectedColumnList['NoOfSubAff'] && <td className="text-right" title={formattedSubAffValue}>{noOfSubAff}</td>}
+                <td className="text-center" title="Change Password">
                     {
                         isApproved && (<Button color="link" onClick={() => this.handleChangePassword(dataItem.AffId)}>
-                            <span className="oi oi-pencil text-secondary"></span>
+                            <span className="oi oi-pencil text-secondary" style={{ position: 'static' }}></span>
                         </Button>)
                     }
-                </Cell>
-            </Row>
+                </td>
+            </tr>
         );
     }
 
@@ -260,8 +263,15 @@ export class GridData extends Component {
         this.fetchData(newParam);
     }
 
+    _resetScroll = () => {
+        if (!!this.tableRef.current) {
+            this.tableRef.current.scrollTop = 0;
+            this.tableRef.current.scrollLeft = 0;
+        }
+    }
+
     render() {
-        const { gridData, shouldResetScrollPosition, messageNotification } = this.state;
+        const { gridData, messageNotification } = this.state;
 
         if (!gridData) {
             return null;
@@ -272,20 +282,23 @@ export class GridData extends Component {
 
         return (
             <React.Fragment>
-                <div className="table-responsive table-striped">
-                    <Table
-                        minWidth={1500}
-                        autoWidth={true}
-                        bodyHeight={300}
-                        header={this._renderHeader(selectedColumnList)}
-                        body={this._renderDataSection(gridData, selectedColumnList)}
-                        containerPadding={20}
-                        isPaging={true}
-                        pageOption={this.props.pagingOption}
-                        onPaging={this.handlePaging}
-                        shouldResetScrollPosition={shouldResetScrollPosition}
-                    />
+                <div className="table-responsive table-striped aff-info-table-container" style={{ 'max-height': (window.innerHeight || 775) - 325 }} ref={this.tableRef}>
+                    <Table className="freeze-table">
+                        <thead>
+                            {
+                                this._renderHeader(selectedColumnList)
+                            }
+                        </thead>
+                        <tbody>
+                            {
+                                this._renderDataSection(gridData, selectedColumnList)
+                            }
+                        </tbody>
+                    </Table>
                 </div>
+                <Pager
+                    pageOption={this.props.pagingOption}
+                    onPaging={this.handlePaging} />
                 {
                     !!messageNotification && <NotificationPopup
                         message={messageNotification}
