@@ -23,7 +23,7 @@ export const sortByList = {
     'Player': 5
 }
 
-export const defaultColumns = ['ParentAffName', 'UserName', 'AffCode', 'Password'];
+export const defaultColumns = ['Index', 'ParentAffName', 'UserName', 'Password'];
 
 export const headerText = {
     Index: '#',
@@ -47,6 +47,26 @@ export const headerText = {
     Member: 'Player',
     NoOfSubAff: 'Sub-Affiliate',
     Password: 'Password'
+}
+
+export const minWidthOfColumns = {
+    AffCode: 75,
+    Status: 75,
+    FirstName: 75,
+    LastName: 75,
+    Language: 75,
+    Phone: 100,
+    Email: 175,
+    RegistrationDateText: 100,
+    ApprovalDateText: 100,
+    ApprovedByText: 100,
+    CommissionGroup: 100,
+    BalanceBf: 100,
+    Currency: 75,
+    PlayerUserName: 100,
+    PlayerCurrency: 75,
+    Member: 50,
+    NoOfSubAff: 90,
 }
 
 export const resource = {

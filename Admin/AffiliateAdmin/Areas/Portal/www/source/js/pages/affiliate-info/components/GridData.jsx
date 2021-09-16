@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Table } from 'reactstrap';
 import { Pager } from '@9softstudio/react-fixed-table-header';
 
-import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy } from '../libs/constants';
+import { headerText, resource, regExp, defaultSelectedColumnNumber, globalResource, defaultSortBy, minWidthOfColumns } from '../libs/constants';
 import { setPagingOption, setShowPopupPassword, setShowPopupCommGroup, setAffId, setCommGroup, setParam, setParentAffName } from '../actions';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { post } from '../../../modules/ajaxRequest';
@@ -85,10 +85,10 @@ export class GridData extends Component {
     _renderHeader(selectedColumnList) {
         return (
             <tr className="freeze-row" key="theard">
-                {selectedColumnList['Index'] && <th width={50} title={headerText.Index}>{headerText.Index}</th>}
-                <th className="freeze-column-header freeze-column-header-0" width={90} title={headerText.ParentAffName}>{headerText.ParentAffName}</th>
-                <th className="freeze-column-header freeze-column-header-1" width={125} title={headerText.UserName}>{headerText.UserName}</th>
-                <th className="freeze-column-header freeze-column-header-2" width={75} title={headerText.AffCode}>{headerText.AffCode}</th>
+                <th className="freeze-column-header freeze-column-header-0" width={50} title={headerText.Index}>{headerText.Index}</th>
+                <th className="freeze-column-header freeze-column-header-1" width={90} title={headerText.ParentAffName}>{headerText.ParentAffName}</th>
+                <th className="freeze-column-header freeze-column-header-2" width={125} title={headerText.UserName}>{headerText.UserName}</th>
+                {selectedColumnList['AffCode'] && <th width={75} title={headerText.AffCode}>{headerText.AffCode}</th>}
                 {selectedColumnList['Status'] && <th width={75} title={headerText.Status}>{headerText.Status}</th>}
                 {selectedColumnList['FirstName'] && <th width={75} title={headerText.FirstName}>{headerText.FirstName}</th>}
                 {selectedColumnList['LastName'] && <th width={75} title={headerText.LastName}>{headerText.LastName}</th>}
@@ -169,8 +169,8 @@ export class GridData extends Component {
 
         return (
             <tr key={`dataRow-${index}`}>
-                {selectedColumnList['Index'] && <td className="text-center" title={index}>{index}</td>}
-                <td className="freeze-column-body freeze-column-body-0" title={dataItem.ParentAffName}>
+                <td className="text-center freeze-column-body freeze-column-body-0" title={index}>{index}</td>
+                <td className="freeze-column-body freeze-column-body-1" title={dataItem.ParentAffName}>
                     {
                         dataItem.ParentAffName ? (
                             <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.ParentAffName}`)} target="_top">
@@ -179,13 +179,13 @@ export class GridData extends Component {
                         ) : 'N/A'
                     }
                 </td>
-                <td className="freeze-column-body freeze-column-body-1" title={dataItem.UserName}>
+                <td className="freeze-column-body freeze-column-body-2" title={dataItem.UserName}>
                     <a href={resolveClientUrl(`Portal/Customer?user=${dataItem.UserName}`)} target="_top">
                         {dataItem.UserName}
                     </a>
                     <span className={classNameFavorite} onClick={() => this.handleToggleFavorite(dataItem.AffId, isFavorite)}></span>
                 </td>
-                <td className="freeze-column-body freeze-column-body-2" title={dataItem.AffCode}>{dataItem.AffCode}</td>
+                {selectedColumnList['AffCode'] && <td title={dataItem.AffCode}>{dataItem.AffCode}</td>}
                 {selectedColumnList['Status'] && <td title={dataItem.Status}>{dataItem.Status}</td>}
                 {selectedColumnList['FirstName'] && <td title={firstName}>{firstName}</td>}
                 {selectedColumnList['LastName'] && <td title={lastName}>{lastName}</td>}
@@ -270,6 +270,16 @@ export class GridData extends Component {
         }
     }
 
+    _getMinWidthOfTable = (selectedColumnList) => {
+        let minWidth = 335;
+
+        Object.keys(selectedColumnList).map(key => {
+            minWidth = minWidth + minWidthOfColumns[key];
+        })
+
+        return minWidth
+    }
+
     render() {
         const { gridData, messageNotification } = this.state;
 
@@ -279,11 +289,15 @@ export class GridData extends Component {
 
         const { columnList } = this.props;
         const selectedColumnList = convertSelectedColumnList(columnList);
+        const minWidth = this._getMinWidthOfTable(selectedColumnList);
+        //console.log(columnList);
+        //console.log(selectedColumnList);
+        console.log(minWidth);
 
         return (
             <React.Fragment>
                 <div className="table-responsive table-striped aff-info-table-container" style={{ 'max-height': (window.innerHeight || 775) - 325 }} ref={this.tableRef}>
-                    <Table className="freeze-table">
+                    <Table className="freeze-table" style={{ 'min-width': minWidth }}>
                         <thead>
                             {
                                 this._renderHeader(selectedColumnList)
