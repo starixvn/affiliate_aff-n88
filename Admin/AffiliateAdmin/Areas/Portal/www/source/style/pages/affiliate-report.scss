@@ -44,37 +44,47 @@
     .report-table-container {
         .freeze-table {
             min-width: 1880px;
+            border-collapse: separate;
+            border-spacing: 0;
 
             thead {
                 .freeze-row {
                     th {
-                        //border: 1px solid #cccccc;
-                        outline: 0.5px solid #cccccc;
-                        outline-offset: -1px;
+                        line-height: 16px;
+                        border: 1px solid #cccccc;
+                        border-spacing: 0;
+                        //outline: 0.5px solid #cccccc;
+                        //outline-offset: -1px;
                         position: sticky;
                     }
 
                     &-h1 th {
-                        top: 0.75px;
+                        top: 0px;
                     }
 
                     &-h2 th {
-                        top: 25.9px;
+                        top: 28px;
                     }
 
                     .freeze-column-header {
-                        left: 0.55px;
+                        left: 0px;
                         z-index: 9;
                     }
                 }
             }
 
+            tbody {
+                tr td {
+                    border-top: none;
+                }
+            }
+
             .freeze-column {
                 position: sticky;
-                left: 0.55px;
+                left: 0px;
                 z-index: 8;
-                outline: 1px solid #cccccc;
-                outline-offset: -1px;
+                //outline: 1px solid #cccccc;
+                //outline-offset: -1px;
             }
 
             tfoot {
@@ -89,10 +99,6 @@
                     //vertical-align: middle;
                     //border: 1px solid #cccccc;
                     outline: 1px solid #cccccc;
-                }
-
-                .freeze-column {
-                    outline-offset: 0px;
                 }
             }
         }

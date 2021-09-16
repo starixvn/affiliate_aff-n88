@@ -91,7 +91,7 @@ export class GridData extends PureComponent {
                 <th width={55} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</th>
                 <th width={55} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
                 <th width={65} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
-                <th colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
+                <th colSpan="11" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
             </tr>,
