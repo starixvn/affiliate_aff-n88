@@ -13,13 +13,13 @@ export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        const { commGroupList, groupId } = this.props;
+        const { groupId } = this.props;
 
         this.initialGroupId = groupId;
 
         this.state = {
             ...defaultState,
-            selectedCommGroupList: commGroupList && commGroupList.filter(item => item.checked).map(item => item.key).join(',') || '',
+            selectedCommGroupList: 'all',
             selectedStatus: props.param.Status || '',
             parentAffName: this.props.param.ParentAffName || '',
         }
@@ -64,13 +64,15 @@ export class Filter extends Component {
     }
 
     handleClickSearch = (parentAffName) => {
+
         const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId, affPlayer } = this.state;
 
         const affIdInput = affId.trim();
-        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer));
+        const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
+        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer, isSelectAllCommGroup));
 
         const param = {
-            GroupIds: selectedCommGroupList,
+            GroupIds: isSelectAllCommGroup ? 'all' : selectedCommGroupList,
             Language: selectedLanguage,
             Status: selectedStatus,
             ParentAffName: parentAffName || this.state.parentAffName,
@@ -102,12 +104,12 @@ export class Filter extends Component {
         this.props.setSelectedColumn(newColumnList);
     }
 
-    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affId, affPlayer) {
+    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affId, affPlayer, isSelectAllCommGroup) {
         const { commGroupList, languageList } = this.props;
 
         const space = resource.Space;
         const apostrophe = resource.Apostrophe;
-        const commGroupTitle = commGroupList.every(c => c.checked) ? resource.AllCommGroups : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
+        const commGroupTitle = isSelectAllCommGroup ? resource.AllCommGroups : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
         const languageTitle = languageList[selectedLanguage] || resource.AllLanguages;
         const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
 

@@ -15,7 +15,7 @@ export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        const { today, productList, commGroupList, baseCurrencyList, currencyList, paymentCurrencyList } = this.props;
+        const { today, productList, baseCurrencyList, currencyList, paymentCurrencyList } = this.props;
         this.now = new Date(today);
         const defaultMonth = { month: this.now.getMonth() + 1, year: this.now.getFullYear() };
 
@@ -27,7 +27,7 @@ export class Filter extends Component {
             sortBy: defaultSortBy,
             isSortAscending: true,
             selectedProductList: productList && productList.filter(item => item.checked).map(item => item.key).join(',') || '',
-            selectedCommGroupList: commGroupList && commGroupList.filter(item => item.checked).map(item => item.key).join(',') || '',
+            selectedCommGroupList: 'all',
             isGetAll: false,
             selectedBaseCurrency: baseCurrencyList && baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
             selectedCurrencyList: currencyList && currencyList.filter(item => item.checked).map(item => item.key).join(',') || '',
@@ -177,6 +177,7 @@ export class Filter extends Component {
 
         const reportTitle = this._buildReportTitle();
         this.props.setReportTitle(reportTitle);
+        const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
 
         const param = {
             UserName: userName,
@@ -184,7 +185,7 @@ export class Filter extends Component {
             ToDate: `${toMonth.month}/1/${toMonth.year}`,
             PreferredLanguage: selectedLanguage,
             BaseCurrencyId: Number(selectedBaseCurrency),
-            GroupIds: selectedCommGroupList,
+            GroupIds: isSelectAllCommGroup ? 'all' : selectedCommGroupList,
             CurrencyIds: selectedCurrencyList,
             PaymentCurrencyIds: selectedPaymentCurrencyList,
             ProductIds: selectedProductList,
@@ -271,7 +272,7 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedLanguage, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll, selectedCommGroupList } = this.state;
+        const { selectedLanguage, selectedBaseCurrency, fromMonth, toMonth, sortBy, isSortAscending, selectedProductList, userName, isGetAll } = this.state;
         const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, commGroupList } = this.props;
 
         const isValidSelectedProduct = !!selectedProductList;
