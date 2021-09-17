@@ -27,6 +27,7 @@ const maxUserPanelHeight = window.innerHeight - 234;
 export const spinnerLoaderWidth = (maxWidth / 2) - 32
 export const spinnerLoaderUserPanelHeight = (maxUserPanelHeight / 2) - 32
 
+export const sixMonth = 6;
 export const minDate = new Date(2019, 12, 31);
 
 export const submitFail = {

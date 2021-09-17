@@ -194,7 +194,7 @@
     <Compile Include="Controllers\Player\ActiveMemberControllerTest.cs" />
     <Compile Include="Controllers\Player\PlayerControllerTest.cs" />
     <Compile Include="Controllers\Message\MessageControllerTest.cs" />
-    <Compile Include="Controllers\ReportControllerTest.cs" />
+    <Compile Include="Controllers\Report\ReportControllerTest.cs" />
     <Compile Include="Controllers\UnderMaintenanceControllerTest.cs" />
     <Compile Include="Extensions\DataReaderExtensionTest.cs" />
     <Compile Include="Extensions\UrlHelperExtensionTest.cs" />

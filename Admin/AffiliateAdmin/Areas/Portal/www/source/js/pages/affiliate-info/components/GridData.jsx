@@ -290,9 +290,6 @@ export class GridData extends Component {
         const { columnList } = this.props;
         const selectedColumnList = convertSelectedColumnList(columnList);
         const minWidth = this._getMinWidthOfTable(selectedColumnList);
-        //console.log(columnList);
-        //console.log(selectedColumnList);
-        console.log(minWidth);
 
         return (
             <React.Fragment>
