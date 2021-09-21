@@ -5,11 +5,10 @@ import { bindActionCreators } from 'redux';
 import GridData from './GridData';
 import ReportTitle from '../../../../components/ReportTitle';
 
-import { setViewLevel } from '../actions';
+import { setViewLevel, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { viewLevel } from '../libs/constants';
 import ReportExcel from '../libs/reportExcel';
-import { post } from '../../../../modules/ajaxRequest';
 
 export class Content extends Component {
     constructor(props) {
@@ -33,11 +32,11 @@ export class Content extends Component {
         this.props.toggleLoader(true);
         const { param, reportTitle, currentViewLevel } = this.props;
         const isMainView = currentViewLevel === viewLevel.main;
-        const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
-        const postData = Object.assign({}, param, { IsExportExcel: true });
-        const response = await post(url, postData);
-        if (response && response.status === 200) {
-            const reportExcel = new ReportExcel(response.data, reportTitle, isMainView);
+        const newParam = Object.assign({}, param, { IsExportExcel: true });
+        const data = await this.props.fetchData(newParam, isMainView);
+
+        if (data) {
+            const reportExcel = new ReportExcel(data, reportTitle, isMainView);
             reportExcel.export();
         }
         this.props.toggleLoader(false);
@@ -94,7 +93,7 @@ function mapStateToProps({ reportTitle, currentViewLevel, param, isN8B }) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setViewLevel, toggleLoader }, dispatch);
+    return bindActionCreators({ setViewLevel, toggleLoader, fetchData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

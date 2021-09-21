@@ -6,10 +6,10 @@ import { Table } from 'reactstrap';
 import { Pager } from '@9softstudio/react-fixed-table-header';
 
 import { formatDecimal } from '../../../../modules/numberFormat';
-import { setPagingOption, setViewLevel, setParam } from '../actions';
-import { post } from '../../../../modules/ajaxRequest';
+import { setPagingOption, setViewLevel, setParam, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
+import { maxHeight } from '../../libs/constants';
 import { totalText, headerText, defaultGgrProductReport } from '../libs/constants';
 
 export class GridData extends PureComponent {
@@ -35,11 +35,10 @@ export class GridData extends PureComponent {
     async fetchData(param) {
         this._resetScroll();
         this.props.toggleLoader(true);
-        const url = 'Portal/PlayerGgrReport/GetPlayerGgrReportData';
-        const response = await post(url, param);
+        const data = await this.props.fetchData(param);
 
-        if (response && response.status === 200) {
-            const { MainData, Total, TotalItem } = response.data;
+        if (data) {
+            const { MainData, Total, TotalItem } = data;
 
             this.setState({ gridData: MainData, total: Total });
             this.props.setPagingOption({ TotalItem, PageIndex: param.PageIndex, PageSize: param.PageSize });
@@ -192,7 +191,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive ggr-report-table-container" style={{ 'max-height': (window.innerHeight || 775) - 320 }} ref={this.tableRef}>
+                <div className="table-responsive ggr-report-table-container" style={{ 'max-height': maxHeight }} ref={this.tableRef}>
                     <Table className="freeze-table" style={{ minWidth: minWidth }}>
                         <thead>
                             {
@@ -222,7 +221,7 @@ function mapStateToProps({ pagingOption, param, currentViewLevel, productList })
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam, fetchData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(GridData);

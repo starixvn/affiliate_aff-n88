@@ -44,7 +44,7 @@ describe('player detail - Filter - connect', () => {
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
             setParam: actions['setParam'],
-            exportExcel: actions['exportExcel'],
+            fetchData: actions['fetchData'],
             getCurrencies: actions['getCurrencies'],
             setSortingColumn: actions['setSortingColumn'],
             getProductList: actions['getProductList']

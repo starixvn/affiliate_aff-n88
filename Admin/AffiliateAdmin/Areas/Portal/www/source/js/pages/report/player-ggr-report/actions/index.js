@@ -1,4 +1,5 @@
 ﻿import * as types from './types';
+import { post } from '../../../../modules/ajaxRequest';
 import { setPagingOption } from '../../../../actions/pagingAction';
 
 export { setPagingOption };
@@ -29,4 +30,11 @@ export const setProductList = (data) => {
         type: types.SET_PRODUCT_LIST,
         data
     }
+}
+
+export const fetchData = (param) => async () => {
+    const url = 'Portal/PlayerGgrReport/GetPlayerGgrReportData';
+    const response = await post(url, param);
+
+    return response && response.status === 200 ? response.data : null;
 }

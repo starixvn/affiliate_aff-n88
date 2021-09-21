@@ -87,36 +87,4 @@ describe('player detail actions', () => {
 
         expect(result).toEqual(null);
     })
-
-    it('should create action to exportExcel with correct parameter', async () => {
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-
-        const param = {
-            IsExportExcel: true,
-            affId: 1271808,
-            monthDate: "1/1/2019",
-            productId: 0
-        }
-
-        const result = await actions['exportExcel'](param)();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });
-        expect(result).toEqual(expectedResponse.data);
-    })
-
-    it('should create action to exportExcel with incorrect parameter', async () => {
-        ajaxRequest.post = jest.fn();
-        const param = {
-            IsExportExcel: true,
-            affId: 1271808,
-            monthDate: "1/1/2019",
-            productId: 0
-        }
-
-        const result = await actions['exportExcel'](param)();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });
-
-        expect(result).toEqual(null);
-    })
 });

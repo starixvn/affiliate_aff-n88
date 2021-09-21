@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Button } from 'reactstrap';
 import { Pager } from '@9softstudio/react-fixed-table-header';
-import { Link } from 'react-router-dom'
 
 import { format, formatDecimal } from '../../../../modules/numberFormat';
-import { setPagingOption, setViewLevel, setParam } from '../actions';
-import { post } from '../../../../modules/ajaxRequest';
+import { setPagingOption, setViewLevel, setParam, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
 import { resolveClientUrl } from '../../../../modules/utils';
+import { maxHeight } from '../../libs/constants';
 import { viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../libs/constants';
 
 export class GridData extends PureComponent {
@@ -64,10 +63,10 @@ export class GridData extends PureComponent {
         this._resetScroll();
         this.props.toggleLoader(true);
         const isMainView = this._isMainView();
-        const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
-        const response = await post(url, param);
-        if (response && response.status === 200) {
-            const { MainData, Total, TotalItem } = response.data;
+        const data = await this.props.fetchData(param, isMainView);
+
+        if (data) {
+            const { MainData, Total, TotalItem } = data;
 
             this.setState({ gridData: MainData, total: Total });
             this.props.setPagingOption({ TotalItem, PageIndex: param.PageIndex, PageSize: param.PageSize });
@@ -296,7 +295,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive aff-report-table-container" style={{ 'max-height': (window.innerHeight || 775) - 320 }} ref={this.tableRef}>
+                <div className="table-responsive aff-report-table-container" style={{ 'max-height': maxHeight }} ref={this.tableRef}>
                     <Table className="freeze-table">
                         <thead>
                             {
@@ -326,7 +325,7 @@ function mapStateToProps({ pagingOption, param, currentViewLevel, productList })
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam, fetchData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(GridData);

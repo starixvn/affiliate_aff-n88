@@ -5,7 +5,7 @@ import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import MonthPicker from '@9softstudio/react-monthpicker';
 
 import { globalResource, resource, selectedAllProduct, shortedMonthNames, minMonthDate, SortByIdList, SortingColumnDefault, defaultBaseCurrency } from '../modules/constants';
-import { setParam, exportExcel, setSortingColumn } from '../actions';
+import { setParam, fetchData, setSortingColumn } from '../actions';
 import ReportExcel from '../modules/reportExcel';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import Select from '../../../../components/select';
@@ -85,7 +85,7 @@ export class Filter extends PureComponent {
             isSortAsc: sortingColumn.IsSortAsc
         }
 
-        const data = await this.props.exportExcel(param);
+        const data = await this.props.fetchData(param);
 
         if (data) {
             const title = this._getReportTitle();
@@ -198,7 +198,7 @@ function mapStateToProps({ today, affCommonInfo, playerDetail, productList, curr
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setParam, exportExcel, setSortingColumn }, dispatch);
+    return bindActionCreators({ setParam, fetchData, setSortingColumn }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

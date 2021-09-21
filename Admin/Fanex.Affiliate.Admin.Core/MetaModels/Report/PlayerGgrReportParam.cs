@@ -15,8 +15,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 
         public DateTime ToDate { get; set; }
 
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         [Required]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string ProductIds { get; set; }
 
         public int BaseCurrencyId { get; set; }

@@ -44,6 +44,12 @@ export const formatUnit = (value) => {
     return value < 10 ? '0' + value : value;
 }
 
+const formatMilisecond = (value) => {
+    const greaterThanTenFormat = value < 100 ? ('0' + value) : value;
+
+    return value < 10 ? ('00' + value) : greaterThanTenFormat;
+}
+
 export const formatDateTime = (dateTimeValue, format) => {
     if (!dateTimeValue) {
         return "";
@@ -73,8 +79,8 @@ export const formatDateTime = (dateTimeValue, format) => {
         .replace("mm", formatUnit(minutes))
         .replace("ss", formatUnit(seconds))
         .replace("tt", ampm)
-        .replace("HH", formatUnit(dateTime.getHours()))
-        .replace("SSS", formatMilisecond(miliseconds));
+        .replace("HH", formatUnit(hours))
+        .replace("SSS", formatMilisecond(dateTime.getMilliseconds()));
 }
 
 export const parseDateTime = (value) => {

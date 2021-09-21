@@ -6,8 +6,8 @@ import GridData from './GridData';
 import ReportTitle from '../../../../components/ReportTitle';
 
 import { toggleLoader } from '../../../../actions/loaderAction';
-//import ReportExcel from '../modules/reportExcel';
-import { post } from '../../../../modules/ajaxRequest';
+import ReportExcel from '../libs/reportExcel';
+import { fetchData } from '../actions';
 
 export class Content extends Component {
     constructor(props) {
@@ -29,17 +29,16 @@ export class Content extends Component {
 
     handleExportExcel = async () => {
         this.props.toggleLoader(true);
-        const { param, reportTitle } = this.props;
-        const url = `Portal/Report/GetMainData`;
-        const postData = Object.assign({}, param, { IsExportExcel: true });
-        //const response = await post(url, postData);
-        // if (response && response.status === 200) {
-        //     const reportExcel = new ReportExcel(response.data, reportTitle, isMainView);
-        //     reportExcel.export();
-        // }
-        this.props.toggleLoader(false);
+        const { param, reportTitle, productList } = this.props;
+        const newParam = Object.assign({}, param, { IsExportExcel: true });
 
-        console.log(this.reportTitleRef);
+        const data = await this.props.fetchData(newParam);
+
+        if (data) {
+             const reportExcel = new ReportExcel(data, reportTitle, productList.filter(p => p.checked));
+             reportExcel.export();
+         }
+        this.props.toggleLoader(false);
     }
 
     _buildReportTitle() {
@@ -71,12 +70,12 @@ export class Content extends Component {
     }
 }
 
-function mapStateToProps({ reportTitle, currentViewLevel, param }) {
-    return Object.assign({}, { reportTitle, currentViewLevel, param });
+function mapStateToProps({ reportTitle, param, productList }) {
+    return Object.assign({}, { reportTitle, param, productList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ toggleLoader }, dispatch);
+    return bindActionCreators({ toggleLoader, fetchData }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

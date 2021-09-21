@@ -9,6 +9,7 @@ import { setReportTitle, setParam, setProductList } from '../actions';
 import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate, getCookie } from '../../../../modules/utils';
 import { minDate, sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
+import { reportName } from '../libs/constants';
 
 export class Filter extends Component {
     constructor(props) {
@@ -16,14 +17,14 @@ export class Filter extends Component {
 
         const { today, productList, baseCurrencyList } = this.props;
         const now = new Date(today);
-        this.nowString = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
-        const sixMonthAgo = new Date(today);
-        sixMonthAgo.setMonth(sixMonthAgo.getMonth() - 6);
+        const currentMonth = now.getMonth() + 1;
+        const currentYear = now.getFullYear();
+        this.nowString = `${currentMonth}/${now.getDate()}/${currentYear}`;
 
         let initialState = {
             affName: '',
             playerName: '',
-            fromDate: sixMonthAgo < minDate ? '01/01/2020' : `${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
+            fromDate: `${currentMonth}/01/${currentYear}`,
             toDate: this.nowString,
             productList,
             selectedProductList: productList.filter(item => item.checked).map(item => item.key).join(','),
@@ -94,7 +95,7 @@ export class Filter extends Component {
 
         const param = {
             AffName: affName,
-            OlayerName: playerName,
+            PlayerName: playerName,
             FromDate: fromDate,
             ToDate: toDate,
             BaseCurrencyId: Number(selectedBaseCurrency),
@@ -118,11 +119,10 @@ export class Filter extends Component {
         const { fromDate, toDate, affName, playerName, selectedBaseCurrency, productList } = this.state;
 
         const affNameTitle = `${affName && '- Username contains \'' + affName + '\''}`;
-        const playerNameTitle = `${playerName && '- Username contains \'' + playerName + '\''}`;
+        const playerNameTitle = `${playerName && '- Player contains \'' + playerName + '\''}`;
         const productName = productList.every(p => p.checked) ? 'All Products' : productList.filter(p => p.checked).map(p => p.name).join(',');
 
         const fromToTitle = `FROM ${fromDate} TO ${toDate}`;
-        const reportName = 'PLAYER GGR REPORT ';
         const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
         return `${reportName}${affNameTitle}${playerNameTitle} - ${productName} - ${fromToTitle} - Base Currency ${baseCurrency}`;
@@ -131,8 +131,6 @@ export class Filter extends Component {
     render() {
         const { baseCurrencyList, isProduction } = this.props;
         const { productList, selectedBaseCurrency, fromDate, toDate, affName, playerName } = this.state;
-
-        console.log(this.state);
 
         return (
             <div className="filter-container">
