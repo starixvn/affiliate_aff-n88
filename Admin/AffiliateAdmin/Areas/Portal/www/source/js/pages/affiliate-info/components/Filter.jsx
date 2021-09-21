@@ -4,19 +4,22 @@ import { bindActionCreators } from 'redux';
 
 import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import { handleChangeMultipleSelected } from '../../../modules/utils';
 import { statusList, sortByList, defaultState, resource } from '../libs/constants';
-import { setReportTitle, setParam, setSelectedColumn, setParentAffName } from '../actions';
-import { htmlDecode } from '../../../modules/htmlHelper';
+import { setReportTitle, setParam, setSelectedColumn, setParentAffName, setCommGroupList } from '../actions';
 
 export class Filter extends Component {
     constructor(props) {
         super(props);
 
-        this.initialGroupId = this.props.groupId;
+        const { groupId } = this.props;
+
+        this.initialGroupId = groupId;
 
         this.state = {
             ...defaultState,
-            selectedCommGroup: this.initialGroupId,
+            selectedCommGroupList: 'all',
             selectedStatus: props.param.Status || '',
             parentAffName: this.props.param.ParentAffName || '',
         }
@@ -48,6 +51,12 @@ export class Filter extends Component {
         this.setState((prevState) => ({ isSortAscending: !prevState.isSortAscending }));
     }
 
+    handleChangeCommGroup = (item, selectedCommGroupList) => {
+        this.setState({ selectedCommGroupList });
+
+        this.props.setCommGroupList(handleChangeMultipleSelected(this.props.commGroupList, selectedCommGroupList));
+    }
+
     handlePressEnter = (event) => {
         if (event.charCode === 13) {
             this.handleClickSearch();
@@ -55,13 +64,15 @@ export class Filter extends Component {
     }
 
     handleClickSearch = (parentAffName) => {
-        const { selectedCommGroup, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId, affPlayer } = this.state;
+
+        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId, affPlayer } = this.state;
 
         const affIdInput = affId.trim();
-        this.props.setReportTitle(this._buildReportTitle(selectedCommGroup, selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer));
+        const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
+        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer, isSelectAllCommGroup));
 
         const param = {
-            GroupId: selectedCommGroup,
+            GroupIds: isSelectAllCommGroup ? 'all' : selectedCommGroupList,
             Language: selectedLanguage,
             Status: selectedStatus,
             ParentAffName: parentAffName || this.state.parentAffName,
@@ -93,12 +104,12 @@ export class Filter extends Component {
         this.props.setSelectedColumn(newColumnList);
     }
 
-    _buildReportTitle(selectedCommGroup, selectedLanguage, selectedStatus, userName, email, affId, affPlayer) {
+    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affId, affPlayer, isSelectAllCommGroup) {
         const { commGroupList, languageList } = this.props;
 
         const space = resource.Space;
         const apostrophe = resource.Apostrophe;
-        const commGroupTitle = commGroupList[selectedCommGroup] || resource.AllCommGroups;
+        const commGroupTitle = isSelectAllCommGroup ? resource.AllCommGroups : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
         const languageTitle = languageList[selectedLanguage] || resource.AllLanguages;
         const statusTitle = statusList[selectedStatus] || resource.AllStatuses;
 
@@ -112,7 +123,7 @@ export class Filter extends Component {
     }
 
     render() {
-        const { selectedCommGroup, selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId, parentAffName, affPlayer } = this.state;
+        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId, parentAffName, affPlayer } = this.state;
         const { commGroupList, languageList, columnList } = this.props;
 
         return (
@@ -120,14 +131,15 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="my-2 mr-sm-2">
                         <Label for="SearchBy" className="mr-sm-2">{resource.SearchBy}</Label>
-                        <Input type="select" name="selectedCommGroup" id="searchBy" value={selectedCommGroup} onChange={this.handleChange} >
-                            <option key="commGroup-all" value="0">{resource.AllCommGroups}</option>
-                            {
-                                Object.keys(commGroupList).map(commGroup => {
-                                    return (<option key={'commGroup-' + commGroup} value={commGroup}>{htmlDecode(commGroupList[commGroup])}</option>)
-                                })
-                            }
-                        </Input>
+                        <MultipleSelect
+                            dataSource={commGroupList}
+                            keyField="key"
+                            valueField="name"
+                            statusField="checked"
+                            maxDisplayItemCount={1}
+                            noneSelectedLabel="None Select"
+                            selectedAllLabel="All Revenue Groups"
+                            onChange={this.handleChangeCommGroup} />
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
@@ -213,6 +225,7 @@ export class Filter extends Component {
                             statusField="checked"
                             maxDisplayItemCount={1}
                             noneSelectedLabel="Please Select"
+                            selectedAllLabel="All"
                             onChange={this.handleChangeColumn} />
                     </FormGroup>
 
@@ -230,7 +243,7 @@ function mapStateToProps({ languageList, commGroupList, param, groupId, columnLi
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn, setParentAffName }, dispatch);
+    return bindActionCreators({ setReportTitle, setParam, setSelectedColumn, setParentAffName, setCommGroupList }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);

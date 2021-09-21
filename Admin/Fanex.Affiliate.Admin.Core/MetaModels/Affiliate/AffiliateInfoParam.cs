@@ -1,4 +1,6 @@
-﻿namespace Fanex.Affiliate.Admin.Core.MetaModels.Affiliate
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Fanex.Affiliate.Admin.Core.MetaModels.Affiliate
 {
     public class AffiliateInfoParam
     {
@@ -6,7 +8,8 @@
 
         public string AffId { get; set; }
 
-        public int GroupId { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string GroupIds { get; set; }
 
         public string Language { get; set; }
 

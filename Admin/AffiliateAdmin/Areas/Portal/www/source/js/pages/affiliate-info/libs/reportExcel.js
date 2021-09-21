@@ -7,7 +7,8 @@ import {
 } from '../../../modules/excelStyleConstant';
 import {
     headerText,
-    resource
+    resource,
+    defaultColumns
 } from './constants';
 import {
     format,
@@ -18,7 +19,7 @@ const REPORT_TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 2;
 
-const TOTAL_COLUMN = 19;
+const TOTAL_COLUMN = 20;
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
@@ -26,6 +27,7 @@ const fields = {
     Index: 'Index',
     ParentAffName: 'ParentAffName',
     UserName: 'UserName',
+    AffCode: 'AffCode',
     Status: 'Status',
     FirstName: 'FirstName',
     LastName: 'LastName',
@@ -69,7 +71,7 @@ export default class ReportExcel {
     }
 
     _canBindColumn(columnKey) {
-        return columnKey === fields.UserName || columnKey === fields.ParentAffName || !!this.selectedColumnList[columnKey];
+        return defaultColumns.includes(columnKey) || !!this.selectedColumnList[columnKey];
     }
 
     _createReportTitle() {
@@ -139,23 +141,27 @@ export default class ReportExcel {
         }
     }
 
-    _buildDataRow(item, sectionStyleName, columnConfig, rowIndex) {
+    _getValue(item, columnConfig, rowIndex) {
         const fieldName = columnConfig.field;
         let value = fieldName === fields.Index ? rowIndex + 1 : item[fieldName];
 
         if (fieldName === fields.BalanceBf) {
             value = value === null ? resource.NA : formatDecimal(value);
-        } else if (fieldName === fields.Member) {
+        } else if (fieldName === fields.Member || fieldName === fields.NoOfSubAff) {
             value = value === null ? resource.NA : format(value);
-        } else if (fieldName === fields.NoOfSubAff) {
-            value = value === null ? resource.NA : format(value);
-        } else if (fieldName === fields.Language) {
+        }  else if (fieldName === fields.Language) {
             value = this.languageList[value] || '';
         } else if (fieldName === fields.ParentAffName) {
-            value = value || 'N/A';
+            value = value || resource.NA;
         } else if (!value && fieldName === fields.CommissionGroup) {
             value = resource.NA;
         }
+
+        return value;
+    }
+
+    _buildDataRow(item, sectionStyleName, columnConfig, rowIndex) {
+        const value = this._getValue(item, columnConfig, rowIndex);
 
         return {
             t: Excel.getCellType(value),
@@ -198,6 +204,10 @@ export default class ReportExcel {
             width: 150
         }, {
             field: fields.UserName,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+            width: 150
+        }, {
+            field: fields.AffCode,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             width: 150
         }, {

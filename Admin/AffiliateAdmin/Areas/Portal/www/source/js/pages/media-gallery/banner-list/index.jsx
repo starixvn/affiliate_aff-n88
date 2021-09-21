@@ -6,8 +6,9 @@ import AppContainer from './components/AppContainer';
 
 import reducer from './reducers';
 import { configureStore } from '../../../modules/store';
+import { convertListToMutilpleSelected } from '../../../modules/utils';
 import { playerBanner, affiliateBanner } from '../common/libs/constants';
-import { rearrangeCurrencyAndSizeItems } from './libs/utils';
+import { convertCatelogyListByUserTypeToMuptileSelected } from './libs/utils';
 
 export default class App extends React.PureComponent {
     constructor(props) {
@@ -16,23 +17,8 @@ export default class App extends React.PureComponent {
         const { categoryList, subCategoryList, languageList, currencyList, bannerRootUrl, sizeList, affTypeList,
             paramFromHome, subCategoryCasinoList, subCategorySportsbookList, defaultLanguage } = window.initialState;
 
-        const playerCategoryList = categoryList.filter(c => c.UserType === playerBanner).map(item => {
-            return {
-                categoryName: item.CategoryName,
-                key: item.CategoryName,
-                name: item.CategoryName,
-                checked: true
-            };
-        });
-
-        const subAffiliateCategoryList = categoryList.filter(c => c.UserType === affiliateBanner).map(item => {
-            return {
-                categoryName: item.CategoryName,
-                key: item.CategoryName,
-                name: item.CategoryName,
-                checked: true
-            };
-        });
+        const playerCategoryList = convertCatelogyListByUserTypeToMuptileSelected(categoryList, playerBanner);
+        const subAffiliateCategoryList = convertCatelogyListByUserTypeToMuptileSelected(categoryList, affiliateBanner);
 
         const newSubCategoryList = subCategoryList.map(item => {
             return {
@@ -43,16 +29,9 @@ export default class App extends React.PureComponent {
             };
         });
 
-        const newSizeList = rearrangeCurrencyAndSizeItems(sizeList);
-        const newCurrencyList = rearrangeCurrencyAndSizeItems(currencyList);
-
-        const newAffTypeList = affTypeList.map(item => {
-            return {
-                key: item.AffTypeId,
-                name: item.AffTypeName,
-                checked: true
-            };
-        });
+        const newSizeList = convertListToMutilpleSelected(sizeList, 'Name', 'Name', false);
+        const newCurrencyList = convertListToMutilpleSelected(currencyList, 'Name', 'Name', false);
+        const newAffTypeList = convertListToMutilpleSelected(affTypeList, 'AffTypeId', 'AffTypeName');
 
         this.store = configureStore({
             languageList, paramFromHome, categoryList, playerCategoryList, subAffiliateCategoryList, subCategoryList: newSubCategoryList,

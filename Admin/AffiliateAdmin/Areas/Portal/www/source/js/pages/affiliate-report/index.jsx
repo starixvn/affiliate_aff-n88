@@ -5,32 +5,31 @@ import { Provider } from "react-redux";
 import reducer from './reducers';
 import AppContainer from "./components/AppContainer";
 import { configureStore } from '../../modules/store';
+import { convertListToMutilpleSelected } from '../../modules/utils';
 
-const { productList, languageList, currencyList, baseCurrencyList, isProduction, today, isN8B, commGroupList } = window.initialState;
-
-const newProductList = productList.map(p => {
-    return Object.assign({}, p, { Checked: true });
-})
+const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, today, isN8B, commGroupList } = window.initialState;
 
 const language = {};
 for (let languageItem of languageList) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
-const newCurrencyList = currencyList.map(item => {
-    return {
-        key: item.ExchangeId,
-        name: item.Code,
-        checked: true
-    };
-});
+const newProductList = convertListToMutilpleSelected(productList, 'ProductId', 'ProductName')
+const newCurrencyList = convertListToMutilpleSelected(currencyList, 'ExchangeId', 'Code')
+const newPaymentCurrencyList = convertListToMutilpleSelected(paymentCurrencyList, 'ExchangeId', 'Code')
+const newCommGroupList = convertListToMutilpleSelected(commGroupList, 'Id', 'Name')
 
-const commGroup = {};
-for (let commGroupItem of commGroupList) {
-    commGroup[commGroupItem.Id] = commGroupItem.Name;
-}
-
-const store = configureStore({ productList: newProductList, commGroupList: commGroup, languageList: language, today, currencyList: newCurrencyList, baseCurrencyList, isProduction, isN8B }, reducer);
+const store = configureStore({
+    productList: newProductList,
+    commGroupList: newCommGroupList,
+    languageList: language,
+    today,
+    currencyList: newCurrencyList,
+    baseCurrencyList,
+    paymentCurrencyList: newPaymentCurrencyList,
+    isProduction,
+    isN8B
+}, reducer);
 
 export default class App extends React.Component {
     constructor(props) {

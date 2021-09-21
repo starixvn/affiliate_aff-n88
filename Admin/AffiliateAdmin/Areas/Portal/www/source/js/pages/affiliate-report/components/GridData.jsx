@@ -1,4 +1,4 @@
-﻿import React, { PureComponent } from 'react';
+﻿import React, { PureComponent, createRef, Fragment } from 'react';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -10,7 +10,7 @@ import { setPagingOption, setViewLevel, setParam } from '../actions';
 import { post } from '../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { globalResource } from '../../../modules/globalResource';
-import { allProduct, viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../modules/constants';
+import { viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../modules/constants';
 
 export class GridData extends PureComponent {
     constructor(props) {
@@ -25,7 +25,7 @@ export class GridData extends PureComponent {
             total: null
         }
 
-        this.tableHeight = window.innerHeight - 275;
+        this.tableRef = createRef();
     }
 
     componentDidUpdate(prevProps) {
@@ -59,6 +59,7 @@ export class GridData extends PureComponent {
     }
 
     async fetchData(param) {
+        this._resetScroll();
         this.props.toggleLoader(true);
         const isMainView = this._isMainView();
         const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
@@ -81,19 +82,20 @@ export class GridData extends PureComponent {
         const firstColName = isMainView ? headerText.UserName : headerText.MonthDateString;
 
         return [
-            <tr className="feeze-row feeze-row-h1" key="thead-1">
-                <th className="freeze-column-header" width={100} rowSpan="2" title={firstColName}>{firstColName}</th>
-                <th width={50} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</th>
-                <th width={50} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</th>
-                <th width={50} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</th>
-                <th width={50} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</th>
-                <th width={50} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
-                <th width={50} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
-                <th colSpan="11" title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
+            <tr className="freeze-row freeze-row-h1" key="thead-1">
+                <th className="freeze-column-header" width={110} rowSpan="2" title={firstColName}>{firstColName}</th>
+                {isMainView && (<th width={70} rowSpan="2" title={headerText.PaymentCurrency}>{headerText.PaymentCurrency}</th>)}
+                <th width={60} rowSpan="2" title={headerText.TotalClick}>{headerText.TotalClick}</th>
+                <th width={55} rowSpan="2" title={headerText.UniqueClick}>{headerText.UniqueClick}</th>
+                <th width={55} rowSpan="2" title={headerText.Signup}>{headerText.Signup}</th>
+                <th width={55} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</th>
+                <th width={55} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
+                <th width={65} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
+                <th colSpan="11" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
-                {isMainView && (<th width={50} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
+                {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
             </tr>,
-            <tr className="feeze-row feeze-row-h2" key="thead-2">
+            <tr className="freeze-row freeze-row-h2" key="thead-2">
                 <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
                 <th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>
                 <th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>
@@ -122,9 +124,9 @@ export class GridData extends PureComponent {
         const dataRows = [];
 
         if (dataList.length) {
-            const { param } = this.props;
+            const { productList } = this.props;
 
-            const isSelectedAllProducts = param.ProductIds === allProduct;
+            const isSelectedAllProducts = productList.every(p => p.checked);
             const productColumnClassName = isSelectedAllProducts ? 'text-right' : 'text-right highlight';
 
             for (let i = 0; i < dataList.length; i++) {
@@ -134,7 +136,7 @@ export class GridData extends PureComponent {
         }
         else {
             dataRows.push(<tr key="no-info">
-                <td className="text-center" colSpan={26 + Number(this._isMainView())}>{globalResource.NoInfo}</td>
+                <td className="text-center" colSpan={25 + (this._isMainView() ? 3 : 0)}>{globalResource.NoInfo}</td>
             </tr>);
         }
 
@@ -143,7 +145,7 @@ export class GridData extends PureComponent {
 
     _buildDataRow(dataItem, productColumnClassName, index) {
         const isMainView = this._isMainView();
-        const isTotalRow = isMainView ? (dataItem.AffId === 0 && dataItem.UserName === "") : (dataItem.MonthDate === null);
+        const isTotalRow = isMainView ? (dataItem.AffId === 0 && dataItem.UserName === null) : (dataItem.MonthDateString === "");
         const firstColValue = isTotalRow ?
             totalText :
             (isMainView ? dataItem.UserName : this._buildMonthCell(dataItem.MonthDateString, dataItem.Description));
@@ -151,15 +153,7 @@ export class GridData extends PureComponent {
         return (
             <tr key={`dataRow-${index}`}>
                 <td className="freeze-column" title={firstColValue}>{firstColValue}</td>
-                {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow)}
-                {
-                    isMainView && (
-                        <td className="text-center">
-                            {dataItem.AffId > 0 ? (
-                                <Button color="link" className="p-0"
-                                    onClick={() => this.handleViewMonthOnMonth(dataItem.UserName)}>View</Button>) : ''}
-                        </td>)
-                }
+                {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView)}
             </tr>
         )
     }
@@ -168,7 +162,7 @@ export class GridData extends PureComponent {
         return description ? `${monthDate} (${description})` : monthDate;
     }
 
-    _buildCommonCell(dataItem, productColumnClassName, isTotalRow) {
+    _buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView) {
         const totalClick = format(dataItem.TotalClick);
         const uniqueClick = format(dataItem.UniqueClick);
         const signup = format(dataItem.Signup);
@@ -191,12 +185,14 @@ export class GridData extends PureComponent {
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
-        const commRate = this._isMainView() && isTotalRow ? 'N/A' : formatDecimal(dataItem.CommissionRate) + '%';
+        const commRate = isMainView && isTotalRow ? 'N/A' : formatDecimal(dataItem.CommissionRate) + '%';
         const subAffEarning = formatDecimal(dataItem.SubAffEarning);
         const totalEarning = formatDecimal(dataItem.TotalEarning);
+        const paymentCurrency = isTotalRow ? '' : dataItem.PaymentCurrency;
 
         return (
             <React.Fragment>
+                {isMainView && (<td className="text-center" title={paymentCurrency}>{paymentCurrency}</td>)}
                 <td className="text-right" title={totalClick}>{totalClick}</td>
                 <td className="text-right" title={uniqueClick}>{uniqueClick}</td>
                 <td className="text-right" title={signup}>{signup}</td>
@@ -220,8 +216,16 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={subAffEarning}>{subAffEarning}</td>
                 <td className="text-right" title={totalEarning}>{totalEarning}</td>
                 <td className="text-right" title={affWithdrawal}>{affWithdrawal}</td>
-                {this._isMainView() && (<td className="text-right" title={affAdjustment}>{affAdjustment}</td>)}
+                {isMainView && (<td className="text-right" title={affAdjustment}>{affAdjustment}</td>)}
                 <td className="text-right" title={balanceBf}>{balanceBf}</td>
+                {
+                    isMainView && (
+                        <td className="text-center">
+                            {dataItem.AffId > 0 ? (
+                                <Button color="link" className="p-0"
+                                    onClick={() => this.handleViewMonthOnMonth(dataItem.UserName)}>View</Button>) : ''}
+                        </td>)
+                }
             </React.Fragment>
         )
     }
@@ -239,6 +243,8 @@ export class GridData extends PureComponent {
 
         this.props.setViewLevel(viewLevel.monthOnMonth);
         this.props.setParam(postParam);
+
+        this._resetScroll();
     }
 
     handlePaging = (index, size) => {
@@ -252,12 +258,19 @@ export class GridData extends PureComponent {
         this.fetchData(newParam);
     }
 
+    _resetScroll = () => {
+        if (!!this.tableRef.current) {
+            this.tableRef.current.scrollTop = 0;
+            this.tableRef.current.scrollLeft = 0;
+        }
+    }
+
     render() {
         const { gridData, total } = this.state;
 
         return gridData && (
-            <React.Fragment>
-                <div className="table-responsive report-table-container" style={{ 'max-height': this.tableHeight }}>
+            <Fragment>
+                <div className="table-responsive report-table-container" style={{ 'max-height': (window.innerHeight || 775) - 275 }} ref={this.tableRef}>
                     <Table className="freeze-table">
                         <thead>
                             {
@@ -277,17 +290,17 @@ export class GridData extends PureComponent {
                 <Pager
                     pageOption={this.props.pagingOption}
                     onPaging={this.handlePaging} />
-            </React.Fragment>
+            </Fragment>
         );
     }
 }
 
-function mapStateToProps({ pagingOption, param, currentViewLevel }) {
-    return Object.assign({}, { pagingOption, param, currentViewLevel });
+function mapStateToProps({ pagingOption, param, currentViewLevel, productList }) {
+    return Object.assign({}, { pagingOption, param, currentViewLevel, productList });
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(GridData);
+export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(GridData);

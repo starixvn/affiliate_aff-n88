@@ -69,7 +69,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
         {
             objectDb.AddInParameter("AffCode", DbType.String, param.AffId);
             objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("GroupID", DbType.Int32, param.GroupId);
+            objectDb.AddInParameter("GroupIds", DbType.String, param.GroupIds);
             objectDb.AddInParameter("PreferredLanguage", DbType.String, param.Language);
             objectDb.AddInParameter("Status", DbType.String, param.Status);
             objectDb.AddInParameter("ParentAffName", DbType.String, param.ParentAffName);
@@ -90,6 +90,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
             return new AffiliateInfo
             {
                 AffId =reader.ToInt(Field.AffId),
+                AffCode =reader.ToInt("AffCode"),
                 UserName = reader.ToString("Username"),
                 Status = reader.ToString("Status"),
                 FirstName = reader.ToString("FirstName"),

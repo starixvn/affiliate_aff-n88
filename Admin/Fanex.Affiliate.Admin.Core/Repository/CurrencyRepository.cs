@@ -11,8 +11,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(spKey))
             {
-                var currencies = objectDb.Query<Currency>();
-                return currencies;
+                return objectDb.Query<Currency>();
             }
         }
 
@@ -22,8 +21,17 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(spKey))
             {
-                var currencies = objectDb.Query<Currency>();
-                return currencies;
+                return objectDb.Query<Currency>();
+            }
+        }
+
+        public IEnumerable<Currency> GetPaymentCurrencies()
+        {
+            const string spKey = "Aff_PaymentCurrency_Sel";
+
+            using (var objectDb = GetObjectDb(spKey))
+            {
+                return objectDb.Query<Currency>();
             }
         }
     }

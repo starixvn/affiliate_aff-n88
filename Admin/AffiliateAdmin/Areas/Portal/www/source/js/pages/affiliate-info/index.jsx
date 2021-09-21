@@ -5,21 +5,23 @@ import { Provider } from 'react-redux';
 import reducer from './reducers';
 import AppContainer from './components/AppContainer';
 import { configureStore } from '../../modules/store';
-import { headerText } from './libs/constants';
+import { headerText, defaultColumns } from './libs/constants';
+import { convertListToMutilpleSelected, handleChangeMultipleSelected } from '../../modules/utils';
 
-const commGroupList = [...window.initialState.commGroupList];
-const commGroup = {};
-for (let commGroupItem of commGroupList) {
-    commGroup[commGroupItem.Id] = commGroupItem.Name;
+const { commGroupList, languageList, groupId, param } = window.initialState;
+
+let newCommGroupList = convertListToMutilpleSelected(commGroupList, 'Id', 'Name');
+
+if (!!groupId) {
+    newCommGroupList = handleChangeMultipleSelected(newCommGroupList, groupId.toString());
 }
 
-const languageList = [...window.initialState.languageList];
 const language = {};
 for (let languageItem of languageList) {
     language[languageItem.LanguageCode] = languageItem.LanguageName;
 }
 
-const filteredColumnList = Object.keys(headerText).filter(c => c !== 'UserName' && c !== 'Password')
+const filteredColumnList = Object.keys(headerText).filter(c => !defaultColumns.includes(c))
 const columnList = filteredColumnList.map(item => {
     return {
         columnKey: item,
@@ -28,9 +30,7 @@ const columnList = filteredColumnList.map(item => {
     }
 });
 
-const { groupId, param } = window.initialState;
-
-const store = configureStore({ languageList: language, commGroupList: commGroup, groupId, param, columnList }, reducer);
+const store = configureStore({ languageList: language, commGroupList: newCommGroupList, groupId, param, columnList }, reducer);
 
 export default class App extends Component {
     constructor(props) {

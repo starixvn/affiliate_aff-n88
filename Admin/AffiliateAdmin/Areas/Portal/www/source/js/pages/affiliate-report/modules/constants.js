@@ -16,8 +16,6 @@ export const sortByMonthOnMonthView = Object.assign({}, {
     Month: 1
 }, sortByCommon);
 
-export const allProduct = '0';
-
 export const viewLevel = {
     main: 1,
     monthOnMonth: 2
@@ -30,14 +28,10 @@ export const sortDirectionType = {
 
 export const totalText = 'Total (all pages)';
 
-export const allCommGroups = {
-    Id: 0,
-    Name: 'All Revenue Groups'
-};
-
 export const headerText = {
     UserName: 'Affiliate',
     MonthDateString: 'Month',
+    PaymentCurrency: 'Linked Account Currency',
     TotalClick: 'Total Click',
     UniqueClick: 'Unique Click',
     Signup: 'Signup',

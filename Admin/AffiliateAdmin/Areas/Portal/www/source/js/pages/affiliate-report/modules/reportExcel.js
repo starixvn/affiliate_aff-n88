@@ -7,15 +7,25 @@ const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
 const DATA_ROW_INDEX = 3;
 
-const TOTAL_COLUMN = 26;
+const MAIN_VIEW = {
+    TOTAL_COLUMN: 27,
+    INDEX_PLAYER_STATISTICS_COLUMN: 8,
+    INDEX_AFFILIATE_STATISTICS_COLUMN: 9,
+    INDEX_DEPOSIT_COLUMN: 8,
+    INDEX_COMM_COLUMN: 19,
+    COLSPAN_PLAYER_STATISTICS: 11,
+    COLSPAN_AFFILIATE_STATISTICS: 8
+}
 
-const INDEX_MEMBER_STATISTICS_COLUMN = 7;
-const INDEX_AFFILIATE_STATISTICS_COLUMN = 8;
-
-const INDEX_DEPOSIT_COLUMN = 7;
-const COLSPAN_MEMBER_STATISTICS = 11;
-const INDEX_COMM_COLUMN = 18;
-const COLSPAN_AFFILIATE_STATISTICS = 8;
+const DETAIL_VIEW = {
+    TOTAL_COLUMN: 25,
+    INDEX_PLAYER_STATISTICS_COLUMN: 7,
+    INDEX_AFFILIATE_STATISTICS_COLUMN: 8,
+    INDEX_DEPOSIT_COLUMN: 7,
+    INDEX_COMM_COLUMN: 18,
+    COLSPAN_PLAYER_STATISTICS: 11,
+    COLSPAN_AFFILIATE_STATISTICS: 7
+}
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
@@ -24,6 +34,7 @@ const fields = {
     UserName: 'UserName',
     Description: 'Description',
     MonthDateString: 'MonthDateString',
+    PaymentCurrency: 'PaymentCurrency',
     TotalClick: 'TotalClick',
     UniqueClick: 'UniqueClick',
     Signup: 'Signup',
@@ -61,7 +72,7 @@ export default class ReportExcel {
         this.currentRowIndex = DATA_ROW_INDEX;
         this.mergeConfig = [];
         this.columnConfigs = this._getcolumnConfigs(isMainView);
-        this.totalColumn = isMainView ? TOTAL_COLUMN : TOTAL_COLUMN - 1;
+        this.viewInfo = isMainView ? MAIN_VIEW : DETAIL_VIEW;
     }
 
     export() {
@@ -84,7 +95,7 @@ export default class ReportExcel {
             },
             e: {
                 r: TITLE_ROW_INDEX,
-                c: this.totalColumn - 1
+                c: this.viewInfo.TOTAL_COLUMN - 1
             }
         });
         const address = Excel.getCellAddress({
@@ -99,13 +110,14 @@ export default class ReportExcel {
     }
 
     _createHeader() {
-        const colSpanAffStatistics = this.isMainView ? COLSPAN_AFFILIATE_STATISTICS : COLSPAN_AFFILIATE_STATISTICS - 1;
-        const length = this.columnConfigs.length - (COLSPAN_MEMBER_STATISTICS - 1) - (colSpanAffStatistics - 1);
+        const colspanPlayerStatistics = this.viewInfo.COLSPAN_PLAYER_STATISTICS;
+        const colspanAffiliateStatistics = this.viewInfo.COLSPAN_AFFILIATE_STATISTICS;
+        const length = this.columnConfigs.length - (colspanPlayerStatistics - 1) - (colspanAffiliateStatistics - 1);
         for (let i = 0; i < length; i++) {
-            if (i === INDEX_MEMBER_STATISTICS_COLUMN) {
-                this._buildColspanColumn(HEADER_ROW_INDEX, INDEX_DEPOSIT_COLUMN, COLSPAN_MEMBER_STATISTICS, headerText.MemberStatistics);
-            } else if (i === INDEX_AFFILIATE_STATISTICS_COLUMN) {
-                this._buildColspanColumn(HEADER_ROW_INDEX, INDEX_COMM_COLUMN, colSpanAffStatistics, headerText.AffiliateStatistics);
+            if (i === this.viewInfo.INDEX_PLAYER_STATISTICS_COLUMN) {
+                this._buildColspanColumn(HEADER_ROW_INDEX, this.viewInfo.INDEX_DEPOSIT_COLUMN, colspanPlayerStatistics, headerText.MemberStatistics);
+            } else if (i === this.viewInfo.INDEX_AFFILIATE_STATISTICS_COLUMN) {
+                this._buildColspanColumn(HEADER_ROW_INDEX, this.viewInfo.INDEX_COMM_COLUMN, colspanAffiliateStatistics, headerText.AffiliateStatistics);
             } else {
                 const fieldName = this.columnConfigs[i].field;
                 let address = Excel.getCellAddress({
@@ -184,7 +196,8 @@ export default class ReportExcel {
                 item.MonthDateString = Description ? `${MonthDateString} (${Description})` : MonthDateString;
             }
 
-            for (let j = 0; j < this.totalColumn; j++) {
+            const totalColumn = this.viewInfo.TOTAL_COLUMN;
+            for (let j = 0; j < totalColumn; j++) {
                 const address = Excel.getCellAddress({
                     c: j,
                     r: this.currentRowIndex
@@ -202,14 +215,16 @@ export default class ReportExcel {
         if (totalData) {
             const customTotalData = this.isMainView ? {
                 [fields.UserName]: totalText,
+                [fields.PaymentCurrency]: '',
                 [fields.CommissionRate]: "N/A"
             } : {
-                    [fields.MonthDateString]: totalText,
-                    [fields.CommissionRate]: formatDecimal(totalData.CommissionRate) + '%'
-                }
+                [fields.MonthDateString]: totalText,
+                [fields.CommissionRate]: formatDecimal(totalData.CommissionRate) + '%'
+            }
             const total = Object.assign({}, totalData, customTotalData);
 
-            for (let j = 0; j < this.totalColumn; j++) {
+            const totalColumn = this.viewInfo.TOTAL_COLUMN;
+            for (let j = 0; j < totalColumn; j++) {
                 const address = Excel.getCellAddress({
                     c: j,
                     r: this.currentRowIndex
@@ -238,7 +253,7 @@ export default class ReportExcel {
         });
         const cellEnd = Excel.getCellAddress({
             r: this.currentRowIndex,
-            c: TOTAL_COLUMN
+            c: this.viewInfo.TOTAL_COLUMN
         });
 
         this.worksheet["!merges"] = this.mergeConfig;
@@ -246,28 +261,7 @@ export default class ReportExcel {
         this.worksheet['!cols'] = [{
             wpx: 150
         }, {
-            wpx: 100
-        }, {
-            wpx: 100
-        }, {
-            wpx: 100
-        }, {
-            wpx: 100
-        }, {
-            wpx: 100
-        }, {
-            wpx: 100
-        },
-        {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 120
-        }, {
-            wpx: 100
+            wpx: 150
         }, {
             wpx: 120
         }, {
@@ -282,11 +276,34 @@ export default class ReportExcel {
             wpx: 120
         },
         {
-            wpx: 100
+            wpx: 120
+        }, {
+            wpx: 120
         }, {
             wpx: 120
         }, {
             wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 120
+        },
+        {
+            wpx: 120
+        }, {
+            wpx: 120
+        }, {
+            wpx: 140
         }, {
             wpx: 140
         }, {
@@ -294,7 +311,7 @@ export default class ReportExcel {
         }, {
             wpx: 120
         }, {
-            wpx: 120
+            wpx: 150
         }, {
             wpx: 150
         }
@@ -306,6 +323,11 @@ export default class ReportExcel {
             field: isMainView ? fields.UserName : fields.MonthDateString,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
             [TOTAL_SECTION_STYLE]: totalCellStyle.default
+        },
+        {
+            field: fields.PaymentCurrency,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.center,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.center
         },
         {
             field: fields.TotalClick,
@@ -381,7 +403,7 @@ export default class ReportExcel {
             field: fields.DepositFee,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-            },
+        },
         {
             field: fields.WithdrawalFee,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
@@ -421,22 +443,23 @@ export default class ReportExcel {
             field: fields.AffWithdrawal,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        }
-        ];
-
-        if (isMainView) {
-            columnConfigList.push({
-                field: fields.AffAdjustment,
-                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
-                [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-            })
-        }
-
-        columnConfigList.push({
+        },
+        {
+            field: fields.AffAdjustment,
+            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
+        },
+        {
             field: fields.BalanceBf,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
-        });
+        }
+        ];
+
+        if (!isMainView) {
+            columnConfigList.splice(1, 1);
+            columnConfigList.splice(24, 1);
+        }
 
         return columnConfigList;
     }

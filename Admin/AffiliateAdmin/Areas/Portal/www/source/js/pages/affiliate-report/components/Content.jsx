@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -14,6 +14,8 @@ import { post } from '../../../modules/ajaxRequest';
 export class Content extends Component {
     constructor(props) {
         super(props);
+
+        this.gridDataRef = createRef();
     }
 
     shouldComponentUpdate(nextProps) {
@@ -23,6 +25,7 @@ export class Content extends Component {
     }
 
     handleClickBreadcrumb = () => {
+        this.gridDataRef.current._resetScroll();
         this.props.setViewLevel(viewLevel.main);
     }
 
@@ -52,13 +55,13 @@ export class Content extends Component {
                 </button>
             </div>
         ) : (
-                <div className="d-flex align-items-center">
-                    <a href="javascript:;" className="btn-link font-weight-bold" onClick={this.handleClickBreadcrumb}>AFFILIATE REPORT</a>&nbsp;&gt; {reportTitle}
-                    <button type="button" className="ml-auto btn btn-link btn-excel" onClick={this.handleExportExcel} title="Export Excel">
-                        <span className="oi icon-excel"></span>
-                    </button>
-                </div>
-            )
+            <div className="d-flex align-items-center">
+                <a href="javascript:;" className="btn-link font-weight-bold" onClick={this.handleClickBreadcrumb}>AFFILIATE REPORT</a>&nbsp;&gt; {reportTitle}
+                <button type="button" className="ml-auto btn btn-link btn-excel" onClick={this.handleExportExcel} title="Export Excel">
+                    <span className="oi icon-excel"></span>
+                </button>
+            </div>
+        )
     }
 
     render() {
@@ -80,7 +83,7 @@ export class Content extends Component {
                         </React.Fragment>
                     )
                 }
-                <GridData />
+                <GridData ref={this.gridDataRef} />
             </div>
         );
     }
