@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.Admin.Core.Attributes;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
 using Fanex.Affiliate.Admin.Core.Extensions;
@@ -12,6 +13,7 @@ using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 {
+    [FunctionAuthorize(FunctionName = Function.AffReport)]
     public class PlayerGgrReportController : BaseController
     {
         private readonly IProductRepository _productRepository;
