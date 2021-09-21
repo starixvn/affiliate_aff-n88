@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Table, Button } from 'reactstrap';
 import { Pager } from '@9softstudio/react-fixed-table-header';
+import { Link } from 'react-router-dom'
 
 import { format, formatDecimal } from '../../../../modules/numberFormat';
 import { setPagingOption, setViewLevel, setParam } from '../actions';
 import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
+import { resolveClientUrl } from '../../../../modules/utils';
 import { viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../libs/constants';
 
 export class GridData extends PureComponent {
@@ -94,6 +96,7 @@ export class GridData extends PureComponent {
                 <th colSpan="11" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
+                {isMainView && (<th width={55} rowSpan="2" title={headerText.PlayerGgr}>{headerText.PlayerGgr}</th>)}
             </tr>,
             <tr className="freeze-row freeze-row-h2" key="thead-2">
                 <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
@@ -226,15 +229,23 @@ export class GridData extends PureComponent {
                                     onClick={() => this.handleViewMonthOnMonth(dataItem.UserName)}>View</Button>) : ''}
                         </td>)
                 }
+                {
+                    isMainView && (
+                        <td className="text-center">
+                            {dataItem.AffId > 0 ? (
+                                <Button color="link" className="p-0"
+                                    onClick={() => this.handleViewPlayerGgrReport(dataItem.UserName)}>View</Button>) : ''}
+                        </td>)
+                }
             </React.Fragment>
         )
     }
 
-    handleViewMonthOnMonth = (UserName) => {
+    handleViewMonthOnMonth = (userName) => {
         const { param, pagingOption } = this.props;
 
         const postParam = Object.assign({}, param, {
-            UserName,
+            UserName: userName,
             SortType: sortByMonthOnMonthView.Month,
             SortDirectionType: sortDirectionType.descending,
             PageIndex: 1,
@@ -247,14 +258,29 @@ export class GridData extends PureComponent {
         this._resetScroll();
     }
 
+    handleViewPlayerGgrReport = (userName) => {
+        const { param } = this.props;
+
+        const paramFromAffReport = {
+            affName: userName,
+            baseCurrencyId: param.BaseCurrencyId,
+            fromDate: param.FromDate,
+            toDate: param.ToDate,
+            productIds: param.ProductIds
+        };
+
+        document.cookie = `paramFromAffReport=${JSON.stringify(paramFromAffReport)}; path=/Portal/PlayerGgrReport`;
+
+        globalThis.open(resolveClientUrl("Portal/PlayerGgrReport"), '_blank');
+    }
+
     handlePaging = (index, size) => {
         const newPaging = {
             PageIndex: index,
             PageSize: size
         };
-        this.props.setPagingOption(newPaging);
-
         const newParam = Object.assign({}, this.props.param, newPaging);
+
         this.fetchData(newParam);
     }
 

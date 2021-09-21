@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../../components/multiple-select';
 import { DatePicker } from '@9softstudio/react-datepicker';
 import { setReportTitle, setParam, setProductList } from '../actions';
-import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate } from '../../../../modules/utils';
+import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate, getCookie } from '../../../../modules/utils';
 import { minDate, sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
 
@@ -15,25 +15,51 @@ export class Filter extends Component {
         super(props);
 
         const { today, productList, baseCurrencyList } = this.props;
-
         const now = new Date(today);
         this.nowString = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
-
         const sixMonthAgo = new Date(today);
         sixMonthAgo.setMonth(sixMonthAgo.getMonth() - 6);
 
-        this.state = {
+        let initialState = {
             affName: '',
             playerName: '',
             fromDate: sixMonthAgo < minDate ? '01/01/2020' : `${sixMonthAgo.getMonth() + 1}/${sixMonthAgo.getDate()}/${sixMonthAgo.getFullYear()}`,
             toDate: this.nowString,
-            selectedProductList: productList.filter(item => item.checked).map(item => item.key).join(',') || '',
+            productList,
+            selectedProductList: productList.filter(item => item.checked).map(item => item.key).join(','),
             selectedBaseCurrency: baseCurrencyList.length && baseCurrencyList[0].ExchangeId || defaultBaseCurrency,
+            isFromAffReport: false
         }
+
+        const paramFromAffReport = getCookie('paramFromAffReport');
+        if (paramFromAffReport !== '') {
+            const param = JSON.parse(paramFromAffReport);
+
+            initialState = {
+                ...initialState,
+                affName: param.affName,
+                fromDate: param.fromDate,
+                productList: handleChangeMultipleSelected(productList, param.productIds),
+                selectedProductList: param.productIds,
+                selectedBaseCurrency: param.baseCurrencyId,
+                isFromAffReport: true
+            }
+
+            const toDate = new Date(param.toDate);
+            const maxDateOfMonth = new Date(toDate.getFullYear(), toDate.getMonth() + 1, 0);
+
+            if (maxDateOfMonth < today) {
+                initialState.toDate = `${maxDateOfMonth.getMonth() + 1}/${maxDateOfMonth.getDate()}/${maxDateOfMonth.getFullYear()}`
+            }
+        }
+
+        this.state = initialState;
+
+        document.cookie = `paramFromAffReport=; path=/Portal/PlayerGgrReport`;
     }
 
-    componentDidUpdate(prevProps) {
-        const { } = this.props;
+    componentDidMount() {
+        this.state.isFromAffReport && this.handleClickSearch();
     }
 
     handlePressEnter = (event) => {
@@ -51,9 +77,7 @@ export class Filter extends Component {
     }
 
     handleChangeProduct = (item, selectedProductList) => {
-        this.setState({ selectedProductList });
-
-        this.props.setProductList(handleChangeMultipleSelected(this.props.productList, selectedProductList));
+        this.setState(({ productList }) => ({ selectedProductList, productList: handleChangeMultipleSelected(productList, selectedProductList) }));
     }
 
     handleChange = (event) => {
@@ -63,7 +87,7 @@ export class Filter extends Component {
     }
 
     handleClickSearch = () => {
-        const { selectedProductList, selectedBaseCurrency, fromDate, toDate, affName, playerName } = this.state;
+        const { selectedProductList, selectedBaseCurrency, fromDate, toDate, affName, playerName, productList } = this.state;
         const { pagingOption } = this.props;
 
         this._updateReportTitle();
@@ -79,6 +103,7 @@ export class Filter extends Component {
             PageSize: pagingOption.PageSize
         }
 
+        this.props.setProductList(productList);
         this.props.setParam(param);
     }
 
@@ -89,8 +114,8 @@ export class Filter extends Component {
     }
 
     _buildReportTitle() {
-        const { productList, baseCurrencyList } = this.props;
-        const { fromDate, toDate, affName, playerName, selectedBaseCurrency } = this.state;
+        const { baseCurrencyList } = this.props;
+        const { fromDate, toDate, affName, playerName, selectedBaseCurrency, productList } = this.state;
 
         const affNameTitle = `${affName && '- Username contains \'' + affName + '\''}`;
         const playerNameTitle = `${playerName && '- Username contains \'' + playerName + '\''}`;
@@ -104,22 +129,24 @@ export class Filter extends Component {
     }
 
     render() {
-        const { productList, baseCurrencyList, isProduction } = this.props;
-        const { selectedBaseCurrency, fromDate, toDate, affName, playerName } = this.state;
+        const { baseCurrencyList, isProduction } = this.props;
+        const { productList, selectedBaseCurrency, fromDate, toDate, affName, playerName } = this.state;
+
+        console.log(this.state);
 
         return (
             <div className="filter-container">
                 <Form inline tag="div">
                     <FormGroup className="my-sm-1 mr-sm-2">
                         <Label for="Affiliate" className="mr-sm-2">Affiliate</Label>
-                        <Input type="text" name="affName" id="Affiliate"
+                        <Input type="text" name="affName" id="Affiliate" maxLength="30"
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange}
                             value={affName} />
                     </FormGroup>
                     <FormGroup className="my-sm-1 mr-sm-2">
                         <Label for="Player" className="mr-sm-2">Player</Label>
-                        <Input type="text" name="playerName" id="Player"
+                        <Input type="text" name="playerName" id="Player" maxLength="30"
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange}
                             value={playerName} />

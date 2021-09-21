@@ -4,7 +4,7 @@ export const resolveClientUrl = (relativeUrl) => {
     return _rootUrl + relativeUrl;
 }
 
-const getCookie = (cookieName) => {
+export const getCookie = (cookieName) => {
     const name = cookieName + "=";
     const decodedCookie = decodeURIComponent(document.cookie);
     const cookies = decodedCookie.split(';');

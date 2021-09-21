@@ -59,5 +59,6 @@ export const headerText = {
     BalanceBf: 'Balance B/F',
     MemberStatistics: 'Player Statistics',
     AffiliateStatistics: 'Affiliate Statistics',
-    MonthOnMonth: 'Month on Month'
+    MonthOnMonth: 'Month on Month',
+    PlayerGgr: 'Player GGR'
 }

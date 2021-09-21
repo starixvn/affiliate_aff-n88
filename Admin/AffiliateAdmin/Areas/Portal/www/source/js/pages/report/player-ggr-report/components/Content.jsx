@@ -29,16 +29,17 @@ export class Content extends Component {
 
     handleExportExcel = async () => {
         this.props.toggleLoader(true);
-        const { param, reportTitle, currentViewLevel } = this.props;
-        const isMainView = currentViewLevel === viewLevel.main;
-        const url = `Portal/Report/${isMainView ? 'GetMainData' : 'GetDetailData'}`;
+        const { param, reportTitle } = this.props;
+        const url = `Portal/Report/GetMainData`;
         const postData = Object.assign({}, param, { IsExportExcel: true });
-        const response = await post(url, postData);
+        //const response = await post(url, postData);
         // if (response && response.status === 200) {
         //     const reportExcel = new ReportExcel(response.data, reportTitle, isMainView);
         //     reportExcel.export();
         // }
         this.props.toggleLoader(false);
+
+        console.log(this.reportTitleRef);
     }
 
     _buildReportTitle() {
@@ -55,7 +56,7 @@ export class Content extends Component {
     }
 
     render() {
-        const { reportTitle, isN8B } = this.props;
+        const { reportTitle } = this.props;
 
         return (
             <div className="data-content my-2 report-content-container">

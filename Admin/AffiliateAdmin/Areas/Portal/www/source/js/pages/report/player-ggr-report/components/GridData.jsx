@@ -10,7 +10,7 @@ import { setPagingOption, setViewLevel, setParam } from '../actions';
 import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
-import { totalText, headerText } from '../libs/constants';
+import { totalText, headerText, defaultGgrProductReport } from '../libs/constants';
 
 export class GridData extends PureComponent {
     constructor(props) {
@@ -28,15 +28,14 @@ export class GridData extends PureComponent {
         const { param } = this.props;
 
         if (!!param && param !== prevProps.param) {
-            //this.fetchData(param);
-            this.setState({gridData: []})
+            this.fetchData(param);
         }
     }
 
     async fetchData(param) {
         this._resetScroll();
         this.props.toggleLoader(true);
-        const url = 'Portal/PlayerGgrReport/GetPlayerGgrReport';
+        const url = 'Portal/PlayerGgrReport/GetPlayerGgrReportData';
         const response = await post(url, param);
 
         if (response && response.status === 200) {
@@ -62,8 +61,8 @@ export class GridData extends PureComponent {
             <tr className="freeze-row freeze-row-h1" key="thead-1">
                 <th className="freeze-column-header freeze-column-header-0" width={120} rowSpan="2" title={headerText.AffName}>{headerText.AffName}</th>
                 <th className="freeze-column-header freeze-column-header-1" width={120} rowSpan="2" title={headerText.PlayerName}>{headerText.PlayerName}</th>
-                <th width={120} rowSpan="2" title={headerText.RegistrationDate}>{headerText.RegistrationDate}</th>
-                <th width={120} rowSpan="2" title={headerText.FdmDate}>{headerText.FdmDate}</th>
+                <th width={120} rowSpan="2" title={headerText.RegistrationDateText}>{headerText.RegistrationDateText}</th>
+                <th width={120} rowSpan="2" title={headerText.FdmDateText}>{headerText.FdmDateText}</th>
                 <th width={200} colSpan="2" height={28} title={headerText.AllSelectedProducts}>{headerText.AllSelectedProducts}</th>
                 {
                     selectedProducts.map(item => {
@@ -90,7 +89,6 @@ export class GridData extends PureComponent {
         const dataRows = [];
 
         if (dataList.length) {
-
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
                 dataRows.push(this._buildDataRow(dataItem, i, selectedProducts));
@@ -106,7 +104,7 @@ export class GridData extends PureComponent {
     }
 
     _buildDataRow(dataItem, index, selectedProducts) {
-        const isTotalRow = !!dataItem.AffName === null;
+        const isTotalRow = !dataItem.AffName && !dataItem.PlayerName;
         const totalTurnover = formatDecimal(dataItem.TotalTurnover);
         const totalGgr = formatDecimal(dataItem.TotalGgr);
 
@@ -114,7 +112,7 @@ export class GridData extends PureComponent {
             <tr key={`dataRow-${index}`}>
                 {
                     isTotalRow ? (
-                        <td className="freeze-column freeze-column-0 text-right" title={totalText}>{totalText}</td>
+                        <td className="freeze-column freeze-column-0 text-right" colSpan="2" title={totalText}>{totalText}</td>
                     ) : (
                         <Fragment>
                             <td className="freeze-column freeze-column-0" title={dataItem.AffName}>{dataItem.AffName}</td>
@@ -122,8 +120,8 @@ export class GridData extends PureComponent {
                         </Fragment>
                     )
                 }
-                <td className="text-center" title={dataItem.RegistrationDate}>{dataItem.RegistrationDate}</td>
-                <td className="text-center" title={dataItem.FdmDate}>{dataItem.FdmDate}</td>
+                <td className="text-center" title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</td>
+                <td className="text-center" title={dataItem.FdmDateText}>{dataItem.FdmDateText}</td>
                 <td className="text-right" title={totalTurnover}>{totalTurnover}</td>
                 <td className="text-right" title={totalGgr}>{totalGgr}</td>
                 {this._buildProductCells(dataItem.ProductReportList, selectedProducts)}
@@ -133,7 +131,7 @@ export class GridData extends PureComponent {
 
     _buildProductCells(productReportList, selectedProducts) {
         return selectedProducts.map(item => {
-            const info = productReportList[item.key];
+            const info = productReportList[item.key] || defaultGgrProductReport;
 
             const turnover = formatDecimal(info.Turnover);
             const ggr = formatDecimal(info.Ggr);
@@ -169,9 +167,8 @@ export class GridData extends PureComponent {
             PageIndex: index,
             PageSize: size
         };
-        this.props.setPagingOption(newPaging);
-
         const newParam = Object.assign({}, this.props.param, newPaging);
+
         this.fetchData(newParam);
     }
 

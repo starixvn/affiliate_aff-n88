@@ -1,4 +1,4 @@
-﻿import React, { Suspense } from 'react';
+﻿import React, { Component, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import SubMenuList from '../common/components/SubMenuList';
 import { menus } from './libs/menus';

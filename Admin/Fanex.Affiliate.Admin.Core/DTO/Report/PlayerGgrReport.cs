@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Report
@@ -9,14 +10,20 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public string PlayerName { get; set; }
 
-        public DateTime RegistrationDate { get; set; }
+        [JsonIgnore]
+        public DateTime? RegistrationDate { get; set; }
 
-        public DateTime FdmDate { get; set; }
+        [JsonIgnore]
+        public DateTime? FdmDate { get; set; }
 
         public decimal TotalTurnover { get; set; }
 
         public decimal TotalGgr { get; set; }
 
         public IDictionary<string, PlayerGgrProductInfo> ProductReportList { get; set; }
+
+        public string RegistrationDateText => RegistrationDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "";
+
+        public string FdmDateText => FdmDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "";
     }
 }

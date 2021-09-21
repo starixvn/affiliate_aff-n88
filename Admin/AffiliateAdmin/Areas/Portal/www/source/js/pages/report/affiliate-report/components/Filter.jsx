@@ -285,7 +285,7 @@ export class Filter extends Component {
                 <Form inline tag="div">
                     <FormGroup className="my-sm-1 mr-sm-2">
                         <Label for="Affiliate" className="mr-sm-2">Affiliate</Label>
-                        <Input type="text" name="userName" id="Affiliate"
+                        <Input type="text" name="userName" id="Affiliate" maxLength="30"
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange}
                             value={userName} />
