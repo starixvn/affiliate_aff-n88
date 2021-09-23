@@ -1,7 +1,8 @@
 ﻿import Excel from '../../../../modules/excel';
 import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle } from '../../../../modules/excelStyleConstant';
-import { headerText, totalText } from './constants';
+import { headerText, totalText, resource } from './constants';
 import { formatDecimal } from '../../../../modules/numberFormat';
+import { formatDateTime } from '../../../../modules/utils';
 
 const TITLE_ROW_INDEX = 0;
 const HEADER_ROW_INDEX = 1;
@@ -65,7 +66,7 @@ const fields = {
 export default class ReportExcel {
     constructor(data, title, isMainView) {
         this.worksheet = {};
-        this.title = isMainView ? title : 'AFFILIATE REPORT > ' + title;
+        this.title = isMainView ? title : resource.reportName + ' > ' + title;
         this.data = data;
         this.isMainView = isMainView;
 
@@ -83,7 +84,8 @@ export default class ReportExcel {
             this._createTotalRow();
             this._createExcelConfig();
 
-            Excel.export(this.worksheet, this.title.replace('> ', ''));
+            const fileName = resource.reportName + (this.isMainView ? '' : resource.space + resource.reportDetailName) + resource.space + formatDateTime(new Date(), 'MM.dd.yyyy hh.mm.ss');
+            Excel.export(this.worksheet, fileName);
         })
     }
 

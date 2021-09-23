@@ -49,7 +49,7 @@ export class Filter extends Component {
             const toDate = new Date(param.toDate);
             const maxDateOfMonth = new Date(toDate.getFullYear(), toDate.getMonth() + 1, 0);
 
-            if (maxDateOfMonth < today) {
+            if (maxDateOfMonth < now) {
                 initialState.toDate = `${maxDateOfMonth.getMonth() + 1}/${maxDateOfMonth.getDate()}/${maxDateOfMonth.getFullYear()}`
             }
         }

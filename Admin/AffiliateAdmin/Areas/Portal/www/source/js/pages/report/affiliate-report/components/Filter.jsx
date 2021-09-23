@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../../components/multiple-select';
 import MonthPicker from '@9softstudio/react-monthpicker';
-import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, viewLevel, sortDirectionType, defaultBaseCurrency, minMonthDate } from '../libs/constants';
+import { defaultSortBy, sortByMainView, sortByMonthOnMonthView, viewLevel, sortDirectionType, defaultBaseCurrency, minMonthDate, resource } from '../libs/constants';
 import { setReportTitle, setParam, setCurrencyList, setCommGroupList, setProductList, setPaymentCurrencyList } from '../actions';
 import { formatUnit, handleChangeMultipleSelected } from '../../../../modules/utils';
 import { globalResource } from '../../../../modules/globalResource';
@@ -213,7 +213,7 @@ export class Filter extends Component {
         const { productList, languageList, baseCurrencyList, commGroupList, paymentCurrencyList } = this.props;
         const { selectedLanguage, fromMonth, toMonth, userName, selectedBaseCurrency } = this.state;
 
-        const userNameTitle = `${userName && '- Username contains \'' + userName + '\''}`;
+        const userNameTitle = `${userName && ' - Affiliate contains \'' + userName + '\''}`;
         const language = languageList[selectedLanguage] || 'All languages';
         const commGroup = commGroupList.every(c => c.checked) ? 'All Revenue Group' : commGroupList.filter(c => c.checked).map(c => c.name).join(',');
         const paymentCurrency = paymentCurrencyList.every(c => c.checked) ? 'All Linked Acc. Currencies' : paymentCurrencyList.filter(c => c.checked).map(c => c.name).join(',');
@@ -221,25 +221,23 @@ export class Filter extends Component {
         const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.checked).map(p => p.name).join(',');
 
         const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
-        const reportName = 'AFFILIATE REPORT ';
         const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
-        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${paymentCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
+        return `${resource.reportName} ${userNameTitle} - Base Currency ${baseCurrency} - ${paymentCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
         const { productList } = this.props;
         const { fromMonth, toMonth, userName, isGetAll, selectedBaseCurrency } = this.state;
 
-        const userNameTitle = userName && '- ' + userName;
+        const userNameTitle = userName && resource.space + userName;
         const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.Checked).map(p => p.name).join(',');
 
         const fromToTitle = isGetAll ? 'Get All Dates' :
             `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
-        const reportName = 'MONTH ON MONTH ';
         const baseCurrency = this.props.baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
-        return `${reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${productName} - ${fromToTitle}`;
+        return `${resource.reportDetailName}${userNameTitle} - Base Currency ${baseCurrency} - ${productName} - ${fromToTitle}`;
     }
 
     _getToMonthRange(from) {

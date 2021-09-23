@@ -28,6 +28,12 @@ export const sortDirectionType = {
 
 export const totalText = 'Total (all pages)';
 
+export const resource = {
+    reportName: 'AFFILIATE REPORT',
+    reportDetailName: 'MONTH ON MONTH',
+    space: ' - '
+}
+
 export const headerText = {
     UserName: 'Affiliate',
     MonthDateString: 'Month',
