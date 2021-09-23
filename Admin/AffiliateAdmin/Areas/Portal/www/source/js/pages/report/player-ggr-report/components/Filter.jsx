@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import MultipleSelect from '../../../../components/multiple-select';
 import { DatePicker } from '@9softstudio/react-datepicker';
 import { setReportTitle, setParam, setProductList } from '../actions';
-import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate, getCookie } from '../../../../modules/utils';
+import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate, getCookie, resolveClientUrl } from '../../../../modules/utils';
 import { minDate, sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
 import { reportName } from '../libs/constants';
@@ -56,7 +56,7 @@ export class Filter extends Component {
 
         this.state = initialState;
 
-        document.cookie = `paramFromAffReport=; path=/Portal/PlayerGgrReport`;
+        document.cookie = `paramFromAffReport=; path=${resolveClientUrl('Portal/PlayerGgrReport')}`;
     }
 
     componentDidMount() {

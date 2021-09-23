@@ -268,9 +268,10 @@ export class GridData extends PureComponent {
             productIds: param.ProductIds
         };
 
-        document.cookie = `paramFromAffReport=${JSON.stringify(paramFromAffReport)}; path=/Portal/PlayerGgrReport`;
+        const path = resolveClientUrl('Portal/PlayerGgrReport');
+        document.cookie = `paramFromAffReport=${JSON.stringify(paramFromAffReport)}; path=${path}`;
 
-        globalThis.open(resolveClientUrl("Portal/PlayerGgrReport"), '_blank');
+        window.open(path, '_blank');
     }
 
     handlePaging = (index, size) => {
