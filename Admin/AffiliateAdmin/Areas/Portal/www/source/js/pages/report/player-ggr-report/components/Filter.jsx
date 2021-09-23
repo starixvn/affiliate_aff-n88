@@ -118,7 +118,7 @@ export class Filter extends Component {
         const { baseCurrencyList } = this.props;
         const { fromDate, toDate, affName, playerName, selectedBaseCurrency, productList } = this.state;
 
-        const affNameTitle = `${affName && '- Username contains \'' + affName + '\''}`;
+        const affNameTitle = `${affName && '- Affiliate contains \'' + affName + '\''}`;
         const playerNameTitle = `${playerName && '- Player contains \'' + playerName + '\''}`;
         const productName = productList.every(p => p.checked) ? 'All Products' : productList.filter(p => p.checked).map(p => p.name).join(',');
 
