@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal TurnOver { get; set; }
-        public decimal WinLoss { get; set; }
+        public decimal GGR { get; set; }
         public decimal PlatformFee { get; set; }
         public decimal OperationalFee { get; set; }
         public decimal DepositFee { get; set; }

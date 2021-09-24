@@ -2836,6 +2836,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GGR.
+        /// </summary>
+        public static string GGR {
+            get {
+                return ResourceManager.GetString("GGR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ghana .
         /// </summary>
         public static string Ghana {
@@ -2877,15 +2886,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Grenada {
             get {
                 return ResourceManager.GetString("Grenada", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gross Win Loss.
-        /// </summary>
-        public static string GrossWinLoss {
-            get {
-                return ResourceManager.GetString("GrossWinLoss", resourceCulture);
             }
         }
         
@@ -3887,20 +3887,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly GGR.
+        /// </summary>
+        public static string MonthlyGGR {
+            get {
+                return ResourceManager.GetString("MonthlyGGR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monthly Total.
         /// </summary>
         public static string MonthlyTotal {
             get {
                 return ResourceManager.GetString("MonthlyTotal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Monthly Winlost.
-        /// </summary>
-        public static string MonthlyWinlost {
-            get {
-                return ResourceManager.GetString("MonthlyWinlost", resourceCulture);
             }
         }
         
@@ -6182,6 +6182,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total GGR.
+        /// </summary>
+        public static string TotalGGR {
+            get {
+                return ResourceManager.GetString("TotalGGR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Players.
         /// </summary>
         public static string TotalPlay {
@@ -6205,15 +6214,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalTurnover {
             get {
                 return ResourceManager.GetString("TotalTurnover", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Total Win/Loss.
-        /// </summary>
-        public static string TotalWinLoss {
-            get {
-                return ResourceManager.GetString("TotalWinLoss", resourceCulture);
             }
         }
         
@@ -6727,15 +6727,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string WhatNewInOneTwoBetPromotion {
             get {
                 return ResourceManager.GetString("WhatNewInOneTwoBetPromotion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Win/Loss.
-        /// </summary>
-        public static string Winlost {
-            get {
-                return ResourceManager.GetString("Winlost", resourceCulture);
             }
         }
         

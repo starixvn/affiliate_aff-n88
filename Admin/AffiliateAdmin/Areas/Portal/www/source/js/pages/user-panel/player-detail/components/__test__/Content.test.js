@@ -16,7 +16,7 @@ describe('players detail - components - Content', () => {
             WithdrawalFee: 0,
             Bonus: 0,
             Turnover: 5367360,
-            Winloss: -26050,
+            Ggr: -26050,
             RegisteredDateText: "01/21/2009 21:13:00"
         },
         {
@@ -29,7 +29,7 @@ describe('players detail - components - Content', () => {
             WithdrawalFee: 0,
             Bonus: 0,
             Turnover: 23.7056,
-            Winloss: -11.9332,
+            Ggr: -11.9332,
             RegisteredDateText: "03/07/2013 00:30:00"
         }
     ];

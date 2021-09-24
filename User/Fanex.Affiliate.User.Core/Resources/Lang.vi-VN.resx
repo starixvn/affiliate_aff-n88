@@ -1041,8 +1041,8 @@
   <data name="Month" xml:space="preserve">
     <value>Tháng</value>
   </data>
-  <data name="MonthlyWinlost" xml:space="preserve">
-    <value>Thắng/thua hàng tháng</value>
+  <data name="MonthlyGGR" xml:space="preserve">
+    <value>Doanh Thu Hàng Tháng</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>Ma rốc </value>
@@ -1645,8 +1645,8 @@
   <data name="WesternSamoa" xml:space="preserve">
     <value>Tây Samoa </value>
   </data>
-  <data name="Winlost" xml:space="preserve">
-    <value>Thắng/Thua</value>
+  <data name="GGR" xml:space="preserve">
+    <value>Doanh Thu</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Năm</value>
@@ -1842,9 +1842,6 @@
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>Báo Cáo Hoa Hồng</value>
-  </data>
-  <data name="GrossWinLoss" xml:space="preserve">
-    <value>Tổng Thắng Thua</value>
   </data>
   <data name="RoyaltyFee" xml:space="preserve">
     <value>Phí Bản Quyền</value>
@@ -2200,8 +2197,8 @@
   <data name="ApprovalDate" xml:space="preserve">
     <value>Ngày Chấp Thuận</value>
   </data>
-  <data name="TotalWinLoss" xml:space="preserve">
-    <value>Tổng Lợi Nhuận Ròng</value>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>Tổng Doanh Thu</value>
   </data>
   <data name="NumberOfActivePlayers" xml:space="preserve">
     <value>Số lượng người chơi hoạt động</value>

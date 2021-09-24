@@ -84,8 +84,8 @@ export class Content extends PureComponent {
         const DepositTotal = formatDecimalWithCurrencySymbol(data.DepositTotal);
         const TurnoverByMonth = formatDecimalWithCurrencySymbol(data.TurnoverByMonth);
         const TurnoverTotal = formatDecimalWithCurrencySymbol(data.TurnoverTotal);
-        const WinlostByMonth = formatDecimalWithCurrencySymbol(data.WinlostByMonth);
-        const WinlostTotal = formatDecimalWithCurrencySymbol(data.WinlostTotal);
+        const GgrByMonth = formatDecimalWithCurrencySymbol(data.GgrByMonth);
+        const GgrTotal = formatDecimalWithCurrencySymbol(data.GgrTotal);
 
         const startMonthString = `${monthDate.getMonth() + 1}/1/${monthDate.getFullYear()}`;
 
@@ -103,7 +103,7 @@ export class Content extends PureComponent {
                 {this._buildRow(rowTitle.TotalSubAff, format(data.NoOfSubAffByMonth), format(data.NoOfSubAffTotal))}
                 {this._buildRow(rowTitle.TotalDeposits, DepositByMonth, DepositTotal)}
                 {this._buildRow(rowTitle.Turnover, TurnoverByMonth, TurnoverTotal)}
-                {this._buildRow(rowTitle.Winlost, WinlostByMonth, WinlostTotal)}
+                {this._buildRow(rowTitle.Ggr, GgrByMonth, GgrTotal)}
                 {
                     this._buildRow(rowTitle.TrackingRatePC,
                         (<a href="javascript:;" onClick={() => this.props.redirectToReferrers({ fromDate: startMonthString, toDate: endMonthString, deviceType: deviceTypes[pcLaptop], isClickLink: true })}>

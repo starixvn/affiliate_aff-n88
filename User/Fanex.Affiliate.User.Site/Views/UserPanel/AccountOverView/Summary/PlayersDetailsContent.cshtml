@@ -21,7 +21,7 @@
         <td class="text-center">@(item.RegisteredDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty)</td>
         <td class="text-center">@(item.FirstDepositDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty)</td>
         <td class="text-center">@item.Turnover.FormatDecimal()</td>
-        <td class="text-center">@item.Winloss.FormatDecimal()</td>
+        <td class="text-center">@item.GGR.FormatDecimal()</td>
         <td class="text-center">@item.Deposit.FormatDecimal()</td>
         <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
         <td class="text-center">@item.Bonus.FormatDecimal()</td>

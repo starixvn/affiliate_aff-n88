@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             productRepository.Setup(p => p.GetProductList()).Returns(new List<Product> { new Product { ProductId = 123, ProductName = "abc" } });
 
             var commGroupCommonService = new Mock<ICommGroupCommonService>();
-            commGroupCommonService.Setup(c => c.GetDeductionList()).Returns(new List<DTO.CommissionGroup.DeductionItem> { new DTO.CommissionGroup.DeductionItem { DeductionId = 13, DeductionName = "ExchangeWinLossShare", DeductedPercentage = 0.05m } });
+            commGroupCommonService.Setup(c => c.GetDeductionList()).Returns(new List<DTO.CommissionGroup.DeductionItem> { new DTO.CommissionGroup.DeductionItem { DeductionId = 13, DeductionName = "ExchangeGgrShare", DeductedPercentage = 0.05m } });
 
             var controller = CreateCommissionGroupController(productRepository: productRepository.Object, commGroupCommonService: commGroupCommonService.Object);
 

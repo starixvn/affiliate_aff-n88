@@ -45,7 +45,7 @@ export class Content extends PureComponent {
                 <Cell header={true} colWidth={30}>#</Cell>
                 <Cell header={true} colWidth={100} title={resource.UserName}>{resource.UserName}</Cell>
                 <Cell header={true} colWidth={100} title={resource.SystemUserName}>{resource.SystemUserName}</Cell>
-                <Cell header={true} colWidth={100} title={resource.Winlost}>{resource.Winlost}</Cell>
+                <Cell header={true} colWidth={100} title={resource.Ggr}>{resource.Ggr}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Bonus}>{resource.Bonus}</Cell>
@@ -79,7 +79,7 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, rowNumber, productColumnClassName) {
-        const winlost = formatDecimal(dataItem.WinLost);
+        const ggr = formatDecimal(dataItem.Ggr);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const bonus = formatDecimal(dataItem.Bonus);
@@ -90,7 +90,7 @@ export class Content extends PureComponent {
                 {rowNumber && <Cell className="text-center" title={rowNumber}>{rowNumber}</Cell>}
                 {rowNumber && <Cell className="text-center" title={dataItem.UserName}>{dataItem.UserName}</Cell>}
                 <Cell className="text-center" title={dataItem.IbcUserName} colSpan={!rowNumber && 3}>{dataItem.IbcUserName}</Cell>
-                <Cell className={productColumnClassName} title={winlost}>{winlost}</Cell>
+                <Cell className={productColumnClassName} title={ggr}>{ggr}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>

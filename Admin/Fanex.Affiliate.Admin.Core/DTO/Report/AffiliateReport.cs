@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal Turnover { get; set; }
 
-        public decimal Winlost { get; set; }
+        public decimal Ggr { get; set; }
 
         public decimal Bonus { get; set; }
 

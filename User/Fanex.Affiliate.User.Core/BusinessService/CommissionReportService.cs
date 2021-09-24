@@ -50,7 +50,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 item.Data.CommissionRate = decimal.Round(item.Data.CommissionRate, DecimalDigit) * PercentageUnit;
 
                 total.TurnOver += item.Data.TurnOver;
-                total.WinLoss += item.Data.WinLoss;
+                total.GGR += item.Data.GGR;
                 total.PlatformFee += item.Data.PlatformFee;
                 total.OperationalFee += item.Data.OperationalFee;
                 total.DepositFee += item.Data.DepositFee;

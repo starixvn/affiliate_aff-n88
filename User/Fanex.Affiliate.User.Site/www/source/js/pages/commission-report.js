@@ -144,7 +144,7 @@
             rowItems.push('<td class="text-center">' + (isSummaryRow ? index + 1 : '') + '</td>');
             rowItems.push('<td class="title-cell"><div class="row-wrapper">' + (isSummaryRow ? title + iconHtml : dataRow.ProductName) + '</div></td>');
             rowItems.push(_me.buildCell(formatDecimal(dataRow.TurnOver)));
-            rowItems.push(_me.buildCell(formatDecimal(dataRow.WinLoss)));
+            rowItems.push(_me.buildCell(formatDecimal(dataRow.GGR)));
             if (isSummaryRow) {
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.OperationalFee)));
@@ -173,7 +173,7 @@
                 return '<tr class="total">' +
                     '<td class="text-right" colspan="2">' + langResource.total + '</td>' +
                     _me.buildCell(formatDecimal(dataRow.TurnOver)) +
-                    _me.buildCell(formatDecimal(dataRow.WinLoss)) +
+                    _me.buildCell(formatDecimal(dataRow.GGR)) +
                     _me.buildCell(formatDecimal(dataRow.PlatformFee)) +
                     _me.buildCell(formatDecimal(dataRow.OperationalFee)) +
                     _me.buildCell(formatDecimal(dataRow.DepositFee)) +

@@ -355,7 +355,7 @@ export class Filter extends Component {
                             noneSelectedLabel="Please Select"
                             selectedAllLabel="All Products"
                             onChange={this.handleChangeProduct} />
-                        <div className="mx-1 rounded-circle note-info" title="Filtering product affects only to Turnover and Winloss columns. Others always show value for all products">
+                        <div className="mx-1 rounded-circle note-info" title="Filtering product affects only to Turnover and GGR columns. Others always show value for all products">
                             <span className="oi oi-info"></span>
                         </div>
                     </FormGroup>

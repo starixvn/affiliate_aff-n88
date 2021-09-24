@@ -26,7 +26,7 @@
 
         public decimal AllDepositNumber { get; set; }
 
-        public decimal AllWinlostNumber { get; set; }
+        public decimal AllGgrNumber { get; set; }
 
         public decimal AllBonusNumber { get; set; }
 
@@ -52,7 +52,7 @@
 
         public decimal AllDepositMonthNumber { get; set; }
 
-        public decimal AllWinlostMonthNumber { get; set; }
+        public decimal AllGgrMonthNumber { get; set; }
 
         public decimal AllBonusMonthNumber { get; set; }
 

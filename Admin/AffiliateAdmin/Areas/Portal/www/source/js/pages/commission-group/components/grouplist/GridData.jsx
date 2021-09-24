@@ -84,8 +84,8 @@ export class GridData extends Component {
             <Row key="sub-theard">
                 <Cell header={true} colWidth={150}></Cell>
                 <Cell header={true} colWidth={50}>Tier</Cell>
-                <Cell header={true} colWidth={80} title="Minimum all members' winlost amount">Min Amount</Cell>
-                <Cell header={true} colWidth={80} title="Maximum all members' winlost amount">Max Amount</Cell>
+                <Cell header={true} colWidth={80} title="Minimum all members' GGR amount">Min Amount</Cell>
+                <Cell header={true} colWidth={80} title="Maximum all members' GGR amount">Max Amount</Cell>
                 <Cell header={true} colWidth={80} title="Minimum number of active players">Min AP</Cell>
                 <Cell header={true} colWidth={80} title="Maximum number of active players">Max AP</Cell>
                 <Cell header={true} colWidth={80}>Revenue Rate</Cell>

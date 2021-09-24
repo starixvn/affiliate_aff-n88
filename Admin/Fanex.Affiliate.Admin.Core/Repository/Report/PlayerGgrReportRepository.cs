@@ -69,7 +69,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 RegistrationDate = reader.ToDateTime("RegisteredDate"),
                 FdmDate = reader["FirstDepositDate"] == DBNull.Value ? (DateTime?)null : reader.ToDateTime("FirstDepositDate"),
                 TotalTurnover = reader.ToDecimal("Total_Turnover"),
-                TotalGgr = reader.ToDecimal("Total_Winloss"),
+                TotalGgr = reader.ToDecimal("Total_Ggr"),
             };
 
             playerGgrReport.ProductReportList = ProductReportList(reader, selectedProductIdList);
@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             var playerGgrReport = new PlayerGgrReport
             {
                 TotalTurnover = reader.ToDecimal("Total_Turnover"),
-                TotalGgr = reader.ToDecimal("Total_Winloss"),
+                TotalGgr = reader.ToDecimal("Total_Ggr"),
             };
 
             playerGgrReport.ProductReportList = ProductReportList(reader, selectedProductIdList);
@@ -99,7 +99,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 var item = new PlayerGgrProductInfo
                 {
                     Turnover = reader[$"{productId}_Turnover"] == DBNull.Value ? 0 : reader.ToDecimal($"{productId}_Turnover"),
-                    Ggr = reader[$"{productId}_Winloss"] == DBNull.Value ? 0 : reader.ToDecimal($"{productId}_Winloss")
+                    Ggr = reader[$"{productId}_Ggr"] == DBNull.Value ? 0 : reader.ToDecimal($"{productId}_Ggr")
                 };
 
                 productReportList.Add(productId, item);

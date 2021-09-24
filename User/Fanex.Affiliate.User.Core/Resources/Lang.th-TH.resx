@@ -1042,8 +1042,8 @@
   <data name="Month" xml:space="preserve">
     <value>เดือน</value>
   </data>
-  <data name="MonthlyWinlost" xml:space="preserve">
-    <value>ยอดได้เสียในแต่ละเดือน</value>
+  <data name="MonthlyGGR" xml:space="preserve">
+    <value>รายได้ต่อเดือน</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>โมร๊อกโก</value>
@@ -1652,8 +1652,8 @@
   <data name="WesternSamoa" xml:space="preserve">
     <value>เวสเทริ์นซาโมอา</value>
   </data>
-  <data name="Winlost" xml:space="preserve">
-    <value>ได้เสีย</value>
+  <data name="GGR" xml:space="preserve">
+    <value>รายได้</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>ปี</value>
@@ -1843,9 +1843,6 @@
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>รายงานค่าคอมมิชชั่น</value>
-  </data>
-  <data name="GrossWinLoss" xml:space="preserve">
-    <value>ยอดรวมแพ้/ชนะ</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>ค่าธรรมเนียมดำเนินการ</value>
@@ -2152,5 +2149,8 @@
   </data>
   <data name="FdmDate" xml:space="preserve">
     <value>วันที่ฝากเงินแรก</value>
+  </data>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>รายได้รวม</value>
   </data>
 </root>

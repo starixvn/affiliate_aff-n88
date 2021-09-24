@@ -2,7 +2,7 @@ import React from "react";
 import MultipleSelect from "../../../../../components/multiple-select";
 import { Col, Form, FormGroup } from 'reactstrap';
 import DeductedPercentageForm from './DeductedPercentageGroup';
-import { ONLY_ONE_ITEM } from '../../../modules/constant';
+import { ONLY_ONE_ITEM, GGR } from '../../../modules/constant';
 
 export default class PlatformFeeItem extends React.Component {
     constructor(props) {
@@ -46,7 +46,7 @@ export default class PlatformFeeItem extends React.Component {
                     <Form inline>
                         <DeductedPercentageForm
                             value={commission}
-                            label="| Gross Win Loss |"
+                            label={GGR}
                             onChange={this.handleChangeComm} />
                     </Form>
                 </Col>

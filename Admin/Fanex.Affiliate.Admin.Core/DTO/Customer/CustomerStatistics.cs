@@ -20,9 +20,9 @@
 
         public decimal TurnoverTotal { get; set; }
 
-        public decimal WinlostByMonth { get; set; }
+        public decimal GgrByMonth { get; set; }
 
-        public decimal WinlostTotal { get; set; }
+        public decimal GgrTotal { get; set; }
 
         public int UniqueClickPcLaptopByMonth { get; set; }
 

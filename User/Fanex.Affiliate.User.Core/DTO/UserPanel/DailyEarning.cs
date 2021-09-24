@@ -10,7 +10,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal Withdrawal { get; set; }
 
-        public decimal MemberWinLost { get; set; }
+        public decimal MemberGGR { get; set; }
 
         public decimal Bonus { get; set; }
 

@@ -12,7 +12,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal Turnover { get; set; }
 
-        public decimal Winloss { get; set; }
+        public decimal GGR { get; set; }
 
         public decimal Bonus { get; set; }
 

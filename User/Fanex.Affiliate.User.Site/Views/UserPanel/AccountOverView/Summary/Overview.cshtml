@@ -18,7 +18,7 @@
                 <th width="10%">@Lang.Deposit</th>
                 <th width="10%">@Lang.Turnover</th>
                 <th width="10%">@Lang.Withdrawal</th>
-                <th width="10%">@Lang.Winlost</th>
+                <th width="10%">@Lang.GGR</th>
             </tr>
             @{
                 if (hasData)
@@ -31,7 +31,7 @@
                         <th class="text-center">@itemTotal.Deposit.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Turnover.FormatDecimal()</th>
                         <th class="text-center">@itemTotal.Withdrawal.FormatDecimal()</th>
-                        <th class="text-center">@itemTotal.Winloss.FormatDecimal()</th>
+                        <th class="text-center">@itemTotal.GGR.FormatDecimal()</th>
                     </tr>
                 }
             }
@@ -51,7 +51,7 @@
                             <td class="text-center">@item.Deposit.FormatDecimal()</td>
                             <td class="text-center">@item.Turnover.FormatDecimal()</td>
                             <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
-                            <td class="text-center">@item.Winloss.FormatDecimal()</td>
+                            <td class="text-center">@item.GGR.FormatDecimal()</td>
                         </tr>
                     }
                 }

@@ -25,6 +25,7 @@ function generateCommissionValues() {
 const _commValueList = generateCommissionValues();
 
 export const commissionValueList = _commValueList;
+export const GGR = '| Gross Game Revenue |'
 
 export const messages = {
     requireGroupName: 'Group Name cannot be empty. Please check!',

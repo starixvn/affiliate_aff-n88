@@ -41,7 +41,7 @@ export class Content extends PureComponent {
             <Row>
                 <Cell header={true} colWidth={30}>#</Cell>
                 <Cell header={true} colWidth={100} title={resource.Date}>{resource.Date}</Cell>
-                <Cell header={true} colWidth={100} title={resource.Winlost}>{resource.Winlost}</Cell>
+                <Cell header={true} colWidth={100} title={resource.Ggr}>{resource.Ggr}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Deposit}>{resource.Deposit}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Withdrawal}>{resource.Withdrawal}</Cell>
                 <Cell header={true} colWidth={100} title={resource.Bonus}>{resource.Bonus}</Cell>
@@ -75,7 +75,7 @@ export class Content extends PureComponent {
     }
 
     _buildDataRow(dataItem, rowNumber, productColumnClassName) {
-        const winlost = formatDecimal(dataItem.MemberWinLost);
+        const ggr = formatDecimal(dataItem.MemberGgr);
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const bonus = formatDecimal(dataItem.Bonus);
@@ -93,7 +93,7 @@ export class Content extends PureComponent {
                         dataItem.Date
                     }
                 </Cell>
-                <Cell className={productColumnClassName} title={winlost}>{winlost}</Cell>
+                <Cell className={productColumnClassName} title={ggr}>{ggr}</Cell>
                 <Cell className="text-right" title={deposit}>{deposit}</Cell>
                 <Cell className="text-right" title={withdrawal}>{withdrawal}</Cell>
                 <Cell className="text-right" title={bonus}>{bonus}</Cell>

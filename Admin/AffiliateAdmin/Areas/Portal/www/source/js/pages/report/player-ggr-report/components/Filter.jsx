@@ -191,6 +191,9 @@ export class Filter extends Component {
                         <span className="oi oi-magnifying-glass"></span> Search
                     </Button>
                 </Form>
+                <span>
+                    <strong className="text-danger">*</strong> Note: The GGR of the P2P Fixed Rate product are actually the Revenue amounts which are used to calculated the Revenue Share for P2P Protducts.
+                </span>
             </div>
         );
     }

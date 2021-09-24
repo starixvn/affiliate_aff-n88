@@ -308,7 +308,6 @@
     <Compile Include="DTO\MarketingChannel.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />
     <Compile Include="DTO\UserPanel\Currency.cs" />
-    <Compile Include="DTO\DailyEarningDetail.cs" />
     <Compile Include="DTO\DBMode.cs" />
     <Compile Include="DTO\ExtraUserInfo.cs" />
     <Compile Include="DTO\Language.cs" />

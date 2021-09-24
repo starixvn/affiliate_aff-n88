@@ -45,7 +45,7 @@ const fields = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
-    Winlost: 'Winlost',
+    Ggr: 'Ggr',
     Bonus: 'Bonus',
     Rebate: 'Rebate',
     PlatformFee: 'PlatformFee',
@@ -377,7 +377,7 @@ export default class ReportExcel {
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },
         {
-            field: fields.Winlost,
+            field: fields.Ggr,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },

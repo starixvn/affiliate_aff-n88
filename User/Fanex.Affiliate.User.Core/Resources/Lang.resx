@@ -1095,8 +1095,8 @@
     <value>Month</value>
     <comment>87923</comment>
   </data>
-  <data name="MonthlyWinlost" xml:space="preserve">
-    <value>Monthly Winlost</value>
+  <data name="MonthlyGGR" xml:space="preserve">
+    <value>Monthly GGR</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>Morocco </value>
@@ -1763,8 +1763,8 @@
   <data name="WesternSamoa" xml:space="preserve">
     <value>Western Samoa </value>
   </data>
-  <data name="Winlost" xml:space="preserve">
-    <value>Win/Loss</value>
+  <data name="GGR" xml:space="preserve">
+    <value>GGR</value>
   </data>
   <data name="Withdrawal" xml:space="preserve">
     <value>Withdrawal</value>
@@ -1865,10 +1865,6 @@
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Revenue Rate</value>
-    <comment>87923</comment>
-  </data>
-  <data name="GrossWinLoss" xml:space="preserve">
-    <value>Gross Win Loss</value>
     <comment>87923</comment>
   </data>
   <data name="OperationalFee" xml:space="preserve">
@@ -2340,8 +2336,8 @@
   <data name="SuspensionSatus" xml:space="preserve">
     <value>Suspension Status</value>
   </data>
-  <data name="TotalWinLoss" xml:space="preserve">
-    <value>Total Win/Loss</value>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>Total GGR</value>
   </data>
   <data name="NumberOfActivePlayers" xml:space="preserve">
     <value>No. of Active Players</value>

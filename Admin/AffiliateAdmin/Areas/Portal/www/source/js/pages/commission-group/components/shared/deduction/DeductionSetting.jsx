@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { setSelectedGroup } from '../../../actions';
+import { GGR } from '../../../modules/constant';
 
 import PlatformFeeSetting from './PlatformFeeSetting';
 import FeeSettingItem from './FeeSettingItem';
@@ -49,7 +50,7 @@ export class DeductionSetting extends Component {
                 <legend><h6 className="font-weight-bold">Tier Rated Products Deduction</h6></legend>
                 <PlatformFeeSetting />
 
-                <FeeSettingItem label="Operational Fee" basedValueName="| Gross Win Loss |"
+                <FeeSettingItem label="Operational Fee" basedValueName={GGR}
                     handleChange={this.handleChangeOperationalFee}
                     handleUpdateState={() => this.setState({ isInitialOperationalFee: false })}
                     data={OperationalFee}

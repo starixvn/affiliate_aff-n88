@@ -101,7 +101,7 @@ export class GridData extends PureComponent {
                 <th width={75} title={headerText.Deposit}>{headerText.Deposit}</th>
                 <th width={75} title={headerText.Withdrawal}>{headerText.Withdrawal}</th>
                 <th width={75} title={headerText.Turnover}>{headerText.Turnover}</th>
-                <th width={75} title={headerText.Winlost}>{headerText.Winlost}</th>
+                <th width={75} title={headerText.Ggr}>{headerText.Ggr}</th>
                 <th width={70} title={headerText.Bonus}>{headerText.Bonus}</th>
                 <th width={70} title={headerText.Rebate}>{headerText.Rebate}</th>
                 <th width={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</th>
@@ -174,7 +174,7 @@ export class GridData extends PureComponent {
         const deposit = formatDecimal(dataItem.Deposit);
         const withdrawal = formatDecimal(dataItem.Withdrawal);
         const turnover = formatDecimal(dataItem.Turnover);
-        const winlost = formatDecimal(dataItem.Winlost);
+        const ggr = formatDecimal(dataItem.Ggr);
         const bonus = formatDecimal(dataItem.Bonus);
         const rebate = formatDecimal(dataItem.Rebate);
         const platformFee = formatDecimal(dataItem.PlatformFee);
@@ -204,7 +204,7 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={deposit}>{deposit}</td>
                 <td className="text-right" title={withdrawal}>{withdrawal}</td>
                 <td className={productColumnClassName} title={turnover}>{turnover}</td>
-                <td className={productColumnClassName} title={winlost}>{winlost}</td>
+                <td className={productColumnClassName} title={ggr}>{ggr}</td>
                 <td className="text-right" title={bonus}>{bonus}</td>
                 <td className="text-right" title={rebate}>{rebate}</td>
                 <td className="text-right" title={platformFee}>{platformFee}</td>

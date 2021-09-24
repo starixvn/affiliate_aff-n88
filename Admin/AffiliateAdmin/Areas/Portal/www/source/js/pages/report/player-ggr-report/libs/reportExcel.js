@@ -275,6 +275,10 @@ export default class ReportExcel {
     }
 
     _getcolumnConfigs(selectedProductList) {
+        const styleOfColumnTotal = {
+            ...bodyCellStyle.decimal,
+            font: { bold: true }
+        }
         const columnConfigList = [{
             field: fields.AffName,
             [MAIN_SECTION_STYLE]: bodyCellStyle.left,
@@ -297,12 +301,12 @@ export default class ReportExcel {
         },
         {
             field: fields.TotalTurnover,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [MAIN_SECTION_STYLE]: styleOfColumnTotal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         },
         {
             field: fields.TotalGgr,
-            [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+            [MAIN_SECTION_STYLE]: styleOfColumnTotal,
             [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
         }];
 

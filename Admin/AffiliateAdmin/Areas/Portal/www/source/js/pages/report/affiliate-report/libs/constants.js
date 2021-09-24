@@ -4,7 +4,7 @@ export { defaultBaseCurrency, minMonthDate };
 
 const sortByCommon = {
     Turnover: 2,
-    Winloss: 3,
+    GGR: 3,
     Earning: 4
 }
 
@@ -47,7 +47,7 @@ export const headerText = {
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Turnover: 'Turnover',
-    Winlost: 'Winloss',
+    Ggr: 'GGR',
     Bonus: 'Bonus',
     Rebate: 'Rebate',
     PlatformFee: 'Royalty Fee',

@@ -121,8 +121,8 @@ export class GridData extends PureComponent {
                 }
                 <td className="text-center" title={dataItem.RegistrationDateText}>{dataItem.RegistrationDateText}</td>
                 <td className="text-center" title={dataItem.FdmDateText}>{dataItem.FdmDateText}</td>
-                <td className="text-right" title={totalTurnover}>{totalTurnover}</td>
-                <td className="text-right" title={totalGgr}>{totalGgr}</td>
+                <td className="text-right font-weight-bold" title={totalTurnover}>{totalTurnover}</td>
+                <td className="text-right font-weight-bold" title={totalGgr}>{totalGgr}</td>
                 {this._buildProductCells(dataItem.ProductReportList, selectedProducts)}
             </tr>
         )

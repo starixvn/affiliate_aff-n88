@@ -33,7 +33,7 @@ describe('player detail actions', () => {
                     RegisteredDateText: "08/22/2009 07:59:00",
                     Turnover: 771.4375,
                     UserName: "12bet$cicutadino",
-                    Winlost: 215.0872,
+                    Ggr: 215.0872,
                     Withdrawal: 0
                 },
                 {
@@ -45,7 +45,7 @@ describe('player detail actions', () => {
                     RegisteredDateText: "03/13/2009 12:13:00",
                     Turnover: 306,
                     UserName: "12bet$Monta",
-                    Winlost: 7.22,
+                    Ggr: 7.22,
                     Withdrawal: 0
                 }
             ],

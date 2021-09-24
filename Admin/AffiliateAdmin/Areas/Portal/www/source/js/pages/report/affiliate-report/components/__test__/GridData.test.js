@@ -236,7 +236,7 @@ describe('affiliate report - GridData ', () => {
                 Turnover: 0,
                 UniqueClick: 0,
                 UserName: "12BETAFF001",
-                Winlost: 0,
+                Ggr: 0,
                 Withdrawal: 0,
             }
         ];
@@ -273,7 +273,7 @@ describe('affiliate report - GridData ', () => {
                 Turnover: 0,
                 UniqueClick: 0,
                 UserName: "12BETAFF001",
-                Winlost: 0,
+                Ggr: 0,
                 Withdrawal: 0,
             }
         ];
@@ -309,7 +309,7 @@ describe('affiliate report - GridData ', () => {
             Turnover: 0,
             UniqueClick: 1,
             UserName: "",
-            Winlost: 0,
+            Ggr: 0,
             Withdrawal: 0,
         };
         const index = 1;
@@ -346,7 +346,7 @@ describe('affiliate report - GridData ', () => {
             Turnover: 0,
             UniqueClick: 1,
             UserName: "12BETAFF002",
-            Winlost: 0,
+            Ggr: 0,
             Withdrawal: 0,
         };
         const index = 1;
@@ -383,7 +383,7 @@ describe('affiliate report - GridData ', () => {
             Turnover: 0,
             UniqueClick: 1,
             UserName: "12BETAFF002",
-            Winlost: 0,
+            Ggr: 0,
             Withdrawal: 0,
         };
         const index = 1;
@@ -443,7 +443,7 @@ describe('affiliate report - GridData ', () => {
             Turnover: 0,
             UniqueClick: 1,
             UserName: "12BETAFF002",
-            Winlost: 0,
+            Ggr: 0,
             Withdrawal: 0,
         };
         const componentInstance = new GridData(defaultProps);
@@ -512,7 +512,7 @@ describe('affiliate report - GridData ', () => {
                 Turnover: 0,
                 UniqueClick: 0,
                 UserName: "12BETAFF001",
-                Winlost: 0,
+                Ggr: 0,
                 Withdrawal: 0,
             },
             {
@@ -538,7 +538,7 @@ describe('affiliate report - GridData ', () => {
                 Turnover: 0,
                 UniqueClick: 1,
                 UserName: "12BETAFF002",
-                Winlost: 0,
+                Ggr: 0,
                 Withdrawal: 0,
             }
         ];

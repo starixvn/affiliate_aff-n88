@@ -30,7 +30,7 @@ describe('daily earning detail actions', () => {
                         Deposit: 0,
                         IbcUserName: "12BETEURO02237",
                         UserName: "12bet$cicutadino",
-                        WinLost: 4.1405,
+                        Ggr: 4.1405,
                         Withdrawal: 0
                     },
                     {
@@ -40,7 +40,7 @@ describe('daily earning detail actions', () => {
                         Deposit: 0,
                         IbcUserName: "12BETGBP02004",
                         UserName: "12bet$Munir12",
-                        WinLost: -540.2242,
+                        Ggr: -540.2242,
                         Withdrawal: 0
                     }
                 ],
@@ -51,7 +51,7 @@ describe('daily earning detail actions', () => {
                     Deposit: 0,
                     IbcUserName: "Total",
                     UserName: null,
-                    WinLost: -536.0837,
+                    Ggr: -536.0837,
                     Withdrawal: 0
                 }
             },

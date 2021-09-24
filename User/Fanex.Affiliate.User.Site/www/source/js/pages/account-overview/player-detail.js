@@ -10,7 +10,7 @@
         Deposit: 3,
         Withdrawal: 4,
         Turnover: 5,
-        Winloss: 6,
+        GGR: 6,
         Bonus: 7,
         Rebate: 8,
         DepositFee: 9,
