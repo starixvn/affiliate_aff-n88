@@ -5,6 +5,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
+using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -17,8 +18,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchBetRecordDataTask : IFetchDataTask, IFetchDataByTimeRange
     {
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchLastMonthAsync();
 
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchFromAdjusmentDayAsync(int day);
     }
     public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<TransBetRecordInfo>, IFetchBetRecordDataTask
