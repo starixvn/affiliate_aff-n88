@@ -1,6 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
+using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Common.Extensions;
 using Fanex.Data;
@@ -66,8 +67,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             {
                 AffName = reader.ToString("AffUsername"),
                 PlayerName = reader.ToString("Username"),
-                RegistrationDate = reader.ToDateTime("RegisteredDate"),
-                FdmDate = reader["FirstDepositDate"] == DBNull.Value ? (DateTime?)null : reader.ToDateTime("FirstDepositDate"),
+                RegistrationDate = reader.GetVal<DateTime?>("RegisteredDate"),
+                FdmDate = reader.GetVal<DateTime?>("FirstDepositDate"),
                 TotalTurnover = reader.ToDecimal("Total_Turnover"),
                 TotalGgr = reader.ToDecimal("Total_Ggr"),
             };
@@ -98,8 +99,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             {
                 var item = new PlayerGgrProductInfo
                 {
-                    Turnover = reader[$"{productId}_Turnover"] == DBNull.Value ? 0 : reader.ToDecimal($"{productId}_Turnover"),
-                    Ggr = reader[$"{productId}_Ggr"] == DBNull.Value ? 0 : reader.ToDecimal($"{productId}_Ggr")
+                    Turnover = reader.GetVal<decimal>($"{productId}_Turnover", 0),
+                    Ggr = reader.GetVal<decimal>($"{productId}_Ggr", 0)
                 };
 
                 productReportList.Add(productId, item);

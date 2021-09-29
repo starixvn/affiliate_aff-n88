@@ -22,8 +22,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public IDictionary<string, PlayerGgrProductInfo> ProductReportList { get; set; }
 
-        public string RegistrationDateText => RegistrationDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "";
+        public string RegistrationDateText => RegistrationDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty;
 
-        public string FdmDateText => FdmDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? "";
+        public string FdmDateText => FdmDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty;
     }
 }

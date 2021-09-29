@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 
             // Assert
             Assert.Single(result.MainData);
-            Assert.Equal("12/27/2019 12:00:00 AM", item.DateText);
+            Assert.Equal("12/27/2019 00:00:00", item.DateText);
         }
 
         [Fact]

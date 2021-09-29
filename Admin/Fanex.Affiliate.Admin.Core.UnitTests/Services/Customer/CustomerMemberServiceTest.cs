@@ -33,7 +33,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 
             // Assert
             Assert.Single(result.MainData);
-            Assert.Equal("04/15/2020 12:00:00 AM", item.RegisteredDateString);
+            Assert.Equal("04/15/2020 00:00:00", item.RegisteredDateString);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
 
             // Assert
             Assert.Single(result.MainData);
-            Assert.Equal("04/15/2020 12:00:00 AM", item.RegisteredDateString);
+            Assert.Equal("04/15/2020 00:00:00", item.RegisteredDateString);
         }
 
         [Fact]

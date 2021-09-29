@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public string Description { get; set; }
 
-        public string MonthDateString => MonthDate.HasValue ? MonthDate.Value.ToString("MM/yyyy") : string.Empty;
+        public string MonthDateString => MonthDate?.ToString("MM/yyyy") ?? string.Empty;
 
         public int TotalClick { get; set; }
 
