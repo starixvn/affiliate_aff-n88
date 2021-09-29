@@ -18,7 +18,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate);
 
         [Get("/BetReport/GetBetRecord")]
-        Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate);
+        Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize);
 
         [Get("/setting/GetServerInfo")]
         Task<IEnumerable<ServerInfo>> GetServerInfoAsync();
