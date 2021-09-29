@@ -9,7 +9,7 @@ import { setReportTitle, setParam, setProductList } from '../actions';
 import { handleChangeMultipleSelected, handleAfterChangeFromDate, handleAfterChangeToDate, getCookie, resolveClientUrl } from '../../../../modules/utils';
 import { minDate, sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
-import { reportName } from '../libs/constants';
+import { reportName, NOTE } from '../libs/constants';
 
 export class Filter extends Component {
     constructor(props) {
@@ -191,9 +191,7 @@ export class Filter extends Component {
                         <span className="oi oi-magnifying-glass"></span> Search
                     </Button>
                 </Form>
-                <span>
-                    <strong className="text-danger">*</strong> Note: The GGR of the P2P Fixed Rate product are actually the Revenue amounts which are used to calculated the Revenue Share for P2P Protducts.
-                </span>
+                <div dangerouslySetInnerHTML={{ __html: NOTE }}></div>
             </div>
         );
     }
