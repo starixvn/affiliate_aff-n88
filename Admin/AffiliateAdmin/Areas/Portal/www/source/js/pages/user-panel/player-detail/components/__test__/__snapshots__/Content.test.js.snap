@@ -327,11 +327,11 @@ exports[`players detail - components - Content render correctly 1`] = `
           title="Turnover"
         />
         <Memo(SortingCell)
-          columnName="Winloss"
+          columnName="Ggr"
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Winlost"
+          title="GGR"
         />
         <Memo(SortingCell)
           columnName="Deposit"
@@ -469,11 +469,11 @@ exports[`players detail - components - Content render correctly with have data i
           title="Turnover"
         />
         <Memo(SortingCell)
-          columnName="Winloss"
+          columnName="Ggr"
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Winlost"
+          title="GGR"
         />
         <Memo(SortingCell)
           columnName="Deposit"
@@ -900,11 +900,11 @@ exports[`players detail - components - Content render correctly with not selecte
           title="Turnover"
         />
         <Memo(SortingCell)
-          columnName="Winloss"
+          columnName="Ggr"
           handleClickHeader={[Function]}
           isSortAsc={false}
           sortingColumn="Turnover"
-          title="Winlost"
+          title="GGR"
         />
         <Memo(SortingCell)
           columnName="Deposit"

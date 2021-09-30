@@ -11,7 +11,7 @@ exports[`commission group - DeductionSetting Should render correctly 1`] = `
   </legend>
   <Connect(PlatformFeeSetting) />
   <FeeSettingItem
-    basedValueName="| Gross Win Loss |"
+    basedValueName="| Gross Game Revenue |"
     data={
       Object {
         "DeductedPercentage": 0.07,

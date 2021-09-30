@@ -100,8 +100,8 @@ describe('affiliate report - Filter ', () => {
         };
         const selectedProductList = '1,2';
         const productList = [
-            { ProductId: 1 },
-            { ProductId: 2 }
+            { key: 1, name: 'test', checked: true },
+            { key: 2, name: 'abc', checked: false },
         ];
         const expectReportTitle = 'AFFILIATE REPORT - Month on Month view';
         const mockSetReportTitle = jest.fn();
@@ -431,9 +431,9 @@ describe('affiliate report - Filter ', () => {
         };
         const selectedProductList = '1,2';
         const productList = [
-            { ProductId: 1 },
-            { ProductId: 2 },
-            { ProductId: 3 }
+            { key: 1, name: 'test', checked: true },
+            { key: 2, name: 'abc', checked: true },
+            { key: 3, name: 'xyz', checked: true },
         ];
         const mockSetReportTitle = jest.fn();
         const mockSetParam = jest.fn();

@@ -100,12 +100,12 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
             </td>
           </tr>
           <tr
-            key="Total Winlost"
+            key="Total GGR"
           >
             <td
               className="title"
             >
-              Total Winlost
+              Total GGR
             </td>
             <td
               className="content"
@@ -146,7 +146,7 @@ exports[`home - components - MemberStatistics render correctly 1`] = `
               className="title-total"
             >
               <strong>
-                Total Net Winlost
+                Company Net Win
               </strong>
             </td>
             <td
@@ -264,12 +264,12 @@ exports[`home - components - MemberStatistics render correctly with this month 1
             </td>
           </tr>
           <tr
-            key="Total Winlost"
+            key="Total GGR"
           >
             <td
               className="title"
             >
-              Total Winlost
+              Total GGR
             </td>
             <td
               className="content"
@@ -310,7 +310,7 @@ exports[`home - components - MemberStatistics render correctly with this month 1
               className="title-total"
             >
               <strong>
-                Total Net Winlost
+                Company Net Win
               </strong>
             </td>
             <td

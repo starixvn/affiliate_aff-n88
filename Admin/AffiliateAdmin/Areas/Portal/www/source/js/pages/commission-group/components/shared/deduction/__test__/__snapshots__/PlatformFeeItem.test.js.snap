@@ -72,7 +72,7 @@ exports[`commission group - PlatformFeeItem Should render correctly 1`] = `
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        label="| Gross Win Loss |"
+        label="| Gross Game Revenue |"
         onChange={[Function]}
         value={0.12}
       />
@@ -164,7 +164,7 @@ exports[`commission group - PlatformFeeItem Should render correctly with only on
       tag="form"
     >
       <Memo(DeductedPercentageGroup)
-        label="| Gross Win Loss |"
+        label="| Gross Game Revenue |"
         onChange={[Function]}
       />
     </Form>

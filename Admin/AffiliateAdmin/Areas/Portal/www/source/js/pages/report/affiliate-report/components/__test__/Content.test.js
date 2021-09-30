@@ -2,7 +2,6 @@
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
 
-import * as ajaxRequest from '../../../../../modules/ajaxRequest';
 import ReportExcel from '../../libs/reportExcel';
 jest.mock('../../libs/reportExcel');
 
@@ -13,6 +12,7 @@ describe('affiliate report - Content ', () => {
     const defaultProps = {
         reportTitle: '',
         currentViewLevel: mainView,
+        fetchData: jest.fn(),
         param: {}
     };
 
@@ -28,6 +28,9 @@ describe('affiliate report - Content ', () => {
         const mockSetViewLevel = jest.fn();
         const props = Object.assign({}, defaultProps, { setViewLevel: mockSetViewLevel });
         const componentInstance = new Content(props);
+        componentInstance.gridDataRef = {
+            current: { _resetScroll: jest.fn() }
+        }
 
         componentInstance.handleClickBreadcrumb();
 
@@ -90,15 +93,13 @@ describe('affiliate report - Content ', () => {
                 userName: 'Main view',
                 IsExportExcel: true
             };
-            const expectedUrl = 'Portal/Report/GetMainData';
 
-            ajaxRequest.post = jest.fn();
             const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { userName: 'Main view' } });
             const componentInstance = new Content(props);
 
             componentInstance.handleExportExcel();
 
-            expect(ajaxRequest.post).toHaveBeenCalledWith(expectedUrl, expectedParam);
+            expect(props.fetchData).toHaveBeenCalledWith(expectedParam, true);
         });
 
         it('should pass request param correctly when exporting excel with currentViewLevel is Month on Month view', () => {
@@ -107,21 +108,17 @@ describe('affiliate report - Content ', () => {
                 IsExportExcel: true
             }
 
-            const expectedUrl = 'Portal/Report/GetDetailData';
-
-            ajaxRequest.post = jest.fn();
             const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { userName: 'Month on Month view' }, currentViewLevel: monthOnMonth });
             const componentInstance = new Content(props);
 
             componentInstance.handleExportExcel();
 
-            expect(ajaxRequest.post).toHaveBeenCalledWith(expectedUrl, expectedParam);
+            expect(defaultProps.fetchData).toHaveBeenCalledWith(expectedParam, false);
         });
 
         it('should call toggleLoader twice with correct parameters', async () => {
-            ajaxRequest.post = jest.fn();
             const mockToggleLoader = jest.fn();
-            const props = Object.assign({}, defaultProps, { toggleLoader: mockToggleLoader, param: { userName: 'AFF001' } });
+            const props = Object.assign({}, defaultProps, { toggleLoader: mockToggleLoader, param: { userName: 'AFF001' }, fetchData: jest.fn() });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();
@@ -132,16 +129,15 @@ describe('affiliate report - Content ', () => {
         });
 
         it('should create new instance of ReportExcel with correct parameter', async () => {
-            const expectedResponse = { data: ['data 1', 'data 2'], status: 200 };
-            ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+            const expectedData = ['data 1', 'data 2'];
 
             const reportTitle = 'report title', isMainView = true;
-            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), reportTitle: reportTitle });
+            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), reportTitle: reportTitle, fetchData: jest.fn(() => expectedData) });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();
 
-            expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, reportTitle, isMainView);
+            expect(ReportExcel).toHaveBeenCalledWith(expectedData, reportTitle, isMainView);
         });
     });
 

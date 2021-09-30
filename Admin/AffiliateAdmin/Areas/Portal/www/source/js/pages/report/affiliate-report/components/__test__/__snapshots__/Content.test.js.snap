@@ -9,7 +9,7 @@ exports[`affiliate report - Content  N8B - should render correctly when currentV
   >
     Notes: First Comm Rate and Earning will calculate at 5th July 2020
   </p>
-  <ReportTitle
+  <ForwardRef
     content={
       <div
         className="d-flex align-items-center"
@@ -36,7 +36,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
 <div
   className="data-content my-2 report-content-container"
 >
-  <ReportTitle
+  <ForwardRef
     content={
       <div
         className="d-flex align-items-center"
@@ -63,7 +63,7 @@ exports[`affiliate report - Content  should render correctly when currentViewLev
 <div
   className="data-content my-2 report-content-container"
 >
-  <ReportTitle
+  <ForwardRef
     content={
       <div
         className="d-flex align-items-center"
