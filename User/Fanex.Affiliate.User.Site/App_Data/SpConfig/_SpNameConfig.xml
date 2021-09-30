@@ -5,5 +5,6 @@
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_Overview_PlayersDetail_Sel" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_Overview_SubAffiliate_Sel" Suffix="_xtest"></item>
   <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_DailyEarning_Sel" Suffix="_xtest"></item>
+  <item Environment="DEV,LOCAL,SIT,UAT" SpName="Aff_User_Rpt_Commission" Suffix="_xtest"></item>
 
 </Root>

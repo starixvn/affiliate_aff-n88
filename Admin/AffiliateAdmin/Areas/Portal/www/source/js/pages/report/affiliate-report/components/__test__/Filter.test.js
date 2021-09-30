@@ -30,9 +30,17 @@ describe('affiliate report - Filter ', () => {
         }
     ]
 
-    const commGroupList = {
-        1: 'Test'
-    }
+    const commGroupList = [
+        { key: 1, name: 'Abc', checked: true }
+    ]
+
+    const paymentCurrencyList = [
+        {
+            key: 21,
+            name: 'MYR',
+            checked: true
+        }
+    ]
 
     const defaultProps = {
         productList: [],
@@ -48,7 +56,8 @@ describe('affiliate report - Filter ', () => {
         param: {},
         currencyList,
         commGroupList,
-        baseCurrencyList
+        baseCurrencyList,
+        paymentCurrencyList
     };
 
     it('componentDidUpdate - should call setParam, setState and setReportTitle when currentViewLevel change to Main view', () => {
@@ -71,24 +80,19 @@ describe('affiliate report - Filter ', () => {
             selectedProductList: '1,2',
             isGetAll: false
         };
-        const expectReportTitle = 'AFFILIATE REPORT - Main view';
 
-        const mockSetReportTitle = jest.fn();
-        const mockSetParam = jest.fn();
-        const props = Object.assign({}, defaultProps, { setReportTitle: mockSetReportTitle, setParam: mockSetParam });
+        const props = Object.assign({}, defaultProps, { setParam: jest.fn() });
         const componentInstance = new Filter(props);
 
         componentInstance.cachedMainReportParam = cachedMainReportParam;
         componentInstance.setState = jest.fn();
-        componentInstance._buildReportTitle = jest.fn(() => 'AFFILIATE REPORT - Main view');
+        componentInstance._updateReportTitle = jest.fn();
         componentInstance.componentDidUpdate({ currentViewLevel: monthOnMonth });
 
         expect(componentInstance.setState.mock.calls[0][0]).toEqual(state);
         componentInstance.setState.mock.calls[0][1]();
 
-        expect(componentInstance._buildReportTitle).toHaveBeenCalledWith(true);
-
-        expect(props.setReportTitle).toHaveBeenCalledWith(expectReportTitle);
+        expect(componentInstance._updateReportTitle).toHaveBeenCalled();
         expect(props.setParam).toHaveBeenCalledWith(componentInstance.cachedMainReportParam);
     });
 
@@ -103,23 +107,19 @@ describe('affiliate report - Filter ', () => {
             { key: 1, name: 'test', checked: true },
             { key: 2, name: 'abc', checked: false },
         ];
-        const expectReportTitle = 'AFFILIATE REPORT - Month on Month view';
-        const mockSetReportTitle = jest.fn();
-        const props = Object.assign({}, defaultProps, { productList, setReportTitle: mockSetReportTitle, param: { UserName: 'Month on Month view' }, currentViewLevel: monthOnMonth });
+        const props = Object.assign({}, defaultProps, { productList, param: { UserName: 'Month on Month view' }, currentViewLevel: monthOnMonth });
 
         const componentInstance = new Filter(props);
         componentInstance.state.selectedProductList = selectedProductList;
 
         componentInstance.setState = jest.fn();
-        componentInstance._buildReportTitle = jest.fn(() => 'AFFILIATE REPORT - Month on Month view');
+        componentInstance._updateReportTitle = jest.fn();
         componentInstance.componentDidUpdate({ currentViewLevel: mainView });
 
         expect(componentInstance.setState.mock.calls[0][0]).toEqual(state);
         componentInstance.setState.mock.calls[0][1]();
 
-        expect(componentInstance._buildReportTitle).toHaveBeenCalledWith(true);
-
-        expect(props.setReportTitle).toHaveBeenCalledWith(expectReportTitle);
+        expect(componentInstance._updateReportTitle).toHaveBeenCalled();
     });
 
     it('_isMainView - return true with Main view', () => {
@@ -277,19 +277,20 @@ describe('affiliate report - Filter ', () => {
             ProductName: "Sportsbook"
         };
         const selectedProductList = '3,4,5,6,7,8,9,12';
-        const wrapper = shallow(<Filter {...defaultProps} />);
+        const props = { ...defaultProps, setProductList: jest.fn() };
+        const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
 
         instance.setState = jest.fn();
 
-        wrapper.find(MultipleSelect).at(1).simulate('change', item, selectedProductList);
+        wrapper.find(MultipleSelect).at(2).simulate('change', item, selectedProductList);
 
         expect(instance.setState).toHaveBeenCalledWith({ selectedProductList });
+        expect(props.setProductList).toHaveBeenCalled();
     });
 
-    it('should call handleChangeSortAscending when checkbox Get All change with currentMainView is Month on Month view', () => {
-        const props = Object.assign({}, defaultProps, { currentViewLevel: monthOnMonth });
-        const wrapper = shallow(<Filter {...props} />);
+    it('should call handleChangeSortAscending when checkbox Get All change with currentMainView is Main view', () => {
+        const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isGetAll: true });
 
         wrapper.find('Input[type="checkbox"]').at(0).simulate('change');
@@ -313,26 +314,23 @@ describe('affiliate report - Filter ', () => {
         const wrapper = shallow(<Filter {...defaultProps} />);
         wrapper.setState({ isSortAscending: true });
 
-        wrapper.find('Input[type="checkbox"]').simulate('change');
+        wrapper.find('Input[type="checkbox"]').at(1).simulate('change');
 
         expect(wrapper.state('isSortAscending')).toEqual(false);
     });
 
     it('should call handleClickSearch when click Search button with selectedProductList is empty', () => {
-        const mockSetReportTitle = jest.fn();
-        const mockSetParam = jest.fn();
-        const props = Object.assign({}, defaultProps, { setReportTitle: mockSetReportTitle, setParam: mockSetParam })
+        const props = Object.assign({}, defaultProps, { setParam: jest.fn() })
 
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
 
         wrapper.setState({ selectedProductList: '' });
-        instance._buildReportTitle = jest.fn(() => 'Handle click Search button');
+        instance._updateReportTitle = jest.fn();
 
         wrapper.find('Button').simulate('click');
 
-        expect(instance._buildReportTitle).not.toHaveBeenCalled();
-        expect(props.setReportTitle).not.toHaveBeenCalled();
+        expect(instance._updateReportTitle).not.toHaveBeenCalled();
         expect(props.setParam).not.toHaveBeenCalled();
     });
 
@@ -344,30 +342,29 @@ describe('affiliate report - Filter ', () => {
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
             PreferredLanguage: '',
-            ProductIds: '0',
+            ProductIds: '1,2',
             SortType: 1,
             SortDirectionType: 0,
             PageIndex: 1,
             PageSize: 20,
-            GroupId: 0,
+            GroupIds: 'all',
+            PaymentCurrencyIds: "21",
             IsGetAll: false
         };
 
-        const mockSetReportTitle = jest.fn();
-        const mockSetParam = jest.fn();
-        const props = Object.assign({}, defaultProps, { setReportTitle: mockSetReportTitle, setParam: mockSetParam })
+        const props = Object.assign({}, defaultProps, { setParam: jest.fn() })
 
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
+        instance.setState({ selectedProductList: '1,2' });
 
-        instance._buildReportTitle = jest.fn(() => 'Handle click Search button');
+        instance._updateReportTitle = jest.fn();
         instance._isMainView = jest.fn(() => true);
 
         wrapper.find('Button').simulate('click');
 
-        expect(instance._buildReportTitle).toHaveBeenCalledWith(true);
+        expect(instance._updateReportTitle).toHaveBeenCalledWith();
         expect(instance._isMainView).toHaveBeenCalled();
-        expect(props.setReportTitle).toHaveBeenCalledWith('Handle click Search button');
         expect(instance.cachedMainReportParam).toEqual(param);
         expect(props.setParam).toHaveBeenCalledWith(param);
     });
@@ -380,35 +377,33 @@ describe('affiliate report - Filter ', () => {
             FromDate: now.getMonth() + '/1/' + now.getFullYear(),
             ToDate: now.getMonth() + '/1/' + now.getFullYear(),
             PreferredLanguage: '',
-            ProductIds: '0',
+            ProductIds: '1,2',
             SortType: 1,
             SortDirectionType: 1,
             PageIndex: 1,
             PageSize: 20,
-            GroupId: 0,
+            GroupIds: 'all',
+            PaymentCurrencyIds: "21",
             IsGetAll: false
         };
         const selectedProductList = '1,2';
         const productList = [
-            { ProductId: 1 },
-            { ProductId: 2 }
+            { key: 1, name: 'abc', checked: true },
+            { key: 2, name: 'xyz', checked: true }
         ];
-        const mockSetReportTitle = jest.fn();
-        const mockSetParam = jest.fn();
-        const props = Object.assign({}, defaultProps, { productList, setReportTitle: mockSetReportTitle, setParam: mockSetParam, currentViewLevel: monthOnMonth })
+        const props = Object.assign({}, defaultProps, { productList, setParam: jest.fn(), currentViewLevel: monthOnMonth })
 
         const wrapper = shallow(<Filter {...props} />);
         wrapper.setState({ selectedProductList, isSortAscending: false });
         const instance = wrapper.instance();
 
-        instance._buildReportTitle = jest.fn(() => 'Handle click Search button');
+        instance._updateReportTitle = jest.fn();
         instance._isMainView = jest.fn(() => false);
 
         wrapper.find('Button').simulate('click');
 
-        expect(instance._buildReportTitle).toHaveBeenCalledWith(true);
+        expect(instance._updateReportTitle).toHaveBeenCalled();
         expect(instance._isMainView).toHaveBeenCalled();
-        expect(props.setReportTitle).toHaveBeenCalledWith('Handle click Search button');
         expect(instance.cachedMainReportParam).toBeNull;
         expect(props.setParam).toHaveBeenCalledWith(param);
     });
@@ -426,7 +421,8 @@ describe('affiliate report - Filter ', () => {
             SortDirectionType: 1,
             PageIndex: 1,
             PageSize: 20,
-            GroupId: 0,
+            GroupIds: 'all',
+            PaymentCurrencyIds: "21",
             IsGetAll: false
         };
         const selectedProductList = '1,2';
@@ -435,73 +431,67 @@ describe('affiliate report - Filter ', () => {
             { key: 2, name: 'abc', checked: true },
             { key: 3, name: 'xyz', checked: true },
         ];
-        const mockSetReportTitle = jest.fn();
-        const mockSetParam = jest.fn();
-        const props = Object.assign({}, defaultProps, { productList, setReportTitle: mockSetReportTitle, setParam: mockSetParam, currentViewLevel: monthOnMonth })
+        const props = Object.assign({}, defaultProps, { productList, setParam: jest.fn(), currentViewLevel: monthOnMonth })
 
         const wrapper = shallow(<Filter {...props} />);
         wrapper.setState({ selectedProductList, isSortAscending: false });
         const instance = wrapper.instance();
 
-        instance._buildReportTitle = jest.fn(() => 'Handle click Search button');
+        instance._updateReportTitle = jest.fn();
         instance._isMainView = jest.fn(() => false);
 
         wrapper.find('Button').simulate('click');
 
-        expect(instance._buildReportTitle).toHaveBeenCalledWith(false);
+        expect(instance._updateReportTitle).toHaveBeenCalled();
         expect(instance._isMainView).toHaveBeenCalled();
-        expect(props.setReportTitle).toHaveBeenCalledWith('Handle click Search button');
         expect(instance.cachedMainReportParam).toBeNull;
         expect(props.setParam).toHaveBeenCalledWith(param);
     });
 
-    it('_buildReportTitle - return Main Report Title with correct parameter and currentMainView is Main view', () => {
-        const componentInstance = new Filter(defaultProps);
-        componentInstance._buildMainReportTitle = jest.fn();
+    it('_updateReportTitle - return Main Report Title with correct parameter and currentMainView is Main view', () => {
+        const props = { ...defaultProps, setReportTitle: jest.fn() };
+        const componentInstance = new Filter(props);
         componentInstance._isMainView = jest.fn(() => true);
 
-        componentInstance._buildReportTitle(isCheckedAllProduct);
+        componentInstance._updateReportTitle();
 
         expect(componentInstance._isMainView).toHaveBeenCalled();
-        expect(componentInstance._buildMainReportTitle).toHaveBeenCalledWith(isCheckedAllProduct);
+        expect(props.setReportTitle).toHaveBeenCalledWith('AFFILIATE REPORT - Base Currency VND - All Linked Acc. Currencies - All languages - All Products - All Revenue Group - FROM 11/2018 TO 11/2018');
     });
 
-    it('_buildReportTitle - return Main Report Title with correct parameter and currentMainView is Month on Month view', () => {
-        const props = Object.assign({}, defaultProps, { currentViewLevel: monthOnMonth });
+    it('_updateReportTitle - return Main Report Title with correct parameter and currentMainView is Month on Month view', () => {
+        const props = Object.assign({}, defaultProps, { currentViewLevel: monthOnMonth, setReportTitle: jest.fn() });
         const componentInstance = new Filter(props);
-        componentInstance._buildMonthOnMonthReportTile = jest.fn();
         componentInstance._isMainView = jest.fn(() => false);
 
-        componentInstance._buildReportTitle(isCheckedAllProduct);
+        componentInstance._updateReportTitle();
 
         expect(componentInstance._isMainView).toHaveBeenCalled();
-        expect(componentInstance._buildMonthOnMonthReportTile).toHaveBeenCalledWith(isCheckedAllProduct);
+        expect(props.setReportTitle).toHaveBeenCalledWith('MONTH ON MONTH - Base Currency VND - All Products - FROM 11/2018 TO 11/2018');
     });
 
     it('_buildMainReportTitle - return corrected value with correct parameter', () => {
         const componentInstance = new Filter(defaultProps);
-        componentInstance._getProductDataSource = jest.fn();
 
         const result = componentInstance._buildMainReportTitle(isCheckedAllProduct);
 
-        expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('AFFILIATE REPORT  - Base Currency VND - All languages - All Products - All Revenue Groups - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual('AFFILIATE REPORT - Base Currency VND - All Linked Acc. Currencies - All languages - All Products - All Revenue Group - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMainReportTitle - return corrected value with incorrect parameter', () => {
         const productList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true }
-        ]
-
-        const componentInstance = new Filter(defaultProps);
+            { key: 1, name: 'Sportsbook', checked: true },
+            { key: 2, name: 'abc', checked: false },
+            { key: 3, name: 'xyz', checked: false },
+        ];
+        const props = { ...defaultProps, productList }
+        const componentInstance = new Filter(props);
         componentInstance.state.userName = 'Bwing';
         componentInstance.state.selectedCommGroup = 1;
-        componentInstance._getProductDataSource = jest.fn(() => productList);
 
         const result = componentInstance._buildMainReportTitle(!isCheckedAllProduct);
 
-        expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual("AFFILIATE REPORT - Username contains 'Bwing' - Base Currency VND - All languages - Sportsbook - Test - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual("AFFILIATE REPORT - Affiliate contains 'Bwing' - Base Currency VND - All Linked Acc. Currencies - All languages - Sportsbook - All Revenue Group - FROM " + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMonthOnMonthReportTile - return corrected value with correct parameter', () => {

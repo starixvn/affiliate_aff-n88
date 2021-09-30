@@ -108,7 +108,7 @@
     <Setting Key="Aff_EmailHistoryIns" SpName="Aff_EmailHistoryIns" DbName="affiliate_n88" />
   </Function>
   <Function Name="CommissionReport">
-    <Setting Key="Aff_User_Rpt_Commission" SpName="Aff_User_Rpt_Commission" DbName="affiliate_n88"></Setting>
+    <Setting Key="Aff_User_Rpt_Commission" SpName="Aff_User_Rpt_Commission_xtest" DbName="affiliate_n88"></Setting>
   </Function>
   <Function Name="SecurityQuestion">
     <Setting Key="Aff_User_SecurityQuestions_Sel" SpName="Aff_User_SecurityQuestions_Sel" DbName="affiliate_n88" />

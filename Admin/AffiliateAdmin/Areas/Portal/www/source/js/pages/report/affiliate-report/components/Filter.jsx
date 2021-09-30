@@ -223,7 +223,7 @@ export class Filter extends Component {
         const fromToTitle = `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;
         const baseCurrency = baseCurrencyList.filter(x => x.ExchangeId == selectedBaseCurrency).map(b => b.Code).join(',');
 
-        return `${resource.reportName} ${userNameTitle} - Base Currency ${baseCurrency} - ${paymentCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
+        return `${resource.reportName}${userNameTitle} - Base Currency ${baseCurrency} - ${paymentCurrency} - ${language} - ${productName} - ${commGroup} - ${fromToTitle}`;
     }
 
     _buildMonthOnMonthReportTile(isCheckedAllProduct) {
