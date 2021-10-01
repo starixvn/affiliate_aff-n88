@@ -496,71 +496,28 @@ describe('affiliate report - Filter ', () => {
 
     it('_buildMonthOnMonthReportTile - return corrected value with correct parameter', () => {
         const componentInstance = new Filter(defaultProps);
-        componentInstance._getProductDataSource = jest.fn();
 
         const result = componentInstance._buildMonthOnMonthReportTile(isCheckedAllProduct);
 
-        expect(componentInstance._getProductDataSource).toHaveBeenCalled();
-        expect(result).toEqual('MONTH ON MONTH  - Base Currency VND - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
+        expect(result).toEqual('MONTH ON MONTH - Base Currency VND - All Products - FROM ' + now.getMonth() + '/' + now.getFullYear() + ' TO ' + now.getMonth() + '/' + now.getFullYear());
     });
 
     it('_buildMonthOnMonthReportTile - return corrected value with incorrect parameter', () => {
         const productList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true }
+            { key: 1, name: "Sportsbook", checked: true },
+            { key: 2, name: "Abc", checked: false }
         ]
-        const componentInstance = new Filter(defaultProps);
+
+        const props = { ...defaultProps, productList }
+        const componentInstance = new Filter(props);
         componentInstance.state.userName = 'Bwing';
         componentInstance.state.isGetAll = true;
-        componentInstance._getProductDataSource = jest.fn(() => productList);
 
         const result = componentInstance._buildMonthOnMonthReportTile(!isCheckedAllProduct);
 
-        expect(componentInstance._getProductDataSource).toHaveBeenCalled();
         expect(result).toEqual('MONTH ON MONTH - Bwing - Base Currency VND - Sportsbook - Get All Dates');
     });
 
-    it('_getProductDataSource - return corrected value with selected all products', () => {
-        const productList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true },
-            { ProductId: 6, ProductName: "Keno", Checked: true },
-            { ProductId: 8, ProductName: "Lottery", Checked: true }
-        ]
-
-        const expectProductList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true },
-            { ProductId: 6, ProductName: "Keno", Checked: true },
-            { ProductId: 8, ProductName: "Lottery", Checked: true }
-        ]
-
-        const props = Object.assign({}, defaultProps, { productList: productList })
-        const componentInstance = new Filter(props);
-
-        const result = componentInstance._getProductDataSource();
-
-        expect(result).toEqual(expectProductList);
-    });
-
-    it('_getProductDataSource - return corrected value with not selected all products', () => {
-        const productList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true },
-            { ProductId: 6, ProductName: "Keno", Checked: true },
-            { ProductId: 8, ProductName: "Lottery", Checked: true }
-        ];
-
-        const expectProductList = [
-            { ProductId: 1, ProductName: "Sportsbook", Checked: true },
-            { ProductId: 6, ProductName: "Keno", Checked: false },
-            { ProductId: 8, ProductName: "Lottery", Checked: false }
-        ]
-
-        const props = Object.assign({}, defaultProps, { productList: productList })
-        const componentInstance = new Filter(props);
-        componentInstance.state.selectedProductList = '1';
-
-        const result = componentInstance._getProductDataSource();
-
-        expect(result).toEqual(expectProductList);
-    });
 
     it('_getToMonthRange - return corrected value with correct parameter and currentMainView is Main view', () => {
         const toMonthRange = {

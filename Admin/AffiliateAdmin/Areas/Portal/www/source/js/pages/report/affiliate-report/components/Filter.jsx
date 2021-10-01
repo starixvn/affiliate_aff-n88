@@ -231,7 +231,7 @@ export class Filter extends Component {
         const { fromMonth, toMonth, userName, isGetAll, selectedBaseCurrency } = this.state;
 
         const userNameTitle = userName && resource.space + userName;
-        const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.Checked).map(p => p.name).join(',');
+        const productName = isCheckedAllProduct ? 'All Products' : productList.filter(p => p.checked).map(p => p.name).join(',');
 
         const fromToTitle = isGetAll ? 'Get All Dates' :
             `FROM ${formatUnit(fromMonth.month)}/${fromMonth.year} TO ${formatUnit(toMonth.month)}/${toMonth.year}`;

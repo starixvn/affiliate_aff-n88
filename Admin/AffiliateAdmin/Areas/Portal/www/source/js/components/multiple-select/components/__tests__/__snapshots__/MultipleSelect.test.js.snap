@@ -46,7 +46,7 @@ exports[`MultipleSelect  render showOptionList = false - render component with "
         className="multiple-select-item"
       >
         <input
-          checked={true}
+          checked={false}
           className="option-checkbox"
           disabled={false}
           id="multiple-select-15-optionItemAll"
@@ -63,7 +63,26 @@ exports[`MultipleSelect  render showOptionList = false - render component with "
     </ul>
     <ul
       className="multiple-select-options"
-    />
+    >
+      <li
+        className="multiple-select-item"
+      >
+        <input
+          checked={false}
+          className="option-checkbox"
+          disabled={false}
+          id="multiple-select-15-optionItem-0"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="option-label"
+          htmlFor="multiple-select-15-optionItem-0"
+        >
+          Sportsbook
+        </label>
+      </li>
+    </ul>
   </div>
 </div>
 `;

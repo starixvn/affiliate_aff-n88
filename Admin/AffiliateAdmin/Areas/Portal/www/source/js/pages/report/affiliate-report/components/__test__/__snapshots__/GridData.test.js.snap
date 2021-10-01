@@ -641,13 +641,13 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
       0.00
     </td>
     <td
-      className="text-right"
+      className="text-right highlight"
       title="0.00"
     >
       0.00
     </td>
     <td
-      className="text-right"
+      className="text-right highlight"
       title="0.00"
     >
       0.00
@@ -731,10 +731,10 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
 exports[`affiliate report - GridData  should render correctly 1`] = `
 <Fragment>
   <div
-    className="table-responsive report-table-container"
+    className="table-responsive aff-report-table-container"
     style={
       Object {
-        "max-height": 493,
+        "max-height": 418,
       }
     }
   >
@@ -745,61 +745,69 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
     >
       <thead>
         <tr
-          className="feeze-row feeze-row-h1"
+          className="freeze-row freeze-row-h1"
           key="thead-1"
         >
           <th
             className="freeze-column-header"
             rowSpan="2"
             title="Affiliate"
-            width={100}
+            width={110}
           >
             Affiliate
           </th>
           <th
             rowSpan="2"
+            title="Linked Account Currency"
+            width={70}
+          >
+            Linked Account Currency
+          </th>
+          <th
+            rowSpan="2"
             title="Total Click"
-            width={50}
+            width={60}
           >
             Total Click
           </th>
           <th
             rowSpan="2"
             title="Unique Click"
-            width={50}
+            width={55}
           >
             Unique Click
           </th>
           <th
             rowSpan="2"
             title="Signup"
-            width={50}
+            width={55}
           >
             Signup
           </th>
           <th
             rowSpan="2"
             title="FDM"
-            width={50}
+            width={55}
           >
             FDM
           </th>
           <th
             rowSpan="2"
             title="Active Player"
-            width={50}
+            width={55}
           >
             Active Player
           </th>
           <th
             rowSpan="2"
             title="Sub-Affiliate"
-            width={50}
+            width={65}
           >
             Sub-Affiliate
           </th>
           <th
             colSpan="11"
+            height={28}
             title="Player Statistics"
           >
             Player Statistics
@@ -813,13 +821,20 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           <th
             rowSpan="2"
             title="Month on Month"
-            width={50}
+            width={55}
           >
             Month on Month
           </th>
+          <th
+            rowSpan="2"
+            title="Player GGR"
+            width={55}
+          >
+            Player GGR
+          </th>
         </tr>
         <tr
-          className="feeze-row feeze-row-h2"
+          className="freeze-row freeze-row-h2"
           key="thead-2"
         >
           <th
@@ -841,10 +856,10 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
             Turnover
           </th>
           <th
-            title="Winloss"
+            title="GGR"
             width={75}
           >
-            Winloss
+            GGR
           </th>
           <th
             title="Bonus"
@@ -948,6 +963,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           >
             12BETAFF001
           </td>
+          <td
+            className="text-center"
+          />
           <td
             className="text-right"
             title="0"
@@ -1096,6 +1114,18 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               View
             </Button>
           </td>
+          <td
+            className="text-center"
+          >
+            <Button
+              className="p-0"
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              View
+            </Button>
+          </td>
         </tr>
         <tr
           key="dataRow-1"
@@ -1106,6 +1136,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           >
             12BETAFF002
           </td>
+          <td
+            className="text-center"
+          />
           <td
             className="text-right"
             title="1"
@@ -1254,6 +1287,18 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
               View
             </Button>
           </td>
+          <td
+            className="text-center"
+          >
+            <Button
+              className="p-0"
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              View
+            </Button>
+          </td>
         </tr>
       </tbody>
       <tfoot>
@@ -1262,6 +1307,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
         >
           <td
             className="freeze-column"
+          />
+          <td
+            className="text-center"
           />
           <td
             className="text-right"
@@ -1364,6 +1412,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           <td
             className="text-right"
             title=""
+          />
+          <td
+            className="text-center"
           />
           <td
             className="text-center"

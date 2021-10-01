@@ -41,6 +41,7 @@ describe('affiliate report - GridData - connect', () => {
 		const mockBindAction = jest.fn();
 		bindActionCreators.mockImplementationOnce(mockBindAction);
 		const expectedActionCreator = {
+			fetchData: actions['fetchData'],
 			setPagingOption: actions['setPagingOption'],
 			toggleLoader: toggleLoader,
 			setViewLevel: actions['setViewLevel'],

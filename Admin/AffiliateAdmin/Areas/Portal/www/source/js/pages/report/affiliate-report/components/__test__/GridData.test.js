@@ -1,12 +1,15 @@
 ﻿import React from 'react';
 import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
-
-import * as ajaxRequest from '../../../../../modules/ajaxRequest';
+import { fetchData } from '../../actions';
 
 describe('affiliate report - GridData ', () => {
     const mainView = 1;
     const monthOnMonth = 2;
+    const productList = [
+        { key: 1, name: "Sportsbook", checked: true },
+        { key: 2, name: "Abc", checked: false }
+    ]
 
     const defaultProps = {
         pagingOption: {
@@ -16,6 +19,7 @@ describe('affiliate report - GridData ', () => {
             PageList: [10, 20, 50, 100, 500]
         },
         param: {},
+        productList,
         currentViewLevel: mainView
     };
 
@@ -114,40 +118,33 @@ describe('affiliate report - GridData ', () => {
         const expectedParam = {
             userName: 'Main view'
         }
-        const expectedUrl = 'Portal/Report/GetMainData';
 
-        ajaxRequest.post = jest.fn();
-        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { userName: 'Main view' } });
+        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), fetchData: jest.fn(), param: { userName: 'Main view' } });
         const componentInstance = new GridData(props);
 
         componentInstance.fetchData(expectedParam);
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith(expectedUrl, expectedParam);
+        expect(props.fetchData).toHaveBeenCalledWith(expectedParam, true);
     });
 
     it('fetchData - should pass request param correctly with currentViewLevel is Month on Month view', () => {
         const expectedParam = {
             userName: 'Month on Month view'
         }
-        const expectedUrl = 'Portal/Report/GetDetailData';
 
-        ajaxRequest.post = jest.fn();
-        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { userName: 'Month on Month view' }, currentViewLevel: monthOnMonth });
+        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), fetchData: jest.fn(), param: { userName: 'Month on Month view' }, currentViewLevel: monthOnMonth });
         const componentInstance = new GridData(props);
 
         componentInstance.fetchData(expectedParam);
 
-        expect(ajaxRequest.post).toHaveBeenCalledWith(expectedUrl, expectedParam);
+        expect(props.fetchData).toHaveBeenCalledWith(expectedParam, false);
     });
 
     it('fetchData - should call correctly with correct parameters is Main view', async () => {
-        const expectedResponse = { data: { MainData: [{ first: 1 }], Total: 1, TotalItem: 1 }, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+        const expectedData = { MainData: [{ first: 1 }], Total: 1, TotalItem: 1 };
+        const fetchData = jest.fn(() => expectedData);
 
-        const mockToggleLoader = jest.fn();
-        const mockSetPagingOption = jest.fn();
-
-        const props = Object.assign({}, defaultProps, { toggleLoader: mockToggleLoader, setPagingOption: mockSetPagingOption });
+        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), setPagingOption: jest.fn(), fetchData });
         const componentInstance = new GridData(props);
         componentInstance.setState = jest.fn();
         componentInstance._isMainView = jest.fn(() => true);
@@ -168,13 +165,10 @@ describe('affiliate report - GridData ', () => {
     });
 
     it('fetchData - should call correctly with correct parameters is Month on Month view', async () => {
-        const expectedResponse = { data: { MainData: [{ first: 1 }], Total: 1, TotalItem: 1 }, status: 200 };
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
+        const expectedData = { MainData: [{ first: 1 }], Total: 1, TotalItem: 1 };
+        const fetchData = jest.fn(() => expectedData);
 
-        const mockToggleLoader = jest.fn();
-        const mockSetPagingOption = jest.fn();
-
-        const props = Object.assign({}, defaultProps, { toggleLoader: mockToggleLoader, setPagingOption: mockSetPagingOption });
+        const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), setPagingOption: jest.fn(), fetchData });
         const componentInstance = new GridData(props);
         componentInstance.setState = jest.fn();
         componentInstance._isMainView = jest.fn(() => false);
@@ -394,7 +388,7 @@ describe('affiliate report - GridData ', () => {
 
         const buildDataRow = shallow(<div>{componentInstance._buildDataRow(dataItem, 'text-right', index)}</div>);
 
-        buildDataRow.find('Button').simulate('click');
+        buildDataRow.find('Button').at(0).simulate('click');
 
         expect(componentInstance.handleViewMonthOnMonth).toHaveBeenCalledWith("12BETAFF002");
     });
@@ -466,8 +460,6 @@ describe('affiliate report - GridData ', () => {
     });
 
     it('handlePaging - should call setPagingOption and fetchData with correct parameters', () => {
-        const mockSetPagingOption = jest.fn();
-
         const index = 1;
         const size = 20;
         const newPaging = {
@@ -476,13 +468,11 @@ describe('affiliate report - GridData ', () => {
         };
         const paramExpect = Object.assign({}, defaultProps.param, newPaging);
 
-        const props = Object.assign({}, defaultProps, { setPagingOption: mockSetPagingOption });
-        const componentInstance = new GridData(props);
+        const componentInstance = new GridData(defaultProps);
         componentInstance.fetchData = jest.fn();
 
         componentInstance.handlePaging(index, size);
 
-        expect(props.setPagingOption).toHaveBeenCalledWith(newPaging);
         expect(componentInstance.fetchData).toHaveBeenCalledWith(paramExpect);
     });
 
