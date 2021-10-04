@@ -25,7 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public byte? CalculatedType { get; set; }
 
-        public string DateText => (TransType == Constants.TransType.MonthlyGgr || TransType == Constants.TransType.MonthlyTotal
+        public string DateText => (TransType == Constants.TransType.MonthlyEarning || TransType == Constants.TransType.MonthlyTotal
             || TransType == Constants.TransType.SubAffiliate) ? Date.ToString("MMM-yyyy") : Date.ToString("dd-MMM-yyyy");
 
         public string NormalizeDateText => Date.ToString("yyyy-MM-dd");

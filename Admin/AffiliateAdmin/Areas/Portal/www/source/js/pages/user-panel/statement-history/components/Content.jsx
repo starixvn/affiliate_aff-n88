@@ -7,7 +7,7 @@ import { Button } from 'reactstrap';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
 import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyGgr, MONTHLY_TOTAL, MONTHLY_GGR, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
+import { headerText, globalResource, transTypeList, monthlyEarning, MONTHLY_TOTAL, MONTHLY_EARNING, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -106,7 +106,7 @@ export class Content extends PureComponent {
             [PAYMENT_REQUEST]: (dataItem) => () => {
                 return this.handleSetTransactionId(dataItem.TransId);
             },
-            [MONTHLY_GGR]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
+            [MONTHLY_EARNING]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
             [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToSubAffiliate(dataItem)
         }
     }
@@ -147,7 +147,7 @@ export class Content extends PureComponent {
                             </Button>
                         ) : dataItem.DateText
                     }</Cell>
-                    <Cell title={transTypeString || monthlyGgr} className="text-center">{transTypeString || monthlyGgr}</Cell>
+                    <Cell title={transTypeString || monthlyEarning} className="text-center">{transTypeString || monthlyEarning}</Cell>
                     <Cell title={amount} className="text-right">
                         {clickHandler ?
                             (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>

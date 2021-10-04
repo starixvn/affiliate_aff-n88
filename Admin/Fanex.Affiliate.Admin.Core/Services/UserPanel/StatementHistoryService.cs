@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             var result = _statementHistoryRepository.GetStatementHistoryList(param);
             foreach (var item in result.MainData)
             {
-                if (item.TransType == TransType.MonthlyGgr || item.TransType == TransType.SubAffiliate)
+                if (item.TransType == TransType.MonthlyEarning || item.TransType == TransType.SubAffiliate)
                 {
                     if (CheckIfExistMonthlyTotal(item.Date, vms))
                     {
@@ -80,9 +80,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
             var children = statementHistoryList.Where(s => s.Date == monthDate)
-                .Where(s => s.TransType == TransType.SubAffiliate || s.TransType == TransType.MonthlyGgr);
+                .Where(s => s.TransType == TransType.SubAffiliate || s.TransType == TransType.MonthlyEarning);
 
-            var monthlyCom = children.FirstOrDefault(s => s.TransType == TransType.MonthlyGgr);
+            var monthlyCom = children.FirstOrDefault(s => s.TransType == TransType.MonthlyEarning);
 
             var monthlyTotal = new StatementHistory
             {

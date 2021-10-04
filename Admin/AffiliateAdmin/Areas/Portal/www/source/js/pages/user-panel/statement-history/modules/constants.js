@@ -15,17 +15,17 @@ export const headerText = {
 
 export const CalculatedMonth = 2;
 export const MONTHLY_TOTAL = 0;
-export const MONTHLY_GGR = 201;
+export const MONTHLY_EARNING = 201;
 export const PAYMENT_REQUEST = 202;
 export const ADJUSTMENT = 203;
 export const SUBAFFILIATE = 204;
 
+export const monthlyEarning = 'Monthly Earning'
+
 export const transTypeList = {
     [MONTHLY_TOTAL]: 'Transaction',
-    [MONTHLY_GGR]: 'Monthly GGR',
+    [MONTHLY_EARNING]: monthlyEarning,
     [PAYMENT_REQUEST]: 'Payment Request',
     [ADJUSTMENT]: 'Adjustment',
     [SUBAFFILIATE]: 'Sub-Affiliate'
 }
-
-export const monthlyGgr = 'Monthly Ggr'
