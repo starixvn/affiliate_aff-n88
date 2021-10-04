@@ -1,9 +1,9 @@
 import { post } from '../../../../modules/ajaxRequest';
 import { toggleLoaderUserPanel } from '../../../customer/user-panel/actions';
-import { setSelectedUserPanel, redirectToDailyEarning } from '../../../customer/user-panel/actions';
+import { setSelectedUserPanel, redirectToDailyEarning, redirectToStatementHistory } from '../../../customer/user-panel/actions';
 import { SET_PARAM } from './types';
 
-export { toggleLoaderUserPanel, setSelectedUserPanel, redirectToDailyEarning };
+export { toggleLoaderUserPanel, setSelectedUserPanel, redirectToDailyEarning, redirectToStatementHistory };
 
 export const setParam = (data) => {
     return {
