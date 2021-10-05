@@ -37,22 +37,33 @@
         }
         [HttpGet]
         [AjaxOnly]
-        public ActionResult Index()
+        public ActionResult Index(string baseCurrency)
         {
+            var baseCurrencies = _currencyRepository.GetBaseCurrencyList();
+            var isClickBreadcumb = false;
+            var baseCurrencyId = SessionService.UserSession.BaseCurrency;
+
+            if (!string.IsNullOrEmpty(baseCurrency) && int.TryParse(baseCurrency, out int currencyId) && baseCurrencies.Any(b => b.ExchangeId == currencyId))
+            {
+                isClickBreadcumb = true;
+                baseCurrencyId = currencyId;
+            }
+
             var param = new StatementHistoryParam
             {
                 AffId = SessionService.UserSession.AffId,
                 IsInternal = SessionService.IsInternal,
                 PageSize = DefaultPageSize,
-                BaseCurrency = _sessionService.UserSession.BaseCurrency
+                BaseCurrency = baseCurrencyId
             };
 
             var statementHistoryList = GetStatementHistoryViewModel(param);
             ViewBag.TotalItem = param.NRows;
             ViewBag.StartRowNumber = 1;
             ViewBag.AvailableFromDate = _appSetting.StatementAvailableFrom;
-            ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
-            ViewBag.DefaultBaseCurrency = _sessionService.UserSession.BaseCurrency;
+            ViewBag.BaseCurrencies = baseCurrencies;
+            ViewBag.DefaultBaseCurrency = baseCurrencyId;
+            ViewBag.IsClickBreadcumb = isClickBreadcumb.ToString();
             return View("~/Views/UserPanel/StatementHistory/Index.cshtml", statementHistoryList);
         }
 

@@ -1512,7 +1512,6 @@ var ReferrerStatistics = (function ($) {
 
     function initExpandBtnEvent() {
         $(".row-toogleable-table").on("click", ".btn.btn-transparent", function () {
-            console.log("test");
             let parentRow = $(this).parents("tr");
             let id = parentRow.data("id");
             let children = parentRow.siblings(`tr[data-parent='${id}']`);
@@ -1545,7 +1544,7 @@ var ReferrerStatistics = (function ($) {
                 language: $('#language').val(),
                 includeInActiveLink: $('#includeInActive').is(':checked')
             };
-            console.log(params);
+
             _me.getMainView(params);
         },
 
