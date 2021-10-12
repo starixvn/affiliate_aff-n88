@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import { Content } from '../Content';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { defaultPagingOption } from '../../../../../modules/constants';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
 
 describe('member list - components - Content ', () => {
 

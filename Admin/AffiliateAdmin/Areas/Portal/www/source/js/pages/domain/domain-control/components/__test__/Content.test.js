@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Content } from '../Content';
 import { shallow } from 'enzyme';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
 
 describe('domain control - components - Content ', () => {
     const affDomainList = [

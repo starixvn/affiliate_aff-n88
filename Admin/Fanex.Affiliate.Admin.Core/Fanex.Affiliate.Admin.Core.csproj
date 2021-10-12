@@ -255,6 +255,7 @@
     <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
     <Compile Include="DTO\CommissionGroup\DeductionSetting.cs" />
     <Compile Include="DTO\Currency.cs" />
+    <Compile Include="DTO\Customer\TransferLimitSettingInfo.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
     <Compile Include="DTO\Home\GeneralInfo.cs" />
@@ -306,6 +307,7 @@
     <Compile Include="MetaModels\CommissionGroup\DeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\P2pDeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\TierSettingParam.cs" />
+    <Compile Include="MetaModels\Customer\TransferLimitSettingParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainControlParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainParam.cs" />
     <Compile Include="MetaModels\Domain\InsertUpdateDomainControlParam.cs" />

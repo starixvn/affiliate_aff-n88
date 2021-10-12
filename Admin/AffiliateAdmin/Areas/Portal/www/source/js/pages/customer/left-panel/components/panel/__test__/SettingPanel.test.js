@@ -125,7 +125,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isAssignCommissionGroup: false });
     });
 
-    it('_handleChangeStatus - should call setState', async () => {
+    it('handleChangeStatus - should call setState', async () => {
         const event = {
             target: {
                 value: 'Approved'
@@ -139,29 +139,29 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Are you sure you want to change status for this affiliate?', isConfirmPopup: true, isConfirmStatus: true, selectedStatus: 'Approved' });
     });
 
-    it('_changeStatus - should call setState', async () => {
+    it('_saveStatus - should call setState', async () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState = jest.fn();
 
-        wrapper.instance()._changeStatus('Approved');
+        wrapper.instance()._saveStatus('Approved');
 
         expect(wrapper.setState).toHaveBeenCalledWith({ isAssignCommissionGroup: true });
     });
 
-    it('_changeStatus - should call updateStatus and setState', async () => {
+    it('_saveStatus - should call updateStatus and setState', async () => {
         const data = { IsSuccessful: false, Message: 'Update status is failed!' };
         const updateStatus = jest.fn(() => data);
         const props = Object.assign({}, defaultProps, { updateStatus });
         const wrapper = shallow(<SettingPanel {...props} />);
         wrapper.setState = jest.fn();
 
-        await wrapper.instance()._changeStatus('Pending');
+        await wrapper.instance()._saveStatus('Pending');
 
         expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1219631, Status: "Pending" });
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Update status is failed!', isConfirmPopup: false });
     });
 
-    it('_changeStatus - should call updateStatus, getAffiliateInfo and setState', async () => {
+    it('_saveStatus - should call updateStatus, getAffiliateInfo and setState', async () => {
         const data = { IsSuccessful: true, Message: '' };
         const updateStatus = jest.fn(() => data);
         const getAffiliateInfo = jest.fn();
@@ -169,14 +169,14 @@ describe('left panel - components - panel - SettingPanel', () => {
         const wrapper = shallow(<SettingPanel {...props} />);
         wrapper.setState = jest.fn();
 
-        await wrapper.instance()._changeStatus('Pending');
+        await wrapper.instance()._saveStatus('Pending');
 
         expect(props.updateStatus).toHaveBeenCalledWith({ AffId: 1219631, Status: "Pending" });
         expect(props.getAffiliateInfo).toHaveBeenCalledWith(affName);
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "The status has been updated successfully!", isConfirmPopup: false });
     });
 
-    //it('_handleOpenCloseAff - should call setState with open status', async () => {
+    //it('handleOpenCloseAff - should call setState with open status', async () => {
     //    const wrapper = shallow(<SettingPanel {...defaultProps} isApproved={true}/>);
     //    wrapper.setState = jest.fn();
 
@@ -185,7 +185,7 @@ describe('left panel - components - panel - SettingPanel', () => {
     //    expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: "Are you sure you want to open this affiliate?", isConfirmPopup: true, isConfirmStatus: false, isClosed: false});
     //});
 
-    //it('_handleOpenCloseAff - should call wrapper.setState with close status', async () => {
+    //it('handleOpenCloseAff - should call wrapper.setState with close status', async () => {
     //    const props = Object.assign({}, defaultProps, { affiliateInfo });
     //    const wrapper = shallow(<SettingPanel {...props} isApproved={true}/>);
     //    wrapper.setState = jest.fn();
@@ -261,17 +261,17 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffType: false }, expect.any(Function));
     });
 
-    it('handleCloseNotificationPopup - should call setState and _changeStatus', async () => {
+    it('handleCloseNotificationPopup - should call setState and _saveStatus', async () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState({ selectedStatus: 'Approved', isConfirmStatus: true });
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
-        instance._changeStatus = jest.fn();
+        instance._saveStatus = jest.fn();
 
         await instance.handleCloseNotificationPopup(true);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: '' });
-        expect(instance._changeStatus).toHaveBeenCalledWith('Approved');
+        expect(instance._saveStatus).toHaveBeenCalledWith('Approved');
     });
 
     it('handleCloseNotificationPopup - should call setState and _openCloseAff', async () => {
@@ -287,17 +287,17 @@ describe('left panel - components - panel - SettingPanel', () => {
         //expect(instance._openCloseAff).toHaveBeenCalledWith(false);
     });
 
-    it('handleCloseNotificationPopup - should call setState but not call _changeStatus and _openCloseAff', async () => {
+    it('handleCloseNotificationPopup - should call setState but not call _saveStatus and _openCloseAff', async () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState = jest.fn();
         const instance = wrapper.instance();
-        instance._changeStatus = jest.fn();
+        instance._saveStatus = jest.fn();
         //instance._openCloseAff = jest.fn();
 
         await instance.handleCloseNotificationPopup(false);
 
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: '' });
-        expect(instance._changeStatus).not.toHaveBeenCalled();
+        expect(instance._saveStatus).not.toHaveBeenCalled();
         //expect(instance._openCloseAff).not.toHaveBeenCalled();
     });
 });

@@ -56,11 +56,11 @@ export class DepartmentPopup extends PureComponent {
         this.setState({ ...result });
     }
 
-    _handleClosePopup = () => {
+    handleClosePopup = () => {
         this.props.closePopup();
     }
 
-    _handleUpdate = () => {
+    handleUpdate = () => {
         const { data, checkedUsers } = this.state;
 
         const userIdList = this._getCheckedItemIdList(checkedUsers);
@@ -101,14 +101,22 @@ export class DepartmentPopup extends PureComponent {
         this.setState({ shouldResetScrollPosition });
     }
 
+    handleUpdateCheckedUsers = (newCheckedUsers) => {
+        this.setState({ checkedUsers: newCheckedUsers })
+    }
+
+    handleClosePolicyPopup = () => {
+        this.setState({ isShowPolicyPopup: false, selectedUserIds: '', userNames: '' })
+    }
+
     render() {
         const { isShowMessage, isSuccess, message, param, data, checkedUsers, shouldResetScrollPosition, selectedUserIds, userNames, isShowPolicyPopup } = this.state;
         const { isAdmin, name, isShowPopup } = this.props;
         const title = isAdmin ? `Department - ${name}` : `${name}`;
 
         return (
-            <Modal isOpen={isShowPopup} toggle={this._handleClosePopup} size="xl" backdrop='static'>
-                <ModalHeader toggle={this._handleClosePopup}><span className="iconpopup"></span>{title}</ModalHeader>
+            <Modal isOpen={isShowPopup} toggle={this.handleClosePopup} size="xl" backdrop='static'>
+                <ModalHeader toggle={this.handleClosePopup}><span className="iconpopup"></span>{title}</ModalHeader>
                 <ModalBody>
                     <div className="modal-body-wrapper">
                         <div className="department-popup-container">
@@ -124,11 +132,11 @@ export class DepartmentPopup extends PureComponent {
                                 data && data.length && (
                                     <React.Fragment>
                                         <div className="my-2">
-                                            <Button outline type="button" onClick={this._handleUpdate}>Update</Button>
+                                            <Button outline type="button" onClick={this.handleUpdate}>Update</Button>
                                         </div>
                                         <SelectAll
                                             checkedList={checkedUsers}
-                                            setCheckedList={(newCheckedUsers) => this.setState({ checkedUsers: newCheckedUsers })}
+                                            setCheckedList={this.handleUpdateCheckedUsers}
                                             setShouldResetScrollPosition={this.setShouldResetScrollPosition}
                                         />
                                     </React.Fragment>
@@ -142,7 +150,7 @@ export class DepartmentPopup extends PureComponent {
                                 fetchData={this.getData}
                                 isPopup={true}
                                 checkedUsers={checkedUsers}
-                                setCheckedUsers={(newCheckedUsers) => this.setState({ checkedUsers: newCheckedUsers })}
+                                setCheckedUsers={this.handleUpdateCheckedUsers}
                             />
                             <EditPolicyForm
                                 selectedId={selectedUserIds}
@@ -150,7 +158,7 @@ export class DepartmentPopup extends PureComponent {
                                 isAccountPolicy={true}
                                 isShowPopup={isShowPolicyPopup}
                                 isGetByIdList={true}
-                                closePopup={() => this.setState({ isShowPolicyPopup: false, selectedUserIds: '', userNames: '' })}
+                                closePopup={this.handleClosePolicyPopup}
                             />
                         </div>
                     </div>

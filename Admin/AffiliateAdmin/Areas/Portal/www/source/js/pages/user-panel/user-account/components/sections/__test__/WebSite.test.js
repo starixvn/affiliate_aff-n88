@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { WebSite } from '../WebSite';
 import { shallow } from 'enzyme';
-import { NotificationPopup } from '../../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../../common/components/NotificationPopup';
 
 describe('user account - components - sections - WebSite', () => {
     afterEach(() => {

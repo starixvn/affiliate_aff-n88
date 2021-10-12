@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Newtonsoft.Json;
 
 namespace Fanex.Affiliate.Admin.Core.DTO.Customer
@@ -64,5 +65,13 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
         public bool IsDepositFeePercent { get; set; }
 
         public bool IsWithdrawalFeePercent { get; set; }
+
+        public bool IsEnabledTransfer { get; set; }
+
+        public decimal TransferLimit { get; set; }
+
+        public string PlayerCurrency { get; set; }
+
+        public bool IsUnlimited => TransferLimit == Money.AllowedMaxValue;
     }
 }

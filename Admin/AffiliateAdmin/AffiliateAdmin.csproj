@@ -282,6 +282,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\Content.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\common\components\SubMenuList.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\DepositForPlayerSettingPopup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\Content.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\addgroup\__test__\redux\AddGroup.redux.test.js" />

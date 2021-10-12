@@ -8,7 +8,7 @@ import { resolveClientUrl } from '../../../../modules/utils';
 import { INFINITY_AM, INFINITY_QM, INFINITY_SYMBOL, globalResource, format, formatDecimal } from '../../modules/constant';
 import { deleteCommGroup, getGroupSettingList } from '../../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
-import { NotificationPopup } from '../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../common/components/NotificationPopup';
 
 export class GridData extends Component {
     constructor(props) {

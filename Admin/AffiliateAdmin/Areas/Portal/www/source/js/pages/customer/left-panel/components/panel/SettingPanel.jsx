@@ -6,9 +6,10 @@ import Panel from '../Panel';
 import { Row, Col, Button } from 'reactstrap';
 
 import { resource, status, messages, statusForSuspend, approved } from '../../libs/constants';
-import { updateAffType, updateClosedStatus, updateStatus, getAffiliateInfo } from '../../actions';
+import { updateAffType, updateClosedStatus, updateStatus, getAffiliateInfo, getTransferLimitSetting } from '../../actions';
 import CommissionGroupPopup from '../../../../common/components/CommissionGroupPopup';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
+import DepositForPlayerSettingPopup from './DepositForPlayerSettingPopup';
 
 export class SettingPanel extends PureComponent {
     constructor(props) {
@@ -25,16 +26,33 @@ export class SettingPanel extends PureComponent {
             isClosed: false,
             messageNotification: '',
             isConfirmPopup: true,
-            isConfirmStatus: true
+            isConfirmStatus: true,
+            transferLimitSettingInfo: null,
         }
     }
 
-    toggleChangingAffType = (isChanging) => {
+    _toggleChangingAffType = (isChanging) => {
         this.setState({ isChangingAffType: isChanging }, () => isChanging && this.affTypeDropdown.current.focus());
     }
 
-    toggleChangingAffStatus = (isChanging) => {
+    handleOpenChangingAffType = () => {
+        this._toggleChangingAffType(true)
+    }
+
+    handleCloseChangingAffType = () => {
+        this._toggleChangingAffType(false)
+    }
+
+    _toggleChangingAffStatus = (isChanging) => {
         this.setState({ isChangingAffStatus: isChanging }, () => isChanging && this.affStatusDropdown.current.focus());
+    }
+
+    handleOpenChangingAffStatus = () => {
+        this._toggleChangingAffStatus(true)
+    }
+
+    handleCloseChangingAffStatus = () => {
+        this._toggleChangingAffStatus(false)
     }
 
     toggleAssignCommissionPopup = (isChanging) => {
@@ -46,7 +64,7 @@ export class SettingPanel extends PureComponent {
 
         const { isConfirmStatus, selectedStatus, isClosed } = this.state;
         if (isConfirmStatus && confirmResult && selectedStatus) {
-            this._changeStatus(selectedStatus);
+            this._saveStatus(selectedStatus);
         }
 
         //if (!isConfirmStatus && confirmResult) {
@@ -54,11 +72,11 @@ export class SettingPanel extends PureComponent {
         //}
     }
 
-    _handleChangeStatus = (event) => {
+    handleChangeStatus = (event) => {
         this.setState({ messageNotification: messages.areYouChangeStatus, isConfirmPopup: true, isConfirmStatus: true, selectedStatus: event.target.value });
     }
 
-    _changeStatus = async (selectedStatus) => {
+    _saveStatus = async (selectedStatus) => {
         if (selectedStatus && !this.props.affiliateInfo.GroupId && selectedStatus.toLowerCase() === approved) {
             this.setState({ isAssignCommissionGroup: true });
         } else {
@@ -75,7 +93,7 @@ export class SettingPanel extends PureComponent {
         }
     }
 
-    // _handleOpenCloseAff = () => {
+    // handleOpenCloseAff = () => {
     //     const { affiliateInfo } = this.props;
     //     const isClosed = !affiliateInfo.IsClosed;
 
@@ -102,16 +120,31 @@ export class SettingPanel extends PureComponent {
 
         if (result.IsSuccessful) {
             this.props.getAffiliateInfo(this.props.affName);
-            this.toggleChangingAffType(false);
+            this._toggleChangingAffType(false);
         }
         else {
             this.setState({ messageNotification: messages.affTypeUpdatedFail, isConfirmPopup: false });
         }
     }
 
+    toggleDepositForPlayerPopup = (info) => {
+        this.setState({ transferLimitSettingInfo: info });
+    }
+
+    handleOpenDepositForPlayerPopup = async () => {
+        const { affiliateInfo } = this.props;
+        const transferLimitSettingInfo = await this.props.getTransferLimitSetting(affiliateInfo.AffId);
+
+        this.toggleDepositForPlayerPopup(transferLimitSettingInfo)
+    }
+
+    handleCloseDepositForPlayerPopup = () => {
+        this.toggleDepositForPlayerPopup(null)
+    }
+
     render() {
         const { affiliateInfo, isApproved, affTypeList } = this.props;
-        const { isChangingAffType, isChangingAffStatus, isAssignCommissionGroup, messageNotification, isConfirmPopup } = this.state;
+        const { isChangingAffType, isChangingAffStatus, isAssignCommissionGroup, messageNotification, isConfirmPopup, transferLimitSettingInfo } = this.state;
         const affType = affTypeList && affTypeList.filter(a => a.AffTypeId == affiliateInfo.AffType);
 
         return (
@@ -120,14 +153,14 @@ export class SettingPanel extends PureComponent {
                     <Col>{resource.AffiliateType}</Col>
                     <Col className="text-right text-primary">
                         <select style={{ display: isChangingAffType ? 'inline-block' : 'none' }} value={affiliateInfo.AffType}
-                            onChange={this.handleChangeAffType} onBlur={() => this.toggleChangingAffType(false)} ref={this.affTypeDropdown}>
+                            onChange={this.handleChangeAffType} onBlur={this.handleCloseChangingAffType} ref={this.affTypeDropdown}>
                             {
                                 affTypeList && affTypeList.map(item => {
                                     return (<option value={item.AffTypeId} key={`affinfo-type-${item.AffTypeId}`}>{item.AffTypeName}</option>)
                                 })
                             }
                         </select>
-                        <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffType ? 'none' : 'inline-block' }} onClick={() => this.toggleChangingAffType(true)}>
+                        <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffType ? 'none' : 'inline-block' }} onClick={this.handleOpenChangingAffType}>
                             {
                                 affType.length ? affType[0].AffTypeName : affiliateInfo.AffType
                             }
@@ -139,8 +172,8 @@ export class SettingPanel extends PureComponent {
                     <Col className="text-right">
                         <div className="text-primary">
                             <select style={{ display: isChangingAffStatus ? 'inline-block' : 'none' }} value={affiliateInfo.Status}
-                                onChange={this._handleChangeStatus}
-                                onBlur={() => this.toggleChangingAffStatus(false)}
+                                onChange={this.handleChangeStatus}
+                                onBlur={this.handleCloseChangingAffStatus}
                                 ref={this.affStatusDropdown}>
                                 {
                                     Object.keys(isApproved ? statusForSuspend : status).map(key => {
@@ -149,7 +182,7 @@ export class SettingPanel extends PureComponent {
                                 }
                             </select>
                             <Button color="link" className="left-panel-btn-link" style={{ display: isChangingAffStatus ? 'none' : 'inline-block' }}
-                                onClick={() => this.toggleChangingAffStatus(true)}>
+                                onClick={this.handleOpenChangingAffStatus}>
                                 {affiliateInfo.Status}
                             </Button>
                         </div>
@@ -164,12 +197,29 @@ export class SettingPanel extends PureComponent {
                         />
                     </Col>
                 </Row>
+                <Row>
+                    <Col>{resource.DepositForPlayer}</Col>
+                    <Col className="text-right text-primary">
+                        <Button color="link" className="left-panel-btn-link" onClick={this.handleOpenDepositForPlayerPopup}>
+                            {affiliateInfo.IsEnabledTransfer ? (affiliateInfo.IsUnlimited ? resource.Unlimited : `${affiliateInfo.PlayerCurrency} ${affiliateInfo.TransferLimit}`) : resource.Disabled}
+                        </Button>
+                    </Col>
+                </Row>
+                {
+                    transferLimitSettingInfo && (
+                        <DepositForPlayerSettingPopup
+                            affId={affiliateInfo.AffId}
+                            affName={affiliateInfo.AffName}
+                            settingInfo={transferLimitSettingInfo}
+                            onClose={this.handleCloseDepositForPlayerPopup} />
+                        )
+                }
                 {/* {
                     isApproved && (
                         <Row>
                             <Col>{resource.Closed}</Col>
                             <Col className="text-right text-primary">
-                                <Button color="link" className="left-panel-btn-link btn-closed" onClick={this._handleOpenCloseAff}>
+                                <Button color="link" className="left-panel-btn-link btn-closed" onClick={this.handleOpenCloseAff}>
                                     {affiliateInfo.IsClosed ? resource.Yes : resource.No}
                                 </Button>
                             </Col>
@@ -194,7 +244,7 @@ function mapStateToProps({ leftPanel }) {
 };
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getAffiliateInfo, updateAffType, updateClosedStatus, updateStatus }, dispatch);
+    return bindActionCreators({ getAffiliateInfo, updateAffType, updateClosedStatus, updateStatus, getTransferLimitSetting }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingPanel);

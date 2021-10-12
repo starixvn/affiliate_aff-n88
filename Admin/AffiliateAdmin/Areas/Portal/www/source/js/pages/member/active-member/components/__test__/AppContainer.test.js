@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { AppContainer } from '../AppContainer';
 import { shallow } from 'enzyme';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
 
 describe('active member - components - AppContainer', () => {
     const defaultProps = {

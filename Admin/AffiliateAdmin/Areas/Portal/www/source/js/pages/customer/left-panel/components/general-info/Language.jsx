@@ -6,7 +6,7 @@ import { Button } from 'reactstrap';
 import { updateLanguage, getAffiliateInfo } from '../../actions';
 import { messages } from '../../libs/constants';
 import { htmlDecode } from '../../../../../modules/htmlHelper';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
 
 export class Language extends PureComponent {
     constructor(props) {

@@ -5,7 +5,7 @@ import { Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 import { capitalizeFirstChar } from '../../modules/service';
 import { setUserAccountInfo, setMoreSiteUrlsList } from '../../actions';
-import { NotificationPopup } from '../../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../../common/components/NotificationPopup';
 
 export class WebSite extends PureComponent {
     constructor(props) {
@@ -71,6 +71,10 @@ export class WebSite extends PureComponent {
         this.props.setUserAccountInfo(newUserAccountInfo);
     }
 
+    handleCloseNotificationPopup = () => {
+        this.setState({ messageNotification: '' })
+    }
+
     _renderMoreSiteUrl(moreSiteUrlsList, hasWebSite) {
         return (
             <React.Fragment>
@@ -134,7 +138,7 @@ export class WebSite extends PureComponent {
                     !!messageNotification && <NotificationPopup
                         message={messageNotification}
                         isConfirmPopup={false}
-                        onClose={() => this.setState({ messageNotification: '' })}
+                        onClose={this.handleCloseNotificationPopup}
                     />
                 }
             </React.Fragment>

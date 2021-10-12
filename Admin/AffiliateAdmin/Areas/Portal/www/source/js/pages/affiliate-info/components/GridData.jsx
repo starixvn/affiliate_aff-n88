@@ -14,7 +14,7 @@ import { updateObjectInArray } from '../../../modules/dataHandler';
 import { resolveClientUrl } from '../../../modules/utils';
 import { convertSelectedColumnList } from '../libs/utils';
 import { htmlDecode } from '../../../modules/htmlHelper';
-import { NotificationPopup } from '../../common/components/NotificationPopup';
+import NotificationPopup from '../../common/components/NotificationPopup';
 
 export class GridData extends Component {
     constructor(props) {
@@ -280,6 +280,10 @@ export class GridData extends Component {
         return minWidth
     }
 
+    handleCloseNotificationPopup = () => {
+        this.setState({ messageNotification: '' })
+    }
+
     render() {
         const { gridData, messageNotification } = this.state;
 
@@ -314,7 +318,7 @@ export class GridData extends Component {
                     !!messageNotification && <NotificationPopup
                         message={messageNotification}
                         isConfirmPopup={false}
-                        onClose={() => this.setState({ messageNotification: '' })}
+                        onClose={this.handleCloseNotificationPopup}
                     />
                 }
             </React.Fragment>

@@ -2,7 +2,7 @@
 import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import { NotificationPopup } from '../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../common/components/NotificationPopup';
 
 describe('affiliate info - GridData ', () => {
     const dataItem = {

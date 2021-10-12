@@ -42,6 +42,16 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
             return _customerLeftPanelRepository.GetOnlineList(affUserName);
         }
 
+        public TransferLimitSettingInfo GetTransferLimitSetting(int affId)
+        {
+            return _customerLeftPanelRepository.GetTransferLimitSetting(affId);
+        }
+
+        public ResultInfo UpdateTransferLimitSetting(TransferLimitSettingParam param)
+        {
+            return _customerLeftPanelRepository.UpdateTransferLimitSetting(param);
+        }
+
         public ResultInfo UpdateAffType(UpdateAffTypeParam param)
         {
             return _customerLeftPanelRepository.UpdateAffType(param);
@@ -70,6 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
             return result;
         }
+
         private void SendDisapprovedEmail(AffInformationEmail emailParam, AffiliateBasicInfo affInfo)
         {
             emailParam.UserSiteUrl = SiteDomainHelper.GetUserSiteUrl(affInfo.AffType);
