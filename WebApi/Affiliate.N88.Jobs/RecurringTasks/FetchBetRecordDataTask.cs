@@ -5,6 +5,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
+using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,18 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchBetRecordDataTask : IFetchDataTask, IFetchDataByTimeRange
     {
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchLastMonthAsync();
 
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchFromAdjusmentDayAsync(int day);
     }
     public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<TransBetRecordInfo>, IFetchBetRecordDataTask
     {
         private const int API_SERVER_TIME_OFFSET = 0;
+        private const int PAGE_SIZE = 2000;
 
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
@@ -63,7 +69,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
-                    await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                    await FetchAndInsertDataByPageAsync(range.FromDate, range.ToDate);
                 }
                 catch
                 {
@@ -112,7 +118,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             {
                 try
                 {
-                    await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
+                    await FetchAndInsertDataByPageAsync(range.FromDate, range.ToDate);
                     await _timeTrackerService.SaveTimeAsync(TableName, range.ToDate);
                 }
                 catch 
@@ -123,15 +129,25 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        private async Task FetchAndInsertDataAsync(DateTime fromDate, DateTime toDate)
+        private async Task FetchAndInsertDataByPageAsync(DateTime fromDate, DateTime toDate)
         {
-            var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
-            if (data == null || !data.Any())
+            int pageIndex = 0;
+            while (true)
             {
-                return;
-            }
+                var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE);
+                if (data == null || !data.Any())
+                {
+                    return;
+                }
 
-            await ImportDataToMultipleRepoAsync(data);
+                await ImportDataToMultipleRepoAsync(data);
+                pageIndex++;
+
+                if (data.Count() < PAGE_SIZE)
+                {
+                    return;
+                }
+            }
         }
 
 

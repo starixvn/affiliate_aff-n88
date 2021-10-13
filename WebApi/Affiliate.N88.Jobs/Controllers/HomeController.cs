@@ -41,9 +41,9 @@ namespace Affiliate.N88.Jobs.Controllers
         }
 
         [HttpGet("GetBetRecord")]
-        public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize)
         {
-            return await _licenseeApi.GetBetRecordAsync(fromDate, toDate);
+            return await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, pageSize);
         }
 
         [HttpGet("PullBetRecord")]
