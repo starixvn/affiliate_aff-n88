@@ -1,4 +1,4 @@
-import React, { Component, createRef } from "react";
+import React, { Component } from "react";
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,19 +12,12 @@ import { fetchData } from '../actions';
 export class Content extends Component {
     constructor(props) {
         super(props);
-
-        this.gridDataRef = createRef();
     }
 
     shouldComponentUpdate(nextProps) {
         const { reportTitle } = this.props;
 
         return nextProps.reportTitle !== reportTitle;
-    }
-
-    handleClickBreadcrumb = () => {
-        this.gridDataRef.current._resetScroll();
-        this.props.setViewLevel(viewLevel.main);
     }
 
     handleExportExcel = async () => {
@@ -64,7 +57,7 @@ export class Content extends Component {
                         <ReportTitle content={this._buildReportTitle()} />
                     )
                 }
-                <GridData ref={this.gridDataRef} />
+                <GridData />
             </div>
         );
     }

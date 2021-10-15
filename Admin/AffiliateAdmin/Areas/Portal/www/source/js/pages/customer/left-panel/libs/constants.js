@@ -45,7 +45,7 @@ export const resource = {
     AffiliateId: 'Affiliate ID',
     Disabled: 'Disabled',
     Unlimited: 'Unlimited',
-    DepositForPlayer: 'Deposit For Player',
+    TransferBalanceForPlayer: 'Transfer Balance For Player',
 }
 
 export const messages = {

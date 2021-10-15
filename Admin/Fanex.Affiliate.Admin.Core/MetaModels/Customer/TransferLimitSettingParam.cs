@@ -9,6 +9,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Customer
         [RegularExpression("^\\d*$", ErrorMessage = "Limit must be a whole positive number.")]
         public decimal TransferLimit { get; set; }
 
-        public bool EnabledTransfer { get; set; }
+        public bool DisabledTransfer { get; set; }
     }
 }

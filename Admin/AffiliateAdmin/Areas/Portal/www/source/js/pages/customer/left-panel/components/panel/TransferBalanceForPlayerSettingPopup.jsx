@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useCallback } from 'react'
+﻿import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert, Row } from 'reactstrap'
@@ -7,17 +7,17 @@ import { messages } from '../../libs/constants';
 import { money } from '../../../../../modules/constants';
 import { isValidNumber } from '../../../../../modules/utils';
 import { format } from '../../../../../modules/numberFormat';
-let depositForPlayerSettingCallback = null;
+let transferBalanceForPlayerSettingCallback = null;
 
-const DepositForPlayerSettingPopup = (props) => {
+const TransferBalanceForPlayerSettingPopup = (props) => {
     const { settingInfo, affId, affName } = props;
     const [alertInfo, setAlertInfo] = useState({ isSuccess: true, isShowMessage: false, message: '' });
-    const [isEnable, setEnable] = useState(settingInfo.IsEnabledTransfer);
+    const [isEnable, setEnable] = useState(!settingInfo.IsDisabledTransfer);
     const [transferLimit, setTransferLimit] = useState(settingInfo.IsUnlimited ? 0 : settingInfo.TransferLimit);
     const [isUnlimited, setIsUnlimited] = useState(settingInfo.IsUnlimited);
     useEffect(() => {
         return () => {
-            window.clearTimeout(depositForPlayerSettingCallback);
+            window.clearTimeout(transferBalanceForPlayerSettingCallback);
         }
     }, [])
 
@@ -40,7 +40,7 @@ const DepositForPlayerSettingPopup = (props) => {
         if (isValid) {
             const param = {
                 affId,
-                enabledTransfer: isEnable,
+                disabledTransfer: !isEnable,
                 transferLimit: isUnlimited ? money.AllowedMaxValue : transferLimit,
             }
 
@@ -99,7 +99,7 @@ const DepositForPlayerSettingPopup = (props) => {
 
     return (
         <Modal isOpen={true} toggle={props.onClose} backdrop='static'>
-            <ModalHeader toggle={props.onClose}><span className="iconpopup"></span>Edit Deposit For Player Setting</ModalHeader>
+            <ModalHeader toggle={props.onClose}><span className="iconpopup"></span>Edit Transfer Balance For Player Setting</ModalHeader>
             <ModalBody>
                 <div className="modal-body-wrapper">
                     <div className="change-password-form-container">
@@ -110,7 +110,7 @@ const DepositForPlayerSettingPopup = (props) => {
                             <FormGroup row>
                                 <Col sm={12}>
                                     <Input type="checkbox" checked={isEnable} onClick={() => setEnable((isEnable) => !isEnable)} />
-                                    <Label>Enable affiliate to deposit for its players</Label>
+                                    <Label>Enable affiliate to transfer balance for its players</Label>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
@@ -161,4 +161,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({ getAffiliateInfo, updateTransferLimitSetting }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(DepositForPlayerSettingPopup))
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(TransferBalanceForPlayerSettingPopup))

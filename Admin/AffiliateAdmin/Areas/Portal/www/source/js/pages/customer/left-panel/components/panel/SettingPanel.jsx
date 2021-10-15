@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,7 +9,9 @@ import { resource, status, messages, statusForSuspend, approved } from '../../li
 import { updateAffType, updateClosedStatus, updateStatus, getAffiliateInfo, getTransferLimitSetting } from '../../actions';
 import CommissionGroupPopup from '../../../../common/components/CommissionGroupPopup';
 import NotificationPopup from '../../../../common/components/NotificationPopup';
-import DepositForPlayerSettingPopup from './DepositForPlayerSettingPopup';
+import TransferBalanceForPlayerSettingPopup from './TransferBalanceForPlayerSettingPopup';
+import { permissionResource, Permission } from '../../../../../modules/permissions';
+import { money } from '../../../../../modules/constants';
 
 export class SettingPanel extends PureComponent {
     constructor(props) {
@@ -29,6 +31,8 @@ export class SettingPanel extends PureComponent {
             isConfirmStatus: true,
             transferLimitSettingInfo: null,
         }
+
+        this.transferSettingPermission = Permission.getPermissionInfo(permissionResource.TransferPlayerSetting);
     }
 
     _toggleChangingAffType = (isChanging) => {
@@ -127,25 +131,26 @@ export class SettingPanel extends PureComponent {
         }
     }
 
-    toggleDepositForPlayerPopup = (info) => {
+    toggleTransferSettingPopup = (info) => {
         this.setState({ transferLimitSettingInfo: info });
     }
 
-    handleOpenDepositForPlayerPopup = async () => {
+    handleOpenTransferSettingPopup = async () => {
         const { affiliateInfo } = this.props;
         const transferLimitSettingInfo = await this.props.getTransferLimitSetting(affiliateInfo.AffId);
-
-        this.toggleDepositForPlayerPopup(transferLimitSettingInfo)
+        console.log(transferLimitSettingInfo);
+        this.toggleTransferSettingPopup(transferLimitSettingInfo)
     }
 
-    handleCloseDepositForPlayerPopup = () => {
-        this.toggleDepositForPlayerPopup(null)
+    handleCloseTransferSettingPopup = () => {
+        this.toggleTransferSettingPopup(null)
     }
 
     render() {
         const { affiliateInfo, isApproved, affTypeList } = this.props;
         const { isChangingAffType, isChangingAffStatus, isAssignCommissionGroup, messageNotification, isConfirmPopup, transferLimitSettingInfo } = this.state;
         const affType = affTypeList && affTypeList.filter(a => a.AffTypeId == affiliateInfo.AffType);
+        const transferSettingLabel = affiliateInfo.IsDisabledTransfer ? resource.Disabled : (affiliateInfo.TransferLimit === money.AllowedMaxValue ? resource.Unlimited : `${affiliateInfo.PlayerCurrency} ${affiliateInfo.TransferLimit}`);
 
         return (
             <Panel heading={resource.Setting}>
@@ -197,22 +202,32 @@ export class SettingPanel extends PureComponent {
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>{resource.DepositForPlayer}</Col>
-                    <Col className="text-right text-primary">
-                        <Button color="link" className="left-panel-btn-link" onClick={this.handleOpenDepositForPlayerPopup}>
-                            {affiliateInfo.IsEnabledTransfer ? (affiliateInfo.IsUnlimited ? resource.Unlimited : `${affiliateInfo.PlayerCurrency} ${affiliateInfo.TransferLimit}`) : resource.Disabled}
-                        </Button>
-                    </Col>
-                </Row>
                 {
-                    transferLimitSettingInfo && (
-                        <DepositForPlayerSettingPopup
-                            affId={affiliateInfo.AffId}
-                            affName={affiliateInfo.AffName}
-                            settingInfo={transferLimitSettingInfo}
-                            onClose={this.handleCloseDepositForPlayerPopup} />
-                        )
+                    this.transferSettingPermission && (
+                        <Fragment>
+                            <Row>
+                                <Col>{resource.TransferBalanceForPlayer}</Col>
+                                <Col className="text-right">
+                                    {
+                                        this.transferSettingPermission.IsHost ? (
+                                            <Button color="link" className="left-panel-btn-link text-primary" onClick={this.handleOpenTransferSettingPopup}>
+                                                {transferSettingLabel}
+                                            </Button>
+                                        ) : transferSettingLabel
+                                    }
+                                </Col>
+                            </Row>
+                            {
+                                transferLimitSettingInfo && (
+                                    <TransferBalanceForPlayerSettingPopup
+                                        affId={affiliateInfo.AffId}
+                                        affName={affiliateInfo.AffName}
+                                        settingInfo={transferLimitSettingInfo}
+                                        onClose={this.handleCloseTransferSettingPopup} />
+                                )
+                            }
+                        </Fragment>
+                    )
                 }
                 {/* {
                     isApproved && (

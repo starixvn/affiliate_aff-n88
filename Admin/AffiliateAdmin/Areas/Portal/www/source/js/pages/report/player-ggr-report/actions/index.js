@@ -18,13 +18,6 @@ export const setParam = (data) => {
     }
 }
 
-export const setViewLevel = (data) => {
-    return {
-        type: types.SET_VIEW_LEVEL,
-        data
-    }
-}
-
 export const setProductList = (data) => {
     return {
         type: types.SET_PRODUCT_LIST,

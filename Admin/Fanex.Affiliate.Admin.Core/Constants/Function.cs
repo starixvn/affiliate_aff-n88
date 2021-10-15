@@ -27,5 +27,9 @@
         public const string ActiveMembers = "[ActiveMembers]";
 
         public const string MemberEmail = "[MemberEmail]";
+
+        public const string TransferPlayerSetting = "[TransferPlayerSetting]";
+
+        public const string TransferPlayerReport = "[TransferPlayerReport]";
     }
 }

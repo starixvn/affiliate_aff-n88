@@ -12,7 +12,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Customer
 
         public decimal TransferLimit { get; set; }
 
-        public bool IsEnabledTransfer { get; set; }
+        public bool IsDisabledTransfer { get; set; }
 
         public bool IsUnlimited => TransferLimit == Money.AllowedMaxValue;
     }

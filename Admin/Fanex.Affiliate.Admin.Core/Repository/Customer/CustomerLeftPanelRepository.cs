@@ -52,7 +52,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             ApprovedBy =reader.ToString("ApprovedBy"),
                             IsDepositFeePercent = reader.ToBool("Dep_IsDeductedPercent"),
                             IsWithdrawalFeePercent = reader.ToBool("Wit_IsDeductedPercent"),
-                            IsEnabledTransfer = reader.ToBool("EnabledTransfer"),
+                            IsDisabledTransfer = reader.ToBool("DisabledTransfer"),
                             PlayerCurrency = reader.ToString("PlayerCurrency"),
                             TransferLimit = reader.ToDecimal("TransferLimit"),
                         };
@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             PlayerUsername = reader.ToString("PlayerUsername"),
                             PlayerCurrency = reader.ToString("PlayerCurrency"),
                             TransferLimit = reader.ToDecimal("TransferLimit"),
-                            IsEnabledTransfer = reader.ToBool("EnabledTransfer"),
+                            IsDisabledTransfer = reader.ToBool("DisabledTransfer"),
                         };
                     }
                 }
@@ -205,7 +205,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
             {
                 objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
                 objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-                objectDb.AddInParameter("EnabledTransfer", DbType.Boolean, param.EnabledTransfer);
+                objectDb.AddInParameter("DisabledTransfer", DbType.Boolean, param.DisabledTransfer);
                 objectDb.AddInParameter("TransferLimit", DbType.Decimal, param.TransferLimit);
 
                 AssignResultOutputParam(objectDb);
