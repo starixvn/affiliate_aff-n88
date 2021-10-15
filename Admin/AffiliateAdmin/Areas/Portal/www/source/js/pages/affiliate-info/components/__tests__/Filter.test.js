@@ -6,7 +6,7 @@ import MultipleSelect from '../../../../components/multiple-select';
 describe('affiliate info - Filter ', () => {
     const defaultProps = {
         languageList: {},
-        commGroupList: {},
+        commGroupList: [{ key: 1, name: 'Abc', checked: true }],
         param: {},
         groupId: 0,
         columnList: []
@@ -45,12 +45,14 @@ describe('affiliate info - Filter ', () => {
     });
 
     it("should call handleChange when change Search By's value", () => {
-        const mockedEvent = { target: { name: 'selectedCommGroup', value: 1 } }
-        const wrapper = shallow(<Filter {...defaultProps} />);
+        const props = { ...defaultProps, setCommGroupList: jest.fn() };
+        const wrapper = shallow(<Filter {...props} />);
+        wrapper.setState = jest.fn();
 
-        wrapper.find('Input[type="select"][id="searchBy"]').simulate('change', mockedEvent);
+        wrapper.find(MultipleSelect).at(0).props().onChange([{ key: 1, name: 'Abc', checked: false }], '1');
 
-        expect(wrapper.state('selectedCommGroup')).toBe(1);
+        expect(wrapper.setState).toHaveBeenCalledWith({ selectedCommGroupList: '1' });
+        expect(props.setCommGroupList).toHaveBeenCalledWith([{ "checked": true, "key": 1, "name": "Abc" }]);
     });
 
     it("should call handleChange when change Language's value", () => {
@@ -137,7 +139,7 @@ describe('affiliate info - Filter ', () => {
         const param = {
             AffId: '',
             AffPlayer: '',
-            GroupId: 0,
+            GroupIds: 'all',
             Language: '',
             Status: '',
             UserName: '',
@@ -168,29 +170,28 @@ describe('affiliate info - Filter ', () => {
 
         const wrapper = shallow(<Filter {...props} />);
 
-        wrapper.find(MultipleSelect).props().onChange(mockItem, mockSelectedColumn);
+        wrapper.find(MultipleSelect).at(1).props().onChange(mockItem, mockSelectedColumn);
 
         expect(props.setSelectedColumn).toHaveBeenCalledWith(expectedResult);
     });
 
     it('buildReportTitle - should return correct string with parameters are empty', () => {
         const componentInstance = new Filter(defaultProps);
-        const result = componentInstance._buildReportTitle('', '', '', '', '', '', '');
+        const result = componentInstance._buildReportTitle('', '', '', '', '', '', true);
 
         expect(result).toEqual('AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES');
     });
 
     it('buildReportTitle - should return correct string with correct parameter', () => {
         const componentInstance = new Filter(defaultProps);
-        const result = componentInstance._buildReportTitle('', '', '', '12BETAFF001', 'walter.tran1@starixsoft.com', 927841, 'test01');
+        const result = componentInstance._buildReportTitle('', '', '12BETAFF001', 'walter.tran1@starixsoft.com', 927841, 'test01', true);
 
         expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS '12BETAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841' - AFFILIATE PLAYER CONTAINS 'test01'`);
     });
 
     it('should render correctly', () => {
         const props = Object.assign({}, defaultProps, {
-            languageList: { 133: 'NewGroup' },
-            commGroupList: { 'en-US': 'English' }
+            languageList: { 133: 'NewGroup' }
         });
 
         const result = shallow(<Filter {...props} />);

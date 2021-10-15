@@ -76,8 +76,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
 
             // Assert
             Assert.Equal(123, result.TransId);
-            Assert.Equal("04/15/2020 00:00:00 AM", result.TransDateText);
-            Assert.Equal("04/15/2020 00:00:00 AM", result.CompletedDateText);
+            Assert.Equal("04/15/2020 00:00:00", result.TransDateText);
+            Assert.Equal("04/15/2020 00:00:00", result.CompletedDateText);
         }
 
         [Fact]

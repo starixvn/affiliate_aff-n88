@@ -1044,8 +1044,8 @@
   <data name="Month" xml:space="preserve">
     <value>Bulan</value>
   </data>
-  <data name="MonthlyWinlost" xml:space="preserve">
-    <value>MenangKalah Bulanan</value>
+  <data name="MonthlyGGR" xml:space="preserve">
+    <value>GGR Bulanan</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>Maroko </value>
@@ -1650,8 +1650,8 @@
   <data name="WesternSamoa" xml:space="preserve">
     <value>Samoa Barat </value>
   </data>
-  <data name="Winlost" xml:space="preserve">
-    <value>Winlost</value>
+  <data name="GGR" xml:space="preserve">
+    <value>GGR</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Tahun</value>
@@ -1838,9 +1838,6 @@
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>Laporan Komisi</value>
-  </data>
-  <data name="GrossWinLoss" xml:space="preserve">
-    <value>Gross Win Loss</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>Operational Fee</value>
@@ -2132,5 +2129,8 @@
   </data>
   <data name="FdmDate" xml:space="preserve">
     <value>Tanggal FDM</value>
+  </data>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>Total GGR</value>
   </data>
 </root>

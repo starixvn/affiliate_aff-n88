@@ -37,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             foreach (var item in rawData)
             {
-                total.WinLost += item.WinLost;
+                total.Ggr += item.Ggr;
                 total.Deposit += item.Deposit;
                 total.Withdrawal += item.Withdrawal;
                 total.Bonus += item.Bonus;
@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             var result = _statementHistoryRepository.GetStatementHistoryList(param);
             foreach (var item in result.MainData)
             {
-                if (item.TransType == TransType.MonthlyWinlost || item.TransType == TransType.SubAffiliate)
+                if (item.TransType == TransType.MonthlyEarning || item.TransType == TransType.SubAffiliate)
                 {
                     if (CheckIfExistMonthlyTotal(item.Date, vms))
                     {
@@ -80,9 +80,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
         private static StatementHistory CreateMonthlyTotal(DateTime monthDate, IEnumerable<StatementHistory> statementHistoryList)
         {
             var children = statementHistoryList.Where(s => s.Date == monthDate)
-                .Where(s => s.TransType == TransType.SubAffiliate || s.TransType == TransType.MonthlyWinlost);
+                .Where(s => s.TransType == TransType.SubAffiliate || s.TransType == TransType.MonthlyEarning);
 
-            var monthlyCom = children.FirstOrDefault(s => s.TransType == TransType.MonthlyWinlost);
+            var monthlyCom = children.FirstOrDefault(s => s.TransType == TransType.MonthlyEarning);
 
             var monthlyTotal = new StatementHistory
             {

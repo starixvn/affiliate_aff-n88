@@ -18,7 +18,7 @@
                 <th width="10%" hidden>@Lang.SuspensionSatus</th>
                 <th width="10%" hidden>@Lang.SuspensionDate</th>
                 <th width="10%">@Lang.TotalTurnover</th>
-                <th width="10%">@Lang.TotalWinLoss</th>
+                <th width="10%">@Lang.TotalGGR</th>
                 <th width="10%">@Lang.TotalCommission</th>
                 <th width="10%">@Lang.NumberOfActivePlayers</th>
                 <th width="10%" hidden>@Lang.Remove</th>
@@ -38,7 +38,7 @@
                             <td class="text-center">@Html.Raw(item.LastName)</td>
                             <td class="text-center">@item.ApprovedDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
                             <td class="text-center">@item.Turnover.FormatDecimal()</td>
-                            <td class="text-center">@item.Winloss.FormatDecimal()</td>
+                            <td class="text-center">@item.GGR.FormatDecimal()</td>
                             <td class="text-center">@item.Commission.FormatDecimal()</td>
                             <td class="text-center">@item.ActivePlayer</td>
                         </tr>

@@ -2,26 +2,22 @@
 
 exports[`affiliate info - GridData  _buildDataRow - should render correctly with dataItem's fields are not null 1`] = `
 <div>
-  <t
+  <tr
     key="dataRow-1"
   >
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
+      className="text-center freeze-column-body freeze-column-body-0"
       title={1}
     >
       1
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-1"
+    >
+      N/A
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-2"
       title="N8BAFF001"
     >
       <a
@@ -34,88 +30,42 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
         className="favor-uncheck"
         onClick={[Function]}
       />
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="Approved"
     >
       Approved
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title=""
     />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
       title="媒体册 获取以更新吧！"
     >
       媒体册 获取以更新吧！
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="walter.tran1@starixsoft.com"
     >
       walter.tran1@starixsoft.com
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:49:00"
     >
       05/22/2008 06:49:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:50:00"
     >
       05/22/2008 06:50:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="N8BAFF001"
     >
       <Button
@@ -125,49 +75,22 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       >
         N8BAFF001
       </Button>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="-4,439.00"
     >
       -4,439.00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
+    </td>
+    <td />
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="6"
     >
       <a
@@ -176,14 +99,9 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       >
         6
       </a>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="Change Password"
     >
       <Button
@@ -193,35 +111,36 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
       >
         <span
           className="oi oi-pencil text-secondary"
+          style={
+            Object {
+              "position": "static",
+            }
+          }
         />
       </Button>
-    </t>
-  </t>
+    </td>
+  </tr>
 </div>
 `;
 
 exports[`affiliate info - GridData  _buildDataRow - should render correctly with dataItem's fields are null 1`] = `
 <div>
-  <t
+  <tr
     key="dataRow-1"
   >
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
+      className="text-center freeze-column-body freeze-column-body-0"
       title={1}
     >
       1
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-1"
+    >
+      N/A
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-2"
       title="N8BAFF001"
     >
       <a
@@ -234,738 +153,467 @@ exports[`affiliate info - GridData  _buildDataRow - should render correctly with
         className=""
         onClick={[Function]}
       />
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="Favorite"
     >
       Favorite
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title=""
     />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
       title="媒体册 获取以更新吧！"
     >
       媒体册 获取以更新吧！
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="walter.tran1@starixsoft.com"
     >
       walter.tran1@starixsoft.com
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:49:00"
     >
       05/22/2008 06:49:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:50:00"
     >
       05/22/2008 06:50:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="COMMISSION"
     >
       COMMISSION
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="N/A"
     >
       N/A
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
+    </td>
+    <td />
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="N/A"
     >
       N/A
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="Change Password"
     />
-  </t>
+  </tr>
 </div>
 `;
 
 exports[`affiliate info - GridData  should render correctly 1`] = `
 <Fragment>
   <div
-    className="table-responsive table-striped"
+    className="table-responsive table-striped aff-info-table-container"
+    style={
+      Object {
+        "max-height": 443,
+      }
+    }
   >
-    <t
-      adjustedHeight={0}
-      autoHeight={true}
-      autoWidth={true}
-      body={
-        Array [
-          <t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title={1}
-            >
-              1
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="N8BAFF001"
-            >
-              <a
-                href="/Portal/Customer?user=N8BAFF001"
-                target="_top"
-              >
-                N8BAFF001
-              </a>
-              <span
-                className="favor-uncheck"
-                onClick={[Function]}
-              />
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Approved"
-            >
-              Approved
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title=""
-            >
-              
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="媒体册 获取以更新吧！"
-            >
-              媒体册 获取以更新吧！
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-            />
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="undefined"
-            >
-              undefined
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="walter.tran1@starixsoft.com"
-            >
-              walter.tran1@starixsoft.com
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="05/22/2008 06:49:00"
-            >
-              05/22/2008 06:49:00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="05/22/2008 06:50:00"
-            >
-              05/22/2008 06:50:00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="N8BAFF001"
-            >
-              <Button
-                color="link"
-                onClick={[Function]}
-                tag="button"
-              >
-                N8BAFF001
-              </Button>
-            </t>
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="-4,439.00"
-            >
-              -4,439.00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-            />
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="6"
-            >
-              <a
-                href="/Portal/Player?AffName=N8BAFF001"
-                target="_top"
-              >
-                6
-              </a>
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Change Password"
-            >
-              <Button
-                color="link"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-pencil text-secondary"
-                />
-              </Button>
-            </t>
-          </t>,
-          <t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title={2}
-            >
-              2
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="N8BAFF001"
-            >
-              <a
-                href="/Portal/Customer?user=N8BAFF001"
-                target="_top"
-              >
-                N8BAFF001
-              </a>
-              <span
-                className="favor-uncheck"
-                onClick={[Function]}
-              />
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Approved"
-            >
-              Approved
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title=""
-            >
-              
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="媒体册 获取以更新吧！"
-            >
-              媒体册 获取以更新吧！
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-            />
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="undefined"
-            >
-              undefined
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="walter.tran1@starixsoft.com"
-            >
-              walter.tran1@starixsoft.com
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="05/22/2008 06:49:00"
-            >
-              05/22/2008 06:49:00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="05/22/2008 06:50:00"
-            >
-              05/22/2008 06:50:00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="test"
-            >
-              <Button
-                color="link"
-                onClick={[Function]}
-                tag="button"
-              >
-                test
-              </Button>
-            </t>
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="-4,439.00"
-            >
-              -4,439.00
-            </t>
-            <t
-              asc={true}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-            />
-            <t
-              asc={true}
-              className="text-right"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="6"
-            >
-              <a
-                href="/Portal/Player?AffName=N8BAFF001"
-                target="_top"
-              >
-                6
-              </a>
-            </t>
-            <t
-              asc={true}
-              className="text-center"
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-              title="Change Password"
-            >
-              <Button
-                color="link"
-                onClick={[Function]}
-                tag="button"
-              >
-                <span
-                  className="oi oi-pencil text-secondary"
-                />
-              </Button>
-            </t>
-          </t>,
-        ]
-      }
-      bodyHeight={300}
-      containerPadding={20}
-      header={
-        <t>
-          <t
-            asc={true}
-            colWidth={80}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="#"
-          >
-            #
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Username"
-          >
-            Username
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Status"
-          >
-            Status
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="First Name"
-          >
-            First Name
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Last Name"
-          >
-            Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Language"
-          >
-            Language
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Mobile Phone"
-          >
-            Mobile Phone
-          </t>
-          <t
-            asc={true}
-            colWidth={350}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Email"
-          >
-            Email
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Registration Date"
-          >
-            Registration Date
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Approval Date"
-          >
-            Approval Date
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Revenue Group"
-          >
-            Revenue Group
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Balance B/F"
-          >
-            Balance B/F
-          </t>
-          <t
-            asc={true}
-            colWidth={150}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Aff. Currency"
-          >
-            Aff. Currency
-          </t>
-          <t
-            asc={true}
-            colWidth={150}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Player"
-          >
-            Player
-          </t>
-          <t
-            asc={true}
-            colWidth={130}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Password"
-          >
-            Password
-          </t>
-        </t>
-      }
-      isPaging={true}
-      maxWidth={0}
-      minWidth={1000}
-      onPaging={[Function]}
-      pageOption={
+    <Table
+      className="freeze-table"
+      responsiveTag="div"
+      style={
         Object {
-          "PageIndex": 1,
-          "PageList": Array [
-            10,
-            20,
-            50,
-            100,
-            500,
-          ],
-          "PageSize": 20,
-          "TotalItem": 0,
+          "min-width": NaN,
         }
       }
-      shouldResetScrollPosition={true}
-      width={0}
-    />
+      tag="table"
+    >
+      <thead>
+        <tr
+          className="freeze-row"
+          key="theard"
+        >
+          <th
+            className="freeze-column-header freeze-column-header-0"
+            title="#"
+            width={50}
+          >
+            #
+          </th>
+          <th
+            className="freeze-column-header freeze-column-header-1"
+            title="Parent Affiliate"
+            width={90}
+          >
+            Parent Affiliate
+          </th>
+          <th
+            className="freeze-column-header freeze-column-header-2"
+            title="Username"
+            width={125}
+          >
+            Username
+          </th>
+          <th
+            title="Status"
+            width={75}
+          >
+            Status
+          </th>
+          <th
+            title="First Name"
+            width={75}
+          >
+            First Name
+          </th>
+          <th
+            title="Last Name"
+            width={75}
+          >
+            Last Name
+          </th>
+          <th
+            title="Language"
+            width={75}
+          >
+            Language
+          </th>
+          <th
+            title="Mobile Phone"
+            width={100}
+          >
+            Mobile Phone
+          </th>
+          <th
+            title="Email"
+            width={175}
+          >
+            Email
+          </th>
+          <th
+            title="Registration Date"
+            width={100}
+          >
+            Registration Date
+          </th>
+          <th
+            title="Approval Date"
+            width={100}
+          >
+            Approval Date
+          </th>
+          <th
+            title="Revenue Group"
+            width={100}
+          >
+            Revenue Group
+          </th>
+          <th
+            title="Balance B/F"
+            width={100}
+          >
+            Balance B/F
+          </th>
+          <th
+            title="Aff. Currency"
+            width={75}
+          >
+            Aff. Currency
+          </th>
+          <th
+            title="Player"
+            width={50}
+          >
+            Player
+          </th>
+          <th
+            title="Password"
+            width={70}
+          >
+            Password
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          key="dataRow-1"
+        >
+          <td
+            className="text-center freeze-column-body freeze-column-body-0"
+            title={1}
+          >
+            1
+          </td>
+          <td
+            className="freeze-column-body freeze-column-body-1"
+          >
+            N/A
+          </td>
+          <td
+            className="freeze-column-body freeze-column-body-2"
+            title="N8BAFF001"
+          >
+            <a
+              href="/Portal/Customer?user=N8BAFF001"
+              target="_top"
+            >
+              N8BAFF001
+            </a>
+            <span
+              className="favor-uncheck"
+              onClick={[Function]}
+            />
+          </td>
+          <td
+            title="Approved"
+          >
+            Approved
+          </td>
+          <td
+            title=""
+          />
+          <td
+            title="媒体册 获取以更新吧！"
+          >
+            媒体册 获取以更新吧！
+          </td>
+          <td />
+          <td
+            title="undefined"
+          >
+            undefined
+          </td>
+          <td
+            title="walter.tran1@starixsoft.com"
+          >
+            walter.tran1@starixsoft.com
+          </td>
+          <td
+            title="05/22/2008 06:49:00"
+          >
+            05/22/2008 06:49:00
+          </td>
+          <td
+            title="05/22/2008 06:50:00"
+          >
+            05/22/2008 06:50:00
+          </td>
+          <td
+            title="N8BAFF001"
+          >
+            <Button
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              N8BAFF001
+            </Button>
+          </td>
+          <td
+            className="text-right"
+            title="-4,439.00"
+          >
+            -4,439.00
+          </td>
+          <td />
+          <td
+            className="text-right"
+            title="6"
+          >
+            <a
+              href="/Portal/Player?AffName=N8BAFF001"
+              target="_top"
+            >
+              6
+            </a>
+          </td>
+          <td
+            className="text-center"
+            title="Change Password"
+          >
+            <Button
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              <span
+                className="oi oi-pencil text-secondary"
+                style={
+                  Object {
+                    "position": "static",
+                  }
+                }
+              />
+            </Button>
+          </td>
+        </tr>
+        <tr
+          key="dataRow-2"
+        >
+          <td
+            className="text-center freeze-column-body freeze-column-body-0"
+            title={2}
+          >
+            2
+          </td>
+          <td
+            className="freeze-column-body freeze-column-body-1"
+          >
+            N/A
+          </td>
+          <td
+            className="freeze-column-body freeze-column-body-2"
+            title="N8BAFF001"
+          >
+            <a
+              href="/Portal/Customer?user=N8BAFF001"
+              target="_top"
+            >
+              N8BAFF001
+            </a>
+            <span
+              className="favor-uncheck"
+              onClick={[Function]}
+            />
+          </td>
+          <td
+            title="Approved"
+          >
+            Approved
+          </td>
+          <td
+            title=""
+          />
+          <td
+            title="媒体册 获取以更新吧！"
+          >
+            媒体册 获取以更新吧！
+          </td>
+          <td />
+          <td
+            title="undefined"
+          >
+            undefined
+          </td>
+          <td
+            title="walter.tran1@starixsoft.com"
+          >
+            walter.tran1@starixsoft.com
+          </td>
+          <td
+            title="05/22/2008 06:49:00"
+          >
+            05/22/2008 06:49:00
+          </td>
+          <td
+            title="05/22/2008 06:50:00"
+          >
+            05/22/2008 06:50:00
+          </td>
+          <td
+            title="test"
+          >
+            <Button
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              test
+            </Button>
+          </td>
+          <td
+            className="text-right"
+            title="-4,439.00"
+          >
+            -4,439.00
+          </td>
+          <td />
+          <td
+            className="text-right"
+            title="6"
+          >
+            <a
+              href="/Portal/Player?AffName=N8BAFF001"
+              target="_top"
+            >
+              6
+            </a>
+          </td>
+          <td
+            className="text-center"
+            title="Change Password"
+          >
+            <Button
+              color="link"
+              onClick={[Function]}
+              tag="button"
+            >
+              <span
+                className="oi oi-pencil text-secondary"
+                style={
+                  Object {
+                    "position": "static",
+                  }
+                }
+              />
+            </Button>
+          </td>
+        </tr>
+      </tbody>
+    </Table>
   </div>
+  <t
+    isAllowInputPageIndex={true}
+    isShowPagingInfo={true}
+    onPaging={[Function]}
+    pageOption={
+      Object {
+        "PageIndex": 1,
+        "PageList": Array [
+          10,
+          20,
+          50,
+          100,
+          500,
+        ],
+        "PageSize": 20,
+        "TotalItem": 0,
+      }
+    }
+  />
 </Fragment>
 `;
 
 exports[`affiliate info - GridData  should render correctly with _renderDataSection 1`] = `
 <div>
-  <t
+  <tr
     key="dataRow-1"
   >
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
+      className="text-center freeze-column-body freeze-column-body-0"
       title={1}
     >
       1
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-1"
+    >
+      N/A
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-2"
       title="N8BAFF001"
     >
       <a
@@ -978,88 +626,42 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
         className="favor-uncheck"
         onClick={[Function]}
       />
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="Approved"
     >
       Approved
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title=""
     />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
       title="媒体册 获取以更新吧！"
     >
       媒体册 获取以更新吧！
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="walter.tran1@starixsoft.com"
     >
       walter.tran1@starixsoft.com
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:49:00"
     >
       05/22/2008 06:49:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:50:00"
     >
       05/22/2008 06:50:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="N8BAFF001"
     >
       <Button
@@ -1069,49 +671,22 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         N8BAFF001
       </Button>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="-4,439.00"
     >
       -4,439.00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
+    </td>
+    <td />
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="6"
     >
       <a
@@ -1120,14 +695,9 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         6
       </a>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="Change Password"
     >
       <Button
@@ -1137,30 +707,31 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         <span
           className="oi oi-pencil text-secondary"
+          style={
+            Object {
+              "position": "static",
+            }
+          }
         />
       </Button>
-    </t>
-  </t>
-  <t
+    </td>
+  </tr>
+  <tr
     key="dataRow-2"
   >
-    <t
-      asc={true}
-      className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
+      className="text-center freeze-column-body freeze-column-body-0"
       title={2}
     >
       2
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-1"
+    >
+      N/A
+    </td>
+    <td
+      className="freeze-column-body freeze-column-body-2"
       title="N8BAFF001"
     >
       <a
@@ -1173,88 +744,42 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
         className="favor-uncheck"
         onClick={[Function]}
       />
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="Approved"
     >
       Approved
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title=""
     />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <td
       title="媒体册 获取以更新吧！"
     >
       媒体册 获取以更新吧！
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="walter.tran1@starixsoft.com"
     >
       walter.tran1@starixsoft.com
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:49:00"
     >
       05/22/2008 06:49:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="05/22/2008 06:50:00"
     >
       05/22/2008 06:50:00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td
       title="test"
     >
       <Button
@@ -1264,49 +789,22 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         test
       </Button>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="-4,439.00"
     >
       -4,439.00
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </td>
+    <td />
+    <td
       title="undefined"
     >
       undefined
-    </t>
-    <t
-      asc={true}
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
-    />
-    <t
-      asc={true}
+    </td>
+    <td />
+    <td
       className="text-right"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="6"
     >
       <a
@@ -1315,14 +813,9 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         6
       </a>
-    </t>
-    <t
-      asc={true}
+    </td>
+    <td
       className="text-center"
-      header={false}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
       title="Change Password"
     >
       <Button
@@ -1332,427 +825,297 @@ exports[`affiliate info - GridData  should render correctly with _renderDataSect
       >
         <span
           className="oi oi-pencil text-secondary"
+          style={
+            Object {
+              "position": "static",
+            }
+          }
         />
       </Button>
-    </t>
-  </t>
+    </td>
+  </tr>
 </div>
 `;
 
 exports[`affiliate info - GridData  should render correctly with _renderHeader 1`] = `
 <div>
-  <t
+  <tr
+    className="freeze-row"
     key="theard"
   >
-    <t
-      asc={true}
-      colWidth={80}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    <th
+      className="freeze-column-header freeze-column-header-0"
       title="#"
+      width={50}
     >
       #
-    </t>
-    <t
-      asc={true}
-      colWidth={300}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
+      className="freeze-column-header freeze-column-header-1"
+      title="Parent Affiliate"
+      width={90}
+    >
+      Parent Affiliate
+    </th>
+    <th
+      className="freeze-column-header freeze-column-header-2"
       title="Username"
+      width={125}
     >
       Username
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Status"
+      width={75}
     >
       Status
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="First Name"
+      width={75}
     >
       First Name
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Last Name"
+      width={75}
     >
       Last Name
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Language"
+      width={75}
     >
       Language
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Mobile Phone"
+      width={100}
     >
       Mobile Phone
-    </t>
-    <t
-      asc={true}
-      colWidth={350}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Email"
+      width={175}
     >
       Email
-    </t>
-    <t
-      asc={true}
-      colWidth={300}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Registration Date"
+      width={100}
     >
       Registration Date
-    </t>
-    <t
-      asc={true}
-      colWidth={300}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Approval Date"
+      width={100}
     >
       Approval Date
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Revenue Group"
+      width={100}
     >
       Revenue Group
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Balance B/F"
+      width={100}
     >
       Balance B/F
-    </t>
-    <t
-      asc={true}
-      colWidth={150}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Aff. Currency"
+      width={75}
     >
       Aff. Currency
-    </t>
-    <t
-      asc={true}
-      colWidth={200}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Aff. Player"
+      width={100}
     >
       Aff. Player
-    </t>
-    <t
-      asc={true}
-      colWidth={150}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Aff. Player Currency"
+      width={75}
     >
       Aff. Player Currency
-    </t>
-    <t
-      asc={true}
-      colWidth={150}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Player"
+      width={50}
     >
       Player
-    </t>
-    <t
-      asc={true}
-      colWidth={130}
-      header={true}
-      onClick={[Function]}
-      sortable={false}
-      sorting={false}
+    </th>
+    <th
       title="Password"
+      width={70}
     >
       Password
-    </t>
-  </t>
+    </th>
+  </tr>
 </div>
 `;
 
 exports[`affiliate info - GridData  should render correctly with no data 1`] = `
 <Fragment>
   <div
-    className="table-responsive table-striped"
+    className="table-responsive table-striped aff-info-table-container"
+    style={
+      Object {
+        "max-height": 443,
+      }
+    }
   >
-    <t
-      adjustedHeight={0}
-      autoHeight={true}
-      autoWidth={true}
-      body={
-        Array [
-          <t>
-            <t
-              asc={true}
-              className="text-center"
-              colSpan={15}
-              header={false}
-              onClick={[Function]}
-              sortable={false}
-              sorting={false}
-            >
-              There is no information available
-            </t>
-          </t>,
-        ]
-      }
-      bodyHeight={300}
-      containerPadding={20}
-      header={
-        <t>
-          <t
-            asc={true}
-            colWidth={80}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="#"
-          >
-            #
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Username"
-          >
-            Username
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Status"
-          >
-            Status
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="First Name"
-          >
-            First Name
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Last Name"
-          >
-            Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Language"
-          >
-            Language
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Mobile Phone"
-          >
-            Mobile Phone
-          </t>
-          <t
-            asc={true}
-            colWidth={350}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Email"
-          >
-            Email
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Registration Date"
-          >
-            Registration Date
-          </t>
-          <t
-            asc={true}
-            colWidth={300}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Approval Date"
-          >
-            Approval Date
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Revenue Group"
-          >
-            Revenue Group
-          </t>
-          <t
-            asc={true}
-            colWidth={200}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Balance B/F"
-          >
-            Balance B/F
-          </t>
-          <t
-            asc={true}
-            colWidth={150}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Aff. Currency"
-          >
-            Aff. Currency
-          </t>
-          <t
-            asc={true}
-            colWidth={150}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Player"
-          >
-            Player
-          </t>
-          <t
-            asc={true}
-            colWidth={130}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Password"
-          >
-            Password
-          </t>
-        </t>
-      }
-      isPaging={true}
-      maxWidth={0}
-      minWidth={1000}
-      onPaging={[Function]}
-      pageOption={
+    <Table
+      className="freeze-table"
+      responsiveTag="div"
+      style={
         Object {
-          "PageIndex": 1,
-          "PageList": Array [
-            10,
-            20,
-            50,
-            100,
-            500,
-          ],
-          "PageSize": 20,
-          "TotalItem": 0,
+          "min-width": NaN,
         }
       }
-      shouldResetScrollPosition={true}
-      width={0}
-    />
+      tag="table"
+    >
+      <thead>
+        <tr
+          className="freeze-row"
+          key="theard"
+        >
+          <th
+            className="freeze-column-header freeze-column-header-0"
+            title="#"
+            width={50}
+          >
+            #
+          </th>
+          <th
+            className="freeze-column-header freeze-column-header-1"
+            title="Parent Affiliate"
+            width={90}
+          >
+            Parent Affiliate
+          </th>
+          <th
+            className="freeze-column-header freeze-column-header-2"
+            title="Username"
+            width={125}
+          >
+            Username
+          </th>
+          <th
+            title="Status"
+            width={75}
+          >
+            Status
+          </th>
+          <th
+            title="First Name"
+            width={75}
+          >
+            First Name
+          </th>
+          <th
+            title="Last Name"
+            width={75}
+          >
+            Last Name
+          </th>
+          <th
+            title="Language"
+            width={75}
+          >
+            Language
+          </th>
+          <th
+            title="Mobile Phone"
+            width={100}
+          >
+            Mobile Phone
+          </th>
+          <th
+            title="Email"
+            width={175}
+          >
+            Email
+          </th>
+          <th
+            title="Registration Date"
+            width={100}
+          >
+            Registration Date
+          </th>
+          <th
+            title="Approval Date"
+            width={100}
+          >
+            Approval Date
+          </th>
+          <th
+            title="Revenue Group"
+            width={100}
+          >
+            Revenue Group
+          </th>
+          <th
+            title="Balance B/F"
+            width={100}
+          >
+            Balance B/F
+          </th>
+          <th
+            title="Aff. Currency"
+            width={75}
+          >
+            Aff. Currency
+          </th>
+          <th
+            title="Player"
+            width={50}
+          >
+            Player
+          </th>
+          <th
+            title="Password"
+            width={70}
+          >
+            Password
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          key="no-info"
+        >
+          <td
+            className="text-center"
+            colSpan={17}
+          >
+            There is no information available
+          </td>
+        </tr>
+      </tbody>
+    </Table>
   </div>
+  <t
+    isAllowInputPageIndex={true}
+    isShowPagingInfo={true}
+    onPaging={[Function]}
+    pageOption={
+      Object {
+        "PageIndex": 1,
+        "PageList": Array [
+          10,
+          20,
+          50,
+          100,
+          500,
+        ],
+        "PageSize": 20,
+        "TotalItem": 0,
+      }
+    }
+  />
 </Fragment>
 `;

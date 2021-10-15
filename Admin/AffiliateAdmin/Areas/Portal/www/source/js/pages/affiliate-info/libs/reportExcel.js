@@ -82,7 +82,7 @@ export default class ReportExcel {
             },
             e: {
                 r: REPORT_TITLE_ROW_INDEX,
-                c: Object.keys(this.selectedColumnList).length
+                c: Object.keys(this.selectedColumnList).length + 2
             }
         });
         const address = Excel.getCellAddress({

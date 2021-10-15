@@ -1044,8 +1044,8 @@
   <data name="Month" xml:space="preserve">
     <value>月</value>
   </data>
-  <data name="MonthlyWinlost" xml:space="preserve">
-    <value>每月盈利</value>
+  <data name="MonthlyGGR" xml:space="preserve">
+    <value>每月收入</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>摩洛哥</value>
@@ -1659,8 +1659,8 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="WesternSamoa" xml:space="preserve">
     <value>西萨摩亚</value>
   </data>
-  <data name="Winlost" xml:space="preserve">
-    <value>輸贏</value>
+  <data name="GGR" xml:space="preserve">
+    <value>收入</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>年</value>
@@ -1850,9 +1850,6 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>佣金报表</value>
-  </data>
-  <data name="GrossWinLoss" xml:space="preserve">
-    <value>总盈亏</value>
   </data>
   <data name="OperationalFee" xml:space="preserve">
     <value>营运费</value>
@@ -2153,5 +2150,8 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="FdmDate" xml:space="preserve">
     <value>首存日期</value>
+  </data>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>总收入</value>
   </data>
 </root>

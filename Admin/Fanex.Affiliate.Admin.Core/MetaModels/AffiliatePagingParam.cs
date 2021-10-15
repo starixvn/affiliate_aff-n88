@@ -8,10 +8,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels
         [Range(Validation.MinId, Validation.MaxId)]
         public int AffId { get; set; }
 
-        [Range(Validation.MinPageIndex, Validation.MaxPageIndex)]
         public int PageIndex { get; set; }
 
-        [Range(Validation.MinPageSize, Validation.MaxPageSize)]
         public int PageSize { get; set; }
     }
 }

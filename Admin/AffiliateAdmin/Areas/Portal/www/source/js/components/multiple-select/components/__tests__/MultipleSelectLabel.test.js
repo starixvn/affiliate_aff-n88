@@ -12,6 +12,7 @@ const defaultSelectedItem = {
 };
 const defaultProps = {
     selectedItems: [],
+    isSelectedAll: false,
     noneSelectedLabel: NO_SELECTED_LABEL,
     maxDisplayItemCount: MAX_SELECTED_ITEM_FOR_DISPLAY
 }

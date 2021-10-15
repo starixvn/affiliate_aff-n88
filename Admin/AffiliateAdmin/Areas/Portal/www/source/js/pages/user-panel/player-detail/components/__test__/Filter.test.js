@@ -127,24 +127,24 @@ describe('players detail - components - Filter', () => {
     });
 
     it('handleExportExcel - should call exportExcel', async () => {
-        const props = Object.assign({}, defaultProps, { exportExcel: jest.fn() })
+        const props = Object.assign({}, defaultProps, { fetchData: jest.fn() })
         const wrapper = shallow(<Filter {...props} />);
 
         await wrapper.instance().handleExportExcel();
 
-        expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
+        expect(props.fetchData).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
     });
 
     it('handleExportExcel - should call exportExcel, _getReportTitle and ReportExcel', async () => {
         const expectedResponse = { data: ['data 1', 'data 2'] };
-        const props = Object.assign({}, defaultProps, { exportExcel: jest.fn(() => expectedResponse.data) })
+        const props = Object.assign({}, defaultProps, { fetchData: jest.fn(() => expectedResponse.data) })
         const wrapper = shallow(<Filter {...props} />);
         const instance = wrapper.instance();
         instance._getReportTitle = jest.fn(() => "ABC");
 
         await instance.handleExportExcel();
 
-        expect(props.exportExcel).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
+        expect(props.fetchData).toHaveBeenCalledWith({ "IsExportExcel": true, "affId": 1271808, baseCurrencyId: 20, currencyIds: '20', "isSortAsc": false, "monthDate": "12/1/2019", "productId": 0, "sortById": 5 });
         expect(ReportExcel).toHaveBeenCalledWith(expectedResponse.data, "ABC", true, true);
     });
 

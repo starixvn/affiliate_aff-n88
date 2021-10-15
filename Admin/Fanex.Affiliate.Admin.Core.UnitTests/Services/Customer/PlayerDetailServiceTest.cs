@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["Withdrawal"] = 37,
                 ["BankingFee"] = 123,
                 ["Bonus"] = 123,
-                ["Winloss"] = 123,
+                ["Ggr"] = 123,
                 ["Turnover"] = 123
             };
         }
@@ -112,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
                 ["Withdrawal"] = 37,
                 ["BankingFee"] = 123,
                 ["Bonus"] = 123,
-                ["Winloss"] = 123,
+                ["Ggr"] = 123,
                 ["Turnover"] = 123
             };
         }

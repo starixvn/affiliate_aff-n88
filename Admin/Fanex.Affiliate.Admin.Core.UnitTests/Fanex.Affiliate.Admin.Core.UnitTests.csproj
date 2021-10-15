@@ -194,7 +194,8 @@
     <Compile Include="Controllers\Player\ActiveMemberControllerTest.cs" />
     <Compile Include="Controllers\Player\PlayerControllerTest.cs" />
     <Compile Include="Controllers\Message\MessageControllerTest.cs" />
-    <Compile Include="Controllers\ReportControllerTest.cs" />
+    <Compile Include="Controllers\Report\PlayerGgrReportControllerTest.cs" />
+    <Compile Include="Controllers\Report\ReportControllerTest.cs" />
     <Compile Include="Controllers\UnderMaintenanceControllerTest.cs" />
     <Compile Include="Extensions\DataReaderExtensionTest.cs" />
     <Compile Include="Extensions\UrlHelperExtensionTest.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Repository\Member\MemberRepositoryTest.cs" />
     <Compile Include="Repository\CurrencyRepositoryTest.cs" />
     <Compile Include="Repository\ProductRepositoryTest.cs" />
+    <Compile Include="Repository\Report\PlayerGgrReportRepositoryTest.cs" />
     <Compile Include="Repository\Report\ReportRepositoryTest.cs" />
     <Compile Include="Services\Administrator\AdministratorServiceTest.cs" />
     <Compile Include="Services\Administrator\DepartmentServiceTest.cs" />
@@ -254,6 +256,7 @@
     <Compile Include="Services\Member\MemberServiceTest.cs" />
     <Compile Include="Services\Message\MessageServiceTest.cs" />
     <Compile Include="Services\Payment\PaymentRequestServiceTest.cs" />
+    <Compile Include="Services\Report\PlayerGgrServiceTest.cs" />
     <Compile Include="Services\Report\ReportServiceTest.cs" />
     <Compile Include="Services\UnderMaintenance\UnderMaintenanceServiceTest.cs" />
     <Compile Include="TestHelper\Constant.cs" />

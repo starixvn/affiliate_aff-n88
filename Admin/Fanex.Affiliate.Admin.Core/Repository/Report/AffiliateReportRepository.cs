@@ -141,7 +141,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
                 Turnover = reader.ToDecimal("Turnover"),
-                Winlost = reader.ToDecimal("Winloss"),
+                Ggr = reader.ToDecimal("Ggr"),
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate"),
                 PlatformFee = reader.ToDecimal("PlatformFee"),

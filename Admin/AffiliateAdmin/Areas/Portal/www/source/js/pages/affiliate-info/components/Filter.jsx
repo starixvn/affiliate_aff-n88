@@ -6,7 +6,7 @@ import MultipleSelect from '../../../components/multiple-select';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { handleChangeMultipleSelected } from '../../../modules/utils';
-import { statusList, sortByList, defaultState, resource } from '../libs/constants';
+import { statusList, sortByList, defaultState, resource, allCommGroups } from '../libs/constants';
 import { setReportTitle, setParam, setSelectedColumn, setParentAffName, setCommGroupList } from '../actions';
 
 export class Filter extends Component {
@@ -19,7 +19,7 @@ export class Filter extends Component {
 
         this.state = {
             ...defaultState,
-            selectedCommGroupList: 'all',
+            selectedCommGroupList: groupId || allCommGroups,
             selectedStatus: props.param.Status || '',
             parentAffName: this.props.param.ParentAffName || '',
         }
@@ -72,7 +72,7 @@ export class Filter extends Component {
         this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer, isSelectAllCommGroup));
 
         const param = {
-            GroupIds: isSelectAllCommGroup ? 'all' : selectedCommGroupList,
+            GroupIds: isSelectAllCommGroup ? allCommGroups : selectedCommGroupList,
             Language: selectedLanguage,
             Status: selectedStatus,
             ParentAffName: parentAffName || this.state.parentAffName,

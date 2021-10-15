@@ -58,9 +58,9 @@ exports[`customer member - components - Content render correctly 1`] = `
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Winlost"
+          title="GGR"
         >
-          Winlost
+          GGR
         </t>
         <t
           asc={true}
@@ -407,9 +407,9 @@ exports[`customer member - components - Content render correctly with have data 
           onClick={[Function]}
           sortable={false}
           sorting={false}
-          title="Winlost"
+          title="GGR"
         >
-          Winlost
+          GGR
         </t>
         <t
           asc={true}

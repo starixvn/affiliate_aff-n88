@@ -7,7 +7,8 @@ import { Button } from 'reactstrap';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { formatDecimalWithCurrencySymbol } from '../../../../modules/numberFormat';
 import { setPagingOption, toggleLoaderUserPanel, fetchData, setTransactionId, redirectToDailyEarning, setExpandMonthDateList, redirectToSubAffiliate } from '../actions';
-import { headerText, globalResource, transTypeList, monthlyWinlost, MONTHLY_TOTAL, MONTHLY_WINLOST, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
+import { headerText, globalResource, transTypeList, monthlyEarning, MONTHLY_TOTAL, MONTHLY_EARNING, PAYMENT_REQUEST, SUBAFFILIATE, selectedAllProduct, maxWidth, CalculatedMonth } from '../modules/constants';
+import { getScrollTopPosition, setScrollTop } from '../modules/utils';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -26,8 +27,6 @@ export class Content extends PureComponent {
 
         if (param !== prevProps.param || affId !== prevProps.affId) {
             const newParam = Object.assign({}, param, { pageIndex: 1, pageSize: pagingOption.PageSize });
-
-            this.props.setExpandMonthDateList({});
             this.fetchData(newParam);
         }
     }
@@ -35,13 +34,18 @@ export class Content extends PureComponent {
     async fetchData(param) {
         this.props.toggleLoaderUserPanel(true);
 
-        const postParam = { ...param, affId: this.props.affId };
+        const { affId } = this.props;
+        const { isGetAll, fromDate, toDate, pageIndex, pageSize } = param;
+
+        const postParam = isGetAll ? { fromDate: null, toDate: null, affId, pageIndex, pageSize } : { fromDate, toDate, affId, pageIndex, pageSize  };
+
         const data = await this.props.fetchData(postParam);
 
         this.setState({ gridData: data ? data.MainData : null, shouldResetScrollPosition: true });
-        this.props.setPagingOption({ TotalItem: data ? data.TotalItem : 0, PageIndex: param.pageIndex, PageSize: param.pageSize });
+        this.props.setPagingOption({ TotalItem: data ? data.TotalItem : 0, PageIndex: pageIndex, PageSize: pageSize });
 
         this.props.toggleLoaderUserPanel(false);
+        !param.isBack ? this.props.setExpandMonthDateList({}) : setScrollTop(param.scrollTop);
     }
 
     _renderHeader() {
@@ -80,11 +84,23 @@ export class Content extends PureComponent {
         return dataRows;
     }
 
-    _handleRedirectToDailyEarning = (dataItem) => {
-        const { affId } = this.props;
-        const dailyEarningParam = {
+    getRedirectParam = (dataItem) => {
+        const { affId, expandMonthDateList, param } = this.props;
+
+        return {
             affId,
             monthDate: dataItem.NormalizeDateText,
+            statementHistory: {
+                param,
+                scrollTop: getScrollTopPosition(),
+                expandMonthDateList
+            }
+        }
+    }
+
+    _handleRedirectToDailyEarning = (dataItem) => {
+        const dailyEarningParam = {
+            ...this.getRedirectParam(dataItem),
             productId: selectedAllProduct
         }
 
@@ -92,11 +108,7 @@ export class Content extends PureComponent {
     }
 
     _handleRedirectToSubAffiliate = (dataItem) => {
-        const { affId } = this.props;
-        const subAffiliateParam = {
-            affId,
-            monthDate: dataItem.NormalizeDateText
-        }
+        const subAffiliateParam = this.getRedirectParam(dataItem);
 
         return this.props.redirectToSubAffiliate(subAffiliateParam);
     }
@@ -106,7 +118,7 @@ export class Content extends PureComponent {
             [PAYMENT_REQUEST]: (dataItem) => () => {
                 return this.handleSetTransactionId(dataItem.TransId);
             },
-            [MONTHLY_WINLOST]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
+            [MONTHLY_EARNING]: (dataItem) => () => this._handleRedirectToDailyEarning(dataItem),
             [SUBAFFILIATE]: (dataItem) => () => this._handleRedirectToSubAffiliate(dataItem)
         }
     }
@@ -147,7 +159,7 @@ export class Content extends PureComponent {
                             </Button>
                         ) : dataItem.DateText
                     }</Cell>
-                    <Cell title={transTypeString || monthlyWinlost} className="text-center">{transTypeString || monthlyWinlost}</Cell>
+                    <Cell title={transTypeString || monthlyEarning} className="text-center">{transTypeString || monthlyEarning}</Cell>
                     <Cell title={amount} className="text-right">
                         {clickHandler ?
                             (<Button className="p-0" color="link" onClick={clickHandler(dataItem)}>
@@ -209,6 +221,7 @@ export class Content extends PureComponent {
 
 function mapStateToProps({ affCommonInfo, statementHistory }) {
     const { pagingOption, param, expandMonthDateList } = statementHistory;
+
     const { affId } = affCommonInfo;
 
     return Object.assign({}, { affId, pagingOption, param, expandMonthDateList });

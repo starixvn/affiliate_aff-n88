@@ -157,7 +157,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
                 ["FirstName"] = "12Bet",
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = 123m,
-                ["CreatedDate"] = new DateTime(2019, 10, 10),
+                ["RegisteredDate"] = new DateTime(2019, 10, 10),
                 ["AffUserName"] = "12BETAFF226",
             };
         }
@@ -172,7 +172,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
                 ["FirstName"] = "12Bet",
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = -123m,
-                ["CreatedDate"] = DBNull.Value,
+                ["RegisteredDate"] = DBNull.Value,
                 ["AffUserName"] = "12BETAFF226",
             };
         }

@@ -26,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public decimal Turnover { get; set; }
 
-        public decimal Winloss { get; set; }
+        public decimal Ggr { get; set; }
 
         public decimal? FirstDepositAmount { get; set; }
 

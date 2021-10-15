@@ -71,7 +71,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
                     case Constants.TransType.Adjustment:
                         return Resources.Lang.Adjustment;
                     case Constants.TransType.Commission:
-                        return Resources.Lang.MonthlyWinlost;
+                        return Resources.Lang.MonthlyEarning;
                     case Constants.TransType.Payment:
                         return Resources.Lang.PaymentRequest;
                     case Constants.TransType.SubAffBonus:

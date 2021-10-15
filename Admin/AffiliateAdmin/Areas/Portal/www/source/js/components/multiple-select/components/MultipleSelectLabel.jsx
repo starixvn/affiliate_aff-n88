@@ -40,7 +40,7 @@ const MultipleSelectLabel = (props) => {
 MultipleSelectLabel.propTypes = {
     selectedItems: PropTypes.arrayOf(PropTypes.object).isRequired,
     noneSelectedLabel: PropTypes.string,
-    isSelectedAll: PropTypes.boolean,
+    isSelectedAll: PropTypes.bool,
     selectedAllLabel: PropTypes.string,
     maxDisplayItemCount: PropTypes.number
 }

@@ -54,7 +54,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 Deposit = model.Sum(item => item.Deposit),
                 ActiveMembers = model.Sum(item => item.ActiveMembers),
                 Turnover = model.Sum(item => item.Turnover),
-                Winloss = model.Sum(item => item.Winloss),
+                GGR = model.Sum(item => item.GGR),
                 Withdrawal = model.Sum(item => item.Withdrawal),
                 DepositedMembers = model.Sum(item => item.DepositedMembers)
             };

@@ -19,8 +19,7 @@ export class AppContainer extends PureComponent {
     }
 
     handleFetchData = () => {
-        const { affName, param } = this.props;
-        this.props.setParam(param);
+        const { affName } = this.props;
         this.props.getAffiliateInfo(affName);
     }
 
@@ -43,9 +42,9 @@ export class AppContainer extends PureComponent {
 }
 
 function mapStateToProps({ statementHistory, affCommonInfo, licenseeName }) {
-    const { transactionId, param } = statementHistory;
+    const { transactionId } = statementHistory;
     const { affName } = affCommonInfo;
-    return Object.assign({}, { transactionId, param, affName, licenseeName });
+    return Object.assign({}, { transactionId, affName, licenseeName });
 }
 
 function mapDispatchToProps(dispatch) {

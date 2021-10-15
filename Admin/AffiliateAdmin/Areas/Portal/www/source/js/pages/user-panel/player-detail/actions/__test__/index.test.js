@@ -33,7 +33,7 @@ describe('player detail actions', () => {
                     RegisteredDateText: "08/22/2009 07:59:00",
                     Turnover: 771.4375,
                     UserName: "12bet$cicutadino",
-                    Winlost: 215.0872,
+                    Ggr: 215.0872,
                     Withdrawal: 0
                 },
                 {
@@ -45,7 +45,7 @@ describe('player detail actions', () => {
                     RegisteredDateText: "03/13/2009 12:13:00",
                     Turnover: 306,
                     UserName: "12bet$Monta",
-                    Winlost: 7.22,
+                    Ggr: 7.22,
                     Withdrawal: 0
                 }
             ],
@@ -84,38 +84,6 @@ describe('player detail actions', () => {
         const result = await actions['fetchData'](param)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', param);
-
-        expect(result).toEqual(null);
-    })
-
-    it('should create action to exportExcel with correct parameter', async () => {
-        ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
-
-        const param = {
-            IsExportExcel: true,
-            affId: 1271808,
-            monthDate: "1/1/2019",
-            productId: 0
-        }
-
-        const result = await actions['exportExcel'](param)();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });
-        expect(result).toEqual(expectedResponse.data);
-    })
-
-    it('should create action to exportExcel with incorrect parameter', async () => {
-        ajaxRequest.post = jest.fn();
-        const param = {
-            IsExportExcel: true,
-            affId: 1271808,
-            monthDate: "1/1/2019",
-            productId: 0
-        }
-
-        const result = await actions['exportExcel'](param)();
-
-        expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/PlayerDetail/GetPlayerDetailList', { ...param, pageIndex: 1, pageSize: 20 });
 
         expect(result).toEqual(null);
     })

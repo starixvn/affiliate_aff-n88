@@ -6,7 +6,7 @@ import MultipleSelect from '../MultipleSelect'
 
 
 const defaultProps = {
-    dataSource: [],
+    dataSource: [{ key: "SB", value: "Sportsbook", checked: false }],
     keyField: "key",
     valueField: "value",
     statusField: "checked",

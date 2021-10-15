@@ -13,6 +13,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
 {
     public class ReportRepositoryTest
     {
+        private const string _sp_GetMainReportData = "Aff_Admin_AffiliateReport_Sel";
+        private const string _sp_GetDetailReportData = "Aff_Admin_AffiliateReport_Detail_Sel";
+
         [Fact]
         public void GetMainReportData_WhenCall_ReturnCorrectData()
         {
@@ -26,7 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             ReaderHelper.MapReaderData(dataReader, GetReportData());
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
-            repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
+            repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
             // Action
             var result = repository.Object.GetMainReportData(new AffiliateReportParam());
@@ -56,7 +59,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             ReaderHelper.MapReaderData(dataReader, GetReportDataFullColumn());
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
-            repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
+            repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
             // Action
             var result = repository.Object.GetMainReportData(new AffiliateReportParam());
@@ -64,7 +67,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
 
             // Assert
             Assert.Single(result.MainData);
-            Assert.Equal("11/2019", item.MonthDateString);
+            Assert.Empty(item.MonthDateString);
             Assert.Equal(123, item.TotalEarning);
         }
 
@@ -79,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
 
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
-            repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Sel", 120)).Returns(objectDb.Object);
+            repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
             // Action
             var result = repository.Object.GetMainReportData(new AffiliateReportParam());
@@ -98,16 +101,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false).Returns(true);
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
-            ReaderHelper.MapReaderData(dataReader, GetReportData());
+            ReaderHelper.MapReaderData(dataReader, GetReportDataFullColumn());
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
-            repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Detail_Sel", 120)).Returns(objectDb.Object);
+            repository.Setup(r => r.GetObjectDb(_sp_GetDetailReportData, 120)).Returns(objectDb.Object);
 
             // Action
             var result = repository.Object.GetDetailReportData(new AffiliateReportParam());
+            var item = result.MainData.FirstOrDefault();
 
             // Assert
             Assert.Single(result.MainData);
+            Assert.Equal("11/2019", item.MonthDateString);
         }
 
         [Fact]
@@ -121,7 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
 
             objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
-            repository.Setup(r => r.GetObjectDb("Aff_Admin_AffiliateReport_Detail_Sel", 120)).Returns(objectDb.Object);
+            repository.Setup(r => r.GetObjectDb(_sp_GetDetailReportData, 120)).Returns(objectDb.Object);
 
             // Action
             var result = repository.Object.GetDetailReportData(new AffiliateReportParam());
@@ -162,7 +167,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["Deposit"] = 123,
                 ["Withdrawal"] = 123,
                 ["Turnover"] = 123,
-                ["Winloss"] = 123,
+                ["Ggr"] = 123,
                 ["Bonus"] = 123,
                 ["PlatformFee"] = 123,
                 ["OperationalFee"] = 123,
@@ -194,7 +199,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["Deposit"] = 123,
                 ["Withdrawal"] = 123,
                 ["Turnover"] = 123,
-                ["Winloss"] = 123,
+                ["Ggr"] = 123,
                 ["Bonus"] = 123,
                 ["PlatformFee"] = 123,
                 ["OperationalFee"] = 123,

@@ -37,5 +37,20 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             // Assert
             objectDb.Verify(obj => obj.Query<Currency>(null, null, true, 120), Times.Once);
         }
+
+        [Fact]
+        public void GetPaymentCurrencies_WhenCall_CallCorrectMethodOfObjectDb()
+        {
+            // Arrange
+            var objectDb = new Mock<IObjectDb>();
+            var repository = new Mock<CurrencyRepository> { CallBase = true };
+            repository.Setup(r => r.GetObjectDb("Aff_PaymentCurrency_Sel", It.IsAny<int>())).Returns(objectDb.Object);
+
+            // Action
+            repository.Object.GetPaymentCurrencies();
+
+            // Assert
+            objectDb.Verify(obj => obj.Query<Currency>(null, null, true, 120), Times.Once);
+        }
     }
 }

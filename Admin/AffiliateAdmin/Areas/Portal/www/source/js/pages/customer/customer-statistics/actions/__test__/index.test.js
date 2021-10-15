@@ -37,8 +37,8 @@ describe('customer statistics actions', () => {
                 UniqueClickByMonth: 0,
                 UniqueClickMobileByMonth: 0,
                 UniqueClickPcLaptopByMonth: 0,
-                WinlostByMonth: 0,
-                WinlostTotal: -42950.0237
+                GgrByMonth: 0,
+                GgrTotal: -42950.0237
             },
             status: 200
         };

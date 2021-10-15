@@ -23,7 +23,7 @@ const fields = {
     FirstDepositDateText: 'FirstDepositDateText',
     FirstDepositAmount: 'FirstDepositAmount',
     Turnover: 'Turnover',
-    Winloss: 'Winloss',
+    Ggr: 'Ggr',
     Deposit: 'Deposit',
     Withdrawal: 'Withdrawal',
     Bonus: 'Bonus',
@@ -183,7 +183,7 @@ export default class ReportExcel {
             field: fields.Turnover,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
-            field: fields.Winloss,
+            field: fields.Ggr,
             [MAIN_SECTION_STYLE]: bodyCellStyle.decimal
         }, {
             field: fields.Deposit,

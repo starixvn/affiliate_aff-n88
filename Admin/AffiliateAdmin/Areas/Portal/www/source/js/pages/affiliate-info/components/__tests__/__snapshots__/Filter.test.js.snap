@@ -28,26 +28,27 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       >
         Search By
       </Label>
-      <Input
-        id="searchBy"
-        name="selectedCommGroup"
+      <MultipleSelect
+        dataSource={
+          Array [
+            Object {
+              "checked": true,
+              "key": 1,
+              "name": "Abc",
+            },
+          ]
+        }
+        hasAllOption={true}
+        hasInputOption={false}
+        isDisable={false}
+        keyField="key"
+        maxDisplayItemCount={1}
+        noneSelectedLabel="None Select"
         onChange={[Function]}
-        type="select"
-        value={0}
-      >
-        <option
-          key="commGroup-all"
-          value="0"
-        >
-          All Revenue Groups
-        </option>
-        <option
-          key="commGroup-en-US"
-          value="en-US"
-        >
-          English
-        </option>
-      </Input>
+        selectedAllLabel="All Revenue Groups"
+        statusField="checked"
+        valueField="name"
+      />
     </FormGroup>
     <FormGroup
       className="my-2 mr-sm-2"
@@ -313,6 +314,7 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
         maxDisplayItemCount={1}
         noneSelectedLabel="Please Select"
         onChange={[Function]}
+        selectedAllLabel="All"
         statusField="checked"
         valueField="columnName"
       />

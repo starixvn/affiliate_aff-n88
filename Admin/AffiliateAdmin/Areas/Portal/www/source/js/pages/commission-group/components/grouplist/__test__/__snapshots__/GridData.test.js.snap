@@ -659,7 +659,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Minimum all members' winlost amount"
+      title="Minimum all members' GGR amount"
     >
       Min Amount
     </t>
@@ -670,7 +670,7 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
       onClick={[Function]}
       sortable={false}
       sorting={false}
-      title="Maximum all members' winlost amount"
+      title="Maximum all members' GGR amount"
     >
       Max Amount
     </t>
@@ -1129,7 +1129,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Minimum all members' winlost amount"
+              title="Minimum all members' GGR amount"
             >
               Min Amount
             </t>
@@ -1140,7 +1140,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Maximum all members' winlost amount"
+              title="Maximum all members' GGR amount"
             >
               Max Amount
             </t>
@@ -1351,7 +1351,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Minimum all members' winlost amount"
+              title="Minimum all members' GGR amount"
             >
               Min Amount
             </t>
@@ -1362,7 +1362,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Maximum all members' winlost amount"
+              title="Maximum all members' GGR amount"
             >
               Max Amount
             </t>
@@ -1830,7 +1830,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Minimum all members' winlost amount"
+              title="Minimum all members' GGR amount"
             >
               Min Amount
             </t>
@@ -1841,7 +1841,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Maximum all members' winlost amount"
+              title="Maximum all members' GGR amount"
             >
               Max Amount
             </t>
@@ -2312,7 +2312,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Minimum all members' winlost amount"
+              title="Minimum all members' GGR amount"
             >
               Min Amount
             </t>
@@ -2323,7 +2323,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="Maximum all members' winlost amount"
+              title="Maximum all members' GGR amount"
             >
               Max Amount
             </t>

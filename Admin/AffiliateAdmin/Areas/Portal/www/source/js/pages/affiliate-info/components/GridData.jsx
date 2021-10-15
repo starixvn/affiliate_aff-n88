@@ -125,7 +125,7 @@ export class GridData extends Component {
         }
         else {
             const selectedColumnNumber = Object.keys(selectedColumnList).filter(key => !!selectedColumnList[key]).length
-            dataRows.push(<tr>
+            dataRows.push(<tr key="no-info">
                 <td className="text-center" colSpan={defaultSelectedColumnNumber + selectedColumnNumber}>{globalResource.NoInfo}</td>
             </tr>);
         }
@@ -290,9 +290,6 @@ export class GridData extends Component {
         const { columnList } = this.props;
         const selectedColumnList = convertSelectedColumnList(columnList);
         const minWidth = this._getMinWidthOfTable(selectedColumnList);
-        //console.log(columnList);
-        //console.log(selectedColumnList);
-        console.log(minWidth);
 
         return (
             <React.Fragment>

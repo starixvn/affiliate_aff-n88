@@ -13,7 +13,8 @@ export const statusList = {
 
 export const defaultSortBy = 1;
 
-export const defaultSelectedColumnNumber = 2;
+export const defaultSelectedColumnNumber = 4;
+export const allCommGroups = 'all';
 
 export const sortByList = {
     'Username': 1,

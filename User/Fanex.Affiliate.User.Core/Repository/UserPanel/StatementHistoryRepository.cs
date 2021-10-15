@@ -107,7 +107,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             {
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
-                MemberWinLost = reader.ToDecimal("Winloss"),
+                MemberGGR = reader.ToDecimal("GGR"),
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate"),
             };

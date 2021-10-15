@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                     {
                         GroupId = 101,
                         DeductionId = 13,
-                        DeductionName = "ExchangeWinLossShare",
+                        DeductionName = "ExchangeGgrShare",
                         ProductIds = "19",
                         DeductedPercentage = 0.0m
                     },

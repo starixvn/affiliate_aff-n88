@@ -56,7 +56,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate"),
                 Turnover = reader.ToDecimal("Turnover"),
-                Winloss = reader.ToDecimal("Winloss")
+                Ggr = reader.ToDecimal("Ggr")
             };
         }
 

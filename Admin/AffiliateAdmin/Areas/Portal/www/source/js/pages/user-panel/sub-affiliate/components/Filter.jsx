@@ -60,8 +60,8 @@ export class Filter extends PureComponent {
 }
 
 function mapStateToProps({ subAffiliate }) {
-    const { param } = subAffiliate;
-    return Object.assign({}, { param });
+    const { affId, monthDate } = subAffiliate.param;
+    return Object.assign({}, { param: { affId, monthDate } });
 }
 
 function mapDispatchToProps(dispatch) {

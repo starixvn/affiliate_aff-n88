@@ -140,7 +140,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                             CustId = reader.ToInt("CustId"),
                             UserName = reader.ToString("UserName"),
                             IbcUserName = reader.ToString("IBCUsername"),
-                            WinLost = reader.ToDecimal("Winloss"),
+                            Ggr = reader.ToDecimal("Ggr"),
                             Deposit = reader.ToDecimal("Deposit"),
                             Withdrawal = reader.ToDecimal("Withdrawal"),
                             Bonus = reader.ToDecimal("Bonus"),
@@ -168,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 WinlostDate = reader.HasColumn("WinlostDate") ? reader.ToDateTime("WinlostDate") : (DateTime?)null,
                 Deposit = reader.ToDecimal("Deposit"),
                 Withdrawal = reader.ToDecimal("Withdrawal"),
-                MemberWinLost = reader.ToDecimal("Winloss"),
+                MemberGgr = reader.ToDecimal("Ggr"),
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate")
             };

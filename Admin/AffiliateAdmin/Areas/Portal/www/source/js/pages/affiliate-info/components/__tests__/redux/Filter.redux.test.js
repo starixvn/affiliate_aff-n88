@@ -44,6 +44,7 @@ describe('affiliate info - Filter - connect', () => {
         const mockBindAction = jest.fn();
         bindActionCreators.mockImplementationOnce(mockBindAction);
         const expectedActionCreator = {
+            setCommGroupList: actions['setCommGroupList'],
             setReportTitle: actions['setReportTitle'],
             setParam: actions['setParam'],
             setParentAffName: actions['setParentAffName'],

@@ -145,12 +145,12 @@ exports[`customer statistics - components - Content Should render correctly 1`] 
         </td>
       </tr>
       <tr
-        key="Winlost"
+        key="GGR"
       >
         <td
           className="font-weight-bold"
         >
-          Winlost
+          GGR
         </td>
         <td
           className="text-right"
@@ -363,12 +363,12 @@ exports[`customer statistics - components - Content Should render correctly with
         </td>
       </tr>
       <tr
-        key="Winlost"
+        key="GGR"
       >
         <td
           className="font-weight-bold"
         >
-          Winlost
+          GGR
         </td>
         <td
           className="text-right"
@@ -585,12 +585,12 @@ exports[`customer statistics - components - Content Should render correctly with
         </td>
       </tr>
       <tr
-        key="Winlost"
+        key="GGR"
       >
         <td
           className="font-weight-bold"
         >
-          Winlost
+          GGR
         </td>
         <td
           className="text-right"

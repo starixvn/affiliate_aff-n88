@@ -14,7 +14,7 @@
             {
                 <th width="10%">@Lang.Withdrawal</th>
             }
-            <th width="10%">@Lang.Winlost</th>
+            <th width="10%">@Lang.GGR</th>
             <th width="10%">@Lang.Bonus</th>
             <th width="10%">@Lang.Rebate</th>
         </tr>
@@ -38,7 +38,7 @@
                     }
 
                     <td class="text-right">
-                        @item.MemberWinLost.ToStringMoneyWithSymbol()
+                        @item.MemberGGR.ToStringMoneyWithSymbol()
                     </td>
                     <td class="text-right">@item.Bonus.ToStringMoneyWithSymbol()</td>
                     <td class="text-right">@item.Rebate.ToStringMoneyWithSymbol()</td>
@@ -62,7 +62,7 @@
                 }
 
                 <td class="text-right">
-                    @total.MemberWinLost.ToStringMoneyWithSymbol()
+                    @total.MemberGGR.ToStringMoneyWithSymbol()
                 </td>
                 <td class="text-right">@total.Bonus.ToStringMoneyWithSymbol()</td>
                 <td class="text-right">@total.Rebate.ToStringMoneyWithSymbol()</td>

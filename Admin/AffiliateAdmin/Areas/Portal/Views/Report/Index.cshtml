@@ -2,9 +2,9 @@
     Layout = "~/Areas/Portal/Views/Shared/_ReactPageLayout.cshtml";
 }
 
-@model Fanex.Affiliate.Admin.Core.ViewModels.AffiliateReportViewModel
+@model Fanex.Affiliate.Admin.Core.ViewModels.Report.AffiliateReportViewModel
 @section pagecss{
-    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/affiliate-report.css")" rel="stylesheet" />
+    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/report.css")" rel="stylesheet" />
 }
 
 @section pagejs{
@@ -21,5 +21,5 @@
             commGroupList: @Html.Raw(Json.Encode(Model.CommGroupList)),
         }
     </script>
-    <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report/affiliate-report.js")"></script>
+    <script type="text/javascript" src="@Url.VersionedLink("~/Areas/Portal/www/dist/js/pages/report.js")"></script>
 }

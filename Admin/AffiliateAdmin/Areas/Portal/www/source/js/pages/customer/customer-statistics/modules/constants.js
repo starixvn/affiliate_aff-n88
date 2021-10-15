@@ -6,7 +6,7 @@
     TotalSubAff: "Total Sub-Affiliates",
     TotalDeposits: "Total Deposits",
     Turnover: "Turnover",
-    Winlost: "Winlost",
+    Ggr: "GGR",
     TrackingRatePC: "Tracking Rate for PC/Laptop (Unique/Total)",
     TrackingRateMobile: "Tracking Rate for Mobile (Unique/Total)"
 }
