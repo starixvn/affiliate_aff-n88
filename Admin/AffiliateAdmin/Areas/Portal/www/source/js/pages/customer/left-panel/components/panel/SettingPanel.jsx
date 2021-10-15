@@ -140,7 +140,7 @@ export class SettingPanel extends PureComponent {
     handleOpenTransferSettingPopup = async () => {
         const { affiliateInfo } = this.props;
         const transferLimitSettingInfo = await this.props.getTransferLimitSetting(affiliateInfo.AffId);
-
+        console.log(transferLimitSettingInfo);
         this.toggleTransferSettingPopup(transferLimitSettingInfo)
     }
 
