@@ -79,8 +79,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 
         public bool HasWebSite { get; set; }
 
-        public int Player_CustId { get; set; }
+        public int? Player_CustId { get; set; }
 
-        public int Player_Currency { get; set; }
+        public int? Player_Currency { get; set; }
     }
 }
