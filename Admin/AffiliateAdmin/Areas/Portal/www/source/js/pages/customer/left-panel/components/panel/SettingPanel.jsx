@@ -12,6 +12,7 @@ import NotificationPopup from '../../../../common/components/NotificationPopup';
 import TransferBalanceForPlayerSettingPopup from './TransferBalanceForPlayerSettingPopup';
 import { permissionResource, Permission } from '../../../../../modules/permissions';
 import { money } from '../../../../../modules/constants';
+import { format } from '../../../../../modules/numberFormat';
 
 export class SettingPanel extends PureComponent {
     constructor(props) {
@@ -138,7 +139,7 @@ export class SettingPanel extends PureComponent {
     handleOpenTransferSettingPopup = async () => {
         const { affiliateInfo } = this.props;
         const transferLimitSettingInfo = await this.props.getTransferLimitSetting(affiliateInfo.AffId);
-        console.log(transferLimitSettingInfo);
+
         this.toggleTransferSettingPopup(transferLimitSettingInfo)
     }
 
@@ -150,7 +151,7 @@ export class SettingPanel extends PureComponent {
         const { affiliateInfo, isApproved, affTypeList } = this.props;
         const { isChangingAffType, isChangingAffStatus, isAssignCommissionGroup, messageNotification, isConfirmPopup, transferLimitSettingInfo } = this.state;
         const affType = affTypeList && affTypeList.filter(a => a.AffTypeId == affiliateInfo.AffType);
-        const transferSettingLabel = affiliateInfo.IsDisabledTransfer ? resource.Disabled : (affiliateInfo.TransferLimit === money.AllowedMaxValue ? resource.Unlimited : `${affiliateInfo.PlayerCurrency} ${affiliateInfo.TransferLimit}`);
+        const transferSettingLabel = affiliateInfo.IsDisabledTransfer ? resource.Disabled : (affiliateInfo.TransferLimit === money.AllowedMaxValue ? resource.Unlimited : `${affiliateInfo.PlayerCurrency} ${format(affiliateInfo.TransferLimit)}`);
 
         return (
             <Panel heading={resource.Setting}>
@@ -206,7 +207,7 @@ export class SettingPanel extends PureComponent {
                     this.transferSettingPermission && (
                         <Fragment>
                             <Row>
-                                <Col>{resource.TransferBalanceForPlayer}</Col>
+                                <Col className="left-panel-wrap-line">{resource.TransferBalanceForPlayer}</Col>
                                 <Col className="text-right">
                                     {
                                         this.transferSettingPermission.IsHost ? (
