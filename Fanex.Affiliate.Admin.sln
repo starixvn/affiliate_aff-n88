@@ -16,7 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{01307DD6-8D82-45C6-A04C-22CC98896FA0}"
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\N88AFFADMINCSharp.ruleset = SonarQube\N88AFFADMINCSharp.ruleset
-		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+		SonarQube\N88AFFADMINBinding.sqconfig = SonarQube\N88AFFADMINBinding.sqconfig
 	EndProjectSection
 EndProject
 Global

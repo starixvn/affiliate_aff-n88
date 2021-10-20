@@ -54,6 +54,6 @@ export const messages = {
     areYouChangeLanguage: 'Are you sure you want to change language for this affiliate?',
     languageUpdatedSuccess: 'The Language has been updated successfully!',
     affTypeUpdatedFail: 'Occur an error when updating affiliate type!',
-    transferSettingUpdatedSuccess: 'The Setting has been updated successfully!',
+    transferSettingUpdatedSuccess: 'The change has been successfully saved.',
     userNotOnline: 'This user is not online',
 }
