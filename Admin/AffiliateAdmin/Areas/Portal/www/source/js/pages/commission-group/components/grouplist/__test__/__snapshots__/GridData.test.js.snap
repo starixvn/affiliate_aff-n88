@@ -2399,7 +2399,7 @@ exports[`commission group - GridData  Should render correctly with is private gr
       width={0}
     />
   </div>
-  <NotificationPopup
+  <Memo(NotificationPopup)
     isConfirmPopup={true}
     message="Private Group"
     onClose={[Function]}

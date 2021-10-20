@@ -18,10 +18,10 @@ describe('sub-affiliate - Filter - connect', () => {
     });
 
     it('props should be mapped correctly', () => {
-        const expectedResult = { param: { abc: 123 } };
+        const expectedResult = { param: { affId: 123, monthDate: '10/2021' } };
         const state = {
             subAffiliate: {
-                param: { abc: 123 }
+                param: { affId: 123, monthDate: '10/2021' }
             },
             anotherProp: "Not included"
         };

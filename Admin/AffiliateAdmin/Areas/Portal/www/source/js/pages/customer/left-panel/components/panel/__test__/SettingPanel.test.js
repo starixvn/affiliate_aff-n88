@@ -24,6 +24,9 @@ describe('left panel - components - panel - SettingPanel', () => {
         Phone: "abc",
         PreferredLanguage: "vi-VN",
         SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
+        IsDisabledTransfer: true,
+        TransferLimit: 100000000,
+        PlayerCurrency: 'USD',
         Status: "Approved"
     };
 
@@ -47,6 +50,9 @@ describe('left panel - components - panel - SettingPanel', () => {
         Phone: "123456789",
         PreferredLanguage: "en-US",
         SiteUrl: "http://www.12345678.com",
+        IsDisabledTransfer: false,
+        TransferLimit: 0,
+        PlayerCurrency: 'USD',
         Status: "Disapproved"
     }
 

@@ -280,9 +280,9 @@ exports[`statement history - components - Content render correctly with have dat
                 onClick={[Function]}
                 sortable={false}
                 sorting={false}
-                title="Monthly Ggr"
+                title="Monthly Earning"
               >
-                Monthly Ggr
+                Monthly Earning
               </t>
               <t
                 asc={true}

@@ -14,8 +14,10 @@ describe('sub-affiliate - components - AppContainer', () => {
     const defaultProps = {
         param: {
             affId: 1271808,
-            monthDate: "May-2020"
+            monthDate: "May-2020",
+            statementHistory: {}
         },
+        redirectToStatementHistory: jest.fn(),
         baseCurrencyList
     }
     it('render correctly', () => {
@@ -37,6 +39,6 @@ describe('sub-affiliate - components - AppContainer', () => {
 
         wrapper.find(UserPanelBreadcrumb).props().breadcrumbList[0].handleClick();
 
-        expect(props.setSelectedUserPanel).toHaveBeenCalledWith('statementHistory');
+        expect(props.redirectToStatementHistory).toHaveBeenCalledWith(defaultProps.param.statementHistory);
     });
 });

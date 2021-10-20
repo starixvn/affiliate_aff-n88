@@ -24,7 +24,7 @@ describe('statement history - components - Filter', () => {
 
         wrapper.instance().componentDidMount();
 
-        expect(props.setParam).toHaveBeenCalledWith({ "fromDate": "01/01/2020", "isGetAll": false, "toDate": "3/12/2020" });
+        expect(props.setParam).toHaveBeenCalledWith({ fromDate: "01/01/2020", isGetAll: false, toDate: "3/12/2020", isBack: false, scrollTop: 0 });
     });
 
     it('handleChecked - should call setState when click GetAll checkbox', () => {
@@ -84,6 +84,6 @@ describe('statement history - components - Filter', () => {
         wrapper.find('Input[type="checkbox"][name="isGetAll"]').simulate('change', event);
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ "fromDate": "01/01/2020", "isGetAll": false, "toDate": "3/12/2020" });
+        expect(props.setParam).toHaveBeenCalledWith({ fromDate: "01/01/2020", isGetAll: false, toDate: "3/12/2020", isBack: false, scrollTop: 0 });
     });
 });

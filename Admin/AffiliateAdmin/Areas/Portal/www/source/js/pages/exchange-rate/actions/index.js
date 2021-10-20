@@ -1,5 +1,5 @@
 ﻿import { post } from '../../../modules/ajaxRequest';
-import { submitFail } from "../../../modules/constants";
+import { submitFail } from '../../../modules/constants';
 import { toggleLoader } from '../../../actions/loaderAction';
 import { SET_DATE, SET_GRID_DATA, SET_TOGGLE_POPUP, SET_SELECTED_EXCHANGE_RATE, SHOULD_RESET_SCROLL_POSITION } from './types';
 

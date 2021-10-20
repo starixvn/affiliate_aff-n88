@@ -301,7 +301,7 @@ exports[`left panel - components - panel - SettingPanel render correctly with is
       />
     </Col>
   </Row>
-  <NotificationPopup
+  <Memo(NotificationPopup)
     isConfirmPopup={true}
     message="abc"
     onClose={[Function]}

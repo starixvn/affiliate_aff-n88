@@ -38,8 +38,10 @@ describe('daily earning detail - components - AppContainer', () => {
         param: {
             affId: 1271808,
             monthDate: "06 January 2019",
-            productId: 0
+            productId: 0,
+            statementHistory: {}
         },
+        redirectToStatementHistory: jest.fn(),
         productList,
         currencyList,
         baseCurrencyList
@@ -63,7 +65,7 @@ describe('daily earning detail - components - AppContainer', () => {
 
         wrapper.find(UserPanelBreadcrumb).props().breadcrumbList[0].handleClick();
 
-        expect(props.setSelectedUserPanel).toHaveBeenCalledWith('statementHistory');
+        expect(props.redirectToStatementHistory).toHaveBeenCalledWith(defaultProps.param.statementHistory);
     });
 
     it('redirectToDailyEarning - should be called', () => {

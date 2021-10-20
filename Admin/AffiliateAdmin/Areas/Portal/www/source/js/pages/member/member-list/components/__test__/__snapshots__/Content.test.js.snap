@@ -561,7 +561,7 @@ exports[`member list - components - Content  render correctly with NotificationP
       width={0}
     />
   </div>
-  <NotificationPopup
+  <Memo(NotificationPopup)
     isConfirmPopup={true}
     message="Has NotificationPopup"
     onClose={[Function]}

@@ -715,7 +715,7 @@ exports[`user account - components - sections - WebSite render correctly when ha
       </FormGroup>
     </FormGroup>
   </Form>
-  <NotificationPopup
+  <Memo(NotificationPopup)
     isConfirmPopup={false}
     message="abc"
     onClose={[Function]}

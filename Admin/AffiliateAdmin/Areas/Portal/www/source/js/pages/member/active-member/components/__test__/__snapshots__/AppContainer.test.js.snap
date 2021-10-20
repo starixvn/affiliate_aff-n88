@@ -13,7 +13,7 @@ exports[`active member - components - AppContainer render correctly 1`] = `
   <Connect(Component) />
   <Connect(Component) />
   <Connect(Component) />
-  <NotificationPopup
+  <Memo(NotificationPopup)
     message="Please input Deposit User Name!"
     onClose={[Function]}
   />
@@ -38,7 +38,7 @@ exports[`active member - components - AppContainer render correctly with memberN
   </div>
   <Connect(Component) />
   <Connect(Component) />
-  <NotificationPopup
+  <Memo(NotificationPopup)
     message="Please input Deposit User Name!"
     onClose={[Function]}
   />
