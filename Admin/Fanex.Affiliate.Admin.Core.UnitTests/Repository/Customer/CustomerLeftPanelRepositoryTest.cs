@@ -118,6 +118,84 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
         }
 
         [Fact]
+        public void GetTransferLimitSetting_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var repository = new Mock<CustomerLeftPanelRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
+
+            ReaderHelper.MapReaderData(dataReader, GetTransferLimitSetting());
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            repository.Setup(r => r.GetObjectDb("Aff_Admin_TransferLimit_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetTransferLimitSetting(123);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.False(result.IsUnlimited);
+        }
+
+        [Fact]
+        public void GetTransferLimitSetting_WhenCall_ReturnNull()
+        {
+            // Arrange
+            var repository = new Mock<CustomerLeftPanelRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            var dataReader = new Mock<IDataReader>();
+            dataReader.SetupSequence(d => d.Read()).Returns(false);
+
+            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            repository.Setup(r => r.GetObjectDb("Aff_Admin_TransferLimit_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.GetTransferLimitSetting(123);
+
+            // Assert
+            Assert.Null(result);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCallWithInvalidParam_UpdateSuccessfully()
+        {
+            // Arrange
+            var repository = new Mock<CustomerLeftPanelRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
+            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
+            repository.Setup(re => re.GetObjectDb("Aff_Admin_TransferLimit_Upd", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.UpdateTransferLimitSetting(new TransferLimitSettingParam());
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCallWithValidParam_UpdateIsFailed()
+        {
+            // Arrange
+            var message = "Update is failed.";
+            var repository = new Mock<CustomerLeftPanelRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
+            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
+            repository.Setup(re => re.GetObjectDb("Aff_Admin_TransferLimit_Upd", 120)).Returns(objectDb.Object);
+
+            // Action
+            var result = repository.Object.UpdateTransferLimitSetting(new TransferLimitSettingParam());
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal(message, result.Message);
+        }
+
+        [Fact]
         public void UpdateAffType_WhenCallWithInvalidParam_UpdateSuccessfully()
         {
             // Arrange
@@ -331,6 +409,18 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
             {
                 ["Ip"] = "::1",
                 ["ReloadTime"] = new DateTime(2019, 11, 24)
+            };
+        }
+
+        private IDictionary<string, object> GetTransferLimitSetting()
+        {
+            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["PlayerCustId"] = 123,
+                ["PlayerUsername"] = "Test",
+                ["PlayerCurrency"] = "USD",
+                ["TransferLimit"] = 10000,
+                ["DisabledTransfer"] = false
             };
         }
     }

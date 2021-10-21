@@ -6,14 +6,14 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Report
 {
     public class TransferReportParam
     {
-        [MaxLength(9, ErrorMessage = "Trans. Id is invalid!")]
+        [MaxLength(Validation.MaxLengthInputId, ErrorMessage = "Trans. Id is invalid!")]
         [RegularExpression("^\\d*$", ErrorMessage = "Trans. Id is invalid!")]
         public string TransId { get; set; }
 
-        [MaxLength(30, ErrorMessage = "Affiliate must shorter than 30 characters!")]
+        [MaxLength(Validation.MaxLengthInputString, ErrorMessage = "Affiliate must shorter than 30 characters!")]
         public string AffName { get; set; }
 
-        [MaxLength(30, ErrorMessage = "Player must shorter than 30 characters!")]
+        [MaxLength(Validation.MaxLengthInputString, ErrorMessage = "Player must shorter than 30 characters!")]
         public string PlayerName { get; set; }
 
         public DateTime FromDate { get; set; }

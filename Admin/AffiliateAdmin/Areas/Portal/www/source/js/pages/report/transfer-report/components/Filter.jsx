@@ -6,9 +6,10 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DatePicker } from '@9softstudio/react-datepicker';
 import { setReportTitle, setParam } from '../actions';
 import { handleAfterChangeFromDate, handleAfterChangeToDate, isValidNumber } from '../../../../modules/utils';
-import { minDate, sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
+import { sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
 import { reportName, headerText } from '../libs/constants';
+export const minDate = new Date(2021, 9, 30);
 
 export class Filter extends Component {
     constructor(props) {

@@ -22,6 +22,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal BasedAmount { get; set; }
 
-        public string CreatedDateText => CreatedDate.ToString("MM/dd/yyyy hh:mm:ss");
+        public string CreatedDateText => CreatedDate.ToString("MM/dd/yyyy HH:mm:ss");
     }
 }

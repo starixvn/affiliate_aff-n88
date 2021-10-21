@@ -43,7 +43,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
 
         private static bool IsValidParam(AffiliateReportParam param)
         {
-            return !string.IsNullOrEmpty(param.ProductIds) && DateTimeHelper.IsValidDateRange(param.FromDate, param.ToDate, 5);
+            const int ValidMonthArrange = 5;
+            return !string.IsNullOrEmpty(param.ProductIds) && DateTimeHelper.IsValidDateRange(param.FromDate, param.ToDate, ValidMonthArrange);
         }
     }
 }

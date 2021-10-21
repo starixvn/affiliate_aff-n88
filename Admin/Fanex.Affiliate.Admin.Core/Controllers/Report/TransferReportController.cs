@@ -16,17 +16,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
     [FunctionAuthorize(FunctionName = Function.TransferPlayerReport)]
     public class TransferReportController: BaseController
     {
-        private readonly IProductRepository _productRepository;
         private readonly ICurrencyRepository _currencyRepository;
         private readonly ITransferReportService _transferReportService;
 
         public TransferReportController(
             ISessionService sessionService,
-            IProductRepository productRepository,
             ICurrencyRepository currencyRepository,
             ITransferReportService transferReportService) : base(sessionService)
         {
-            _productRepository = productRepository;
             _currencyRepository = currencyRepository;
             _transferReportService = transferReportService;
         }
@@ -37,7 +34,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         {
             var viewModel = new ReportCommonViewModel
             {
-                ProductList = _productRepository.GetProductList(),
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies()
             };
 
