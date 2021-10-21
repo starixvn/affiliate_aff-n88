@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
 
         public EntityResult<TransferReport> GetTransferReportData(TransferReportParam param)
         {
-            if (DateTimeHelper.IsValidDateRange(param.FromDate, param.ToDate))
+            if (DateTimeHelper.IsValidDateTime(param.FromDate, param.ToDate))
             {
                 return _transferReportRepository.GetTransferReportData(param);
             }

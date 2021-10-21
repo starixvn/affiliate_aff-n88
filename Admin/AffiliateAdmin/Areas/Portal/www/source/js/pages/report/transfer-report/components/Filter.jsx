@@ -6,10 +6,10 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import { DatePicker } from '@9softstudio/react-datepicker';
 import { setReportTitle, setParam } from '../actions';
 import { handleAfterChangeFromDate, handleAfterChangeToDate, isValidNumber } from '../../../../modules/utils';
-import { sixMonth, defaultBaseCurrency } from '../../../../modules/constants';
+import { defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
 import { reportName, headerText } from '../libs/constants';
-export const minDate = new Date(2021, 9, 30);
+export const minDate = new Date(2020, 9, 30);
 
 export class Filter extends Component {
     constructor(props) {
@@ -38,11 +38,11 @@ export class Filter extends Component {
     }
 
     handleChangeFromDate = (momentDate) => {
-        this.setState(prevState => handleAfterChangeFromDate(momentDate, prevState.toDate, sixMonth));
+        this.setState(prevState => handleAfterChangeFromDate(momentDate, prevState.toDate));
     }
 
     handleChangeToDate = (momentDate) => {
-        this.setState(prevState => handleAfterChangeToDate(momentDate, prevState.fromDate, sixMonth));
+        this.setState(prevState => handleAfterChangeToDate(momentDate, prevState.fromDate));
     }
 
     handleChange = (event) => {

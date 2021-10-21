@@ -10,5 +10,10 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
 
             return DateTime.Compare(maxMonth, to) >= 0;
         }
+
+        public static bool IsValidDateTime(DateTime from, DateTime to)
+        {
+            return DateTime.Compare(from, to) <= 0;
+        }
     }
 }
