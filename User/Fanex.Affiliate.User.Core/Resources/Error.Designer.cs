@@ -169,6 +169,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Payment Account is not active.
+        /// </summary>
+        public static string PaymentAccNotActive {
+            get {
+                return ResourceManager.GetString("PaymentAccNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Account does not exists.
+        /// </summary>
+        public static string PaymentAccNotExist {
+            get {
+                return ResourceManager.GetString("PaymentAccNotExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid request amount.
         /// </summary>
         public static string PaymentAmountInvalid {

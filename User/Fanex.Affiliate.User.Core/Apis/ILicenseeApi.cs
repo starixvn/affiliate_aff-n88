@@ -1,5 +1,7 @@
 ﻿using Fanex.Affiliate.User.Core.DTO.Api;
+using Fanex.Affiliate.User.Core.MetalModels.Api;
 using Refit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.Apis
@@ -11,5 +13,11 @@ namespace Fanex.Affiliate.User.Core.Apis
 
         [Post("/api/customer/UnlockUser")]
         Task<ApiResultInfo> UnlockUser(int[] userIds);
+
+        [Get("/api/Customer/GetCustBalance")]
+        Task<IEnumerable<CustomerBalanceInfo>> GetCustBalanceAsync(int[] ids);
+
+        [Post("/api/Customer/TransferMoneyToPlayer")]
+        Task<ApiResultInfo> TransferMoneyToPlayerAsync(TransferMoneyParam param);
     }
 }

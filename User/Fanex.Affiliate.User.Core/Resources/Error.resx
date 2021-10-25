@@ -183,4 +183,10 @@
   <data name="ErrInternalError" xml:space="preserve">
     <value>Internal error. Please contact to administrator.</value>
   </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>Payment Account does not exists</value>
+  </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>Payment Account is not active</value>
+  </data>
 </root>

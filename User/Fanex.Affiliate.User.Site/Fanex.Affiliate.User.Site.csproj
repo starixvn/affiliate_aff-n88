@@ -735,6 +735,10 @@
     <Content Include="www\build\js\player-detail.min.js">
       <DependentUpon>player-detail.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\player-transfer-balance-history.js" />
+    <Content Include="www\build\js\player-transfer-balance-history.min.js">
+      <DependentUpon>player-transfer-balance-history.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\revenue-structure.js" />
     <Content Include="www\build\js\revenue-structure.min.js">
       <DependentUpon>revenue-structure.js</DependentUpon>
@@ -799,6 +803,10 @@
     <Content Include="www\build\styles\css\pages\payment-request.css" />
     <Content Include="www\build\styles\css\pages\payment-request.min.css">
       <DependentUpon>payment-request.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\player-transfer-balance.css" />
+    <Content Include="www\build\styles\css\player-transfer-balance.min.css">
+      <DependentUpon>player-transfer-balance.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\promotion.css" />
     <Content Include="www\build\styles\css\promotion.min.css">
@@ -984,6 +992,8 @@
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
     <Content Include="www\source\js\pages\product.js" />
+    <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />
+    <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance.js" />
     <Content Include="www\source\js\pages\promotion.js" />
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
@@ -1414,6 +1424,10 @@
     <Content Include="Views\Promotion\N8B\_Content.en-US.cshtml" />
     <Content Include="Views\Promotion\N8G\_Content.vi-VN.cshtml" />
     <Content Include="Views\Product\N88\_CarouselItems.cshtml" />
+    <Content Include="Views\UserPanel\PlayerTransferBalance\Index.cshtml" />
+    <Content Include="Views\UserPanel\PlayerTransferBalanceHistory\Index.cshtml" />
+    <Content Include="Views\UserPanel\PlayerTransferBalanceHistory\_Content.cshtml" />
+    <Content Include="www\source\styles\pages\player-transfer-balance.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -2508,4 +2508,64 @@
   <data name="FdmDate" xml:space="preserve">
     <value>FDM Date</value>
   </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>Transfer Balance For Player</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>Transfer Balancne For Player History</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>In Player's Currency</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>Total (all pages)</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>Player Username</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>{player}'s Currency</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>Available Balance</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(in your payment account {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>Transfer Limit</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>Transfer Amount To {player}'s Balance</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>Invalid player.</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>This player is not active</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>Amount must be a whole positive number</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>Amount must not exceed transfer limit</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>Exchange rate has just been updated, please submit again</value>
+  </data>
+  <data name="HasAPendingTransaction" xml:space="preserve">
+    <value>This member has a pending transaction. To avoid duplication, please wait until the pending transaction complete and try again.</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>Username has been changed, please search the username again.</value>
+  </data>
+  <data name="StillHavePendingTransaction" xml:space="preserve">
+    <value>This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again.</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>In {baseCurrency}</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again.</value>
+  </data>
 </root>

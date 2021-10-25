@@ -162,4 +162,10 @@
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>您的账号已被停用。 请联系您的客户经理了解更多信息</value>
   </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>支付帐户未激活</value>
+  </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>支付账户不存在</value>
+  </data>
 </root>

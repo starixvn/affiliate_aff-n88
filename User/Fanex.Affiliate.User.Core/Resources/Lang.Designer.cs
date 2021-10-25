@@ -331,6 +331,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount must not exceed transfer limit.
+        /// </summary>
+        public static string AmountMustNotExceedLimit {
+            get {
+                return ResourceManager.GetString("AmountMustNotExceedLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount must be a whole positive number.
+        /// </summary>
+        public static string AmountMustPositiveNumber {
+            get {
+                return ResourceManager.GetString("AmountMustPositiveNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid request amount! Amount must be between .
         /// </summary>
         public static string AmtErr {
@@ -498,6 +516,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Austria {
             get {
                 return ResourceManager.GetString("Austria", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available Balance.
+        /// </summary>
+        public static string AvailableBalance {
+            get {
+                return ResourceManager.GetString("AvailableBalance", resourceCulture);
             }
         }
         
@@ -1819,6 +1846,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username has been changed, please search the username again..
+        /// </summary>
+        public static string DiffBetweenSearchAndUpdateName {
+            get {
+                return ResourceManager.GetString("DiffBetweenSearchAndUpdateName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dimension.
         /// </summary>
         public static string Dimension {
@@ -2575,6 +2611,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exchange rate has just been updated, please submit again.
+        /// </summary>
+        public static string ExchageRateChange {
+            get {
+                return ResourceManager.GetString("ExchageRateChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FAQs.
         /// </summary>
         public static string Faqs {
@@ -2926,6 +2971,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This member has a pending transaction. To avoid duplication, please wait until the pending transaction complete and try again..
+        /// </summary>
+        public static string HasAPendingTransaction {
+            get {
+                return ResourceManager.GetString("HasAPendingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again..
+        /// </summary>
+        public static string HasPendingTransaction {
+            get {
+                return ResourceManager.GetString("HasPendingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -3061,6 +3124,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In {baseCurrency}.
+        /// </summary>
+        public static string InBaseCurrency {
+            get {
+                return ResourceManager.GetString("InBaseCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include Inactive Tracking Link.
         /// </summary>
         public static string IncludeInActiveLink {
@@ -3115,11 +3187,38 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In Player&apos;s Currency.
+        /// </summary>
+        public static string InPlayerCurrency {
+            get {
+                return ResourceManager.GetString("InPlayerCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The link you has entered is not valid.&lt;br /&gt;Please contact Customer Service Department or.
         /// </summary>
         public static string InvalidLink {
             get {
                 return ResourceManager.GetString("InvalidLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid player..
+        /// </summary>
+        public static string InvalidPlayer {
+            get {
+                return ResourceManager.GetString("InvalidPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (in your payment account {account}).
+        /// </summary>
+        public static string InYourPaymentAcc {
+            get {
+                return ResourceManager.GetString("InYourPaymentAcc", resourceCulture);
             }
         }
         
@@ -4724,11 +4823,38 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {player}&apos;s Currency.
+        /// </summary>
+        public static string PlayerCurrency {
+            get {
+                return ResourceManager.GetString("PlayerCurrency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This player is not active.
+        /// </summary>
+        public static string PlayerNotActive {
+            get {
+                return ResourceManager.GetString("PlayerNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Players Details.
         /// </summary>
         public static string PlayersDetails {
             get {
                 return ResourceManager.GetString("PlayersDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player Username.
+        /// </summary>
+        public static string PlayerUserName {
+            get {
+                return ResourceManager.GetString("PlayerUserName", resourceCulture);
             }
         }
         
@@ -5723,6 +5849,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again..
+        /// </summary>
+        public static string StillHavePendingTransaction {
+            get {
+                return ResourceManager.GetString("StillHavePendingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sub-Affiliate Details.
         /// </summary>
         public static string SubAffDetail {
@@ -6155,6 +6290,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Total (all pages).
+        /// </summary>
+        public static string TotalAllPage {
+            get {
+                return ResourceManager.GetString("TotalAllPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Clicks.
         /// </summary>
         public static string TotalClick {
@@ -6259,6 +6403,42 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TransactionID {
             get {
                 return ResourceManager.GetString("TransactionID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer Amount To {player}&apos;s Balance.
+        /// </summary>
+        public static string TransferAmountTo {
+            get {
+                return ResourceManager.GetString("TransferAmountTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer Balance For Player.
+        /// </summary>
+        public static string TransferBalanceForPlayer {
+            get {
+                return ResourceManager.GetString("TransferBalanceForPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer Balancne For Player History.
+        /// </summary>
+        public static string TransferBalanceForPlayerHistory {
+            get {
+                return ResourceManager.GetString("TransferBalanceForPlayerHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Transfer Limit.
+        /// </summary>
+        public static string TransferLimit {
+            get {
+                return ResourceManager.GetString("TransferLimit", resourceCulture);
             }
         }
         

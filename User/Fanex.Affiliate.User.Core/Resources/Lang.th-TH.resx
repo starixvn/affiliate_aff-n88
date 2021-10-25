@@ -1045,6 +1045,9 @@
   <data name="MonthlyGGR" xml:space="preserve">
     <value>รายได้ต่อเดือน</value>
   </data>
+  <data name="MonthlyWinlost" xml:space="preserve">
+    <value>ยอดได้เสียในแต่ละเดือน</value>
+  </data>
   <data name="Morocco" xml:space="preserve">
     <value>โมร๊อกโก</value>
   </data>
@@ -2152,5 +2155,59 @@
   </data>
   <data name="TotalGGR" xml:space="preserve">
     <value>รายได้รวม</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>บัญชีผู้เล่นไม่ถูกต้อง</value>
+  </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>โอนยอดเงินไปยังบัญชีผู้เล่น</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>ประวัติการโอนยอดเงินไปยังบัญชีผู้เล่น</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>ชื่อบัญชีผู้เล่น</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>{player}สกุลเงิน</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>ยอดเงินคงเหลือ</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(ในบัญชีการชำระเงินของคุณ {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>วงเงินโอน</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>โอนเงินไปยัง{player}ยอดคงเหลือ</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>ในสกุลเงินของผู้เล่น</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>ใน {baseCurrency}</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>บัญชีผู้เล่นนี้ไม่ได้ใช้งาน</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>รวม (ทุกหน้า)</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>ชื่อผู้ใช้งานได้มีการเปลี่ยนแปลงแล้ว กรุณาค้นหาชื่อผู้ใช้งานอีกครั้ง</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>จำนวนเงินต้องเป็นจำนวนเต็มทั้งหมด</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>จำนวนเงินต้องไม่เกินวงเงินโอน</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>อัตราแลกเปลี่ยนเพิ่งได้รับการอัพเดต กรุณาส่งอีกครั้ง</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>สมาชิกมีธุรกรรมที่รอดำเนินการ เพื่อหลีกเลี่ยงการทำรายการซ้ำ โปรดรอจนกว่าธุรกรรมดังกล่าวจะดำเนินการเสร็จสมบูรณ์แล้วลองอีกครั้ง</value>
   </data>
 </root>

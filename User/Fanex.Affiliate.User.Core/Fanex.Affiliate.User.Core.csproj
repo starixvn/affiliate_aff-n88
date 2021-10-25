@@ -215,6 +215,7 @@
     <Compile Include="BusinessService\ContactService.cs" />
     <Compile Include="BusinessService\ICaptchaService.cs" />
     <Compile Include="BusinessService\ICommissionReportService.cs" />
+    <Compile Include="BusinessService\IPlayerTransferBalanceService.cs" />
     <Compile Include="BusinessService\IQrCodeGeneratorService.cs" />
     <Compile Include="BusinessService\ISecurityQuestionService.cs" />
     <Compile Include="BusinessService\ITwoFactorAuthService.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="BusinessService\IEmailService.cs" />
     <Compile Include="BusinessService\INewsService.cs" />
     <Compile Include="BusinessService\PaymentService.cs" />
+    <Compile Include="BusinessService\PlayerTransferBalanceService.cs" />
     <Compile Include="BusinessService\QrCodeUrlGeneratorService.cs" />
     <Compile Include="BusinessService\SecurityQuestionService.cs" />
     <Compile Include="BusinessService\TwoFactorAuthService.cs" />
@@ -241,10 +243,17 @@
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Constants\GMT.cs" />
+    <Compile Include="Constants\TransferBalanceStatus.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
+    <Compile Include="Controllers\UserPanel\PlayerTransferBalanceHistoryController.cs" />
+    <Compile Include="Controllers\UserPanel\PlayerTransferBalanceController.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
+    <Compile Include="DTO\Api\CustomerBalanceInfo.cs" />
     <Compile Include="DTO\UserPanel\MarketingPageStatistics.cs" />
+    <Compile Include="DTO\UserPanel\PlayerTransferBalance\PlayerTransferBalanceHistoryInfo.cs" />
+    <Compile Include="DTO\UserPanel\PlayerTransferBalance\PlayerTransferBalanceHistoryResult.cs" />
+    <Compile Include="DTO\UserPanel\PlayerTransferBalance\PlayerTransferBalanceInfo.cs" />
     <Compile Include="Enum\DbParam.cs" />
     <Compile Include="Enum\AffiliatLinkType.cs" />
     <Compile Include="Constants\Number.cs" />
@@ -307,6 +316,7 @@
     <Compile Include="DTO\ContactApp.cs" />
     <Compile Include="DTO\AuthorizedUserInfo.cs" />
     <Compile Include="DTO\MarketingChannel.cs" />
+    <Compile Include="MetalModels\Api\TransferMoneyParam.cs" />
     <Compile Include="MetalModels\MarketingLinkParam.cs" />
     <Compile Include="DTO\UserPanel\Currency.cs" />
     <Compile Include="DTO\DBMode.cs" />
@@ -339,17 +349,23 @@
     <Compile Include="MetalModels\UserPanel\CommissionReportParam.cs" />
     <Compile Include="MetalModels\UserPanel\MarketingPageStatisticsParam.cs" />
     <Compile Include="MetalModels\UserPanel\MediaCategoryParam.cs" />
+    <Compile Include="MetalModels\UserPanel\PlayerTransferBalanceHistoryParam.cs" />
+    <Compile Include="MetalModels\UserPanel\PlayerTransferBalanceInsParam.cs" />
     <Compile Include="MetalModels\UserPanel\QrCodeParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffComParam.cs" />
     <Compile Include="MetalModels\UserPanel\SubAffDetailParam.cs" />
     <Compile Include="Repository\ILanguageRepository.cs" />
     <Compile Include="Repository\LanguageRepository.cs" />
+    <Compile Include="Repository\UserPanel\BaseRepository.cs" />
     <Compile Include="Repository\UserPanel\ICurrencyRepository.cs" />
     <Compile Include="Repository\UserPanel\CurrencyRepository.cs" />
+    <Compile Include="Repository\UserPanel\IPlayerTransferBalanceRepository.cs" />
+    <Compile Include="Repository\UserPanel\PlayerTransferBalanceRespository.cs" />
     <Compile Include="Utilities\CurrencyHelper.cs" />
     <Compile Include="Utilities\FileSystem.cs" />
     <Compile Include="Utilities\IFileSystem.cs" />
     <Compile Include="ViewModels\PopupViewModel.cs" />
+    <Compile Include="ViewModels\ResultModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\AffiliateLinkViewModel.cs" />
@@ -600,6 +616,7 @@
     <Compile Include="ViewModels\UserPanel\Statistics\ReferrerStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\TrackingStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\SubAffComViewModel.cs" />
+    <Compile Include="ViewModels\UserPanel\TransMoneyRequestViewModel.cs" />
     <Compile Include="ViewModels\VerificationAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

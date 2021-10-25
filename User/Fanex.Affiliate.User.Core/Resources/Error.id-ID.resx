@@ -162,4 +162,10 @@
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>Akun Anda telah di-suspend. Silahkan hubungi Akun Manager Anda untuk informasi lebih lanjut.</value>
   </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>Akun pembayaran tidak aktif</value>
+  </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>Akun Pembayaran tidak terdaftar</value>
+  </data>
 </root>

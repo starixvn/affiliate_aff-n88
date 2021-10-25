@@ -177,4 +177,10 @@
   <data name="ErrInternalError" xml:space="preserve">
     <value>Lỗi hệ thống. Hãy liên hệ với admin.</value>
   </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>Tài Khoản Thanh Toán không hoạt động</value>
+  </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>Tài Khoản Thanh Toán không tồn tại</value>
+  </data>
 </root>
