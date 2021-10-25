@@ -8,14 +8,37 @@ const SUB_HEADER_ROW_INDEX = 2;
 const DATA_ROW_INDEX = 3;
 
 const configInfo = {
-    TOTAL_COLUMN: 9,
+    TOTAL_COLUMN: 11,
     TOTAL_STATIC_COLUMN: 7,
     INDEX_AMOUNT_COLUMN: 6,
-    COLSPAN_OF_AMOUNT_COLUMN: 3,
-    INDEX_IN_PLAYER_CURRENCY: 6,
+    COLSPAN_OF_AMOUNT_COLUMN: 5,
+    INDEX_IN_AFF_PLAYER_CURRENCY: 6,
+    INDEX_IN_PLAYER_CURRENCY: 8,
     COLSPAN_OF_IN_PLAYER_CURRENCY: 2,
-    INDEX_BASE_CURRENCY: 8,
+    COLSPAN_OF_IN_AFF_PLAYER_CURRENCY: 2,
+    INDEX_BASE_CURRENCY: 10,
     INDEX_OF_INDEX_COLUMN: 0,
+}
+
+const subColSpanOfAmountCloumn = {
+    [configInfo.INDEX_IN_AFF_PLAYER_CURRENCY]: {
+        isShowColumn: true,
+        colIndex: configInfo.INDEX_IN_AFF_PLAYER_CURRENCY,
+        colSpan: configInfo.COLSPAN_OF_IN_AFF_PLAYER_CURRENCY,
+        colSpanHeaderText: headerText.InAffPlayerCurrency
+    },
+    [configInfo.INDEX_IN_AFF_PLAYER_CURRENCY + 1]: {
+        isShowColumn: false
+    },
+    [configInfo.INDEX_IN_PLAYER_CURRENCY]: {
+        isShowColumn: true,
+        colIndex: configInfo.INDEX_IN_PLAYER_CURRENCY,
+        colSpan: configInfo.COLSPAN_OF_IN_PLAYER_CURRENCY,
+        colSpanHeaderText: headerText.InPlayerCurrency
+    },
+    [configInfo.INDEX_IN_PLAYER_CURRENCY + 1]: {
+        isShowColumn: false
+    },
 }
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -71,7 +94,7 @@ export default class ReportExcel {
 
         for (let i = 0; i < length; i++) {
             if (i === configInfo.INDEX_AMOUNT_COLUMN) {
-                this._buildColspanColumn(HEADER_ROW_INDEX, configInfo.INDEX_IN_PLAYER_CURRENCY, configInfo.COLSPAN_OF_AMOUNT_COLUMN, headerText.Amount);
+                this._buildColspanColumn(HEADER_ROW_INDEX, configInfo.INDEX_AMOUNT_COLUMN, configInfo.COLSPAN_OF_AMOUNT_COLUMN, headerText.Amount, subColSpanOfAmountCloumn);
             } else {
                 const fieldName = this.columnConfigs[i].field;
                 let address = Excel.getCellAddress({
@@ -98,41 +121,40 @@ export default class ReportExcel {
         }
     }
 
-    _buildColspanColumn(rowIndex, colIndex, colSpan, colSpanheaderText) {
-        this._buildMergeColumn(rowIndex, colIndex, colSpan, colSpanheaderText)
+    _buildColspanColumn(rowIndex, colIndex, colSpan, colSpanHeaderText, subColSpans) {
+        this._buildMergeColumn(rowIndex, colIndex, colSpan, colSpanHeaderText)
 
         const totalColumn = colIndex + colSpan;
 
         for (let i = colIndex; i < totalColumn; i++) {
-            if (i === configInfo.INDEX_IN_PLAYER_CURRENCY) {
-                this._buildMergeColumn(SUB_HEADER_ROW_INDEX, configInfo.INDEX_IN_PLAYER_CURRENCY, configInfo.COLSPAN_OF_IN_PLAYER_CURRENCY, headerText.InPlayerCurrency);
+            const subColSpan = subColSpans && subColSpans[i];
+            if (!!subColSpan) {
+                subColSpan.isShowColumn && this._buildMergeColumn(SUB_HEADER_ROW_INDEX, subColSpan.colIndex, subColSpan.colSpan, subColSpan.colSpanHeaderText);
             } else {
-                if (i !== configInfo.INDEX_IN_PLAYER_CURRENCY + 1) {
-                    const address = Excel.getCellAddress({
-                        c: i,
-                        r: rowIndex + 1
-                    });
+                const address = Excel.getCellAddress({
+                    c: i,
+                    r: rowIndex + 1
+                });
 
-                    const fieldName = this.columnConfigs[i].field;
+                const fieldName = this.columnConfigs[i].field;
 
-                    this.worksheet[address] = {
-                        t: "s",
-                        v: headerText[fieldName] || '',
-                        s: headerCellStyle
-                    }
+                this.worksheet[address] = {
+                    t: "s",
+                    v: headerText[fieldName] || '',
+                    s: headerCellStyle
                 }
             }
         }
     }
 
-    _buildMergeColumn(rowIndex, colIndex, colSpan, colSpanheaderText) {
+    _buildMergeColumn(rowIndex, colIndex, colSpan, colSpanHeaderText) {
         const colSpanCellAddress = Excel.getCellAddress({
             c: colIndex,
             r: rowIndex
         });
         this.worksheet[colSpanCellAddress] = {
             t: "s",
-            v: colSpanheaderText,
+            v: colSpanHeaderText,
             s: headerCellStyle
         }
 
@@ -239,6 +261,10 @@ export default class ReportExcel {
             wpx: 100
         }, {
             wpx: 150
+        },{
+            wpx: 100
+        }, {
+            wpx: 150
         }, {
             wpx: 150
         }];
@@ -276,6 +302,16 @@ export default class ReportExcel {
                 field: fields.Player,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.left,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.default
+            },
+            {
+                field: fields.AffPlayerCurrency,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.center,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.default
+            },
+            {
+                field: fields.AffPlayerAmount,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.decimal,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.decimal
             },
             {
                 field: fields.PlayerCurrency,

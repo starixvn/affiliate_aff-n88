@@ -8,6 +8,8 @@ export const mappingColumns = {
     Affiliate: 'AffName',
     AffiliatePlayer: 'AffPlayerName',
     Player: 'PlayerName',
+    AffPlayerCurrency: 'AffPlayerCurrency',
+    AffPlayerAmount: 'AffPlayerAmount',
     PlayerCurrency: 'PlayerCurrency',
     Amount: 'Amount',
     BasedAmount: 'BasedAmount'
@@ -22,5 +24,6 @@ export const headerText = {
     PlayerName: 'Player',
     Amount: 'Amount',
     BasedAmount: 'Base Currency',
+    InAffPlayerCurrency: "In Aff Payment Player's Currency",
     InPlayerCurrency: `In Player's Currency`,
 }

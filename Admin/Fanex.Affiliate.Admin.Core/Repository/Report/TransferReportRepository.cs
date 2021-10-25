@@ -70,8 +70,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 AffName = reader.ToString("AffName"),
                 AffPlayerName = reader.ToString("AffPlayerName"),
                 PlayerName = reader.ToString("PlayerName"),
-                PlayerCurrency = reader.ToString("CurrencyCode"),
+                PlayerCurrency = reader.ToString("Currency"),
+                AffPlayerCurrency = reader.ToString("AffPlayerCurrency"),
                 Amount = reader.ToDecimal("Amount"),
+                AffPlayerAmount = reader.ToDecimal("AffPlayerAmount"),
                 BasedAmount = reader.ToDecimal("BasedAmount"),
             };
         }

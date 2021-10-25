@@ -49,13 +49,16 @@ export class GridData extends PureComponent {
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffName}>{headerText.AffName}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffPlayerName}>{headerText.AffPlayerName}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.PlayerName}>{headerText.PlayerName}</Cell>
-                <Cell header={true} colSpan="3" title={headerText.Amount}>{headerText.Amount}</Cell>
+                <Cell header={true} colSpan="5" title={headerText.Amount}>{headerText.Amount}</Cell>
             </Row>,
             <Row key="thead-2">
+                <Cell header={true} colSpan="2" title={headerText.InAffPlayerCurrency}>{headerText.InAffPlayerCurrency}</Cell>
                 <Cell header={true} colSpan="2" title={headerText.InPlayerCurrency}>{headerText.InPlayerCurrency}</Cell>
                 <Cell header={true} rowSpan="2" colWidth={120} title={headerText.BasedAmount}>{headerText.BasedAmount}</Cell>
             </Row>,
             <Row key="thead-2">
+                <Cell className="p-0" header={true} colWidth={50}></Cell>
+                <Cell className="p-0" header={true} colWidth={120}></Cell>
                 <Cell className="p-0" header={true} colWidth={50}></Cell>
                 <Cell className="p-0" header={true} colWidth={120}></Cell>
             </Row>
@@ -82,6 +85,7 @@ export class GridData extends PureComponent {
 
     _buildDataRow(dataItem, index) {
         const isTotalRow = !dataItem.TransId;
+        const affPlayerAmount = !isTotalRow && formatDecimal(dataItem.AffPlayerAmount);
         const amount = !isTotalRow && formatDecimal(dataItem.Amount);
         const basedAmount = formatDecimal(dataItem.BasedAmount);
 
@@ -90,7 +94,7 @@ export class GridData extends PureComponent {
                 {
                     isTotalRow ? (
                         <Fragment>
-                            <Cell className="text-center" colSpan="8" title={totalText}>{totalText}</Cell>
+                            <Cell className="text-center" colSpan="10" title={totalText}>{totalText}</Cell>
                             <Cell className="text-right font-weight-bold" title={basedAmount}>{basedAmount}</Cell>
                         </Fragment>
                     ) : (
@@ -101,6 +105,8 @@ export class GridData extends PureComponent {
                             <Cell title={dataItem.AffName}>{dataItem.AffName}</Cell>
                             <Cell title={dataItem.AffPlayerName}>{dataItem.AffPlayerName}</Cell>
                             <Cell title={dataItem.PlayerName}>{dataItem.PlayerName}</Cell>
+                            <Cell className="text-center" title={dataItem.AffPlayerCurrency}>{dataItem.AffPlayerCurrency}</Cell>
+                            <Cell className="text-right" title={affPlayerAmount}>{affPlayerAmount}</Cell>
                             <Cell className="text-center" title={dataItem.PlayerCurrency}>{dataItem.PlayerCurrency}</Cell>
                             <Cell className="text-right" title={amount}>{amount}</Cell>
                             <Cell className="text-right" title={basedAmount}>{basedAmount}</Cell>
