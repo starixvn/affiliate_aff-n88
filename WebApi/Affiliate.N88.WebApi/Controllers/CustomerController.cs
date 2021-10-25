@@ -2,6 +2,7 @@
 using Affiliate.N88.Models;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
+using Affiliate.N88.WebApi.Models;
 using Fanex.Data.Repository;
 using Fanex.Logging;
 using Newtonsoft.Json;
@@ -40,7 +41,7 @@ namespace Affiliate.N88.WebApi.Controllers
                 UserName = c.UserName,
                 AffId = c.AffId,
                 FirstDepositDate = c.FirstDepositTime,
-                IsTest = c.IsTest,            
+                IsTest = c.IsTest,
                 AffCode = c.AffCode
             });
         }
@@ -130,8 +131,44 @@ namespace Affiliate.N88.WebApi.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<CustBalanceInfo>> GetCustBalance(int[] ids)
+        {
+            var json = BuildJson(ids);
+            return await dynamicRepository.FetchAsync<CustBalanceInfo>(new GetCustBalanceCriteria(json));
+        }
+
+        [HttpPost]
+        public async Task<ResultInfo> TransferMoneyToPlayer(TransferMoneyParam param)
+        {
+            await LogService.InfoAsync($"Receive transfer money request\n" +
+                $"Param: {JsonConvert.SerializeObject(param)}\n" +
+                $"RequestIp: ${GetIpAddress()}");
+
+            var command = new TransferMoneyToPlayerCommand
+            {
+                SiteId = param.SiteId,
+                ErrCode = 0,
+                FromAmount = param.FromAmount,
+                FromCustId = param.FromCustId,
+                MaxTransferAmount = param.MaxTransferAmount,
+                RefTransId = param.RefTransId,
+                ToAmount = param.ToAmount,
+                ToCustId = param.ToCustId
+            };
+            await dynamicRepository.ExecuteAsync(command); 
+
+            await LogService.InfoAsync($"ErrCode: {command.ErrCode}");
+
+            return new ResultInfo
+            {
+                ErrMsg = command.ErrCode.ToString(),
+                IsSuccess = command.ErrCode == 0
+            };
+        }
+
         private string BuildJson(int[] userIds)
-            => $"[{String.Join(",", userIds)}]"; 
+            => $"[{String.Join(",", userIds)}]";
 
         private string GetIpAddress()
         {
