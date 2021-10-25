@@ -132,7 +132,7 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CustBalanceInfo>> GetCustBalance(int[] ids)
+        public async Task<IEnumerable<CustBalanceInfo>> GetCustBalance([FromUri]int[] ids)
         {
             var json = BuildJson(ids);
             return await dynamicRepository.FetchAsync<CustBalanceInfo>(new GetCustBalanceCriteria(json));
