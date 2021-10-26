@@ -739,6 +739,10 @@
     <Content Include="www\build\js\player-transfer-balance-history.min.js">
       <DependentUpon>player-transfer-balance-history.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\player-transfer-balance.js" />
+    <Content Include="www\build\js\player-transfer-balance.min.js" >
+      <DependentUpon>player-transfer-balance.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\revenue-structure.js" />
     <Content Include="www\build\js\revenue-structure.min.js">
       <DependentUpon>revenue-structure.js</DependentUpon>
