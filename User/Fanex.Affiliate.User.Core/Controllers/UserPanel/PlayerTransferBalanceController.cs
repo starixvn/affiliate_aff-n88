@@ -19,7 +19,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     public class PlayerTransferBalanceController : BaseController
     {
         private readonly IPlayerTransferBalanceService _playerTransferBalanceService;
-        private const int INVALID_PLAYER_ERR_CODE = 900;
 
         public PlayerTransferBalanceController(ISessionService sessionService
             , ILanguageService languageService
@@ -44,6 +43,11 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SearchPlayer(string playerName)
         {
+            if (SessionService.IsInternal || SessionService.UserSession.DisabledTransfer)
+            {
+                return Redirect(Url.Content("~/Notify/PageNotFound"));
+            }
+
             var affId = SessionService.UserSession.AffId;
             var result = await _playerTransferBalanceService.GetPlayerTransferBalanceInfoAsync(affId, playerName);
             return Json(result);
@@ -53,6 +57,11 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SubmitTransferMoney(TransMoneyRequestViewModel param)
         {
+            if (SessionService.IsInternal || SessionService.UserSession.DisabledTransfer)
+            {
+                return Redirect(Url.Content("~/Notify/PageNotFound"));
+            }
+
             var result = new ResultInfo();
             if (param.SearchName != param.SubmitName)
             {

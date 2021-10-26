@@ -44,6 +44,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public async Task<ResultInfo<PlayerTransferBalanceInfo>> GetPlayerTransferBalanceInfoAsync(int affId, string playerName)
         {
             var result = new ResultInfo<PlayerTransferBalanceInfo>();
+
             var summaryInfo = _repo.GetPlayerTransferBalanceInfo(affId, playerName);
             if (summaryInfo == null || summaryInfo.PaymentAccountId <=0 || summaryInfo.PlayerId <= 0)
             {
@@ -53,8 +54,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
             
             var accWalletInfos = await _api.GetCustBalanceAsync(new [] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
-            var affWalletInfo = accWalletInfos.FirstOrDefault();
-            var playerWalletInfo = accWalletInfos.ElementAtOrDefault(1);
+            var affWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PaymentAccountId);
+            var playerWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PlayerId);
             result = CheckPlayerAcc(playerWalletInfo);
             if (!result.IsOk)
             {
@@ -67,6 +68,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
 
             summaryInfo.Balance = affWalletInfo.Balance;
+            result.Data = summaryInfo;
 
             return result;
         }
@@ -149,7 +151,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private static ResultInfo<PlayerTransferBalanceInfo> CheckPlayerAcc(CustomerBalanceInfo balanceInfo)
         {
-            var result = new ResultInfo<PlayerTransferBalanceInfo>();
+            var result = new ResultInfo<PlayerTransferBalanceInfo>
+            {
+                IsOk = true
+            };
             if (balanceInfo == null)
             {
                 result.IsOk = false;
@@ -169,7 +174,10 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private static ResultInfo<PlayerTransferBalanceInfo> CheckPaymetWalletInfo(CustomerBalanceInfo affWalletInfo)
         {
-            var result = new ResultInfo<PlayerTransferBalanceInfo>();
+            var result = new ResultInfo<PlayerTransferBalanceInfo>
+            {
+                IsOk = true
+            };
             if (affWalletInfo == null)
             {
                 result.IsOk = false;

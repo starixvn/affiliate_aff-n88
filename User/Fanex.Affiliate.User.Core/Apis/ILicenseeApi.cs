@@ -14,8 +14,8 @@ namespace Fanex.Affiliate.User.Core.Apis
         [Post("/api/customer/UnlockUser")]
         Task<ApiResultInfo> UnlockUser(int[] userIds);
 
-        [Get("/api/Customer/GetCustBalance")]
-        Task<IEnumerable<CustomerBalanceInfo>> GetCustBalanceAsync(int[] ids);
+        [Get("/api/customer/GetCustBalance")]
+        Task<IEnumerable<CustomerBalanceInfo>> GetCustBalanceAsync([Query(CollectionFormat.Multi)] int[] ids);
 
         [Post("/api/Customer/TransferMoneyToPlayer")]
         Task<ApiResultInfo> TransferMoneyToPlayerAsync(TransferMoneyParam param);

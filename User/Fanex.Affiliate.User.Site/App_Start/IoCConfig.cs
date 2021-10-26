@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.User.Site
             var appSetting = AppSetting.Instance;
             var handler = new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey)
             {
-                Proxy =  appSetting.IsUseMemberSiteProxy
+                Proxy = appSetting.IsUseMemberSiteProxy
                             ? new WebProxy(new Uri(appSetting.MemberSiteProxyUrl))
                             : null
 

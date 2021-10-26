@@ -24,8 +24,10 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance
 
         public double ExchangeRate { get; set; }
 
+        public decimal TransferLimit { get; set; }
+
         public decimal Balance { get; set; }
 
-        public decimal TransferLimit { get; set; }
+
     }
 }

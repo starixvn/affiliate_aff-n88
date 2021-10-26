@@ -2512,7 +2512,7 @@
     <value>Transfer Balance For Player</value>
   </data>
   <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
-    <value>Transfer Balancne For Player History</value>
+    <value>Transfer Balance For Player History</value>
   </data>
   <data name="InPlayerCurrency" xml:space="preserve">
     <value>In Player's Currency</value>
@@ -2567,5 +2567,8 @@
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
     <value>This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again.</value>
+  </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>The transfer has been successfully done.</value>
   </data>
 </root>

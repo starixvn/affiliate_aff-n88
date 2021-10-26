@@ -2386,4 +2386,7 @@
   <data name="HasPendingTransaction" xml:space="preserve">
     <value>Người chơi này có một giao dịch chuyển khoản chưa hoàn tất. Để tránh trùng lặp, xin vui lòng chờ giao dịch này hoàn tất rồi thử lại.</value>
   </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>Chuyển khoản thành công.</value>
+  </data>
 </root>

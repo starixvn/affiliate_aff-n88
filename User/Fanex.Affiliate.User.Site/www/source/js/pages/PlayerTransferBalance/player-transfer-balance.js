@@ -56,8 +56,6 @@
         },
 
         showSearchResult: function (response) {
-            console.log(response);
-            Site.displayResult(response.IsOk, response.Message);
             if (response.IsOk) {
                 let data = response.Data;
                 _baseCurrency = data.PaymentAccountCurrency;
@@ -78,6 +76,7 @@
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
             }
             else {
+                Site.displayResult(response.IsOk, response.Message);
                 $('.transfer-info').addClass('hidden');
                 $('#btn-submit').addClass('disabled');
             }

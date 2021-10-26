@@ -6425,7 +6425,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transfer Balancne For Player History.
+        ///   Looks up a localized string similar to Transfer Balance For Player History.
         /// </summary>
         public static string TransferBalanceForPlayerHistory {
             get {
@@ -6439,6 +6439,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TransferLimit {
             get {
                 return ResourceManager.GetString("TransferLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The transfer has been successfully done..
+        /// </summary>
+        public static string TransferSuccessful {
+            get {
+                return ResourceManager.GetString("TransferSuccessful", resourceCulture);
             }
         }
         

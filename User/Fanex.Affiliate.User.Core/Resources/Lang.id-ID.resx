@@ -2187,4 +2187,7 @@
   <data name="HasPendingTransaction" xml:space="preserve">
     <value>Pemain ini memiliki transaksi yang tertunda. Untuk menghindari duplikasi, harap tunggu hingga transaksi yang tertunda selesai kemudian coba lagi.</value>
   </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>Transaksi Transfer berhasil.</value>
+  </data>
 </root>

@@ -14,7 +14,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance
 
         public string PlayerName { get; set; }
 
-        public string CurrencyCode { get; set; }
+        public string Currency { get; set; }
 
         public decimal Amount { get; set; }
 

@@ -2210,4 +2210,7 @@
   <data name="HasPendingTransaction" xml:space="preserve">
     <value>สมาชิกมีธุรกรรมที่รอดำเนินการ เพื่อหลีกเลี่ยงการทำรายการซ้ำ โปรดรอจนกว่าธุรกรรมดังกล่าวจะดำเนินการเสร็จสมบูรณ์แล้วลองอีกครั้ง</value>
   </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>ธุรกรรมการโอนสำเร็จ</value>
+  </data>
 </root>

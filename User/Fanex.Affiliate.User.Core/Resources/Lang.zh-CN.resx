@@ -2214,4 +2214,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="HasPendingTransaction" xml:space="preserve">
     <value>该玩家有一个交易在等待处理。 为避免重复，请等待处理交易完成后再尝试。</value>
   </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>转账已成功完成。</value>
+  </data>
 </root>
