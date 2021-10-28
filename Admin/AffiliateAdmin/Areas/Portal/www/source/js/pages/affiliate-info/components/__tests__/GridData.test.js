@@ -372,6 +372,25 @@ describe('affiliate info - GridData ', () => {
         expect(wrapper.instance().handleChangePassword).toHaveBeenCalledWith(927841);
     });
 
+    it('_resetScroll - should reset scroll', () => {
+        const expectCurrent = {
+            scrollTop: 0,
+            scrollLeft: 0
+        };
+
+        const componentInstance = new GridData(defaultProps);
+        componentInstance.tableRef = {
+            current: {
+                scrollTop: 123,
+                scrollLeft: 234
+            }
+        };
+
+        componentInstance._resetScroll();
+
+        expect(componentInstance.tableRef.current).toEqual(expectCurrent);
+    });
+
     it('should render correctly', () => {
         const wrapper = shallow(<GridData {...defaultProps} />);
         wrapper.instance().setState({ gridData: dataList });

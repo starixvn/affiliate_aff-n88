@@ -132,6 +132,31 @@ describe('statement history - components - Content', () => {
         expect(props.fetchData).toHaveBeenCalledWith({ affId: 1271808, fromDate: "1/11/2019", pageIndex: 1, pageSize: 20, toDate: "7/11/2019" });
         expect(componentInstance.setState).toHaveBeenCalledWith({ gridData: [{ Id: 123 }], shouldResetScrollPosition: true });
         expect(props.setPagingOption).toHaveBeenCalledWith({ TotalItem: 1, PageIndex: 1, PageSize: 20 });
+        expect(props.setExpandMonthDateList).toHaveBeenCalledWith({});
+    });
+
+    it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption with correct parameter with get all', async () => {
+        const data = { MainData: [{ Id: 123 }], TotalItem: 1 };
+
+        const toggleLoaderUserPanel = jest.fn();
+        const setPagingOption = jest.fn();
+        const fetchData = jest.fn(() => data);
+        document.getElementsByClassName = jest.fn(() => ({ scrollTop: 0 }))
+
+        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData, setExpandMonthDateList: jest.fn() });
+        const componentInstance = new Content(props);
+        componentInstance.setState = jest.fn();
+        const param = Object.assign({}, defaultProps.param, { isGetAll: true, pageIndex: 1, pageSize: 20, isBack: true });
+        await componentInstance.fetchData(param, false);
+
+        expect(props.toggleLoaderUserPanel).toHaveBeenCalledTimes(2);
+        expect(props.toggleLoaderUserPanel.mock.calls[0][0]).toBe(true);
+        expect(props.toggleLoaderUserPanel.mock.calls[1][0]).toBe(false);
+
+        expect(props.fetchData).toHaveBeenCalledWith({ affId: 1271808, fromDate: null, pageIndex: 1, pageSize: 20, toDate: null });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ gridData: [{ Id: 123 }], shouldResetScrollPosition: true });
+        expect(props.setPagingOption).toHaveBeenCalledWith({ TotalItem: 1, PageIndex: 1, PageSize: 20 });
+        expect(props.setExpandMonthDateList).not.toHaveBeenCalled();
     });
 
     it('fetchData - should call toggleLoader, setState and setPagingOption with incorrect parameter', async () => {

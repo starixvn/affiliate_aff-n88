@@ -6,7 +6,7 @@ import NotificationPopup from '../../../common/components/NotificationPopup';
 
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { headerText, globalResource } from '../libs/constants';
-import { deleteMember, fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam } from '../actions';
+import { /*deleteMember,*/ fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam } from '../actions';
 
 export class Content extends PureComponent {
     constructor(props) {
@@ -46,10 +46,10 @@ export class Content extends PureComponent {
         }
     }
 
-    _handleDeleteMember = (selectedMemberId) => {
-        this.props.setShouldResetScrollPosition(false);
-        this.setState({ message: 'Are you sure you want to remove this member from his affiliate?', isConfirmPopup: true, selectedMemberId });
-    }
+    //_handleDeleteMember = (selectedMemberId) => {
+    //    this.props.setShouldResetScrollPosition(false);
+    //    this.setState({ message: 'Are you sure you want to remove this member from his affiliate?', isConfirmPopup: true, selectedMemberId });
+    //}
 
     _deleteMember = async (selectedMemberId) => {
         this.props.toggleLoader(true);
@@ -168,7 +168,7 @@ function mapStateToProps({ pagingOption, param, shouldResetScrollPosition, gridD
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ deleteMember, fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam }, dispatch);
+    return bindActionCreators({ /*deleteMember,*/ fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

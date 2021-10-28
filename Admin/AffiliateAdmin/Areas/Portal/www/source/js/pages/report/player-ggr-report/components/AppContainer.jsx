@@ -6,24 +6,18 @@ import Filter from './Filter';
 import Content from './Content';
 import Loader from '../../../../components/Loader';
 
-export class AppContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <AppLayout>
-                <Loader show={this.props.isShowLoader} />
-                <Filter />
-                <Content />
-            </AppLayout>
-        );
-    }
+export const AppContainer = (props) => {
+    return (
+        <AppLayout>
+            <Loader show={props.isShowLoader} />
+            <Filter />
+            <Content />
+        </AppLayout>
+    );
 }
 
 function mapStateToProps({ isShowLoader }) {
     return Object.assign({}, { isShowLoader });
 }
 
-export default connect(mapStateToProps)(AppContainer);
+export default connect(mapStateToProps)(React.memo(AppContainer));

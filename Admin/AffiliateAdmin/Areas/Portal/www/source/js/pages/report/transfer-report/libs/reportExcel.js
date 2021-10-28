@@ -140,7 +140,7 @@ export default class ReportExcel {
 
                 this.worksheet[address] = {
                     t: "s",
-                    v: headerText[fieldName] || '',
+                    v: headerText[fieldName],
                     s: headerCellStyle
                 }
             }

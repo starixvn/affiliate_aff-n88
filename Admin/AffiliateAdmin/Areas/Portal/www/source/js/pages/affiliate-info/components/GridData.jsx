@@ -297,7 +297,7 @@ export class GridData extends Component {
 
         return (
             <React.Fragment>
-                <div className="table-responsive table-striped aff-info-table-container" style={{ 'max-height': (window.innerHeight || 775) - 325 }} ref={this.tableRef}>
+                <div className="table-responsive table-striped aff-info-table-container" style={{ 'max-height': window.innerHeight - 325 }} ref={this.tableRef}>
                     <Table className="freeze-table" style={{ 'min-width': minWidth }}>
                         <thead>
                             {

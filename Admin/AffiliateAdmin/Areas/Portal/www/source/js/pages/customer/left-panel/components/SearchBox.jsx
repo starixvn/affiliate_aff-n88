@@ -44,6 +44,8 @@ export class SearchBox extends PureComponent {
 
     handlePressEnter = (event) => {
         if (event.charCode === 13) {
+            event.preventDefault();
+
             this.handleClick(event);
         }
     }

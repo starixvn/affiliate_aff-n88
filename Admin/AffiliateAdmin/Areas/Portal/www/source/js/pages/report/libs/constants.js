@@ -13,6 +13,6 @@ export const relativePath = {
 }
 
 export const getMaxHeight = () => {
-    const height = (window.innerHeight || 775) - 350;
+    const height = window.innerHeight - 350;
     return height > 300 ? height : 300;
 }

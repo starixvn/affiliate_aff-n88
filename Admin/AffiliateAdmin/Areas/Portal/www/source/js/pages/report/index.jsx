@@ -11,7 +11,8 @@ export default class App extends React.PureComponent {
     }
 
     getRenderMenuItems = () => {
-        return menus.filter(m => Permission.hasPermission(m.permissionName))
+        const currentPermisisons = Permission.currentPermissions;
+        return menus.filter(m => currentPermisisons.hasPermission(m.permissionName))
     }
 
     render() {

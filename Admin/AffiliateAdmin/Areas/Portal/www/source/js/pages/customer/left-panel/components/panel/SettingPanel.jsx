@@ -33,7 +33,8 @@ export class SettingPanel extends PureComponent {
             transferLimitSettingInfo: null,
         }
 
-        this.transferSettingPermission = Permission.getPermissionInfo(permissionResource.TransferPlayerSetting);
+        const currentPermissions = Permission.currentPermissions;
+        this.transferSettingPermission = currentPermissions.getPermissionInfo(permissionResource.TransferPlayerSetting);
     }
 
     _toggleChangingAffType = (isChanging) => {

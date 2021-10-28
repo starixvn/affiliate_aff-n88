@@ -46,9 +46,9 @@ export class GridData extends PureComponent {
         this.props.toggleLoader(false);
     }
 
-    _renderProductColumns = () => {
+    _renderProductColumns = (index) => {
         return (
-            <React.Fragment>
+            <React.Fragment key={index}>
                 <th width={100} title={headerText.Turnover}>{headerText.Turnover}</th>
                 <th width={100} title={headerText.Ggr}>{headerText.Ggr}</th>
             </React.Fragment>
@@ -66,18 +66,18 @@ export class GridData extends PureComponent {
                 {
                     selectedProducts.map(item => {
                         return (
-                            <th width={200} colSpan="2" title={item.name}>{item.name}</th>
+                            <th key={item.key} width={200} colSpan="2" title={item.name}>{item.name}</th>
                         )
                     })
                 }
             </tr>,
             <tr className="freeze-row freeze-row-h2" key="thead-2">
                 {
-                    this._renderProductColumns()
+                    this._renderProductColumns('totalProduct')
                 }
                 {
-                    selectedProducts.map(item => {
-                        return this._renderProductColumns()
+                    selectedProducts.map((item, index) => {
+                        return this._renderProductColumns(index)
                     })
                 }
             </tr>
@@ -136,7 +136,7 @@ export class GridData extends PureComponent {
             const ggr = formatDecimal(info.Ggr);
 
             return (
-                <React.Fragment>
+                <React.Fragment key={item.key}>
                     <td className="text-right" title={turnover}>{turnover}</td>
                     <td className="text-right" title={ggr}>{ggr}</td>
                 </React.Fragment>

@@ -65,6 +65,8 @@ export class Filter extends Component {
 
     handlePressEnter = (event) => {
         if (event.charCode === 13) {
+            event.preventDefault();
+
             this.handleClickSearch();
         }
     }

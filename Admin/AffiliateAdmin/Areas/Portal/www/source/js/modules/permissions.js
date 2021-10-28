@@ -4,15 +4,20 @@
     TransferPlayerReport: "[TransferPlayerReport]"
 }
 
-export const Permission = (() => {
-    const { permissions } = window.globalVariables || { permissions: [] };
-
-    const getPermissionInfo = (functionName) => {
-        return permissions.find(p => p.FunctionName === functionName);
+export class Permission {
+    constructor(permissions) {
+        this.permissions = permissions
     }
 
-    return {
-        getPermissionInfo,
-        hasPermission: (functionName) => !!getPermissionInfo(functionName)
+    static get currentPermissions() {
+        const { permissions } = window.globalVariables || { permissions: [] };
+
+        return new Permission(permissions);
     }
-})()
+
+    getPermissionInfo = (functionName) => {
+        return this.permissions.find(p => p.FunctionName === functionName);
+    }
+
+    hasPermission = (functionName) => !!this.getPermissionInfo(functionName)
+}

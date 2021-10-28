@@ -13,7 +13,7 @@ const defaultToday = `${now.getMonth()}/${now.getDate()}/${now.getFullYear()}`;
 const today = createReducer(defaultToday, {});
 const isProduction = createReducer(false, {});
 
-const productList = createReducer([], {
+export const productList = createReducer([], {
     [types.SET_PRODUCT_LIST](prevState, action) {
         return action.data;
     }
