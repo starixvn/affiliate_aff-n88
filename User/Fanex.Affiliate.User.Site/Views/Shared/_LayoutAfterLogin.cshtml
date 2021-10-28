@@ -32,13 +32,13 @@
                 <li><a class="menu-item" id="menuPaymentRequest" href="@Url.Content("~/UserPanel/Main/#PaymentRequest")">@Lang.PaymentRequest</a></li>
                 <li class="parent">
                     <a class="menu-item" href="javascript:;">@Lang.TransferBalanceForPlayer <i class="caret"></i></a>
-                    <ul class="menu submenu-container list-unstyled">
-                        @if (!sessionService.UserSession.DisabledTransfer && !sessionService.IsInternal)
-                        {
+                    @if (!sessionService.UserSession.DisabledTransfer)
+                    {
+                        <ul class="menu submenu-container list-unstyled">
                             <li><a class="menu-item" id="menuPlayerTransferBalance" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalance")">@Lang.TransferBalanceForPlayer</a></li>
-                        }
-                        <li><a class="menu-item" id="menuPlayerTransferBalanceHistory" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalanceHistory")">@Lang.TransferBalanceForPlayerHistory</a></li>
-                    </ul>
+                            <li><a class="menu-item" id="menuPlayerTransferBalanceHistory" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalanceHistory")">@Lang.TransferBalanceForPlayerHistory</a></li>
+                        </ul>
+                    }
                 </li>
                 <li><a class="menu-item" id="menuRevenueReport" href="@Url.Content("~/UserPanel/Main/#RevenueReport")">@Lang.CommissionReport</a></li>
                 <li class="parent">

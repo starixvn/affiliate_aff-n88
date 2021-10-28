@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (insResult.ErrCode != 0)
             {
-                var errMsg = TranslateInsTransferRequestErrCodeToErrMsg(insResult.ErrCode);
+                var errMsg = TranslateInsTransferRequestErrCodeToErrMsg(insResult.ErrCode, insResult.ErrMsg);
                 return (insResult.ErrCode, errMsg);
             }
 
@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         }
 
-        private static string TranslateInsTransferRequestErrCodeToErrMsg(int errCode)
+        private static string TranslateInsTransferRequestErrCodeToErrMsg(int errCode, string defaultErrMsg)
         {
             const int EXCHANGE_RATE_CHANGE = 101;
             const int HAS_PENDING_TRANS = 103;
@@ -145,7 +145,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 case HAS_PENDING_TRANS:
                     return Lang.HasAPendingTransaction;
                 default:
-                    return Error.General;
+                    return defaultErrMsg;
             }
         }
 

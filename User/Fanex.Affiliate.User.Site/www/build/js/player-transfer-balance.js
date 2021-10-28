@@ -1,5 +1,10 @@
 var PlayerTransferBalance = (function ($) {
 
+    let fomatter = Intl.NumberFormat('en-US', {
+        style: 'decimal',
+        maximumFractionDigits: 2
+    })
+
     let _curSearchName = "";
     let _exChangeRate = 0;
     let _baseCurrency = "";
@@ -30,7 +35,7 @@ var PlayerTransferBalance = (function ($) {
             $('#amount').on('change', function () {
                 let amount = $(this).val();
                 let baseAmount = amount / _exChangeRate;
-                $('#exchange-base-currency').text('~' + _baseCurrency + " " + baseAmount);
+                $('#exchange-base-currency').text('~' + _baseCurrency + " " + fomatter.format(baseAmount));
             })
         },
 
@@ -60,6 +65,11 @@ var PlayerTransferBalance = (function ($) {
                 let data = response.Data;
                 _baseCurrency = data.PaymentAccountCurrency;
                 _exChangeRate = data.ExchangeRate;
+                let availBal = data.Balance * data.ExchangeRate;
+                let transferLimit = Math.min(data.TransferLimit, availBal);
+                if (transferLimit < 0) {
+                    transferLimit = 0;
+                }
 
                 $('.transfer-info').removeClass('hidden');
                 $('#transfer-amount-label').text(_transferAmountLabel.replace('{player}', _curSearchName));
@@ -69,9 +79,9 @@ var PlayerTransferBalance = (function ($) {
                 $('#btn-submit').removeClass('disabled');
 
                 $('#player-currency').text(data.PlayerCurrency);
-                $('#avail-bal').text(data.Balance * data.ExchangeRate + " " + data.PlayerCurrency);
-                $('#avail-bal-base-currency').text(data.Balance + " " + data.PaymentAccountCurrency);
-                $('#transfer-limit').text(data.TransferLimit + " " + data.PlayerCurrency);
+                $('#avail-bal').text(data.PlayerCurrency + " " + fomatter.format(availBal)  );
+                $('#avail-bal-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(data.Balance) );
+                $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit));
                 $('#exchange-player-currency').text(data.PlayerCurrency);
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
             }

@@ -32,10 +32,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
-            if (SessionService.IsInternal || SessionService.UserSession.DisabledTransfer)
-            {
-                return Redirect(Url.Content("~/Notify/PageNotFound"));
-            }    
             return View("~/Views/UserPanel/PlayerTransferBalance/Index.cshtml");
         }
 
@@ -57,11 +53,6 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SubmitTransferMoney(TransMoneyRequestViewModel param)
         {
-            if (SessionService.IsInternal || SessionService.UserSession.DisabledTransfer)
-            {
-                return Redirect(Url.Content("~/Notify/PageNotFound"));
-            }
-
             var result = new ResultInfo();
             if (param.SearchName != param.SubmitName)
             {
