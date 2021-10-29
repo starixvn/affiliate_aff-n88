@@ -289,6 +289,8 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\common\components\SubMenuList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\TransferBalanceForPlayerSettingPopup.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\__test__\redux\TransferBalanceForPlayerSettingPopup.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\__test__\TransferBalanceForPlayerSettingPopup.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\Content.redux.test.js" />

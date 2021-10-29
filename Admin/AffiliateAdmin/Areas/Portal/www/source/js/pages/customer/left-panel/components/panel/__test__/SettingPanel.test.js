@@ -72,6 +72,7 @@ describe('left panel - components - panel - SettingPanel', () => {
     });
 
     it('render correctly with isApproved is true', () => {
+        window.globalVariables = { permissions: [{ FunctionName: "[TransferPlayerSetting]", IsHost: false }] }
         const props = Object.assign({}, defaultProps, { affiliateInfo })
         const result = shallow(<SettingPanel {...props} isApproved={true} />);
         result.instance().setState({ messageNotification: 'abc' })
@@ -79,7 +80,48 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(result).toMatchSnapshot();
     });
 
-    it('toggleChangingAffType - should call setState when onBlur AffType select', async () => {
+    it('render correctly with ulimited transfer setting', () => {
+        window.globalVariables = { permissions: [{ FunctionName: "[TransferPlayerSetting]", IsHost: true}]}
+        const props = Object.assign({}, defaultProps, { affiliateInfo: { ...affInfoClosed, TransferLimit: 100000000000 } })
+        const result = shallow(<SettingPanel {...props} />);
+
+        expect(result).toMatchSnapshot();
+    });
+
+    it('toggleTransferSettingPopup - should call setState', () => {
+        const info = { abc: 123 };
+        const wrapper = shallow(<SettingPanel {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        instance.toggleTransferSettingPopup(info);
+
+        expect(instance.setState).toHaveBeenCalledWith({ transferLimitSettingInfo: info });
+    });
+
+    it('handleCloseTransferSettingPopup - should call setState', async () => {
+        const info = { abc: 123 };
+        const props = { ...defaultProps, getTransferLimitSetting: jest.fn(() => info) }
+        const wrapper = shallow(<SettingPanel {...props} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        await instance.handleOpenTransferSettingPopup();
+
+        expect(instance.setState).toHaveBeenCalledWith({ transferLimitSettingInfo: info });
+    });
+
+    it('handleCloseTransferSettingPopup - should call setState', () => {
+        const wrapper = shallow(<SettingPanel {...defaultProps} />);
+        const instance = wrapper.instance();
+        instance.setState = jest.fn();
+
+        instance.handleCloseTransferSettingPopup();
+
+        expect(instance.setState).toHaveBeenCalledWith({ transferLimitSettingInfo: null });
+    });
+
+    it('toggleChangingAffType - should call setState when onBlur AffType select', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState = jest.fn((val, fn) => fn());
 
@@ -88,7 +130,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffType: false }, expect.any(Function));
     });
 
-    it('toggleChangingAffType - should call setState when click AffType button', async () => {
+    it('toggleChangingAffType - should call setState when click AffType button', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState({ isChangingAffType: true });
         wrapper.setState = jest.fn((val, fn) => fn());
@@ -100,7 +142,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffType: true }, expect.any(Function));
     });
 
-    it('toggleChangingAffStatus - should call setState when onBlur AffStatus select', async () => {
+    it('toggleChangingAffStatus - should call setState when onBlur AffStatus select', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState = jest.fn((val, fn) => fn());
 
@@ -109,7 +151,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffStatus: false }, expect.any(Function));
     });
 
-    it('toggleChangingAffStatus - should call setState when click AffStatus button', async () => {
+    it('toggleChangingAffStatus - should call setState when click AffStatus button', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState({ isChangingAffStatus: true });
         wrapper.setState = jest.fn((val, fn) => fn());
@@ -121,7 +163,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffStatus: true }, expect.any(Function));
     });
 
-    it('toggleAssignCommissionPopup - should call setState when setShowPopupCommGroup false', async () => {
+    it('toggleAssignCommissionPopup - should call setState when setShowPopupCommGroup false', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState({ isAssignCommissionGroup: true });
         wrapper.setState = jest.fn();
@@ -131,7 +173,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ isAssignCommissionGroup: false });
     });
 
-    it('handleChangeStatus - should call setState', async () => {
+    it('handleChangeStatus - should call setState', () => {
         const event = {
             target: {
                 value: 'Approved'
@@ -145,7 +187,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'Are you sure you want to change status for this affiliate?', isConfirmPopup: true, isConfirmStatus: true, selectedStatus: 'Approved' });
     });
 
-    it('_saveStatus - should call setState', async () => {
+    it('_saveStatus - should call setState', () => {
         const wrapper = shallow(<SettingPanel {...defaultProps} />);
         wrapper.setState = jest.fn();
 

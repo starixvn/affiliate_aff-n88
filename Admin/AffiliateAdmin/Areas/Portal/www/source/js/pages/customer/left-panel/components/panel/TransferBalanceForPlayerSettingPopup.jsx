@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react'
+﻿import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert, Row } from 'reactstrap'
@@ -7,19 +7,13 @@ import { messages } from '../../libs/constants';
 import { money } from '../../../../../modules/constants';
 import { isValidNumber } from '../../../../../modules/utils';
 import { format } from '../../../../../modules/numberFormat';
-let transferBalanceForPlayerSettingCallback = null;
 
-const TransferBalanceForPlayerSettingPopup = (props) => {
+export const TransferBalanceForPlayerSettingPopup = (props) => {
     const { settingInfo, affId, affName } = props;
     const [alertInfo, setAlertInfo] = useState({ isSuccess: true, isShowMessage: false, message: '' });
     const [isEnable, setEnable] = useState(!settingInfo.IsDisabledTransfer);
     const [transferLimit, setTransferLimit] = useState(settingInfo.IsUnlimited ? 0 : settingInfo.TransferLimit);
     const [isUnlimited, setIsUnlimited] = useState(settingInfo.IsUnlimited);
-    useEffect(() => {
-        return () => {
-            window.clearTimeout(transferBalanceForPlayerSettingCallback);
-        }
-    }, [])
 
     const isDisabledInput = !isEnable || isUnlimited;
 
@@ -35,7 +29,7 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
     }
 
     const handleSave = async () => {
-        const isValid = valiadteTransferLimit();
+        const isValid = validateTransferLimit();
 
         if (isValid) {
             const param = {
@@ -55,7 +49,7 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
         }
     }
 
-    const valiadteTransferLimit = () => {
+    const validateTransferLimit = () => {
         if (isEnable && !isUnlimited) {
             const isNotValid = !isValidNumber(transferLimit);
             if (isNotValid || transferLimit == 0) {
@@ -74,7 +68,7 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
             isShowMessage: true,
         });
 
-        depositForPlayerSettingCallback = window.setTimeout(() => _hideMessage(isSuccess), 3000)
+        window.setTimeout(() => _hideMessage(isSuccess), 3000)
     }
 
     const _hideMessage = (isSuccess) => {
@@ -106,10 +100,10 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
                         <Alert color={alertInfo.isSuccess ? 'success' : 'danger'} isOpen={alertInfo.isShowMessage}>
                             <div dangerouslySetInnerHTML={{ __html: alertInfo.message }}></div>
                         </Alert>
-                        <Form tag="form" className="px-4 mb-4" autocomplete="off">
+                        <Form tag="form" className="px-4 mb-4" autoComplete="off">
                             <FormGroup row>
                                 <Col sm={12}>
-                                    <Input type="checkbox" checked={isEnable} onClick={() => setEnable((isEnable) => !isEnable)} />
+                                    <Input type="checkbox" checked={isEnable} onChange={() => setEnable((isEnable) => !isEnable)} />
                                     <Label>Enable affiliate to transfer balance for its players</Label>
                                 </Col>
                             </FormGroup>
@@ -128,13 +122,13 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
                                         <Label>{settingInfo.PlayerCurrency}</Label>
                                     </Col>
                                     <Col sm={7}>
-                                        <Input type="text" name="TransferLimit" id="TransferLimit" autocomplete="false" disabled={isDisabledInput}
+                                        <Input type="text" name="TransferLimit" id="TransferLimit" autoComplete="false" disabled={isDisabledInput}
                                             value={isDisabledInput || !transferLimit ? '' : format(transferLimit)} onKeyPress={handlePressEnter} onChange={handleChange} />
                                     </Col>
                                     <FormGroup check>
                                         <Label check>
                                             <Input checked={isUnlimited} type="checkbox" name="radio2" disabled={!isEnable}
-                                                onClick={() => setIsUnlimited((isUnlimited) => !isUnlimited)} />{' '}
+                                                onChange={() => setIsUnlimited((isUnlimited) => !isUnlimited)} />{' '}
                                             Unlimited
                                         </Label>
                                     </FormGroup>
@@ -151,14 +145,8 @@ const TransferBalanceForPlayerSettingPopup = (props) => {
     )
 }
 
-function mapStateToProps({ leftPanel }) {
-    const { affName } = leftPanel;
-
-    return { affName }
-}
-
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({ getAffiliateInfo, updateTransferLimitSetting }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(TransferBalanceForPlayerSettingPopup))
+export default connect(() => ({}), mapDispatchToProps)(React.memo(TransferBalanceForPlayerSettingPopup))
