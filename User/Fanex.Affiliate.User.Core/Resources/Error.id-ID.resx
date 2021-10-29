@@ -163,7 +163,7 @@
     <value>Akun Anda telah di-suspend. Silahkan hubungi Akun Manager Anda untuk informasi lebih lanjut.</value>
   </data>
   <data name="PaymentAccNotActive" xml:space="preserve">
-    <value>Akun pembayaran tidak aktif</value>
+    <value>Akun pembayaran pemain tidak aktif, silahkan hubungi manager akun Anda</value>
   </data>
   <data name="PaymentAccNotExist" xml:space="preserve">
     <value>Akun Pembayaran tidak terdaftar</value>

@@ -1613,7 +1613,7 @@
     <value>USD (Đô la Mỹ)</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Mã Số Đại Lý</value>
+    <value>Tên Đăng Nhập</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>Xác Thực</value>

@@ -10,6 +10,10 @@
     width: 168px;
     height: 87px; }
 
+.bg-highlight {
+  background-color: #001942;
+  color: #fff; }
+
 .news {
   background: #E5E5E5; }
   .news .item-wrapper .card .card-body .img-content {

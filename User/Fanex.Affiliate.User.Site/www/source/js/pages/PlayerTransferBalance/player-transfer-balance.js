@@ -22,12 +22,14 @@
 
         initEvent: function () {
             $('#btn-search').on('click', function () {
+                Site.hideResult();
                 let playerName = $('#playerUserName').val();
                 _curSearchName = playerName;
                 _me.getPlayerInfo(playerName);
             });
 
             $('#btn-submit').on('click', function () {
+                Site.hideResult();
                 let param = _me.buildParam();
                 _me.submitTransfer(param);
             })

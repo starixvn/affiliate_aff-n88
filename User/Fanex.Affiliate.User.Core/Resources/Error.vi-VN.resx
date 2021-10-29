@@ -178,7 +178,7 @@
     <value>Lỗi hệ thống. Hãy liên hệ với admin.</value>
   </data>
   <data name="PaymentAccNotActive" xml:space="preserve">
-    <value>Tài Khoản Thanh Toán không hoạt động</value>
+    <value>Tài khoản thanh toán không hoạt động, vui lòng liên hệ người quản lý tài khoản của bạn.</value>
   </data>
   <data name="PaymentAccNotExist" xml:space="preserve">
     <value>Tài Khoản Thanh Toán không tồn tại</value>

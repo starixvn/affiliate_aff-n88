@@ -8,6 +8,10 @@
     body a:hover {
       color: #3391F6; }
 
+.bg-highlight {
+  background-color: #10192F;
+  color: #fff; }
+
 .btn.focus, .btn:focus, .btn:hover {
   color: #ffffff;
   outline: none; }

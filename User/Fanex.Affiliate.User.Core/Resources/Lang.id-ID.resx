@@ -2146,7 +2146,7 @@
     <value>Username Pemain</value>
   </data>
   <data name="PlayerCurrency" xml:space="preserve">
-    <value>Mata uang &lt;player&gt;</value>
+    <value>Mata uang {player}</value>
   </data>
   <data name="AvailableBalance" xml:space="preserve">
     <value>Saldo tersedia</value>

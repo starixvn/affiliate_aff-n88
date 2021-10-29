@@ -162,4 +162,7 @@
   <data name="YourAccountHasBeenSuspended" xml:space="preserve">
     <value>บัญชีของคุณถูกระงับ โปรดติดต่อผู้จัดการบัญชีของคุณสำหรับข้อมูลเพิ่มเติม</value>
   </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>บัญชีชำระเงินของสมาชิกไม่ทำงาน โปรดตรวจสอบกับผู้จัดการบัญชีของคุณ</value>
+  </data>
 </root>
