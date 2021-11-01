@@ -6,6 +6,7 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Api;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
@@ -24,18 +25,21 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly ILicenseeApi _api;
         private readonly ISessionService _sessionService;
         private readonly IAppSetting _appSetting;
+        private readonly IAuthRepository _authRepository;
 
         private const int GENERAL_ERR = 999;
 
         public PlayerTransferBalanceService(IPlayerTransferBalanceRepository playerTransferBalanceRepository, 
             IAppSetting appSetting,
             ILicenseeApi licenseeApi,
-            ISessionService sessionService)
+            ISessionService sessionService,
+            IAuthRepository authRepository)
         {
             _repo = playerTransferBalanceRepository;
             _api = licenseeApi;
             _sessionService = sessionService;
             _appSetting = appSetting;
+            _authRepository = authRepository;
         }
 
         public PlayerTransferBalanceHistoryResult GetPlayerTransferBalanceHistory(PlayerTransferBalanceHistoryParam param)
@@ -77,9 +81,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var affId = _sessionService.UserSession.AffId;
             var summaryInfo = _repo.GetPlayerTransferBalanceInfo(affId, param.SubmitName);
-            if (param.ExchangeRate != summaryInfo.ExchangeRate)
+            var loginInfo = _authRepository.GetUserInfo(_sessionService.UserSession.UserName, _sessionService.IsInternal);
+
+            if (_sessionService.IsInternal || loginInfo.DisabledTransfer)
             {
-                return (GENERAL_ERR, Lang.ExchageRateChange);
+                return (GENERAL_ERR, Lang.ErrAuthorized);
             }
 
             if(param.Amount <=0)
@@ -97,11 +103,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 AffId = affId,
                 Amount = param.Amount,
-                Currency = summaryInfo.PaymentAccountCurrencyId,
-                CustId = summaryInfo.PaymentAccountId,
-                Player_Currency = summaryInfo.PlayerCurrencyId,
+                PaymentAccountCurrencyId = summaryInfo.PaymentAccountCurrencyId,
+                PaymentAccountId = summaryInfo.PaymentAccountId,
+                PlayerCurrencyId = summaryInfo.PlayerCurrencyId,
                 ExRate = param.ExchangeRate,
-                Player_CustId = summaryInfo.PlayerId
+                PlayerId = summaryInfo.PlayerId
             });
 
             if (insResult.ErrCode != 0)

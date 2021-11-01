@@ -10,13 +10,13 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
     {
         public int AffId { get; set; }
 
-        public int Player_CustId { get; set; }
+        public int PaymentAccountId { get; set; }
 
-        public int Player_Currency { get; set; }
+        public int PaymentAccountCurrencyId { get; set; }
 
-        public int CustId { get; set; }
+        public int PlayerId { get; set; }
 
-        public int Currency { get; set; }
+        public int PlayerCurrencyId { get; set; }
 
         public decimal Amount { get; set; }
 
