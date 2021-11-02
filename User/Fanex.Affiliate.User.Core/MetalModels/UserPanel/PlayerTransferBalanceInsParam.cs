@@ -20,6 +20,6 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public decimal Amount { get; set; }
 
-        public double ExRate { get; set; }
+        public decimal ExRate { get; set; }
     }
 }

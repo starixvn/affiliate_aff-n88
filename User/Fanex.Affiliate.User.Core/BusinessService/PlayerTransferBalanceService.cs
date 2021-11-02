@@ -11,6 +11,7 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
+using Fanex.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly ISessionService _sessionService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthRepository _authRepository;
+        private readonly ILogger _logger;
 
         private const int GENERAL_ERR = 999;
 
@@ -33,13 +35,15 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             IAppSetting appSetting,
             ILicenseeApi licenseeApi,
             ISessionService sessionService,
-            IAuthRepository authRepository)
+            IAuthRepository authRepository,
+            ILogger logger)
         {
             _repo = playerTransferBalanceRepository;
             _api = licenseeApi;
             _sessionService = sessionService;
             _appSetting = appSetting;
             _authRepository = authRepository;
+            _logger = logger;
         }
 
         public PlayerTransferBalanceHistoryResult GetPlayerTransferBalanceHistory(PlayerTransferBalanceHistoryParam param)
@@ -93,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return (GENERAL_ERR, Lang.AmountMustPositiveNumber);
             }
 
-            var baseAmount = param.Amount / (decimal)param.ExchangeRate;
+            var baseAmount = param.Amount / param.ExchangeRate;
             if (baseAmount > summaryInfo.TransferLimit)
             {
                 return (GENERAL_ERR, Lang.AmountMustNotExceedLimit);
@@ -116,25 +120,34 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return (insResult.ErrCode, errMsg);
             }
 
-            var callApiResult = await _api.TransferMoneyToPlayerAsync(new MetalModels.Api.TransferMoneyParam
+            try
             {
-                FromAmount = baseAmount,
-                FromCustId = summaryInfo.PaymentAccountId,
-                MaxTransferAmount = summaryInfo.TransferLimit,
-                RefTransId = insResult.TransId.ToString(),
-                SiteId = _appSetting.MemberSiteId,
-                ToAmount = param.Amount,
-                ToCustId = summaryInfo.PlayerId
-            });
-           
-            if (!callApiResult.IsSuccess)
+                var callApiResult = await _api.TransferMoneyToPlayerAsync(new MetalModels.Api.TransferMoneyParam
+                {
+                    FromAmount = baseAmount,
+                    FromCustId = summaryInfo.PaymentAccountId,
+                    MaxTransferAmount = summaryInfo.TransferLimit,
+                    RefTransId = insResult.TransId.ToString(),
+                    SiteId = _appSetting.MemberSiteId,
+                    ToAmount = param.Amount,
+                    ToCustId = summaryInfo.PlayerId
+                });
+
+                if (!callApiResult.IsSuccess)
+                {
+                    _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Failed);
+                    return (GENERAL_ERR, callApiResult.ErrMsg);
+                }
+            }
+            catch (Exception ex)
             {
+                _logger.Error($"Call api to transfer money fail - {ex.Message}");
                 _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Failed);
-                return (GENERAL_ERR, callApiResult.ErrMsg);
+                return (GENERAL_ERR, Error.ErrInternalError);
             }
 
-            var updResult = _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Completed);
 
+            var updResult = _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Completed);
             return (updResult.ErrCode, updResult.ErrMsg);
 
         }

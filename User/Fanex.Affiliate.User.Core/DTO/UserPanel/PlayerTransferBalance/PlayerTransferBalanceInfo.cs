@@ -22,7 +22,7 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance
 
         public string PlayerCurrency { get; set; }
 
-        public double ExchangeRate { get; set; }
+        public decimal ExchangeRate { get; set; }
 
         public decimal TransferLimit { get; set; }
 

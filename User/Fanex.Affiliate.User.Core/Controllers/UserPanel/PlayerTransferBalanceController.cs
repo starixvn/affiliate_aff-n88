@@ -64,6 +64,10 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var submitResult = await _playerTransferBalanceService.SubmitTransferBalanceRequestAsync(param);
             result.IsOk = submitResult.errCode == 0;
             result.Message = submitResult.errMsg;
+            if (result.IsOk)
+            {
+                result.Message = Lang.TransferSuccessful;
+            }
 
             return Json(result);
         }
