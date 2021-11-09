@@ -103,8 +103,8 @@ export const TransferBalanceForPlayerSettingPopup = (props) => {
                         <Form tag="form" className="px-4 mb-4" autoComplete="off">
                             <FormGroup row>
                                 <Col sm={12}>
-                                    <Input type="checkbox" checked={isEnable} onChange={() => setEnable((isEnable) => !isEnable)} />
-                                    <Label>Enable affiliate to transfer balance for its players</Label>
+                                    <Input type="checkbox" id="isEnable" checked={isEnable} onChange={() => setEnable((isEnable) => !isEnable)} />
+                                    <Label for="isEnable">Enable affiliate to transfer balance for its players</Label>
                                 </Col>
                             </FormGroup>
                             <FormGroup row>
