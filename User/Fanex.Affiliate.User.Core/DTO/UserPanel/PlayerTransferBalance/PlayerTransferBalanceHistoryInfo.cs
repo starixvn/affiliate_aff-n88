@@ -18,6 +18,6 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance
 
         public decimal Amount { get; set; }
 
-        public decimal BaseAmount { get; set; }
+        public decimal BasedAmount { get; set; }
     }
 }

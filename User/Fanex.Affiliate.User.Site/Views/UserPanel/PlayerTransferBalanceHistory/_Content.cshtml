@@ -1,7 +1,10 @@
 ﻿@using Fanex.Affiliate.User.Core.Extensions
 @using Fanex.Affiliate.User.Core.Utilities
+@using System.Globalization
 @model Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult
-
+@{ 
+    var decimalFormat = "#,#.00";
+}
 
 <table>
     <thead>
@@ -32,15 +35,15 @@
                         <td class="text-center">@item.TransTime.ToString("MM/dd/yyyy HH:mm:ss")</td>
                         <td class="text-left">@item.PlayerName</td>
                         <td class="text-center">@item.Currency</td>
-                        <td class="text-right">@item.Amount</td>
-                        <td class="text-right">@item.BaseAmount</td>
+                        <td class="text-right">@item.Amount.ToString(decimalFormat, CultureInfo.InvariantCulture)</td>
+                        <td class="text-right">@item.BasedAmount.ToString(decimalFormat, CultureInfo.InvariantCulture)</td>
                     </tr>
                     i++;
                 }
                 {
                     <tr>
                         <td colspan="6" class="text-center bg-highlight text-bold">@Lang.TotalAllPage</td>
-                        <td class="text-right bg-highlight text-bold">@Model.TotalBaseAmount</td>
+                        <td class="text-right bg-highlight text-bold">@Model.TotalBaseAmount.ToString(decimalFormat, CultureInfo.InvariantCulture)</td>
                     </tr>
                 }
             }

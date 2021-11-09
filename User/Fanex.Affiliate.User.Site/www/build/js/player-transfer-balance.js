@@ -22,11 +22,14 @@ var PlayerTransferBalance = (function ($) {
 
         initEvent: function () {
             $('#btn-search').on('click', function () {
-                Site.hideResult();
-                let playerName = $('#playerUserName').val();
-                _curSearchName = playerName;
-                _me.getPlayerInfo(playerName);
+                _me.serchPlayer();
             });
+
+            $('#playerUserName').on('keypress', function (e) {
+                if (e.which === 13) {
+                    _me.serchPlayer();
+                }
+            })
 
             $('#btn-submit').on('click', function () {
                 Site.hideResult();
@@ -34,11 +37,18 @@ var PlayerTransferBalance = (function ($) {
                 _me.submitTransfer(param);
             })
 
-            $('#amount').on('change', function () {
+            $('#amount').on('onchange', function () {
                 let amount = $(this).val();
                 let baseAmount = amount / _exChangeRate;
                 $('#exchange-base-currency').text('~' + _baseCurrency + " " + fomatter.format(baseAmount));
             })
+        },
+
+        serchPlayer: function () {
+            Site.hideResult();
+            let playerName = $('#playerUserName').val();
+            _curSearchName = playerName;
+            _me.getPlayerInfo(playerName);
         },
 
         getPlayerInfo: function (playerName) {
@@ -86,6 +96,7 @@ var PlayerTransferBalance = (function ($) {
                 $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit));
                 $('#exchange-player-currency').text(data.PlayerCurrency);
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
+                $('#amount').val(0);
             }
             else {
                 Site.displayResult(response.IsOk, response.Message);
