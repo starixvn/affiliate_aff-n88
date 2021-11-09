@@ -154,12 +154,19 @@ namespace Affiliate.N88.WebApi.Controllers
                 MaxTransferAmount = param.MaxTransferAmount,
                 RefTransId = param.RefTransId,
                 ToAmount = param.ToAmount,
-                ToCustId = param.ToCustId
+                ToCustId = param.ToCustId,
             };
-            await dynamicRepository.ExecuteAsync(command); 
+            try
+            {
+                await dynamicRepository.ExecuteAsync(command);
+            }
+            catch (Exception ex)
+            {
+                LogService.Error($"{ex.Message}");
+                throw;
+            }
 
             await LogService.InfoAsync($"ErrCode: {command.ErrCode}");
-
             return new ResultInfo
             {
                 ErrMsg = command.ErrCode.ToString(),
