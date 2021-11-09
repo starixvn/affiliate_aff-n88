@@ -22,7 +22,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
         public PlayerTransferBalanceController(ISessionService sessionService
             , ILanguageService languageService
-            , IPlayerTransferBalanceService playerTransferBalanceService) 
+            , IPlayerTransferBalanceService playerTransferBalanceService)
             : base(sessionService, languageService)
         {
             _playerTransferBalanceService = playerTransferBalanceService;
@@ -32,6 +32,14 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
+            if (SessionService.UserSession.DisabledTransfer)
+            {
+                return RedirectToRoute("Default", new
+                {
+                    controller = "Home",
+                    action = "Index",
+                });
+            }
             return View("~/Views/UserPanel/PlayerTransferBalance/Index.cshtml");
         }
 
@@ -39,11 +47,14 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SearchPlayer(string playerName)
         {
-            if (SessionService.IsInternal || SessionService.UserSession.DisabledTransfer)
+            if (SessionService.UserSession.DisabledTransfer)
             {
-                return Redirect(Url.Content("~/Notify/PageNotFound"));
+                return Json(new ResultInfo
+                {
+                    IsOk = false,
+                    Message = Lang.ErrAuthorized
+                });
             }
-
             var affId = SessionService.UserSession.AffId;
             var result = await _playerTransferBalanceService.GetPlayerTransferBalanceInfoAsync(affId, playerName);
             return Json(result);

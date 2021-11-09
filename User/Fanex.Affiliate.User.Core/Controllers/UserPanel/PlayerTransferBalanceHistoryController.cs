@@ -32,6 +32,11 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
+            if (SessionService.UserSession.DisabledTransfer)
+            {
+                return Redirect(Url.Content("~/Notify/PageNotFound"));
+            }
+
             return View("~/Views/UserPanel/PlayerTransferBalanceHistory/Index.cshtml");
         }
 
@@ -39,6 +44,15 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult GetHistory(PlayerTransferBalanceHistoryParam param)
         {
+            if (SessionService.UserSession.DisabledTransfer)
+            {
+                return RedirectToRoute("Default", new
+                {
+                    controller = "Home",
+                    action = "Index",
+                });
+            }
+
             var baseCurrency = SessionService.UserSession.BaseCurrency;
             var currencies = _currencyRepo.GetBaseCurrencyList();
             var currencyName = currencies.FirstOrDefault(c => c.ExchangeId == baseCurrency)?.Code;
