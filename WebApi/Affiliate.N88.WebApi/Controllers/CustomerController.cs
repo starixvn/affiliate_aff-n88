@@ -138,6 +138,18 @@ namespace Affiliate.N88.WebApi.Controllers
             return await dynamicRepository.FetchAsync<CustBalanceInfo>(new GetCustBalanceCriteria(json));
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<VipUpgradeReviewInfo>> GetVipUpgradeReviews(DateTime monthDate, int pageIndex, int pageSize)
+        {
+            var txtMonthDate = monthDate.ToString("yyyyMM");
+            return await dynamicRepository.FetchAsync<VipUpgradeReviewInfo>(new GetVipUpgradeReviewCriteria
+            {
+                MonthDate = txtMonthDate,
+                PageIndex = pageIndex,
+                PageSize = pageSize
+            });
+        }
+
         [HttpPost]
         public async Task<ResultInfo> TransferMoneyToPlayer(TransferMoneyParam param)
         {

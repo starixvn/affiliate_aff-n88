@@ -42,6 +42,14 @@
 
         public FetchServiceSetting PullCustClosingBalanceSetting { get; set; }
 
+        public FetchServiceSetting PullAdjustmentInfoSetting { get; set; }
+
+        public FetchServiceSetting PullDrawLogSetting { get; set; }
+
+        public FetchServiceSetting PullEventDrawSetting { get; set; }
+
+        public FetchServiceSetting PullVipUpgradeReviewSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }

@@ -33,5 +33,13 @@
         public const string PULL_CUST_BONUS_ROLLOVER_SETTING = "PullCustBonusRolloverSetting";
 
         public const string PULL_CUST_CLOSING_BALANCE_SETTING = "PullCustClosingBalanceSetting";
+
+        public const string PULL_ADJUSTMENT_INFO_SETTING = "PullAdjustmentInfoSetting";
+
+        public const string PULL_DRAW_LOG_SETTING = "PullDrawLogSetting";
+
+        public const string PULL_EVENT_DRAW_SETTING = "PullEventDrawSetting";
+
+        public const string PULL_VIP_UPGRADE_REVIEW_SETTING = "PullVipUpgradeReviewSetting";
     }
 }
