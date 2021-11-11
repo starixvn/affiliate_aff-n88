@@ -122,7 +122,7 @@ describe('transfer report - component - Filter - ', () => {
 
         instance.handleClickSearch();
 
-        expect(props.setReportTitle).toHaveBeenCalledWith('TRANSFER BALANCE FOR REPORT - Base Currency VND - FROM 9/01/2021 TO 9/27/2021');
+        expect(props.setReportTitle).toHaveBeenCalledWith('TRANSFER BALANCE FOR PLAYER REPORT - Base Currency VND - FROM 9/01/2021 TO 9/27/2021');
         expect(props.setParam).toHaveBeenCalled();
     });
 
@@ -135,7 +135,7 @@ describe('transfer report - component - Filter - ', () => {
 
         instance.handleClickSearch();
 
-        expect(props.setReportTitle).toHaveBeenCalledWith("TRANSFER BALANCE FOR REPORT - Trans. Id '123'- Affiliate contains 'aff'- Player contains 'xyz'- Base Currency VND - FROM 9/01/2021 TO 9/27/2021");
+        expect(props.setReportTitle).toHaveBeenCalledWith("TRANSFER BALANCE FOR PLAYER REPORT - Trans. Id '123'- Affiliate contains 'aff'- Player contains 'xyz'- Base Currency VND - FROM 9/01/2021 TO 9/27/2021");
         expect(props.setParam).toHaveBeenCalled();
     });
 

@@ -37,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Report
             var service = CreateTransferReportService();
 
             // Action
-            var result = service.GetTransferReportData(new TransferReportParam { FromDate = new DateTime(2020, 10, 21), ToDate = new DateTime(2021, 10, 21) });
+            var result = service.GetTransferReportData(new TransferReportParam { FromDate = new DateTime(2021, 11, 11), ToDate = new DateTime(2021, 10, 21) });
 
             // Assert
             Assert.Empty(result.MainData);

@@ -46,9 +46,9 @@ export class GridData extends PureComponent {
                 <Cell header={true} colWidth={50} rowSpan="3" title={headerText.Index}>{headerText.Index}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.TransId}>{headerText.TransId}</Cell>
                 <Cell header={true} colWidth={120} rowSpan="3" title={headerText.CreatedDateText}>{headerText.CreatedDateText}</Cell>
-                <Cell header={true} colWidth={100} rowSpan="3" title={headerText.Status}>{headerText.Status}</Cell>
-                <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffName}>{headerText.AffName}</Cell>
-                <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffPlayerName}>{headerText.AffPlayerName}</Cell>
+                <Cell header={true} colWidth={90} rowSpan="3" title={headerText.Status}>{headerText.Status}</Cell>
+                <Cell header={true} colWidth={90} rowSpan="3" title={headerText.AffName}>{headerText.AffName}</Cell>
+                <Cell header={true} colWidth={120} rowSpan="3" title={headerText.AffPlayerName}>{headerText.AffPlayerName}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.PlayerName}>{headerText.PlayerName}</Cell>
                 <Cell header={true} colSpan="5" title={headerText.Amount}>{headerText.Amount}</Cell>
             </Row>,

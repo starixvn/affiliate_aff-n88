@@ -1,5 +1,5 @@
 export const totalText = 'Total (all pages)';
-export const reportName = 'TRANSFER BALANCE FOR REPORT ';
+export const reportName = 'TRANSFER BALANCE FOR PLAYER REPORT ';
 
 export const mappingColumns = {
     Index: 'Index',
@@ -22,7 +22,7 @@ export const headerText = {
     CreatedDateText: 'Date',
     Status: 'Status',
     AffName: 'Affiliate',
-    AffPlayerName: 'Affiliate Player',
+    AffPlayerName: 'Aff.Payment Player',
     PlayerName: 'Player',
     Amount: 'Amount',
     BasedAmount: 'Base Currency',

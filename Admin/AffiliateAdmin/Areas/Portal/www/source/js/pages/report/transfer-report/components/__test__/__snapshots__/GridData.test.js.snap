@@ -47,6 +47,14 @@ exports[`transfer report - GridData  should render correctly 1`] = `
             </t>
             <t
               asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            />
+            <t
+              asc={true}
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -140,7 +148,7 @@ exports[`transfer report - GridData  should render correctly 1`] = `
             <t
               asc={true}
               className="text-center"
-              colSpan="10"
+              colSpan="11"
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -205,7 +213,19 @@ exports[`transfer report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={100}
+            colWidth={90}
+            header={true}
+            onClick={[Function]}
+            rowSpan="3"
+            sortable={false}
+            sorting={false}
+            title="Status"
+          >
+            Status
+          </t>
+          <t
+            asc={true}
+            colWidth={90}
             header={true}
             onClick={[Function]}
             rowSpan="3"
@@ -217,15 +237,15 @@ exports[`transfer report - GridData  should render correctly 1`] = `
           </t>
           <t
             asc={true}
-            colWidth={100}
+            colWidth={120}
             header={true}
             onClick={[Function]}
             rowSpan="3"
             sortable={false}
             sorting={false}
-            title="Affiliate Player"
+            title="Aff.Payment Player"
           >
-            Affiliate Player
+            Aff.Payment Player
           </t>
           <t
             asc={true}
@@ -365,7 +385,7 @@ exports[`transfer report - GridData  should render correctly with empty data 1`]
           <t
             asc={true}
             className="text-center"
-            colSpan="9"
+            colSpan="12"
             header={false}
             onClick={[Function]}
             sortable={false}
@@ -420,7 +440,19 @@ exports[`transfer report - GridData  should render correctly with empty data 1`]
           </t>
           <t
             asc={true}
-            colWidth={100}
+            colWidth={90}
+            header={true}
+            onClick={[Function]}
+            rowSpan="3"
+            sortable={false}
+            sorting={false}
+            title="Status"
+          >
+            Status
+          </t>
+          <t
+            asc={true}
+            colWidth={90}
             header={true}
             onClick={[Function]}
             rowSpan="3"
@@ -432,15 +464,15 @@ exports[`transfer report - GridData  should render correctly with empty data 1`]
           </t>
           <t
             asc={true}
-            colWidth={100}
+            colWidth={120}
             header={true}
             onClick={[Function]}
             rowSpan="3"
             sortable={false}
             sorting={false}
-            title="Affiliate Player"
+            title="Aff.Payment Player"
           >
-            Affiliate Player
+            Aff.Payment Player
           </t>
           <t
             asc={true}

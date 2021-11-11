@@ -106,10 +106,12 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
             >
               <Input
                 checked={true}
+                id="isEnable"
                 onChange={[Function]}
                 type="checkbox"
               />
               <Label
+                for="isEnable"
                 tag="label"
                 widths={
                   Array [
@@ -418,10 +420,12 @@ exports[`left panel - TransferBalanceForPlayerSettingPopup component -  should r
             >
               <Input
                 checked={false}
+                id="isEnable"
                 onChange={[Function]}
                 type="checkbox"
               />
               <Label
+                for="isEnable"
                 tag="label"
                 widths={
                   Array [

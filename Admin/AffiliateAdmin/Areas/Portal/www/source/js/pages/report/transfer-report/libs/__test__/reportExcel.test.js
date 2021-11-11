@@ -10,15 +10,15 @@ describe('transfer report - Report Excel ', () => {
     const DATA_ROW_INDEX = 3;
 
     const configInfo = {
-        TOTAL_COLUMN: 11,
-        TOTAL_STATIC_COLUMN: 7,
-        INDEX_AMOUNT_COLUMN: 6,
+        TOTAL_COLUMN: 12,
+        TOTAL_STATIC_COLUMN: 8,
+        INDEX_AMOUNT_COLUMN: 7,
         COLSPAN_OF_AMOUNT_COLUMN: 5,
-        INDEX_IN_AFF_PLAYER_CURRENCY: 6,
-        INDEX_IN_PLAYER_CURRENCY: 8,
+        INDEX_IN_AFF_PLAYER_CURRENCY: 7,
+        INDEX_IN_PLAYER_CURRENCY: 9,
         COLSPAN_OF_IN_PLAYER_CURRENCY: 2,
         COLSPAN_OF_IN_AFF_PLAYER_CURRENCY: 2,
-        INDEX_BASE_CURRENCY: 10,
+        INDEX_BASE_CURRENCY: 11,
         INDEX_OF_INDEX_COLUMN: 0,
     }
 
@@ -112,7 +112,7 @@ describe('transfer report - Report Excel ', () => {
 
         instance._createHeader();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(6);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(7);
 
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
@@ -120,6 +120,7 @@ describe('transfer report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 3, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[6][0]).toEqual({ "c": 6, "r": HEADER_ROW_INDEX });
 
         expect(instance._buildColspanColumn).toHaveBeenCalledTimes(1);
         expect(instance._buildColspanColumn.mock.calls[0][0]).toBe(HEADER_ROW_INDEX);
@@ -199,7 +200,7 @@ describe('transfer report - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 11, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 12, "r": 3 });
     });
 
     it('_getcolumnConfigs - return correct', () => {
@@ -215,6 +216,11 @@ describe('transfer report - Report Excel ', () => {
             },
             {
                 field: fields.Date,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.default
+            },
+            {
+                field: fields.Status,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.left,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.default
             },
