@@ -37,21 +37,21 @@ var PlayerTransferBalance = (function ($) {
                 _me.submitTransfer(param);
             })
 
-            $('#amount').on('onchange', function () {
+            $('#amount').on('input', function (e) {
                 let amount = $(this).val();
                 let baseAmount = amount / _exChangeRate;
                 $('#exchange-base-currency').text('~' + _baseCurrency + " " + fomatter.format(baseAmount));
             })
         },
 
-        serchPlayer: function () {
+        serchPlayer: function (callback) {
             Site.hideResult();
             let playerName = $('#playerUserName').val();
             _curSearchName = playerName;
-            _me.getPlayerInfo(playerName);
+            _me.getPlayerInfo(playerName, callback);
         },
 
-        getPlayerInfo: function (playerName) {
+        getPlayerInfo: function (playerName, callback) {
             $.ajax({
                 type: "POST",
                 dataType: "json",
@@ -62,6 +62,7 @@ var PlayerTransferBalance = (function ($) {
 
                 success: function (response) {
                     _me.showSearchResult(response);
+                    callback && callback();
                 },
                 beforeSend: function () {
                     Site.showLoader();
@@ -78,7 +79,7 @@ var PlayerTransferBalance = (function ($) {
                 _baseCurrency = data.PaymentAccountCurrency;
                 _exChangeRate = data.ExchangeRate;
                 let availBal = data.Balance * data.ExchangeRate;
-                let transferLimit = Math.min(data.TransferLimit, availBal);
+                let transferLimit = Math.min(data.TransferLimit * data.ExchangeRate, availBal);
                 if (transferLimit < 0) {
                     transferLimit = 0;
                 }
@@ -96,7 +97,7 @@ var PlayerTransferBalance = (function ($) {
                 $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit));
                 $('#exchange-player-currency').text(data.PlayerCurrency);
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
-                $('#amount').val(0);
+                $('#amount').val('');
             }
             else {
                 Site.displayResult(response.IsOk, response.Message);
@@ -124,7 +125,12 @@ var PlayerTransferBalance = (function ($) {
                 contentType: "application/json; charset=UTF-8",
 
                 success: function (response) {
-                    Site.displayResult(response.IsOk, response.Message);
+                    if (response.IsOk) {
+                        _me.serchPlayer(() => Site.displayResult(response.IsOk, response.Message));
+                    }
+                    else {
+                        Site.displayResult(response.IsOk, response.Message);
+                    }
                 },
                 beforeSend: function () {
                     Site.showLoader();

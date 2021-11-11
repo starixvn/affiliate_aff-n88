@@ -184,9 +184,9 @@
     <value>Internal error. Please contact to administrator.</value>
   </data>
   <data name="PaymentAccNotExist" xml:space="preserve">
-    <value>Payment Account does not exists</value>
+    <value>Payment Account does not exists.</value>
   </data>
   <data name="PaymentAccNotActive" xml:space="preserve">
-    <value>Payment Account is not active</value>
+    <value>The payment player account is not active, please check with your account manager.</value>
   </data>
 </root>

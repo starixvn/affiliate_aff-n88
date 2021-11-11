@@ -169,7 +169,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Account is not active.
+        ///   Looks up a localized string similar to The payment player account is not active, please check with your account manager..
         /// </summary>
         public static string PaymentAccNotActive {
             get {
@@ -178,7 +178,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Payment Account does not exists.
+        ///   Looks up a localized string similar to Payment Account does not exists..
         /// </summary>
         public static string PaymentAccNotExist {
             get {
