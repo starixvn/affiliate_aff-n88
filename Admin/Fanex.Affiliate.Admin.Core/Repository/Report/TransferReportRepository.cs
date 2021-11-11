@@ -72,6 +72,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 PlayerName = reader.ToString("PlayerName"),
                 PlayerCurrency = reader.ToString("Currency"),
                 AffPlayerCurrency = reader.ToString("AffPlayerCurrency"),
+                Status = reader.ToString("Status"),
                 Amount = reader.ToDecimal("Amount"),
                 AffPlayerAmount = reader.ToDecimal("AffPlayerAmount"),
                 BasedAmount = reader.ToDecimal("BasedAmount"),

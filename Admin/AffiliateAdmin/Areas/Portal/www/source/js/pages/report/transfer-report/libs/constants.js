@@ -10,6 +10,7 @@ export const mappingColumns = {
     Player: 'PlayerName',
     AffPlayerCurrency: 'AffPlayerCurrency',
     AffPlayerAmount: 'AffPlayerAmount',
+    Status: 'Status',
     PlayerCurrency: 'PlayerCurrency',
     Amount: 'Amount',
     BasedAmount: 'BasedAmount'
@@ -19,6 +20,7 @@ export const headerText = {
     Index: '#',
     TransId: 'Transaction Id',
     CreatedDateText: 'Date',
+    Status: 'Status',
     AffName: 'Affiliate',
     AffPlayerName: 'Affiliate Player',
     PlayerName: 'Player',

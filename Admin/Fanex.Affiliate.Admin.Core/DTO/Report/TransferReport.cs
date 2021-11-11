@@ -20,6 +20,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public string AffPlayerCurrency { get; set; }
 
+        public string Status { get; set; }
+
         public decimal Amount { get; set; }
 
         public decimal AffPlayerAmount { get; set; }

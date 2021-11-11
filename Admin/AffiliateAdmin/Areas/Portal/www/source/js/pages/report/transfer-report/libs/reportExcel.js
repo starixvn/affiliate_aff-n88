@@ -8,15 +8,15 @@ const SUB_HEADER_ROW_INDEX = 2;
 const DATA_ROW_INDEX = 3;
 
 const configInfo = {
-    TOTAL_COLUMN: 11,
-    TOTAL_STATIC_COLUMN: 7,
-    INDEX_AMOUNT_COLUMN: 6,
+    TOTAL_COLUMN: 12,
+    TOTAL_STATIC_COLUMN: 8,
+    INDEX_AMOUNT_COLUMN: 7,
     COLSPAN_OF_AMOUNT_COLUMN: 5,
-    INDEX_IN_AFF_PLAYER_CURRENCY: 6,
-    INDEX_IN_PLAYER_CURRENCY: 8,
+    INDEX_IN_AFF_PLAYER_CURRENCY: 7,
+    INDEX_IN_PLAYER_CURRENCY: 9,
     COLSPAN_OF_IN_PLAYER_CURRENCY: 2,
     COLSPAN_OF_IN_AFF_PLAYER_CURRENCY: 2,
-    INDEX_BASE_CURRENCY: 10,
+    INDEX_BASE_CURRENCY: 11,
     INDEX_OF_INDEX_COLUMN: 0,
 }
 
@@ -258,6 +258,8 @@ export default class ReportExcel {
         }, {
             wpx: 150
         }, {
+            wpx: 150
+        }, {
             wpx: 100
         }, {
             wpx: 150
@@ -285,6 +287,11 @@ export default class ReportExcel {
             },
             {
                 field: fields.Date,
+                [MAIN_SECTION_STYLE]: bodyCellStyle.left,
+                [TOTAL_SECTION_STYLE]: totalCellStyle.default
+            },
+            {
+                field: fields.Status,
                 [MAIN_SECTION_STYLE]: bodyCellStyle.left,
                 [TOTAL_SECTION_STYLE]: totalCellStyle.default
             },

@@ -46,6 +46,7 @@ export class GridData extends PureComponent {
                 <Cell header={true} colWidth={50} rowSpan="3" title={headerText.Index}>{headerText.Index}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.TransId}>{headerText.TransId}</Cell>
                 <Cell header={true} colWidth={120} rowSpan="3" title={headerText.CreatedDateText}>{headerText.CreatedDateText}</Cell>
+                <Cell header={true} colWidth={100} rowSpan="3" title={headerText.Status}>{headerText.Status}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffName}>{headerText.AffName}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.AffPlayerName}>{headerText.AffPlayerName}</Cell>
                 <Cell header={true} colWidth={100} rowSpan="3" title={headerText.PlayerName}>{headerText.PlayerName}</Cell>
@@ -76,7 +77,7 @@ export class GridData extends PureComponent {
         }
         else {
             dataRows.push(<Row key="no-info">
-                <Cell className="text-center" colSpan="9">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="12">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
@@ -94,7 +95,7 @@ export class GridData extends PureComponent {
                 {
                     isTotalRow ? (
                         <Fragment>
-                            <Cell className="text-center" colSpan="10" title={totalText}>{totalText}</Cell>
+                            <Cell className="text-center" colSpan="11" title={totalText}>{totalText}</Cell>
                             <Cell className="text-right font-weight-bold" title={basedAmount}>{basedAmount}</Cell>
                         </Fragment>
                     ) : (
@@ -102,6 +103,7 @@ export class GridData extends PureComponent {
                             <Cell className="text-center" title={index}>{index}</Cell>
                             <Cell className="text-center" title={dataItem.TransId}>{dataItem.TransId}</Cell>
                             <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>
+                            <Cell className="text-center" title={dataItem.Status}>{dataItem.Status}</Cell>
                             <Cell title={dataItem.AffName}>{dataItem.AffName}</Cell>
                             <Cell title={dataItem.AffPlayerName}>{dataItem.AffPlayerName}</Cell>
                             <Cell title={dataItem.PlayerName}>{dataItem.PlayerName}</Cell>
