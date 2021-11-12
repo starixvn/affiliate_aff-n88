@@ -9,7 +9,7 @@ import { handleAfterChangeFromDate, handleAfterChangeToDate, isValidNumber } fro
 import { defaultBaseCurrency } from '../../../../modules/constants';
 import { globalResource } from '../../../../modules/globalResource';
 import { reportName, headerText } from '../libs/constants';
-export const minDate = new Date(2020, 9, 30);
+export const minDate = new Date(2021, 10, 31);
 
 export class Filter extends Component {
     constructor(props) {
