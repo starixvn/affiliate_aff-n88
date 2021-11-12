@@ -4,6 +4,8 @@
 
 @Html.InlineStyles("~/www/build/styles/css/player-transfer-balance.css")
 
+<input hidden readonly id="confirm-transfer-text" value="@Lang.ConfirmTransferBalanceSubmit.ToString()"/>
+
 <div class="page-title">
     <span class="text">@Lang.TransferBalanceForPlayer</span>
 </div>
@@ -46,7 +48,7 @@
                 <label class="col-sm-3 control-label" id="transfer-amount-label">@Lang.TransferAmountTo</label>
                 <div class="col-sm-6 flex " id="exchangeRate">
                     <span class="form-control-static text-uppercase" id="exchange-player-currency">USD</span>
-                    <input class="form-control text-right" min="0" step="any" id="amount" type="text" />
+                    <input class="form-control text-right" min="0" step="any" id="amount" type="text"/>
                     <span class="form-control-static text-uppercase" id="exchange-base-currency">~ 0 USD</span>
                 </div>
             </div>

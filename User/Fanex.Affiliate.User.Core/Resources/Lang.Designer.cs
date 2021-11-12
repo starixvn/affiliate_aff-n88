@@ -1411,6 +1411,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to transfer balance to the selected player? Once submitted, the action cannot be undone..
+        /// </summary>
+        public static string ConfirmTransferBalanceSubmit {
+            get {
+                return ResourceManager.GetString("ConfirmTransferBalanceSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure about this action? By confirming this action, you will deactive this tracking link..
         /// </summary>
         public static string ConfrimDeactiveLink {

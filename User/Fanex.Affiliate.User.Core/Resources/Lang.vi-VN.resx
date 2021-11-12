@@ -2389,4 +2389,7 @@
   <data name="TransferSuccessful" xml:space="preserve">
     <value>Chuyển khoản thành công.</value>
   </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Bạn có muốn chuyển tiển vào tài khoản được chọn hay không? Một khi đã xác nhận, hành động này không thể hoàn tác.</value>
+  </data>
 </root>

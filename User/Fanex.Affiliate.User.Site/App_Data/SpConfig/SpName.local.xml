@@ -16,8 +16,8 @@
   </Function>
 
   <Function Name="AccountInformation">
-    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88_view" />
+    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel_xpre" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel_xpre" DbName="affiliate_n88_view" />
     <Setting Key="Aff_User_UserInfoUpd" SpName="Aff_User_UserInfoUpd" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUpdPwd" SpName="Aff_AffiliateUpdPwd" DbName="affiliate_n88" />
     <Setting Key="Aff_User_SecretKeyIns" SpName="Aff_User_SecretKeyIns" DbName="affiliate_n88" />

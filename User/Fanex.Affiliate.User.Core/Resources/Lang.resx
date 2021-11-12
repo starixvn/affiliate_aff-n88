@@ -2571,4 +2571,7 @@
   <data name="TransferSuccessful" xml:space="preserve">
     <value>The transfer has been successfully done.</value>
   </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Are you sure you want to transfer balance to the selected player? Once submitted, the action cannot be undone.</value>
+  </data>
 </root>

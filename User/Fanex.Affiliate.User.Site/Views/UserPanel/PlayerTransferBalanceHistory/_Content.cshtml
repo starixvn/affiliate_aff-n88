@@ -3,7 +3,7 @@
 @using System.Globalization
 @model Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult
 @{ 
-    var decimalFormat = "#,#.00";
+    var decimalFormat = "#,#0.00";
 }
 
 <table>
@@ -52,7 +52,7 @@
             else
             {
                 <tr>
-                    <td class="text-center" colspan="7">@Lang.NoInfo</td>
+                    <td class="text-center" colspan="8">@Lang.NoInfo</td>
                 </tr>
             }
         }

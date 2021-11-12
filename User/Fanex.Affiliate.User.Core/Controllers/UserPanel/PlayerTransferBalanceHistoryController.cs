@@ -17,15 +17,18 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     {
         private readonly IPlayerTransferBalanceService _playerTransferService;
         private readonly ICurrencyRepository _currencyRepo;
+        private readonly IAccountRepository _accRepository;
 
         public PlayerTransferBalanceHistoryController(ISessionService sessionService,
             ILanguageService languageService,
             ICurrencyRepository currencyRepository,
-            IPlayerTransferBalanceService playerTransferBalanceService)
+            IPlayerTransferBalanceService playerTransferBalanceService,
+            IAccountRepository accountRepository)
             : base(sessionService, languageService)
         {
             _playerTransferService = playerTransferBalanceService;
             _currencyRepo = currencyRepository;
+            _accRepository = accountRepository;
         }
 
         [HttpGet]
@@ -53,14 +56,16 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 });
             }
 
-            var baseCurrency = SessionService.UserSession.BaseCurrency;
+            var affInfo = _accRepository.GetAccountInfo(SessionService.UserSession.AffId);
+            var baseCurrencyId = affInfo.PlayerCurrencyId;
+
             var currencies = _currencyRepo.GetBaseCurrencyList();
-            var currencyName = currencies.FirstOrDefault(c => c.ExchangeId == baseCurrency)?.Code;
+            var currencyName = currencies.FirstOrDefault(c => c.ExchangeId == baseCurrencyId)?.Code;
             var affId = SessionService.UserSession.AffId;
             ViewBag.BaseCurrency = currencyName;
 
             param.AffId = affId;
-            param.BaseCurrency = baseCurrency;
+            param.BaseCurrency = baseCurrencyId;
             var model = _playerTransferService.GetPlayerTransferBalanceHistory(param);
 
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;

@@ -33,14 +33,31 @@ var PlayerTransferBalance = (function ($) {
 
             $('#btn-submit').on('click', function () {
                 Site.hideResult();
-                let param = _me.buildParam();
-                _me.submitTransfer(param);
+                const confirmTxt = $('#confirm-transfer-text').val();
+                if (confirm(confirmTxt)) {
+                    let param = _me.buildParam();
+                    _me.submitTransfer(param);
+                }
             })
 
             $('#amount').on('input', function (e) {
                 let amount = $(this).val();
                 let baseAmount = amount / _exChangeRate;
                 $('#exchange-base-currency').text('~' + _baseCurrency + " " + fomatter.format(baseAmount));
+            })
+
+            $('#amount').on('keypress', function (e) {
+                if (e.which < 48 || e.which > 57) {
+                    e.preventDefault();
+                }
+            })
+
+            $('#amount').on('paste', function (e) {
+                let paste = (event.clipboardData || window.clipboardData).getData('text');
+                var regex = /^[0-9]*$/;
+                if (!regex.test(paste)) {
+                    e.preventDefault();
+                }
             })
         },
 
