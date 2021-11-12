@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Report
 
             //Assert
             Assert.Single(data.BaseCurrencyList);
-            Assert.Equal("~/Areas/Portal/Views/Report/CommonReport.cshtml", result.ViewName);
+            Assert.Equal("~/Areas/Portal/Views/Report/TransferReport.cshtml", result.ViewName);
         }
 
         [Fact]

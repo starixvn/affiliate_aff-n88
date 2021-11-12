@@ -34,7 +34,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Report
             //Assert
             Assert.Single(data.ProductList);
             Assert.Single(data.BaseCurrencyList);
-            Assert.Equal("~/Areas/Portal/Views/Report/CommonReport.cshtml", result.ViewName);
+            Assert.Equal("~/Areas/Portal/Views/Report/PlayerGgrReport.cshtml", result.ViewName);
         }
 
         [Fact]

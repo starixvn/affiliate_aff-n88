@@ -37,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
                 BaseCurrencyList = _currencyRepository.GetBaseCurrencies()
             };
 
-            return View("~/Areas/Portal/Views/Report/CommonReport.cshtml", viewModel);
+            return View("~/Areas/Portal/Views/Report/TransferReport.cshtml", viewModel);
         }
 
 
