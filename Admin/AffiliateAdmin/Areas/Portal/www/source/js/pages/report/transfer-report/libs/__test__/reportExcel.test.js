@@ -112,15 +112,15 @@ describe('transfer report - Report Excel ', () => {
 
         instance._createHeader();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(7);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(14);
 
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 3, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[6][0]).toEqual({ "c": 6, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX + 1 });
+        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX + 1 });
+        expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 2, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 2, "r": HEADER_ROW_INDEX + 1 });
+        expect(Excel.getCellAddress.mock.calls[6][0]).toEqual({ "c": 3, "r": HEADER_ROW_INDEX });
 
         expect(instance._buildColspanColumn).toHaveBeenCalledTimes(1);
         expect(instance._buildColspanColumn.mock.calls[0][0]).toBe(HEADER_ROW_INDEX);
@@ -142,11 +142,11 @@ describe('transfer report - Report Excel ', () => {
 
         instance._buildColspanColumn(HEADER_ROW_INDEX, configInfo.INDEX_AMOUNT_COLUMN, configInfo.COLSPAN_OF_AMOUNT_COLUMN, headerText.Amount, subColSpanOfAmountCloumn);
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(4);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(10);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": configInfo.INDEX_IN_AFF_PLAYER_CURRENCY, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": configInfo.INDEX_IN_AFF_PLAYER_CURRENCY, "r": SUB_HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": configInfo.INDEX_IN_PLAYER_CURRENCY, "r": SUB_HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": configInfo.INDEX_BASE_CURRENCY, "r": SUB_HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": configInfo.INDEX_IN_AFF_PLAYER_CURRENCY + 1, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": configInfo.INDEX_IN_PLAYER_CURRENCY, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": configInfo.INDEX_IN_PLAYER_CURRENCY + 1, "r": HEADER_ROW_INDEX });
     });
 
     it('_createBodyData - should call _createDataRow', () => {

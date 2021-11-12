@@ -23,7 +23,7 @@
     {
         if (string.Equals("Report", m.Key, StringComparison.OrdinalIgnoreCase))
         {
-            return permissions.Any(p => p.FunctionName == m.Key || p.FunctionName == Function.TransferPlayerReport);
+            return permissions.Any(p => p.FunctionName == m.Value || p.FunctionName == Function.TransferPlayerReport);
         }
 
         if (permissions.Any(p => p.FunctionName == m.Value))

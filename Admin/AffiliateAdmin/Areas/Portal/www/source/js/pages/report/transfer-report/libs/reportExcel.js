@@ -1,5 +1,5 @@
 ﻿import Excel from '../../../../modules/excel';
-import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle } from '../../../../modules/excelStyleConstant';
+import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle, mergedHeaderCellByColspanStyle, mergedHeaderCellByRowspanStyle } from '../../../../modules/excelStyleConstant';
 import { headerText, totalText, mappingColumns as fields } from './constants';
 
 const TITLE_ROW_INDEX = 0;
@@ -107,6 +107,15 @@ export default class ReportExcel {
                     s: headerCellStyle
                 }
 
+                let nextRowAddress = Excel.getCellAddress({
+                    c: i,
+                    r: HEADER_ROW_INDEX + 1
+                });
+                this.worksheet[nextRowAddress] = {
+                    t: "s",
+                    s: mergedHeaderCellByRowspanStyle
+                }
+
                 this.mergeConfig.push({
                     s: {
                         r: HEADER_ROW_INDEX,
@@ -156,6 +165,17 @@ export default class ReportExcel {
             t: "s",
             v: colSpanHeaderText,
             s: headerCellStyle
+        }
+
+        for (let i = 1; i < colSpan; i++) {
+            const nextCellAddress = Excel.getCellAddress({
+                c: colIndex + i,
+                r: rowIndex
+            });
+            this.worksheet[nextCellAddress] = {
+                t: "s",
+                s: mergedHeaderCellByColspanStyle
+            }
         }
 
         this.mergeConfig.push({

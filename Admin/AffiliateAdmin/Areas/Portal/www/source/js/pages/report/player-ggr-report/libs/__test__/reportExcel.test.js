@@ -108,12 +108,12 @@ describe('player ggr report - Report Excel ', () => {
 
         instance._createHeader();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(4);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(8);
 
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": HEADER_ROW_INDEX });
-        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 3, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 0, "r": HEADER_ROW_INDEX + 1 });
+        expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX });
+        expect(Excel.getCellAddress.mock.calls[3][0]).toEqual({ "c": 1, "r": HEADER_ROW_INDEX + 1 });
 
         expect(instance._buildColspanColumn).toHaveBeenCalledTimes(2);
         expect(instance._buildColspanColumn.mock.calls[0][0]).toBe(HEADER_ROW_INDEX);

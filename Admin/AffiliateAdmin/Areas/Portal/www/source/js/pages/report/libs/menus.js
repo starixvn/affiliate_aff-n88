@@ -9,5 +9,5 @@ const TransferReport = React.lazy(() => import(/* webpackChunkNamw: 'transferRep
 export const menus = [
     { key: menuKey.affiliateReport, label: 'Affiliate', href: relativePath.affiliateReport, component: AffiliateReport, permissionName: permissionResource.AffReport },
     { key: menuKey.playerGgrReport, label: 'Player GGR', href: relativePath.playerGgrReport, component: PlayerGgrReport, permissionName: permissionResource.AffReport },
-    { key: menuKey.transferReport, label: 'Transfer Balance For Player', href: relativePath.transferReport, component: TransferReport, permissionName: permissionResource.TransferPlayerSetting },
+    { key: menuKey.transferReport, label: 'Transfer Balance For Player', href: relativePath.transferReport, component: TransferReport, permissionName: permissionResource.TransferPlayerReport },
 ]

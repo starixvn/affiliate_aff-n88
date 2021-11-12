@@ -1,5 +1,5 @@
 ﻿import Excel from '../../../../modules/excel';
-import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle } from '../../../../modules/excelStyleConstant';
+import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle, mergedHeaderCellByRowspanStyle } from '../../../../modules/excelStyleConstant';
 import { headerText, totalText, reportName, defaultGgrProductReport, mappingColumns as fields } from './constants';
 import { formatDateTime } from '../../../../modules/utils';
 
@@ -89,6 +89,15 @@ export default class ReportExcel {
                     t: "s",
                     v: headerText[fieldName],
                     s: headerCellStyle
+                }
+
+                let nextRowAddress = Excel.getCellAddress({
+                    c: i,
+                    r: HEADER_ROW_INDEX + 1
+                });
+                this.worksheet[nextRowAddress] = {
+                    t: "s",
+                    s: mergedHeaderCellByRowspanStyle
                 }
 
                 this.mergeConfig.push({
