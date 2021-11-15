@@ -10,7 +10,7 @@
 @section pagejs{
     <script type="text/javascript">
         window.initialState = {
-            today: '@TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("China Standard Time")).ToString("MM/dd/yyyy")',
+            today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")',
             baseCurrencyList: @Html.Raw(Json.Encode(Model.BaseCurrencyList)),
             isProduction: '@(AppSetting.Instance.Environment)'.toLowerCase() === 'production',
         }
