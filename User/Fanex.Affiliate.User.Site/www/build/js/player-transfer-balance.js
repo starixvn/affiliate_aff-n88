@@ -6,7 +6,8 @@ var PlayerTransferBalance = (function ($) {
     })
 
     let _curSearchName = "";
-    let _exChangeRate = 0;
+    let _paymentAccountExRate = 0;
+    let _playerExRate = 0;
     let _baseCurrency = "";
     let _transferAmountLabel = "";
     let _playerCurrencyLabel = "";
@@ -42,7 +43,7 @@ var PlayerTransferBalance = (function ($) {
 
             $('#amount').on('input', function (e) {
                 let amount = $(this).val();
-                let baseAmount = amount / _exChangeRate;
+                let baseAmount = amount * _playerExRate;
                 $('#exchange-base-currency').text('~' + _baseCurrency + " " + fomatter.format(baseAmount));
             })
 
@@ -94,9 +95,10 @@ var PlayerTransferBalance = (function ($) {
             if (response.IsOk) {
                 let data = response.Data;
                 _baseCurrency = data.PaymentAccountCurrency;
-                _exChangeRate = data.ExchangeRate;
-                let availBal = data.Balance * data.ExchangeRate;
-                let transferLimit = Math.min(data.TransferLimit * data.ExchangeRate, availBal);
+                _paymentAccountExRate = data.PaymentAccountExRate;
+                _playerExRate = data.PlayerExRate;
+                let availBal = data.Balance * _paymentAccountExRate;
+                let transferLimit = Math.min(data.TransferLimit * _paymentAccountExRate, availBal);
                 if (transferLimit < 0) {
                     transferLimit = 0;
                 }
@@ -128,7 +130,8 @@ var PlayerTransferBalance = (function ($) {
                 submitName: $('#playerUserName').val(),
                 searchName: _curSearchName,
                 amount: $('#amount').val(),
-                exchangeRate: _exChangeRate
+                paymentAccountExRate: _paymentAccountExRate,
+                playerExRate: _playerExRate
             }
         },
 

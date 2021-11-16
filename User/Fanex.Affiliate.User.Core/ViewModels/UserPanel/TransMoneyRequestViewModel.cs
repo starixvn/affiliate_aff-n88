@@ -14,6 +14,8 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 
         public decimal Amount { get; set; }
 
-        public decimal ExchangeRate { get; set; }
+        public decimal PaymentAccountExRate { get; set; }
+
+        public decimal PlayerExRate { get; set; }
     }
 }

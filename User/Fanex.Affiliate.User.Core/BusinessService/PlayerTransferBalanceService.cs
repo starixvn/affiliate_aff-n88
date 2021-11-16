@@ -100,8 +100,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var accWalletInfos = await _api.GetCustBalanceAsync(new[] { summaryInfo.PaymentAccountId });
             var affWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PaymentAccountId);
 
-            var baseAmount = param.Amount / param.ExchangeRate;
-            if (baseAmount > summaryInfo.TransferLimit || baseAmount > affWalletInfo.Balance)
+            var baseAmount = param.Amount * param.PlayerExRate;
+            if (baseAmount > summaryInfo.RemainTransferLimit || baseAmount > affWalletInfo.Balance)
             {
                 return (GENERAL_ERR, Lang.AmountMustNotExceedLimit);
             }
@@ -113,7 +113,8 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 PaymentAccountCurrencyId = summaryInfo.PaymentAccountCurrencyId,
                 PaymentAccountId = summaryInfo.PaymentAccountId,
                 PlayerCurrencyId = summaryInfo.PlayerCurrencyId,
-                ExRate = param.ExchangeRate,
+                PaymentAccountExRate = param.PaymentAccountExRate,
+                PlayerExRate = param.PlayerExRate,
                 PlayerId = summaryInfo.PlayerId
             });
 
@@ -167,7 +168,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 case HAS_PENDING_TRANS:
                     return Lang.HasAPendingTransaction;
                 default:
-                    return $"{errCode} - {defaultErrMsg}";
+                    return $"{defaultErrMsg}";
             }
         }
 
