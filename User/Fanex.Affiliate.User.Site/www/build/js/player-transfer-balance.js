@@ -98,7 +98,7 @@ var PlayerTransferBalance = (function ($) {
                 _paymentAccountExRate = data.PaymentAccountExRate;
                 _playerExRate = data.PlayerExRate;
                 let availBal = data.Balance * _paymentAccountExRate;
-                let transferLimit = Math.min(data.TransferLimit * _paymentAccountExRate, availBal);
+                let transferLimit = Math.min(data.RemainTransferLimit * _paymentAccountExRate, availBal);
                 if (transferLimit < 0) {
                     transferLimit = 0;
                 }

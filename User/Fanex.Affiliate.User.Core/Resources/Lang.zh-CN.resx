@@ -2157,9 +2157,6 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="TotalGGR" xml:space="preserve">
     <value>总收入</value>
   </data>
-  <data name="StillHavePendingTransaction" xml:space="preserve">
-    <value>该玩家有一个交易在等待处理。 为避免重复，请等待处理交易完成后再尝试。</value>
-  </data>
   <data name="InvalidPlayer" xml:space="preserve">
     <value>无效玩家</value>
   </data>
@@ -2212,9 +2209,21 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>兑换率已更新，请重新提交。</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>该玩家有一个交易在等待处理。 为避免重复，请等待处理交易完成后再尝试。</value>
+    <value>您有个待处理交易正在进行中。请等待处理交易完成，然后重试。</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
     <value>转账已成功完成。</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>玩家</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>您确定要将余额转移至选定的玩家吗？一旦提交，交易将无法撤销。</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>完成</value>
   </data>
 </root>

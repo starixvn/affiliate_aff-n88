@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             using (var objectDb = _builder.Build(spKey))
             {
                 objectDb.AddOutParameter(nRows, System.Data.SqlDbType.Int, DbParam.IntSize);
-                objectDb.AddOutParameter(totalBaseAmount, System.Data.SqlDbType.Decimal, DbParam.MoneySize);
+                objectDb.AddOutParameter(totalBaseAmount, System.Data.SqlDbType.Money, DbParam.MoneySize);
 
                 var items = objectDb.Query<PlayerTransferBalanceHistoryInfo>(param);
 

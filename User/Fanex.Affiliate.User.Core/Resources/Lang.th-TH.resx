@@ -2208,9 +2208,21 @@
     <value>อัตราแลกเปลี่ยนเพิ่งได้รับการอัพเดต กรุณาส่งอีกครั้ง</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>สมาชิกมีธุรกรรมที่รอดำเนินการ เพื่อหลีกเลี่ยงการทำรายการซ้ำ โปรดรอจนกว่าธุรกรรมดังกล่าวจะดำเนินการเสร็จสมบูรณ์แล้วลองอีกครั้ง</value>
+    <value>คุณมีธุรกรรมที่อยู่ระหว่างดำเนินการ โปรดรอให้ธุรกรรมดำเนินการเสร็จสิ้นและลองใหม่อีกครั้ง</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
     <value>ธุรกรรมการโอนสำเร็จ</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>ผู้เล่น</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>คุณแน่ใจหรือไม่ว่าต้องการโอนยอดคงเหลือไปยังผู้เล่นที่เลือก? เมื่อส่งดำเนินการแล้ว ไม่สามารถยกเลิกได้</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>ล้มเหลว</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>เสร็จสิ้น</value>
   </data>
 </root>

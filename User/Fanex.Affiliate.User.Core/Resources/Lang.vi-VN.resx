@@ -2329,9 +2329,6 @@
   <data name="FdmDate" xml:space="preserve">
     <value>Ngày FDM</value>
   </data>
-  <data name="StillHavePendingTransaction" xml:space="preserve">
-    <value>Người chơi này có một giao dịch chuyển khoản chưa hoàn tất. Để tránh trùng lặp, xin vui lòng chờ giao dịch này hoàn tất rồi thử lại.</value>
-  </data>
   <data name="InvalidPlayer" xml:space="preserve">
     <value>Người chơi không tồn tại</value>
   </data>
@@ -2384,12 +2381,18 @@
     <value>Tỉ giá hối đoái bị thay đổi, vui lòng gửi lại</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>Người chơi này có một giao dịch chuyển khoản chưa hoàn tất. Để tránh trùng lặp, xin vui lòng chờ giao dịch này hoàn tất rồi thử lại.</value>
+    <value>Bạn có một giao dịch đang chờ xử lý. Vui lòng đợi giao dịch này hoàn thành rồi thử lại.</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
     <value>Chuyển khoản thành công.</value>
   </data>
   <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
     <value>Bạn có muốn chuyển tiển vào tài khoản được chọn hay không? Một khi đã xác nhận, hành động này không thể hoàn tác.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Thất bại</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Hoàn thành</value>
   </data>
 </root>

@@ -166,7 +166,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 case EXCHANGE_RATE_CHANGE:
                     return Lang.ExchageRateChange;
                 case HAS_PENDING_TRANS:
-                    return Lang.HasAPendingTransaction;
+                    return Lang.HasPendingTransaction;
                 default:
                     return $"{defaultErrMsg}";
             }

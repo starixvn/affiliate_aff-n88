@@ -1978,7 +1978,7 @@
     <value>IDR (Indonesian Rupiah)</value>
   </data>
   <data name="Player" xml:space="preserve">
-    <value>Melalui Akun</value>
+    <value>Pemain</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
     <value>Jadilah Mitra Bisnis N88 | Program Afiliasi N88</value>
@@ -2185,9 +2185,18 @@
     <value>Kurs mata uang baru di update, silahkan submit kembali</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>Pemain ini memiliki transaksi yang tertunda. Untuk menghindari duplikasi, harap tunggu hingga transaksi yang tertunda selesai kemudian coba lagi.</value>
+    <value>Anda memiliki transaksi tertunda. Mohon menunggu hingga transaksi tertunda selesai dan mencoba lagi</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
     <value>Transaksi Transfer berhasil.</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Apakah Anda yakin ingin mentransfer saldo ke pemain terpilih? Setelah kirim, tindakan ini tidak dapat di batalkan.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Gagal</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Selesai</value>
   </data>
 </root>

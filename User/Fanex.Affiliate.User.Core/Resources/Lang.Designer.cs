@@ -331,7 +331,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amount must not exceed transfer limit.
+        ///   Looks up a localized string similar to Amount must not exceed Transfer Limit..
         /// </summary>
         public static string AmountMustNotExceedLimit {
             get {
@@ -340,7 +340,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Amount must be a whole positive number.
+        ///   Looks up a localized string similar to Amount must be a whole positive number..
         /// </summary>
         public static string AmountMustPositiveNumber {
             get {
@@ -1380,6 +1380,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string CommRate {
             get {
                 return ResourceManager.GetString("CommRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        public static string Completed {
+            get {
+                return ResourceManager.GetString("Completed", resourceCulture);
             }
         }
         
@@ -2620,11 +2629,20 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Exchange rate has just been updated, please submit again.
+        ///   Looks up a localized string similar to Exchange rate has just been updated, please submit again..
         /// </summary>
         public static string ExchageRateChange {
             get {
                 return ResourceManager.GetString("ExchageRateChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        public static string Failed {
+            get {
+                return ResourceManager.GetString("Failed", resourceCulture);
             }
         }
         
@@ -2980,16 +2998,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This member has a pending transaction. To avoid duplication, please wait until the pending transaction complete and try again..
-        /// </summary>
-        public static string HasAPendingTransaction {
-            get {
-                return ResourceManager.GetString("HasAPendingTransaction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again..
+        ///   Looks up a localized string similar to You have a pending transaction. Please wait until the pending transaction completes and try again..
         /// </summary>
         public static string HasPendingTransaction {
             get {
@@ -4841,7 +4850,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This player is not active.
+        ///   Looks up a localized string similar to This player is not active..
         /// </summary>
         public static string PlayerNotActive {
             get {
@@ -5854,15 +5863,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again..
-        /// </summary>
-        public static string StillHavePendingTransaction {
-            get {
-                return ResourceManager.GetString("StillHavePendingTransaction", resourceCulture);
             }
         }
         

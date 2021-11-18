@@ -2542,36 +2542,36 @@
     <value>Invalid player.</value>
   </data>
   <data name="PlayerNotActive" xml:space="preserve">
-    <value>This player is not active</value>
+    <value>This player is not active.</value>
   </data>
   <data name="AmountMustPositiveNumber" xml:space="preserve">
-    <value>Amount must be a whole positive number</value>
+    <value>Amount must be a whole positive number.</value>
   </data>
   <data name="AmountMustNotExceedLimit" xml:space="preserve">
-    <value>Amount must not exceed transfer limit</value>
+    <value>Amount must not exceed Transfer Limit.</value>
   </data>
   <data name="ExchageRateChange" xml:space="preserve">
-    <value>Exchange rate has just been updated, please submit again</value>
-  </data>
-  <data name="HasAPendingTransaction" xml:space="preserve">
-    <value>This member has a pending transaction. To avoid duplication, please wait until the pending transaction complete and try again.</value>
+    <value>Exchange rate has just been updated, please submit again.</value>
   </data>
   <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
     <value>Username has been changed, please search the username again.</value>
-  </data>
-  <data name="StillHavePendingTransaction" xml:space="preserve">
-    <value>This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again.</value>
   </data>
   <data name="InBaseCurrency" xml:space="preserve">
     <value>In {baseCurrency}</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>This player has a pending transaction. To avoid duplication, please wait until the pending transaction completes and try again.</value>
+    <value>You have a pending transaction. Please wait until the pending transaction completes and try again.</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
     <value>The transfer has been successfully done.</value>
   </data>
   <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
     <value>Are you sure you want to transfer balance to the selected player? Once submitted, the action cannot be undone.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
   </data>
 </root>

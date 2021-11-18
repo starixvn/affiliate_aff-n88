@@ -165,4 +165,7 @@
   <data name="PaymentAccNotActive" xml:space="preserve">
     <value>บัญชีชำระเงินของสมาชิกไม่ทำงาน โปรดตรวจสอบกับผู้จัดการบัญชีของคุณ</value>
   </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>ไม่มีบัญชีชำระเงิน</value>
+  </data>
 </root>
