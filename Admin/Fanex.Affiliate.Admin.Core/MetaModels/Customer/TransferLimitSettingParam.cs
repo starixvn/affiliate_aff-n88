@@ -5,7 +5,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Customer
 {
     public class TransferLimitSettingParam : AffiliateBasicInfoParam
     {
-        [Range(1, Money.AllowedMaxValue, ErrorMessage = "Limit exceeds the allowable limit.")]
+        [Range(0, Money.AllowedMaxValue, ErrorMessage = "Limit exceeds the allowable range.")]
         [RegularExpression("^\\d*$", ErrorMessage = "Limit must be a whole positive number.")]
         public decimal TransferLimit { get; set; }
 

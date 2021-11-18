@@ -73,7 +73,7 @@ export const TransferBalanceForPlayerSettingPopup = (props) => {
 
     const _hideMessage = (isSuccess) => {
         setAlertInfo({
-            isSuccess: true,
+            isSuccess: isSuccess,
             isShowMessage: false,
             message: ''
         });
@@ -135,9 +135,8 @@ export const TransferBalanceForPlayerSettingPopup = (props) => {
                                 </Row>
                             </FormGroup>
                         </Form>
-                        <div className="text-center">
-                            <Button className="text-uppercase font-weight-bold" type="button" color="success" onClick={handleSave}>Save</Button>
-                        </div>
+                        <Button className="mr-3" type="button" color="success" onClick={handleSave}>Save</Button>
+                        <Button type="button" color="info" onClick={props.onClose}>Cancel</Button>
                     </div>
                 </div>
             </ModalBody>

@@ -9,6 +9,7 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
+using Fanex.Affiliate.Admin.Core.Resources;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Customer
 {
@@ -49,6 +50,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
         public ResultInfo UpdateTransferLimitSetting(TransferLimitSettingParam param)
         {
+            if(!param.DisabledTransfer && param.TransferLimit == 0)
+            {
+                return new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = "Limit must be a whole positive number."
+                };
+            }
+
             return _customerLeftPanelRepository.UpdateTransferLimitSetting(param);
         }
 

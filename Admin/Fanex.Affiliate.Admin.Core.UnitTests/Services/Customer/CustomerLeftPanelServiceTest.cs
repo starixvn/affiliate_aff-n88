@@ -146,6 +146,21 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
+        public void UpdateTransferLimitSetting_WhenCallInvalidParam_ReturnError()
+        {
+            // Arrange
+            var param = new TransferLimitSettingParam { DisabledTransfer = false };
+            var service = CreateCustomerLeftPanelService();
+
+            // Action
+            var result = service.UpdateTransferLimitSetting(param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Limit must be a whole positive number.", result.Message);
+        }
+
+        [Fact]
         public void UpdateAffType_WhenCall_ReturnCorrectData()
         {
             // Arrange
