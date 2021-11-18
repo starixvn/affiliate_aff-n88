@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
 
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
-            objectDb.AddOutParameter("TotalBasedAmount", DbType.Decimal, Size.SizeOfCurrency);
+            objectDb.AddOutParameter("TotalBasedAmount", DbType.Currency, Size.SizeOfCurrency);
         }
 
         private static TransferReport BuildDataItem(IDataReader reader)
