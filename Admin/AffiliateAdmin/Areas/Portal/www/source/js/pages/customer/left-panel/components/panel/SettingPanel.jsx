@@ -205,7 +205,7 @@ export class SettingPanel extends PureComponent {
                     </Col>
                 </Row>
                 {
-                    this.transferSettingPermission && (
+                    isApproved && this.transferSettingPermission && (
                         <Fragment>
                             <Row>
                                 <Col className="left-panel-wrap-line">{resource.TransferBalanceForPlayer}</Col>
