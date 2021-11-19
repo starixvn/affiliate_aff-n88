@@ -56,11 +56,11 @@ var Layout = (function ($) {
                 var menuItemPos = $menuItem.position();
                 var withMenu = $menuItem.outerWidth();
                 var heightMenu = $menuItem.outerHeight();
-
+                var subWidth = $submenuWrapper.outerWidth();
                 // place the submenu in the correct position relevant to the menu item
                 $submenuWrapper.css({
                     top: menuItemPos.top + heightMenu,
-                    left: menuItemPos.left + withMenu - 200
+                    left: menuItemPos.left + withMenu - subWidth
                 });
             });
 

@@ -1,8 +1,10 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Fanex.Affiliate.User.Core.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,9 +69,31 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             param.AffId = affId;
             param.BaseCurrency = baseCurrencyId;
             var model = _playerTransferService.GetPlayerTransferBalanceHistory(param);
+            TranslateStatus(model);
 
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
             return PartialView("~/Views/UserPanel/PlayerTransferBalanceHistory/_Content.cshtml", model);
+        }
+
+        private static void TranslateStatus(DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult model)
+        {
+            foreach (var item in model.Items)
+            {
+                switch (item.Status)
+                {
+                    case TransferBalanceStatus.Completed:
+                        item.Status = Lang.Completed;
+                        break;
+                    case TransferBalanceStatus.Pending:
+                        item.Status = Lang.Pending;
+                        break;
+                    case TransferBalanceStatus.Failed:
+                        item.Status = Lang.Failed;
+                        break;
+                    default:
+                        return;
+                }
+            }
         }
     }
 }

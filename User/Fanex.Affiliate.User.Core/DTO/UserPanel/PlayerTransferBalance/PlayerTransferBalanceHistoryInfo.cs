@@ -20,6 +20,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance
 
         public decimal BasedAmount { get; set; }
 
+        public decimal AffPlayerAmount { get; set; }
+
         public string Status { get; set; }
     }
 }

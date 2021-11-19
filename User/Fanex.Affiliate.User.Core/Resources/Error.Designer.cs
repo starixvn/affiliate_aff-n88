@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account is closed. Please contact your administrator!.
+        ///   Looks up a localized string similar to Your account is suspended. Please contact your administrator!.
         /// </summary>
         public static string LoginClosedAccount {
             get {

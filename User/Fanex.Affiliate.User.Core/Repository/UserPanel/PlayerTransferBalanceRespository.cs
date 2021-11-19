@@ -24,6 +24,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string nRows = "NRows";
             const string totalBaseAmount = "TotalBasedAmount";
+            const string totalAffPlayerAmount = "TotalAffPlayerAmount";
             const string spKey = "Aff_TransferBalanceHistory_Sel";
 
             var result = new PlayerTransferBalanceHistoryResult();
@@ -31,11 +32,12 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             {
                 objectDb.AddOutParameter(nRows, System.Data.SqlDbType.Int, DbParam.IntSize);
                 objectDb.AddOutParameter(totalBaseAmount, System.Data.SqlDbType.Money, DbParam.MoneySize);
+                objectDb.AddOutParameter(totalAffPlayerAmount, System.Data.SqlDbType.Money, DbParam.MoneySize);
 
                 var items = objectDb.Query<PlayerTransferBalanceHistoryInfo>(param);
 
                 result.Items = items;
-                result.TotalBaseAmount = Convert.ToDecimal(objectDb.GetOuputParams()[totalBaseAmount]);
+                result.TotalBaseAmount = Convert.ToDecimal(objectDb.GetOuputParams()[totalAffPlayerAmount]);
                 result.TotalRow = Convert.ToInt32(objectDb.GetOuputParams()[nRows]);
 
                 return result;
