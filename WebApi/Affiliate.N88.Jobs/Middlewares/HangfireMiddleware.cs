@@ -157,6 +157,12 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_VIP_UPGRADE_REVIEW_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_VIP_UPGRADE_REVIEW_SETTING}")
                 );
+
+            services.AddScoped<IFetchLogAdminAdjustWalletDataTask, FetchLogAdminAdjustWalletDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING}")
+    );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -212,6 +218,7 @@ namespace Affiliate.N88.Jobs.Middlewares
 
                 RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
 
+                RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

@@ -28,5 +28,10 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<EventDrawInfo>> GetEventDraws(int id, int batchCount = 2000)
             => await Repo.FetchAsync<EventDrawInfo>(new GetEventDrawCritearia(id, batchCount));
+
+
+        [HttpGet]
+        public async Task<IEnumerable<LogAdminAjustWalletInfo>> GetLogAdminAdjustWallet(int id, int batchCount = 2000)
+            => await Repo.FetchAsync<LogAdminAjustWalletInfo>(new GetLogAdminAjustWalletCriteria(id, batchCount));
     }
 }

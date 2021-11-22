@@ -64,5 +64,8 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/Customer/GetVipUpgradeReviews")]
         Task<IEnumerable<VipUpgradeReviewInfo>> GetVipUpgradeReviews(DateTime monthDate, int pageIndex, int pageSize);
+
+        [Get("/LogReport/GetLogAdminAdjustWallet")]
+        Task<IEnumerable<LogAdminAjustWalletInfo>> GetLogAdminAdjustWallet(int id, int batchCount);
     }
 }

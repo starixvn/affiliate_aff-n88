@@ -41,5 +41,7 @@
         public const string PULL_EVENT_DRAW_SETTING = "PullEventDrawSetting";
 
         public const string PULL_VIP_UPGRADE_REVIEW_SETTING = "PullVipUpgradeReviewSetting";
+
+        public const string PULL_LOG_ADMIN_ADJUST_WALLET_SETTING = "PullLogAdminAdjustWalletSetting";
     }
 }

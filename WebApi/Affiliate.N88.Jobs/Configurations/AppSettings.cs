@@ -50,6 +50,8 @@
 
         public FetchServiceSetting PullVipUpgradeReviewSetting { get; set; }
 
+        public FetchServiceSetting PullLogAdminAdjustWalletSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
