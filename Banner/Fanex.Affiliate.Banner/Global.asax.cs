@@ -19,6 +19,7 @@
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            LoggingConfig.RegisterSentry();
         }
 
         /// <summary>
@@ -34,8 +35,8 @@
                 return;
             }
 
-            var message = exception.Message + Environment.NewLine + exception.StackTrace;
-            LogService.Error("Affiliate Media Error!" + Environment.NewLine + message + Environment.NewLine + Request.Url);
+            //var message = exception.Message + Environment.NewLine + exception.StackTrace;
+            //LogService.Error("Affiliate Media Error!" + Environment.NewLine + message + Environment.NewLine + Request.Url);
         }
     }
 }
