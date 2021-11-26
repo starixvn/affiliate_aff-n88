@@ -2225,4 +2225,7 @@
   <data name="Completed" xml:space="preserve">
     <value>เสร็จสิ้น</value>
   </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>อยู่ระหว่างดำเนินการ</value>
+  </data>
 </root>

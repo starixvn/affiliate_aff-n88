@@ -85,7 +85,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                         item.Status = Lang.Completed;
                         break;
                     case TransferBalanceStatus.Pending:
-                        item.Status = Lang.Pending;
+                        item.Status = Lang.PendingTransaction;
                         break;
                     case TransferBalanceStatus.Failed:
                         item.Status = Lang.Failed;

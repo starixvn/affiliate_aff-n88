@@ -2226,4 +2226,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="Completed" xml:space="preserve">
     <value>完成</value>
   </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>等待</value>
+  </data>
 </root>

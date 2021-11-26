@@ -159,7 +159,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private static string TranslateInsTransferRequestErrCodeToErrMsg(int errCode, string defaultErrMsg)
         {
             const int EXCHANGE_RATE_CHANGE = 101;
-            const int HAS_PENDING_TRANS = 103;
+            const int HAS_PENDING_TRANS = 102;
 
             switch (errCode)
             {

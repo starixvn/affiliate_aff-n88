@@ -76,6 +76,10 @@
   //  "inputFile": "www/source/styles/pages/statistics.scss"
   //},
   //{
+  //  "outputFile": "www/build/styles/css/player-transfer-balance.css",
+  //  "inputFile": "www/source/styles/pages/player-transfer-balance.scss"
+  //},
+  //{
   //  "outputFile": "www/build/styles/css/statement-history.css",
   //  "inputFile": "www/source/styles/pages/statement-history.scss"
   //},

@@ -2199,4 +2199,7 @@
   <data name="Completed" xml:space="preserve">
     <value>Selesai</value>
   </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Tertunda</value>
+  </data>
 </root>

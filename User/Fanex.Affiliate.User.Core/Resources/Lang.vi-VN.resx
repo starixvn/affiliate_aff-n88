@@ -2395,4 +2395,7 @@
   <data name="Completed" xml:space="preserve">
     <value>Hoàn thành</value>
   </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Đang xử lý</value>
+  </data>
 </root>

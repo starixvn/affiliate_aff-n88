@@ -4787,6 +4787,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pending.
+        /// </summary>
+        public static string PendingTransaction {
+            get {
+                return ResourceManager.GetString("PendingTransaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Peru .
         /// </summary>
         public static string Peru {
