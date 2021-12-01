@@ -17,6 +17,11 @@
             return IsShowNegative(value, digit) ? $"-{symbol}{Math.Abs(value).FormatDecimal(digit)}" : $"{symbol}{value.FormatDecimal(digit)}";
         }
 
+        public static string ToStringMoneyWithCurrencySymbol(this decimal value, string currencySymbol = "", byte digit = 2)
+        {
+            return IsShowNegative(value, digit) ? $"{currencySymbol}-{Math.Abs(value).FormatDecimal(digit)}" : $"{currencySymbol}{value.FormatDecimal(digit)}";
+        }
+
         public static string FormatDecimal(this decimal value, byte digit = 2)
         {
             var format = "N" + digit.ToString();
