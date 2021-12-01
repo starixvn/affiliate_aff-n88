@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using Fanex.Logging;
-using Fanex.Logging.Sentry;
-using Sentry;
+using Fanex.Logging.Sentry.RavenClient;
+using SharpRaven;
 
 namespace Fanex.Affiliate.Link
 {
@@ -14,18 +14,16 @@ namespace Fanex.Affiliate.Link
             var appSetting = ConfigurationManager.AppSettings;
             var env = appSetting.Get("Environment");
             var backEndDsn = appSetting.Get("SentryBackEndDsn");
-            var frontEndDsn = appSetting.Get("SentryFrontEndDsn");
             var category = appSetting.Get("LoggingCategory");
-            var isRegisterSentry = string.Equals(appSetting.Get("IsRegisterSentry"), "true", System.StringComparison.CurrentCultureIgnoreCase);
+            var isRegisterSentry = string.Equals(appSetting.Get("IsRegisterSentry"), "true", StringComparison.CurrentCultureIgnoreCase);
 
-            if (isRegisterSentry && !string.IsNullOrEmpty(backEndDsn) && !string.IsNullOrEmpty(frontEndDsn))
+            if (isRegisterSentry && !string.IsNullOrEmpty(backEndDsn))
             {
                 LogManager.SetDefaultLogCategory(category).Use(new List<ILogEngine>
                 {
                     new SentryLogging(new SentryEngineOptions
                     {
                         Dsn = new Dsn(backEndDsn),
-                        FrontEndDsn = new Dsn(frontEndDsn),
                         Environment = env
                     })
                 });
