@@ -81,5 +81,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string PhoneNumber { get; }
 
+        string CurrencySymbol { get; }
+
+        string CurrencyLabel { get; }
     }
 }

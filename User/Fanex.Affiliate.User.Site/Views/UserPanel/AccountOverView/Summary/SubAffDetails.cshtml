@@ -1,10 +1,11 @@
-﻿
-@{
-    Layout = null;
-    var hasScroll = Model != null && Model.Count() > 10;
-}
+﻿@using Fanex.Affiliate.User.Core.Utilities
 
 @model IEnumerable<Fanex.Affiliate.User.Core.DTO.UserPanel.SubAffDetail>
+
+@{
+    var hasScroll = Model != null && Model.Count() > 10;
+    var currencyLabel = AppSetting.Instance.CurrencyLabel;
+}
 
 <div class="table player-detail-table">
     <table>
@@ -17,9 +18,9 @@
                 <th width="10%">@Lang.ApprovalDate</th>
                 <th width="10%" hidden>@Lang.SuspensionSatus</th>
                 <th width="10%" hidden>@Lang.SuspensionDate</th>
-                <th width="10%">@Lang.TotalTurnover</th>
-                <th width="10%">@Lang.TotalGGR</th>
-                <th width="10%">@Lang.TotalCommission</th>
+                <th width="10%">@Html.Raw(Lang.TotalTurnover + currencyLabel)</th>
+                <th width="10%">@Html.Raw(Lang.TotalGGR + currencyLabel)</th>
+                <th width="10%">@Html.Raw(Lang.TotalCommission + currencyLabel)</th>
                 <th width="10%">@Lang.NumberOfActivePlayers</th>
                 <th width="10%" hidden>@Lang.Remove</th>
             </tr>
@@ -48,9 +49,9 @@
                 }
                 else
                 {
-                <tr>
-                    <td class="text-center" colspan="9">@Lang.NoInfo</td>
-                </tr>
+                    <tr>
+                        <td class="text-center" colspan="9">@Lang.NoInfo</td>
+                    </tr>
                 }
             }
         </tbody>

@@ -1,4 +1,10 @@
-﻿@model Fanex.Affiliate.User.Core.DTO.UserPanel.OverviewSummary
+﻿@using Fanex.Affiliate.User.Core.Utilities
+
+@model Fanex.Affiliate.User.Core.DTO.UserPanel.OverviewSummary
+
+@{
+    var currencySymbol = AppSetting.Instance.CurrencySymbol;
+}
 
 <div class="">
     <span class="my-account">@Lang.MyAccount</span>
@@ -25,11 +31,11 @@
                 <span class="">@Lang.Commission</span>
                 <span title="@Lang.P2pIncluded" class="glyphicon glyphicon-info-sign"></span>
             </div>
-            <span class="info-panel-content">@Model.Commission.ToStringMoneyWithSymbol()</span>
+            <span class="info-panel-content">@Model.Commission.ToStringMoneyWithCurrencySymbol(currencySymbol)</span>
         </div>
         <div class="info-panel">
             <span class="info-panel-title">@Lang.BalanceBroughtForward</span>
-            <span class="info-panel-content">@Model.BalanceBroughtForward.ToStringMoneyWithSymbol()</span>
+            <span class="info-panel-content">@Model.BalanceBroughtForward.ToStringMoneyWithCurrencySymbol(currencySymbol)</span>
         </div>
     </div>
     <div class="group group-three">
@@ -38,11 +44,11 @@
         </div>
         <div class="info-panel">
             <span class="info-panel-title">@Lang.TotalDeposit</span>
-            <span class="info-panel-content">@Model.Deposit.ToStringMoneyWithSymbol()</span>
+            <span class="info-panel-content">@Model.Deposit.ToStringMoneyWithCurrencySymbol(currencySymbol)</span>
         </div>
         <div class="info-panel">
             <span class="info-panel-title">@Lang.TotalTurnover</span>
-            <span class="info-panel-content">@Model.Turnover.ToStringMoneyWithSymbol()</span>
+            <span class="info-panel-content">@Model.Turnover.ToStringMoneyWithCurrencySymbol(currencySymbol)</span>
         </div>
     </div>
 </div>
@@ -61,7 +67,7 @@
 
             <div class="info-panel">
                 <span class="info-panel-title">@Lang.SubAffEarning </span>
-                <span class="info-panel-content">@Model.SubAffCommission.ToStringMoneyWithSymbol()</span>
+                <span class="info-panel-content">@Model.SubAffCommission.ToStringMoneyWithCurrencySymbol(currencySymbol)</span>
             </div>
         </div>
     </div>
