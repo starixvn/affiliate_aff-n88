@@ -19,7 +19,7 @@
     <Setting Key="API_CustClosingBalance_Get" SpName="API_CustClosingBalance_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_Customer_Unlock" SpName="API_Customer_Unlock" DbName="N88Licensee_Write"/>
     <Setting Key="API_BalanceInfo_Get" SpName="API_BalanceInfo_Get" DbName="N88Licensee_Read"/>
-    <Setting Key="Affiliate_TransferToPlayer" SpName="Affiliate_TransferToPlayer" DbName="N88Licensee_Read"/>
+    <Setting Key="Affiliate_TransferToPlayer" SpName="Affiliate_TransferToPlayer" DbName="N88Licensee_Write"/>
     <Setting Key="API_AdjustmentInfo_Get" SpName="API_AdjustmentInfo_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_DrawLog_Get" SpName="API_DrawLog_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_EventDraw_Get" SpName="API_EventDraw_Get" DbName="N88Licensee_Read"/>
