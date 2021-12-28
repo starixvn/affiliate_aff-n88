@@ -84,5 +84,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string CurrencySymbol { get; }
 
         string CurrencyLabel { get; }
+
+        string EndDatePromotion { get; }
     }
 }

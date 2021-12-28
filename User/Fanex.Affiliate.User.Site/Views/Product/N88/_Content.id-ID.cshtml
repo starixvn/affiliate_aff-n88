@@ -1,9 +1,10 @@
 ﻿@{
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
-<div class="adv text-center">
-    <img src="~/www/build/styles/Images/products/N88/upper-banner.id-ID.jpg?v=158572" alt="upper product banner" />
-</div>
+@*<div class="adv text-center">
+        <img src="~/www/build/styles/Images/products/N88/upper-banner.id-ID.jpg?v=158572" alt="upper product banner" />
+    </div>*@
+@{ Html.RenderPartial("~/Views/Product/N88/_CarouselItems.cshtml", "id-ID"); }
 <div>
     <p class="text-block">
         Di atas semua itu, kasino online ini sangat diarahkan untuk menawarkan tempat perjudian yang aman dan terjamin. Setiap permainan yang di sediakan memiliki estetika yang memuaskan secara visual dan elemen desain unik yang siap memanjakan pemain untuk bermain di permainan yang telah mengalami revolusi.
@@ -55,9 +56,9 @@
             </tbody>
         </table>
     </div>
-    <div class="adv text-center">
-        <img src="~/www/build/styles/Images/products/N88/lower-banner.id-ID.jpg?v=158572" alt="lower product banner" />
-    </div>
+    @*<div class="adv text-center">
+            <img src="~/www/build/styles/Images/products/N88/lower-banner.id-ID.jpg?v=158572" alt="lower product banner" />
+        </div>*@
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">2. CASINO PRODUCTS</p>
@@ -88,7 +89,7 @@
         </table>
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml"); }
-<p class="text-block">
-    Semua produk taruhan terdaftar dalam program afiliasi @siteName. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi @siteName kami hari ini!
-</p>
+    <p class="text-block">
+        Semua produk taruhan terdaftar dalam program afiliasi @siteName. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi @siteName kami hari ini!
+    </p>
 </div>

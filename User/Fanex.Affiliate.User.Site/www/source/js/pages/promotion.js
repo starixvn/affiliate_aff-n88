@@ -1,5 +1,5 @@
 ﻿var Promo = (function ($) {
-    const endDate = new Date("2021-12-31T16:00:00.000Z");
+    const endDate = new Date(window.dic.EndDatePromotion);
     const one_day = 60 * 60 * 24 * 1000;
     const one_hour = 60 * 60 * 1000;
     const one_min = 60 * 1000;

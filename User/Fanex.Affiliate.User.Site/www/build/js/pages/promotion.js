@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 var Promo = (function ($) {
-    var endDate = new Date("2021-12-31T16:00:00.000Z");
+    var endDate = new Date(window.dic.EndDatePromotion);
     var one_day = 60 * 60 * 24 * 1000;
     var one_hour = 60 * 60 * 1000;
     var one_min = 60 * 1000;

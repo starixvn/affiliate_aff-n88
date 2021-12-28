@@ -90,5 +90,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string CurrencySymbol => GetValue("CurrencySymbol");
 
         public string CurrencyLabel => GetValue("CurrencyLabel");
+
+        public string EndDatePromotion => GetValue("EndDatePromotion");
     }
 }

@@ -1,9 +1,10 @@
 ﻿@{
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
-<div class="adv text-center">
-    <img src="~/www/build/styles/Images/products/N88/upper-banner.zh-CN.jpg?v=158572" alt="upper product banner" />
-</div>
+@*<div class="adv text-center">
+        <img src="~/www/build/styles/Images/products/N88/upper-banner.zh-CN.jpg?v=158572" alt="upper product banner" />
+    </div>*@
+@{ Html.RenderPartial("~/Views/Product/N88/_CarouselItems.cshtml", "zh-CN"); }
 <div>
     <p class="text-block">
         最重要的是，这在线博彩将提供您更专业，更安全的在线游戏服务。 每个游戏界面都提供视觉上令人满意的美学效果和独特的设计元素的游戏玩法，让玩家拥有丰富多彩的游戏体验。
@@ -55,9 +56,9 @@
             </tbody>
         </table>
     </div>
-    <div class="adv text-center">
-        <img src="~/www/build/styles/Images/products/N88/lower-banner.zh-CN.jpg?v=158572" alt="lower product banner" />
-    </div>
+    @*<div class="adv text-center">
+            <img src="~/www/build/styles/Images/products/N88/lower-banner.zh-CN.jpg?v=158572" alt="lower product banner" />
+        </div>*@
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">2. 娱乐城</p>
@@ -88,7 +89,7 @@
         </table>
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml"); }
-<p class="text-block">
-    所有投注产品都列在@(siteName)会员计划中。 我们邀请您成为我们的长期合作伙伴之一。 以我们的品牌知名度贡献给您的广告以吸引客户。 共同提高您稳定的收入与更高的提成金额； 立即加入我们的@(siteName)合营代理！
-</p>
+    <p class="text-block">
+        所有投注产品都列在@(siteName)会员计划中。 我们邀请您成为我们的长期合作伙伴之一。 以我们的品牌知名度贡献给您的广告以吸引客户。 共同提高您稳定的收入与更高的提成金额； 立即加入我们的@(siteName)合营代理！
+    </p>
 </div>
