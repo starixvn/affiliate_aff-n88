@@ -711,6 +711,10 @@
     <Content Include="www\build\js\pages\login.min.js">
       <DependentUpon>login.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\pages\product.js" />
+    <Content Include="www\build\js\pages\product.min.js">
+      <DependentUpon>product.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\pages\promotion.js" />
     <Content Include="www\build\js\pages\promotion.min.js">
       <DependentUpon>promotion.js</DependentUpon>
@@ -903,14 +907,22 @@
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
-    <Content Include="www\build\styles\Images\products\N88\lower-banner.en-US.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\lower-banner.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\lower-banner.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\lower-banner.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\upper-banner.en-US.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\upper-banner.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\upper-banner.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\products\N88\upper-banner.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80-Mobile.en-US.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80-Mobile.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80-Mobile.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80-Mobile.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-80.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\promotion.mobile.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\promotion.mobile.id-ID.jpg" />
@@ -955,6 +967,7 @@
     <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
+    <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\promotion.js" />
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
@@ -1353,7 +1366,6 @@
     <Content Include="Views\Product\N88\_Content.en-US.cshtml" />
     <Content Include="Views\Product\N88\_Content.id-ID.cshtml" />
     <Content Include="Views\Product\N88\_Content.th-TH.cshtml" />
-    <Content Include="Views\Product\N88\_Content.vi-VN.cshtml" />
     <Content Include="Views\Product\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\N8B\_Content.en-US.cshtml" />
     <Content Include="Views\Product\N8B\_Content.id-ID.cshtml" />
@@ -1385,6 +1397,7 @@
     <Content Include="Views\Promotion\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\Promotion\N8B\_Content.en-US.cshtml" />
     <Content Include="Views\Promotion\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N88\_CarouselItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

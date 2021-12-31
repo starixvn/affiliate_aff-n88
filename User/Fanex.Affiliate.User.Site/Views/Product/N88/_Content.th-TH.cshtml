@@ -1,9 +1,10 @@
 ﻿@{
     var siteName = AppSetting.Instance.SiteFriendlyName;
 }
-<div class="adv text-center">
-    <img src="~/www/build/styles/Images/products/N88/upper-banner.th-TH.jpg?v=158572" alt="upper product banner" />
-</div>
+@*<div class="adv text-center">
+        <img src="~/www/build/styles/Images/products/N88/upper-banner.th-TH.jpg?v=158572" alt="upper product banner" />
+    </div>*@
+@{ Html.RenderPartial("~/Views/Product/N88/_CarouselItems.cshtml", "th-TH"); }
 <div>
     <p class="text-block">
         สิ่งที่สำคัญที่สุดคาสิโนออนไลน์นี้มุ่งเน้นอย่างมากที่จะเสนอสถานที่เล่นการพนันที่ปลอดภัย เกมส์แต่ละเกมส์ถูกออกแบบให้ความสวยงามเป็นที่น่าพึงพอใจและองค์ประกอบการออกแบบที่ไม่เหมือนใคร เพื่อให้ผู้เล่นได้ดื่มดำไปกับเกมส์
@@ -55,9 +56,9 @@
             </tbody>
         </table>
     </div>
-    <div class="adv text-center">
-        <img src="~/www/build/styles/Images/products/N88/lower-banner.th-TH.jpg?v=158572" alt="lower product banner" />
-    </div>
+    @*<div class="adv text-center">
+            <img src="~/www/build/styles/Images/products/N88/lower-banner.th-TH.jpg?v=158572" alt="lower product banner" />
+        </div>*@
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">ผลิตภัณฑ์คาสิโน</p>
@@ -90,7 +91,7 @@
         </table>
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml"); }
-<p class="text-block">
-    ประเภทการเดิมพันทั้งหมดเบื้องต้นต่างนับรายได้ในโปรแกรมพันธมิตร@(siteName)ทั้งสิ้น เราขอเชิญคุณมาเข้าร่วมเป็นหุ้นส่วนธุรกิจนี้เรื่อยไปให้ยาวนานในการโฆษณาและทำให้แบรนด์ของเราโดดเด่นสร้างประสบการณ์เดิมพันที่เยี่ยมยอดให้ลูกค้าและทำให้รายได้ค่าคอมมิชชั่นของคุณเติบโตต่อเนื่องตลอดไปพร้อมกับแบรนด์ของเรา เพียงร่วมโปรแกรมพันธมิตรกับเราวันนี้!
-</p>
+    <p class="text-block">
+        ประเภทการเดิมพันทั้งหมดเบื้องต้นต่างนับรายได้ในโปรแกรมพันธมิตร@(siteName)ทั้งสิ้น เราขอเชิญคุณมาเข้าร่วมเป็นหุ้นส่วนธุรกิจนี้เรื่อยไปให้ยาวนานในการโฆษณาและทำให้แบรนด์ของเราโดดเด่นสร้างประสบการณ์เดิมพันที่เยี่ยมยอดให้ลูกค้าและทำให้รายได้ค่าคอมมิชชั่นของคุณเติบโตต่อเนื่องตลอดไปพร้อมกับแบรนด์ของเรา เพียงร่วมโปรแกรมพันธมิตรกับเราวันนี้!
+    </p>
 </div>
