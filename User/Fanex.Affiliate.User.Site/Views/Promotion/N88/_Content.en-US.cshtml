@@ -1,23 +1,73 @@
-﻿<h2 class="text-bold">Terms and Conditions</h2>
+﻿@{
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/N88/Promotion-45");
+
+    var orgBannerSrc = $"{bannerSrc}.en-US.jpg?v=166581";
+    var mobileBannerSrc = $"{bannerSrc}-Mobile.en-US.jpg?v=166581";
+}
+<h2 class="text-bold">Terms and Conditions</h2>
 <div>
     <ol>
         <li>
             <p>Promotion applies to all affiliates registered currency <span class="text-bold">MYR, IDR and THB</span>.</p>
         </li>
         <li>
-            <p>This promotion starts on 00:00:00 (GMT+8) 01/08/2021 until 23:59:59 (GMT+8) 31/12/2021.</p>
+            <p>This promotion starts on 00:00:00 (GMT+8) 01/01/2022 until 23:59:59 (GMT+8) 28/02/2022.</p>
+            <p>This promotion is available for slot products only.</p>
         </li>
         <li>
             <p>To qualify, the affiliate must have a minimum of <span class="text-bold">Five (5) Active Players</span>.</p>
+            <p>To withdraw your share, affiliate must meet the minimum of <span class="text-bold">100 USD</span>.</p>
             <p>
-                <div>Example:</div>
+                <div>Accumulation Example:</div>
                 <div>Company Net Profit = 10,000 USD</div>
                 <div>Active Player >= 5</div>
-                <div>Your Revenue Share Earn = 10,000 x <span class="text-bold">55%</span> = 5,500 USD </div>
+                <div>Your Revenue Share Earn = 10,000 x <span class="text-bold">80%</span> = 8,000 USD </div>
             </p>
         </li>
         <li>
-            <p>Nova88 reserves the rights to withdraw this campaign and also to reject or to cancel the campaign for an individual affiliate should the affiliate violate our house rules and T&C.</p>
+            <p>
+                Nova88 reserves the rights to withdraw this campaign and also to reject or to cancel the campaign for an individual affiliate should the affiliate violate our house rules and T&C.
+            </p>
+        </li>
+        <li>
+            <p>After the promotion ends, the percentage of commission will be set back to default as same as “commission plan” in affiliate websites.</p>
+        </li>
+        <li>
+            <p>Nova88 Terms & Conditions apply.</p>
+        </li>
+    </ol>
+</div>
+
+<div class="banner banner-80-percent">
+    <picture>
+        <source media="(max-width:480px)" srcset="@(mobileBannerSrc)" type="image/jpeg" />
+        <source srcset="@(orgBannerSrc)" type="image/jpeg" />
+        <img class="img-item img-responsive" src="@(orgBannerSrc)" alt="promtion banner 80%" />
+    </picture>
+</div>
+<h2 class="text-bold">Terms and Conditions</h2>
+<div>
+    <ol>
+        <li>
+            <p>Promotion applies to all affiliates registered currency <span class="text-bold">MYR, IDR and THB</span>.</p>
+        </li>
+        <li>
+            <p>This promotion starts on 00:00:00 (GMT+8) 01/01/2022 until 23:59:59 (GMT+8) 28/02/2022.</p>
+        </li>
+        <li>
+            <p>To qualify, the affiliate must have a minimum of <span class="text-bold">Five (5) Active Players</span>.</p>
+            <p>To withdraw your share, affiliate must meet the minimum of <span class="text-bold">100 USD</span>.</p>
+            <p>
+                <div>Accumulation Example:</div>
+                <div>Company Net Profit = 10,000 USD</div>
+                <div>Active Player >= 5</div>
+                <div>Your Revenue Share Earn = 10,000 x <span class="text-bold">45%</span> = 4,500 USD </div>
+            </p>
+        </li>
+        <li>
+            <p>
+                Nova88 reserves the rights to withdraw this campaign and also to reject or to cancel the campaign for an individual affiliate should the affiliate violate our house rules and T&C.
+            </p>
         </li>
         <li>
             <p>After the promotion ends, the percentage of commission will be set back to default as same as “commission plan” in affiliate websites.</p>

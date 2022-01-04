@@ -3,13 +3,18 @@
     flex-direction: column;
 
     .banner {
-        display:flex;
+        display: flex;
         flex-direction: column;
-        align-items:center;
+        align-items: center;
         align-self: center;
         width: 100%;
-        .count-down{
+
+        .count-down {
             align-self: flex-end;
+        }
+
+        &-80-percent {
+            margin: 56px 0;
         }
     }
 

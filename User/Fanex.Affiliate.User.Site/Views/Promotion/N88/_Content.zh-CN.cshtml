@@ -1,19 +1,64 @@
-﻿<h2 class="text-bold">规则与条款：</h2>
+﻿@{
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/N88/Promotion-45");
+
+    var orgBannerSrc = $"{bannerSrc}.zh-CN.jpg?v=166581";
+    var mobileBannerSrc = $"{bannerSrc}-Mobile.zh-CN.jpg?v=166581";
+}
+<h2 class="text-bold">规则与条款：</h2>
 <div>
     <ol>
         <li>
             <p>本合营优惠适用于所有在NOVA88使用马币,印尼卢比和泰铢的合作伙伴。</p>
         </li>
         <li>
-            <p>本合营优惠开始于2021年08月01日00:00:00到2021年 12月31日23:59:59（北京时间）</p>
+            <p>本合营优惠开始于2022年01月01日00:00:00到2022年 02月28日23:59:59（北京时间）</p>
+            <p>此促销活动仅适用于老虎机产品。</p>
         </li>
         <li>
-            <p>合作伙伴每月只需要最低5位有效会员即可获得55%佣金</p>
+            <p>要获得资格，合作伙伴每月只需要最低5位有效会员。</p>
+            <p>要提取您的份额如何，附属公司必须满足最低 100 美元的要求。</p>
             <p>
                 <div>例如：</div>
-                <div>公司净盈利=10,000 USD</div>
-                <div>本月有效会员 >= 5</div>
-                <div>合营伙伴佣金=10,000*55%=5,500 USD</div>
+                <div>公司净盈利 = 10,000 USD</div>
+                <div>本月有效会员 => 5</div>
+                <div>合营伙伴佣金 = 10,000 * 80% = 8,000 USD</div>
+            </p>
+        </li>
+        <li>
+            <p>如有需要，NOVA88也有权改变或修正和/或增加任何条款，且不需要任何理由或者提前通知。若出现做假者，NOVA88有权取消合作。</p>
+        </li>
+        <li>
+            <p>活动结束后，佣金比例将依网站“合营佣金方案”重新设置。</p>
+        </li>
+        <li>
+            <p>适用Nova88条款和条件。</p>
+        </li>
+    </ol>
+</div>
+
+<div class="banner banner-80-percent">
+    <picture>
+        <source media="(max-width:480px)" srcset="@(mobileBannerSrc)" type="image/jpeg" />
+        <source srcset="@(orgBannerSrc)" type="image/jpeg" />
+        <img class="img-item img-responsive" src="@(orgBannerSrc)" alt="promtion banner 80%" />
+    </picture>
+</div>
+<div>
+    <ol>
+        <li>
+            <p>本合营优惠适用于所有在NOVA88使用马币,印尼卢比和泰铢的合作伙伴。</p>
+        </li>
+        <li>
+            <p>本合营优惠开始于2022年01月01日00:00:00到2022年 02月28日23:59:59（北京时间）</p>
+        </li>
+        <li>
+            <p>要获得资格，合作伙伴每月只需要最低5位有效会员。</p>
+            <p>要提取您的份额如何，附属公司必须满足最低 100 美元的要求。</p>
+            <p>
+                <div>例如：</div>
+                <div>公司净盈利 = 10,000 USD</div>
+                <div>本月有效会员 => 5</div>
+                <div>合营伙伴佣金 = 10,000 * 45% = 4,500 USD</div>
             </p>
         </li>
         <li>

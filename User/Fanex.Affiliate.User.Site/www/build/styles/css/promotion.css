@@ -9,6 +9,8 @@
     width: 100%; }
     #promotion .banner .count-down {
       align-self: flex-end; }
+    #promotion .banner-80-percent {
+      margin: 56px 0; }
   #promotion .main-content {
     margin: 40px 5px; }
 
