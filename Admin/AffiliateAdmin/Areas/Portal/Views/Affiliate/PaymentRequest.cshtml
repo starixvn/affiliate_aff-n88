@@ -17,7 +17,7 @@
     <script type="text/javascript">
         window.initialState = {
             licenseeName: '@(AppSetting.Instance.SiteFriendlyName)',
-            today: '@DateTime.Now.ToString("MM/dd/yyyy")',
+            today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")',
             param: @Html.Raw(Json.Encode(Model))
         }
     </script>
