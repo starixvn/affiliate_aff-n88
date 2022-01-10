@@ -38,13 +38,13 @@
             var userSession = SessionService.UserSession;
             var isInternal = SessionService.IsInternal;
 
-            var now = DateTime.Now;
+            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var landingPageParam = new LandingPageStatisticsParam
             {
                 AffId = userSession.AffId,
                 IsInternal = isInternal,
                 FromDate = new DateTime(now.Year, now.Month, 1),
-                ToDate = now
+                ToDate = now.DateTime
             };
 
             var viewModel = new LandingPageStatisticsViewModel

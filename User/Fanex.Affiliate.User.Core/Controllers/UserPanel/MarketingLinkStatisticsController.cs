@@ -1,4 +1,5 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -23,7 +24,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
         public ActionResult Index()
         {
-            var now = DateTime.Now;
+            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var startMonth = new DateTime(now.Year, now.Month, 1);
             var languages = LanguageService.GetLanguageList(SessionService.IsInternal).Select(l => new SelectListItem
             {
@@ -34,7 +35,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var viewModel = new MarketingPageStatisticsViewModel
             {
                 FromDate = startMonth,
-                ToDate = now,
+                ToDate = now.DateTime,
                 IncludeInActiveLink = false
             };
 
