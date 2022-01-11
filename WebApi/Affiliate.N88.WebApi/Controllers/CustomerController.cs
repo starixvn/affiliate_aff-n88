@@ -174,7 +174,7 @@ namespace Affiliate.N88.WebApi.Controllers
             }
             catch (Exception ex)
             {
-                LogService.Error($"{ex.Message}");
+                await LogService.ErrorAsync($"{ex.Message}");
                 throw;
             }
 

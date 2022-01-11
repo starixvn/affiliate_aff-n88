@@ -14,7 +14,11 @@ namespace Affiliate.N88.WebApi
             var isTest = bool.Parse(ConfigurationManager.AppSettings["IsTest"]);
 
             config.MapHttpAttributeRoutes();
-
+            config.Routes.MapHttpRoute(
+                name: "FakeApi",
+                routeTemplate: "api/Account/{action}/{id}",
+                defaults: new { controller = "Fake", id = RouteParameter.Optional }
+            );
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
