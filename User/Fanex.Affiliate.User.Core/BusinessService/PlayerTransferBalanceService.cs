@@ -5,6 +5,7 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Api;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
+using Fanex.Affiliate.User.Core.MetalModels.Api;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
@@ -12,6 +13,7 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Fanex.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     {
         private readonly IPlayerTransferBalanceRepository _repo;
         private readonly ILicenseeApi _api;
+        private readonly IAccountApi _accountApi;
         private readonly ISessionService _sessionService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthRepository _authRepository;
@@ -34,6 +37,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public PlayerTransferBalanceService(IPlayerTransferBalanceRepository playerTransferBalanceRepository, 
             IAppSetting appSetting,
             ILicenseeApi licenseeApi,
+            IAccountApi accountApi,
             ISessionService sessionService,
             IAuthRepository authRepository,
             ILogger logger)
@@ -97,8 +101,18 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return (GENERAL_ERR, Lang.AmountMustPositiveNumber);
             }
 
-            var accWalletInfos = await _api.GetCustBalanceAsync(new[] { summaryInfo.PaymentAccountId });
+            var accWalletInfos = await _api.GetCustBalanceAsync(new[] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
+            var playerWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PlayerId);
             var affWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PaymentAccountId);
+
+            if (playerWalletInfo == null)
+            {
+                return (GENERAL_ERR, Lang.InvalidPlayer);
+            }    
+            if(affWalletInfo == null)
+            {
+                return (GENERAL_ERR, Error.PaymentAccNotActive);
+            }
 
             var baseAmount = param.Amount * param.PlayerExRate;
             if (baseAmount > summaryInfo.RemainTransferLimit || baseAmount > affWalletInfo.Balance)
@@ -152,7 +166,35 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
 
             var updResult = _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Completed);
+            if (updResult.ErrCode == 0 && playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS )
+            {
+                await ActiveDepositActStatusAsync(playerWalletInfo.CustId);
+            }
             return (updResult.ErrCode, updResult.ErrMsg);
+
+        }
+
+        private async Task ActiveDepositActStatusAsync(int custId)
+        {
+            var param = new AccountParam
+            {
+                CustId = custId,
+                Operator = ApiConstant.OPERATOR
+            };
+            try
+            {
+                var result = await _accountApi.ActiveCustActStatus(param);
+
+                if (!result.Data)
+                {
+                    await _logger.ErrorAsync($"Failed active deposit ActStatus of player {custId}\n" +
+                        $"Return result: {JsonConvert.SerializeObject(result)}");
+                }
+            }
+            catch (Exception ex)
+            {
+                await _logger.ErrorAsync($"Failed active deposit ActStatus of player {custId}", ex);
+            }
 
         }
 

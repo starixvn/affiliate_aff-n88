@@ -130,6 +130,12 @@ namespace Fanex.Affiliate.User.Site
                 {
                     BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
                 }));
+
+            builder.RegisterInstance(RestService.For<IAccountApi>(
+                new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(appSetting.AccountSiteApiUrl)
+                }));
         }
     }
 }

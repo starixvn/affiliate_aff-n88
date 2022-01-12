@@ -77,6 +77,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
+        public string AccountSiteApiUrl => GetValue("AccountSiteApiUrl");
+
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
 
         public string MemberSiteProxyUrl => GetValue("MemberSiteProxyUrl");
@@ -92,5 +94,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
         public string CurrencyLabel => GetValue("CurrencyLabel");
 
         public string EndDatePromotion => GetValue("EndDatePromotion");
+
     }
 }

@@ -16,6 +16,8 @@ namespace Fanex.Affiliate.User.Core.DTO.Api
 
         public int Status { get; set; }
 
+        public int ActStatus { get; set; }
+
         public decimal Balance { get; set; }
     }
 }
