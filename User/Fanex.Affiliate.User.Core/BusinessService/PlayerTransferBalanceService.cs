@@ -44,6 +44,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             _repo = playerTransferBalanceRepository;
             _api = licenseeApi;
+            _accountApi = accountApi;
             _sessionService = sessionService;
             _appSetting = appSetting;
             _authRepository = authRepository;
