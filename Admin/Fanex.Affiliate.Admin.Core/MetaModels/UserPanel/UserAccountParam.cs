@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
-using Fanex.Data.Repository;
+using Fanex.Data;
 
 namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {

@@ -1,9 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Caching;
+using Fanex.Data;
+using Fanex.Data.OldConnectionStringProvider;
 using ONEbook.UM;
 using ONEbook.UM.Configurations;
 using ONEbook.UM.Helpers;
@@ -25,7 +28,13 @@ namespace AffiliateAdmin
 
             UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
-            Fanex.Data.Configuration.DbSettingProviderManager.Current.Start();
+            DbSettingProviderManager
+                  .StartNewSession()
+                  .Use(new OldConnectionStringProvider())
+                  .UseDefaultDbSettingProvider(
+                    resourcePath: Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\SpConfig\SpName.xml"),
+                    enableWatching: true)
+                  .Run();
 
             AreaRegistration.RegisterAllAreas();
             LoggingConfig.RegisterSentry();
