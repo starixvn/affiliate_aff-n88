@@ -2,7 +2,7 @@
 using System.Web.SessionState;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Services.Common;
-using ONEbook.UM.Filters;
+using ONEbook.UM.AspNetMVC.Filters;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {

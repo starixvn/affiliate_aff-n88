@@ -2,6 +2,13 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Apis;
 using Fanex.Affiliate.User.Core.Infrastructure;
+using Fanex.Caching;
+using ONEbook.UM;
+using ONEbook.UM.Configurations;
+using ONEbook.UM.Helpers;
+using ONEbook.UM.NETFramework;
+using ONEbook.UM.Services;
+using ONEbook.UM.Transport;
 using Refit;
 using System;
 using System.Configuration;
@@ -24,6 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
             builder.RegisterAssemblyTypes(asselmblyList).AsImplementedInterfaces();
 
+            builder.RegisterDependencies();
             builder.RegisterMemberSiteApi();
 
             // Register your MVC controllers. (MvcApplication is the name of
@@ -40,6 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
             // Set the dependency resolver to be Autofac.
 
             var container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
@@ -75,5 +84,23 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
                 }));
         }
 
+        private static void RegisterDependencies(this ContainerBuilder builder)
+        {
+            builder.RegisterInstance(new UMClientConfiguration().Initialize());
+            builder.RegisterInstance<ICacheService>(new CacheService());
+            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+
+            builder.Register<IMaintenanceService>(cont =>
+            {
+                return new MaintenanceService(UMClientManager.RestClient,
+                                  UMClientManager.CacheService,
+                                  UMClientManager.UMClientConfigs,
+                                  UMClientManager.HttpContext);
+            });
+        }
     }
 }

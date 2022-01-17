@@ -3,6 +3,12 @@ using System.Web;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using Fanex.Caching;
+using ONEbook.UM;
+using ONEbook.UM.Configurations;
+using ONEbook.UM.Helpers;
+using ONEbook.UM.NETFramework;
+using ONEbook.UM.Transport;
 
 namespace AffiliateAdmin
 {
@@ -16,6 +22,8 @@ namespace AffiliateAdmin
             IoCConfig.Register();
 
             SslConfig.RegisterHttpSecurityProtocol();
+
+            UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             Fanex.Data.Configuration.DbSettingProviderManager.Current.Start();
 
