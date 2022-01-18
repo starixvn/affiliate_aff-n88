@@ -16,6 +16,7 @@ namespace Fanex.Affiliate.User.Site
             IoCConfig.Register();
             AreaRegistration.RegisterAllAreas();
 
+            UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);

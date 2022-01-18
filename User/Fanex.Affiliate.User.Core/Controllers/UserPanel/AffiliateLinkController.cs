@@ -6,7 +6,7 @@
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
-    using ONEbook.UM.Filters;
+    using ONEbook.UM.AspNetMVC.Filters;
     using ViewModels.UserPanel.Marketing;
 
     [CheckUMFilter]

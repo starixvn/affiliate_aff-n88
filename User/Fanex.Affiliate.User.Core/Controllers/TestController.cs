@@ -11,7 +11,7 @@
     using Fanex.Affiliate.User.Core.Resources;
     using Filters;
     using MetalModels.Email;
-    using ONEbook.UM.Filters;
+    using ONEbook.UM.AspNetMVC.Filters;
     using Utilities;
     using ViewModels;
 

@@ -11,12 +11,18 @@ using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Infrastructure;
+using Fanex.Affiliate.User.Core.MemberInfoWebService;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Caching;
+using Fanex.Caching.Memory;
 using Fanex.Logging;
-using ONEbook.UM.Services.Impl;
+using ONEbook.UM.Configurations;
+using ONEbook.UM.Helpers;
+using ONEbook.UM.NETFramework;
+using ONEbook.UM.Services;
+using ONEbook.UM.Transport;
 using Refit;
 
 namespace Fanex.Affiliate.User.Site
@@ -66,8 +72,15 @@ namespace Fanex.Affiliate.User.Site
 
         private static void RegisterDependencies(ContainerBuilder builder)
         {
+            builder.RegisterInstance(new UMClientConfiguration().Initialize());
+            builder.Register<ICache>((context) => new MemoryCache(new MemoryCacheOptions()));
+
+            builder.RegisterType<CacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterInstance(CacheService.CreateInstance(CacheType.MemoryCache)).As<ICache>();
 
             builder.RegisterType<AuthRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<SessionService>().AsImplementedInterfaces().InstancePerLifetimeScope();

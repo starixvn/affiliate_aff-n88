@@ -93,14 +93,6 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
             builder.RegisterType<UMRestClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-
-            builder.Register<IMaintenanceService>(cont =>
-            {
-                return new MaintenanceService(UMClientManager.RestClient,
-                                  UMClientManager.CacheService,
-                                  UMClientManager.UMClientConfigs,
-                                  UMClientManager.HttpContext);
-            });
         }
     }
 }
