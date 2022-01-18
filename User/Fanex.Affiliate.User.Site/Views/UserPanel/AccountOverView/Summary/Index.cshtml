@@ -1,9 +1,14 @@
-﻿@model bool
+﻿@using Fanex.Affiliate.User.Core.Constants;
+@model bool
+
+@{
+    var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
+}
 
 <div class="summary" id="summary">
     <div class="form-group">
         <div id="monthPicker" class="form-wrapper d-inline-block">
-            <input readonly id="MonthDate" data-original-date="@DateTime.Now.ToString("MM/dd/yyyy")" class="form-control d-inline-block" type="text" value="@DateTime.Now.ToString("MMM-yyyy")" />
+            <input readonly id="MonthDate" data-original-date="@now.ToString("MM/dd/yyyy")" class="form-control d-inline-block" type="text" value="@DateTime.Now.ToString("MMM-yyyy")" />
             <span class="glyphicon glyphicon-calendar" id="monthPickerTrigger"></span>
         </div>
         <div class="d-inline-block">
@@ -29,6 +34,6 @@
     </div>
 </div>
 
-<input type="hidden" id="ToDay" value="@DateTime.Now.ToString("MM/dd/yyyy")" />
+<input type="hidden" id="ToDay" value="@now.ToString("MM/dd/yyyy")" />
 
 <script src="@Url.RenderLink("~/www/build/js/summary.js")"></script>

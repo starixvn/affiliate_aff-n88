@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using Enum;
     using Fanex.Affiliate.User.Core.BusinessService;
+    using Fanex.Affiliate.User.Core.Constants;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
     using Filters;
@@ -26,13 +27,13 @@
         [AjaxOnly]
         public ActionResult Index()
         {
-            var now = DateTime.Now;
+            var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
             var referrerStatisticsParam = new ReferrerStatisticsParam
             {
                 AffId = SessionService.UserSession.AffId,
                 IsInternal = SessionService.IsInternal,
                 FromDate = new DateTime(now.Year, now.Month, 1),
-                ToDate = now,
+                ToDate = now.DateTime,
                 DeviceType = (byte)DeviceType.PCDevice
             };
 

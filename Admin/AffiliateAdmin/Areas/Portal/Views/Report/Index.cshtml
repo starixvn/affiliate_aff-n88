@@ -12,7 +12,7 @@
         window.initialState = {
             productList: @Html.Raw(Json.Encode(Model.ProductList)),
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
-            today: '@DateTime.Now.ToString("MM/dd/yyyy")',
+            today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")',
             currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
             baseCurrencyList: @Html.Raw(Json.Encode(Model.BaseCurrencyList)),
             paymentCurrencyList: @Html.Raw(Json.Encode(Model.PaymentCurrencyList)),

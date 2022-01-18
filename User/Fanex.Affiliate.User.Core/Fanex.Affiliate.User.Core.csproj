@@ -240,6 +240,7 @@
     <Compile Include="Constants\CommissionType.cs" />
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\ErrCodes.cs" />
+    <Compile Include="Constants\GMT.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
