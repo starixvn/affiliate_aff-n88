@@ -38,6 +38,11 @@
             $result.html(message);
             $result.show();
         },
+        hideResult: function hideResult(selector) {
+            selector = selector || "#messageResult";
+            var $result = $(selector);
+            $result.hide();
+        },
         getCookie: function (cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
