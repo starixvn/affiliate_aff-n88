@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.User.Core.CoreService
             _cache = cache;
         }
 
-        public bool Contain(string key)
+        public bool Contains(string key)
         {
             return _cache.Contain(key);
         }

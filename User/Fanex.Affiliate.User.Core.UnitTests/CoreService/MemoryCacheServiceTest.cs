@@ -1,9 +1,6 @@
 ﻿using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Caching;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
@@ -64,16 +61,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
 
             Assert.NotNull(cacheValue);
             Assert.NotSame(cacheValue, model);
-        }
-
-        [Fact]
-        public void Clear_WhenCall_CacheCallClear()
-        {
-            var service = CreateService();
-
-            service.Clear();
-
-            Cache.Received().Clear();
         }
 
         [Fact]

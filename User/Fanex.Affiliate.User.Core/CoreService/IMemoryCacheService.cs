@@ -2,7 +2,7 @@
 {
     public interface IMemoryCacheService
     {
-        bool Contain(string key);
+        bool Contains(string key);
 
         void Delete(string key);
 
