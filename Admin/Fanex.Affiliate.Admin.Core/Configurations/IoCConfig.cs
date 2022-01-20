@@ -88,11 +88,12 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
         {
             builder.RegisterInstance(new UMClientConfiguration().Initialize());
             builder.RegisterInstance<ICacheService>(new CacheService());
-            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+
+            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().SingleInstance();
         }
     }
 }

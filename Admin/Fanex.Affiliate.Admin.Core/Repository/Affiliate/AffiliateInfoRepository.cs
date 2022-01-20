@@ -67,22 +67,22 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
         private static void AssignAffiliateInfoParam(IObjectDb objectDb, AffiliateInfoParam param)
         {
-            objectDb.AddInParameter("AffCode", DbType.String, param.AffId);
-            objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("GroupIds", DbType.String, param.GroupIds);
-            objectDb.AddInParameter("PreferredLanguage", DbType.String, param.Language);
-            objectDb.AddInParameter("Status", DbType.String, param.Status);
-            objectDb.AddInParameter("ParentAffName", DbType.String, param.ParentAffName);
-            objectDb.AddInParameter("UserName", DbType.String, param.UserName);
-            objectDb.AddInParameter("Player_UserName", DbType.String, param.AffPlayer);
-            objectDb.AddInParameter("Email", DbType.String, param.Email);
-            objectDb.AddInParameter("SortType", DbType.Byte, param.SortBy);
-            objectDb.AddInParameter("SortDirectionType", DbType.Boolean, param.SortDirectionType);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
+            objectDb.AddInParameter("AffCode", SqlDbType.VarChar, param.AffId);
+            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
+            objectDb.AddInParameter("GroupIds", SqlDbType.NVarChar, param.GroupIds);
+            objectDb.AddInParameter("PreferredLanguage", SqlDbType.NVarChar, param.Language);
+            objectDb.AddInParameter("Status", SqlDbType.VarChar, param.Status);
+            objectDb.AddInParameter("ParentAffName", SqlDbType.NVarChar, param.ParentAffName);
+            objectDb.AddInParameter("UserName", SqlDbType.NVarChar, param.UserName);
+            objectDb.AddInParameter("Player_UserName", SqlDbType.NVarChar, param.AffPlayer);
+            objectDb.AddInParameter("Email", SqlDbType.NVarChar, param.Email);
+            objectDb.AddInParameter("SortType", SqlDbType.TinyInt, param.SortBy);
+            objectDb.AddInParameter("SortDirectionType", SqlDbType.Bit, param.SortDirectionType);
+            objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
+            objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+            objectDb.AddInParameter("IsExportExcel", SqlDbType.Bit, param.IsExportExcel);
 
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+            objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
         }
         private static AffiliateInfo BuildAffiliateInfoItem(IDataReader reader)
         {
@@ -117,18 +117,18 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
         private static void AssignFavoriteParam(IObjectDb objectDb, FavoriteParam param)
         {
-            objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-            objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
-            objectDb.AddInParameter("IsFavorite", DbType.Boolean, param.IsFavorite);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
+            objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
+            objectDb.AddInParameter("IsFavorite", SqlDbType.Bit, param.IsFavorite);
+            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
         }
 
         private static void AssignPasswordParam(IObjectDb objectDb, PasswordParam param)
         {
-            objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-            objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
-            objectDb.AddInParameter("Password", DbType.String, param.Password);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
+            objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
+            objectDb.AddInParameter("Password", SqlDbType.NVarChar, param.Password);
+            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
         }
     }
 }

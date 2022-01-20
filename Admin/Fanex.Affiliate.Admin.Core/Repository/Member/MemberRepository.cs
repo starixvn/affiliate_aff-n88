@@ -20,13 +20,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             using (var objectDb = GetObjectDb(Spkey))
             {
-                objectDb.AddInParameter("AffUsername", DbType.String, param.AffName);
-                objectDb.AddInParameter("UserName", DbType.String, param.UserName);
-                objectDb.AddInParameter("IBCUserName", DbType.String, param.IbcUserName);
-                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.AddInParameter("AffUsername", SqlDbType.NVarChar, param.AffName);
+                objectDb.AddInParameter("UserName", SqlDbType.NVarChar, param.UserName);
+                objectDb.AddInParameter("IBCUserName", SqlDbType.NVarChar, param.IbcUserName);
+                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
+                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

@@ -11,10 +11,12 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
                 return text;
             }
 
+            var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
+
             return text
-                .Replace("12Bet", AppSetting.Instance.SiteFriendlyName)
-                .Replace("12bet", AppSetting.Instance.SiteFriendlyName)
-                .Replace("12BET", AppSetting.Instance.SiteFriendlyName);
+                .Replace("12Bet", siteFriendlyName)
+                .Replace("12bet", siteFriendlyName)
+                .Replace("12BET", siteFriendlyName);
         }
     }
 }

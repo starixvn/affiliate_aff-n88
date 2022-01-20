@@ -11,7 +11,6 @@ using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Infrastructure;
-using Fanex.Affiliate.User.Core.MemberInfoWebService;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
@@ -73,14 +72,14 @@ namespace Fanex.Affiliate.User.Site
         private static void RegisterDependencies(ContainerBuilder builder)
         {
             builder.RegisterInstance(new UMClientConfiguration().Initialize());
-            builder.Register<ICache>((context) => new MemoryCache(new MemoryCacheOptions()));
+            builder.RegisterInstance<ICache>(new MemoryCache(new MemoryCacheOptions()));
+            builder.RegisterInstance<ICacheService>(new CacheService());
 
-            builder.RegisterType<CacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().InstancePerLifetimeScope();
-            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().SingleInstance();
 
             builder.RegisterType<AuthRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<SessionService>().AsImplementedInterfaces().InstancePerLifetimeScope();

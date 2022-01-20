@@ -15,8 +15,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         protected static void AssignResultOutputParam(IObjectDb objectDb)
         {
-            objectDb.AddOutParameter("ErrCode", DbType.Int32, Size.SizeOfInt);
-            objectDb.AddOutParameter("ErrMsg", DbType.String, Size.SizeOfString);
+            objectDb.AddOutParameter("ErrCode", SqlDbType.Int, Size.SizeOfInt);
+            objectDb.AddOutParameter("ErrMsg", SqlDbType.NVarChar, Size.SizeOfString);
         }
 
         protected static ResultInfo GetResultInfo(IObjectDb objectDb)

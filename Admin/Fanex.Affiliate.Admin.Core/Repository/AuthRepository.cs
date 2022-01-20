@@ -42,8 +42,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.OnUserId, DbType.Int32, onUserId);
-                objectDb.AddOutParameter("iskickedout", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddInParameter(Field.OnUserId, SqlDbType.Int, onUserId);
+                objectDb.AddOutParameter("iskickedout", SqlDbType.Int, Size.SizeOfInt);
                 objectDb.ExecuteNonQuery();
                 var isKickedOut = objectDb.GetParameterValue("iskickedout");
 
@@ -57,12 +57,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("UserName", DbType.String, param.UserName);
-                objectDb.AddInParameter("UserPwd", DbType.String, Encryption.CfsEnCode(param.Password));
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-                objectDb.AddInParameter("HostName", DbType.String, param.UserHostName);
+                objectDb.AddInParameter("UserName", SqlDbType.NVarChar, param.UserName);
+                objectDb.AddInParameter("UserPwd", SqlDbType.NVarChar, Encryption.CfsEnCode(param.Password));
+                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.AddInParameter("HostName", SqlDbType.NVarChar, param.UserHostName);
 
-                objectDb.AddOutParameter("UserId", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter("UserId", SqlDbType.Int, Size.SizeOfInt);
 
                 AssignResultOutputParam(objectDb);
 
@@ -83,13 +83,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("custid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("netsessionid", DbType.String, sessionId);
-                objectDb.AddInParameter("serverid", DbType.String, serverId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
-                objectDb.AddInParameter("subaccid", DbType.Int32, AffiliateAdminSite);
+                objectDb.AddInParameter("custid", SqlDbType.Int, param.UserId);
+                objectDb.AddInParameter("netsessionid", SqlDbType.NVarChar, sessionId);
+                objectDb.AddInParameter("serverid", SqlDbType.NVarChar, serverId);
+                objectDb.AddInParameter("ip", SqlDbType.NVarChar, param.Ip);
+                objectDb.AddInParameter("subaccid", SqlDbType.Int, AffiliateAdminSite);
 
-                objectDb.AddOutParameter(Field.OnUserId, DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter(Field.OnUserId, SqlDbType.Int, Size.SizeOfInt);
 
                 objectDb.ExecuteNonQuery();
 
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.OnUserId, DbType.Int32, onUserId);
+                objectDb.AddInParameter(Field.OnUserId, SqlDbType.Int, onUserId);
 
                 objectDb.ExecuteNonQuery();
             }

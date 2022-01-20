@@ -20,14 +20,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("SearchById", DbType.Int32, param.SearchById);
-                objectDb.AddInParameter("IsGetAll", DbType.Boolean, param.IsGetAll);
-                objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
-                objectDb.AddInParameter("ToDate", DbType.DateTime, param.ToDate);
-                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.AddInParameter("SearchById", SqlDbType.Int, param.SearchById);
+                objectDb.AddInParameter("IsGetAll", SqlDbType.Bit, param.IsGetAll);
+                objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
+                objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
+                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
+                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -61,7 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.MessageId, DbType.Int32, selectedMessageId);
+                objectDb.AddInParameter(Field.MessageId, SqlDbType.Int, selectedMessageId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -108,7 +108,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.MessageId, DbType.Int32, param.MessageId);
+                objectDb.AddInParameter(Field.MessageId, SqlDbType.Int, param.MessageId);
                 AssignParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -123,9 +123,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("MessageIds", DbType.String, param.MessageIdList);
-                objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
+                objectDb.AddInParameter("MessageIds", SqlDbType.NVarChar, param.MessageIdList);
+                objectDb.AddInParameter("userid", SqlDbType.Int, param.UserId);
+                objectDb.AddInParameter("ip", SqlDbType.VarChar, param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -137,18 +137,18 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateMessageParam param)
         {
-            objectDb.AddInParameter("IsImportant", DbType.Boolean, param.Important);
-            objectDb.AddInParameter("msgen", DbType.String, param.MessageContenten);
-            objectDb.AddInParameter("msgcn", DbType.String, param.MessageContentcs);
-            objectDb.AddInParameter("msgtw", DbType.String, param.MessageContentch);
-            objectDb.AddInParameter("msges", DbType.String, param.MessageContentes);
-            objectDb.AddInParameter("msgth", DbType.String, param.MessageContentth);
-            objectDb.AddInParameter("msgvi", DbType.String, param.MessageContentvn);
-            objectDb.AddInParameter("msgid", DbType.String, param.MessageContentid);
-            objectDb.AddInParameter("msgkr", DbType.String, param.MessageContentko);
-            objectDb.AddInParameter("msgjp", DbType.String, param.MessageContentjp);
-            objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.AddInParameter("IsImportant", SqlDbType.Bit, param.Important);
+            objectDb.AddInParameter("msgen", SqlDbType.NVarChar, param.MessageContenten);
+            objectDb.AddInParameter("msgcn", SqlDbType.NVarChar, param.MessageContentcs);
+            objectDb.AddInParameter("msgtw", SqlDbType.NVarChar, param.MessageContentch);
+            objectDb.AddInParameter("msges", SqlDbType.NVarChar, param.MessageContentes);
+            objectDb.AddInParameter("msgth", SqlDbType.NVarChar, param.MessageContentth);
+            objectDb.AddInParameter("msgvi", SqlDbType.NVarChar, param.MessageContentvn);
+            objectDb.AddInParameter("msgid", SqlDbType.NVarChar, param.MessageContentid);
+            objectDb.AddInParameter("msgkr", SqlDbType.NVarChar, param.MessageContentko);
+            objectDb.AddInParameter("msgjp", SqlDbType.NVarChar, param.MessageContentjp);
+            objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
+            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

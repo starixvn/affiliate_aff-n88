@@ -17,7 +17,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", DbType.Int32, affId);
+                objectDb.AddInParameter("AffID", SqlDbType.Int, affId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -67,8 +67,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("month", DbType.Int32, param.SelectedMonth.Month);
-                objectDb.AddInParameter("year", DbType.Int32, param.SelectedMonth.Year);
+                objectDb.AddInParameter("month", SqlDbType.Int, param.SelectedMonth.Month);
+                objectDb.AddInParameter("year", SqlDbType.Int, param.SelectedMonth.Year);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -84,8 +84,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static void AssignCommonParam(IObjectDb objectDb, TrackingStatisticsParam param)
         {
-            objectDb.AddInParameter("AffID", DbType.Int32, param.AffId);
-            objectDb.AddInParameter("TrackingCode", DbType.String, param.TrackingCode);
+            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
+            objectDb.AddInParameter("TrackingCode", SqlDbType.NVarChar, param.TrackingCode);
         }
 
         private static TrackingStatistics BuildTrackingStatisticsItem(IDataReader reader)

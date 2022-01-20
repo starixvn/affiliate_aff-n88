@@ -20,7 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserName, DbType.String, userNames);
+                objectDb.AddInParameter(Field.UserName, SqlDbType.NVarChar, userNames);
                 AssignResultOutputParam(objectDb);
 
                 using (var reader = objectDb.ExecuteReader())

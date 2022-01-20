@@ -15,9 +15,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", DbType.Int32, affId);
+                objectDb.AddInParameter("AffID", SqlDbType.Int, affId);
 
-                objectDb.AddOutParameter("BalBroughtForward", DbType.Currency, Size.SizeOfCurrency);
+                objectDb.AddOutParameter("BalBroughtForward", SqlDbType.Money, Size.SizeOfCurrency);
 
                 objectDb.ExecuteNonQuery();
 
@@ -32,11 +32,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             const string SpKey = "Aff_Admin_AffiliateAdjustment_Ins";
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", DbType.Int32, param.AffId);
-                objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("Amount", DbType.Decimal, param.Amount);
-                objectDb.AddInParameter("transdesc", DbType.String, param.Description);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
+                objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
+                objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
+                objectDb.AddInParameter("Amount", SqlDbType.Money, param.Amount);
+                objectDb.AddInParameter("transdesc", SqlDbType.NVarChar, param.Description);
+                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
 
                 AssignResultOutputParam(objectDb);
 

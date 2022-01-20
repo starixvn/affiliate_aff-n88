@@ -20,7 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("MarketId", DbType.String, market);
+                objectDb.AddInParameter("MarketId", SqlDbType.NVarChar, market);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("DomainControlId", DbType.Int32, param.DomainId);
+                objectDb.AddInParameter("DomainControlId", SqlDbType.Int, param.DomainId);
 
                 AssignParam(objectDb, param);
 
@@ -82,9 +82,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("DomainControlId", DbType.Int32, param.DomainId);
-                objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
+                objectDb.AddInParameter("DomainControlId", SqlDbType.Int, param.DomainId);
+                objectDb.AddInParameter("userid", SqlDbType.Int, param.UserId);
+                objectDb.AddInParameter("ip", SqlDbType.VarChar, param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -96,12 +96,12 @@ namespace Fanex.Affiliate.Admin.Core.Services.Domain
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateDomainControlParam param)
         {
-            objectDb.AddInParameter("AffDomainID", DbType.Int32, param.AffDomainId);
-            objectDb.AddInParameter("LicenseeDomainId", DbType.Int32, param.RedirectDomainId);
-            objectDb.AddInParameter("MarketID", DbType.String, param.MarketId);
-            objectDb.AddInParameter("Status", DbType.Int32, param.IsUsed);
-            objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.AddInParameter("AffDomainID", SqlDbType.Int, param.AffDomainId);
+            objectDb.AddInParameter("LicenseeDomainId", SqlDbType.Int, param.RedirectDomainId);
+            objectDb.AddInParameter("MarketID", SqlDbType.NVarChar, param.MarketId);
+            objectDb.AddInParameter("Status", SqlDbType.Int, param.IsUsed);
+            objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
+            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

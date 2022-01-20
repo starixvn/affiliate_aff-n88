@@ -62,18 +62,18 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static void AssignParam(PlayerDetailParam param, IObjectDb objectDb)
         {
-            objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
-            objectDb.AddInParameter("ProductId", DbType.Byte, param.ProductId);
-            objectDb.AddInParameter("MonthDate", DbType.DateTime, param.MonthDate);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-            objectDb.AddInParameter("IsSortAsc", DbType.Boolean, param.IsSortAsc);
-            objectDb.AddInParameter("SortById", DbType.Int32, param.SortById);
-            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
-            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
+            objectDb.AddInParameter("AffId", SqlDbType.Int, param.AffId);
+            objectDb.AddInParameter("ProductId", SqlDbType.TinyInt, param.ProductId);
+            objectDb.AddInParameter("MonthDate", SqlDbType.DateTime, param.MonthDate);
+            objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
+            objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+            objectDb.AddInParameter("IsExportExcel", SqlDbType.Bit, param.IsExportExcel);
+            objectDb.AddInParameter("IsSortAsc", SqlDbType.Bit, param.IsSortAsc);
+            objectDb.AddInParameter("SortById", SqlDbType.Int, param.SortById);
+            objectDb.AddInParameter("BaseCurrency", SqlDbType.Int, param.BaseCurrencyId);
+            objectDb.AddInParameter("Currencies", SqlDbType.NVarChar, param.CurrencyIds);
 
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+            objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
         }
     }
 }

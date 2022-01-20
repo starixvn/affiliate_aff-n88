@@ -43,10 +43,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             {
                 AssignCommonParam(objectDb, param);
 
-                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
+                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -65,12 +65,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
         private static void AssignCommonParam(IObjectDb objectDb, LandingPageStatisticsParam param)
         {
-            objectDb.AddInParameter("AffID", DbType.Int32, param.AffId);
-            objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", DbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("SportCode", DbType.String, param.SelectedPage);
-            objectDb.AddInParameter("LanguageCode", DbType.String, param.LanguageCode);
-            objectDb.AddInParameter("DeviceType", DbType.Int16, param.DeviceType);
+            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
+            objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
+            objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
+            objectDb.AddInParameter("SportCode", SqlDbType.NVarChar, param.SelectedPage);
+            objectDb.AddInParameter("LanguageCode", SqlDbType.NVarChar, param.LanguageCode);
+            objectDb.AddInParameter("DeviceType", SqlDbType.TinyInt, param.DeviceType);
         }
 
         private static LandingPageStatistics BuildLandingPageStatisticsItem(IDataReader reader, bool isGetLandingPageStatisticsList)

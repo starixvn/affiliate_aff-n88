@@ -15,27 +15,25 @@ namespace Fanex.Affiliate.User.Core.CoreService
             _cache = cache;
         }
 
-        public bool Contains(string key)
+        public bool Contain(string key)
         {
             return _cache.Contain(key);
         }
 
         public T Get<T>(string key)
         {
-            _cache.TryGet<T>(key, out T value);
+            if (_cache.TryGet<T>(key, out T value))
+            {
+                return DeepClone(value);
+            }
 
-            return DeepClone(value);
+            return value;
         }
 
         public void Set<T>(string key, T value, int seconds = TIMEOUT)
         {
             var cachePolicy = new CacheItemOptions().SetAbsoluteExpiration(TimeSpan.FromSeconds(seconds));
             _cache.Set(key, DeepClone(value), cachePolicy);
-        }
-
-        public void Clear()
-        {
-            //_cache.Dispose();
         }
 
         public void Delete(string key)
