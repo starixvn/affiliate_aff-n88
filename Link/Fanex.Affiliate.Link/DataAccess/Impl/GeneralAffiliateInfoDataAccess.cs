@@ -2,7 +2,7 @@
 {
     using System;
     using System.Data;
-    using Fanex.Affiliate.Link.Criterias;
+    using Fanex.Affiliate.Link.Commands;
     using Fanex.Affiliate.Link.DataAccess.Interface;
     using Fanex.Data;
     using Fanex.Data.SqlServer;
