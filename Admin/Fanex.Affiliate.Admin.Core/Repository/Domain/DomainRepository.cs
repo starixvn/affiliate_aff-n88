@@ -45,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
         {
             using (var objectDb = GetObjectDb(spKey))
             {
-                objectDb.AddInParameter("DomainId", SqlDbType.Int, param.DomainId);
+                objectDb.SetParameterValue("DomainId", param.DomainId);
                 AssignParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -58,9 +58,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
         {
             using (var objectDb = GetObjectDb(spKey))
             {
-                objectDb.AddInParameter("DomainId", SqlDbType.Int, param.DomainId);
-                objectDb.AddInParameter("userid", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("ip", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue("DomainId", param.DomainId);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -72,10 +72,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Domain
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateDomainParam param)
         {
-            objectDb.AddInParameter("DomainName", SqlDbType.NVarChar, param.DomainName);
-            objectDb.AddInParameter("IsSSL", SqlDbType.Bit, param.IsSSL);
-            objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+            objectDb.SetParameterValue("DomainName", param.DomainName);
+            objectDb.SetParameterValue("IsSSL", param.IsSSL);
+            objectDb.SetParameterValue("UserID", param.UserId);
+            objectDb.SetParameterValue("IP", param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

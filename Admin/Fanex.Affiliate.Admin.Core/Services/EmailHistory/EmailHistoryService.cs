@@ -17,9 +17,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.EmailHistory
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("MIDs", SqlDbType.NVarChar, param.EmailIdList);
-                objectDb.AddInParameter("userid", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("ip", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue("MIDs", param.EmailIdList);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -37,7 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.EmailHistory
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("MID", SqlDbType.Int, selectedEmailId);
+                objectDb.SetParameterValue("MID", selectedEmailId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -60,15 +60,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.EmailHistory
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("SearchById", SqlDbType.Int, param.SearchById);
-                objectDb.AddInParameter("IsGetAll", SqlDbType.Bit, param.IsGetAll);
-                objectDb.AddInParameter("SearchText", SqlDbType.NVarChar, param.SearchText);
-                objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
-                objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("SearchById", param.SearchById);
+                objectDb.SetParameterValue("IsGetAll", param.IsGetAll);
+                objectDb.SetParameterValue("SearchText", param.SearchText);
+                objectDb.SetParameterValue("FromDate", param.FromDate);
+                objectDb.SetParameterValue("ToDate", param.ToDate);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

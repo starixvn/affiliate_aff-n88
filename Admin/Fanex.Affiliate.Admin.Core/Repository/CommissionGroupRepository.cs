@@ -41,8 +41,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
-                objectDb.AddInParameter("IsPrivate", SqlDbType.Bit, param.IsPrivate);
-                objectDb.AddOutParameter(Field.GroupId, SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("IsPrivate", param.IsPrivate);
+                objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 objectDb.ExecuteNonQuery();
 
@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, SqlDbType.Int, param.GroupId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -85,9 +85,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter(Field.GroupId, SqlDbType.Int, param.GroupId);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
+                objectDb.SetParameterValue("IP", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -118,8 +118,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", SqlDbType.Int, param.AffId);
-                objectDb.AddOutParameter(Field.GroupId, SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -168,10 +168,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("AffId", SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.GroupId, SqlDbType.Int, param.GroupId);
-                objectDb.AddInParameter("Ip", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
+                objectDb.SetParameterValue("Ip", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -276,13 +276,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
-            objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter(Field.GroupName, SqlDbType.NVarChar, param.GroupName);
-            objectDb.AddInParameter("Description", SqlDbType.NVarChar, param.Description);
-            objectDb.AddInParameter("DeductionList", SqlDbType.Xml, param.TierDeductionsXml);
-            objectDb.AddInParameter("StraightList", SqlDbType.Xml, param.P2pDeductionsXml);
-            objectDb.AddInParameter("TierList", SqlDbType.Xml, param.TierSettingXml);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+            objectDb.SetParameterValue(Field.UserId, param.UserId);
+            objectDb.SetParameterValue(Field.GroupName, param.GroupName);
+            objectDb.SetParameterValue("Description", param.Description);
+            objectDb.SetParameterValue("DeductionList", param.TierDeductionsXml);
+            objectDb.SetParameterValue("StraightList", param.P2pDeductionsXml);
+            objectDb.SetParameterValue("TierList", param.TierSettingXml);
+            objectDb.SetParameterValue("IP", param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

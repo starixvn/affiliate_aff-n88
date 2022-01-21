@@ -13,11 +13,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.ChangeAdminPassword
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("oldpwd", SqlDbType.NVarChar, param.OldPassword);
-                objectDb.AddInParameter("NewPwd", SqlDbType.NVarChar, param.NewPassword);
-                objectDb.AddInParameter("CustId", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue("oldpwd", param.OldPassword);
+                objectDb.SetParameterValue("NewPwd", param.NewPassword);
+                objectDb.SetParameterValue("CustId", param.UserId);
+                objectDb.SetParameterValue("UserID", param.UserId);
+                objectDb.SetParameterValue("IP", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 

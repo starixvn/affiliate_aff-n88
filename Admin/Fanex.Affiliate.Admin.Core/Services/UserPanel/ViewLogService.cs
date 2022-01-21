@@ -29,14 +29,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("LogType", SqlDbType.Int, param.LogType);
-                objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
-                objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("AffID", param.AffId);
+                objectDb.SetParameterValue("LogType", param.LogType);
+                objectDb.SetParameterValue("FromDate", param.FromDate);
+                objectDb.SetParameterValue("ToDate", param.ToDate);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

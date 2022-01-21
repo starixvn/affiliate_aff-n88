@@ -20,11 +20,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Home
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, pageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, pageSize);
+                objectDb.SetParameterValue("PageIndex", pageIndex);
+                objectDb.SetParameterValue("PageSize", pageSize);
 
-                objectDb.AddOutParameter("TotalPages", SqlDbType.Int, Size.SizeOfInt);
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("TotalPages", DefaultValue.Int);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

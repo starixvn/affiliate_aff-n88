@@ -22,13 +22,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("FDate", SqlDbType.DateTime, param.FromDate);
-                objectDb.AddInParameter("TDate", SqlDbType.DateTime, param.ToDate);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue("FDate", param.FromDate);
+                objectDb.SetParameterValue("TDate", param.ToDate);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter(Field.NRows, SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue(Field.NRows, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -65,13 +65,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(uSpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.MonthDate, SqlDbType.DateTime, param.MonthDate);
-                objectDb.AddInParameter("BaseCurrency", SqlDbType.Int, param.CurrencyId);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.MonthDate, param.MonthDate);
+                objectDb.SetParameterValue("BaseCurrency", param.CurrencyId);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter(Field.NRows, SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue(Field.NRows, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -154,11 +154,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
         }
         private static void AssignCommonParam(IObjectDb objectDb, DailyEarningParam param)
         {
-            objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("ProductId", SqlDbType.Int, param.ProductId);
-            objectDb.AddInParameter(Field.MonthDate, SqlDbType.DateTime, param.MonthDate);
-            objectDb.AddInParameter("BaseCurrency", SqlDbType.Int, param.BaseCurrencyId);
-            objectDb.AddInParameter("Currencies", SqlDbType.NVarChar, param.CurrencyIds);
+            objectDb.SetParameterValue(Field.AffId, param.AffId);
+            objectDb.SetParameterValue("ProductId", param.ProductId);
+            objectDb.SetParameterValue(Field.MonthDate, param.MonthDate);
+            objectDb.SetParameterValue("BaseCurrency", param.BaseCurrencyId);
+            objectDb.SetParameterValue("Currencies", param.CurrencyIds);
         }
 
         private static DailyEarning BuildDailyEarningItem(IDataReader reader)

@@ -17,7 +17,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, affId);
+                objectDb.SetParameterValue(Field.AffId, affId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -66,40 +66,40 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             const string SpKey = "Aff_Admin_AffiliateInfo_Upd";
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("FirstName", SqlDbType.NVarChar, param.FirstName);
-                objectDb.AddInParameter("LastName", SqlDbType.NVarChar, param.LastName);
-                objectDb.AddInParameter("Gender", SqlDbType.Bit, param.Gender);
-                objectDb.AddInParameter("Email", SqlDbType.NVarChar, param.Email);
-                objectDb.AddInParameter("Phone", SqlDbType.NVarChar, param.Phone);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue("UserId", param.UserId);
+                objectDb.SetParameterValue("FirstName", param.FirstName);
+                objectDb.SetParameterValue("LastName", param.LastName);
+                objectDb.SetParameterValue("Gender", param.Gender);
+                objectDb.SetParameterValue("Email", param.Email);
+                objectDb.SetParameterValue("Phone", param.Phone);
 
-                objectDb.AddInParameter("ContactApps", SqlDbType.NVarChar, param.ContactApps);
-                objectDb.AddInParameter("Address", SqlDbType.NVarChar, param.Address);
-                objectDb.AddInParameter("City", SqlDbType.NVarChar, param.City);
-                objectDb.AddInParameter("State", SqlDbType.NVarChar, param.State);
-                objectDb.AddInParameter("Postal", SqlDbType.NVarChar, param.Postcode);
-                objectDb.AddInParameter("Country", SqlDbType.NVarChar, param.Country);
+                objectDb.SetParameterValue("ContactApps", param.ContactApps);
+                objectDb.SetParameterValue("Address", param.Address);
+                objectDb.SetParameterValue("City", param.City);
+                objectDb.SetParameterValue("State", param.State);
+                objectDb.SetParameterValue("Postal", param.Postcode);
+                objectDb.SetParameterValue("Country", param.Country);
 
-                objectDb.AddInParameter("MailOption", SqlDbType.Bit, param.MailOption);
+                objectDb.SetParameterValue("MailOption", param.MailOption);
 
-                objectDb.AddInParameter("SiteURL", SqlDbType.NVarChar, param.SiteUrl);
-                objectDb.AddInParameter("MoreSiteURLs", SqlDbType.NVarChar, param.MoreSiteUrls);
-                objectDb.AddInParameter("NoSiteDesc", SqlDbType.NVarChar, param.NoSiteDescription);
+                objectDb.SetParameterValue("SiteURL", param.SiteUrl);
+                objectDb.SetParameterValue("MoreSiteURLs", param.MoreSiteUrls);
+                objectDb.SetParameterValue("NoSiteDesc", param.NoSiteDescription);
 
-                objectDb.AddInParameter("PreferredPayment", SqlDbType.NVarChar, param.PreferredPayment);
-                objectDb.AddInParameter("Player_Username", SqlDbType.NVarChar, param.PlayerUsername);
-                objectDb.AddInParameter("NetellerAccountId", SqlDbType.NVarChar, param.NetellerAccountId);
-                objectDb.AddInParameter("MoneybookersEmail", SqlDbType.NVarChar, param.MoneybookersEmail);
-                objectDb.AddInParameter("BankName", SqlDbType.NVarChar, param.BankName);
-                objectDb.AddInParameter("BankAddress", SqlDbType.NVarChar, param.BankAddress);
-                objectDb.AddInParameter("BankSwiftCode", SqlDbType.NVarChar, param.BankCode);
-                objectDb.AddInParameter("BankAccountName", SqlDbType.NVarChar, param.BankAccountName);
-                objectDb.AddInParameter("BankAccountNo", SqlDbType.NVarChar, param.BankAccountNumber);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue("PreferredPayment", param.PreferredPayment);
+                objectDb.SetParameterValue("Player_Username", param.PlayerUsername);
+                objectDb.SetParameterValue("NetellerAccountId", param.NetellerAccountId);
+                objectDb.SetParameterValue("MoneybookersEmail", param.MoneybookersEmail);
+                objectDb.SetParameterValue("BankName", param.BankName);
+                objectDb.SetParameterValue("BankAddress", param.BankAddress);
+                objectDb.SetParameterValue("BankSwiftCode", param.BankCode);
+                objectDb.SetParameterValue("BankAccountName", param.BankAccountName);
+                objectDb.SetParameterValue("BankAccountNo", param.BankAccountNumber);
+                objectDb.SetParameterValue("IP", param.Ip);
 
-                objectDb.AddInParameter("Player_CustId", SqlDbType.Int, param.Player_CustId);
-                objectDb.AddInParameter("Player_Currency", SqlDbType.Int, param.Player_Currency);
+                objectDb.SetParameterValue("Player_CustId", param.Player_CustId);
+                objectDb.SetParameterValue("Player_Currency", param.Player_Currency);
 
                 AssignResultOutputParam(objectDb);
 

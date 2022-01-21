@@ -20,7 +20,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetBaseCurrencies();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<Currency>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<Currency>(null, null), Times.Once);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetCurrencies();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<Currency>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<Currency>(null, null), Times.Once);
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetPaymentCurrencies();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<Currency>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<Currency>(null, null), Times.Once);
         }
     }
 }

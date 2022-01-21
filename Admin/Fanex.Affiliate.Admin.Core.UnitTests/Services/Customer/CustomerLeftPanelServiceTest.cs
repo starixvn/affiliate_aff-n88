@@ -131,7 +131,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         public void UpdateTransferLimitSetting_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = new TransferLimitSettingParam();
+            var param = new TransferLimitSettingParam { TransferLimit = 100 };
             TransferLimitSettingParam passedParam = null;
             var repository = new Mock<ICustomerLeftPanelRepository>();
             repository.Setup(comm => comm.UpdateTransferLimitSetting(param)).Returns(new ResultInfo()).Callback<TransferLimitSettingParam>(p => passedParam = p);

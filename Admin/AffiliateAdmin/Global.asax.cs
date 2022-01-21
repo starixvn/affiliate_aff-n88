@@ -1,21 +1,14 @@
 ﻿using System;
-using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Utilities;
-using Fanex.Caching;
 using Fanex.Data;
-using Fanex.Data.OldConnectionStringProvider;
-using ONEbook.UM;
-using ONEbook.UM.Configurations;
-using ONEbook.UM.Helpers;
-using ONEbook.UM.NETFramework;
-using ONEbook.UM.Transport;
+using Fanex.Data.SqlServer;
 
 namespace AffiliateAdmin
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         void Application_Start(object sender, EventArgs e)
@@ -30,10 +23,7 @@ namespace AffiliateAdmin
 
             DbSettingProviderManager
                   .StartNewSession()
-                  .Use(new OldConnectionStringProvider())
-                  .UseDefaultDbSettingProvider(
-                    resourcePath: Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\SpConfig\SpName.xml"),
-                    enableWatching: true)
+                  .WithSqlServer("~/App_Data/SpConfig/SpName.xml")
                   .Run();
 
             AreaRegistration.RegisterAllAreas();

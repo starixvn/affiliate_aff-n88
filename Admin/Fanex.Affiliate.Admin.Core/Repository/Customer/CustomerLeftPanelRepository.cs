@@ -18,7 +18,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("Username", SqlDbType.NVarChar, affUserName);
+                objectDb.SetParameterValue("Username", affUserName);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -70,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("Username", SqlDbType.NVarChar, affUserName);
+                objectDb.SetParameterValue("Username", affUserName);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, DbType.Int32, affId);
+                objectDb.SetParameterValue(Field.AffId, affId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -122,12 +122,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("AffType", SqlDbType.TinyInt, param.AffType);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("AffType", param.AffType);
+                objectDb.SetParameterValue("IP", param.Ip);
 
-                objectDb.AddOutParameter("ErrCode", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("ErrCode", DefaultValue.Int);
 
                 objectDb.ExecuteNonQuery();
 
@@ -146,10 +146,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("IsClosed", SqlDbType.Bit, param.IsClosed);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("IsClosed", param.IsClosed);
+                objectDb.SetParameterValue("IP", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -165,10 +165,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("Ip", SqlDbType.VarChar, param.Ip);
-                objectDb.AddInParameter("PreferredLanguage", SqlDbType.NVarChar, param.PreferredLanguage);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("Ip", param.Ip);
+                objectDb.SetParameterValue("PreferredLanguage", param.PreferredLanguage);
 
                 AssignResultOutputParam(objectDb);
 
@@ -184,10 +184,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter(Field.UserId, SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("Ip", SqlDbType.VarChar, param.Ip);
-                objectDb.AddInParameter("Status", SqlDbType.VarChar, param.Status);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("Ip", param.Ip);
+                objectDb.SetParameterValue("Status", param.Status);
 
                 AssignResultOutputParam(objectDb);
 
@@ -203,10 +203,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
-                objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-                objectDb.AddInParameter("DisabledTransfer", DbType.Boolean, param.DisabledTransfer);
-                objectDb.AddInParameter("TransferLimit", DbType.Decimal, param.TransferLimit);
+                objectDb.SetParameterValue(Field.AffId, param.AffId);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("DisabledTransfer", param.DisabledTransfer);
+                objectDb.SetParameterValue("TransferLimit", param.TransferLimit);
 
                 AssignResultOutputParam(objectDb);
 

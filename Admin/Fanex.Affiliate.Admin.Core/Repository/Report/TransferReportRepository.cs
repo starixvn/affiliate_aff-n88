@@ -47,18 +47,18 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 
         private static void AssignCommonParam(IObjectDb objectDb, TransferReportParam param)
         {
-            objectDb.AddInParameter("TransId", DbType.Int32, param.TransId);
-            objectDb.AddInParameter("AffName", DbType.String, param.AffName);
-            objectDb.AddInParameter("PlayerName", DbType.String, param.PlayerName);
-            objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", DbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.SetParameterValue("TransId", param.TransId);
+            objectDb.SetParameterValue("AffName", param.AffName);
+            objectDb.SetParameterValue("PlayerName", param.PlayerName);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("PageIndex", param.PageIndex);
+            objectDb.SetParameterValue("PageSize", param.PageSize);
+            objectDb.SetParameterValue("IsExportExcel", param.IsExportExcel);
+            objectDb.SetParameterValue("BaseCurrency", param.BaseCurrencyId);
 
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
-            objectDb.AddOutParameter("TotalBasedAmount", DbType.Currency, Size.SizeOfCurrency);
+            objectDb.SetParameterValue("NRows", DefaultValue.Int);
+            objectDb.SetParameterValue("TotalBasedAmount", DefaultValue.Decimal);
         }
 
         private static TransferReport BuildDataItem(IDataReader reader)

@@ -15,8 +15,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("MonthDate", SqlDbType.DateTime, param.MonthDate.Value);
+                objectDb.SetParameterValue("AffID", param.AffId);
+                objectDb.SetParameterValue("MonthDate", param.MonthDate.Value);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

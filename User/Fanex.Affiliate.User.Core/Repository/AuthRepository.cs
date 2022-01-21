@@ -38,7 +38,7 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = _builder.Build(spKey, dbMode))
             {
-                objectDb.AddInParameter("UserName", SqlDbType.NVarChar, userName);
+                objectDb.SetParameterValue("UserName", userName);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = _builder.Build(spKey))
             {
-                objectDb.AddInParameter("OnUserId", System.Data.SqlDbType.Int, onUserId);
+                objectDb.SetParameterValue("OnUserId", onUserId);
 
                 return objectDb.ExecuteScalar() as string;
             }
@@ -112,14 +112,14 @@ namespace Fanex.Affiliate.User.Core.Repository
 
         private static void AssignUpdateLoginResultParam(IObjectDb objectDb, LoginResultParam param)
         {
-            objectDb.AddInParameter("AffId", SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("IpAddress", SqlDbType.NVarChar, param.IpAddress);
-            objectDb.AddInParameter("DeviceInfo", SqlDbType.NVarChar, param.DeviceInfo);
-            objectDb.AddInParameter("Language", SqlDbType.VarChar, param.Language);
-            objectDb.AddInParameter("IsSuccessful", SqlDbType.Bit, param.IsSuccessful);
+            objectDb.SetParameterValue("AffId", param.AffId);
+            objectDb.SetParameterValue("IpAddress", param.IpAddress);
+            objectDb.SetParameterValue("DeviceInfo", param.DeviceInfo);
+            objectDb.SetParameterValue("Language", param.Language);
+            objectDb.SetParameterValue("IsSuccessful", param.IsSuccessful);
 
-            objectDb.AddOutParameter("ErrCode", SqlDbType.Int, DbParam.ErrCodeSize);
-            objectDb.AddOutParameter("ErrMsg", SqlDbType.NVarChar, DbParam.ErrMsgSize);
+            objectDb.SetParameterValue("ErrCode", DefaultValue.Int);
+            objectDb.SetParameterValue("ErrMsg", DefaultValue.String);
         }
     }
 }

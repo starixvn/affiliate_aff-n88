@@ -17,8 +17,8 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", SqlDbType.Int, affId);
-                objectDb.AddInParameter("Username", SqlDbType.NVarChar, affName);
+                objectDb.SetParameterValue("AffId", affId);
+                objectDb.SetParameterValue("Username", affName);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -51,14 +51,14 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("AffId", SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("Password", SqlDbType.NVarChar, param.Password);
-                objectDb.AddInParameter("Status", SqlDbType.VarChar, param.Status);
-                objectDb.AddInParameter("Ip", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue("UserId", param.UserId);
+                objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue("Password", param.Password);
+                objectDb.SetParameterValue("Status", param.Status);
+                objectDb.SetParameterValue("Ip", param.Ip);
 
                 AssignResultOutputParam(objectDb);
-                objectDb.AddOutParameter("AffCode", SqlDbType.VarChar, Size.SizeOfString);
+                objectDb.SetParameterValue("AffCode", DefaultValue.String);
 
                 objectDb.ExecuteNonQuery();
 

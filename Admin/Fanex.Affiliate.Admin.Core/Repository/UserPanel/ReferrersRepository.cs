@@ -42,11 +42,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("Domain", SqlDbType.NVarChar, param.SelectedSiteUrl);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("Domain", param.SelectedSiteUrl);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -65,10 +65,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
         private static void AssignCommonParam(IObjectDb objectDb, ReferrersParam param)
         {
-            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("DeviceType", SqlDbType.TinyInt, param.DeviceType);
+            objectDb.SetParameterValue("AffID", param.AffId);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("DeviceType", param.DeviceType);
         }
 
         private static Referrers BuildReferrersItem(IDataReader reader, bool isGetReferrersList)

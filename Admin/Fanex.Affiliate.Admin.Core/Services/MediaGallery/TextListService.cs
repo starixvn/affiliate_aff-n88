@@ -21,15 +21,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("category", SqlDbType.NVarChar, param.Category);
-                objectDb.AddInParameter("language", SqlDbType.NVarChar, param.Language);
-                objectDb.AddInParameter("currency", SqlDbType.NVarChar, param.Currency);
-                objectDb.AddInParameter("devicetype", SqlDbType.TinyInt, param.DeviceType);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
-                objectDb.AddInParameter(Field.TargetId, SqlDbType.TinyInt, param.UserType);
+                objectDb.SetParameterValue("category", param.Category);
+                objectDb.SetParameterValue("language", param.Language);
+                objectDb.SetParameterValue("currency", param.Currency);
+                objectDb.SetParameterValue("devicetype", param.DeviceType);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
+                objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -54,8 +54,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textid", SqlDbType.Int, selectedTextId);
-                objectDb.AddInParameter(Field.TargetId, SqlDbType.TinyInt, userType);
+                objectDb.SetParameterValue("textid", selectedTextId);
+                objectDb.SetParameterValue(Field.TargetId, userType);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textid", SqlDbType.Int, param.TextId);
+                objectDb.SetParameterValue("textid", param.TextId);
                 AssignParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -104,10 +104,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textids", SqlDbType.NVarChar, param.TextIdList);
-                objectDb.AddInParameter("userid", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("ip", SqlDbType.VarChar, param.Ip);
-                objectDb.AddInParameter(Field.TargetId, SqlDbType.TinyInt, param.UserType);
+                objectDb.SetParameterValue("textids", param.TextIdList);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
+                objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
                 AssignResultOutputParam(objectDb);
 
@@ -119,14 +119,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateTextParam param)
         {
-            objectDb.AddInParameter("message", SqlDbType.NVarChar, param.TextContent);
-            objectDb.AddInParameter("category", SqlDbType.NVarChar, param.Category);
-            objectDb.AddInParameter("language", SqlDbType.NVarChar, param.Language);
-            objectDb.AddInParameter("currency", SqlDbType.NVarChar, param.Currency);
-            objectDb.AddInParameter("devicetype", SqlDbType.TinyInt, param.DeviceType);
-            objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
-            objectDb.AddInParameter(Field.TargetId, SqlDbType.TinyInt, param.UserType);
+            objectDb.SetParameterValue("message", param.TextContent);
+            objectDb.SetParameterValue("category", param.Category);
+            objectDb.SetParameterValue("language", param.Language);
+            objectDb.SetParameterValue("currency", param.Currency);
+            objectDb.SetParameterValue("devicetype", param.DeviceType);
+            objectDb.SetParameterValue("UserID", param.UserId);
+            objectDb.SetParameterValue("IP", param.Ip);
+            objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
             AssignResultOutputParam(objectDb);
         }

@@ -43,10 +43,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
             {
                 AssignCommonParam(objectDb, param);
 
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -65,12 +65,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
 
         private static void AssignCommonParam(IObjectDb objectDb, LandingPageStatisticsParam param)
         {
-            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("SportCode", SqlDbType.NVarChar, param.SelectedPage);
-            objectDb.AddInParameter("LanguageCode", SqlDbType.NVarChar, param.LanguageCode);
-            objectDb.AddInParameter("DeviceType", SqlDbType.TinyInt, param.DeviceType);
+            objectDb.SetParameterValue("AffID", param.AffId);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("SportCode", param.SelectedPage);
+            objectDb.SetParameterValue("LanguageCode", param.LanguageCode);
+            objectDb.SetParameterValue("DeviceType", param.DeviceType);
         }
 
         private static LandingPageStatistics BuildLandingPageStatisticsItem(IDataReader reader, bool isGetLandingPageStatisticsList)

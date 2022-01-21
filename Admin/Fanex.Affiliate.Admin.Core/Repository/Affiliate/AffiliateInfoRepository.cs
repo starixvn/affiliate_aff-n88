@@ -67,22 +67,22 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
         private static void AssignAffiliateInfoParam(IObjectDb objectDb, AffiliateInfoParam param)
         {
-            objectDb.AddInParameter("AffCode", SqlDbType.VarChar, param.AffId);
-            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter("GroupIds", SqlDbType.NVarChar, param.GroupIds);
-            objectDb.AddInParameter("PreferredLanguage", SqlDbType.NVarChar, param.Language);
-            objectDb.AddInParameter("Status", SqlDbType.VarChar, param.Status);
-            objectDb.AddInParameter("ParentAffName", SqlDbType.NVarChar, param.ParentAffName);
-            objectDb.AddInParameter("UserName", SqlDbType.NVarChar, param.UserName);
-            objectDb.AddInParameter("Player_UserName", SqlDbType.NVarChar, param.AffPlayer);
-            objectDb.AddInParameter("Email", SqlDbType.NVarChar, param.Email);
-            objectDb.AddInParameter("SortType", SqlDbType.TinyInt, param.SortBy);
-            objectDb.AddInParameter("SortDirectionType", SqlDbType.Bit, param.SortDirectionType);
-            objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-            objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", SqlDbType.Bit, param.IsExportExcel);
+            objectDb.SetParameterValue("AffCode", param.AffId);
+            objectDb.SetParameterValue("UserId", param.UserId);
+            objectDb.SetParameterValue("GroupIds", param.GroupIds);
+            objectDb.SetParameterValue("PreferredLanguage", param.Language);
+            objectDb.SetParameterValue("Status", param.Status);
+            objectDb.SetParameterValue("ParentAffName", param.ParentAffName);
+            objectDb.SetParameterValue("UserName", param.UserName);
+            objectDb.SetParameterValue("Player_UserName", param.AffPlayer);
+            objectDb.SetParameterValue("Email", param.Email);
+            objectDb.SetParameterValue("SortType", param.SortBy);
+            objectDb.SetParameterValue("SortDirectionType", param.SortDirectionType);
+            objectDb.SetParameterValue("PageIndex", param.PageIndex);
+            objectDb.SetParameterValue("PageSize", param.PageSize);
+            objectDb.SetParameterValue("IsExportExcel", param.IsExportExcel);
 
-            objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+            objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
         private static AffiliateInfo BuildAffiliateInfoItem(IDataReader reader)
         {
@@ -117,18 +117,18 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
         private static void AssignFavoriteParam(IObjectDb objectDb, FavoriteParam param)
         {
-            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("IsFavorite", SqlDbType.Bit, param.IsFavorite);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+            objectDb.SetParameterValue("UserId", param.UserId);
+            objectDb.SetParameterValue(Field.AffId, param.AffId);
+            objectDb.SetParameterValue("IsFavorite", param.IsFavorite);
+            objectDb.SetParameterValue("IP", param.Ip);
         }
 
         private static void AssignPasswordParam(IObjectDb objectDb, PasswordParam param)
         {
-            objectDb.AddInParameter("UserId", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter(Field.AffId, SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("Password", SqlDbType.NVarChar, param.Password);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+            objectDb.SetParameterValue("UserId", param.UserId);
+            objectDb.SetParameterValue(Field.AffId, param.AffId);
+            objectDb.SetParameterValue("Password", param.Password);
+            objectDb.SetParameterValue("IP", param.Ip);
         }
     }
 }

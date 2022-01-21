@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
@@ -28,7 +26,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetPlayerGgrReportData());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(_sp_GetPlayerGgrReportDataSP, 120)).Returns(objectDb.Object);
 
@@ -53,7 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetPlayerGgrReportDataHasNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(_sp_GetPlayerGgrReportDataSP, 120)).Returns(objectDb.Object);
 
@@ -76,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             var dataReader = new Mock<IDataReader>();
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
             repository.Setup(r => r.GetObjectDb(_sp_GetPlayerGgrReportDataSP, 120)).Returns(objectDb.Object);
 

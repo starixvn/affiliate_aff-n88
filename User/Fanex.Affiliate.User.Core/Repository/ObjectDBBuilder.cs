@@ -1,6 +1,7 @@
 ﻿using System;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Data;
+using Fanex.Data.SqlServer;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {
@@ -12,11 +13,11 @@ namespace Fanex.Affiliate.User.Core.Repository
 
         public ObjectDBBuilder(string spKey, string dbMode = DBMode.Main)
         {
-            DB = new ObjectDb(spKey + dbMode);
+            DB = new SqlObjectDb(spKey + dbMode);
         }
 
         public IObjectDb Build(string spKey, string dbMode = DBMode.Main)
-            => DB = new ObjectDb(spKey + dbMode);
+            => DB = new SqlObjectDb(spKey + dbMode);
 
         public void Dispose()
         {

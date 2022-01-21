@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetDomainList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             repository.Setup(r => r.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
 
             // Action
@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetDomainListHasNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             repository.Setup(r => r.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
 
             // Action
@@ -69,7 +69,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var dataReader = new Mock<IDataReader>();
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             repository.Setup(r => r.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
 
             // Action
@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var spKey = "Aff_Admin_AffiliateDomain_Ins";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var message = "Insert Domain is failed.";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
@@ -126,7 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var spKey = "Aff_Admin_AffiliateDomain_Upd";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
@@ -146,7 +146,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var message = "Update Domain is failed.";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
@@ -166,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var spKey = "Aff_Admin_AffiliateDomain_Del";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);
@@ -186,7 +186,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Domain
             var message = "Delete Domain is failed.";
             var repository = new Mock<DomainRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             repository.Setup(re => re.GetObjectDb(spKey, 120)).Returns(objectDb.Object);

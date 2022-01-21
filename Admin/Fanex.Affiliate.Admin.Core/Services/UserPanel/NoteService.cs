@@ -21,11 +21,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("AffID", param.AffId);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
                 using (var reader = objectDb.ExecuteReader())
                 {
                     while (reader.Read())
@@ -52,8 +52,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffID", SqlDbType.Int, affId);
-                objectDb.AddInParameter("NoteId", SqlDbType.Int, noteId);
+                objectDb.SetParameterValue("AffID", affId);
+                objectDb.SetParameterValue("NoteId", noteId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("Noteid", SqlDbType.Int, param.NoteId);
+                objectDb.SetParameterValue("Noteid", param.NoteId);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -98,10 +98,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static void AssignCommonParam(IObjectDb objectDb, InsertUpdateNoteParam param)
         {
-            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
-            objectDb.AddInParameter("Note", SqlDbType.NVarChar, param.NoteContent);
-            objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+            objectDb.SetParameterValue("AffID", param.AffId);
+            objectDb.SetParameterValue("UserID", param.UserId);
+            objectDb.SetParameterValue("Note", param.NoteContent);
+            objectDb.SetParameterValue("IP", param.Ip);
         }
 
         private static NoteDetail BuildNoteItem(IDataReader reader)

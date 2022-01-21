@@ -19,16 +19,16 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("SearchById", SqlDbType.Int, param.SearchBy);
-                objectDb.AddInParameter("Username", SqlDbType.NVarChar, param.Username);
-                objectDb.AddInParameter(Field.Status, SqlDbType.VarChar, param.Status);
-                objectDb.AddInParameter("FromDate", SqlDbType.DateTime, param.FromDate);
-                objectDb.AddInParameter("ToDate", SqlDbType.DateTime, param.ToDate);
-                objectDb.AddInParameter("IsGetAll", SqlDbType.Bit, param.IsGetAll);
-                objectDb.AddInParameter("PageIndex", SqlDbType.Int, param.PageIndex);
-                objectDb.AddInParameter("PageSize", SqlDbType.Int, param.PageSize);
+                objectDb.SetParameterValue("SearchById", param.SearchBy);
+                objectDb.SetParameterValue("Username", param.Username);
+                objectDb.SetParameterValue(Field.Status, param.Status);
+                objectDb.SetParameterValue("FromDate", param.FromDate);
+                objectDb.SetParameterValue("ToDate", param.ToDate);
+                objectDb.SetParameterValue("IsGetAll", param.IsGetAll);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("TransID", SqlDbType.Int, transId);
+                objectDb.SetParameterValue("TransID", transId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -102,12 +102,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.Status, SqlDbType.VarChar, param.Status);
-                objectDb.AddInParameter("TransID", SqlDbType.BigInt, param.TransId);
-                objectDb.AddInParameter("AdminDesc", SqlDbType.NVarChar, param.AdminDesc);
-                objectDb.AddInParameter("AffDesc", SqlDbType.NVarChar, param.AffDesc);
-                objectDb.AddInParameter("UserID", SqlDbType.Int, param.UserId);
-                objectDb.AddInParameter("IP", SqlDbType.VarChar, param.Ip);
+                objectDb.SetParameterValue(Field.Status, param.Status);
+                objectDb.SetParameterValue("TransID", param.TransId);
+                objectDb.SetParameterValue("AdminDesc", param.AdminDesc);
+                objectDb.SetParameterValue("AffDesc", param.AffDesc);
+                objectDb.SetParameterValue("UserID", param.UserId);
+                objectDb.SetParameterValue("IP", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -122,7 +122,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddOutParameter("MinAmount", SqlDbType.Int, Size.SizeOfInt);
+                objectDb.SetParameterValue("MinAmount", DefaultValue.Int);
 
                 var paymentMethods = objectDb.Query<PaymentMethodInfo>();
                 var minAmount = Convert.ToDecimal(objectDb.GetParameterValue("MinAmount"));
