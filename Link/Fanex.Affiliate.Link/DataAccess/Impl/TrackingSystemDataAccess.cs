@@ -4,6 +4,8 @@
     using Fanex.Affiliate.Link.Criterias;
     using Fanex.Affiliate.Link.DataAccess.Interface;
     using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Fanex.Data.SqlServer;
 
     /// <summary>
     /// Tracking statistics.
@@ -15,17 +17,16 @@
         /// </summary>
         /// <param name="criteria">Input criteria.</param>
         /// <returns>Success or fail.</returns>
+        private readonly IDynamicRepository _dynamicRepository;
+
+        public TrackingSystemDataAccess(IDynamicRepository dynamicRepository)
+        {
+            _dynamicRepository = dynamicRepository;
+        }
+
         public string InsertStatistic(TrackingSystemCriteria criteria)
         {
-            using (var objectDb = new ObjectDb(criteria.GetSettingKey()))
-            {
-                var currentParams = criteria.GetSpParams();
-                objectDb.ExecuteNonQuery(currentParams);
-
-                return Convert.ToInt16(currentParams["errcode"]) != 0
-                    ? string.Empty
-                    : Convert.ToString(currentParams["redirectpage"]);
-            }
+            return _dynamicRepository.Get<string>(criteria);
         }
     }
 }
