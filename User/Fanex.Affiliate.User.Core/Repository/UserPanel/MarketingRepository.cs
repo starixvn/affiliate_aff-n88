@@ -11,10 +11,8 @@ using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
-    public class MarketingRepository : IMarketingRepository
+    public class MarketingRepository : BaseRepository, IMarketingRepository
     {
-        private const string ERR_CODE = "ErrCode";
-        private const string ERR_MSG = "ErrMsg";
 
         private readonly IObjectDBBuilder _builder;
 
@@ -167,19 +165,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             {
                 return objectDb.Query<MarketingChannelLink>(new { AffId = userId });
             }
-        }
-
-        private static (int, string) GetResult(IObjectDb objectDb)
-        {
-            var code = Convert.ToInt32(objectDb.GetOuputParams()[ERR_CODE]);
-            var msg = Convert.ToString(objectDb.GetOuputParams()[ERR_MSG]);
-            return (code, msg);
-        }
-
-        private static void AddOutputParam(IObjectDb objectDb)
-        {
-            objectDb.AddOutParameter(ERR_CODE, System.Data.SqlDbType.Int, DbParam.ErrCodeSize);
-            objectDb.AddOutParameter(ERR_MSG, System.Data.SqlDbType.NVarChar, DbParam.ErrMsgSize);
         }
 
     }

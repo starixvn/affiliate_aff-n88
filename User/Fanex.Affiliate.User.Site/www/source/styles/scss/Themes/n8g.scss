@@ -15,6 +15,11 @@ body {
     }
 }
 
+.bg-highlight {
+    background-color: $header-bg-color;
+    color: $table-header-color;
+}
+
 .btn.focus, .btn:focus, .btn:hover {
     color: #ffffff;
     outline: none;

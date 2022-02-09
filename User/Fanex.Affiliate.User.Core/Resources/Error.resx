@@ -133,7 +133,7 @@
     <value>Invalid email.</value>
   </data>
   <data name="LoginClosedAccount" xml:space="preserve">
-    <value>Your account is closed. Please contact your administrator!</value>
+    <value>Your account is suspended. Please contact your administrator!</value>
   </data>
   <data name="LoginLockedAccount" xml:space="preserve">
     <value>Your account is locked temporarily due to 5 consecutive failed login attempts. Please try again after 10 minutes or contact your administrator!</value>
@@ -182,5 +182,11 @@
   </data>
   <data name="ErrInternalError" xml:space="preserve">
     <value>Internal error. Please contact to administrator.</value>
+  </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>Payment Account does not exists.</value>
+  </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>The payment player account is not active, please check with your account manager.</value>
   </data>
 </root>

@@ -1613,7 +1613,7 @@
     <value>USD (Đô la Mỹ)</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Mã Số Đại Lý</value>
+    <value>Tên Đăng Nhập</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>Xác Thực</value>
@@ -2328,5 +2328,74 @@
   </data>
   <data name="FdmDate" xml:space="preserve">
     <value>Ngày FDM</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>Người chơi không tồn tại</value>
+  </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>Chuyển Số Dư Cho Người Chơi</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>Tên Đăng Nhập Của Người Chơi</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>Loại Tiền Tệ Của {player}</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>Số Dư Khả Dụng</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(Trong tài khoản thanh toán của bạn {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>Giới Hạn Chuyển Khoản</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>Lịch Sử Chuyển Số Dư Cho Người Chơi</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>Số Tiền Chuyển Vào Số Dư Của {player}</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>Theo Loại Tiền Tệ Của Người Chơi</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>Theo {baseCurrency}</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>Người chơi này không còn hoạt động.</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>Tổng cộng (Tất cả các trang)</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>Tên đăng nhập vừa bị đổi, xin tìm kiếm lại.</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>Số tiền phải là một số nguyên dương.</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>Số tiền không được vượt Giới Hạn Chuyển Khoản.</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>Tỉ giá hối đoái bị thay đổi, vui lòng gửi lại</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>Bạn có một giao dịch đang chờ xử lý. Vui lòng đợi giao dịch này hoàn thành rồi thử lại.</value>
+  </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>Chuyển khoản thành công.</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Bạn có muốn chuyển tiển vào tài khoản được chọn hay không? Một khi đã xác nhận, hành động này không thể hoàn tác.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Thất bại</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Hoàn thành</value>
+  </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Đang xử lý</value>
   </data>
 </root>

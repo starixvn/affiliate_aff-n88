@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
                     BankAccountName = Server.HtmlEncode(param.BankAccountName),
                     BankAccountNumber = Server.HtmlEncode(param.BankAccountNumber),
                     MailOption = param.MailOption,
-                    HasWebSite = param.HasWebSite
+                    HasWebSite = param.HasWebSite,
                 };
 
                 if (param.ContactAppList != null)

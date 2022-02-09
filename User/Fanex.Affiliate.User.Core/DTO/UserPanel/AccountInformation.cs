@@ -64,5 +64,9 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public string AffCurrency { get; set; }
 
         public int DefaultBaseCurrency { get; set; }
+
+        public decimal TransferLimit { get; set; }
+
+        public int PlayerCurrencyId { get; set; }
     }
 }

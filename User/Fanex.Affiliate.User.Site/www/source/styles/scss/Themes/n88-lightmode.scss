@@ -20,6 +20,11 @@ body {
     }
 }
 
+.bg-highlight {
+    background-color: $header-bg-color;
+    color: $table-header-color;
+}
+
 .news {
     background: $bg-main-color;
 

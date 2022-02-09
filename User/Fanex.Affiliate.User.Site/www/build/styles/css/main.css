@@ -555,7 +555,7 @@ input[type="checkbox"], input[type="radio"] {
   flex-direction: column;
   z-index: 16777271;
   visibility: visible;
-  width: 200px; }
+  min-width: 200px; }
   .content-menu .submenu-container li {
     border-right: 1px solid #f9f9f9;
     border-bottom: 1px solid #f9f9f9; }

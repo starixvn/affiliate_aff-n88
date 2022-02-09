@@ -2,6 +2,8 @@
 {
     public static class DbParam
     {
+        public const int IntSize = 4;
+
         public const int ErrCodeSize = 4;
 
         public const int ErrMsgSize = 2000;

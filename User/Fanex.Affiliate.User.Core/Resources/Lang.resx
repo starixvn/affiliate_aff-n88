@@ -1725,7 +1725,7 @@
     <comment>87923</comment>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>User Name</value>
+    <value>Username</value>
     <comment>87923</comment>
   </data>
   <data name="Validation" xml:space="preserve">
@@ -2507,5 +2507,74 @@
   </data>
   <data name="FdmDate" xml:space="preserve">
     <value>FDM Date</value>
+  </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>Transfer Balance For Player</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>Transfer Balance For Player History</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>In Player's Currency</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>Total (all pages)</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>Player Username</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>{player}'s Currency</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>Available Balance</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(in your payment account {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>Transfer Limit</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>Transfer Amount To {player}'s Balance</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>Invalid player.</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>This player is not active.</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>Amount must be a whole positive number.</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>Amount must not exceed Transfer Limit.</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>Exchange rate has just been updated, please submit again.</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>Username has been changed, please search the username again.</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>In {baseCurrency}</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>You have a pending transaction. Please wait until the pending transaction completes and try again.</value>
+  </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>The transfer has been successfully done.</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Are you sure you want to transfer balance to the selected player? Once submitted, the action cannot be undone.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Pending</value>
   </data>
 </root>

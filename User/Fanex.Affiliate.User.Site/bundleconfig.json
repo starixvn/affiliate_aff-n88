@@ -177,5 +177,19 @@
   {
     "outputFileName": "www/build/js/lib/bootstrap2-toggle.js",
     "inputFiles": [ "www/source/js/lib/bootstrap2-toggle.js" ]
+  },
+  {
+    "outputFileName": "www/build/js/player-transfer-balance-history.js",
+    "inputFiles": [
+      "www/source/js/lib/pikaday.js",
+      "www/source/js/components/pager.js",
+      "www/source/js/pages/PlayerTransferBalance/player-transfer-balance-history.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/player-transfer-balance.js",
+    "inputFiles": [
+      "www/source/js/pages/PlayerTransferBalance/player-transfer-balance.js"
+    ]
   }
 ]

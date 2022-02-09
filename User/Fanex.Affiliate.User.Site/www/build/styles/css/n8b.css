@@ -4,6 +4,10 @@
   font-family: 'Myriad Pro', Arial, Helvetica, sans-serif;
   font-size: 1.4rem; }
 
+.bg-highlight {
+  background-color: #0E0E0E;
+  color: #ffffff; }
+
 .header-top .logo {
   padding: 1rem 1rem 1.7rem 1rem; }
 

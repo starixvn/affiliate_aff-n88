@@ -1047,6 +1047,9 @@
   <data name="MonthlyGGR" xml:space="preserve">
     <value>每月收入</value>
   </data>
+  <data name="MonthlyWinlost" xml:space="preserve">
+    <value>每月盈利</value>
+  </data>
   <data name="Morocco" xml:space="preserve">
     <value>摩洛哥</value>
   </data>
@@ -2153,5 +2156,77 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="TotalGGR" xml:space="preserve">
     <value>总收入</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>无效玩家</value>
+  </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>转移余额给玩家</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>玩家转移余额历史</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>玩家用户名</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>{player} 货币</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>可用余额</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(您的支付账户 {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>转账限额</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>余额转到 {player} 余额</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>内玩家货币</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>内{baseCurrency}</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>此玩家不活跃</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>总计（所有页面）</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>用户名已更改，请再重搜用户名。</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>金额必须全正数</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>金额必须不超出转账限额</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>兑换率已更新，请重新提交。</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>您有个待处理交易正在进行中。请等待处理交易完成，然后重试。</value>
+  </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>转账已成功完成。</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>玩家</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>您确定要将余额转移至选定的玩家吗？一旦提交，交易将无法撤销。</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>失败</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>等待</value>
   </data>
 </root>

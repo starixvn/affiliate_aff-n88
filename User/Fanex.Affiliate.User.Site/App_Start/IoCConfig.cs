@@ -16,6 +16,7 @@ using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Caching;
+using Fanex.Logging;
 using ONEbook.UM.Services.Impl;
 using Refit;
 
@@ -104,11 +105,14 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<SecurityQuestionService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<AccountOverviewRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<CurrencyRepository>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<PlayerTransferBalanceService>().AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterType<PlayerTransferBalanceRespository>().AsImplementedInterfaces().InstancePerLifetimeScope();
 
             builder.RegisterType<QrCodeUrlGeneratorService>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<FileSystem>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ObjectDBBuilder>().AsImplementedInterfaces().UsingConstructor().InstancePerLifetimeScope();
+            builder.RegisterType<Logger>().AsImplementedInterfaces().InstancePerLifetimeScope();
         }
 
         private static void RegisterMemberSiteApi(ContainerBuilder builder)
@@ -116,7 +120,7 @@ namespace Fanex.Affiliate.User.Site
             var appSetting = AppSetting.Instance;
             var handler = new AuthenticatedHttpClientHandler(appSetting.MemberSiteApiAuthenticationKey)
             {
-                Proxy =  appSetting.IsUseMemberSiteProxy
+                Proxy = appSetting.IsUseMemberSiteProxy
                             ? new WebProxy(new Uri(appSetting.MemberSiteProxyUrl))
                             : null
 
@@ -125,6 +129,12 @@ namespace Fanex.Affiliate.User.Site
                 new HttpClient(handler)
                 {
                     BaseAddress = new Uri(appSetting.MemberSiteApiUrl)
+                }));
+
+            builder.RegisterInstance(RestService.For<IAccountApi>(
+                new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(appSetting.AccountSiteApiUrl)
                 }));
         }
     }

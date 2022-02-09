@@ -133,7 +133,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your account is closed. Please contact your administrator!.
+        ///   Looks up a localized string similar to Your account is suspended. Please contact your administrator!.
         /// </summary>
         public static string LoginClosedAccount {
             get {
@@ -165,6 +165,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string NameToLong20 {
             get {
                 return ResourceManager.GetString("NameToLong20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The payment player account is not active, please check with your account manager..
+        /// </summary>
+        public static string PaymentAccNotActive {
+            get {
+                return ResourceManager.GetString("PaymentAccNotActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Account does not exists..
+        /// </summary>
+        public static string PaymentAccNotExist {
+            get {
+                return ResourceManager.GetString("PaymentAccNotExist", resourceCulture);
             }
         }
         

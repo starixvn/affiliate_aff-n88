@@ -25,5 +25,7 @@
         public bool IsDepositFeePercent { get; set; }
 
         public bool IsWithdrawalFeePercent { get; set; }
+
+        public bool DisabledTransfer { get; set; }
     }
 }

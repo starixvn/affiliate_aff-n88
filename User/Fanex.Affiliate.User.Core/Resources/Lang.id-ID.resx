@@ -1978,7 +1978,7 @@
     <value>IDR (Indonesian Rupiah)</value>
   </data>
   <data name="Player" xml:space="preserve">
-    <value>Melalui Akun N88</value>
+    <value>Pemain</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
     <value>Jadilah Mitra Bisnis N88 | Program Afiliasi N88</value>
@@ -2132,5 +2132,74 @@
   </data>
   <data name="TotalGGR" xml:space="preserve">
     <value>Total GGR</value>
+  </data>
+  <data name="InvalidPlayer" xml:space="preserve">
+    <value>Pemain Invalid</value>
+  </data>
+  <data name="TransferBalanceForPlayer" xml:space="preserve">
+    <value>Transfer Saldo ke Pemain</value>
+  </data>
+  <data name="TransferBalanceForPlayerHistory" xml:space="preserve">
+    <value>Sejarah Transfer Saldo ke Pemain</value>
+  </data>
+  <data name="PlayerUserName" xml:space="preserve">
+    <value>Username Pemain</value>
+  </data>
+  <data name="PlayerCurrency" xml:space="preserve">
+    <value>Mata uang {player}</value>
+  </data>
+  <data name="AvailableBalance" xml:space="preserve">
+    <value>Saldo tersedia</value>
+  </data>
+  <data name="InYourPaymentAcc" xml:space="preserve">
+    <value>(Di akun pembayaran {account})</value>
+  </data>
+  <data name="TransferLimit" xml:space="preserve">
+    <value>Limit transfer</value>
+  </data>
+  <data name="TransferAmountTo" xml:space="preserve">
+    <value>Transfer saldo ke Saldo {player}</value>
+  </data>
+  <data name="InPlayerCurrency" xml:space="preserve">
+    <value>Dalam mata uang Pemain</value>
+  </data>
+  <data name="InBaseCurrency" xml:space="preserve">
+    <value>Dalam {baseCurrency}</value>
+  </data>
+  <data name="PlayerNotActive" xml:space="preserve">
+    <value>Pemain ini tidak aktif</value>
+  </data>
+  <data name="TotalAllPage" xml:space="preserve">
+    <value>Total (semua halaman)</value>
+  </data>
+  <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
+    <value>Username telah diganti, silahkan cari username kembali.</value>
+  </data>
+  <data name="AmountMustPositiveNumber" xml:space="preserve">
+    <value>Jumlah mesti dalam angka positif</value>
+  </data>
+  <data name="AmountMustNotExceedLimit" xml:space="preserve">
+    <value>Jumlah tidak dapat melebihi limit transfer</value>
+  </data>
+  <data name="ExchageRateChange" xml:space="preserve">
+    <value>Kurs mata uang baru di update, silahkan submit kembali</value>
+  </data>
+  <data name="HasPendingTransaction" xml:space="preserve">
+    <value>Anda memiliki transaksi tertunda. Mohon menunggu hingga transaksi tertunda selesai dan mencoba lagi</value>
+  </data>
+  <data name="TransferSuccessful" xml:space="preserve">
+    <value>Transaksi Transfer berhasil.</value>
+  </data>
+  <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
+    <value>Apakah Anda yakin ingin mentransfer saldo ke pemain terpilih? Setelah kirim, tindakan ini tidak dapat di batalkan.</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Gagal</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>Selesai</value>
+  </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Tertunda</value>
   </data>
 </root>

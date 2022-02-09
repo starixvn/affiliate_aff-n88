@@ -121,9 +121,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     await FetchAndInsertDataByPageAsync(range.FromDate, range.ToDate);
                     await _timeTrackerService.SaveTimeAsync(TableName, range.ToDate);
                 }
-                catch 
+                catch (Exception ex)
                 {
-                    _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                    _logger.Error($"Excetion {ex.Message} when fetch BetRecord from {range.FromDate} to {range.ToDate}");
                     throw;
                 }
             }

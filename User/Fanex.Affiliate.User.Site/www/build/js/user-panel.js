@@ -39,7 +39,8 @@ var UserPanel = (function ($) {
     var DEFAULT_ACTION = 'AccountOverview';
     var allowedActionList = ["AccountOverview", "StatementHistory", "MyAccount", "PaymentRequest",
         "ReferrersStatistics", "LandingPageStatistics", "SubAffEarning",
-        "DailyEarning", "MessageHistory", "RevenueReport", "MarketingLinkStatistics"];
+        "DailyEarning", "MessageHistory", "RevenueReport", "MarketingLinkStatistics",
+        "PlayerTransferBalance", "PlayerTransferBalanceHistory"];
 
     var _ajaxRequest = null;
 

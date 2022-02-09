@@ -26,5 +26,7 @@ namespace Fanex.Affiliate.User.Core.DTO.Auth
         public bool IsWithdrawalFeePercent { get; set; }
 
         public int BaseCurrency { get; set; }
+
+        public bool DisabledTransfer { get; set; }
     }
 }

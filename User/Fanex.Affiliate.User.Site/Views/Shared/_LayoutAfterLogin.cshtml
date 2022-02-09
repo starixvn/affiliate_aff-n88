@@ -30,6 +30,18 @@
                 <li><a class="menu-item" id="menuStatementHistory" href="@Url.Content("~/UserPanel/Main/#StatementHistory")">@Lang.StatementHistory</a></li>
                 <li><a class="menu-item" id="menuMyAccount" href="@Url.Content("~/UserPanel/Main/#MyAccount")">@Lang.MyAccount</a></li>
                 <li><a class="menu-item" id="menuPaymentRequest" href="@Url.Content("~/UserPanel/Main/#PaymentRequest")">@Lang.PaymentRequest</a></li>
+                @if (!sessionService.UserSession.DisabledTransfer)
+                {
+                    <li class="parent">
+                        <a class="menu-item" href="javascript:;">@Lang.TransferBalanceForPlayer <i class="caret"></i></a>
+                        <ul class="menu submenu-container list-unstyled">
+                            <li><a class="menu-item" id="menuPlayerTransferBalance" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalance")">@Lang.TransferBalanceForPlayer</a></li>
+
+                            <li><a class="menu-item" id="menuPlayerTransferBalanceHistory" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalanceHistory")">@Lang.TransferBalanceForPlayerHistory</a></li>
+
+                        </ul>
+                    </li>
+                }
                 <li><a class="menu-item" id="menuRevenueReport" href="@Url.Content("~/UserPanel/Main/#RevenueReport")">@Lang.CommissionReport</a></li>
                 <li class="parent">
                     <a class="menu-item" href="javascript:;">@Lang.Statistics <i class="caret"></i></a>

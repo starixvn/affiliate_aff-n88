@@ -71,6 +71,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string MemberSiteApiUrl { get; }
 
+        string AccountSiteApiUrl { get; }
+
         int MemberSiteId { get; }
 
         string MemberSiteProxyUrl { get; }

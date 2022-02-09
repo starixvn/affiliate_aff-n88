@@ -59,10 +59,10 @@
   //  "outputFile": "www/build/js/test.js",
   //  "inputFile": "www/source/js/pages/test.js"
   //},
-  //{
-  //  "outputFile": "www/build/js/site.js",
-  //  "inputFile": "www/source/js/site.js"
-  //},
+  {
+    "outputFile": "www/build/js/site.js",
+    "inputFile": "www/source/js/site.js"
+  },
   //{
   //  "outputFile": "www/build/js/recheckin.js",
   //  "inputFile": "www/source/js/recheckin.js"
@@ -74,6 +74,10 @@
   //{
   //  "outputFile": "www/build/styles/css/statistics.css",
   //  "inputFile": "www/source/styles/pages/statistics.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/player-transfer-balance.css",
+  //  "inputFile": "www/source/styles/pages/player-transfer-balance.scss"
   //},
   //{
   //  "outputFile": "www/build/styles/css/statement-history.css",
@@ -134,7 +138,7 @@
   {
     "outputFile": "www/build/js/pages/product.js",
     "inputFile": "www/source/js/pages/product.js"
-  }
+  },
   //{
   //  "outputFile": "www/build/js/pagetracking.js",
   //  "inputFile": "www/source/js/components/pagetracking.js"

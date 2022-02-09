@@ -40,6 +40,11 @@ var Site = (function ($) {
             $result.html(message);
             $result.show();
         },
+        hideResult: function hideResult(selector) {
+            selector = selector || "#messageResult";
+            var $result = $(selector);
+            $result.hide();
+        },
         getCookie: function getCookie(cname) {
             var name = cname + "=";
             var decodedCookie = decodeURIComponent(document.cookie);
