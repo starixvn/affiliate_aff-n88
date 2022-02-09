@@ -2,8 +2,8 @@
 <Functions SiteId="32" SiteName="12Bet">
   <Function Name="Authorization">
     <Setting Key="Aff_SessionIdSel" SpName="Aff_SessionIdSel" DbName="affiliate_n88_view" />
-    <Setting Key="Aff_User_Login_UserInfoSel" SpName="Aff_User_Login_UserInfoSel_xpre" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_Login_UserInfoSel_view" SpName="Aff_User_Login_UserInfoSel_xpre" DbName="affiliate_n88_view" />
+    <Setting Key="Aff_User_Login_UserInfoSel" SpName="Aff_User_Login_UserInfoSel" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_Login_UserInfoSel_view" SpName="Aff_User_Login_UserInfoSel" DbName="affiliate_n88_view" />
     <Setting Key="Aff_User_Login_ResultUpd" SpName="Aff_User_Login_ResultUpd" DbName="affiliate_n88" />
     <Setting Key="Aff_User_Login_ResultUpd_view" SpName="Aff_User_Login_ResultUpd" DbName="affiliate_n88_view" />
     <Setting Key="Aff_CheckIn" SpName="Aff_CheckIn" DbName="affiliate_n88" />
@@ -16,8 +16,8 @@
   </Function>
 
   <Function Name="AccountInformation">
-    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel_xpre" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel_xpre" DbName="affiliate_n88_view" />
+    <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88_view" />
     <Setting Key="Aff_User_UserInfoUpd" SpName="Aff_User_UserInfoUpd" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUpdPwd" SpName="Aff_AffiliateUpdPwd" DbName="affiliate_n88" />
     <Setting Key="Aff_User_SecretKeyIns" SpName="Aff_User_SecretKeyIns" DbName="affiliate_n88" />
@@ -153,10 +153,10 @@
   </Function>
 
   <Function Name="PlayerTransferBalance">
-    <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel_xpre" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_TransferBalanceInfo_Sel" SpName="Aff_User_TransferBalanceInfo_Sel_xpre" DbName="affiliate_n88" />
-    <Setting Key="Aff_TransferBalanceHistory_Ins" SpName="Aff_TransferBalanceHistory_Ins_xpre" DbName="affiliate_n88" />
-    <Setting Key="Aff_TransferBalanceHistory_Upd" SpName="Aff_TransferBalanceHistory_Upd_xpre" DbName="affiliate_n88" />
+    <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_TransferBalanceInfo_Sel" SpName="Aff_User_TransferBalanceInfo_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_TransferBalanceHistory_Ins" SpName="Aff_TransferBalanceHistory_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_TransferBalanceHistory_Upd" SpName="Aff_TransferBalanceHistory_Upd" DbName="affiliate_n88" />
 
   </Function>
 </Functions>
