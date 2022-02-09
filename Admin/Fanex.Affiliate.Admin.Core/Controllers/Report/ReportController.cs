@@ -42,6 +42,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
 
 
         [HttpGet]
+        [AllowByPassFunctionAuthorize]
         public ActionResult Index()
         {
             var viewModel = new AffiliateReportViewModel

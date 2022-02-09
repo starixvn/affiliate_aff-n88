@@ -23,5 +23,8 @@
 
         public const int Zero = 0;
         public const int MaxPercentage = 1;
+
+        public const int MaxLengthInputId = 9;
+        public const int MaxLengthInputString = 30;
     }
 }

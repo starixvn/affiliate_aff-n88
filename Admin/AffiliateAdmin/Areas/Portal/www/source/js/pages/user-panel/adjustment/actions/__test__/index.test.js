@@ -1,5 +1,6 @@
 ﻿import { getBalanceBroughtForward, handleSubmit } from '../index';
 import * as ajaxRequest from '../../../../../modules/ajaxRequest';
+import { submitFail } from "../../../../../modules/constants";
 
 describe('adjustment actions', () => {
     it('should create action to getBalanceBroughtForward with correct parameter', async () => {
@@ -55,10 +56,6 @@ describe('adjustment actions', () => {
 
     it('should create action to handleSubmit with incorrect parameter', async () => {
         ajaxRequest.post = jest.fn();
-        const expectedData = {
-            IsSuccessful: false,
-            Message: 'Update Failed!'
-        }
 
         const param = {
             affId: 123456,
@@ -70,6 +67,6 @@ describe('adjustment actions', () => {
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/UserPanel/Adjustment/InsertAdjustment', param);
 
-        expect(result).toEqual(expectedData);
+        expect(result).toEqual(submitFail);
     })
 });

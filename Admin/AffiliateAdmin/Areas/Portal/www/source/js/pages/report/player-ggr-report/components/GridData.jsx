@@ -6,10 +6,10 @@ import { Table } from 'reactstrap';
 import { Pager } from '@9softstudio/react-fixed-table-header';
 
 import { formatDecimal } from '../../../../modules/numberFormat';
-import { setPagingOption, setViewLevel, setParam, fetchData } from '../actions';
+import { setPagingOption, setParam, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
-import { maxHeight } from '../../libs/constants';
+import { getMaxHeight } from '../../libs/constants';
 import { totalText, headerText, defaultGgrProductReport } from '../libs/constants';
 
 export class GridData extends PureComponent {
@@ -46,9 +46,9 @@ export class GridData extends PureComponent {
         this.props.toggleLoader(false);
     }
 
-    _renderProductColumns = () => {
+    _renderProductColumns = (index) => {
         return (
-            <React.Fragment>
+            <React.Fragment key={index}>
                 <th width={100} title={headerText.Turnover}>{headerText.Turnover}</th>
                 <th width={100} title={headerText.Ggr}>{headerText.Ggr}</th>
             </React.Fragment>
@@ -66,18 +66,18 @@ export class GridData extends PureComponent {
                 {
                     selectedProducts.map(item => {
                         return (
-                            <th width={200} colSpan="2" title={item.name}>{item.name}</th>
+                            <th key={item.key} width={200} colSpan="2" title={item.name}>{item.name}</th>
                         )
                     })
                 }
             </tr>,
             <tr className="freeze-row freeze-row-h2" key="thead-2">
                 {
-                    this._renderProductColumns()
+                    this._renderProductColumns('totalProduct')
                 }
                 {
-                    selectedProducts.map(item => {
-                        return this._renderProductColumns()
+                    selectedProducts.map((item, index) => {
+                        return this._renderProductColumns(index)
                     })
                 }
             </tr>
@@ -136,29 +136,12 @@ export class GridData extends PureComponent {
             const ggr = formatDecimal(info.Ggr);
 
             return (
-                <React.Fragment>
+                <React.Fragment key={item.key}>
                     <td className="text-right" title={turnover}>{turnover}</td>
                     <td className="text-right" title={ggr}>{ggr}</td>
                 </React.Fragment>
             )
         })
-    }
-
-    handleViewMonthOnMonth = (UserName) => {
-        const { param, pagingOption } = this.props;
-
-        const postParam = Object.assign({}, param, {
-            UserName,
-            SortType: sortByMonthOnMonthView.Month,
-            SortDirectionType: sortDirectionType.descending,
-            PageIndex: 1,
-            PageSize: pagingOption.PageSize
-        })
-
-        this.props.setViewLevel(viewLevel.monthOnMonth);
-        this.props.setParam(postParam);
-
-        this._resetScroll();
     }
 
     handlePaging = (index, size) => {
@@ -188,6 +171,7 @@ export class GridData extends PureComponent {
         const { gridData, total } = this.state;
         const selectedProducts = this.props.productList.filter(p => p.checked);
         const minWidth = this._getMinWidthOfTable(selectedProducts.length);
+        const maxHeight = getMaxHeight();
 
         return gridData && (
             <Fragment>
@@ -216,12 +200,12 @@ export class GridData extends PureComponent {
     }
 }
 
-function mapStateToProps({ pagingOption, param, currentViewLevel, productList }) {
-    return Object.assign({}, { pagingOption, param, currentViewLevel, productList });
+function mapStateToProps({ pagingOption, param, productList }) {
+    return Object.assign({}, { pagingOption, param, productList });
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setPagingOption, toggleLoader, setViewLevel, setParam, fetchData }, dispatch);
+    return bindActionCreators({ setPagingOption, toggleLoader, setParam, fetchData }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })(GridData);
+export default connect(mapStateToProps, mapDispatchToProps)(GridData);

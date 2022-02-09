@@ -7,29 +7,29 @@ import AppContainer from './components/AppContainer';
 import reducer from './reducers';
 import { configureStore } from '../../modules/store';
 
-const { languageList, today } = window.initialState;
-
-const defaultMessageContentList = {
-    MessageId: 0
-};
-const languages = {};
-
-for (let languageItem of languageList) {
-    const key = 'MessageContent' + languageItem.ShortedLanguageCode;
-    defaultMessageContentList[key] = '';
-    languages[key] = languageItem.LanguageName;
-}
-
-const store = configureStore({ today, defaultMessageContentList, languages }, reducer);
-
 export default class App extends React.PureComponent {
     constructor(props) {
         super(props);
+
+        const { languageList, today } = window.initialState;
+
+        const defaultMessageContentList = {
+            MessageId: 0
+        };
+        const languages = {};
+
+        for (let languageItem of languageList) {
+            const key = 'MessageContent' + languageItem.ShortedLanguageCode;
+            defaultMessageContentList[key] = '';
+            languages[key] = languageItem.LanguageName;
+        }
+
+        this.store = configureStore({ today, defaultMessageContentList, languages }, reducer);
     }
 
     render() {
         return (
-            <Provider store={store}>
+            <Provider store={this.store}>
                 <AppContainer />
             </ Provider>
         );

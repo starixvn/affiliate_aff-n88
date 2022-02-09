@@ -59,6 +59,40 @@ export const headerCellStyle = {
     }
 }
 
+export const mergedHeaderCellByRowspanStyle = {
+    border: {
+        left: {
+            style: "thin",
+            color: {
+                rgb: "cccccc"
+            }
+        },
+        right: {
+            style: "thin",
+            color: {
+                rgb: "cccccc"
+            }
+        }
+    }
+}
+
+export const mergedHeaderCellByColspanStyle = {
+    border: {
+        top: {
+            style: "thin",
+            color: {
+                rgb: "cccccc"
+            }
+        },
+        bottom: {
+            style: "thin",
+            color: {
+                rgb: "cccccc"
+            }
+        }
+    }
+}
+
 const bodyTextStyle = {
     alignment: {
         vertical: "center"

@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
-import { fetchData } from '../../actions';
 
 describe('affiliate report - GridData ', () => {
     const mainView = 1;
@@ -474,6 +473,25 @@ describe('affiliate report - GridData ', () => {
         componentInstance.handlePaging(index, size);
 
         expect(componentInstance.fetchData).toHaveBeenCalledWith(paramExpect);
+    });
+
+    it('_resetScroll - should reset scroll', () => {
+        const expectCurrent = {
+            scrollTop: 0,
+            scrollLeft: 0
+        };
+
+        const componentInstance = new GridData(defaultProps);
+        componentInstance.tableRef = {
+            current: {
+                scrollTop: 123,
+                scrollLeft: 234
+            }
+        };
+
+        componentInstance._resetScroll();
+
+        expect(componentInstance.tableRef.current).toEqual(expectCurrent);
     });
 
     it('should render correctly', () => {

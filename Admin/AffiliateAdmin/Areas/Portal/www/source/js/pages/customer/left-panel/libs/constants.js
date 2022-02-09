@@ -43,6 +43,9 @@ export const resource = {
     SubAffiliateList: 'Sub-Affiliate List',
     ApprovedBy: 'Approved By',
     AffiliateId: 'Affiliate ID',
+    Disabled: 'Disabled',
+    Unlimited: 'Unlimited',
+    TransferBalanceForPlayer: 'Transfer Balance For Player',
 }
 
 export const messages = {
@@ -51,5 +54,6 @@ export const messages = {
     areYouChangeLanguage: 'Are you sure you want to change language for this affiliate?',
     languageUpdatedSuccess: 'The Language has been updated successfully!',
     affTypeUpdatedFail: 'Occur an error when updating affiliate type!',
+    transferSettingUpdatedSuccess: 'The change has been successfully saved.',
     userNotOnline: 'This user is not online',
 }

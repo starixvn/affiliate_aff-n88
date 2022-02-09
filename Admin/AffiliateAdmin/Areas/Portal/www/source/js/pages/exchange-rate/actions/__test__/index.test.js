@@ -1,6 +1,7 @@
 ﻿import * as types from '../types';
 import * as actions from '../index';
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
+import { submitFail } from '../../../../modules/constants';
 
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
@@ -102,6 +103,6 @@ describe('exchange rate actions', () => {
         const result = await actions['updateExchangeRate'](selectedExchangeRate)();
 
         expect(ajaxRequest.post).toHaveBeenCalledWith('Portal/ExchangeRate/UpdateExchangeRate', selectedExchangeRate);
-        expect(result).toEqual({ IsSuccessful: false, Message: 'Update Failed!' });
+        expect(result).toEqual(submitFail);
     })
 })

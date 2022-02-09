@@ -84,6 +84,73 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
+        public void GetTransferLimitSetting_WhenCallWithValidParam_ExcuteWithCorrectData()
+        {
+            // Arrange
+            var param = "123";
+            var passedParam = 0;
+            var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
+            customerLeftPanelService.Setup(s => s.GetTransferLimitSetting(It.IsAny<int>())).Returns(new TransferLimitSettingInfo()).Callback<int>(p => passedParam = p);
+            var controller = CreateCustomerLeftPanelController(customerLeftPanelService: customerLeftPanelService.Object);
+
+            // Action
+            var result = controller.GetTransferLimitSetting(param) as JsonNetResult;
+            var data = result.Data as TransferLimitSettingInfo;
+
+            // Assert
+            Assert.NotNull(data);
+            Assert.Equal(123, passedParam);
+        }
+
+        [Fact]
+        public void GetTransferLimitSetting_WhenCallWithInvalidParam_ReturnNull()
+        {
+            // Arrange
+            var controller = CreateCustomerLeftPanelController();
+
+            // Action
+            var result = controller.GetTransferLimitSetting(string.Empty) as JsonResult;
+
+            // Assert
+            Assert.Null(result.Data);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCallWithValidParam_ExcuteSuccessfully()
+        {
+            // Arrange
+            var param = new TransferLimitSettingParam { AffId = 1271808};
+            TransferLimitSettingParam passedParam = null;
+            var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
+            customerLeftPanelService.Setup(s => s.UpdateTransferLimitSetting(It.IsAny<TransferLimitSettingParam>())).Returns(new ResultInfo()).Callback<TransferLimitSettingParam>(p => passedParam = p);
+            var controller = CreateCustomerLeftPanelController(customerLeftPanelService: customerLeftPanelService.Object);
+
+            // Action
+            var result = controller.UpdateTransferLimitSetting(param) as JsonNetResult;
+            var data = result.Data as ResultInfo;
+
+            // Assert
+            Assert.True(data.IsSuccessful);
+            Assert.Equal(param.AffId, passedParam.AffId);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCallWithInvalidParam_ReturnError()
+        {
+            // Arrange
+            var controller = CreateCustomerLeftPanelController();
+            controller.ModelState.AddModelError("Error01", "Amount is invalid!");
+
+            // Action
+            var result = controller.UpdateTransferLimitSetting(new TransferLimitSettingParam()) as JsonResult;
+            var data = result.Data as ResultInfo;
+
+            // Assert
+            Assert.False(data.IsSuccessful);
+            Assert.Equal("Amount is invalid!", data.Message);
+        }
+
+        [Fact]
         public void UpdateLanguage_WhenCallWithValidParam_ExcuteSuccessfully()
         {
             // Arrange

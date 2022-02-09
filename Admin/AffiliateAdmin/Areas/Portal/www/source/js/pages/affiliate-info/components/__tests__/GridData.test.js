@@ -2,7 +2,7 @@
 import { shallow } from 'enzyme';
 import { GridData } from '../GridData';
 import * as ajaxRequest from '../../../../modules/ajaxRequest';
-import { NotificationPopup } from '../../../common/components/NotificationPopup';
+import NotificationPopup from '../../../common/components/NotificationPopup';
 
 describe('affiliate info - GridData ', () => {
     const dataItem = {
@@ -370,6 +370,25 @@ describe('affiliate info - GridData ', () => {
 
         buildDataRow.find('Button').at(1).simulate('click');
         expect(wrapper.instance().handleChangePassword).toHaveBeenCalledWith(927841);
+    });
+
+    it('_resetScroll - should reset scroll', () => {
+        const expectCurrent = {
+            scrollTop: 0,
+            scrollLeft: 0
+        };
+
+        const componentInstance = new GridData(defaultProps);
+        componentInstance.tableRef = {
+            current: {
+                scrollTop: 123,
+                scrollLeft: 234
+            }
+        };
+
+        componentInstance._resetScroll();
+
+        expect(componentInstance.tableRef.current).toEqual(expectCurrent);
     });
 
     it('should render correctly', () => {

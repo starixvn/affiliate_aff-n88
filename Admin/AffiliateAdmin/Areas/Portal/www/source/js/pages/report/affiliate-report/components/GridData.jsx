@@ -10,7 +10,7 @@ import { setPagingOption, setViewLevel, setParam, fetchData } from '../actions';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import { globalResource } from '../../../../modules/globalResource';
 import { resolveClientUrl } from '../../../../modules/utils';
-import { maxHeight } from '../../libs/constants';
+import { getMaxHeight } from '../../libs/constants';
 import { viewLevel, sortByMonthOnMonthView, sortDirectionType, totalText, headerText } from '../libs/constants';
 
 export class GridData extends PureComponent {
@@ -293,6 +293,7 @@ export class GridData extends PureComponent {
 
     render() {
         const { gridData, total } = this.state;
+        const maxHeight = getMaxHeight();
 
         return gridData && (
             <Fragment>

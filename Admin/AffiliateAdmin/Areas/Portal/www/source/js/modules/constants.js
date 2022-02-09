@@ -32,7 +32,7 @@ export const minDate = new Date(2019, 12, 31);
 
 export const submitFail = {
     IsSuccessful: false,
-    Message: 'Update Failed!'
+    Message: 'An error occurred while processing your request, please try again later!'
 }
 
 export const pcLaptop = 'PC / Laptop';

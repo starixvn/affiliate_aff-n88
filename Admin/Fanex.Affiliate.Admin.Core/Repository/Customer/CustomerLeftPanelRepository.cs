@@ -52,6 +52,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             ApprovedBy =reader.ToString("ApprovedBy"),
                             IsDepositFeePercent = reader.ToBool("Dep_IsDeductedPercent"),
                             IsWithdrawalFeePercent = reader.ToBool("Wit_IsDeductedPercent"),
+                            IsDisabledTransfer = reader.ToBool("DisabledTransfer"),
+                            PlayerCurrency = reader.ToString("PlayerCurrency"),
+                            TransferLimit = reader.ToDecimal("TransferLimit"),
                         };
                     }
                 }
@@ -78,6 +81,34 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                             Ip =reader.ToString("Ip"),
                             ReloadTime =reader.ToDateTime("ReloadTime")
                         });
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public TransferLimitSettingInfo GetTransferLimitSetting(int affId)
+        {
+            const string SpKey = "Aff_Admin_TransferLimit_Sel";
+            TransferLimitSettingInfo result = null;
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, affId);
+
+                using (var reader = objectDb.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        result = new TransferLimitSettingInfo
+                        {
+                            PlayerCustId = reader.ToInt("PlayerCustId"),
+                            PlayerUsername = reader.ToString("PlayerUsername"),
+                            PlayerCurrency = reader.ToString("PlayerCurrency"),
+                            TransferLimit = reader.ToDecimal("TransferLimit"),
+                            IsDisabledTransfer = reader.ToBool("DisabledTransfer"),
+                        };
                     }
                 }
             }
@@ -157,6 +188,25 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Customer
                 objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
                 objectDb.AddInParameter("Ip", DbType.String, param.Ip);
                 objectDb.AddInParameter("Status", DbType.String, param.Status);
+
+                AssignResultOutputParam(objectDb);
+
+                objectDb.ExecuteNonQuery();
+
+                return GetResultInfo(objectDb);
+            }
+        }
+
+        public ResultInfo UpdateTransferLimitSetting(TransferLimitSettingParam param)
+        {
+            const string SpKey = "Aff_Admin_TransferLimit_Upd";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.AddInParameter(Field.AffId, DbType.Int32, param.AffId);
+                objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
+                objectDb.AddInParameter("DisabledTransfer", DbType.Boolean, param.DisabledTransfer);
+                objectDb.AddInParameter("TransferLimit", DbType.Decimal, param.TransferLimit);
 
                 AssignResultOutputParam(objectDb);
 

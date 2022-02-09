@@ -27,11 +27,11 @@ export class Content extends PureComponent {
 
         if (param !== prevProps.param || affId !== prevProps.affId) {
             const newParam = Object.assign({}, param, { pageIndex: 1, pageSize: pagingOption.PageSize });
-            this.fetchData(newParam);
+            this.fetchData(newParam, affId !== prevProps.affId);
         }
     }
 
-    async fetchData(param) {
+    async fetchData(param, isChangedAffId) {
         this.props.toggleLoaderUserPanel(true);
 
         const { affId } = this.props;
@@ -45,7 +45,7 @@ export class Content extends PureComponent {
         this.props.setPagingOption({ TotalItem: data ? data.TotalItem : 0, PageIndex: pageIndex, PageSize: pageSize });
 
         this.props.toggleLoaderUserPanel(false);
-        !param.isBack ? this.props.setExpandMonthDateList({}) : setScrollTop(param.scrollTop);
+        !param.isBack || isChangedAffId ? this.props.setExpandMonthDateList({}) : setScrollTop(param.scrollTop);
     }
 
     _renderHeader() {
@@ -190,7 +190,7 @@ export class Content extends PureComponent {
     }
 
     handlePaging = (pageIndex, pageSize) => {
-        const newParam = { ...this.props.param, pageIndex, pageSize };
+        const newParam = { ...this.props.param, pageIndex, pageSize, isBack: false };
 
         this.fetchData(newParam);
     };

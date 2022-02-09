@@ -47,9 +47,9 @@ export const fetchData = (param) => async (dispatch) => {
     dispatch(toggleLoader(false));
 }
 
-export const deleteMember = (memberId) => async () => {
-    //const url = 'Portal/Player/Deletemember';
-    //const response = await post(url, { memberId });
+//export const deleteMember = (memberId) => async () => {
+//    const url = 'Portal/Player/Deletemember';
+//    const response = await post(url, { memberId });
 
-    //return response && response.status === 200 ? response.data : null;
-}
+//    return response && response.status === 200 ? response.data : null;
+//}

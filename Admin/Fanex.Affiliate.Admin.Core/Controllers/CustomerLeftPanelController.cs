@@ -10,6 +10,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO;
 using ONEbook.UM.Filters;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -32,6 +33,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
+        [UnauthorizedPropertyCensor]
         public ActionResult GetAffiliateInfo(string affUsername)
         {
             if (string.IsNullOrEmpty(affUsername))
@@ -68,6 +70,46 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.TransferPlayerSetting)]
+        public ActionResult GetTransferLimitSetting(string affId)
+        {
+            if (string.IsNullOrEmpty(affId) || !int.TryParse(affId, out int parsedId))
+            {
+                return new JsonResult();
+            }
+
+            return new JsonNetResult
+            {
+                Data = _customerLeftPanelService.GetTransferLimitSetting(parsedId)
+            };
+        }
+
+        [ValidateAntiForgeryHeader]
+        [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.TransferPlayerSetting, IsHost = true)]
+        public ActionResult UpdateTransferLimitSetting(TransferLimitSettingParam param)
+        {
+            if (ModelState.IsValid)
+            {
+                AssignParam(param);
+                return new JsonNetResult
+                {
+                    Data = _customerLeftPanelService.UpdateTransferLimitSetting(param)
+                };
+            }
+            return new JsonResult
+            {
+                Data = new ResultInfo
+                {
+                    Code = ErrCode.GeneralErrorCode,
+                    Message = string.Join("<br/>", ModelState.Values.SelectMany(e => e.Errors).Select(e => e.ErrorMessage))
+                }
+            };
+        }
+
+        [ValidateAntiForgeryHeader]
+        [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateLanguage(UpdateLanguageParam param)
         {
             if(ModelState.IsValid)
@@ -97,6 +139,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateAffType(UpdateAffTypeParam param)
         {
             if (ModelState.IsValid)
@@ -119,6 +162,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateStatus(UpdateStatusParam param)
         {
             if (ModelState.IsValid)
@@ -153,6 +197,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
         [ValidateAntiForgeryHeader]
         [HttpPost]
+        [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
         public ActionResult UpdateClosedStatus(UpdateClosedStatusParam param)
         {
             if (ModelState.IsValid)

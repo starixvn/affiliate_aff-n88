@@ -7,7 +7,7 @@ import { fetchData, setSelectedEmailId, getEmailHistoryDetail, toggleLoader, del
 
 import { htmlDecode } from '../../../modules/htmlHelper';
 import { resource, globalResource, messages } from '../modules/constants';
-import { NotificationPopup } from '../../common/components/NotificationPopup';
+import NotificationPopup from '../../common/components/NotificationPopup';
 
 export class EmailDetailForm extends PureComponent {
     constructor(props) {

@@ -5,7 +5,7 @@ import { Button } from 'reactstrap';
 
 import { resource, messages } from '../modules/constants';
 import { fetchData, deleteEmailHistory, toggleLoader } from '../actions';
-import { NotificationPopup } from '../../common/components/NotificationPopup';
+import NotificationPopup from '../../common/components/NotificationPopup';
 
 export class DeleteEmail extends PureComponent {
     constructor(props) {

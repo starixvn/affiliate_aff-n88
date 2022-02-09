@@ -11,8 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Affiliate.User.Core.U
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{C083008C-38B7-4DDF-A92E-961C98AED0C6}"
 	ProjectSection(SolutionItems) = preProject
-		SonarQube\N88AFFUserCSharp.ruleset = SonarQube\N88AFFUserCSharp.ruleset
-		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+		.sonarlint\aff.n88usersitecsharp.ruleset = .sonarlint\aff.n88usersitecsharp.ruleset
+		.sonarlint\Fanex.Affiliate.User.slconfig = .sonarlint\Fanex.Affiliate.User.slconfig
+		.sonarlint\aff.n88usersite\CSharp\SonarLint.xml = .sonarlint\aff.n88usersite\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Affiliate.User.Site", "User\Fanex.Affiliate.User.Site\Fanex.Affiliate.User.Site.csproj", "{910BBC71-0F81-4C02-B57F-22EC9709F126}"

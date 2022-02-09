@@ -1,6 +1,6 @@
 ﻿import Excel from '../../../../modules/excel';
-import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle } from '../../../../modules/excelStyleConstant';
-import { headerText, totalText, reportName, defaultGgrProductReport } from './constants';
+import { titleCellStyle, headerCellStyle, bodyCellStyle, totalCellStyle, mergedHeaderCellByRowspanStyle } from '../../../../modules/excelStyleConstant';
+import { headerText, totalText, reportName, defaultGgrProductReport, mappingColumns as fields } from './constants';
 import { formatDateTime } from '../../../../modules/utils';
 
 const TITLE_ROW_INDEX = 0;
@@ -20,18 +20,6 @@ const configInfo = {
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
-
-const fields = {
-    AffName: 'AffName',
-    PlayerName: 'PlayerName',
-    RegistrationDateText: 'RegistrationDateText',
-    FdmDateText: 'FdmDateText',
-    AllSelectedProducts: 'AllSelectedProducts',
-    TotalTurnover: 'TotalTurnover',
-    TotalGgr: 'TotalGgr',
-    Turnover: 'Turnover',
-    Ggr: 'Ggr'
-}
 
 export default class ReportExcel {
     constructor(data, title, selectedProductList) {
@@ -103,6 +91,15 @@ export default class ReportExcel {
                     s: headerCellStyle
                 }
 
+                let nextRowAddress = Excel.getCellAddress({
+                    c: i,
+                    r: HEADER_ROW_INDEX + 1
+                });
+                this.worksheet[nextRowAddress] = {
+                    t: "s",
+                    s: mergedHeaderCellByRowspanStyle
+                }
+
                 this.mergeConfig.push({
                     s: {
                         r: HEADER_ROW_INDEX,
@@ -149,7 +146,7 @@ export default class ReportExcel {
             const fieldName = this.columnConfigs[i].field;
             this.worksheet[address] = {
                 t: "s",
-                v: headerText[fieldName] || '',
+                v: headerText[fieldName],
                 s: headerCellStyle
             }
         }

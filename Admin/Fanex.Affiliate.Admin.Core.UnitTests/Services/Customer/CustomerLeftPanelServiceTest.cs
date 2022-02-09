@@ -110,6 +110,57 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
+        public void GetTransferLimitSetting_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var param = 123;
+            var passedParam = 0;
+            var repository = new Mock<ICustomerLeftPanelRepository>();
+            repository.Setup(comm => comm.GetTransferLimitSetting(param)).Returns(new TransferLimitSettingInfo()).Callback<int>(p => passedParam = p);
+            var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
+
+            // Action
+            var result = service.GetTransferLimitSetting(param);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCall_ReturnCorrectData()
+        {
+            // Arrange
+            var param = new TransferLimitSettingParam();
+            TransferLimitSettingParam passedParam = null;
+            var repository = new Mock<ICustomerLeftPanelRepository>();
+            repository.Setup(comm => comm.UpdateTransferLimitSetting(param)).Returns(new ResultInfo()).Callback<TransferLimitSettingParam>(p => passedParam = p);
+            var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
+
+            // Action
+            var result = service.UpdateTransferLimitSetting(param);
+
+            // Assert
+            Assert.True(result.IsSuccessful);
+            Assert.Equal(param, passedParam);
+        }
+
+        [Fact]
+        public void UpdateTransferLimitSetting_WhenCallInvalidParam_ReturnError()
+        {
+            // Arrange
+            var param = new TransferLimitSettingParam { DisabledTransfer = false };
+            var service = CreateCustomerLeftPanelService();
+
+            // Action
+            var result = service.UpdateTransferLimitSetting(param);
+
+            // Assert
+            Assert.False(result.IsSuccessful);
+            Assert.Equal("Limit must be a whole positive number.", result.Message);
+        }
+
+        [Fact]
         public void UpdateAffType_WhenCall_ReturnCorrectData()
         {
             // Arrange

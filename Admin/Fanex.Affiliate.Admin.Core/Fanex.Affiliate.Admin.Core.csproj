@@ -178,8 +178,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\ILicenseeApi.cs" />
+    <Compile Include="Attributes\AllowByPassFunctionAuthorizeAttribute.cs" />
     <Compile Include="Attributes\CustomAuthorizeAttribute .cs" />
     <Compile Include="Attributes\FunctionAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\PermissionCheckAttribute.cs" />
+    <Compile Include="Attributes\UnauthorizedPropertyCensorAttribute.cs" />
     <Compile Include="Attributes\ValidateAntiForgeryHeaderAttribute.cs" />
     <Compile Include="Configurations\AppSetting.cs" />
     <Compile Include="Configurations\IAppSetting.cs" />
@@ -233,6 +236,7 @@
     <Compile Include="Controllers\Affiliate\PaymentRequestController.cs" />
     <Compile Include="Controllers\Report\ReportController.cs" />
     <Compile Include="Controllers\Report\PlayerGgrReportController.cs" />
+    <Compile Include="Controllers\Report\TransferReportController.cs" />
     <Compile Include="Controllers\UnderMaintenanceController.cs" />
     <Compile Include="Controllers\UserPanel\AdjustmentController.cs" />
     <Compile Include="Controllers\UserPanel\CustomerMemberController.cs" />
@@ -255,6 +259,7 @@
     <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
     <Compile Include="DTO\CommissionGroup\DeductionSetting.cs" />
     <Compile Include="DTO\Currency.cs" />
+    <Compile Include="DTO\Customer\TransferLimitSettingInfo.cs" />
     <Compile Include="DTO\Domain\DomainControlInfo.cs" />
     <Compile Include="DTO\Domain\DomainInfo.cs" />
     <Compile Include="DTO\Home\GeneralInfo.cs" />
@@ -286,6 +291,7 @@
     <Compile Include="DTO\Payment\PaymentMethod.cs" />
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
     <Compile Include="DTO\Report\PlayerGgrReport.cs" />
+    <Compile Include="DTO\Report\TransferReport.cs" />
     <Compile Include="DTO\UserPanel\LogType.cs" />
     <Compile Include="DTO\UserPanel\SubAffiliate.cs" />
     <Compile Include="Exceptions\LicenseePaymentException.cs" />
@@ -306,6 +312,7 @@
     <Compile Include="MetaModels\CommissionGroup\DeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\P2pDeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\TierSettingParam.cs" />
+    <Compile Include="MetaModels\Customer\TransferLimitSettingParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainControlParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainParam.cs" />
     <Compile Include="MetaModels\Domain\InsertUpdateDomainControlParam.cs" />
@@ -381,6 +388,7 @@
     <Compile Include="MetaModels\Payment\PaymentRequestParamFromHome.cs" />
     <Compile Include="MetaModels\Report\AffiliateReportParam.cs" />
     <Compile Include="MetaModels\Report\PlayerGgrReportParam.cs" />
+    <Compile Include="MetaModels\Report\TransferReportParam.cs" />
     <Compile Include="MetaModels\UserInfoParam.cs" />
     <Compile Include="MetaModels\UserPanel\AdjustmentParam.cs" />
     <Compile Include="MetaModels\AffiliatePagingByDateParam.cs" />
@@ -433,7 +441,9 @@
     <Compile Include="Repository\MediaGallery\ILandingPageRepository.cs" />
     <Compile Include="Repository\MediaGallery\LandingPageRepository.cs" />
     <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\Report\ITransferReportRepository.cs" />
     <Compile Include="Repository\Report\IPlayerGgrReportRepository.cs" />
+    <Compile Include="Repository\Report\TransferReportRepository.cs" />
     <Compile Include="Repository\Report\PlayerGgrReportRepository.cs" />
     <Compile Include="Repository\UserPanel\ILandingPageStatisticsRepository.cs" />
     <Compile Include="Repository\UserPanel\IReferrersRepository.cs" />
@@ -554,7 +564,9 @@
     <Compile Include="Services\Payment\PaymentRequestService.cs" />
     <Compile Include="Services\Report\AffiliateReportService.cs" />
     <Compile Include="Services\Report\IAffiliateReportService.cs" />
+    <Compile Include="Services\Report\ITransferReportService.cs" />
     <Compile Include="Services\Report\IPlayerGgrReportService.cs" />
+    <Compile Include="Services\Report\TransferReportService.cs" />
     <Compile Include="Services\Report\PlayerGgrReportService.cs" />
     <Compile Include="Services\UnderMaintenanceService\IUnderMaintenanceService.cs" />
     <Compile Include="Services\UnderMaintenanceService\UnderMaintenanceService.cs" />
@@ -583,6 +595,7 @@
     <Compile Include="Utilities\LogHelper.cs" />
     <Compile Include="Utilities\MailProcessor.cs" />
     <Compile Include="Utilities\MediaGallery\BannerHelper.cs" />
+    <Compile Include="Utilities\DateTimeHelper.cs" />
     <Compile Include="Utilities\SiteDomainHelper.cs" />
     <Compile Include="Utilities\SiteFriendlyNameHelper.cs" />
     <Compile Include="Utilities\SystemFile.cs" />
@@ -654,9 +667,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.14.0.8411\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\.sonarlint\n88affadmin\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Refit.5.0.23\build\net461\refit.targets" Condition="Exists('..\..\packages\Refit.5.0.23\build\net461\refit.targets')" />

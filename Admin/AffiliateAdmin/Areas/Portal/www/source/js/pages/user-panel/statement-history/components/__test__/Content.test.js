@@ -10,6 +10,7 @@ describe('statement history - components - Content', () => {
         param: {
             fromDate: "1/11/2019",
             isGetAll: false,
+            isBack: false,
             toDate: "7/11/2019"
         },
         expandMonthDateList: {}
@@ -108,7 +109,7 @@ describe('statement history - components - Content', () => {
         componentInstance.fetchData = jest.fn();
         componentInstance.componentDidUpdate(defaultProps);
 
-        expect(componentInstance.fetchData).toHaveBeenCalledWith({ ...param, pageIndex: 1, pageSize: 20 });
+        expect(componentInstance.fetchData).toHaveBeenCalledWith({ ...param, pageIndex: 1, pageSize: 20 }, false);
     });
 
     it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption with correct parameter', async () => {
@@ -118,7 +119,7 @@ describe('statement history - components - Content', () => {
         const setPagingOption = jest.fn();
         const fetchData = jest.fn(() => data);
 
-        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData });
+        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData, setExpandMonthDateList: jest.fn() });
         const componentInstance = new Content(props);
         componentInstance.setState = jest.fn();
         const param = Object.assign({}, defaultProps.param, { pageIndex: 1, pageSize: 20 });
@@ -128,9 +129,34 @@ describe('statement history - components - Content', () => {
         expect(props.toggleLoaderUserPanel.mock.calls[0][0]).toBe(true);
         expect(props.toggleLoaderUserPanel.mock.calls[1][0]).toBe(false);
 
-        expect(props.fetchData).toHaveBeenCalledWith({ ...param, affId: 1271808 });
+        expect(props.fetchData).toHaveBeenCalledWith({ affId: 1271808, fromDate: "1/11/2019", pageIndex: 1, pageSize: 20, toDate: "7/11/2019" });
         expect(componentInstance.setState).toHaveBeenCalledWith({ gridData: [{ Id: 123 }], shouldResetScrollPosition: true });
         expect(props.setPagingOption).toHaveBeenCalledWith({ TotalItem: 1, PageIndex: 1, PageSize: 20 });
+        expect(props.setExpandMonthDateList).toHaveBeenCalledWith({});
+    });
+
+    it('fetchData - should call toggleLoaderUserPanel, setState and setPagingOption with correct parameter with get all', async () => {
+        const data = { MainData: [{ Id: 123 }], TotalItem: 1 };
+
+        const toggleLoaderUserPanel = jest.fn();
+        const setPagingOption = jest.fn();
+        const fetchData = jest.fn(() => data);
+        document.getElementsByClassName = jest.fn(() => ({ scrollTop: 0 }))
+
+        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData, setExpandMonthDateList: jest.fn() });
+        const componentInstance = new Content(props);
+        componentInstance.setState = jest.fn();
+        const param = Object.assign({}, defaultProps.param, { isGetAll: true, pageIndex: 1, pageSize: 20, isBack: true });
+        await componentInstance.fetchData(param, false);
+
+        expect(props.toggleLoaderUserPanel).toHaveBeenCalledTimes(2);
+        expect(props.toggleLoaderUserPanel.mock.calls[0][0]).toBe(true);
+        expect(props.toggleLoaderUserPanel.mock.calls[1][0]).toBe(false);
+
+        expect(props.fetchData).toHaveBeenCalledWith({ affId: 1271808, fromDate: null, pageIndex: 1, pageSize: 20, toDate: null });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ gridData: [{ Id: 123 }], shouldResetScrollPosition: true });
+        expect(props.setPagingOption).toHaveBeenCalledWith({ TotalItem: 1, PageIndex: 1, PageSize: 20 });
+        expect(props.setExpandMonthDateList).not.toHaveBeenCalled();
     });
 
     it('fetchData - should call toggleLoader, setState and setPagingOption with incorrect parameter', async () => {
@@ -138,7 +164,7 @@ describe('statement history - components - Content', () => {
         const setPagingOption = jest.fn();
         const fetchData = jest.fn();
 
-        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData });
+        const props = Object.assign({}, defaultProps, { toggleLoaderUserPanel, setPagingOption, fetchData, setExpandMonthDateList: jest.fn() });
         const componentInstance = new Content(props);
         componentInstance.setState = jest.fn();
         const param = Object.assign({}, defaultProps.param, { memberType: '-1', pageIndex: 1, pageSize: 20 });
@@ -148,7 +174,7 @@ describe('statement history - components - Content', () => {
         expect(props.toggleLoaderUserPanel.mock.calls[0][0]).toBe(true);
         expect(props.toggleLoaderUserPanel.mock.calls[1][0]).toBe(false);
 
-        expect(props.fetchData).toHaveBeenCalledWith({ ...param, affId: 1271808 });
+        expect(props.fetchData).toHaveBeenCalledWith({ affId: 1271808, fromDate: "1/11/2019", pageIndex: 1, pageSize: 20, toDate: "7/11/2019" });
         expect(componentInstance.setState).toHaveBeenCalledWith({ gridData: null, shouldResetScrollPosition: true });
         expect(props.setPagingOption).toHaveBeenCalledWith({ TotalItem: 0, PageIndex: 1, PageSize: 20 });
     });
@@ -211,7 +237,21 @@ describe('statement history - components - Content', () => {
 
         dataRow.find('Button').at(1).simulate('click');
 
-        expect(props.redirectToDailyEarning).toHaveBeenCalledWith({ affId: 1271808, monthDate: "2020-06-30", productId: 0 });
+        expect(props.redirectToDailyEarning).toHaveBeenCalledWith({
+            affId: 1271808,
+            monthDate: "2020-06-30",
+            productId: 0,
+            statementHistory: {
+                expandMonthDateList: { "2020-06-30": true },
+                param: {
+                    fromDate: "1/11/2019",
+                    isBack: false,
+                    isGetAll: false,
+                    toDate: "7/11/2019"
+                },
+                scrollTop: 0
+            }
+        });
     });
 
     it('transTypeClickHandler - should call redirectToSubAffiliate when click amount Button', () => {
@@ -224,7 +264,20 @@ describe('statement history - components - Content', () => {
 
         dataRow.find('Button').at(2).simulate('click');
 
-        expect(props.redirectToSubAffiliate).toHaveBeenCalledWith({ affId: 1271808, monthDate: "2020-06-30" });
+        expect(props.redirectToSubAffiliate).toHaveBeenCalledWith({
+            affId: 1271808,
+            monthDate: "2020-06-30",
+            statementHistory: {
+                expandMonthDateList: { "2020-06-30": true },
+                param: {
+                    fromDate: "1/11/2019",
+                    isBack: false,
+                    isGetAll: false,
+                    toDate: "7/11/2019"
+                },
+                scrollTop: 0
+            }
+        });
     });
 
     it('handlePaging - should call fetchData with correct parameters', () => {

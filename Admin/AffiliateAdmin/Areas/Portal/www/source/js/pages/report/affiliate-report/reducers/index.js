@@ -16,13 +16,13 @@ const now = new Date();
 const defaultToday = `${now.getMonth()}/${now.getDate()}/${now.getFullYear()}`;
 const today = createReducer(defaultToday, {});
 
-const commGroupList = createReducer([], {
+export const commGroupList = createReducer([], {
     [types.SET_COMM_GROUP_LIST](prevState, action) {
         return action.data;
     }
 });
 
-const productList = createReducer([], {
+export const productList = createReducer([], {
     [types.SET_PRODUCT_LIST](prevState, action) {
         return action.data;
     }
@@ -34,7 +34,7 @@ export const currencyList = createReducer([], {
     }
 });
 
-const paymentCurrencyList = createReducer([], {
+export const paymentCurrencyList = createReducer([], {
     [types.SET_PAYMENT_CURRENCY_LIST](prevState, action) {
         return action.data;
     }

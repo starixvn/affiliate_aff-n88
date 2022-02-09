@@ -1,0 +1,12 @@
+{
+  "ServerUri": "https://sonarqube.nexdev.net/",
+  "Organization": null,
+  "ProjectKey": "N88AFFADMIN",
+  "ProjectName": "LEGION / N88 AFF ADMIN",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "cs-sonar-way-80515",
+      "ProfileTimestamp": "2020-11-23T10:36:27Z"
+    }
+  }
+}

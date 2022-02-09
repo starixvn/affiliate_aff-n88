@@ -6,7 +6,7 @@
 @{
     var controllerName = ViewContext.RouteData.Values["Controller"].ToString();
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-    var permission = sessionService.UserPermissionList;
+    var permissions = sessionService.UserPermissionList;
     var menus = new Dictionary<string, string>
 {
         {"Customer",Function.Affiliate },
@@ -18,10 +18,21 @@
         {"Administrator",Function.UserControl },
         {"Domain",Function.Domain }
     };
-    var result = from n in menus
-                 join p in permission
-                 on n.Value equals p.FunctionName
-                 select n.Key;
+
+    var displayMenus = menus.Where(m =>
+    {
+        if (string.Equals("Report", m.Key, StringComparison.OrdinalIgnoreCase))
+        {
+            return permissions.Any(p => p.FunctionName == m.Value || p.FunctionName == Function.TransferPlayerReport);
+        }
+
+        if (permissions.Any(p => p.FunctionName == m.Value))
+        {
+            return true;
+        }
+
+        return false;
+    }).Select(m => m.Key);
 }
 
 @functions{
@@ -46,7 +57,7 @@
         <a class="nav-link @(controllerName == "Home" ? "active" : string.Empty)" href="@Url.Content("~/Portal/Home")">Home</a>
     </li>
 
-    @foreach (var item in result)
+    @foreach (var item in displayMenus)
     {
         var active = "nav-link " + (controllerName == item ? "active" : string.Empty);
         <li class="nav-item">
@@ -57,6 +68,9 @@
     }
 </ul>
 <script type="text/javascript">
+    window.globalVariables = {
+        permissions: @Html.Raw(Json.Encode(permissions)),
+    }
     var controllerName = '@controllerName';
     let element;
 
@@ -64,7 +78,7 @@
         case 'PaymentRequest': case 'RevenueGroup': case 'EmailHistory':
             element = document.getElementById('Affiliate');
             break;
-        case 'Report': case 'PlayerGgrReport':
+        case 'Report': case 'PlayerGgrReport': case 'TransferReport':
             element = document.getElementById('Report');
             break;
         case 'ActiveMember':

@@ -17,8 +17,9 @@ namespace Fanex.Affiliate.Admin.Core.Attributes
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var context = filterContext.HttpContext;
+            var isSkipCheckAuthorization = filterContext.ActionDescriptor.IsDefined(typeof(AllowByPassFunctionAuthorizeAttribute), true);
 
-            if (!string.IsNullOrEmpty(FunctionName))
+            if (!string.IsNullOrEmpty(FunctionName) && !isSkipCheckAuthorization)
             {
                 var sessionService = DependencyResolver.Current.GetService<ISessionService>();
                 var permissionList = sessionService.UserPermissionList;

@@ -146,7 +146,7 @@ describe('administrator - common - components - DepartmentPopup ', () => {
         instance._getCheckedItemIdList = jest.fn(() => []);
         instance._handleShowAlert = jest.fn();
 
-        await instance._handleUpdate();
+        await instance.handleUpdate();
 
         expect(instance._getCheckedItemIdList).toHaveBeenCalledWith({});
         expect(instance._handleShowAlert).toHaveBeenCalledWith('Please choose at least one account.');
@@ -159,7 +159,7 @@ describe('administrator - common - components - DepartmentPopup ', () => {
         instance._getCheckedItemIdList = jest.fn(() => ["1000000045"]);
         instance.setState = jest.fn();
 
-        await instance._handleUpdate();
+        await instance.handleUpdate();
 
         expect(instance._getCheckedItemIdList).toHaveBeenCalledWith(checkedUsers);
         expect(instance.setState).toHaveBeenCalledWith({ "isShowPolicyPopup": true, "selectedUserIds": "1000000045", "userNames": "AAHubert" });
@@ -210,7 +210,7 @@ describe('administrator - common - components - DepartmentPopup ', () => {
         const props = Object.assign({}, defaultProps, { closePopup: jest.fn() })
         const wrapper = shallow(<DepartmentPopup {...props} />);
 
-        wrapper.instance()._handleClosePopup();
+        wrapper.instance().handleClosePopup();
 
         expect(props.closePopup).toHaveBeenCalled();
     });

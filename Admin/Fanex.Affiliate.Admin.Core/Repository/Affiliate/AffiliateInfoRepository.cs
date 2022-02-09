@@ -84,7 +84,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
 
             objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
         }
-
         private static AffiliateInfo BuildAffiliateInfoItem(IDataReader reader)
         {
             return new AffiliateInfo
@@ -102,8 +101,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Affiliate
                 BalanceBf = reader["BFF"] == DBNull.Value ? (decimal?)null : reader.ToDecimal("BFF"),
                 Member = reader["NoOfMember"] == DBNull.Value ? (int?)null :reader.ToInt("NoOfMember"),
                 CommissionGroup = reader["GroupName"] == DBNull.Value ? "N/A" : reader.ToString("GroupName"),
-                IsFavorite =reader.ToBool("IsFavorite"),
-                IsClosed =reader.ToBool("IsClosed"),
+                IsFavorite = Convert.ToBoolean(reader["IsFavorite"]),
+                IsClosed = reader.ToBool("IsClosed"),
                 Currency = reader.ToString("Currency"),
                 PlayerCurrency = reader.ToString("PlayerCurrency"),
                 Phone = reader.ToString("Phone"),

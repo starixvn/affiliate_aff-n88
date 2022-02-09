@@ -34,6 +34,7 @@
     <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_PlayerReport_GGR" SpName="Aff_Admin_PlayerReport_GGR" DbName="affiliate_n88" />
+    <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel" DbName="affiliate_n88" />
   </Function>
   <Function Name="Info">
     <Setting Key="Aff_Admin_Affiliate_Sel" SpName="Aff_Admin_Affiliate_Sel" DbName="affiliate_n88" />
@@ -51,7 +52,7 @@
     <Setting Key="Aff_DailyEarning_Sel" SpName="Aff_DailyEarning_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_DailyEarning_Detail_Sel" SpName="Aff_DailyEarning_Detail_Sel" DbName="affiliate_n88" />
   </Function>
-  <Function Name="UserPanel">
+  <Function Name="Customer">
     <Setting Key="Aff_Admin_PlayersDetail_Sel" SpName="Aff_Admin_PlayersDetail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Member_Sel" SpName="Aff_Admin_Member_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateNote_Sel" SpName="Aff_Admin_AffiliateNote_Sel" DbName="affiliate_n88" />
@@ -72,6 +73,8 @@
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName="Aff_PlayerUsername_CheckIsValid" DbName="affiliate_n88" />
     <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_TransferLimit_Sel" SpName="Aff_Admin_TransferLimit_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_TransferLimit_Upd" SpName="Aff_Admin_TransferLimit_Upd" DbName="affiliate_n88" />
   </Function>
   <Function Name="MediaGallery">
     <Setting Key="Aff_Admin_LandingPage_Sel" SpName="Aff_Admin_LandingPage_Sel" DbName="affiliate_n88" />

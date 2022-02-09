@@ -83,7 +83,7 @@ describe('affiliate info - Filter ', () => {
     });
 
     it('should call handlePressEnter when press Enter', () => {
-        const mockedEvent = { charCode: 13 };
+        const mockedEvent = { charCode: 13, preventDefault: jest.fn() };
         const mockSetReportTitle = jest.fn();
         const mockSetParam = jest.fn();
         const props = Object.assign({}, defaultProps, { setReportTitle: mockSetReportTitle, setParam: mockSetParam });

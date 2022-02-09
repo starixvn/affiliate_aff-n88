@@ -138,7 +138,7 @@ describe('affiliate report - Filter ', () => {
     });
 
     it('should call handlePressEnter when press Enter', () => {
-        const mockedEvent = { charCode: 13 };
+        const mockedEvent = { charCode: 13, preventDefault: jest.fn() };
 
         const wrapper = shallow(<Filter {...defaultProps} />);
         const instance = wrapper.instance();
