@@ -23,10 +23,10 @@
   //  "outputFile": "www/build/styles/css/faq.css",
   //  "inputFile": "www/source/styles/pages/faq.scss"
   //},
-  {
-    "outputFile": "www/build/styles/css/promotion.css",
-    "inputFile": "www/source/styles/pages/promotion.scss"
-  },
+  //{
+  //  "outputFile": "www/build/styles/css/promotion.css",
+  //  "inputFile": "www/source/styles/pages/promotion.scss"
+  //},
   //{
   //  "outputFile": "www/build/styles/css/revenue-structure.css",
   //  "inputFile": "www/source/styles/pages/revenue-structure.scss"
@@ -59,10 +59,10 @@
   //  "outputFile": "www/build/js/test.js",
   //  "inputFile": "www/source/js/pages/test.js"
   //},
-  {
-    "outputFile": "www/build/js/site.js",
-    "inputFile": "www/source/js/site.js"
-  },
+  //{
+  //  "outputFile": "www/build/js/site.js",
+  //  "inputFile": "www/source/js/site.js"
+  //},
   //{
   //  "outputFile": "www/build/js/recheckin.js",
   //  "inputFile": "www/source/js/recheckin.js"
@@ -131,14 +131,14 @@
   //  "outputFile": "www/build/js/pages/home.js",
   //  "inputFile": "www/source/js/pages/home.js"
   //},
-  {
-    "outputFile": "www/build/js/pages/promotion.js",
-    "inputFile": "www/source/js/pages/promotion.js"
-  },
-  {
-    "outputFile": "www/build/js/pages/product.js",
-    "inputFile": "www/source/js/pages/product.js"
-  },
+  //{
+  //  "outputFile": "www/build/js/pages/promotion.js",
+  //  "inputFile": "www/source/js/pages/promotion.js"
+  //},
+  //{
+  //  "outputFile": "www/build/js/pages/product.js",
+  //  "inputFile": "www/source/js/pages/product.js"
+  //},
   //{
   //  "outputFile": "www/build/js/pagetracking.js",
   //  "inputFile": "www/source/js/components/pagetracking.js"
