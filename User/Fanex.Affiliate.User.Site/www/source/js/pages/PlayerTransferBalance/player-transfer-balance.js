@@ -114,7 +114,7 @@
                 $('#avail-bal').text(data.PlayerCurrency + " " + fomatter.format(availBal)  );
                 $('#avail-bal-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(data.Balance) );
                 $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit * _paymentAccountExRate));
-                $('#transfer-limit-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(data.RemainTransferLimit));
+                $('#transfer-limit-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(transferLimit));
                 $('#exchange-player-currency').text(data.PlayerCurrency);
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
                 $('#amount').val('');
