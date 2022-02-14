@@ -52,5 +52,20 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/customer/GetCustClosingBalance")]
         Task<IEnumerable<CustClosingBalanceModel>> GetCustClosingBalance(DateTime lastGetTime, int pageIndex, int pageSize);
+
+        [Get("/BetReport/GetAdjustmentInfos")]
+        Task<IEnumerable<AdjustmentInfo>> GetAdjustmentInfos(int id, int batchCount);
+
+        [Get("/LogReport/GetDrawLogs")]
+        Task<IEnumerable<DrawLogInfo>> GetDrawLogs(int id, int batchCount);
+
+        [Get("/LogReport/GetEventDraws")]
+        Task<IEnumerable<EventDrawInfo>> GetEventDraws(int id, int batchCount);
+
+        [Get("/Customer/GetVipUpgradeReviews")]
+        Task<IEnumerable<VipUpgradeReviewInfo>> GetVipUpgradeReviews(DateTime monthDate, int pageIndex, int pageSize);
+
+        [Get("/LogReport/GetLogAdminAdjustWallet")]
+        Task<IEnumerable<LogAdminAjustWalletInfo>> GetLogAdminAdjustWallet(int id, int batchCount);
     }
 }

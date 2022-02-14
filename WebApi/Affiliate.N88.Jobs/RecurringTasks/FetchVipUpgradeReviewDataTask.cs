@@ -1,0 +1,100 @@
+﻿using Affiliate.N88.Jobs.Apis;
+using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Models;
+using Affiliate.N88.Repository;
+using Affiliate.N88.Services;
+using Affiliate.N88.Utitlities;
+using Fanex.Logging;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Affiliate.N88.Jobs.RecurringTasks
+{
+    public interface IFetchVipUpgradeReviewDataTask : IFetchDataTask { }
+
+    public class FetchVipUpgradeReviewDataTask : FetchDataForMultipleRepositoryTaskBase<VipUpgradeReviewInfo>, IFetchVipUpgradeReviewDataTask
+    {
+        private readonly ILicenseeApi _licenseeApi;
+        private readonly ILogger _logger;
+        private readonly ITrackerService _timeTrackerService;
+
+        public FetchVipUpgradeReviewDataTask(ILicenseeApi licenseeApi,
+             IThirdPartyImportRepository _thirdPartyRepo,
+             ILogger logger,
+             ITrackerService timeTrackerService,
+             IOptionsSnapshot<FetchServiceSetting> configuration)
+             : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_VIP_UPGRADE_REVIEW_SETTING))
+        {
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
+            _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
+        }
+
+        public override async Task FetchDataAsync()
+        {
+            try
+            {
+                var trackDate = await _timeTrackerService.GetTimeAsync(TableName);
+                var monthDate = new DateTime(trackDate.Year, trackDate.Month, 1);
+                await FetchDataAsync(monthDate);
+            }
+            catch (Exception ex)
+            {
+                await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+            }
+        }
+
+        public async Task FetchDataAsync(DateTime monthDate)
+        {
+            var fromDate = monthDate;
+            var toDate = GetAdjustmentTime();
+            while(fromDate <= toDate )
+            {
+                var datas = await FetchDataFromMonthAsync(fromDate);
+                foreach (var data in datas)
+                {
+                    if (data.Any())
+                    {
+                        await ImportDataToMultipleRepoAsync(data);
+                    }
+                }
+                await _timeTrackerService.SaveTimeAsync(TableName, fromDate);
+                fromDate = fromDate.AddMonths(1);
+            }
+        }
+
+        private async Task<IEnumerable<IEnumerable<VipUpgradeReviewInfo>>> FetchDataFromMonthAsync(DateTime fromDate)
+        {
+            var datas = new List<IEnumerable<VipUpgradeReviewInfo>>();
+            var pageIndex = 0;
+            var pageSize = 2000;
+            var data = await _licenseeApi.GetVipUpgradeReviews(fromDate, pageIndex, pageSize);
+            datas.Add(data);
+            while(data.Count() == pageSize)
+            {
+                pageIndex++;
+                data = await _licenseeApi.GetVipUpgradeReviews(fromDate, pageIndex, pageSize);
+                datas.Add(data);
+            }
+            return datas;
+        }
+
+        private DateTime GetAdjustmentTime()
+        {
+            var now = DateTime.Now;
+            var monthDate = new DateTime(now.Year, now.Month, now.Day);
+            var adjustDate = monthDate.AddDays(Settings.AdjustmentValue);
+            return new DateTime(adjustDate.Year, adjustDate.Month, 1);
+        }
+
+
+        protected override string BuildXml(IEnumerable<VipUpgradeReviewInfo> data)
+            => XmlHelper.BuildXml(data, "root", "row");
+
+        protected override IEnumerable<string> GetSupportedRepoPrefix()
+            => Settings.SupportedPrefix;
+    }
+}

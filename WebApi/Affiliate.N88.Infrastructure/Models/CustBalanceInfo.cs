@@ -16,6 +16,8 @@ namespace Affiliate.N88.Models
 
         public int  Status { get; set; }
 
+        public int ActStatus { get; set; }
+
         public decimal Balance { get; set; }
     }
 }

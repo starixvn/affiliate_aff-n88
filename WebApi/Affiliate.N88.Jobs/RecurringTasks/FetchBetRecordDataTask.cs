@@ -25,6 +25,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         [DisableConcurrentExecution(60)]
         [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchFromAdjusmentDayAsync(int day);
+
+        [DisableConcurrentExecution(60)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
+        Task FetchAllDay(int adjustHour);
     }
     public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<TransBetRecordInfo>, IFetchBetRecordDataTask
     {
@@ -110,6 +114,22 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
+        public async Task FetchAllDay(int adjustHour)
+        {
+            try
+            {
+                var lastFetchDate = await GetLastTimeFetchDateAsync();
+                var adjustDate = lastFetchDate.AddHours(-adjustHour);
+                var fromDate = new DateTime(adjustDate.Year, adjustDate.Month, adjustDate.Day);
+                var toDate = GetAdjustmentApiServerDate();
+                await FetchDataAsync(fromDate, toDate);
+            }
+            catch (Exception ex)
+            {
+                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
+            }
+        }
+
         private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)
         {
             var intervalTime = GetApiMaxTimeRange();
@@ -162,7 +182,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             DateTime lastFetchDate = new DateTime();
             try
             {
-                lastFetchDate = await _timeTrackerService.GetTimeAsync(TableName);
+                var adjustmentMin = Settings.AdjustmentValue;
+                var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
+                lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
             }
             catch (FileNotFoundException)
             {
@@ -184,9 +206,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private DateTime GetAdjustmentApiServerDate()
         {
             var date = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(API_SERVER_TIME_OFFSET));
-            var adjustmentMin = Settings.AdjustmentValue;
-            var adjustDate = date.AddMinutes(adjustmentMin);
-            return adjustDate.DateTime;
+            return date.DateTime;
         }
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
@@ -194,6 +214,5 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         protected override string BuildXml(IEnumerable<TransBetRecordInfo> data)
             => XmlHelper.BuildXml(data, "transaction", "trans");
-
     }
 }

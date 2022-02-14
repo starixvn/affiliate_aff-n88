@@ -1,6 +1,7 @@
 ﻿using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
+using Affiliate.N88.Jobs.RecurringTasks.Log;
 using Affiliate.N88.Jobs.RecurringTasks.Promotion;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
@@ -132,6 +133,36 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_CUST_CLOSING_BALANCE_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_CLOSING_BALANCE_SETTING}")
                 );
+
+            services.AddScoped<IFetchAdjustmentInfoDataTask, FetchAdjustmentInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_ADJUSTMENT_INFO_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_ADJUSTMENT_INFO_SETTING}")
+                );
+
+            services.AddScoped<IFetchDrawLogDataTask, FetchDrawLogDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_DRAW_LOG_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_DRAW_LOG_SETTING}")
+                );
+
+            services.AddScoped<IFetchEventDrawDataTask, FetchEventDrawDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_EVENT_DRAW_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_EVENT_DRAW_SETTING}")
+                );
+
+            services.AddScoped<IFetchVipUpgradeReviewDataTask, FetchVipUpgradeReviewDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_VIP_UPGRADE_REVIEW_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_VIP_UPGRADE_REVIEW_SETTING}")
+                );
+
+            services.AddScoped<IFetchLogAdminAdjustWalletDataTask, FetchLogAdminAdjustWalletDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING}")
+    );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -147,6 +178,7 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2)); 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchFromAdjusmentDayAsync(3));
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
 
@@ -178,6 +210,16 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchCustBonusRolloverDataTask>($"{typeof(IFetchCustBonusRolloverDataTask).Name}", appSettings.PullCustBonusRolloverSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchCustClosingBalanceDataTask>($"{typeof(IFetchCustClosingBalanceDataTask).Name}", appSettings.PullCustClosingBalanceSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchAdjustmentInfoDataTask>($"{typeof(IFetchAdjustmentInfoDataTask).Name}", appSettings.PullAdjustmentInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchDrawLogDataTask>($"{typeof(IFetchDrawLogDataTask).Name}", appSettings.PullDrawLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchEventDrawDataTask>($"{typeof(IFetchEventDrawDataTask).Name}", appSettings.PullEventDrawSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 
