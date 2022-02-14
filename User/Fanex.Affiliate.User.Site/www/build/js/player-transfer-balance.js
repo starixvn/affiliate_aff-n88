@@ -98,7 +98,7 @@ var PlayerTransferBalance = (function ($) {
                 _paymentAccountExRate = data.PaymentAccountExRate;
                 _playerExRate = data.PlayerExRate;
                 let availBal = data.Balance * _paymentAccountExRate;
-                let transferLimit = Math.min(data.RemainTransferLimit * _paymentAccountExRate, availBal);
+                let transferLimit = Math.min(data.RemainTransferLimit, data.Balance);
                 if (transferLimit < 0) {
                     transferLimit = 0;
                 }
@@ -113,7 +113,8 @@ var PlayerTransferBalance = (function ($) {
                 $('#player-currency').text(data.PlayerCurrency);
                 $('#avail-bal').text(data.PlayerCurrency + " " + fomatter.format(availBal)  );
                 $('#avail-bal-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(data.Balance) );
-                $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit));
+                $('#transfer-limit').text(data.PlayerCurrency + " " + fomatter.format(transferLimit * _paymentAccountExRate));
+                $('#transfer-limit-base-currency').text(data.PaymentAccountCurrency + " " + fomatter.format(transferLimit));
                 $('#exchange-player-currency').text(data.PlayerCurrency);
                 $('#exchange-base-currency').text('~' + _baseCurrency + " 0");
                 $('#amount').val('');
