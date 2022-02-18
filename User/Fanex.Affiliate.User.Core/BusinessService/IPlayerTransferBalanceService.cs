@@ -15,7 +15,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     {
         Task<ResultInfo<PlayerTransferBalanceInfo>> GetPlayerTransferBalanceInfoAsync(int affId, string playerName);
 
-        Task<(int errCode, string errMsg)> SubmitTransferBalanceRequestAsync(TransMoneyRequestViewModel param);
+        Task<ResultInfo> SubmitTransferBalanceRequestAsync(TransMoneyRequestViewModel param);
 
         PlayerTransferBalanceHistoryResult GetPlayerTransferBalanceHistory(PlayerTransferBalanceHistoryParam param);
     }
