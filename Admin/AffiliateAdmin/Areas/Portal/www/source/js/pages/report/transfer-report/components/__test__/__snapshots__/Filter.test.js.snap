@@ -166,7 +166,7 @@ exports[`transfer report - component - Filter -  should render correctly 1`] = `
         }
         isEnable={true}
         maxDate="9/27/2021"
-        minDate={2020-10-29T17:00:00.000Z}
+        minDate={2021-11-30T17:00:00.000Z}
         onChange={[Function]}
       />
     </FormGroup>

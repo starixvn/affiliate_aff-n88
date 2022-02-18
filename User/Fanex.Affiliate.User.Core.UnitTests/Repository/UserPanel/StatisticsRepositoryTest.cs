@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Moq;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -39,14 +40,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpkey + dbMode;
             var db = Builder.Build(uSpkey, dbMode);
-            var reader = db.ExecuteReader(Arg.Any<object>());
+            var reader = db.ExecuteReader(It.IsAny<object>());
             reader.Read().Returns(true, true, false);
-            reader.NextResult().Returns(isNextResult, true, false);
+            reader.NextResult().Returns(isNextResult, false);
             reader["Date"].Returns(new DateTime(2021, 03, 01));
             reader["TotalClick"].Returns(1);
             reader["UniqueClick"].Returns(1);
             var repo = CreateRepo();
-
             var result = repo.GetTrackingStatistics(1, "", isInternal);
 
             Assert.Equal(key, db.SettingKey);

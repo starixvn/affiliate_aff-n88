@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Moq;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -69,7 +70,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             var param = new DailyEarningParam { IsInternal = isInternal };
             var db = Builder.Build(uSpKey, dbMode);
 
-            var reader = db.ExecuteReader(Arg.Any<object>());
+            var reader = db.ExecuteReader(It.IsAny<object>());
             reader.Read().Returns(true, false, true);
             reader.NextResult().Returns(isNextResult, true, false);
             reader["Deposit"].Returns(100);

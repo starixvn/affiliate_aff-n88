@@ -39,17 +39,11 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Couchbase, Version=1.0.0.0, Culture=neutral, PublicKeyToken=81137140da4e57ef, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Couchbase.dll</HintPath>
-    </Reference>
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="Enyim.Caching, Version=2.12.0.0, Culture=neutral, PublicKeyToken=81137140da4e57ef, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Enyim.Caching.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Caching, Version=1.0.404.95, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.1.0.404.97\lib\net40\Fanex.Caching.dll</HintPath>
+    <Reference Include="Fanex.Caching, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.2.1\lib\net461\Fanex.Caching.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
@@ -207,7 +201,6 @@
     <Compile Include="Repository\EmailHistoryRepositoryTest.cs" />
     <Compile Include="Repository\GetSecurityQuestionsTest.cs" />
     <Compile Include="Repository\LanguageRepositoryTest.cs" />
-    <Compile Include="Repository\ObjectDBBuilderTest.cs" />
     <Compile Include="Repository\RepositoryTestBase.cs" />
     <Compile Include="Repository\UserPanel\AccountOverviewRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\AccountRepositoryTest.cs" />
