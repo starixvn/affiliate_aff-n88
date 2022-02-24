@@ -253,7 +253,6 @@
     <Compile Include="Constants\ActionName.cs" />
     <Compile Include="Constants\Apis\ApiConstant.cs" />
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
-    <Compile Include="Constants\Apis\AccountApiResponse.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
     <Compile Include="Constants\CommGroupName.cs" />
     <Compile Include="Constants\CommissionType.cs" />
@@ -390,7 +389,6 @@
     <Compile Include="Utilities\IFileSystem.cs" />
     <Compile Include="Utilities\IImageHandler.cs" />
     <Compile Include="ViewModels\PopupViewModel.cs" />
-    <Compile Include="ViewModels\ResultModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\AffiliateLinkViewModel.cs" />

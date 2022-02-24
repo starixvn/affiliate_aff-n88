@@ -188,7 +188,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 MarketingService.GetAvailableDomainList(Arg.Any<int>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).Returns(Constant.DomainList);
                 MarketingService.GetUsingMarketingLinks(Arg.Compat.Any<int>()).Returns(new List<MarketingChannelLink>
                 {
-                    new MarketingChannelLink { ChannelName = "ABC", AffMediaLink = "English.com" }
+                    new MarketingChannelLink { ChannelName = "ABC", AffMediaLink = "English.com", ChannelCode = "123", MarketName = "English" }
                 }.GroupBy(i => i.ChannelName));
 
                 var result = controller.RenderQrCodePage(param) as ViewResult;

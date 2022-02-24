@@ -162,7 +162,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 if(playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS)
                 {
-                    await ActiveDepositActStatusAsync(playerWalletInfo.CustId);
+                    await ActiveDepositActStatusAsync(playerWalletInfo.CustId).ConfigureAwait(true);
                 }
 
                 return GetResultInfo(Lang.TransferSuccessful, true);
@@ -171,7 +171,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         }
 
-        public ResultInfo ValidateAmountAndPermission(decimal amount)
+        private ResultInfo ValidateAmountAndPermission(decimal amount)
         {
             if (amount <= 0)
             {

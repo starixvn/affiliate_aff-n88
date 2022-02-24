@@ -7,7 +7,6 @@
     using CoreService;
     using DTO;
     using Enum;
-    using Fanex.Affiliate.User.Core.MetalModels;
     using Fanex.Affiliate.User.Core.Resources;
     using Filters;
     using MetalModels.Email;
@@ -174,9 +173,6 @@
         {
             switch (functionName)
             {
-                case "ContactUs":
-                    return GetContactUsModel();
-
                 case "Csd":
                     return GetCSDModel();
 
@@ -198,18 +194,6 @@
                 default:
                     return null;
             }
-        }
-
-        private object GetContactUsModel()
-        {
-            return new ContactUsParam
-            {
-                Sender = "Sender",
-                Affiliate = _userName,
-                SiteFriendlyName = _siteFriendlyName,
-                Email = "abc@nova.com",
-                Content = SiteDomainHelper.GetRootUrl(this, _appSetting),
-            };
         }
 
         private object GetCSDModel()

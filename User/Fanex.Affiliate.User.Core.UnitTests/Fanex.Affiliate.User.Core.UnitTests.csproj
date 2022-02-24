@@ -158,6 +158,7 @@
     <Compile Include="BusinessService\MarketingServiceTest.cs" />
     <Compile Include="BusinessService\NewsServiceTest.cs" />
     <Compile Include="BusinessService\PaymentServiceTest.cs" />
+    <Compile Include="BusinessService\PlayerTransferBalanceServiceTest.cs" />
     <Compile Include="BusinessService\QrCodeGeneratorServiceTest.cs" />
     <Compile Include="BusinessService\SecurityQuestionServiceTest.cs" />
     <Compile Include="BusinessService\TwoFactorAuthServiceTest.cs" />
@@ -183,6 +184,8 @@
     <Compile Include="Controllers\UserPanel\MainControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\MarketingControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\MediaGalleryControllerTest.cs" />
+    <Compile Include="Controllers\UserPanel\PlayerTransferBalanceControllerTest.cs" />
+    <Compile Include="Controllers\UserPanel\PlayerTransferBalanceHistoryControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\ReferrersStatisticsControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\RevenueReportControllerTest.cs" />
     <Compile Include="Controllers\UserPanel\StatementHistoryControllerTest.cs" />
@@ -195,6 +198,8 @@
     <Compile Include="Controllers\VerificationAccountControllerTest.cs" />
     <Compile Include="CoreService\MemoryCacheServiceTest.cs" />
     <Compile Include="CoreService\SessionServiceTest.cs" />
+    <Compile Include="Extensions\EnumerableExtensionsTest.cs" />
+    <Compile Include="Extensions\NumberFormatterTest.cs" />
     <Compile Include="Infrastructure\EncryptedHandlerTest.cs" />
     <Compile Include="Infrastructure\HttpRequestParserHandlerTest.cs" />
     <Compile Include="Repository\AuthRepositoryTest.cs" />
@@ -209,6 +214,7 @@
     <Compile Include="Repository\UserPanel\MarketingRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\NewsRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\PaymentRepositoryTest.cs" />
+    <Compile Include="Repository\UserPanel\PlayerTransferBalanceRespositoryTest.cs" />
     <Compile Include="Repository\UserPanel\StatementHistoryRepositoryTest.cs" />
     <Compile Include="Repository\UserPanel\StatisticsRepositoryTest.cs" />
     <Compile Include="Repository\VerificationRepositoryTest.cs" />

@@ -28,8 +28,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
         public void Get_WhenCall_ReturnDeepClone()
         {
             var service = CreateService();
+            Cache.TryGet("abc", out TestModel _).Returns(true);
 
-            var result = service.Get<TestModel>("aabc");
+            var result = service.Get<TestModel>("abc");
 
             Assert.Null(result);
         }
@@ -44,7 +45,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
                 PropNumber = 1,
                 PropString = "abc"
             };
-            Cache.When(c => c.Set<TestModel>(Arg.Compat.Any<string>(), Arg.Compat.Any<TestModel>(), Arg.Compat.Any<CacheItemOptions>()))
+            Cache.When(c => c.Set(Arg.Compat.Any<string>(), Arg.Compat.Any<TestModel>(), Arg.Compat.Any<CacheItemOptions>()))
                 .Do(c =>
                 {
                     cacheValue = c.Args()[1] as TestModel;

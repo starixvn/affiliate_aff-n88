@@ -35,10 +35,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             CurrencyRepo = Substitute.For<ICurrencyRepository>();
         }
 
-        [Fact]
-        public void Index_WhenCallWithNoParm_ReturnCorrectViewWithDefaultValue()
+        [Theory]
+        [InlineData("123")]
+        [InlineData("abc")]
+        public void Index_WhenCallWithNoParm_ReturnCorrectViewWithDefaultValue(string baseCurrency)
         {
-            var controller = CreateController();
+            CurrencyRepo.GetBaseCurrencyList().Returns(new List<Currency> { new Currency { ExchangeId = 123, Code = "USD" } });
             var defaultParam = new StatementHistoryParam
             {
                 AffId = SessionService.UserSession.AffId,
@@ -46,7 +48,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 PageSize = 20
             };
             Repo.GetStatementHistory(Arg.Compat.Any<StatementHistoryParam>()).Returns(new List<StatementHistory>());
-            var result = controller.Index("123") as ViewResult;
+
+            var controller = CreateController();
+            var result = controller.Index(baseCurrency) as ViewResult;
 
             Repo.Received().GetStatementHistory(Arg.Compat.Is<StatementHistoryParam>(param =>
                 param.AffId == defaultParam.AffId &&

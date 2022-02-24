@@ -7,7 +7,6 @@ using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
-using System;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
@@ -99,8 +98,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var siteId = _appSetting.MemberSiteId;
             return await _licenseeApi.GetCustomerInfoAsync(userName, siteId);
         }
-
-        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust, bool isSkipLockUser = false)
+        private ResultInfo CheckPlayerUserNameValid(MemberSiteCustomerInfo cust)
         {
             var validInfo = new ResultInfo
             {
@@ -122,19 +120,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                         validInfo.Message = Lang.UserNameSuspended;
                         break;
                     case CustomerStatus.CLOSED:
+                    case CustomerStatus.LOCKED:
                         validInfo.IsOk = false;
                         validInfo.Message = Lang.UserNameClosed;
-                        break;
-                    case CustomerStatus.LOCKED:
-                        if (isSkipLockUser)
-                        {
-                            validInfo.IsOk = true;
-                        }
-                        else
-                        {
-                            validInfo.IsOk = false;
-                            validInfo.Message = Lang.UserNameClosed;
-                        }
                         break;
                     default:
                         validInfo.IsOk = false;

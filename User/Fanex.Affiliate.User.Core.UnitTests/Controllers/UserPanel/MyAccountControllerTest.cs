@@ -194,7 +194,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 MoreSiteUrls = "MoreSiteUrls",
                 NoSiteDesc = "NoSiteDesc",
                 AffId = Constant.DefaultAffId,
-                PreferredPayment = PlayerUserName
+                PreferredPayment = PlayerUserName,
+                TransferLimit = 0,
+                PlayerCurrencyId = 0
             };
 
             // Action
