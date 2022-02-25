@@ -55,7 +55,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 total.TurnOver += item.Data.TurnOver;
                 total.GGR += item.Data.GGR;
                 total.PlatformFee += item.Data.PlatformFee;
-                total.OperationalFee += item.Data.OperationalFee;
                 total.DepositFee += item.Data.DepositFee;
                 total.WithdrawalFee += item.Data.WithdrawalFee;
                 total.Bonus += item.Data.Bonus;

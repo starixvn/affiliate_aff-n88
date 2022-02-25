@@ -5,8 +5,7 @@ import { Alert } from 'reactstrap';
 
 import { getSelectedCommGroup, getGroupSettingList, setSelectedGroup, updateCommissionGroup, setSelectedProductIds } from '../../actions';
 
-import DeductionSetting from '../shared/deduction';
-import TierSetting from '../shared/tiersetting';
+import DeductionSetting from '../shared/tier-deduction';
 import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { validate } from '../../modules/service';
@@ -34,6 +33,7 @@ export class EditGroup extends React.Component {
     }
 
     handleSave = async () => {
+        console.log('Submit');
         window.scrollTo({ top: 0, behavior: "smooth" });
 
         const { selectedGroup } = this.props;
@@ -82,7 +82,6 @@ export class EditGroup extends React.Component {
                 <CommGroupInfo />
                 <P2pProductSetting />
                 <DeductionSetting />
-                <TierSetting />
                 <p className="text-danger">{messages.note}</p>
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
             </div>

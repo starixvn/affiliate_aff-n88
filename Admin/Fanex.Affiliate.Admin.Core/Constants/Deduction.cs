@@ -4,8 +4,6 @@
     {
         public const int PlatformFeeId = 10;
 
-        public const int OperationalFeeId = 11;
-
         public const int DepositFeeId = 13;
 
         public const int WithdrawalFeeId = 14;

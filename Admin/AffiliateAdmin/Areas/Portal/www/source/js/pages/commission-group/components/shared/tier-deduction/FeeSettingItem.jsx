@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { Col, FormGroup, Label, Input, Form } from 'reactstrap';
 import { regExp, formatDecimal, format } from '../../../modules/constant';
 import { money } from '../../../../../modules/constants';
-import DeductedPercentageGroup from './DeductedPercentageGroup';
+import DeductedPercentageGroup from '../deduction/DeductedPercentageGroup';
 
 const regexCheckAmount = new RegExp(regExp.checkAmount);
 const regexValidAmount = new RegExp(regExp.validAmount);

@@ -51,7 +51,6 @@ export const headerText = {
     Bonus: 'Bonus',
     Rebate: 'Rebate',
     PlatformFee: 'Royalty Fee',
-    OperationalFee: 'Operational Fee',
     DepositFee: 'Deposit Fee',
     WithdrawalFee: 'Withdrawal Fee',
     TotalFee: 'Total Fee',

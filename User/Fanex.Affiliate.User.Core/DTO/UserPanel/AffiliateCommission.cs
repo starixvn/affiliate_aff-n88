@@ -18,7 +18,6 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal PlatformFee { get; set; }
 
-        public decimal OperationalFee { get; set; }
 
         public decimal DepositFee { get; set; }
 

@@ -36,6 +36,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                         item.AffId = reader.ToInt("AffId");
                         item.UserName = reader.ToString("Username");
                         item.PaymentCurrency = reader.ToString("PaymentCurrency");
+                        item.IsMultiGroupProduct = reader.ToBool("IsMultiGroupProduct");
 
                         dataList.Add(item);
                     }
@@ -123,7 +124,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 Bonus = reader.ToDecimal("Bonus"),
                 Rebate = reader.ToDecimal("Rebate"),
                 PlatformFee = reader.ToDecimal("PlatformFee"),
-                OperationalFee = reader.ToDecimal("OperationalFee"),
                 DepositFee = reader.ToDecimal("DepositFee"),
                 WithdrawalFee = reader.ToDecimal("WithdrawalFee"),
                 TotalFee = reader.ToDecimal("TotalFee"),

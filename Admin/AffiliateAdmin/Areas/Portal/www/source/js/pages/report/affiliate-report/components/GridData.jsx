@@ -92,7 +92,7 @@ export class GridData extends PureComponent {
                 <th width={55} rowSpan="2" title={headerText.Fdm}>{headerText.Fdm}</th>
                 <th width={55} rowSpan="2" title={headerText.ActiveMember}>{headerText.ActiveMember}</th>
                 <th width={65} rowSpan="2" title={headerText.NoOfSubAff}>{headerText.NoOfSubAff}</th>
-                <th colSpan="11" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
+                <th colSpan="10" height={28} title={headerText.MemberStatistics}>{headerText.MemberStatistics}</th>
                 <th colSpan={isMainView ? 8 : 7} title={headerText.AffiliateStatistics}>{headerText.AffiliateStatistics}</th>
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.MonthOnMonth}>{headerText.MonthOnMonth}</th>)}
                 {isMainView && (<th width={55} rowSpan="2" title={headerText.PlayerGgr}>{headerText.PlayerGgr}</th>)}
@@ -105,7 +105,6 @@ export class GridData extends PureComponent {
                 <th width={70} title={headerText.Bonus}>{headerText.Bonus}</th>
                 <th width={70} title={headerText.Rebate}>{headerText.Rebate}</th>
                 <th width={70} title={headerText.PlatformFee}>{headerText.PlatformFee}</th>
-                <th width={75} title={headerText.OperationalFee}>{headerText.OperationalFee}</th>
                 <th width={70} title={headerText.DepositFee}>{headerText.DepositFee}</th>
                 <th width={70} title={headerText.WithdrawalFee}>{headerText.WithdrawalFee}</th>
                 <th width={70} title={headerText.TotalFee}>{headerText.TotalFee}</th>
@@ -138,7 +137,7 @@ export class GridData extends PureComponent {
         }
         else {
             dataRows.push(<tr key="no-info">
-                <td className="text-center" colSpan={25 + (this._isMainView() ? 3 : 0)}>{globalResource.NoInfo}</td>
+                <td className="text-center" colSpan={24 + (this._isMainView() ? 3 : 0)}>{globalResource.NoInfo}</td>
             </tr>);
         }
 
@@ -178,7 +177,6 @@ export class GridData extends PureComponent {
         const bonus = formatDecimal(dataItem.Bonus);
         const rebate = formatDecimal(dataItem.Rebate);
         const platformFee = formatDecimal(dataItem.PlatformFee);
-        const operationalFee = formatDecimal(dataItem.OperationalFee);
         const depositFee = formatDecimal(dataItem.DepositFee);
         const withdrawalFee = formatDecimal(dataItem.WithdrawalFee)
         const totalFee = formatDecimal(dataItem.TotalFee);
@@ -208,11 +206,16 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={bonus}>{bonus}</td>
                 <td className="text-right" title={rebate}>{rebate}</td>
                 <td className="text-right" title={platformFee}>{platformFee}</td>
-                <td className="text-right" title={operationalFee}>{operationalFee}</td>
                 <td className="text-right" title={depositFee}>{depositFee}</td>
                 <td className="text-right" title={withdrawalFee}>{withdrawalFee}</td>
                 <td className="text-right" title={totalFee}>{totalFee}</td>
-                <td className="text-right" title={commRate}>{commRate}</td>
+                {
+                    dataItem.IsMultiGroupProduct ? (
+                        <td className="text-right text-danger" title="First product group's share% of multiple groups">{commRate}</td>
+                    ) : (
+                            <td className="text-right" title={commRate}>{commRate}</td>
+                        )
+                }
                 <td className="text-right" title={earning}>{earning}</td>
                 <td className="text-right" title={p2pEarning}>{p2pEarning}</td>
                 <td className="text-right" title={subAffEarning}>{subAffEarning}</td>

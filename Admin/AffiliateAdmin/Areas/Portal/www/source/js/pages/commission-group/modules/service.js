@@ -6,7 +6,6 @@ const emptyCommGroup = {
     Description: '',
     TierSettingList: [],
     PlatformFeeList: [],
-    OperationalFee: {},
     DepositFee: {},
     WithdrawalFee: {}
 }
@@ -22,14 +21,12 @@ export const buildDefaultCommGroup = (deductionList, productList, p2pProductList
     const platformFeeParam = { platformFeeProductList, deductionSetting };
     const platformFeeList = buildPlatformFeeList(platformFeeParam);
 
-    const operationalFee = createDefaultOperationalSetting(deductionSetting.operationalFeeSetting);
     const depositFee = createDefaultDepositSetting(deductionSetting.depositFeeSetting);
     const withdrawalFee = createDefaultWithdrawalSetting(deductionSetting.withdrawalFeeSetting);
 
     return Object.assign({}, emptyCommGroup, {
         P2pDeductionList: p2pDeductionList,
         PlatformFeeList: platformFeeList,
-        OperationalFee: operationalFee,
         DepositFee: depositFee,
         WithdrawalFee: withdrawalFee
     });
@@ -39,26 +36,14 @@ export const getDeductionSetting = (deductionList) => {
     const deductionObj = convertDeductionList(deductionList);
     const p2pDeductionSetting = deductionObj[deductionNameList.p2pDeduction];
     const platformFeeSetting = deductionObj[deductionNameList.platformFee];
-    const operationalFeeSetting = deductionObj[deductionNameList.operationalFee];
     const depositFeeSetting = deductionObj[deductionNameList.depositFee];
     const withdrawalFeeSetting = deductionObj[deductionNameList.withdrawalFee];
 
     return {
         p2pDeductionSetting,
         platformFeeSetting,
-        operationalFeeSetting,
         depositFeeSetting,
         withdrawalFeeSetting
-    }
-}
-
-export const createDefaultOperationalSetting = (operationalFeeSetting) => {
-    return {
-        DeductionId: operationalFeeSetting.DeductionId,
-        ProductIds: 0,
-        DeductedPercentage: operationalFeeSetting.DeductedPercentage,
-        DeductedAmount: operationalFeeSetting.DeductedAmount,
-        IsDeductedPercent: operationalFeeSetting.IsDeductedPercent
     }
 }
 
@@ -151,19 +136,18 @@ export const convertStringToArrayNumber = (stringIds) => {
 }
 
 export const validate = (selectedGroup) => {
-    const { GroupName, TierSettingList, P2pDeductionList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = selectedGroup;
+    const { GroupName, TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee } = selectedGroup;
 
     const groupNameValidation = validateGroupName(GroupName);
     const tierSettingValidation = validateTierSettingList(TierSettingList);
     const selectedProductValidation = validateItemMustHaveAProduct(P2pDeductionList, PlatformFeeList);
-    const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
     const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
     const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
     const isValid = groupNameValidation.isValid && tierSettingValidation.isValid && selectedProductValidation.isValid
-        && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
+        && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
     const messageList = [...groupNameValidation.messageList, ...tierSettingValidation.messageList, ...selectedProductValidation.messageList,
-        ...operationalFeeValidation.messageList, ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList
+        ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList
     ];
 
     return { isValid, messageList };
@@ -209,13 +193,10 @@ export const validateTierSettingList = (tierSettingList) => {
     if (tierSettingList.length === 0) {
         isValid = false;
         messageList.push(messages.requireTier);
-    } else if (tierSettingList.filter(item => item.MaxAmount === INFINITY_AM && item.MaxAp === INFINITY_QM).length === 0) {
-        isValid = false;
-        messageList.push(messages.requireInfinity);
-    } else if (tierSettingList.filter(item => item.MinAmount > item.MaxAmount).length > 0) {
+    } else if (tierSettingList.filter(item => item.MinAmount > INFINITY_AM).length > 0) {
         isValid = false;
         messageList.push(messages.amountConstrain);
-    } else if (tierSettingList.filter(item => item.MinAp > item.MaxAp).length > 0) {
+    } else if (tierSettingList.filter(item => item.MinAp > INFINITY_QM).length > 0) {
         isValid = false;
         messageList.push(messages.qmConstrain);
     }
@@ -252,6 +233,10 @@ export const updatePlatfromFeeList = (selectedProductIdsOfP2p, platformFeeList, 
     });
 
     return newPlatformFeeList;
+}
+
+export const removeTierItem = (tierId, groupProductId, dataList) => {
+    return dataList.filter(item => !(item.TierId === tierId && item.GroupProductId === groupProductId));
 }
 
 const getPlatformFeeListIds = (selectedProductIdsOfP2p, prePlatformFeeIds, allProductIds) => {

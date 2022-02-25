@@ -78,9 +78,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                         GroupId = 101,
                         TierId = 1,
                         MinAmount = 0m,
-                        MaxAmount = 100m,
                         MinAp = 0,
-                        MaxAp = 50,
                         Commission = 0.2m
                     }
                 }

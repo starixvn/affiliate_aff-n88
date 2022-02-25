@@ -9,7 +9,6 @@ describe('commission group - P2pDeductionSetting', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
-        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
             { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }],
         P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2", Commission: 0.1 },

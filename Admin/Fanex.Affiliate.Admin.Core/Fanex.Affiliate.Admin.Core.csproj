@@ -346,7 +346,7 @@
     <Compile Include="MetaModels\CommissionGroup\CommGroupSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\TierDeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\DeductionSettingParam.cs" />
-    <Compile Include="MetaModels\CommissionGroup\P2pDeductionSettingParam.cs" />
+    <Compile Include="MetaModels\CommissionGroup\P2PDeductionSettingParam.cs" />
     <Compile Include="MetaModels\CommissionGroup\TierSettingParam.cs" />
     <Compile Include="MetaModels\Customer\TransferLimitSettingParam.cs" />
     <Compile Include="MetaModels\Domain\DeleteDomainControlParam.cs" />

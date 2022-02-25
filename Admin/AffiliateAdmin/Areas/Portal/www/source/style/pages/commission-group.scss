@@ -39,17 +39,14 @@
             }
         }
 
-        .select-product {
-            margin-left: 20px;
+        .group-index {
+            font-weight: bold;
+            line-height: 1.5rem;
+            float: left;
+        }
 
-            &::before {
-                content: '•';
-                display: inline-block;
-                position: absolute;
-                left: 20px;
-                top: -3px;
-                font-size: 20px;
-            }
+        .select-product {
+            margin-left: 15px;
 
             &.is-invalid {
                 .multiple-select-label {

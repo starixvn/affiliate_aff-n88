@@ -7,13 +7,11 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         public int TierId { get; set; }
 
+        public int GroupProductId { get; set; }
+
         public decimal MinAmount { get; set; }
 
-        public decimal MaxAmount { get; set; }
-
         public int MinAp { get; set; }
-
-        public int MaxAp { get; set; }
 
         public decimal Commission { get; set; }
     }

@@ -21,13 +21,6 @@ describe('commission group - Content', () => {
         GroupId: 133,
         GroupName: "NewGroup",
         NoAffs: 8,
-        OperationalFee: {
-            DeductedPercentage: 0.15,
-            DeductionId: 11,
-            DeductionName: "Operational Fee",
-            GroupId: 133,
-            ProductIds: "0"
-        },
         PlatformFeeList: [{
             DeductedPercentage: 0.17,
             DeductionId: 10,

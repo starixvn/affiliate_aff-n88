@@ -7,8 +7,7 @@ import { getSelectedCommGroup, setSelectedGroup, setSelectedProductIds } from '.
 import { buildDefaultCommGroup, validateTierSettingList, validateItemMustHaveAProduct, validateDeductedFees } from '../../modules/service';
 import { messages } from '../../modules/constant';
 
-import DeductionSetting from '../shared/deduction';
-import TierSetting from '../shared/tiersetting';
+import DeductionSetting from '../shared/tier-deduction';
 import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
@@ -96,16 +95,14 @@ export class AssignPrivateGroup extends React.Component {
     }
 
     _validate() {
-        const { TierSettingList, P2pDeductionList, PlatformFeeList, OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
+        const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee } = this.props.selectedGroup;
         const tierSettingValidation = validateTierSettingList(TierSettingList);
         const selectedProductValidation = validateItemMustHaveAProduct(P2pDeductionList, PlatformFeeList);
-        const operationalFeeValidation = validateDeductedFees(OperationalFee, messages.requireOperationalAmount, messages.invalidOperationalAmount);
         const depositFeeValidation = validateDeductedFees(DepositFee, messages.requireDepositAmount, messages.invalidDepositAmount);
         const withdrawalFeeValidation = validateDeductedFees(WithdrawalFee, messages.requireWithdrawalAmount, messages.invalidWithdrawalAmount);
 
-        const isValid = tierSettingValidation.isValid && selectedProductValidation.isValid && operationalFeeValidation.isValid && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
-        const messageList = [...tierSettingValidation.messageList, ...selectedProductValidation.messageList, ...operationalFeeValidation.messageList,
-                            ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList];
+        const isValid = tierSettingValidation.isValid && selectedProductValidation.isValid  && depositFeeValidation.isValid && withdrawalFeeValidation.isValid;
+        const messageList = [...tierSettingValidation.messageList, ...selectedProductValidation.messageList, ...depositFeeValidation.messageList, ...withdrawalFeeValidation.messageList];
 
         return { isValid, messageList };
     }
@@ -122,7 +119,6 @@ export class AssignPrivateGroup extends React.Component {
                 </Alert>
                 <P2pProductSetting />
                 <DeductionSetting />
-                <TierSetting />
                 <p className="text-danger">{messages.note}</p>
                 <button type="button" className="my-2 btn btn-success btn-save" onClick={this.handleSave}>SAVE</button>
             </div>

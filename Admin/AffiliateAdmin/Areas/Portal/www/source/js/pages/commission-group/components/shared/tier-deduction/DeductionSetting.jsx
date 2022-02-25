@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { setSelectedGroup } from '../../../actions';
-import { GGR } from '../../../modules/constant';
 
 import PlatformFeeSetting from './PlatformFeeSetting';
 import FeeSettingItem from './FeeSettingItem';
@@ -13,17 +12,9 @@ export class DeductionSetting extends Component {
         super(props);
 
         this.state = {
-            isInitialOperationalFee: true,
             isInitialDepositFee: true,
             isInitialWithdrawalFee: true,
         }
-    }
-
-    handleChangeOperationalFee = (value) => {
-        const { OperationalFee } = this.props.selectedGroup;
-        this.props.setSelectedGroup({
-            OperationalFee: Object.assign({}, OperationalFee, value)
-        });
     }
 
     handleChangeDepositFee = (value) => {
@@ -42,20 +33,14 @@ export class DeductionSetting extends Component {
 
     render() {
         const { defaultCurrency } = this.props;
-        const { isInitialOperationalFee, isInitialDepositFee, isInitialWithdrawalFee } = this.state;
-        const { OperationalFee, DepositFee, WithdrawalFee } = this.props.selectedGroup;
+        const { isInitialDepositFee, isInitialWithdrawalFee } = this.state;
+        const { DepositFee, WithdrawalFee } = this.props.selectedGroup;
 
         return (
             <fieldset>
                 <legend><h6 className="font-weight-bold">Tier Rated Products Deduction</h6></legend>
                 <PlatformFeeSetting />
 
-                <FeeSettingItem label="Operational Fee" basedValueName={GGR}
-                    handleChange={this.handleChangeOperationalFee}
-                    handleUpdateState={() => this.setState({ isInitialOperationalFee: false })}
-                    data={OperationalFee}
-                    defaultCurrency={defaultCurrency}
-                    isInitial={isInitialOperationalFee} />
                 <p className="font-weight-bold pt-3">Banking Fee</p>
                 <FeeSettingItem label="+ Deposit Fee" basedValueName="Deposit"
                     handleChange={this.handleChangeDepositFee}

@@ -20,7 +20,7 @@ export default class P2pDeductionItem extends PureComponent {
     }
 
     render() {
-        const { data, handleClick, btnText, isOnlyOneP2pDeductionRow, isFirst } = this.props;
+        const { data, handleClick, btnText, isOnlyOneP2pDeductionRow, isFirst, index } = this.props;
 
         const { productList, deductedPercentage, commission } = data;
         const isValid = (isFirst && isOnlyOneP2pDeductionRow) || productList.filter(p => !p.Checked).length < productList.length;
@@ -28,6 +28,7 @@ export default class P2pDeductionItem extends PureComponent {
         return (
             <FormGroup row className="align-items-center">
                 <Col sm={4}>
+                    <span className="group-index">{index}.</span>
                     <div className={`select-product ${isValid ? "" : "is-invalid"}`}>
                         <MultipleSelect
                             dataSource={productList}

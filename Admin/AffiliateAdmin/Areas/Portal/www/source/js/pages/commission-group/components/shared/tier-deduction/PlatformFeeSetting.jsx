@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Input, Form, FormGroup, Label } from 'reactstrap';
 
 import { setSelectedGroup } from '../../../actions';
 
@@ -26,7 +27,7 @@ export class PlatformFeeSetting extends PureComponent {
 
     handleAdd = () => {
         const { PlatformFeeList } = this.props.selectedGroup;
-        const platformFeeList = [...PlatformFeeList, { ...this.defaultItem }];
+        const platformFeeList = [...PlatformFeeList, { ...this.defaultItem, GroupProductId: Date.now() }];
 
         this.props.setSelectedGroup({ PlatformFeeList: platformFeeList });
     }
@@ -95,15 +96,20 @@ export class PlatformFeeSetting extends PureComponent {
         this.props.setSelectedGroup({ PlatformFeeList: platformFeeList });
     }
 
+    handleCheck = (isActivePlayerSum) => {
+        this.props.setSelectedGroup({ IsActivePlayerSum: isActivePlayerSum });
+    }
+
     render() {
         const { productList, selectedGroup, selectedProductIds } = this.props;
-        const { PlatformFeeList } = selectedGroup;
+        const { PlatformFeeList, IsActivePlayerSum } = selectedGroup;
         const selectProducts = productList.filter(p => !selectedProductIds.find(i => i === p.ProductId));
 
         const platformFeeData = PlatformFeeList.map(item => {
             return {
                 productList: convertProductList(selectProducts, item.ProductIds),
-                commission: item.DeductedPercentage
+                commission: item.DeductedPercentage,
+                groupProductId: item.GroupProductId
             }
         });
 
@@ -111,7 +117,17 @@ export class PlatformFeeSetting extends PureComponent {
 
         return (
             <div className="platformfee-group">
-                <p className="font-weight-bold">Royalty Fee</p>
+                <div className="d-flex">
+                    <p className="font-weight-bold mr-5">Product Groups</p>
+                    <Form inline>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="IsActivePlayerSum" checked={IsActivePlayerSum}
+                                    onChange={() => this.handleCheck(!IsActivePlayerSum)} />Count Active Player across all products(exclude Free Bet)
+                            </Label>
+                        </FormGroup>
+                    </Form>
+                </div>
                 {
                     platformFeeData.map((item, i) => {
                         const isFirst = i === FIRST_ITEM_INDEX;
@@ -123,9 +139,9 @@ export class PlatformFeeSetting extends PureComponent {
                                 onSelectProduct={(selectedItem) => this.handleSelect(i, selectedItem)}
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}
-                                btnText={isFirst ? '+' : '-'}
-                                isFirst={isFirst} >
-                            </PlatformFeeItem>
+                                btnText={isFirst ? (<><span>Add Product Group</span><span>+</span></>) : (<><span>Remove Product Group</span><span>-</span></>)}
+                                isFirst={isFirst}
+                                index={i + 1} />
                         )
                     })
                 }

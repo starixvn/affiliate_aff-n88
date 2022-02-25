@@ -41,10 +41,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              Creator = c.Creator,
                              Description = c.Description,
                              NoAffs = c.NoAffs,
+                             IsActivePlayerSum = c.IsActivePlayerSum,
                              TierSettingList = groupTierSetting,
                              P2pDeductionList = groupP2pDeductionSetting,
                              PlatformFeeList = groupTierDeductionSetting.Where(p => p.DeductionId == Constants.Deduction.PlatformFeeId),
-                             OperationalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.OperationalFeeId),
                              DepositFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.DepositFeeId),
                              WithdrawalFee = groupTierDeductionSetting.FirstOrDefault(p => p.DeductionId == Constants.Deduction.WithdrawalFeeId)
                          };

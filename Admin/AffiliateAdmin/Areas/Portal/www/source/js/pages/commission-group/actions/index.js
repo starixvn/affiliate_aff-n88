@@ -81,13 +81,25 @@ export const getSelectedCommGroup = (param) => async (dispatch) => {
     const url = 'Portal/RevenueGroup/GetCommissionGroup';
 
     const response = await post(url, param);
-    const data = response && response.status === 200 ? response.data : null;
+    let data = response && response.status === 200 ? response.data : null;
 
-    const selectedProductIds = data ? getSelectedProductIds(data.P2pDeductionList) : [];
+    let selectedProductIds = data ? getSelectedProductIds(data.P2pDeductionList) : [];
+
+    //if (data) {
+    //    selectedProductIds = getSelectedProductIds(data.P2pDeductionList);
+    //    const newPlatformFee = addKeyForAllPlatformFees(data.PlatformFeeList);
+    //    data = Object.assign({}, data, { PlatformFeeList: newPlatformFee });
+    //}
 
     dispatch(setSelectedProductIds(selectedProductIds));
     dispatch(setSelectedGroup(data));
 }
+
+//const addKeyForAllPlatformFees = (platformFee) => {
+//    const now = Date.now();
+
+//    return platformFee.map((item, index) => ({ ...item, Key: now - index }));
+//}
 
 export const deleteCommGroup = (param) => {
     const url = 'Portal/RevenueGroup/DeleteCommissionGroup';
