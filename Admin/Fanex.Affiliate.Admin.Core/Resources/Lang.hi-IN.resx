@@ -117,4 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EmailAutoNotification" xml:space="preserve">
+    <value>यह एक सिस्टम स्वतः उत्पन्न ईमेल है, कृपया इस ईमेल का उत्तर न दें।.</value>
+  </data>
+  <data name="Affiliate" xml:space="preserve">
+    <value>संबद्ध</value>
+  </data>
+  <data name="EmailTitleAffInfor" xml:space="preserve">
+    <value>आपकी संबद्ध जानकारी</value>
+  </data>
+  <data name="EmailSubjectAffInfor" xml:space="preserve">
+    <value>12Bet सहयोगी - आपकी संबद्ध जानकारी</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
+    <value>12Bet सहयोगी - [{0}] - आपका भुगतान अनुरोध संसाधित और सफलतापूर्वक पूरा हो गया है</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
+    <value>12Bet सहयोगी - [{0}] - आपका भुगतान अनुरोध अस्वीकार कर दिया गया है</value>
+  </data>
+  <data name="EmailTitleAffDisapproved" xml:space="preserve">
+    <value>12Bet सहबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
+  </data>
+  <data name="EmailSubjectAffDisapproved" xml:space="preserve">
+    <value>12Bet सहयोगी – 12Bet संबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
+  </data>
 </root>

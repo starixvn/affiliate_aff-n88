@@ -78,7 +78,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
                             MessageContentvn = Convert.ToString(reader["message_vi"]),
                             MessageContentid = Convert.ToString(reader["message_id"]),
                             MessageContentko = Convert.ToString(reader["message_kr"]),
-                            MessageContentjp = Convert.ToString(reader["message_jp"])
+                            MessageContentjp = Convert.ToString(reader["message_jp"]),
+                            MessageContenthi = Convert.ToString(reader["message_hi"])
                         };
                     }
                 }
@@ -146,6 +147,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
             objectDb.SetParameterValue("msgid", param.MessageContentid);
             objectDb.SetParameterValue("msgkr", param.MessageContentko);
             objectDb.SetParameterValue("msgjp", param.MessageContentjp);
+            objectDb.SetParameterValue("msghi", param.MessageContenthi);
             objectDb.SetParameterValue("UserID", param.UserId);
             objectDb.SetParameterValue("IP", param.Ip);
 

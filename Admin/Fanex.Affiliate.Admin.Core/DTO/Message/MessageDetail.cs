@@ -23,5 +23,7 @@
         public string MessageContentko { get; set; }
 
         public string MessageContentjp { get; set; }
+
+        public string MessageContenthi { get; set; }
     }
 }

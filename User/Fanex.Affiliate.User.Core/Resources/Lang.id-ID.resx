@@ -117,17 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutUs" xml:space="preserve">
-    <value>Tentang Kami</value>
-  </data>
   <data name="AccInfo" xml:space="preserve">
     <value>Informasi Akun</value>
   </data>
   <data name="AccOverview" xml:space="preserve">
     <value>Dashboard</value>
-  </data>
-  <data name="ActivatedTrackingCode" xml:space="preserve">
-    <value>Diaktifkan</value>
   </data>
   <data name="Address" xml:space="preserve">
     <value>Alamat</value>
@@ -174,9 +168,6 @@
   <data name="Approved" xml:space="preserve">
     <value>Disetujui</value>
   </data>
-  <data name="April" xml:space="preserve">
-    <value>April</value>
-  </data>
   <data name="Argentina" xml:space="preserve">
     <value>Argentina </value>
   </data>
@@ -185,12 +176,6 @@
   </data>
   <data name="Aruba" xml:space="preserve">
     <value>Aruba </value>
-  </data>
-  <data name="AUD" xml:space="preserve">
-    <value>AUD (Dollar Australia)</value>
-  </data>
-  <data name="August" xml:space="preserve">
-    <value>Agustus</value>
   </data>
   <data name="Australia" xml:space="preserve">
     <value>Australia </value>
@@ -207,9 +192,6 @@
   <data name="Baccarat" xml:space="preserve">
     <value>Bakarat</value>
   </data>
-  <data name="Back" xml:space="preserve">
-    <value>Kembali</value>
-  </data>
   <data name="Bahamas" xml:space="preserve">
     <value>Bahama </value>
   </data>
@@ -221,30 +203,6 @@
   </data>
   <data name="Bangladesh" xml:space="preserve">
     <value>Bangladesh </value>
-  </data>
-  <data name="BankABA_Swift_SIsRequired" xml:space="preserve">
-    <value>Kode Bank ABA/Swift/Sort diperlukan</value>
-  </data>
-  <data name="BankAccnumber" xml:space="preserve">
-    <value>Nomor Rekening Bank</value>
-  </data>
-  <data name="BankAccountNameIsRequired" xml:space="preserve">
-    <value>Nama Rekening Bank diperlukan</value>
-  </data>
-  <data name="BankAccountNumbIsRequired" xml:space="preserve">
-    <value>Nomor Rekening Bank diperlukan</value>
-  </data>
-  <data name="BankAddress" xml:space="preserve">
-    <value>Alamat Bank</value>
-  </data>
-  <data name="BankAddressisre" xml:space="preserve">
-    <value>Alamat Bank diperlukan</value>
-  </data>
-  <data name="BankName" xml:space="preserve">
-    <value>Nama Bank</value>
-  </data>
-  <data name="BankNameisrequi" xml:space="preserve">
-    <value>Nama Bank diperlukan</value>
   </data>
   <data name="BankTransfer" xml:space="preserve">
     <value>Transfer Bank</value>
@@ -339,9 +297,6 @@
   <data name="Casino" xml:space="preserve">
     <value>Casino</value>
   </data>
-  <data name="CasinoBonus" xml:space="preserve">
-    <value>Bonus Kasino</value>
-  </data>
   <data name="Category" xml:space="preserve">
     <value>Kategori</value>
   </data>
@@ -360,38 +315,8 @@
   <data name="ChangePass" xml:space="preserve">
     <value>Ubah Kata Sandi</value>
   </data>
-  <data name="ChangePassErr" xml:space="preserve">
-    <value>Kesalahan Mengubah Kata Sandi.</value>
-  </data>
   <data name="ChangePassText" xml:space="preserve">
     <value>Gunakan formulir ini untuk mengubah kata sandi Anda. Setelah diubah, kata sandi baru Anda akan berlaku pada waktu berikutnya Anda login.</value>
-  </data>
-  <data name="ChangePassword" xml:space="preserve">
-    <value>Ubah Kata Sandi</value>
-  </data>
-  <data name="Cheque" xml:space="preserve">
-    <value>Cek</value>
-  </data>
-  <data name="ChequeAddressis" xml:space="preserve">
-    <value>Alamat Cek diperlukan</value>
-  </data>
-  <data name="ChequeCityisreq" xml:space="preserve">
-    <value>Kota Cek diperlukan</value>
-  </data>
-  <data name="ChequeCountryis" xml:space="preserve">
-    <value>Negara Cek diperlukan</value>
-  </data>
-  <data name="ChequeFullNamei" xml:space="preserve">
-    <value>Nama Lengkap Cek diperlukan</value>
-  </data>
-  <data name="ChequePostcode_" xml:space="preserve">
-    <value>Kode Pos/Zip Cek diperlukan</value>
-  </data>
-  <data name="ChequeStateisre" xml:space="preserve">
-    <value>Negara Bagian Cek diperlukan</value>
-  </data>
-  <data name="CHF" xml:space="preserve">
-    <value>CHF (Swiss Franc)</value>
   </data>
   <data name="Chile" xml:space="preserve">
     <value>Cile </value>
@@ -407,15 +332,6 @@
   </data>
   <data name="Colombia" xml:space="preserve">
     <value>Kolombia</value>
-  </data>
-  <data name="Comm" xml:space="preserve">
-    <value>Komisi </value>
-  </data>
-  <data name="Comment" xml:space="preserve">
-    <value>Komentar</value>
-  </data>
-  <data name="CommentsIsInvalid" xml:space="preserve">
-    <value>Komentar tidak valid</value>
   </data>
   <data name="CommPercent" xml:space="preserve">
     <value>Persentase</value>
@@ -434,12 +350,6 @@
   </data>
   <data name="ContactNumber" xml:space="preserve">
     <value>Nomor Ponsel</value>
-  </data>
-  <data name="ContactTitle" xml:space="preserve">
-    <value>Harap tujukan komentar atau pertanyaan apa pun ke 
-           {email}
-           atau menggunakan formulir di bawah.                   
-   </value>
   </data>
   <data name="ContactUs" xml:space="preserve">
     <value>Hubungi Kami</value>
@@ -462,9 +372,6 @@
   <data name="CountryErr" xml:space="preserve">
     <value>Pilih negara</value>
   </data>
-  <data name="Creator" xml:space="preserve">
-    <value>Pencipta</value>
-  </data>
   <data name="Croatia" xml:space="preserve">
     <value>Kroasia </value>
   </data>
@@ -477,17 +384,11 @@
   <data name="Current" xml:space="preserve">
     <value>Saat Ini</value>
   </data>
-  <data name="CurrentCommissiSetting" xml:space="preserve">
-    <value>Perhitungan Komisi</value>
-  </data>
   <data name="Cyprus" xml:space="preserve">
     <value>Siprus </value>
   </data>
   <data name="CzechRep" xml:space="preserve">
     <value>Ceko (Rep) </value>
-  </data>
-  <data name="DailyEarningDetail" xml:space="preserve">
-    <value>Daily Earning Detail</value>
   </data>
   <data name="DailyEarnings" xml:space="preserve">
     <value>Perolehan Harian</value>
@@ -497,12 +398,6 @@
   </data>
   <data name="DateRequest" xml:space="preserve">
     <value>Tanggal Pengajuan (mm/dd/yyyy)</value>
-  </data>
-  <data name="December" xml:space="preserve">
-    <value>Desember</value>
-  </data>
-  <data name="Default" xml:space="preserve">
-    <value>Default</value>
   </data>
   <data name="Del" xml:space="preserve">
     <value>menghapus</value>
@@ -552,116 +447,11 @@
   <data name="EmailAddressIsRequired" xml:space="preserve">
     <value>Alamat e-mail diperlukan.</value>
   </data>
-  <data name="English" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="EnglishEU" xml:space="preserve">
-    <value>English_Euro</value>
-  </data>
-  <data name="EnglishSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa Inggris</value>
-  </data>
   <data name="Eritrea" xml:space="preserve">
     <value>Eritrea </value>
   </data>
-  <data name="Err1" xml:space="preserve">
-    <value>Diskon salah</value>
-  </data>
-  <data name="Err100" xml:space="preserve">
-    <value>Maaf, tidak dapat membuat agen</value>
-  </data>
-  <data name="Err1001" xml:space="preserve">
-    <value>Informasi afiliasi tidak valid</value>
-  </data>
-  <data name="Err1002" xml:space="preserve">
-    <value>Alamat email yang Anda ketik sudah digunakan untuk mendaftarkan rekening. Silakan pilih yang berbeda!</value>
-  </data>
-  <data name="Err1004" xml:space="preserve">
-    <value>Informasi pengguna tidak valid. Proses pembaruan tidak berhasil</value>
-  </data>
-  <data name="Err1005" xml:space="preserve">
-    <value>Terjadi kesalahan. Proses pembaruan tidak berhasil</value>
-  </data>
-  <data name="Err1006" xml:space="preserve">
-    <value>Error occurs. Update process is unsuccessful</value>
-  </data>
-  <data name="Err101" xml:space="preserve">
-    <value>Nama pengguna ini tidak tersedia</value>
-  </data>
-  <data name="Err102" xml:space="preserve">
-    <value>Wrong position taking (max for master set by super)</value>
-  </data>
-  <data name="Err103" xml:space="preserve">
-    <value>Maaf, taruhan minimum harus kurang daripada taruhan maksimum, dan taruhan maksimum harus kurang daripada taruhan maksimum per pertandingan</value>
-  </data>
-  <data name="Err104" xml:space="preserve">
-    <value>Maaf, pembaruan kredit tidak berhasil, Anda sudah melampaui kredit master Anda</value>
-  </data>
-  <data name="Err105" xml:space="preserve">
-    <value>Maaf, taruhan minimum harus sama, atau lebih besar daripada taruhan minimum agen master</value>
-  </data>
-  <data name="Err107" xml:space="preserve">
-    <value>Sorry, Max Per Match must be equal to or less than master agent Max Per Match</value>
-  </data>
-  <data name="Err111" xml:space="preserve">
-    <value>Gagal membuat pelanggan. Silakan coba lagi</value>
-  </data>
-  <data name="Err113" xml:space="preserve">
-    <value>Create customer failed. Please try again</value>
-  </data>
-  <data name="Err114" xml:space="preserve">
-    <value>Create customer failed. Please try again</value>
-  </data>
-  <data name="Err115" xml:space="preserve">
-    <value>Create customer failed. Please try again</value>
-  </data>
-  <data name="Err116" xml:space="preserve">
-    <value>Anda tidak diotorisasi untuk membuat/mengedit informasi ini</value>
-  </data>
-  <data name="Err2" xml:space="preserve">
-    <value>Wrong Min bet/ Max bet/ Max per match/ Credit/ Master Agent name/ user group</value>
-  </data>
-  <data name="Err3" xml:space="preserve">
-    <value>Wrong position taking</value>
-  </data>
   <data name="Err3001" xml:space="preserve">
     <value>Ada permintaan Anda yang tertunda. Agar dapat membuat permintaan baru, harap batalkan permintaan yang tertunda, atau tunggu sampai pemrosesan selesai.</value>
-  </data>
-  <data name="Err3002" xml:space="preserve">
-    <value>ID Peran tidak valid.</value>
-  </data>
-  <data name="Err3003" xml:space="preserve">
-    <value>Maaf, Afiliasi ini tidak mempunyai cukup uang untuk ditarik.</value>
-  </data>
-  <data name="Err3004" xml:space="preserve">
-    <value>Rekening saldo tidak valid, atau mata uangnya, atau metode pembayaran tidak didukung.</value>
-  </data>
-  <data name="Err3006" xml:space="preserve">
-    <value>Gagal menyisipkan transaksi.</value>
-  </data>
-  <data name="Err4" xml:space="preserve">
-    <value>Wrong position taking (min/max set by company)</value>
-  </data>
-  <data name="Err4001" xml:space="preserve">
-    <value>ID Pelanggan tidak valid.</value>
-  </data>
-  <data name="Err4002" xml:space="preserve">
-    <value>Transaksi ini bukan penarikan dana.</value>
-  </data>
-  <data name="Err4003" xml:space="preserve">
-    <value>Transaksi ini sudah dibatalkan sebelumnya.</value>
-  </data>
-  <data name="Err4004" xml:space="preserve">
-    <value>Rekening saldo tidak valid, atau mata uangnya tidak didukung.</value>
-  </data>
-  <data name="Err4005" xml:space="preserve">
-    <value>Transaksi ini sudah dibatalkan sebelumnya.</value>
-  </data>
-  <data name="Err5" xml:space="preserve">
-    <value>Wrong position taking (max set by company)</value>
-  </data>
-  <data name="Err999" xml:space="preserve">
-    <value>Gagal Membuat Info Afiliasi. Silakan coba lagi</value>
   </data>
   <data name="ErrAuthorized" xml:space="preserve">
     <value>Anda tidak diotorisasi atas fungsi ini</value>
@@ -669,26 +459,11 @@
   <data name="errContactNumberEmpty" xml:space="preserve">
     <value>Nomor Kontak kosong. Silakan diperiksa!</value>
   </data>
-  <data name="ErrDefault" xml:space="preserve">
-    <value>Kesalahan Tidak Diketahui!</value>
-  </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
     <value>Terdapat kesalahan ketika mengambil informasi pemain N88. Harap menghubungi administrator Anda!</value>
   </data>
-  <data name="ErrEmailInvalid" xml:space="preserve">
-    <value>Alamat email - tidak valid</value>
-  </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>Email address - is required</value>
-  </data>
-  <data name="errExistAccount" xml:space="preserve">
-    <value>Pengguna sudah memiliki rekening IBC</value>
-  </data>
-  <data name="ErrGender" xml:space="preserve">
-    <value>Jenis kelamin kosong. Silakan Diperiksa!</value>
-  </data>
-  <data name="errMobileNumberEmpty" xml:space="preserve">
-    <value>Yahoo Messenger dibutuhkan</value>
   </data>
   <data name="ErrmsgEntryPassword" xml:space="preserve">
     <value>Masukkan kata sandi.</value>
@@ -699,14 +474,8 @@
   <data name="ErrmsgEntryValidCode" xml:space="preserve">
     <value>Masukkan kode validasi.</value>
   </data>
-  <data name="ErrMsgForgetPwFail" xml:space="preserve">
-    <value>Informasi untuk menyetel ulang kata sandi tidak valid, silakan &lt;a href='ForgetPass.aspx'&gt;coba lagi&lt;/a&gt;. Kalau Anda masih belum dapat menyetel ulang kata sandi, silakan &lt;a href='ContactUs.aspx'&gt;hubungi kami&lt;/a&gt;</value>
-  </data>
   <data name="errSecQuestionEmpty" xml:space="preserve">
     <value>Pertanyaan Keamanan kosong. Silakan diperiksa!</value>
-  </data>
-  <data name="errUserNotFound" xml:space="preserve">
-    <value>Pengguna tidak ditemukan</value>
   </data>
   <data name="errYourAnswer" xml:space="preserve">
     <value>Jawaban Anda kosong. Silakan diperiksa!</value>
@@ -717,17 +486,11 @@
   <data name="Ethiopia" xml:space="preserve">
     <value>Ethiopia </value>
   </data>
-  <data name="EUR" xml:space="preserve">
-    <value>EUR (Euro)</value>
-  </data>
   <data name="Faqs" xml:space="preserve">
     <value>Tanya Jawab</value>
   </data>
   <data name="FDM" xml:space="preserve">
     <value>Member yang Deposit Pertama Kali</value>
-  </data>
-  <data name="February" xml:space="preserve">
-    <value>Februari</value>
   </data>
   <data name="Female" xml:space="preserve">
     <value>Perempuan</value>
@@ -741,17 +504,8 @@
   <data name="FirstNameIsRequired" xml:space="preserve">
     <value>Nama Depan diperlukan</value>
   </data>
-  <data name="Flash" xml:space="preserve">
-    <value>Flash  </value>
-  </data>
   <data name="FName" xml:space="preserve">
     <value>Nama Depan</value>
-  </data>
-  <data name="Football" xml:space="preserve">
-    <value>Sepakbola</value>
-  </data>
-  <data name="For" xml:space="preserve">
-    <value>Bulan</value>
   </data>
   <data name="ForAnyReason" xml:space="preserve">
     <value>Periksa folder Spam apabila Anda tidak menerima email atau &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt; untuk bantuan lebih lanjut. </value>
@@ -770,9 +524,6 @@
   </data>
   <data name="Gabon" xml:space="preserve">
     <value>Gabon </value>
-  </data>
-  <data name="GBP" xml:space="preserve">
-    <value>GBP (Great Britain Pound)</value>
   </data>
   <data name="Gender" xml:space="preserve">
     <value>Gender</value>
@@ -822,9 +573,6 @@
   <data name="HotNews" xml:space="preserve">
     <value>Berita hangat</value>
   </data>
-  <data name="HtmlFormat" xml:space="preserve">
-    <value>Format Html</value>
-  </data>
   <data name="Hungary" xml:space="preserve">
     <value>Hungaria </value>
   </data>
@@ -837,12 +585,6 @@
   <data name="ID" xml:space="preserve">
     <value>ID</value>
   </data>
-  <data name="Image" xml:space="preserve">
-    <value>Gambar</value>
-  </data>
-  <data name="ImageType" xml:space="preserve">
-    <value>Tipe</value>
-  </data>
   <data name="Important" xml:space="preserve">
     <value>Penting</value>
   </data>
@@ -851,12 +593,6 @@
   </data>
   <data name="Indonesia" xml:space="preserve">
     <value>Indonesia </value>
-  </data>
-  <data name="Indonesian" xml:space="preserve">
-    <value>Bahasa Indonesia</value>
-  </data>
-  <data name="IP" xml:space="preserve">
-    <value>IP</value>
   </data>
   <data name="Iran" xml:space="preserve">
     <value>Iran </value>
@@ -870,38 +606,20 @@
   <data name="Israel" xml:space="preserve">
     <value>Israel </value>
   </data>
-  <data name="IsRequired" xml:space="preserve">
-    <value>diperlukan</value>
-  </data>
   <data name="Italy" xml:space="preserve">
     <value>Italia </value>
   </data>
   <data name="Jamaica" xml:space="preserve">
     <value>Jamaika </value>
   </data>
-  <data name="January" xml:space="preserve">
-    <value>Januari</value>
-  </data>
   <data name="Japan" xml:space="preserve">
     <value>Jepang </value>
-  </data>
-  <data name="Japanese" xml:space="preserve">
-    <value>日本</value>
   </data>
   <data name="Jordan" xml:space="preserve">
     <value>Yordania </value>
   </data>
-  <data name="July" xml:space="preserve">
-    <value>Juli</value>
-  </data>
-  <data name="June" xml:space="preserve">
-    <value>Juni</value>
-  </data>
   <data name="Kenya" xml:space="preserve">
     <value>Kenya </value>
-  </data>
-  <data name="Korean" xml:space="preserve">
-    <value>한국어</value>
   </data>
   <data name="KoreaRep" xml:space="preserve">
     <value>Korea (Rep) </value>
@@ -914,9 +632,6 @@
   </data>
   <data name="LaoPeoplesDemRep" xml:space="preserve">
     <value>Rep. Dem. Rakyat Lao </value>
-  </data>
-  <data name="Last6Month" xml:space="preserve">
-    <value>Perolehan 6 Bulan Terakhir</value>
   </data>
   <data name="LastNameIsRequired" xml:space="preserve">
     <value>Nama Belakang diperlukan</value>
@@ -984,20 +699,11 @@
   <data name="Malta" xml:space="preserve">
     <value>Malta </value>
   </data>
-  <data name="March" xml:space="preserve">
-    <value>Maret</value>
-  </data>
   <data name="Mauritania" xml:space="preserve">
     <value>Mauritania </value>
   </data>
   <data name="Mauritius" xml:space="preserve">
     <value>Mauritius </value>
-  </data>
-  <data name="May" xml:space="preserve">
-    <value>Mei</value>
-  </data>
-  <data name="Media" xml:space="preserve">
-    <value>Galeri Media</value>
   </data>
   <data name="Message" xml:space="preserve">
     <value>Pesan</value>
@@ -1005,47 +711,20 @@
   <data name="MessageHistory" xml:space="preserve">
     <value>Riwayat Pesan</value>
   </data>
-  <data name="MessageSentReview" xml:space="preserve">
-    <value>       Terima kasih telah menghubungi kami. {br}
-       Pesan Anda sudah dikirim. Kami akan menanggapi permintaan Anda secepat mungkin. {br}
-       Silakan menghubungi kami di 1-34354-3454 jika ada pertanyaan apa pun. {br}{br}
-       Semoga hari Anda menyenangkan! {br}{br}
-       Salam hormat, {br}{br}
-       Tim Dukungan Afiliasi N88
-   </value>
-  </data>
   <data name="Mexico" xml:space="preserve">
     <value>Meksiko </value>
-  </data>
-  <data name="MinAmt_explain" xml:space="preserve">
-    <value>Minimum Total Rugi Bersih Anggota</value>
-  </data>
-  <data name="MinQM_explain" xml:space="preserve">
-    <value>Minimum Anggota Lolos Kualifikasi</value>
   </data>
   <data name="MinWithdraw" xml:space="preserve">
     <value>Minimal Penarikan (USD)</value>
   </data>
-  <data name="Mobile" xml:space="preserve">
-    <value>Yahoo Messenger</value>
-  </data>
   <data name="Moldova" xml:space="preserve">
     <value>Moldova </value>
-  </data>
-  <data name="MoneyBooker" xml:space="preserve">
-    <value>Moneybookers</value>
-  </data>
-  <data name="MoneybookersEma" xml:space="preserve">
-    <value>Email Moneybookers tidak valid</value>
   </data>
   <data name="Mongolia" xml:space="preserve">
     <value>Mongolia </value>
   </data>
   <data name="Month" xml:space="preserve">
     <value>Bulan</value>
-  </data>
-  <data name="MonthlyGGR" xml:space="preserve">
-    <value>GGR Bulanan</value>
   </data>
   <data name="Morocco" xml:space="preserve">
     <value>Maroko </value>
@@ -1059,15 +738,6 @@
   <data name="Myanmar" xml:space="preserve">
     <value>Myanmar </value>
   </data>
-  <data name="MYR" xml:space="preserve">
-    <value>MYR (Ringgit Malaysia)</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>nama</value>
-  </data>
-  <data name="NameIsInvalid" xml:space="preserve">
-    <value>Nama tidak valid</value>
-  </data>
   <data name="Namibia" xml:space="preserve">
     <value>Namibia </value>
   </data>
@@ -1076,9 +746,6 @@
   </data>
   <data name="Nepal" xml:space="preserve">
     <value>Nepal </value>
-  </data>
-  <data name="NetellerAccount" xml:space="preserve">
-    <value>ID Rekening Neteller diperlukan</value>
   </data>
   <data name="Netherlands" xml:space="preserve">
     <value>Belanda </value>
@@ -1098,9 +765,6 @@
   <data name="NewSignup" xml:space="preserve">
     <value>Member yang daftar</value>
   </data>
-  <data name="NewTrackingCode" xml:space="preserve">
-    <value>Baru</value>
-  </data>
   <data name="NewZealand" xml:space="preserve">
     <value>Selandia Baru </value>
   </data>
@@ -1113,9 +777,6 @@
   <data name="NoInfo" xml:space="preserve">
     <value>Tidak ada informasi yang tersedia</value>
   </data>
-  <data name="NonDeposit" xml:space="preserve">
-    <value>Hanya rekening non setoran</value>
-  </data>
   <data name="none" xml:space="preserve">
     <value>Tidak ada</value>
   </data>
@@ -1125,29 +786,11 @@
   <data name="Norway" xml:space="preserve">
     <value>Norwegia </value>
   </data>
-  <data name="November" xml:space="preserve">
-    <value>November</value>
-  </data>
   <data name="NoWebsite" xml:space="preserve">
     <value>Sayang sekali, saya tidak punya situs web (website)</value>
   </data>
-  <data name="NumberGame" xml:space="preserve">
-    <value>PERMAINAN ANGKA</value>
-  </data>
-  <data name="October" xml:space="preserve">
-    <value>Oktober</value>
-  </data>
-  <data name="Of" xml:space="preserve">
-    <value>Dari</value>
-  </data>
   <data name="OldPass" xml:space="preserve">
     <value>Kata Sandi Lama</value>
-  </data>
-  <data name="OldPassandNewPass" xml:space="preserve">
-    <value>Kata sandi lama dan kata sandi baru diperlukan!</value>
-  </data>
-  <data name="OldPassErr" xml:space="preserve">
-    <value>Kata sandi lama salah</value>
   </data>
   <data name="OldPasswordisre" xml:space="preserve">
     <value>Kata Sandi Lama diperlukan</value>
@@ -1160,9 +803,6 @@
   </data>
   <data name="Page" xml:space="preserve">
     <value>Halaman</value>
-  </data>
-  <data name="PageSize" xml:space="preserve">
-    <value>Ukuran Halaman</value>
   </data>
   <data name="Pakistan" xml:space="preserve">
     <value>Pakistan</value>
@@ -1185,24 +825,6 @@
   <data name="Passwordchanged" xml:space="preserve">
     <value>Kata sandi berhasil diubah</value>
   </data>
-  <data name="PaymentErr1001" xml:space="preserve">
-    <value>Maaf, jumlah tidak valid.</value>
-  </data>
-  <data name="PaymentErr1002" xml:space="preserve">
-    <value>ID Peran tidak valid.</value>
-  </data>
-  <data name="PaymentErr1003" xml:space="preserve">
-    <value>Maaf, Afiliasi ini tidak mempunyai cukup uang untuk ditarik.</value>
-  </data>
-  <data name="PaymentErr1004" xml:space="preserve">
-    <value>Rekening saldo tidak valid, atau mata uangnya, atau metode pembayaran tidak didukung.</value>
-  </data>
-  <data name="PaymentErr1006" xml:space="preserve">
-    <value>Gagal menyisipkan transaksi.</value>
-  </data>
-  <data name="PaymentErr1007" xml:space="preserve">
-    <value>Insert transaction failed.</value>
-  </data>
   <data name="PaymentInfor" xml:space="preserve">
     <value>Informasi Penarikan </value>
   </data>
@@ -1211,18 +833,6 @@
   </data>
   <data name="PaymentRequest" xml:space="preserve">
     <value>Penarikan</value>
-  </data>
-  <data name="PayoutSuccess" xml:space="preserve">
-    <value>Permintaan pembayaran Anda sudah berhasil diajukan!</value>
-  </data>
-  <data name="PayoutTime" xml:space="preserve">
-    <value>Anda hanya bisa meminta pembayaran dari tanggal 8 - 15 dalam bulan.</value>
-  </data>
-  <data name="Pending" xml:space="preserve">
-    <value>Tertunda</value>
-  </data>
-  <data name="PendingComm" xml:space="preserve">
-    <value>Komisi Tertunda</value>
   </data>
   <data name="PendingRequest" xml:space="preserve">
     <value>Permintaan Tertunda</value>
@@ -1233,14 +843,8 @@
   <data name="Philippines" xml:space="preserve">
     <value>Filipina </value>
   </data>
-  <data name="PlainText" xml:space="preserve">
-    <value>Teks Biasa</value>
-  </data>
   <data name="Pleasecheckyour" xml:space="preserve">
     <value>Harap periksa alamat email Anda untuk mengetahui nama pengguna dan rincian tentang kata sandi Anda.</value>
-  </data>
-  <data name="Poker" xml:space="preserve">
-    <value>Poker</value>
   </data>
   <data name="Poland" xml:space="preserve">
     <value>Polandia </value>
@@ -1260,29 +864,14 @@
   <data name="Preference" xml:space="preserve">
     <value>Preferensi</value>
   </data>
-  <data name="PreferLang" xml:space="preserve">
-    <value>Preferensi</value>
-  </data>
   <data name="PreferLangErr" xml:space="preserve">
     <value>Pilih preferensi bahasa</value>
   </data>
   <data name="Proccessing" xml:space="preserve">
     <value>Memproses</value>
   </data>
-  <data name="ProgDetails" xml:space="preserve">
-    <value>Rincian Program</value>
-  </data>
-  <data name="PSP" xml:space="preserve">
-    <value>PSP</value>
-  </data>
-  <data name="PwdChanged" xml:space="preserve">
-    <value>Kata sandi berhasil diubah</value>
-  </data>
   <data name="Qatar" xml:space="preserve">
     <value>Qatar </value>
-  </data>
-  <data name="QualifyingMem" xml:space="preserve">
-    <value>Member Yang Memenuhi Syarat</value>
   </data>
   <data name="Racebook" xml:space="preserve">
     <value>Buku balapan</value>
@@ -1332,9 +921,6 @@
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>
   </data>
-  <data name="RMB" xml:space="preserve">
-    <value>RMB (Ren Min Bi)</value>
-  </data>
   <data name="Romania" xml:space="preserve">
     <value>Rumania </value>
   </data>
@@ -1362,26 +948,14 @@
   <data name="SaudiArabia" xml:space="preserve">
     <value>Arab Saudi </value>
   </data>
-  <data name="SBBonus" xml:space="preserve">
-    <value>Bonus buku olahraga</value>
-  </data>
   <data name="Search" xml:space="preserve">
     <value>Cari</value>
-  </data>
-  <data name="SecurityQuestionUpdated" xml:space="preserve">
-    <value>Pertanyaan dan jawaban keamanan Anda sudah diperbarui!</value>
-  </data>
-  <data name="Select" xml:space="preserve">
-    <value>Pilih</value>
   </data>
   <data name="SelectOne" xml:space="preserve">
     <value>Pilih Satu</value>
   </data>
   <data name="Senegal" xml:space="preserve">
     <value>Senegal </value>
-  </data>
-  <data name="September" xml:space="preserve">
-    <value>September</value>
   </data>
   <data name="Seychelles" xml:space="preserve">
     <value>Seychelles </value>
@@ -1397,9 +971,6 @@
   </data>
   <data name="Singapore" xml:space="preserve">
     <value>Singapura </value>
-  </data>
-  <data name="SiteUrl" xml:space="preserve">
-    <value>URL Situs Web</value>
   </data>
   <data name="Size" xml:space="preserve">
     <value>Ukuran</value>
@@ -1428,18 +999,6 @@
   <data name="Spain" xml:space="preserve">
     <value>Spanyol </value>
   </data>
-  <data name="Spanish" xml:space="preserve">
-    <value>Español</value>
-  </data>
-  <data name="Sport" xml:space="preserve">
-    <value>olahraga</value>
-  </data>
-  <data name="Sportbook" xml:space="preserve">
-    <value>Olahraga</value>
-  </data>
-  <data name="SportType" xml:space="preserve">
-    <value>Jenis Olahraga</value>
-  </data>
   <data name="SriLanka" xml:space="preserve">
     <value>Sri Lanka </value>
   </data>
@@ -1452,20 +1011,11 @@
   <data name="StatementHistory" xml:space="preserve">
     <value>Riwayat Laporan</value>
   </data>
-  <data name="Statistic" xml:space="preserve">
-    <value>Data</value>
-  </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="Subject" xml:space="preserve">
-    <value>Subject</value>
-  </data>
   <data name="SubjectForgetPass" xml:space="preserve">
     <value>Afiliasi N88 - Rincian login Anda</value>
-  </data>
-  <data name="SubjectIsInvalid" xml:space="preserve">
-    <value>Subjek tidak valid</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
     <value>Afiliasi N88 - Kata sandi baru Anda</value>
@@ -1497,21 +1047,6 @@
   <data name="Tennis" xml:space="preserve">
     <value>Tenis</value>
   </data>
-  <data name="TermCondition" xml:space="preserve">
-    <value>Persyaratan &amp; Ketentuan</value>
-  </data>
-  <data name="TermErr" xml:space="preserve">
-    <value>Persyaratan &amp;amp; Ketentuan tidak disetujui, Harap diperiksa!</value>
-  </data>
-  <data name="Text" xml:space="preserve">
-    <value>Text Box</value>
-  </data>
-  <data name="TextLink" xml:space="preserve">
-    <value>Tautan Teks</value>
-  </data>
-  <data name="Thai" xml:space="preserve">
-    <value>ภาษาไทย</value>
-  </data>
   <data name="Thailand" xml:space="preserve">
     <value>Thailand </value>
   </data>
@@ -1527,9 +1062,6 @@
   <data name="TitelForgetPass" xml:space="preserve">
     <value>Password baru akan di kirim ke email yang anda daftarkan. &lt;br /&gt;Jika mengalami kendala selama di sini, &lt;a href="{0}"&gt;silahkan hubungi kami&lt;/a&gt;.</value>
   </data>
-  <data name="TitleLogin" xml:space="preserve">
-    <value>Login Afiliasi</value>
-  </data>
   <data name="To" xml:space="preserve">
     <value>Hingga tanggal</value>
   </data>
@@ -1539,20 +1071,11 @@
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
-  <data name="TotalActive" xml:space="preserve">
-    <value>Total member yang aktif</value>
-  </data>
   <data name="TotalClick" xml:space="preserve">
     <value>Total Klik</value>
   </data>
   <data name="TotalDeposit" xml:space="preserve">
     <value>Total Deposit</value>
-  </data>
-  <data name="TotalPlay" xml:space="preserve">
-    <value>Total member</value>
-  </data>
-  <data name="TotalQualifiedMembers" xml:space="preserve">
-    <value>Member yang memenuhi syarat</value>
   </data>
   <data name="TrackingCode" xml:space="preserve">
     <value>Kode Tracking/Pelacakan</value>
@@ -1605,17 +1128,8 @@
   <data name="UpdateAccSuccess" xml:space="preserve">
     <value>Informasi rekening Anda sudah berhasil diperbarui.</value>
   </data>
-  <data name="UpdateSecurityQuestion" xml:space="preserve">
-    <value>Perbarui Pertanyaan Keamanan</value>
-  </data>
-  <data name="UpToNow" xml:space="preserve">
-    <value>Hingga Sekarang</value>
-  </data>
   <data name="Uruguay" xml:space="preserve">
     <value>Uruguay </value>
-  </data>
-  <data name="USD" xml:space="preserve">
-    <value>USD (Dollar Amerika Serikat)</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Nama pengguna</value>
@@ -1631,9 +1145,6 @@
   </data>
   <data name="VietNam" xml:space="preserve">
     <value>Viet Nam </value>
-  </data>
-  <data name="Vietnamese" xml:space="preserve">
-    <value>Tiếng Việt</value>
   </data>
   <data name="WebsiteInfor" xml:space="preserve">
     <value>Informasi Situs Web (Website)</value>
@@ -1695,17 +1206,8 @@
   <data name="Dragon" xml:space="preserve">
     <value>Naga/Harimau</value>
   </data>
-  <data name="CasinoHold" xml:space="preserve">
-    <value>Casino Hold'em</value>
-  </data>
-  <data name="Multiplayer" xml:space="preserve">
-    <value>Multiplayer</value>
-  </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>Permainan Scratch</value>
-  </data>
-  <data name="VideoPokerGames" xml:space="preserve">
-    <value>Video Poker Games</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>Bagi Hasil</value>
@@ -1719,24 +1221,6 @@
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;Senin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 - 20:00 WIB</value>
   </data>
-  <data name="ChinaSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa Cina</value>
-  </data>
-  <data name="IndonesiaSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa Indonesia</value>
-  </data>
-  <data name="ThailandSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa Thailand</value>
-  </data>
-  <data name="VietnamSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa Vietnam</value>
-  </data>
-  <data name="IndianSupport" xml:space="preserve">
-    <value>Bantuan Dalam Bahasa India</value>
-  </data>
-  <data name="ValidationCodeLabel" xml:space="preserve">
-    <value>Kode Validasi</value>
-  </data>
   <data name="TermAndCondition" xml:space="preserve">
     <value>syarat dan ketentuan</value>
   </data>
@@ -1745,15 +1229,6 @@
   </data>
   <data name="Product" xml:space="preserve">
     <value>Produk</value>
-  </data>
-  <data name="ESports" xml:space="preserve">
-    <value>ESPORTS</value>
-  </data>
-  <data name="RngKeno" xml:space="preserve">
-    <value>RNG KENO</value>
-  </data>
-  <data name="Lottery" xml:space="preserve">
-    <value>LOTERE</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>Daftarkan diri anda untuk program affilasi N88 Sekarang juga !!</value>
@@ -1800,42 +1275,6 @@
   <data name="ContactNow" xml:space="preserve">
     <value>HUBUNGI SEKARANG !</value>
   </data>
-  <data name="OptimizeYourWebsite" xml:space="preserve">
-    <value>OPTIMALKAN PENDAPATAN WEBSITE</value>
-  </data>
-  <data name="AndSocialChannels" xml:space="preserve">
-    <value>DAN AKUN SOSIAL MEDIA ANDA</value>
-  </data>
-  <data name="ThroughSoccerSeason2018" xml:space="preserve">
-    <value>SEPANJANG MUSIM KOMPETISI 2018/19</value>
-  </data>
-  <data name="Update12BetBannersfromYourMediaGallery" xml:space="preserve">
-    <value>Update Banner N88 dan</value>
-  </data>
-  <data name="AndPostPromotionsInYourWebsite" xml:space="preserve">
-    <value>Post Promosi N88 di Website Anda</value>
-  </data>
-  <data name="ToBeatTheBestCommission" xml:space="preserve">
-    <value>Untuk Dapat Komisi Terbaik!</value>
-  </data>
-  <data name="GetBannerNow" xml:space="preserve">
-    <value>LIHAT BANNER SEKARANG!</value>
-  </data>
-  <data name="UpTo" xml:space="preserve">
-    <value>&lt;span class="up-to-group-indo up-to-group"&gt;&lt;span class="up"&gt;KOMISI BULANAN&lt;/span&gt;&lt;span class="to"&gt;HINGGA&lt;/span&gt;&lt;/span&gt;</value>
-  </data>
-  <data name="MonthlyCommission" xml:space="preserve">
-    <value>&lt;p&gt;&lt;/p&gt;</value>
-  </data>
-  <data name="OnSportandCasino" xml:space="preserve">
-    <value>&lt;p class="text-white"&gt;DARI PENDAPATAN&lt;span class="text-red"&gt; OLAHRAGA&lt;/span&gt; &amp; &lt;span class="text-red"&gt;KASINO&lt;/span&gt;&lt;/p&gt;</value>
-  </data>
-  <data name="YouAreNotAffiliateYet" xml:space="preserve">
-    <value>BELUM MENJADI AFILIASI?</value>
-  </data>
-  <data name="SignUpAffiliatesNow" xml:space="preserve">
-    <value>DAFTAR JADI AFILIASI SEKARANG JUGA!</value>
-  </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>Laporan Komisi</value>
   </data>
@@ -1844,9 +1283,6 @@
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Comm. Rate</value>
-  </data>
-  <data name="CommShorted" xml:space="preserve">
-    <value>Comm.</value>
   </data>
   <data name="Temporary" xml:space="preserve">
     <value>Temporary</value>
@@ -1857,32 +1293,8 @@
   <data name="ServerError" xml:space="preserve">
     <value>Error ketika memproses permohonan Anda! Mohon hubungi Administrator.</value>
   </data>
-  <data name="MemDepositInfo" xml:space="preserve">
-    <value>Informasi Deposit Member</value>
-  </data>
-  <data name="AccountNumber" xml:space="preserve">
-    <value>Nomor Rekening</value>
-  </data>
-  <data name="BankCity" xml:space="preserve">
-    <value>Kota</value>
-  </data>
-  <data name="BankCountry" xml:space="preserve">
-    <value>Negara</value>
-  </data>
   <data name="TransactionID" xml:space="preserve">
     <value>ID Transaksi</value>
-  </data>
-  <data name="Original" xml:space="preserve">
-    <value>Original</value>
-  </data>
-  <data name="USDEqv" xml:space="preserve">
-    <value>USD Eqv</value>
-  </data>
-  <data name="MemberWithdrawalInfo" xml:space="preserve">
-    <value>Informasi Penarikan Member</value>
-  </data>
-  <data name="SelectDate" xml:space="preserve">
-    <value>Pilih Tanggal</value>
   </data>
   <data name="Device" xml:space="preserve">
     <value>Device</value>
@@ -1893,38 +1305,14 @@
   <data name="YourCustomers" xml:space="preserve">
     <value>Your Customers</value>
   </data>
-  <data name="FirstDepositDate" xml:space="preserve">
-    <value>First Deposit Date</value>
-  </data>
-  <data name="MobileNumber" xml:space="preserve">
-    <value>Nomor Ponsel</value>
-  </data>
   <data name="RegisteredDate" xml:space="preserve">
     <value>Tanggal Registrasi</value>
-  </data>
-  <data name="Non_Deposit" xml:space="preserve">
-    <value>Non-Deposit</value>
-  </data>
-  <data name="lblBetLists" xml:space="preserve">
-    <value>Bet List</value>
-  </data>
-  <data name="result" xml:space="preserve">
-    <value>Results</value>
   </data>
   <data name="SubCategory" xml:space="preserve">
     <value>Sub Category</value>
   </data>
-  <data name="Note2" xml:space="preserve">
-    <value>Note</value>
-  </data>
-  <data name="SystemParlayDetailNote" xml:space="preserve">
-    <value>Win Loss dibulatkan hanya untuk referensi. Maka jumlah Sub Total mungkin berbeda dengan jumlah Win Loss saat menghitung jumlah Win Loss yg sebenarnya</value>
-  </data>
   <data name="NotAllowOnDomain" xml:space="preserve">
     <value>Maaf! Anda tidak diijinkan masuk dengan domain ini.</value>
-  </data>
-  <data name="MarketingTools" xml:space="preserve">
-    <value>Tools Marketing</value>
   </data>
   <data name="Statistics" xml:space="preserve">
     <value>Statistik</value>
@@ -1956,9 +1344,6 @@
   <data name="MobileDevice" xml:space="preserve">
     <value>Mobile</value>
   </data>
-  <data name="NonDeposited" xml:space="preserve">
-    <value>akun non-deposit - jika sudah pernah Deposit, silakan buat baru khusus Afiliasi</value>
-  </data>
   <data name="UsernameSignUp" xml:space="preserve">
     <value>Username</value>
   </data>
@@ -1974,9 +1359,6 @@
   <data name="Language" xml:space="preserve">
     <value>Bahasa</value>
   </data>
-  <data name="IN" xml:space="preserve">
-    <value>IDR (Indonesian Rupiah)</value>
-  </data>
   <data name="Player" xml:space="preserve">
     <value>Pemain</value>
   </data>
@@ -1988,12 +1370,6 @@
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>E-mail</value>
-  </data>
-  <data name="BTiSports" xml:space="preserve">
-    <value>BTi SPORTS</value>
-  </data>
-  <data name="ImESports" xml:space="preserve">
-    <value>IM ESPORTS (ESPORTS BULL)</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
     <value>Permainan Kasino</value>
@@ -2035,7 +1411,7 @@
     <value>Username diperlukan</value>
   </data>
   <data name="PasswordVerification" xml:space="preserve">
-    <value>Password</value>
+    <value>Kata Sandi</value>
   </data>
   <data name="PasswordIsRequired" xml:space="preserve">
     <value>Password dibutuhkan </value>
@@ -2052,14 +1428,8 @@
   <data name="CaptchaIsRequired" xml:space="preserve">
     <value>Captcha diperlukan</value>
   </data>
-  <data name="GpiLottery" xml:space="preserve">
-    <value>GPI LOTTERY</value>
-  </data>
   <data name="EarnUpTo" xml:space="preserve">
     <value>Penghasilan hingga &lt;br/&gt; {0} dari sistem bagi hasil.</value>
-  </data>
-  <data name="JoinIn" xml:space="preserve">
-    <value>Bergabunglah bersama affiliate terbaik.</value>
   </data>
   <data name="ProductAllbet" xml:space="preserve">
     <value>ALLBET</value>
@@ -2085,9 +1455,6 @@
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>Pemain aktif yang direferensikan</value>
   </data>
-  <data name="_Empty[1]" xml:space="preserve">
-    <value>Kemenangan bersih Perusahaan ({0})</value>
-  </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Pembagian Penghasilan Anda</value>
   </data>
@@ -2099,9 +1466,6 @@
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
-  </data>
-  <data name="ReadMore" xml:space="preserve">
-    <value>Baca Detail</value>
   </data>
   <data name="AConfirmationEmail" xml:space="preserve">
     <value>Email konfirmasi dikirimkan ke email Anda.</value>
@@ -2201,5 +1565,17 @@
   </data>
   <data name="PendingTransaction" xml:space="preserve">
     <value>Tertunda</value>
+  </data>
+  <data name="Telegram" xml:space="preserve">
+    <value>Telegram</value>
+  </data>
+  <data name="Whatsapp" xml:space="preserve">
+    <value>Whatsapp</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>Bagi Hasil</value>
+  </data>
+  <data name="CommissionBonus" xml:space="preserve">
+    <value>Bagi Hasil</value>
   </data>
 </root>
