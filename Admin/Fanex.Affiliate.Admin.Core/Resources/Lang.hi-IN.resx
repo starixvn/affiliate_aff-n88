@@ -141,4 +141,7 @@
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
     <value>12Bet सहयोगी – 12Bet संबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
   </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© कॉपीराइट 2020 | 12Bet. सर्वाधिकार सुरक्षित | 21</value>
+  </data>
 </root>

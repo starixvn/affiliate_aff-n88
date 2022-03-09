@@ -162,4 +162,7 @@
   <data name="PaymentRequestNotValid" xml:space="preserve">
     <value>Yêu cầu chuyển tiền không hợp lệ</value>
   </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© Bản quyền 2020 | Toàn bộ thuộc 12Bet.com | 21+</value>
+  </data>
 </root>

@@ -246,4 +246,7 @@
   <data name="UserNameLocked" xml:space="preserve">
     <value>The payment account you entered is Locked. Please check again.</value>
   </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© Copyright 2020 | 12Bet. All Rights Reserved | 21+</value>
+  </data>
 </root>

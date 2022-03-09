@@ -135,7 +135,7 @@
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = language,
                 Content = content,
-                Title = "This is title"
+                Title = "This is title " + language
             };
             var viewPath = Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
 
