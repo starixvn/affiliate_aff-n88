@@ -180,25 +180,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         {
             var isUseDefaultDate = false;
             DateTime lastFetchDate = new DateTime();
-            try
-            {
-                var adjustmentMin = Settings.AdjustmentValue;
-                var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
-                lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
-            }
-            catch (FileNotFoundException)
-            {
-                isUseDefaultDate = true;
-            }
-            catch (XmlException)
-            {
-                isUseDefaultDate = true;
-            }
-
-            if (isUseDefaultDate)
-            {
-                lastFetchDate = Settings.DefaultPullDate;
-            }
+            var adjustmentMin = Settings.AdjustmentValue;
+            var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
+            lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
 
             return lastFetchDate;
         }

@@ -27,7 +27,8 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddOptions();
             services.AddHangfire(config =>
             {
-                config.UseMemoryStorage();
+                var memoryOption = new MemoryStorageOptions() { FetchNextJobTimeout = TimeSpan.FromHours(2) };
+                config.UseMemoryStorage(memoryOption);
             });
 
             var appSettings = new AppSettings();
