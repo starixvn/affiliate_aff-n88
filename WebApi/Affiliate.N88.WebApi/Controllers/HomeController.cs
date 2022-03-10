@@ -21,7 +21,7 @@ namespace Affiliate.N88.WebApi.Controllers
             var connectedMessage = "Database connects successfully";
             try
             {
-                dynamicRepository.Fetch<AffCustomerInfo>(new GetAffCustomersCriteria(DateTime.Now));
+                dynamicRepository.Fetch<AffCustomerInfo>(new GetAffCustomersCriteria(DateTime.Now, "Slave"));
             }
             catch (Exception ex)
             {
