@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -599,8 +599,6 @@
     <Compile Include="Services\Report\IPlayerGgrReportService.cs" />
     <Compile Include="Services\Report\TransferReportService.cs" />
     <Compile Include="Services\Report\PlayerGgrReportService.cs" />
-    <Compile Include="Services\UnderMaintenanceService\IUnderMaintenanceService.cs" />
-    <Compile Include="Services\UnderMaintenanceService\UnderMaintenanceService.cs" />
     <Compile Include="Services\UserPanel\AdjustmentService.cs" />
     <Compile Include="Services\UserPanel\CustomerMemberService.cs" />
     <Compile Include="Services\UserPanel\IAdjustmentService.cs" />

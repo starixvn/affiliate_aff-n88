@@ -1,23 +1,23 @@
-﻿using Fanex.Affiliate.Admin.Core.Services.UnderMaintenanceService;
+﻿using ONEbook.UM.Services;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
     public class UnderMaintenanceController : Controller
     {
-        private readonly IUnderMaintenanceService _underMaintenanceService;
+        private readonly IMaintenanceService _maintenanceService;
 
-        public UnderMaintenanceController(IUnderMaintenanceService underMaintenanceService)
+        public UnderMaintenanceController(IMaintenanceService maintenanceService)
         {
-            _underMaintenanceService = underMaintenanceService;
+            _maintenanceService = maintenanceService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            if (_underMaintenanceService.IsUnderMaintenance())
+            if (_maintenanceService.IsUnderMaintenance())
             {
-                var underMaintenanceTime = _underMaintenanceService.GetUnderMaintenanceTime();
+                var underMaintenanceTime = _maintenanceService.GetUnderMaintenanceTime();
 
                 return View(model: underMaintenanceTime);
             }

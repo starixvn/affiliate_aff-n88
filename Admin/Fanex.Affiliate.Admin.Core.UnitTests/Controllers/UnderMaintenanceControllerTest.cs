@@ -1,7 +1,7 @@
 ﻿using Fanex.Affiliate.Admin.Core.Controllers;
-using Fanex.Affiliate.Admin.Core.Services.UnderMaintenanceService;
 using Moq;
 using ONEbook.UM.Models;
+using ONEbook.UM.Services;
 using System.Web.Mvc;
 using Xunit;
 
@@ -13,7 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void Index_WhenCall_RedirectToLogin()
         {
             // Arrange
-            var underMaintenanceService = new Mock<IUnderMaintenanceService>();
+            var underMaintenanceService = new Mock<IMaintenanceService>();
             underMaintenanceService.Setup(u => u.IsUnderMaintenance()).Returns(false);
             var controller = CreateUnderMaintenanceController(underMaintenanceService.Object);
 
@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         public void Index_WhenCall_ReturnView()
         {
             // Arrange
-            var underMaintenanceService = new Mock<IUnderMaintenanceService>();
+            var underMaintenanceService = new Mock<IMaintenanceService>();
             underMaintenanceService.Setup(u => u.IsUnderMaintenance()).Returns(true);
             underMaintenanceService.Setup(u => u.GetUnderMaintenanceTime()).Returns(new UnderMaintenanceTime { From = "123", To = "234" });
             var controller = CreateUnderMaintenanceController(underMaintenanceService.Object);
@@ -44,12 +44,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         }
 
         private UnderMaintenanceController CreateUnderMaintenanceController(
-            IUnderMaintenanceService underMaintenanceService = null
+            IMaintenanceService maintenanceService = null
             )
         {
-            var fakeUnderMaintenanceService = underMaintenanceService ?? Mock.Of<IUnderMaintenanceService>();
+            var fakeMaintenanceService = maintenanceService ?? Mock.Of<IMaintenanceService>();
 
-            return new UnderMaintenanceController(fakeUnderMaintenanceService);
+            return new UnderMaintenanceController(fakeMaintenanceService);
         }
     }
 }
