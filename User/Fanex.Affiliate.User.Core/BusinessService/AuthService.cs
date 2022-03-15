@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Web;
+using System.Web.Security;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
@@ -52,6 +53,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public bool Recheckin(int onUserId, bool isInternal)
         {
             return _authRepository.Recheckin(onUserId, isInternal);
+        }
+
+        public void SignIn(string userName, bool createPersistentCookie)
+        {
+            FormsAuthentication.SetAuthCookie(userName, createPersistentCookie);
+        }
+
+        public void SignOut()
+        {
+            FormsAuthentication.SignOut();
         }
 
         private LoginResultViewModel GetLoginResultForInternalAdmin(UserLoginParam userParam)
@@ -175,11 +186,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private bool IsMatchPassword(string passwordInput, string passwordFromDb)
         {
-            if (string.IsNullOrEmpty(passwordInput))
-            {
-                return false;
-            }
-
             string encryptedPassword = _cryptographyService.EncryptPassword(passwordInput);
 
             return encryptedPassword.Equals(passwordFromDb);

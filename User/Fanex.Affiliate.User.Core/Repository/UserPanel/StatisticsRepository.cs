@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
@@ -133,7 +132,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         public IEnumerable<MarketingPageStatistics> GetMarketingPageStatistics(MarketingPageStatisticsParam param)
         {
             const string spKey = "Aff_User_Rpt_MarketingPage_Statistics";
-            
+
             using(var objectDb = _builder.Build(spKey))
             {
                 return objectDb.Query<MarketingPageStatistics>(param);

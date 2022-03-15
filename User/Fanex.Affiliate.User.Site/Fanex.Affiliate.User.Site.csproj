@@ -295,6 +295,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\.sonarlint\aff.n88usersite\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="12monitor.aspx" />
     <Content Include="Configurations\AppSetting\AppSetting.n88user-n88.backupmnl.config">
       <DependentUpon>AppSetting.tt</DependentUpon>
@@ -1111,10 +1114,6 @@
     <Content Include="www\source\js\recheckin.js" />
     <Content Include="www\source\js\site.js" />
     <Content Include="www\source\js\spec\layout.spec.js" />
-    <Content Include="www\source\styles\css\bootstrap.css" />
-    <Content Include="www\source\styles\css\bootstrap.min.css" />
-    <Content Include="www\source\styles\css\main.css" />
-    <Content Include="www\source\styles\css\main.min.css" />
     <Content Include="www\source\styles\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <Content Include="www\source\styles\fonts\font_bebas\Flat-it License.txt" />
     <Content Include="www\source\styles\fonts\Montserrat\font.css" />
@@ -1660,9 +1659,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.13.0.8313\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="www\build\styles\Images\casino-banners\" />

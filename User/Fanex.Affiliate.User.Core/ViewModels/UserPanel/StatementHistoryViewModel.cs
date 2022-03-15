@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
 {
@@ -10,7 +7,7 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
     {
         public DateTime MonthDate { get; set; }
 
-        public byte TransType { get; set; }
+        public int TransType { get; set; }
 
         public decimal Amount { get; set; }
 
@@ -24,8 +21,8 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
         {
             get
             {
-                return TransType == (byte)Enum.TransType.Payment
-                    || TransType == (byte)Enum.TransType.Adjustment
+                return TransType == Constants.TransType.Payment
+                    || TransType == Constants.TransType.Adjustment
                     ? MonthDate.ToString("MM-dd-yyyy")
                     : MonthDate.ToString("MMMM-yyyy");
             }

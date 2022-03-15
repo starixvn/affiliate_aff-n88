@@ -71,7 +71,6 @@
     <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_PlayerUsername_CheckIsValid" SpName="Aff_PlayerUsername_CheckIsValid" DbName="affiliate_n88" />
     <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_TransferLimit_Sel" SpName="Aff_Admin_TransferLimit_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_TransferLimit_Upd" SpName="Aff_Admin_TransferLimit_Upd" DbName="affiliate_n88" />
@@ -87,7 +86,6 @@
     <Setting Key="Aff_Admin_Text_Ins" SpName="Aff_Admin_Text_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Text_Upd" SpName="Aff_Admin_Text_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Text_Del" SpName="Aff_Admin_Text_Del" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_MediaType_Sel" SpName="Aff_Admin_MediaType_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_MediaSize_Sel" SpName="Aff_Admin_MediaSize_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Ins" SpName="Aff_Admin_Banner_Ins" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Banner_Upd" SpName="Aff_Admin_Banner_Upd" DbName="affiliate_n88" />
@@ -100,10 +98,6 @@
     <Setting Key="Aff_Admin_EmailHistory_Detail_Sel" SpName="Aff_Admin_EmailHistory_Detail_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_EmailHistory_Del" SpName="Aff_Admin_EmailHistory_Del" DbName="affiliate_n88" />
   </Function>
-  <Function Name="ExchangeRate">
-    <Setting Key="Aff_Admin_Exchange_Sel" SpName="Aff_Admin_Exchange_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_Exchange_Upd" SpName="Aff_Admin_Exchange_Upd" DbName="affiliate_n88" />
-  </Function>
   <Function Name="Message">
     <Setting Key="Aff_Admin_Message_Sel" SpName="Aff_Admin_Message_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Message_Ins" SpName="Aff_Admin_Message_Ins" DbName="affiliate_n88" />
@@ -112,10 +106,7 @@
   </Function>
   <Function Name="Member">
     <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="affiliate_n88" />
-    <Setting Key="Aff_MemberDel" SpName="Aff_MemberDel" DbName="affiliate_n88" />
-    <Setting Key="Aff_WriteLog" SpName="Aff_WriteLog" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="affiliate_n88" />
-    <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="custdb" />
   </Function>
   <Function Name="ChangeAdminPassword">
     <Setting Key="Aff_Admin_ChangePassword" SpName="Aff_Admin_ChangePassword" DbName="affiliate_n88" />

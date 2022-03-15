@@ -20,31 +20,10 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string uSpKey = "Aff_User_StatementHistory_Sel";
             var dbMode = statementHistoryParam.IsInternal ? DBMode.View : DBMode.Main;
-            var dataList = new List<StatementHistory>();
-
-            using (var objectDb = _builder.Build(uSpKey, dbMode))
+            using (var db = _builder.Build(uSpKey, dbMode))
             {
-                using (var reader = objectDb.ExecuteReader(statementHistoryParam))
-                {
-                    while (reader.Read())
-                    {
-                        var transType = reader.ToByte("TransType");
-                        var monthDate = reader.ToDateTime("MonthDate");
-
-                        dataList.Add(new StatementHistory
-                        {
-                            MonthDate = monthDate,
-                            TransType = transType,
-                            Amount = reader["Amount"] == DBNull.Value ? 0 : reader.ToDecimal("Amount"),
-                            Description = reader.ToString("Description"),
-                            Status = reader.ToString("Status"),
-                            CalculatedType = reader["CalculatedType"] == DBNull.Value ? null : (byte?)(reader["CalculatedType"]),
-                        });
-                    }
-                }
+                return db.Query<StatementHistory>(statementHistoryParam);
             }
-
-            return dataList;
         }
 
         public IEnumerable<ProductItem> GetProductList(bool isInternal)
@@ -96,8 +75,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objecDb = _builder.Build(uSpKey, mode))
             {
-                var result = objecDb.Query<SubAffComInfo>(subAffParam);
-                return result;
+                return objecDb.Query<SubAffComInfo>(subAffParam);
             }
         }
 

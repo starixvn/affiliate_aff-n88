@@ -78,24 +78,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Report
             Assert.Equal(param, passedParam);
         }
 
-        [Fact]
-        public void GetAffiliateList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var param = "abc";
-            var passedParam = string.Empty;
-            var affiliateReportService = new Mock<IAffiliateReportService>();
-            affiliateReportService.Setup(s => s.SearchAffiliateList(param)).Returns(new List<string> { "abc" }).Callback<string>(p => passedParam = p);
-            var controller = CreateReportController(affiliateReportService: affiliateReportService.Object);
-
-            // Action
-            var result = controller.GetAffiliateList(param) as JsonResult;
-            var data = result.Data as List<string>;
-
-            // Assert
-            Assert.Single(data);
-            Assert.Equal(param, passedParam);
-        }
 
         private ReportController CreateReportController(
             ISessionService sessionService = null,

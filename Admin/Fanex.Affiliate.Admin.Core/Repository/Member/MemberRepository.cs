@@ -5,7 +5,6 @@ using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
-using DNAide.Core;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Common.Extensions;
 
@@ -51,53 +50,6 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
             }
 
             return result;
-        }
-
-        public ResultInfo DeleteMember(DeleteMemberParam param)
-        {
-            const string SpKey = "Aff_MemberDel";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("custid", DbType.Int32, param.MemberId);
-                objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-
-                objectDb.AddOutParameter("AffID", DbType.Int32, Size.SizeOfInt);
-                objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
-                objectDb.AddOutParameter("DepositCustID", DbType.Int32, Size.SizeOfInt);
-
-                AssignResultOutputParam(objectDb);
-
-                objectDb.ExecuteNonQuery();
-
-                var affId = objectDb.GetParameterValue("AffID");
-                var depositMemberId = objectDb.GetParameterValue("DepositCustID");
-
-                param.AffId = affId == DBNull.Value ? 0 : Convert.ToInt32(affId);
-                param.DepositMemberId = depositMemberId == DBNull.Value ? 0 : Convert.ToInt32(depositMemberId);
-
-                return GetResultInfo(objectDb);
-            }
-        }
-
-        public void WriteAfterDeleteSuccefully(DeleteMemberParam param)
-        {
-            const string SpKey = "Aff_WriteLog";
-
-            using (var objectDb = GetObjectDb(SpKey))
-            {
-                objectDb.AddInParameter("AffID", DbType.Int32, param.AffId);
-                objectDb.AddInParameter("Creator", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
-                objectDb.AddInParameter("Typename", DbType.String, "Member");
-                objectDb.AddInParameter("SPName", DbType.String, "DEP_AdminUpdAffID");
-                objectDb.AddInParameter("Details", DbType.String, $"Remove member. DepositCustID={param.DepositMemberId} (On Deposit_DB)");
-
-                objectDb.AddOutParameter("RefNo", DbType.Int64, Size.SizeOfInt);
-
-                objectDb.ExecuteNonQuery();
-            }
         }
     }
 }

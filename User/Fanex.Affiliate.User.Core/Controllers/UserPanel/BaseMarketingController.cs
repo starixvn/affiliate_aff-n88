@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             return new RefLinkViewModel
             {
-                AffLinkType = Enum.AffiliateLinkType.AffiliateLink,
+                AffLinkType = AffiliateLinkType.AffiliateLink,
                 AffTypeDisplayName = Lang.AffilateLink,
                 Domains = domains,
                 SitePages = pages
@@ -99,12 +99,12 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         protected RefLinkViewModel GetSubAffLinkTypeViewModel()
         {
             var affId = SessionService.UserSession.AffId;
-            var domains = MarketingService.GetAvailableDomainList(affId, Enum.AffiliateLinkType.SubAffiliateLink, SessionService.IsInternal);
-            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal, Enum.AffiliateLinkType.SubAffiliateLink);
+            var domains = MarketingService.GetAvailableDomainList(affId, AffiliateLinkType.SubAffiliateLink, SessionService.IsInternal);
+            var pages = MarketingService.GetLandingPageList(SessionService.IsInternal, AffiliateLinkType.SubAffiliateLink);
 
             return new RefLinkViewModel
             {
-                AffLinkType = Enum.AffiliateLinkType.SubAffiliateLink,
+                AffLinkType = AffiliateLinkType.SubAffiliateLink,
                 AffTypeDisplayName = Lang.SubAffiliateLink,
                 Domains = domains,
                 SitePages = pages

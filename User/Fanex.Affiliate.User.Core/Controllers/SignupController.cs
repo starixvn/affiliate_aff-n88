@@ -133,7 +133,7 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 
-                result = await _accountService.CreateAffiliate(signUpParam, emailParam);
+                result = await _accountService.CreateAffiliateAsync(signUpParam, emailParam);
             }
             else
             {

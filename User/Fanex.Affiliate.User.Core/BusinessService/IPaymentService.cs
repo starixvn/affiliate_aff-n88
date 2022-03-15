@@ -15,9 +15,5 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         ResultInfo CancelPaymentRequest(PaymentCancelParam cancelParam, PaymentEmailParam emailParam);
 
         IDictionary<string, string> GetPaymentMethods();
-
-        decimal GetMinAmountPaymentMoney();
-
-        bool IsInDateRange();
     }
 }

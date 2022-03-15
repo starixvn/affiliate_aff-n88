@@ -24,8 +24,6 @@
 
     <Setting Key="Aff_User_GeneralInfo_Sel" SpName="Aff_User_GeneralInfo_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_GeneralInfo_Sel_view" SpName="Aff_User_GeneralInfo_Sel" DbName="affiliate_n88_view" />
-
-    <Setting Key="Dot_Dep_CustomerInsMember_Ag_Cust" SpName="Dot_Dep_CustomerInsMember_Ag_Cust" DbName="main" />
   </Function>
 
   <Function Name="Statistics">

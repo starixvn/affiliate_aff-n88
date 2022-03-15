@@ -2,10 +2,6 @@
 using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Fanex.Affiliate.Admin.Core.Services;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -116,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
         public void UpdatePaymentRequest_WhenCall_UpdateFailed()
         {
             // Arrange
-            var param = new PaymentRequestInfo();
+            var param = new PaymentRequestInfo { Amount = 100m };
             var lisenseeApi = new Mock<ILicenseeApi>();
             lisenseeApi.Setup(l => l.UpdatePaymentRequestAsync(param)).Returns(Task.FromResult(-10m));
 

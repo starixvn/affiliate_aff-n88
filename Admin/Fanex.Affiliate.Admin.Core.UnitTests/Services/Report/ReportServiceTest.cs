@@ -61,37 +61,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Report
             Assert.Equal(param, passedParam);
         }
 
-        [Fact]
-        public void SearchAffiliateList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var param = "abc";
-            var passedParam = string.Empty;
-            var repository = new Mock<IAffiliateReportRepository>();
-            repository.Setup(re => re.SearchAffiliateList(param)).Returns(new List<string> { "abc" }).Callback<string>(p => passedParam = p);
-            var service = CreateAffiliateReportService(repository.Object);
-
-            // Action
-            var result = service.SearchAffiliateList(param);
-
-            // Assert
-            Assert.Single(result);
-            Assert.Equal(param, passedParam);
-        }
-
-        [Fact]
-        public void SearchAffiliateList_WhenCall_ReturnEmpty()
-        {
-            // Arrange
-            var service = CreateAffiliateReportService();
-
-            // Action
-            var result = service.SearchAffiliateList(string.Empty);
-
-            // Assert
-            Assert.Empty(result);
-        }
-
         private static AffiliateReportService CreateAffiliateReportService(IAffiliateReportRepository affiliateReportRepository = null)
         {
             var fakeAffiliateReportRepository = affiliateReportRepository ?? Mock.Of<IAffiliateReportRepository>();

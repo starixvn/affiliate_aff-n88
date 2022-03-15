@@ -15,10 +15,12 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private const int PercentageUnit = 100;
 
         private readonly ICommissionReportRepository _commissionReportRepository;
+
         public CommissionReportService(ICommissionReportRepository commissionReportRepository)
         {
             _commissionReportRepository = commissionReportRepository;
         }
+
         private static string GetCalculatedNote(int? type)
         {
             if (!type.HasValue || type == CommissionType.Calculated)
@@ -27,6 +29,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
             return type.Value == 0 ? $" ({Lang.Temporary})" : $" ({Lang.Uncalculated})";
         }
+
         public CommissionReportDataViewModel GenerateCommissionReportData(CommissionReportParam param)
         {
             var rawData = _commissionReportRepository.GetAffiliateCommission(param);

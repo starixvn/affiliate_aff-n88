@@ -56,7 +56,7 @@
         public ActionResult GetSize(SizeParam param)
         {
             param.AffType = SessionService.UserSession.AffType;
-            param.Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(param.Language))?.EnglishName;
+            param.Language = GetEnglishName(param.Language);
             var sizeList = MarketingService.GetSizeList(param, SessionService.IsInternal);
 
             return Json(sizeList, JsonRequestBehavior.AllowGet);
@@ -79,7 +79,7 @@
             bannerParam.TextLinkTemplate = MarketingService.GetTextLinkTemplate(bannerParam.TargetId);
             bannerParam.BannerDomain = AppSetting.GetValue($"BannerDomain{bannerSettingKey}") ??
                 AppSetting.BannerDomain;
-            bannerParam.Language = SystemLanguage.LanguageList.FirstOrDefault(l => l.Code.MatchWith(bannerParam.Language))?.EnglishName;
+            bannerParam.Language = GetEnglishName(bannerParam.Language);
 
             var bannerList = GetBannerList(bannerParam);
             ViewBag.TotalItem = bannerParam.Nrows;
@@ -227,6 +227,11 @@
             var path = FileSystem.Exists(qrLogoPath) ? qrLogoPath : logoPath;
 
             return QrCodeGeneratorService.GetImage(path);
+        }
+
+        private string GetEnglishName(string languageCode)
+        {
+            return LanguageService.GetLanguageList().FirstOrDefault(l => l.Code.MatchWith(languageCode))?.EnglishName;
         }
     }
 }

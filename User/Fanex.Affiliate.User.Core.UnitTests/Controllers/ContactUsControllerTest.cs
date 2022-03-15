@@ -114,15 +114,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 .Callback<ContactUsParam, EmailBaseParam>((p, e) => passedParam = e);
 
             var captchaService = new Mock<ICaptchaService>();
-            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                .Returns(true);
-            var appSetting = Mock.Of<IAppSetting>(ap => ap.MailContact == Constant.DefaultMailContact && ap.MailCc == Constant.DefaultMailCc);
+            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(true);
+            var appSetting = Mock.Of<IAppSetting>(ap => ap.GetMailContactByLanguageCode(It.IsAny<string>()) == Constant.DefaultMailContact && ap.MailCc == Constant.DefaultMailCc);
             var controller = CreateController(service.Object, appSetting: appSetting, captchaService: captchaService.Object);
 
             var expectedParam = JsonConvert.SerializeObject(new EmailBaseParam
             {
                 MailCc = Constant.DefaultMailCc,
-                MailTo = Constant.DefaultMailContact
+                MailTo = Constant.DefaultMailContact,
+                User = new UserInfo { PreferredLanguage = Constant.DefaultLanguage },
             });
 
             // Action
@@ -167,6 +167,26 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Equal(ExpectedCreator, result);
         }
 
+        [Fact]
+        public void Index_IsInvalid_NotCallService()
+        {
+            // Arrange
+            var param = CreateParam();
+            var captchaService = new Mock<ICaptchaService>();
+            captchaService.Setup(c => c.IsValid(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
+                .Returns(true);
+            var controller = CreateController(null, captchaService: captchaService.Object);
+            controller.ModelState.AddModelError("Error1", "Model is invalid!");
+
+            // Action
+            var actionResult = controller.Index(param) as JsonResult;
+            var result = actionResult.Data as ResultInfo;
+
+            // Assert
+            Assert.False(result.IsOk);
+            Assert.Equal("Model is invalid!", result.Message);
+        }
+
         private static ContactUsController CreateController(
             IContactService contactService = null,
             ISessionService sessionService = null,
@@ -203,7 +223,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
                 Content = "Content",
                 Email = Constant.DefaultMailUser,
                 Sender = "Sender",
-                Subject = "Subject"
+                Subject = "Subject",
+                SubjectRaw = "Subject"
             };
         }
 

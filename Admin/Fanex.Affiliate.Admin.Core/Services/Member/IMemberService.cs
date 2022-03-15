@@ -8,7 +8,5 @@ namespace Fanex.Affiliate.Admin.Core.Services.Member
     public interface IMemberService
     {
         EntityResult<MemberInfo> GetMemberList(MemberParam param);
-
-        //ResultInfo DeleteMember(DeleteMemberParam param);
     }
 }

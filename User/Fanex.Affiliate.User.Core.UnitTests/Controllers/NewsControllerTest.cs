@@ -233,6 +233,55 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Equal(expectedResult, result);
         }
 
+        [Fact]
+        public void GetLatestHotNew_HasHotNewsDataButHotNewsListIsEmpty_ReturnCorrectView()
+        {
+            // Arrange
+            const bool IsInternal = false;
+            var hotNews = new LatestHotNews
+            {
+                IsImportant = true
+            };
+            var newsService = new Mock<INewsService>();
+            newsService.Setup(ns => ns.GetLatestHotNews(IsInternal)).Returns(hotNews);
+
+            var principal = Mock.Of<IPrincipal>(p => p.Identity.IsAuthenticated);
+            var controllerContext = Mock.Of<ControllerContext>(c => c.HttpContext.User == principal);
+
+            var controller = CreateController(newsService.Object);
+            controller.ControllerContext = controllerContext;
+
+            var expectedResult = JsonConvert.SerializeObject(new LatestHotNewViewModel
+            {
+                IsAuthenticated = true,
+                IsImportant = true
+            });
+
+            // Action
+            var actionResult = controller.LatestHotNews() as PartialViewResult;
+            var result = JsonConvert.SerializeObject(actionResult.Model);
+
+            // Assert
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void GetLatestHotNew_NotHasHotNews_ReturnCorrectView()
+        {
+            // Arrange
+            var newsService = new Mock<INewsService>();
+            var controller = CreateController(newsService.Object);
+
+            var expectedResult = JsonConvert.SerializeObject(new LatestHotNewViewModel());
+
+            // Action
+            var actionResult = controller.LatestHotNews() as PartialViewResult;
+            var result = JsonConvert.SerializeObject(actionResult.Model);
+
+            // Assert
+            Assert.Equal(expectedResult, result);
+        }
+
         [Theory]
         [InlineData(true)]
         [InlineData(false)]

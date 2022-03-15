@@ -8,20 +8,32 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
     public class AffiliateCommission
     {
         public DateTime MonthDate { get; set; }
+
         public int ProductId { get; set; }
+
         public string ProductName { get; set; }
+
         public decimal TurnOver { get; set; }
         public decimal GGR { get; set; }
+
         public decimal PlatformFee { get; set; }
+
         public decimal OperationalFee { get; set; }
+
         public decimal DepositFee { get; set; }
+
         public decimal WithdrawalFee { get; set; }
+
         public decimal Bonus { get; set; }
+
         public decimal Rebate { get; set; }
+
         public decimal CommissionRate { get; set; }
+
         public decimal Commission { get; set; }
         public decimal P2pCommission { get; set; }
         public decimal SubAffCommission { get; set; }
+
         public int CalculatedType { get; set; }
 
         [SpParam(Ignored = true)]

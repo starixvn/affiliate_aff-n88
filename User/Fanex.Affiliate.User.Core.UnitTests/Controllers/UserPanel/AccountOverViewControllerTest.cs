@@ -6,6 +6,8 @@ using Moq;
 using Xunit;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
+using Newtonsoft.Json;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -15,9 +17,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         public void Index_WhenCall_ReturnCorrectView()
         {
             // Arrange
-            var expectResult = new LastLoginInfo();
+            var expectResult = new AccountOverviewViewModel { IsMaxLevel = false, LastLoginInfo = new LastLoginInfo() };
             var repository = new Mock<IAccountOverviewRepository>();
-            repository.Setup(r => r.GetLastLoginInfo(It.IsAny<int>())).Returns(expectResult);
+            repository.Setup(r => r.GetLastLoginInfo(It.IsAny<int>())).Returns(expectResult.LastLoginInfo);
             var controller = new AccountOverviewController(MockingHelper.GetSessionService(), Mock.Of<ILanguageService>(), repository.Object);
 
             // Action
@@ -25,7 +27,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             // Assert
             Assert.Equal("~/Views/UserPanel/AccountOverView/Index.cshtml", viewResult.ViewName);
-            Assert.Equal(expectResult, viewResult.Model);
+            Assert.Equal(JsonConvert.SerializeObject(expectResult), JsonConvert.SerializeObject(viewResult.Model));
         }
     }
 }

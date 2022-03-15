@@ -7,7 +7,6 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using DNAide.Utils;
 using Fanex.Common.Extensions;
-using System.Runtime.CompilerServices;
 using Fanex.Affiliate.Admin.Core.MetaModels;
 
 namespace Fanex.Affiliate.Admin.Core.Repository

@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             Bitmap bitmap = null;
             if (icon != null)
             {
-                 bitmap = new Bitmap(icon);
+                bitmap = new Bitmap(icon);
             }
             var base64Img = GenerateBase64QrCode(content, bitmap, includePrefix);
             bitmap?.Dispose();
@@ -42,7 +42,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     bitmap = new Bitmap((Bitmap)Image.FromStream(streamBitmap));
                 }
             }
-            var base64Img =  GenerateBase64QrCode(content, bitmap, includePrefix);
+            var base64Img = GenerateBase64QrCode(content, bitmap, includePrefix);
             bitmap?.Dispose();
             return base64Img;
         }
@@ -66,6 +66,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         }
 
         public Image GetImage(string path)
-            => Image.FromFile(path);
+            => _imgHandler.GetImage(path);
     }
 }

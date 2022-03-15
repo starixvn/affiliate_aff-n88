@@ -135,26 +135,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             Assert.Empty(result.MainData);
         }
 
-        [Fact]
-        public void SearchAffiliateList_WhenCall_ReturnCorrectData()
-        {
-            // Arrange
-            var repository = new Mock<AffiliateReportRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
-
-            ReaderHelper.MapReaderData(dataReader, GetSearchAffiliateList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
-            repository.Setup(r => r.GetObjectDb("Aff_AffiliateUsername_SearchEx", 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.SearchAffiliateList("12BETAFF226");
-
-            // Assert
-            Assert.Single(result);
-        }
-
         private IDictionary<string, object> GetReportData()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)

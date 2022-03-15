@@ -20,7 +20,6 @@
     public class TestController : BaseController
     {
         private readonly IMailProcessor _mailProcessor;
-        private readonly ILanguageService _languageService;
         private readonly IAppSetting _appSetting;
 
         private readonly string _mailContact;
@@ -29,10 +28,9 @@
         private const int AffId = 123456;
 
         public TestController(ISessionService sessionService,
-            ILanguageService languageService, IAppSetting appSetting) : base(sessionService, languageService)
+            ILanguageService languageService, IAppSetting appSetting, IMailProcessor mailProcessor) : base(sessionService, languageService)
         {
-            _mailProcessor = new MailProcessor();
-            _languageService = languageService;
+            _mailProcessor = mailProcessor;
             _appSetting = appSetting;
             _siteFriendlyName = appSetting.SiteFriendlyName;
             _mailContact = appSetting.GetMailContactByLanguageCode(sessionService.UserSession?.PreferredLanguage ?? sessionService.CurrentLanguage);
@@ -60,9 +58,9 @@
 
             try
             {
-                _languageService.SetCulture(criteria.Language);
+                LanguageService.SetCulture(criteria.Language);
                 ViewBag.Data = GetEmailContent(criteria);
-                _languageService.SetCulture("en-US");
+                LanguageService.SetCulture("en-US");
             }
             catch (Exception ex)
             {
@@ -85,10 +83,10 @@
 
             try
             {
-                _languageService.SetCulture(criteria.Language);
+                LanguageService.SetCulture(criteria.Language);
                 var content = GetEmailContent(criteria);
                 string Subject = GetSubject(criteria.Function);
-                _languageService.SetCulture("en-US");
+                LanguageService.SetCulture("en-US");
 
                 var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
 
@@ -130,7 +128,7 @@
 
         private string GetEmailHtmlContent(string content, string language)
         {
-            var domain = SiteDomainHelper.GetRootUrl(this);
+            var domain = SiteDomainHelper.GetRootUrl(this, _appSetting);
 
             var viewModel = new EmailTemplateViewModel
             {
@@ -210,7 +208,7 @@
                 Affiliate = _userName,
                 SiteFriendlyName = _siteFriendlyName,
                 Email = "abc@nova.com",
-                Content = SiteDomainHelper.GetRootUrl(this),
+                Content = SiteDomainHelper.GetRootUrl(this, _appSetting),
             };
         }
 
@@ -236,7 +234,7 @@
                 MailContact = _mailContact,
                 SiteFriendlyName = _siteFriendlyName,
                 Code = "12345",
-                RootDomain = SiteDomainHelper.GetRootUrl(this),
+                RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact
             };
         }
@@ -255,7 +253,7 @@
                 TransId = TranId,
                 RequestDate = DateTime.Now.Date,
                 Amount = Amount,
-                RootDomain = SiteDomainHelper.GetRootUrl(this),
+                RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact,
                 PaymentType = type
             };
@@ -269,7 +267,7 @@
                 MailContact = _mailContact,
                 SiteFriendlyName = _siteFriendlyName,
                 NewPassword = "1234aa",
-                RootDomain = SiteDomainHelper.GetRootUrl(this),
+                RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact,
             };
         }
@@ -281,7 +279,7 @@
                 User = GetUserInfo(),
                 MailContact = _mailContact,
                 SiteFriendlyName = _siteFriendlyName,
-                RootDomain = SiteDomainHelper.GetRootUrl(this),
+                RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 Code = "123456",
                 Ip = "127.0.0.1"
             };

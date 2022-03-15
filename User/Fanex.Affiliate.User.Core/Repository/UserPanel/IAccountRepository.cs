@@ -9,8 +9,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
     {
         AccountInformation GetAccountInfo(int affId);
 
-        DepositAccountInfo GetDepositPlayerAccount(string playerUserName);
-
         ResultInfo UpdateAccountInformation(UpdateAccountParam accountUpdateParam);
 
         ResultInfo UpdatePassword(UpdatePasswordParam updatePasswordParam);
@@ -20,8 +18,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         UserInfo RecoverPassword(PasswordRecoveryParam passwordRecoveryParam);
 
         UserInfo GetUserInfoById(int affId, bool isInternal);
-
-        IbcPlayerAccountInsertResult InsertPlayerAccountForIbc(DepositAccountInfo accountInfo);
 
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
 

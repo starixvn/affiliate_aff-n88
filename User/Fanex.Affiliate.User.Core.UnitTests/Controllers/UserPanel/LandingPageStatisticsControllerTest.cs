@@ -12,7 +12,6 @@ using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using Moq;
 using Xunit;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
 
@@ -28,9 +27,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             // Arrange
             var marketingService = new Mock<IMarketingService>();
             marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
-
-            var languageService = new Mock<ILanguageService>();
             var languageList = CreateFakeLanguageList();
+            var languageService = new Mock<ILanguageService>();
             languageService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
 
             var statisticsRepository = new Mock<IStatisticsRepository>();
@@ -38,7 +36,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             statisticsRepository.Setup(m => m.GetLandingPageStatistics(It.IsAny<LandingPageStatisticsParam>())).Returns(landingPageStisticsList);
 
             var today = DateTime.Today;
-            var controller = CreateController(marketingService: marketingService.Object, staticticsRepository: statisticsRepository.Object);
+            var controller = CreateController(null, languageService.Object, statisticsRepository.Object, marketingService.Object);
 
             // Action
             var result = controller.Index() as ViewResult;
@@ -50,6 +48,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             Assert.False(model.IsDetail);
             Assert.Equal(new DateTime(today.Year, today.Month, 1), model.FromDate.Date);
             Assert.Equal(today, model.ToDate.Date);
+            Assert.Equal(0, model.RowNumber);
         }
 
         [Fact]
@@ -59,9 +58,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             LandingPageStatisticsParam passedParam = null;
             var marketingService = new Mock<IMarketingService>();
             marketingService.Setup(m => m.GetLandingPageList(IsInternal, It.IsAny<AffiliateLinkType>())).Returns(new List<LandingPage>());
-
-            var languageService = new Mock<ILanguageService>();
             var languageList = CreateFakeLanguageList();
+            var languageService = new Mock<ILanguageService>();
             languageService.Setup(m => m.GetLanguageList(IsInternal)).Returns(languageList);
 
             var statisticsRepository = new Mock<IStatisticsRepository>();
@@ -71,7 +69,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 .Callback<LandingPageStatisticsParam>(p => passedParam = p);
 
             var today = DateTime.Today;
-            var controller = CreateController(marketingService: marketingService.Object, staticticsRepository: statisticsRepository.Object);
+            var controller = CreateController(null, languageService.Object, statisticsRepository.Object, marketingService.Object);
 
             // Action
             controller.Index();
@@ -87,6 +85,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         [InlineData(null, null)]
         [InlineData("", "")]
         [InlineData("en-US", "en")]
+        [InlineData("th-TH", null)]
         public void IndexPost_WhenCall_ReturnViewWithCorrectModelData(string languageCode, string expectedShortedCode)
         {
             // Arrange
@@ -98,7 +97,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var landingPageStisticsList = CreateFakeLandingPageStatisticsList();
             statisticsRepository.Setup(m => m.GetLandingPageStatistics(param)).Returns(landingPageStisticsList);
 
-            var controller = CreateController(staticticsRepository: statisticsRepository.Object);
+            var languageService = new Mock<ILanguageService>();
+            languageService.Setup(m => m.GetLanguageList(It.IsAny<bool?>())).Returns(Constant.LanguageList);
+            var controller = CreateController(null, languageService.Object, statisticsRepository.Object);
 
             // Action
             var result = controller.Index(param) as PartialViewResult;

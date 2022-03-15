@@ -1,5 +1,5 @@
 {
-  //"ServerUri": "https://sonarqube.nexdev.net/",
+  "ServerUri": "https://sonarqube.nexdev.net/",
   "Organization": null,
   "ProjectKey": "AFF.N88USERSITE",
   "ProjectName": "Legion / AFF.N88UserSite",

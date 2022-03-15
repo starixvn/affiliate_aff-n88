@@ -27,41 +27,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Member
             Assert.Single(result.MainData);
         }
 
-
-        //[Fact]
-        //public void DeleteMember_WhenCall_ReturnCorrectData()
-        //{
-        //    // Arrange
-        //    var param = new DeleteMemberParam();
-        //    var memberRepository = new Mock<IMemberRepository>();
-        //    memberRepository.Setup(comm => comm.DeleteMember(param)).Returns(new ResultInfo());
-        //    memberRepository.Setup(comm => comm.WriteAfterDeleteSuccefully(param));
-        //    var service = CreateMemberService(memberRepository.Object);
-
-        //    // Action
-        //    var result = service.DeleteMember(param);
-
-        //    // Assert
-        //    Assert.True(result.IsSuccessful);
-        //}
-
-        //[Fact]
-        //public void DeleteMember_WhenCall_DeleteMemberIsFailed()
-        //{
-        //    // Arrange
-        //    var param = new DeleteMemberParam();
-        //    var memberRepository = new Mock<IMemberRepository>();
-        //    memberRepository.Setup(comm => comm.DeleteMember(param)).Returns(new ResultInfo { Code = Code.GeneralErrorCode, Message = "Delete Member is failed" });
-        //    var service = CreateMemberService(memberRepository.Object);
-
-        //    // Action
-        //    var result = service.DeleteMember(param);
-
-        //    // Assert
-        //    Assert.False(result.IsSuccessful);
-        //    Assert.Equal("Delete Member is failed", result.Message);
-        //}
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
         private static MemberService CreateMemberService(IMemberRepository memberRepository = null)
         {

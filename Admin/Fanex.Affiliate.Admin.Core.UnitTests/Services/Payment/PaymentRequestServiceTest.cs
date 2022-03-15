@@ -203,7 +203,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
 
             var paymentRequestRepository = new Mock<IPaymentRequestRepository>();
             paymentRequestRepository.Setup(l => l.GetPaymentRequestDetail(It.IsAny<long>())).Returns(new PaymentRequestDetail { Status = "processing" });
-            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo());
+            paymentRequestRepository.Setup(l => l.UpdatePaymentRequest(It.IsAny<PaymentRequestUpdateParam>())).Returns(new ResultInfo { Code = Code.GeneralErrorCode });
 
             var affiliateService = new Mock<IAffiliateService>();
             affiliateService.Setup(a => a.GetAffiliateBasicInfo(It.IsAny<int?>(), null)).Returns(new AffiliateBasicInfo { PreferredLanguage = "vi-VN", AffType = 4 });

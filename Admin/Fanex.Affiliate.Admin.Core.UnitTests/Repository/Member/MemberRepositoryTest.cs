@@ -14,8 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
     public class MemberRepositoryTest
     {
         private const string SpKeyMemberListSel = "Aff_Admin_MemberList_Sel";
-        private const string SpKeyMemberDel = "Aff_MemberDel";
-        private const string SpKeyWriteLog = "Aff_WriteLog";
 
         [Fact]
         public void GetMemberList_WhenCallWithSpKeyBannerSel_ReturnCorrectData()
@@ -84,67 +82,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             // Assert
             Assert.Empty(result.MainData);
             Assert.Equal(0, result.TotalItem);
-        }
-
-        [Fact]
-        public void DeleteMember_WhenCallWithValidParam_DeleteSuccessfully()
-        {
-            // Arrange
-            var param = new DeleteMemberParam();
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
-            objectDb.Setup(obj => obj.GetParameterValue("AffID")).Returns(1271808);
-            objectDb.Setup(obj => obj.GetParameterValue("DepositCustID")).Returns(123456);
-            repository.Setup(re => re.GetObjectDb(SpKeyMemberDel, 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.DeleteMember(param);
-
-            // Assert
-            Assert.True(result.IsSuccessful);
-            Assert.Equal(1271808, param.AffId);
-            Assert.Equal(123456, param.DepositMemberId);
-        }
-
-        [Fact]
-        public void DeleteMember_WhenCallWithInvalidParam_DeleteIsFailed()
-        {
-            // Arrange
-            var message = "Delete member is failed.";
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
-            objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
-            objectDb.Setup(obj => obj.GetParameterValue("AffID")).Returns(DBNull.Value);
-            objectDb.Setup(obj => obj.GetParameterValue("DepositCustID")).Returns(DBNull.Value);
-            repository.Setup(re => re.GetObjectDb(SpKeyMemberDel, 120)).Returns(objectDb.Object);
-
-            // Action
-            var result = repository.Object.DeleteMember(new DeleteMemberParam());
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal(message, result.Message);
-        }
-
-        [Fact]
-        public void WriteAfterDeleteSuccefully_WhenCallWithValidParam_ExcuteCorrectly()
-        {
-            // Arrange
-            var repository = new Mock<MemberRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
-            repository.Setup(re => re.GetObjectDb(SpKeyWriteLog, 120)).Returns(objectDb.Object);
-
-            // Action
-            repository.Object.WriteAfterDeleteSuccefully(new DeleteMemberParam());
-
-            // Assert
-            objectDb.Verify(obj => obj.ExecuteNonQuery(), Times.Once);
         }
 
         private IDictionary<string, object> GetMemberList()

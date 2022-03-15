@@ -1,11 +1,13 @@
 ﻿@using Fanex.Affiliate.User.Core.CoreService
+@using Fanex.Affiliate.User.Core.BusinessService
 @using Fanex.Affiliate.User.Core.Constants
 @using Fanex.Affiliate.User.Core.Utilities
 @{
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var settingService = DependencyResolver.Current.GetService<IAppSetting>();
+    var languageService = DependencyResolver.Current.GetService<ILanguageService>();
     var userSession = sessionService.UserSession;
-    var languageList = SystemLanguage.LanguageList.Where(l => !l.Code.Equals("en-GB") && !l.Code.Equals("es-ES"));
+    var languageList = languageService.GetLanguageList();
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
@@ -34,6 +36,10 @@
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
 
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="@Url.RenderLink("~/www/build/styles/fonts/tahoma/font.css")" rel="stylesheet" />
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">

@@ -4,7 +4,6 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
-using System.Text.RegularExpressions;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Utilities;
 
@@ -13,6 +12,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
     public class CaptchaService : ICaptchaService
     {
         private readonly IAppSetting _appSetting;
+
+        private const int RANDOM_BEGIN_NUMBER = 1000;
+        private const int RANDOM_END_NUMBER = 9999;
 
         private readonly string[] fontNameList = new[] {
          "Comic Sans MS",
@@ -49,6 +51,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             _appSetting = appSetting;
         }
+
+        public string GenerateCaptcha()
+            => new Random().Next(RANDOM_BEGIN_NUMBER, RANDOM_END_NUMBER).ToString();
 
         public bool IsValid(string inputCaptcha, string sessionCaptcha, string userHostAddress)
         {

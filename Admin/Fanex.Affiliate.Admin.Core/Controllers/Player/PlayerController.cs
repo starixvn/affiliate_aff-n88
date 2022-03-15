@@ -13,7 +13,6 @@ using Fanex.Affiliate.Admin.Core.Extensions;
 namespace Fanex.Affiliate.Admin.Core.Controllers.Player
 {
     [FunctionAuthorize(FunctionName = Function.Affiliate)]
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "<Pending>")]
     public class PlayerController : BaseController
     {
         private readonly IMemberService _memberService;
@@ -30,7 +29,6 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
             var subMenu = new List<SubMenu>
             {
                 new SubMenu { Name = Lang.Player, Url = Url.Content("~/Portal/Player"), IsActive = true }
-                //new SubMenu { Name = Lang.ActivePlayer, Url = Url.Content("~/Portal/ActiveMember") }
             };
 
             var model = new MemberListViewModel
@@ -51,31 +49,5 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
                 Data = _memberService.GetMemberList(param)
             };
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryHeader]
-        //[FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
-        //public ActionResult DeleteMember(DeleteMemberParam param)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        param.UserId = SessionService.UserId;
-        //        param.Ip = Request.UserHostAddress;
-
-        //        return new JsonNetResult
-        //        {
-        //            Data = _memberService.DeleteMember(param)
-        //        };
-        //    }
-
-        //    return new JsonNetResult
-        //    {
-        //        Data = new ResultInfo
-        //        {
-        //            Code = Code.GeneralErrorCode,
-        //            Message = "No member specificed!"
-        //        }
-        //    };
-        //}
     }
 }

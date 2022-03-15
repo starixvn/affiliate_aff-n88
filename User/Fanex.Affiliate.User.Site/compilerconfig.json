@@ -44,10 +44,6 @@
   //  "inputFile": "www/source/styles/pages/products.scss"
   //},
   //{
-  //  "outputFile": "www/build/js/user-panel.js",
-  //  "inputFile": "www/source/js/pages/user-panel.js"
-  //},
-  //{
   //  "outputFile": "www/build/js/lib/bootstrap.min.js",
   //  "inputFile": "www/source/js/lib/bootstrap.min.js"
   //},

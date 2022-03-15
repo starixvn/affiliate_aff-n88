@@ -52,7 +52,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
                 case Constants.CalculatedType.CalculatedMonth:
                     return "Monthly Total";
                 case Constants.CalculatedType.UnCalculatedMonth:
-                    return "Uncaculated Month";
+                    return "Uncalculated Month";
                 default:
                     return "Current Month Statistics";
             }

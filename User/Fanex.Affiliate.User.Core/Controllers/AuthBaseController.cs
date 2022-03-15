@@ -72,7 +72,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             SessionService.AssignSessions(user);
             SessionService.UserSession.BaseCurrency = accountInfo.DefaultBaseCurrency;
-            FormsAuthentication.SetAuthCookie(user.UserName, false);
+            AuthService.SignIn(user.UserName, false);
         }
 
         protected ResultInfo GetErrorResult(string message)

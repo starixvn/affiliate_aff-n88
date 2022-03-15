@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -28,9 +29,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             );
         }
 
-
-
-
         public static Controller FakeController(Controller controller)
         {
             var request = GetHttpRequest();
@@ -58,8 +56,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             mockHttpRequest.Setup(p => p.Url).Returns(new Uri(Constant.DefaultRootDomain));
             mockHttpRequest.Setup(p => p.ServerVariables).Returns(new NameValueCollection());
             mockHttpRequest.Setup(p => p.Browser.Browser).Returns(Constant.Browser);
+            mockHttpRequest.Setup(p => p.Cookies).Returns(new HttpCookieCollection());
 
             return mockHttpRequest.Object;
+        }
+
+        public static void SetUpEnviroment()
+        {
+            var request = new HttpRequest("111", "http://127.0.0.1:8080/controller/action", null);
+            var response = new HttpResponse(new StringWriter());
+            HttpContext.Current = new HttpContext(request, response);
         }
     }
 }
