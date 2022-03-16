@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                     result.InactiveMemberList = GetInactivatedMemberList(reader);
                 }
 
-                result.MemberNotExist = objectDb.GetParameterValue("ErrMsg").ToString();
+                result.MemberNotExist = Convert.ToString(objectDb.GetParameterValue("ErrMsg"));
             }
 
             return result;

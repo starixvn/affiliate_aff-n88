@@ -46,15 +46,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
                 var groupId = objectDb.GetParameterValue(Field.GroupId);
                 param.GroupId = groupId == DBNull.Value ? 0 : Convert.ToInt32(groupId);
 
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -69,13 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -92,13 +81,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -176,13 +159,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 

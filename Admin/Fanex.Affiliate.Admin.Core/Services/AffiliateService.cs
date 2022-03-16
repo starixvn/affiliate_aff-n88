@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.Services
 
                 objectDb.ExecuteNonQuery();
 
-                var affCode = objectDb.GetParameterValue("AffCode").ToString();
+                var affCode = Convert.ToString(objectDb.GetParameterValue("AffCode"));
 
                 return (GetResultInfo(objectDb), affCode);
             }

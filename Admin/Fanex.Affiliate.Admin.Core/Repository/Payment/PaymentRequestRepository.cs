@@ -125,9 +125,11 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                 objectDb.SetParameterValue("MinAmount", DefaultValue.Int);
 
                 var paymentMethods = objectDb.Query<PaymentMethodInfo>();
-                var minAmount = Convert.ToDecimal(objectDb.GetParameterValue("MinAmount"));
+                var minAmount = objectDb.GetParameterValue("MinAmount");
 
-                return (paymentMethods, minAmount);
+                var minAmountDecimal = objectDb.GetParameterValue("MinAmount") == DBNull.Value ? 0 : Convert.ToDecimal(minAmount);
+
+                return (paymentMethods, minAmountDecimal);
             }
         }
     }
