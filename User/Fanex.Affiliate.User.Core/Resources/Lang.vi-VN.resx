@@ -789,7 +789,7 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>Tôi không có trang web</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>Number Game</value>
   </data>
   <data name="OldPass" xml:space="preserve">
@@ -1393,7 +1393,7 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>Địa chỉ email</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>SportsBook</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
@@ -1788,5 +1788,8 @@
   </data>
   <data name="Whatsapp" xml:space="preserve">
     <value>Whatsapp</value>
+  </data>
+  <data name="SBBonus" xml:space="preserve">
+    <value>Tiền thưởng thể thao</value>
   </data>
 </root>

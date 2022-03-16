@@ -815,7 +815,7 @@
   <data name="NoWebsite" xml:space="preserve">
     <value>I don’t have a website</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>Number Game</value>
     <comment>87923</comment>
   </data>
@@ -1469,7 +1469,7 @@
   <data name="EmailSignup" xml:space="preserve">
     <value>Email Address</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>SportsBook</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">

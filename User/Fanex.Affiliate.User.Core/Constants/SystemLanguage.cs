@@ -16,6 +16,7 @@ namespace Fanex.Affiliate.User.Core.Constants
             ["th-TH"] = "th",
             ["vi-VN"] = "vn",
             ["id-ID"] = "id",
+            ["hi-IN"] = "hi",
         };
 
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;

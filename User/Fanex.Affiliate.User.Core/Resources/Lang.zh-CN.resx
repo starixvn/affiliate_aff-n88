@@ -1436,7 +1436,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="ProductAllbet" xml:space="preserve">
     <value>欧博</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>百练赛</value>
   </data>
   <data name="ProductPragmaticPlay" xml:space="preserve">
@@ -1448,7 +1448,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="ProductRngKeno" xml:space="preserve">
     <value>快乐彩</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>体育博彩</value>
   </data>
   <data name="ProductVirtualSports" xml:space="preserve">
@@ -1594,5 +1594,8 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="CommissionBonus" xml:space="preserve">
     <value>佣金盈利</value>
+  </data>
+  <data name="SBBonus" xml:space="preserve">
+    <value>体育红利</value>
   </data>
 </root>

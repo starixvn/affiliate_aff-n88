@@ -1434,7 +1434,7 @@
   <data name="ProductAllbet" xml:space="preserve">
     <value>ALLBET</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>Number Game</value>
   </data>
   <data name="ProductPragmaticPlay" xml:space="preserve">
@@ -1446,7 +1446,7 @@
   <data name="ProductRngKeno" xml:space="preserve">
     <value>RNG KENO</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>SportsBook</value>
   </data>
   <data name="ProductVirtualSports" xml:space="preserve">
@@ -1577,5 +1577,8 @@
   </data>
   <data name="CommissionBonus" xml:space="preserve">
     <value>Bagi Hasil</value>
+  </data>
+  <data name="SBBonus" xml:space="preserve">
+    <value>Bonus buku olahraga</value>
   </data>
 </root>

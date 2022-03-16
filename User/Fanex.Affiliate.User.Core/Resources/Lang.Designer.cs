@@ -3112,6 +3112,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number Game.
+        /// </summary>
+        public static string NumberGame {
+            get {
+                return ResourceManager.GetString("NumberGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No. of Active Players.
         /// </summary>
         public static string NumberOfActivePlayers {
@@ -3580,15 +3589,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Number Game.
-        /// </summary>
-        public static string ProductNumberGame {
-            get {
-                return ResourceManager.GetString("ProductNumberGame", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to PRAGMATIC PLAY.
         /// </summary>
         public static string ProductPragmaticPlay {
@@ -3612,15 +3612,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ProductRngKeno {
             get {
                 return ResourceManager.GetString("ProductRngKeno", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SportsBook.
-        /// </summary>
-        public static string ProductSportsBook {
-            get {
-                return ResourceManager.GetString("ProductSportsBook", resourceCulture);
             }
         }
         
@@ -4224,6 +4215,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Spain {
             get {
                 return ResourceManager.GetString("Spain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SportsBook.
+        /// </summary>
+        public static string Sportsbook {
+            get {
+                return ResourceManager.GetString("Sportsbook", resourceCulture);
             }
         }
         

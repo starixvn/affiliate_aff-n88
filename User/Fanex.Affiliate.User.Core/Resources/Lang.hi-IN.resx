@@ -174,13 +174,13 @@
   <data name="JoinNow" xml:space="preserve">
     <value>अब शामिल हों!</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>खेल पुस्तक</value>
   </data>
   <data name="ProductVirtualSports" xml:space="preserve">
     <value>वर्चुअल स्पोर्ट्स</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>नंबर गेम</value>
   </data>
   <data name="ProductRngKeno" xml:space="preserve">
@@ -448,7 +448,7 @@
     <value>ई-मेल एड्रेस</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
-    <value>ईमेल की जरूरत है</value>
+    <value>सत्यापित करें कि ईमेल पता आवश्यक है</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
     <value>ईमेल पता अमान्य है</value>
@@ -1066,13 +1066,13 @@
     <value>कृपया पसंदीदा भाषा चुनें</value>
   </data>
   <data name="lblSecureQuestion" xml:space="preserve">
-    <value>कृपया सुरक्षा प्रश्न चुनें</value>
+    <value>सुरक्षा प्रश्न</value>
   </data>
   <data name="errYourAnswer" xml:space="preserve">
-    <value>आपका उत्तर</value>
+    <value>आपका उत्तर आवश्यक है</value>
   </data>
   <data name="lblYourAnswer" xml:space="preserve">
-    <value>आपका उत्तर आवश्यक है</value>
+    <value>आपका उत्तर</value>
   </data>
   <data name="AnswerMaxLength" xml:space="preserve">
     <value>आपका उत्तर 300 वर्णों से अधिक नहीं होना चाहिए।</value>
@@ -1186,7 +1186,7 @@
     <value>पुराना पासवर्ड आवश्यक है</value>
   </data>
   <data name="NewPass" xml:space="preserve">
-    <value>नया पासवर्ड आवश्यक है</value>
+    <value>नया पासवर्ड</value>
   </data>
   <data name="NewPasswordisre" xml:space="preserve">
     <value>नया पासवर्ड आवश्यक है</value>
@@ -1228,10 +1228,10 @@
     <value>सभी प्राप्त करें</value>
   </data>
   <data name="From" xml:space="preserve">
-    <value>फॉर्म</value>
+    <value>से</value>
   </data>
   <data name="To" xml:space="preserve">
-    <value>से</value>
+    <value>तक</value>
   </data>
   <data name="ID" xml:space="preserve">
     <value>इड</value>
@@ -1411,7 +1411,7 @@
     <value>चैनल</value>
   </data>
   <data name="GenerateLink" xml:space="preserve">
-    <value>Generate Link</value>
+    <value>लिंक उत्पन्न करें</value>
   </data>
   <data name="TrackingAndQrCode" xml:space="preserve">
     <value>ट्रैकिंग लिंक और क्यूआर कोड</value>
@@ -1816,7 +1816,7 @@
     <value>सुब-एफिलिएट लिंक</value>
   </data>
   <data name="Thisisasystemau" xml:space="preserve">
-    <value>यह एक सिस्टम स्वतः उत्पन्न ईमेल है, कृपया इस ईमेल का उत्तर न दें।.</value>
+    <value>यह एक सिस्टम स्वतः उत्पन्न ईमेल है, कृपया इस ईमेल का उत्तर न दें।</value>
   </data>
   <data name="UsernameIsRequired" xml:space="preserve">
     <value>उपयोगकर्ता आवश्यक है</value>

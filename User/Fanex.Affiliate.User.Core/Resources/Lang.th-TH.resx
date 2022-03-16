@@ -1428,7 +1428,7 @@
   <data name="EarnUpTo" xml:space="preserve">
     <value>รับส่วนแบ่งสูงสุดถึง {0}</value>
   </data>
-  <data name="ProductNumberGame" xml:space="preserve">
+  <data name="NumberGame" xml:space="preserve">
     <value>เกมส์หมายเลข</value>
   </data>
   <data name="ProductPragmaticPlay" xml:space="preserve">
@@ -1440,7 +1440,7 @@
   <data name="ProductRngKeno" xml:space="preserve">
     <value>คีโน</value>
   </data>
-  <data name="ProductSportsBook" xml:space="preserve">
+  <data name="Sportsbook" xml:space="preserve">
     <value>หน้ากีฬา</value>
   </data>
   <data name="ProductVirtualSports" xml:space="preserve">
@@ -1577,5 +1577,8 @@
   </data>
   <data name="CommissionBonus" xml:space="preserve">
     <value>ส่วนแบ่งรายได้</value>
+  </data>
+  <data name="SBBonus" xml:space="preserve">
+    <value>โบนัส กีฬา</value>
   </data>
 </root>

@@ -2,7 +2,7 @@
     var CATEGORY_CASINO = "casino";
     var CATEGORY_SPORTSBOOK = "sportsbook";
 
-    var optionAll = "<option value=''>All</option>";
+    var optionAll = "<option value=''>" + window.dic.all + "</option>";
 
     var _pageSize = 20;
     var _pageIndex = 0;
@@ -123,7 +123,7 @@
                 data: param,
                 url: Site.resolveRelativeUrl("UserPanel/Marketing/GetSubCategory"),
                 success: function (response) {
-                    var html = _me.buildOptionList(response, "Value", "Value", true);
+                    var html = _me.buildOptionList(response, "Value", "Text", true);
                     $("#SubCategory").html(html);
                 },
                 beforeSend: function () {

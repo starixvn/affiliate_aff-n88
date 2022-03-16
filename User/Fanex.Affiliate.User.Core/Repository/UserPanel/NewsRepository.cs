@@ -60,7 +60,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 ["zh-CN"] = reader[MessagePrefix + "cn"]?.ToString(),
                 ["th-TH"] = reader[MessagePrefix + "th"]?.ToString(),
                 ["vi-VN"] = reader[MessagePrefix + "vi"]?.ToString(),
-                ["id-ID"] = reader[MessagePrefix + "id"]?.ToString()
+                ["id-ID"] = reader[MessagePrefix + "id"]?.ToString(),
                 ["hi-IN"] = reader[MessagePrefix + "hi"]?.ToString()
             };
         }

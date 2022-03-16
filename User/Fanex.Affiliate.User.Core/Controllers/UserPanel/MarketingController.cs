@@ -18,6 +18,7 @@
     using Fanex.Affiliate.User.Core.MetalModels;
     using Fanex.Affiliate.User.Core.Enum;
     using Fanex.Affiliate.User.Core.DTO;
+    using System.Text.RegularExpressions;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController
@@ -42,12 +43,13 @@
         {
             var subCategoryList = MarketingService.GetCategoryList(true, linkType, SessionService.IsInternal)
                 .Where(c => c.Category.MatchWith(category) && !string.IsNullOrEmpty(c.SubCategory));
+            var newSub = subCategoryList.Select(i => new SelectListItem
+            {
+                Value = i.SubCategory,
+                Text = Lang.ResourceManager.GetString(Regex.Replace(i.SubCategory, @"\s+", "")) ?? i.SubCategory
+            });
 
-            return Json(subCategoryList.Select(i => new SelectListItem
-                {
-                    Value = i.SubCategory,
-                    Text = Lang.ResourceManager.GetString(i.SubCategory.Trim()) ?? i.SubCategory
-                }),
+            return Json(newSub,
                 JsonRequestBehavior.AllowGet);
         }
 
