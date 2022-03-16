@@ -3,6 +3,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using ONEbook.UM;
 using ONEbook.UM.Services;
 
 namespace Fanex.Affiliate.User.Core.Controllers
@@ -13,11 +14,15 @@ namespace Fanex.Affiliate.User.Core.Controllers
         protected readonly ILanguageService _languageService;
         private readonly IMaintenanceService _maintenanceService;
         public UnderMaintenanceController(ISessionService sessionService,
-            ILanguageService languageService, IMaintenanceService maintenanceService)
+            ILanguageService languageService)
         {
             _sessionService = sessionService;
             _languageService = languageService;
-            _maintenanceService = maintenanceService;
+            _maintenanceService = new MaintenanceService(
+                                      UMClientManager.RestClient,
+                                      UMClientManager.CacheService,
+                                      UMClientManager.UMClientConfigs,
+                                      UMClientManager.HttpContext);
         }
 
         protected override void Initialize(RequestContext requestContext)
