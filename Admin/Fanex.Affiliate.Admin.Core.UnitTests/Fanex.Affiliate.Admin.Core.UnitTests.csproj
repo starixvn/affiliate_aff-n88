@@ -262,6 +262,7 @@
     <Compile Include="Services\Report\TransferServiceTest.cs" />
     <Compile Include="Services\Report\PlayerGgrServiceTest.cs" />
     <Compile Include="Services\Report\ReportServiceTest.cs" />
+    <Compile Include="Services\UnderMaintenance\UnderMaintenanceServiceTest.cs" />
     <Compile Include="TestHelper\Constant.cs" />
     <Compile Include="TestHelper\MockingHelper.cs" />
     <Compile Include="TestHelper\ReaderHelper.cs" />
