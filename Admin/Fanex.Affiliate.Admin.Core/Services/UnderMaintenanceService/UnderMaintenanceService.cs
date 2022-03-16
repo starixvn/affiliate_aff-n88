@@ -32,7 +32,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.UnderMaintenanceService
 
         private static string GetTimeUM(string dateTime)
         {
-            return dateTime.Split(' ')[1] ?? dateTime;
+            const int TWO = 2;
+            var result = dateTime.Split(' ');
+
+            if (result.Length >= TWO)
+            {
+                return result[1];
+            }
+
+            return result[0];
         }
     }
 }
