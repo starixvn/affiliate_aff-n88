@@ -33,8 +33,7 @@ export class EditGroup extends React.Component {
     }
 
     handleSave = async () => {
-        console.log('Submit');
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        this.props.onSave && this.props.onSave();
 
         const { selectedGroup } = this.props;
         const validationResult = validate(selectedGroup);
@@ -60,7 +59,6 @@ export class EditGroup extends React.Component {
                     this.props.getGroupSettingList(gettingParam);
                 }
 
-                this.props.onSave && this.props.onSave();
                 this.setState({
                     isShowMessage: true,
                     isSuccess: result.IsSuccessful,

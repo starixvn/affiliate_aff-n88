@@ -136,6 +136,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     PlatformFeeList = commGroup.PlatformFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
+                    IsActivePlayerSum = commGroup.IsActivePlayerSum,
                     Ip = Request.UserHostAddress
                 };
 

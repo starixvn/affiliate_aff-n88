@@ -11,7 +11,6 @@ export default class PlatformFeeItem extends React.Component {
     }
 
     handleChange = (selectedItem) => {
-        console.log(selectedItem);
         selectedItem && this.props.onSelectProduct(selectedItem);
     }
 
