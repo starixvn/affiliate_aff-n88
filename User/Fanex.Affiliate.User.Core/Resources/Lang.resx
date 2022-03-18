@@ -1006,7 +1006,7 @@
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
   </data>
-  <data name="SignUp" xml:space="preserve">
+  <data name="Signup" xml:space="preserve">
     <value>Sign up</value>
   </data>
   <data name="Singapore" xml:space="preserve">
@@ -1596,10 +1596,10 @@
     <value>Postcode/Zip no more than 50 characters.</value>
   </data>
   <data name="SiteUrlMaxLength" xml:space="preserve">
-    <value>Website URL no more than 250 characters.</value>
+    <value>Website URL no more than 100 characters.</value>
   </data>
   <data name="NoSiteDescMaxLength" xml:space="preserve">
-    <value>Please describe how you would like to promote if you don’t have the URL no more than 250 characters.</value>
+    <value>Please describe how you would like to promote if you don’t have the URL no more than 1000 characters.</value>
   </data>
   <data name="AffilateLink" xml:space="preserve">
     <value>Affiliate Link</value>
@@ -1922,5 +1922,14 @@
   </data>
   <data name="CasinoBonus" xml:space="preserve">
     <value>Casino Bonus</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
   </data>
 </root>

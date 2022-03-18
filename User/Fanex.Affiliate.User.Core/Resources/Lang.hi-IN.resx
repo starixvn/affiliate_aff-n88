@@ -208,7 +208,7 @@
     <value>ड्रैगन/टाइगर</value>
   </data>
   <data name="Sicbo" xml:space="preserve">
-    <value>सिस बो</value>
+    <value>सिक् बो</value>
   </data>
   <data name="SlotGames" xml:space="preserve">
     <value>स्लॉट खेल</value>
@@ -1039,7 +1039,7 @@
     <value>वेबसाइट URL आवश्यक है</value>
   </data>
   <data name="SiteUrlMaxLength" xml:space="preserve">
-    <value>वेबसाइट URL 250 वर्णों से अधिक नहीं है।</value>
+    <value>वेबसाइट URL 100 वर्णों से अधिक नहीं है।</value>
   </data>
   <data name="WebsiteUrli" xml:space="preserve">
     <value>कृपया वेबसाइट URL दर्ज करें {i}</value>
@@ -1051,7 +1051,7 @@
     <value>मेरे पास वेबसाइट नहीं है</value>
   </data>
   <data name="NoSiteDescMaxLength" xml:space="preserve">
-    <value>यदि आपके पास URL 250 वर्णों से अधिक नहीं है, तो कृपया वर्णन करें कि आप कैसे प्रचार करना चाहते हैं</value>
+    <value>यदि आपके पास URL 1000 वर्णों से अधिक नहीं है, तो कृपया वर्णन करें कि आप कैसे प्रचार करना चाहते हैं</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
     <value>कृपया वर्णन करें कि यदि आपके पास URL नहीं है तो आप कैसे प्रचार करना चाहेंगे</value>
@@ -1114,7 +1114,12 @@
     <value>आवेदन की समीक्षा की जा रही है</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>अपना आवेदन जमा करने के लिए धन्यवाद।.&lt;br/&gt;&lt;br/&gt;N88 Affiliate पर आपकी वेबसाइट और आवेदन विवरण की टीम द्वारा समीक्षा की जाएगी यह सुनिश्चित करने के लिए कि सामग्री हमारे उत्पादों को बढ़ावा देने के लिए उपयुक्त है।</value>
+    <value>अपना आवेदन जमा करने के लिए धन्यवाद।&lt;br/&gt;&lt;br/&gt;
+N88 सहयोगी पर आपकी वेबसाइट और आवेदन विवरण की टीम द्वारा समीक्षा की जाएगी यह सुनिश्चित करने के लिए कि सामग्री हमारे उत्पादों को बढ़ावा देने के लिए उपयुक्त है।&lt;br/&gt;&lt;br/&gt;
+5 दिनों के भीतर हम आपको आपके आवेदन के संबंध में निर्णय प्रदान करने में सक्षम होंगे। यदि आप स्वीकृत हो जाते हैं, तो आप हमारे संबद्ध कार्यक्रम तक पूर्ण पहुंच का आनंद ले सकेंगे।&lt;br/&gt;&lt;br/&gt;
+सादर,&lt;br/&gt;&lt;br/&gt;
+N88 सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
+यदि आपका कोई प्रश्न है और किसी सहायता की आवश्यकता है, तो कृपया &lt;a href='{0}'&gt;हमसे संपर्क करें&lt;/a&gt; में संकोच न करें।</value>
   </data>
   <data name="YouDontHaveTheEmail" xml:space="preserve">
     <value>आपके पास ईमेल पता नहीं है। कृपया व्यवस्थापक से संपर्क करें!</value>
@@ -1603,7 +1608,7 @@
     <value>पेआउट का अनुरोध सफल रहा!</value>
   </data>
   <data name="AConfirmationEmail" xml:space="preserve">
-    <value>आपके ईमेल पर एक पुष्टिकरण ईमेल भेजा जाएगा।.</value>
+    <value>आपके ईमेल पर एक पुष्टिकरण ईमेल भेजा जाएगा।</value>
   </data>
   <data name="EmailTitlePaymentCancel" xml:space="preserve">
     <value>आपका भुगतान अनुरोध रद्द कर दिया गया है</value>
@@ -1651,7 +1656,7 @@
     <value>अमान्य खिलाड़ी।</value>
   </data>
   <data name="AmountMustPositiveNumber" xml:space="preserve">
-    <value>राशि एक पूर्ण धनात्मक संख्या होनी चाहिए।.</value>
+    <value>राशि एक पूर्ण धनात्मक संख्या होनी चाहिए।</value>
   </data>
   <data name="Amount" xml:space="preserve">
     <value>राशि</value>
@@ -1788,7 +1793,7 @@
   <data name="Phone" xml:space="preserve">
     <value>फ़ोन</value>
   </data>
-  <data name="SignUp" xml:space="preserve">
+  <data name="Signup" xml:space="preserve">
     <value>साइन अप करें</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
@@ -1820,5 +1825,8 @@
   </data>
   <data name="UsernameIsRequired" xml:space="preserve">
     <value>उपयोगकर्ता आवश्यक है</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>नोव88</value>
   </data>
 </root>

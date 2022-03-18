@@ -60,7 +60,7 @@
 
                 let domains = selectedItem.Domains.map(item => new Option(item.DomainName, item.DomainId));
                 let pages = selectedItem.SitePages.map(item => new Option(item.PageName, item.PageCode));
-                let category = [new Option("All", "")];
+                let category = [new Option(window.dic.all, "")];
                 category.push(...window.searchOption.CategoryList[selectedVal].map(item => new Option(item.Text, item.Value)));
 
                 $("#Page").empty().append(pages);

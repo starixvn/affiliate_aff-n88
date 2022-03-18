@@ -727,6 +727,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bwing.
+        /// </summary>
+        public static string Bwing {
+            get {
+                return ResourceManager.GetString("Bwing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cambodia .
         /// </summary>
         public static string Cambodia {
@@ -2095,6 +2104,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goal123.
+        /// </summary>
+        public static string Goal123 {
+            get {
+                return ResourceManager.GetString("Goal123", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Greece .
         /// </summary>
         public static string Greece {
@@ -3076,7 +3094,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please describe how you would like to promote if you don’t have the URL no more than 250 characters..
+        ///   Looks up a localized string similar to Please describe how you would like to promote if you don’t have the URL no more than 1000 characters..
         /// </summary>
         public static string NoSiteDescMaxLength {
             get {
@@ -3099,6 +3117,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string NotAllowOnDomain {
             get {
                 return ResourceManager.GetString("NotAllowOnDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nova88.
+        /// </summary>
+        public static string Nova88 {
+            get {
+                return ResourceManager.GetString("Nova88", resourceCulture);
             }
         }
         
@@ -4077,9 +4104,9 @@ namespace Fanex.Affiliate.User.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Sign up.
         /// </summary>
-        public static string SignUp {
+        public static string Signup {
             get {
-                return ResourceManager.GetString("SignUp", resourceCulture);
+                return ResourceManager.GetString("Signup", resourceCulture);
             }
         }
         
@@ -4120,7 +4147,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Website URL no more than 250 characters..
+        ///   Looks up a localized string similar to Website URL no more than 100 characters..
         /// </summary>
         public static string SiteUrlMaxLength {
             get {

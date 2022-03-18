@@ -972,7 +972,7 @@
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
   </data>
-  <data name="SignUp" xml:space="preserve">
+  <data name="Signup" xml:space="preserve">
     <value>Đăng ký</value>
   </data>
   <data name="Singapore" xml:space="preserve">
@@ -1511,7 +1511,7 @@
     <value>Trang web URL không được nhiều hơn 100 ký tự</value>
   </data>
   <data name="NoSiteDescMaxLength" xml:space="preserve">
-    <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 100 ký tự</value>
+    <value>Hãy mô tả bạn sẽ quảng cáo như thế nào nếu bạn không có một trang web không được nhiều hơn 1000 ký tự</value>
   </data>
   <data name="SubAffiliate" xml:space="preserve">
     <value>Đại Lý Cấp Dưới</value>

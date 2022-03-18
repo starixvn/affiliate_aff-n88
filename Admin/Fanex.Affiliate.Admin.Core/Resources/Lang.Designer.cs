@@ -124,6 +124,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bwing.
+        /// </summary>
+        public static string Bwing {
+            get {
+                return ResourceManager.GetString("Bwing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Revenue Group.
         /// </summary>
         public static string CommGroup {
@@ -268,6 +277,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goal123.
+        /// </summary>
+        public static string Goal123 {
+            get {
+                return ResourceManager.GetString("Goal123", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must browse banner to upload..
         /// </summary>
         public static string InvalidBannerBrowser {
@@ -327,6 +345,15 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         public static string MsgKickout {
             get {
                 return ResourceManager.GetString("MsgKickout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nova88.
+        /// </summary>
+        public static string Nova88 {
+            get {
+                return ResourceManager.GetString("Nova88", resourceCulture);
             }
         }
         

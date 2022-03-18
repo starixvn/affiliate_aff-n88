@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Resources;
 
 namespace Fanex.Affiliate.User.Core.Utilities
 {
@@ -61,7 +62,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string SiteName => GetValue("SiteName");
 
-        public string SiteFriendlyName => GetValue("SiteFriendlyName");
+        public string SiteFriendlyName => Lang.ResourceManager.GetString(GetValue("SiteFriendlyName"));
 
         public string MinWithdrawal => GetValue("MinWithdrawal");
 
