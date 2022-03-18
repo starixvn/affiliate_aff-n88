@@ -1128,7 +1128,7 @@ N88 सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>प्रिय ग्राहक,</value>
   </data>
   <data name="DueTo" xml:space="preserve">
-    <value>हाल ही में कई विफल लॉगिन के कारण, कृपया एक और सुरक्षा चरण सत्यापित करें।.</value>
+    <value>हाल ही में कई विफल लॉगिन के कारण, कृपया एक और सुरक्षा चरण सत्यापित करें।</value>
   </data>
   <data name="YourRegisterEmail" xml:space="preserve">
     <value>आपका पंजीकृत ईमेल &lt;strong&gt;{0}&lt;/strong&gt; है। कृपया नीचे दिए गए टेक्स्टफील्ड में पूरा ईमेल पता दर्ज करें और कोड भेजें पर क्लिक करें।</value>
