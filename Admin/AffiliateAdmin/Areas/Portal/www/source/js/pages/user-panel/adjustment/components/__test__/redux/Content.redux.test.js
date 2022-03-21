@@ -18,9 +18,9 @@ describe('adjustment - Content - connect', () => {
     });
 
     it('props should be mapped correctly', () => {
-        const expectedResult = { affInfo: { AffId: 1271808, AffName: '12BETAFF226' } };
+        const expectedResult = { affInfo: { AffId: 1271808, AffName: 'B2CAFF226' } };
         const state = {
-            affCommonInfo: { affId: 1271808, affName: '12BETAFF226' },
+            affCommonInfo: { affId: 1271808, affName: 'B2CAFF226' },
             anotherProp: "Not included"
         };
 

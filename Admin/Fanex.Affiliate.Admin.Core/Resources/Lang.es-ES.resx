@@ -124,19 +124,19 @@
     <value>Este es un sistema de correo electrónico generado de forma automática; no responda a este correo electrónico directamente.</value>
   </data>
   <data name="EmailSubjectAffInfor" xml:space="preserve">
-    <value>Afiliados de 12BET: Información de afiliado</value>
+    <value>Afiliados de B2C: Información de afiliado</value>
   </data>
   <data name="EmailTitleAffInfor" xml:space="preserve">
     <value>Información de afiliado</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
-    <value>Afiliados de 12BET - [{0}] - Su solicitud de pago se ha procesado y completado correctamente.</value>
+    <value>Afiliados de B2C - [{0}] - Su solicitud de pago se ha procesado y completado correctamente.</value>
   </data>
   <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
     <value>Su solicitud de pago se ha procesado y completado correctamente.</value>
   </data>
   <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
-    <value>Afiliados de 12BET - [{0}] - Su solicitud de pago se ha rechazado</value>
+    <value>Afiliados de B2C - [{0}] - Su solicitud de pago se ha rechazado</value>
   </data>
   <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
     <value>Su solicitud de pago se ha rechazado</value>
@@ -145,6 +145,6 @@
     <value>Su solicitud</value>
   </data>
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>Afiliados de 12BET: Su solicitud</value>
+    <value>Afiliados de B2C: Su solicitud</value>
   </data>
 </root>

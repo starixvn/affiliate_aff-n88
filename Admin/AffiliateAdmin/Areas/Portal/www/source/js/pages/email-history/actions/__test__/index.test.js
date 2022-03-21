@@ -34,7 +34,7 @@ describe('email history actions', () => {
             data: {
                 MainData: [
                     {
-                        AffName: "12BETAFF12885",
+                        AffName: "B2CAFF12885",
                         Content: null,
                         Email: "te@te1.com",
                         EmailId: 2255,
@@ -43,11 +43,11 @@ describe('email history actions', () => {
                         Subject: "Captcha Test 10"
                     },
                     {
-                        AffName: "12BETAFF226",
+                        AffName: "B2CAFF226",
                         Content: null,
                         Email: "maia.le4@starixsoft.com",
                         EmailId: 2205,
-                        Sender: "12BETAFF226 12BETAFF226",
+                        Sender: "B2CAFF226 B2CAFF226",
                         SentDateText: "10/07/2018 23:14:09",
                         Subject: "dhgd"
                     }
@@ -115,12 +115,12 @@ describe('email history actions', () => {
         const expectedResponse = {
             data: {
                 AffName: null,
-                Content: "12BETAFF12881 test",
+                Content: "B2CAFF12881 test",
                 Email: "sdasd@test.com",
                 EmailId: 2237,
-                Sender: "12BETAFF12881",
+                Sender: "B2CAFF12881",
                 SentDateText: "12/05/2018 00:30:47",
-                Subject: "12BETAFF12881"
+                Subject: "B2CAFF12881"
             }, status: 200
         };
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));

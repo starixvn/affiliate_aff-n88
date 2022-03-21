@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["AffId"] = 1271808,
-                ["UserName"] = "12BETAFF226",
+                ["UserName"] = "B2CAFF226",
                 ["FirstName"] = "Hinh",
                 ["LastName"] = "Lê Văn",
                 ["Gender"] = false,

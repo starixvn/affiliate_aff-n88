@@ -28,11 +28,11 @@ describe('player detail actions', () => {
                     BankingFee: 0,
                     Bonus: 0,
                     Deposit: 0,
-                    IbcUserName: "12BETEURO02237",
+                    IbcUserName: "B2CEURO02237",
                     RegisteredDate: "2009-08-22T07:59:00",
                     RegisteredDateText: "08/22/2009 07:59:00",
                     Turnover: 771.4375,
-                    UserName: "12bet$cicutadino",
+                    UserName: "B2C$cicutadino",
                     Ggr: 215.0872,
                     Withdrawal: 0
                 },
@@ -40,11 +40,11 @@ describe('player detail actions', () => {
                     BankingFee: 0,
                     Bonus: 0,
                     Deposit: 0,
-                    IbcUserName: "12BETUS$02010",
+                    IbcUserName: "B2CUS$02010",
                     RegisteredDate: "2009-03-13T12:13:00",
                     RegisteredDateText: "03/13/2009 12:13:00",
                     Turnover: 306,
-                    UserName: "12bet$Monta",
+                    UserName: "B2C$Monta",
                     Ggr: 7.22,
                     Withdrawal: 0
                 }

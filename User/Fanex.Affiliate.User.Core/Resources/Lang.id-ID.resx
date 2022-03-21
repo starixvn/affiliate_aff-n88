@@ -232,7 +232,7 @@
     <value>Bermuda </value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>Nama Pengguna N88 diperlukan</value>
+    <value>Nama Pengguna B2C diperlukan</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>Bhutan </value>
@@ -289,7 +289,7 @@
     <value>Batalkan Permintaan</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>Afiliasi N88 - [{0}] - Pemberitahuan Permintaan Pembayaran</value>
+    <value>Afiliasi B2C - [{0}] - Pemberitahuan Permintaan Pembayaran</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -340,7 +340,7 @@
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>N88 tidak akan memberikan informasi pribadi Anda pada pihak mana pun. Informasi pribadi Anda dijamin kerahasiaannya dan aman.</value>
+    <value>B2C tidak akan memberikan informasi pribadi Anda pada pihak mana pun. Informasi pribadi Anda dijamin kerahasiaannya dan aman.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Kongo(Rep) </value>
@@ -358,7 +358,7 @@
     <value>Kep. Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© hak cipta 2020 | N88. Seluruh hak dilindungi | 21+</value>
+    <value>© hak cipta 2020 | B2C. Seluruh hak dilindungi | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Kosta Rika </value>
@@ -376,7 +376,7 @@
     <value>Kroasia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>Rekening baru Afiliasi N88 ﾖ  menunggu persetujuan</value>
+    <value>Rekening baru Afiliasi B2C ﾖ  menunggu persetujuan</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Mata Uang</value>
@@ -415,7 +415,7 @@
     <value>Keterangan</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>Mohon jelaskan bagaimana Anda mempromosikan N88 meskipun Anda tidak punya situs web (website)?</value>
+    <value>Mohon jelaskan bagaimana Anda mempromosikan B2C meskipun Anda tidak punya situs web (website)?</value>
   </data>
   <data name="DominicaCommonwealthof" xml:space="preserve">
     <value>Dominika (Commonwealth) </value>
@@ -460,7 +460,7 @@
     <value>Nomor Kontak kosong. Silakan diperiksa!</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>Terdapat kesalahan ketika mengambil informasi pemain N88. Harap menghubungi administrator Anda!</value>
+    <value>Terdapat kesalahan ketika mengambil informasi pemain B2C. Harap menghubungi administrator Anda!</value>
   </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>Email address - is required</value>
@@ -577,7 +577,7 @@
     <value>Hungaria </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Saya menyetujui Persyaratan &amp; Ketentuan Afiliasi N88.</value>
+    <value>Saya menyetujui Persyaratan &amp; Ketentuan Afiliasi B2C.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Islandia </value>
@@ -895,7 +895,7 @@
     <value>Formulir Permohonan</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi N88 untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi N88.&lt;br/&gt;&lt;br/&gt;Jika Anda memiliki pertanyaan dan memerlukan bantuan sila &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt;.</value>
+    <value>Terima kasih telah mengajukan permohonan Anda.&lt;br/&gt;&lt;br/&gt;Rincian situs web dan permohonan Anda akan ditinjau ulang oleh tim Afiliasi B2C untuk memastikan bahwa konten dimaksud sesuai untuk mempromosikan produk kami.&lt;br/&gt;&lt;br/&gt;Dalam 5 hari kami akan memberitahu mengenai keputusan atas permohonan Anda. Jika disetujui, Anda dapat menikmati akses penuh ke program afiliasi kami.&lt;br /&gt;&lt;br /&gt;Salam Hormat,&lt;br /&gt;&lt;br /&gt;Tim Afiliasi B2C.&lt;br/&gt;&lt;br/&gt;Jika Anda memiliki pertanyaan dan memerlukan bantuan sila &lt;a href='{0}'&gt;Hubungi Kami&lt;/a&gt;.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Ditolak</value>
@@ -1015,10 +1015,10 @@
     <value>Status</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>Afiliasi N88 - Rincian login Anda</value>
+    <value>Afiliasi B2C - Rincian login Anda</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>Afiliasi N88 - Kata sandi baru Anda</value>
+    <value>Afiliasi B2C - Kata sandi baru Anda</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Ajukan</value>
@@ -1185,8 +1185,8 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
   </data>
-  <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>Melalui Akun N88</value>
+  <data name="_B2CPlayerAcc" xml:space="preserve">
+    <value>Melalui Akun B2C</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>Kata sandi baru Anda</value>
@@ -1198,7 +1198,7 @@
     <value>Pemberitahuan Permintaan Pembayaran</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>N88 Kasino Klub</value>
+    <value>B2C Kasino Klub</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>Kasino Siaran Langsung / Live casino</value>
@@ -1216,7 +1216,7 @@
     <value>Semua produk</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Lebih lengkap tentang Produk N88</value>
+    <value>Lebih lengkap tentang Produk B2C</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;Senin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 - 20:00 WIB</value>
@@ -1231,22 +1231,22 @@
     <value>Produk</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>Daftarkan diri anda untuk program affilasi N88 Sekarang juga !!</value>
+    <value>Daftarkan diri anda untuk program affilasi B2C Sekarang juga !!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>daftar afiliasi</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Ajukan Affiliasi N88</value>
+    <value>Ajukan Affiliasi B2C</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada N88. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
+    <value>Sebagai agen afiliasi, kamu akan memiliki pendapatan bagi hasil dari setiap member yang kamu berikan kepada B2C. berlaku untuk selama nya jika member tersebut aktif. Kami menyediakan sistem online yang akan melayani anda 24/7.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>Apa yang baru di affiliasi ??</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>Berita affiliasi N88</value>
+    <value>Berita affiliasi B2C</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>Baru!</value>
@@ -1258,7 +1258,7 @@
     <value>Sekarang Kamu sudah bisa login ke akun affiliasi anda untuk mendapatkan spanduk baru yang akan kalian gunakan untuk promosi di website anda.</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>Apa yang baru di Promosi N88 ??</value>
+    <value>Apa yang baru di Promosi B2C ??</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>Cari tau Promosi terhangat di bulan ini !! Posting spanduk di website anda dan sosial media anda untuk mendapatkan customer baru dan perbesar pendapatan anda.</value>
@@ -1363,10 +1363,10 @@
     <value>Pemain</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Jadilah Mitra Bisnis N88 | Program Afiliasi N88</value>
+    <value>Jadilah Mitra Bisnis B2C | Program Afiliasi B2C</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Menjadi Mitra Bisnis Afiliasi N88 untuk mempromosikan Olahraga dan Kasino N88, serta menghasilkan komisi bulanan dari pelanggan yang datang dari situs Anda.</value>
+    <value>Menjadi Mitra Bisnis Afiliasi B2C untuk mempromosikan Olahraga dan Kasino B2C, serta menghasilkan komisi bulanan dari pelanggan yang datang dari situs Anda.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>E-mail</value>
@@ -1384,7 +1384,7 @@
     <value>Permainan Meja / Kartu</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
-    <value>YTH Member N88,</value>
+    <value>YTH Member B2C,</value>
   </data>
   <data name="DueTo" xml:space="preserve">
     <value>Dikarenakan banyaknya melakukan kesalahan login, silahkan verifikasi tambahan keamanan Akun Anda</value>
@@ -1477,10 +1477,10 @@
     <value>Verifikasi detail akun Anda</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>Afiliasi N88 - Verifikasi detail akun Anda</value>
+    <value>Afiliasi B2C - Verifikasi detail akun Anda</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>Afiliasi N88 - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
+    <value>Afiliasi B2C - [{0}] - Permintaan pembayaran Anda telah dibatalkan</value>
   </data>
   <data name="Promotion" xml:space="preserve">
     <value>Promosi</value>

@@ -41,7 +41,7 @@ describe('commission group - assign private group', () => {
             MailOption: false,
             PlayerUsername: "qatest01",
             PreferredLanguage: "hi-IN",
-            UserName: "12BETAFF001"
+            UserName: "B2CAFF001"
         },
         deductionList: [
             { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },

@@ -8,15 +8,15 @@ namespace Fanex.Affiliate.User.Core.CoreService
 {
     public class SessionService : ISessionService
     {
-        private const string UserSessionKey = "Affiliate12Bet.UserSessionKey";
-        private const string CaptchaCodeKey = "Affiliate12Bet.CaptchaCodeKey";
-        private const string SingUpCaptchaCodeKey = "Affiliate12Bet.SingUpCaptchaCodeKey";
+        private const string UserSessionKey = "AffiliateB2C.UserSessionKey";
+        private const string CaptchaCodeKey = "AffiliateB2C.CaptchaCodeKey";
+        private const string SingUpCaptchaCodeKey = "AffiliateB2C.SingUpCaptchaCodeKey";
 
-        private const string CurrentLanguageKey = "Affiliate12Bet.CurrentLanguageKey";
-        private const string IsInternalKey = "Affiliate12Bet.IsInternalKey";
+        private const string CurrentLanguageKey = "AffiliateB2C.CurrentLanguageKey";
+        private const string IsInternalKey = "AffiliateB2C.IsInternalKey";
 
-        private const string RsaKeyPairKey = "Affiliate12Bet.RsaKeyPairKey";
-        private const string VerificationSessionKey = "Affiliate12Bet.VerificationSessionKey";
+        private const string RsaKeyPairKey = "AffiliateB2C.RsaKeyPairKey";
+        private const string VerificationSessionKey = "AffiliateB2C.VerificationSessionKey";
 
         public string CaptchaCode
         {

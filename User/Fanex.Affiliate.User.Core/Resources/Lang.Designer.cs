@@ -61,11 +61,11 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Player Account.
+        ///   Looks up a localized string similar to B2C Player Account.
         /// </summary>
-        public static string _12BETPlayerAcc {
+        public static string _B2CPlayerAcc {
             get {
-                return ResourceManager.GetString("_12BETPlayerAcc", resourceCulture);
+                return ResourceManager.GetString("_B2CPlayerAcc", resourceCulture);
             }
         }
         
@@ -358,7 +358,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Apply N88 Affiliate.
+        ///   Looks up a localized string similar to Apply B2C Affiliate.
         /// </summary>
         public static string ApplyOneTwoBetAffiliate {
             get {
@@ -412,7 +412,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to As affiliates, you will earn revenue share on every player you referred to N88  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
+        ///   Looks up a localized string similar to As affiliates, you will earn revenue share on every player you referred to B2C  over the course of the player&apos;s account life. Your online system will be  serving  you 24/7 for your usage..
         /// </summary>
         public static string AsAOneTwoBetYouWillEarnCommission {
             get {
@@ -853,7 +853,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 CASINO CLUBS.
+        ///   Looks up a localized string similar to B2C CASINO CLUBS.
         /// </summary>
         public static string CasinoClubs {
             get {
@@ -1078,7 +1078,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please complete this form to register for your N88 affiliate account..
+        ///   Looks up a localized string similar to Please complete this form to register for your B2C affiliate account..
         /// </summary>
         public static string CompleteForm {
             get {
@@ -1213,7 +1213,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © Copyright 2020 | N88. All Rights Reserved | 21+.
+        ///   Looks up a localized string similar to © Copyright 2020 | B2C. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
             get {
@@ -1267,7 +1267,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliate – New account {0} awaiting approval.
+        ///   Looks up a localized string similar to B2C Affiliate – New account {0} awaiting approval.
         /// </summary>
         public static string CsdSubject {
             get {
@@ -1744,7 +1744,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There was an error when getting N88 player information. Please contact your administrator!.
+        ///   Looks up a localized string similar to There was an error when getting B2C player information. Please contact your administrator!.
         /// </summary>
         public static string errDepositDBConnectFailed {
             get {
@@ -2230,7 +2230,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I agree to the Terms &amp; Conditions of N88 Affiliate..
+        ///   Looks up a localized string similar to I agree to the Terms &amp; Conditions of B2C Affiliate..
         /// </summary>
         public static string IagreetotheTerm {
             get {
@@ -2779,7 +2779,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Become N88 Affiliate Business Partner to promote N88 Sportsbook and Casino and earn monthly revenue share from customers brought from your websites..
+        ///   Looks up a localized string similar to Become B2C Affiliate Business Partner to promote B2C Sportsbook and Casino and earn monthly revenue share from customers brought from your websites..
         /// </summary>
         public static string MetaDescription {
             get {
@@ -2788,7 +2788,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Be A Business Partner of N88 | Affiliate Program - N88.
+        ///   Looks up a localized string similar to Be A Business Partner of B2C | Affiliate Program - B2C.
         /// </summary>
         public static string MetaTitle {
             get {
@@ -2878,7 +2878,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to More details about N88 products.
+        ///   Looks up a localized string similar to More details about B2C products.
         /// </summary>
         public static string MoreDetailProduct {
             get {
@@ -3193,7 +3193,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliate News.
+        ///   Looks up a localized string similar to B2C Affiliate News.
         /// </summary>
         public static string OneTwoBetAffiliateNews {
             get {
@@ -3373,7 +3373,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliates - [{0}] - Your payment request has been cancelled.
+        ///   Looks up a localized string similar to B2C Affiliates - [{0}] - Your payment request has been cancelled.
         /// </summary>
         public static string PaymentRequestCancelSubject {
             get {
@@ -3382,7 +3382,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliates - [{0}] - Payment Request Notification.
+        ///   Looks up a localized string similar to B2C Affiliates - [{0}] - Payment Request Notification.
         /// </summary>
         public static string PaymentRequestSubject {
             get {
@@ -3769,7 +3769,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at N88 Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at N88 Affiliates&lt;br/&gt;&lt;br/&gt;If you have any question and require any help, pleas [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Thank you for submitting your application.&lt;br/&gt;&lt;br/&gt;Your websites and application details will be reviewed by the team at B2C Affiliates to ensure that content is suitable for promoting our products.&lt;br/&gt;&lt;br/&gt;Within 5 days we should be able to provide you with a decision in regard to your application. If you are approved, you will be able to enjoy full access to our affiliate program.&lt;br /&gt;&lt;br /&gt;Best Regards,&lt;br /&gt;&lt;br /&gt;The team at B2C Affiliates&lt;br/&gt;&lt;br/&gt;If you have any question and require any help, pleas [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RegisSuccess {
             get {
@@ -4120,7 +4120,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SIGN UP N88 AFFILIATE PROGRAM NOW!.
+        ///   Looks up a localized string similar to SIGN UP B2C AFFILIATE PROGRAM NOW!.
         /// </summary>
         public static string SignUpAffiliateProgramNow {
             get {
@@ -4363,7 +4363,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliates - Your login detail.
+        ///   Looks up a localized string similar to B2C Affiliates - Your login detail.
         /// </summary>
         public static string SubjectForgetPass {
             get {
@@ -4372,7 +4372,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliates - Your new password.
+        ///   Looks up a localized string similar to B2C Affiliates - Your new password.
         /// </summary>
         public static string SubjectNewPass {
             get {
@@ -4381,7 +4381,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to N88 Affiliates - Verification your account detail.
+        ///   Looks up a localized string similar to B2C Affiliates - Verification your account detail.
         /// </summary>
         public static string SubjectVerificationAccount {
             get {
@@ -5128,7 +5128,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What&apos;s New in N88 Promotion ! .
+        ///   Looks up a localized string similar to What&apos;s New in B2C Promotion ! .
         /// </summary>
         public static string WhatNewInOneTwoBetPromotion {
             get {

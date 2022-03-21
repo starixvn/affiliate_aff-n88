@@ -89,13 +89,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["CustID"] = 123,
-                ["UserName"] = "12betaff226",
-                ["IBCUserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["IBCUserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = 123m,
                 ["RegisteredDate"] = new DateTime(2019, 10, 10),
-                ["AffUserName"] = "12BETAFF226",
+                ["AffUserName"] = "B2CAFF226",
             };
         }
 
@@ -104,13 +104,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["CustID"] = 123,
-                ["UserName"] = "12betaff226",
-                ["IBCUserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["IBCUserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = -123m,
                 ["RegisteredDate"] = DBNull.Value,
-                ["AffUserName"] = "12BETAFF226",
+                ["AffUserName"] = "B2CAFF226",
             };
         }
     }

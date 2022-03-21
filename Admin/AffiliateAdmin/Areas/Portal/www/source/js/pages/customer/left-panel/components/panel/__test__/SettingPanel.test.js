@@ -6,8 +6,8 @@ import CommissionGroupPopup from '../../../../../common/components/CommissionGro
 describe('left panel - components - panel - SettingPanel', () => {
     const affiliateInfo = {
         AffId: 1271808,
-        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
-        AffName: "12BETAFF226",
+        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=B2CAFF226&accId=1000000026&accOnId=8405",
+        AffName: "B2CAFF226",
         AffType: 1,
         BalanceBf: 9802280.5446,
         CommGroupName: "NoCommission",
@@ -18,7 +18,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         IsClosed: false,
         LastLoginDateText: "04/11/2019 22:24:00",
         LastLoginIp: "10.18.200.125",
-        LastName: "12BETAFF226",
+        LastName: "B2CAFF226",
         MoreSiteUrl: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
         NoSiteDescription: "",
         Phone: "abc",
@@ -32,8 +32,8 @@ describe('left panel - components - panel - SettingPanel', () => {
 
     const affInfoClosed = {
         AffId: 1219631,
-        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
-        AffName: "12BETAFF016",
+        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=B2CAFF016&accId=1000000026&accOnId=8405",
+        AffName: "B2CAFF016",
         AffType: 2,
         BalanceBf: 0,
         CommGroupName: "",
@@ -56,7 +56,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         Status: "Disapproved"
     }
 
-    const affName = '12BETAFF226';
+    const affName = 'B2CAFF226';
     const defaultProps = {
         affiliateInfo: affInfoClosed,
         affName,
@@ -305,7 +305,7 @@ describe('left panel - components - panel - SettingPanel', () => {
         await wrapper.find('select').at(0).simulate('change', event);
 
         expect(props.updateAffType).toHaveBeenCalledWith({ AffId: 1219631, AffType: 'Asian' });
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
         expect(wrapper.setState).toHaveBeenCalledWith({ isChangingAffType: false }, expect.any(Function));
     });
 

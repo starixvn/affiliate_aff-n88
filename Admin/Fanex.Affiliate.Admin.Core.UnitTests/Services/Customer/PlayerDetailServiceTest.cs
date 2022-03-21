@@ -85,8 +85,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["IbcUserName"] = "12BetAff226",
-                ["UserName"] = "12BetAff226",
+                ["IbcUserName"] = "B2CAff226",
+                ["UserName"] = "B2CAff226",
                 ["Deposit"] = 1234,
                 ["RegisteredDate"] = new DateTime(2019, 11, 24),
                 ["FirstDepositDate"] = new DateTime(2019, 11, 24),
@@ -103,8 +103,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["IbcUserName"] = "12BetAff226",
-                ["UserName"] = "12BetAff226",
+                ["IbcUserName"] = "B2CAff226",
+                ["UserName"] = "B2CAff226",
                 ["Deposit"] = 1234,
                 ["RegisteredDate"] = DBNull.Value,
                 ["FirstDepositDate"] = DBNull.Value,

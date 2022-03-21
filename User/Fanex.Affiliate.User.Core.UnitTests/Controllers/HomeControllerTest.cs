@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.Model as HomeViewModel;
 
             // Assert
-            Assert.Equal(expectedResult, result.Promotion12BetLink);
+            Assert.Equal(expectedResult, result.PromotionB2CLink);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.Model as HomeViewModel;
 
             // Assert
-            Assert.Equal(expectedResult, result.Promotion12BetLink);
+            Assert.Equal(expectedResult, result.PromotionB2CLink);
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             appSetting = appSetting ?? Mock.Of<IAppSetting>(ap =>
                 !ap.IsEuroSite &&
-                ap.Promotion12BetLink == PromotionTemplate);
+                ap.PromotionB2CLink == PromotionTemplate);
 
             var controller = new HomeController(sessionService, appSetting, languageService);
             var request = MockingHelper.GetHttpRequest();

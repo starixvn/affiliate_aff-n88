@@ -232,7 +232,7 @@
     <value>เบอร์มิวด้า</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>ยูสเซอร์เนม N88 จำเป็นต้องมี</value>
+    <value>ยูสเซอร์เนม B2C จำเป็นต้องมี</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>ภูฐาน</value>
@@ -340,7 +340,7 @@
     <value>วันที่เสร็จสมบูรณ์</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>กรุณากรอกแบบฟอร์มนี้เพื่อสมัครสมาชิกกับโปรแกรมพันธมิตร N88</value>
+    <value>กรุณากรอกแบบฟอร์มนี้เพื่อสมัครสมาชิกกับโปรแกรมพันธมิตร B2C</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>คองโก</value>
@@ -358,7 +358,7 @@
     <value>เกาะ คุ๊ก</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© ลิขสิทธิ์ 2020| N88. สงวนลิขสิทธิ์ | 21+</value>
+    <value>© ลิขสิทธิ์ 2020| B2C. สงวนลิขสิทธิ์ | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>คอสตาริกา</value>
@@ -415,7 +415,7 @@
     <value>รายละเอียด</value>
   </data>
   <data name="DescWebsite" xml:space="preserve">
-    <value>กรุณาระบุว่าคุณจะแนะนำเพื่อนหรือบุคคลอื่น มาสมัครที่เว็บไซต์ N88 ได้ยังไง</value>
+    <value>กรุณาระบุว่าคุณจะแนะนำเพื่อนหรือบุคคลอื่น มาสมัครที่เว็บไซต์ B2C ได้ยังไง</value>
   </data>
   <data name="DominicaCommonwealthof" xml:space="preserve">
     <value>โดมินิกา</value>
@@ -460,7 +460,7 @@
     <value>หมายเลขที่ติดต่อวางเปล่า กรุณาตรวจสอบ</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>เกิดความผิดพลาดในการเข้าสู่ข้อมูลผู้เล่น N88 แนะนำติดต่อเจ้าหน้าที่บริการคะ !</value>
+    <value>เกิดความผิดพลาดในการเข้าสู่ข้อมูลผู้เล่น B2C แนะนำติดต่อเจ้าหน้าที่บริการคะ !</value>
   </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>อีเมลล์แอดเดรสจำเป็นต้องมี</value>
@@ -577,7 +577,7 @@
     <value>ฮังการี</value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>ฉันยอมรับในกติกาและเงื่อนไขในโปรแกรม พันธมิตร N88</value>
+    <value>ฉันยอมรับในกติกาและเงื่อนไขในโปรแกรม พันธมิตร B2C</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>ไอซ์แลนด์</value>
@@ -895,7 +895,7 @@
     <value>แบบฟอร์มการสมัคร</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร N88 &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร N88.&lt;br/&gt;&lt;br/&gt;ถ้าคุณมีคำถามหรือต้องการความช่วยเหลือ กรุณา&lt;a href='{0}'&gt;อย่าลังเลที่จะติดต่อเรา&lt;/a&gt;.</value>
+    <value>ขอบคุณที่ส่งใบสมัครของคุณมายัง พันธมิตร B2C &lt;br/&gt;&lt;br/&gt; เมื่อทางเราได้พิจารณาเนื้อหาเวบไซด์และข้อมูล ว่าเหมาะสม เราจะทำการแจ้งคุณถึงสถานะ &lt;br/&gt;&lt;br/&gt; ภายใน 5 วันทำการ และคุณจะสามารถเข้าใช้ระบบพันธมิตรของเราได้คะ &lt;br/&gt;&lt;br/&gt; ด้วยความนับถือ &lt;br/&gt;&lt;br/&gt; ทีมงานพันธมิตร B2C.&lt;br/&gt;&lt;br/&gt;ถ้าคุณมีคำถามหรือต้องการความช่วยเหลือ กรุณา&lt;a href='{0}'&gt;อย่าลังเลที่จะติดต่อเรา&lt;/a&gt;.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>ถูกปฏิเสธแล้ว</value>
@@ -1015,10 +1015,10 @@
     <value>สถานะ</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>บัญชีพันธมิตร N88 รายละเอียดการล๊อคอินของคุณ</value>
+    <value>บัญชีพันธมิตร B2C รายละเอียดการล๊อคอินของคุณ</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>พันธมิตร N88 - รหัสผ่านตัวใหม่ของคุณ</value>
+    <value>พันธมิตร B2C - รหัสผ่านตัวใหม่ของคุณ</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>ส่งข้อมูล</value>
@@ -1185,20 +1185,20 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>ซิมบัฟเวย์</value>
   </data>
-  <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>บัญชีที่ใช้เล่นใน N88</value>
+  <data name="_B2CPlayerAcc" xml:space="preserve">
+    <value>บัญชีที่ใช้เล่นใน B2C</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>รหัสผ่านตัวใหม่ของคุณ</value>
   </data>
   <data name="EmailTitlePasswordRecovery" xml:space="preserve">
-    <value>บัญชีพันธมิตร N88 รายละเอียดการล๊อคอินของคุณ</value>
+    <value>บัญชีพันธมิตร B2C รายละเอียดการล๊อคอินของคุณ</value>
   </data>
   <data name="EmailTitlePayment" xml:space="preserve">
     <value>จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>คลับคาสิโน N88</value>
+    <value>คลับคาสิโน B2C</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>คาสิโนออนไลน์สด</value>
@@ -1216,7 +1216,7 @@
     <value>ผลิตภัณฑ์ทั้งหมด</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ N88</value>
+    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ B2C</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;วันจันทร์ - วันเสาร์&lt;/strong&gt;&lt;br&gt;เวลา 11.00 น. - 20.00 น. (เวลาไทย)</value>
@@ -1231,22 +1231,22 @@
     <value>ผลิตภัณฑ์</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>สมัครร่วมโปรแกรมพันธมิตรN88เลยสิคะ!</value>
+    <value>สมัครร่วมโปรแกรมพันธมิตรB2Cเลยสิคะ!</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>สมัครเป็นพันธมิตร</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>สมัครพันธมิตรกับ N88</value>
+    <value>สมัครพันธมิตรกับ B2C</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>ในฐานะพันธมิตรในเครือ คุณจะได้รับส่วนแบ่งรายได้จากผู้เล่นทุกคนที่คุณแนะนำเข้ามาใน N88 ตลอดอายุการใช้งานบัญชีของผู้เล่น. ระบบออนไลน์ของคุณจะให้บริการคุณตลอด 24 ชั่วโมง.</value>
+    <value>ในฐานะพันธมิตรในเครือ คุณจะได้รับส่วนแบ่งรายได้จากผู้เล่นทุกคนที่คุณแนะนำเข้ามาใน B2C ตลอดอายุการใช้งานบัญชีของผู้เล่น. ระบบออนไลน์ของคุณจะให้บริการคุณตลอด 24 ชั่วโมง.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>ข่าวใหม่ในพันธมิตร</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>ข่าวสารพันธมิตรของ N88</value>
+    <value>ข่าวสารพันธมิตรของ B2C</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>ข่าวสาร</value>
@@ -1258,7 +1258,7 @@
     <value>ตอนนี้คุณสามารถเข้าสู่บัญชีพันธมิตรของคุณเพื่อรับแบนเนอร์ใหม่เพื่อโปรโมตในเว็บไซต์ของคุณ</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>ข่าวโปรโมชั่นใหม่ของโนวา N88</value>
+    <value>ข่าวโปรโมชั่นใหม่ของโนวา B2C</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>มารู้จักโปรโมชั่นสุดฮอตในเดือนนี้. โพสต์ลงในเว็บไซต์และช่องทางโซเชียลของคุณเพื่อหาลูกค้าและส่วนแบ่งรายได้มากขึ้น!</value>
@@ -1360,10 +1360,10 @@
     <value>ภาษา</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>ร่วมเป็นหุ้นส่วนธุรกิจกับN88 | โปรแกรมพันธมิตรN88</value>
+    <value>ร่วมเป็นหุ้นส่วนธุรกิจกับB2C | โปรแกรมพันธมิตรB2C</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>เป็นพันธมิตรในการโปรโมทเดิมพันกีฬาและคาสิโนให้กับเว็บไซต์N88แล้วรับค่าคอมมิชชั่นรายเดือนจากลูกค้าที่แนะนำจากเว็บไซต์คุณ</value>
+    <value>เป็นพันธมิตรในการโปรโมทเดิมพันกีฬาและคาสิโนให้กับเว็บไซต์B2Cแล้วรับค่าคอมมิชชั่นรายเดือนจากลูกค้าที่แนะนำจากเว็บไซต์คุณ</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>อีเมลล์แอดเดรส</value>
@@ -1471,10 +1471,10 @@
     <value>ยืนยันรายละเอียดบัญชีของท่าน</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>พันธมิตร N88 - ยืนยันรายละเอียดบัญชีของท่าน</value>
+    <value>พันธมิตร B2C - ยืนยันรายละเอียดบัญชีของท่าน</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>พันธมิตร N88 - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
+    <value>พันธมิตร B2C - [{0}] - คำขอการชำระเงินของท่านถูกยกเลิก</value>
   </data>
   <data name="Promotion" xml:space="preserve">
     <value>โปรโมชั่น</value>

@@ -24,7 +24,7 @@ describe('payment request actions', () => {
         const expectedResponse = {
             data: {
                 MainData: [{
-                    AffName: "12BETAFF226",
+                    AffName: "B2CAFF226",
                     Amount: 125,
                     CompletedDateText: "06/20/2019 22:45:23",
                     Creator: "AAwalter",

@@ -126,7 +126,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                         break;
                     default:
                         validInfo.IsOk = false;
-                        validInfo.Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed);
+                        validInfo.Message = SiteFriendlyNameHelper.ReplaceB2C(Lang.errDepositDBConnectFailed);
                         break;
                 }
             }

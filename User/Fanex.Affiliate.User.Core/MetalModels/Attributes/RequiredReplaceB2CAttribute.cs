@@ -7,14 +7,14 @@ using System.Web.Mvc;
 namespace Fanex.Affiliate.User.Core.MetalModels.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class RequiredReplace12BetAttribute: RequiredAttribute, IClientValidatable
+    public class RequiredReplaceB2CAttribute: RequiredAttribute, IClientValidatable
     {
         public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
         {
             var rule = new ModelClientValidationRule
             {
                 ValidationType = "required",
-                ErrorMessage = SiteFriendlyNameHelper.Replace12Bet(FormatErrorMessage(metadata.GetDisplayName()))
+                ErrorMessage = SiteFriendlyNameHelper.ReplaceB2C(FormatErrorMessage(metadata.GetDisplayName()))
             };
             yield return rule;
         }

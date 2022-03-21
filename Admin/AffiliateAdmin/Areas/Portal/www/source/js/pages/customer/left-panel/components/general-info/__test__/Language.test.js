@@ -5,8 +5,8 @@ import { shallow } from 'enzyme';
 describe('left panel - components - general-info - Language', () => {
     const affiliateInfo = {
         AffId: 1271808,
-        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
-        AffName: "12BETAFF226",
+        AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=B2CAFF226&accId=1000000026&accOnId=8405",
+        AffName: "B2CAFF226",
         AffType: 2,
         BalanceBf: 9802280.5446,
         CommGroupName: "NoCommission",
@@ -17,7 +17,7 @@ describe('left panel - components - general-info - Language', () => {
         IsClosed: false,
         LastLoginDateText: "04/11/2019 22:24:00",
         LastLoginIp: "10.18.200.125",
-        LastName: "12BETAFF226",
+        LastName: "B2CAFF226",
         MoreSiteUrl: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
         NoSiteDescription: "",
         Phone: "abc",
@@ -40,7 +40,7 @@ describe('left panel - components - general-info - Language', () => {
     const defaultProps = {
         affiliateInfo,
         languageList,
-        affName: '12BETAFF226'
+        affName: 'B2CAFF226'
     }
 
     it('render correctly with isChangingLanguage is false', () => {
@@ -116,7 +116,7 @@ describe('left panel - components - general-info - Language', () => {
 
         expect(props.updateLanguage).toHaveBeenCalledWith({ AffId: 1271808, PreferredLanguage: "en-US" });
         expect(wrapper.setState).toHaveBeenCalledWith({ messageNotification: 'The Language has been updated successfully!', isConfirmPopup: false });
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
     });
 
     it('handleCloseNotificationPopup - should call setState and _changeLanguage', async () => {

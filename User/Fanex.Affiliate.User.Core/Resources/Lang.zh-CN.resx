@@ -232,7 +232,7 @@
     <value>百幕大</value>
   </data>
   <data name="BETUserNameIsRequired" xml:space="preserve">
-    <value>请填写N88用户名</value>
+    <value>请填写B2C用户名</value>
   </data>
   <data name="Bhutan" xml:space="preserve">
     <value>不丹</value>
@@ -289,7 +289,7 @@
     <value>取消申请</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>N88合作伙伴 - [{0}] - 支付申请通知</value>
+    <value>B2C合作伙伴 - [{0}] - 支付申请通知</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>维德角岛</value>
@@ -340,7 +340,7 @@
     <value>完成日期</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>请完整填写此页注册表，以确保成功注册N88合作伙伴账号</value>
+    <value>请完整填写此页注册表，以确保成功注册B2C合作伙伴账号</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>刚果共和国</value>
@@ -358,7 +358,7 @@
     <value>库克群岛</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© 版权 2020 | N88 版权所有 | 21+</value>
+    <value>© 版权 2020 | B2C 版权所有 | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>哥斯达黎加</value>
@@ -376,7 +376,7 @@
     <value>克罗地亚</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>N88合作伙伴 — 新帐户等待核准</value>
+    <value>B2C合作伙伴 — 新帐户等待核准</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>外匯</value>
@@ -577,7 +577,7 @@
     <value>匈牙利</value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>我同意N88合作伙伴的规则与条款</value>
+    <value>我同意B2C合作伙伴的规则与条款</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>冰岛</value>
@@ -896,10 +896,10 @@
   </data>
   <data name="RegisSuccess" xml:space="preserve">
     <value>感谢您提交申请。&lt;br /&gt;&lt;br /&gt;
-我们N88合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
+我们B2C合作伙伴团队将会就您的网站和申请详情进行审核，以确认相关内容是否适合推广我们的产品。&lt;br /&gt;&lt;br /&gt;
 我们将在5天内回复您的申请。一旦您的申请被核准，您将立即获得全权参与进入我们的合作伙伴项目。&lt;br /&gt;&lt;br /&gt;
 致以敬意，&lt;br /&gt;&lt;br /&gt;
-N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
+B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
 如果您遇到任何疑问需要帮助，欢迎随时&lt;a href='{0}'&gt;联系我们&lt;/a&gt;。</value>
   </data>
   <data name="Rejected" xml:space="preserve">
@@ -1020,10 +1020,10 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>状态</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>N88 合作伙伴 — 您的登录详情</value>
+    <value>B2C 合作伙伴 — 您的登录详情</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>N88 合作伙伴 — 您的新密码</value>
+    <value>B2C 合作伙伴 — 您的新密码</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>提交</value>
@@ -1190,8 +1190,8 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="Zimbabwe" xml:space="preserve">
     <value>津巴布韦</value>
   </data>
-  <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>N88玩家帐户</value>
+  <data name="_B2CPlayerAcc" xml:space="preserve">
+    <value>B2C玩家帐户</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>您的新密码</value>
@@ -1203,7 +1203,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>支付申请通知</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>N88 娱乐城</value>
+    <value>B2C 娱乐城</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>真人娱乐场</value>
@@ -1221,7 +1221,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>所有产品</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>有关N88产品的更多详细信息</value>
+    <value>有关B2C产品的更多详细信息</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>周一至周六上午 11 时至下午8 时（北京时间）</value>
@@ -1236,22 +1236,22 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>产品</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>立即注册N88合营代理！</value>
+    <value>立即注册B2C合营代理！</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>注册合营</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>申请N88 合营</value>
+    <value>申请B2C 合营</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>成为N88合营代理后，您所推荐的N88每位玩家，只要使用账户就可以为您带来即时的佣金。我们的在线系统将全天候24/7为您服务。</value>
+    <value>成为B2C合营代理后，您所推荐的B2C每位玩家，只要使用账户就可以为您带来即时的佣金。我们的在线系统将全天候24/7为您服务。</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>合营代理有什么新功能</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>N88合营代理资讯</value>
+    <value>B2C合营代理资讯</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>全新！</value>
@@ -1263,7 +1263,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>您可以登入你的代理账号以获取您想要在网站上推广的新横幅广告。</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>N88 最新优惠活动！</value>
+    <value>B2C 最新优惠活动！</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>了解本月最新的优惠活动. 将信息发布至在您的网站与社交媒体，以获取更多的顾客及佣金。</value>
@@ -1350,7 +1350,7 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>手机号码</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
-    <value>N88玩家账号</value>
+    <value>B2C玩家账号</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>≥ 5 </value>
@@ -1365,10 +1365,10 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>语言</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>成为N88代理 | N88合作伙伴</value>
+    <value>成为B2C代理 | B2C合作伙伴</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>成为N88代理，推广体育与娱乐城游戏赚取丰厚佣金</value>
+    <value>成为B2C代理，推广体育与娱乐城游戏赚取丰厚佣金</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>电邮地址</value>
@@ -1479,10 +1479,10 @@ N88合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>验证您的帐户详细信息</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>N88 合营代理 - 请验证您的帐户详细信息</value>
+    <value>B2C 合营代理 - 请验证您的帐户详细信息</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>N88 合营代理 [{0}] - 您的付款请求已被取消</value>
+    <value>B2C 合营代理 [{0}] - 您的付款请求已被取消</value>
   </data>
   <data name="Promotion" xml:space="preserve">
     <value>优惠</value>

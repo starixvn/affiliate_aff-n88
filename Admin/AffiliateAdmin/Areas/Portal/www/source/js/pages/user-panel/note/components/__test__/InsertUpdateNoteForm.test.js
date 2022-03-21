@@ -5,11 +5,11 @@ import { defaultPagingOption } from '../../../../../modules/constants';
 
 describe('note - components - InsertUpdateNoteForm ', () => {
     const noteInfo = {
-        noteContent: "12BETAFF226",
+        noteContent: "B2CAFF226",
         noteId: 1001
     };
     const newNote = {
-        noteContent: "12BETAFF 226",
+        noteContent: "B2CAFF 226",
         noteId: 0
     };
     const defaultProps = {
@@ -38,13 +38,13 @@ describe('note - components - InsertUpdateNoteForm ', () => {
         componentInstance.setState = jest.fn();
         componentInstance.componentDidUpdate({ noteInfo: { NoteId: 0, NoteContent: '' } });
 
-        expect(componentInstance.setState).toHaveBeenCalledWith({ noteContent: '12BETAFF226' });
+        expect(componentInstance.setState).toHaveBeenCalledWith({ noteContent: 'B2CAFF226' });
     });
 
     it('handleChange - should call setState with change note content', () => {
         const event = {
             target: {
-                value: '12BETAFF 226',
+                value: 'B2CAFF 226',
                 name: 'noteContent'
             }
         }
@@ -53,12 +53,12 @@ describe('note - components - InsertUpdateNoteForm ', () => {
 
         wrapper.find('Input[type="textarea"][name="noteContent"][id="noteContent"]').simulate('change', event);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ noteContent: '12BETAFF 226' });
+        expect(wrapper.setState).toHaveBeenCalledWith({ noteContent: 'B2CAFF 226' });
     });
 
     it('_validateNoteContent - return correct data', () => {
         const wrapper = shallow(<InsertUpdateNoteForm {...defaultProps} />);
-        wrapper.setState({ noteContent: '12BETAFF 226' });
+        wrapper.setState({ noteContent: 'B2CAFF 226' });
 
         const result = wrapper.instance()._validateNoteContent();
 
@@ -102,7 +102,7 @@ describe('note - components - InsertUpdateNoteForm ', () => {
     it('handleSave - should call setState and Save when click Add button', () => {
         const props = Object.assign({}, defaultProps, { noteInfo: { noteId: 0, noteContent: '' } });
         const wrapper = shallow(<InsertUpdateNoteForm {...props} />);
-        wrapper.setState({ noteContent: '12BETAFF 226' });
+        wrapper.setState({ noteContent: 'B2CAFF 226' });
         wrapper.setState = jest.fn();
         wrapper.instance().Save = jest.fn();
 
@@ -171,13 +171,13 @@ describe('note - components - InsertUpdateNoteForm ', () => {
 
     it('handleSave - should call setState and Save when click Update button', () => {
         const wrapper = shallow(<InsertUpdateNoteForm {...defaultProps} />);
-        wrapper.setState({ noteContent: '12BETAFF 226' });
+        wrapper.setState({ noteContent: 'B2CAFF 226' });
         wrapper.setState = jest.fn();
         wrapper.instance().Save = jest.fn();
 
         wrapper.find('Button').at(0).simulate('click');
 
-        expect(wrapper.instance().Save).toHaveBeenCalledWith({ noteContent: "12BETAFF 226", noteId: 1001 });
+        expect(wrapper.instance().Save).toHaveBeenCalledWith({ noteContent: "B2CAFF 226", noteId: 1001 });
         expect(wrapper.setState).toHaveBeenCalledWith({ isClickedSubmit: true });
     });
 

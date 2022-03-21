@@ -13,7 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Customer
 {
     public class CustomerLeftPanelRepositoryTest
     {
-        private const string userAffName = "12BETAFF226";
+        private const string userAffName = "B2CAFF226";
 
         [Fact]
         public void GetAffiliateInfoOnLeftPanel_WhenCall_ReturnCorrectData()

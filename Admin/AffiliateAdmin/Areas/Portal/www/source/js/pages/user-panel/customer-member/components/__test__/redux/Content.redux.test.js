@@ -25,7 +25,7 @@ describe('customer member - Content - connect', () => {
             pagingOption: { PageSize: 10 }
         };
         const state = {
-            affCommonInfo: { affId: 1271808, affName: '12BETAFF226' },
+            affCommonInfo: { affId: 1271808, affName: 'B2CAFF226' },
             member: {
                 param: { abc: 123 },
                 canViewMemberEmail: true,

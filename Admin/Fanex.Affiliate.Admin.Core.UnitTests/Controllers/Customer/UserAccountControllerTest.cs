@@ -171,7 +171,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             return new UserAccount
             {
                 AffId = 1271808,
-                AffName = "12BETAFF226",
+                AffName = "B2CAFF226",
                 FirstName = "Hinh",
                 LastName = "Lê Văn",
                 Gender = false,

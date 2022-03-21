@@ -24,7 +24,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string JsVersion => GetValue("JsVersion");
 
-        public string Promotion12BetLink => GetValue("Promotion12BetLink");
+        public string PromotionB2CLink => GetValue("PromotionB2CLink");
 
         public bool IsEuroSite => AllowedAffiliateTypes.Any(t => t == AffiliateType.European.ToString("D"));
 

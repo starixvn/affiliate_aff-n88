@@ -17,7 +17,7 @@ describe('email history - components - EmailDetailForm ', () => {
     }
 
     const dataItem = {
-        AffName: "12BETAFF12885",
+        AffName: "B2CAFF12885",
         Content: null,
         Email: "te@te1.com",
         EmailId: 2205,

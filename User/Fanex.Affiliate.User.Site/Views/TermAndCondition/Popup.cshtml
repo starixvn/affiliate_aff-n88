@@ -12,7 +12,7 @@
 @model Fanex.Affiliate.User.Core.ViewModels.PopupViewModel
 @{
     var viewName = "~/Views/TermAndCondition/_Content." + Model.CurrentLanguage + ".cshtml";
-    var htmlString = SiteFriendlyNameHelper.Replace12Bet(Html.Partial(viewName).ToHtmlString());
+    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName).ToHtmlString());
     var siteName = AppSetting.Instance.SiteName.ToLower();
     var isN88 = string.Equals(siteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
 }

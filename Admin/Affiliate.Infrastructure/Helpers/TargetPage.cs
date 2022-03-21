@@ -26,7 +26,7 @@ namespace Affiliate.Infrastructure.Helpers
                 if (_isCasino)
                 {
                     var targetPageList = _targetPageList.ToList();
-                    targetPageList.Add("12betcasino");
+                    targetPageList.Add("B2Ccasino");
 
                     return targetPageList;
                 }

@@ -168,7 +168,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["AffId"] = 1271808,
-                ["Username"] = "12BETAFF226",
+                ["Username"] = "B2CAFF226",
                 ["MonthDate"] = new DateTime(2019, 11, 24),
                 ["Description"] = "abc",
                 ["TotalClick"] = 123,

@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 Language = SessionService.CurrentLanguage,
                 SignUpLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/SignUp"),
                 BannerLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview#MediaGallery") : "javascript:;",
-                Promotion12BetLink = GetPromotionLink()
+                PromotionB2CLink = GetPromotionLink()
             };
 
             return View(viewModel);
@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             var segments = Request.Url.Host.Split('.');
             var domainName = segments.Length > 1 ? segments[segments.Length - 2] : string.Empty;
 
-            return string.Format(_appSetting.Promotion12BetLink, domainName).Replace("..", ".");
+            return string.Format(_appSetting.PromotionB2CLink, domainName).Replace("..", ".");
         }
     }
 }

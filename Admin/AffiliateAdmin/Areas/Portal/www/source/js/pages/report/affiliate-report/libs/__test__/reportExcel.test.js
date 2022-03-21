@@ -26,7 +26,7 @@ describe('affiliate report - Report Excel ', () => {
         Bonus: 0,
         CommissionRate: 0,
         Deposit: 0,
-        Description: "12BETAFF001",
+        Description: "B2CAFF001",
         Earning: 0,
         Fdm: 0,
         MonthDate: null,
@@ -38,7 +38,7 @@ describe('affiliate report - Report Excel ', () => {
         TotalFee: 0,
         Turnover: 0,
         UniqueClick: 0,
-        UserName: "12BETAFF001",
+        UserName: "B2CAFF001",
         Ggr: 0,
         Withdrawal: 0,
     };
@@ -65,7 +65,7 @@ describe('affiliate report - Report Excel ', () => {
         TotalFee: 0,
         Turnover: 0,
         UniqueClick: 1,
-        UserName: "12BETAFF002",
+        UserName: "B2CAFF002",
         Ggr: 0,
         Withdrawal: 0,
     }

@@ -31,7 +31,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.GetAffiliateInfoOnLeftPanel("12BETAFF226", "", "", "");
+            var result = service.GetAffiliateInfoOnLeftPanel("B2CAFF226", "", "", "");
 
             // Assert
             Assert.Null(result);
@@ -53,14 +53,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.Asian });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "B2CAFF226", AffType = AffType.Asian });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.GetAffiliateInfoOnLeftPanel("12BETAFF226", "123", "234", "345");
+            var result = service.GetAffiliateInfoOnLeftPanel("B2CAFF226", "123", "234", "345");
 
             // Assert
-            Assert.Equal("12BETAFF226", result.AffName);
+            Assert.Equal("B2CAFF226", result.AffName);
             Assert.Equal(AffType.Asian, result.AffType);
         }
 
@@ -80,14 +80,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             DependencyResolver.SetResolver(resolver);
 
             var repository = new Mock<ICustomerLeftPanelRepository>();
-            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226", AffType = AffType.European });
+            repository.Setup(comm => comm.GetAffiliateInfoOnLeftPanel(It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "B2CAFF226", AffType = AffType.European });
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.GetAffiliateInfoOnLeftPanel("12BETAFF226", "123", "234", "345");
+            var result = service.GetAffiliateInfoOnLeftPanel("B2CAFF226", "123", "234", "345");
 
             // Assert
-            Assert.Equal("12BETAFF226", result.AffName);
+            Assert.Equal("B2CAFF226", result.AffName);
             Assert.Equal(AffType.European, result.AffType);
         }
 
@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         public void GetOnlineList_WhenCall_ReturnCorrectData()
         {
             // Arrange
-            var param = "12BETAFF226";
+            var param = "B2CAFF226";
             var passedParam = string.Empty;
             var repository = new Mock<ICustomerLeftPanelRepository>();
             repository.Setup(comm => comm.GetOnlineList(param)).Returns(new List<OnlineList> { new OnlineList() }).Callback<string>(p => passedParam = p);

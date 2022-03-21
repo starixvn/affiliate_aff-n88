@@ -142,7 +142,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © Copyright 2020 | 12Bet. All Rights Reserved | 21+.
+        ///   Looks up a localized string similar to © Copyright 2020 | B2C. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
             get {
@@ -187,7 +187,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates – Your application on 12BET affiliate program has been rejected.
+        ///   Looks up a localized string similar to B2C Affiliates – Your application on B2C affiliate program has been rejected.
         /// </summary>
         public static string EmailSubjectAffDisapproved {
             get {
@@ -196,7 +196,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - Your Affiliate Information.
+        ///   Looks up a localized string similar to B2C Affiliates - Your Affiliate Information.
         /// </summary>
         public static string EmailSubjectAffInfor {
             get {
@@ -205,7 +205,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Your payment request has been processed and completed successfully.
+        ///   Looks up a localized string similar to B2C Affiliates - [{0}] - Your payment request has been processed and completed successfully.
         /// </summary>
         public static string EmailSubjectPaymentRequestApproved {
             get {
@@ -214,7 +214,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Affiliates - [{0}] - Your payment request has been rejected.
+        ///   Looks up a localized string similar to B2C Affiliates - [{0}] - Your payment request has been rejected.
         /// </summary>
         public static string EmailSubjectPaymentRequestRejected {
             get {
@@ -223,7 +223,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Your application on 12BET affiliate program has been rejected.
+        ///   Looks up a localized string similar to Your application on B2C affiliate program has been rejected.
         /// </summary>
         public static string EmailTitleAffDisapproved {
             get {
@@ -421,11 +421,11 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 12Bet Domains.
+        ///   Looks up a localized string similar to B2C Domains.
         /// </summary>
-        public static string Text12BetDomains {
+        public static string TextB2CDomains {
             get {
-                return ResourceManager.GetString("Text12BetDomains", resourceCulture);
+                return ResourceManager.GetString("TextB2CDomains", resourceCulture);
             }
         }
         

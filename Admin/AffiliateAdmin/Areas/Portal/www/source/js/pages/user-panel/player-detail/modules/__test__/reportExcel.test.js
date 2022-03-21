@@ -6,8 +6,8 @@ describe('players detail - Report Excel ', () => {
     const MAIN_SECTION_STYLE = 'mainSectionStyle';
 
     const item = {
-        IbcUserName: "12BETUS$02002",
-        UserName: "12bet$RyQ.Piong",
+        IbcUserName: "B2CUS$02002",
+        UserName: "B2C$RyQ.Piong",
         RegisteredDate: "2009-01-21T21:13:00",
         Deposit: 0,
         Withdrawal: 0,
@@ -121,7 +121,7 @@ describe('players detail - Report Excel ', () => {
         const result = instance._buildDataRow(item, MAIN_SECTION_STYLE, columnConfig, 1);
 
         expect(Excel.getCellType).toHaveBeenCalledTimes(1);
-        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" } }, t: undefined, v: "12bet$RyQ.Piong" });
+        expect(result).toEqual({ s: { alignment: { horizontal: "left", vertical: "center" } }, t: undefined, v: "B2C$RyQ.Piong" });
     });
 
     it('_createExcelConfig - should call Excel.getCellAddress', () => {

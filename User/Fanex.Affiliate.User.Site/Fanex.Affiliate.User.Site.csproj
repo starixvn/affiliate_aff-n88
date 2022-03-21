@@ -1140,6 +1140,7 @@
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_hi-IN.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_id-ID.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_th-TH.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_zh-CN.png" />

@@ -5,7 +5,7 @@ import PaymentRequestUpdateForm from '../../../../common/components/PaymentReque
 
 describe('statement history - components - AppContainer', () => {
     const defaultProps = {
-        affName: "12BETAFF226",
+        affName: "B2CAFF226",
         transactionId: 1262276211,
         param: {
             fromDate: "1/11/2019",

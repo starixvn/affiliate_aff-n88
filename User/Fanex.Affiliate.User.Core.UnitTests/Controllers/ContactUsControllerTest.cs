@@ -219,7 +219,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             return new ContactUsParam
             {
                 Captcha = Constant.Captcha,
-                Affiliate = "12BETAFF001",
+                Affiliate = "B2CAFF001",
                 Content = "Content",
                 Email = Constant.DefaultMailUser,
                 Sender = "Sender",

@@ -39,7 +39,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.Attributes
         {
             var rule = new ModelClientValidationRule();
             rule.ValidationType = "requiredbychecked";
-            rule.ErrorMessage = SiteFriendlyNameHelper.Replace12Bet(FormatErrorMessage(metadata.GetDisplayName()));
+            rule.ErrorMessage = SiteFriendlyNameHelper.ReplaceB2C(FormatErrorMessage(metadata.GetDisplayName()));
             rule.ValidationParameters.Add("dependentprop", DependentPropertyName);
             rule.ValidationParameters.Add("checked", IsChecked);
             yield return rule;

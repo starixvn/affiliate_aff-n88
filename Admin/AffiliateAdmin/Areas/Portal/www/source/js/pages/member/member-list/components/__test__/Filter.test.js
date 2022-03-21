@@ -7,7 +7,7 @@ import { defaultPagingOption } from '../../../../../modules/constants';
 describe('member list - components - Filter ', () => {
     const defaultProps = {
         pagingOption: defaultPagingOption,
-        affName: '12BETAFF226',
+        affName: 'B2CAFF226',
         isFromOtherPages: false
     }
 
@@ -24,18 +24,18 @@ describe('member list - components - Filter ', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ AffName: '12BETAFF226', UserName: '', IbcUserName: '', PageIndex: 1, PageSize: 20 });
+        expect(props.setParam).toHaveBeenCalledWith({ AffName: 'B2CAFF226', UserName: '', IbcUserName: '', PageIndex: 1, PageSize: 20 });
     });
 
     it('setAffName - should change affName when change affiliate textbox', () => {
         const event = {
-            target: { value: '12Bet' }
+            target: { value: 'B2C' }
         };
         const wrapper = shallow(<Filter {...defaultProps} />);
 
         wrapper.find('Input[type="text"][name="affName"]').simulate('change', event);
 
-        expect(wrapper.find('Input[type="text"][name="affName"]').prop('value')).toEqual('12Bet');
+        expect(wrapper.find('Input[type="text"][name="affName"]').prop('value')).toEqual('B2C');
     });
 
     it('setUserName - should change userName when change user name textbox', () => {
@@ -71,7 +71,7 @@ describe('member list - components - Filter ', () => {
         wrapper.find('Input[type="text"][name="affName"]').simulate('keyPress', event);
 
         expect(event.preventDefault).toHaveBeenCalled();
-        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "12BETAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "B2CAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
     });
 
     it('_handlePressEnter - should call _handleSearch when press enter in user name textbox', () => {
@@ -85,7 +85,7 @@ describe('member list - components - Filter ', () => {
         wrapper.find('Input[type="text"][name="userName"]').simulate('keyPress', event);
 
         expect(event.preventDefault).toHaveBeenCalled();
-        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "12BETAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "B2CAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
     });
 
     it('_handlePressEnter - should call _handleSearch when press enter in ibcUserName textbox', () => {
@@ -99,7 +99,7 @@ describe('member list - components - Filter ', () => {
         wrapper.find('Input[type="text"][name="ibcUserName"]').simulate('keyPress', event);
 
         expect(event.preventDefault).toHaveBeenCalled();
-        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "12BETAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "B2CAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
     });
 
     it('_handlePressEnter - should not call _handleSearch when press other keys', () => {
@@ -120,7 +120,7 @@ describe('member list - components - Filter ', () => {
         mount(<Filter {...props} />);
 
         expect(props.setIsFromOtherPages).toHaveBeenCalledWith(false);
-        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "12BETAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
+        expect(props.setParam).toHaveBeenCalledWith({ "AffName": "B2CAFF226", "IbcUserName": "", "PageIndex": 1, "PageSize": 20, "UserName": "" });
     });
 
     it('useEffect - should not call setIsFromOtherPages, setParam', () => {

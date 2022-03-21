@@ -130,13 +130,13 @@
     <value>您的合作伙伴帐户信息</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
-    <value>12Bet 合作伙伴 - [{0}] - 您的提款申请已被核准并成功办理</value>
+    <value>B2C 合作伙伴 - [{0}] - 您的提款申请已被核准并成功办理</value>
   </data>
   <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
     <value>您的提款申请已被核准并成功办理</value>
   </data>
   <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
-    <value>12Bet 合作伙伴 - [{0}] - 您的提款申请未被核准</value>
+    <value>B2C 合作伙伴 - [{0}] - 您的提款申请未被核准</value>
   </data>
   <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
     <value>您的提款申请未被核准</value>
@@ -145,9 +145,9 @@
     <value>您的加盟申请</value>
   </data>
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>12Bet 合作伙伴 – 您的加盟申请</value>
+    <value>B2C 合作伙伴 – 您的加盟申请</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© 版权 2020 | 12Bet 版权所有 | 21+</value>
+    <value>© 版权 2020 | B2C 版权所有 | 21+</value>
   </data>
 </root>

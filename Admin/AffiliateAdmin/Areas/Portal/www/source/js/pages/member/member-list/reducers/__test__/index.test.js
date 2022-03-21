@@ -9,7 +9,7 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 }
 
 const testCaseList = [
-    { name: 'param', value: null, action: { type: types.SET_PARAM, data: { AffName: "12BETAFF226" } }, expectedResult: { AffName: "12BETAFF226" } },
+    { name: 'param', value: null, action: { type: types.SET_PARAM, data: { AffName: "B2CAFF226" } }, expectedResult: { AffName: "B2CAFF226" } },
     { name: 'isFromOtherPages', value: null, action: { type: types.SET_IS_FROM_OTHER_PAGES, data: true }, expectedResult: true },
     { name: 'shouldResetScrollPosition', value: true, action: { type: types.SHOULD_RESET_SCROLL_POSITION, data: false }, expectedResult: false },
     { name: 'gridData', value: null, action: { type: types.SET_GRID_DATA, data: [{ name: 'abc' }] }, expectedResult: [{ name: 'abc' }] }

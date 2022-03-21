@@ -24,13 +24,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
             var controller = CreateCustomerController(languageService: languageService.Object);
 
             // Action
-            var viewResult = controller.Index("12BETAFF226") as ViewResult;
+            var viewResult = controller.Index("B2CAFF226") as ViewResult;
             var viewName = viewResult.ViewName;
             var model = viewResult.Model as CustomerViewModel;
 
             // Assert
             Assert.Equal("", viewName);
-            Assert.Equal("12BETAFF226", model.AffName);
+            Assert.Equal("B2CAFF226", model.AffName);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         {
             // Arrange
             var sessionService = new Mock<ISessionService>();
-            sessionService.Setup(s => s.AffName).Returns("12BETAFF226");
+            sessionService.Setup(s => s.AffName).Returns("B2CAFF226");
             var languageService = new Mock<ILanguageService>();
             languageService.Setup(l => l.GetLanguageList()).Returns(new List<Language> { new Language() });
 
@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             // Assert
             Assert.Equal("", viewName);
-            Assert.Equal("12BETAFF226", model.AffName);
+            Assert.Equal("B2CAFF226", model.AffName);
         }
 
         private CustomerController CreateCustomerController(

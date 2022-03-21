@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe('common - components - CommissionGroupPopup', () => {
     const defaultProps = {
         showPopupCommGroup: true,
-        affName: '12BETAFF226',
+        affName: 'B2CAFF226',
         affId: 1271808,
         isPrivateGroup: false,
         isNewAffiliate: true
@@ -83,7 +83,7 @@ describe('common - components - CommissionGroupPopup', () => {
         instance.handleUpdatePrivateGroupSuccessfully();
 
         expect(instance.handleClosePopup).toHaveBeenCalled();
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
     });
 
     it('handleAssignGroupSuccessfully - should call setShowPopupCommGroup and getAffiliateInfo', () => {
@@ -93,7 +93,7 @@ describe('common - components - CommissionGroupPopup', () => {
         result.instance().handleAssignGroupSuccessfully();
 
         expect(props.setShowPopupCommGroup).toHaveBeenCalledWith(false);
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
     });
 
     it('handleChangeAssignToPrivateGroup - should call setState', () => {

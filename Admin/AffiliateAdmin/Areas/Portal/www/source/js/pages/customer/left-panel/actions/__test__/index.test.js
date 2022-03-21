@@ -12,7 +12,7 @@ const runTestAction = ({ name, type, data }) => {
 }
 
 const actionList = [
-    { name: 'setAffName', type: types.SET_AFF_NAME, data: '12BETAFF226' },
+    { name: 'setAffName', type: types.SET_AFF_NAME, data: 'B2CAFF226' },
     { name: 'setIsValidUserName', type: types.SET_IS_VALID_USERNAME, data: true },
     { name: 'toggleLoaderLeftPanel', type: types.TOGGLE_LOADER_LEFT_PANEL, data: true },
 ]
@@ -31,7 +31,7 @@ describe('left panel - actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
 
         const param = {
-            affUsername: "12BETAFF226"
+            affUsername: "B2CAFF226"
         }
 
         const result = await actions['getOnLineList'](param.affUsername)();
@@ -43,7 +43,7 @@ describe('left panel - actions', () => {
     it('should create action to getOnLineList with incorrect parameter', async () => {
         ajaxRequest.post = jest.fn();
         const param = {
-            affUsername: "12BET"
+            affUsername: "B2C"
         }
 
         const result = await actions['getOnLineList'](param.affUsername)();

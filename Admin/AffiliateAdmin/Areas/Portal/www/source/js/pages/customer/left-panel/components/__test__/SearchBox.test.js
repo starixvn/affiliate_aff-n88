@@ -11,7 +11,7 @@ describe('left panel - components - SearchBox', () => {
 
     it('render correctly', () => {
         const props = {
-            affName: '12BETAFF226',
+            affName: 'B2CAFF226',
             isValidUserName: true,
             getAffiliateInfo: jest.fn()
         }
@@ -23,12 +23,12 @@ describe('left panel - components - SearchBox', () => {
 
     it('componentDidMount - should call getAffiliateInfo with affName is not null', () => {
         const getAffiliateInfo = jest.fn();
-        const props = Object.assign({}, { getAffiliateInfo, affName: '12BETAFF226' });
+        const props = Object.assign({}, { getAffiliateInfo, affName: 'B2CAFF226' });
         const wrapper = new SearchBox(props);
 
         wrapper.componentDidMount();
 
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
     });
 
     it('componentDidUpdate - should call setState if param change', () => {
@@ -53,7 +53,7 @@ describe('left panel - components - SearchBox', () => {
         const event = {
             target: {
                 name: 'affName',
-                value: '12BETAFF226'
+                value: 'B2CAFF226'
             }
         };
         const wrapper = shallow(<SearchBox />);
@@ -61,7 +61,7 @@ describe('left panel - components - SearchBox', () => {
 
         wrapper.find('Input[type="text"][name="affName"]').simulate('change', event);
 
-        expect(wrapper.setState).toHaveBeenCalledWith({ affName: '12BETAFF226' });
+        expect(wrapper.setState).toHaveBeenCalledWith({ affName: 'B2CAFF226' });
     });
 
     it('handlePressEnter - should call handleClick when press Enter', () => {
@@ -94,12 +94,12 @@ describe('left panel - components - SearchBox', () => {
         };
         const setAffName = jest.fn();
         const getAffiliateInfo = jest.fn();
-        const props = Object.assign({}, { setAffName, getAffiliateInfo, affName: '12BETAFF226' });
+        const props = Object.assign({}, { setAffName, getAffiliateInfo, affName: 'B2CAFF226' });
         const wrapper = shallow(<SearchBox {...props} />);
 
         wrapper.find('Button[id="search-affName"]').simulate('click', event);
 
-        expect(props.setAffName).toHaveBeenCalledWith('12BETAFF226');
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226');
+        expect(props.setAffName).toHaveBeenCalledWith('B2CAFF226');
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226');
     });
 });

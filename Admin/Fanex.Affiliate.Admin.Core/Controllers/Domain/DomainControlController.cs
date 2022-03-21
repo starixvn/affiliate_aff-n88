@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Domain
             var subMenu = new List<SubMenu>
             {
                 new SubMenu { Name = Lang.AffiliateDomain, Url = Url.Content("~/Portal/Domain?isAffDomain=true") },
-                new SubMenu { Name = SiteFriendlyNameHelper.Replace12Bet(Lang.Text12BetDomains), Url = Url.Content("~/Portal/Domain?isAffDomain=false") },
+                new SubMenu { Name = SiteFriendlyNameHelper.ReplaceB2C(Lang.TextB2CDomains), Url = Url.Content("~/Portal/Domain?isAffDomain=false") },
                 new SubMenu { Name = Lang.DomainControl, Url = Url.Content("~/Portal/DomainControl"), IsActive = true },
                 new SubMenu { Name = Lang.SubAffiliateDomain, Url = Url.Content("~/Portal/SubAffDomain") }
             };

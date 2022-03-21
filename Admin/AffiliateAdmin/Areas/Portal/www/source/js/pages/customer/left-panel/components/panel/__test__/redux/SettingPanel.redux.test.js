@@ -7,7 +7,7 @@ const mockStore = configureMockStore();
 
 describe('left panel - SettingPanel - connect', () => {
     let wrapper, store;
-    const leftPanel = { affiliateInfo: { AffId: 1271808 }, affName: '12BETAFF226', affTypeList: [{ Asian: 1 }] }
+    const leftPanel = { affiliateInfo: { AffId: 1271808 }, affName: 'B2CAFF226', affTypeList: [{ Asian: 1 }] }
 
     beforeAll(() => {
         const initialState = {

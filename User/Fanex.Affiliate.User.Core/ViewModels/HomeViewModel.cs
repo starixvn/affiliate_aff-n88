@@ -8,7 +8,7 @@
 
         public string BannerLink { get; set; }
 
-        public string Promotion12BetLink { get; set; }
+        public string PromotionB2CLink { get; set; }
 
         public string Language { get; set; }
     }

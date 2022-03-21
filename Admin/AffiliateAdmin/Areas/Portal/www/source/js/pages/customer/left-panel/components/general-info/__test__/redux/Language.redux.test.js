@@ -19,13 +19,13 @@ describe('left panel - Language - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            affName: '12BETAFF226',
+            affName: 'B2CAFF226',
             affiliateInfo: { AffId: 1271808 },
             languageList: { 'en-US': 'English' }
         };
 
         const state = {
-            affCommonInfo: { affName: '12BETAFF226' },
+            affCommonInfo: { affName: 'B2CAFF226' },
             leftPanel: { affiliateInfo: { AffId: 1271808 } },
             languageList: { 'en-US': 'English' },
             anotherProp: "Not included"

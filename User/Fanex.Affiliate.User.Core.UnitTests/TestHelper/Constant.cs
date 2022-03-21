@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
 
         public const string AffTypeEuro = "4";
 
-        public const string DefaultUserName = "Aff12BetTest";
+        public const string DefaultUserName = "AffB2CTest";
 
         public const string DefaultMailContact = "abc@yahoo.com";
 

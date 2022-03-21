@@ -184,9 +184,9 @@ describe('affiliate info - Filter ', () => {
 
     it('buildReportTitle - should return correct string with correct parameter', () => {
         const componentInstance = new Filter(defaultProps);
-        const result = componentInstance._buildReportTitle('', '', '12BETAFF001', 'walter.tran1@starixsoft.com', 927841, 'test01', true);
+        const result = componentInstance._buildReportTitle('', '', 'B2CAFF001', 'walter.tran1@starixsoft.com', 927841, 'test01', true);
 
-        expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS '12BETAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841' - AFFILIATE PLAYER CONTAINS 'test01'`);
+        expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS 'B2CAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841' - AFFILIATE PLAYER CONTAINS 'test01'`);
     });
 
     it('should render correctly', () => {

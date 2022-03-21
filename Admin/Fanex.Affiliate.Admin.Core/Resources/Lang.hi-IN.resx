@@ -127,22 +127,22 @@
     <value>आपकी संबद्ध जानकारी</value>
   </data>
   <data name="EmailSubjectAffInfor" xml:space="preserve">
-    <value>12Bet सहयोगी - आपकी संबद्ध जानकारी</value>
+    <value>B2C सहयोगी - आपकी संबद्ध जानकारी</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
-    <value>12Bet सहयोगी - [{0}] - आपका भुगतान अनुरोध संसाधित और सफलतापूर्वक पूरा हो गया है</value>
+    <value>B2C सहयोगी - [{0}] - आपका भुगतान अनुरोध संसाधित और सफलतापूर्वक पूरा हो गया है</value>
   </data>
   <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
-    <value>12Bet सहयोगी - [{0}] - आपका भुगतान अनुरोध अस्वीकार कर दिया गया है</value>
+    <value>B2C सहयोगी - [{0}] - आपका भुगतान अनुरोध अस्वीकार कर दिया गया है</value>
   </data>
   <data name="EmailTitleAffDisapproved" xml:space="preserve">
-    <value>12Bet सहबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
+    <value>B2C सहबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
   </data>
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>12Bet सहयोगी – 12Bet संबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
+    <value>B2C सहयोगी – B2C संबद्ध कार्यक्रम पर आपका आवेदन अस्वीकार कर दिया गया है</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© कॉपीराइट 2020 | 12Bet. सर्वाधिकार सुरक्षित | 21</value>
+    <value>© कॉपीराइट 2020 | B2C. सर्वाधिकार सुरक्षित | 21</value>
   </data>
   <data name="Nova88" xml:space="preserve">
     <value>नोव88</value>

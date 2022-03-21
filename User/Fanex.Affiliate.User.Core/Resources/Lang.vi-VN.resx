@@ -289,7 +289,7 @@
     <value>Yêu cầu hủy</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>N88 Đại Lý - [{0}] - Thông báo yêu cầu thanh toán</value>
+    <value>B2C Đại Lý - [{0}] - Thông báo yêu cầu thanh toán</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>Cape Verde </value>
@@ -340,7 +340,7 @@
     <value>Ngày hoàn thành</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>Vui lòng hoàn thành mẫu này để đăng ký tài khoản đại lý N88.</value>
+    <value>Vui lòng hoàn thành mẫu này để đăng ký tài khoản đại lý B2C.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Cộng hòa Congo </value>
@@ -358,7 +358,7 @@
     <value>Quần đảo Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Bản quyền 2020 | Toàn bộ thuộc N88.com | 21+</value>
+    <value>© Bản quyền 2020 | Toàn bộ thuộc B2C.com | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Costa Rica </value>
@@ -376,7 +376,7 @@
     <value>Croatia </value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>N88 Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
+    <value>B2C Đại Lý - Tài khoản mới đang chờ chấp thuận</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>Tiền tệ</value>
@@ -460,7 +460,7 @@
     <value>Số liên hệ trống. Vui lòng kiểm tra!</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
-    <value>Đã xảy ra lỗi khi lấy thông tin người chơi N88. Vui lòng liên hệ với quản trị viên của bạn!</value>
+    <value>Đã xảy ra lỗi khi lấy thông tin người chơi B2C. Vui lòng liên hệ với quản trị viên của bạn!</value>
   </data>
   <data name="ErrEmailRequire" xml:space="preserve">
     <value>Địa chỉ email là bắt buộc</value>
@@ -577,7 +577,7 @@
     <value>Hungary </value>
   </data>
   <data name="IagreetotheTerm" xml:space="preserve">
-    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của Đại Lý N88.</value>
+    <value>Tôi đồng ý với các điều khoản &amp; điều kiện của Đại Lý B2C.</value>
   </data>
   <data name="Iceland" xml:space="preserve">
     <value>Iceland </value>
@@ -901,7 +901,7 @@
     <value>Mẫu đơn</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
-    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm N88 Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên N88.&lt;br/&gt;&lt;br/&gt;Mọi thắc mắc và yêu cầu xin vui lòng &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt;.</value>
+    <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm B2C Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên B2C.&lt;br/&gt;&lt;br/&gt;Mọi thắc mắc và yêu cầu xin vui lòng &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt;.</value>
   </data>
   <data name="Rejected" xml:space="preserve">
     <value>Bị từ chối</value>
@@ -1021,10 +1021,10 @@
     <value>Trạng thái</value>
   </data>
   <data name="SubjectForgetPass" xml:space="preserve">
-    <value>Hội viên N88 - Chi tiết đăng nhập của bạn</value>
+    <value>Hội viên B2C - Chi tiết đăng nhập của bạn</value>
   </data>
   <data name="SubjectNewPass" xml:space="preserve">
-    <value>Hội viên N88 - Mật khẩu mới của bạn</value>
+    <value>Hội viên B2C - Mật khẩu mới của bạn</value>
   </data>
   <data name="Submit" xml:space="preserve">
     <value>Gửi</value>
@@ -1192,8 +1192,8 @@
   <data name="Zimbabwe" xml:space="preserve">
     <value>Zimbabwe </value>
   </data>
-  <data name="_12BETPlayerAcc" xml:space="preserve">
-    <value>Tài khoản người chơi N88</value>
+  <data name="_B2CPlayerAcc" xml:space="preserve">
+    <value>Tài khoản người chơi B2C</value>
   </data>
   <data name="EmailTitleNewPassword" xml:space="preserve">
     <value>Mật khẩu mới của bạn</value>
@@ -1205,7 +1205,7 @@
     <value>Thông Báo Yêu Cầu Thanh Toán</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>N88 CASINO CLUBS</value>
+    <value>B2C CASINO CLUBS</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>Live Casino</value>
@@ -1229,7 +1229,7 @@
     <value>Tất Cả Sản Phẩm</value>
   </data>
   <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Xem Danh Sách Sản Phẩm N88</value>
+    <value>Xem Danh Sách Sản Phẩm B2C</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;11:00 - 20:00&lt;/strong&gt; (GMT+8)&lt;br&gt;Thứ Hai - Thứ Bảy</value>
@@ -1250,22 +1250,22 @@
     <value>RNG KENO</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
-    <value>Đăng Ký Tham Gia Chương Trình Đại Lý N88</value>
+    <value>Đăng Ký Tham Gia Chương Trình Đại Lý B2C</value>
   </data>
   <data name="SignUpAffiliate" xml:space="preserve">
     <value>ĐĂNG KÝ ĐẠI LÝ</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
-    <value>Tham Gia Đại Lý N88</value>
+    <value>Tham Gia Đại Lý B2C</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>Mỗi tháng, Đại lý N88 sẽ nhận Hoa hồng dựa trên số lượng Thành viên mới tham gia chơi tại N88 do bạn giới thiệu,  mỗi đại lý có thể theo dõi báo cáo cập nhật liên tục trong ngày.</value>
+    <value>Mỗi tháng, Đại lý B2C sẽ nhận Hoa hồng dựa trên số lượng Thành viên mới tham gia chơi tại B2C do bạn giới thiệu,  mỗi đại lý có thể theo dõi báo cáo cập nhật liên tục trong ngày.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>Cập Nhật Thông Tin Mới Nhất</value>
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
-    <value>Bản Tin Đại Lý N88</value>
+    <value>Bản Tin Đại Lý B2C</value>
   </data>
   <data name="NewWithExclamationPoint" xml:space="preserve">
     <value>MỚI! </value>
@@ -1280,7 +1280,7 @@
     <value>KHUYẾN MÃI ĐẶC BIỆT</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
-    <value>Nhiều ưu đãi độc quyền tại N88 mỗi tháng. Bạn tham khảo &amp; giới thiệu đến các Thành viên của mình thúc đẩy doanh thu, tăng thưởng hoa hồng ngay!</value>
+    <value>Nhiều ưu đãi độc quyền tại B2C mỗi tháng. Bạn tham khảo &amp; giới thiệu đến các Thành viên của mình thúc đẩy doanh thu, tăng thưởng hoa hồng ngay!</value>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
     <value>Bạn muốn kiếm tiền nhiều hơn,</value>
@@ -1352,7 +1352,7 @@
     <value>Chưa là Hội Viên?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý N88 để nhận thưởng {0} Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký tham gia Đại lý B2C để nhận thưởng {0} Hoa Hồng Mỗi Tháng!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>ĐĂNG KÝ</value>
@@ -1370,7 +1370,7 @@
     <value>Di động</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
-    <value>Tên truy cập N88</value>
+    <value>Tên truy cập B2C</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>≥ 5 </value>
@@ -1385,10 +1385,10 @@
     <value>Ngôn ngữ</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Trở thành đối tác thương mại của N88 | Chương trình Đại Lý N88</value>
+    <value>Trở thành đối tác thương mại của B2C | Chương trình Đại Lý B2C</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
-    <value>Trở thành đối tác chính thức của N88, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
+    <value>Trở thành đối tác chính thức của B2C, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
   </data>
   <data name="EmailSignup" xml:space="preserve">
     <value>Địa chỉ email</value>
@@ -1637,7 +1637,7 @@
     <value>Yêu cầu thanh toán của bạn đã bị hủy</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>N88 Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
+    <value>B2C Đại Lý - [{0}] - Yêu cầu thanh toán của bạn đã bị hủy</value>
   </data>
   <data name="WithdrawalFee" xml:space="preserve">
     <value>Phí Rút Tiền</value>
