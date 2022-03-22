@@ -5056,6 +5056,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Verify Email Address is required.
+        /// </summary>
+        public static string VerifyEmailAddressIsRequired {
+            get {
+                return ResourceManager.GetString("VerifyEmailAddressIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Viet Nam .
         /// </summary>
         public static string VietNam {

@@ -1792,4 +1792,7 @@
   <data name="SBBonus" xml:space="preserve">
     <value>Tiền thưởng thể thao</value>
   </data>
+  <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
+    <value>Nhập lại địa chỉ email là bắt buộc</value>
+  </data>
 </root>

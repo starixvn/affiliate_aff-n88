@@ -1598,4 +1598,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="SBBonus" xml:space="preserve">
     <value>体育红利</value>
   </data>
+  <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
+    <value>确认电子邮箱地址必需</value>
+  </data>
 </root>

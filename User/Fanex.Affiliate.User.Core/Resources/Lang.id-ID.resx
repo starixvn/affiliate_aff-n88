@@ -1581,4 +1581,7 @@
   <data name="SBBonus" xml:space="preserve">
     <value>Bonus buku olahraga</value>
   </data>
+  <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
+    <value>Ketik ulang e-mail diperlukan</value>
+  </data>
 </root>

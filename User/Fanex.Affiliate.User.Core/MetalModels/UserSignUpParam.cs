@@ -99,7 +99,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 
         [SpParam(Ignored = true)]
-        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsRequired")]
+        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "VerifyEmailAddressIsRequired")]
         [Compare("Email", ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "Emailaddressest")]
         public string VerifyEmail { get; set; }
 

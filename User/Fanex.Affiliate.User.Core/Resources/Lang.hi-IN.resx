@@ -448,7 +448,7 @@
     <value>ई-मेल एड्रेस</value>
   </data>
   <data name="EmailAddressIsRequired" xml:space="preserve">
-    <value>सत्यापित करें कि ईमेल पता आवश्यक है</value>
+    <value>ईमेल की जरूरत है</value>
   </data>
   <data name="EmailAddressIsInvalid" xml:space="preserve">
     <value>ईमेल पता अमान्य है</value>
@@ -1828,5 +1828,8 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="Nova88" xml:space="preserve">
     <value>नोव88</value>
+  </data>
+  <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
+    <value>सत्यापित करें कि ईमेल पता आवश्यक है</value>
   </data>
 </root>
