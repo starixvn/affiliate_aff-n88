@@ -85,7 +85,6 @@
                 {
                     User = userInfo,
                     MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
-                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                     MailTo = param.Email,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     Code = code
@@ -126,8 +125,7 @@
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     NewPassword = newPassword,
                     MailTo = userInfo.Email,
-                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage),
-                    SiteFriendlyName = _appSetting.SiteFriendlyName,
+                    MailContact = _appSetting.GetMailContactByLanguageCode(userInfo.PreferredLanguage)
                 };
 
                 _mailService.SendNewPasswordEmail(recoverEmailParam);

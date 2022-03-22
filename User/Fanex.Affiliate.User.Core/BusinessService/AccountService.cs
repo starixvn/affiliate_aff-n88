@@ -59,7 +59,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     MailBcc = emailParam.MailBcc,
                     MailCc = emailParam.MailCc,
                     MailContact = emailParam.MailContact,
-                    SiteFriendlyName = emailParam.SiteFriendlyName,
                     FirstName = signUpParam.FirstName,
                     LastName = signUpParam.LastName,
                     UserName = signUpParam.UserName,
