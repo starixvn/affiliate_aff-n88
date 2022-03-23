@@ -1,10 +1,24 @@
 ﻿
 
+
 // Generated helper templates
 // Generated items
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.production.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.uat.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.sit.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.local.xml
-// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.master.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.local.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.local.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.local.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.sit.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.sit.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.sit.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.master.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.master.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.master.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.backupmnl.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.backupmnl.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.backupmnl.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.production.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.production.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.production.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8g.uat.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n8b.uat.xml
+// Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.n88user-n88.uat.xml
 // Fanex.Affiliate.User.Site\App_Data\SpConfig\SpName.xml

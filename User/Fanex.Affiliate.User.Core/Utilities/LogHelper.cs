@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.User.Core.Utilities
                    .AppendLine("Agent: " + request.UserAgent)
                    .AppendLine("IP Address: " + request.UserHostAddress);
 
-            var userSession = HttpContext.Current.Session["Affiliate12Bet.UserSessionKey"] as UserSession;
+            var userSession = HttpContext.Current.Session["AffiliateB2C.UserSessionKey"] as UserSession;
             builder.AppendLine("UserName: " + userSession?.UserName);
 
             return builder;
