@@ -5,7 +5,7 @@
   </Function>
   <Function Name="AffiliateInformation">
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="affiliate_n88" />
@@ -99,9 +99,9 @@
     <Setting Key="Aff_Admin_EmailHistory_Del" SpName="Aff_Admin_EmailHistory_Del" DbName="affiliate_n88" />
   </Function>
   <Function Name="Message">
-    <Setting Key="Aff_Admin_Message_Sel" SpName="Aff_Admin_Message_Sel_xtest" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_Message_Ins" SpName="Aff_Admin_Message_Ins_xtest" DbName="affiliate_n88" />
-    <Setting Key="Aff_Admin_Message_Upd" SpName="Aff_Admin_Message_Upd_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_Message_Sel" SpName="Aff_Admin_Message_Sel" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_Message_Ins" SpName="Aff_Admin_Message_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_Admin_Message_Upd" SpName="Aff_Admin_Message_Upd" DbName="affiliate_n88" />
     <Setting Key="Aff_Admin_Message_Del" SpName="Aff_Admin_Message_Del" DbName="affiliate_n88" />
   </Function>
   <Function Name="Member">
