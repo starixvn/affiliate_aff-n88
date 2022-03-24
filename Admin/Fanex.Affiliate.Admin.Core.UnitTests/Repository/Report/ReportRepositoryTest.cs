@@ -27,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetReportData());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
@@ -57,7 +57,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.Setup(d => d.GetName(3)).Returns("Description");
 
             ReaderHelper.MapReaderData(dataReader, GetReportDataFullColumn());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             var dataReader = new Mock<IDataReader>();
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
             repository.Setup(r => r.GetObjectDb(_sp_GetMainReportData, 120)).Returns(objectDb.Object);
 
@@ -102,7 +102,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetReportDataFullColumn());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(_sp_GetDetailReportData, 120)).Returns(objectDb.Object);
 
@@ -124,7 +124,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
             var dataReader = new Mock<IDataReader>();
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
             repository.Setup(r => r.GetObjectDb(_sp_GetDetailReportData, 120)).Returns(objectDb.Object);
 
@@ -192,14 +192,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Report
                 ["BFF"] = 123,
                 ["NoOfSubAff"] = 0,
                 ["SubAffEarning"] = 0
-            };
-        }
-
-        private IDictionary<string, object> GetSearchAffiliateList()
-        {
-            return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
-            {
-                ["UserName"] = "12BETAFF226"
             };
         }
     }

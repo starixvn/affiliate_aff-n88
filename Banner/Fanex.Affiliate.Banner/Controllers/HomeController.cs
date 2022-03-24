@@ -5,8 +5,7 @@
     using System.Configuration;
     using System.Web;
     using System.Web.Mvc;
-    using Fanex.Data;
-    using System.Text;
+    using Fanex.Data.SqlServer;
 
     public class HomeController : Controller
     {
@@ -43,7 +42,7 @@
 
         private static string GetMessageContent(int textId, int targetId = 1)
         {
-            using (var objectDb = new ObjectDb("Aff_Admin_Text_Sel"))
+            using (var objectDb = new SqlObjectDb("Aff_Admin_Text_Sel"))
             {
                 var param = new Hashtable()
                 {

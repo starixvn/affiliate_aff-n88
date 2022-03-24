@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
-    public class AccountRepository : IAccountRepository
+    public class AccountRepository : BaseRepository, IAccountRepository
     {
         private readonly IObjectDBBuilder _builder;
 
@@ -135,10 +133,9 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objectDb = _builder.Build(uSpKey))
             {
-                objectDb.AddInParameter("AffId", SqlDbType.Int, affId);
-                objectDb.AddInParameter("SecretKey", SqlDbType.VarChar, secretKey);
-                objectDb.AddOutParameter("ErrCode", SqlDbType.Int, DbParam.ErrCodeSize);
-                objectDb.AddOutParameter("ErrMsg", SqlDbType.NVarChar, DbParam.ErrMsgSize);
+                objectDb.SetParameterValue("AffId", affId);
+                objectDb.SetParameterValue("SecretKey", secretKey);
+                AddOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
 

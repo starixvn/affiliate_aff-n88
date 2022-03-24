@@ -38,19 +38,11 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
             using (var objectDb = _builder.Build(uSpkey, dbMode))
             {
-                using (var reader = objectDb.ExecuteReader(new { affId, trackingCode }))
+                using (var multipeReader = objectDb.QueryMultiple(new { affId, trackingCode }))
                 {
-                    while (reader.Read())
+                    while (!multipeReader.IsEmptyOrClosed)
                     {
-                        dataList.Add(BuildTrackingStatisticsItem(reader));
-                    }
-
-                    if (reader.NextResult())
-                    {
-                        while (reader.Read())
-                        {
-                            dataList.Add(BuildTrackingStatisticsItem(reader));
-                        }
+                        dataList.AddRange(multipeReader.Read<TrackingStatistics>());
                     }
                 }
             }
@@ -138,18 +130,5 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 return objectDb.Query<MarketingPageStatistics>(param);
             }
         }
-
-        private TrackingStatistics BuildTrackingStatisticsItem(IDataReader reader)
-        {
-            var date = reader.ToDateTime("Date");
-
-            return new TrackingStatistics
-            {
-                Date = date,
-                TotalClick = reader.ToInt(TotalClickColumn),
-                UniqueClick = reader.ToInt(UniqueClickColumn)
-            };
-        }
-
     }
 }

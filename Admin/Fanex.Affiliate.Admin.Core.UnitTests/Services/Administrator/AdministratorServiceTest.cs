@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetUser());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_AdminSelByGroupID", 120)).Returns(objectDb.Object);
 
             // Action
@@ -45,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetUserHasCreateDateIsNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_AdminSelByGroupID", 120)).Returns(objectDb.Object);
 
             // Action
@@ -67,7 +67,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetUser());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_AdminSelByCustID", 120)).Returns(objectDb.Object);
 
             // Action
@@ -87,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetUser());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_AdminSelByCustID", 120)).Returns(objectDb.Object);
 
             // Action
@@ -103,7 +103,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminIns", 120)).Returns(objectDb.Object);
@@ -122,7 +122,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Insert user is failed.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminIns", 120)).Returns(objectDb.Object);
@@ -141,7 +141,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminInsFromExisted", 120)).Returns(objectDb.Object);
@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Invalid user name.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminInsFromExisted", 120)).Returns(objectDb.Object);
@@ -179,7 +179,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminUpd", 120)).Returns(objectDb.Object);
@@ -198,7 +198,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Invalid account id.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminUpd", 120)).Returns(objectDb.Object);
@@ -217,7 +217,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminUpdClosed", 120)).Returns(objectDb.Object);
@@ -236,7 +236,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Delete Department is failed.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminUpdClosed", 120)).Returns(objectDb.Object);
@@ -259,7 +259,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetRolePolicy());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_AdminPolicySelByCustID", 120)).Returns(objectDb.Object);
 
             // Action
@@ -279,7 +279,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetRolePolicy());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             service.Setup(r => r.GetObjectDb("Aff_Con_Batch_AdminPolicySel", 120)).Returns(objectDb.Object);
 
             // Action
@@ -295,7 +295,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminPolicyUpd", 120)).Returns(objectDb.Object);
@@ -314,7 +314,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Update account policy is failed.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Con_AdminPolicyUpd", 120)).Returns(objectDb.Object);
@@ -333,7 +333,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             // Arrange
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             service.Setup(re => re.GetObjectDb("Aff_Admin_ChangePassword", 120)).Returns(objectDb.Object);
@@ -352,7 +352,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Administrator
             var message = "Update account policy is failed.";
             var service = new Mock<AdministratorService> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(-999);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(message);
             service.Setup(re => re.GetObjectDb("Aff_Admin_ChangePassword", 120)).Returns(objectDb.Object);

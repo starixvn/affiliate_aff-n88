@@ -2,7 +2,6 @@
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services.Common;
-using ONEbook.UM.Filters;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Login;
 using Fanex.Affiliate.Admin.Core.Attributes;
@@ -13,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.DTO;
+using ONEbook.UM.AspNetMVC.Filters;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {

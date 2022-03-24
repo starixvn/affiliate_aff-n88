@@ -206,12 +206,30 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
-        public async Task CheckPlayerUserNameValidAsync_WhenCall_ReturnCorrectResult()
+        public async Task CheckAndUnlockUserIfLockedAsync_WhenCall_ReturnCorrectResult()
         {
             // Arrange
             var mockApi = new Mock<ILicenseeApi>();
             mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
                  .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.RUNNING });
+
+            var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
+
+            // Action
+            var result = await accountService.CheckAndUnlockUserIfLocked("123abc");
+
+            // Assert
+            Assert.True(result.IsOk);
+        }
+
+        [Fact]
+        public async Task CheckAndUnlockUserIfLocked_WhenCallWithLockUser_UnlockSuccessfully()
+        {
+            // Arrange
+            var mockApi = new Mock<ILicenseeApi>();
+            mockApi.Setup(a => a.UnlockUser(It.IsAny<int[]>())).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = true }));
+            mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
+                 .ReturnsAsync(new MemberSiteCustomerInfo { Status = CustomerStatus.LOCKED });
 
             var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
 

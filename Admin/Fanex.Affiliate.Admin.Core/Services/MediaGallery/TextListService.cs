@@ -21,15 +21,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("category", DbType.String, param.Category);
-                objectDb.AddInParameter("language", DbType.String, param.Language);
-                objectDb.AddInParameter("currency", DbType.String, param.Currency);
-                objectDb.AddInParameter("devicetype", DbType.Byte, param.DeviceType);
-                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-                objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
+                objectDb.SetParameterValue("category", param.Category);
+                objectDb.SetParameterValue("language", param.Language);
+                objectDb.SetParameterValue("currency", param.Currency);
+                objectDb.SetParameterValue("devicetype", param.DeviceType);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
+                objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -54,8 +54,8 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textid", DbType.Int32, selectedTextId);
-                objectDb.AddInParameter(Field.TargetId, DbType.Byte, userType);
+                objectDb.SetParameterValue("textid", selectedTextId);
+                objectDb.SetParameterValue(Field.TargetId, userType);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -89,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textid", DbType.Int32, param.TextId);
+                objectDb.SetParameterValue("textid", param.TextId);
                 AssignParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -104,10 +104,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("textids", DbType.String, param.TextIdList);
-                objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
-                objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
+                objectDb.SetParameterValue("textids", param.TextIdList);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
+                objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
                 AssignResultOutputParam(objectDb);
 
@@ -119,14 +119,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateTextParam param)
         {
-            objectDb.AddInParameter("message", DbType.String, param.TextContent);
-            objectDb.AddInParameter("category", DbType.String, param.Category);
-            objectDb.AddInParameter("language", DbType.String, param.Language);
-            objectDb.AddInParameter("currency", DbType.String, param.Currency);
-            objectDb.AddInParameter("devicetype", DbType.Byte, param.DeviceType);
-            objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
-            objectDb.AddInParameter(Field.TargetId, DbType.Byte, param.UserType);
+            objectDb.SetParameterValue("message", param.TextContent);
+            objectDb.SetParameterValue("category", param.Category);
+            objectDb.SetParameterValue("language", param.Language);
+            objectDb.SetParameterValue("currency", param.Currency);
+            objectDb.SetParameterValue("devicetype", param.DeviceType);
+            objectDb.SetParameterValue("UserID", param.UserId);
+            objectDb.SetParameterValue("IP", param.Ip);
+            objectDb.SetParameterValue(Field.TargetId, param.UserType);
 
             AssignResultOutputParam(objectDb);
         }

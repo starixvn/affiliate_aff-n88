@@ -1,9 +1,8 @@
 ﻿namespace Fanex.Affiliate.Link.DataAccess.Impl
 {
-    using System;
-    using Fanex.Affiliate.Link.Criterias;
+    using Fanex.Affiliate.Link.Commands;
     using Fanex.Affiliate.Link.DataAccess.Interface;
-    using Fanex.Data;
+    using Fanex.Data.Repository;
 
     /// <summary>
     /// Tracking statistics.
@@ -13,19 +12,20 @@
         /// <summary>
         /// Insert statistics into database.
         /// </summary>
-        /// <param name="criteria">Input criteria.</param>
+        /// <param name="command">Input command.</param>
         /// <returns>Success or fail.</returns>
-        public string InsertStatistic(TrackingSystemCriteria criteria)
-        {
-            using (var objectDb = new ObjectDb(criteria.GetSettingKey()))
-            {
-                var currentParams = criteria.GetSpParams();
-                objectDb.ExecuteNonQuery(currentParams);
+        private readonly IDynamicRepository _dynamicRepository;
 
-                return Convert.ToInt16(currentParams["errcode"]) != 0
-                    ? string.Empty
-                    : Convert.ToString(currentParams["redirectpage"]);
-            }
+        public TrackingSystemDataAccess(IDynamicRepository dynamicRepository)
+        {
+            _dynamicRepository = dynamicRepository;
+        }
+
+        public string InsertStatistic(TrackingSystemCommand command)
+        {
+            _dynamicRepository.Execute(command);
+
+            return command.RedirectPage;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetInactivatedMemberList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("abc");
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 
@@ -45,7 +45,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetActivatedMemberList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("abc");
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 
@@ -69,7 +69,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetActivatedMemberListHasCreatedDateIsNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("abc");
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 

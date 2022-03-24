@@ -1,7 +1,5 @@
 ﻿namespace Fanex.Affiliate.Link.Services.Interface
 {
-    using Fanex.Affiliate.Link.Criterias;
-
     /// <summary>
     /// Tracking system statistics.
     /// </summary>

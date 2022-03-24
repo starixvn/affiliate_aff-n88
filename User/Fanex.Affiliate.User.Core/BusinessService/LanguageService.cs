@@ -47,8 +47,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public IEnumerable<Language> GetLanguageList(bool? isInternal = null)
         {
             var isForInternal = isInternal ?? _sessionService.IsInternal;
-            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList);
-            languageList = languageList ?? _languageRepository.GetLanguageList(isForInternal);
+            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList) ?? _languageRepository.GetLanguageList(isForInternal);
 
             if (languageList != null)
             {
@@ -68,18 +67,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             Thread.CurrentThread.CurrentCulture.DateTimeFormat = CultureInfo.CreateSpecificCulture("en-US").DateTimeFormat;
             Thread.CurrentThread.CurrentCulture.NumberFormat = CultureInfo.CreateSpecificCulture("en-US").NumberFormat;
-        }
-
-        public IEnumerable<Language> GetLanguageList(bool isInternal)
-        {
-            var languageList = _cacheService.Get<IEnumerable<Language>>(CacheKey.LanguageList) ?? _languageRepository.GetLanguageList(isInternal);
-
-            if (languageList != null)
-            {
-                _cacheService.Set(CacheKey.LanguageList, languageList);
-            }
-
-            return languageList ?? new List<Language>();
         }
     }
 }

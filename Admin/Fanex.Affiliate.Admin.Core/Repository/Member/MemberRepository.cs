@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Member;
 using Fanex.Affiliate.Admin.Core.MetaModels.Member;
-using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Common.Extensions;
@@ -20,13 +19,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             using (var objectDb = GetObjectDb(Spkey))
             {
-                objectDb.AddInParameter("AffUsername", DbType.String, param.AffName);
-                objectDb.AddInParameter("UserName", DbType.String, param.UserName);
-                objectDb.AddInParameter("IBCUserName", DbType.String, param.IbcUserName);
-                objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-                objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
+                objectDb.SetParameterValue("AffUsername", param.AffName);
+                objectDb.SetParameterValue("UserName", param.UserName);
+                objectDb.SetParameterValue("IBCUserName", param.IbcUserName);
+                objectDb.SetParameterValue("PageIndex", param.PageIndex);
+                objectDb.SetParameterValue("PageSize", param.PageSize);
 
-                objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+                objectDb.SetParameterValue("NRows", DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

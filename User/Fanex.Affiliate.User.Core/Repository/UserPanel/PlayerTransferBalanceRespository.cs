@@ -2,10 +2,6 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -30,15 +26,15 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             var result = new PlayerTransferBalanceHistoryResult();
             using (var objectDb = _builder.Build(spKey))
             {
-                objectDb.AddOutParameter(nRows, System.Data.SqlDbType.Int, DbParam.IntSize);
-                objectDb.AddOutParameter(totalBaseAmount, System.Data.SqlDbType.Money, DbParam.MoneySize);
-                objectDb.AddOutParameter(totalAffPlayerAmount, System.Data.SqlDbType.Money, DbParam.MoneySize);
+                objectDb.SetParameterValue(nRows, DefaultValue.Int);
+                objectDb.SetParameterValue(totalBaseAmount, DefaultValue.Decimal);
+                objectDb.SetParameterValue(totalAffPlayerAmount, DefaultValue.Decimal);
 
                 var items = objectDb.Query<PlayerTransferBalanceHistoryInfo>(param);
 
                 result.Items = items;
-                result.TotalBaseAmount = Convert.ToDecimal(objectDb.GetOuputParams()[totalAffPlayerAmount]);
-                result.TotalRow = Convert.ToInt32(objectDb.GetOuputParams()[nRows]);
+                result.TotalBaseAmount = Convert.ToDecimal(objectDb.GetOutputParams()[totalAffPlayerAmount]);
+                result.TotalRow = Convert.ToInt32(objectDb.GetOutputParams()[nRows]);
 
                 return result;
             }
@@ -61,12 +57,12 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             using (var objectDB = _builder.Build(spKey))
             {
                 AddOutputParam(objectDB);
-                objectDB.AddOutParameter(TRANS_ID_NAME, System.Data.SqlDbType.Int, DbParam.IntSize);
+                objectDB.SetParameterValue(TRANS_ID_NAME, DefaultValue.Int);
                 objectDB.ExecuteNonQuery(param);
-                var errResult = GetResult(objectDB);
-                var transIds = Convert.ToInt32(objectDB.GetOuputParams()[TRANS_ID_NAME]);
+                var (ErrCode, ErrMsg) = GetResult(objectDB);
+                var transIds = Convert.ToInt32(objectDB.GetOutputParams()[TRANS_ID_NAME]);
 
-                return (transIds, errResult.ErrCode, errResult.ErrMsg);
+                return (transIds, ErrCode, ErrMsg);
 
             }
         }

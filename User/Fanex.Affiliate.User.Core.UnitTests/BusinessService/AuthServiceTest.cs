@@ -187,7 +187,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var service = CreateService();
             SetUpLoginNormaiUserPassedAllCheckCondition();
             var param = CreateLoginParam();
-
             var result = service.GetLoginResult(param, false);
 
             Assert.True(result.Result.IsOk);

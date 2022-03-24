@@ -495,46 +495,5 @@ exports[`left panel - components - panel - SettingPanel render correctly with ul
       />
     </Col>
   </Row>
-  <Row
-    tag="div"
-  >
-    <Col
-      className="left-panel-wrap-line"
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      Transfer Balance For Player
-    </Col>
-    <Col
-      className="text-right"
-      tag="div"
-      widths={
-        Array [
-          "xs",
-          "sm",
-          "md",
-          "lg",
-          "xl",
-        ]
-      }
-    >
-      <Button
-        className="left-panel-btn-link text-primary"
-        color="link"
-        onClick={[Function]}
-        tag="button"
-      >
-        Unlimited
-      </Button>
-    </Col>
-  </Row>
 </Memo(Panel)>
 `;

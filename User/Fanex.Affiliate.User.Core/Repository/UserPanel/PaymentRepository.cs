@@ -82,12 +82,12 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 
         private static void AssignPaymentParam(IObjectDb objectDb, PaymentParam param)
         {
-            objectDb.AddInParameter("AffID", SqlDbType.Int, param.AffId);
-            objectDb.AddInParameter("Year", SqlDbType.Int, param.Year);
+            objectDb.SetParameterValue("AffID", param.AffId);
+            objectDb.SetParameterValue("Year", param.Year);
 
-            objectDb.AddOutParameter("PreferredPayment", SqlDbType.VarChar, DbParam.PreferPaymentSize);
-            objectDb.AddOutParameter("BalBroughtForward", SqlDbType.Money, DbParam.MoneySize);
-            objectDb.AddOutParameter("MinAmount", SqlDbType.Money, DbParam.MoneySize);
+            objectDb.SetParameterValue("PreferredPayment", DefaultValue.String);
+            objectDb.SetParameterValue("BalBroughtForward", DefaultValue.Decimal);
+            objectDb.SetParameterValue("MinAmount", DefaultValue.Decimal);
         }
 
         private static Payment BuildPaymentItem(IDataReader reader)

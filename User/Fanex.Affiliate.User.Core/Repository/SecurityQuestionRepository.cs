@@ -22,7 +22,7 @@ namespace Fanex.Affiliate.User.Core.Repository
 
             using (var objectDb = _builder.Build(spKey))
             {
-                objectDb.AddInParameter("Language", SqlDbType.VarChar, language);
+                objectDb.SetParameterValue("Language", language);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

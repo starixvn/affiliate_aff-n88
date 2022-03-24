@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
@@ -43,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.PageId, DbType.Int32, pageId);
+                objectDb.SetParameterValue(Field.PageId, pageId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -84,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter(Field.PageId, DbType.Int32, param.PageId);
+                objectDb.SetParameterValue(Field.PageId, param.PageId);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -99,9 +97,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("PageIds", DbType.String, param.PageIds);
-                objectDb.AddInParameter("Ip", DbType.String, param.Ip);
+                objectDb.SetParameterValue("UserId", param.UserId);
+                objectDb.SetParameterValue("PageIds", param.PageIds);
+                objectDb.SetParameterValue("Ip", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
@@ -112,10 +110,10 @@ namespace Fanex.Affiliate.Admin.Core.Repository.MediaGallery
 
         private static void AssignCommonParam(IObjectDb objectDb, InsertUpdateLandingPageParam param)
         {
-            objectDb.AddInParameter("UserId", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("PageName", DbType.String, param.PageName);
-            objectDb.AddInParameter("PageCode", DbType.String, param.PageCode);
-            objectDb.AddInParameter("Ip", DbType.String, param.Ip);
+            objectDb.SetParameterValue("UserId", param.UserId);
+            objectDb.SetParameterValue("PageName", param.PageName);
+            objectDb.SetParameterValue("PageCode", param.PageCode);
+            objectDb.SetParameterValue("Ip", param.Ip);
         }
     }
 }

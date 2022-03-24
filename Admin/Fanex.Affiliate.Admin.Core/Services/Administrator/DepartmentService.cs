@@ -41,7 +41,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, selectedDepartmentId);
+                objectDb.SetParameterValue(Field.GroupId, selectedDepartmentId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -61,7 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddOutParameter(Field.GroupId, DbType.Int32, Size.SizeOfInt);
+                objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
                 AssignParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
@@ -76,7 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.DepartmentId);
+                objectDb.SetParameterValue(Field.GroupId, param.DepartmentId);
 
                 AssignParam(objectDb, param);
 
@@ -92,9 +92,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.DepartmentId);
-                objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
+                objectDb.SetParameterValue(Field.GroupId, param.DepartmentId);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -112,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, departmentId);
+                objectDb.SetParameterValue(Field.GroupId, departmentId);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -138,9 +138,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("grouppolicys", DbType.String, param.GroupPolicies);
-                objectDb.AddInParameter("userid", DbType.Int32, param.UserId);
-                objectDb.AddInParameter("ip", DbType.String, param.Ip);
+                objectDb.SetParameterValue("grouppolicys", param.GroupPolicies);
+                objectDb.SetParameterValue("userid", param.UserId);
+                objectDb.SetParameterValue("ip", param.Ip);
 
                 AssignResultOutputParam(objectDb);
 
@@ -163,10 +163,10 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 
         private static void AssignParam(IObjectDb objectDb, InsertUpdateDepartmentParam param)
         {
-            objectDb.AddInParameter("GroupName", DbType.String, param.DepartmentName);
-            objectDb.AddInParameter("GroupDesc", DbType.String, param.Description);
-            objectDb.AddInParameter("UserID", DbType.Int32, param.UserId);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.SetParameterValue("GroupName", param.DepartmentName);
+            objectDb.SetParameterValue("GroupDesc", param.Description);
+            objectDb.SetParameterValue("UserID", param.UserId);
+            objectDb.SetParameterValue("IP", param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

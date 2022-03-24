@@ -4,18 +4,19 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Fanex.Data;
-using Fanex.Data.OldConnectionStringProvider;
 using Fanex.Affiliate.User.Site.App_Start;
+using Fanex.Data.SqlServer;
 
 namespace Fanex.Affiliate.User.Site
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
             IoCConfig.Register();
             AreaRegistration.RegisterAllAreas();
 
+            UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -25,10 +26,7 @@ namespace Fanex.Affiliate.User.Site
 
             DbSettingProviderManager
               .StartNewSession()
-              .Use(new OldConnectionStringProvider())
-              .UseDefaultDbSettingProvider(
-                resourcePath: @"~\App_Data\SpConfig\SpName.xml",
-                enableWatching: true)
+              .WithSqlServer("~/App_Data/SpConfig/SpName.xml")
               .Run();
 
             LoggingConfig.RegisterSentry();

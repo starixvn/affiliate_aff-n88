@@ -3,10 +3,6 @@ using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Common.Extensions;
-using Fanex.Data;
-using Fanex.Affiliate.User.Core.Constants;
-using System;
 using Fanex.Affiliate.User.Core.MetalModels;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.Report;
-using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.Report;
 using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
@@ -25,9 +24,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("GroupIds", DbType.String, param.GroupIds);
-                objectDb.AddInParameter("PreferredLanguage", DbType.String, param.PreferredLanguage);
-                objectDb.AddInParameter("PaymentCurrencies", DbType.String, param.PaymentCurrencyIds);
+                objectDb.SetParameterValue("GroupIds", param.GroupIds);
+                objectDb.SetParameterValue("PreferredLanguage", param.PreferredLanguage);
+                objectDb.SetParameterValue("PaymentCurrencies", param.PaymentCurrencyIds);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -65,7 +64,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCommonParam(objectDb, param);
-                objectDb.AddInParameter("IsGetAll", DbType.Boolean, param.IsGetAll);
+                objectDb.SetParameterValue("IsGetAll", param.IsGetAll);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -94,18 +93,18 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 
         private static void AssignCommonParam(IObjectDb objectDb, AffiliateReportParam param)
         {
-            objectDb.AddInParameter("Username", DbType.String, param.UserName);
-            objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", DbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("ProductIds", DbType.String, param.ProductIds);
-            objectDb.AddInParameter("SortType", DbType.Byte, param.SortType);
-            objectDb.AddInParameter("SortDirectionType", DbType.Byte, param.SortDirectionType);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
-            objectDb.AddInParameter("Currencies", DbType.String, param.CurrencyIds);
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+            objectDb.SetParameterValue("Username", param.UserName);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("ProductIds", param.ProductIds);
+            objectDb.SetParameterValue("SortType", param.SortType);
+            objectDb.SetParameterValue("SortDirectionType", param.SortDirectionType);
+            objectDb.SetParameterValue("PageIndex", param.PageIndex);
+            objectDb.SetParameterValue("PageSize", param.PageSize);
+            objectDb.SetParameterValue("IsExportExcel", param.IsExportExcel);
+            objectDb.SetParameterValue("BaseCurrency", param.BaseCurrencyId);
+            objectDb.SetParameterValue("Currencies", param.CurrencyIds);
+            objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
 
         private static AffiliateReport BuildDataItem(IDataReader reader)

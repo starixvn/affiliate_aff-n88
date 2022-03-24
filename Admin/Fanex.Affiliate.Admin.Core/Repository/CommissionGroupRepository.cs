@@ -41,20 +41,15 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             using (var objectDb = GetObjectDb(SpKey))
             {
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
-                objectDb.AddInParameter("IsPrivate", DbType.Boolean, param.IsPrivate);
-                objectDb.AddOutParameter(Field.GroupId, DbType.Int32, Size.SizeOfInt);
+                objectDb.SetParameterValue("IsPrivate", param.IsPrivate);
+                objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
                 var groupId = objectDb.GetParameterValue(Field.GroupId);
                 param.GroupId = groupId == DBNull.Value ? 0 : Convert.ToInt32(groupId);
 
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -64,18 +59,12 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
                 AssignCreateUpdateCommissionGroupParam(objectDb, param);
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -85,20 +74,14 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
-                objectDb.AddInParameter("IP", DbType.String, param.Ip);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
+                objectDb.SetParameterValue("IP", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -118,8 +101,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
-                objectDb.AddOutParameter(Field.GroupId, DbType.Int32, Size.SizeOfInt);
+                objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue(Field.GroupId, DefaultValue.Int);
 
                 using (var reader = objectDb.ExecuteReader())
                 {
@@ -168,21 +151,15 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-                objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
-                objectDb.AddInParameter(Field.GroupId, DbType.Int32, param.GroupId);
-                objectDb.AddInParameter("Ip", DbType.String, param.Ip);
+                objectDb.SetParameterValue(Field.UserId, param.UserId);
+                objectDb.SetParameterValue("AffId", param.AffId);
+                objectDb.SetParameterValue(Field.GroupId, param.GroupId);
+                objectDb.SetParameterValue("Ip", param.Ip);
                 AssignResultOutputParam(objectDb);
 
                 objectDb.ExecuteNonQuery();
 
-                var code = objectDb.GetParameterValue(Field.ErrCode);
-
-                return new ResultInfo
-                {
-                    Code = code == DBNull.Value ? 0 : Convert.ToInt32(code),
-                    Message = objectDb.GetParameterValue(Field.ErrMsg).ToString()
-                };
+                return GetResultInfo(objectDb);
             }
         }
 
@@ -276,13 +253,13 @@ namespace Fanex.Affiliate.Admin.Core.Repository
 
         private static void AssignCreateUpdateCommissionGroupParam(IObjectDb objectDb, CreateUpdateCommissionGroupParam param)
         {
-            objectDb.AddInParameter(Field.UserId, DbType.Int32, param.UserId);
-            objectDb.AddInParameter(Field.GroupName, DbType.String, param.GroupName);
-            objectDb.AddInParameter("Description", DbType.String, param.Description);
-            objectDb.AddInParameter("DeductionList", DbType.Xml, param.TierDeductionsXml);
-            objectDb.AddInParameter("StraightList", DbType.Xml, param.P2pDeductionsXml);
-            objectDb.AddInParameter("TierList", DbType.Xml, param.TierSettingXml);
-            objectDb.AddInParameter("IP", DbType.String, param.Ip);
+            objectDb.SetParameterValue(Field.UserId, param.UserId);
+            objectDb.SetParameterValue(Field.GroupName, param.GroupName);
+            objectDb.SetParameterValue("Description", param.Description);
+            objectDb.SetParameterValue("DeductionList", param.TierDeductionsXml);
+            objectDb.SetParameterValue("StraightList", param.P2pDeductionsXml);
+            objectDb.SetParameterValue("TierList", param.TierSettingXml);
+            objectDb.SetParameterValue("IP", param.Ip);
 
             AssignResultOutputParam(objectDb);
         }

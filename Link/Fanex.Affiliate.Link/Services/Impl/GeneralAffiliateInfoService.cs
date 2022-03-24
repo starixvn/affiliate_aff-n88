@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Affiliate.Link.Services.Impl
 {
-    using Fanex.Affiliate.Link.Criterias;
     using Fanex.Affiliate.Link.DataAccess.Impl;
     using Fanex.Affiliate.Link.DataAccess.Interface;
     using Fanex.Affiliate.Link.Services.Interface;

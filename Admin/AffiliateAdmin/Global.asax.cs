@@ -3,10 +3,12 @@ using System.Web;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Utilities;
+using Fanex.Data;
+using Fanex.Data.SqlServer;
 
 namespace AffiliateAdmin
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : HttpApplication
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         void Application_Start(object sender, EventArgs e)
@@ -17,7 +19,12 @@ namespace AffiliateAdmin
 
             SslConfig.RegisterHttpSecurityProtocol();
 
-            Fanex.Data.Configuration.DbSettingProviderManager.Current.Start();
+            UMConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            DbSettingProviderManager
+                  .StartNewSession()
+                  .WithSqlServer("~/App_Data/SpConfig/SpName.xml")
+                  .Run();
 
             AreaRegistration.RegisterAllAreas();
             LoggingConfig.RegisterSentry();

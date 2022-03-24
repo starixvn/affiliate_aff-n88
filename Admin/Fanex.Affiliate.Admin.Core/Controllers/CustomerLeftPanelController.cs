@@ -9,7 +9,7 @@ using Fanex.Affiliate.Admin.Core.Services.Customer;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO;
-using ONEbook.UM.Filters;
+using ONEbook.UM.AspNetMVC.Filters;
 using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers

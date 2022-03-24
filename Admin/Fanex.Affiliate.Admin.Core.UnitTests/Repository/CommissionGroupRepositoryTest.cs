@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetExpectedCommGroup());
-            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>())).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>(), null)).Returns(dataReader.Object);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
 
             // Action
@@ -58,7 +58,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetExpectedTierSetting());
-            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>())).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>(), null)).Returns(dataReader.Object);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
 
             // Action
@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetExpectedDeductionSetting());
-            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>())).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>(), null)).Returns(dataReader.Object);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
 
             // Action
@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             dataReader.SetupSequence(d => d.NextResult()).Returns(true).Returns(true).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetExpectedP2pDeductionSetting());
-            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>())).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(It.IsAny<GetCommissionGroupParam>(), null)).Returns(dataReader.Object);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
 
             // Action
@@ -120,37 +120,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
         }
 
         [Fact]
-        public void GetCommissionSettingList_WhenCall_ExecuteWithCorrectParam()
-        {
-            // Arrange
-            var repository = new Mock<CommissionGroupRepository> { CallBase = true };
-            var objectDb = new Mock<IObjectDb>();
-            var dataReader = new Mock<IDataReader>();
-            dataReader.SetupSequence(d => d.Read()).Returns(false);
-            dataReader.SetupSequence(d => d.NextResult()).Returns(false);
-
-            GetCommissionGroupParam passedParam = null;
-            var param = new GetCommissionGroupParam();
-            objectDb.Setup(obj => obj.ExecuteReader(param))
-                .Returns(dataReader.Object)
-                .Callback<GetCommissionGroupParam>(p => passedParam = p);
-            repository.Setup(re => re.GetObjectDb(SpKeyCommGroupSel, 120)).Returns(objectDb.Object);
-
-            // Action
-            repository.Object.GetCommissionGroupList(param);
-
-            // Assert
-            Assert.Equal(passedParam, param);
-        }
-
-        [Fact]
         public void CreateCommissionGroup_WhenCall_ExcuteSucceed()
         {
             // Arrange
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(DBNull.Value);
@@ -170,7 +146,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(123);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Create Commission Group is failed!");
             objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(1);
@@ -190,7 +166,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupUpd, 120)).Returns(objectDb.Object);
@@ -209,7 +185,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(123);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Update Commission Group is failed!");
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupUpd, 120)).Returns(objectDb.Object);
@@ -228,7 +204,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupDel, 120)).Returns(objectDb.Object);
@@ -247,7 +223,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(123);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Delete Commission Group is failed!");
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupDel, 120)).Returns(objectDb.Object);
@@ -266,7 +242,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(0);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(DBNull.Value);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns(string.Empty);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupAssign, 120)).Returns(objectDb.Object);
@@ -285,7 +261,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var repository = new Mock<CommissionGroupRepository> { CallBase = true };
             var objectDb = new Mock<IObjectDb>();
 
-            objectDb.Setup(obj => obj.ExecuteNonQuery()).Returns(123);
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrCode")).Returns(123);
             objectDb.Setup(obj => obj.GetParameterValue("ErrMsg")).Returns("Assign Commission Group is failed!");
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupAssign, 120)).Returns(objectDb.Object);
@@ -309,7 +285,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             repository.Object.GetDeductionList();
 
             // Assert
-            objectDb.Verify(obj => obj.Query<DeductionItem>(null, null, true, 120), Times.Once);
+            objectDb.Verify(obj => obj.Query<DeductionItem>(null, null), Times.Once);
         }
 
         [Fact]
@@ -324,7 +300,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             var param = new GetGroupListParam();
             var expectedValue = GetExpectedNomalCommGroup();
             ReaderHelper.MapReaderData(dataReader, expectedValue);
-            objectDb.Setup(obj => obj.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(expectedValue["GroupId"]);
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupNormalSel, 120)).Returns(objectDb.Object);
 
@@ -346,7 +322,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
             dataReader.SetupSequence(d => d.Read()).Returns(false);
 
             var param = new GetGroupListParam();
-            objectDb.Setup(obj => obj.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("GroupId")).Returns(DBNull.Value);
 
             repository.Setup(re => re.GetObjectDb(SpKeyCommGroupNormalSel, 120)).Returns(objectDb.Object);
@@ -369,7 +345,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository
 
             var expectedValue = GetExpectedNomalCommGroup();
             ReaderHelper.MapReaderData(dataReader, expectedValue);
-            objectDb.Setup(obj => obj.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(obj => obj.ExecuteReader(null, null)).Returns(dataReader.Object);
             repository.Setup(re => re.GetObjectDb("Aff_CommGroup_Sel", 120)).Returns(objectDb.Object);
 
             // Action

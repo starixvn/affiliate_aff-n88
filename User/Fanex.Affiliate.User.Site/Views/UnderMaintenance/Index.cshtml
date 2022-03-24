@@ -17,6 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Under Maintenance</title>
+    <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
     <link href="~/www/build/styles/css/bootstrap.min.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
     <style type="text/css">
@@ -62,13 +63,12 @@
         }
 
         .um-header-top {
-            height: 90px;
+            padding: 10px;
             background: url('../../www/build/styles/Images/header-bg.png');
         }
 
         .logo {
-            margin-top: 20px;
-            margin-left: 10px;
+            max-width: 180px;
         }
     </style>
 </head>
@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="message-content">
-                            <p>我们正在进行服务器维护，网站维护时间直到 <span class="um-time">@to (香港时间GMT +8).</span></p>
+                            <p>我们正在进行服务器维护，网站维护时间直到 <span class="um-time info">@to (香港时间GMT +8).</span></p>
                             <p>给您带来的不便，我们深表歉意！</p>
                             <p>
                                 更多详情请联系我们的在线客服。

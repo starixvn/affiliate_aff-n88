@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.Controllers.UserPanel;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
@@ -38,7 +39,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             //Arange
             marketingService.GetChannels(Arg.Any<int>()).Returns(new Dictionary<string, string> { ["Abc"] = "123" });
             marketingService.GetCategoryList(Arg.Any<bool>(), Arg.Any<AffiliateLinkType>(), Arg.Any<bool>()).ReturnsForAnyArgs(Constant.CategoryList);
-            marketingService.GetCurrencyList(Arg.Any<bool>()).ReturnsForAnyArgs(Constant.CurrencyType);
+            marketingService.GetCurrencyList(Arg.Any<bool>()).ReturnsForAnyArgs(isMaxSubLevel ? Constant.CurrencyType : new List<CurrencyType>());
             marketingService.GetSizeList(Arg.Any<SizeParam>(), Arg.Any<bool>()).ReturnsForAnyArgs(Constant.SizeTypes);
 
             accountService.GetGeneralAffInfo(Arg.Any<int?>(), Arg.Any<string>()).ReturnsForAnyArgs(new GeneralAffInfo { IsMaxSubLevel = isMaxSubLevel });

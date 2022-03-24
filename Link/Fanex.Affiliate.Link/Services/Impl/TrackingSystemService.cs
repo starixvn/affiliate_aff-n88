@@ -1,9 +1,10 @@
 ﻿namespace Fanex.Affiliate.Link.Services.Impl
 {
-    using Fanex.Affiliate.Link.Criterias;
+    using Fanex.Affiliate.Link.Commands;
     using Fanex.Affiliate.Link.DataAccess.Impl;
     using Fanex.Affiliate.Link.DataAccess.Interface;
     using Fanex.Affiliate.Link.Services.Interface;
+    using Fanex.Data.Repository;
 
     /// <summary>
     /// Tracking system statistics.
@@ -35,7 +36,7 @@
         /// <param name="trackingSystemDataAccess">Account data access.</param>
         private TrackingSystemService(ITrackingSystemDataAccess trackingSystemDataAccess)
         {
-            _trackingSystemDataAccess = trackingSystemDataAccess ?? new TrackingSystemDataAccess();
+            _trackingSystemDataAccess = trackingSystemDataAccess ?? new TrackingSystemDataAccess(new DynamicRepository());
         }
 
         #endregion Constructor
@@ -43,11 +44,11 @@
         /// <summary>
         /// Insert statistics into database.
         /// </summary>
-        /// <param name="criteria">Input criteria.</param>
+        /// <param name="command">Input command.</param>
         /// <returns>Success or fail.</returns>
-        public string InsertStatistic(TrackingSystemCriteria criteria)
+        public string InsertStatistic(TrackingSystemCommand command)
         {
-            return _trackingSystemDataAccess.InsertStatistic(criteria);
+            return _trackingSystemDataAccess.InsertStatistic(command);
         }
     }
 }

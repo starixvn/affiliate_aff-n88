@@ -30,6 +30,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void Index_WhenCallWithIsInvalidUser_ReturnPageNotFound()
         {
             //Arrange
+            SessionService.UserSession.Returns(null as UserSession);
             var controller = CreateTestingEmailController();
 
             //Action
@@ -180,7 +181,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.NotNull(result);
         }
 
-        private TestController CreateTestingEmailController()
-            => new TestController(SessionService, LanguageService, AppSetting, MailProcessor);
+        private TestController CreateTestingEmailController(ISessionService sessionService = null)
+            => new TestController(sessionService ?? SessionService, LanguageService, AppSetting, MailProcessor);
     }
 }

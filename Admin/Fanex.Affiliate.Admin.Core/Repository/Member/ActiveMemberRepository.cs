@@ -3,9 +3,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Member;
 using System.Collections.Generic;
 using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
-using Fanex.Affiliate.Admin.Core.MetaModels.Member;
 using Fanex.Affiliate.Admin.Core.Extensions;
-using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Common.Extensions;
 
 namespace Fanex.Affiliate.Admin.Core.Repository.Member
@@ -20,7 +18,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
 
             using (var objectDb = GetObjectDb(SpKey))
             {
-                objectDb.AddInParameter(Field.UserName, DbType.String, userNames);
+                objectDb.SetParameterValue(Field.UserName, userNames);
                 AssignResultOutputParam(objectDb);
 
                 using (var reader = objectDb.ExecuteReader())
@@ -29,7 +27,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                     result.InactiveMemberList = GetInactivatedMemberList(reader);
                 }
 
-                result.MemberNotExist = objectDb.GetParameterValue("ErrMsg").ToString();
+                result.MemberNotExist = Convert.ToString(objectDb.GetParameterValue("ErrMsg"));
             }
 
             return result;

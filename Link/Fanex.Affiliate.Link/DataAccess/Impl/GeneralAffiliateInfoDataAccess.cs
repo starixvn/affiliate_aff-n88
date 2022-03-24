@@ -2,9 +2,10 @@
 {
     using System;
     using System.Data;
-    using Fanex.Affiliate.Link.Criterias;
+    using Fanex.Affiliate.Link.Commands;
     using Fanex.Affiliate.Link.DataAccess.Interface;
     using Fanex.Data;
+    using Fanex.Data.SqlServer;
 
     /// <summary>
     /// Tracking statistics.
@@ -20,10 +21,10 @@
         {
             const string uSpKey = "Aff_Get_GeneralAffInfo";
 
-            using (var objectDb = new ObjectDb(uSpKey))
+            using (var objectDb = new SqlObjectDb(uSpKey))
             {
-                objectDb.AddInParameter("AffId", DbType.Int32, affId);
-                objectDb.AddInParameter("AffCode", DbType.String, affCode);
+                objectDb.SetParameterValue("AffId", affId);
+                objectDb.SetParameterValue("AffCode", affCode);
 
                 using (var reader = objectDb.ExecuteReader())
                 {

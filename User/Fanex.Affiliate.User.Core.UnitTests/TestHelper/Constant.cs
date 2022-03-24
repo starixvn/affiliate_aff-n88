@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
 
         public static IEnumerable<CategoryType> CategoryList = new List<CategoryType>
         {
-            new CategoryType {Category = "test", SubCategory= "testSub1" },
+            new CategoryType {Category = "All", SubCategory= "All" },
             new CategoryType { Category = "test1", SubCategory = "testSub2" },
             new CategoryType { Category = "Casino", SubCategory = "CasinoClubs" },
             new CategoryType { Category = "test2" }

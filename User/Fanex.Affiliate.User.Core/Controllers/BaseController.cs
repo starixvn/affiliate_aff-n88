@@ -3,7 +3,7 @@ using System.Web.Routing;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Utilities;
-using ONEbook.UM.Filters;
+using ONEbook.UM.AspNetMVC.Filters;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {

@@ -7,7 +7,7 @@ namespace Fanex.Affiliate.Link.Controllers
     using System.Globalization;
     using System.Text;
     using System.Web.Mvc;
-    using Criterias;
+    using Commands;
     using Fanex.Logging;
     using Helpers;
     using Services.Impl;
@@ -105,7 +105,7 @@ namespace Fanex.Affiliate.Link.Controllers
 
                 LogService.Info(GetAllHeader(Request.ServerVariables));
 
-                var criteria = new TrackingSystemCriteria
+                var command = new TrackingSystemCommand
                 {
                     AffDomain = affDomain,
                     AffId = affId,
@@ -130,11 +130,11 @@ namespace Fanex.Affiliate.Link.Controllers
                     AffMediaLink = GetOriginalUrl()
                 };
 
-                var redirectUrl = _trackingSystemService.InsertStatistic(criteria);
+                var redirectUrl = _trackingSystemService.InsertStatistic(command);
 
                 if (!string.IsNullOrEmpty(redirectUrl))
                 {
-                    var result = HandleRedirectUrl(redirectUrl, pageId, criteria.LanguageCode, affCode);
+                    var result = HandleRedirectUrl(redirectUrl, pageId, command.LanguageCode, affCode);
 
                     return Redirect(result);
                 }

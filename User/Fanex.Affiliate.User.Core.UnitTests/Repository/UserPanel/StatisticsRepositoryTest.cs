@@ -2,6 +2,7 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Moq;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -31,20 +32,23 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         }
 
         [Theory]
-        [InlineData(true, true)]
-        [InlineData(false, false)]
-        public void GetTrackingStatistics_WhenCall_ReturnTrackingList(bool isInternal, bool isNextResult)
+        [InlineData(true)]
+        [InlineData(false)]
+        public void GetTrackingStatistics_WhenCall_ReturnTrackingList(bool isInternal)
         {
             const string uSpkey = "Aff_AffiliateSelClickStatisticsAllMonths";
             var dbMode = isInternal ? DBMode.View : DBMode.Main;
             var key = uSpkey + dbMode;
             var db = Builder.Build(uSpkey, dbMode);
-            var reader = db.ExecuteReader(Arg.Any<object>());
-            reader.Read().Returns(true, true, false);
-            reader.NextResult().Returns(isNextResult, true, false);
-            reader["Date"].Returns(new DateTime(2021, 03, 01));
-            reader["TotalClick"].Returns(1);
-            reader["UniqueClick"].Returns(1);
+            var multipleReader = db.QueryMultiple();
+            multipleReader.IsEmptyOrClosed.Returns(false, false, true);
+            multipleReader.Read<TrackingStatistics>().ReturnsForAnyArgs(
+                new List<TrackingStatistics>
+                {
+                    new TrackingStatistics { Date = DateTime.Now, Fdm = 1, SignUps = 1, TotalClick = 1, UniqueClick = 1 },
+                    new TrackingStatistics { Date = DateTime.Now, Fdm = 1, SignUps = 1, TotalClick = 1, UniqueClick = 1 }
+                }
+                , new List<TrackingStatistics>());
             var repo = CreateRepo();
 
             var result = repo.GetTrackingStatistics(1, "", isInternal);
@@ -203,6 +207,31 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
 
             Assert.Equal(key, db.SettingKey);
             Assert.NotNull(result);
+        }
+
+        [Fact]
+        public void GetMarketingPageStatistics_WhenCall_QueryLandingPage()
+        {
+            const string uSpkey = "Aff_User_Rpt_MarketingPage_Statistics";
+            var param = new MarketingPageStatisticsParam();
+            var db = Builder.Build(uSpkey);
+            db.Query<MarketingPageStatistics>(param).Returns(new List<MarketingPageStatistics>
+            {
+                new MarketingPageStatistics {
+                    ChannelName = "",
+                    AffMediaLink = "",
+                    MarketName = "",
+                    TotalClick = 1,
+                    Language = "",
+                    UniqueClick = 1
+                }
+            });
+            var repo = CreateRepo();
+
+            var result = repo.GetMarketingPageStatistics(param);
+
+            Assert.Equal(uSpkey, db.SettingKey);
+            Assert.NotEmpty(result);
         }
     }
 }

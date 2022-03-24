@@ -15,9 +15,7 @@ using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Fanex.Logging;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
@@ -32,9 +30,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly IAuthRepository _authRepository;
         private readonly ILogger _logger;
 
-        private const int GENERAL_ERR = 999;
-
-        public PlayerTransferBalanceService(IPlayerTransferBalanceRepository playerTransferBalanceRepository, 
+        public PlayerTransferBalanceService(IPlayerTransferBalanceRepository playerTransferBalanceRepository,
             IAppSetting appSetting,
             ILicenseeApi licenseeApi,
             IAccountApi accountApi,
@@ -65,7 +61,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 result.Message = Lang.InvalidPlayer;
                 return result;
             }
-            
+
             var accWalletInfos = await _api.GetCustBalanceAsync(new [] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
             var affWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PaymentAccountId);
             var playerWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PlayerId);
@@ -86,21 +82,16 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
-        public async Task<(int errCode, string errMsg)> SubmitTransferBalanceRequestAsync(TransMoneyRequestViewModel param)
+        public async Task<ResultInfo> SubmitTransferBalanceRequestAsync(TransMoneyRequestViewModel param)
         {
+            var validateResult = ValidateAmountAndPermission(param.Amount);
+            if (!validateResult.IsOk)
+            {
+                return validateResult;
+            }
+
             var affId = _sessionService.UserSession.AffId;
             var summaryInfo = _repo.GetPlayerTransferBalanceInfo(affId, param.SubmitName);
-            var loginInfo = _authRepository.GetUserInfo(_sessionService.UserSession.UserName, _sessionService.IsInternal);
-
-            if (_sessionService.IsInternal || loginInfo.DisabledTransfer)
-            {
-                return (GENERAL_ERR, Lang.ErrAuthorized);
-            }
-
-            if(param.Amount <=0)
-            {
-                return (GENERAL_ERR, Lang.AmountMustPositiveNumber);
-            }
 
             var accWalletInfos = await _api.GetCustBalanceAsync(new[] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
             var playerWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PlayerId);
@@ -108,20 +99,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (playerWalletInfo == null)
             {
-                return (GENERAL_ERR, Lang.InvalidPlayer);
-            }    
+                return GetResultInfo(Lang.InvalidPlayer);
+            }
             if(affWalletInfo == null)
             {
-                return (GENERAL_ERR, Error.PaymentAccNotActive);
+                return GetResultInfo(Error.PaymentAccNotActive);
             }
 
             var baseAmount = param.Amount * param.PlayerExRate;
             if (baseAmount > summaryInfo.RemainTransferLimit || baseAmount > affWalletInfo.Balance)
             {
-                return (GENERAL_ERR, Lang.AmountMustNotExceedLimit);
+                return GetResultInfo(Lang.AmountMustNotExceedLimit);
             }
 
-            var insResult = _repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
+            var (TransId, ErrCode, ErrMsg) = _repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
             {
                 AffId = affId,
                 Amount = param.Amount,
@@ -133,20 +124,20 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 PlayerId = summaryInfo.PlayerId
             });
 
-            if (insResult.ErrCode != 0)
+            if (ErrCode != 0)
             {
-                var errMsg = TranslateInsTransferRequestErrCodeToErrMsg(insResult.ErrCode, insResult.ErrMsg);
-                return (insResult.ErrCode, errMsg);
+                var errMsg = TranslateInsTransferRequestErrCodeToErrMsg(ErrCode, ErrMsg);
+                return GetResultInfo(errMsg);
             }
 
             try
             {
-                var callApiResult = await _api.TransferMoneyToPlayerAsync(new MetalModels.Api.TransferMoneyParam
+                var callApiResult = await _api.TransferMoneyToPlayerAsync(new TransferMoneyParam
                 {
                     FromAmount = baseAmount,
                     FromCustId = summaryInfo.PaymentAccountId,
                     MaxTransferAmount = summaryInfo.TransferLimit,
-                    RefTransId = insResult.TransId.ToString(),
+                    RefTransId = TransId.ToString(),
                     SiteId = _appSetting.MemberSiteId,
                     ToAmount = param.Amount,
                     ToCustId = summaryInfo.PlayerId
@@ -154,25 +145,46 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
                 if (!callApiResult.IsSuccess)
                 {
-                    _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Failed);
-                    return (GENERAL_ERR, callApiResult.ErrMsg);
+                    _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Failed);
+                    return GetResultInfo(callApiResult.ErrMsg);
                 }
             }
             catch (Exception ex)
             {
                 _logger.Error($"Call api to transfer money fail - {ex.Message}");
-                _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Failed);
-                return (GENERAL_ERR, Error.ErrInternalError);
+                _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Failed);
+                return GetResultInfo(Error.ErrInternalError);
             }
 
 
-            var updResult = _repo.UpdateTransferBalanceRequest(insResult.TransId, TransferBalanceStatus.Completed);
-            if (updResult.ErrCode == 0 && playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS )
+            var updResult = _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Completed);
+            if (updResult.ErrCode == 0 )
             {
-                await ActiveDepositActStatusAsync(playerWalletInfo.CustId);
-            }
-            return (updResult.ErrCode, updResult.ErrMsg);
+                if(playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS)
+                {
+                    await ActiveDepositActStatusAsync(playerWalletInfo.CustId).ConfigureAwait(true);
+                }
 
+                return GetResultInfo(Lang.TransferSuccessful, true);
+            }
+            return GetResultInfo(updResult.ErrMsg);
+
+        }
+
+        private ResultInfo ValidateAmountAndPermission(decimal amount)
+        {
+            if (amount <= 0)
+            {
+                return GetResultInfo(Lang.AmountMustPositiveNumber);
+            }
+
+            var loginInfo = _authRepository.GetUserInfo(_sessionService.UserSession.UserName, _sessionService.IsInternal);
+            if (_sessionService.IsInternal || loginInfo.DisabledTransfer)
+            {
+                return GetResultInfo(Lang.ErrAuthorized);
+            }
+
+            return new ResultInfo { IsOk = true };
         }
 
         private async Task ActiveDepositActStatusAsync(int custId)
@@ -261,6 +273,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             return result;
         }
 
+        private static ResultInfo GetResultInfo(string message, bool isOk = false)
+        {
+            return new ResultInfo
+            {
+                IsOk = isOk,
+                Message = message
+            };
+        }
     }
 
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.UserPanel;
@@ -49,14 +48,14 @@ namespace Fanex.Affiliate.Admin.Core.Services.UserPanel
 
         private static void AssignParam(IObjectDb objectDb, CustomerMemberParam param)
         {
-            objectDb.AddInParameter("AffId", DbType.Int32, param.AffId);
-            objectDb.AddInParameter("MemberType", DbType.Int16, param.MemberType);
-            objectDb.AddInParameter("FromDate", DbType.Date, param.FromDate);
-            objectDb.AddInParameter("ToDate", DbType.Date, param.ToDate);
-            objectDb.AddInParameter("IsGetAll", DbType.Boolean, param.IsGetAll);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+            objectDb.SetParameterValue("AffId", param.AffId);
+            objectDb.SetParameterValue("MemberType", param.MemberType);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("IsGetAll", param.IsGetAll);
+            objectDb.SetParameterValue("PageSize", param.PageSize);
+            objectDb.SetParameterValue("PageIndex", param.PageIndex);
+            objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
     }
 }

@@ -64,23 +64,19 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public async Task<ActionResult> SubmitTransferMoney(TransMoneyRequestViewModel param)
         {
-            var result = new ResultInfo();
             if (param.SearchName != param.SubmitName)
             {
-                result.IsOk = false;
-                result.Message = Lang.DiffBetweenSearchAndUpdateName;
+                var result = new ResultInfo
+                {
+                    IsOk = false,
+                    Message = Lang.DiffBetweenSearchAndUpdateName
+                };
                 return Json(result);
             }
 
             var submitResult = await _playerTransferBalanceService.SubmitTransferBalanceRequestAsync(param);
-            result.IsOk = submitResult.errCode == 0;
-            result.Message = submitResult.errMsg;
-            if (result.IsOk)
-            {
-                result.Message = Lang.TransferSuccessful;
-            }
 
-            return Json(result);
+            return Json(submitResult);
         }
     }
 }

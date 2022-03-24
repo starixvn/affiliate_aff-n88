@@ -2,9 +2,14 @@
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.Admin.Core.Apis;
 using Fanex.Affiliate.User.Core.Infrastructure;
+using Fanex.Caching;
+using ONEbook.UM.Configurations;
+using ONEbook.UM.Helpers;
+using ONEbook.UM.NETFramework;
+using ONEbook.UM.Services;
+using ONEbook.UM.Transport;
 using Refit;
 using System;
-using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,6 +29,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
             builder.RegisterAssemblyTypes(asselmblyList).AsImplementedInterfaces();
 
+            builder.RegisterDependencies();
             builder.RegisterMemberSiteApi();
 
             // Register your MVC controllers. (MvcApplication is the name of
@@ -40,6 +46,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
             // Set the dependency resolver to be Autofac.
 
             var container = builder.Build();
+
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
@@ -75,5 +82,16 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
                 }));
         }
 
+        private static void RegisterDependencies(this ContainerBuilder builder)
+        {
+            builder.RegisterInstance(new UMClientConfiguration().Initialize());
+            builder.RegisterInstance<ICacheService>(new CacheService());
+
+            builder.RegisterType<UMCacheService>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<IPHelperImpl>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<UMRestClient>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<HttpContextHelper>().AsImplementedInterfaces().SingleInstance();
+            builder.RegisterType<MaintenanceService>().AsImplementedInterfaces().SingleInstance();
+        }
     }
 }

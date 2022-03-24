@@ -1,20 +1,22 @@
 ﻿namespace Affiliate.Banner
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
     using App_Start;
-    using Fanex.Data.Configuration;
+    using Fanex.Data;
+    using Fanex.Data.SqlServer;
     using Fanex.Logging;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
-        [SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic", Justification = "Reviewed. Suppression is OK here.")]
         protected void Application_Start()
         {
-            DbSettingProviderManager.Current.Start();
+            DbSettingProviderManager
+                .StartNewSession()
+                .WithSqlServer("~/App_Data/SpNames.xml")
+                .Run();
             AreaRegistration.RegisterAllAreas();
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

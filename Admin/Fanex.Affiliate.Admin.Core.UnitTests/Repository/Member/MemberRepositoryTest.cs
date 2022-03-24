@@ -25,7 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetMemberList());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(SpKeyMemberListSel, 120)).Returns(objectDb.Object);
 
@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             dataReader.SetupSequence(d => d.Read()).Returns(true).Returns(false);
 
             ReaderHelper.MapReaderData(dataReader, GetMemberListHasCreatedDateIsNull());
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(1);
             repository.Setup(r => r.GetObjectDb(SpKeyMemberListSel, 120)).Returns(objectDb.Object);
 
@@ -72,7 +72,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             var dataReader = new Mock<IDataReader>();
             dataReader.SetupSequence(d => d.Read()).Returns(false).Returns(false);
 
-            objectDb.Setup(o => o.ExecuteReader()).Returns(dataReader.Object);
+            objectDb.Setup(o => o.ExecuteReader(null, null)).Returns(dataReader.Object);
             objectDb.Setup(obj => obj.GetParameterValue("NRows")).Returns(DBNull.Value);
             repository.Setup(r => r.GetObjectDb(SpKeyMemberListSel, 120)).Returns(objectDb.Object);
 

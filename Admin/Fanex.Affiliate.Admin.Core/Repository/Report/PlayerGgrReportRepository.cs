@@ -48,17 +48,17 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 
         private static void AssignCommonParam(IObjectDb objectDb, PlayerGgrReportParam param)
         {
-            objectDb.AddInParameter("AffUsername", DbType.String, param.AffName);
-            objectDb.AddInParameter("Username", DbType.String, param.PlayerName);
-            objectDb.AddInParameter("FromDate", DbType.DateTime, param.FromDate);
-            objectDb.AddInParameter("ToDate", DbType.DateTime, param.ToDate);
-            objectDb.AddInParameter("ProductIds", DbType.String, param.ProductIds);
-            objectDb.AddInParameter("PageIndex", DbType.Int32, param.PageIndex);
-            objectDb.AddInParameter("PageSize", DbType.Int32, param.PageSize);
-            objectDb.AddInParameter("IsExportExcel", DbType.Boolean, param.IsExportExcel);
-            objectDb.AddInParameter("BaseCurrency", DbType.Int32, param.BaseCurrencyId);
+            objectDb.SetParameterValue("AffUsername", param.AffName);
+            objectDb.SetParameterValue("Username", param.PlayerName);
+            objectDb.SetParameterValue("FromDate", param.FromDate);
+            objectDb.SetParameterValue("ToDate", param.ToDate);
+            objectDb.SetParameterValue("ProductIds", param.ProductIds);
+            objectDb.SetParameterValue("PageIndex", param.PageIndex);
+            objectDb.SetParameterValue("PageSize", param.PageSize);
+            objectDb.SetParameterValue("IsExportExcel", param.IsExportExcel);
+            objectDb.SetParameterValue("BaseCurrency", param.BaseCurrencyId);
 
-            objectDb.AddOutParameter("NRows", DbType.Int32, Size.SizeOfInt);
+            objectDb.SetParameterValue("NRows", DefaultValue.Int);
         }
 
         private static PlayerGgrReport BuildDataItem(IDataReader reader, string[] selectedProductIdList)

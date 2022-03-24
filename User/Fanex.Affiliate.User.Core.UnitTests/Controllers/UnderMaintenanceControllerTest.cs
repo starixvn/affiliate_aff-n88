@@ -16,13 +16,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
     {
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
-        private readonly IMaintenanceService MaintenanceService;
+        private readonly IUnderMaintenanceService MaintenanceService;
 
         public UnderMaintenanceControllerTest()
         {
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
-            MaintenanceService = Substitute.For<IMaintenanceService>();
+            MaintenanceService = Substitute.For<IUnderMaintenanceService>();
         }
 
         [Fact]
