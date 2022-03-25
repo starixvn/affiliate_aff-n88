@@ -1,4 +1,5 @@
-﻿using Affiliate.N88.WebApi.Repository;
+﻿using Affiliate.N88.WebApi.Health;
+using Affiliate.N88.WebApi.Repository;
 using Fanex.Data;
 using Fanex.Data.MySql;
 using Fanex.Data.Repository;
@@ -28,7 +29,8 @@ namespace Affiliate.N88.WebApi.App_Start
             // Register your types, for instance:
             container.Register<IDynamicRepository, DynamicRepository>(Lifestyle.Singleton);
             container.Register<IPromotionRepository, PromotionRepository>(Lifestyle.Scoped);
-
+            container.RegisterHealthCheck();
+            
             // This is an extension method from the integration package.
             container.RegisterMvcControllers(Assembly.GetExecutingAssembly());
 
@@ -66,6 +68,22 @@ namespace Affiliate.N88.WebApi.App_Start
                 // as well as a default DbSetting provider
                 .WithMySql(resourcePath: ConfigurationManager.AppSettings["StoredProcedurePath"])
                 .Run();
+        }
+
+        private static void RegisterHealthCheck(this Container container)
+        {
+            const int masterSortOrder = 20;
+            const int slaveSortOrder = 21;
+            container.Collection.Append<IHealthCheckProvider>(() =>
+            {
+                var repo = container.GetInstance<IDynamicRepository>();
+                return new DatabaseHealthCheckProvider(repo, Infastructure.Enums.DatabaseServerType.Master, masterSortOrder);
+            }, Lifestyle.Scoped);
+            container.Collection.Append<IHealthCheckProvider>(() =>
+            {
+                var repo = container.GetInstance<IDynamicRepository>();
+                return new DatabaseHealthCheckProvider(repo, Infastructure.Enums.DatabaseServerType.Slave, slaveSortOrder);
+            }, Lifestyle.Scoped);
         }
     }
 }

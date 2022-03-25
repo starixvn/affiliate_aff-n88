@@ -9,6 +9,7 @@
     using System.Text;
     using System.Threading;
     using System.Web;
+    using System.Web.Http;
     using System.Web.Http.Controllers;
     using System.Web.Http.Filters;
 
@@ -32,6 +33,12 @@
             if (actionContext == null)
             {
                 throw new ArgumentNullException(nameof(actionContext), "Action Context cannot be null");
+            }
+
+            var allowAnonymousAttributes = actionContext.ActionDescriptor.GetCustomAttributes<AllowAnonymousAttribute>(true);
+            if (allowAnonymousAttributes.Count > 0)
+            {
+                return;
             }
 
             var request = actionContext.Request;
@@ -135,6 +142,6 @@
             MemoryCache.Default.Add(nonce, requestTimeStamp, DateTimeOffset.UtcNow.AddSeconds(RequestMaxAgeInSeconds));
 
             return false;
-        }
+        } 
     }
 }

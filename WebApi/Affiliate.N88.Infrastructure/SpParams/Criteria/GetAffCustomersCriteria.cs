@@ -5,9 +5,17 @@ namespace Affiliate.N88.SpParams.Criteria
 {
     public class GetAffCustomersCriteria : CriteriaBase
     {
-        public GetAffCustomersCriteria(DateTime fromDate) => FromDate = fromDate;
+        private const string SP_NAME = "Aff_CustomerSel";
 
-        public override string GetSettingKey() => "Aff_CustomerSel";
+        private string Prefix { get; }
+
+        public GetAffCustomersCriteria(DateTime fromDate, string prefix = null)
+        {
+            FromDate = fromDate;
+            Prefix = prefix;
+        }
+
+        public override string GetSettingKey() => string.IsNullOrWhiteSpace(Prefix) ? SP_NAME: $"{Prefix}_{SP_NAME}";
 
         public override bool IsValid() => true;
 

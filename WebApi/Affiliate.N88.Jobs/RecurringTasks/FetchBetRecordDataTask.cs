@@ -75,9 +75,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     await FetchAndInsertDataByPageAsync(range.FromDate, range.ToDate);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                    _logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}", ex);
                     throw;
                 }
             }
@@ -178,27 +178,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         private async Task<DateTime> GetLastTimeFetchDateAsync()
         {
-            var isUseDefaultDate = false;
-            DateTime lastFetchDate = new DateTime();
-            try
-            {
-                var adjustmentMin = Settings.AdjustmentValue;
-                var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
-                lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
-            }
-            catch (FileNotFoundException)
-            {
-                isUseDefaultDate = true;
-            }
-            catch (XmlException)
-            {
-                isUseDefaultDate = true;
-            }
-
-            if (isUseDefaultDate)
-            {
-                lastFetchDate = Settings.DefaultPullDate;
-            }
+            var adjustmentMin = Settings.AdjustmentValue;
+            var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
 
             return lastFetchDate;
         }

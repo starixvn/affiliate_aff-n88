@@ -39,7 +39,7 @@ namespace Affiliate.N88.Jobs.Services
         {
             var listTracker = await GetListTrackerAsync(source);
             if (!listTracker.Any())
-                throw new InvalidOperationException("List lasted date is zero");
+                throw new InvalidOperationException("Can't fetch any track time");
             return listTracker.OrderBy(minKeySelector).FirstOrDefault();
         }
 
@@ -75,7 +75,7 @@ namespace Affiliate.N88.Jobs.Services
 
         private async Task<IEnumerable<TrackerInfo>> GetListTrackerAsync(string source)
         {
-            var lstTracke = new List<TrackerInfo>();
+            var lstTracker = new List<TrackerInfo>();
             var supportedPrefix = Setting.SourcePrefix;
             foreach (var prefix in supportedPrefix)
             {
@@ -88,20 +88,17 @@ namespace Affiliate.N88.Jobs.Services
                     var trackerInfo = await _timeTrackerRepository.GetLastedTrackerAsync(param);
                     if(trackerInfo == null)
                     {
-                        trackerInfo = new TrackerInfo();
+                        await _logger.WarnAsync($"Can't get track time from {source} of DB {prefix}");
+                        continue;
                     }    
-                    if (trackerInfo.CalledTime == default(DateTime))
-                    {
-                        trackerInfo.CalledTime = Setting.DefaultTime;
-                    }
-                    lstTracke.Add(trackerInfo);
+                    lstTracker.Add(trackerInfo);
                 }
                 catch (Exception ex)
                 {
                     await _logger.WarnAsync(ex.Message);
                 }
             }
-            return lstTracke;
+            return lstTracker;
         }
     }
 }
