@@ -16,7 +16,7 @@ describe('common - components - PaymentRequestUpdateForm', () => {
         CompletedDateText: "08/16/2019 02:52:48 AM",
         TransId: 1262276212,
         Status: "Processing",
-        AffName: "12BETAFF226",
+        AffName: "B2CAFF226",
         Amount: 100,
         Creator: "AAwalter"
     };

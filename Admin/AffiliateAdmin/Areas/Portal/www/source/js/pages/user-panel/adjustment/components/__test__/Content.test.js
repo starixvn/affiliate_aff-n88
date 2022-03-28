@@ -8,7 +8,7 @@ describe('Adjustment - components - Content', () => {
     });
     const affInfo = {
         AffId: 1271808,
-        AffName: "12BETAFF226"
+        AffName: "B2CAFF226"
     };
     const data = 980228054;
     const defaultProps = {
@@ -222,6 +222,6 @@ describe('Adjustment - components - Content', () => {
         expect(window.setTimeout.mock.calls[0]).toEqual([expect.any(Function), 3000]);
         expect(window.setTimeout.mock.calls[1]).toEqual([expect.any(Function), 3000]);
         expect(wrapper.setState.mock.calls[2][0]).toEqual({ isShowMessage: false });
-        expect(props.getAffiliateInfo).toHaveBeenCalledWith('12BETAFF226', "adjustment");
+        expect(props.getAffiliateInfo).toHaveBeenCalledWith('B2CAFF226', "adjustment");
     });
 });

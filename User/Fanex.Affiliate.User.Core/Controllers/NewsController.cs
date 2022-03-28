@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
-using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -72,7 +71,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
             var isInternal = (userSession != null) && SessionService.IsInternal;
 
             var hotNews = _newsService.GetLatestHotNews(isInternal);
-            var preferredLanguage = userSession?.PreferredLanguage ?? SystemLanguage.DefaultLanguageCode;
+            var preferredLanguage = SessionService.CurrentLanguage;
             var viewModel = new LatestHotNewViewModel();
             if (hotNews != null)
             {

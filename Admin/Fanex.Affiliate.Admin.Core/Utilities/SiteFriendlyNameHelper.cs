@@ -4,7 +4,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
 {
     public static class SiteFriendlyNameHelper
     {
-        public static string Replace12Bet(string text)
+        public static string ReplaceB2C(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
             {
@@ -13,10 +13,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
 
             var siteFriendlyName = AppSetting.Instance.SiteFriendlyName;
 
-            return text
-                .Replace("12Bet", siteFriendlyName)
-                .Replace("12bet", siteFriendlyName)
-                .Replace("12BET", siteFriendlyName);
+            return text.Replace("B2C", siteFriendlyName);
         }
     }
 }

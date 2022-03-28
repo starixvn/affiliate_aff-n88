@@ -9,7 +9,7 @@ describe('active member - components - Activated ', () => {
             CreatedDate: "2017-07-06T10:24:00",
             CreatedDateText: "07/06/2017 10:24:00",
             FirstName: "",
-            IbcUserName: "12BETRMB0239317",
+            IbcUserName: "B2CRMB0239317",
             LastName: "",
             IbcCustId: 26522982
         }

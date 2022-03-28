@@ -2,21 +2,21 @@
 {
     public static class CacheKey
     {
-        public const string TextCategoryList = "Affiliate.12Bet.TextCategoryList";
+        public const string TextCategoryList = "Affiliate.B2C.TextCategoryList";
 
-        public const string BannerCategoryList = "Affiliate.12Bet.BannerCategoryList";
+        public const string BannerCategoryList = "Affiliate.B2C.BannerCategoryList";
 
-        public const string LanguageList = "Affiliate.12Bet.Languages";
+        public const string LanguageList = "Affiliate.B2C.Languages";
 
-        public const string CurrencyList = "Affiliate.12Bet.CurrencyList";
+        public const string CurrencyList = "Affiliate.B2C.CurrencyList";
 
-        public const string DomainList = "Affiliate.12Bet.DomainList";
+        public const string DomainList = "Affiliate.B2C.DomainList";
 
-        public const string SubDomainList = "Affiliate.12Bet.SubDomainList";
+        public const string SubDomainList = "Affiliate.B2C.SubDomainList";
 
-        public const string BannerTypeList = "Affiliate.12Bet.BannerTypeList";
+        public const string BannerTypeList = "Affiliate.B2C.BannerTypeList";
 
-        public const string LatestHotNews = "Affiliate.12Bet.LatestHotNews";
+        public const string LatestHotNews = "Affiliate.B2C.LatestHotNews";
 
         public const string SubAffTextCategoryList = "Affiliate.SubAffTextCategoryList";
 

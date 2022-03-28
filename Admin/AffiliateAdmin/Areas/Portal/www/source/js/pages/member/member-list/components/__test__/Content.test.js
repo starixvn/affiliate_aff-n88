@@ -9,24 +9,24 @@ describe('member list - components - Content ', () => {
 
     const gridData = [
         {
-            AffName: "12BETAFF017",
+            AffName: "B2CAFF017",
             CreatedDate: "2017-07-06T10:24:00",
             CreatedDateText: "07/06/2017 10:24:00",
             FirstName: "",
-            IbcUserName: "12BETRMB0239317",
+            IbcUserName: "B2CRMB0239317",
             LastName: "",
             MemberId: 26522982,
-            UserName: "12Bet$wjpwjp"
+            UserName: "B2C$wjpwjp"
         },
         {
-            AffName: "12BETAFF177",
+            AffName: "B2CAFF177",
             CreatedDate: "2017-07-05T18:25:00",
             CreatedDateText: "07/05/2017 18:25:00",
             FirstName: "",
-            IbcUserName: "12BETRMB0239312",
+            IbcUserName: "B2CRMB0239312",
             LastName: "",
             MemberId: 26518302,
-            UserName: "12Bet$jingguoan"
+            UserName: "B2C$jingguoan"
         }
     ];
 

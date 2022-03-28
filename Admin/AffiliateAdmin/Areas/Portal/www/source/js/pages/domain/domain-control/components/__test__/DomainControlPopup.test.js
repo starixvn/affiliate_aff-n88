@@ -17,7 +17,7 @@ describe('domain control - components - DomainControlPopup ', () => {
     const affDomainList = [
         {
             DomainId: 21,
-            DomainName: "10.18.200.209:7613/12BetGo"
+            DomainName: "10.18.200.209:7613/B2CGo"
         },
         {
             DomainId: 34,

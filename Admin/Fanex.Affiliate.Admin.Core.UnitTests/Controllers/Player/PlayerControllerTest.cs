@@ -28,14 +28,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Player
 
             controller.Url = urlHelperMock.Object;
             // Action
-            var viewResult = controller.Index("12BetAff226") as ViewResult;
+            var viewResult = controller.Index("B2CAff226") as ViewResult;
             var viewName = viewResult.ViewName;
             var model = viewResult.Model as MemberListViewModel;
 
             // Assert
             Assert.Empty(viewName);
             Assert.True(model.IsFromOtherPages);
-            Assert.Equal("12BetAff226", model.AffName);
+            Assert.Equal("B2CAff226", model.AffName);
         }
 
         [Fact]

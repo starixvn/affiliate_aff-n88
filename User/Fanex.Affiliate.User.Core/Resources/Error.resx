@@ -132,12 +132,6 @@
   <data name="InvalidEmail" xml:space="preserve">
     <value>Invalid email.</value>
   </data>
-  <data name="LoginClosedAccount" xml:space="preserve">
-    <value>Your account is suspended. Please contact your administrator!</value>
-  </data>
-  <data name="LoginLockedAccount" xml:space="preserve">
-    <value>Your account is locked temporarily due to 5 consecutive failed login attempts. Please try again after 10 minutes or contact your administrator!</value>
-  </data>
   <data name="LoginWrongInfo" xml:space="preserve">
     <value>Wrong username or password.</value>
   </data>
@@ -148,7 +142,7 @@
     <value>You cannot request payout because of insufficient balance.</value>
   </data>
   <data name="PaymentMethodInvalid" xml:space="preserve">
-    <value>Sorry! The payment via {0} is not available. At the moment, only 'N88 Player Account' method is supported. Please &lt;a href='{1}'&gt;click here&lt;/a&gt; to make a change.</value>
+    <value>Sorry! The payment via {0} is not available. At the moment, only 'B2C Player Account' method is supported. Please &lt;a href='{1}'&gt;click here&lt;/a&gt; to make a change.</value>
   </data>
   <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
     <value>You can only request payout from 8th to 15th of the month.</value>

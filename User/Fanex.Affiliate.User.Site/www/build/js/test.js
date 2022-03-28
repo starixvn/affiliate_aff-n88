@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-var Aff12BetTesting = (function ($) {
+var AffB2CTesting = (function ($) {
     function getUrl(actionName) {
         var rootAction = $("#rootAction").val();
         var format = $('input[name=Format]:checked').val() || "cshtml";
@@ -11,7 +11,7 @@ var Aff12BetTesting = (function ($) {
 
     return {
         initialize: function initialize() {
-            Aff12BetTesting.initEvent();
+            AffB2CTesting.initEvent();
         },
 
         initEvent: function initEvent() {
@@ -61,5 +61,5 @@ var Aff12BetTesting = (function ($) {
     };
 })(jQuery);
 
-Aff12BetTesting.initialize();
+AffB2CTesting.initialize();
 

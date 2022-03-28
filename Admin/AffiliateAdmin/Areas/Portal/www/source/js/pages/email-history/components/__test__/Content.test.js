@@ -22,7 +22,7 @@ describe('email history - components - Content ', () => {
 
     const gridData = [
         {
-            AffName: "12BETAFF12885",
+            AffName: "B2CAFF12885",
             Content: null,
             Email: "te@te1.com",
             EmailId: 2255,
@@ -31,11 +31,11 @@ describe('email history - components - Content ', () => {
             Subject: "Captcha Test 10"
         },
         {
-            AffName: "12BETAFF226",
+            AffName: "B2CAFF226",
             Content: null,
             Email: "maia.le4@starixsoft.com",
             EmailId: 2205,
-            Sender: "12BETAFF226 12BETAFF226",
+            Sender: "B2CAFF226 B2CAFF226",
             SentDateText: "10/07/2018 23:14:09",
             Subject: "dhgd"
         }

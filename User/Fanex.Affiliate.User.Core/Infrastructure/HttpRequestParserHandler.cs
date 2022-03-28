@@ -17,7 +17,6 @@ namespace Fanex.Affiliate.User.Core.Infrastructure
         {
             _request = request;
         }
-
         public IAppSetting AppSetting { get; set; }
 
         public IDateTimeProvider DateTimeProvider { get; set; }
@@ -68,12 +67,12 @@ namespace Fanex.Affiliate.User.Core.Infrastructure
 
         private bool IsExpired(string timeTickString, int expirationByMinute)
         {
-            var minDateTime = DateTimeProvider.Now.AddMinutes(expirationByMinute * -1);
+            var dateTimeProvider = DateTimeProvider ?? DependencyResolver.Current.GetService<IDateTimeProvider>();
+            var minDateTime = dateTimeProvider.Now.AddMinutes(expirationByMinute * -1);
             var timeTicks = Convert.ToInt64(timeTickString);
             var dateTimeRequest = new DateTime(timeTicks, DateTimeKind.Local);
 
             return DateTime.Compare(dateTimeRequest, minDateTime) < 0;
         }
-
     }
 }

@@ -108,12 +108,12 @@ describe('commission group - Content', () => {
     it('onPaging - should call getGroupSettingList', () => {
         const mockGetGroupSettingList = jest.fn();
 
-        const props = Object.assign({}, defaultProps, { getGroupSettingList: mockGetGroupSettingList, searchedGroupName: '12Bet' });
+        const props = Object.assign({}, defaultProps, { getGroupSettingList: mockGetGroupSettingList, searchedGroupName: 'B2C' });
         const componentInstance = new Content(props);
 
         componentInstance.onPaging(1, 20);
 
-        expect(props.getGroupSettingList).toHaveBeenCalledWith({ GroupName: "12Bet", PageIndex: 1, PageSize: 20 });
+        expect(props.getGroupSettingList).toHaveBeenCalledWith({ GroupName: "B2C", PageIndex: 1, PageSize: 20 });
     });
 
     it('should render correctly', () => {

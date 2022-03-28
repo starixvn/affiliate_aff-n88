@@ -59,7 +59,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     MailBcc = emailParam.MailBcc,
                     MailCc = emailParam.MailCc,
                     MailContact = emailParam.MailContact,
-                    SiteFriendlyName = emailParam.SiteFriendlyName,
                     FirstName = signUpParam.FirstName,
                     LastName = signUpParam.LastName,
                     UserName = signUpParam.UserName,
@@ -84,7 +83,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         {
             var cust = await GetMemberSiteCustomer(userName);
             var result = CheckPlayerUserNameValid(cust);
-            if (cust.Status == CustomerStatus.LOCKED)
+            if (cust?.Status == CustomerStatus.LOCKED)
             {
                 var apiResult = await _licenseeApi.UnlockUser(new [] { cust.CustId});
                 result.IsOk = apiResult.IsSuccess;
@@ -126,7 +125,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                         break;
                     default:
                         validInfo.IsOk = false;
-                        validInfo.Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed);
+                        validInfo.Message = SiteFriendlyNameHelper.ReplaceB2C(Lang.errDepositDBConnectFailed);
                         break;
                 }
             }

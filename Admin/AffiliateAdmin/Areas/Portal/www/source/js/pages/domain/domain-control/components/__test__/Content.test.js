@@ -7,7 +7,7 @@ describe('domain control - components - Content ', () => {
     const affDomainList = [
         {
             DomainId: 21,
-            DomainName: "10.18.200.209:7613/12BetGo"
+            DomainName: "10.18.200.209:7613/B2CGo"
         },
         {
             DomainId: 34,
@@ -28,7 +28,7 @@ describe('domain control - components - Content ', () => {
 
     const gridData = [
         {
-            AffDomain: "10.18.200.209:7613/12BetGo",
+            AffDomain: "10.18.200.209:7613/B2CGo",
             AffDomainId: 21,
             CreatedDate: "2018-05-02T04:23:45.707",
             CreatedDateText: "05/02/2018",

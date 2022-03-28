@@ -1,7 +1,7 @@
 ﻿var Product = (function ($) {
     function initSlider() {
-        var $productBanner = $('#productBanner');
-        $productBanner.carousel();
+        //var $productBanner = $('#productBanner');
+        //$productBanner.carousel();
     }
 
     var _me = {

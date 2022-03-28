@@ -111,7 +111,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             mockApi.Setup(a => a.GetCustomerInfoAsync(It.IsAny<string>(), It.IsAny<int>()))
                             .ReturnsAsync(new MemberSiteCustomerInfo { Status = null });
 
-            var expectedResult = new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.Replace12Bet(Lang.errDepositDBConnectFailed) };
+            var expectedResult = new ResultInfo { IsOk = false, Message = SiteFriendlyNameHelper.ReplaceB2C(Lang.errDepositDBConnectFailed) };
 
             var accountService = CreateAccountService(Mock.Of<IAccountRepository>(), mockApi.Object);
 
@@ -127,7 +127,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task CreateAffiliate_CreateSuccessfully_ReturnCorrectResult()
         {
             // Arrange
-            var expectedResultInfo = new ResultInfo { IsOk = true, Message = SiteFriendlyNameHelper.Replace12Bet(string.Empty) };
+            var expectedResultInfo = new ResultInfo { IsOk = true, Message = SiteFriendlyNameHelper.ReplaceB2C(string.Empty) };
             var signUpParam = new UserSignUpParam { IsLocal = true };
             var accountRepository = new Mock<IAccountRepository>();
             var mockApi = new Mock<ILicenseeApi>();

@@ -23,7 +23,6 @@
 
         private readonly string _mailContact;
         private readonly string _userName;
-        private readonly string _siteFriendlyName;
         private const int AffId = 123456;
 
         public TestController(ISessionService sessionService,
@@ -31,7 +30,6 @@
         {
             _mailProcessor = mailProcessor;
             _appSetting = appSetting;
-            _siteFriendlyName = appSetting.SiteFriendlyName;
             _mailContact = appSetting.GetMailContactByLanguageCode(sessionService.UserSession?.PreferredLanguage ?? sessionService.CurrentLanguage);
             _userName = sessionService.UserSession?.UserName ?? "NovaAff0000";
         }
@@ -57,9 +55,9 @@
 
             try
             {
-                LanguageService.SetCulture(criteria.Language);
+                SetLanguage(criteria);
                 ViewBag.Data = GetEmailContent(criteria);
-                LanguageService.SetCulture("en-US");
+                LanguageService.SetCulture(SystemLanguage.EnglishLanguageCode);
             }
             catch (Exception ex)
             {
@@ -82,14 +80,15 @@
 
             try
             {
-                LanguageService.SetCulture(criteria.Language);
+                SetLanguage(criteria);
                 var content = GetEmailContent(criteria);
                 string Subject = GetSubject(criteria.Function);
-                LanguageService.SetCulture("en-US");
 
                 var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
 
                 _mailProcessor.Send(content, criteria.EmailAddress, Subject, appMailId: appMailId);
+
+                LanguageService.SetCulture(SystemLanguage.EnglishLanguageCode);
             }
             catch (Exception ex)
             {
@@ -104,6 +103,12 @@
             };
 
             return Json(result);
+        }
+
+        private void SetLanguage(TestCriteria criteria)
+        {
+            criteria.Language = string.Equals("Csd", criteria.Function) ? SystemLanguage.EnglishLanguageCode : criteria.Language;
+            LanguageService.SetCulture(criteria.Language);
         }
 
         private string GetEmailContent(TestCriteria criteria)
@@ -135,7 +140,7 @@
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = language,
                 Content = content,
-                Title = "This is title"
+                Title = "This is title " + language
             };
             var viewPath = Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
 
@@ -203,7 +208,7 @@
                 UserName = _userName,
                 FirstName = "Firs Name",
                 LastName = "Last Name",
-                SiteFriendlyName = _siteFriendlyName,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 SiteUrl = "abc.com.vn",
                 MoreSiteUrls = "xyz.com.vn",
                 MailContact = _mailContact
@@ -216,7 +221,7 @@
             {
                 User = GetUserInfo(),
                 MailContact = _mailContact,
-                SiteFriendlyName = _siteFriendlyName,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 Code = "12345",
                 RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact
@@ -232,7 +237,7 @@
             {
                 User = GetUserInfo(),
                 MailContact = _mailContact,
-                SiteFriendlyName = _siteFriendlyName,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 DefaultCurrency = _appSetting.DefaultCurrency,
                 TransId = TranId,
                 RequestDate = DateTime.Now.Date,
@@ -249,7 +254,7 @@
             {
                 User = GetUserInfo(),
                 MailContact = _mailContact,
-                SiteFriendlyName = _siteFriendlyName,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 NewPassword = "1234aa",
                 RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 MailTo = _mailContact,
@@ -262,7 +267,7 @@
             {
                 User = GetUserInfo(),
                 MailContact = _mailContact,
-                SiteFriendlyName = _siteFriendlyName,
+                SiteFriendlyName = _appSetting.SiteFriendlyName,
                 RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                 Code = "123456",
                 Ip = "127.0.0.1"
@@ -279,7 +284,7 @@
                 Email = "abc@nova.com",
                 LastName = "Last name",
                 MailOption = false,
-                PreferredLanguage = "en-US"
+                PreferredLanguage = SystemLanguage.EnglishLanguageCode
             };
         }
 

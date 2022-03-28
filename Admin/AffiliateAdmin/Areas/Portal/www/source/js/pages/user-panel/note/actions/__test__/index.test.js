@@ -94,7 +94,7 @@ describe('note actions', () => {
             data: {
                 CreatedBy: null,
                 LastModifyText: "N/A",
-                NoteContent: "12BETAFF226",
+                NoteContent: "B2CAFF226",
                 NoteId: 1001
             }, status: 200
         };
@@ -159,7 +159,7 @@ describe('note actions', () => {
         ajaxRequest.post = jest.fn(() => Promise.resolve(expectedResponse));
         const param = {
             affId: 1271808,
-            noteContent: "12BETAFF226",
+            noteContent: "B2CAFF226",
             noteId: 1001
         }
 

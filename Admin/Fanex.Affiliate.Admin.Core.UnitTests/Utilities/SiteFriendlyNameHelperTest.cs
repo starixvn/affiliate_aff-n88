@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
             // Arrange
 
             // Action
-            var result = SiteFriendlyNameHelper.Replace12Bet(string.Empty);
+            var result = SiteFriendlyNameHelper.ReplaceB2C(string.Empty);
 
             // Assert
             Assert.Equal(string.Empty, result);

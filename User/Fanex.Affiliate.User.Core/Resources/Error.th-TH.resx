@@ -121,16 +121,10 @@
     <value>คุณได้ระบุอีเมลล์ที่มีในระบบแล้ว กรุณาเปลี่ยนและลองอีกครั้ง หรือ &lt;a href="{0}" class='err-msg'&gt; ติดต่อเรา&lt;/a&gt;</value>
   </data>
   <data name="ForgotPassword1008" xml:space="preserve">
-    <value>อีเมลล์แอดเดรสนี้ได้ถูกใช้ในการสมัครเป็นพันธมิตรกับ N88 และได้ถูกปิดเรียบร้อยแล้ว กรุณาลองใหม่อีกครั้ง หรือคลิ๊กไปที่&lt;a href="{0}" class='err-msg'&gt;ติดต่อเรา&lt;/a&gt;.</value>
+    <value>อีเมลล์แอดเดรสนี้ได้ถูกใช้ในการสมัครเป็นพันธมิตรกับ B2C และได้ถูกปิดเรียบร้อยแล้ว กรุณาลองใหม่อีกครั้ง หรือคลิ๊กไปที่&lt;a href="{0}" class='err-msg'&gt;ติดต่อเรา&lt;/a&gt;.</value>
   </data>
   <data name="ForgotPassword1009" xml:space="preserve">
     <value>อีเมลล์แอดเดรสนี้ถูกใช้ในการการสมัครเป็นพันธมิตรเรียบร้อยแล้วและไม่ได้รับการอนุมัติ กรุณาลองใหม่อีกครั้งหรือ  &lt;a href="{0}" class='err-msg'&gt;ติดต่อเรา&lt;/a&gt;.</value>
-  </data>
-  <data name="LoginClosedAccount" xml:space="preserve">
-    <value>บัญชีของคุณถูดปิด กรุณาติดต่อฝ่ายบริการลูกค้า!</value>
-  </data>
-  <data name="LoginLockedAccount" xml:space="preserve">
-    <value>บัญชีของคุณถูดปิด กรุณาติดต่อฝ่ายบริการลูกค้า!</value>
   </data>
   <data name="LoginWrongInfo" xml:space="preserve">
     <value>ชื่อผู้ใช้เข้าสู่ระบบ หรือ รหัสผ่านที่กรอกไม่ถูกต้องค่ะ</value>
@@ -139,7 +133,7 @@
     <value>คุณไม่สามารถขอถอนเงินเพราะว่าคุณมียอดเงินคงเหลือไม่เพียงพอ</value>
   </data>
   <data name="PaymentMethodInvalid" xml:space="preserve">
-    <value>ขออภัย! ธุรกรรณผ่าน {0} ไม่สามารถใช้ได้  หากต้องการทำธุรกรรมตอนนี้ต้องทำผ่าน บัญชีผู้เล่น N88 เท่านั้นคะ  กรุณา&lt;a href='{1}'&gt; คลิ๊ก &lt;/a&gt; ที่นี่เพื่อเปลี่ยนวิธีการ</value>
+    <value>ขออภัย! ธุรกรรณผ่าน {0} ไม่สามารถใช้ได้  หากต้องการทำธุรกรรมตอนนี้ต้องทำผ่าน บัญชีผู้เล่น B2C เท่านั้นคะ  กรุณา&lt;a href='{1}'&gt; คลิ๊ก &lt;/a&gt; ที่นี่เพื่อเปลี่ยนวิธีการ</value>
   </data>
   <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
     <value>คุณจะสามารถถอนเงินได้ระหว่างวันที่ 8 ถึงวันที่ 15 ของเดือนเท่านั้น</value>

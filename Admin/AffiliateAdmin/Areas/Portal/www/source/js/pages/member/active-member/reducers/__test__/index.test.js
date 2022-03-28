@@ -9,7 +9,7 @@ const runTestReducer = ({ name, value, action, expectedResult }) => {
 }
 
 const testCaseList = [
-    { name: 'userNames', value: null, action: { type: types.SET_USER_NAMES, data: "12BETAFF226" }, expectedResult: "12BETAFF226" },
+    { name: 'userNames', value: null, action: { type: types.SET_USER_NAMES, data: "B2CAFF226" }, expectedResult: "B2CAFF226" },
     { name: 'isShowText', value: null, action: { type: types.SET_SHOW_TEXT, data: true }, expectedResult: true },
     { name: 'message', value: null, action: { type: types.SET_MESSAGE, data: "abc" }, expectedResult: "abc" },
     { name: 'memberNotExist', value: '', action: { type: types.SET_MEMBER_NOT_EXIST, data: "abc" }, expectedResult: "abc" },

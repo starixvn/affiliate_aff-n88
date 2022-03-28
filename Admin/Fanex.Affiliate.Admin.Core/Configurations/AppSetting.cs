@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Fanex.Affiliate.Admin.Core.Resources;
+using System;
 using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
 
@@ -59,7 +60,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string SiteName => GetValue("SiteName");
 
-        public string SiteFriendlyName => GetValue("SiteFriendlyName");
+        public string SiteFriendlyName => Lang.ResourceManager.GetString(GetValue("SiteFriendlyName"));
 
         public string DefaultLanguage => GetValue("DefaultLanguage");
 

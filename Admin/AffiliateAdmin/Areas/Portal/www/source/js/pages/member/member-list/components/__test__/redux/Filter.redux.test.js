@@ -20,12 +20,12 @@ describe('member list - Filter - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            affName: '12BETAFF226',
+            affName: 'B2CAFF226',
             isFromOtherPages: true,
             pagingOption: { PageSize: 1, PageIndex: 20 }
         };
         const state = {
-            affName: '12BETAFF226',
+            affName: 'B2CAFF226',
             isFromOtherPages: true,
             pagingOption: { PageSize: 1, PageIndex: 20 },
             anotherProp: "Not included"

@@ -20,11 +20,11 @@ describe('left panel - OnlineInfoPanel - connect', () => {
     it('props should be mapped correctly', () => {
         const expectedResult = {
             affiliateInfo: { AffId: 1271808 },
-            affName: '12BETAFF226'
+            affName: 'B2CAFF226'
         };
 
         const state = {
-            leftPanel: { affiliateInfo: { AffId: 1271808 }, affName: '12BETAFF226' },
+            leftPanel: { affiliateInfo: { AffId: 1271808 }, affName: 'B2CAFF226' },
             anotherProp: "Not included"
         };
 

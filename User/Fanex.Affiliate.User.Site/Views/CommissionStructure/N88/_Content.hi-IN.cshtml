@@ -1,0 +1,132 @@
+﻿@{
+    var appSetting = AppSetting.Instance;
+    var maxCommisison = appSetting.MaxCommission;
+    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.hi-IN.jpg?v={appSetting.JsVersion}");
+}
+@*<div class="banner">
+    <img src="@bannerSrc" alt="commission banner" />
+</div>*@
+
+<div class="info-group">
+    <div class="title">
+        <span class="text">हमारे पास क्या है?</span>
+    </div>
+    <ul>
+        <li class="text">
+            खेल, लाइव कैसीनो, आभासी खेल, केनो, स्लॉट गेम जैसे शीर्ष-स्तरीय गेमिंग और ऑनलाइन सट्टेबाजी उत्पाद साथ ही खेलों का एक विस्तृत चयन|
+        </li>
+        <li class="text">
+            5 से अधिक भाषाओं वाला प्रसिद्ध ब्रांड इसलिए आपके लिए सदस्यों को आकर्षित करना आसान है
+        </li>
+        <li class="text">
+            उच्च सदस्य रूपांतरण और प्रतिधारण दर सुनिश्चित करने वाले सामरिक विपणन उपकरण
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">हमारी पेशकश</span>
+    </div>
+    <ul>
+        <li class="text">
+            @maxCommisison तक रेवनू शेयर दर
+        </li>
+        <li class="text">
+            10% का अतिरिक्त - हमारे संबद्ध कार्यक्रम में अपने उप-संबद्ध के रूप में शामिल होने के लिए दोस्तों को भर्ती करें और अपना इनाम प्राप्त करें!
+        </li>
+        <li class="text">
+            आपके प्रदर्शन पर नज़र रखने वाली प्रभावी और उपयोग में आने वाली आसान प्रबंधन प्रणाली
+        </li>
+        <li class="text">
+            मित्रवत और पेशेवर सहयोगी टीम आपकी सहायता के लिए हमेशा तैयार रहती है
+        </li>
+    </ul>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">हमारी योजना</span>
+    </div>
+    <p class="text">
+        आपके रेवनू शेयर में दो भाग होते हैं: (i) आपके निर्दिष्ट खिलाड़ी के सट्टेबाजी के नुकसान से और (ii) आपके संदर्भित सहयोगी के रेवनू शेयर से:
+    </p>
+    <ol type="i">
+        <li class="text-block">
+            <strong>बहु-स्तरीयरेवनू शेयर संरचना:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <ul>
+                <li class="text" style="margin-top: 15px;">
+                    <strong>कंपनी नेट विन:</strong> आपके द्वारा नोव88 के लिए अनुशंसित सभी खिलाड़ियों का मासिक नुकसान।
+                </li>
+                <li class="text">
+                    <strong>सक्रिय खिलाड़ी:</strong> वे सदस्य जिन्होंने महीने में कम से कम एक (1) बेट लगाई हो।
+                </li>
+                <li class="text">
+                    किसी भी महीने के लिए नकारात्मक रेवनू शेयर अगले महीने के लिए आगे बढ़ा दी जाएगी।
+                </li>
+                <li class="text">
+                    सभी सहयोगी सदस्यों के अधिग्रहण के लिए सीधे प्रशासनिक और विपणन लागतों के अधीन हैं।
+                </li>
+                <li class="text">
+                    मासिक आधार पर रेवनू से कटौती की गई लागत। इस लागत में निम्नलिखित शामिल हो सकते हैं:
+                    <ul class="dash">
+                        <li>
+                            बैंकिंग शुल्क - सभी संबद्ध ग्राहकों को शामिल करने वाले प्रत्येक के लिए जमा और निकासी शुल्क।
+                        </li>
+                        <li>
+                            रॉयल्टी शुल्क - उत्पाद रॉयल्टी शुल्क, जो संबद्ध ग्राहकों द्वारा खेले गए उत्पाद से जीजीआर का 10% है।
+                        </li>
+                        <li>
+                            प्रमोशन बोनस - संबद्ध ग्राहकों को दिए जाने वाले मौद्रिक बोनस या छूट।
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="text-block"><strong>संबद्ध संरचना:</strong> आप अपने संदर्भित सहयोगियों के राजस्व हिस्से से अतिरिक्त 10% प्राप्त करने के योग्य होंगे, और जब तक वे अन्य सहयोगियों को इसमें लाते हैं, तब तक आप उनके उप-संबद्धों के राजस्व हिस्से से भी हिस्सा प्राप्त कर सकते हैं!</li>
+    </ol>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text"><i>रेवेन्यू शेयर पेआउट उदाहरण</i></span>
+    </div>
+    <p class="text">
+        <i>चित्र 1:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके रेफ़र किए गए खिलाड़ियों से अर्जित आपके रेवनू शेयर की गणना कैसे की जाती है
+    </p>
+    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+<p class="text">
+    <i>चित्र 2:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके संदर्भित सहयोगियों (और उनके उप-संबद्धों) से अर्जित आपकी रेवनू शेयर की गणना कैसे की जाती है
+</p>
+    <div class="img-support" style="max-width: 600px; margin: 15px auto;">
+        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+    </div>
+    <p class="text">
+        संदर्भित सहयोगियों से अर्जित आपका रेवनू शेयर:
+    </p>
+    <div style="padding-left: 30px;">
+        <p class="text">
+            = [B1+ ((C1 + C2) * 10%)]*10% + [B2 * 10%]
+        </p>
+        <p class="text">
+            = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
+        </p>
+        <p class="text">
+            = 7,800 USD
+        </p>
+    </div>
+    <p class="text">
+        <strong>=></strong> महीने के लिए आपका कुल रेवनू शेयर होगा: 58,050 + 7,800 = <strong>65,850 USD</strong>
+    </p>
+</div>
+<div class="info-group">
+    <div class="title">
+        <span class="text">हम कैसे भुगतान करते हैं</span>
+    </div>
+    <ul>
+        <li class="text">
+            महीने में एक बार, आपके नोव88 प्लेयर खाते (THB, MYR, IDR,INR और CNY ) के माध्यम से और न्यूनतम निकासी राशि USD 100 है। अन्य मुद्राओं के लिए नोव88 एफिलिएट प्रोग्राम टीम से अनुरोध करने की आवश्यकता है।
+        </li>
+        <li class="text">
+            उसी महीने में कोई दूसरा निकासी अनुरोध नोव88 एफिलिएट प्रोग्राम टीम के अनुमोदन के अधीन होगा।
+        </li>
+    </ul>
+</div>

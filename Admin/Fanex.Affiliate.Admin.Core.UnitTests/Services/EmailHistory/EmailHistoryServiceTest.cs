@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.EmailHistory
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["Affname"] = "12BetAff226",
+                ["Affname"] = "B2CAff226",
                 ["MID"] = 123,
                 ["Sender"] = "123",
                 ["Subject"] = "vi-VN",

@@ -121,7 +121,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 ImageRootUrl = string.Format(TemplateString.EmailImageRootPath, domain),
                 Language = language,
                 Content = content,
-                Title = "This is title"
+                Title = "This is title " + language
             };
             var viewPath = Server.MapPath("~/Areas/Portal/Views/Shared/Email/CommonLayout.cshtml");
 
@@ -136,6 +136,14 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
             switch (functionName)
             {
+                case "AffiliateDisapproved":
+                    return new AffInformationEmail
+                    {
+                        MailContact = mailContact,
+                        SiteFriendlyName = _appSetting.SiteFriendlyName,
+                        UserSiteUrl = _appSetting.GetAffSiteUrlByShortedLanguageCode(shortedLanguageCode),
+                        FirstName = _firstName
+                    };
                 case "AffiliateInformation":
                     return new AffInformationEmail
                     {

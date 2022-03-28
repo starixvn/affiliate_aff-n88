@@ -24,7 +24,7 @@ describe('customer member - components - Content', () => {
             LastName: "",
             RegisteredDate: "2017-07-02T13:44:00",
             RegisteredDateString: "07/02/2017 01:44:00 PM",
-            UserName: "12Bet$thongchart14"
+            UserName: "B2C$thongchart14"
         },
         {
             CurrencyName: "RMB",

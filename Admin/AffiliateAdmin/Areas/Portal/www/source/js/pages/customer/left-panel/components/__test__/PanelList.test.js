@@ -6,8 +6,8 @@ describe('left panel - components - PanelList', () => {
     it('render correctly with affiliateInfo is not null', () => {
         const affiliateInfo = {
             AffId: 1271808,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF226",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=B2CAFF226&accId=1000000026&accOnId=8405",
+            AffName: "B2CAFF226",
             AffType: 2,
             BalanceBf: 9802280.5446,
             CommGroupName: "NoCommission",
@@ -18,7 +18,7 @@ describe('left panel - components - PanelList', () => {
             IsClosed: false,
             LastLoginDateText: "04/11/2019 22:24:00",
             LastLoginIp: "10.18.200.125",
-            LastName: "12BETAFF226",
+            LastName: "B2CAFF226",
             MoreSiteUrl: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
             NoSiteDescription: "",
             Phone: "abc",
@@ -34,8 +34,8 @@ describe('left panel - components - PanelList', () => {
     it('render correctly with affiliateInfo has status is not approved', () => {
         const affiliateInfo = {
             AffId: 1219631,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
-            AffName: "12BETAFF016",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=B2CAFF016&accId=1000000026&accOnId=8405",
+            AffName: "B2CAFF016",
             AffType: 2,
             BalanceBf: 0,
             CommGroupName: "",

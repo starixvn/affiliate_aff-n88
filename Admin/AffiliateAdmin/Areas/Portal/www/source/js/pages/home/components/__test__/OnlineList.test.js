@@ -25,7 +25,7 @@ describe('home - components - OnlineList', () => {
                 LoggedInDate: "2019-11-14T23:36:00",
                 LoggedInDateText: "11/14/2019 23:36:00",
                 Role: "Aff",
-                UserName: "12BETAFF226"
+                UserName: "B2CAFF226"
             }
         ],
         getOnlineList: jest.fn()

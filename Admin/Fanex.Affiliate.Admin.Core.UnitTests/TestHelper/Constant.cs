@@ -8,7 +8,7 @@
 
         public const int AffId = 1271808;
 
-        public const string AffName = "12BETAFF226";
+        public const string AffName = "B2CAFF226";
 
         public const int OnUserId = 8647;
 

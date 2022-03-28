@@ -47,7 +47,7 @@ describe('payment request - App', () => {
                 MailOption: false,
                 PlayerUsername: "bettingexp",
                 PreferredLanguage: "en-US",
-                UserName: "12BETAFF226"
+                UserName: "B2CAFF226"
             }
         }
     });

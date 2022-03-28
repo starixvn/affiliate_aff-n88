@@ -237,7 +237,7 @@ describe('commission group - GridData ', () => {
             Creator: "AAnina",
             Description: "",
             GroupId: 1271808,
-            GroupName: "12BETAFF226",
+            GroupName: "B2CAFF226",
             NoAffs: 2,
             OperationalFee: {
                 DeductedPercentage: 0.15,

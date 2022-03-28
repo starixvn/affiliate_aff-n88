@@ -27,15 +27,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         {
             // Arrange
             var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
-            customerLeftPanelService.Setup(s => s.GetAffiliateInfoOnLeftPanel(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "12BETAFF226" });
+            customerLeftPanelService.Setup(s => s.GetAffiliateInfoOnLeftPanel(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).Returns(new AffiliateInfoOnLeftPanel { AffName = "B2CAFF226" });
             var controller = CreateCustomerLeftPanelController(customerLeftPanelService: customerLeftPanelService.Object);
 
             // Action
-            var result = controller.GetAffiliateInfo("12BETAFF226") as JsonNetResult;
+            var result = controller.GetAffiliateInfo("B2CAFF226") as JsonNetResult;
             var item = result.Data as AffiliateInfoOnLeftPanel;
 
             // Assert
-            Assert.Equal("12BETAFF226", item.AffName);
+            Assert.Equal("B2CAFF226", item.AffName);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         public void GetOnlineList_WhenCallWithValidParam_ExcuteWithCorrectData()
         {
             // Arrange
-            var param = "12BETAFF226";
+            var param = "B2CAFF226";
             var passedParam = string.Empty;
             var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
             customerLeftPanelService.Setup(s => s.GetOnlineList(param)).Returns(new List<OnlineList> { new OnlineList()}).Callback<string>(p => passedParam = p);

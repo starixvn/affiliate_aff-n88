@@ -19,13 +19,13 @@ describe('member list - Content - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            param: { AffName: '12BETAFF226' },
+            param: { AffName: 'B2CAFF226' },
             shouldResetScrollPosition: true,
             pagingOption: { PageSize: 1, PageIndex: 20 },
             gridData: []
         };
         const state = {
-            param: { AffName: '12BETAFF226' },
+            param: { AffName: 'B2CAFF226' },
             shouldResetScrollPosition: true,
             pagingOption: { PageSize: 1, PageIndex: 20 },
             gridData: [],

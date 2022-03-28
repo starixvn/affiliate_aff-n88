@@ -58,7 +58,7 @@ describe('note - components - Content', () => {
         const data = {
             CreatedBy: null,
             LastModifyText: "N/A",
-            NoteContent: "12BETAFF226",
+            NoteContent: "B2CAFF226",
             NoteId: 1001
         };
         const toggleLoaderUserPanel = jest.fn();
@@ -73,7 +73,7 @@ describe('note - components - Content', () => {
         expect(props.toggleLoaderUserPanel.mock.calls[0][0]).toBe(true);
         expect(props.toggleLoaderUserPanel.mock.calls[1][0]).toBe(false);
         expect(props.getNoteContentById).toHaveBeenCalledWith({ affId: 1271808, noteId: 1001 });
-        expect(props.setNoteInfo).toHaveBeenCalledWith({ noteContent: "12BETAFF226", noteId: 1001 });
+        expect(props.setNoteInfo).toHaveBeenCalledWith({ noteContent: "B2CAFF226", noteId: 1001 });
     });
 
     it('fetchData - should call toggleLoaderUserPanel and getNoteContentById, but not call setNoteInfo with incorrect parameter', async () => {

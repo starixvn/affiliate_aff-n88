@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = Lang.SignUp;
+    ViewBag.Title = Lang.Signup;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
@@ -9,7 +9,6 @@
 
 @using Fanex.Affiliate.User.Core.CoreService
 @using Fanex.Affiliate.User.Core.BusinessService
-@using Fanex.Affiliate.User.Core.Constants
 
 @model Fanex.Affiliate.User.Core.MetalModels.UserSignUpParam
 
@@ -39,14 +38,14 @@
 
         <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
             <p class="text-center">@Html.Raw(Lang.UnderReview)</p>
-            @Html.Raw(string.Format(SiteFriendlyNameHelper.Replace12Bet(Lang.RegisSuccess), Url.Content("~/ContactUs")))
+            @Html.Raw(string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.RegisSuccess), Url.Content("~/ContactUs")))
         </div>
 
         <div class="alert alert-danger" role="alert" id="messageError" style="display: none"></div>
 
         <div id="mainContent">
             <div>
-                <p>@SiteFriendlyNameHelper.Replace12Bet(Lang.CompleteForm)</p>
+                <p>@SiteFriendlyNameHelper.ReplaceB2C(Lang.CompleteForm)</p>
                 <p>@Html.Raw(Lang.RequireInfo)</p>
             </div>
 
@@ -226,7 +225,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.DescWebsite)</label>
+                            <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.DescWebsite)</label>
                             <div class="col-sm-4">
                                 @Html.TextAreaFor(p => p.NoSiteDesc, new { @class = "form-control", @rows = 5, @disabled = "disabled" })
                             </div>
@@ -299,11 +298,10 @@
                             <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.Replace12Bet(Lang._12BETPlayerAcc))</span>
+                                    <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.ReplaceB2C(Lang._B2CPlayerAcc))</span>
                                 </label>
                                 <div class="form-group payment-username col-sm-12 p-l-0">
-                                    <label class="control-label require">@SiteFriendlyNameHelper.Replace12Bet(Lang.UsernameSignUp)</label>
-                                    @*<label class="text-red">(@Lang.YouCanRequest)</label>*@
+                                    <label class="control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.UsernameSignUp)</label>
                                     <div class="">
                                         @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
                                     </div>
@@ -317,7 +315,7 @@
                         <div class="form-group agree-box">
                             <div class="checkbox col-sm-offset-3 chk-agree">
                                 <label>
-                                    <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.Replace12Bet(Lang.IagreetotheTerm)
+                                    <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.ReplaceB2C(Lang.IagreetotheTerm)
                                 </label>
                             </div>
                         </div>

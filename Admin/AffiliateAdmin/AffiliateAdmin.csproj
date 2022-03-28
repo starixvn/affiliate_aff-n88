@@ -864,6 +864,10 @@
     <Content Include="Areas\Portal\www\source\js\pages\home\components\__test__\redux\OnlineList.redux.test.js" />
     <Content Include="Areas\Portal\Views\Report\PlayerGgrReport.cshtml" />
     <Content Include="Areas\Portal\Views\Report\TransferReport.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.hi-IN.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.hi-IN.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.hi-IN.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.hi-IN.cshtml" />
     <None Include="Areas\Portal\www\source\js\pages\message\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\message\components\__test__\AppContainer.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\message\components\__test__\Content.test.js" />

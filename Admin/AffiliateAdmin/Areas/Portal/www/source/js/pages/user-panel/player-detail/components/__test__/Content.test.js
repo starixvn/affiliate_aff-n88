@@ -7,8 +7,8 @@ describe('players detail - components - Content', () => {
     const param = { productId: 0, monthDate: "11/1/2019" };
     const gridData = [
         {
-            IbcUserName: "12BETUS$02002",
-            UserName: "12bet$RyQ.Piong",
+            IbcUserName: "B2CUS$02002",
+            UserName: "B2C$RyQ.Piong",
             RegisteredDate: "2009-01-21T21:13:00",
             Deposit: 0,
             Withdrawal: 0,
@@ -20,8 +20,8 @@ describe('players detail - components - Content', () => {
             RegisteredDateText: "01/21/2009 21:13:00"
         },
         {
-            IbcUserName: "12BETRM021133",
-            UserName: "12Bet$all_in",
+            IbcUserName: "B2CRM021133",
+            UserName: "B2C$all_in",
             RegisteredDate: "2013-03-07T00:30:00",
             Deposit: 0,
             Withdrawal: 0,

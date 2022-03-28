@@ -20,7 +20,7 @@ describe('payment request - components - Content ', () => {
 
     const gridData = [
         {
-            AffName: "12BETAFF226",
+            AffName: "B2CAFF226",
             Amount: 125,
             CompletedDateText: "06/20/2019 22:45:23",
             Creator: "AAwalter",
@@ -29,7 +29,7 @@ describe('payment request - components - Content ', () => {
             TransId: 1262276211
         },
         {
-            AffName: "12BETAFF226",
+            AffName: "B2CAFF226",
             Amount: 105,
             CompletedDateText: "06/19/2019 00:20:18",
             Creator: "AAwalter",

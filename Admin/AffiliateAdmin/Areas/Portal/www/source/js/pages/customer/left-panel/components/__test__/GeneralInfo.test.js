@@ -6,7 +6,7 @@ describe('left panel - components - Content', () => {
     it('render correctly with affiliateInfo', () => {
         const affiliateInfo = {
             AffId: 1271808,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=B2CAFF226&accId=1000000026&accOnId=8405",
             ParentAffName: "N88AFF001",
             AffName: "N88AFF002",
             AffType: 2,
@@ -19,7 +19,7 @@ describe('left panel - components - Content', () => {
             IsClosed: false,
             LastLoginDateText: "04/11/2019 22:24:00",
             LastLoginIp: "10.18.200.125",
-            LastName: "12BETAFF226",
+            LastName: "B2CAFF226",
             MoreSiteUrl: "www.sportsbookie.com;www.gzyyy.com;www.123.com",
             NoSiteDescription: "",
             Phone: "abc",
@@ -35,7 +35,7 @@ describe('left panel - components - Content', () => {
     it('render correctly with affiliateInfo not has http in siteurl', () => {
         const affiliateInfo = {
             AffId: 927841,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=B2CAFF001&accId=1000000026&accOnId=8405",
             ParentAffName: "N88AFF001",
             AffName: "N88AFF002",
             AffType: 2,
@@ -65,7 +65,7 @@ describe('left panel - components - Content', () => {
     it('render correctly with affiliateInfo not has http in siteurl', () => {
         const affiliateInfo = {
             AffId: 927841,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=B2CAFF001&accId=1000000026&accOnId=8405",
             ParentAffName: "N88AFF001",
             AffName: "N88AFF002",
             AffType: 2,
@@ -95,7 +95,7 @@ describe('left panel - components - Content', () => {
     it('render correctly with affiliateInfo has status not approved and gender is null', () => {
         const affiliateInfo = {
             AffId: 1219631,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=B2CAFF016&accId=1000000026&accOnId=8405",
             ParentAffName: "N88AFF001",
             AffName: "N88AFF002",
             AffType: 2,
@@ -126,7 +126,7 @@ describe('left panel - components - Content', () => {
     it('_handleClickParentAffiliate - should call setAffName and getAffiliateInfo', () => {
         const affiliateInfo = {
             AffId: 1219631,
-            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=12BETAFF016&accId=1000000026&accOnId=8405",
+            AffLink: "http://localhost:55690/Auth/AdminLogin?chalengeStr=5omp0h&accKey=6B8465&custName=B2CAFF016&accId=1000000026&accOnId=8405",
             ParentAffName: "N88AFF001",
             AffName: "N88AFF002",
             AffType: 2,

@@ -154,7 +154,7 @@
     <value>Email History</value>
   </data>
   <data name="EmailSubjectAffInfor" xml:space="preserve">
-    <value>12Bet Affiliates - Your Affiliate Information</value>
+    <value>B2C Affiliates - Your Affiliate Information</value>
   </data>
   <data name="EmailTitleAffInfor" xml:space="preserve">
     <value>Your Affiliate Information</value>
@@ -168,20 +168,20 @@
   <data name="PaymentRequest" xml:space="preserve">
     <value>Payment Request</value>
   </data>
-  <data name="Text12BetDomains" xml:space="preserve">
-    <value>12Bet Domains</value>
+  <data name="TextB2CDomains" xml:space="preserve">
+    <value>B2C Domains</value>
   </data>
   <data name="TextList" xml:space="preserve">
     <value>Text List</value>
   </data>
   <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
-    <value>12Bet Affiliates - [{0}] - Your payment request has been processed and completed successfully</value>
+    <value>B2C Affiliates - [{0}] - Your payment request has been processed and completed successfully</value>
   </data>
   <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
     <value>Your payment request has been processed and completed successfully</value>
   </data>
   <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
-    <value>12Bet Affiliates - [{0}] - Your payment request has been rejected</value>
+    <value>B2C Affiliates - [{0}] - Your payment request has been rejected</value>
   </data>
   <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
     <value>Your payment request has been rejected</value>
@@ -193,10 +193,10 @@
     <value>Update is failed!</value>
   </data>
   <data name="EmailTitleAffDisapproved" xml:space="preserve">
-    <value>Your application on 12BET affiliate program has been rejected</value>
+    <value>Your application on B2C affiliate program has been rejected</value>
   </data>
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
-    <value>12Bet Affiliates – Your application on 12BET affiliate program has been rejected</value>
+    <value>B2C Affiliates – Your application on B2C affiliate program has been rejected</value>
   </data>
   <data name="PleaseEnterContent" xml:space="preserve">
     <value>Please enter the content of message, one language at least.</value>
@@ -245,5 +245,17 @@
   </data>
   <data name="UserNameLocked" xml:space="preserve">
     <value>The payment account you entered is Locked. Please check again.</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© Copyright 2020 | B2C. All Rights Reserved | 21+</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
   </data>
 </root>

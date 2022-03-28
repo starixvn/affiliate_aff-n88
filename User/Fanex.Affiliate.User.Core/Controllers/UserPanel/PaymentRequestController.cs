@@ -76,7 +76,6 @@
                 {
                     MailCc = _appSetting.MailCc,
                     MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
-                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
@@ -113,7 +112,6 @@
                 {
                     MailCc = _appSetting.MailCc,
                     MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
-                    SiteFriendlyName = _appSetting.SiteFriendlyName,
                     DefaultCurrency = _appSetting.DefaultCurrency,
                     MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),

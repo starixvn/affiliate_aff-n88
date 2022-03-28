@@ -1,4 +1,4 @@
-﻿var Aff12BetTesting = (function ($) {
+﻿var AffB2CTesting = (function ($) {
     function getUrl(actionName) {
         var rootAction = $("#rootAction").val();
         var format = $('input[name=Format]:checked').val() || "cshtml";
@@ -9,7 +9,7 @@
 
     return {
         initialize: function () {
-            Aff12BetTesting.initEvent();
+            AffB2CTesting.initEvent();
         },
 
         initEvent: function () {
@@ -60,4 +60,4 @@
     };
 })(jQuery);
 
-Aff12BetTesting.initialize();
+AffB2CTesting.initialize();

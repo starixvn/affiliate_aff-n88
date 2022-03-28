@@ -16,6 +16,7 @@ namespace Fanex.Affiliate.User.Core.Constants
             ["th-TH"] = "th",
             ["vi-VN"] = "vn",
             ["id-ID"] = "id",
+            ["hi-IN"] = "hi",
         };
 
         public static IDictionary<string, string> SupportedLanguage => _supportedLanguageForGoogleAnalytics;
@@ -46,8 +47,7 @@ namespace Fanex.Affiliate.User.Core.Constants
 
         public static string GetLanguageText(string value)
         {
-            return value.Equals("english (europe)", StringComparison.OrdinalIgnoreCase) ? Lang.EnglishEU
-                  : Lang.ResourceManager.GetString(value.Replace(" ", "")) ?? value;
+            return Lang.ResourceManager.GetString(value.Replace(" ", "")) ?? value;
         }
     }
 }

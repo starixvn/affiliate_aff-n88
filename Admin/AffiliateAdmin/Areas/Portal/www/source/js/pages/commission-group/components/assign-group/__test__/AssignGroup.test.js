@@ -20,7 +20,7 @@ describe('commission group - AssignGroup', () => {
                 MailOption: false,
                 PlayerUsername: "qatest01",
                 PreferredLanguage: "hi-IN",
-                UserName: "12BETAFF001"
+                UserName: "B2CAFF001"
             }
         }
     });

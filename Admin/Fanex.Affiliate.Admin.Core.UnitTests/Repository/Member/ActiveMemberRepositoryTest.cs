@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetAllMembers("12betaff226,abc");
+            var result = repository.Object.GetAllMembers("B2Caff226,abc");
 
             // Assert
             Assert.Single(result.InactiveMemberList);
@@ -50,7 +50,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetAllMembers("12betaff226,abc");
+            var result = repository.Object.GetAllMembers("B2Caff226,abc");
             var item = result.ActivedMemeberList.FirstOrDefault();
 
             // Assert
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             repository.Setup(r => r.GetObjectDb("Aff_Admin_ActiveMember_CheckStatus", 120)).Returns(objectDb.Object);
 
             // Action
-            var result = repository.Object.GetAllMembers("12betaff226,abc");
+            var result = repository.Object.GetAllMembers("B2Caff226,abc");
             var item = result.ActivedMemeberList.FirstOrDefault();
 
             // Assert
@@ -87,8 +87,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["UserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff"
             };
         }
@@ -98,9 +98,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["IBCCustID"] = 123,
-                ["UserName"] = "12betaff226",
-                ["IBCUserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["IBCUserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff",
                 ["CreatedDate"] = new DateTime(2019, 10, 23)
             };
@@ -111,9 +111,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
                 ["IBCCustID"] = 123,
-                ["UserName"] = "12betaff226",
-                ["IBCUserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["IBCUserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff",
                 ["CreatedDate"] = DBNull.Value
             };
@@ -121,12 +121,12 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "<Pending>")]
-        private IDictionary<string, object> Get12BetPlayersDepositInfo()
+        private IDictionary<string, object> GetB2CPlayersDepositInfo()
         {
             return new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
             {
-                ["UserName"] = "12betaff226",
-                ["FirstName"] = "12Bet",
+                ["UserName"] = "B2Caff226",
+                ["FirstName"] = "B2C",
                 ["LastName"] = "Aff",
                 ["Email"] = "abc@gmail.com",
                 ["Password"] = "123abc",

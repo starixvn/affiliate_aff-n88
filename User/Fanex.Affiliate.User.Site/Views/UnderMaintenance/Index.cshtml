@@ -101,18 +101,36 @@
 
                 @if (isN88)
                 {
-                    @*CS*@
+                    @*Hindi*@
                     <div class="um-wrapper">
                         <div class="um-header">
                             <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>伺服器维护</h1>
+                            <h1>रखरखाव जारी</h1>
                         </div>
 
                         <div class="message-content">
-                            <p>我们正在进行服务器维护，网站维护时间直到 <span class="um-time info">@to (香港时间GMT +8).</span></p>
-                            <p>给您带来的不便，我们深表歉意！</p>
+                            <p>हम सर्वर रखरखाव कर रहे हैं, वेबसाइट तब तक अनुपलब्ध रहेगी जब तक <span class="um-time info">@to (एचके टाइम जीएमटी +8).</span></p>
+                            <p>असुविधा के लिए कृपया हमारी क्षमायाचना स्वीकार करें!</p>
                             <p>
-                                更多详情请联系我们的在线客服。
+                                ग्राहक सेवा तक पहुँचने के लिए, कृपया सीएसडी से संपर्क करें
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
+
+                    @*Indo*@
+                    <div class="um-wrapper">
+                        <div class="um-header">
+                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
+                            <h1>Under Maintenance</h1>
+                        </div>
+
+                        <div class="message-content">
+                            <p>Kami sedang melakukan maintenance, silahkan kembali lagi setelah pukul <span class="um-time info">@to (GMT +8).</span></p>
+                            <p>Mohon Maaf atas ketidaknyamanan Anda!</p>
+                            <p>
+                                Silahkan hubungi Manajer Akun Affiliate Anda.
                             </p>
                         </div>
                     </div>
@@ -137,18 +155,18 @@
 
                     <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
 
-                    @*Indo*@
+                    @*CS*@
                     <div class="um-wrapper">
                         <div class="um-header">
                             <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>Under Maintenance</h1>
+                            <h1>伺服器维护</h1>
                         </div>
 
                         <div class="message-content">
-                            <p>Kami sedang melakukan maintenance, silahkan kembali lagi setelah pukul <span class="um-time info">@to (GMT +8).</span></p>
-                            <p>Mohon Maaf atas ketidaknyamanan Anda!</p>
+                            <p>我们正在进行服务器维护，网站维护时间直到 <span class="um-time info">@to (香港时间GMT +8).</span></p>
+                            <p>给您带来的不便，我们深表歉意！</p>
                             <p>
-                                Silahkan hubungi Manajer Akun Affiliate Anda.
+                                更多详情请联系我们的在线客服。
                             </p>
                         </div>
                     </div>
@@ -178,7 +196,7 @@
         <div class="footer">
             <div class="container">
                 <div class="footer-text text-center">
-                    @SiteFriendlyNameHelper.Replace12Bet(Lang.Copyright)
+                    @SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright)
                 </div>
             </div>
         </div>

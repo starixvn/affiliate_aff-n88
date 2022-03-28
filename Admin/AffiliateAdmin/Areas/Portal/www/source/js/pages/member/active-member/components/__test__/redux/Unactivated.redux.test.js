@@ -20,12 +20,12 @@ describe('active member - Content - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            userNames: '12BETAFF226',
+            userNames: 'B2CAFF226',
             shouldResetScrollPosition: true,
             unactivatedGridData: []
         };
         const state = {
-            userNames: '12BETAFF226',
+            userNames: 'B2CAFF226',
             shouldResetScrollPosition: true,
             unactivatedGridData: [],
             anotherProp: "Not included"

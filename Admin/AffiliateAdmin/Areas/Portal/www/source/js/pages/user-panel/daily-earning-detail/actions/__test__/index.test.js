@@ -28,8 +28,8 @@ describe('daily earning detail actions', () => {
                         Bonus: 0,
                         CustId: 31951570,
                         Deposit: 0,
-                        IbcUserName: "12BETEURO02237",
-                        UserName: "12bet$cicutadino",
+                        IbcUserName: "B2CEURO02237",
+                        UserName: "B2C$cicutadino",
                         Ggr: 4.1405,
                         Withdrawal: 0
                     },
@@ -38,8 +38,8 @@ describe('daily earning detail actions', () => {
                         Bonus: 0,
                         CustId: 33221781,
                         Deposit: 0,
-                        IbcUserName: "12BETGBP02004",
-                        UserName: "12bet$Munir12",
+                        IbcUserName: "B2CGBP02004",
+                        UserName: "B2C$Munir12",
                         Ggr: -540.2242,
                         Withdrawal: 0
                     }

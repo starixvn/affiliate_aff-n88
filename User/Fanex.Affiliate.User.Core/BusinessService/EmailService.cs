@@ -49,6 +49,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var appMailId = GetAppMailIdByLanguageCode(preferredLanguage);
 
             const string TemplateName = "RecoverPassword";
+            emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             var emailContent = GetEmailTextContent(TemplateName, preferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
             {
@@ -67,6 +68,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var appMailId = GetAppMailIdByLanguageCode(preferredLanguage);
 
             const string TemplateName = "NewPassword";
+            emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             var emailContent = GetEmailTextContent(TemplateName, preferredLanguage, emailParam);
             if (!emailParam.User.MailOption)
             {
@@ -87,7 +89,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             var templateName = isCancel ? "PaymentCancel" : "PaymentRequest";
             var subject = isCancel ? string.Format(Lang.PaymentRequestCancelSubject, emailParam.TransId) : string.Format(Lang.PaymentRequestSubject, emailParam.TransId);
-
+            emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             var emailContent = GetEmailTextContent(templateName, preferredLanguage, emailParam);
 
             if (!emailParam.User.MailOption)
@@ -103,10 +105,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public void SendNoticeEmailToCsd(NoticeEmailParam emailParam)
         {
             var preferredLanguage = emailParam.User.PreferredLanguage;
-            var prevLanguage = SetLanguage(preferredLanguage);
+            var prevLanguage = SetLanguage(SystemLanguage.EnglishLanguageCode);
             var appMailId = GetAppMailIdByLanguageCode(preferredLanguage);
 
             const string TemplateName = "Csd";
+            emailParam.SiteFriendlyName = _appSetting.SiteFriendlyName;
             var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.EnglishLanguageCode, emailParam);
 
             var subject = string.Format(Lang.CsdSubject, emailParam.UserName);

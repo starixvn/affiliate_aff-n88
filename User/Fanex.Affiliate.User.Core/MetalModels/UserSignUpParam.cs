@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
 
         public static string PreferredPayment => "Player";
 
-        [RequiredReplace12Bet(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "BETUserNameIsRequired")]
+        [RequiredReplaceB2C(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "BETUserNameIsRequired")]
         [MaxLength(Number.Thirdty, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "UserNameMaxLength30")]
         public string Player_UserName { get; set; }
 
@@ -99,7 +99,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public IEnumerable<ContactApp> ContactAppList { get; set; }
 
         [SpParam(Ignored = true)]
-        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "EmailAddressIsRequired")]
+        [Required(ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "VerifyEmailAddressIsRequired")]
         [Compare("Email", ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "Emailaddressest")]
         public string VerifyEmail { get; set; }
 

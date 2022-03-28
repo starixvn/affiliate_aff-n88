@@ -1433,7 +1433,7 @@ var MediaGallery = (function ($) {
     var CATEGORY_CASINO = "casino";
     var CATEGORY_SPORTSBOOK = "sportsbook";
 
-    var optionAll = "<option value=''>All</option>";
+    var optionAll = "<option value=''>" + window.dic.all + "</option>";
 
     var _pageSize = 20;
     var _pageIndex = 0;
@@ -1491,7 +1491,7 @@ var MediaGallery = (function ($) {
 
                 let domains = selectedItem.Domains.map(item => new Option(item.DomainName, item.DomainId));
                 let pages = selectedItem.SitePages.map(item => new Option(item.PageName, item.PageCode));
-                let category = [new Option("All", "")];
+                let category = [new Option(window.dic.all, "")];
                 category.push(...window.searchOption.CategoryList[selectedVal].map(item => new Option(item.Text, item.Value)));
 
                 $("#Page").empty().append(pages);
@@ -1554,7 +1554,7 @@ var MediaGallery = (function ($) {
                 data: param,
                 url: Site.resolveRelativeUrl("UserPanel/Marketing/GetSubCategory"),
                 success: function (response) {
-                    var html = _me.buildOptionList(response, "Value", "Value", true);
+                    var html = _me.buildOptionList(response, "Value", "Text", true);
                     $("#SubCategory").html(html);
                 },
                 beforeSend: function () {

@@ -39,7 +39,7 @@ describe('customer member actions', () => {
                         LastName: "",
                         RegisteredDate: "2009-01-21T21:13:00",
                         RegisteredDateString: "01/21/2009 09:13:00 PM",
-                        UserName: "12bet$RyQ.Piong"
+                        UserName: "B2C$RyQ.Piong"
                     }
                 ],
                 Total: null,

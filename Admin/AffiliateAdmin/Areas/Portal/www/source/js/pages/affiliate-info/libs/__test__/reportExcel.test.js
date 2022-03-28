@@ -24,7 +24,7 @@ describe('affiliate info - Report Excel ', () => {
     };
     const item = {
         AffId: 927841,
-        UserName: "12BETAFF001",
+        UserName: "B2CAFF001",
         Status: "Approved",
         FirstName: "",
         LastName: "媒体册 获取以更新吧！",
@@ -45,7 +45,7 @@ describe('affiliate info - Report Excel ', () => {
     };
     const itemHasNull = {
         AffId: 927841,
-        UserName: "12BETAFF001",
+        UserName: "B2CAFF001",
         Status: "Approved",
         FirstName: "",
         LastName: "媒体册 获取以更新吧！",
@@ -54,7 +54,7 @@ describe('affiliate info - Report Excel ', () => {
         RegistrationDate: "\/Date(1211413740000)\/",
         ApprovalDate: "\/Date(1211413800000)\/",
         CasinoDate: "\/Date(1400778000000)\/",
-        CommissionGroup: "12BETAFF001",
+        CommissionGroup: "B2CAFF001",
         BalanceBf: null,
         Member: null,
         NoOfSubAff: null,

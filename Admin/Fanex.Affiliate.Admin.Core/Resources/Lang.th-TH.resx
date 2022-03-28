@@ -147,4 +147,7 @@
   <data name="EmailSubjectAffDisapproved" xml:space="preserve">
     <value>เรื่อง  สถานะการสมัครของท่าน</value>
   </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© ลิขสิทธิ์ 2020| B2C. สงวนลิขสิทธิ์ | 21+</value>
+  </data>
 </root>

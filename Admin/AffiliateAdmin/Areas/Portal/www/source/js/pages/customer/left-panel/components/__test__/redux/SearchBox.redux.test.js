@@ -18,10 +18,10 @@ describe('left panel - SearchBox - connect', () => {
     });
 
     it('props should be mapped correctly', () => {
-        const expectedResult = { affName: '12BETAFF226', isValidUserName: true };
+        const expectedResult = { affName: 'B2CAFF226', isValidUserName: true };
 
         const state = {
-            leftPanel: { affName: '12BETAFF226', isValidUserName: true },
+            leftPanel: { affName: 'B2CAFF226', isValidUserName: true },
             anotherProp: "Not included"
         };
 
