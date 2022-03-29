@@ -52,6 +52,8 @@
 
         public FetchServiceSetting PullLogAdminAdjustWalletSetting { get; set; }
 
+        public FetchServiceSetting PullCustVerificationRewardSetting { get; set; }
+     
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }
