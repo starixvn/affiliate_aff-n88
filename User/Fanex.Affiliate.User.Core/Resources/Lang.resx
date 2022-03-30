@@ -1200,7 +1200,7 @@
   <data name="VietNam" xml:space="preserve">
     <value>Viet Nam </value>
   </data>
-  <data name="ProductVirtualSports" xml:space="preserve">
+  <data name="VirtualSports" xml:space="preserve">
     <value>Virtual Sports</value>
     <comment>87923</comment>
   </data>
@@ -1266,7 +1266,7 @@
     <value>All Products</value>
     <comment>87923</comment>
   </data>
-  <data name="ProductRngKeno" xml:space="preserve">
+  <data name="RngKeno" xml:space="preserve">
     <value>RNG KENO</value>
     <comment>87923</comment>
   </data>
@@ -1328,7 +1328,7 @@
     <comment>87923</comment>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>B2C CASINO CLUBS</value>
+    <value>B2C CASINO</value>
     <comment>87923</comment>
   </data>
   <data name="LiveCasino" xml:space="preserve">
@@ -1336,19 +1336,19 @@
     <comment>87923</comment>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>Dragon/Tiger</value>
+    <value>Dragon/ Tiger</value>
     <comment>87923</comment>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Scratch/Arcade Games</value>
+    <value>Scratch/ Arcade Games</value>
     <comment>87923</comment>
   </data>
-  <data name="ProductRNGCasino" xml:space="preserve">
+  <data name="RngCasino" xml:space="preserve">
     <value>RNG CASINO</value>
     <comment>87923</comment>
   </data>
-  <data name="ProductPragmaticPlay" xml:space="preserve">
-    <value>PRAGMATIC PLAY</value>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
     <comment>87923</comment>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
@@ -1482,7 +1482,7 @@
     <value>Progressive Games</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>Table/Card Games</value>
+    <value>Table/ Card Games</value>
   </data>
   <data name="EmailTittleVerificationAccount" xml:space="preserve">
     <value>Verification your account detail</value>
@@ -1541,7 +1541,7 @@
   <data name="CaptchaIsRequired" xml:space="preserve">
     <value>Captcha is required</value>
   </data>
-  <data name="ProductAllbet" xml:space="preserve">
+  <data name="Allbet" xml:space="preserve">
     <value>AllBET</value>
   </data>
   <data name="Summary" xml:space="preserve">
@@ -1934,5 +1934,89 @@
   </data>
   <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
     <value>Verify Email Address is required</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="Joker" xml:space="preserve">
+    <value>Joker</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 Live</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>Red Tiger</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA Gaming</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SpadeGaming</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>Ygg Drasil</value>
+  </data>
+  <data name="CasinoHoldEm" xml:space="preserve">
+    <value>Casino Hold'em</value>
+  </data>
+  <data name="AndarBahar" xml:space="preserve">
+    <value>Andar Bahar</value>
+  </data>
+  <data name="Teenpatti" xml:space="preserve">
+    <value>Teenpatti</value>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Multiplayer</value>
+  </data>
+  <data name="VideoPokerGames" xml:space="preserve">
+    <value>Video Poker Games</value>
+  </data>
+  <data name="MiniGames" xml:space="preserve">
+    <value>Mini Games</value>
   </data>
 </root>

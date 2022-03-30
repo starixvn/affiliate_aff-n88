@@ -190,7 +190,7 @@
     <value>Azerbaijan </value>
   </data>
   <data name="Baccarat" xml:space="preserve">
-    <value>Bakarat</value>
+    <value>Baccarat</value>
   </data>
   <data name="Bahamas" xml:space="preserve">
     <value>Bahama </value>
@@ -1198,16 +1198,16 @@
     <value>Pemberitahuan Permintaan Pembayaran</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>B2C Kasino Klub</value>
+    <value>B2C CASINO</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>Kasino Siaran Langsung / Live casino</value>
+    <value>Live Casino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>Naga/Harimau</value>
+    <value>Dragon/ Tiger</value>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Permainan Scratch</value>
+    <value>Scratch/ Arcade Games</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>Bagi Hasil</value>
@@ -1372,16 +1372,16 @@
     <value>E-mail</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
-    <value>Permainan Kasino</value>
+    <value>Casino Game</value>
   </data>
   <data name="SlotGames" xml:space="preserve">
-    <value>Permainan Slot</value>
+    <value>Slot Games</value>
   </data>
   <data name="ProgressiveGames" xml:space="preserve">
-    <value>Permainan Progresif</value>
+    <value>Progressive Games</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>Permainan Meja / Kartu</value>
+    <value>Table/ Card Games</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>YTH Member B2C,</value>
@@ -1431,25 +1431,22 @@
   <data name="EarnUpTo" xml:space="preserve">
     <value>Penghasilan hingga &lt;br/&gt; {0} dari sistem bagi hasil.</value>
   </data>
-  <data name="ProductAllbet" xml:space="preserve">
+  <data name="Allbet" xml:space="preserve">
     <value>ALLBET</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
     <value>Number Game</value>
   </data>
-  <data name="ProductPragmaticPlay" xml:space="preserve">
-    <value>PRAGMATIC PLAY</value>
-  </data>
-  <data name="ProductRNGCasino" xml:space="preserve">
+  <data name="RngCasino" xml:space="preserve">
     <value>RNG CASINO</value>
   </data>
-  <data name="ProductRngKeno" xml:space="preserve">
+  <data name="RngKeno" xml:space="preserve">
     <value>RNG KENO</value>
   </data>
   <data name="Sportsbook" xml:space="preserve">
     <value>SportsBook</value>
   </data>
-  <data name="ProductVirtualSports" xml:space="preserve">
+  <data name="VirtualSports" xml:space="preserve">
     <value>Virtual Sports</value>
   </data>
   <data name="ActiveReferredPlayers" xml:space="preserve">
@@ -1583,5 +1580,23 @@
   </data>
   <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
     <value>Ketik ulang e-mail diperlukan</value>
+  </data>
+  <data name="CasinoHoldEm" xml:space="preserve">
+    <value>Casino Hold'em</value>
+  </data>
+  <data name="AndarBahar" xml:space="preserve">
+    <value>Andar Bahar</value>
+  </data>
+  <data name="Teenpatti" xml:space="preserve">
+    <value>Teenpatti</value>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Multiplayer</value>
+  </data>
+  <data name="VideoPokerGames" xml:space="preserve">
+    <value>Video Poker Games</value>
+  </data>
+  <data name="MiniGames" xml:space="preserve">
+    <value>Mini Games</value>
   </data>
 </root>

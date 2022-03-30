@@ -961,7 +961,7 @@
     <value>Seychelles </value>
   </data>
   <data name="Sicbo" xml:space="preserve">
-    <value>เกมส์ไฮโล</value>
+    <value>ซิคโบ</value>
   </data>
   <data name="SierraLeone" xml:space="preserve">
     <value>Sierra Leone </value>
@@ -1198,16 +1198,16 @@
     <value>จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
   </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>คลับคาสิโน B2C</value>
+    <value>คาสิโนคลับต่างๆ</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
-    <value>คาสิโนออนไลน์สด</value>
+    <value>คาสิโนสด</value>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>ไพ่เสือมังกร</value>
+    <value>มังกร/พยัคฆ์</value>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>เกมส์อาเขต/สแคช</value>
+    <value>เกมส์ขูดการ์ด/เกมส์ตู้</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>ส่วนแบ่งรายได้</value>
@@ -1375,10 +1375,10 @@
     <value>เกมส์สล็อต</value>
   </data>
   <data name="ProgressiveGames" xml:space="preserve">
-    <value>เกมส์แบบโปรเกรสซีฟ</value>
+    <value>เกมส์โปรเกรสซีฟ</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>โต๊ะเกมส์/เกมส์ไพ่</value>
+    <value>เกมส์โต๊ะ/เกมส์ไพ่</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>เรียนสมาชิกพันธมิตร</value>
@@ -1431,19 +1431,16 @@
   <data name="NumberGame" xml:space="preserve">
     <value>เกมส์หมายเลข</value>
   </data>
-  <data name="ProductPragmaticPlay" xml:space="preserve">
-    <value>PRAGMATIC PLAY</value>
-  </data>
-  <data name="ProductRNGCasino" xml:space="preserve">
+  <data name="RngCasino" xml:space="preserve">
     <value>เกมส์คาสิโนแบบ RNG</value>
   </data>
-  <data name="ProductRngKeno" xml:space="preserve">
+  <data name="RngKeno" xml:space="preserve">
     <value>คีโน</value>
   </data>
   <data name="Sportsbook" xml:space="preserve">
     <value>หน้ากีฬา</value>
   </data>
-  <data name="ProductVirtualSports" xml:space="preserve">
+  <data name="VirtualSports" xml:space="preserve">
     <value>เกมกีฬาจำลอง</value>
   </data>
   <data name="ActiveReferredPlayers" xml:space="preserve">
@@ -1569,7 +1566,7 @@
   <data name="Whatsapp" xml:space="preserve">
     <value>Whatsapp</value>
   </data>
-  <data name="ProductAllbet" xml:space="preserve">
+  <data name="Allbet" xml:space="preserve">
     <value>ALLBET</value>
   </data>
   <data name="Commission" xml:space="preserve">
@@ -1583,5 +1580,23 @@
   </data>
   <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
     <value>ต้องระบุอีเมล์แอดเดรสค่ะ</value>
+  </data>
+  <data name="CasinoHoldEm" xml:space="preserve">
+    <value>คาสิโน โฮลเอ็ม</value>
+  </data>
+  <data name="AndarBahar" xml:space="preserve">
+    <value>Andar Bahar</value>
+  </data>
+  <data name="Teenpatti" xml:space="preserve">
+    <value>Teenpatti</value>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>เล่นทีละหลายโต๊ะ</value>
+  </data>
+  <data name="VideoPokerGames" xml:space="preserve">
+    <value>เกมส์วิดีโอโป๊กเกอร์</value>
+  </data>
+  <data name="MiniGames" xml:space="preserve">
+    <value>มินิเกม</value>
   </data>
 </root>
