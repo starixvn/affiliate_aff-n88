@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     result.P2pDeductionSettingList = GetP2pDeductionSettingList(reader);
                 }
 
-                param.Nrows = Convert.ToInt32(objectDb.GetParameterValue("Nrows"));
+                param.Nrows = GetTotalRows(objectDb);
             }
 
             return result;

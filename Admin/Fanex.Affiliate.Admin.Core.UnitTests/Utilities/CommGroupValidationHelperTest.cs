@@ -143,8 +143,10 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
             Assert.False(result.IsSuccessful);
         }
 
-        [Fact]
-        public void ValidateCommGroup_ValidateDeductedFee_WhenCallWithInvalidAmount_ReturnError()
+        [Theory]
+        [InlineData("-1")]
+        [InlineData("100_000_000_001")]
+        public void ValidateCommGroup_ValidateDeductedFee_WhenCallWithInvalidAmount_ReturnError(string deductedAmount)
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -155,7 +157,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 DeductionId = 14,
                 ProductIds = "0",
                 IsDeductedPercent = false,
-                DeductedAmount = "-1"
+                DeductedAmount = deductedAmount
             };
 
             var helper = CreateCommGroupValidationHelper();
@@ -195,6 +197,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
+            param.DepositFee = new TierDeductionSettingParam
+            {
+                DeductedPercentage = 0.07m,
+                DeductionId = 13,
+                ProductIds = "0",
+                IsDeductedPercent = false,
+                DeductedAmount = "100"
+            };
             param.TierSettingList = new List<TierSettingParam>();
 
             var helper = CreateCommGroupValidationHelper();
@@ -207,39 +217,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithLastTierIsNotMaximum_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.TierSettingList = new List<TierSettingParam>
-            {
-                new TierSettingParam
-                {
-                    Commission = 0.01m,
-                    MinAmount = 0,
-                    MinAp = 0,
-                    TierId = 1
-                },
-                new TierSettingParam
-                {
-                    Commission = 0.10m,
-                    MinAmount = 101,
-                    MinAp = 101,
-                    TierId = 2
-                }
-            };
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanMaxAmount_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanInfinityAmount_ReturnError()
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -255,7 +233,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSettingParam
                 {
                     Commission = 0.10m,
-                    MinAmount = 101,
+                    MinAmount = 100_000_000_001,
                     MinAp = 101,
                     TierId = 2
                 }
@@ -271,7 +249,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanMaxAp_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanInfinityQualifiedMember_ReturnError()
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -288,7 +266,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 {
                     Commission = 0.10m,
                     MinAmount = 101,
-                    MinAp = 101,
+                    MinAp = 1_000_000_001,
                     TierId = 2
                 }
             };

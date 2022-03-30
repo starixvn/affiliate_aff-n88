@@ -32,10 +32,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 }
 
                 result.MainData = dataList;
-                var totalRow = objectDb.GetParameterValue("NRows");
                 var totalBasedAmount = objectDb.GetParameterValue("TotalBasedAmount");
 
-                result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+                result.TotalItem = GetTotalRows(objectDb);
                 result.Total = totalBasedAmount == DBNull.Value ? null : new TransferReport
                 {
                     BasedAmount = Convert.ToDecimal(totalBasedAmount)

@@ -40,8 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 }
 
                 result.MainData = dataList;
-                var totalRow = objectDb.GetParameterValue("NRows");
-                result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+                result.TotalItem = GetTotalRows(objectDb);
             }
 
             return result;

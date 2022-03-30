@@ -48,7 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
         }
 
         [Fact]
-        public void Preview_WhenCallWithAffiliateApproved_ReturnView()
+        public void Preview_WhenCallWithAffiliateDisapproved_ReturnView()
         {
             // Arrange
             var languageService = new Mock<ILanguageService>();
@@ -70,7 +70,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers
             var controller = CreateEmailTestingController(null, null, appSetting.Object, languageService.Object);
 
             // Action
-            var viewResult = controller.Preview("en-US", "AffiliateApproved", string.Empty) as ViewResult;
+            var viewResult = controller.Preview("en-US", "AffiliateDisapproved", string.Empty) as ViewResult;
             var viewName = viewResult.ViewName;
 
             // Assert

@@ -40,46 +40,22 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             Assert.Equal("The payment account you entered does not exist. Please check again.", result.Message);
         }
 
-        [Fact]
-        public void CheckCustomerIsValid_WhenCallWithSusspen_ReturnError()
+        [Theory]
+        [InlineData(2, "The payment account you entered is Suspended. Please check again.")]
+        [InlineData(3, "The payment account you entered is Closed. Please check again.")]
+        [InlineData(4, "The payment account you entered is Locked. Please check again.")]
+        [InlineData(123, "Have err when call API")]
+        public void CheckCustomerIsValid_WhenCall_ReturnError(int status, string message)
         {
             // Arrange
             var service = CreateLicenseeService();
 
             // Action
-            var result = service.CheckCustomerIsValid(new MemberSiteCustomerInfo { Status = 2 });
+            var result = service.CheckCustomerIsValid(new MemberSiteCustomerInfo { Status = status });
 
             // Assert
             Assert.False(result.IsSuccessful);
-            Assert.Equal("The payment account you entered is Suspended. Please check again.", result.Message);
-        }
-
-        [Fact]
-        public void CheckCustomerIsValid_WhenCallWithClosed_ReturnError()
-        {
-            // Arrange
-            var service = CreateLicenseeService();
-
-            // Action
-            var result = service.CheckCustomerIsValid(new MemberSiteCustomerInfo { Status = 3 });
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal("The payment account you entered is Closed. Please check again.", result.Message);
-        }
-
-        [Fact]
-        public void CheckCustomerIsValid_WhenCallWithInvalidStatus_ReturnError()
-        {
-            // Arrange
-            var service = CreateLicenseeService();
-
-            // Action
-            var result = service.CheckCustomerIsValid(new MemberSiteCustomerInfo { Status = 123 });
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-            Assert.Equal("Have err when call API", result.Message);
+            Assert.Equal(message, result.Message);
         }
 
         [Fact]
@@ -93,6 +69,24 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             // Assert
             Assert.False(result.IsSuccessful);
+        }
+
+        [Theory]
+        [InlineData(0, true)]
+        [InlineData(500, false)]
+        public void UnlockUser_WhenCall_ReturnCorrectResult(int expectedCode, bool isSuccess)
+        {
+            // Arrange
+            var lisenseeApi = new Mock<ILicenseeApi>();
+            lisenseeApi.Setup(l => l.UnlockUser(It.IsAny<int[]>())).Returns(Task.FromResult(new ApiResultInfo { IsSuccess = isSuccess }));
+
+            var service = CreateLicenseeService(lisenseeApi.Object);
+
+            // Action
+            var result = service.UnlockUser(123);
+
+            // Assert
+            Assert.Equal(expectedCode, result.Result.Code);
         }
 
         [Fact]

@@ -49,8 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                 }
 
                 result.MainData = dataList;
-                var totalRow = objectDb.GetParameterValue(Field.NRows);
-                result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+                result.TotalItem = GetTotalRows(objectDb);
             }
 
             return result;
@@ -80,8 +79,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.UserPanel
                         dataList.Add(BuildSubAffilliateItem(reader));
                     }
                     result.MainData = dataList;
-                    var totalRow = objectDb.GetParameterValue(Field.NRows);
-                    result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+                    result.TotalItem = GetTotalRows(objectDb);
 
                     if (reader.NextResult() && reader.Read())
                     {
