@@ -1204,10 +1204,10 @@
     <value>Live Casino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>Dragon/ Tiger</value>
+    <value>Naga/Harimau</value>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Scratch/ Arcade Games</value>
+    <value>Permainan Gores/Arcade</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>Bagi Hasil</value>
@@ -1372,16 +1372,16 @@
     <value>E-mail</value>
   </data>
   <data name="CasinoGame" xml:space="preserve">
-    <value>Casino Game</value>
+    <value>Slots &amp; Permainan Casino</value>
   </data>
   <data name="SlotGames" xml:space="preserve">
-    <value>Slot Games</value>
+    <value>Permainan Slot</value>
   </data>
   <data name="ProgressiveGames" xml:space="preserve">
-    <value>Progressive Games</value>
+    <value>Permainan Progresif</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>Table/ Card Games</value>
+    <value>Permainan Meja/Kartu</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>YTH Member B2C,</value>
@@ -1594,9 +1594,9 @@
     <value>Multiplayer</value>
   </data>
   <data name="VideoPokerGames" xml:space="preserve">
-    <value>Video Poker Games</value>
+    <value>Permainan Poker Video</value>
   </data>
   <data name="MiniGames" xml:space="preserve">
-    <value>Mini Games</value>
+    <value>Permainan Mini</value>
   </data>
 </root>
