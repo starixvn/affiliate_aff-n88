@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import DeductedPercentageGroup  from '../DeductedPercentageGroup';
+import DeductedPercentageGroup  from '../../deduction/DeductedPercentageGroup';
 import { shallow } from 'enzyme';
 
 describe('commission group - DeductedPercentageGroup ', () => {

@@ -41,7 +41,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
       />
       <CommissionGroupPopup
         affId={1219631}
-        affName="12BETAFF016"
+        affName="B2CAFF016"
         setShowPopupCommGroup={[Function]}
         showPopupCommGroup={false}
       />
@@ -132,7 +132,7 @@ exports[`left panel - components - panel - CommissionPanel render correctly with
       </Button>
       <CommissionGroupPopup
         affId={1271808}
-        affName="12BETAFF226"
+        affName="B2CAFF226"
         setShowPopupCommGroup={[Function]}
         showPopupCommGroup={false}
       />

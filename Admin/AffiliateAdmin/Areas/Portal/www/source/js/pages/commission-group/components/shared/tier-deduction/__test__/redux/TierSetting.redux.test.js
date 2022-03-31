@@ -19,7 +19,8 @@ describe('commission group - TierSetting - connect', () => {
 
     it('props should be mapped correctly', () => {
         const expectedResult = {
-            selectedGroup: 123
+            selectedGroup: 123,
+            groupProductId: 123
         };
 
         const state = {
@@ -27,7 +28,7 @@ describe('commission group - TierSetting - connect', () => {
             anotherProp: "Not included"
         };
 
-        const result = mapStateToProps(state);
+        const result = mapStateToProps(state, { groupProductId: 123 });
 
         expect(result).toEqual(expectedResult);
     })

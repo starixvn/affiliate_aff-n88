@@ -2,7 +2,7 @@
 import PlatformFeeItem from '../PlatformFeeItem';
 import { shallow } from 'enzyme';
 import MultipleSelect from "../../../../../../components/multiple-select";
-import DeductedPercentageGroup from '../DeductedPercentageGroup';
+import DeductedPercentageGroup from '../../deduction/DeductedPercentageGroup';
 
 describe('commission group - PlatformFeeItem', () => {
     const dataItem = {
@@ -22,7 +22,6 @@ describe('commission group - PlatformFeeItem', () => {
         handleClick: jest.fn(),
         btnText: '-'
     };
-
     it('handleChange', () => {
         const wrapper = shallow(<PlatformFeeItem {...defaultProps} />);
 

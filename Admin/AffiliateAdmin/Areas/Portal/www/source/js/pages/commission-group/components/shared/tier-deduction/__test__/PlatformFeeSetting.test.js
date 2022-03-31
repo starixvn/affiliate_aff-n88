@@ -9,11 +9,14 @@ describe('commission group - platform fee setting', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }],
+        PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+            { GroupProductId: 234, DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }],
         P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2", Commission: 0.1 },
             { DeductedPercentage: 0.1, DeductionId: 15, ProductIds: "5", Commission: 0.15 }],
-        TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+        TierSettingList: [
+            { GroupProductId: 123, TierId: 1, MinAmount: 0, MinAp: 5, Commission: 0 },
+            { GroupProductId: 234, TierId: 1, MinAmount: 0, MinAp: 5, Commission: 0 }
+        ]
     };
     const defaultProps = {
         selectedGroup: defaultSelectedGroup,
@@ -50,20 +53,12 @@ describe('commission group - platform fee setting', () => {
     };
 
     it('handleAdd - should call setSelectedGroup', () => {
-        const expectParam = {
-            PlatformFeeList: [
-                { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
-                { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" },
-                { DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "" }
-            ]
-        }
-        const mockSetSelectedGroup = jest.fn();
-        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: jest.fn() });
         const wrapper = shallow(<PlatformFeeSetting {...props} />);
 
         wrapper.find(PlatformFeeItem).at(0).props().handleClick();
 
-        expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
+        expect(props.setSelectedGroup).toHaveBeenCalled();
     })
 
     it('handleRemove - should be called when click remove', () => {
@@ -80,7 +75,7 @@ describe('commission group - platform fee setting', () => {
         const wrapper = shallow(<PlatformFeeSetting {...props} />);
         wrapper.instance().handleRemove(1);
 
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }] });
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }] });
     })
 
     it('handleSelect - should be called when change product', () => {
@@ -93,8 +88,8 @@ describe('commission group - platform fee setting', () => {
 
     it('handleSelect - should call setSelectedGroup with checked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,5" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
+            PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,5" },
+                { GroupProductId: 234, DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
@@ -106,8 +101,8 @@ describe('commission group - platform fee setting', () => {
 
     it('handleSelect - should call setSelectedGroup with unchecked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
+            PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+                { GroupProductId: 234, DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
@@ -119,8 +114,8 @@ describe('commission group - platform fee setting', () => {
 
     it('handleSelect - should call setSelectedGroup with the second row is unchecked', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "" }]
+            PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" },
+                { GroupProductId: 234, DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
@@ -150,8 +145,8 @@ describe('commission group - platform fee setting', () => {
 
     it('handleChangeCommission - should call setSelectedGroup', () => {
         const expectParam = {
-            PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
-            { DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
+            PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3" },
+                { GroupProductId: 234, DeductedPercentage: 0.12, DeductionId: 11, ProductIds: "4" }]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });

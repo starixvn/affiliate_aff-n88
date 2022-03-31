@@ -19,6 +19,11 @@ exports[`commission group - P2pDeductionItem Should render correctly 1`] = `
       ]
     }
   >
+    <span
+      className="group-index"
+    >
+      .
+    </span>
     <div
       className="select-product is-invalid"
     >
@@ -6201,6 +6206,11 @@ exports[`commission group - P2pDeductionItem Should render correctly with only o
       ]
     }
   >
+    <span
+      className="group-index"
+    >
+      .
+    </span>
     <div
       className="select-product "
     >

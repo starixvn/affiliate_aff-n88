@@ -48,9 +48,9 @@ exports[`active member - components - Activated  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETRMB0239317"
+              title="B2CRMB0239317"
             >
-              12BETRMB0239317
+              B2CRMB0239317
             </t>
             <t
               asc={true}

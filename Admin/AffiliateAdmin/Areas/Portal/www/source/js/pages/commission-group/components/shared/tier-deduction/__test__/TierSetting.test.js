@@ -9,27 +9,29 @@ describe('commission group - TierSetting', () => {
         Description: "A B C",
         GroupId: 0,
         GroupName: "ABC",
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6" }],
-        TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100, MinAp: 0, MaxAp: 10, Commission: 0 },
-        { TierId: 2, MinAmount: 100, MaxAmount: 100000000000000, MinAp: 10, MaxAp: 1000000000, Commission: 0 }]
+        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4,5,6", GroupProductId: 123 }],
+        TierSettingList: [{ GroupProductId: 123, TierId: 1, MinAmount: 0, MinAp: 5, Commission: 0 },
+            { GroupProductId: 123, TierId: 2, MinAmount: 1, MinAp: 5, Commission: 0.1 }]
     }
     const defaultProps = {
+        groupProductId: 123,
         selectedGroup: defaultSelectedGroup
     };
 
     it('handleAdd - should call setSelectedGroup when click button Add Tier', () => {
         const expectParam = {
             TierSettingList: [
-                { Commission: 0, MaxAmount: 100, MaxAp: 10, MinAmount: 0, MinAp: 0, TierId: 1 },
-                { Commission: 0, MaxAmount: 100000000000000, MaxAp: 1000000000, MinAmount: 100, MinAp: 10, TierId: 2 },
-                { Commission: 0, MaxAmount: 100000000000001, MaxAp: 5, MinAmount: 100000000000001, MinAp: 5, TierId: 3 }
+                { GroupProductId: 123, Commission: 0, MinAmount: 0, MinAp: 5, TierId: 1 },
+                { GroupProductId: 123, Commission: 0.1, MinAmount: 1, MinAp: 5, TierId: 2 },
+                { GroupProductId: 123, Commission: 0.2, MinAmount: 2, MinAp: 5, TierId: 3 }
             ]
         };
-        const mockSetSelectedGroup = jest.fn();
-        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: jest.fn() });
         const wrapper = shallow(<TierSetting {...props} />);
 
-        wrapper.find('button').simulate('click')
+        wrapper.instance().handleAdd();
+
         expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
     });
 
@@ -39,48 +41,47 @@ describe('commission group - TierSetting', () => {
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup, selectedGroup: selectedGroup });
         const wrapper = shallow(<TierSetting {...props} />);
 
-        wrapper.find('button').simulate('click')
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ Commission: 0, MaxAmount: 0, MaxAp: 5, MinAmount: 0, MinAp: 5, TierId: 1 }] });
+        wrapper.instance().handleAdd();
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ GroupProductId: 123, Commission: 0, MinAmount: 0, MinAp: 5, TierId: 1 }] });
     });
 
-    it('handleRemove - Should be called when click remove', () => {
-        const wrapper = shallow(<TierSetting {...defaultProps} />);
-        wrapper.instance().handleRemove = jest.fn();
+    //it('handleRemove - Should be called when click remove', () => {
+    //    const wrapper = shallow(<TierSetting {...defaultProps} />);
+    //    wrapper.instance().handleRemove = jest.fn();
 
-        wrapper.find(TierSettingItem).at(1).simulate('remove', 2);
+    //    wrapper.find(TierSettingItem).at(1).simulate('remove', 2);
 
-        expect(wrapper.instance().handleRemove).toHaveBeenCalled();
-    });
+    //    expect(wrapper.instance().handleRemove).toHaveBeenCalled();
+    //});
 
     it('handleRemove - Should call setSelectedGroup', () => {
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<TierSetting {...props} />);
-        wrapper.instance().handleRemove(1);
+        wrapper.instance().handleRemove(1, 123);
 
-        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ TierId: 1, Commission: 0, MaxAmount: 100, MaxAp: 10, MinAmount: 0, MinAp: 0 }] })
+        expect(props.setSelectedGroup).toHaveBeenCalledWith({ TierSettingList: [{ GroupProductId: 123, TierId: 2, Commission: 0.1, MinAmount: 1, MinAp: 5 }] })
     });
 
     it('handleChangeInput - Should call setSelectedGroup', () => {
         const expectParam = {
             TierSettingList: [
-                { Commission: 0, MinAmount: 10, MaxAmount: 500, MinAp: 10, MaxAp: 50, TierId: 1 },
-                { Commission: 0, MaxAmount: 100000000000000, MaxAp: 1000000000, MinAmount: 100, MinAp: 10, TierId: 2 }
+                { GroupProductId: 123, Commission: 0, MinAmount: 10, MinAp: 10, TierId: 1 },
+                { GroupProductId: 123, Commission: 0.1, MinAmount: 1, MinAp: 5, TierId: 2 }
             ]
         };
         const mockSetSelectedGroup = jest.fn();
         const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
         const wrapper = shallow(<TierSetting {...props} />);
-        wrapper.find(TierSettingItem).at(1).simulate('change', 1, { MinAmount: 10, MaxAmount: 500, MinAp: 10, MaxAp: 50 });
+        wrapper.find(TierSettingItem).at(1).simulate('change', 1, { MinAmount: 10, MinAp: 10 });
 
         expect(props.setSelectedGroup).toHaveBeenCalledWith(expectParam);
     });
 
     it('handleChangeInput - Should call setSelectedGroup with tierItemValue is incorrect', () => {
-        const mockSetSelectedGroup = jest.fn();
-        const props = Object.assign({}, defaultProps, { setSelectedGroup: mockSetSelectedGroup });
+        const props = Object.assign({}, defaultProps, { setSelectedGroup: jest.fn() });
         const wrapper = shallow(<TierSetting {...props} />);
-        wrapper.find(TierSettingItem).at(1).simulate('change', 1, { MinAmount: 'abc', MaxAmount: 0, MinAp: 0, MaxAp: 0 });
+        wrapper.find(TierSettingItem).at(1).simulate('change', 1, { MinAmount: 'abc', MinAp: 0 });
 
         expect(props.setSelectedGroup).not.toHaveBeenCalled();
     });
@@ -93,7 +94,7 @@ describe('commission group - TierSetting', () => {
 
     it('Should render correctly with TierSettingList is null', () => {
         const selectedGroup = Object.assign({}, defaultSelectedGroup, { TierSettingList: [] });
-        const props = Object.assign({}, defaultProps, { selectedGroup: selectedGroup });
+        const props = Object.assign({}, defaultProps, { selectedGroup, setSelectedGroup: jest.fn() });
         const wrapper = shallow(<TierSetting {...props} />);
 
         expect(wrapper).toMatchSnapshot();

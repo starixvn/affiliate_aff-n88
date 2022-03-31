@@ -6,8 +6,8 @@ describe('affiliate report - Report Excel ', () => {
     const HEADER_ROW_INDEX = 1;
 
     const INDEX_DEPOSIT_COLUMN = 7;
-    const COLSPAN_MEMBER_STATISTICS = 11;
-    const INDEX_COMM_COLUMN = 18;
+    const COLSPAN_MEMBER_STATISTICS = 10;
+    const INDEX_COMM_COLUMN = 17;
     const COLSPAN_AFFILIATE_STATISTICS = 8;
 
     const MAIN_SECTION_STYLE = 'mainSectionStyle';
@@ -181,7 +181,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._buildColspanColumn(HEADER_ROW_INDEX, INDEX_DEPOSIT_COLUMN, COLSPAN_MEMBER_STATISTICS + 6, 'Member Statistics');
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(18);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(17);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN, "r": HEADER_ROW_INDEX + 1 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN + 1, "r": HEADER_ROW_INDEX + 1 });
@@ -206,7 +206,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._buildColspanColumn(HEADER_ROW_INDEX, INDEX_DEPOSIT_COLUMN, COLSPAN_MEMBER_STATISTICS, 'Member Statistics');
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(12);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(11);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN, "r": HEADER_ROW_INDEX });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN, "r": HEADER_ROW_INDEX + 1 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": INDEX_DEPOSIT_COLUMN + 1, "r": HEADER_ROW_INDEX + 1 });
@@ -227,7 +227,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createBodyData();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(54);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(52);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -235,7 +235,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(54);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(52);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(itemHaveDescription);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -253,7 +253,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createBodyData();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(50);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(48);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -261,7 +261,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(50);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(48);
         expect(instance._buildDataRow.mock.calls[0][0]).toBe(itemHaveDescription);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(MAIN_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -279,7 +279,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createTotalRow();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(27);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(26);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -287,7 +287,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(27);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(26);
         expect(instance._buildDataRow.mock.calls[0][0]).toEqual(customTotalData);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(TOTAL_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -305,7 +305,7 @@ describe('affiliate report - Report Excel ', () => {
 
         instance._createTotalRow();
 
-        expect(Excel.getCellAddress).toHaveBeenCalledTimes(25);
+        expect(Excel.getCellAddress).toHaveBeenCalledTimes(24);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 1, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[2][0]).toEqual({ "c": 2, "r": 3 });
@@ -313,7 +313,7 @@ describe('affiliate report - Report Excel ', () => {
         expect(Excel.getCellAddress.mock.calls[4][0]).toEqual({ "c": 4, "r": 3 });
         expect(Excel.getCellAddress.mock.calls[5][0]).toEqual({ "c": 5, "r": 3 });
 
-        expect(instance._buildDataRow).toHaveBeenCalledTimes(25);
+        expect(instance._buildDataRow).toHaveBeenCalledTimes(24);
         expect(instance._buildDataRow.mock.calls[0][0]).toEqual(customTotalData);
         expect(instance._buildDataRow.mock.calls[0][1]).toBe(TOTAL_SECTION_STYLE);
         expect(instance._buildDataRow.mock.calls[0][2]).toBe(0);
@@ -343,7 +343,7 @@ describe('affiliate report - Report Excel ', () => {
 
         expect(Excel.getCellAddress).toHaveBeenCalledTimes(2);
         expect(Excel.getCellAddress.mock.calls[0][0]).toEqual({ "c": 0, "r": 0 });
-        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 27, "r": 3 });
+        expect(Excel.getCellAddress.mock.calls[1][0]).toEqual({ "c": 26, "r": 3 });
     });
 
     it('_getcolumnConfigs - return correct', () => {

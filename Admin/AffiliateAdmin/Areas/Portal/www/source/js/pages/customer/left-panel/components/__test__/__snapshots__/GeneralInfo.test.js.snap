@@ -80,7 +80,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
       }
     >
       <a
-        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=12BETAFF226&accId=1000000026&accOnId=8405"
+        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=esh5u7&accKey=E16156C28&custName=B2CAFF226&accId=1000000026&accOnId=8405"
         target="_blank"
       >
         N88AFF002
@@ -187,7 +187,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
-      12BETAFF226
+      B2CAFF226
     </Col>
   </Row>
   <Row
@@ -974,7 +974,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
       }
     >
       <a
-        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
+        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=B2CAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
         N88AFF002
@@ -1426,7 +1426,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
       }
     >
       <a
-        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=12BETAFF001&accId=1000000026&accOnId=8405"
+        href="http://localhost:55690/Auth/AdminLogin?chalengeStr=640eh6&accKey=3F9ADA82AD&custName=B2CAFF001&accId=1000000026&accOnId=8405"
         target="_blank"
       >
         N88AFF002
