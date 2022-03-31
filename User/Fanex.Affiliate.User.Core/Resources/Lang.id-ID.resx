@@ -1599,4 +1599,7 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Mini Games</value>
   </data>
+  <data name="PragmaticPlay" xml:space="preserve">
+    <value>Pragmatic Play</value>
+  </data>
 </root>
