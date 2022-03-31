@@ -3760,15 +3760,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pragmatic Play.
-        /// </summary>
-        public static string PragmaticPlay {
-            get {
-                return ResourceManager.GetString("PragmaticPlay", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Preference.
         /// </summary>
         public static string Preference {
