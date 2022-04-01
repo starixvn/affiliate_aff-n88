@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -34,7 +35,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public IEnumerable<DeductionItem> GetDeductionList()
         {
-            return _commGroupRepository.GetDeductionList().Where(d => d.DeductionId != 11);
+            return _commGroupRepository.GetDeductionList().Where(d => d.DeductionId != Deduction.OperationalFeeId);
         }
 
         private static void BuildXml(CreateUpdateCommissionGroupParam param)
