@@ -72,14 +72,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
                             Important = Convert.ToBoolean(reader["Important"]),
                             MessageContenten = Convert.ToString(reader["message_en"]),
                             MessageContentcs = Convert.ToString(reader["message_cn"]),
-                            MessageContentch = Convert.ToString(reader["message_tw"]),
-                            MessageContentes = Convert.ToString(reader["message_es"]),
                             MessageContentth = Convert.ToString(reader["message_th"]),
                             MessageContentvn = Convert.ToString(reader["message_vi"]),
                             MessageContentid = Convert.ToString(reader["message_id"]),
-                            MessageContentko = Convert.ToString(reader["message_kr"]),
-                            MessageContentjp = Convert.ToString(reader["message_jp"]),
-                            MessageContenthi = Convert.ToString(reader["message_hi"])
+                            MessageContenthi = Convert.ToString(reader["message_hi"]),
+                            MessageContentms = Convert.ToString(reader["message_ms"]),
                         };
                     }
                 }
@@ -140,14 +137,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
             objectDb.SetParameterValue("IsImportant", param.Important);
             objectDb.SetParameterValue("msgen", param.MessageContenten);
             objectDb.SetParameterValue("msgcn", param.MessageContentcs);
-            objectDb.SetParameterValue("msgtw", param.MessageContentch);
-            objectDb.SetParameterValue("msges", param.MessageContentes);
             objectDb.SetParameterValue("msgth", param.MessageContentth);
             objectDb.SetParameterValue("msgvi", param.MessageContentvn);
             objectDb.SetParameterValue("msgid", param.MessageContentid);
-            objectDb.SetParameterValue("msgkr", param.MessageContentko);
-            objectDb.SetParameterValue("msgjp", param.MessageContentjp);
             objectDb.SetParameterValue("msghi", param.MessageContenthi);
+            objectDb.SetParameterValue("msgms", param.MessageContentms);
             objectDb.SetParameterValue("UserID", param.UserId);
             objectDb.SetParameterValue("IP", param.Ip);
 

@@ -639,6 +639,7 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.es-ES.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Error.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.Designer.cs</LastGenOutput>
@@ -664,6 +665,7 @@
       <LastGenOutput>Error.zh-TW.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx" />
+    <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>

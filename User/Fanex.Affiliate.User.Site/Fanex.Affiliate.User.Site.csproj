@@ -938,6 +938,8 @@
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.ms-MY.jpg" />
+    <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\products\N88\Revenue-Share-45-Mobile.en-US.jpg" />
@@ -973,11 +975,13 @@
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.th-TH.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45-Mobile.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.en-US.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.th-TH.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n88\Home-Banner-45.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
@@ -1139,6 +1143,7 @@
     <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_ms-MY.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_hi-IN.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_id-ID.png" />
@@ -1418,6 +1423,15 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.hi-IN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.hi-IN.cshtml" />
     <Content Include="www\build\styles\Images\apply\n88\3step.hi-IN.webp" />
+    <Content Include="Views\Product\N88\_Content.ms-MY.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.ms-MY.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.ms-MY.cshtml" />
+    <Content Include="Views\TermAndCondition\_Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\NewPassword\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentCancel\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentRequest\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\RecoverPassword\Content.ms-MY.cshtml" />
+    <Content Include="Views\Shared\Email\VerificationAccount\Content.ms-MY.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
