@@ -177,23 +177,20 @@
   <data name="Sportsbook" xml:space="preserve">
     <value>खेल पुस्तक</value>
   </data>
-  <data name="ProductVirtualSports" xml:space="preserve">
+  <data name="VirtualSports" xml:space="preserve">
     <value>वर्चुअल स्पोर्ट्स</value>
   </data>
   <data name="NumberGame" xml:space="preserve">
     <value>नंबर गेम</value>
   </data>
-  <data name="ProductRngKeno" xml:space="preserve">
+  <data name="RngKeno" xml:space="preserve">
     <value>आरएनजी केनो</value>
   </data>
-  <data name="ProductAllbet" xml:space="preserve">
+  <data name="Allbet" xml:space="preserve">
     <value>ALLBET</value>
   </data>
-  <data name="ProductPragmaticPlay" xml:space="preserve">
-    <value>PRAGMATIC PLAY</value>
-  </data>
   <data name="CasinoClubs" xml:space="preserve">
-    <value>B2C कैसीनो क्लब</value>
+    <value>B2C कैसीनो</value>
   </data>
   <data name="LiveCasino" xml:space="preserve">
     <value>लाइव कैसीनो</value>
@@ -208,7 +205,7 @@
     <value>ड्रैगन/टाइगर</value>
   </data>
   <data name="Sicbo" xml:space="preserve">
-    <value>सिक् बो</value>
+    <value>सिस बो</value>
   </data>
   <data name="SlotGames" xml:space="preserve">
     <value>स्लॉट खेल</value>
@@ -219,7 +216,7 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>स्क्रैच/आर्केड गेम्स</value>
   </data>
-  <data name="ProductRNGCasino" xml:space="preserve">
+  <data name="RngCasino" xml:space="preserve">
     <value>आरएनजी कैसीनो</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
@@ -1323,7 +1320,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>बास्केटबाल</value>
   </data>
   <data name="Blackjack" xml:space="preserve">
-    <value>ब्लैकजैक</value>
+    <value>डांडा</value>
   </data>
   <data name="Soccer" xml:space="preserve">
     <value>फुटबॉल</value>
@@ -1831,5 +1828,23 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="VerifyEmailAddressIsRequired" xml:space="preserve">
     <value>सत्यापित करें कि ईमेल पता आवश्यक है</value>
+  </data>
+  <data name="CasinoHoldEm" xml:space="preserve">
+    <value>कैसीनो होल्डम</value>
+  </data>
+  <data name="AndarBahar" xml:space="preserve">
+    <value>अंदर बाहर</value>
+  </data>
+  <data name="Teenpatti" xml:space="preserve">
+    <value>तीनपट्टी</value>
+  </data>
+  <data name="Multiplayer" xml:space="preserve">
+    <value>Multiplayer</value>
+  </data>
+  <data name="VideoPokerGames" xml:space="preserve">
+    <value>वीडियो पोकर गेम्स</value>
+  </data>
+  <data name="MiniGames" xml:space="preserve">
+    <value>छोटे खेल</value>
   </data>
 </root>

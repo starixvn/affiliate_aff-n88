@@ -18,7 +18,7 @@
   background: transparent; }
   .table .game-list tr .game-name {
     border: 3px solid #fff;
-    width: 200px; }
+    width: 210px; }
     @media (max-width: 1023px) {
       .table .game-list tr .game-name {
         width: 100px; } }
