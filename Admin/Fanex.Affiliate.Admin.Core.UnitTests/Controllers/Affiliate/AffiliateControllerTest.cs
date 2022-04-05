@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Affiliate
             var controller = CreateAffiliateController();
 
             // Action
-            var result = controller.GetAffiliateList(new AffiliateInfoParam { AffId = "abc" }) as JsonNetResult;
+            var result = controller.GetAffiliateList(new AffiliateInfoParam { AffCode = "abc" }) as JsonNetResult;
             var entityResult = result.Data as EntityResult<AffiliateInfo>;
 
             // Assert

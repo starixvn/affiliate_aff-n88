@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Affiliate
     {
         public int UserId { get; set; }
 
-        public string AffId { get; set; }
+        public string AffCode { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string GroupIds { get; set; }

@@ -42,7 +42,7 @@ export const resource = {
     ParentAffiliate: 'Parent Affiliate',
     SubAffiliateList: 'Sub-Affiliate List',
     ApprovedBy: 'Approved By',
-    AffiliateId: 'Affiliate ID',
+    AffiliateCode: 'Affiliate Code',
     Disabled: 'Disabled',
     Unlimited: 'Unlimited',
     TransferBalanceForPlayer: 'Transfer Balance For Player',
