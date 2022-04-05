@@ -895,6 +895,7 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.hi-IN.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.ms-MY.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
@@ -961,11 +962,13 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.hi-IN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.ms-MY.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.th-TH.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.hi-IN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.id-ID.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.ms-MY.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.zh-CN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.th-TH.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.en-US.png" />
@@ -1432,6 +1435,9 @@
     <Content Include="Views\Shared\Email\PaymentRequest\Content.ms-MY.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.ms-MY.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.ms-MY.cshtml" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.ms-MY.webp" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.ms-MY.webp" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.ms-MY.webp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
