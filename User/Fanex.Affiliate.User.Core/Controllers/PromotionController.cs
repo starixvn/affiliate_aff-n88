@@ -9,15 +9,18 @@ namespace Fanex.Affiliate.User.Core.Controllers
 {
     public class PromotionController: BaseController
     {
-        public PromotionController(ISessionService sessionService, ILanguageService languageService)
+        private readonly IAppSetting _appSetting;
+
+        public PromotionController(ISessionService sessionService, ILanguageService languageService, IAppSetting appSetting)
         : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            if(string.Equals(AppSetting.Instance.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase))
+            if(string.Equals(_appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase))
             {
                 return Redirect(Url.Content("~/Notify/PageNotFound"));
             }

@@ -14,10 +14,7 @@ using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Fanex.Logging;
 using NSubstitute;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -367,8 +364,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         //[Fact]
         //public async Task SubmitTransferBalanceRequestAsync_WhenCall_ActiveStatusReturnExcetion_SubmitSuccessfully()
         //{
+        //    var playerInfo = playerTransferBalanceInfo;
+        //    playerInfo.PlayerId = 2;
         //    _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
-        //    _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
+        //    _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerInfo);
         //    _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
         //    _repo.UpdateTransferBalanceRequest(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns((0, ""));
         //    _accountApi.ActiveCustActStatus(Arg.Compat.Any<AccountParam>()).Returns(null as AccountApiResult);
