@@ -4,6 +4,7 @@ const emptyCommGroup = {
     GroupId: 0,
     GroupName: '',
     Description: '',
+    IsActivePlayerSum: true,
     TierSettingList: [],
     PlatformFeeList: [],
     DepositFee: {},
