@@ -496,7 +496,7 @@
     <value>Poskod/Zip diperlukan</value>
   </data>
   <data name="PostalMaxLength" xml:space="preserve">
-    <value>Poskod/Zip tidak lebih daripada 250 aksara.</value>
+    <value>Poskod/Zip tidak lebih daripada 50 aksara.</value>
   </data>
   <data name="Country" xml:space="preserve">
     <value>Negara</value>
