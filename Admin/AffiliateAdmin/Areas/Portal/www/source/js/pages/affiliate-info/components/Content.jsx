@@ -26,9 +26,9 @@ export class Content extends Component {
         this.props.toggleLoader(true);
         const { param, reportTitle, languageList, columnList } = this.props;
         const selectedColumnList = convertSelectedColumnList(columnList);
-        const regexCheckAffId = new RegExp(regExp.CheckAffId);
+        const regexCheckAffCode = new RegExp(regExp.CheckAffCode);
 
-        if (param.AffId === '' || regexCheckAffId.test(param.AffId)) {
+        if (param.AffCode === '' || regexCheckAffCode.test(param.AffCode)) {
             const url = `Portal/Affiliate/GetAffiliateList`;
             const postData = Object.assign({}, param, { IsExportExcel: true });
             const response = await post(url, postData);

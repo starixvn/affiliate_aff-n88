@@ -1204,10 +1204,10 @@
     <value>Live Casino</value>
   </data>
   <data name="Dragon" xml:space="preserve">
-    <value>Naga/Harimau</value>
+    <value>Naga/ Harimau</value>
   </data>
   <data name="ScratchArcadeGames" xml:space="preserve">
-    <value>Permainan Gores/Arcade</value>
+    <value>Permainan Gores/ Arcade</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
     <value>Bagi Hasil</value>
@@ -1381,7 +1381,7 @@
     <value>Permainan Progresif</value>
   </data>
   <data name="TableCardGames" xml:space="preserve">
-    <value>Permainan Meja/Kartu</value>
+    <value>Permainan Meja/ Kartu</value>
   </data>
   <data name="DearCustomer" xml:space="preserve">
     <value>YTH Member B2C,</value>

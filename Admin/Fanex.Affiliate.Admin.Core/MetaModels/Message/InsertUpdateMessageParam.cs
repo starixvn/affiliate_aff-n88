@@ -15,12 +15,6 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Message
         public string MessageContentcs { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string MessageContentch { get; set; }
-
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string MessageContentes { get; set; }
-
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MessageContentth { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
@@ -30,26 +24,23 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.Message
         public string MessageContentid { get; set; }
 
         [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string MessageContentko { get; set; }
-
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
-        public string MessageContentjp { get; set; }
-
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string MessageContenthi { get; set; }
 
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public string MessageContentms { get; set; }
+
         public bool IsValid() {
-            if (!(string.IsNullOrEmpty(MessageContenten) && string.IsNullOrEmpty(MessageContentcs) && string.IsNullOrEmpty(MessageContentch) && string.IsNullOrEmpty(MessageContentes)))
+            if (!(string.IsNullOrEmpty(MessageContenten) && string.IsNullOrEmpty(MessageContentcs)))
             {
                 return true;
             }
 
-            if(!(string.IsNullOrEmpty(MessageContentth) && string.IsNullOrEmpty(MessageContentvn) && string.IsNullOrEmpty(MessageContentid) && string.IsNullOrEmpty(MessageContentko)))
+            if(!(string.IsNullOrEmpty(MessageContentth) && string.IsNullOrEmpty(MessageContentvn) && string.IsNullOrEmpty(MessageContentid)))
             {
                 return true;
             }
 
-            return !(string.IsNullOrEmpty(MessageContentjp) && string.IsNullOrEmpty(MessageContenthi));
+            return !(string.IsNullOrEmpty(MessageContenthi) && string.IsNullOrEmpty(MessageContentms));
         }
     }
 }

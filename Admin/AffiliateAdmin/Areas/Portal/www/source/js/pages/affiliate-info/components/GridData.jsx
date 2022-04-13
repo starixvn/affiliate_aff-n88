@@ -43,9 +43,9 @@ export class GridData extends Component {
     async fetchData(param) {
         this._resetScroll();
         this.props.toggleLoader(true);
-        const regexCheckAffId = new RegExp(regExp.CheckAffId);
+        const regexCheckAffCode = new RegExp(regExp.CheckAffCode);
 
-        if (param.AffId === '' || regexCheckAffId.test(param.AffId)) {
+        if (param.AffCode === '' || regexCheckAffCode.test(param.AffCode)) {
             const url = 'Portal/Affiliate/GetAffiliateList';
             const response = await post(url, param);
 
@@ -77,7 +77,7 @@ export class GridData extends Component {
             Email: '',
             SortBy: defaultSortBy,
             SortDirectionType: false,
-            AffId: ''
+            AffCode: ''
         };
 
         this.props.setParam(newParam);

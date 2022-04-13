@@ -3148,7 +3148,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New  banner is now available! .
+        ///   Looks up a localized string similar to New banner is now available! .
         /// </summary>
         public static string NewBannerIsNowAvailable {
             get {

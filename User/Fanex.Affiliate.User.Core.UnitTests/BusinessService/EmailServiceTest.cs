@@ -30,6 +30,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         [Fact]
+        public void EmailTemplateViewModel_ReturnCorrect()
+        {
+            var model = new EmailTemplateViewModel();
+
+            Assert.Equal("© Copyright 2020 | Bwing. All Rights Reserved | 21+", model.Copyright);
+            Assert.Equal("N8B", model.SiteName);
+        }
+
+        [Fact]
         public void SendCodeReoverPasswordEmail_WhenCall_SendMail()
         {
             var service = CreateService();

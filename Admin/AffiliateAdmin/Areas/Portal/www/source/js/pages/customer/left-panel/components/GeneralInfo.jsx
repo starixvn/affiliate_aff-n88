@@ -43,7 +43,7 @@ export const GeneralInfo = (props) => {
                 </Col>
             </Row>
             <Row>
-                <Col sm={5}>{resource.AffiliateId}</Col>
+                <Col sm={5}>{resource.AffiliateCode}</Col>
                 <Col sm={7} className='text-right'>{affiliateInfo.AffCode}</Col>
             </Row>
             <Row>

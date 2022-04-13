@@ -30,7 +30,7 @@ export const headerText = {
     Index: '#',
     ParentAffName: 'Parent Affiliate',
     UserName: 'Username',
-    AffCode: 'Affiliate Id',
+    AffCode: 'Affiliate Code',
     Status: 'Status',
     FirstName: 'First Name',
     LastName: 'Last Name',
@@ -79,7 +79,7 @@ export const resource = {
     AllStatuses: 'All Statuses',
     UsernameContains: 'USERNAME CONTAINS ',
     EmailContains: 'EMAIL CONTAINS ',
-    AffIdContains: 'AFFILIATE ID ',
+    AffCodeContains: 'AFFILIATE CODE ',
     AffPlayerContains: 'AFFILIATE PLAYER CONTAINS ',
     SearchBy: 'Search By',
     SortBy: 'Sort By',
@@ -90,7 +90,7 @@ export const resource = {
 }
 
 export const regExp = {
-    CheckAffId: "(^[1-9])(\\d*)$"
+    CheckAffCode: "(^[1-9])(\\d*)$"
 }
 
 export const defaultState = {
@@ -100,7 +100,7 @@ export const defaultState = {
     parentAffName: '',
     userName: '',
     email: '',
-    affId: '',
+    affCode: '',
     affPlayer: '',
     selectedSortBy: defaultSortBy,
     isSortAscending: true

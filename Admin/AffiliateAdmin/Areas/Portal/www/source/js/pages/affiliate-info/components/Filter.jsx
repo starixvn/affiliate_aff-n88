@@ -67,11 +67,11 @@ export class Filter extends Component {
 
     handleClickSearch = (parentAffName) => {
 
-        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affId, affPlayer } = this.state;
+        const { selectedCommGroupList, selectedLanguage, selectedStatus, userName, email, selectedSortBy, isSortAscending, affCode, affPlayer } = this.state;
 
-        const affIdInput = affId.trim();
+        const affCodeInput = affCode.trim();
         const isSelectAllCommGroup = this.props.commGroupList.every(c => c.checked);
-        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affIdInput, affPlayer, isSelectAllCommGroup));
+        this.props.setReportTitle(this._buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCodeInput, affPlayer, isSelectAllCommGroup));
 
         const param = {
             GroupIds: isSelectAllCommGroup ? allCommGroups : selectedCommGroupList,
@@ -82,7 +82,7 @@ export class Filter extends Component {
             Email: email,
             SortBy: selectedSortBy,
             SortDirectionType: !isSortAscending,
-            AffId: affIdInput,
+            AffCode: affCodeInput,
             AffPlayer: affPlayer
         }
         this.props.setParam(param);
@@ -106,7 +106,7 @@ export class Filter extends Component {
         this.props.setSelectedColumn(newColumnList);
     }
 
-    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affId, affPlayer, isSelectAllCommGroup) {
+    _buildReportTitle(selectedLanguage, selectedStatus, userName, email, affCode, affPlayer, isSelectAllCommGroup) {
         const { commGroupList, languageList } = this.props;
 
         const space = resource.Space;
@@ -117,15 +117,15 @@ export class Filter extends Component {
 
         const userNameTitle = userName && space + resource.UsernameContains + apostrophe + userName + apostrophe;
         const emailTitle = email && space + resource.EmailContains + apostrophe + email + apostrophe;
-        const affIdTitle = affId && space + resource.AffIdContains + apostrophe + affId + apostrophe;
+        const affCodeTitle = affCode && space + resource.AffCodeContains + apostrophe + affCode + apostrophe;
         const affPlayerTitle = affPlayer && space + resource.AffPlayerContains + apostrophe + affPlayer + apostrophe;
 
         return `${resource.ReportName}${space}${commGroupTitle.toUpperCase()}${space}${languageTitle.toUpperCase()}${space}${statusTitle.toUpperCase()}`
-            + `${userNameTitle}${emailTitle}${affIdTitle}${affPlayerTitle}`;
+            + `${userNameTitle}${emailTitle}${affCodeTitle}${affPlayerTitle}`;
     }
 
     render() {
-        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affId, parentAffName, affPlayer } = this.state;
+        const { selectedLanguage, selectedSortBy, selectedStatus, isSortAscending, userName, email, affCode, parentAffName, affPlayer } = this.state;
         const { commGroupList, languageList, columnList } = this.props;
 
         return (
@@ -189,7 +189,7 @@ export class Filter extends Component {
                     </FormGroup>
 
                     <FormGroup className="my-2 mr-sm-2">
-                        <Input type="text" name="affId" id="affId" placeholder="Affiliate Id" value={affId}
+                        <Input type="text" name="affCode" id="affCode" placeholder="Affiliate Code" value={affCode}
                             onKeyPress={this.handlePressEnter}
                             onChange={this.handleChange} />
                     </FormGroup>

@@ -24,5 +24,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Contants
             //Assert
             Assert.Equal(expectedShortCode, shortedCode);
         }
+
+        [Theory]
+        [InlineData("AffiliateLogin ", "AFFILIATE LOGIN")]
+        [InlineData("abc ", "abc ")]
+        public void GetLanguageText_WhenCallWithValidLanguageCode_ReturnCorrectData(string value, string expectedResult)
+        {
+            //Arrange
+            string result;
+
+            //Action
+            result = SystemLanguage.GetLanguageText(value);
+
+            //Assert
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

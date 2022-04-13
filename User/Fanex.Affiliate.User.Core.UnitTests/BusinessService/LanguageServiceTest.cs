@@ -59,7 +59,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var validLang = SystemLanguage.SupportedLanguage.FirstOrDefault().Key;
             CacheServive.Get<IEnumerable<Language>>(CacheKey.LanguageList).Returns(CreateLanguages());
             SetUpContext();
-            HttpContext.Current.Request.Cookies.Add(new HttpCookie("afffavoritelang", validLang));
+            HttpContext.Current.Request.Cookies.Add(new HttpCookie("afffavoritelangN8B", validLang));
             var service = CreateService();
 
             var result = service.GetFavoriteLanguage();

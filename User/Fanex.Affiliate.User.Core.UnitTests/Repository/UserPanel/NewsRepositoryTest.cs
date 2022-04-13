@@ -72,6 +72,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             reader["message_th"].Returns("test");
             reader["message_vi"].Returns("test");
             reader["message_id"].Returns("test");
+            reader["message_hi"].Returns("test");
+            reader["message_ms"].Returns("test");
 
             var result = repo.GetLastestHotNews(isInternal);
 
