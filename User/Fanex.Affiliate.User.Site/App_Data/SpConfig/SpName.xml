@@ -18,7 +18,7 @@
   <Function Name="AccountInformation">
     <Setting Key="Aff_User_UserInfoSel" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_UserInfoSel_view" SpName="Aff_User_UserInfoSel" DbName="affiliate_n88_view" />
-    <Setting Key="Aff_User_UserInfoUpd" SpName="Aff_User_UserInfoUpd" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_UserInfoUpd" SpName="Aff_User_UserInfoUpd_xtest" DbName="affiliate_n88" />
     <Setting Key="Aff_AffiliateUpdPwd" SpName="Aff_AffiliateUpdPwd" DbName="affiliate_n88" />
     <Setting Key="Aff_User_SecretKeyIns" SpName="Aff_User_SecretKeyIns" DbName="affiliate_n88" />
 
@@ -61,8 +61,8 @@
   </Function>
 
   <Function Name="Password">
-    <Setting Key="Aff_User_ForgotPassword" SpName="Aff_User_ForgotPassword" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_RecoverPassWord" SpName="Aff_User_RecoverPassWord" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_ForgotPassword" SpName="Aff_User_ForgotPassword_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_RecoverPassWord" SpName="Aff_User_RecoverPassword_xtest" DbName="affiliate_n88" />
   </Function>
 
   <Function Name="Statement History">
@@ -87,13 +87,13 @@
   <Function Name="Payment">
     <Setting Key="Aff_User_PaymentRequest_Sel" SpName="Aff_User_PaymentRequest_Sel" DbName="affiliate_n88" />
     <Setting Key="Aff_User_PaymentRequest_Sel_view" SpName="Aff_User_PaymentRequest_Sel" DbName="affiliate_n88_view" />
-    <Setting Key="Aff_User_PaymentRequest_Upd" SpName="Aff_User_PaymentRequest_Upd" DbName="affiliate_n88" />
-    <Setting Key="Aff_User_PaymentRequest_Ins" SpName="Aff_User_PaymentRequest_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_PaymentRequest_Upd" SpName="Aff_User_PaymentRequest_Upd_xtest" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_PaymentRequest_Ins" SpName="Aff_User_PaymentRequest_Ins_xtest" DbName="affiliate_n88" />
     <Setting Key="Aff_PaymentMethod_Sel" SpName="Aff_PaymentMethod_Sel" DbName="affiliate_n88"/>
   </Function>
 
   <Function Name="SignUp">
-    <Setting Key="Aff_User_Affiliate_Ins" SpName="Aff_User_Affiliate_Ins" DbName="affiliate_n88" />
+    <Setting Key="Aff_User_Affiliate_Ins" SpName="Aff_User_Affiliate_Ins_xtest" DbName="affiliate_n88" />
     <Setting Key="Aff_Get_GeneralAffInfo" SpName="Aff_Get_GeneralAffInfo" DbName="affiliate_n88" />
   </Function>
 
