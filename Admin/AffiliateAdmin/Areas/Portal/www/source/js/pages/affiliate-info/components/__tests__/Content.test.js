@@ -89,11 +89,11 @@ describe('affiliate info - Content ', () => {
 
             const expectedUrl = 'Portal/Affiliate/GetAffiliateList';
             const expectedParam = {
-                AffId: 927841,
+                AffCode: 927841,
                 IsExportExcel: true
             }
             const reportTitle = '', languageList = {};
-            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffId: 927841 } });
+            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffCode: 927841 } });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();
@@ -112,11 +112,11 @@ describe('affiliate info - Content ', () => {
 
             const expectedUrl = 'Portal/Affiliate/GetAffiliateList';
             const expectedParam = {
-                AffId: 927841,
+                AffCode: 927841,
                 IsExportExcel: true
             }
             const reportTitle = '', languageList = {};
-            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffId: 927841 } });
+            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffCode: 927841 } });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();
@@ -133,11 +133,11 @@ describe('affiliate info - Content ', () => {
             const expectData = { MainData: {}, TotalItem: 0 };
             const expectedUrl = 'Portal/Affiliate/GetAffiliateList';
             const expectedParam = {
-                AffId: "AFF001",
+                AffCode: "AFF001",
                 IsExportExcel: true
             }
             const reportTitle = '', languageList = {};
-            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffId: "AFF001" } });
+            const props = Object.assign({}, defaultProps, { toggleLoader: jest.fn(), param: { AffCode: "AFF001" } });
             const componentInstance = new Content(props);
 
             await componentInstance.handleExportExcel();

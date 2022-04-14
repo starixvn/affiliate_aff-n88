@@ -103,7 +103,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
         ]
       }
     >
-      Affiliate ID
+      Affiliate Code
     </Col>
     <Col
       className="text-right"
@@ -552,7 +552,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo h
         ]
       }
     >
-      Affiliate ID
+      Affiliate Code
     </Col>
     <Col
       className="text-right"
@@ -997,7 +997,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
-      Affiliate ID
+      Affiliate Code
     </Col>
     <Col
       className="text-right"
@@ -1449,7 +1449,7 @@ exports[`left panel - components - Content render correctly with affiliateInfo n
         ]
       }
     >
-      Affiliate ID
+      Affiliate Code
     </Col>
     <Col
       className="text-right"
