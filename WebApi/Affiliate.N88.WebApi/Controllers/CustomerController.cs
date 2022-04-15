@@ -186,6 +186,10 @@ namespace Affiliate.N88.WebApi.Controllers
             };
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<CustVerificationReward>> GetCustVerificationRewards(DateTime lastGetTime, string conditionField, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<CustVerificationReward>(new GetCustVerificationRewardCriteria(lastGetTime, conditionField, batchCount));
+
         private string BuildJson(int[] userIds)
             => $"[{String.Join(",", userIds)}]";
 

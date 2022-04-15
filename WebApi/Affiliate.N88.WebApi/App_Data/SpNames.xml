@@ -26,5 +26,6 @@
     <Setting Key="API_EventDraw_Get" SpName="API_EventDraw_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_VIPUpgradeReview_Get" SpName="API_VIPUpgradeReview_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_LogAdminAdjustWallet_Get" SpName="API_LogAdminAdjustWallet_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_CustVerificationReward_Get" SpName="API_CustVerificationReward_Get" DbName="N88Licensee_Read"/>
   </Function>
 </Functions>

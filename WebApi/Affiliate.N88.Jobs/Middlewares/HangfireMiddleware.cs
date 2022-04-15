@@ -163,7 +163,13 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_LOG_ADMIN_ADJUST_WALLET_SETTING}")
-    );
+                );
+
+            services.AddScoped<IFetchCustVerificationRewardDataTask, FetchCustVerificationRewardDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_CUST_VERIFICATION_REWARD_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_VERIFICATION_REWARD_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -179,8 +185,8 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2)); 
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchFromAdjusmentDayAsync(3));
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2));
+                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(7), job => job.FetchFromAdjusmentDayAsync(3));
                 RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
 
                 RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
@@ -201,10 +207,10 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}", appSettings.PullPromotionSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
 
                 RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}", appSettings.PullPromotionSpecificSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
 
                 RegisterTask<IFetchRebateMLogDataTask>($"{typeof(IFetchRebateMLogDataTask).Name}", appSettings.PullRebateMLogSetting.PullInfoCron, job => job.FetchDataAsync());
 
@@ -221,6 +227,8 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 
