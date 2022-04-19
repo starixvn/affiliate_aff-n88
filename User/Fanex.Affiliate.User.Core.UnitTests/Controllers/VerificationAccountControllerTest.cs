@@ -50,20 +50,25 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             Assert.Contains("Home", result.Url);
         }
 
-        [Fact]
-        public void Index_WhenInVerificationSession_ReturnVerficationView()
+        [Theory]
+        [InlineData("abc@gmail.com", "••c@gmail.com")]
+        [InlineData("x@gmail.com", "x@gmail.com")]
+        [InlineData("xygmail.com", "")]
+        public void Index_WhenInVerificationSession_ReturnVerficationView(string email, string expectedEmail)
         {
             var controller = CreateController();
             SessionService.VerificationSession.Returns(new VerificationSession());
             var userInfo = GetUserInfo();
+            userInfo.Email = email;
             AccountRepo.GetUserInfoById(0, false).ReturnsForAnyArgs(userInfo);
-            var email = EmailHelper.HideEmailPart(userInfo.Email);
+            var hidedEmail = EmailHelper.HideEmailPart(userInfo.Email);
 
             var result = controller.Index() as ViewResult;
 
             Assert.NotNull(result);
             var model = result.Model as VerificationAccountViewModel;
-            Assert.Equal(email, model.Email);
+            Assert.Equal(expectedEmail, model.Email);
+            Assert.Equal(expectedEmail, hidedEmail);
         }
 
         [Fact]
