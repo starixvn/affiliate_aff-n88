@@ -4,12 +4,15 @@
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_User_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Rpt_Commission" Suffix="_xpre"></item>
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Overview_Summary_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_User_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Rpt_Commission" Suffix="_xpre"></item>
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Overview_Summary_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_User_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Rpt_Commission" Suffix="_xpre"></item>
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_User_Overview_Summary_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 </Root>

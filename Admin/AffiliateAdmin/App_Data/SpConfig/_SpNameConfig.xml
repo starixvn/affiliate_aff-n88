@@ -9,6 +9,7 @@
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_GeneralInfo_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_AffiliateReport_Detail_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N88" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_Statistics_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_CommGroup_Sel" Suffix="_xpre"></item>
@@ -18,6 +19,7 @@
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_GeneralInfo_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_AffiliateReport_Detail_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N8B" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_Statistics_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_CommGroup_Sel" Suffix="_xpre"></item>
@@ -27,4 +29,5 @@
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_StatementHistory_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_GeneralInfo_Sel" Suffix="_xpre"></item>
   <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_Admin_AffiliateReport_Detail_Sel" Suffix="_xpre"></item>
+  <item LicenseeName="N8G" Environment="DEV,LOCAL,UAT" SpName="Aff_SubAffiliate_Commission_Sel" Suffix="_xpre"></item>
 </Root>

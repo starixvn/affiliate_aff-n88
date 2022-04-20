@@ -1,5 +1,4 @@
 ﻿using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Logging;
 using NSubstitute;
 using System;
 using System.IO;

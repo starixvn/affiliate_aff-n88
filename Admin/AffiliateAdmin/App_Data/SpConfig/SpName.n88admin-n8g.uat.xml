@@ -71,7 +71,7 @@
     <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel_xpre" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Sel" SpName="Aff_Admin_TransferLimit_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Upd" SpName="Aff_Admin_TransferLimit_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
