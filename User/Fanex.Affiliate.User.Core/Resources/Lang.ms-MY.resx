@@ -1250,4 +1250,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="Cancel" xml:space="preserve">
     <value>Batalkan</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>Peratus bahagian kumpulan produk pertama daripada berbilang kumpulan</value>
+  </data>
 </root>
