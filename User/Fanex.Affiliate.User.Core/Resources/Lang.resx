@@ -2019,4 +2019,7 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Mini Games</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>First product group's share% of multiple groups</value>
+  </data>
 </root>

@@ -146,12 +146,15 @@ var commissionReport = (function ($) {
             rowItems.push(_me.buildCell(formatDecimal(dataRow.TurnOver)));
             rowItems.push(_me.buildCell(formatDecimal(dataRow.GGR)));
             if (isSummaryRow) {
+                var commRate = formatDecimal(dataRow.CommissionRate) + '%';
+                var commRateCell = dataRow.IsMultiGroupProduct ? '<td class="text-right text-danger" title="' + langResource.firstProductGroupShare + '">' + commRate + '</td>' : _me.buildCell(commRate);
+
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.DepositFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.WithdrawalFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
-                rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
+                rowItems.push(commRateCell);
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));

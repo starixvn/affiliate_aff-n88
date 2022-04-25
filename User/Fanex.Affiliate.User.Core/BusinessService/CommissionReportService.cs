@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -50,7 +49,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var total = new AffiliateCommission();
             foreach (var item in byMonth)
             {
-                item.Data.CommissionRate = decimal.Round(item.Data.CommissionRate, DecimalDigit) * PercentageUnit;
+                item.Data.CommissionRate = decimal.Round(item.Data.CommissionRate * PercentageUnit, DecimalDigit);
 
                 total.TurnOver += item.Data.TurnOver;
                 total.GGR += item.Data.GGR;

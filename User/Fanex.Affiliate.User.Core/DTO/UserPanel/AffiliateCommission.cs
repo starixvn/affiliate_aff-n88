@@ -35,6 +35,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public int CalculatedType { get; set; }
 
+        public bool IsMultiGroupProduct { get; set; }
+
         [SpParam(Ignored = true)]
         public decimal TotalCommission => Commission + P2pCommission + SubAffCommission;
     }
