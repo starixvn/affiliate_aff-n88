@@ -1,4 +1,5 @@
-﻿using Affiliate.N88.Jobs.Apis;
+﻿using Affiliate.N88.Comparer;
+using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
@@ -41,7 +42,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Log
 
         protected override async Task<string> GetLastTrackingValueAsync()
         {
-            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.KeyValue, new StringToIntComparer());
             var id = string.IsNullOrWhiteSpace(tracker.KeyValue) ? 0 : int.Parse(tracker.KeyValue);
             var queryId = GetAdjustmentId(id);
             return queryId.ToString();

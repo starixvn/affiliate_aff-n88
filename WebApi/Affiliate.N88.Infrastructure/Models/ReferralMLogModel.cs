@@ -18,7 +18,7 @@ namespace Affiliate.N88.Models
 
         public int SiteId { get; set; }
 
-        public decimal RefferalAmount { get; set; }
+        public decimal ReferralAmount { get; set; }
 
         public string Memo { get; set; }
 

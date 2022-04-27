@@ -170,6 +170,12 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_CUST_VERIFICATION_REWARD_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_CUST_VERIFICATION_REWARD_SETTING}")
                 );
+
+            services.AddScoped<IFetchReferralMLogDataTask, FetchReferralMLogDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_REFERRALMLOG_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REFERRALMLOG_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -229,6 +235,8 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchReferralMLogDataTask>($"{typeof(IFetchReferralMLogDataTask).Name}", appSettings.PullReferralMLogSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 
