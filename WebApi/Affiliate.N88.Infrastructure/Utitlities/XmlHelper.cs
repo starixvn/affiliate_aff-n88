@@ -34,7 +34,7 @@ namespace Affiliate.N88.Utitlities
             {
                 var propName = prop.Name;
                 var value = type.GetProperty(propName).GetValue(item, null) ?? "";
-                elem.Add(new XAttribute(propName.ToLowerInvariant(), HttpUtility.HtmlEncode(value)));
+                elem.Add(new XAttribute(propName.ToLowerInvariant(), value));
             }
         }
     }
