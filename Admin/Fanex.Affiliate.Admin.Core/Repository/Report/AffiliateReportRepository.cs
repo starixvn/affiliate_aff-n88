@@ -12,8 +12,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
 {
     public class AffiliateReportRepository : BaseRepository, IAffiliateReportRepository
     {
-        private const int OneHundred = 100;
-        private const int NumberOfDigits = 2;
+        private const int PercentageUnit = 100;
 
         public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
         {
@@ -125,7 +124,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
                 DepositFee = reader.ToDecimal("DepositFee"),
                 WithdrawalFee = reader.ToDecimal("WithdrawalFee"),
                 TotalFee = reader.ToDecimal("TotalFee"),
-                CommissionRate = decimal.Round(OneHundred *reader.ToDecimal("CommissionRate"), NumberOfDigits),
+                CommissionRate = PercentageUnit * reader.ToDecimal("CommissionRate"),
                 Earning = reader.ToDecimal("Earning"),
                 AffWithdrawal = reader.ToDecimal("AffWithdrawal"),
                 AffAdjustment = reader.ToDecimal("AffAdjustment"),

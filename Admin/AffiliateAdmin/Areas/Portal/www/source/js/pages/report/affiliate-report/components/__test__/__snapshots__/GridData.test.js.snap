@@ -92,9 +92,9 @@ exports[`affiliate report - GridData  _buildCommonCell - should return correctly
   </td>
   <td
     className="text-right"
-    title="0.00%"
+    title="0%"
   >
-    0.00%
+    0%
   </td>
   <td
     className="text-right"
@@ -231,9 +231,9 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
     </td>
     <td
       className="text-right"
-      title="0.00%"
+      title="0%"
     >
-      0.00%
+      0%
     </td>
     <td
       className="text-right"
@@ -382,9 +382,9 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
     </td>
     <td
       className="text-right"
-      title="0.00%"
+      title="0%"
     >
-      0.00%
+      0%
     </td>
     <td
       className="text-right"
@@ -521,9 +521,9 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
     </td>
     <td
       className="text-right"
-      title="0.00%"
+      title="0%"
     >
-      0.00%
+      0%
     </td>
     <td
       className="text-right"
@@ -660,9 +660,9 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
     </td>
     <td
       className="text-right"
-      title="0.00%"
+      title="0%"
     >
-      0.00%
+      0%
     </td>
     <td
       className="text-right"
@@ -1020,9 +1020,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </td>
           <td
             className="text-right"
-            title="0.00%"
+            title="0%"
           >
-            0.00%
+            0%
           </td>
           <td
             className="text-right"
@@ -1187,9 +1187,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           </td>
           <td
             className="text-right"
-            title="0.00%"
+            title="0%"
           >
-            0.00%
+            0%
           </td>
           <td
             className="text-right"
@@ -1329,9 +1329,9 @@ exports[`affiliate report - GridData  should render correctly 1`] = `
           />
           <td
             className="text-right"
-            title="%"
+            title="undefined%"
           >
-            %
+            undefined%
           </td>
           <td
             className="text-right"

@@ -10,7 +10,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 {
     public class CommissionReportService : ICommissionReportService
     {
-        private const int DecimalDigit = 2;
         private const int PercentageUnit = 100;
 
         private readonly ICommissionReportRepository _commissionReportRepository;
@@ -49,7 +48,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var total = new AffiliateCommission();
             foreach (var item in byMonth)
             {
-                item.Data.CommissionRate = decimal.Round(item.Data.CommissionRate * PercentageUnit, DecimalDigit);
+                item.Data.CommissionRate = item.Data.CommissionRate * PercentageUnit;
 
                 total.TurnOver += item.Data.TurnOver;
                 total.GGR += item.Data.GGR;

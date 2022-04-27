@@ -189,7 +189,6 @@ export class GridData extends PureComponent {
         const subAffEarning = formatDecimal(dataItem.SubAffEarning);
         const totalEarning = formatDecimal(dataItem.TotalEarning);
         const paymentCurrency = isTotalRow ? '' : dataItem.PaymentCurrency;
-
         return (
             <React.Fragment>
                 {isMainView && (<td className="text-center" title={paymentCurrency}>{paymentCurrency}</td>)}
