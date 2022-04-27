@@ -36,6 +36,20 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
         }
 
         [Fact]
+        public void Get_WhenCall_ReturnValue()
+        {
+            var service = CreateService();
+            Cache.TryGet("abc", out TestModel _).Returns(prs => {
+                prs[1] = new TestModel();
+                return false;
+            });
+
+            var result = service.Get<TestModel>("abc");
+
+            Assert.NotNull(result);
+        }
+
+        [Fact]
         public void Set_WhenCall_CacheCallWithDeepCloneValue()
         {
             var service = CreateService();

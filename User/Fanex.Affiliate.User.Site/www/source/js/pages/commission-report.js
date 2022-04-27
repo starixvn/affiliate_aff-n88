@@ -146,7 +146,7 @@
             rowItems.push(_me.buildCell(formatDecimal(dataRow.TurnOver)));
             rowItems.push(_me.buildCell(formatDecimal(dataRow.GGR)));
             if (isSummaryRow) {
-                var commRate = formatDecimal(dataRow.CommissionRate) + '%';
+                var commRate = dataRow.CommissionRate + '%';
                 var commRateCell = dataRow.IsMultiGroupProduct ? '<td class="text-right text-danger" title="' + langResource.firstProductGroupShare + '">' + commRate + '</td>' : _me.buildCell(commRate);
 
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
