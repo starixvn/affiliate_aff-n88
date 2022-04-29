@@ -1616,4 +1616,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="MiniGames" xml:space="preserve">
     <value>迷你游戏</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>首个产品于各组里的份额百分比</value>
+  </data>
 </root>

@@ -65,9 +65,9 @@ exports[`payment request - components - Content  render correctly with have grid
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF226"
+              title="B2CAFF226"
             >
-              12BETAFF226
+              B2CAFF226
             </t>
             <t
               asc={true}
@@ -164,9 +164,9 @@ exports[`payment request - components - Content  render correctly with have grid
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF226"
+              title="B2CAFF226"
             >
-              12BETAFF226
+              B2CAFF226
             </t>
             <t
               asc={true}

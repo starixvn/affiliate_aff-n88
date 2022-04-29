@@ -51,12 +51,6 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 UpdateResult(result, validatePlatformFeeList.Message);
             }
 
-            var validateOperationalFee = ValidateFixedAmountDeductedFee(commGroup.OperationalFee, CommGroupErrorMessage.InvalidOperationalFee);
-            if (!validateOperationalFee.IsSuccessful)
-            {
-                UpdateResult(result, validateOperationalFee.Message);
-            }
-
             var validateDepositFee = ValidateFixedAmountDeductedFee(commGroup.DepositFee, CommGroupErrorMessage.InvalidDepositFee);
             if (!validateDepositFee.IsSuccessful)
             {
@@ -82,19 +76,13 @@ namespace Fanex.Affiliate.Admin.Core.Utilities.CommGroup
                 return result;
             }
 
-            if (!tierSettingList.Any(item => (item.MaxAmount == Validation.InfinityAmount && item.MaxAp == Validation.InfinityQualifiedMember)))
+            if (tierSettingList.Any(item => item.MinAmount > Validation.InfinityAmount))
             {
-                UpdateResult(result, "Last Tier Setting must have maximum value=∞!");
+                UpdateResult(result, "Min Amount must be lesser than or equal to 100,000,000,000!");
                 return result;
             }
 
-            if (tierSettingList.Any(item => item.MinAmount > item.MaxAmount))
-            {
-                UpdateResult(result, "Max Amount must be greater than or equal to Min Amount!");
-                return result;
-            }
-
-            if (tierSettingList.Any(item => item.MinAp > item.MaxAp))
+            if (tierSettingList.Any(item => item.MinAp > Validation.InfinityQualifiedMember))
             {
                 UpdateResult(result, "Min AP must be lesser than or equal to 1,000,000,000!");
             }

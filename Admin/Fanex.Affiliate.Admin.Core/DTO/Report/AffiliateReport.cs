@@ -42,8 +42,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
 
         public decimal PlatformFee { get; set; }
 
-        public decimal OperationalFee { get; set; }
-
         public decimal DepositFee { get; set; }
 
         public decimal WithdrawalFee { get; set; }
@@ -67,5 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Report
         public decimal P2pEarning { get; set; }
 
         public decimal TotalEarning => Earning + SubAffEarning + P2pEarning;
+
+        public bool IsMultiGroupProduct { get; set; }
     }
 }

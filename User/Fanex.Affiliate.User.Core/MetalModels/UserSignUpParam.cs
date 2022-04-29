@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels
         public string Country { get; set; }
 
         [RequiredByChecked(DependentPropertyName = "HasWebSite", IsChecked = true, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "WebsiteURLIsRequired")]
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+
         [MaxLength(Number.OneHundred, ErrorMessageResourceType = typeof(Lang), ErrorMessageResourceName = "SiteUrlMaxLength")]
         public string SiteUrl { get; set; } = string.Empty;
 

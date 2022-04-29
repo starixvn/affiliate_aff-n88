@@ -95,7 +95,7 @@ describe('affiliate info - Filter ', () => {
         wrapper.find('Input[type="text"][id="parentAffName"]').simulate('keyPress', mockedEvent);
         wrapper.find('Input[type="text"][id="username"]').simulate('keyPress', mockedEvent);
         wrapper.find('Input[type="email"][id="email"]').simulate('keyPress', mockedEvent);
-        wrapper.find('Input[type="text"][id="affId"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="affCode"]').simulate('keyPress', mockedEvent);
 
         expect(instance.handleClickSearch).toHaveBeenCalled();
     });
@@ -113,7 +113,7 @@ describe('affiliate info - Filter ', () => {
         wrapper.find('Input[type="text"][id="parentAffName"]').simulate('keyPress', mockedEvent);
         wrapper.find('Input[type="text"][id="username"]').simulate('keyPress', mockedEvent);
         wrapper.find('Input[type="email"][id="email"]').simulate('keyPress', mockedEvent);
-        wrapper.find('Input[type="text"][id="affId"]').simulate('keyPress', mockedEvent);
+        wrapper.find('Input[type="text"][id="affCode"]').simulate('keyPress', mockedEvent);
 
         expect(instance.handleClickSearch).not.toHaveBeenCalled();
     });
@@ -137,7 +137,7 @@ describe('affiliate info - Filter ', () => {
 
         const reportTitle = 'AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES';
         const param = {
-            AffId: '',
+            AffCode: '',
             AffPlayer: '',
             GroupIds: 'all',
             Language: '',
@@ -186,7 +186,7 @@ describe('affiliate info - Filter ', () => {
         const componentInstance = new Filter(defaultProps);
         const result = componentInstance._buildReportTitle('', '', 'B2CAFF001', 'walter.tran1@starixsoft.com', 927841, 'test01', true);
 
-        expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS 'B2CAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE ID '927841' - AFFILIATE PLAYER CONTAINS 'test01'`);
+        expect(result).toEqual(`AFFILIATE REPORT - ALL REVENUE GROUPS - ALL LANGUAGES - ALL STATUSES - USERNAME CONTAINS 'B2CAFF001' - EMAIL CONTAINS 'walter.tran1@starixsoft.com' - AFFILIATE CODE '927841' - AFFILIATE PLAYER CONTAINS 'test01'`);
     });
 
     it('should render correctly', () => {

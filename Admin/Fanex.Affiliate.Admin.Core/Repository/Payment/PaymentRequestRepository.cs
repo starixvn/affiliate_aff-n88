@@ -48,8 +48,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                 }
 
                 result.MainData = dataList;
-                var totalRow = objectDb.GetParameterValue("NRows");
-                result.TotalItem = totalRow == DBNull.Value ? 0 : Convert.ToInt32(totalRow);
+                result.TotalItem = GetTotalRows(objectDb);
             }
 
             return result;
@@ -127,7 +126,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Payment
                 var paymentMethods = objectDb.Query<PaymentMethodInfo>();
                 var minAmount = objectDb.GetParameterValue("MinAmount");
 
-                var minAmountDecimal = objectDb.GetParameterValue("MinAmount") == DBNull.Value ? 0 : Convert.ToDecimal(minAmount);
+                var minAmountDecimal = minAmount == DBNull.Value ? 0 : Convert.ToDecimal(minAmount);
 
                 return (paymentMethods, minAmountDecimal);
             }

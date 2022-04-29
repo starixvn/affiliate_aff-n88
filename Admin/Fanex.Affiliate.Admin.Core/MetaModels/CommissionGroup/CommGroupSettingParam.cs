@@ -10,6 +10,8 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
 
         public string GroupName { get; set; }
 
+        public bool IsActivePlayerSum { get; set; }
+
         [MaxLength(Validation.MaxLengthCommGroupDescription, ErrorMessage = "Description should shorter than 100 characters!")]
         public string Description { get; set; }
 
@@ -17,13 +19,10 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
         public IEnumerable<TierSettingParam> TierSettingList { get; set; }
 
         [Required]
-        public IEnumerable<P2pDeductionSettingParam> P2pDeductionList { get; set; }
+        public IEnumerable<P2PDeductionSettingParam> P2pDeductionList { get; set; }
 
         [Required]
         public IEnumerable<TierDeductionSettingParam> PlatformFeeList { get; set; }
-
-        [Required]
-        public TierDeductionSettingParam OperationalFee { get; set; }
 
         [Required]
         public TierDeductionSettingParam DepositFee { get; set; }

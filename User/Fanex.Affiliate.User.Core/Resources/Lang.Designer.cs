@@ -2041,6 +2041,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First product group&apos;s share% of multiple groups.
+        /// </summary>
+        public static string FirstProductGroupShare {
+            get {
+                return ResourceManager.GetString("FirstProductGroupShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FName {

@@ -129,8 +129,9 @@ export class P2pDeductionSetting extends PureComponent {
                                 onChangeCommission={(value) => this.handleChangeCommission(i, value)}
                                 handleClick={handleClick}
                                 btnText={isFirst ? '+' : '-'}
-                                isFirst={isFirst} >
-                            </P2pDeductionItem>
+                                isFirst={isFirst}
+                                index={i + 1}
+                            />
                         )
                     })
                 }

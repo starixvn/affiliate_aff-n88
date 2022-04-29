@@ -39,15 +39,6 @@ describe('commission group - GridData ', () => {
         GroupId: 153,
         GroupName: "CG22125",
         NoAffs: 2,
-        OperationalFee: {
-            DeductedPercentage: 0.15,
-            DeductionId: 11,
-            DeductionName: "Operational Fee",
-            GroupId: 153,
-            IsDeductedPercent: false,
-            DeductedAmount: 10.0000,
-            ProductIds: "0"
-        },
         PlatformFeeList: [
             {
                 DeductedPercentage: 0.17,
@@ -239,15 +230,6 @@ describe('commission group - GridData ', () => {
             GroupId: 1271808,
             GroupName: "B2CAFF226",
             NoAffs: 2,
-            OperationalFee: {
-                DeductedPercentage: 0.15,
-                DeductionId: 11,
-                DeductionName: "Operational Fee",
-                GroupId: 1271808,
-                IsDeductedPercent: false,
-                DeductedAmount: 10.0000,
-                ProductIds: "0"
-            },
             PlatformFeeList: [
                 {
                     DeductedPercentage: 0.17,
@@ -306,15 +288,6 @@ describe('commission group - GridData ', () => {
             GroupId: 153,
             GroupName: "CG22125",
             NoAffs: 2,
-            OperationalFee: {
-                DeductedPercentage: 0.15,
-                DeductionId: 11,
-                DeductionName: "Operational Fee",
-                GroupId: 153,
-                IsDeductedPercent: true,
-                DeductedAmount: 10.0000,
-                ProductIds: "0"
-            },
             PlatformFeeList: [
                 {
                     DeductedPercentage: 0.17,

@@ -6,6 +6,7 @@ using System.Web.Routing;
 using Fanex.Data;
 using Fanex.Affiliate.User.Site.App_Start;
 using Fanex.Data.SqlServer;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Site
 {
@@ -40,5 +41,17 @@ namespace Fanex.Affiliate.User.Site
             }
         }
 
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            // Code that runs when an unhandled error occurs
+            Exception ex = Server.GetLastError().GetBaseException();
+
+            if (ex is HttpException)
+            {
+                return;
+            }
+
+            LogHelper.WriteError(ex);
+        }
     }
 }

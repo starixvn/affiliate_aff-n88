@@ -177,11 +177,11 @@ exports[`affiliate info - Filter  should render correctly 1`] = `
       tag="div"
     >
       <Input
-        id="affId"
-        name="affId"
+        id="affCode"
+        name="affCode"
         onChange={[Function]}
         onKeyPress={[Function]}
-        placeholder="Affiliate Id"
+        placeholder="Affiliate Code"
         type="text"
         value=""
       />

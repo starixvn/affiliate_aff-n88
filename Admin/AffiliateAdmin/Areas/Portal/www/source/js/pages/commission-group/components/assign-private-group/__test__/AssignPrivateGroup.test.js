@@ -10,7 +10,7 @@ describe('commission group - assign private group', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
-        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
+        IsActivePlayerSum: true,
         PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4", IsDeductedPercent: true, DeductedAmount: "" }],
         P2pDeductionList: [{ DeductedPercentage: 0.02, DeductionId: 15, ProductIds: "2,5", Commission: 0.01 }],
         TierSettingList: []
@@ -22,10 +22,9 @@ describe('commission group - assign private group', () => {
         Description: "",
         GroupId: 0,
         GroupName: "",
-        OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0, IsDeductedPercent: true, DeductedAmount: "" },
-        PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
+        PlatformFeeList: [{ GroupProductId: 123, DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
         P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
-        TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }]
+        TierSettingList: [{ GroupProductId: 123, TierId: 1, MinAmount: 0, MinAp: 5, Commission: 0 }]
     };
 
     const selectedProductIds = [2, 5];
@@ -45,7 +44,6 @@ describe('commission group - assign private group', () => {
         },
         deductionList: [
             { DeductionId: 10, DeductionName: "Platform Fee", DeductedPercentage: 0.17, IsDeductedPercent: true, DeductedAmount: "" },
-            { DeductionId: 11, DeductionName: "Operational Fee", DeductedPercentage: 0.07, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 13, DeductionName: "Deposit Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 14, DeductionName: "Withdrawal Fee", DeductedPercentage: 0.02, IsDeductedPercent: true, DeductedAmount: "" },
             { DeductionId: 15, DeductionName: "P2P Fee", DeductedPercentage: 0.02, Commission: 0.01 }
@@ -212,16 +210,6 @@ describe('commission group - assign private group', () => {
         expect(result).toEqual({ isValid: true, messageList: [] });
     })
 
-    it('_validate - TierSettingList is not MaxAmount', () => {
-        const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 0, MaxAmount: 100, MinAp: 0, MaxAp: 10, Commission: 0 }] });
-        const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
-        const wrapper = shallow(<AssignPrivateGroup {...props} />);
-
-        const result = wrapper.instance()._validate();
-
-        expect(result).toEqual({ isValid: false, messageList: ["Last Tier Setting must have maximum value=∞"] });
-    })
-
     it('_validate - TierSettingList has MinAmount > MaxAmount', () => {
         const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 1000000000000, MaxAmount: 100000000000, MinAp: 0, MaxAp: 1000000000, Commission: 0 }] });
         const props = Object.assign({}, defaultProps, { selectedGroup: selected_Group });
@@ -229,7 +217,7 @@ describe('commission group - assign private group', () => {
 
         const result = wrapper.instance()._validate();
 
-        expect(result).toEqual({ isValid: false, messageList: ["Max Amount must be greater than or equal to Min Amount"] });
+        expect(result).toEqual({ isValid: false, messageList: ["Min Net Win must be lesser than or equal to 1,000,000,000!"] });
     })
     it('_validate - TierSettingList has MinAp > MaxAp', () => {
         const selected_Group = Object.assign({}, selectedGroup, { TierSettingList: [{ TierId: 1, MinAmount: 10, MaxAmount: 100000000000, MinAp: 10000000000, MaxAp: 1000000000, Commission: 0 }] });
@@ -238,7 +226,7 @@ describe('commission group - assign private group', () => {
 
         const result = wrapper.instance()._validate();
 
-        expect(result).toEqual({ isValid: false, messageList: ["Min AP must be lesser than or equal to 1,000,000,000!"] });
+        expect(result).toEqual({ isValid: false, messageList: ["Min Active Player must be lesser than or equal to 100,000,000,000!"] });
     })
 
     it('_validate - PlatformFeeList has ProductId is null', () => {

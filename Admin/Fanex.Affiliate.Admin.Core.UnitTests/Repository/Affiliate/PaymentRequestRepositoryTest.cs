@@ -119,6 +119,25 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Affiliate
         }
 
         [Fact]
+        public void GetPaymentMethod_WhenCallWithInvalidAmount_ExcuteSucceed()
+        {
+            // Arrange
+            var repository = new Mock<PaymentRequestRepository> { CallBase = true };
+            var objectDb = new Mock<IObjectDb>();
+
+            objectDb.Setup(obj => obj.ExecuteNonQuery(null, null)).Returns(0);
+            objectDb.Setup(obj => obj.GetParameterValue("MinAmount")).Returns(DBNull.Value);
+            repository.Setup(re => re.GetObjectDb("Aff_PaymentMethod_Sel", 120)).Returns(objectDb.Object);
+
+            // Action
+            var (paymentMethods, minAmount) = repository.Object.GetPaymentMethod();
+
+            // Assert
+            objectDb.Verify(obj => obj.Query<PaymentMethodInfo>(null, null), Times.Once);
+            Assert.Equal(0, minAmount);
+        }
+
+        [Fact]
         public void GetPaymentMethod_WhenCall_ExcuteSucceed()
         {
             // Arrange

@@ -37,8 +37,8 @@ export const messages = {
     invalidWithdrawalAmount: 'Withdrawal Fee is invalid.',
     requireTier: 'Tier Setting must have at least 1 tier',
     requireInfinity: 'Last Tier Setting must have maximum value=∞',
-    qmConstrain: 'Min AP must be lesser than or equal to 1,000,000,000!',
-    amountConstrain: 'Max Amount must be greater than or equal to Min Amount',
+    amountConstrain: 'Min Net Win must be lesser than or equal to 1,000,000,000!',
+    qmConstrain: 'Min Active Player must be lesser than or equal to 100,000,000,000!',
     requireSelectedProduct: 'At least 1 product must be selected per group',
     confirmChangeGroup: 'Are you sure you want to change the Revenue Group for affiliate: {0}',
     choseAnotherGroup: 'Please choose another group (not old group)!',
@@ -51,7 +51,6 @@ export const messages = {
 const _deductionNameList = {
     p2pDeduction: 'P2P Fee',
     platformFee: 'Platform Fee',
-    operationalFee: 'Operational Fee',
     depositFee: 'Deposit Fee',
     withdrawalFee: 'Withdrawal Fee'
 }

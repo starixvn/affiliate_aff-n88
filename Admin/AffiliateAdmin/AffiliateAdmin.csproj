@@ -261,19 +261,58 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="12monitor.aspx" />
-    <Content Include="App_Data\SpConfig\SpName.local.xml">
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.backupmnl.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\SpConfig\SpName.master.xml">
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.local.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\SpConfig\SpName.production.xml">
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.master.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\SpConfig\SpName.sit.xml">
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.production.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
-    <Content Include="App_Data\SpConfig\SpName.uat.xml">
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.sit.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n88.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.backupmnl.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.master.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.sit.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8b.uat.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.backupmnl.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.local.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.master.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.production.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.sit.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SpConfig\SpName.n88admin-n8g.uat.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
     <Content Include="App_Data\SpConfig\SpName.xml">
@@ -318,6 +357,25 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\components\__tests__\redux\Content.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\__test__\index.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\DeductedPercentageGroup.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\DeductedPercentageGroup.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\DeductionSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\FeeSettingItem.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\PlatformFeeItem.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\PlatformFeeSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\TierSetting.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\TierSettingItem.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\DeductedPercentageGroup.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\DeductionSetting.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\FeeSettingItem.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\PlatformFeeItem.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\PlatformFeeSetting.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\redux\DeductionSetting.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\redux\PlatformFeeSetting.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\redux\TierSetting.redux.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\TierSetting.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\__test__\TierSettingItem.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\common\components\SubMenuList.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\TransferBalanceForPlayerSettingPopup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\__test__\redux\TransferBalanceForPlayerSettingPopup.redux.test.js" />
@@ -328,9 +386,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\addgroup\__test__\redux\AddGroup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\assign-private-group\__test__\redux\AssignPrivateGroup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\editgroup\__test__\redux\EditGroup.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\DeductedPercentageGroup.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\DeductedPercentageGroup.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\redux\DeductionSetting.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\index.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\P2pDeductionItem.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\p2p-deduction\P2pDeductionSetting.jsx" />
@@ -519,14 +574,6 @@
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\editgroup\__test__\EditGroup.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\grouplist\__test__\GridData.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\grouplist\__test__\redux\GridData.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\DeductionSetting.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\FeeSettingItem.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\PlatformFeeItem.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\PlatformFeeSetting.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\redux\PlatformFeeSetting.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\redux\TierSetting.redux.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\TierSetting.test.js" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\__test__\TierSettingItem.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\CommGroup.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\__test__\redux\CommGroupInfo.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\__test__\AppContainer.test.js" />
@@ -868,6 +915,7 @@
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.hi-IN.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Rejected\Content.hi-IN.cshtml" />
+    <Content Include="App_Data\SpConfig\_SpNameConfiguration.ttinclude" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateDisapproved\Content.ms-MY.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\AffiliateInformation\Content.ms-MY.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\Email\PaymentRequest\Approved\Content.ms-MY.cshtml" />
@@ -1168,10 +1216,6 @@
     <Content Include="Areas\Portal\www\source\style\components\_multiple-select.scss" />
     <Content Include="Areas\Portal\www\source\style\vendors\multiple-select.scss" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\CommGroupInfo.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\DeductionSetting.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\PlatformFeeItem.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\TierSetting.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\TierSettingItem.jsx" />
     <Content Include="Areas\Portal\Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_SinglePageLayout.cshtml" />
@@ -1199,10 +1243,6 @@
     <Content Include="Areas\Portal\www\dist\style\assets\open-iconic.woff" />
     <Content Include="Areas\Portal\www\source\style\components\_button.scss" />
     <Content Include="Areas\Portal\www\source\style\layout\_filter.scss" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\FeeSettingItem.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\index.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\PlatformFeeSetting.jsx" />
-    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tiersetting\index.jsx" />
     <Content Include="Areas\Portal\www\dist\vendors\bootstrap-manifest.json" />
     <Content Include="Areas\Portal\www\dist\vendors\react-manifest.json" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\addgroup\AddGroup.jsx" />

@@ -1810,4 +1810,7 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Mini Games</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>Tỷ lệ hoa hồng của nhóm sản phẩm đầu tiên</value>
+  </data>
 </root>

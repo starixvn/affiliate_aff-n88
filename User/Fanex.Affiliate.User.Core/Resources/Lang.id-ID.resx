@@ -1599,4 +1599,7 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Permainan Mini</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>Percen pembagian grup produk pertama dari beberapa grup</value>
+  </data>
 </root>

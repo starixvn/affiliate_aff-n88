@@ -134,7 +134,7 @@ var commissionReport = (function ($) {
             var activeClass = isFirstSumRow ? ' active' : '';
             var toggleIconClass = isFirstSumRow ? 'bottom' : 'left';
             var className = isSummaryRow ? ' class="sumrow' + activeClass + '"' : '';
-            var length = langResource.isMaxLevel ? 10 : 11;
+            var length = langResource.isMaxLevel ? 9 : 10;
 
             var date = dataRow.MonthDate;
 
@@ -146,13 +146,15 @@ var commissionReport = (function ($) {
             rowItems.push(_me.buildCell(formatDecimal(dataRow.TurnOver)));
             rowItems.push(_me.buildCell(formatDecimal(dataRow.GGR)));
             if (isSummaryRow) {
+                var commRate = dataRow.CommissionRate + '%';
+                var commRateCell = dataRow.IsMultiGroupProduct ? '<td class="text-right text-danger" title="' + langResource.firstProductGroupShare + '">' + commRate + '</td>' : _me.buildCell(commRate);
+
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
-                rowItems.push(_me.buildCell(formatDecimal(dataRow.OperationalFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.DepositFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.WithdrawalFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Bonus)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Rebate)));
-                rowItems.push(_me.buildCell(dataRow.CommissionRate + '%'));
+                rowItems.push(commRateCell);
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
@@ -175,7 +177,6 @@ var commissionReport = (function ($) {
                     _me.buildCell(formatDecimal(dataRow.TurnOver)) +
                     _me.buildCell(formatDecimal(dataRow.GGR)) +
                     _me.buildCell(formatDecimal(dataRow.PlatformFee)) +
-                    _me.buildCell(formatDecimal(dataRow.OperationalFee)) +
                     _me.buildCell(formatDecimal(dataRow.DepositFee)) +
                     _me.buildCell(formatDecimal(dataRow.WithdrawalFee)) +
                     _me.buildCell(formatDecimal(dataRow.Bonus)) +

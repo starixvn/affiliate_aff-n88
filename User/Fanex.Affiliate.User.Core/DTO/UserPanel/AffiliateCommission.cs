@@ -18,7 +18,6 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal PlatformFee { get; set; }
 
-        public decimal OperationalFee { get; set; }
 
         public decimal DepositFee { get; set; }
 
@@ -35,6 +34,8 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
         public decimal SubAffCommission { get; set; }
 
         public int CalculatedType { get; set; }
+
+        public bool IsMultiGroupProduct { get; set; }
 
         [SpParam(Ignored = true)]
         public decimal TotalCommission => Commission + P2pCommission + SubAffCommission;

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -34,26 +35,34 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
 
         public IEnumerable<DeductionItem> GetDeductionList()
         {
-            return _commGroupRepository.GetDeductionList();
+            return _commGroupRepository.GetDeductionList().Where(d => d.DeductionId != Deduction.OperationalFeeId);
         }
 
         private static void BuildXml(CreateUpdateCommissionGroupParam param)
         {
-            var tierDeductionSettingList = param.PlatformFeeList.Concat(new[] { param.OperationalFee, param.DepositFee, param.WithdrawalFee });
-            param.TierSettingXml = BuildTierSettingXml(param.TierSettingList);
+            param.TierSettingXml = BuildTierSettingXml(param.TierSettingList, param.PlatformFeeList);
+            var tierDeductionSettingList = param.PlatformFeeList.Concat(new[] { param.DepositFee, param.WithdrawalFee });
             param.TierDeductionsXml = BuildTierDeductionSettingXml(tierDeductionSettingList);
             param.P2pDeductionsXml = BuildP2pDeductionSettingXml(param.P2pDeductionList);
         }
 
-        private static string BuildTierSettingXml(IEnumerable<TierSettingParam> tierSettingParamList)
+        private static string BuildTierSettingXml(IEnumerable<TierSettingParam> tierSettingParamList, IEnumerable<TierDeductionSettingParam> platformFeeList)
         {
             var result = new StringBuilder();
             result.Append("<root>");
 
-            foreach (var item in tierSettingParamList)
+            foreach (var platformFee in platformFeeList)
             {
-                var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\" maxamount=\"{item.MaxAmount}\" minam=\"{item.MinAp}\" maxam=\"{item.MaxAp}\" commission=\"{item.Commission}\" />";
-                result.Append(row);
+                var tierSettings = tierSettingParamList.Where(t => t.GroupProductId == platformFee.GroupProductId);
+
+                foreach (var item in tierSettings)
+                {
+                    var productIds = platformFeeList.FirstOrDefault(p => p.GroupProductId == item.GroupProductId).ProductIds;
+
+                    var row = $"<row id=\"{item.TierId}\" minamount=\"{item.MinAmount}\"" +
+                        $" minam=\"{item.MinAp}\" commission=\"{item.Commission}\" productids=\"{productIds}\" />";
+                    result.Append(row);
+                }
             }
 
             result.Append("</root>");
@@ -78,7 +87,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
             return result.ToString();
         }
 
-        private static string BuildP2pDeductionSettingXml(IEnumerable<P2pDeductionSettingParam> p2pDeductionSettingList)
+        private static string BuildP2pDeductionSettingXml(IEnumerable<P2PDeductionSettingParam> p2pDeductionSettingList)
         {
             var result = new StringBuilder();
             result.Append("<root>");

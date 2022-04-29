@@ -13,5 +13,7 @@
         public string DeductedAmount { get; set; }
 
         public decimal Commission { get; set; }
+
+        public int GroupProductId { get; set; }
     }
 }

@@ -95,14 +95,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     IsDeductedPercent = true,
                     DeductedAmount = ""
                 },
-                OperationalFee = new TierDeductionSettingParam
-                {
-                    DeductedPercentage = 0.07m,
-                    DeductionId = 11,
-                    ProductIds = "0",
-                    IsDeductedPercent = true,
-                    DeductedAmount = ""
-                },
                 PlatformFeeList = new List<TierDeductionSettingParam>
                 {
                     new TierDeductionSettingParam
@@ -114,9 +106,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                         DeductedAmount = ""
                     }
                 },
-                P2pDeductionList = new List<P2pDeductionSettingParam>
+                P2pDeductionList = new List<P2PDeductionSettingParam>
                 {
-                    new P2pDeductionSettingParam
+                    new P2PDeductionSettingParam
                     {
                         DeductedPercentage = 0.17m,
                         DeductionId = 10,
@@ -129,8 +121,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     new TierSettingParam
                     {
                         Commission = 0.01m,
-                        MaxAmount = 100,
-                        MaxAp = 100,
                         MinAmount = 0,
                         MinAp = 0,
                         TierId = 1
@@ -138,8 +128,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
                     new TierSettingParam
                     {
                         Commission = 0.10m,
-                        MaxAmount = 100000000000000,
-                        MaxAp = 1000000000,
                         MinAmount = 101,
                         MinAp = 101,
                         TierId = 2

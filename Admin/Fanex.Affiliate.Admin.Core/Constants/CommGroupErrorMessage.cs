@@ -8,8 +8,6 @@
 
         public const string InvalidPlatformFee = "Invalid Royalty Fee";
 
-        public const string InvalidOperationalFee = "Invalid Operational Fee";
-
         public const string InvalidDepositFee = "Invalid Deposit Fee";
 
         public const string InvalidWithdrawalFee = "Invalid Withdrawal Fee";

@@ -42,7 +42,6 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
   <Connect(CommGroupInfo) />
   <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
-  <Connect(TierSetting) />
   <p
     className="text-danger"
   >
@@ -100,7 +99,6 @@ exports[`commission group - EditGroup should render correctly with isSuccess is 
   <Connect(CommGroupInfo) />
   <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
-  <Connect(TierSetting) />
   <p
     className="text-danger"
   >

@@ -1599,4 +1599,7 @@
   <data name="MiniGames" xml:space="preserve">
     <value>มินิเกม</value>
   </data>
+  <data name="FirstProductGroupShare" xml:space="preserve">
+    <value>ส่วนแบ่ง % การแชร์โปรดักส์แรกลงในหลายกลุ่ม</value>
+  </data>
 </root>

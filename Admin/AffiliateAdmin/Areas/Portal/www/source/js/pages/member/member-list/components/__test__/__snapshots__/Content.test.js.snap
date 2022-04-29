@@ -32,9 +32,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12Bet$wjpwjp"
+              title="B2C$wjpwjp"
             >
-              12Bet$wjpwjp
+              B2C$wjpwjp
             </t>
             <t
               asc={true}
@@ -43,9 +43,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETRMB0239317"
+              title="B2CRMB0239317"
             >
-              12BETRMB0239317
+              B2CRMB0239317
             </t>
             <t
               asc={true}
@@ -87,9 +87,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF017"
+              title="B2CAFF017"
             >
-              12BETAFF017
+              B2CAFF017
             </t>
           </t>,
           <t>
@@ -111,9 +111,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12Bet$jingguoan"
+              title="B2C$jingguoan"
             >
-              12Bet$jingguoan
+              B2C$jingguoan
             </t>
             <t
               asc={true}
@@ -122,9 +122,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETRMB0239312"
+              title="B2CRMB0239312"
             >
-              12BETRMB0239312
+              B2CRMB0239312
             </t>
             <t
               asc={true}
@@ -166,9 +166,9 @@ exports[`member list - components - Content  render correctly 1`] = `
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF177"
+              title="B2CAFF177"
             >
-              12BETAFF177
+              B2CAFF177
             </t>
           </t>,
         ]
@@ -314,9 +314,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12Bet$wjpwjp"
+              title="B2C$wjpwjp"
             >
-              12Bet$wjpwjp
+              B2C$wjpwjp
             </t>
             <t
               asc={true}
@@ -325,9 +325,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETRMB0239317"
+              title="B2CRMB0239317"
             >
-              12BETRMB0239317
+              B2CRMB0239317
             </t>
             <t
               asc={true}
@@ -369,9 +369,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF017"
+              title="B2CAFF017"
             >
-              12BETAFF017
+              B2CAFF017
             </t>
           </t>,
           <t>
@@ -393,9 +393,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12Bet$jingguoan"
+              title="B2C$jingguoan"
             >
-              12Bet$jingguoan
+              B2C$jingguoan
             </t>
             <t
               asc={true}
@@ -404,9 +404,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETRMB0239312"
+              title="B2CRMB0239312"
             >
-              12BETRMB0239312
+              B2CRMB0239312
             </t>
             <t
               asc={true}
@@ -448,9 +448,9 @@ exports[`member list - components - Content  render correctly with NotificationP
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF177"
+              title="B2CAFF177"
             >
-              12BETAFF177
+              B2CAFF177
             </t>
           </t>,
         ]

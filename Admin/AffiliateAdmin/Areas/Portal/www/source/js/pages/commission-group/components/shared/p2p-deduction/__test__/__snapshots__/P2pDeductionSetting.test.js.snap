@@ -47,6 +47,7 @@ exports[`commission group - P2pDeductionSetting should render correctly 1`] = `
       }
     }
     handleClick={[Function]}
+    index={1}
     isFirst={true}
     isOnlyOneP2pDeductionRow={false}
     key="p2p-0"
@@ -84,6 +85,7 @@ exports[`commission group - P2pDeductionSetting should render correctly 1`] = `
       }
     }
     handleClick={[Function]}
+    index={2}
     isFirst={false}
     isOnlyOneP2pDeductionRow={false}
     key="p2p-1"

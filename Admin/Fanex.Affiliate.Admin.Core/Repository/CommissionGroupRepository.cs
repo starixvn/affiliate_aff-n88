@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     result.P2pDeductionSettingList = GetP2pDeductionSettingList(reader);
                 }
 
-                param.Nrows = Convert.ToInt32(objectDb.GetParameterValue("Nrows"));
+                param.Nrows = GetTotalRows(objectDb);
             }
 
             return result;
@@ -176,7 +176,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     CreatedDate = reader.ToDateTime("CreatedDate"),
                     Creator = reader.ToString("Creator"),
                     Description = reader.ToString("Description"),
-                    NoAffs = reader.ToInt("NoAffs")
+                    NoAffs = reader.ToInt("NoAffs"),
+                    IsActivePlayerSum = reader.ToBool("IsActivePlayerSum")
                 });
             }
 
@@ -195,10 +196,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         GroupId = reader.ToInt(Field.GroupId),
                         TierId = reader.ToInt("TierId"),
                         MinAmount = reader.ToDecimal("MinAmount"),
-                        MaxAmount = reader.ToDecimal("MaxAmount"),
                         MinAp = reader.ToInt("MinAm"),
-                        MaxAp = reader.ToInt("MaxAm"),
-                        Commission = reader.ToDecimal("Commission")
+                        Commission = reader.ToDecimal("Commission"),
+                        GroupProductId = reader.ToInt("GroupProductId")
                     });
                 }
             }
@@ -221,7 +221,8 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                         ProductIds = reader.ToString("ProductIds"),
                         DeductedPercentage = reader.ToDecimal("DeductedPercentage"),
                         DeductedAmount = reader.ToString("DeductedAmount"),
-                        IsDeductedPercent = reader.ToBool("IsDeductedPercent")
+                        IsDeductedPercent = reader.ToBool("IsDeductedPercent"),
+                        GroupProductId = reader.ToInt("GroupProductId")
                     });
                 }
             }
@@ -260,6 +261,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
             objectDb.SetParameterValue("StraightList", param.P2pDeductionsXml);
             objectDb.SetParameterValue("TierList", param.TierSettingXml);
             objectDb.SetParameterValue("IP", param.Ip);
+            objectDb.SetParameterValue("IsActivePlayerSum", param.IsActivePlayerSum);
 
             AssignResultOutputParam(objectDb);
         }

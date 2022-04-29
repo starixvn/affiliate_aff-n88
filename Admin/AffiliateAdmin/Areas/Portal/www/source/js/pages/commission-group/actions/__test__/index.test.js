@@ -74,13 +74,6 @@ describe('commission group actions', () => {
                         GroupId: 133,
                         GroupName: "NewGroup",
                         NoAffs: 8,
-                        OperationalFee: {
-                            DeductedPercentage: 0.15,
-                            DeductionId: 11,
-                            DeductionName: "Operational Fee",
-                            GroupId: 133,
-                            ProductIds: "0"
-                        },
                         PlatformFeeList: [
                             {
                                 DeductedPercentage: 0.17,
@@ -201,7 +194,6 @@ describe('commission group actions', () => {
                 Description: "",
                 GroupId: 0,
                 GroupName: "",
-                OperationalFee: { DeductedPercentage: 0.07, DeductionId: 11, ProductIds: 0 },
                 PlatformFeeList: [{ DeductedPercentage: 0.17, DeductionId: 10, ProductIds: "1,3,4" }],
                 P2pDeductionList: [{ DeductedPercentage: 0.15, DeductionId: 15, ProductIds: "2,5", Commission: 0.1 }],
                 TierSettingList: []

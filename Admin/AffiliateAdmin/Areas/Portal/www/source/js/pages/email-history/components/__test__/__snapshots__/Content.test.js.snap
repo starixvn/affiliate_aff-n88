@@ -60,9 +60,9 @@ exports[`email history - components - Content  render correctly with have gridDa
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF12885"
+              title="B2CAFF12885"
             >
-              12BETAFF12885
+              B2CAFF12885
             </t>
             <t
               asc={true}
@@ -138,9 +138,9 @@ exports[`email history - components - Content  render correctly with have gridDa
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF226 12BETAFF226"
+              title="B2CAFF226 B2CAFF226"
             >
-              12BETAFF226 12BETAFF226
+              B2CAFF226 B2CAFF226
             </t>
             <t
               asc={true}
@@ -148,9 +148,9 @@ exports[`email history - components - Content  render correctly with have gridDa
               onClick={[Function]}
               sortable={false}
               sorting={false}
-              title="12BETAFF226"
+              title="B2CAFF226"
             >
-              12BETAFF226
+              B2CAFF226
             </t>
             <t
               asc={true}

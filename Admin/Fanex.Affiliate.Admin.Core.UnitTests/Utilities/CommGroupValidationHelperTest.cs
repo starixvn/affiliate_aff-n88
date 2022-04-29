@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2pDeductionSettingParam>();
+            param.P2pDeductionList = new List<P2PDeductionSettingParam>();
 
             var helper = CreateCommGroupValidationHelper();
 
@@ -46,9 +46,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2pDeductionSettingParam>
+            param.P2pDeductionList = new List<P2PDeductionSettingParam>
             {
-                new P2pDeductionSettingParam
+                new P2PDeductionSettingParam
                 {
                     DeductedPercentage = 0.17m,
                     DeductionId = 10,
@@ -72,9 +72,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
-            param.P2pDeductionList = new List<P2pDeductionSettingParam>
+            param.P2pDeductionList = new List<P2PDeductionSettingParam>
             {
-                new P2pDeductionSettingParam
+                new P2PDeductionSettingParam
                 {
                     DeductedPercentage = 0.17m,
                     DeductionId = 10,
@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     IsDeductedPercent = true,
                     DeductedAmount = ""
                 },
-                new P2pDeductionSettingParam
+                new P2PDeductionSettingParam
                 {
                     DeductedPercentage = 0.17m,
                     DeductionId = 10,
@@ -143,19 +143,13 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
             Assert.False(result.IsSuccessful);
         }
 
-        [Fact]
-        public void ValidateCommGroup_ValidateDeductedFee_WhenCallWithInvalidAmount_ReturnError()
+        [Theory]
+        [InlineData("-1")]
+        [InlineData("100_000_000_001")]
+        public void ValidateCommGroup_ValidateDeductedFee_WhenCallWithInvalidAmount_ReturnError(string deductedAmount)
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
-            param.OperationalFee = new TierDeductionSettingParam
-            {
-                DeductedPercentage = 0.07m,
-                DeductionId = 11,
-                ProductIds = "0",
-                IsDeductedPercent = false,
-                DeductedAmount = "-1"
-            };
 
             param.WithdrawalFee = new TierDeductionSettingParam
             {
@@ -163,7 +157,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 DeductionId = 14,
                 ProductIds = "0",
                 IsDeductedPercent = false,
-                DeductedAmount = "-1"
+                DeductedAmount = deductedAmount
             };
 
             var helper = CreateCommGroupValidationHelper();
@@ -203,6 +197,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
+            param.DepositFee = new TierDeductionSettingParam
+            {
+                DeductedPercentage = 0.07m,
+                DeductionId = 13,
+                ProductIds = "0",
+                IsDeductedPercent = false,
+                DeductedAmount = "100"
+            };
             param.TierSettingList = new List<TierSettingParam>();
 
             var helper = CreateCommGroupValidationHelper();
@@ -215,7 +217,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithLastTierIsNotMaximum_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanInfinityAmount_ReturnError()
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -224,18 +226,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSettingParam
                 {
                     Commission = 0.01m,
-                    MaxAmount = 100,
-                    MaxAp = 100,
-                    MinAmount = 0,
+                    MinAmount = 101,
                     MinAp = 0,
                     TierId = 1
                 },
                 new TierSettingParam
                 {
                     Commission = 0.10m,
-                    MaxAmount = 100000000,
-                    MaxAp = 100000,
-                    MinAmount = 101,
+                    MinAmount = 100_000_000_001,
                     MinAp = 101,
                     TierId = 2
                 }
@@ -251,7 +249,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
         }
 
         [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinAmountGreaterThanMaxAmount_ReturnError()
+        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanInfinityQualifiedMember_ReturnError()
         {
             // Arrange
             var param = CreateValidCommGroupSettingParam();
@@ -260,44 +258,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSettingParam
                 {
                     Commission = 0.01m,
-                    MaxAmount = 100,
-                    MaxAp = 100,
-                    MinAmount = 101,
-                    MinAp = 0,
-                    TierId = 1
-                },
-                new TierSettingParam
-                {
-                    Commission = 0.10m,
-                    MaxAmount = 100000000000,
-                    MaxAp = 1000000000,
-                    MinAmount = 101,
-                    MinAp = 101,
-                    TierId = 2
-                }
-            };
-
-            var helper = CreateCommGroupValidationHelper();
-
-            // Action
-            var result = helper.ValidateCommGroup(param);
-
-            // Assert
-            Assert.False(result.IsSuccessful);
-        }
-
-        [Fact]
-        public void ValidateCommGroup_ValidateTierSettingList_WhenCallWithMinApGreaterThanMaxAp_ReturnError()
-        {
-            // Arrange
-            var param = CreateValidCommGroupSettingParam();
-            param.TierSettingList = new List<TierSettingParam>
-            {
-                new TierSettingParam
-                {
-                    Commission = 0.01m,
-                    MaxAmount = 100,
-                    MaxAp = 100,
                     MinAmount = 0,
                     MinAp = 101,
                     TierId = 1
@@ -305,10 +265,8 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                 new TierSettingParam
                 {
                     Commission = 0.10m,
-                    MaxAmount = 100000000000,
-                    MaxAp = 1000000000,
                     MinAmount = 101,
-                    MinAp = 101,
+                    MinAp = 1_000_000_001,
                     TierId = 2
                 }
             };
@@ -354,17 +312,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     IsDeductedPercent = true,
                     DeductedAmount = ""
                 },
-                OperationalFee = new TierDeductionSettingParam
+                P2pDeductionList = new List<P2PDeductionSettingParam>
                 {
-                    DeductedPercentage = 0.07m,
-                    DeductionId = 11,
-                    ProductIds = "0",
-                    IsDeductedPercent = false,
-                    DeductedAmount = "123"
-                },
-                P2pDeductionList = new List<P2pDeductionSettingParam>
-                {
-                    new P2pDeductionSettingParam
+                    new P2PDeductionSettingParam
                     {
                         DeductedPercentage = 0.17m,
                         DeductionId = 10,
@@ -388,8 +338,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     new TierSettingParam
                     {
                         Commission = 0.01m,
-                        MaxAmount = 100,
-                        MaxAp = 100,
                         MinAmount = 0,
                         MinAp = 0,
                         TierId = 1
@@ -397,8 +345,6 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Utilities
                     new TierSettingParam
                     {
                         Commission = 0.10m,
-                        MaxAmount = 100000000000,
-                        MaxAp = 1000000000,
                         MinAmount = 101,
                         MinAp = 101,
                         TierId = 2

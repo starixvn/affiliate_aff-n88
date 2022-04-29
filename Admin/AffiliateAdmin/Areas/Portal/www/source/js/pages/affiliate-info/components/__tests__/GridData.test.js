@@ -71,7 +71,7 @@ describe('affiliate info - GridData ', () => {
         },
         languageList: {},
         param: {
-            AffId: '',
+            AffCode: '',
             GroupId: 0,
             Language: '',
             Status: '',
@@ -90,7 +90,7 @@ describe('affiliate info - GridData ', () => {
         componentInstance.componentDidUpdate(defaultProps);
 
         const param = {
-            AffId: '',
+            AffCode: '',
             GroupId: 0,
             Language: '',
             Status: '',
@@ -156,7 +156,7 @@ describe('affiliate info - GridData ', () => {
         const props = Object.assign({}, defaultProps, { toggleLoader: mockToggleLoader, setPagingOption: mockSetPagingOption });
         const componentInstance = new GridData(props);
         componentInstance.setState = jest.fn();
-        const param = Object.assign({}, defaultProps.param, { AffId: 'abc', PageIndex: 1, PageSize: 20 });
+        const param = Object.assign({}, defaultProps.param, { AffCode: 'abc', PageIndex: 1, PageSize: 20 });
         await componentInstance.fetchData(param);
 
         expect(props.toggleLoader).toHaveBeenCalledTimes(2);

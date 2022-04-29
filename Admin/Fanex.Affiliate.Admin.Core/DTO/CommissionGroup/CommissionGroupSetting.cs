@@ -14,9 +14,6 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
         public IEnumerable<DeductionSetting> PlatformFeeList { get; set; }
 
         [Required]
-        public DeductionSetting OperationalFee { get; set; }
-
-        [Required]
         public DeductionSetting DepositFee { get; set; }
 
         [Required]

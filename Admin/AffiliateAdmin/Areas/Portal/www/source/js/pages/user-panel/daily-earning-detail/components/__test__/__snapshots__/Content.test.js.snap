@@ -156,9 +156,9 @@ exports[`daily earning detail - components - Content render correctly with have 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="12bet$cicutadino"
+            title="B2C$cicutadino"
           >
-            12bet$cicutadino
+            B2C$cicutadino
           </t>
           <t
             asc={true}
@@ -168,9 +168,9 @@ exports[`daily earning detail - components - Content render correctly with have 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="12BETEURO02237"
+            title="B2CEURO02237"
           >
-            12BETEURO02237
+            B2CEURO02237
           </t>
           <t
             asc={true}
@@ -247,9 +247,9 @@ exports[`daily earning detail - components - Content render correctly with have 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="12bet$Munir12"
+            title="B2C$Munir12"
           >
-            12bet$Munir12
+            B2C$Munir12
           </t>
           <t
             asc={true}
@@ -259,9 +259,9 @@ exports[`daily earning detail - components - Content render correctly with have 
             onClick={[Function]}
             sortable={false}
             sorting={false}
-            title="12BETGBP02004"
+            title="B2CGBP02004"
           >
-            12BETGBP02004
+            B2CGBP02004
           </t>
           <t
             asc={true}
