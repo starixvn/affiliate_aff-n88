@@ -145,6 +145,6 @@
     <value>Ini ialah e-mel yang dijana secara automatik oleh sistem, sila jangan balas e-mel ini secara langsung.</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Hak Cipta 2020 | B2C. Hak Cipta Terpelihara | 21+</value>
+    <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
   </data>
 </root>

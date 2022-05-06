@@ -154,7 +154,7 @@
     <value>B2C संबद्धता लागू करें</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© कॉपीराइट 2020 | B2C. सर्वाधिकार सुरक्षित | 21</value>
+    <value>© कॉपीराइट {0} | B2C. सर्वाधिकार सुरक्षित | 21</value>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>कृपया किसी भी टिप्पणी या प्रश्न को निम्नलिखित संपर्क बिंदुओं पर निर्देशित करें:</value>
