@@ -28,7 +28,7 @@ describe('landing page statistics - components - Detail', () => {
                 Signups: 0,
                 TotalClick: 8,
                 UniqueClick: 4,
-                WebsiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MediaGallery"
+                WebsiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MediaGallery"
             },
             {
                 Fdm: 0,

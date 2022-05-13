@@ -55,7 +55,7 @@ describe('user account actions', () => {
                 Postcode: "X",
                 PreferredPayment: "Player",
                 Question: "What?",
-                SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
+                SiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount",
                 State: "A"
             },
             status: 200
@@ -123,7 +123,7 @@ describe('user account actions', () => {
             Postcode: "X",
             PreferredPayment: "Player",
             Question: "What?",
-            SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
+            SiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount",
             State: "A"
         }
 
@@ -163,7 +163,7 @@ describe('user account actions', () => {
             Postcode: "X",
             PreferredPayment: "Player",
             Question: "What?",
-            SiteUrl: "https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount",
+            SiteUrl: "https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount",
             State: "A"
         }
 

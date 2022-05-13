@@ -163,10 +163,10 @@
   //  "outputFile": "www/build/styles/css/theme4.css",
   //  "inputFile": "www/source/styles/scss/Themes/theme4.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/n8g.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n8g.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/n8g.css",
+    "inputFile": "www/source/styles/scss/Themes/n8g.scss"
+  }
   //{
   //  "outputFile": "www/build/styles/css/n8b.css",
   //  "inputFile": "www/source/styles/scss/Themes/n8b.scss"

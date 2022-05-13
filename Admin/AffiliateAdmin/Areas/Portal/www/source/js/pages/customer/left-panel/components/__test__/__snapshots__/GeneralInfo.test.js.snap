@@ -365,11 +365,11 @@ exports[`left panel - components - Content render correctly with affiliateInfo 1
       }
     >
       <a
-        href="http://anonym.to/?http://https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount"
+        href="http://anonym.to/?http://https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount"
         target="_blank"
-        title="http://https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount"
+        title="http://https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount"
       >
-        https://ha.nexdev.net:7634/N88User/UserPanel/Main/#MyAccount
+        https://aff-b2c.nexdev.net/N88User/UserPanel/Main/#MyAccount
       </a>
     </Col>
   </Row>

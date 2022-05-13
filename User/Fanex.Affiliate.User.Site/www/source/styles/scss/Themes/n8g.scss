@@ -775,6 +775,10 @@ select.form-control {
                 color: $date-picker-color-icon;
                 top: 7px;
             }
+
+            .mp-container .mp-header {
+                color: $text-color-white;
+            }
         }
     }
 }
@@ -1593,15 +1597,15 @@ div.summary-content {
                     }
 
                     .banner-control-button .copy-banner-code {
-                        background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+                        /*background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
                         background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
                         background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
                         -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
-                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);*/
                         border-radius: 2px;
                         font-weight: 500;
                         font-size: 1.4rem;
-                        color: $marketing-btn-color;
+                        //color: $marketing-btn-color;
                         padding: 5px 18px;
                         white-space: nowrap;
                     }
