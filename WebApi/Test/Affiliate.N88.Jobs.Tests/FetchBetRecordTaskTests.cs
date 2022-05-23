@@ -62,18 +62,6 @@ namespace Affiliate.N88.Jobs.Tests
         }
 
         [Theory]
-        [MemberData(nameof(FetchBetRecordTaskTestsHelper.TimeTrackerHandlableException), MemberType = typeof(FetchBetRecordTaskTestsHelper))]
-        public async Task FetchDataAsync_WhenCall_ReceiveDefaultTimeIfTimeTrackerThrowHandlableException(Exception ex)
-        {
-            var defaultDate = FetchBetRecordTaskTestsHelper.GetConfiguration().DefaultPullDate;
-            SetUpStubConfiguration();
-            var fetchTask = CreateFetchTask();
-            TimeTrackerService.When(x => x.GetTimeAsync(Arg.Any<string>())).Do(x => throw ex);
-            await fetchTask.FetchDataAsync();
-            await Api.Received().GetBetRecordAsync(Arg.Is<DateTime>(defaultDate), Arg.Any<DateTime>());
-        }
-
-        [Theory]
         [MemberData(nameof(FetchBetRecordTaskTestsHelper.LicenseeCalls), MemberType = typeof(FetchBetRecordTaskTestsHelper))]
         public async Task FetchDataAsync_WhenCall_NumberOfApiCallBaseOnMaxTimeRange(DateTime fromDate, DateTime toDate, int maxTimeRange, int numberOfTimeApiCall)
         {
@@ -158,7 +146,6 @@ namespace Affiliate.N88.Jobs.Tests
         public static FetchServiceSetting GetConfiguration() => new FetchServiceSetting
         {
             AdjustmentValue = 0,
-            DefaultPullDate = new DateTime(2020, 2, 2, 0, 0, 0),
             MaxTimeRange = 30,
             PullInfoCron = "*/30 * * * *",
             DataSource = "Table",

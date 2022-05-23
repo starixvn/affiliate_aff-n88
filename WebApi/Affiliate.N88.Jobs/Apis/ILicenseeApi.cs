@@ -70,5 +70,8 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/LogReport/GetLogAdminAdjustWallet")]
         Task<IEnumerable<LogAdminAjustWalletInfo>> GetLogAdminAdjustWallet(int id, int batchCount);
+
+        [Get("/LogReport/GetReferralMLogs")]
+        Task<IEnumerable<ReferralMLogModel>> GetReferralMLogs(int id, int batchCount);
     }
 }

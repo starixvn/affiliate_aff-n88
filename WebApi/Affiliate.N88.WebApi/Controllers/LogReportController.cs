@@ -33,5 +33,9 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<LogAdminAjustWalletInfo>> GetLogAdminAdjustWallet(int id, int batchCount = 2000)
             => await Repo.FetchAsync<LogAdminAjustWalletInfo>(new GetLogAdminAjustWalletCriteria(id, batchCount));
+
+        [HttpGet]
+        public async Task<IEnumerable<ReferralMLogModel>> GetReferralMLogs(int id, int batchCount = 2000)
+            => await Repo.FetchAsync<ReferralMLogModel>(new GetReferralMLogCriteria(id, batchCount));
     }
 }

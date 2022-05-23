@@ -43,6 +43,14 @@ namespace Affiliate.N88.Jobs.Services
             return listTracker.OrderBy(minKeySelector).FirstOrDefault();
         }
 
+        public async Task<TrackerInfo> GetTrackerAsync<TKey>(string source, Func<TrackerInfo, TKey> minKeySelector, IComparer<TKey> comparer)
+        {
+            var listTracker = await GetListTrackerAsync(source);
+            if (!listTracker.Any())
+                throw new InvalidOperationException("Can't fetch any track time");
+            return listTracker.OrderBy(minKeySelector, comparer).FirstOrDefault();
+        }
+
         public async Task SaveTimeAsync(string source, DateTime date)
         {
             var tracker = new TrackerInfo { CalledTime = date, KeyValue = string.Empty };

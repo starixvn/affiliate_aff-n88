@@ -27,5 +27,6 @@
     <Setting Key="API_VIPUpgradeReview_Get" SpName="API_VIPUpgradeReview_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_LogAdminAdjustWallet_Get" SpName="API_LogAdminAdjustWallet_Get" DbName="N88Licensee_Read"/>
     <Setting Key="API_CustVerificationReward_Get" SpName="API_CustVerificationReward_Get" DbName="N88Licensee_Read"/>
+    <Setting Key="API_ReferralMLog_Get" SpName="API_ReferralMLog_Get" DbName="N88Licensee_Read"/>
   </Function>
 </Functions>
