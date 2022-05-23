@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Configuration;
-using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi

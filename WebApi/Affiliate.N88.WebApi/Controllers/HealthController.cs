@@ -1,13 +1,9 @@
 ﻿using Affiliate.N88.WebApi.Health;
-using Affiliate.N88.WebApi.Infastructure.Enums;
 using Affiliate.N88.WebApi.Models.HelthCheck;
-using Fanex.Data.Repository;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi.Controllers
