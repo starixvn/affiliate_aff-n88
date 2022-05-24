@@ -171,7 +171,6 @@
                         }
 
                         tr {
-                            min-width: 920px;
 
                             &:nth-child(even) {
                                 background: #FDEADA;
@@ -187,7 +186,17 @@
                         }
                     }
 
+                    #overview-table {
+                        tr {
+                            min-width: 920px;
+                        }
+                    }
+
                     #player-detail-table {
+                        tr {
+                            min-width: 1620px;
+                        }
+
                         .th {
                             cursor: pointer;
                         }
@@ -232,6 +241,12 @@
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    #sub-aff-detail-table {
+                        tr {
+                            min-width: 1240px;
                         }
                     }
                 }

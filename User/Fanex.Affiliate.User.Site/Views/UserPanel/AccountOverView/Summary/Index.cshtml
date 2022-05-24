@@ -34,6 +34,6 @@
     </div>
 </div>
 
-<input type="hidden" id="ToDay" value="@now.ToString("MM/dd/yyyy")" />
+<input type="hidden" id="ToDay" value="@(new DateTime(2021, 10, 01).ToString("MM/dd/yyyy"))" />
 
 <script src="@Url.RenderLink("~/www/build/js/summary.js")"></script>
