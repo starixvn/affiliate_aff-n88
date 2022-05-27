@@ -538,6 +538,8 @@ select.form-control {
     .summary div.form-group .form-wrapper#monthPicker .glyphicon {
       color: #DADADA;
       top: 7px; }
+    .summary div.form-group .form-wrapper#monthPicker .mp-container .mp-header {
+      color: #ffffff; }
 
 .date-wrapper {
   background: #030C1B;
@@ -1061,15 +1063,14 @@ div.summary-content {
     border: 0;
     border-top: 1px solid #435068; }
   .account-overview .info-group ul li.banner-control .banner-control-button .copy-banner-code {
-    background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
-    background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
-    background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
-    -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
-    box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+    /*background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
+                        background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
+                        background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
+                        -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
+                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);*/
     border-radius: 2px;
     font-weight: 500;
     font-size: 1.4rem;
-    color: #333333;
     padding: 5px 18px;
     white-space: nowrap; }
 

@@ -10,7 +10,7 @@
     var currencyLabel = AppSetting.Instance.CurrencyLabel;
 }
 
-<div class="table">
+<div class="table overview-table">
     <table class="has-total" id="overview-table">
         <thead>
             <tr class="overview-table-header" id="overview-table-header">
@@ -39,7 +39,7 @@
                 }
             }
         </thead>
-        <tbody class="@(hasScroll ? "has-scroll" : string.Empty)">
+        <tbody class="overview-table-body @(hasScroll ? "has-scroll" : string.Empty)">
             @{
                 if (hasData)
                 {

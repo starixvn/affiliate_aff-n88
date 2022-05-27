@@ -219,7 +219,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://aff-b2c.nexdev.net/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();
@@ -251,7 +251,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
-            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://ha.nexdev.net:7634/N88User");
+            appSetting.Setup(a => a.AsianAffSiteUrl).Returns("https://aff-b2c.nexdev.net/N88User");
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance(appSetting.Object).As<IAppSetting>();

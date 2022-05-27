@@ -142,7 +142,7 @@ namespace Fanex.Affiliate.Admin.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © Copyright 2020 | B2C. All Rights Reserved | 21+.
+        ///   Looks up a localized string similar to © Copyright {0} | B2C. All Rights Reserved | 21+.
         /// </summary>
         public static string Copyright {
             get {

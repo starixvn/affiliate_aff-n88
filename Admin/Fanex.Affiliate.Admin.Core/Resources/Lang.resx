@@ -247,7 +247,7 @@
     <value>The payment account you entered is Locked. Please check again.</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Copyright 2020 | B2C. All Rights Reserved | 21+</value>
+    <value>© Copyright {0} | B2C. All Rights Reserved | 21+</value>
   </data>
   <data name="Nova88" xml:space="preserve">
     <value>Nova88</value>

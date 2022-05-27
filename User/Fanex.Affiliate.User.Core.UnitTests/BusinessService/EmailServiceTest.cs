@@ -34,7 +34,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var model = new EmailTemplateViewModel();
 
-            Assert.Equal("© Copyright 2020 | Bwing. All Rights Reserved | 21+", model.Copyright);
             Assert.Equal("N8B", model.SiteName);
         }
 

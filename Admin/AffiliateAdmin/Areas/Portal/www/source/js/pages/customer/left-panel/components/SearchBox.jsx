@@ -55,10 +55,10 @@ export class SearchBox extends PureComponent {
 
         return (
             <Form tag="div">
-                <FormGroup row>
-                    <Col sm={9}>
+                <FormGroup row style={{ justifyContent: "space-evenly" }}>
+                    <div>
                         <Input type="text" name="affName" onChange={this.handleChange} onKeyPress={this.handlePressEnter} value={affName} />
-                    </Col>
+                    </div>
                     <Button id="search-affName" onClick={this.handleClick}>{globalResource.Search}</Button>
                 </FormGroup>
                 {

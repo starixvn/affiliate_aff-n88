@@ -106,7 +106,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             service.GetCurrencyList(false);
 
             Repo.DidNotReceive().GetCurrencyList(false);
-            CacheService.Received().Set(CacheKey.CurrencyList, Arg.Compat.Any<IEnumerable<CurrencyType>>());
+            CacheService.DidNotReceive().Set(CacheKey.CurrencyList, Arg.Compat.Any<IEnumerable<CurrencyType>>());
         }
 
         [Fact]
@@ -154,7 +154,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var result = service.GetBannerTypeList(false);
 
             Repo.Received().GetBannerTypeList(false);
-            CacheService.DidNotReceiveWithAnyArgs().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
+            CacheService.Received().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
             Assert.Empty(result);
         }
 
@@ -167,7 +167,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var result = service.GetBannerTypeList(false);
 
             Repo.DidNotReceive().GetBannerTypeList(false);
-            CacheService.Received().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
+            CacheService.DidNotReceive().Set(CacheKey.BannerTypeList, Arg.Compat.Any<IEnumerable<BannerType>>());
             Assert.NotEmpty(result);
         }
 
@@ -195,7 +195,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             var result = service.GetAvailableDomainList(0, AffiliateLinkType.SubAffiliateLink, false);
 
             Repo.Received().GetAvailableDomainList(0, false, false);
-            CacheService.DidNotReceiveWithAnyArgs().Set(CacheKey.SubDomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
+            CacheService.Received().Set(CacheKey.SubDomainList, Arg.Compat.Any<IEnumerable<Domain>>(), Number.Ten);
             Assert.Empty(result);
         }
 

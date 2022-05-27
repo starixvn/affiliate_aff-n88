@@ -358,7 +358,7 @@
     <value>เกาะ คุ๊ก</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© ลิขสิทธิ์ 2020| B2C. สงวนลิขสิทธิ์ | 21+</value>
+    <value>© ลิขสิทธิ์ {0} | B2C. สงวนลิขสิทธิ์ | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>คอสตาริกา</value>

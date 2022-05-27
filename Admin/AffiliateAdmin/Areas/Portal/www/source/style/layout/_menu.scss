@@ -2,16 +2,19 @@
     font-size: 11px;
     height: 40px;
 
-    .menu-list {       
+    .menu-list {
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        overflow-x: auto;
 
         .nav-link {
-          height: 39px;
-          line-height: 39px;
-          padding: 0 25px;
-          color: #fff;
-          font-size: 13px;
-          transition: all .3s ease;
-          text-transform: uppercase;
+            height: 39px;
+            line-height: 39px;
+            padding: 0 25px;
+            color: #fff;
+            font-size: 13px;
+            transition: all .3s ease;
+            text-transform: uppercase;
 
             &:hover {
                 background: rgba($color: #000000, $alpha: .2);

@@ -73,10 +73,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             });
         public IEnumerable<CurrencyType> GetCurrencyList(bool isInternal)
         {
-            var currencyList = _cacheService.Get<IEnumerable<CurrencyType>>(CacheKey.CurrencyList) ?? _marketingRepository.GetCurrencyList(isInternal);
+            var currencyList = _cacheService.Get<IEnumerable<CurrencyType>>(CacheKey.CurrencyList);
 
-            if (currencyList != null)
+            if (currencyList == null)
             {
+                currencyList = _marketingRepository.GetCurrencyList(isInternal);
                 _cacheService.Set(CacheKey.CurrencyList, currencyList);
             }
 
@@ -90,10 +91,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public IEnumerable<BannerType> GetBannerTypeList(bool isInternal = false)
         {
-            var bannerTypeList = _cacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList) ?? _marketingRepository.GetBannerTypeList(isInternal);
+            var bannerTypeList = _cacheService.Get<IEnumerable<BannerType>>(CacheKey.BannerTypeList);
 
-            if (bannerTypeList != null)
+            if (bannerTypeList == null)
             {
+                bannerTypeList = _marketingRepository.GetBannerTypeList(isInternal);
                 _cacheService.Set(CacheKey.BannerTypeList, bannerTypeList);
             }
 
@@ -105,10 +107,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var isMember = linkType == AffiliateLinkType.AffiliateLink;
             var cachKey = isMember ? CacheKey.DomainList : CacheKey.SubDomainList;
 
-            var domainList = _cacheService.Get<IEnumerable<Domain>>(cachKey) ?? _marketingRepository.GetAvailableDomainList(affId, isMember, isInternal);
+            var domainList = _cacheService.Get<IEnumerable<Domain>>(cachKey);
 
-            if (domainList != null)
+            if (domainList == null)
             {
+                domainList = _marketingRepository.GetAvailableDomainList(affId, isMember, isInternal);
                 _cacheService.Set(cachKey, domainList, Number.Ten);
             }
 

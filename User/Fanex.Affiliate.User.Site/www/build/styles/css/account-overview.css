@@ -648,14 +648,16 @@ ul.dash-style {
           top: 40px; }
         .summary-content .details-section-content .table table thead tr.overview-table-total th {
           font-weight: bold; }
-        .summary-content .details-section-content .table table tr {
-          min-width: 920px; }
-          .summary-content .details-section-content .table table tr:nth-child(even) {
-            background: #FDEADA; }
-          .summary-content .details-section-content .table table tr td, .summary-content .details-section-content .table table tr th {
-            font-size: 1.3rem; }
-          .summary-content .details-section-content .table table tr .break-all {
-            word-break: break-all; }
+        .summary-content .details-section-content .table table tr:nth-child(even) {
+          background: #FDEADA; }
+        .summary-content .details-section-content .table table tr td, .summary-content .details-section-content .table table tr th {
+          font-size: 1.3rem; }
+        .summary-content .details-section-content .table table tr .break-all {
+          word-break: break-all; }
+      .summary-content .details-section-content .table #overview-table tr {
+        min-width: 920px; }
+      .summary-content .details-section-content .table #player-detail-table tr {
+        min-width: 1620px; }
       .summary-content .details-section-content .table #player-detail-table .th {
         cursor: pointer; }
       .summary-content .details-section-content .table #player-detail-table .th-wrapper {
@@ -684,6 +686,8 @@ ul.dash-style {
           right: 11px; }
           .summary-content .details-section-content .table #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
             cursor: pointer; }
+      .summary-content .details-section-content .table #sub-aff-detail-table tr {
+        min-width: 1240px; }
 
 #aff-link, #media-gallery {
   margin-left: -50px;

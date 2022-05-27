@@ -163,6 +163,6 @@
     <value>Yêu cầu chuyển tiền không hợp lệ</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Bản quyền 2020 | Toàn bộ thuộc B2C.com | 21+</value>
+    <value>© Bản quyền {0} | Toàn bộ thuộc B2C.com | 21+</value>
   </data>
 </root>

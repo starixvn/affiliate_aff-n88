@@ -148,6 +148,6 @@
     <value>B2C Affiliates – Permohonan Anda</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© hak cipta 2020 | B2C. Seluruh hak dilindungi | 21+</value>
+    <value>© hak cipta {0} | B2C. Seluruh hak dilindungi | 21+</value>
   </data>
 </root>
