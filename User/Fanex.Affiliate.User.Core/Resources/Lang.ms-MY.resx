@@ -148,7 +148,7 @@
     <value>LOG MASUK</value>
   </data>
   <data name="HotNews" xml:space="preserve">
-    <value>BERITA TERHANGAN</value>
+    <value>BERITA TERHANGAT</value>
   </data>
   <data name="ApplyOneTwoBetAffiliate" xml:space="preserve">
     <value>Mohon Untuk Jadi Ahli Affiliate B2C</value>
@@ -157,13 +157,13 @@
     <value>Sebagai ahli affliate, anda boleh memperoleh sebahagian keuntungan untuk setiap pemain yang anda rujuk kepada B2C. Sistem dalam talian anda akan berkhidmat untuk anda 24/7 untuk sebarang kegunaan anda.</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
-    <value>Apa yang Terbaru dalam Sistem Affliate</value>
+    <value>Apakah yang Terbaru dalam Sistem Affliate</value>
   </data>
   <data name="CannotGetEnough" xml:space="preserve">
-    <value>KADAR KEUNTUNGAN ANDA SEKARANG?</value>
+    <value>TAK CUKUP!</value>
   </data>
   <data name="YourCurrentCommision" xml:space="preserve">
-    <value>Tak Cukup!</value>
+    <value>KADAR KEUNTUNGAN ANDA SEKARANG?</value>
   </data>
   <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
     <value>Hubungi pasukan sokongan ahli affliate anda untuk kadar keuntungan yang eksklusif untuk meningkatkan keuntungan ke taraf yang lebih tinggi untuk pendapatan bulanan anda</value>
@@ -184,7 +184,7 @@
     <value>TERBARU!</value>
   </data>
   <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
-    <value>Apa yang Baru dalam Promosi B2C !</value>
+    <value>Apakah yang terbaru dalam Promosi B2C !</value>
   </data>
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>Semak promosi yang terhangat pada bulan ini. Siarkannya dalam laman web dan saluran sosial anda untuk dapatkan lebih ramai pelanggan dan keuntungan!</value>
