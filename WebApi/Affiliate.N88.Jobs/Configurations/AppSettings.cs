@@ -56,6 +56,10 @@
 
         public FetchServiceSetting PullReferralMLogSetting { get; set; }
 
+        public FetchServiceSetting PullTpReport9WSetting { get; set; }
+
+        public FetchServiceSetting PullTpWager9WSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }

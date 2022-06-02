@@ -47,5 +47,9 @@
         public const string PULL_CUST_VERIFICATION_REWARD_SETTING = "PullCustVerificationRewardSetting";
 
         public const string PULL_REFERRALMLOG_SETTING = "PullReferralMLogSetting";
+
+        public const string PULL_TPREPORT_9W_SETTING = "PullTpReport9WSetting";
+
+        public const string PULL_TPWAGER_9W_SETTING = "PullTpWager9WSetting";
     }
 }
