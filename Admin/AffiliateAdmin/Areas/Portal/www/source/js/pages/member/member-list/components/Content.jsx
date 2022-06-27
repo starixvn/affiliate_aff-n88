@@ -1,22 +1,17 @@
 ﻿import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button, Input } from 'reactstrap';
 import { Table, Row, Cell } from '@9softstudio/react-fixed-table-header';
-import NotificationPopup from '../../../common/components/NotificationPopup';
 
+import { formatDateTime } from '../../../../modules/utils';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 import { headerText, globalResource } from '../libs/constants';
-import { /*deleteMember,*/ fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam } from '../actions';
+import { setSelectedMemberId, fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam } from '../actions';
 
 export class Content extends PureComponent {
     constructor(props) {
         super(props);
-
-        this.state = {
-            selectedMemberId: 0,
-            message: '',
-            isConfirmPopup: true
-        }
     }
 
     componentDidUpdate(prevProps) {
@@ -37,52 +32,28 @@ export class Content extends PureComponent {
         this.props.setParam(newParam);
     };
 
-    _handleCloseNotificationPopup = (confirmResult) => {
-        this.setState({ message: '' });
-
-        const { selectedMemberId } = this.state;
-        if (confirmResult && selectedMemberId) {
-            this._deleteMember(selectedMemberId);
-        }
-    }
-
-    //_handleDeleteMember = (selectedMemberId) => {
-    //    this.props.setShouldResetScrollPosition(false);
-    //    this.setState({ message: 'Are you sure you want to remove this member from his affiliate?', isConfirmPopup: true, selectedMemberId });
-    //}
-
-    _deleteMember = async (selectedMemberId) => {
-        this.props.toggleLoader(true);
-
-        const result = await this.props.deleteMember(selectedMemberId);
-
-        if (result) {
-            if (result.IsSuccessful) {
-                this.setState({ message: 'Member has been removed suseccfully!', isConfirmPopup: false });
-
-                this.props.fetchData(this.props.param);
-            }
-            else {
-                this.setState({ message: result.Message, isConfirmPopup: false });
-            }
-        }
-
-        this.props.toggleLoader(false);
+    _handleUpdateMember = (selectedMemberId) => {
+        this.props.setSelectedMemberId(selectedMemberId);
     }
 
     _renderHeader() {
-        return (
-            <Row key="thead">
-                <Cell header={true} colWidth={20} title={headerText.Index}>{headerText.Index}</Cell>
-                <Cell header={true} colWidth={120} title={headerText.UserName}>{headerText.UserName}</Cell>
-                <Cell header={true} colWidth={120} title={headerText.IbcUserName}>{headerText.IbcUserName}</Cell>
-                <Cell header={true} colWidth={100} title={headerText.FirstName}>{headerText.FirstName}</Cell>
-                <Cell header={true} colWidth={100} title={headerText.LastName}>{headerText.LastName}</Cell>
-                <Cell header={true} colWidth={100} title={headerText.CreatedDate}>{headerText.CreatedDate}</Cell>
-                <Cell header={true} colWidth={100} title={headerText.Affiliate}>{headerText.Affiliate}</Cell>
-                {/* <Cell header={true} colWidth={30} title={headerText.Remove}>{headerText.Remove}</Cell> */}
+        return [
+            <Row key="theard">
+                <Cell header={true} rowSpan="2" colWidth={30} title={headerText.Index}>{headerText.Index}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={120} title={headerText.UserName}>{headerText.UserName}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={120} title={headerText.IbcUserName}>{headerText.IbcUserName}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={100} title={headerText.FirstName}>{headerText.FirstName}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={100} title={headerText.LastName}>{headerText.LastName}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={100} title={headerText.CreatedDate}>{headerText.CreatedDate}</Cell>
+                <Cell header={true} rowSpan="2" colWidth={100} title={headerText.Affiliate}>{headerText.Affiliate}</Cell>
+                <Cell header={true} colSpan="3" colWidth={200} title={headerText.Removed}>{headerText.Removed}</Cell>
+            </Row>,
+            <Row key="sub-theard">
+                <Cell header={true} colWidth={50} title={headerText.Status}>{headerText.Status}</Cell>
+                <Cell header={true} colWidth={100} title={headerText.LastActionDate}>{headerText.LastActionDate}</Cell>
+                <Cell header={true} colWidth={50} title={headerText.Edit}>{headerText.Edit}</Cell>
             </Row>
-        );
+        ];
     }
 
     _renderDataSection(dataList) {
@@ -100,7 +71,7 @@ export class Content extends PureComponent {
         }
         else {
             dataRows.push(<Row>
-                <Cell className="text-center" colSpan="9">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="10">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 
@@ -112,6 +83,8 @@ export class Content extends PureComponent {
         const ibcUserName = htmlDecode(dataItem.IbcUserName);
         const firstName = htmlDecode(dataItem.FirstName);
         const lastName = htmlDecode(dataItem.LastName);
+        const createdDate = formatDateTime(dataItem.CreatedDate, "MM/dd/yyyy HH:mm:ss");
+        const lastActionDate = formatDateTime(dataItem.LastActionDate, "MM/dd/yyyy HH:mm:ss");
 
         return (
             <Row key={`dataRow-${index}`}>
@@ -120,20 +93,23 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={ibcUserName}>{ibcUserName}</Cell>
                 <Cell className="text-center" title={firstName}>{firstName}</Cell>
                 <Cell className="text-center" title={lastName}>{lastName}</Cell>
-                <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>
+                <Cell className="text-center" title={createdDate}>{createdDate}</Cell>
                 <Cell className="text-center" title={dataItem.AffName}>{dataItem.AffName}</Cell>
-                {/* <Cell className="text-center" title="Remove Member">
-                    <Button color="link p-0" onClick={() => this._handleDeleteMember(dataItem.MemberId)}>
-                        <span className="oi oi-x text-danger"></span>
+                <Cell className="text-center">
+                    <input className="mt-1" type="checkbox" checked={!dataItem.isRemoved} disabled="true" />
+                </Cell>
+                <Cell className="text-center" title={lastActionDate}>{lastActionDate}</Cell>
+                <Cell className="text-center" title={`Edit ${userName} player`}>
+                    <Button color="link p-0" onClick={() => this._handleUpdateMember(dataItem.MemberId)}>
+                        <span className="oi oi-pencil text-secondary"></span>
                     </Button>
-                </Cell> */}
+                </Cell>
             </Row>
         )
     }
 
     render() {
         const { pagingOption, gridData, shouldResetScrollPosition } = this.props;
-        const { message, isConfirmPopup } = this.state;
 
         return gridData && (
             <div className="data-content">
@@ -151,13 +127,6 @@ export class Content extends PureComponent {
                         shouldResetScrollPosition={shouldResetScrollPosition}
                     />
                 </div>
-                {
-                    !!message && <NotificationPopup
-                        message={message}
-                        isConfirmPopup={isConfirmPopup}
-                        onClose={this._handleCloseNotificationPopup}
-                    />
-                }
             </div>
         );
     }
@@ -168,7 +137,7 @@ function mapStateToProps({ pagingOption, param, shouldResetScrollPosition, gridD
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ /*deleteMember,*/ fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam }, dispatch);
+    return bindActionCreators({ setSelectedMemberId, fetchData, setPagingOption, toggleLoader, setShouldResetScrollPosition, setParam }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Content);

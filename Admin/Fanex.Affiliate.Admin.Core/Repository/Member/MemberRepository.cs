@@ -38,6 +38,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                             FirstName =  reader.ToString("FirstName"),
                             LastName = reader.ToString("LastName"),
                             CreatedDate = reader.GetVal<DateTime?>("RegisteredDate"),
+                            LastActionDate = reader.GetVal<DateTime?>("RegisteredDate"),
                             AffName = reader.ToString("AffUserName")
                         });
                     }

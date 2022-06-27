@@ -5,6 +5,10 @@
 
 @model Fanex.Affiliate.Admin.Core.ViewModels.Member.MemberListViewModel
 
+@section pagecss{
+    <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/member/member-list.css")" rel="stylesheet" />
+}
+
 @{
     Html.RenderPartial("~/Areas/Portal/Views/Player/_MemberSubMenu.cshtml", Model.SubMenuList);
 }

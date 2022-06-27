@@ -380,6 +380,7 @@
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\TransferBalanceForPlayerSettingPopup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\__test__\redux\TransferBalanceForPlayerSettingPopup.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\customer\left-panel\components\panel\__test__\TransferBalanceForPlayerSettingPopup.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\member\member-list\components\EditMemberPopup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\message\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\AppContainer.redux.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\report\affiliate-report\components\__test__\redux\Content.redux.test.js" />
@@ -1442,6 +1443,7 @@
     <Content Include="Areas\Portal\www\source\style\components\_select.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\report\index.scss" />
     <Content Include="Areas\Portal\www\source\style\pages\report\player-ggr-report.scss" />
+    <Content Include="Areas\Portal\www\source\style\pages\member\member-list.scss" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

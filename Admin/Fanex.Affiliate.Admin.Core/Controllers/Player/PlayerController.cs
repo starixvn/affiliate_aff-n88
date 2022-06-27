@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using System.Linq;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
@@ -47,6 +48,16 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
             return new JsonNetResult
             {
                 Data = _memberService.GetMemberList(param)
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult GetMemberDetail(int memberId)
+        {
+            return new JsonNetResult
+            {
+                Data = _memberService.GetMemberList(new MemberParam()).MainData.Where(m => m.MemberId == memberId)
             };
         }
     }
