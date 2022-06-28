@@ -2,6 +2,7 @@
 using Affiliate.N88.Jobs.Constants;
 using Affiliate.N88.Jobs.RecurringTasks;
 using Affiliate.N88.Jobs.RecurringTasks.Log;
+using Affiliate.N88.Jobs.RecurringTasks.Product9W;
 using Affiliate.N88.Jobs.RecurringTasks.Promotion;
 using Affiliate.N88.Jobs.Services;
 using Affiliate.N88.Repository;
@@ -176,6 +177,18 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_REFERRALMLOG_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REFERRALMLOG_SETTING}")
                 );
+
+            services.AddScoped<IFetchTpReport9WDataTask, FetchTpReport9WDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_TPREPORT_9W_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_TPREPORT_9W_SETTING}")
+                );
+
+            services.AddScoped<IFetchTpWager9WDataTask, FetchTpWager9WDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_TPWAGER_9W_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_TPWAGER_9W_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -237,6 +250,10 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchReferralMLogDataTask>($"{typeof(IFetchReferralMLogDataTask).Name}", appSettings.PullReferralMLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
             }
         }
 

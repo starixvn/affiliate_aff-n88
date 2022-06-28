@@ -13,6 +13,7 @@ using SharpRaven;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -24,30 +25,8 @@ namespace Affiliate.N88.Jobs.Middlewares
         {
             ServicesMiddleware.appSettings = appSettings;
             services.AddSingleton<IDynamicRepository, DynamicRepository>();
-            services.AddSingleton(RestService.For<ILicenseeApi>(
-                new HttpClient(
-                    new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)
-                    {
-                        Proxy = appSettings.ProxySetting != null && appSettings.ProxySetting.IsUseProxy
-                            ? new WebProxy(new Uri(appSettings.ProxySetting.ProxyUrl))
-                            : null
-                    })
-                {
-                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),
-                }));
 
-            services.AddSingleton(RestService.For<IPromotionApi>(
-                new HttpClient(
-                    new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)
-                    {
-                        Proxy = appSettings.ProxySetting != null && appSettings.ProxySetting.IsUseProxy
-                            ? new WebProxy(new Uri(appSettings.ProxySetting.ProxyUrl))
-                            : null
-                    })
-                {
-                    BaseAddress = new Uri(appSettings.LicenseeDataAPI),
-                }));
-
+            InitApi(services);
             InitLogging(services);
             InitFanexData(configuration);
         }
@@ -70,6 +49,28 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .StartNewSession()
                 .WithSqlServer(resourcePath: appSettings.SpPath)
                 .Run();
+        }
+
+        private static void InitApi(IServiceCollection services)
+        {
+            Func<HttpClient> CreateHttpClient = () =>
+            {
+                var httpCLient = HttpClientFactory.Create(
+                      new AuthenticatedHttpClientHandler(appSettings.AuthenticationKey)
+                      {
+                          Proxy = appSettings.ProxySetting != null && appSettings.ProxySetting.IsUseProxy
+                              ? new WebProxy(new Uri(appSettings.ProxySetting.ProxyUrl))
+                              : null,
+                          AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+                      });
+                httpCLient.BaseAddress = new Uri(appSettings.LicenseeDataAPI);
+                httpCLient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("gzip"));
+                return httpCLient;
+            };
+
+            services.AddSingleton(RestService.For<ILicenseeApi>(CreateHttpClient()));
+            services.AddSingleton(RestService.For<IPromotionApi>(CreateHttpClient()));
+            services.AddSingleton(RestService.For<IProduct9WApi>(CreateHttpClient()));
         }
     }
 }
