@@ -363,7 +363,7 @@ select {
     }
 
     .carousel-inner {
-        .item {
+        /*        .item {
             &:after {
                 position: absolute;
                 z-index: 5;
@@ -377,7 +377,7 @@ select {
                 background: linear-gradient(90deg, #000000 28.94%, rgba(0, 0, 0, 0) 77.18%);
                 opacity: 0.6;
             }
-        }
+        }*/
 
 
         .carousel-inner {
@@ -399,34 +399,39 @@ select {
         .txt-lang {
             position: relative;
             color: #FFEFBC;
-            line-height: 1;
             margin-bottom: 0 !important;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
             &-comm {
-                font-size: 200px;
+                font-size: 175px;
+                line-height: 205px;
             }
 
             &-percent {
                 top: 25px;
-                font-size: 40px;
+                line-height: 73.05px;
+                font-size: 50px;
                 position: absolute;
+                font-weight: 800;
             }
         }
 
         .sub-txt-lang {
-            padding-top: 15px;
-            padding-left: 45px;
+            padding-top: 35px;
+            padding-left: 55px;
 
             &-title {
                 text-transform: uppercase;
                 color: #FFEFBC;
-                font-size: 75px;
+                font-size: 80px;
+                line-height: 72.15px;
                 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
             }
 
             &-sub-title {
-                font-weight: bold;
+                font-weight: 900;
+                font-size: 20px;
+                line-height: 35px;
                 color: #F8B90F;
             }
         }
@@ -437,6 +442,9 @@ select {
         position: relative;
         z-index: 1;
         margin-left: 5px;
+        font-weight: 900;
+        font-size: 26px;
+        line-height: 87%;
 
         &:after {
             position: absolute;
@@ -466,6 +474,28 @@ select {
             -ms-transform: skewX(-13deg);
             transform: skewX(-13deg);
         }*/
+    }
+
+    &-cn3 {
+        &-title {
+            .txt-lang {
+                &-comm {
+                    line-height: 155px;
+                }
+
+                &-percent {
+                    top: 0px;
+                }
+            }
+
+            .sub-txt-lang {
+                padding-top: 10px;
+
+                &-sub-title {
+                    line-height: 23px;
+                }
+            }
+        }
     }
 }
 // Common
@@ -2095,10 +2125,65 @@ div.custom-panel {
     }
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1536px) {
     .banner-text {
-        h2 {
-            font-size: 4rem;
+        left: 210px;
+        top: 46%;
+
+        &-title {
+            .txt-lang {
+
+                &-comm {
+                    font-size: 160px;
+                }
+
+                &-percent {
+                    top: 25px;
+                    font-size: 45px;
+                }
+            }
+
+            .sub-txt-lang {
+                padding-top: 40px;
+                padding-left: 50px;
+
+                &-title {
+                    font-size: 70px;
+                    line-height: 65.15px;
+                }
+
+                &-sub-title {
+                    font-size: 17px !important;
+                }
+            }
+        }
+
+        .nounderline {
+            font-size: 22px;
+            padding: 11px 28px 12px;
+            margin-top: 25px;
+        }
+
+        &-cn3 {
+            &-title {
+                .txt-lang {
+                    &-comm {
+                        line-height: 150px;
+                    }
+
+                    &-percent {
+                        top: 0px;
+                    }
+                }
+
+                .sub-txt-lang {
+                    padding-top: 15px;
+
+                    &-sub-title {
+                        line-height: 23px;
+                    }
+                }
+            }
         }
     }
 
@@ -2153,44 +2238,131 @@ div.custom-panel {
     }
 
     .banner-text {
-        left: 100px;
-    }
-}
-
-@media only screen and (max-width: 1199px) {
-    .banner-text {
-        left: 40px;
-        max-width: 90%;
-        width: 90%;
+        top: 44%;
+        left: 150px;
 
         &-title {
             .txt-lang {
 
                 &-comm {
-                    font-size: 15.5rem;
+                    line-height: 195px;
+                    font-size: 160px;
                 }
 
                 &-percent {
-                    top: 1.5rem;
-                    font-size: 4rem;
+                    top: 22px;
+                    font-size: 45px;
+                }
+            }
+            .sub-txt-lang {
+                padding-top: 35px;
+   /*             padding-left: 50px;
+
+                &-title {
+                    font-size: 70px;
+                    line-height: 65.15px;
+                }
+
+                &-sub-title {
+                    font-size: 17px !important;
+                }*/
+            }
+        }
+
+        .nounderline {
+            font-size: 22px;
+            padding: 11px 28px 12px;
+            margin-top: 25px;
+        }
+
+        &-cn3 {
+            top: 46%;
+
+            &-title {
+                .txt-lang {
+                    &-comm {
+                        line-height: 150px;
+                    }
+
+                    &-percent {
+                        top: 0px;
+                    }
+                }
+
+                .sub-txt-lang {
+                    padding-top: 15px;
+
+                    &-sub-title {
+                        line-height: 23px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .banner-text {
+        left: 85px;
+        max-width: 90%;
+        width: 90%;
+        top: 40%;
+
+        &-title {
+            .txt-lang {
+
+                &-comm {
+                    line-height: 225px;
+                    font-size: 135px;
+                }
+
+                &-percent {
+                    top: 45px;
+                    font-size: 40px;
                 }
             }
 
             .sub-txt-lang {
-                padding-top: 1rem;
-                padding-left: 4.5rem;
+                padding-top: 60px;
+                padding-left: 40px;
 
                 &-title {
-                    font-size: 6rem;
+                    font-size: 60px;
+                    line-height: 55.15px;
                 }
 
                 &-sub-title {
-                    font-size: 1.2rem !important;
+                    line-height: 30px;
+                    font-size: 15px !important;
                 }
             }
+        }
 
-            .nounderline {
-                font-size: 1.5rem;
+        .nounderline {
+            font-size: 19px;
+        }
+
+        &-cn3 {
+            top: 43%;
+
+            &-title {
+                .txt-lang {
+                    &-comm {
+                        line-height: 175px;
+                    }
+
+                    &-percent {
+                        top: 20px;
+                    }
+                }
+
+                .sub-txt-lang {
+                    padding-top: 35px;
+
+                    &-sub-title {
+                        line-height: 23px;
+                    }
+                }
             }
         }
     }
@@ -2285,7 +2457,7 @@ div.custom-panel {
         height: 3rem;
     }
 
-    .banner-center {
+    /*    .banner-center {
         .carousel-inner {
             height: 230px;
 
@@ -2297,11 +2469,10 @@ div.custom-panel {
                 opacity: 1;
             }
         }
-    }
+    }*/
 
     .banner-text {
         margin: 3px 0 0 0;
-        left: 20px;
 
         .nounderline {
             margin-left: 8px;
@@ -2556,29 +2727,63 @@ div.custom-panel {
 
 @media (max-width: 1023px) and (min-width: 768px) {
     .banner-text {
+        left: 115px;
+        top: 36%;
+
         &-title {
             .txt-lang {
 
                 &-comm {
-                    font-size: 11.5rem;
+                    line-height: 170px;
+                    font-size: 105px;
                 }
 
                 &-percent {
-                    top: 1.4rem;
-                    font-size: 2.5rem;
+                    top: 25px;
+                    font-size: 30px;
                 }
             }
 
             .sub-txt-lang {
-                padding-top: 1rem;
-                padding-left: 3rem;
+                padding-top: 47px;
+                padding-left: 32px;
 
                 &-title {
-                    font-size: 4.5rem;
+                    font-size: 45px;
+                    line-height: 42.15px;
                 }
 
                 &-sub-title {
-                    font-size: 1.1rem !important;
+                    line-height: 22px;
+                    font-size: 13px !important;
+                }
+            }
+        }
+
+        .nounderline {
+            font-size: 15px;
+        }
+
+        &-cn3 {
+            top: 41%;
+
+            &-title {
+                .txt-lang {
+                    &-comm {
+                        line-height: 130px;
+                    }
+
+                    &-percent {
+                        top: 5px;
+                    }
+                }
+
+                .sub-txt-lang {
+                    padding-top: 25px;
+
+                    &-sub-title {
+                        line-height: 23px;
+                    }
                 }
             }
         }
@@ -2607,6 +2812,12 @@ div.custom-panel {
                 padding-left: 0 !important;
             }
         }
+    }
+}
+
+@media (max-width: 911px) and (min-width: 768px) {
+    .banner-text {
+        left: 65px;
     }
 }
 
@@ -2656,48 +2867,63 @@ div.custom-panel {
         height: 120px
     }
 
-/*    .banner-text {
-        .sub-title {
-            br {
-                display: block;
-            }
-        }
-    }*/
-
     .banner-text {
-        &-title {
+        left: 90px;
 
+        &-title {
             .txt-lang {
-                //line-height: 1;
 
                 &-comm {
-                    font-size: 10.2rem;
+                    line-height: 120px;
+                    font-size: 70px;
                 }
 
                 &-percent {
-                    top: 1.4rem;
-                    font-size: 2.2rem;
+                    top: 8px;
+                    font-size: 21px;
                 }
             }
 
             .sub-txt-lang {
-                padding-top: 1rem;
-                padding-left: 2.75rem;
+                padding-top: 33px;
+                padding-left: 20px;
 
                 &-title {
-                    font-size: 3.75rem;
+                    font-size: 32px;
+                    line-height: 28.15px;
                 }
 
                 &-sub-title {
-                    font-size: 1rem !important;
+                    position: absolute;
+                    line-height: 15px;
+                    font-size: 8px !important;
                 }
             }
         }
 
         .nounderline {
-            font-size: 1.2rem !important;
-            padding-left: 15px;
-            padding-right: 15px;
+            line-height: 10px;
+            font-size: 11px;
+        }
+
+        &-cn3 {
+           // top: 41%;
+
+            &-title {
+                .txt-lang {
+                    &-comm {
+                        line-height: 100px;
+                    }
+
+                    &-percent {
+                        top: 0px;
+                    }
+                }
+
+                .sub-txt-lang {
+                    padding-top: 25px;
+                }
+            }
         }
     }
 
@@ -2977,35 +3203,78 @@ div.custom-panel {
         }
     }
 }
-
-/*@media only screen and (max-width: 540px) {
+@media (max-width: 540px) {
     .banner-text {
-        &.special-text {
-            .special-text-yellow {
-                font-size: 3.25rem;
-            }
-        }
-
-        h2 {
-            font-size: 2.25rem;
-        }
+        left: 50px;
     }
 }
 
-@media only screen and (max-width: 444px) {
+@media (max-width: 480px) {
     .banner-text {
-        &.special-text {
-            .special-text-title {
-                font-size: 2rem;
+        top: 34%;
+        left: 20px;
 
-                .special-text-yellow {
-                    font-size: 3rem;
+        &-title {
+            display: block;
+
+            .txt-lang {
+
+                &-comm {
+                    line-height: 65px;
+                    font-size: 80px;
+                }
+
+                &-percent {
+                    top: -22px;
+                    font-weight: 800;
+                    font-size: 45px;
+                }
+            }
+
+            .sub-txt-lang {
+                padding: 0;
+
+                &-title {
+                    font-size: 20px;
+                    line-height: 23px;
+                    background: linear-gradient(90deg, #FFEFBA 0%, #FFFFFF 100%);
+                    -webkit-background-clip: text;
+                    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+
+                    br {
+                        display: none;
+                    }
+                }
+
+                &-sub-title {
+                    position: absolute;
+                    font-weight: 700;
+                    font-size: 13px !important;
+                    line-height: 18px;
                 }
             }
         }
-    }
-}*/
 
+        .nounderline {
+            margin-left: 0px;
+            font-size: 13px;
+            line-height: 87%;
+            position: absolute;
+            bottom: -50px;
+            padding: 8px 14px !important;
+
+            &:after {
+                background: linear-gradient(90deg, #FCEABB 0%, #F8B500 148.58%);
+                box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+                border-radius: 3.61477px;
+            }
+        }
+
+        &-cn3 {
+            top: 28%;
+        }
+    }
+}
 /*@media only screen and (max-width: 399px) {
     .banner-text {
         &.special-text {
@@ -3021,7 +3290,7 @@ div.custom-panel {
 }*/
 
 @media only screen and (max-width: 375px) {
-    .banner-text {
+/*    .banner-text {
         &-title {
 
             .txt-lang {
@@ -3044,17 +3313,15 @@ div.custom-panel {
                 &-title {
                     font-size: 3.5rem;
                 }
-
-          /*      &-sub-title {
+                      &-sub-title {
                     font-size: 1rem !important;
-                }*/
+                }
             }
         }
-
-    /*    .nounderline {
+            .nounderline {
             font-size: 1.2rem;
-        }*/
-    }
+        }
+    }*/
 
     .news .item-wrapper {
         padding-left: 10px;

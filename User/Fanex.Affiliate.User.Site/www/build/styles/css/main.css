@@ -940,7 +940,7 @@ body {
   padding: 10px 0;
 }
 .carousel.slide .carousel-inner {
-  height: 300px;
+  height: 350px;
   /*        @media (min-width: 1300px) and (max-width: 1599px) {
               height: 250px;
           }*/
@@ -965,7 +965,7 @@ body {
 }
 @media (min-width: 993px) and (max-width: 1299px) {
   .carousel.slide .carousel-inner {
-    height: 250px;
+    height: 300px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -1004,12 +1004,12 @@ body {
 }
 .banner-text h2 {
   font-size: 56px;
-  font-weight: bold;
+  font-weight: 800;
   margin-bottom: 11px !important;
 }
 .banner-text h3 {
   font-size: 36px;
-  font-weight: bold;
+  font-weight: 900;
   margin: 0;
   color: #fff;
 }
@@ -1027,8 +1027,8 @@ body {
   text-align: center;
   display: inline-block;
   border-radius: 8px;
-  padding: 8px 28px;
-  margin-top: 24px;
+  padding: 12px 30px 13px;
+  margin-top: 35px;
 }
 
 .casino-banner-text {
@@ -2118,8 +2118,8 @@ input[type=radio], input[type=checkbox] {
     font-size: 20px;
   }
   .banner-text .nounderline {
-    margin-top: 20px;
-    padding: 6px 24px 5px;
+    margin-top: 0px !important;
+    padding: 10px 26px 11px !important;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -2165,8 +2165,8 @@ input[type=radio], input[type=checkbox] {
     font-size: 14px;
   }
   .banner-text .nounderline {
-    margin-top: 15px;
-    padding: 5px 22px 4px;
+    margin-top: 0px !important;
+    padding: 8px 22px !important;
   }
 }
 @media (max-width: 767px) {
@@ -2235,9 +2235,8 @@ input[type=radio], input[type=checkbox] {
     padding-top: 10px;
   }
   .banner-text .nounderline {
-    padding: 4px 20px 3px;
-    font-size: 12px;
-    margin-top: 12px;
+    padding: 6px 18px !important;
+    margin-top: 0px !important;
   }
 
   .login-dialog .modal-content .modal-banner {

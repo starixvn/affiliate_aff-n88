@@ -79,8 +79,8 @@ $desktop: "(min-width: 1024px)";
         }
 
         .nounderline {
-            margin-top: 20px;
-            padding: 6px 24px 5px;
+            margin-top: 0px !important;
+            padding: 10px 26px 11px !important;
         }
     }
 }
@@ -129,8 +129,8 @@ $desktop: "(min-width: 1024px)";
         }
 
         .nounderline {
-            margin-top: 15px;
-            padding: 5px 22px 4px;
+            margin-top: 0px !important;
+            padding: 8px 22px !important;
         }
     }
 }
@@ -205,9 +205,8 @@ $desktop: "(min-width: 1024px)";
         }
 
         .nounderline {
-            padding: 4px 20px 3px;
-            font-size: 12px;
-            margin-top: 12px;
+            padding: 6px 18px !important;
+            margin-top: 0px !important;
         }
     }
 
