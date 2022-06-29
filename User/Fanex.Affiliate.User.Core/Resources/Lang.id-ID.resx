@@ -1428,9 +1428,6 @@
   <data name="CaptchaIsRequired" xml:space="preserve">
     <value>Captcha diperlukan</value>
   </data>
-  <data name="EarnUpTo" xml:space="preserve">
-    <value>Penghasilan hingga &lt;br/&gt; {0} dari sistem bagi hasil.</value>
-  </data>
   <data name="Allbet" xml:space="preserve">
     <value>ALLBET</value>
   </data>
@@ -1454,9 +1451,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Pembagian Penghasilan Anda</value>
-  </data>
-  <data name="RegisterNow" xml:space="preserve">
-    <value>Gabung Sekarang</value>
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>Pemain aktif</value>

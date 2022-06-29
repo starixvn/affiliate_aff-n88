@@ -67,7 +67,7 @@ $desktop: "(min-width: 1024px)";
         flex-basis: 100%;
     }
     .banner-text {
-        left: 36px;
+        left: 160px;
 
 
         h2 {
@@ -80,7 +80,7 @@ $desktop: "(min-width: 1024px)";
 
         .nounderline {
             margin-top: 20px;
-            padding: 12px 36px;
+            padding: 6px 24px 5px;
         }
     }
 }
@@ -117,7 +117,7 @@ $desktop: "(min-width: 1024px)";
     }
 
     .banner-text {
-        left: 32px;
+        left: 95px;
 
 
         h2 {
@@ -129,8 +129,8 @@ $desktop: "(min-width: 1024px)";
         }
 
         .nounderline {
-            margin-top: 20px;
-            padding: 12px 36px;
+            margin-top: 15px;
+            padding: 5px 22px 4px;
         }
     }
 }
@@ -205,7 +205,7 @@ $desktop: "(min-width: 1024px)";
         }
 
         .nounderline {
-            padding: 8px 24px;
+            padding: 4px 20px 3px;
             font-size: 12px;
             margin-top: 12px;
         }

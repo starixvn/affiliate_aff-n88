@@ -11,15 +11,17 @@
         <source srcset="@(sportBannerFileName + ".jpg?v=174504")" type="image/jpeg" />
         <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg?v=174504")" alt="Sport Banner" />
     </picture>
-    <div class="banner-text special-text">
-        <h2 class="txt-lang special-text-title">
-            đồng hành cùng <span class="special-yellow-text"><span class="special-text-big">b</span>wing</span><br />
-            rinh ngay hoa hồng khủng <span class="special-yellow-text special-text-big">@maxCommission</span>
+    <div class="banner-text">
+        <h2 class="txt-lang">
+            <span class="txt-lang-comm">50</span><strong class="txt-lang-percent">%</strong>
         </h2>
-        <p class="sub-title">@Html.Raw(Lang.LimitedTime)</p>
+        <h3 class="sub-txt-lang">
+            @Html.Raw(Lang.RevenueShareInBanner)
+        </h3>
+        <p class="sub-title">@Lang.UntilDecember</p>
         @if (!Model.IsAuthenticated)
         {
-            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>
+            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.StartEarningNow</a>
         }
     </div>
 </div>

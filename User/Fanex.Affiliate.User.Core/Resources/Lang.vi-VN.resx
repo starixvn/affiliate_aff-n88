@@ -1594,12 +1594,6 @@
   <data name="Copy" xml:space="preserve">
     <value>Sao chép</value>
   </data>
-  <data name="EarnUpTo" xml:space="preserve">
-    <value>HOA HỒNG&lt;br/&gt;LÊN ĐẾN {0} </value>
-  </data>
-  <data name="RegisterNow" xml:space="preserve">
-    <value>Tham gia ngay!</value>
-  </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Hoa Hồng Của Bạn</value>
   </data>
@@ -1701,9 +1695,6 @@
   </data>
   <data name="P2pRevenueShare" xml:space="preserve">
     <value>Hoa Hồng P2P</value>
-  </data>
-  <data name="LimitedTime" xml:space="preserve">
-    <value>*Áp dụng thời gian,&lt;br /&gt; điều khoản và điều kiện</value>
   </data>
   <data name="Promotion" xml:space="preserve">
     <value>KHUYẾN MÃI</value>
@@ -1812,5 +1803,14 @@
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Tỷ lệ hoa hồng của nhóm sản phẩm đầu tiên</value>
+  </data>
+  <data name="UntilDecember" xml:space="preserve">
+    <value>*Cho đến tháng 12 năm 2022</value>
+  </data>
+  <data name="StartEarningNow" xml:space="preserve">
+    <value>Kiếm Tiền Ngay Nào!</value>
+  </data>
+  <data name="RevenueShareInBanner" xml:space="preserve">
+    <value>Hoa Hồng</value>
   </data>
 </root>

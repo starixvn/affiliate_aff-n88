@@ -12,13 +12,20 @@
         <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg?v=174504")" alt="Sport Banner" />
     </picture>
     <div class="banner-text">
-        <h2 class="txt-lang">
-            @Html.Raw(string.Format(Lang.EarnUpTo, "<span class=\"commission-text\"/>" + maxCommission + "</span>"))
-        </h2>
-        <p class="sub-title">@Html.Raw(Lang.LimitedTime)</p>
+        <div class="banner-text-title">
+            <h2 class="txt-lang">
+                <span class="txt-lang-comm">50</span><strong class="txt-lang-percent">%</strong>
+            </h2>
+            <div class="sub-txt-lang">
+                <h3 class="sub-txt-lang-title">
+                    @Html.Raw(Lang.RevenueShareInBanner)
+                </h3>
+                <span class="sub-txt-lang-sub-title">@Lang.UntilDecember</span>
+            </div>
+        </div>
         @if (!Model.IsAuthenticated)
         {
-            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>
+            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.StartEarningNow</a>
         }
     </div>
 </div>
