@@ -1067,10 +1067,16 @@ input[type=radio][disabled] + span {
   .carousel-inner .banner-text .nounderline br {
     display: block;
   }
+  .carousel-inner .banner-text-cn3 {
+    left: 10px;
+  }
 }
 @media (max-width: 376px) {
   .carousel-inner .banner-text {
     left: 10px;
+  }
+  .carousel-inner .banner-text .sub-title {
+    font-size: 11px;
   }
 
   .webp .adv-contact.N8B {

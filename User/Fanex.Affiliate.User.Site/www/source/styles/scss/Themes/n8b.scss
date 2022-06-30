@@ -1443,6 +1443,10 @@ input[type=radio][disabled] + span {
                     display: block;
                 }
             }
+
+            &-cn3 {
+                left: 10px;
+            }
         }
     }
 }
@@ -1451,6 +1455,10 @@ input[type=radio][disabled] + span {
     .carousel-inner {
         .banner-text {
             left: 10px;
+
+            .sub-title {
+                font-size: 11px;
+            }
         }
     }
 
