@@ -2017,7 +2017,7 @@
     <value>*Until December 2022</value>
   </data>
   <data name="StartEarningNow" xml:space="preserve">
-    <value>Start Earning Now!</value>
+    <value>Start Earning &lt;br&gt; Now!</value>
   </data>
   <data name="RevenueShareInBanner" xml:space="preserve">
     <value>Revenue&lt;br&gt; Share</value>

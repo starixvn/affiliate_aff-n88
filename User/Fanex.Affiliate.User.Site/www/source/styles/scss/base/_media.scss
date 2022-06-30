@@ -3,31 +3,6 @@ $tablet: "(min-width: 768px) and (max-width: 1023px)";
 $tablet-horizontal: "(min-width: 1024px) and (max-width: 1199px)";
 $desktop: "(min-width: 1024px)";
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .banner-text {
-
-        h2 {
-            font-size: 40px;
-        }
-
-        h5 {
-            font-size: 20px;
-        }
-    }
-}
-@media (min-width: 1280px) and (max-width: 1366px) {
-    .banner-text {
-
-
-    }
-}
-
-@media only screen and (max-width: 1366px) and (min-width: 1190px){
-    .banner-text {
-        left: 110px;
-    }
-}
-
 @media #{$desktop} {
     .news {
         padding-top: 32px;
@@ -66,23 +41,6 @@ $desktop: "(min-width: 1024px)";
         max-width: 100%;
         flex-basis: 100%;
     }
-    .banner-text {
-        left: 160px;
-
-
-        h2 {
-            font-size: 40px;
-        }
-
-        h5 {
-            font-size: 20px;
-        }
-
-        .nounderline {
-            margin-top: 0px !important;
-            padding: 10px 26px 11px !important;
-        }
-    }
 }
 
 @media #{$tablet} {
@@ -113,24 +71,6 @@ $desktop: "(min-width: 1024px)";
         -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
         &::-webkit-scrollbar {
             display: none;
-        }
-    }
-
-    .banner-text {
-        left: 95px;
-
-
-        h2 {
-            font-size: 24px;
-        }
-
-        h5 {
-            font-size: 14px;
-        }
-
-        .nounderline {
-            margin-top: 0px !important;
-            padding: 8px 22px !important;
         }
     }
 }
@@ -188,26 +128,6 @@ $desktop: "(min-width: 1024px)";
         /*&::-webkit-scrollbar {
             display: none;
         }*/
-    }
-
-    .banner-text {
-        left: 32px;
-        //width: 160px;
-        width: 70%;
-
-        h2 {
-            font-size: 24px;
-        }
-
-        h5 {
-            font-size: 14px;
-            padding-top: 10px;
-        }
-
-        .nounderline {
-            padding: 6px 18px !important;
-            margin-top: 0px !important;
-        }
     }
 
     .login-dialog .modal-content .modal-banner {

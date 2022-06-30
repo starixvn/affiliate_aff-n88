@@ -24,7 +24,7 @@
         <p class="sub-title">@Lang.UntilDecember</p>
         @if (!Model.IsAuthenticated)
         {
-            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.StartEarningNow</a>
+            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Html.Raw(Lang.StartEarningNow)</a>
         }
     </div>
 </div>

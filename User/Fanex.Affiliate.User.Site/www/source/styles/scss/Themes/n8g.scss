@@ -399,6 +399,7 @@ select {
         .txt-lang {
             position: relative;
             color: #FFEFBC;
+            font-weight: 800;
             margin-bottom: 0 !important;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -421,7 +422,6 @@ select {
             padding-left: 55px;
 
             &-title {
-                text-transform: uppercase;
                 color: #FFEFBC;
                 font-size: 80px;
                 line-height: 72.15px;
@@ -442,9 +442,14 @@ select {
         position: relative;
         z-index: 1;
         margin-left: 5px;
-        font-weight: 900;
         font-size: 26px;
         line-height: 87%;
+        padding: 12px 30px 13px;
+        margin-top: 35px;
+
+        br {
+            display: none;
+        }
 
         &:after {
             position: absolute;
@@ -2340,6 +2345,8 @@ div.custom-panel {
 
         .nounderline {
             font-size: 19px;
+            margin-top: 0px !important;
+            padding: 10px 26px 11px !important;
         }
 
         &-cn3 {
@@ -2762,6 +2769,8 @@ div.custom-panel {
 
         .nounderline {
             font-size: 15px;
+            margin-top: 0px !important;
+            padding: 8px 22px !important;
         }
 
         &-cn3 {
@@ -2904,10 +2913,11 @@ div.custom-panel {
         .nounderline {
             line-height: 10px;
             font-size: 11px;
+            padding: 6px 18px !important;
         }
 
         &-cn3 {
-           // top: 41%;
+            // top: 41%;
 
             &-title {
                 .txt-lang {
@@ -3218,6 +3228,7 @@ div.custom-panel {
             display: block;
 
             .txt-lang {
+                font-size: 24px;
 
                 &-comm {
                     line-height: 65px;
@@ -3237,9 +3248,9 @@ div.custom-panel {
                 &-title {
                     font-size: 20px;
                     line-height: 23px;
-                    background: linear-gradient(90deg, #FFEFBA 0%, #FFFFFF 100%);
+/*                    background: linear-gradient(90deg, #FFEFBA 0%, #FFFFFF 100%);
                     -webkit-background-clip: text;
-                    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+                    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);*/
 
                     br {
                         display: none;

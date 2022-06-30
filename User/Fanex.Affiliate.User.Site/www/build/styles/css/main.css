@@ -975,7 +975,7 @@ body {
 }
 @media (max-width: 767px) {
   .carousel.slide .carousel-inner {
-    height: 200px;
+    height: 200px !important;
   }
   .carousel.slide .carousel-inner > .item .img-responsive {
     object-fit: fill;
@@ -984,15 +984,9 @@ body {
 
 .banner-text {
   position: absolute;
-  left: 265px;
   top: 50%;
   transform: translate(0, -50%);
   max-width: 650px;
-}
-@media only screen and (max-width: 1023px) {
-  .banner-text {
-    max-width: 310px;
-  }
 }
 .banner-text .txt-lang {
   color: #fff;
@@ -1004,12 +998,12 @@ body {
 }
 .banner-text h2 {
   font-size: 56px;
-  font-weight: 800;
   margin-bottom: 11px !important;
 }
 .banner-text h3 {
   font-size: 36px;
   font-weight: 900;
+  text-transform: uppercase;
   margin: 0;
   color: #fff;
 }
@@ -1021,14 +1015,10 @@ body {
 }
 .banner-text .nounderline {
   text-transform: uppercase;
-  color: #000;
-  font-size: 18px;
-  font-weight: bold;
+  font-weight: 900;
   text-align: center;
   display: inline-block;
-  border-radius: 8px;
-  padding: 12px 30px 13px;
-  margin-top: 35px;
+  color: #000;
 }
 
 .casino-banner-text {
@@ -2061,19 +2051,6 @@ input[type=radio], input[type=checkbox] {
     transform: translateX(-100%);
   }
 }
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .banner-text h2 {
-    font-size: 40px;
-  }
-  .banner-text h5 {
-    font-size: 20px;
-  }
-}
-@media only screen and (max-width: 1366px) and (min-width: 1190px) {
-  .banner-text {
-    left: 110px;
-  }
-}
 @media (min-width: 1024px) {
   .news {
     padding-top: 32px;
@@ -2107,20 +2084,6 @@ input[type=radio], input[type=checkbox] {
     max-width: 100%;
     flex-basis: 100%;
   }
-
-  .banner-text {
-    left: 160px;
-  }
-  .banner-text h2 {
-    font-size: 40px;
-  }
-  .banner-text h5 {
-    font-size: 20px;
-  }
-  .banner-text .nounderline {
-    margin-top: 0px !important;
-    padding: 10px 26px 11px !important;
-  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .banner-side.banner-left, .banner-side.banner-right {
@@ -2153,20 +2116,6 @@ input[type=radio], input[type=checkbox] {
   }
   .content-menu #mainMenu::-webkit-scrollbar {
     display: none;
-  }
-
-  .banner-text {
-    left: 95px;
-  }
-  .banner-text h2 {
-    font-size: 24px;
-  }
-  .banner-text h5 {
-    font-size: 14px;
-  }
-  .banner-text .nounderline {
-    margin-top: 0px !important;
-    padding: 8px 22px !important;
   }
 }
 @media (max-width: 767px) {
@@ -2221,22 +2170,6 @@ input[type=radio], input[type=checkbox] {
     /*&::-webkit-scrollbar {
         display: none;
     }*/
-  }
-
-  .banner-text {
-    left: 32px;
-    width: 70%;
-  }
-  .banner-text h2 {
-    font-size: 24px;
-  }
-  .banner-text h5 {
-    font-size: 14px;
-    padding-top: 10px;
-  }
-  .banner-text .nounderline {
-    padding: 6px 18px !important;
-    margin-top: 0px !important;
   }
 
   .login-dialog .modal-content .modal-banner {
