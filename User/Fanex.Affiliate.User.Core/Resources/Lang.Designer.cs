@@ -4453,7 +4453,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Start Earning &lt;br&gt; Now!.
+        ///   Looks up a localized string similar to Start Earning &lt;br&gt;Now!.
         /// </summary>
         public static string StartEarningNow {
             get {
