@@ -2,24 +2,33 @@
     var maxCommission = AppSetting.Instance.MaxCommission;
 
     var sportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/N8G/AFF-Home-banner-SB");
+    var modbileSportBannerFileName = Url.Content($"~/www/build/styles/Images/sports-banners/N8G/AFF-Home-banner-SB.mobile");
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/N8G/3step." + Model.Language);
 }
 
 <div class="item active">
     <picture>
-        <source srcset="@(sportBannerFileName + ".webp?v=158572")" type="image/webp" />
-        <source srcset="@(sportBannerFileName + ".jpg?v=158572")" type="image/jpeg" />
-        <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg?v=158572")" alt="Sport Banner" />
+        <source media="(max-width:480px)" srcset="@(modbileSportBannerFileName + ".jpg?v=174504")" type="image/webp" />
+        <source media="(max-width:480px)" srcset="@(modbileSportBannerFileName + ".jpg?v=174504")" type="image/jpeg" />
+        <source srcset="@(sportBannerFileName + ".webp?v=174504")" type="image/webp" />
+        <source srcset="@(sportBannerFileName + ".jpg?v=174504")" type="image/jpeg" />
+        <img class="img-item img-responsive" src="@(sportBannerFileName + ".jpg?v=174504")" alt="Sport Banner" />
     </picture>
-    <div class="banner-text special-text">
-        <h2 class="txt-lang special-text-title">
-            đăng ký đại lý ngay<br />
-            trên tay hoa hồng khủng <span class="special-text-yellow">@maxCommission</span>
-        </h2>
-        <p class="sub-title">@Html.Raw(Lang.LimitedTime)</p>
+    <div class="banner-text banner-text-cn3">
+        <div class="banner-text-title banner-text-cn3-title">
+            <h2 class="txt-lang">
+                <span class="txt-lang-comm">50</span><strong class="txt-lang-percent">%</strong>
+            </h2>
+            <div class="sub-txt-lang">
+                <h3 class="sub-txt-lang-title">
+                    @Html.Raw(Lang.RevenueShareInBanner)
+                </h3>
+                <span class="sub-txt-lang-sub-title">@Lang.UntilDecember</span>
+            </div>
+        </div>
         @if (!Model.IsAuthenticated)
         {
-            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Lang.RegisterNow</a>
+            <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Html.Raw(Lang.StartEarningNow)</a>
         }
     </div>
 </div>

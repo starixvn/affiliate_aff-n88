@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang {
@@ -1618,15 +1618,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to EARN UP TO &lt;br/&gt;{0} REVENUE SHARE.
-        /// </summary>
-        public static string EarnUpTo {
-            get {
-                return ResourceManager.GetString("EarnUpTo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ebet.
         /// </summary>
         public static string Ebet {
@@ -2694,15 +2685,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Liechtenstein {
             get {
                 return ResourceManager.GetString("Liechtenstein", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to *Limited time only,&lt;br /&gt; terms &amp; conditions apply.
-        /// </summary>
-        public static string LimitedTime {
-            get {
-                return ResourceManager.GetString("LimitedTime", resourceCulture);
             }
         }
         
@@ -3949,15 +3931,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register now!.
-        /// </summary>
-        public static string RegisterNow {
-            get {
-                return ResourceManager.GetString("RegisterNow", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Rejected.
         /// </summary>
         public static string Rejected {
@@ -4044,6 +4017,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string RevenueShare {
             get {
                 return ResourceManager.GetString("RevenueShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revenue&lt;br&gt; Share.
+        /// </summary>
+        public static string RevenueShareInBanner {
+            get {
+                return ResourceManager.GetString("RevenueShareInBanner", resourceCulture);
             }
         }
         
@@ -4467,6 +4449,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string SriLanka {
             get {
                 return ResourceManager.GetString("SriLanka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start Earning &lt;br&gt;Now!.
+        /// </summary>
+        public static string StartEarningNow {
+            get {
+                return ResourceManager.GetString("StartEarningNow", resourceCulture);
             }
         }
         
@@ -5142,6 +5133,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Unknown {
             get {
                 return ResourceManager.GetString("Unknown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *Until December 2022.
+        /// </summary>
+        public static string UntilDecember {
+            get {
+                return ResourceManager.GetString("UntilDecember", resourceCulture);
             }
         }
         

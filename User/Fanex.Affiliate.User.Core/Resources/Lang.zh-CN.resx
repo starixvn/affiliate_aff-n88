@@ -1430,9 +1430,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="CaptchaIsRequired" xml:space="preserve">
     <value>请填写验证码</value>
   </data>
-  <data name="EarnUpTo" xml:space="preserve">
-    <value>赚取高达&lt;br/&gt;{0}的代理佣金</value>
-  </data>
   <data name="Allbet" xml:space="preserve">
     <value>AllBET</value>
   </data>
@@ -1456,9 +1453,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>您的佣金盈利</value>
-  </data>
-  <data name="RegisterNow" xml:space="preserve">
-    <value>立即加入</value>
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>活跃玩家</value>

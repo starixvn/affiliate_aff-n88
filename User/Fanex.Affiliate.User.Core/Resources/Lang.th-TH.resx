@@ -1425,9 +1425,6 @@
   <data name="CaptchaIsRequired" xml:space="preserve">
     <value>โปรดกรอกCaptcha ที่แสดงด้านข้าง</value>
   </data>
-  <data name="EarnUpTo" xml:space="preserve">
-    <value>รับส่วนแบ่งสูงสุดถึง {0}</value>
-  </data>
   <data name="NumberGame" xml:space="preserve">
     <value>เกมส์หมายเลข</value>
   </data>
@@ -1448,9 +1445,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>ส่วนแบ่งรายได้ของคุณ</value>
-  </data>
-  <data name="RegisterNow" xml:space="preserve">
-    <value> สมัครเลย</value>
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>ผู้เล่นที่มีการใช้งาน</value>

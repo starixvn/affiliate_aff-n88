@@ -1691,12 +1691,6 @@
   <data name="Copy" xml:space="preserve">
     <value>Copy</value>
   </data>
-  <data name="EarnUpTo" xml:space="preserve">
-    <value>EARN UP TO &lt;br/&gt;{0} REVENUE SHARE</value>
-  </data>
-  <data name="RegisterNow" xml:space="preserve">
-    <value>Register now!</value>
-  </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Your Revenue Share</value>
   </data>
@@ -1823,9 +1817,6 @@
   </data>
   <data name="Finished" xml:space="preserve">
     <value>Finished</value>
-  </data>
-  <data name="LimitedTime" xml:space="preserve">
-    <value>*Limited time only,&lt;br /&gt; terms &amp; conditions apply</value>
   </data>
   <data name="P2pRevenueShare" xml:space="preserve">
     <value>P2P Rev. Share</value>
@@ -2021,5 +2012,14 @@
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>First product group's share% of multiple groups</value>
+  </data>
+  <data name="UntilDecember" xml:space="preserve">
+    <value>*Until December 2022</value>
+  </data>
+  <data name="StartEarningNow" xml:space="preserve">
+    <value>Start Earning &lt;br&gt;Now!</value>
+  </data>
+  <data name="RevenueShareInBanner" xml:space="preserve">
+    <value>Revenue&lt;br&gt; Share</value>
   </data>
 </root>

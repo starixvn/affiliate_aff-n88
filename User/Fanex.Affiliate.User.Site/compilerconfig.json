@@ -1,8 +1,8 @@
 ﻿[
-  //{
-  //  "outputFile": "www/build/styles/css/main.css",
-  //  "inputFile": "www/source/styles/scss/main.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/main.css",
+    "inputFile": "www/source/styles/scss/main.scss"
+  },
   //{
   //  "outputFile": "www/build/styles/css/bootstrap.css",
   //  "inputFile": "www/source/styles/scss/vendors/_bootstrap.scss"
@@ -79,10 +79,10 @@
   //  "outputFile": "www/build/styles/css/statement-history.css",
   //  "inputFile": "www/source/styles/pages/statement-history.scss"
   //},
-  {
-    "outputFile": "www/build/styles/css/account-overview.css",
-    "inputFile": "www/source/styles/pages/account-overview.scss"
-  }
+  //{
+  //  "outputFile": "www/build/styles/css/account-overview.css",
+  //  "inputFile": "www/source/styles/pages/account-overview.scss"
+  //},
   //{
   //  "outputFile": "www/build/styles/css/pages/commissionreport.css",
   //  "inputFile": "www/source/styles/pages/commissionreport.scss"
@@ -163,14 +163,14 @@
   //  "outputFile": "www/build/styles/css/theme4.css",
   //  "inputFile": "www/source/styles/scss/Themes/theme4.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/n8g.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n8g.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/n8b.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n8b.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/n8g.css",
+    "inputFile": "www/source/styles/scss/Themes/n8g.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n8b.css",
+    "inputFile": "www/source/styles/scss/Themes/n8b.scss"
+  }
   //{
   //  "outputFile": "www/build/styles/css/n88-darkmode.css",
   //  "inputFile": "www/source/styles/scss/Themes/n88-darkmode.scss"
