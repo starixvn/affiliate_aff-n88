@@ -2,14 +2,16 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
+import { Button, Form, FormGroup, Col, Label, Input, Modal, ModalHeader, ModalBody, Alert } from 'reactstrap';
 import { globalResource } from '../libs/constants';
-import { getMemberDetail, updateMember, setSelectedMemberId } from '../actions';
+import { monthNames } from '../../../../modules/constants';
+import { fetchData, getMemberDetail, updateMember, setSelectedMemberId } from '../actions';
 
 const initialState = {
     memberName: '',
     isInclude: true,
     isRemoved: false,
+    lastActionDate: '',
     isClickedSubmit: false,
     isShowMessage: false,
     isSuccess: true,
@@ -21,6 +23,10 @@ export class EditMemberPopup extends PureComponent {
         super(props);
 
         this.state = initialState
+        this.orignalInfo = {
+            isInclude: true,
+            isRemoved: false
+        }
     }
 
     componentDidUpdate = (prevProps) => {
@@ -34,15 +40,61 @@ export class EditMemberPopup extends PureComponent {
     getMemberInfo = async (selectedMemberId) => {
         var memberInfo = await this.props.getMemberDetail(selectedMemberId);
 
-        !!memberInfo && this.setState(prevState => Object.assign({}, prevState, {
-            memberName: memberInfo.MemberName,
-            isInclude: memberInfo.IsInclude,
-            isRemoved: memberInfo.IsRemoved
-        }))
+        if (!!memberInfo) {
+            this.orignalInfo = {
+                isInclude: memberInfo.IsInclude,
+                isRemoved: memberInfo.IsRemoved
+            }
+
+            this.setState(prevState => Object.assign({}, prevState, {
+                memberName: memberInfo.UserName,
+                isInclude: memberInfo.IsInclude,
+                isRemoved: memberInfo.IsRemoved,
+                lastActionDate: memberInfo.LastActionDate
+            }))
+        }
     }
 
-    handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
+    getNoteMesssage = (today, isRemoved, isInclude) => {
+        const now = new Date(today);
+        const month = now.getMonth();
+        const monthName = monthNames[month];
+
+        if (isRemoved) {
+            return isInclude ? `The report will include data from 01/${monthName} to ${now.getDate()}/${monthName}` : `The report will exclude data from 01/${monthName}`;
+        }
+
+        return `The report will include data from 01/${isInclude ? monthName : monthNames[month + 1]}`;
+    }
+
+    isValidData = (today, isRemoved, isInclude) => {
+        if (this.orignalInfo.isRemoved == isRemoved) {
+            if (this.orignalInfo.isInclude == isInclude) {
+                return false;
+            }
+
+            const { lastActionDate } = this.state;
+            if (!lastActionDate) {
+                return true;
+            }
+
+            const lastDate = new Date(lastActionDate);
+            const now = new Date(today);
+
+            if (now.getMonth() != lastDate.getMonth() || now.getFullYear() != lastDate.getFullYear()) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    handleChangeSelectBox = (event) => {
+        this.setState({ isInclude: event.target.value === "0" })
+    }
+
+    handleCheckRemoved = (isRemoved) => {
+        this.setState({ isRemoved: !isRemoved })
     }
 
     handleSubmit = async () => {
@@ -53,6 +105,8 @@ export class EditMemberPopup extends PureComponent {
 
         if (result) {
             if (result.IsSuccessful) {
+                this.props.fetchData(this.props.param);
+
                 window.setTimeout(this.handleClosePopup, 3000);
             }
 
@@ -81,18 +135,13 @@ export class EditMemberPopup extends PureComponent {
         });
     }
 
-    _handlePressEnter = (isValid, event) => {
-        if (event.charCode === 13) {
-            event.preventDefault()
-            this.handleSubmit(isValid);
-        }
-    }
-
     render() {
-        const { selectedMemberId } = this.props;
+        const { selectedMemberId, today } = this.props;
         const { memberName, isInclude, isRemoved, isShowMessage, isSuccess, message } = this.state;
 
         const isShowPopup = !!selectedMemberId;
+        const isDisableBtnSave = !this.isValidData(today, isRemoved, isInclude);
+        const noteMessage = this.getNoteMesssage(today, isRemoved, isInclude);
 
         return (
             <Modal isOpen={isShowPopup} toggle={this.handleClosePopup} backdrop='static'>
@@ -103,27 +152,29 @@ export class EditMemberPopup extends PureComponent {
                             <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                                 <div dangerouslySetInnerHTML={{ __html: message }}></div>
                             </Alert>
-                            <Form tag="form" className="mb-5" autocomplete="off">
-                                <FormGroup row className="mb-2">
-                                    <Label for="isRemoved" sm={4} className="required">Status:</Label>
-                                    <Input type="checkbox" name="isRemoved" id="isRemoved" checked={isRemoved} onClick={this.handleChange} />
+                            <Form tag="form" className="mb-4" autocomplete="off">
+                                <FormGroup row>
+                                    <Label for="isRemoved" sm={5} className="required">Status:</Label>
+                                    <Col sm={5}>
+                                        <Input type="checkbox" className="mt-3 ml-0" name="isRemoved" id="isRemoved" checked={isRemoved} onClick={() => this.handleCheckRemoved(isRemoved)} />
+                                    </Col>
                                 </FormGroup>
 
                                 <FormGroup row className="mb-2">
-                                    <Label sm={4}>Affiliate:</Label>
-                                    <Label>{memberName}</Label>
+                                    <Label for="isInclude" sm={5} className="required">Current Month Report:</Label>
+                                    <Col sm={5}>
+                                        <Input type="select" className="mt-2" name="isInclude" id="isInclude" value={isInclude ? "0" : "1"} onChange={this.handleChangeSelectBox}>
+                                            <option key="include" value="0">Include</option>
+                                            <option key="exclude" value="1">Exclude</option>
+                                        </Input>
+                                    </Col>
                                 </FormGroup>
-
-                                <FormGroup row className="mb-2">
-                                    <Label for="isInclude" sm={4} className="required">Current Month Report:</Label>
-                                    <Input type="select" name="isInclude" id="isInclude" value={isInclude ? "0" : "1"} onChange={this.handleChange}>
-                                        <option key="include" value="0">Include</option>
-                                        <option key="exclude" value="1">Exclude</option>
-                                    </Input>
+                                <FormGroup>
+                                    <Label className="font-italic">{noteMessage}</Label>
                                 </FormGroup>
                             </Form>
 
-                            <Button type="button" color="success" className="mr-3" onClick={this.handleSubmit}>{globalResource.Save}</Button>
+                            <Button type="button" color="success" disabled={isDisableBtnSave} className="mr-3" onClick={this.handleSubmit}>{globalResource.Save}</Button>
                             <Button type="button" color="info" onClick={this.handleClosePopup}>{globalResource.Cancel}</Button>
                         </div>
                     </div>
@@ -133,12 +184,12 @@ export class EditMemberPopup extends PureComponent {
     }
 }
 
-function mapStateToProps({ selectedMemberId }) {
-    return { selectedMemberId };
+function mapStateToProps({ selectedMemberId, today, param }) {
+    return { selectedMemberId, today, param };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ getMemberDetail, updateMember, setSelectedMemberId }, dispatch);
+    return bindActionCreators({ fetchData, getMemberDetail, updateMember, setSelectedMemberId }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditMemberPopup);

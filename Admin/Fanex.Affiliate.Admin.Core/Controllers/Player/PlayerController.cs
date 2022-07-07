@@ -57,7 +57,20 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Player
         {
             return new JsonNetResult
             {
-                Data = _memberService.GetMemberList(new MemberParam()).MainData.Where(m => m.MemberId == memberId)
+                Data = _memberService.GetMemberDetail(memberId)
+            };
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryHeader]
+        public ActionResult UpdateMember(UpdateMemberParam param)
+        {
+            param.UserId = SessionService.UserId;
+            param.Ip = Request.UserHostAddress;
+
+            return new JsonNetResult
+            {
+                Data = _memberService.UpdateMember(param)
             };
         }
     }

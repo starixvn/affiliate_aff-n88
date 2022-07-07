@@ -18,5 +18,15 @@ namespace Fanex.Affiliate.Admin.Core.Services.Member
         {
             return _memberRepository.GetMemberList(param);
         }
+
+        public PlayerActionInfo GetMemberDetail(int memberId)
+        {
+            return _memberRepository.GetMemberDetail(memberId);
+        }
+
+        public ResultInfo UpdateMember(UpdateMemberParam param)
+        {
+            return _memberRepository.UpdateMember(param);
+        }
     }
 }

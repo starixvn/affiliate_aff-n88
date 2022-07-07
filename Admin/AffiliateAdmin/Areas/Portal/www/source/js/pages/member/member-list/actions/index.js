@@ -55,7 +55,6 @@ export const fetchData = (param) => async (dispatch) => {
 }
 
 export const getMemberDetail = (memberId) => async () => {
-    console.log(memberId);
     const url = 'Portal/Player/GetMemberDetail';
     const response = await post(url, { memberId });
 

@@ -32,13 +32,15 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
                     while (reader.Read())
                     {
                         dataList.Add(new MemberInfo {
-                            MemberId =reader.ToInt("CustID"),
+                            MemberId = reader.ToInt("CustID"),
                             UserName = reader.ToString("UserName"),
                             IbcUserName = reader.ToString("IBCUserName"),
-                            FirstName =  reader.ToString("FirstName"),
+                            FirstName = reader.ToString("FirstName"),
                             LastName = reader.ToString("LastName"),
                             CreatedDate = reader.GetVal<DateTime?>("RegisteredDate"),
-                            LastActionDate = reader.GetVal<DateTime?>("RegisteredDate"),
+                            LastActionDate = reader.GetVal<DateTime?>("LastAction"),
+                            IsInclude = reader.GetVal<bool>("IsInclude"),
+                            IsRemoved = reader.GetVal<bool>("IsRemoved"),
                             AffName = reader.ToString("AffUserName")
                         });
                     }
@@ -49,6 +51,51 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
             }
 
             return result;
+        }
+
+        public PlayerActionInfo GetMemberDetail(int memberId)
+        {
+            const string Spkey = "Aff_Admin_Player_Sel";
+
+            using (var objectDb = GetObjectDb(Spkey))
+            {
+                objectDb.SetParameterValue("CustId", memberId);
+
+                using (var reader = objectDb.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new PlayerActionInfo
+                        {
+                            UserName = reader.ToString("UserName"),
+                            IsInclude = reader.GetVal<bool>("IsInclude"),
+                            IsRemoved = reader.GetVal<bool>("IsRemoved"),
+                            LastActionDate = reader.GetVal<DateTime?>("LastAction"),
+                        };
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        public ResultInfo UpdateMember(UpdateMemberParam param)
+        {
+            const string Spkey = "Aff_Admin_Member_RemoveStatus_Upd";
+
+            using (var objectDb = GetObjectDb(Spkey))
+            {
+                objectDb.SetParameterValue("CustId", param.MemberId);
+                objectDb.SetParameterValue("IsRemoved", param.IsRemoved);
+                objectDb.SetParameterValue("IsInclude", param.IsInclude);
+                objectDb.SetParameterValue("UserId", param.UserId);
+                objectDb.SetParameterValue("Ip", param.Ip);
+                AssignResultOutputParam(objectDb);
+
+                objectDb.ExecuteNonQuery();
+
+                return GetResultInfo(objectDb);
+            }
         }
     }
 }

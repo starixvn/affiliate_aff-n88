@@ -7,7 +7,7 @@
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Commission">
@@ -31,9 +31,9 @@
     <Setting Key="Aff_Logout" SpName="Aff_Logout" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Report">
-    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_Admin_PlayerReport_GGR" SpName="Aff_Admin_PlayerReport_GGR" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_PlayerReport_GGR" SpName="Aff_Admin_PlayerReport_GGR_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Info">
@@ -48,20 +48,20 @@
     <Setting Key="Aff_PaymentMethod_Sel" SpName="Aff_PaymentMethod_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet"/>
   </Function>
   <Function Name="StatementHistory">
-    <Setting Key="Aff_Admin_StatementHistory_Sel" SpName="Aff_Admin_StatementHistory_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_DailyEarning_Sel" SpName="Aff_DailyEarning_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_DailyEarning_Detail_Sel" SpName="Aff_DailyEarning_Detail_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_StatementHistory_Sel" SpName="Aff_Admin_StatementHistory_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_DailyEarning_Sel" SpName="Aff_DailyEarning_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_DailyEarning_Detail_Sel" SpName="Aff_DailyEarning_Detail_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Customer">
-    <Setting Key="Aff_Admin_PlayersDetail_Sel" SpName="Aff_Admin_PlayersDetail_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_PlayersDetail_Sel" SpName="Aff_Admin_PlayersDetail_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_Member_Sel" SpName="Aff_Admin_Member_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateNote_Sel" SpName="Aff_Admin_AffiliateNote_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateNote_Detail_Sel" SpName="Aff_Admin_AffiliateNote_Detail_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateNote_Ins" SpName="Aff_Admin_AffiliateNote_Ins" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateNote_Upd" SpName="Aff_Admin_AffiliateNote_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_ClickStatisticsDetailBySite" SpName="Aff_ClickStatisticsDetailBySite" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_ClickStatisticsDetailBySite" SpName="Aff_ClickStatisticsDetailBySite_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateLog_Sel" SpName="Aff_Admin_AffiliateLog_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_LogType_Sel" SpName="Aff_Admin_LogType_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_CustomerSelBalBF" SpName="Aff_CustomerSelBalBF" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
@@ -71,7 +71,7 @@
     <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Sel" SpName="Aff_Admin_TransferLimit_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Upd" SpName="Aff_Admin_TransferLimit_Upd" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
@@ -105,7 +105,9 @@
     <Setting Key="Aff_Admin_Message_Del" SpName="Aff_Admin_Message_Del" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Member">
-    <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Player_Sel" SpName="Aff_Admin_Player_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Member_RemoveStatus_Upd" SpName="Aff_Admin_Member_RemoveStatus_Upd_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="ChangeAdminPassword">
@@ -148,7 +150,7 @@
   </Function>
   <Function Name="Home">
     <Setting Key="Aff_UserOnlineList" SpName="Aff_UserOnlineList" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
-    <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
+    <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel_xtest" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />
   </Function>
   <Function Name="Currency">
     <Setting Key="Aff_Currency_Sel" SpName="Aff_Currency_Sel" DbName="DBAFFN8G.Affiliate_N8G.bodbAdminNet" />

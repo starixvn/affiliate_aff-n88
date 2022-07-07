@@ -96,7 +96,7 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={createdDate}>{createdDate}</Cell>
                 <Cell className="text-center" title={dataItem.AffName}>{dataItem.AffName}</Cell>
                 <Cell className="text-center">
-                    <input className="mt-1" type="checkbox" checked={!dataItem.isRemoved} disabled="true" />
+                    <input className="mt-1" type="checkbox" checked={dataItem.IsRemoved} disabled="true" />
                 </Cell>
                 <Cell className="text-center" title={lastActionDate}>{lastActionDate}</Cell>
                 <Cell className="text-center" title={`Edit ${userName} player`}>

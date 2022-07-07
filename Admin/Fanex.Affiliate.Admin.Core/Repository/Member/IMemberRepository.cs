@@ -7,5 +7,9 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Member
     public interface IMemberRepository
     {
         EntityResult<MemberInfo> GetMemberList(MemberParam param);
+
+        PlayerActionInfo GetMemberDetail(int memberId);
+
+        ResultInfo UpdateMember(UpdateMemberParam param);
     }
 }

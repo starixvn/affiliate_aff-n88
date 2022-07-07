@@ -324,6 +324,7 @@
     <Compile Include="DTO\Member\AllMemberEntities.cs" />
     <Compile Include="DTO\Member\MemberInfo.cs" />
     <Compile Include="DTO\Member\InactiveMemberInfo.cs" />
+    <Compile Include="DTO\Member\PlayerActionInfo.cs" />
     <Compile Include="DTO\Payment\PaymentMethod.cs" />
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
     <Compile Include="DTO\Report\PlayerGgrReport.cs" />
@@ -412,6 +413,7 @@
     <Compile Include="MetaModels\MediaGallery\SizeParam.cs" />
     <Compile Include="MetaModels\MediaGallery\TextParam.cs" />
     <Compile Include="MetaModels\Member\MemberParam.cs" />
+    <Compile Include="MetaModels\Member\UpdateMemberParam.cs" />
     <Compile Include="MetaModels\Message\DeleteMessageParam.cs" />
     <Compile Include="MetaModels\Message\InsertUpdateMessageParam.cs" />
     <Compile Include="MetaModels\Message\MessageParam.cs" />
