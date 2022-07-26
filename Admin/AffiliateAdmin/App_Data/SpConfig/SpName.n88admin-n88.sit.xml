@@ -106,6 +106,8 @@
   </Function>
   <Function Name="Member">
     <Setting Key="Aff_Admin_MemberList_Sel" SpName="Aff_Admin_MemberList_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Player_Sel" SpName="Aff_Admin_Player_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Member_RemoveStatus_Upd" SpName="Aff_Admin_Member_RemoveStatus_Upd" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_ActiveMember_CheckStatus" SpName="Aff_Admin_ActiveMember_CheckStatus" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
   <Function Name="ChangeAdminPassword">

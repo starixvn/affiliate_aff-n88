@@ -8,6 +8,7 @@ export const globalResource = {
     Product: 'Product',
     Add: 'Add',
     Edit: 'Edit',
+    Save: 'Save',
     Update: 'Update',
     Delete: 'Delete',
     Cancel: 'Cancel',

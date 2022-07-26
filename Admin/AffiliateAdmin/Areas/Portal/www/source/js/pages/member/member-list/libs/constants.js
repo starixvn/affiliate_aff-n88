@@ -10,9 +10,9 @@ export const headerText = {
     FirstName: 'First Name',
     LastName: 'Last Name',
     CreatedDate: 'Registration Date',
-    Remove: 'Remove',
-    AffType: 'Affiliate Type',
-    Device: 'Device',
-    ImageType: 'Image Type',
+    Removed: 'Removed',
+    Status: 'Status',
+    LastActionDate: 'Last Action Date',
+    Edit: 'Edit',
     Search: globalResource.Search
 }
