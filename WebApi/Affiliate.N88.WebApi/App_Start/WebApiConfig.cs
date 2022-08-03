@@ -30,6 +30,8 @@ namespace Affiliate.N88.WebApi
             jsonFormater.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormater.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Serialize;
 
+            formaters.Remove(formaters.XmlFormatter);
+
             if (!isTest)
             {
                 config.Filters.Add(new HmacAuthorizationFilter(ConfigurationManager.AppSettings["AuthenticationKey"]));

@@ -14,5 +14,11 @@ namespace Affiliate.N88.WebApi.Controllers
                 ErrorCode = 99
             };
         }
+        
+        [HttpGet]
+        public void TestException()
+        {
+            throw new System.Exception("test exception");
+        }
     }
 }
