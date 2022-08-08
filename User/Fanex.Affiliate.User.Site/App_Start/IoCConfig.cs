@@ -16,7 +16,6 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Caching;
 using Fanex.Caching.Memory;
-using Fanex.Logging;
 using ONEbook.UM.Configurations;
 using ONEbook.UM.Helpers;
 using ONEbook.UM.NETFramework;
@@ -121,7 +120,6 @@ namespace Fanex.Affiliate.User.Site
             builder.RegisterType<PngImageHandler>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<FileSystem>().AsImplementedInterfaces().InstancePerLifetimeScope();
             builder.RegisterType<ObjectDBBuilder>().AsImplementedInterfaces().UsingConstructor().InstancePerLifetimeScope();
-            builder.RegisterType<Logger>().AsImplementedInterfaces().InstancePerLifetimeScope();
         }
 
         private static void RegisterMemberSiteApi(ContainerBuilder builder)

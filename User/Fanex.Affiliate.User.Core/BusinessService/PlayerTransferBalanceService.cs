@@ -12,7 +12,6 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Fanex.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Linq;
@@ -28,15 +27,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private readonly ISessionService _sessionService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthRepository _authRepository;
-        private readonly ILogger _logger;
 
         public PlayerTransferBalanceService(IPlayerTransferBalanceRepository playerTransferBalanceRepository,
             IAppSetting appSetting,
             ILicenseeApi licenseeApi,
             IAccountApi accountApi,
             ISessionService sessionService,
-            IAuthRepository authRepository,
-            ILogger logger)
+            IAuthRepository authRepository)
         {
             _repo = playerTransferBalanceRepository;
             _api = licenseeApi;
@@ -44,7 +41,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _sessionService = sessionService;
             _appSetting = appSetting;
             _authRepository = authRepository;
-            _logger = logger;
         }
 
         public PlayerTransferBalanceHistoryResult GetPlayerTransferBalanceHistory(PlayerTransferBalanceHistoryParam param)
@@ -151,7 +147,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             }
             catch (Exception ex)
             {
-                _logger.Error($"Call api to transfer money fail - {ex.Message}");
+                LogHelper.WriteError($"Call api to transfer money fail - {ex.Message}");
                 _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Failed);
                 return GetResultInfo(Error.ErrInternalError);
             }
@@ -200,13 +196,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
                 if (!result.Data)
                 {
-                    await _logger.ErrorAsync($"Failed active deposit ActStatus of player {custId}\n" +
+                    await LogHelper.WriteErrorAsync($"Failed active deposit ActStatus of player {custId}\n" +
                         $"Return result: {JsonConvert.SerializeObject(result)}");
                 }
             }
             catch (Exception ex)
             {
-                await _logger.ErrorAsync($"Failed active deposit ActStatus of player {custId}", ex);
+                await LogHelper.WriteErrorAsync($"Failed active deposit ActStatus of player {custId}", ex);
             }
 
         }
