@@ -53,7 +53,7 @@ namespace Affiliate.N88.Jobs.Services
 
         public async Task SaveTimeAsync(string source, DateTime date)
         {
-            var tracker = new TrackerInfo { CalledTime = date, KeyValue = string.Empty };
+            var tracker = new TrackerInfo { CalledTime = date, KeyValue = date.ToString()};
             await SaveTrackerAsync(source, tracker);
 
         }
