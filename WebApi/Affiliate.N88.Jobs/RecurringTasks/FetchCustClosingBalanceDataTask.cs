@@ -60,6 +60,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         protected override async Task ImportDataByBatchAsync(IEnumerable<CustClosingBalanceModel> data)
         {
+            if (!data.Any())
+                return;
+
             var importData = data;
             await ImportDataToMultipleRepoAsync(importData);
             var trackValue = GetInsertTrackingValue(importData);
