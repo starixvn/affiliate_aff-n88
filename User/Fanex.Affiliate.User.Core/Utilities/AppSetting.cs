@@ -88,8 +88,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
 
-        public string PhoneNumber => GetValue("PhoneNumber");
-
         public string CurrencySymbol => GetValue("CurrencySymbol");
 
         public string CurrencyLabel => GetValue("CurrencyLabel");

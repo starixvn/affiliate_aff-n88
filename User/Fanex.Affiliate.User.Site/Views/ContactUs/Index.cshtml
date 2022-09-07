@@ -1,5 +1,4 @@
 ﻿@using Fanex.Affiliate.User.Core.Utilities
-@using Fanex.Affiliate.User.Core.Constants
 @using Fanex.Affiliate.User.Core.CoreService
 
 @{
@@ -10,8 +9,7 @@
     ViewBag.Title = $"{appSetting.SiteFriendlyName} Affiliate Program | Contact Us";
 
     var mailContact = appSetting.GetMailContactByLanguageCode(sessionService.CurrentLanguage);
-    var phoneNumber = appSetting.PhoneNumber;
-    var isN88 = string.Equals(appSetting.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+    var viewName = "~/Views/ContactUs/" + AppSetting.Instance.SiteName + "/_Content.cshtml";
 }
 
 @section styles{
@@ -36,92 +34,6 @@
         <div class="row contact-title">
             <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
         </div>
-        @if (isN88)
-        {
-            <div class="row contact-icon-group">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="contact-icon">
-                        <img class="img-responsive" id="email_icon" alt="email icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>@Lang.Email1</strong>
-                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="contact-icon">
-                        <img class="img-responsive" id="telegram_icon" alt="telegram icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>@Lang.Telegram</strong>
-                        <p class="intro"><a href="https://t.me/nova88affiliate">https://t.me/nova88affiliate</a></p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="contact-icon">
-                        <img class="img-responsive" id="whatsapp_icon" alt="whatsapp icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>@Lang.Whatsapp</strong>
-                        <p class="intro"><a href="https://cli.re/nova88affiliate">https://cli.re/nova88affiliate</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="date-time-info">
-                        <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="row contact-icon-group">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/phone.png" alt="phone icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>@Lang.Phone</strong>
-                        <p>@phoneNumber</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" alt="email icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>Email</strong>
-                        <p class="intro"><a href=@("mailto:" + mailContact)>@mailContact</a></p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="contact-icon">
-                        <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" alt="telegram icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>Telegram</strong>
-                        <p>@phoneNumber</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="contact-icon">
-                        <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/" + appSetting.SiteFriendlyName + ".jpg") alt="zalo icon" />
-                    </div>
-                    <div class="text-center">
-                        <strong>Zalo</strong>
-                        <p>@phoneNumber</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="date-time-info">
-                        <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
-                    </div>
-                </div>
-            </div>
-        }
+        @{ Html.RenderPartial(viewName, model: mailContact); }
     </div>
     </div>
