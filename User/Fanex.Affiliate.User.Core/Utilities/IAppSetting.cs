@@ -81,8 +81,6 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         bool IsUseMemberSiteProxy { get; }
 
-        string PhoneNumber { get; }
-
         string CurrencySymbol { get; }
 
         string CurrencyLabel { get; }

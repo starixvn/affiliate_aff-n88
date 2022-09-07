@@ -965,9 +965,9 @@
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
-    <Content Include="www\build\styles\Images\contact-us\bwing.jpg" />
     <Content Include="www\build\styles\Images\contact-us\email.png" />
     <Content Include="www\build\styles\Images\contact-us\goal123.jpg" />
+    <Content Include="www\build\styles\Images\contact-us\bwing.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\email.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\whatsapp.png" />
@@ -1482,6 +1482,9 @@
     <Content Include="www\build\styles\Images\apply\n8g\3step.vi-VN.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.mobile.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.mobile.webp" />
+    <Content Include="Views\ContactUs\N88\_Content.cshtml" />
+    <Content Include="Views\ContactUs\N8B\_Content.cshtml" />
+    <Content Include="Views\ContactUs\N8G\_Content.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
