@@ -40,10 +40,24 @@ describe('landing page statistics - components - Filter', () => {
             PageName: "Keno"
         }
     ];
+    const shortCodeLanguageList = {
+        ch: "Chinese Traditional",
+        cs: "Chinese Simplified",
+        en: "English",
+        eneuro: "English (Europe)",
+        es: "Spanish",
+        hien: "English (India)",
+        id: "Indonesian",
+        jp: "Japanese",
+        ko: "Korean",
+        th: "Thai",
+        vn: "Vietnamese"
+    };
     const defaultProps = {
         today,
         affId: 1271808,
         languageList,
+        shortCodeLanguageList,
         setShortCodeLanguageList: jest.fn(),
         getPageList: jest.fn()
     };

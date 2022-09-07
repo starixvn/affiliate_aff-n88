@@ -91,6 +91,50 @@ exports[`member list - components - Content  render correctly 1`] = `
             >
               B2CAFF017
             </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              <input
+                className="mt-1"
+                disabled="true"
+                type="checkbox"
+              />
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit B2C$wjpwjp player"
+            >
+              <Button
+                color="link p-0"
+                onClick={[Function]}
+                tag="button"
+              >
+                <span
+                  className="oi oi-pencil text-secondary"
+                />
+              </Button>
+            </t>
           </t>,
           <t>
             <t
@@ -170,91 +214,191 @@ exports[`member list - components - Content  render correctly 1`] = `
             >
               B2CAFF177
             </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              <input
+                className="mt-1"
+                disabled="true"
+                type="checkbox"
+              />
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit B2C$jingguoan player"
+            >
+              <Button
+                color="link p-0"
+                onClick={[Function]}
+                tag="button"
+              >
+                <span
+                  className="oi oi-pencil text-secondary"
+                />
+              </Button>
+            </t>
           </t>,
         ]
       }
       bodyHeight={300}
       containerPadding={20}
       header={
-        <t>
-          <t
-            asc={true}
-            colWidth={20}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="#"
-          >
-            #
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="User Name"
-          >
-            User Name
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="System Name"
-          >
-            System Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="First Name"
-          >
-            First Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Last Name"
-          >
-            Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Registration Date"
-          >
-            Registration Date
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Affiliate"
-          >
-            Affiliate
-          </t>
-        </t>
+        Array [
+          <t>
+            <t
+              asc={true}
+              colWidth={30}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="#"
+            >
+              #
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="User Name"
+            >
+              User Name
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="System Name"
+            >
+              System Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="First Name"
+            >
+              First Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Last Name"
+            >
+              Last Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Registration Date"
+            >
+              Registration Date
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Affiliate"
+            >
+              Affiliate
+            </t>
+            <t
+              asc={true}
+              colSpan="3"
+              colWidth={200}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Removed"
+            >
+              Removed
+            </t>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Status"
+            >
+              Status
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Last Action Date"
+            >
+              Last Action Date
+            </t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit"
+            >
+              Edit
+            </t>
+          </t>,
+        ]
       }
       isPaging={true}
       maxWidth={0}
@@ -373,6 +517,50 @@ exports[`member list - components - Content  render correctly with NotificationP
             >
               B2CAFF017
             </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              <input
+                className="mt-1"
+                disabled="true"
+                type="checkbox"
+              />
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit B2C$wjpwjp player"
+            >
+              <Button
+                color="link p-0"
+                onClick={[Function]}
+                tag="button"
+              >
+                <span
+                  className="oi oi-pencil text-secondary"
+                />
+              </Button>
+            </t>
           </t>,
           <t>
             <t
@@ -452,91 +640,191 @@ exports[`member list - components - Content  render correctly with NotificationP
             >
               B2CAFF177
             </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+            >
+              <input
+                className="mt-1"
+                disabled="true"
+                type="checkbox"
+              />
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title=""
+            >
+              
+            </t>
+            <t
+              asc={true}
+              className="text-center"
+              header={false}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit B2C$jingguoan player"
+            >
+              <Button
+                color="link p-0"
+                onClick={[Function]}
+                tag="button"
+              >
+                <span
+                  className="oi oi-pencil text-secondary"
+                />
+              </Button>
+            </t>
           </t>,
         ]
       }
       bodyHeight={300}
       containerPadding={20}
       header={
-        <t>
-          <t
-            asc={true}
-            colWidth={20}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="#"
-          >
-            #
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="User Name"
-          >
-            User Name
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="System Name"
-          >
-            System Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="First Name"
-          >
-            First Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Last Name"
-          >
-            Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Registration Date"
-          >
-            Registration Date
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Affiliate"
-          >
-            Affiliate
-          </t>
-        </t>
+        Array [
+          <t>
+            <t
+              asc={true}
+              colWidth={30}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="#"
+            >
+              #
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="User Name"
+            >
+              User Name
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="System Name"
+            >
+              System Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="First Name"
+            >
+              First Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Last Name"
+            >
+              Last Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Registration Date"
+            >
+              Registration Date
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Affiliate"
+            >
+              Affiliate
+            </t>
+            <t
+              asc={true}
+              colSpan="3"
+              colWidth={200}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Removed"
+            >
+              Removed
+            </t>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Status"
+            >
+              Status
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Last Action Date"
+            >
+              Last Action Date
+            </t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit"
+            >
+              Edit
+            </t>
+          </t>,
+        ]
       }
       isPaging={true}
       maxWidth={0}
@@ -561,11 +849,6 @@ exports[`member list - components - Content  render correctly with NotificationP
       width={0}
     />
   </div>
-  <Memo(NotificationPopup)
-    isConfirmPopup={true}
-    message="Has NotificationPopup"
-    onClose={[Function]}
-  />
 </div>
 `;
 
@@ -586,7 +869,7 @@ exports[`member list - components - Content  render correctly with gridData is e
             <t
               asc={true}
               className="text-center"
-              colSpan="9"
+              colSpan="10"
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -600,85 +883,141 @@ exports[`member list - components - Content  render correctly with gridData is e
       bodyHeight={300}
       containerPadding={20}
       header={
-        <t>
-          <t
-            asc={true}
-            colWidth={20}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="#"
-          >
-            #
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="User Name"
-          >
-            User Name
-          </t>
-          <t
-            asc={true}
-            colWidth={120}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="System Name"
-          >
-            System Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="First Name"
-          >
-            First Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Last Name"
-          >
-            Last Name
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Registration Date"
-          >
-            Registration Date
-          </t>
-          <t
-            asc={true}
-            colWidth={100}
-            header={true}
-            onClick={[Function]}
-            sortable={false}
-            sorting={false}
-            title="Affiliate"
-          >
-            Affiliate
-          </t>
-        </t>
+        Array [
+          <t>
+            <t
+              asc={true}
+              colWidth={30}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="#"
+            >
+              #
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="User Name"
+            >
+              User Name
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="System Name"
+            >
+              System Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="First Name"
+            >
+              First Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Last Name"
+            >
+              Last Name
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Registration Date"
+            >
+              Registration Date
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+              title="Affiliate"
+            >
+              Affiliate
+            </t>
+            <t
+              asc={true}
+              colSpan="3"
+              colWidth={200}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Removed"
+            >
+              Removed
+            </t>
+          </t>,
+          <t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Status"
+            >
+              Status
+            </t>
+            <t
+              asc={true}
+              colWidth={100}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Last Action Date"
+            >
+              Last Action Date
+            </t>
+            <t
+              asc={true}
+              colWidth={50}
+              header={true}
+              onClick={[Function]}
+              sortable={false}
+              sorting={false}
+              title="Edit"
+            >
+              Edit
+            </t>
+          </t>,
+        ]
       }
       isPaging={true}
       maxWidth={0}

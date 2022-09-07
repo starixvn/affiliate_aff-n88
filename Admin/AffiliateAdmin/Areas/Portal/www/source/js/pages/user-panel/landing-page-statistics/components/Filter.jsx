@@ -9,17 +9,6 @@ import { headerTitle, deviceTypes, globalResource, minDate } from '../modules/co
 import { setSelectedPage, setParam, setShortCodeLanguageList, getPageList } from '../actions';
 import { htmlDecode } from '../../../../modules/htmlHelper';
 
-const shortCodeLanguageList = {};
-const shortCodeList = {
-    'en-US': 'en',
-    'id-ID': 'id',
-    'ko-KR': 'ko',
-    'th-TH': 'th',
-    'vi-VN': 'vn',
-    'zh-CN': 'cs',
-    'zh-TW': 'ch',
-};
-
 export class Filter extends React.Component {
     constructor(props) {
         super(props);
@@ -29,8 +18,9 @@ export class Filter extends React.Component {
 
         this.nowString = `${now.getMonth() + 1}/${now.getDate()}/${now.getFullYear()}`;
 
+        const shortCodeLanguageList = {};
         for (let languageItem of languageList) {
-            const shortCode = shortCodeList[languageItem.LanguageCode] || languageItem.LanguageCode;
+            const shortCode = languageItem.ShortedLanguageCode;
             shortCodeLanguageList[shortCode] = languageItem.LanguageName;
         }
         this.props.setShortCodeLanguageList(shortCodeLanguageList);
@@ -78,6 +68,7 @@ export class Filter extends React.Component {
     }
 
     render() {
+        const { shortCodeLanguageList } = this.props;
         const { selectedPage, languageCode, deviceType, fromDate, toDate, pageList } = this.state;
 
         return pageList && (
@@ -136,12 +127,15 @@ export class Filter extends React.Component {
     }
 }
 
-function mapStateToProps({ today, affCommonInfo, languageList }) {
+function mapStateToProps({ today, affCommonInfo, languageList, landingPageStatistics }) {
     const { affId } = affCommonInfo;
+    const { shortCodeLanguageList } = landingPageStatistics;
+
     return Object.assign({}, {
         today,
         affId,
-        languageList
+        languageList,
+        shortCodeLanguageList,
     });
 }
 
