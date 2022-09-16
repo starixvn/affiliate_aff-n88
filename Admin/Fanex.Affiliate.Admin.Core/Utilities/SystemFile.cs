@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using Fanex.Logging;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.Constants;
 
@@ -23,7 +22,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             }
             catch (Exception ex)
             {
-                Logger.Log.Error(ex.Message, ex);
+                LogHelper.WriteError(ex);
             }
         }
 
@@ -41,7 +40,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             }
             catch (Exception ex)
             {
-                Logger.Log.Error(ex.Message, ex);
+                LogHelper.WriteError(ex);
             }
         }
 
@@ -62,7 +61,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
             }
             catch (Exception ex)
             {
-                Logger.Log.Error(ex.Message, ex);
+                LogHelper.WriteError(ex);
             }
         }
 
@@ -76,7 +75,7 @@ namespace Fanex.Affiliate.Admin.Core.Utilities
                 }
                 catch (Exception ex)
                 {
-                    Logger.Log.Error(ex.Message, ex);
+                    LogHelper.WriteError(ex);
                     return new ResultInfo
                     {
                         Code = ErrCode.ErrCanNotAccessFolder,

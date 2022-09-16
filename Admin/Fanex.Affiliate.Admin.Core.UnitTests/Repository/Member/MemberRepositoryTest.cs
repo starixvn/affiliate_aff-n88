@@ -95,6 +95,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = 123m,
                 ["RegisteredDate"] = new DateTime(2019, 10, 10),
+                ["LastAction"] = new DateTime(2019, 10, 10),
+                ["IsInclude"] = true,
+                ["IsRemoved"] = false,
                 ["AffUserName"] = "B2CAFF226",
             };
         }
@@ -110,6 +113,9 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Repository.Member
                 ["LastName"] = "Aff",
                 ["CurrBalance"] = -123m,
                 ["RegisteredDate"] = DBNull.Value,
+                ["LastAction"] = DBNull.Value,
+                ["IsInclude"] = true,
+                ["IsRemoved"] = false,
                 ["AffUserName"] = "B2CAFF226",
             };
         }

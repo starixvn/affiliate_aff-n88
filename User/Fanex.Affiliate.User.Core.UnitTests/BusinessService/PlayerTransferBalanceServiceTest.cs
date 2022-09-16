@@ -12,7 +12,6 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using Fanex.Logging;
 using NSubstitute;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -28,7 +27,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         private readonly ISessionService _sessionService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthRepository _authRepository;
-        private readonly ILogger _logger;
 
         public PlayerTransferBalanceServiceTest()
         {
@@ -38,7 +36,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             _sessionService = NSubtituteMockingHelper.FakeSessionService();
             _appSetting = Substitute.For<IAppSetting>();
             _authRepository = Substitute.For<IAuthRepository>();
-            _logger = Substitute.For<ILogger>();
         }
 
         [Fact]
@@ -400,7 +397,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         }
 
         private PlayerTransferBalanceService CreateService()
-            => new PlayerTransferBalanceService(_repo, _appSetting, _api, _accountApi, _sessionService, _authRepository, _logger);
+            => new PlayerTransferBalanceService(_repo, _appSetting, _api, _accountApi, _sessionService, _authRepository);
 
         private PlayerTransferBalanceInfo playerTransferBalanceInfo => new PlayerTransferBalanceInfo
         {
