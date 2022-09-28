@@ -1,5 +1,6 @@
 ﻿using Affiliate.N88.WebApi.App_Start;
 using System;
+using System.Configuration;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -15,6 +16,11 @@ namespace Affiliate.N88.WebApi
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            
+            //if (ConfigurationManager.AppSettings["Enviroment"] == "LOCAL")
+            //{
+            //    SwaggerConfig.Register();
+            //}
 
             DependencyConfig.Init();
         }
