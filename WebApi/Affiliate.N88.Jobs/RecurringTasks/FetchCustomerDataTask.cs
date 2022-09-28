@@ -46,7 +46,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+                await _logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
             catch (Exception ex)
             {
-                await _logger.ErrorAsync($"Error when fetch customer data daily - {ex.Message}", ex);
+                await _logger.ErrorAsync($"Error when fetch {TableName} data daily - {ex.Message}", ex);
             }
         }
 

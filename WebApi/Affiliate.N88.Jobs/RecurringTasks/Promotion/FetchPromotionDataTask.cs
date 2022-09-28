@@ -48,7 +48,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
             catch (Exception ex)
             {
 
-                await Logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+                await Logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
             }
         }
 
@@ -68,7 +68,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
                     }
                     catch
                     {
-                        Logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                        Logger.Error($"Excetion when fetch {TableName} from {range.FromDate} to {range.ToDate}");
                         throw;
                     }
                 }
@@ -76,7 +76,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
             catch (Exception ex)
             {
 
-                await Logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+                await Logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
             }
         }
 
@@ -93,7 +93,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
                 }
                 catch
                 {
-                    Logger.Error($"Excetion when fetch BetRecord from {range.FromDate} to {range.ToDate}");
+                    Logger.Error($"Excetion when fetch {TableName} from {range.FromDate} to {range.ToDate}");
                     throw;
                 }
             }
