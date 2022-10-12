@@ -2,6 +2,7 @@
 using System;
 using System.Configuration;
 using System.Net.Http;
+using System.Web.Http;
 using System.Web.Http.Filters;
 
 namespace Affiliate.N88.WebApi.Filters
@@ -13,9 +14,9 @@ namespace Affiliate.N88.WebApi.Filters
         {
             if (actionExecutedContext != null)
             {
-                ExceptionHandler.Handle(actionExecutedContext.Exception);
                 var exception = actionExecutedContext.Exception;
-                actionExecutedContext.Response = actionExecutedContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.InternalServerError, exception);
+                ExceptionHandler.Handle(exception);
+                actionExecutedContext.Response = actionExecutedContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.InternalServerError, new HttpError(exception, true));
             }
         }
     }

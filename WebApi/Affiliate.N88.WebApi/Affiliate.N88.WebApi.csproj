@@ -214,6 +214,7 @@
     <Compile Include="Controllers\Product9WController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="DTO\Promotion.cs" />
     <Compile Include="Extensions\MessageExtensions.cs" />
     <Compile Include="Extensions\ObjectDbExtensions.cs" />
@@ -252,6 +253,7 @@
   <ItemGroup>
     <Folder Include="Views\BetReport\" />
     <Folder Include="Views\Health\" />
+    <Folder Include="Views\Test\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Affiliate.N88.Infrastructure\Affiliate.N88.csproj">

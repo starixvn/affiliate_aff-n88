@@ -1,10 +1,15 @@
-﻿using Affiliate.N88.WebApi.Models.Fake;
+﻿using Affiliate.N88.Models;
+using Affiliate.N88.WebApi.Models.Fake;
+using Fanex.Data.Repository;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Affiliate.N88.WebApi.Controllers
 {
     public class FakeController : ApiController
     {
+
         [HttpPost]
         public SetAccountResult SetCustActStatus(AccountParam param)
         {
@@ -14,11 +19,6 @@ namespace Affiliate.N88.WebApi.Controllers
                 ErrorCode = 99
             };
         }
-        
-        [HttpGet]
-        public void TestException()
-        {
-            throw new System.Exception("test exception");
-        }
+      
     }
 }

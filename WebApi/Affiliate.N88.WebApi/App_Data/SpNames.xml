@@ -1,8 +1,10 @@
 ﻿<Functions>
   <Function Name="N88Licensee">
+    <Setting Key="Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Read" />
     <Setting Key="Slave_Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Read" />
     <Setting Key="Master_Aff_CustomerSel" SpName="Aff_CustomerSel" DbName="N88Licensee_Write" />
-    <Setting Key="N88_Get_TpBetRecord" SpName="N88_Get_TpBetRecord_Dynamic" DbName="N88Licensee_Read" />
+    <Setting Key="N88_Get_TpBetRecord" SpName="N88_Get_TpBetRecord" DbName="N88Licensee_Read" />
+    <Setting Key="N88_Get_TpBetRecord_Dynamic" SpName="N88_Get_TpBetRecord_Dynamic" DbName="N88Licensee_Read" />
     <Setting Key="N88_Get_TpGameType" SpName="N88_Get_TpGameType" DbName="N88Licensee_Read"/>
     <Setting Key="N88_Get_Customer" SpName="N88_Get_Customer" DbName="N88Licensee_Read"/>
     <Setting Key="API_CustBonusRollover_Get" SpName="API_CustBonusRollover_Get" DbName="N88Licensee_Read"/>
