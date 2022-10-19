@@ -38,17 +38,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var fromDate = await TrackerService.GetTimeAsync(TableName);
-                var toDate = GetAdjustmentTime();
-                await FetchDataAndTrackTimeAsync(fromDate, toDate);
-            }
-            catch (Exception ex)
-            {
-
-                await Logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
-            }
+            var fromDate = await TrackerService.GetTimeAsync(TableName);
+            var toDate = GetAdjustmentTime();
+            await FetchDataAndTrackTimeAsync(fromDate, toDate);
         }
 
         private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)

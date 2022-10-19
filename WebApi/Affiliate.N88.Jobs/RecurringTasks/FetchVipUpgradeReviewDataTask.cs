@@ -35,23 +35,16 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var trackDate = await _timeTrackerService.GetTimeAsync(TableName);
-                var monthDate = new DateTime(trackDate.Year, trackDate.Month, 1);
-                await FetchDataAsync(monthDate);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
-            }
+            var trackDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var monthDate = new DateTime(trackDate.Year, trackDate.Month, 1);
+            await FetchDataAsync(monthDate);
         }
 
         public async Task FetchDataAsync(DateTime monthDate)
         {
             var fromDate = monthDate;
             var toDate = GetAdjustmentTime();
-            while(fromDate <= toDate )
+            while (fromDate <= toDate)
             {
                 var datas = await FetchDataFromMonthAsync(fromDate);
                 foreach (var data in datas)
@@ -73,7 +66,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var pageSize = 2000;
             var data = await _licenseeApi.GetVipUpgradeReviews(fromDate, pageIndex, pageSize);
             datas.Add(data);
-            while(data.Count() == pageSize)
+            while (data.Count() == pageSize)
             {
                 pageIndex++;
                 data = await _licenseeApi.GetVipUpgradeReviews(fromDate, pageIndex, pageSize);

@@ -39,44 +39,28 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var fromDate = await TrackerService.GetTimeAsync(TableName);
-                var toDate = GetAdjustmentTime();
-                await FetchDataAndTrackTimeAsync(fromDate, toDate);
-            }
-            catch (Exception ex)
-            {
-
-                await Logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
-            }
+            var fromDate = await TrackerService.GetTimeAsync(TableName);
+            var toDate = GetAdjustmentTime();
+            await FetchDataAndTrackTimeAsync(fromDate, toDate);
         }
 
         public async Task FetchDataDailyTask()
         {
-            try
+            var fromDate = GetAdjustmentApiServerDate(new TimeSpan(-1, 0, 0, 0));
+            var toDate = GetAdjustmentTime();
+            var intervalTime = GetApiMaxTimeRange();
+            var timeRanges = DateTimeHelper.GetProportionTimeRange(fromDate, toDate, intervalTime);
+            foreach (var range in timeRanges)
             {
-                var fromDate = GetAdjustmentApiServerDate(new TimeSpan(-1, 0, 0, 0));
-                var toDate = GetAdjustmentTime();
-                var intervalTime = GetApiMaxTimeRange();
-                var timeRanges = DateTimeHelper.GetProportionTimeRange(fromDate, toDate, intervalTime);
-                foreach (var range in timeRanges)
+                try
                 {
-                    try
-                    {
-                        await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
-                    }
-                    catch
-                    {
-                        Logger.Error($"Excetion when fetch {TableName} from {range.FromDate} to {range.ToDate}");
-                        throw;
-                    }
+                    await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
                 }
-            }
-            catch (Exception ex)
-            {
-
-                await Logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
+                catch
+                {
+                    Logger.Error($"Excetion when fetch {TableName} from {range.FromDate} to {range.ToDate}");
+                    throw;
+                }
             }
         }
 

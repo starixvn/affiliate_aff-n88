@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Affiliate.N88.Jobs.Filter;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -30,6 +31,7 @@ namespace Affiliate.N88.Jobs.Middlewares
             {
                 var memoryOption = new MemoryStorageOptions() { FetchNextJobTimeout = TimeSpan.FromHours(2) };
                 config.UseMemoryStorage(memoryOption);
+                config.UseFilter(new GlobalHangfireJobExceptionFilterAttribute());
             });
 
             var appSettings = new AppSettings();

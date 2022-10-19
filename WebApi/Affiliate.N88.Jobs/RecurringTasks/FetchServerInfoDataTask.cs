@@ -30,15 +30,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async override Task FetchDataAsync()
         {
-            try
-            {
-                var data = await _licenseeApi.GetServerInfoAsync();
-                await ImportDataToMultipleRepoAsync(data);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch {TableName} data {ex.Message}", ex);
-            }
+            var data = await _licenseeApi.GetServerInfoAsync();
+            await ImportDataToMultipleRepoAsync(data);
         }
 
         protected override string BuildXml(IEnumerable<ServerInfo> data)
