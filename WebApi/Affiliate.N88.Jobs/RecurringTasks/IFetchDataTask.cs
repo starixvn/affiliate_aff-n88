@@ -7,7 +7,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
     public interface IFetchDataTask
     {
         [DisableConcurrentExecution(60)]
-        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
+        [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Fail, Attempts = 1)]
         Task FetchDataAsync();
     }
 

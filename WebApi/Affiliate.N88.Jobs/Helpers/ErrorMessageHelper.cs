@@ -1,5 +1,6 @@
 ﻿using Fanex.Data;
 using Microsoft.AspNetCore.Http;
+using Refit;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -20,6 +21,10 @@ namespace Fanex.Athena.CronJobs.App.Helpers
             {
                 AddRequestInfo(context, messageBuilder);
             }
+            if (exception is ApiException apiException)
+            {
+                AddApiException(apiException, messageBuilder);
+            }
 
             AddDatabaseInfo(messageBuilder, exception);
 
@@ -27,6 +32,15 @@ namespace Fanex.Athena.CronJobs.App.Helpers
             AddExceptionInfo(messageBuilder, exception, limitedNumOfInnerException);
 
             return messageBuilder.ToString();
+        }
+
+        private static void AddApiException(ApiException apiException, StringBuilder messageBuilder)
+        {
+            messageBuilder.AppendLine();
+            messageBuilder.AppendLine("API INFO");
+            messageBuilder.AppendLine($"Url: {apiException.Uri.ToString()}");
+            messageBuilder.AppendLine($"Method: {apiException.HttpMethod.Method}");
+            messageBuilder.AppendLine($"Content: { apiException.Content}");
         }
 
         private static void AddRequestInfo(HttpContext context, StringBuilder builder)
