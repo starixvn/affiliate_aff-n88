@@ -31,15 +31,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async override Task FetchDataAsync()
         {
-            try
-            {
-                var data = await _licenseeApi.GetGameTypeAsync();
-                await ImportDataToMultipleRepoAsync(data);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch game type data - {ex.Message}", ex);
-            }
+            var data = await _licenseeApi.GetGameTypeAsync();
+            await ImportDataToMultipleRepoAsync(data);
         }
 
         protected override string BuildXml(IEnumerable<TpGameTypeInfo> data)

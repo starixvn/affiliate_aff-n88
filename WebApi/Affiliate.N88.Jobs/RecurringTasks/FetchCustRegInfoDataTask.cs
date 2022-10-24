@@ -25,7 +25,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             IThirdPartyImportRepository _thirdPartyRepo,
             ILogger logger,
             ITrackerService timeTrackerService,
-            IOptionsSnapshot<FetchServiceSetting> configuration) 
+            IOptionsSnapshot<FetchServiceSetting> configuration)
             : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_CUST_REG_INFO_SETTING))
         {
             _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
@@ -35,15 +35,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
-                await FetchDataAsync(fromDate);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
-            }
+            var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
+            await FetchDataAsync(fromDate);
         }
 
         private async Task FetchDataAsync(DateTime fromDate)

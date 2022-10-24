@@ -7,6 +7,7 @@ using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
+using Fanex.Athena.CronJobs.App.Helpers;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -103,7 +104,7 @@ namespace Affiliate.N88.Jobs.Services
                 }
                 catch (Exception ex)
                 {
-                    await _logger.WarnAsync(ex.Message);
+                    await _logger.ErrorAsync(ErrorMessageHelper.GenerateMessage(ex), ex);
                 }
             }
             return lstTracker;

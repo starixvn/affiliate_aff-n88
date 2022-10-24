@@ -39,15 +39,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
-                await FetchDataAsync(fromDate);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
-            }
+            var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
+            await FetchDataAsync(fromDate);
         }
 
         public async Task FetchDataAsync(DateTime fromDate)
@@ -60,17 +53,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async Task FetchDataDailyTask()
         {
-            try
-            {
-                var adjustmentDay = DateTime.Now.AddDays(-1);
-                var yesterday = new DateTime(adjustmentDay.Year, adjustmentDay.Month, adjustmentDay.Day, 0, 0, 0);
-                var data = await _liceseeApi.GetCustomersAsync(yesterday);
-                await ImportDataToMultipleRepoAsync(data);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch customer data daily - {ex.Message}", ex);
-            }
+            var adjustmentDay = DateTime.Now.AddDays(-1);
+            var yesterday = new DateTime(adjustmentDay.Year, adjustmentDay.Month, adjustmentDay.Day, 0, 0, 0);
+            var data = await _liceseeApi.GetCustomersAsync(yesterday);
+            await ImportDataToMultipleRepoAsync(data);
         }
 
         private DateTime GetAdjustmentTime()

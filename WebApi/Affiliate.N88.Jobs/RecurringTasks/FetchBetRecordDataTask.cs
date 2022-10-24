@@ -9,10 +9,8 @@ using Hangfire;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Xml;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
@@ -53,16 +51,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
                 var fromDate = await GetLastTimeFetchDateAsync();
                 var toDate = GetAdjustmentApiServerDate();
                 await FetchDataAndTrackTimeAsync(fromDate, toDate);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Exception when fetch BetRecord data: {ex.ToString()}", ex);
-            }
         }
 
         public async Task FetchDataAsync(DateTime fromDate, DateTime toDate)
@@ -85,49 +76,29 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async Task FetchLastMonthAsync()
         {
-            try
-            {
                 var now = DateTime.Now;
                 var dayLastMonth = now.AddMonths(-1);
                 var firstDayLastMonth = new DateTime(dayLastMonth.Year, dayLastMonth.Month, 1);
                 var firstDayThisMonth = new DateTime(now.Year, now.Month, 1);
                 await FetchDataAsync(firstDayLastMonth, firstDayThisMonth);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
-            }
+            
         }
 
         public async Task FetchFromAdjusmentDayAsync(int day)
         {
-            try
-            {
                 var lastFetchDate = await GetLastTimeFetchDateAsync();
                 var fromDate = lastFetchDate.AddDays(-day);
                 var toDate = GetAdjustmentApiServerDate();
                 await FetchDataAsync(fromDate, toDate);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
-            }
         }
 
         public async Task FetchAllDay(int adjustHour)
         {
-            try
-            {
                 var lastFetchDate = await GetLastTimeFetchDateAsync();
                 var adjustDate = lastFetchDate.AddHours(-adjustHour);
                 var fromDate = new DateTime(adjustDate.Year, adjustDate.Month, adjustDate.Day);
                 var toDate = GetAdjustmentApiServerDate();
                 await FetchDataAsync(fromDate, toDate);
-            }
-            catch (Exception ex)
-            {
-                _logger.Error($"Exception when fetch BetRecord data: {ex.ToString()}");
-            }
         }
 
         private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)

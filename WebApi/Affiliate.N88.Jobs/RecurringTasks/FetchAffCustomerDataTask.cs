@@ -4,6 +4,7 @@ using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
+using Fanex.Athena.CronJobs.App.Helpers;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -43,21 +44,14 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async Task FetchDataAsync()
         {
-            try
+            if (SupportedSites == null
+                || !SupportedSites.Any())
             {
-                if (SupportedSites == null
-                    || !SupportedSites.Any())
-                {
-                    return;
-                }
+                return;
+            }
 
-                var date = await GetMinLastedTimeAsync();
-                await FetchDataAsync(date);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync(ex.ToString(), ex);
-            }
+            var date = await GetMinLastedTimeAsync();
+            await FetchDataAsync(date);
         }
 
         public async Task FetchDataAsync(DateTime regTime)
@@ -97,6 +91,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             catch (Exception ex)
             {
                 await _logger.ErrorAsync($"Prefix: {command.SettingPrefix} Site: {command.SiteName} {ex.Message} \n {command.XmlData}", ex);
+                throw;
             }
         }
 
@@ -172,7 +167,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 }
                 catch (Exception ex)
                 {
-                    await _logger.ErrorAsync(ex.Message, ex);
+                    await _logger.ErrorAsync(ErrorMessageHelper.GenerateMessage(ex), ex);
                 }
             }
 

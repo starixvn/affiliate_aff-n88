@@ -35,15 +35,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            try
-            {
-                var fromDate = await _trackerService.GetTimeAsync(TableName);
-                await FetchDataAsync(fromDate);
-            }
-            catch (Exception ex)
-            {
-                await _logger.ErrorAsync($"Error when fetch customer data {ex.Message}", ex);
-            }
+            var fromDate = await _trackerService.GetTimeAsync(TableName);
+            await FetchDataAsync(fromDate);
         }
 
         public async Task FetchDataAsync(DateTime fromDate)
