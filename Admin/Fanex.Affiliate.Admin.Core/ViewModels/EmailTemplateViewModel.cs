@@ -7,13 +7,13 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels
     {
         private static readonly IAppSetting _appSetting = AppSetting.Instance;
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string RootUrl { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string UserSiteUrl { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string ImageRootUrl { get; set; }
 
         public string Language { get; set; }

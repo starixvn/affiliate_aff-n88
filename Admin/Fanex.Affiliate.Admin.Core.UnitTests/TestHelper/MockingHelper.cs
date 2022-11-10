@@ -1,7 +1,9 @@
 ﻿using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Common;
 using Fanex.Affiliate.Admin.Core.Services.Common;
+using Fanex.Logging;
 using Moq;
+using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -38,6 +40,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.TestHelper
             mockHttpRequest.Setup(p => p.Browser.Browser).Returns(Constant.Browser);
 
             return mockHttpRequest.Object;
+        }
+
+        public static void SetUpLogEngineEnviroment()
+        {
+            var logEngine = Substitute.For<ILogEngine>();
+
+            LogManager.SetDefaultLogCategory("Tests")
+                .Use(new List<ILogEngine>
+                {
+                    logEngine
+                });
         }
     }
 }

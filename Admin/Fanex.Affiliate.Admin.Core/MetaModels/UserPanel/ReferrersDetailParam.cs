@@ -6,7 +6,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.UserPanel
 {
     public class ReferrersDetailParam : ReferrersParam
     {
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string SelectedSiteUrl { get; set; }
 
         [Range(Validation.MinPageIndex, Validation.MaxPageIndex)]

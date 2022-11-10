@@ -261,6 +261,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
         public void HandlePaymentRequest_WhenCallWithApproved_UpdateSuccessfully()
         {
             // Arrange
+            MockingHelper.SetUpLogEngineEnviroment();
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.MemberSiteId).Returns(1);
             appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");
@@ -298,6 +299,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Payment
         public void HandlePaymentRequest_WhenCallWithApproved_UpdateFailed()
         {
             // Arrange
+            MockingHelper.SetUpLogEngineEnviroment();
             var appSetting = new Mock<IAppSetting>();
             appSetting.Setup(a => a.MemberSiteId).Returns(1);
             appSetting.Setup(a => a.EuropeanAffSiteUrl).Returns("Euro");

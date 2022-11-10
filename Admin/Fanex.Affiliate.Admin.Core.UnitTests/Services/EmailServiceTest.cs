@@ -62,7 +62,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
-            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>());
         }
 
         [Fact]
@@ -95,7 +95,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
-            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>());
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId), Arg.Compat.Any<string>());
         }
 
         [Fact]
@@ -140,7 +140,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId), Arg.Compat.Any<string>());
         }
 
         [Fact]
@@ -161,7 +161,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffDisapproved, Arg.Compat.Any<string>());
         }
 
         [Fact]
@@ -181,7 +181,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
 
             //Assert
             MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
-            MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
+            MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffDisapproved, Arg.Compat.Any<string>());
         }
 
         private EmailService CreateEmailService()

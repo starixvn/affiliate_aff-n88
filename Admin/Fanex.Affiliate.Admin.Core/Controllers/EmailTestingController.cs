@@ -76,7 +76,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 var appMailId = _appSetting.GetAppMailIdByShortedLanguageCode(shortedLanguageCode);
                 var subject = $"Affilite {AppSetting.Instance.SiteFriendlyName} testing";
 
-                _mailProcessor.Send(content, emailAddress, subject, appMailId: Convert.ToInt32(appMailId));
+                _mailProcessor.Send(content, emailAddress, subject, shortedLanguageCode);
                 _languageService.SetCulture("en-US");
             }
             catch (Exception ex)

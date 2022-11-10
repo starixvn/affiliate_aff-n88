@@ -72,13 +72,11 @@
       <HintPath>..\..\packages\EasyNetQ.2.3.3\lib\net451\EasyNetQ.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.Caching, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Caching.2.2.1\lib\net461\Fanex.Caching.dll</HintPath>
+    <Reference Include="Fanex.Caching, Version=2.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Caching.2.2.3\lib\net461\Fanex.Caching.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Data, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.4.2.2\lib\net461\Fanex.Data.dll</HintPath>
@@ -98,9 +96,11 @@
       <HintPath>..\..\packages\Fanex.Logging.Sentry.RavenClient.1.0.1\lib\net461\Fanex.Logging.Sentry.RavenClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fanex.MailDeliver.MailClient, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.MailDeliver.MailClient.1.0.0.3\lib\net40\Fanex.MailDeliver.MailClient.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.MailDeliver.MailClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.MailDeliver.MailClient.2.0.8\lib\net461\Fanex.MailDeliver.MailClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.MailDeliver.Utility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.MailDeliver.Utility.1.0.3\lib\net461\Fanex.MailDeliver.Utility.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
@@ -139,9 +139,8 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Nini">
       <HintPath>_Dependencies\Nini.dll</HintPath>
@@ -233,10 +232,6 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="TplCore, Version=1.0.4694.29951, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\TplCore.1.0.4694.29951\lib\net40\TplCore.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -1181,13 +1176,7 @@
     <Content Include="AppSettings.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.n88admin-n8b.backupmnl.config">
-      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88admin-n8b.local.config" />
-    <Content Include="Web.n88admin-n8b.master.config">
-      <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88admin-n8b.production.config">
       <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
     </Content>
@@ -1196,9 +1185,6 @@
     </Content>
     <Content Include="Web.n88admin-n8b.uat.config">
       <DependentUpon>Web.n88admin-n8b.local.config</DependentUpon>
-    </Content>
-    <Content Include="Web.n88admin-n8g.backupmnl.config">
-      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
     </Content>
     <Content Include="Web.n88admin-n8g.local.config" />
     <Content Include="Web.n88admin-n8g.sit.config">
@@ -1461,19 +1447,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Content Include="WebWorkbench.mswwsettings" />
-    <Content Include="Web.n88admin-n8g.master.config">
-      <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88admin-n8g.production.config">
       <DependentUpon>Web.n88admin-n8g.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.n88admin-n88.backupmnl.config">
-      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88admin-n88.local.config" />
-    <Content Include="Web.n88admin-n88.master.config">
-      <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88admin-n88.production.config">
       <DependentUpon>Web.n88admin-n88.local.config</DependentUpon>
     </Content>

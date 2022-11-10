@@ -9,10 +9,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
     {
         public static IAppSetting Instance { get; } = new AppSetting();
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string InternalAsianAffiliateUrl => GetValue("internalAsianAffiliateURL");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         public string InternalEuropeanAffiliateUrl => GetValue("internalEuropeanAffiliateURL");
 
         public string Environment => GetValue("Environment");
@@ -23,10 +21,10 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string BccMail => GetValue("bccMail");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string EuropeanAffSiteUrl => GetValue("EuropeanAffiliateURL");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string AsianAffSiteUrl => GetValue("AsianAffiliateURL");
 
         public string JsVersion => GetValue("JsVersion");
@@ -41,6 +39,8 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string AppMailId => GetValue("app_mail_id");
 
+        public string AppMailAddress => GetValue("app_mail_address");
+
         public string GetAppMailIdByShortedLanguageCode(string shortedLanguageCode) => GetValue("app_mail_id_" + shortedLanguageCode) ?? AppMailId;
 
         public string SentryDsn => GetValue("Dsn");
@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string RabbitMQConnectionString => GetValue("RabbitMQConnectionString");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string BannerRootUrl => GetValue("BannerUrl");
 
         public string[] BannerFolders => GetValue("BannerFolders").Split(';');
@@ -70,19 +70,19 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         public string DefaultCurrency => GetValue("DefaultCurrency");
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string MemberSiteApiUrl => GetValue("MemberSiteApiUrl");
 
         public int MemberSiteId => Convert.ToInt32(GetValue("MemberSiteId"));
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string MemberSiteProxyUrl => GetValue("MemberSiteProxyUrl");
 
         public string MemberSiteApiAuthenticationKey => GetValue("MemberSiteApiAuthenticationKey");
 
         public bool IsUseMemberSiteProxy => Convert.ToBoolean(GetValue("IsUseProxyToGetMemberSiteApi"));
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string AffSiteUrl => GetValue("AffSiteUrl");
 
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]

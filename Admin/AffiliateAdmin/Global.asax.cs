@@ -10,7 +10,6 @@ namespace AffiliateAdmin
 {
     public class Global : HttpApplication
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         void Application_Start(object sender, EventArgs e)
         {
             MvcHandler.DisableMvcResponseHeader = true;
@@ -30,13 +29,11 @@ namespace AffiliateAdmin
             LoggingConfig.RegisterSentry();
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S1144:Unused private types or members should be removed", Justification = "<Pending>")]
         void Application_Error(object sender, EventArgs e)
         {
             // Code that runs when an unhandled error occurs
