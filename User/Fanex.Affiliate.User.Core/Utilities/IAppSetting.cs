@@ -13,9 +13,13 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         string AppMailId { get; }
 
+        string AppMailAddress { get; }
+
         string GetAppMailIdByLanguageCode(string languageCode);
 
         string Environment { get; }
+
+        bool IsDev { get; }
 
         bool IsLocal { get; }
 

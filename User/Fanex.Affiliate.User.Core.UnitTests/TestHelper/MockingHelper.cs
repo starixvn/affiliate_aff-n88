@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
 using System.Web;
@@ -6,7 +7,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.Auth;
+using Fanex.Logging;
 using Moq;
+using NSubstitute;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
 {
@@ -66,6 +69,17 @@ namespace Fanex.Affiliate.User.Core.UnitTests.TestHelper
             var request = new HttpRequest("111", "http://127.0.0.1:8080/controller/action", null);
             var response = new HttpResponse(new StringWriter());
             HttpContext.Current = new HttpContext(request, response);
+        }
+
+        public static void SetUpLogEngineEnviroment()
+        {
+            var logEngine = Substitute.For<ILogEngine>();
+
+            LogManager.SetDefaultLogCategory("Tests")
+                .Use(new List<ILogEngine>
+                {
+                    logEngine
+                });
         }
     }
 }

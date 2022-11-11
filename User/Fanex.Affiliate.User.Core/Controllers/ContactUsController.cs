@@ -70,7 +70,6 @@
                 {
                     User = new UserInfo { PreferredLanguage = language },
                     MailTo = _appSetting.GetMailContactByLanguageCode(language),
-                    MailCc = _appSetting.MailCc
                 };
 
                 result = _contactService.SendRequest(param, emailParam);

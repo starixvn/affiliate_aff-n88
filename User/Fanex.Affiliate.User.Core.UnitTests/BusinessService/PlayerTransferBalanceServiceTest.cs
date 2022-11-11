@@ -328,6 +328,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         [Fact]
         public async Task SubmitTransferBalanceRequestAsync_WhenCall_TransferMoneyThrowException_ReturnError()
         {
+            MockingHelper.SetUpLogEngineEnviroment();
             _authRepository.GetUserInfo(Arg.Compat.Any<string>(), false).Returns(new AuthorizedUserInfo { DisabledTransfer = false });
             _repo.GetPlayerTransferBalanceInfo(Arg.Compat.Any<int>(), Arg.Compat.Any<string>()).Returns(playerTransferBalanceInfo);
             _repo.InsertTransferBalanceRequest(Arg.Compat.Any<PlayerTransferBalanceInsParam>()).Returns((12, 0, ""));
