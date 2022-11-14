@@ -1779,6 +1779,12 @@
   <data name="CommissionInBanner" xml:space="preserve">
     <value>Hoa Hồng</value>
   </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>Xác minh chi tiết tài khoản của bạn</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>B2C Đại Lý - Xác minh chi tiết tài khoản của bạn</value>
+  </data>
   <data name="WithAttractiveReward" xml:space="preserve">
     <value>* Với phần thưởng hấp dẫn!</value>
   </data>

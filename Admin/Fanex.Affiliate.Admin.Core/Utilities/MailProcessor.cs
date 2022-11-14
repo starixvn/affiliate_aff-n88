@@ -17,7 +17,7 @@
             _appSetting = appSetting;
         }
 
-	public string BuildTemplateContent(string path, string pathBackup, object model)
+        public string BuildTemplateContent(string path, string pathBackup, object model)
         {
             try
             {

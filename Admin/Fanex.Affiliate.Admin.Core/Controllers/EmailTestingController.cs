@@ -5,6 +5,7 @@ using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Configurations;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
+using Fanex.Affiliate.Admin.Core.Resources;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Common;
 using Fanex.Affiliate.Admin.Core.Utilities;
@@ -73,7 +74,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 var content = GetEmailContent(language, function, format);
                 var shortedLanguageCode = GetShortedLanguageCode(language);
 
-                var subject = $"Affilite {AppSetting.Instance.SiteFriendlyName} testing";
+                var subject = GetSubject(function);
 
                 _mailProcessor.Send(content, emailAddress, subject, shortedLanguageCode);
                 _languageService.SetCulture("en-US");
@@ -128,6 +129,27 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
             var viewPathBackup = viewPath;
 
             return _mailProcessor.BuildTemplateContent(viewPath, viewPathBackup, viewModel);
+        }
+
+        private static string GetSubject(string functionName)
+        {
+            switch (functionName)
+            {
+                case "AffiliateDisapproved":
+                    return Lang.EmailSubjectAffDisapproved;
+
+                case "AffiliateInformation":
+                    return Lang.EmailSubjectAffInfor;
+
+                case "PaymentRequest/Approved":
+                    return string.Format(Lang.EmailSubjectPaymentRequestApproved, _transId);
+
+                case "PaymentRequest/Rejected":
+                    return string.Format(Lang.EmailSubjectPaymentRequestRejected, _transId);
+
+                default:
+                    return Lang.Affiliate;
+            }
         }
 
         private object GetModelByFunction(string functionName, string languageCode)

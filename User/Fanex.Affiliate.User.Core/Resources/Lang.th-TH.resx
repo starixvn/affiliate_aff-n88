@@ -286,7 +286,7 @@
     <value>การขอยกเลิก</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
+    <value>พันธมิตร B2C - [{0}] - จดหมายยกเลิก  เรื่อง   การแจ้งเรื่อง การขอถอนเงินในบัญชีพันธมิตร</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>เคพ เวิร์ด</value>
@@ -370,7 +370,7 @@
     <value>โครเอเชีย</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>บัญชีพันธมิตรใหม่กำลังรอการอนุมัติ</value>
+    <value>พันธมิตร B2C - บัญชีพันธมิตรใหม่กำลังรอการอนุมัติ</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>สกุลเงิน</value>

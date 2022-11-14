@@ -11,7 +11,7 @@
 		{"n8g", "DBAFFN8G.Affiliate_N8G.bodbDownlineNet"},
 	};
 
-	var environments = new string[] { "uat", "production", "backupmnl", "master", "sit", "local" };
+	var environments = new string[] { "uat", "production", "sit", "local" };
 
 	var sites = new List<SiteInfo>();
 
