@@ -523,7 +523,7 @@
     <value>For any reason, you do not receive the email, please check your Spam box or &lt;a href='{0}'&gt;Contact Us&lt;/a&gt; and we will glad to assist you.</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Forgot your password?</value>
+    <value>Forgot your password</value>
     <comment>87923</comment>
   </data>
   <data name="France" xml:space="preserve">

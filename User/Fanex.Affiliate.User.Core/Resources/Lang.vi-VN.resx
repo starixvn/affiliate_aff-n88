@@ -511,7 +511,7 @@
     <value>Vì bất kỳ lý do gì, bạn không nhận được email, vui lòng kiểm tra hộp Thư rác của bạn hoặc &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt; và chúng tôi sẽ sẵn sàng hỗ trợ bạn.</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Quên Mật Khẩu?</value>
+    <value>Quên Mật Khẩu</value>
   </data>
   <data name="France" xml:space="preserve">
     <value>Pháp</value>

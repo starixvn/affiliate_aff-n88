@@ -49,7 +49,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 viewModel.PublicKey = AppSetting.RsaPublicKey;
             }
 
-            return View("~/Views/Auth/AuthenticationForm.cshtml", viewModel);
+            return View($"~/Views/Auth/{AppSetting.SiteName}/AuthenticationForm.cshtml", viewModel);
         }
 
         [ValidateAntiForgeryToken]

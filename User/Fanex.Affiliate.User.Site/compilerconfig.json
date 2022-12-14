@@ -1,7 +1,15 @@
 ﻿[
   {
+    "outputFile": "www/build/js/layout/n88.js",
+    "inputFile": "www/source/js/layout/n88.js"
+  },
+  {
     "outputFile": "www/build/styles/css/main.css",
     "inputFile": "www/source/styles/scss/main.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/main/n88.css",
+    "inputFile": "www/source/styles/scss/main/n88.scss"
   },
   //{
   //  "outputFile": "www/build/styles/css/bootstrap.css",
@@ -144,41 +152,17 @@
   //  "inputFile": "www/source/styles/pages/verification-account.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/theme-default.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme-default.scss"
+  //  "outputFile": "www/build/styles/css/n8g.css",
+  //  "inputFile": "www/source/styles/scss/themes/n8g.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/theme1.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme1.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/theme2.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme2.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/theme3.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme3.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/theme4.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme4.scss"
+  //  "outputFile": "www/build/styles/css/n8b.css",
+  //  "inputFile": "www/source/styles/scss/themes/n8b.scss"
   //},
   {
-    "outputFile": "www/build/styles/css/n8g.css",
-    "inputFile": "www/source/styles/scss/Themes/n8g.scss"
-  },
-  {
-    "outputFile": "www/build/styles/css/n8b.css",
-    "inputFile": "www/source/styles/scss/Themes/n8b.scss"
+    "outputFile": "www/build/styles/css/themes/n88.css",
+    "inputFile": "www/source/styles/scss/themes/n88.scss"
   }
-  //{
-  //  "outputFile": "www/build/styles/css/n88-darkmode.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n88-darkmode.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/n88-lightmode.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n88-lightmode.scss"
-  //},
   //{
   //  "outputFile": "www/build/js/sub-affiliate-earning.js",
   //  "inputFile": "www/source/js/pages/sub-affiliate-earning.js"

@@ -2104,7 +2104,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Forgot your password?.
+        ///   Looks up a localized string similar to Forgot your password.
         /// </summary>
         public static string ForgetPassword {
             get {

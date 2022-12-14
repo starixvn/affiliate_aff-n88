@@ -1,0 +1,624 @@
+﻿@import "../abstracts/variables-n88";
+
+body {
+    color: $text-color;
+    background: $bg-main-color;
+
+    a:focus {
+        outline: none !important;
+    }
+}
+
+// Header
+
+.header-top {
+    background-color: $header-bg-color;
+
+    .logo-image {
+        width: 168px;
+        height: 87px;
+    }
+}
+
+//.language-container
+.language-container {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+
+    &.mobile {
+        display: none;
+    }
+
+    @media screen and (max-device-width: 480px) {
+        &.mobile {
+            display: block;
+            float: right;
+            margin-top: 4px;
+        }
+
+        &.desktop {
+            display: none;
+        }
+    }
+
+    /*    .language-list-wrapper {
+        background-color: #29426C;
+
+        .language-list {
+            margin-bottom: 0;
+
+            .language-item {
+                color: #ffffff;
+                padding: 8px 20px;
+
+                &:hover {
+                    background: #0B71DF;
+                }
+            }
+        }
+    }*/
+
+    .select-language {
+        border: 0;
+        position: relative;
+        padding: 0 25px 0 28px;
+        line-height: 25px;
+
+        .caret {
+            border: 0;
+            width: 12px;
+            height: 7px;
+            background: url("../../../../build/styles/Images/icons/n88/dropdown.svg");
+            position: absolute;
+            top: 10px;
+            right: 8px;
+        }
+
+        .flag {
+            width: 24px;
+            height: 24px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-position: center center;
+            background-size: cover;
+            display: inline-block;
+            vertical-align: middle;
+            top: 0;
+            left: 0;
+            position: absolute;
+
+            &.flag-en-US {
+                background-image: url("../../../../build/styles/Images/icons/flags/England.svg");
+            }
+
+            &.flag-id-ID {
+                background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.svg");
+            }
+
+            &.flag-zh-CN {
+                background-image: url("../../../../build/styles/Images/icons/flags/China.svg");
+            }
+
+            &.flag-th-TH {
+                background-image: url("../../../../build/styles/Images/icons/flags/Thailand.svg");
+            }
+
+            &.flag-hi-IN {
+                background-image: url("../../../../build/styles/Images/icons/flags/Hindi.svg");
+            }
+
+            &.flag-ms-MY {
+                background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.svg");
+            }
+            /*&.flag-vi-VN {
+                    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.svg");
+                }
+
+                &.flag-zh-TW {
+                    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.svg");
+                }*/
+        }
+    }
+}
+
+//sign-up
+.sign-up {
+    position: relative;
+
+    .btn-signup {
+        margin-left: 20px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            border-width: 12px 0.5px;
+            border-style: solid;
+            left: 8px;
+            border-color: #fff;
+        }
+    }
+}
+
+.bg-highlight {
+    background-color: $header-bg-color;
+    color: $table-header-color;
+}
+
+.news {
+    background: $bg-main-color;
+
+    .item-wrapper {
+        .card {
+            .card-body {
+                .img-content {
+                    color: $home-card-text-color;
+                }
+            }
+        }
+    }
+}
+
+.header-bottom {
+    border-top: 2px solid $header-bottom-border-color;
+}
+
+.footer {
+    background: $footer-bg-color;
+}
+
+.navbar {
+    background: $nav-bg-color;
+
+    ul {
+        li:hover, &:focus, &:visited {
+            a {
+                color: $nav-color-active;
+            }
+        }
+    }
+
+    .nav > li > a:focus {
+        color: $nav-color-focus;
+    }
+
+    .menu .menu-item {
+        color: $nav-color;
+
+        &:hover, &:focus, &.active {
+            color: $nav-color-active;
+        }
+    }
+}
+
+.user-login .text-field {
+    background: $user-login-control-bg-color;
+    border: 1px solid $user-login-control-border-color;
+    color: $user-login-control-color;
+}
+
+.hot-news {
+    background: $hot-news-bg-color;
+
+    .title {
+        background: $hot-news-title-bg-color;
+        color: $hot-news-title-color;
+
+        &:after {
+            border-left: 11px solid $hot-news-title-bg-color;
+        }
+    }
+
+    .message {
+        color: $hot-news-content-color;
+        background: $hot-news-content-bg-color;
+    }
+}
+// Common
+
+.page-title {
+    background: $bg-main-color;
+    border-top: 1px solid $page-title-border-color;
+
+    .text {
+        background-color: $page-title-bg-color;
+        color: $page-title-color;
+
+        &:after {
+            border-bottom: 18px solid $bg-main-color;
+            border-right: 16px solid $bg-main-color;
+            z-index: 1;
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            right: -1px;
+            bottom: -2px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 0 32px 40px;
+            border-color: transparent transparent $bg-main-color transparent;
+            z-index: 2;
+        }
+    }
+}
+
+.info-group .title {
+    color: $group-title-color;
+
+    &:before {
+        background: $group-title-border-before-color;
+    }
+
+    &:after {
+        background: $group-title-border-after-color;
+    }
+}
+
+// Table
+.table table {
+    border: 1px solid $table-border-color;
+
+    tr {
+        background: $table-bg-color;
+        color: $table-color;
+
+        &:hover {
+            background: $table-row-bg-color-hover;
+        }
+    }
+
+    th, td {
+        border: 1px solid $table-header-border-color;
+    }
+
+    th {
+        background: $table-header-bg-color;
+        color: $table-header-color;
+    }
+
+    td {
+        border: 1px solid $table-border-color;
+    }
+
+    .overview-table-header, .player-detail-table-header {
+        background: $light-mode-bg !important;
+
+        th {
+            border: 1px solid $table-header-border-color;
+        }
+    }
+}
+
+// Login Dialog
+
+.login-dialog {
+    .modal-content .modal-logo {
+        width: 186px;
+    }
+
+    .modal-main-content {
+        background-color: unset;
+    }
+
+    .modal-header {
+        background-color: $modal-header-bg-color;
+        color: $modal-header-color;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    .modal-body {
+        background-color: #fff;
+    }
+}
+
+// form-control
+.form-control {
+    border: 1px solid $form-control-border-color;
+}
+
+// Button
+.btn-signup {
+    background: $button-signup-bg-color;
+    color: $button-signup-color;
+
+    &:hover, &:focus {
+        color: $button-signup-color;
+        background: $button-signup-bg-color-hover;
+    }
+
+    .icon {
+        color: $button-signup-color;
+    }
+}
+
+.btn-login, .btn-link, .btn-login-mobile {
+    background: $button-login-bg-color;
+    color: $button-login-color;
+
+    &:hover, &:focus {
+        color: $button-login-color;
+        background: $button-login-bg-color-hover;
+    }
+
+    .icon {
+        color: $button-login-color;
+    }
+}
+
+.btn-submit {
+    background-color: $button-submit-bg-color;
+    color: $button-submit-color;
+
+    &:hover, &:focus {
+        color: $button-submit-color;
+        background-color: $button-submit-bg-color-hover;
+    }
+
+    .icon {
+        color: $button-submit-color;
+    }
+}
+
+// Product
+@media screen and (max-width: 530px) {
+    .banner-product.banner-product-sport .text-red span {
+        //max-width: 180px;
+    }
+}
+
+.table {
+    .game-list tr .game-name {
+        background-color: $table-game-name-bg;
+    }
+
+    .casino-table tbody > tr:nth-of-type(even) {
+        background-color: $table-row-even-bg-color;
+    }
+}
+
+// Home
+.main {
+    .page-container .home-page {
+        background: $home-page-bg-color;
+    }
+}
+
+.card-content {
+    border: 1px solid $home-card-content-border-color;
+    background: $home-card-content-bg-color;
+
+    .card-title {
+        color: $home-card-title-color;
+        border-bottom: 1px solid $home-card-content-border-color;
+    }
+
+    .text-content {
+        color: $home-card-content-color;
+    }
+
+    .card-body > a {
+        color: $text-color;
+    }
+}
+
+.news-content {
+    li {
+        &:not(:last-child) {
+            border-bottom: 1px solid $home-card-content-border-color;
+        }
+
+        > a {
+            color: $home-card-content-color;
+        }
+    }
+}
+
+// Contact Us
+
+.languages-item {
+    background: $languages-item-bg-color;
+
+    .info {
+        border-left: 1px solid $languages-item-border-color;
+
+        .language {
+            border-bottom: 1px solid $languages-item-border-color;
+        }
+    }
+}
+
+.dot1, .dot2 {
+    background-color: $color-primary;
+}
+// After login
+
+.main.after-login {
+    background: $bg-after-login-color;
+
+    .page-title {
+        background: $bg-after-login-color;
+
+        .text:after {
+            border-bottom: 18px solid $bg-after-login-color;
+            border-right: 16px solid $bg-after-login-color;
+        }
+    }
+}
+
+.content-menu {
+    background-color: #080308;
+
+    .menu {
+        background: $sub-nav-bg-color;
+
+        .menu-item {
+            color: $sub-nav-menu-color;
+
+            &.active, &:hover {
+                background-color: $sub-nav-menu-bg-color-active;
+                color: $sub-nav-menu-color-active;
+            }
+        }
+    }
+
+    .submenu-container {
+        background: $sub-nav-bg-color;
+    }
+}
+
+.summary-content {
+    .dashboard-section {
+        .group-one {
+            background-color: $account-overview-group-one;
+        }
+
+        .group-two {
+            background-color: $account-overview-group-two;
+        }
+
+        .group-three {
+            background-color: $account-overview-group-three;
+        }
+
+        .group-four {
+            background-color: $account-overview-group-four;
+        }
+    }
+
+    .details-section-menu {
+        .menu {
+            border-bottom: 1px solid $subtab-item-bg-color-active;
+        }
+
+        .menu-item {
+            color: $tab-item-color;
+
+            &.active, &:hover {
+                color: $tab-item-bg-color-active;
+                border-bottom: 2px solid $subtab-item-bg-color-active;
+            }
+        }
+    }
+
+    .details-section-content .table table thead tr.overview-table-total {
+        background: $table-row-total-bg-color !important;
+
+        th {
+            background: $table-row-total-bg-color !important;
+            color: $table-color;
+        }
+    }
+}
+
+.account-overview {
+    background: $account-overview-bgrd;
+    border: 1px solid #C7C7C7;
+
+    #account-overview-menu {
+        background: $tab-bg-color;
+
+        .menu {
+            &-item {
+                color: $tab-item-color;
+
+                &.active, &:hover {
+                    color: $tab-item-color-active;
+                    background-color: $tab-item-bg-color-active;
+                }
+            }
+
+            li:not(:last-child) {
+                border-right: none !important;
+            }
+        }
+    }
+
+    .bg-orange {
+        background: $tab-item-bg-color-active;
+        color: $tab-item-color-active;
+    }
+
+    .account-overview-content {
+        background: white;
+    }
+}
+
+.login-dialog {
+    .btn-signup {
+        border: 1px solid $button-signup-color;
+    }
+}
+
+.user-login .text-field.validation {
+    color: $light-button;
+    font-weight: 500;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $light-button;
+    }
+
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $light-button;
+    }
+}
+
+.summary-content .details-section-content .table table tr:nth-child(even) {
+    background-color: $table-row-even-bg-color !important;
+}
+
+@media (min-width: 1024px) {
+    .content .news {
+        margin: 0;
+    }
+}
+
+//Qrcode
+.qr-item {
+    .main-panel {
+        background: $qr-panel-bgrd;
+    }
+}
+
+.qr-btn-group {
+    button {
+        background: $qr-panel-btn-background;
+        color: $qr-panel-btn-color;
+    }
+}
+
+.qr-footer {
+    button {
+        background: $qr-footer-btn-background;
+        color: $qr-footer-btn-color;
+    }
+}
+
+.carousel.slide {
+    .carousel-control {
+        width: 2.5rem;
+        background: transparent;
+        text-shadow: 0 0 #fff;
+
+        .chevron {
+            background: rgba(255,255,255,.5);
+            top: calc(50% - 24px);
+            width: 100%;
+            padding: 10px 0;
+        }
+    }
+
+    .carousel-inner {
+
+        @media (max-width: 767px) and (min-width: 480px) {
+            height: 150px !important;
+        }
+
+        @media (max-width: 480px) {
+            height: auto;
+        }
+    }
+}

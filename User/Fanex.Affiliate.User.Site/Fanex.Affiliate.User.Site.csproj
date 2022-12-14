@@ -641,7 +641,7 @@
     </Content>
     <Content Include="App_Code\RazorHelper.cshtml" />
     <Content Include="Views\Password\Update.cshtml" />
-    <Content Include="Views\Auth\AuthenticationForm.cshtml" />
+    <Content Include="Views\Auth\N8B\AuthenticationForm.cshtml" />
     <Content Include="Configurations\AppSetting\Transform\n8g.local.config" />
     <Content Include="Configurations\Web\Transform\n8g.local.config" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.en-US.cshtml" />
@@ -672,7 +672,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\N8G\Index.cshtml" />
     <Content Include="www\build\js\account-overview.js" />
     <Content Include="www\build\js\account-overview.min.js">
       <DependentUpon>account-overview.js</DependentUpon>
@@ -717,6 +717,10 @@
     <Content Include="www\build\js\layout.min.js">
       <DependentUpon>layout.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\layout\n88.js" />
+    <Content Include="www\build\js\layout\n88.min.js">
+      <DependentUpon>n88.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\lib\bootstrap.min.js" />
     <Content Include="www\build\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\build\js\lib\bootstrap2-toggle.min.js">
@@ -725,6 +729,7 @@
     <Content Include="www\build\js\lib\hmac-sha256.js" />
     <Content Include="www\build\js\lib\hmac-sha256.min.js" />
     <Content Include="www\build\js\lib\jquery-3.3.1.min.js" />
+    <Content Include="www\build\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\build\js\lib\modernizr-webp.js" />
     <Content Include="www\build\js\lib\modernizr-webp.min.js">
       <DependentUpon>modernizr-webp.js</DependentUpon>
@@ -830,6 +835,10 @@
     <Content Include="www\build\styles\css\commissionreport.min.css">
       <DependentUpon>commissionreport.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\main\n88.css" />
+    <Content Include="www\build\styles\css\main\n88.min.css">
+      <DependentUpon>n88.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\marketing.css" />
     <Content Include="www\build\styles\css\marketing.min.css">
       <DependentUpon>marketing.css</DependentUpon>
@@ -837,14 +846,6 @@
     <Content Include="www\build\styles\css\messagehistory.css" />
     <Content Include="www\build\styles\css\messagehistory.min.css">
       <DependentUpon>messagehistory.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\n88-darkmode.css" />
-    <Content Include="www\build\styles\css\n88-darkmode.min.css">
-      <DependentUpon>n88-darkmode.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\n88-lightmode.css" />
-    <Content Include="www\build\styles\css\n88-lightmode.min.css">
-      <DependentUpon>n88-lightmode.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\n8b.css" />
     <Content Include="www\build\styles\css\n8b.min.css">
@@ -882,20 +883,10 @@
     <Content Include="www\build\styles\css\signup.min.css">
       <DependentUpon>signup.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\theme-default.css" />
-    <Content Include="www\build\styles\css\theme-default.min.css">
-      <DependentUpon>theme-default.css</DependentUpon>
+    <Content Include="www\build\styles\css\themes\n88.css" />
+    <Content Include="www\build\styles\css\themes\n88.min.css">
+      <DependentUpon>n88.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\theme1.css" />
-    <Content Include="www\build\styles\css\theme1.min.css">
-      <DependentUpon>theme1.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\theme2.css" />
-    <Content Include="www\build\styles\css\theme2.min.css" />
-    <Content Include="www\build\styles\css\theme3.css" />
-    <Content Include="www\build\styles\css\theme3.min.css" />
-    <Content Include="www\build\styles\css\theme4.css" />
-    <Content Include="www\build\styles\css\theme4.min.css" />
     <Content Include="www\build\styles\css\user-panel.css" />
     <Content Include="www\build\styles\css\user-panel.min.css">
       <DependentUpon>user-panel.css</DependentUpon>
@@ -932,12 +923,18 @@
     <Content Include="www\build\styles\Images\account-overview\icon-zalo.png" />
     <Content Include="www\build\styles\Images\account-overview\new-sign-up.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.hi-IN.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.ms-MY.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.zh-CN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.hi-IN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.id-ID.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.ms-MY.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.th-TH.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.zh-CN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.en-US.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.hi-IN.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.id-ID.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.destop.ms-MY.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.th-TH.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
     <Content Include="www\build\styles\Images\apply\n8g\3step.en-US.png" />
@@ -962,6 +959,8 @@
     <Content Include="www\build\styles\Images\apply\n8g\Vietnam.svg" />
     <Content Include="www\build\styles\Images\bg-Commission-Structure_Banner.png" />
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.desktop.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.mobile.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -977,6 +976,18 @@
     <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
+    <Content Include="www\build\styles\Images\header-bg.png" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\desktop.png" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\mobile.png" />
+    <Content Include="www\build\styles\Images\icons\flags\China.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\England.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Hindi.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Indonesia.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Malaysia.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Taiwan.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Thailand.svg" />
+    <Content Include="www\build\styles\Images\icons\flags\Vietnam.svg" />
+    <Content Include="www\build\styles\Images\icons\n88\dropdown.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\Promotion.en-US.jpg" />
@@ -1015,25 +1026,15 @@
     <Content Include="www\build\styles\Images\revenue-share-structure\N8B\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N8G\revenue_share_hierarchy.vi-VN.png" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.en-US.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.ms-MY.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.en-US.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.ms-MY.jpg" />
-    <Content Include="www\build\styles\Images\sports-banners\n88\AFF-Home-banner-SB.mobile.th-TH.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.mobile.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.mobile.jpg" />
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n88.png" />
+    <Content Include="www\source\js\layout\n88.js" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
+    <Content Include="www\source\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
     <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />
@@ -1042,7 +1043,6 @@
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
-    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-us\contact.png" />
     <Content Include="www\build\styles\Images\icon-1.png" />
@@ -1326,12 +1326,7 @@
     <Content Include="Views\UserPanel\AccountOverView\Partial\_GeneratedQrCode.cshtml" />
     <Content Include="www\source\styles\scss\base\_flex.scss" />
     <Content Include="Configurations\Web\Transform\n8b.local.config" />
-    <Content Include="www\source\styles\scss\Themes\theme-default.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
-    <Content Include="www\source\styles\scss\Themes\theme1.scss" />
-    <Content Include="www\source\styles\scss\Themes\theme2.scss" />
-    <Content Include="www\source\styles\scss\Themes\theme3.scss" />
-    <Content Include="www\source\styles\scss\Themes\theme4.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables2.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables3.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables4.scss" />
@@ -1374,8 +1369,8 @@
     <Content Include="Configurations\Web\Web.n88user-n8g.uat.config">
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <Content Include="www\source\styles\scss\Themes\n8g.scss" />
-    <Content Include="www\source\styles\scss\Themes\n8b.scss" />
+    <Content Include="www\source\styles\scss\themes\n8g.scss" />
+    <Content Include="www\source\styles\scss\themes\n8b.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8g.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n8b.scss" />
     <Content Include="Views\UserPanel\StatementHistory\SubAffEarning.cshtml" />
@@ -1383,10 +1378,9 @@
     <Content Include="Views\UserPanel\StatementHistory\StatementHistoryPartial\_SubAffEarningContent.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="www\source\styles\scss\abstracts\_variables-n88-lightmode.scss" />
-    <Content Include="www\source\styles\scss\Themes\n88-darkmode.scss" />
+    <Content Include="www\source\styles\scss\abstracts\_variables-n88.scss" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
-    <Content Include="www\source\styles\scss\Themes\n88-lightmode.scss" />
+    <Content Include="www\source\styles\scss\themes\n88.scss" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.webp" />
@@ -1407,7 +1401,6 @@
     <Content Include="Views\Faq\N8B\_Content.vi-VN.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\Faq\N8G\_Content.vi-VN.cshtml" />
-    <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.webp" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.webp" />
     <Content Include="www\source\styles\pages\messagehistory.scss" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.webp" />
@@ -1432,17 +1425,10 @@
     <Content Include="Views\Product\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\Product\N8G\_Content.vi-VN.cshtml" />
     <Content Include="www\source\styles\pages\revenue-structure.scss" />
-    <Content Include="Views\Home\N88\_Content.cshtml" />
-    <Content Include="Views\Home\N8B\_Content.cshtml" />
-    <Content Include="Views\Home\N8G\_Content.cshtml" />
     <Content Include="Views\Home\N8B\_CarouselItems.en-US.cshtml" />
     <Content Include="Views\Home\N8B\_CarouselItems.vi-VN.cshtml" />
     <Content Include="Views\Home\N8G\_CarouselItems.vi-VN.cshtml" />
     <Content Include="Views\Home\N8G\_CarouselItems.en-US.cshtml" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.en-US.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.id-ID.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.th-TH.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.zh-CN.webp" />
     <Content Include="Views\Promotion\N8B\_Content.vi-VN.cshtml" />
     <Content Include="Views\Promotion\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\Promotion\N8B\_Content.en-US.cshtml" />
@@ -1461,7 +1447,6 @@
     <Content Include="Views\Shared\Email\RecoverPassword\Content.hi-IN.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.hi-IN.cshtml" />
     <Content Include="Views\TermAndCondition\_Content.hi-IN.cshtml" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.hi-IN.webp" />
     <Content Include="Views\Product\N88\_Content.ms-MY.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.ms-MY.cshtml" />
     <Content Include="Views\Faq\N88\_Content.ms-MY.cshtml" />
@@ -1473,7 +1458,6 @@
     <Content Include="Views\Shared\Email\VerificationAccount\Content.ms-MY.cshtml" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\darkmode\revenue_share_hierarchy.ms-MY.webp" />
     <Content Include="www\build\styles\Images\revenue-share-structure\N88\lightmode\revenue_share_hierarchy.ms-MY.webp" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.ms-MY.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.webp" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.webp" />
@@ -1492,6 +1476,19 @@
     <Content Include="Views\Promotion\N88\_Content.hi-IN.cshtml" />
     <Content Include="Views\Promotion\N88\_Content.ms-MY.cshtml" />
     <Content Include="Views\CommissionStructure\_RevenueShareTableN88.cshtml" />
+    <Content Include="Views\Home\N88\Index.cshtml" />
+    <Content Include="www\source\styles\scss\main\n88.scss" />
+    <Content Include="Views\Home\N8B\Index.cshtml" />
+    <Content Include="Views\Shared\N88\_Layout.cshtml" />
+    <Content Include="Views\Shared\N88\_LayoutAfterLogin.cshtml" />
+    <Content Include="Views\Shared\N88\_LayoutBeforeLogin.cshtml" />
+    <Content Include="Views\Shared\N88\_LayoutHome.cshtml" />
+    <Content Include="Views\Shared\N88\_LayoutNotify.cshtml" />
+    <Content Include="www\source\styles\scss\components\n88\_flag.scss" />
+    <Content Include="www\source\styles\scss\layout\n88\_header.scss" />
+    <Content Include="www\source\styles\scss\layout\n88\_content.scss" />
+    <Content Include="Views\Auth\N88\AuthenticationForm.cshtml" />
+    <Content Include="Views\Auth\N8G\AuthenticationForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1761,9 +1758,7 @@
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.8.9.0.19135\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="www\build\styles\Images\casino-banners\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
