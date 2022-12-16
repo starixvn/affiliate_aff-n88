@@ -41,7 +41,7 @@
 </head>
 <body>
     <div class="header-top">
-        <div class="col-xs-12 col-sm-5 col-md-5 logo">
+        <div class="logo">
             <a href="@Url.Content("~")">
                 @if (sessionService.CurrentLanguage == "zh-CN")
                 {
@@ -53,7 +53,7 @@
                 }
             </a>
         </div>
-        <div class="col-xs-12 col-sm-7 col-md-7 login">
+        <div class="login">
             @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
             <div class="user-signup">
                 <div class="language-container desktop">

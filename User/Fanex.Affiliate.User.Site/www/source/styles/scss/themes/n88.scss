@@ -14,10 +14,10 @@ body {
 .header-top {
     background-color: $header-bg-color;
 
-    .logo-image {
+    /*.logo-image {
         width: 168px;
         height: 87px;
-    }
+    }*/
 }
 
 //.language-container
@@ -159,16 +159,12 @@ body {
     }
 }
 
-.header-bottom {
-    border-top: 2px solid $header-bottom-border-color;
-}
-
 .footer {
     background: $footer-bg-color;
 }
 
 .navbar {
-    background: $nav-bg-color;
+    background: #001332;
 
     ul {
         li:hover, &:focus, &:visited {
@@ -194,7 +190,14 @@ body {
 .user-login .text-field {
     background: $user-login-control-bg-color;
     border: 1px solid $user-login-control-border-color;
-    color: $user-login-control-color;
+
+    &::-webkit-input-placeholder {
+        color: $user-text-color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $user-text-color;
+    }
 }
 
 .hot-news {
@@ -338,6 +341,9 @@ body {
 .btn-login, .btn-link, .btn-login-mobile {
     background: $button-login-bg-color;
     color: $button-login-color;
+    box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25);
+    border-radius: 4px;
+    padding: 2px 20px !important;
 
     &:hover, &:focus {
         color: $button-login-color;
@@ -550,19 +556,6 @@ body {
 .login-dialog {
     .btn-signup {
         border: 1px solid $button-signup-color;
-    }
-}
-
-.user-login .text-field.validation {
-    color: $light-button;
-    font-weight: 500;
-
-    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: $light-button;
-    }
-
-    &::-moz-placeholder { /* Firefox 19+ */
-        color: $light-button;
     }
 }
 

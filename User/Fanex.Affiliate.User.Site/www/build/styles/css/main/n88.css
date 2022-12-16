@@ -327,12 +327,14 @@ input[type="checkbox"], input[type="radio"] {
 
 .header-top {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 300px; }
   @media (max-width: 767px) {
     .header-top {
       display: block; } }
   .header-top .logo {
-    padding: 1.7rem 0 1.7rem 3rem;
+    padding: 8px 0 16px 0;
     display: inline-block; }
     @media (max-width: 992px) {
       .header-top .logo {
@@ -355,6 +357,8 @@ input[type="checkbox"], input[type="radio"] {
   overflow: hidden;
   margin-bottom: 0;
   border: none; }
+  .navbar .page-container {
+    margin: 0 300px; }
   .navbar ul li {
     line-height: 30px; }
     .navbar ul li a {
@@ -388,12 +392,15 @@ input[type="checkbox"], input[type="radio"] {
   padding-right: 0; }
   .menu .menu-item {
     position: relative;
-    padding: 0 10px;
-    line-height: 30px;
+    padding: 0 20px;
+    line-height: 22px;
     text-transform: uppercase;
-    font-weight: 600; }
+    font-weight: 700;
+    font-size: 14px; }
     .menu .menu-item:hover, .menu .menu-item:focus, .menu .menu-item.active {
       color: #fff; }
+    .menu .menu-item:first-child {
+      padding-left: 0; }
 
 .user-signup {
   text-align: right;
@@ -483,16 +490,15 @@ input[type="checkbox"], input[type="radio"] {
   .user-login .login-after {
     display: block; }
   .user-login .text-field {
-    border-radius: 2px;
-    width: 120px;
+    width: 160px;
     height: 26px;
     vertical-align: middle;
     margin-left: 8px;
-    padding-left: 5px; }
+    padding-left: 5px;
+    box-shadow: 1px 2px 6px rgba(121, 121, 121, 0.25);
+    border-radius: 4px; }
     .user-login .text-field:first-child {
       margin-left: 0; }
-    .user-login .text-field.validation {
-      width: 80px; }
     .user-login .text-field:focus {
       outline: none;
       border-color: #3ea4bd; }
@@ -509,7 +515,9 @@ input[type="checkbox"], input[type="radio"] {
     line-height: 25px; }
     .user-login .btn-forgot .title-forgot {
       text-transform: capitalize;
-      font-size: 15px; }
+      font-size: 14px;
+      line-height: 22px;
+      color: #EEEEEE; }
     .user-login .btn-forgot:hover {
       background: rgba(255, 255, 255, 0.2);
       color: #fff; }
