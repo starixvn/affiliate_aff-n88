@@ -1,5 +1,5 @@
 ﻿body {
-  color: #333333;
+  font-family: 'Open Sans',sans-serif;
   background: #E5E5E5; }
   body a:focus {
     outline: none !important; }
@@ -43,8 +43,10 @@
   .language-container .select-language {
     border: 0;
     position: relative;
-    padding: 0 25px 0 28px;
-    line-height: 25px; }
+    padding: 0 18px 0 28px;
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 14px; }
     .language-container .select-language .caret {
       border: 0;
       width: 12px;
@@ -52,50 +54,45 @@
       background: url("../Images/icons/n88/dropdown.svg");
       position: absolute;
       top: 10px;
-      right: 8px; }
+      right: 0; }
     .language-container .select-language .flag {
       width: 24px;
       height: 24px;
       border-radius: 20px;
       overflow: hidden;
       background-position: center center;
-      background-size: cover;
       display: inline-block;
       vertical-align: middle;
       top: 0;
       left: 0;
       position: absolute;
+      border: 1px solid #E9ECEF;
       /*&.flag-vi-VN {
-                    background-image: url("../Images/icons/flags/Vietnam.svg");
+                    background-image: url("../../Images/icons/flags/Vietnam.png");
                 }
 
                 &.flag-zh-TW {
-                    background-image: url("../Images/icons/flags/Taiwan.svg");
+                    background-image: url("../../Images/icons/flags/Taiwan.png");
                 }*/ }
       .language-container .select-language .flag.flag-en-US {
-        background-image: url("../Images/icons/flags/England.svg"); }
+        background-image: url("../../Images/icons/flags/England.png"); }
       .language-container .select-language .flag.flag-id-ID {
-        background-image: url("../Images/icons/flags/Indonesia.svg"); }
+        background-image: url("../../Images/icons/flags/Indonesia.png"); }
       .language-container .select-language .flag.flag-zh-CN {
-        background-image: url("../Images/icons/flags/China.svg"); }
+        background-image: url("../../Images/icons/flags/China.png"); }
       .language-container .select-language .flag.flag-th-TH {
-        background-image: url("../Images/icons/flags/Thailand.svg"); }
+        background-image: url("../../Images/icons/flags/Thailand.png"); }
       .language-container .select-language .flag.flag-hi-IN {
-        background-image: url("../Images/icons/flags/Hindi.svg"); }
+        background-image: url("../../Images/icons/flags/Hindi.png"); }
       .language-container .select-language .flag.flag-ms-MY {
-        background-image: url("../Images/icons/flags/Malaysia.svg"); }
+        background-image: url("../../Images/icons/flags/Malaysia.svg"); }
 
 .sign-up {
-  position: relative; }
+  position: relative;
+  border-left: 1px solid #BDBDBD; }
   .sign-up .btn-signup {
-    margin-left: 20px; }
-    .sign-up .btn-signup:before {
-      content: "";
-      position: absolute;
-      border-width: 12px 0.5px;
-      border-style: solid;
-      left: 8px;
-      border-color: #fff; }
+    margin-left: 10px;
+    border-radius: 4px; }
 
 .bg-highlight {
   background-color: #001942;
@@ -201,6 +198,10 @@
     color: #333333; }
   .user-login .text-field:-ms-input-placeholder {
     color: #333333; }
+  .user-login .text-field:hover {
+    background: #FFF4EE; }
+  .user-login .text-field:focus {
+    background: #DFEBFF; }
 
 .hot-news {
   background: #FFFFFF; }
@@ -282,8 +283,11 @@
   border: 1px solid #adadad; }
 
 .btn-signup {
-  background: #fff;
-  color: #FF5D00; }
+  background: #FFF3ED;
+  color: #EA5500;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 20px; }
   .btn-signup:hover, .btn-signup:focus {
     color: #FF5D00;
     background: #f2f2f2; }
@@ -295,7 +299,9 @@
   color: #fff;
   box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25);
   border-radius: 4px;
-  padding: 2px 20px !important; }
+  padding: 0 20px !important;
+  font-weight: 700;
+  font-size: 14px; }
   .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
     color: #fff;
     background: #e65400; }

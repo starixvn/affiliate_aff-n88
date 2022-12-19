@@ -1,55 +1,53 @@
 ﻿.flag {
-    width: 16px;
-    height: 14px;
-    margin-right: 5px;
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
     position: relative;
     top: 2px;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
-    //test
-    background-image: url('../../Images/bootstrap-formhelpers-countries.flags.png');
+    background-size: cover;
+    vertical-align: middle;
 
     &-en-US {
-        background-position: -3281px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
     }
 
     &-zh-CN {
-        background-position: -714px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/China.png");
     }
 
     &-zh-TW {
-        background-position: -3213px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
     }
 
     &-id-ID {
-        background-position: -1496px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.png");
     }
 
     &-vi-VN {
-        background-position: -3400px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png");
     }
 
     &-th-TH {
-        background-position: -3077px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png");
     }
-
-    &-ko-KR {
-        background-position: -1819px 0;
+    /*    &-ko-KR {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
     }
 
     &-es-ES {
-        background-position: -986px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
     }
 
     &-ja-JP {
-        background-position: -1683px 0;
-    }
-
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }*/
     &-hi-IN {
-        background-position: -1564px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Hindi.png");
     }
 
     &-ms-MY {
-        background-position: -3740px 0;
+        background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png");
     }
 }

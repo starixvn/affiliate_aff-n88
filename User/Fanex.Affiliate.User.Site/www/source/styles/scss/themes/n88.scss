@@ -1,6 +1,7 @@
 ﻿@import "../abstracts/variables-n88";
 
 body {
+    font-family: 'Open Sans',sans-serif;
     color: $text-color;
     background: $bg-main-color;
 
@@ -13,7 +14,6 @@ body {
 
 .header-top {
     background-color: $header-bg-color;
-
     /*.logo-image {
         width: 168px;
         height: 87px;
@@ -41,7 +41,6 @@ body {
             display: none;
         }
     }
-
     /*    .language-list-wrapper {
         background-color: #29426C;
 
@@ -58,12 +57,13 @@ body {
             }
         }
     }*/
-
     .select-language {
         border: 0;
         position: relative;
-        padding: 0 25px 0 28px;
-        line-height: 25px;
+        padding: 0 18px 0 28px;
+        line-height: 22px;
+        font-weight: 400;
+        font-size: 14px;
 
         .caret {
             border: 0;
@@ -72,7 +72,7 @@ body {
             background: url("../../../../build/styles/Images/icons/n88/dropdown.svg");
             position: absolute;
             top: 10px;
-            right: 8px;
+            right: 0;
         }
 
         .flag {
@@ -81,42 +81,42 @@ body {
             border-radius: 20px;
             overflow: hidden;
             background-position: center center;
-            background-size: cover;
             display: inline-block;
             vertical-align: middle;
             top: 0;
             left: 0;
             position: absolute;
+            border: 1px solid #E9ECEF;
 
             &.flag-en-US {
-                background-image: url("../../../../build/styles/Images/icons/flags/England.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/England.png");
             }
 
             &.flag-id-ID {
-                background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.png");
             }
 
             &.flag-zh-CN {
-                background-image: url("../../../../build/styles/Images/icons/flags/China.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/China.png");
             }
 
             &.flag-th-TH {
-                background-image: url("../../../../build/styles/Images/icons/flags/Thailand.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png");
             }
 
             &.flag-hi-IN {
-                background-image: url("../../../../build/styles/Images/icons/flags/Hindi.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/Hindi.png");
             }
 
             &.flag-ms-MY {
-                background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.svg");
+                background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png");
             }
             /*&.flag-vi-VN {
-                    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.svg");
+                    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png");
                 }
 
                 &.flag-zh-TW {
-                    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.svg");
+                    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
                 }*/
         }
     }
@@ -125,18 +125,11 @@ body {
 //sign-up
 .sign-up {
     position: relative;
+    border-left: 1px solid #BDBDBD;
 
     .btn-signup {
-        margin-left: 20px;
-
-        &:before {
-            content: "";
-            position: absolute;
-            border-width: 12px 0.5px;
-            border-style: solid;
-            left: 8px;
-            border-color: #fff;
-        }
+        margin-left: 10px;
+        border-radius: 4px;
     }
 }
 
@@ -301,6 +294,14 @@ body {
     &:-ms-input-placeholder {
         color: $user-text-color;
     }
+
+    &:hover {
+        background: #FFF4EE;
+    }
+
+    &:focus {
+        background: #DFEBFF;
+    }
 }
 
 .hot-news {
@@ -437,8 +438,11 @@ body {
 
 // Button
 .btn-signup {
-    background: $button-signup-bg-color;
-    color: $button-signup-color;
+    background: #FFF3ED; //$button-signup-bg-color;
+    color: #EA5500; //$button-signup-color;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0 20px;
 
     &:hover, &:focus {
         color: $button-signup-color;
@@ -455,7 +459,9 @@ body {
     color: $button-login-color;
     box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25);
     border-radius: 4px;
-    padding: 2px 20px !important;
+    padding: 0 20px !important;
+    font-weight: 700;
+    font-size: 14px;
 
     &:hover, &:focus {
         color: $button-login-color;

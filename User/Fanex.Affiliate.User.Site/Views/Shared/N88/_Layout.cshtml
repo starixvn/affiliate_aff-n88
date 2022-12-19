@@ -34,6 +34,7 @@
     <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
 
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
@@ -82,82 +83,80 @@
                         <span>@Lang.Login</span>
                     </a>
                     <div class="sign-up">
-                        <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup"><span class="icon glyphicon glyphicon-pencil"></span>@Lang.SignUpAffiliate</a>
+                        <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup">@Lang.SignUpAffiliate</a>
                     </div>
                 }
             </div>
         </div>
     </div>
 
-    <div class="header-bottom">
-        <div class="navbar">
-            <div class="@RenderSection("classNav", required: false) layout-page-container">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <div class="language-container mobile">
-                                <div class="language-selection">
-                                    <button class="select-language">
-                                        <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
-                                        <i class="caret"></i>
-                                    </button>
+    <div class="navbar">
+        <div class="@RenderSection("classNav", required: false) layout-page-container">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="language-container mobile">
+                            <div class="language-selection">
+                                <button class="select-language">
+                                    <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
+                                    <i class="caret"></i>
+                                </button>
 
-                                    <div class="language-list-wrapper language-list-wrapper-mobile">
-                                        <ul class="list-unstyled language-list">
-                                            @foreach (var language in languageList)
-                                            {
-                                                <li>
-                                                    <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
-                                                </li>
-                                            }
-                                        </ul>
-                                    </div>
+                                <div class="language-list-wrapper language-list-wrapper-mobile">
+                                    <ul class="list-unstyled language-list">
+                                        @foreach (var language in languageList)
+                                        {
+                                            <li>
+                                                <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                            </li>
+                                        }
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-                                @{
-                                    var controllerName = ViewContext.RouteData.Values["Controller"].ToString();
-                                }
-                                <li>
-                                    <a class="menu-item @(controllerName == "Home" ? "active" : string.Empty)" href="@Url.Content("~/Home")">
-                                        @Lang.Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-item @(controllerName == "RevenueSharingStructure" ? "active" : string.Empty)" href="@Url.Content("~/RevenueSharingStructure")">
-                                        @Lang.CommissionStructure
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-item @(controllerName == "Product" ? "active" : string.Empty)" href="@Url.Content("~/Product")">
-                                        @Lang.Product
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-item @(controllerName == "TermAndCondition" ? "active" : string.Empty)" href="@Url.Content("~/TermAndCondition")">
-                                        @Lang.TermAndCondition
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-item @(controllerName == "FAQ" ? "active" : string.Empty)" href="@Url.Content("~/FAQ")">
-                                        @Lang.Faqs
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="menu-item @(controllerName == "ContactUs" ? "active" : string.Empty)" href="@Url.Content("~/ContactUs")">
-                                        @Lang.ContactUs
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            @{
+                                var controllerName = ViewContext.RouteData.Values["Controller"].ToString();
+                            }
+                            <li>
+                                <a class="menu-item @(controllerName == "Home" ? "active" : string.Empty)" href="@Url.Content("~/Home")">
+                                    @Lang.Home
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item @(controllerName == "RevenueSharingStructure" ? "active" : string.Empty)" href="@Url.Content("~/RevenueSharingStructure")">
+                                    @Lang.CommissionStructure
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item @(controllerName == "Product" ? "active" : string.Empty)" href="@Url.Content("~/Product")">
+                                    @Lang.Product
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item @(controllerName == "TermAndCondition" ? "active" : string.Empty)" href="@Url.Content("~/TermAndCondition")">
+                                    @Lang.TermAndCondition
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item @(controllerName == "FAQ" ? "active" : string.Empty)" href="@Url.Content("~/FAQ")">
+                                    @Lang.Faqs
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item @(controllerName == "ContactUs" ? "active" : string.Empty)" href="@Url.Content("~/ContactUs")">
+                                    @Lang.ContactUs
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -196,7 +195,6 @@
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")
     @Html.InlineScripts("~/www/build/js/jquery.extension.js")
     <script src="@Url.RenderLink("~/www/build/js/site.js")"></script>
-    <script src="@Url.RenderLink("~/www/build/js/layout.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/layout/n88.js")"></script>
 
     @if (userSession != null && !settingService.IsLocal)

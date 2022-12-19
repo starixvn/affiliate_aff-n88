@@ -295,36 +295,42 @@ input[type="checkbox"], input[type="radio"] {
       align-items: center; } }
 
 .flag {
-  width: 16px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   margin-right: 5px;
   position: relative;
   top: 1px;
   display: inline-block;
   -webkit-font-smoothing: antialiased;
-  background-image: url("../../../source/styles/Images/bootstrap-formhelpers-countries.flags.png"); }
+  background-size: cover;
+  vertical-align: middle;
+  /*    &-ko-KR {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }
+
+    &-es-ES {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }
+
+    &-ja-JP {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }*/ }
   .flag-en-US {
-    background-position: -3281px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/England.png"); }
   .flag-zh-CN {
-    background-position: -714px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/China.png"); }
   .flag-zh-TW {
-    background-position: -3213px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png"); }
   .flag-id-ID {
-    background-position: -1496px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.png"); }
   .flag-vi-VN {
-    background-position: -3400px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png"); }
   .flag-th-TH {
-    background-position: -3077px 0; }
-  .flag-ko-KR {
-    background-position: -1819px 0; }
-  .flag-es-ES {
-    background-position: -986px 0; }
-  .flag-ja-JP {
-    background-position: -1683px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png"); }
   .flag-hi-IN {
-    background-position: -1564px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Hindi.png"); }
   .flag-ms-MY {
-    background-position: -3740px 0; }
+    background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png"); }
 
 .header-top {
   display: flex;

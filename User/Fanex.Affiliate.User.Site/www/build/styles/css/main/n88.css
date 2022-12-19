@@ -295,36 +295,42 @@ input[type="checkbox"], input[type="radio"] {
       align-items: center; } }
 
 .flag {
-  width: 16px;
-  height: 14px;
-  margin-right: 5px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
   position: relative;
   top: 2px;
   display: inline-block;
   -webkit-font-smoothing: antialiased;
-  background-image: url("../../../../source/styles/Images/bootstrap-formhelpers-countries.flags.png"); }
+  background-size: cover;
+  vertical-align: middle;
+  /*    &-ko-KR {
+        background-image: url("../../Images/icons/flags/England.png");
+    }
+
+    &-es-ES {
+        background-image: url("../../Images/icons/flags/England.png");
+    }
+
+    &-ja-JP {
+        background-image: url("../../Images/icons/flags/England.png");
+    }*/ }
   .flag-en-US {
-    background-position: -3281px 0; }
+    background-image: url("../../Images/icons/flags/England.png"); }
   .flag-zh-CN {
-    background-position: -714px 0; }
+    background-image: url("../../Images/icons/flags/China.png"); }
   .flag-zh-TW {
-    background-position: -3213px 0; }
+    background-image: url("../../Images/icons/flags/Taiwan.png"); }
   .flag-id-ID {
-    background-position: -1496px 0; }
+    background-image: url("../../Images/icons/flags/Indonesia.png"); }
   .flag-vi-VN {
-    background-position: -3400px 0; }
+    background-image: url("../../Images/icons/flags/Vietnam.png"); }
   .flag-th-TH {
-    background-position: -3077px 0; }
-  .flag-ko-KR {
-    background-position: -1819px 0; }
-  .flag-es-ES {
-    background-position: -986px 0; }
-  .flag-ja-JP {
-    background-position: -1683px 0; }
+    background-image: url("../../Images/icons/flags/Thailand.png"); }
   .flag-hi-IN {
-    background-position: -1564px 0; }
+    background-image: url("../../Images/icons/flags/Hindi.png"); }
   .flag-ms-MY {
-    background-position: -3740px 0; }
+    background-image: url("../../Images/icons/flags/Malaysia.png"); }
 
 .header-top {
   display: flex;
@@ -359,7 +365,7 @@ input[type="checkbox"], input[type="radio"] {
   margin-bottom: 0;
   border: none; }
   .navbar .page-container {
-    margin: 0 300px; }
+    margin: 4px 300px; }
   .navbar ul li {
     line-height: 30px; }
     .navbar ul li a {
@@ -393,7 +399,7 @@ input[type="checkbox"], input[type="radio"] {
   padding-right: 0; }
   .menu .menu-item {
     position: relative;
-    padding: 0 20px;
+    padding: 0 40px;
     line-height: 22px;
     text-transform: uppercase;
     font-weight: 700;
@@ -402,10 +408,12 @@ input[type="checkbox"], input[type="radio"] {
       color: #fff; }
     .menu .menu-item:first-child {
       padding-left: 0; }
+  .menu li:last-child .menu-item {
+    padding: 0; }
 
 .user-signup {
   text-align: right;
-  margin-top: 14px; }
+  margin-bottom: 3px; }
   @media (max-width: 992px) {
     .user-signup {
       text-align: right; }
@@ -415,6 +423,9 @@ input[type="checkbox"], input[type="radio"] {
 .sign-up {
   display: inline-block;
   vertical-align: middle; }
+
+#btnLogin {
+  margin-right: 8px; }
 
 .language-container {
   display: inline-block;
@@ -456,28 +467,50 @@ input[type="checkbox"], input[type="radio"] {
     position: absolute;
     background: #fff;
     z-index: 100;
-    width: 175px;
-    padding: 5px 0;
+    width: 150px;
     font-size: 13px;
-    top: 25px;
-    right: 0; }
+    top: 36px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 17px 12px rgba(52, 52, 52, 0.25);
+    border-radius: 4px; }
     .language-container .language-list-wrapper .language-list {
       line-height: 15px;
-      text-align: left; }
+      text-align: left;
+      margin-bottom: 0; }
       .language-container .language-list-wrapper .language-list .language-item {
-        padding: 3px 20px;
+        padding: 8px;
         width: 100%;
         display: block;
-        color: #333; }
+        color: #333;
+        height: 40px;
+        border-bottom: 1px solid #F8F9FA;
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: capitalize; }
         .language-container .language-list-wrapper .language-list .language-item:hover {
           color: #262626;
           text-decoration: none;
-          background: #e4dede; }
+          background: #DFEBFF;
+          border-color: #B5D1FF; }
+      .language-container .language-list-wrapper .language-list li:last-child .language-item {
+        border-bottom: 0; }
+      .language-container .language-list-wrapper .language-list li:first-child .language-item, .language-container .language-list-wrapper .language-list li:last-child .language-item {
+        border-radius: 4px; }
 
 .user-login {
+  display: flex;
+  align-items: center;
   text-align: right;
-  margin-top: 12px;
-  margin-bottom: 12px; }
+  margin-top: 10px;
+  margin-bottom: 11px; }
+  .user-login .group {
+    position: relative; }
+    .user-login .group .mdi {
+      position: absolute;
+      font-size: 19px;
+      left: 16px; }
+    .user-login .group .text-field {
+      padding-left: 33px; }
   @media (max-width: 992px) {
     .user-login {
       margin-top: 0;
@@ -494,10 +527,13 @@ input[type="checkbox"], input[type="radio"] {
     width: 160px;
     height: 26px;
     vertical-align: middle;
-    margin-left: 8px;
-    padding-left: 5px;
+    margin-left: 12px;
+    padding-left: 8px;
     box-shadow: 1px 2px 6px rgba(121, 121, 121, 0.25);
-    border-radius: 4px; }
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    padding-top: 0; }
     .user-login .text-field:first-child {
       margin-left: 0; }
     .user-login .text-field:focus {
@@ -512,21 +548,25 @@ input[type="checkbox"], input[type="radio"] {
     background: transparent;
     color: #fff;
     font-size: 16px;
-    padding: 0 0 0 6px;
-    line-height: 25px; }
+    padding: 0;
+    line-height: 25px;
+    margin-left: 12px;
+    margin-bottom: 3px; }
     .user-login .btn-forgot .title-forgot {
       text-transform: capitalize;
       font-size: 14px;
+      font-weight: 400;
       line-height: 22px;
       color: #EEEEEE; }
     .user-login .btn-forgot:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff; }
+      color: #FF5D00; }
+      .user-login .btn-forgot:hover > .title-forgot {
+        color: #FF5D00; }
 
 .validation-value {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 8px; }
+  margin-left: 12px; }
 
 @media (max-width: 992px) {
   .login .text-field, .login .validation-value {
