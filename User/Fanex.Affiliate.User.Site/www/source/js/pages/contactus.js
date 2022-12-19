@@ -2,7 +2,6 @@
     var _me = {
         initialize: function () {
             _me.initEvent();
-            Site.isN88 && Site.getImageByMode();
         },
 
         initEvent: function () {

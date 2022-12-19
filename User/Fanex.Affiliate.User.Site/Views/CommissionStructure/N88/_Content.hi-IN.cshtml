@@ -1,14 +1,7 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.hi-IN.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeHave">
         <span class="text">हमारे पास क्या है?</span>
     </div>
     <ul>
@@ -24,12 +17,12 @@
     </ul>
 </div>
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeOffer">
         <span class="text">हमारी पेशकश</span>
     </div>
     <ul>
         <li class="text">
-            @maxCommisison तक रेवनू शेयर दर
+            @Model.MaxCommission तक रेवनू शेयर दर
         </li>
         <li class="text">
             10% का अतिरिक्त - हमारे संबद्ध कार्यक्रम में अपने उप-संबद्ध के रूप में शामिल होने के लिए दोस्तों को भर्ती करें और अपना इनाम प्राप्त करें!
@@ -117,12 +110,12 @@
     <p class="text">
         <i>चित्र 1:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके रेफ़र किए गए खिलाड़ियों से अर्जित आपके रेवनू शेयर की गणना कैसे की जाती है
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
-<p class="text">
-    <i>चित्र 2:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके संदर्भित सहयोगियों (और उनके उप-संबद्धों) से अर्जित आपकी रेवनू शेयर की गणना कैसे की जाती है
-</p>
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
+    <p class="text">
+        <i>चित्र 2:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके संदर्भित सहयोगियों (और उनके उप-संबद्धों) से अर्जित आपकी रेवनू शेयर की गणना कैसे की जाती है
+    </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         संदर्भित सहयोगियों से अर्जित आपका रेवनू शेयर:

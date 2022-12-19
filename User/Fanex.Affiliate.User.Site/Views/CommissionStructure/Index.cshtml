@@ -1,27 +1,30 @@
-﻿@{
-    ViewBag.Title = Lang.CommissionStructure;
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
-}
-@model string
-@{
-    var viewName = "~/Views/CommissionStructure/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
-    var htmlString = Html.Partial(viewName).ToHtmlString();
+@{
+    ViewBag.Title = Lang.CommissionStructure;
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
+}
+@{
+    var viewName = PathHelper.GetViewPath("CommissionStructure", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
+
+    var htmlString = Html.Partial(viewName, Model).ToHtmlString();
 }
 
 @section styles{
-    <link rel="stylesheet" href="@Url.RenderLink("~/www/build/styles/css/revenue-structure.css")"/>
+    <link rel="stylesheet" href="@Url.RenderLink("~/www/build/styles/css/revenue-structure.css")" />
 }
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/revenue-structure.js")
 }
 
-
-
 <div class="content">
     <div class="page-title">
         <span class="text">@Lang.CommissionStructure</span>
+    </div>
+    <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
+        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
     </div>
 
     @Html.Raw(htmlString)

@@ -1253,6 +1253,21 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Peratus bahagian kumpulan produk pertama daripada berbilang kumpulan</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Kami mempunyai</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Kami tawarakan</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Pelan Kami</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Contoh Pengagihan Keuntungan</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Kaedah Pembayaran</value>
+  </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>&gt;= 5</value>
   </data>

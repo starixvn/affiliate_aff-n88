@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = Lang.Signup;
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin");
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var languageService = DependencyResolver.Current.GetService<ILanguageService>();

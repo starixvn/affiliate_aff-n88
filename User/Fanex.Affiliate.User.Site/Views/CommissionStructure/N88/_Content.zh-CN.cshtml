@@ -1,14 +1,7 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.zh-CN.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeHave">
         <span class="text">我们所拥有的：</span>
     </div>
     <ul>
@@ -24,12 +17,12 @@
     </ul>
 </div>
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeOffer">
         <span class="text">我们所提供的：</span>
     </div>
     <ul>
         <li class="text">
-            高达@(maxCommisison)的代理佣金。
+            高达@(Model.MaxCommission)的代理佣金。
         </li>
         <li class="text">
             额外 10% – 招募朋友作为您的子会员并加入我们的合营计划，将获得额外奖励！
@@ -116,12 +109,12 @@
     <p class="text">
         <i>图1:</i> 举例展示如何计算你所推荐的玩家负盈利获得佣金盈利
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>图2:</i> 举例展示如何计算从你所推荐的下线合营伙伴（与他们再推荐的下线合营伙伴）的佣金盈利。
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         您下线合营伙伴的佣金盈利计算:
@@ -147,10 +140,10 @@
     </div>
     <ul>
         <li class="text">
-            每月一次，通过您的Nova88玩家帐户（USD, MYR，IDR，THB和CNY），最低提款金额为100美元（或等值的货币）。 对于其他货币，需要向NOVA88合营团队询问。
+            每月一次，通过您的@(Model.SiteFriendlyName)玩家帐户（USD, MYR，IDR，THB和CNY），最低提款金额为100美元（或等值的货币）。 对于其他货币，需要向@(Model.SiteFriendlyName)合营团队询问。
         </li>
         <li class="text">
-            当月第二次提款请求均需获得Nova88合营团队的批准。
+            当月第二次提款请求均需获得@(Model.SiteFriendlyName)合营团队的批准。
         </li>
     </ul>
 </div>

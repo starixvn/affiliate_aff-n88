@@ -1,5 +1,6 @@
-﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+﻿@model string
+@{
+    var siteFriendlyName = Model;
 }
 @*<div class="adv text-center">
         <img src="~/www/build/styles/Images/products/N88/upper-banner.ms-MY.jpg?v=158572" alt="upper product banner"/>
@@ -10,13 +11,13 @@
         Yang paling penting, kasino dalam talian ini fokus untuk tawarkan platform pertaruhan yang selamat dan dijamin. Setiap antara muka permainan mempunyai estetika yang cantik secara visual dan elemen reka bentuk yang unik yang membenarkan pemain menikmati revolusi permainan ini.
     </p>
     <p class="text-block">
-        Kami amat gembira untuk sambut persertaan semua orang dalam program affliate @siteName. Dapatkan sebanyak keuntungan yang anda boleh daripada semua jenis produk @siteName.
+        Kami amat gembira untuk sambut persertaan semua orang dalam program affliate @siteFriendlyName. Dapatkan sebanyak keuntungan yang anda boleh daripada semua jenis produk @siteFriendlyName.
     </p>
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">1. PRODUK SPORTSBOOK</p>
     <p>
-        @siteName disukai oleh berjuta-juta pemain dari seluruh dunia kerana ia meliputi hampir semua jenis aktiviti sukan. Selepas berjaya mendaftar di laman web melalui pengiklanan
+        @siteFriendlyName disukai oleh berjuta-juta pemain dari seluruh dunia kerana ia meliputi hampir semua jenis aktiviti sukan. Selepas berjaya mendaftar di laman web melalui pengiklanan
         affliate, pemain dapat akses yang penuh kepada sukan termasuk: bola sepak, pingpong, bola keranjang, golf, tinju, bola tampar, sukan permotoran, hoki ais, besbol, bola
         baling, polo air, ragbi, dart, renang, snuker dan kriket. Pada masa sekarang, terdapat dua [2] platform sportsbook untuk memenuhi hiburan ahli. Sebahagian daripada
         pertaruhan ahli akan diambil kira sebagai bahagian pengagihan keuntungan.
@@ -66,7 +67,7 @@
 <div>
     <p class="text-bold text-uppercase title-block">2. PRODUK KASINO</p>
     <p>
-        Di @siteName, permainan kasino akan dikategori ikut jenis perisian dan semuanya masing-masing dimasuk dalam Kelab @siteName yang berbeza. Sebagai contoh, kelab kasino batu
+        Di @siteFriendlyName, permainan kasino akan dikategori ikut jenis perisian dan semuanya masing-masing dimasuk dalam Kelab @siteFriendlyName yang berbeza. Sebagai contoh, kelab kasino batu
         permata kami mengandungi beratus-ratus kasino live, permainan meja, permainan RNG, permainan slot, dan lain-lain. Semua dimasuk ke dalam laman Kasino dan Kasino Live
         untuk kegunaan hab kasino yang terbaik diAsia.
     </p>
@@ -256,6 +257,6 @@
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", false); }
     <p class="text-block">
-        Semua produk pertaruhan disenaraikan dalam program affliate @siteName. Kami ajak anda untuk menjadi salah satu rakan kongsi kami untuk seumur hidup. Sumbang kepada aktiviti kesedaran jenama dan pengiklanan kami dengan bawa masuk lebih banyak pelanggan. Bersama-sama, kita tingkatkan pendapatan anda dan memastikan anda dapat pengagihan keuntungan yang konsisten; Sertai Program Affliate @siteName kami hari ini!
+        Semua produk pertaruhan disenaraikan dalam program affliate @siteFriendlyName. Kami ajak anda untuk menjadi salah satu rakan kongsi kami untuk seumur hidup. Sumbang kepada aktiviti kesedaran jenama dan pengiklanan kami dengan bawa masuk lebih banyak pelanggan. Bersama-sama, kita tingkatkan pendapatan anda dan memastikan anda dapat pengagihan keuntungan yang konsisten; Sertai Program Affliate @siteFriendlyName kami hari ini!
     </p>
 </div>

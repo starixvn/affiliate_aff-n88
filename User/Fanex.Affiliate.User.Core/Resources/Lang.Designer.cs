@@ -2374,6 +2374,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How we pay.
+        /// </summary>
+        public static string HowWePay {
+            get {
+                return ResourceManager.GetString("HowWePay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hungary .
         /// </summary>
         public static string Hungary {
@@ -3418,6 +3427,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Our Plan.
+        /// </summary>
+        public static string OurPlan {
+            get {
+                return ResourceManager.GetString("OurPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overview.
         /// </summary>
         public static string Overview {
@@ -4062,6 +4080,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string RevenueShare {
             get {
                 return ResourceManager.GetString("RevenueShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Revenue Share Payout Example.
+        /// </summary>
+        public static string RevenueSharePayoutExample {
+            get {
+                return ResourceManager.GetString("RevenueSharePayoutExample", resourceCulture);
             }
         }
         
@@ -5439,6 +5466,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string Whatsapp {
             get {
                 return ResourceManager.GetString("Whatsapp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What we have.
+        /// </summary>
+        public static string WhatWeHave {
+            get {
+                return ResourceManager.GetString("WhatWeHave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What we offer.
+        /// </summary>
+        public static string WhatWeOffer {
+            get {
+                return ResourceManager.GetString("WhatWeOffer", resourceCulture);
             }
         }
         

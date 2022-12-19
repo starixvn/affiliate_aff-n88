@@ -4,6 +4,10 @@
     "inputFile": "www/source/js/layout/n88.js"
   },
   {
+    "outputFile": "www/build/js/layout/n8x.js",
+    "inputFile": "www/source/js/layout/n8x.js"
+  },
+  {
     "outputFile": "www/build/styles/css/main.css",
     "inputFile": "www/source/styles/scss/main.scss"
   },
@@ -63,10 +67,10 @@
   //  "outputFile": "www/build/js/test.js",
   //  "inputFile": "www/source/js/pages/test.js"
   //},
-  //{
-  //  "outputFile": "www/build/js/site.js",
-  //  "inputFile": "www/source/js/site.js"
-  //},
+  {
+    "outputFile": "www/build/js/site.js",
+    "inputFile": "www/source/js/site.js"
+  },
   //{
   //  "outputFile": "www/build/js/recheckin.js",
   //  "inputFile": "www/source/js/recheckin.js"
@@ -160,7 +164,7 @@
   //  "inputFile": "www/source/styles/scss/themes/n8b.scss"
   //},
   {
-    "outputFile": "www/build/styles/css/themes/n88.css",
+    "outputFile": "www/build/styles/css/n88.css",
     "inputFile": "www/source/styles/scss/themes/n88.scss"
   }
   //{

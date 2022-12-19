@@ -2,6 +2,22 @@
     var _rootUrl = null;
     var _language = null;
 
+    function createNewUrlByLanguage(url, language) {
+        var hasQueryString = url.indexOf('?') !== -1;
+        var updatedQueryParam = 'lang=' + language;
+        var key = 'lang';
+
+        if (hasQueryString) {
+            var regex = new RegExp('([?&])' + key + '=.*?(&|$)', 'i');
+            return regex.test(url) ?
+                url.replace(regex, '$1' + key + '=' + language + '$2') :
+                url + '&' + updatedQueryParam;
+        }
+        else {
+            return url + '?' + updatedQueryParam;
+        }
+    }
+
     var _me = {
         initialize: function () {
             _rootUrl = $("#RootUrl").val();
@@ -58,8 +74,6 @@
             return "";
         },
 
-        isN88: $("#SiteName").val() === 'n88',
-
         emailValidationPattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 
         toggleErrorMessage: function ($container, isValid) {
@@ -67,17 +81,16 @@
             $container.find(".help-block").toggleClass("hide", isValid);
         },
 
-        getImageByMode: function (newMode) {
-            var language = _me.getCurrentLanguage();
-            var mode = newMode || _me.getCookie("mode");
-            var src = _me.resolveRelativeUrl("www/build/styles/Images/revenue-share-structure/N88/" + mode + "/revenue_share_hierarchy." + language + ".png");
-            $("#revenue_share_hierarchy").attr("src", src);
+        changeLanguage: function (selectedLanguage) {
+            var hash = window.location.hash;
+            var href = window.location.href;
+            var actualUrl = !!hash ? href.substring(0, href.indexOf(hash)) : href;
+            var newActualUrl = createNewUrlByLanguage(actualUrl, selectedLanguage);
 
-            var iconSrc = _me.resolveRelativeUrl("www/build/styles/Images/contact-us/N88/" + mode);
-            $("#email_icon").attr("src", iconSrc + "/email.png");
-            $("#telegram_icon").attr("src", iconSrc + "/telegram.png");
-            $("#whatsapp_icon").attr("src", iconSrc + "/whatsapp.png");
-        },
+            var url = newActualUrl + hash;
+
+            Site.redirect(url);
+        }
     };
 
     return _me;

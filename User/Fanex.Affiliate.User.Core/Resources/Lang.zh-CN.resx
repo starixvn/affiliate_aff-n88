@@ -1625,4 +1625,19 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 以上</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>我们所拥有的</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>我们所提供的</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>我们的计划</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>佣金盈利计算示例</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>支付方法</value>
+  </data>
 </root>

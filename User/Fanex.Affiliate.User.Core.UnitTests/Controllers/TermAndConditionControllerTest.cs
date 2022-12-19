@@ -2,6 +2,8 @@
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
+using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +16,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
     public class TermAndConditionControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
 
         public TermAndConditionControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
         }
@@ -41,13 +45,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         {
             var controller = CreateController();
 
-            var result = controller.Popup(mode) as ViewResult;
+            var result = controller.Popup() as ViewResult;
 
             Assert.NotNull(result);
             Assert.Contains("Views/TermAndCondition/Popup.cshtml", result.ViewName);
         }
 
         private TermAndConditionController CreateController()
-            => new TermAndConditionController(SessionService, LanguageService);
+            => new TermAndConditionController(AppSetting, SessionService, LanguageService);
     }
 }

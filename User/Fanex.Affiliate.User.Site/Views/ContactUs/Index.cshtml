@@ -1,15 +1,10 @@
-﻿@using Fanex.Affiliate.User.Core.Utilities
-@using Fanex.Affiliate.User.Core.CoreService
+﻿@model Fanex.Affiliate.User.Core.ViewModels.ContactUsViewModel
 
 @{
-    var appSetting = AppSetting.Instance;
-    var sessionService = DependencyResolver.Current.GetService<ISessionService>();
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
+    ViewBag.Title = $"{Model.SiteFriendlyName} {Lang.AffiliateProgram} | {Lang.ContactUs}";
 
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
-    ViewBag.Title = $"{appSetting.SiteFriendlyName} Affiliate Program | Contact Us";
-
-    var mailContact = appSetting.GetMailContactByLanguageCode(sessionService.CurrentLanguage);
-    var viewName = "~/Views/ContactUs/" + AppSetting.Instance.SiteName + "/_Content.cshtml";
+    var viewName = PathHelper.GetViewPath("ContactUs", "_Content", Model.SiteName);
 }
 
 @section styles{
@@ -30,10 +25,5 @@
         <span class="text">@Lang.ContactUs</span>
     </div>
 
-    <div class="container-fluid">
-        <div class="row contact-title">
-            <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
-        </div>
-        @{ Html.RenderPartial(viewName, model: mailContact); }
-    </div>
-    </div>
+    @{ Html.RenderPartial(viewName, Model.MailContact); }
+</div>

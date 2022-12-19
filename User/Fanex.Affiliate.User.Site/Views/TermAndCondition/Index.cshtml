@@ -1,22 +1,26 @@
-﻿@{
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
+@{
     ViewBag.Title = Lang.TermAndCondition;
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 
-@model string
-@{ 
-    var viewName = "~/Views/TermAndCondition/_Content." + Model + ".cshtml";
+@{
+    var viewName = PathHelper.GetViewPath("TermAndCondition", $"_Content.{Model.CurrentLanguage}", Model.SiteName); ;
 
-    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName).ToHtmlString());
+    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString());
 }
 
-    <div class="content term-condition-page">
-        <div class="page-title">
-            <span class="text">@Lang.TermAndCondition</span>
-        </div>
-
-        @Html.Raw(htmlString)
-
-        @RazorHelper.RenderMovingTopButton()
-
+<div class="content term-condition-page">
+    <div class="page-title">
+        <span class="text">@Lang.TermAndCondition</span>
     </div>
+    <div class="collapse navbar-collapse menu" id="">
+        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+    </div>
+
+    @Html.Raw(htmlString)
+
+    @RazorHelper.RenderMovingTopButton()
+
+</div>

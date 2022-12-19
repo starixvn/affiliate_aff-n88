@@ -1,9 +1,7 @@
 ﻿namespace Fanex.Affiliate.User.Core.ViewModels
 {
-    public class ProductPageViewModel
+    public class ProductPageViewModel : BaseLayoutViewModel
     {
-        public string CurrentLanguage { get; set; }
-
         public bool IsAuthenticated { get; set; }
     }
 }

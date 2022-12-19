@@ -1,0 +1,39 @@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
+
+<div class="table table-responsive">
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">@Lang.RevenueShare</th>
+                <th width="8%">@Lang.Tier</th>
+                <th width="20%">@string.Format(Lang.NetWinLoss, Model.DefaultCurrency)</th>
+                <th width="20%">@Lang.ActivePlayersRevenue</th>
+                <th width="20%">@Lang.CommPercent</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3" class="text-center">
+                    <p>@Lang.AllProducts</p>
+                    <p><a class="more-detail" href="@Url.Content("~/Product")">> @SiteFriendlyNameHelper.ReplaceB2C(Lang.MoreDetailProduct)</a></p>
+                </td>
+                <td class="text-center">1</td>
+                <td class="text-center">0 - 2,500</td>
+                <td rowspan="3" class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
+                <td class="text-center">25%</td>
+            </tr>
+            <tr>
+                <td class="text-center">2</td>
+                <td class="text-center">2,501 - 40,000</td>
+
+                <td class="text-center">35%</td>
+            </tr>
+            <tr>
+                <td class="text-center">3</td>
+                <td class="text-center">> 40,000</td>
+
+                <td class="text-center">@Model.MaxCommission</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

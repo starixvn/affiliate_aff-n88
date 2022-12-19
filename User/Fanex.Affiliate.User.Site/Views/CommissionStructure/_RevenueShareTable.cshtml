@@ -1,4 +1,6 @@
-﻿<div class="table table-responsive">
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
+
+<div class="table table-responsive">
     <table>
         <thead>
             <tr>
@@ -8,11 +10,10 @@
             </tr>
         </thead>
         <tbody>
-                <tr>
                     <td class="text-center">@Lang.FiveMillionAndAbove</td>
                     <td class="text-center word">@Html.Raw(Lang.QualifyingMembers)</td>
                     <td class="text-center">50%</td>
-                </tr>
+            </tr>
         </tbody>
     </table>
 </div>

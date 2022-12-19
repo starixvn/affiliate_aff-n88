@@ -1862,4 +1862,19 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 और ऊपर</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>हमारे पास क्या है?</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>हमारी पेशकश</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>हमारी योजना</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>रेवेन्यू शेयर पेआउट उदाहरण</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>हम कैसे भुगतान करते हैं</value>
+  </data>
 </root>

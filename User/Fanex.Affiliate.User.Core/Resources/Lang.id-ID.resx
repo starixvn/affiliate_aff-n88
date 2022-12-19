@@ -1608,4 +1608,19 @@
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 keatas</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Apa yang kita miliki</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Apa yang kita tawarkan</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Rencana Kami</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Contoh Pembayaran Pembagian Hasil</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Bagaimana kami melakukan pembayaran</value>
+  </data>
 </root>

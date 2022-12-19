@@ -1,6 +1,6 @@
 ﻿@using Fanex.Affiliate.User.Core.Constants;
 @{
-    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
+    Layout = PathHelper.GetLayoutPath("_LayoutAfterLogin");
     var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0)).Date;
 }
 

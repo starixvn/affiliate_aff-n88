@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using System.Web.Security;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
@@ -12,14 +11,14 @@ using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
-    public class AuthBaseController : BaseController
+    public abstract class AuthBaseController : BaseController
     {
         private readonly ICaptchaService _captchaService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthService _authService;
         protected readonly IAccountRepository _accountRepository;
 
-        public AuthBaseController(
+        protected AuthBaseController(
             ISessionService sessionService,
             ILanguageService languageService,
             IAppSetting appSetting,

@@ -1,14 +1,7 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.th-TH.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeHave">
         <span class="text">สิ่งที่เรามี</span>
     </div>
     <ul>
@@ -24,12 +17,12 @@
     </ul>
 </div>
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeOffer">
         <span class="text">สิ่งที่เราเสนอให้คือ</span>
     </div>
     <ul>
         <li class="text">
-            อัตราส่วนแบ่งรายได้สูงถึง @maxCommisison
+            อัตราส่วนแบ่งรายได้สูงถึง @Model.MaxCommission
         </li>
         <li class="text">
             รับเพิ่มอีก 10% เมื่อรับสมัครเพื่อนเพื่อเข้าร่วมโปรแกรมพันธมิตร(Affiliates)ของเราในฐานะพันธมิตรย่อยของคุณ
@@ -117,12 +110,12 @@
     <p class="text">
         <i>รูปที่ 1 :</i> ตัวอย่างเพื่อแสดงให้คุณเห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากผู้เล่นที่แนะนำของคุณ
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>รูปที่ 2:</i> ตัวอย่างเพื่อแสดงให้เห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากพันธมิตร Affiliates ของคุณ (และ บริษัท ในเครือย่อย sub-affiliates) คำนวณอย่างไร
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         ส่วนแบ่งรายได้ของคุณได้รับจากพันธมิตรที่ได้รับการแนะนำ:
@@ -148,10 +141,10 @@
     </div>
     <ul>
         <li class="text">
-            Nova88 จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น Nova88 ของคุณ (USD, MYR, IDR, THB & CNY) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ Nova88
+            @Model.SiteFriendlyName จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น @Model.SiteFriendlyName ของคุณ (USD, MYR, IDR, THB & CNY) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ @Model.SiteFriendlyName
         </li>
         <li class="text">
-            คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ Nova88
+            คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ @Model.SiteFriendlyName
         </li>
     </ul>
 </div>

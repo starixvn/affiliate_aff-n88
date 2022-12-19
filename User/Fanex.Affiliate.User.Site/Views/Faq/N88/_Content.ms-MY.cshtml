@@ -1,4 +1,9 @@
-﻿<div class="banner-faqs">
+﻿@model string
+@{
+    var siteFriendlyName = Model;
+}
+
+<div class="banner-faqs">
     <p>Soalan Lazim</p>
 </div>
 
@@ -7,12 +12,12 @@
         <span class="text">Umum</span>
     </div>
     <div class="faq-group">
-        <p class="question">Apakah Program Affliate Nova88?</p>
-        <p class="answer">Program Affliate Nova88 ialah program perkongsian di mana anda akan memperoleh pengagihan keuntungan berdasarkan aktiviti pertaruhan pemain yang anda rujuk kepada Nova88 daripada Laman Web anda melalui atas atau luar talian melalui pautan rujukan.</p>
+        <p class="question">Apakah Program Affliate @(siteFriendlyName)?</p>
+        <p class="answer">Program Affliate @(siteFriendlyName) ialah program perkongsian di mana anda akan memperoleh pengagihan keuntungan berdasarkan aktiviti pertaruhan pemain yang anda rujuk kepada @(siteFriendlyName) daripada Laman Web anda melalui atas atau luar talian melalui pautan rujukan.</p>
     </div>
     <div class="faq-group">
-        <p class="question">Bagaimana saya boleh daftar untuk Program Affliate Nova88?</p>
-        <p class="answer">Program Affliate Nova88 adalah percuma untuk disertai. Hanya perlu isi borang pendaftaran kami dan anda akan dihubungi dalam masa 3 hari berkerja mengenai status kelayakan anda ke dalam program ini. Jika permohonan anda diterima, anda akan rerima e-mel yang mengandungi ID ahli affliate anda yang unik, yang beri anda akses kepada sepanduk, pautan teks dan kandungan serta alatan pemasaran lain untuk dimasukkan pada laman web anda.</p>
+        <p class="question">Bagaimana saya boleh daftar untuk Program Affliate @(siteFriendlyName)?</p>
+        <p class="answer">Program Affliate @(siteFriendlyName) adalah percuma untuk disertai. Hanya perlu isi borang pendaftaran kami dan anda akan dihubungi dalam masa 3 hari berkerja mengenai status kelayakan anda ke dalam program ini. Jika permohonan anda diterima, anda akan rerima e-mel yang mengandungi ID ahli affliate anda yang unik, yang beri anda akses kepada sepanduk, pautan teks dan kandungan serta alatan pemasaran lain untuk dimasukkan pada laman web anda.</p>
     </div>
     <div class="faq-group">
         <p class="question">Apa yang saya boleh buat jika saya tidak mempunyai Laman Web, saya masih boleh sertai program ini?</p>
@@ -34,18 +39,18 @@
     </div>
     <div class="faq-group">
         <p class="question">Bagaimanakah sistem akan menjejak pemain rujukan saya?</p>
-        <p class="answer">Kami menggunakan teknologi paling canggih dalam sistem penjejakan kami untuk memastikan anda terima keuntungan untuk 100% trafik yang anda hantar kepada Nova88. Ahli affliate merujuk pemain dengan menggunakan URL unik mereka yang disediakan dalam Galeri Media. Melalui penggunaan kuki, pelawat yang tekan URL unik ahli affliate (sepanduk, pautan teks, mesej e-mel dan lain-lain) dijejaki dan kredit diberikan secara automatik kepada pemain untuk ahli affliate yang dirujuk.</p>
+        <p class="answer">Kami menggunakan teknologi paling canggih dalam sistem penjejakan kami untuk memastikan anda terima keuntungan untuk 100% trafik yang anda hantar kepada @(siteFriendlyName). Ahli affliate merujuk pemain dengan menggunakan URL unik mereka yang disediakan dalam Galeri Media. Melalui penggunaan kuki, pelawat yang tekan URL unik ahli affliate (sepanduk, pautan teks, mesej e-mel dan lain-lain) dijejaki dan kredit diberikan secara automatik kepada pemain untuk ahli affliate yang dirujuk.</p>
     </div>
     <div class="faq-group">
-        <p class="question">Adakah anda akan menjejaki dan beri saya kredit untuk ahli yang tidak daftar pada lawatan pertama melalui pautan ahli affliate saya tetapi lawat balik ke Nova88 pada masa hadapan dan berdaftar sebagai ahli?</p>
+        <p class="question">Adakah anda akan menjejaki dan beri saya kredit untuk ahli yang tidak daftar pada lawatan pertama melalui pautan ahli affliate saya tetapi lawat balik ke @(siteFriendlyName) pada masa hadapan dan berdaftar sebagai ahli?</p>
         <p class="answer">
-            Ya. Kami dapat menjejak pelawat dari laman web ahli affliate kami yang tidak mendaftar serta-merta tetapi, lawat balik ke Nova88 pada masa depan dan berdaftar. Kami telah tetapkan tempoh perlindungan kami selama 90 hari untuk ahli affliate rujukan yang pertama.
+            Ya. Kami dapat menjejak pelawat dari laman web ahli affliate kami yang tidak mendaftar serta-merta tetapi, lawat balik ke @(siteFriendlyName) pada masa depan dan berdaftar. Kami telah tetapkan tempoh perlindungan kami selama 90 hari untuk ahli affliate rujukan yang pertama.
             Teknologi yang digunakan untuk proses ini adalah berdasarkan kuki.
         </p>
     </div>
     <div class="faq-group">
         <p class="question">Apa itu Kuki?</p>
-        <p class="answer">Kuki ialah mekanisme umum yang boleh digunakan oleh sambungan ke-sisi pelayan untuk simpan dan dapatkan maklumat pada bahagian sambungan klien. Lebih khusus, ia adalah fail data yang kecil yang diletakkan pada komputer pelawat ke Nova88 daripada laman web affliate. Fail data ini mengandungi maklumat yang digunakan Nova88 untuk menjejak dan pemberian kredit ahli affliate yang tepat untuk trafik yang mereka rujuk. Penjejakan melalui kuki boleh termasuk, tetapi tidak terhad kepada senarai halaman yang dilawati serta tarikh dan masa apabila halaman tersebut dilawat.</p>
+        <p class="answer">Kuki ialah mekanisme umum yang boleh digunakan oleh sambungan ke-sisi pelayan untuk simpan dan dapatkan maklumat pada bahagian sambungan klien. Lebih khusus, ia adalah fail data yang kecil yang diletakkan pada komputer pelawat ke @(siteFriendlyName) daripada laman web affliate. Fail data ini mengandungi maklumat yang digunakan @(siteFriendlyName) untuk menjejak dan pemberian kredit ahli affliate yang tepat untuk trafik yang mereka rujuk. Penjejakan melalui kuki boleh termasuk, tetapi tidak terhad kepada senarai halaman yang dilawati serta tarikh dan masa apabila halaman tersebut dilawat.</p>
     </div>
     <div class="faq-group">
         <p class="question">Anda beri ganjaran kepada Ahli Affliate Pertama atau Ahli Affliate Terakhir yang merujuk pelanggan?</p>
@@ -53,11 +58,11 @@
     </div>
     <div class="faq-group">
         <p class="question">Bagaimanakah saya boleh semak keuntungan yang saya perolehi?</p>
-        <p class="answer">Anda boleh log masuk ke akaun ahli affliate Nova88 anda untuk semak statistik pengagihan keuntungan anda dalam masa nyata boleh diakses untuk 24 jam setiap hari, 7 hari seminggu dan 365 hari setahun.</p>
+        <p class="answer">Anda boleh log masuk ke akaun ahli affliate @(siteFriendlyName) anda untuk semak statistik pengagihan keuntungan anda dalam masa nyata boleh diakses untuk 24 jam setiap hari, 7 hari seminggu dan 365 hari setahun.</p>
     </div>
     <div class="faq-group">
         <p class="question">Apakah polisi anda mengenai spam?</p>
-        <p class="answer">Kami tidak terima apa-apa jenis spam oleh ahli affliate kami. Jika spam oleh ahli affliate dikesan oleh kami, kami akan beri satu amaran kepada ahli affliate tersebut (jika dikategori sebagai kes kecil). Jika spamming itu tidak dihentikan, ahli affliate akan disekat secara kekal daripada Program Affliate Nova88 kami.</p>
+        <p class="answer">Kami tidak terima apa-apa jenis spam oleh ahli affliate kami. Jika spam oleh ahli affliate dikesan oleh kami, kami akan beri satu amaran kepada ahli affliate tersebut (jika dikategori sebagai kes kecil). Jika spamming itu tidak dihentikan, ahli affliate akan disekat secara kekal daripada Program Affliate @(siteFriendlyName) kami.</p>
     </div>
 </div>
 
@@ -67,8 +72,8 @@
     </div>
     <div class="faq-group">
         <p class="question">Apakah kaedah pengeluaran yang saya boleh guna?</p>
-        <p class="answer">Anda boleh buat pohonan pengeluaran terus ke akaun pemain Nova88 anda. Jika pohonan pengeluaran anda diluluskan, dana anda akan dipindahkan secara automatik ke akaun pertaruhan Nova88 anda.</p>
-        <p class="answer">Sila ambil perhatian: Nama berdaftar akaun pertaruhan Nova88 anda mesti ialah nama berdaftar yang sama yang anda guna untuk berdaftar untuk akaun ahli affliate anda, dan ia perlu ialah nama benar anda.</p>
+        <p class="answer">Anda boleh buat pohonan pengeluaran terus ke akaun pemain @(siteFriendlyName) anda. Jika pohonan pengeluaran anda diluluskan, dana anda akan dipindahkan secara automatik ke akaun pertaruhan @(siteFriendlyName) anda.</p>
+        <p class="answer">Sila ambil perhatian: Nama berdaftar akaun pertaruhan @(siteFriendlyName) anda mesti ialah nama berdaftar yang sama yang anda guna untuk berdaftar untuk akaun ahli affliate anda, dan ia perlu ialah nama benar anda.</p>
     </div>
     <div class="faq-group">
         <p class="question">Apakah jumlah pengeluaran yang minimum?</p>

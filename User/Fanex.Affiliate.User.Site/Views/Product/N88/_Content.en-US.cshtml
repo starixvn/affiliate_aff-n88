@@ -1,6 +1,8 @@
-﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+﻿@model string
+@{
+    var siteFriendlyName = Model;
 }
+
 @*<div class="adv text-center">
         <img src="~/www/build/styles/Images/products/N88/upper-banner.en-US.jpg?v=158572" alt="upper product banner"/>
     </div>*@
@@ -10,13 +12,13 @@
         Above all, this online casino is highly geared to offer safe and secured gambling venue. Each game interface provides visually satisfying aesthetics and unique design elements that immerse players into the revolutionized gameplay.
     </p>
     <p class="text-block">
-        We are very pleased to welcome everyone to join through @siteName affiliate program. Earn as much revenue share as you can from all @siteName products.
+        We are very pleased to welcome everyone to join through @siteFriendlyName affiliate program. Earn as much revenue share as you can from all @siteFriendlyName products.
     </p>
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">1. SPORTSBOOK PRODUCTS</p>
     <p>
-        @siteName is favored by millions of betting players from all over the world due to its wide variety coverage for all the sports actions. Upon successful registration on the
+        @siteFriendlyName is favored by millions of betting players from all over the world due to its wide variety coverage for all the sports actions. Upon successful registration on the
         website through affiliate advertising, players are given complete access to the following: soccer, table tennis, basketball, golf, boxing, volleyball, motorsports, ice hockey,
         baseball, handball, water polo, rugby, darts, swimming, snooker, and cricket. For instance, there are two[2] sportsbook platforms to fulfill entertainment. The wager of
         members is partly accounted as affiliate revenue share.
@@ -66,7 +68,7 @@
 <div>
     <p class="text-bold text-uppercase title-block">2. CASINO PRODUCTS</p>
     <p>
-        On @siteName, casino games are being grouped according to its software and they are all respectively enclosed in different @siteName Casino. For instance, we represent
+        On @siteFriendlyName, casino games are being grouped according to its software and they are all respectively enclosed in different @siteFriendlyName Casino. For instance, we represent
         gemstones casino clubs containing hundreds of live casino, table games, RNG games, slot games, etc. being gathered into Casino and Live Casino pages readily for
         the Asian best casino hubs.
     </p>
@@ -256,6 +258,6 @@
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", false); }
     <p class="text-block">
-        All betting products are listed in @siteName affiliate program. We invite you to be one of our long term partners. Contribute to our brand awareness and advertising in terms of bringing customer. Together, raise your income and consistent revenue share; Join our @siteName Affiliate Program today!
+        All betting products are listed in @siteFriendlyName affiliate program. We invite you to be one of our long term partners. Contribute to our brand awareness and advertising in terms of bringing customer. Together, raise your income and consistent revenue share; Join our @siteFriendlyName Affiliate Program today!
     </p>
 </div>

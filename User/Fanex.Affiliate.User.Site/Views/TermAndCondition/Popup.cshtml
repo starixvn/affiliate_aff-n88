@@ -1,20 +1,12 @@
 ﻿@{
     Layout = null;
 }
-
-@using Fanex.Affiliate.User.Core.CoreService
 @using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
 @{
-    var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-    var userSession = sessionService.UserSession;
-}
-
-@model Fanex.Affiliate.User.Core.ViewModels.PopupViewModel
-@{
-    var viewName = "~/Views/TermAndCondition/_Content." + Model.CurrentLanguage + ".cshtml";
-    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName).ToHtmlString());
-    var siteName = AppSetting.Instance.SiteName.ToLower();
-    var isN88 = string.Equals(siteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+    var viewName = PathHelper.GetViewPath("TermAndCondition", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
+    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString());
+    var siteName = Model.SiteName.ToLower();
 }
 
 <!DOCTYPE html>
@@ -30,14 +22,7 @@
     <link href="@Url.RenderLink("~/www/build/styles/fonts/tahoma/font.css")" rel="stylesheet" />
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    @if (isN88)
-    {
-        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName +"-" + Model.Mode + ".css")" rel="stylesheet" />
-    }
-    else
-    {
-        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
-    }
+    <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
 </head>
 <body>
     <div class="main-container">
@@ -46,6 +31,9 @@
                 <div class="content term-condition-page">
                     <div class="page-title">
                         <span class="text">@Lang.TermAndCondition</span>
+                    </div>
+                    <div class="collapse navbar-collapse menu" id="">
+                        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
                     </div>
 
                     @Html.Raw(htmlString)

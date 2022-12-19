@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
 
-    <link href="@Url.RenderLink("~/www/build/styles/css/themes/n88.css")" rel="stylesheet" />
+    <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
     @RenderSection("styles", required: false)
 </head>
 <body>
@@ -196,6 +196,7 @@
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")
     @Html.InlineScripts("~/www/build/js/jquery.extension.js")
     <script src="@Url.RenderLink("~/www/build/js/site.js")"></script>
+    <script src="@Url.RenderLink("~/www/build/js/layout.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/layout/n88.js")"></script>
 
     @if (userSession != null && !settingService.IsLocal)

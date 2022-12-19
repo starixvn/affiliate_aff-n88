@@ -200,7 +200,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             captchaService = captchaService ?? Mock.Of<ICaptchaService>();
             languageService = languageService ?? Mock.Of<ILanguageService>();
 
-            var controller = new ContactUsController(sessionService, appSetting, languageService, contactService, captchaService);
+            var controller = new ContactUsController(appSetting, sessionService, languageService, contactService, captchaService);
             var request = MockingHelper.GetHttpRequest();
             var server = new Mock<HttpServerUtilityBase>();
             server.Setup(s => s.HtmlEncode(It.IsAny<string>())).Returns<string>(s => $"Encoded{s}");

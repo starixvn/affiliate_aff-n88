@@ -1,25 +1,30 @@
-﻿@{
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
+
+@{
     ViewBag.Title = Lang.Faqs;
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/faq.css")
 }
 
-@model string
 @{
-    var contentView = "~/Views/Faq/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
+    var contentView = PathHelper.GetViewPath("Faq", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
 
-     var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(contentView).ToHtmlString());
+    var htmlString = Html.Partial(contentView, Model.SiteFriendlyName).ToHtmlString();
 }
 
-    <div class="content">
-        <div class="page-title">
-            <span class="text">@Lang.Faqs</span>
-        </div>
-
-        @Html.Raw(htmlString)
-
-        @RazorHelper.RenderMovingTopButton()
+<div class="content">
+    <div class="page-title">
+        <span class="text">@Lang.Faqs</span>
     </div>
+    <div class="collapse navbar-collapse menu" id="">
+        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+    </div>
+
+    @Html.Raw(htmlString)
+
+    @RazorHelper.RenderMovingTopButton()
+</div>

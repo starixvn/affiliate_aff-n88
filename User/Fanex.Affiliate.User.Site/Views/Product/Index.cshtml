@@ -1,13 +1,12 @@
-﻿@{
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
+@{
     ViewBag.Title = Lang.Product;
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 
-@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
-
 @{
-    var siteName = AppSetting.Instance.SiteName;
-    var viewName = $"~/Views/Product/{siteName}/_Content.{ Model.CurrentLanguage}.cshtml";
+    var viewName = PathHelper.GetViewPath("Product", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
 }
 
 @section styles{
@@ -18,8 +17,11 @@
     <div class="page-title">
         <span class="text">@Lang.Product</span>
     </div>
+    <div class="collapse navbar-collapse menu" id="">
+        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+    </div>
 
-    @{ Html.RenderPartial(viewName); }
+    @{ Html.RenderPartial(viewName, Model.SiteFriendlyName); }
 
     @if (!Model.IsAuthenticated)
     {
@@ -29,4 +31,3 @@
     }
     @RazorHelper.RenderMovingTopButton()
 </div>
-

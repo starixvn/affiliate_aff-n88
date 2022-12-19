@@ -2043,4 +2043,19 @@
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 &amp; above</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>What we have</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>What we offer</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Our Plan</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Revenue Share Payout Example</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>How we pay</value>
+  </data>
 </root>

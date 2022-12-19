@@ -1,5 +1,6 @@
 ﻿@{
-    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+    ViewBag.Title = Lang.AffiliateProgram;
+    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin");
 }
 
 @model Fanex.Affiliate.User.Core.ViewModels.VerificationAccountViewModel

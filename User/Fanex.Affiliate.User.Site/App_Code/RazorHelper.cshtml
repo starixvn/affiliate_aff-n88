@@ -7,6 +7,20 @@
     </div>
 }
 
+@helper RenderLeftPanel(IDictionary<string, string> menuList)
+{
+<ul class="nav navbar-nav">
+    @foreach (var item in menuList)
+    {
+        <li>
+            <a class="menu-item left-menu-item active" href="#@item.Key">
+                @item.Value
+            </a>
+        </li>
+    }
+</ul>
+}
+
 @helper RenderHotNews()
 {
     <div class="hot-news">

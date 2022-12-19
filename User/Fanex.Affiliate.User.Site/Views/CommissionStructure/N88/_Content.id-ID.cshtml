@@ -1,14 +1,7 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.id-ID.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeHave">
         <span class="text">Apa yang kita miliki</span>
     </div>
     <ul>
@@ -24,12 +17,12 @@
     </ul>
 </div>
 <div class="info-group">
-    <div class="title">
+    <div class="title" id="WhatWeOffer">
         <span class="text">Apa yang kita tawarkan</span>
     </div>
     <ul>
         <li class="text">
-            Tingkat pembagian penghasilan hingga @maxCommisison
+            Tingkat pembagian penghasilan hingga @Model.MaxCommission
         </li>
         <li class="text">
             Tambahan 10% - merekrut teman untuk bergabung dengan program Afiliasi kami sebagai sub-afiliasi Anda dan dapatkan penghargaan Anda!
@@ -117,12 +110,12 @@
     <p class="text">
         <i>Gambaran 1:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian hasil Anda dari pemain yang Anda referensikan.
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>Gambaran 2:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian penghasilan Anda dari afiliasi yang anda referensikan (dan sub-afiliasi mereka)
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         Pembagian penghasilan Anda diperoleh dari afiliasi yang Anda referensikan:
@@ -148,10 +141,10 @@
     </div>
     <ul>
         <li class="text">
-            Sekali dalam sebulan, melalui akun pemain Nova88 Anda (USD, MYR, IDR, THB & CNY) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi NOVA88.
+            Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, MYR, IDR, THB & CNY) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi NOVA88.
         </li>
         <li class="text">
-            Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi Nova88.
+            Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi @Model.SiteFriendlyName.
         </li>
     </ul>
 </div>

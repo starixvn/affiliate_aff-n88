@@ -1834,4 +1834,19 @@
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 trở lên</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Chúng Tôi Sở Hữu</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Quyền Lợi Khi Tham Gia</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Chương Trình Đại Lý</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Ví dụ về cách tính tiền hoa hồng</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Phương Thức Thanh Toán</value>
+  </data>
 </root>

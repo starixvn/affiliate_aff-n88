@@ -1,5 +1,6 @@
-﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+﻿@model string
+@{
+    var siteFriendlyName = Model;
 }
 @*<div class="adv text-center">
         <img src="~/www/build/styles/Images/products/N88/upper-banner.id-ID.jpg?v=158572" alt="upper product banner" />
@@ -10,13 +11,13 @@
         Di atas semua itu, casino online ini sangat diarahkan untuk menawarkan tempat perjudian yang aman dan terjamin. Setiap permainan yang di sediakan memiliki estetika yang memuaskan secara visual dan elemen desain unik yang siap memanjakan pemain untuk bermain di permainan yang telah mengalami revolusi.
     </p>
     <p class="text-block">
-        Kami sangat senang menyambut semua orang untuk bergabung melalui program afiliasi @siteName. Hasilkan Pendapatan sebanyak mungkin yang Anda bisa dapatkan dari semua produk @siteName.
+        Kami sangat senang menyambut semua orang untuk bergabung melalui program afiliasi @siteFriendlyName. Hasilkan Pendapatan sebanyak mungkin yang Anda bisa dapatkan dari semua produk @siteFriendlyName.
     </p>
 </div>
 <div>
     <p class="text-bold text-uppercase title-block">1. PRODUK SPORTSBOOK</p>
     <p>
-        @siteName disukai oleh jutaan pemain taruhan dari seluruh dunia karena jangkauannya yang luas untuk semua aksi olahraga. Setelah pendaftaran berhasil disitus web @siteName,
+        @siteFriendlyName disukai oleh jutaan pemain taruhan dari seluruh dunia karena jangkauannya yang luas untuk semua aksi olahraga. Setelah pendaftaran berhasil disitus web @siteFriendlyName,
         pemain akan diberikan akses lengkap kepada permainan berikut: sepak bola, tenis meja, bola basket, golf, tinju, bola voli, olahraga motor, hoki es, baseball, bola tangan,
         polo air, rugby, anak panah, berenang, snooker, dan kriket. Misalnya, ada dua platform sportsbook untuk memenuhi hiburan. Taruhan anggota sebagian dicatat sebagai
         bagian pendapatan afiliasi.
@@ -66,7 +67,7 @@
 <div>
     <p class="text-bold text-uppercase title-block">2. PRODUK CASINO</p>
     <p>
-        Di @siteName, permainan casino dikelompokkan sesuai dengan perangkat lunaknya dan semuanya masing-masing tertutup di berbagai @siteName Casino. Misalnya,
+        Di @siteFriendlyName, permainan casino dikelompokkan sesuai dengan perangkat lunaknya dan semuanya masing-masing tertutup di berbagai @siteFriendlyName Casino. Misalnya,
         kami mewakili klub casino batu permata yang berisi ratusan casino dengan siaran langsung, permainan meja, permainan RNG, permainan slot, dll. Di kumpulkan
         dalam Casino dan Casino langsung dalam satu halaman yang terbaik.
     </p>
@@ -264,6 +265,6 @@
     </div>
     @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", true); }
     <p class="text-block">
-        Semua produk taruhan terdaftar dalam program afiliasi @siteName. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi @siteName kami hari ini!
+        Semua produk taruhan terdaftar dalam program afiliasi @siteFriendlyName. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi @siteFriendlyName kami hari ini!
     </p>
 </div>
