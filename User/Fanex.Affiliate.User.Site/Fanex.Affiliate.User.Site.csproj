@@ -977,6 +977,9 @@
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
+    <Content Include="www\build\styles\Images\home\n88\bg-news.png" />
+    <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.png" />
+    <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.png" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\desktop.png" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\mobile.png" />
     <Content Include="www\build\styles\Images\icons\flags\China.svg" />
@@ -1489,6 +1492,7 @@
     <Content Include="www\source\styles\scss\layout\n88\_content.scss" />
     <Content Include="Views\Auth\N88\AuthenticationForm.cshtml" />
     <Content Include="Views\Auth\N8G\AuthenticationForm.cshtml" />
+    <Content Include="www\source\styles\scss\layout\n88\_footer.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

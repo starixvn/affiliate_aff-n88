@@ -40,29 +40,44 @@
     }
 }
 
-$height-hotnew: 26px;
+$height-hotnew: 30px;
 
 .hot-news {
     display: flex;
-    margin: 12px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    padding: 0 300px;
+    position: relative;
+
 
     .title {
         position: relative;
-        padding: 0 10px;
+        padding: 0 30px;
         height: $height-hotnew;
         line-height: $height-hotnew;
-        margin-right: 22px;
+        margin-right: 35px;
+        margin-left: 33px;
         text-transform: uppercase;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 14px;
+        font-weight: 700; 
+
+        &:before {
+            content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge.png");
+            width: 40px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            left: -33px;
+        }
 
         &:after {
-            content: "";
-            border-top: 13px solid transparent;
-            border-bottom: 13px solid transparent;
+            content: url("../../../../../www/build/styles/Images/home/n88/hot-news/right-badge.png");
+            width: 40px;
+            height: 30px;
+            border: 0 !important;
             position: absolute;
-            right: -10px;
             top: 0;
+            right: -32px;
         }
     }
 
@@ -74,22 +89,18 @@ $height-hotnew: 26px;
         max-width: 100%;
         padding: 0 10px;
         line-height: $height-hotnew;
-        font-size: 12px;
-
+        font-size: 14px;
+        color: #333333;
+        
         &:before {
-            content: "";
-            position: absolute;
-            border-width: 13px 0 13px 11px;
-            border-style: solid;
-            left: -10px;
-            border-color: #fff #fff #fff transparent;
+            display: none;
         }
     }
 }
 
 // --------------------------------- image responsive ------------------- //
 .adv-contact {
-    background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.mobile.png");
+    background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.desktop.png");
 }
 /*
 .adv-contact {
@@ -98,86 +109,59 @@ $height-hotnew: 26px;
 
 .adv-contact {
     display: block;
-    max-width: 500px;
-    min-height: 250px;
-    margin: 0 auto;
-    padding: 5px 15px;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: left bottom;
+    background-position: right bottom;
     text-align: left;
-    color: #fff;
+    color: #333333;
+    padding: 17px 41% 26px 26px;
 
     &:hover, &:focus {
         text-decoration: none;
         color: #fff;
     }
 
-    @media only screen and (min-width: 1600px) {
-        background-position: right center;
-        padding: 5px 115px 5px 20px;
-    }
+ 
 
     .text-1 {
-        margin-bottom: 0;
         margin-top: 10px;
         font-size: 23px;
-        text-transform: capitalize;
         font-style: italic;
-        line-height: 1;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #333333;
+        margin-bottom: 12px;
     }
 
     .text-2 {
-        font-size: 20px;
-        text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 700;
+        font-size: 28px;
+        color: #FF5D00;
+        margin-bottom: 13px;
     }
 
-    .line {
-        display: block;
-        height: 3px;
-        width: 150px;
-        border-radius: 2px;
-        background: #ffff00;
-        margin: 10px 0;
-    }
 
     .text-3 {
-        font-size: 16px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 27px;
+        color: #333333;
     }
 
     .btn {
-        $bg-btn-join: #dfa982 0%, #f4eccd 50%, #c09f84 100%;
-        @include background-gradient(top, $bg-btn-join);
-        position: relative;
-        margin-top: 20px;
+        background: #FF5D00;
+        margin-top: 30px;
         border-radius: 8px;
-        padding: 8px 30px;
+        padding: 7px 23px;
         height: auto;
-        color: #ce0000;
-        font-weight: 600;
-        font-style: italic;
-        overflow: hidden;
-        border: 1px solid #dab078;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
 
-        &:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 0;
-            top: 50%;
-            left: 50%;
-            background: rgba(255,255,255,.2);
-            opacity: 0;
-            z-index: -1;
-            @include css3-prefix(transform, translateX(-50%) translateY(-50%) rotate(45deg));
-            @include css3-prefix(transition, all .3s);
-        }
-
-        &:hover:after {
-            height: 260%;
-            opacity: 1;
-            z-index: 1;
+        &:hover {
+            box-shadow: 3px 6px 8px rgba(116, 115, 115, 0.25);
         }
 
         &:focus {
@@ -186,9 +170,80 @@ $height-hotnew: 26px;
     }
 }
 
-@media only screen and (min-width: 1190px ) and (max-width: 1366px){
-    .page-container {
-        max-width: calc(100% - 200px);
-        flex-basis: calc(100% - 200px);
+@media only screen and (max-width: 768px) {
+    .hot-news {
+        .title {
+            font-size: 12px;
+            height: 26px;
+            line-height: 26px;
+            margin-left: 18px;
+            margin-right: 18px;
+            padding: 0;
+            z-index: 2;
+
+            &:before {
+                content: "";
+                background: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge.mobile.png") no-repeat center center / cover;
+                width: 26px;
+                height: 26px;
+                left: -18px;
+                z-index: -2;
+            }
+
+            &:after {
+                content: "";
+                background: url("../../../../../www/build/styles/Images/home/n88/hot-news/right-badge.mobile.png") no-repeat center center/ cover;
+                width: 26px;
+                height: 26px;
+                right: -18px;
+                z-index: -2;
+            }
+        }
+
+        .message {
+            height: 26px;
+            line-height: 26px;
+            font-size: 12px;
+        }
+    }
+
+    .adv-contact {
+        padding: 5px 15px;
+        padding: 7px 70px 7px 7px;
+        background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.mobile.png");
+
+        .text-1 {
+            margin-bottom: 0;
+            margin-top: 0;
+            font-size: 14px;
+            line-height: 18px;
+            margin-bottom: 6px;
+        }
+
+        .text-2 {
+            font-size: 16px;
+            line-height: 22px;
+            margin-bottom: 8px;
+        }
+
+
+        .text-3 {
+            font-size: 14px;
+            line-height: 18px;
+            padding-right: 15px;
+        }
+
+        .btn {
+            margin-top: 11px;
+            border-radius: 4px;
+            padding: 3px 9px;
+            font-size: 14px;
+            line-height: 19px;
+            box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25);
+
+            &:hover {
+                box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25);
+            }
+        }
     }
 }
