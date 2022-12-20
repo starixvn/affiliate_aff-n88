@@ -1,45 +1,35 @@
 ﻿body {
   font-family: 'Open Sans',sans-serif;
+  color: #333333;
   background: #E5E5E5; }
   body a:focus {
     outline: none !important; }
 
-.header-top {
-  background-color: #001942;
-  /*.logo-image {
-        width: 168px;
-        height: 87px;
-    }*/ }
+body.menu-open {
+  filter: blur(2px); }
+
+header {
+  background-color: #001942; }
 
 .language-container {
   display: inline-block;
   margin-right: 10px;
   vertical-align: middle;
-  /*    .language-list-wrapper {
-        background-color: #29426C;
+  /*    &.mobile {
+        display: none;
+    }
 
-        .language-list {
-            margin-bottom: 0;
+    @media screen and (max-device-width: 480px) {
+        &.mobile {
+            display: block;
+            float: right;
+            margin-top: 4px;
+        }
 
-            .language-item {
-                color: #ffffff;
-                padding: 8px 20px;
-
-                &:hover {
-                    background: #0B71DF;
-                }
-            }
+        &.desktop {
+            display: none;
         }
     }*/ }
-  .language-container.mobile {
-    display: none; }
-  @media screen and (max-device-width: 480px) {
-    .language-container.mobile {
-      display: block;
-      float: right;
-      margin-top: 4px; }
-    .language-container.desktop {
-      display: none; } }
   .language-container .select-language {
     border: 0;
     position: relative;
@@ -68,30 +58,30 @@
       position: absolute;
       border: 1px solid #E9ECEF;
       /*&.flag-vi-VN {
-                    background-image: url("../../Images/icons/flags/Vietnam.png");
+                    background-image: url("../Images/icons/flags/Vietnam.png");
                 }
 
                 &.flag-zh-TW {
-                    background-image: url("../../Images/icons/flags/Taiwan.png");
+                    background-image: url("../Images/icons/flags/Taiwan.png");
                 }*/ }
       .language-container .select-language .flag.flag-en-US {
-        background-image: url("../../Images/icons/flags/England.png"); }
+        background-image: url("../Images/icons/flags/England.png"); }
       .language-container .select-language .flag.flag-id-ID {
-        background-image: url("../../Images/icons/flags/Indonesia.png"); }
+        background-image: url("../Images/icons/flags/Indonesia.png"); }
       .language-container .select-language .flag.flag-zh-CN {
-        background-image: url("../../Images/icons/flags/China.png"); }
+        background-image: url("../Images/icons/flags/China.png"); }
       .language-container .select-language .flag.flag-th-TH {
-        background-image: url("../../Images/icons/flags/Thailand.png"); }
+        background-image: url("../Images/icons/flags/Thailand.png"); }
       .language-container .select-language .flag.flag-hi-IN {
-        background-image: url("../../Images/icons/flags/Hindi.png"); }
+        background-image: url("../Images/icons/flags/Hindi.png"); }
       .language-container .select-language .flag.flag-ms-MY {
-        background-image: url("../../Images/icons/flags/Malaysia.svg"); }
+        background-image: url("../Images/icons/flags/Malaysia.png"); }
 
 .sign-up {
   position: relative;
   border-left: 1px solid #BDBDBD; }
   .sign-up .btn-signup {
-    margin-left: 10px;
+    margin-left: 12px;
     border-radius: 4px; }
 
 .bg-highlight {
@@ -99,7 +89,7 @@
   color: #fff; }
 
 .news {
-  background: #F8F9FA url("../../Images/home/n88/bg-news.png") no-repeat top 130px center/100% auto;
+  background: #F8F9FA url("../Images/home/n88/bg-news.png") no-repeat top 130px center/100% auto;
   width: 100vw;
   margin-left: calc(-50vw + 50%) !important;
   padding: 25px 300px !important;
@@ -465,14 +455,48 @@
 @media only screen and (max-width: 1199px) {
   .news, .hot-news {
     padding-left: 62px !important;
-    padding-right: 62px !important; } }
+    padding-right: 62px !important; }
+  .header-top {
+    padding: 4px 12px 0 12px; }
+  .navbar .page-container {
+    margin-left: 24px; } }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 1200px) and (max-width: 1365px) {
+  .header-top, .navbar .page-container {
+    width: 80%; } }
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .menu .menu-item {
+    padding-right: 20px; } }
+
+@media only screen and (max-width: 767px) {
+  #btnLogin {
+    display: none; }
+  .navbar-collapse {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 40px;
+    left: 0;
+    background: #001332;
+    z-index: 100; }
+  .navbar .page-container {
+    margin-left: 0; }
+  .language-container {
+    position: absolute;
+    top: 64px;
+    right: 28%; }
+  #mobileLogin {
+    position: absolute;
+    top: 64px;
+    right: 4px; }
+  .sign-up {
+    border: 0; }
   .hot-news {
     padding: 0 !important; }
   .news {
     padding: 7px 10px 5px !important;
-    background: #F8F9FA url("../../Images/home/n88/bg-news.mobile.png") no-repeat top 55px center/100% auto;
+    background: #F8F9FA url("../Images/home/n88/bg-news.mobile.png") no-repeat top 55px center/100% auto;
     width: 100vw; }
     .news:before, .news:after {
       height: 150px; }
@@ -512,7 +536,7 @@
           width: 100%;
           content: "";
           height: 1px;
-          background-image: url("../../Images/contact-in-home/n88/line.png");
+          background-image: url("../Images/contact-in-home/n88/line.png");
           bottom: -17px;
           left: 0;
           background-size: auto 100%;

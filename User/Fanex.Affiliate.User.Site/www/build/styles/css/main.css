@@ -1363,7 +1363,7 @@ ul.dash-style {
 .btn.btn-transparent :hover {
   color: cornflowerblue; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #mobileLogin {
     display: none; } }
 
@@ -1617,8 +1617,9 @@ input[type="radio"], input[type="checkbox"] {
   .news .item-wrapper {
     flex-basis: 100%;
     max-width: 100%; }
-  .user-signup {
-    margin-top: 30px; }
+  /*.user-signup {
+        margin-top: 30px;
+    }*/
   .content-menu #mainMenu {
     white-space: nowrap;
     /* [1] */

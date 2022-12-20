@@ -299,7 +299,6 @@ input[type="checkbox"], input[type="radio"] {
   height: 24px;
   margin-right: 8px;
   position: relative;
-  top: 2px;
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   background-size: cover;
@@ -336,10 +335,9 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 300px; }
-  @media (max-width: 767px) {
-    .header-top {
-      display: block; } }
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%; }
   .header-top .logo {
     padding: 8px 0 16px 0;
     display: inline-block; }
@@ -365,7 +363,9 @@ input[type="checkbox"], input[type="radio"] {
   margin-bottom: 0;
   border: none; }
   .navbar .page-container {
-    margin: 4px 300px; }
+    max-width: 1320px;
+    margin: 4px auto;
+    width: 100%; }
   .navbar ul li {
     line-height: 30px; }
     .navbar ul li a {
@@ -415,10 +415,8 @@ input[type="checkbox"], input[type="radio"] {
   text-align: right;
   margin-bottom: 3px; }
   @media (max-width: 992px) {
-    .user-signup {
-      text-align: right; }
-      .user-signup > * {
-        margin-bottom: 4px; } }
+    .user-signup > * {
+      margin-bottom: 4px; } }
 
 .sign-up {
   display: inline-block;
@@ -511,7 +509,7 @@ input[type="checkbox"], input[type="radio"] {
       left: 16px; }
     .user-login .group .text-field {
       padding-left: 33px; }
-  @media (max-width: 992px) {
+  @media (max-width: 767px) {
     .user-login {
       margin-top: 0;
       margin-bottom: 0;
@@ -1479,7 +1477,7 @@ ul.dash-style {
 .btn.btn-transparent :hover {
   color: cornflowerblue; }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #mobileLogin {
     display: none; } }
 
@@ -1733,8 +1731,9 @@ input[type="radio"], input[type="checkbox"] {
   .news .item-wrapper {
     flex-basis: 100%;
     max-width: 100%; }
-  .user-signup {
-    margin-top: 30px; }
+  /*.user-signup {
+        margin-top: 30px;
+    }*/
   .content-menu #mainMenu {
     white-space: nowrap;
     /* [1] */

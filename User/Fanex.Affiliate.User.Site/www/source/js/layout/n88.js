@@ -2,6 +2,7 @@
     var _me = {
         initialize: function () {
             _me.initEvent();
+            _me.openMenu();
         },
         initEvent: function () {
             $(".desktop").on("click", ".select-language", function () {
@@ -21,6 +22,13 @@
                 var $selectedItem = $(this);
                 _me.changeLanguage($selectedItem.data('option'));
             });
+        },
+
+        openMenu: function () {
+            $('#btn-menu').click(function () {
+                $(this).parent().toggleClass('menu-open');
+                $('body').toggleClass('menu-open');
+            })
         }
     }
 

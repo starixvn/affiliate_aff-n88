@@ -10,14 +10,13 @@ body {
     }
 }
 
-// Header
+body.menu-open {
+    filter: blur(2px);
+}
 
-.header-top {
+// Header
+header {
     background-color: $header-bg-color;
-    /*.logo-image {
-        width: 168px;
-        height: 87px;
-    }*/
 }
 
 //.language-container
@@ -25,8 +24,7 @@ body {
     display: inline-block;
     margin-right: 10px;
     vertical-align: middle;
-
-    &.mobile {
+    /*    &.mobile {
         display: none;
     }
 
@@ -39,22 +37,6 @@ body {
 
         &.desktop {
             display: none;
-        }
-    }
-    /*    .language-list-wrapper {
-        background-color: #29426C;
-
-        .language-list {
-            margin-bottom: 0;
-
-            .language-item {
-                color: #ffffff;
-                padding: 8px 20px;
-
-                &:hover {
-                    background: #0B71DF;
-                }
-            }
         }
     }*/
     .select-language {
@@ -128,7 +110,7 @@ body {
     border-left: 1px solid #BDBDBD;
 
     .btn-signup {
-        margin-left: 10px;
+        margin-left: 12px;
         border-radius: 4px;
     }
 }
@@ -204,16 +186,19 @@ body {
         }
     }
 }
+
 .news .item-wrapper.first {
     width: 100%;
     padding: 0 !important;
     margin-bottom: 37px;
+
     .card-title {
         padding: 13px 10px 30px;
     }
 
     .img-content {
         margin-bottom: 6px;
+
         .img-item {
             position: relative;
             left: -7px;
@@ -233,8 +218,10 @@ body {
         }
     }
 }
+
 .news .item-wrapper:nth-child(2) {
     margin-bottom: 43px;
+
     .card-title {
         margin-bottom: 18px;
     }
@@ -247,15 +234,16 @@ body {
         }
     }
 }
+
 .news .item-wrapper.last {
     .card-title {
         margin-bottom: 18px;
     }
 
     .card-content {
-        .text-content{
+        .text-content {
             padding: 0;
-        }        
+        }
     }
 }
 
@@ -324,7 +312,6 @@ body {
             .marquee-content {
                 a {
                     color: #333333 !important;
-                   
                 }
             }
         }
@@ -746,18 +733,75 @@ body {
         padding-left: 62px !important;
         padding-right: 62px !important;
     }
+
+    .header-top {
+        padding: 4px 12px 0 12px;
+    }
+
+    .navbar .page-container {
+        margin-left: 24px;
+    }
 }
-@media only screen and (max-width: 768px) {
+
+@media only screen and (min-width: 1200px) and (max-width: 1365px) {
+    .header-top, .navbar .page-container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+    .menu .menu-item {
+        padding-right: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    #btnLogin {
+        display: none;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 40px;
+        left: 0;
+        background: #001332;
+        z-index: 100;
+        //transition: all ease-in-out .3s;
+    }
+
+    .navbar .page-container {
+        margin-left: 0;
+    }
+
+    .language-container {
+        position: absolute;
+        top: 64px;
+        right: 28%;
+    }
+
+    #mobileLogin {
+        position: absolute;
+        top: 64px;
+        right: 4px;
+    }
+
+    .sign-up {
+        border: 0;
+    }
+
     .hot-news {
         padding: 0 !important;
-        
     }
+
     .news {
         padding: 7px 10px 5px !important;
         background: #F8F9FA url("../../../../build/styles/Images/home/n88/bg-news.mobile.png") no-repeat top 55px center / 100% auto;
         width: 100vw;
 
-        &:before,&:after {
+        &:before, &:after {
             height: 150px
         }
 
@@ -814,6 +858,7 @@ body {
             }
         }
     }
+
     .news-content {
         display: block;
 
@@ -821,8 +866,10 @@ body {
             max-width: 100%;
             padding: 7px !important;
             position: relative;
+
             &:first-child {
                 margin-bottom: 24px;
+
                 &:after {
                     position: absolute;
                     width: 100%;
