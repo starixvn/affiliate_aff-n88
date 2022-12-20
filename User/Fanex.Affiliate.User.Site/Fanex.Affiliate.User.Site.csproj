@@ -963,6 +963,7 @@
     <Content Include="www\build\styles\Images\bg-FAQ_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.desktop.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n88\bg_contact.mobile.png" />
+    <Content Include="www\build\styles\Images\contact-in-home\n88\line.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\bg_contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
@@ -975,8 +976,11 @@
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
+    <Content Include="www\build\styles\Images\home\n88\bg-news.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-news.png" />
+    <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.png" />
+    <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.png" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\desktop.png" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\mobile.png" />
