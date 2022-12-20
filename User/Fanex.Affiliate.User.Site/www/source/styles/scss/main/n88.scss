@@ -19,3 +19,90 @@
 @import "../components/marquee";
 @import '../base/media.scss';
 @import "../components/login-dialog";
+
+
+@import '../components/n88/nav-scroll';
+
+
+
+
+.main-content {
+    display: flex;
+    gap: 4.8rem;
+    margin-bottom: 2.4rem;
+    .content {
+        max-width: 90rem;
+        padding: 0 !important;
+    }
+}
+
+
+
+.page-title {
+    border-top: none !important;
+    text-align: center;
+    margin: 2.1rem 0 0;
+    .text {
+        background-color: transparent !important;
+        font-weight: 700;
+        font-size: 3.2rem;
+        line-height: 4.8rem;
+        text-transform: uppercase;
+        color: #EA5500 !important;
+        padding: 0;
+
+        &:before, &:after {
+            display: none;
+        }
+    }
+}
+
+.info-group {
+    .title {
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 3rem;
+
+        @include Mobile {
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+
+        &:before, &:after {
+            height: 2px;
+            background: #FFD1B6 !important;
+        }
+
+        .text {
+            color: #EA5500;
+        }
+    }
+
+    ul, ol {
+        li {
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+
+            @include Mobile {
+                font-size: 1.4rem;
+                line-height: 2.2rem;
+            }
+        }
+    }
+
+    p, table {
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+
+        @include Mobile {
+            font-size: 1.4rem;
+            line-height: 2.2rem;
+        }
+    }
+
+    table {
+        margin-top: 1.7rem;
+    }
+}

@@ -19,15 +19,22 @@
     @Html.InlineScripts("~/www/build/js/revenue-structure.js")
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.CommissionStructure</span>
-    </div>
-    <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
-    </div>
 
-    @Html.Raw(htmlString)
+<div class="main-content">
+    <div class="left-panel">
+        <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
+            @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+        </div>
+    </div>
+    <div class="content">
+        <div class="page-title">
+            <span class="text">@Lang.CommissionStructure</span>
+        </div>
 
-    @RazorHelper.RenderMovingTopButton()
+        @Html.Raw(htmlString)
+
+        @RazorHelper.RenderMovingTopButton()
+    </div>
 </div>
+
+
