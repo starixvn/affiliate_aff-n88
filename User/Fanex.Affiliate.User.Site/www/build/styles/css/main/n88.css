@@ -335,9 +335,10 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1320px;
+  max-width: 1332px;
   margin: 0 auto;
-  width: 100%; }
+  width: 100%;
+  padding: 0 12px; }
   .header-top .logo {
     padding: 8px 0 16px 0;
     display: inline-block; }
@@ -364,9 +365,10 @@ input[type="checkbox"], input[type="radio"] {
   margin-bottom: 0;
   border: none; }
   .navbar .page-container {
-    max-width: 1320px;
+    max-width: 1332px;
     margin: 4px auto;
-    width: 100%; }
+    width: 100%;
+    padding: 0 12px; }
   .navbar ul li {
     line-height: 30px; }
     .navbar ul li a {
