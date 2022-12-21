@@ -1,7 +1,7 @@
 ﻿body {
   font-family: 'Open Sans',sans-serif;
   color: #333333;
-  background: #E5E5E5; }
+  background: #F8F9FA; }
   body a:focus {
     outline: none !important; }
 
@@ -60,7 +60,6 @@ header {
       top: 0;
       left: 0;
       position: absolute;
-      border: 1px solid #E9ECEF;
       /*&.flag-vi-VN {
                     background-image: url("../Images/icons/flags/Vietnam.png");
                 }
@@ -211,14 +210,14 @@ header {
       color: #333333 !important; }
 
 .page-title {
-  background: #E5E5E5;
+  background: #F8F9FA;
   border-top: 1px solid #FF5D00; }
   .page-title .text {
     background-color: #FF5D00;
     color: #fff; }
     .page-title .text:after {
-      border-bottom: 18px solid #E5E5E5;
-      border-right: 16px solid #E5E5E5;
+      border-bottom: 18px solid #F8F9FA;
+      border-right: 16px solid #F8F9FA;
       z-index: 1; }
     .page-title .text:before {
       content: "";
@@ -229,7 +228,7 @@ header {
       height: 0;
       border-style: solid;
       border-width: 0 0 32px 40px;
-      border-color: transparent transparent #E5E5E5 transparent;
+      border-color: transparent transparent #F8F9FA transparent;
       z-index: 2; }
 
 .info-group .title {

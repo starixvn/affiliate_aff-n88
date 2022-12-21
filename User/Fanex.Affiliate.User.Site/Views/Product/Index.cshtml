@@ -12,22 +12,60 @@
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/products.css")
 }
-
-<div class="content product-page">
-    <div class="page-title">
-        <span class="text">@Lang.Product</span>
-    </div>
-    <div class="collapse navbar-collapse menu" id="">
-        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
-    </div>
-
-    @{ Html.RenderPartial(viewName, Model.SiteFriendlyName); }
-
-    @if (!Model.IsAuthenticated)
-    {
-        <div class="col-sm-offset-3 col-sm-6 signup-block">
-            <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.ReplaceB2C(Lang.SignUpAffiliateProgramNow)</a>
+<div class="main-content">
+    <div class="left-panel">
+        <div class="menu" id="">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="menu-item left-menu-item active" href="#WhatWeHave">
+                        @Lang.WhatWeHave
+                    </a>
+                    <ul class="sub-menu">
+                        <li><a href="#" class="active">Sub menu 1</a></li>
+                        <li><a href="#">Sub menu 1</a></li>
+                        <li><a href="#">Sub menu 1</a></li>
+                        <li><a href="#">Sub menu 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#WhatWeOffer">
+                        @Lang.WhatWeOffer
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#OurPlan">
+                        @Lang.WhatWeHave
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
+                        @Lang.RevenueSharePayoutExample
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#HowWePay">
+                        @Lang.HowWePay
+                    </a>
+                </li>
+            </ul>
         </div>
-    }
-    @RazorHelper.RenderMovingTopButton()
+    </div>
+    <div class="content product-page">
+        <div class="page-title">
+            <span class="text">@Lang.Product</span>
+        </div>
+        @*<div class="collapse navbar-collapse menu" id="">
+            @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+        </div>*@
+
+        @{ Html.RenderPartial(viewName, Model.SiteFriendlyName); }
+
+        @if (!Model.IsAuthenticated)
+        {
+            <div class="col-sm-offset-3 col-sm-6 signup-block">
+                <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.ReplaceB2C(Lang.SignUpAffiliateProgramNow)</a>
+            </div>
+        }
+        @RazorHelper.RenderMovingTopButton()
+    </div>
 </div>

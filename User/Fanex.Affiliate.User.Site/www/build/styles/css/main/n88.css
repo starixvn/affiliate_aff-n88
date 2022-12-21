@@ -1988,7 +1988,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .main-content {
   display: flex;
-  gap: 4.8rem;
+  gap: 4.6rem;
   margin-bottom: 2.4rem;
   justify-content: center; }
   @media (min-width: 768px) and (max-width: 1023px) {
