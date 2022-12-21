@@ -8,11 +8,11 @@ namespace Fanex.Affiliate.User.Core.Constants
         public const string N8B = "N8B";
         public const string N8G = "N8G";
 
-        public static readonly IDictionary<string, string> SupportedSiteNames = new Dictionary<string, string>
+        public static IDictionary<string, string> SupportedSiteNames => new Dictionary<string, string>
         {
-            ["N88"] = "N88",
-            ["N8B"] = "N8B",
-            ["N8G"] = "N8G"
+            [N88] = "N88",
+            [N8B] = "N8B",
+            [N8G] = "N8G"
         };
     }
 }

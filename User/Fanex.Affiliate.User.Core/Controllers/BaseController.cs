@@ -8,11 +8,11 @@ using ONEbook.UM.AspNetMVC.Filters;
 namespace Fanex.Affiliate.User.Core.Controllers
 {
     [CheckUMFilter]
-    public abstract class BaseController : Controller
+    public class BaseController : Controller
     {
         protected readonly ILanguageService LanguageService;
 
-        protected BaseController(ISessionService sessionService,
+        public BaseController(ISessionService sessionService,
             ILanguageService languageService)
         {
             SessionService = sessionService;

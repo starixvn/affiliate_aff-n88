@@ -1697,4 +1697,10 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. 以资证明</value>
   </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. 体育博彩产品</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. 娱乐城</value>
+  </data>
 </root>

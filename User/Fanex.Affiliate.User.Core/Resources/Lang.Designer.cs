@@ -952,6 +952,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2. CASINO PRODUCTS.
+        /// </summary>
+        public static string CasinoProducts {
+            get {
+                return ResourceManager.GetString("CasinoProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category.
         /// </summary>
         public static string Category {
@@ -4660,6 +4669,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1. SPORTSBOOK PRODUCTS.
+        /// </summary>
+        public static string SportbookProducts {
+            get {
+                return ResourceManager.GetString("SportbookProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SportsBook.
         /// </summary>
         public static string Sportsbook {
@@ -4849,7 +4867,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8).
+        ///   Looks up a localized string similar to &lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8).
         /// </summary>
         public static string SupportTimeN88 {
             get {

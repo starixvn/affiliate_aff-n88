@@ -1352,7 +1352,7 @@
     <comment>87923</comment>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8)</value>
+    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
     <comment>87923</comment>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
@@ -2114,5 +2114,11 @@
   </data>
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. IN WITNESS WHEREOF</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. SPORTSBOOK PRODUCTS</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. CASINO PRODUCTS</value>
   </data>
 </root>

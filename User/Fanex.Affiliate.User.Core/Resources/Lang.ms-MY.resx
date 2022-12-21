@@ -280,7 +280,7 @@
     <value>E-mel</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Isnin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 pagi - 08:00 malam&lt;br&gt;(GMT +8)</value>
+    <value>&lt;strong&gt;Isnin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 pagi - 08:00 malam (GMT +8)</value>
   </data>
   <data name="Copyright" xml:space="preserve">
     <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
@@ -1339,5 +1339,11 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. SEBAGAI SAKSI</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. PRODUK SPORTSBOOK</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. PRODUK KASINO</value>
   </data>
 </root>

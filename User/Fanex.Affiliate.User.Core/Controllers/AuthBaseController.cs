@@ -11,14 +11,14 @@ using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
-    public abstract class AuthBaseController : BaseController
+    public class AuthBaseController : BaseController
     {
         private readonly ICaptchaService _captchaService;
         private readonly IAppSetting _appSetting;
         private readonly IAuthService _authService;
         protected readonly IAccountRepository _accountRepository;
 
-        protected AuthBaseController(
+        public AuthBaseController(
             ISessionService sessionService,
             ILanguageService languageService,
             IAppSetting appSetting,

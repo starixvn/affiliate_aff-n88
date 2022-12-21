@@ -5,11 +5,11 @@ using Fanex.Affiliate.User.Core.ViewModels;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
-    public abstract class BaseLayoutController : BaseController
+    public class BaseLayoutController : BaseController
     {
         protected readonly IAppSetting AppSetting;
 
-        protected BaseLayoutController(
+        public BaseLayoutController(
             IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService) : base(sessionService, languageService)

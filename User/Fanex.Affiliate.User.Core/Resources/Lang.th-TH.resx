@@ -1680,4 +1680,10 @@
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. ในการเป็นพยาน</value>
   </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>ผลิตภัณฑ์กีฬา</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>ผลิตภัณฑ์คาสิโน</value>
+  </data>
 </root>

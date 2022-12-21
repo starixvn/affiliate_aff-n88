@@ -12,7 +12,9 @@ namespace Fanex.Affiliate.User.Core.Utilities
                 return layoutName;
             }
 
-            return IsN88(siteName) ? $"~/Views/Shared/{siteName}/{layoutName}.cshtml" : $"~/Views/Shared/{layoutName}.cshtml";
+            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
+
+            return isInclude ? $"~/Views/Shared/{validSiteName}/{layoutName}.cshtml" : $"~/Views/Shared/{layoutName}.cshtml";
         }
 
         public static string GetViewPath(string partialPath, string fileName, string siteName = null)
@@ -22,14 +24,16 @@ namespace Fanex.Affiliate.User.Core.Utilities
                 return partialPath;
             }
 
-            return IsN88(siteName) ? $"~/Views/{partialPath}/{siteName}/{fileName}.cshtml" : $"~/Views/{partialPath}/{fileName}.cshtml";
+            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
+
+            return isInclude ? $"~/Views/{partialPath}/{validSiteName}/{fileName}.cshtml" : $"~/Views/{partialPath}/{fileName}.cshtml";
         }
 
-        private static bool IsN88(string siteName)
+        private static (bool, string) IsIncludeSiteName(string siteName)
         {
             var validSiteName = GetValidSiteName(siteName);
 
-            return string.Equals(validSiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+            return (string.Equals(validSiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase), validSiteName);
         }
 
         private static string GetValidSiteName(string siteName)
