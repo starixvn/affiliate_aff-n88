@@ -1640,4 +1640,61 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="HowWePay" xml:space="preserve">
     <value>支付方法</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>市场营销与追踪</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>提领佣金盈利</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. 合营代理的责任</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. 合营代理指南</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. 合营代理标签</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. 营业收入分成和支付</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. 政策与保密</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. 有限许可</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. 法律责任</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. 其他约定</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. 期限和终止</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. 双方关系</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. 保障赔偿</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. 免责声明</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. 责任范围</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. 独立调查</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. 法律监督和仲裁</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. 以资证明</value>
+  </data>
 </root>

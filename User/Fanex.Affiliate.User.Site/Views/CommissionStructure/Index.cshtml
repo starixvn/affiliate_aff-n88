@@ -22,8 +22,34 @@
 
 <div class="main-content">
     <div class="left-panel">
-        <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-            @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+        <div class="collapse navbar-collapse menu" id="">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a class="menu-item left-menu-item active" href="#WhatWeHave">
+                        @Lang.WhatWeHave
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#WhatWeOffer">
+                        @Lang.WhatWeOffer
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#OurPlan">
+                        @Lang.WhatWeHave
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
+                        @Lang.RevenueSharePayoutExample
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item left-menu-item" href="#HowWePay">
+                        @Lang.HowWePay
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class="content">

@@ -2058,4 +2058,61 @@
   <data name="HowWePay" xml:space="preserve">
     <value>How we pay</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>Marketing &amp; Tracking</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>Revenue Share Payment</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. Responsibilities of the Affiliate</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. Affiliation Guidelines</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. Affiliate Tagging</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. Revenue Sharing &amp;amp; Payment</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. Policies &amp;amp; Confidentiality</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. Limited License</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. Legal Responsibility</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. Miscellaneous</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. Term &amp;amp; Termination</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. Relationship of Parties</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. Indemnity</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. Disclaimers</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. Limitation of Liability</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. Independent Investigation</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. Governing Law and Arbitration</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. IN WITNESS WHEREOF</value>
+  </data>
 </root>
