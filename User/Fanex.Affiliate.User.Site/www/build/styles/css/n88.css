@@ -621,6 +621,8 @@ header {
     background: #001332; }
   .navbar .page-container {
     margin-left: 0; }
+    .navbar .page-container .navbar-nav {
+      margin: 16px; }
     .navbar .page-container .menu .menu-item {
       height: 32px;
       border-bottom: 1px solid #EEEEEE;
@@ -631,16 +633,11 @@ header {
         border-bottom: 1px solid #FF5D00; }
     .navbar .page-container ul li:last-child .menu-item {
       border-bottom: 0; }
-  .language-container {
-    position: absolute;
-    top: 64px;
-    right: 28%; }
-  #mobileLogin {
-    position: absolute;
-    top: 64px;
-    right: 4px; }
+  .user-signup {
+    flex-direction: column-reverse; }
   .sign-up {
-    border: 0; }
+    border: 0;
+    margin-bottom: 10px; }
   .hot-news {
     padding: 0 !important; }
   .news {
@@ -718,3 +715,15 @@ header {
       margin: 0 0 4px 0; }
   .login-dialog .modal-content .login-side {
     padding: 14px 12px 12px; } }
+
+@media only screen and (max-width: 375px) {
+  .header-top {
+    padding: 10px; }
+    .header-top .user-signup {
+      margin: 0;
+      align-items: flex-end; }
+    .header-top .logo, .header-top .login {
+      padding: 0; }
+    .header-top .btn-login-mobile {
+      margin: 0 !important;
+      padding: 0 10px !important; } }

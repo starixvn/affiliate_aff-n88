@@ -392,8 +392,6 @@ input[type="checkbox"], input[type="radio"] {
       background: transparent; }
   .navbar.navbar-default .navbar-collapse {
     border-color: transparent; }
-  .navbar .navbar-nav {
-    margin: 16px; }
 
 .menu {
   padding-left: 0;
@@ -413,18 +411,17 @@ input[type="checkbox"], input[type="radio"] {
     padding: 0; }
 
 .user-signup {
+  display: flex;
+  justify-content: flex-end;
   text-align: right;
   margin-bottom: 3px; }
-  @media (max-width: 992px) {
-    .user-signup > * {
-      margin-bottom: 4px; } }
 
 .sign-up {
   display: inline-block;
   vertical-align: middle; }
 
 #btnLogin {
-  margin-right: 8px; }
+  margin-right: 9px; }
 
 .language-container {
   display: inline-block;

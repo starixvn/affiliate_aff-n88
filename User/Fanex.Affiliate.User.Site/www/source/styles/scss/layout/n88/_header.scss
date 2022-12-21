@@ -90,10 +90,6 @@
     &.navbar-default .navbar-collapse {
         border-color: transparent;
     }
-
-    .navbar-nav {
-        margin: 16px;
-    }
 }
 
 .menu {
@@ -123,14 +119,10 @@
 }
 
 .user-signup {
+    display: flex;
+    justify-content: flex-end;
     text-align: right;
     margin-bottom: 3px;
-
-    @media (max-width: 992px) {
-        > * {
-            margin-bottom: 4px;
-        }
-    }
 }
 
 .sign-up {
@@ -139,7 +131,7 @@
 }
 
 #btnLogin {
-    margin-right: 8px;
+    margin-right: 9px;
 }
 
 .language-container {

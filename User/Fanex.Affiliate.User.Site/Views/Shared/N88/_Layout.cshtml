@@ -58,31 +58,36 @@
             <div class="login">
                 @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
                 <div class="user-signup">
-                    <div class="language-container desktop">
-                        <div class="language-selection">
-                            <button class="select-language">
-                                <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
-                                <i class="caret"></i>
-                            </button>
+                    <div>
+                        <div class="language-container desktop">
+                            <div class="language-selection">
+                                <button class="select-language">
+                                    <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
+                                    <i class="caret"></i>
+                                </button>
 
-                            <div class="language-list-wrapper language-list-wrapper-desktop">
-                                <ul class="list-unstyled language-list">
-                                    @foreach (var language in languageList)
-                                    {
-                                        <li>
-                                            <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
-                                        </li>
-                                    }
-                                </ul>
+                                <div class="language-list-wrapper language-list-wrapper-desktop">
+                                    <ul class="list-unstyled language-list">
+                                        @foreach (var language in languageList)
+                                        {
+                                            <li>
+                                                <a href="javascript:;" class="language-item" data-option="@language.ShortedCode"><i class="flag flag-@language.Code"></i>@language.NativeName</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                        <button class="btn btn-login" id="btnLogin" type="button">@Lang.Login</button>
+                        @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
+                        {
+                            <a class="btn btn-login-mobile" id="mobileLogin">
+                                <span>@Lang.Login</span>
+                            </a>
+                        }
                     </div>
-                    <button class="btn btn-login" id="btnLogin" type="button">@Lang.Login</button>
                     @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
                     {
-                        <a class="btn btn-login-mobile" id="mobileLogin">
-                            <span>@Lang.Login</span>
-                        </a>
                         <div class="sign-up">
                             <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup">@Lang.SignUpAffiliate</a>
                         </div>
@@ -96,7 +101,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="navbar-header">
-                            <button type="button"  id="btn-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <button type="button" id="btn-menu" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <span class="sr-only">Toggle navigation</span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>

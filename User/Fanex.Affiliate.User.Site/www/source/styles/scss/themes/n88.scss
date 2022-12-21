@@ -976,6 +976,10 @@ header {
     .navbar .page-container {
         margin-left: 0;
 
+        .navbar-nav {
+            margin: 16px;
+        }
+
         .menu .menu-item {
             height: 32px;
             border-bottom: 1px solid #EEEEEE;
@@ -993,20 +997,13 @@ header {
         }
     }
 
-    .language-container {
-        position: absolute;
-        top: 64px;
-        right: 28%;
-    }
-
-    #mobileLogin {
-        position: absolute;
-        top: 64px;
-        right: 4px;
+    .user-signup {
+        flex-direction: column-reverse;
     }
 
     .sign-up {
         border: 0;
+        margin-bottom: 10px;
     }
 
     .hot-news {
@@ -1151,6 +1148,26 @@ header {
             .login-side {
                 padding: 14px 12px 12px;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .header-top {
+        padding: 10px;
+
+        .user-signup {
+            margin: 0;
+            align-items: flex-end;
+        }
+
+        .logo, .login {
+            padding: 0;
+        }
+
+        .btn-login-mobile {
+            margin: 0 !important;
+            padding: 0 10px !important;
         }
     }
 }
