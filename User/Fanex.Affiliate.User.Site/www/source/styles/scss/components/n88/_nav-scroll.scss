@@ -6,6 +6,9 @@
     margin-left: -6.4rem;
     margin-top: 8rem;
     display: block;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 11px 7px rgba(201, 201, 201, 0.25);
+    border-radius: 8px;
 
     @include Mobile {
         display: none;
@@ -23,14 +26,18 @@
     &.active {
         @include Mobile {
             display: block;
+            position: fixed;
+            z-index: 99;
+            height: auto;
+            width: 35.5rem;
+            top: 50%;
+            margin-top: 0;
+            right: 50%;
+            transform: translate(50%,-50%);
         }
     }
 
     .menu {
-        background: #FFFFFF;
-        box-shadow: 0px 4px 11px 7px rgba(201, 201, 201, 0.25);
-        border-radius: 8px;
-
         .navbar-nav {
             margin: 1.2rem;
 
@@ -70,6 +77,42 @@
                     }
                 }
 
+                .sub-menu {
+                    list-style: none;
+                    padding-left: 0;
+                    margin-left: .8rem;
+                    margin-bottom: .8rem;
+
+                    li {
+                        margin-bottom: .8rem;
+
+                        a {
+                            background: #FAFAFA;
+                            border-radius: 4px;
+                            display: block;
+                            text-decoration: none;
+                            border: 1px solid #FAFAFA;
+
+                            &.active {
+                                color: #001942;
+                                background: #EDF4FF;
+
+                                &:hover {
+                                    border: 1px solid #001942;
+                                }
+
+                                &:after {
+                                    display: none;
+                                }
+                            }
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
                 &:first-child {
                     a {
                         margin-top: 0;
@@ -104,7 +147,8 @@
         position : fixed;
         top: 10.3rem;
         right: 1rem;
-        z-index: 99;
+        z-index: 1;
+        cursor : pointer;
         img {
             margin-right: .4rem;
         }

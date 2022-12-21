@@ -22,6 +22,7 @@
                 var $selectedItem = $(this);
                 _me.changeLanguage($selectedItem.data('option'));
             });
+
         },
 
         openMenu: function () {
@@ -29,7 +30,12 @@
                 $(this).parent().toggleClass('menu-open');
                 $('body').toggleClass('menu-open');
             })
-        }
+            $('.mobile-left-panel').click(function () {
+                $('body').toggleClass('overflow-left-panel');
+                $('.left-panel').toggleClass('active');
+            })
+        },
+
     }
 
     return _me;
