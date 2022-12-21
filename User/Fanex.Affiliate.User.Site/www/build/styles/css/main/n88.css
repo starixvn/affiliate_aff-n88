@@ -2101,7 +2101,7 @@ input[type="radio"], input[type="checkbox"] {
 
 .mobile-left-panel {
   display: none; }
-  @media screen and (max-width: 1024px) {
+  @media (max-width: 767px) {
     .mobile-left-panel {
       display: flex;
       align-items: center;
@@ -2121,6 +2121,9 @@ input[type="radio"], input[type="checkbox"] {
         font-weight: 600;
         font-size: 1.2rem;
         line-height: 1.8rem; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .mobile-left-panel {
+      display: none !important; } }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .page-container {

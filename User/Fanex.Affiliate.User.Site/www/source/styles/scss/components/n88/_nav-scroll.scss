@@ -136,7 +136,7 @@
 .mobile-left-panel {
     display: none;
 
-    @include TableAndMobile {
+    @include Mobile {
         display: flex;
         align-items: center;
         background: #FFFFFF;
@@ -144,11 +144,12 @@
         box-shadow: 0px 2px 5px rgba(162, 162, 162, 0.25);
         border-radius: 4px;
         padding: 0.2rem 0.8rem;
-        position : fixed;
+        position: fixed;
         top: 9rem;
         right: 1rem;
         z-index: 1;
-        cursor : pointer;
+        cursor: pointer;
+
         img {
             margin-right: .4rem;
         }
@@ -158,6 +159,10 @@
             font-size: 1.2rem;
             line-height: 1.8rem;
         }
+    }
+
+    @include Tablet {
+        display: none !important;
     }
 }
 
