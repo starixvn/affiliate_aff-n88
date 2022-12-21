@@ -87,6 +87,36 @@
     }
 }
 
+
+
+
+.mobile-left-panel {
+    display: none;
+
+    @include TableAndMobile {
+        display: flex;
+        align-items: center;
+        background: #FFFFFF;
+        border: 1px solid #EA5500;
+        box-shadow: 0px 2px 5px rgba(162, 162, 162, 0.25);
+        border-radius: 4px;
+        padding: 0.2rem 0.8rem;
+        position : fixed;
+        top: 10.3rem;
+        right: 1rem;
+        z-index: 99;
+        img {
+            margin-right: .4rem;
+        }
+
+        span {
+            font-weight: 600;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+    }
+}
+
 .page-container {
     @include Tablet {
         max-width: inherit;

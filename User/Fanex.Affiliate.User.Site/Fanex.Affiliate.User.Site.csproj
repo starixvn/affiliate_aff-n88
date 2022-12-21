@@ -1187,6 +1187,7 @@
     <Content Include="www\source\styles\fonts\myriadPro\font.css" />
     <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
+    <Content Include="www\source\styles\Images\category_list.svg" />
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_ms-MY.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />

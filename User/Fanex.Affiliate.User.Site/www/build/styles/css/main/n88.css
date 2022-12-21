@@ -1916,6 +1916,28 @@ input[type="radio"], input[type="checkbox"] {
           border: none;
           margin-bottom: 0; }
 
+.mobile-left-panel {
+  display: none; }
+  @media screen and (max-width: 1024px) {
+    .mobile-left-panel {
+      display: flex;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #EA5500;
+      box-shadow: 0px 2px 5px rgba(162, 162, 162, 0.25);
+      border-radius: 4px;
+      padding: 0.2rem 0.8rem;
+      position: fixed;
+      top: 10.3rem;
+      right: 1rem;
+      z-index: 99; }
+      .mobile-left-panel img {
+        margin-right: .4rem; }
+      .mobile-left-panel span {
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 1.8rem; } }
+
 @media (min-width: 768px) and (max-width: 1023px) {
   .page-container {
     max-width: inherit;
