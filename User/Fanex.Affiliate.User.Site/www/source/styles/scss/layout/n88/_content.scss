@@ -28,6 +28,220 @@
         padding-right: 1rem;
         padding-bottom: 15px;
         margin-top: 5px;
+
+        &.sign-up-page {
+            padding: 0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 900px;
+
+            .page-title {
+                margin: 2.4rem 0 24px;
+            }
+
+            p {
+                font-size: 1.6rem;
+                line-height: 2.4rem;
+                margin-bottom: 8px;
+            }
+
+            label.require:after {
+                margin-left: 2px;
+                color: #C80013;
+            }
+
+            .info-group {
+                margin-top: 25px;
+                margin-bottom: -6px;
+
+                &.website-info {
+                    .radio-inline {
+                        margin-left: 15px;
+                    }
+                }
+
+                .title {
+                    padding-bottom: 3px;
+                    margin-bottom: 16px;
+                }
+            }
+
+            .form-group {
+                margin: 0 0 10px 0;
+
+                &.has-error {
+                    .control-label {
+                        color: #C80013;
+                    }
+
+                    .form-control {
+                        background: #FFE9EB;
+                        border: 1px solid #C80013;
+                    }
+                }
+
+                .form-control {
+                    color: #616161;
+                    box-shadow: none;
+
+                    &[disabled] {
+                        background: #F5F5F5;
+                        border: 1px solid #9E9E9E;
+                    }
+                }
+
+                .control-label {
+                    width: 27%;
+                    padding: 3px 2px;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 24px;
+                    text-align: right;
+                }
+
+                .col-sm-4 {
+                    width: 38%;
+                    padding: 0 17px 0 4px;
+                }
+
+                .radio-inline {
+                    padding-top: 0px;
+                    margin-right: 12px;
+                    padding-bottom: 0;
+
+                    input {
+                        width: 24px;
+                        height: 24px;
+                        position: relative;
+                        top: -3px;
+                        left: 3px;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-right: 9px;
+
+                        &:checked + span {
+                            color: #005FFB;
+                        }
+                    }
+
+                    span {
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+
+                .field-validation-error, .field-validation-valid {
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 22px;
+                    color: #C80013;
+                    padding: 0 0 0 14px;
+                    margin: -1px 0 6px 0px;
+                }
+            }
+
+            #websiteInfo .btn-add-web {
+                background: #FFF3ED;
+                border: 1px solid #BF4600;
+                border-radius: 4px;
+                padding: 0;
+                text-align: center;
+                width: 30px;
+                height: 30px;
+                line-height: 28px;
+                margin: 0;
+
+                span {
+                    position: relative;
+                    width: 17px;
+                    height: 17px;
+                    border: 1px solid #BF4600;
+                    border-radius: 10px;
+                    line-height: 28px;
+                    display: block;
+                    margin: 0 auto;
+                    top: 0;
+                    left: 0;
+
+                    &:before {
+                        position: absolute;
+                        width: 1px;
+                        height: 9px;
+                        border-radius: 1px;
+                        content: "";
+                        background: #BF4600;
+                        top: 3px;
+                        left: 7px;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        width: 9px;
+                        height: 1px;
+                        border-radius: 1px;
+                        content: "";
+                        background: #BF4600;
+                        top: 7px;
+                        left: 3px;
+                    }
+                }
+            }
+
+            .chk-agree {
+                padding: 0;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+
+                label {
+                    margin-left: 20px;
+                    padding: 5px 0 0 0px;
+                }
+
+                input {
+                    width: 24px;
+                    height: 24px;
+                    position: relative;
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-right: 4px;
+                    top: -2px;
+                    left: -1px;
+                }
+            }
+
+            .button-block {
+                padding: 23px 0;
+
+                .btn {
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 22px;
+                    padding: 6px 23px;
+                    height: 38px;
+                    border-radius: 4px;
+                    text-transform: uppercase;
+                    margin-right: 12px;
+
+                    &:hover {
+                        box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
+                    }
+                }
+
+                #btnSubmit {
+                    background: #FF5D00;
+                    color: #ffffff;
+                }
+
+                #btnReset {
+                    background: #FFF3ED;
+                    border: 1px solid #BF4600;
+                    color: #BF4600;
+                }
+            }
+        }
     }
 
     .banner-side {
@@ -46,9 +260,14 @@ $height-hotnew: 30px;
     display: flex;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
-    padding: 0 300px;
     position: relative;
 
+    .inner {
+        max-width: 1320px;
+        display: flex;
+        flex: 1;
+        margin: 0 auto;
+    }
 
     .title {
         position: relative;
@@ -59,7 +278,7 @@ $height-hotnew: 30px;
         margin-left: 33px;
         text-transform: uppercase;
         font-size: 14px;
-        font-weight: 700; 
+        font-weight: 700;
 
         &:before {
             content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge.png");
@@ -91,7 +310,7 @@ $height-hotnew: 30px;
         line-height: $height-hotnew;
         font-size: 14px;
         color: #333333;
-        
+
         &:before {
             display: none;
         }

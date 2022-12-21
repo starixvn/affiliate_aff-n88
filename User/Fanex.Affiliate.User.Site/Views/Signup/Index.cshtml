@@ -206,7 +206,7 @@
                                     @Html.TextBoxFor(p => p.SiteUrl, new { @class = "form-control" })
                                 </div>
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-submit" id="btnAddUrl" title="@Lang.AddUrl"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                    <button type="button" class="btn btn-submit btn-add-web" id="btnAddUrl" title="@Lang.AddUrl"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                 </div>
                                 <div class="col-sm-offset-3 col-sm-9">
                                     @Html.ValidationMessageFor(p => p.SiteUrl, string.Empty, new { @class = "help-block hide" })
@@ -300,27 +300,27 @@
                                 <label class="radio-inline">
                                     <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.ReplaceB2C(Lang._B2CPlayerAcc))</span>
                                 </label>
-                                <div class="form-group payment-username col-sm-12 p-l-0">
-                                    <label class="control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.UsernameSignUp)</label>
-                                    <div class="">
-                                        @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
-                                    </div>
-                                    <div class="">
-                                        @Html.ValidationMessageFor(x => x.Player_UserName, string.Empty, new { @class = "help-block hide" })
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group payment-username">
+                            <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.UsernameSignUp)</label>
+                            <div class="col-sm-4 preference-validation">
+                                @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
+                            </div>
+                            <div class="col-sm-offset-3 col-sm-9">
+                                @Html.ValidationMessageFor(x => x.Player_UserName, string.Empty, new { @class = "help-block hide" })
                             </div>
                         </div>
 
                         <div class="form-group agree-box">
-                            <div class="checkbox col-sm-offset-3 chk-agree">
+                            <div class="checkbox chk-agree">
                                 <label>
                                     <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.ReplaceB2C(Lang.IagreetotheTerm)
                                 </label>
                             </div>
                         </div>
 
-                        <div class="col-sm-offset-3 button-block">
+                        <div class="button-block">
                             <button class="btn btn-submit" id="btnSubmit" type="submit" disabled>@Lang.Submit</button>
                             <button class="btn btn-submit" id="btnReset" type="button">@Lang.Reset</button>
                         </div>

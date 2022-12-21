@@ -594,18 +594,20 @@ header {
   .carousel.slide .carousel-inner {
     height: auto; } }
 
+@media only screen and (max-width: 1365px) {
+  .header-top, .navbar .page-container {
+    width: 80%; }
+  .hot-news {
+    padding-left: 12px !important; } }
+
 @media only screen and (max-width: 1199px) {
-  .news, .hot-news {
+  .news {
     padding-left: 62px !important;
     padding-right: 62px !important; }
   .header-top {
     padding: 4px 12px 0 12px; }
   .navbar .page-container {
     margin-left: 24px; } }
-
-@media only screen and (min-width: 1200px) and (max-width: 1365px) {
-  .header-top, .navbar .page-container {
-    width: 80%; } }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .menu .menu-item {
