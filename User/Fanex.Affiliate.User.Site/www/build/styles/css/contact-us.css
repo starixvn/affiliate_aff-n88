@@ -150,8 +150,10 @@
 .mobile-left-panel {
   display: none !important; }
 
-.main-content .content {
-  max-width: 92rem; }
+.main-content {
+  justify-content: center; }
+  .main-content .content {
+    max-width: 92rem; }
 
 .grid-contact-info {
   display: grid;

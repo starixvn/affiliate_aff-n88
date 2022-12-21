@@ -2151,7 +2151,8 @@ input[type="radio"], input[type="checkbox"] {
     .main-content {
       gap: 2rem; } }
   .main-content .content {
-    max-width: 90rem; }
+    max-width: 90rem;
+    width: 100%; }
 
 .slogan {
   margin-top: 2.8rem;
