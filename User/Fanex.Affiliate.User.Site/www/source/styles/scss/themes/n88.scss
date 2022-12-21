@@ -407,41 +407,232 @@ header {
 
 .login-dialog {
     .modal-content .modal-logo {
-        width: 186px;
+        width: 154px;
+    }
+
+    .modal-content {
+        box-shadow: 0px 5px 18px 7px rgba(193, 193, 193, 0.25);
+        border-radius: 4px;
+        border: 0;
+        padding: 0;
+
+        .modal-logo {
+            width: 154px;
+        }
+
+        .login-side {
+            flex: 1;
+            border: 0;
+            padding: 49px 12px 48px;
+
+            .modal-title {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 30px;
+                color: #FF5D00;
+            }
+
+            .title-right {
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #424242;
+                margin: 11px 0 12px;
+            }
+        }
+
+        .left-login-side {
+            width: 350px;
+            background: url("../../../../build/styles/Images/home/n88/bg-left-login.png") no-repeat center center / cover;
+            padding: 12px;
+
+            .logo-text {
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 28px;
+                color: #65E1FF;
+                margin: 21px 0 12px;
+            }
+
+            .title-left {
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #FAFAFA;
+                margin: 0 0 8px 0;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 22px;
+                color: #EEEEEE;
+                margin-bottom: 11px;
+            }
+
+            .btn-signup {
+                margin: 0;
+            }
+        }
     }
 
     .modal-main-content {
-        background-color: unset;
-    }
+        margin-top: 0;
+        border: 0;
+        background: #F8F9FA;
+        border-radius: 4px;
 
-    .modal-header {
-        background-color: $modal-header-bg-color;
-        color: $modal-header-color;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
+        .modal-header {
+            padding: 0;
+            border: 0;
+
+
+            .modal-title {
+                font-weight: bold;
+            }
+
+            .close {
+                -webkit-appearance: none;
+                position: absolute;
+                right: 12px;
+                top: 14px;
+                border-radius: 50%;
+                font-size: 21px;
+                font-weight: bold;
+                cursor: pointer;
+                color: #9E9E9E;
+                background-color: buttonface;
+                border: 1px solid #9E9E9E;
+                width: 24px;
+                height: 24px;
+                opacity: 1;
+                padding: 0;
+                background-color: transparent;
+                text-shadow: none;
+                z-index: 10;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
     }
 
     .modal-body {
-        background-color: #fff;
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 0;
+        border-radius: 4px;
+        overflow: hidden;
+
+        .link-login-popup {
+            color: #616161;
+            display: inline-block;
+            margin-top: 2px;
+            text-decoration: underline;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
+
+            .mdi-lock-open {
+                margin-right: -2px
+            }
+        }
+
+        .btn {
+            height: 38px;
+            line-height: 38px;
+
+            &.btn-login-mobile {
+                margin-top: 5px;
+            }
+        }
+
+        .captcha-input {
+            display: inline-block;
+            width: 131px;
+        }
+
+        .validation-value {
+            img {
+                height: 30px;
+            }
+        }
+
+        .title {
+            &-left {
+                color: red;
+                font-weight: bold;
+            }
+
+            &-right {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .form-group {
+        margin-bottom: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        span.mdi {
+            font-size: 21px;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
+            margin: 0px 1px 0 -2px;
+        }
+
+        label {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            color: #424242;
+            display: block;
+            margin-bottom: 7px;
+            width: 100%;
+        }
     }
 }
 
 // form-control
 .form-control {
     border: 1px solid $form-control-border-color;
+    height: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 7px;
+    border-radius: 4px;
+
+
+    &:focus {
+        background: #DFEBFF;
+        border: 1px solid #001942;
+        box-shadow: none;
+        color: #001942;
+    }
 }
 
 // Button
 .btn-signup {
-    background: #FFF3ED; //$button-signup-bg-color;
-    color: #EA5500; //$button-signup-color;
+    background: $button-signup-bg-color;
+    color: $button-signup-color;
     font-size: 14px;
     font-weight: 700;
     padding: 0 20px;
 
     &:hover, &:focus {
-        color: $button-signup-color;
+        color: $button-signup-color-hover;
         background: $button-signup-bg-color-hover;
+        border-color: $button-signup-border-color;
     }
 
     .icon {
@@ -459,8 +650,9 @@ header {
     font-size: 14px;
 
     &:hover, &:focus {
-        color: $button-login-color;
+        color: $button-login-color-hover;
         background: $button-login-bg-color-hover;
+        box-shadow: 0px 5px 6px rgba(65, 65, 65, 0.25);
     }
 
     .icon {
@@ -675,6 +867,12 @@ header {
 .login-dialog {
     .btn-signup {
         border: 1px solid $button-signup-color;
+
+        &:hover, &:focus {
+            color: $button-signup-color-hover;
+            background: $button-signup-bg-color-hover;
+            border-color: $button-signup-border-color;
+        }
     }
 }
 
@@ -918,6 +1116,40 @@ header {
                 line-height: 22px;
                 margin-bottom: 0;
                 padding-bottom: 2px;
+            }
+        }
+    }
+
+    .login-dialog {
+        .modal-dialog {
+            margin: 10px;
+            max-width: 355px;
+        }
+
+        .modal-body {
+            display: block;
+        }
+
+        .modal-content {
+            .modal-logo {
+                width: 120px;
+            }
+
+            .left-login-side {
+                width: 100%;
+                background: url("../../../../build/styles/Images/home/n88/bg-left-login.mobile.png") no-repeat center center / cover;
+
+                .logo-text {
+                    margin: 16px 0 12px;
+                }
+
+                .title-left {
+                    margin: 0 0 4px 0;
+                }
+            }
+
+            .login-side {
+                padding: 14px 12px 12px;
             }
         }
     }
