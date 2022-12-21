@@ -1,6 +1,42 @@
 ﻿﻿@model string
 
-<div class="row contact-icon-group">
+
+<div class="grid-contact-info">
+    <div class="contact-items">
+        <ul class="info-social">
+            <li>
+                <img src="~/www/build/styles/Images/contact-us/N88/email.png" alt="email" />
+                <span>Email</span>
+            </li>
+            <li><a href=@("mailto:" + Model)>@Model</a></li>
+        </ul>
+    </div>
+    <div class="contact-items">
+        <ul class="info-social">
+            <li>
+                <img src="~/www/build/styles/Images/contact-us/N88/telegram.png" alt="telegram" />
+                <span>Telegram</span>
+            </li>
+            <li><a href="https://t.me/nova88affiliate">https://t.me/nova88affiliate</a></li>
+        </ul>
+    </div>
+    <div class="contact-items">
+        <ul class="info-social">
+            <li>
+                <img src="~/www/build/styles/Images/contact-us/N88/whatsapp.png" alt="whatsapp" />
+                <span>Whatsapp</span>
+            </li>
+            <li><a href="https://cli.re/nova88affiliate">https://cli.re/nova88affiliate</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="date-time-info">
+    <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
+</div>
+
+
+@*<div class="row contact-icon-group">
     <div class="col-xs-12 col-sm-4">
         <div class="contact-icon">
             <img class="img-responsive" src="~/www/build/styles/Images/contact-us/N88/email.png" alt="email icon" />
@@ -35,4 +71,4 @@
             <p class="text-center">@Html.Raw(Lang.SupportTimeN88)</p>
         </div>
     </div>
-</div>
+</div>*@

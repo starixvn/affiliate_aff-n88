@@ -20,10 +20,16 @@
     @Html.InlineScripts("~/www/build/js/contactus.js")
 }
 
-<div class="content">
-    <div class="page-title">
-        <span class="text">@Lang.ContactUs</span>
-    </div>
 
-    @{ Html.RenderPartial(viewName, Model.MailContact); }
+
+<div class="main-content">
+    <div class="content">
+        <div class="page-title">
+            <span class="text">@Lang.ContactUs</span>
+        </div>
+        <div class="slogan">
+            Please direct any comments or questions to following contact points:
+        </div>
+        @{ Html.RenderPartial(viewName, Model.MailContact); }
+    </div>
 </div>
