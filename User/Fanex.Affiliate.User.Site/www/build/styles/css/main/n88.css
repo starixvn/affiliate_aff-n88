@@ -2030,9 +2030,12 @@ input[type="radio"], input[type="checkbox"] {
     .info-group .title {
       font-size: 1.6rem;
       line-height: 2.4rem; } }
-  .info-group .title:before, .info-group .title:after {
+  .info-group .title:before {
+    display: none; }
+  .info-group .title:after {
     height: 2px;
-    background: #FFD1B6 !important; }
+    background: #FFD1B6 !important;
+    width: 100%; }
   .info-group .title .text {
     color: #EA5500; }
 

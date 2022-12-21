@@ -99,9 +99,14 @@
             line-height: 2.4rem;
         }
 
-        &:before, &:after {
+        &:before {
+            display: none;
+        }
+
+        &:after {
             height: 2px;
             background: #FFD1B6 !important;
+            width : 100%;
         }
 
         .text {
