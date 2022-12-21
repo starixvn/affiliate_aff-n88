@@ -6,7 +6,11 @@
     outline: none !important; }
 
 body.menu-open {
-  filter: blur(2px); }
+  overflow: hidden; }
+  body.menu-open .header-top {
+    filter: blur(2px); }
+  body.menu-open .main-container, body.menu-open .footer {
+    display: none; }
 
 header {
   background-color: #001942; }
@@ -473,15 +477,21 @@ header {
   #btnLogin {
     display: none; }
   .navbar-collapse {
-    position: absolute;
     width: 100%;
     height: 100vh;
-    top: 40px;
-    left: 0;
-    background: #001332;
-    z-index: 100; }
+    background: #001332; }
   .navbar .page-container {
     margin-left: 0; }
+    .navbar .page-container .menu .menu-item {
+      height: 32px;
+      border-bottom: 1px solid #EEEEEE;
+      margin-bottom: 16px;
+      font-size: 16px;
+      line-height: 24px; }
+      .navbar .page-container .menu .menu-item.active {
+        border-bottom: 1px solid #FF5D00; }
+    .navbar .page-container ul li:last-child .menu-item {
+      border-bottom: 0; }
   .language-container {
     position: absolute;
     top: 64px;
