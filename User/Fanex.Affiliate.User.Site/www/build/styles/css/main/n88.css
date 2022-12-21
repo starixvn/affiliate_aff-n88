@@ -347,7 +347,8 @@ input[type="checkbox"], input[type="radio"] {
     .header-top .logo a {
       outline: none; }
   .header-top .logo-image {
-    display: inline-block; }
+    display: inline-block;
+    width: 120px; }
   .header-top .btn {
     margin-right: 0; }
 
