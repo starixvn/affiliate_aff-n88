@@ -30,9 +30,13 @@
     display: flex;
     gap: 4.8rem;
     margin-bottom: 2.4rem;
+
+    @include Tablet {
+        gap: 2rem;
+    }
+
     .content {
         max-width: 90rem;
-        padding: 0 !important;
     }
 }
 
@@ -42,6 +46,12 @@
     border-top: none !important;
     text-align: center;
     margin: 2.1rem 0 0;
+
+    @include TableAndMobile {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
     .text {
         background-color: transparent !important;
         font-weight: 700;
@@ -50,6 +60,11 @@
         text-transform: uppercase;
         color: #EA5500 !important;
         padding: 0;
+
+        @include Mobile {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
 
         &:before, &:after {
             display: none;

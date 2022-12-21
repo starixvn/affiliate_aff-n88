@@ -1608,7 +1608,7 @@ input[type="radio"], input[type="checkbox"] {
     max-width: 100%;
     flex-basis: 100%; } }
 
-@media c {
+@media (min-width: 768px) and (max-width: 1023px) {
   .banner-side.banner-left, .banner-side.banner-right {
     display: none; }
   .page-container {

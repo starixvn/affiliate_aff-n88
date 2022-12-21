@@ -1722,7 +1722,7 @@ input[type="radio"], input[type="checkbox"] {
     max-width: 100%;
     flex-basis: 100%; } }
 
-@media c {
+@media (min-width: 768px) and (max-width: 1023px) {
   .banner-side.banner-left, .banner-side.banner-right {
     display: none; }
   .page-container {
@@ -1865,6 +1865,13 @@ input[type="radio"], input[type="checkbox"] {
   @media (max-width: 767px) {
     .left-panel {
       display: none; } }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .left-panel {
+      width: auto !important; } }
+  @media screen and (max-width: 1024px) {
+    .left-panel {
+      width: 60%;
+      margin-left: 0; } }
   @media (max-width: 767px) {
     .left-panel.active {
       display: block; } }
@@ -1909,18 +1916,29 @@ input[type="radio"], input[type="checkbox"] {
           border: none;
           margin-bottom: 0; }
 
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page-container {
+    max-width: inherit;
+    flex-basis: inherit; } }
+
 .main-content {
   display: flex;
   gap: 4.8rem;
   margin-bottom: 2.4rem; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .main-content {
+      gap: 2rem; } }
   .main-content .content {
-    max-width: 90rem;
-    padding: 0 !important; }
+    max-width: 90rem; }
 
 .page-title {
   border-top: none !important;
   text-align: center;
   margin: 2.1rem 0 0; }
+  @media screen and (max-width: 1024px) {
+    .page-title {
+      margin-left: 0 !important;
+      margin-right: 0 !important; } }
   .page-title .text {
     background-color: transparent !important;
     font-weight: 700;
@@ -1929,6 +1947,10 @@ input[type="radio"], input[type="checkbox"] {
     text-transform: uppercase;
     color: #EA5500 !important;
     padding: 0; }
+    @media (max-width: 767px) {
+      .page-title .text {
+        font-size: 2rem;
+        line-height: 3rem; } }
     .page-title .text:before, .page-title .text:after {
       display: none; }
 
