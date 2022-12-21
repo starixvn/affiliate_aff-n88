@@ -703,7 +703,7 @@ header {
         margin-bottom: 0;
         padding-bottom: 2px; }
   .login-dialog .modal-dialog {
-    margin: 10px;
+    margin: 10px auto;
     max-width: 355px; }
   .login-dialog .modal-body {
     display: block; }

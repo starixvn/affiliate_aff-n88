@@ -18,27 +18,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@Lang.TermAndCondition</title>
     <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
+    <script src="~/www/build/js/lib/jquery-3.3.1.min.js"></script>
+    <script src="~/www/build/js/lib/bootstrap.min.js"></script>
+
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/fonts/tahoma/font.css")" rel="stylesheet" />
-    <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
+    <link href="~/www/build/styles/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,700&display=swap">
+
+    <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
+
+    <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
 </head>
 <body>
     <div class="main-container">
         <div class="main">
             <div class="page-container">
-                <div class="content term-condition-page">
-                    <div class="page-title">
-                        <span class="text">@Lang.TermAndCondition</span>
-                    </div>
-                    <div class="collapse navbar-collapse menu" id="">
-                        @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
+                <div class="main-content term-condition">
+                    <div class="left-panel">
+                        <div class="menu" id="">
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a class="menu-item left-menu-item active" href="#ResponsibilitiesOfTheAffiliate">
+                                        @Lang.ResponsibilitiesOfTheAffiliate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#AffiliationGuidelines">
+                                        @Lang.AffiliationGuidelines
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#AffiliateTagging">
+                                        @Lang.AffiliateTagging
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#RevenueSharingAndPayment">
+                                        @Lang.RevenueSharingAndPayment
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#PoliciesAndConfidentiality">
+                                        @Lang.PoliciesAndConfidentiality
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LimitedLicense">
+                                        @Lang.LimitedLicense
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LegalResponsibility">
+                                        @Lang.LegalResponsibility
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Miscellaneous">
+                                        @Lang.Miscellaneous
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#TermAndTermination">
+                                        @Lang.TermAndTermination
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#RelationshipOfParties">
+                                        @Lang.RelationshipOfParties
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Indemnity">
+                                        @Lang.Indemnity
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Disclaimers">
+                                        @Lang.Disclaimers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LimitationOfLiability">
+                                        @Lang.LimitationOfLiability
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#IndependentInvestigation">
+                                        @Lang.IndependentInvestigation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#GoverningLawAndArbitration">
+                                        @Lang.GoverningLawAndArbitration
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#InWitnessWhereOf">
+                                        @Lang.InWitnessWhereOf
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    @Html.Raw(htmlString)
+                    <div class="content">
+                        <div class="page-title">
+                            <span class="text">@Lang.TermAndCondition</span>
+                        </div>
 
-                    @RazorHelper.RenderMovingTopButton()
+                        @Html.Raw(htmlString)
+
+                        @RazorHelper.RenderMovingTopButton()
+                    </div>
                 </div>
             </div>
         </div>

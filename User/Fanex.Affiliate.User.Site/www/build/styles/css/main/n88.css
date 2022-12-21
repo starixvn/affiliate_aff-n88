@@ -647,7 +647,7 @@ body {
     margin-right: auto;
     max-width: 900px; }
     .main .content.sign-up-page .page-title {
-      margin: 2.4rem 0 24px; }
+      margin: 24px 0; }
     .main .content.sign-up-page p {
       font-size: 1.6rem;
       line-height: 2.4rem;
@@ -679,7 +679,6 @@ body {
       .main .content.sign-up-page .form-group .control-label {
         width: 27%;
         padding: 3px 2px;
-        font-style: normal;
         font-weight: 600;
         font-size: 16px;
         line-height: 24px;
@@ -690,7 +689,8 @@ body {
       .main .content.sign-up-page .form-group .radio-inline {
         padding-top: 0px;
         margin-right: 12px;
-        padding-bottom: 0; }
+        padding-bottom: 0;
+        margin-left: 0; }
         .main .content.sign-up-page .form-group .radio-inline input {
           width: 24px;
           height: 24px;
@@ -717,21 +717,17 @@ body {
       background: #FFF3ED;
       border: 1px solid #BF4600;
       border-radius: 4px;
-      padding: 0;
-      text-align: center;
+      padding: 6px;
       width: 30px;
       height: 30px;
-      line-height: 28px;
       margin: 0; }
       .main .content.sign-up-page #websiteInfo .btn-add-web span {
         position: relative;
-        width: 17px;
-        height: 17px;
+        width: 16px;
+        height: 16px;
         border: 1px solid #BF4600;
         border-radius: 10px;
-        line-height: 28px;
         display: block;
-        margin: 0 auto;
         top: 0;
         left: 0; }
         .main .content.sign-up-page #websiteInfo .btn-add-web span:before {
@@ -949,7 +945,156 @@ body {
       line-height: 19px;
       box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25); }
       .adv-contact .btn:hover {
-        box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25); } }
+        box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25); }
+  .main .content.sign-up-page {
+    padding-left: 1rem;
+    padding-right: 1rem; }
+    .main .content.sign-up-page .page-title {
+      margin: 13px 0 11px; }
+    .main .content.sign-up-page p {
+      font-size: 14px;
+      line-height: 22px;
+      margin-bottom: 13px; }
+    .main .content.sign-up-page label.require:after {
+      margin-left: 2px;
+      color: #C80013; }
+    .main .content.sign-up-page .info-group {
+      margin-top: 10px;
+      margin-bottom: -6px;
+      display: flex;
+      flex-wrap: wrap; }
+      .main .content.sign-up-page .info-group > * {
+        width: 100%; }
+      .main .content.sign-up-page .info-group.website-info .radio-inline {
+        margin-left: 0; }
+      .main .content.sign-up-page .info-group .title {
+        padding-bottom: 3px;
+        margin-bottom: 11px; }
+        .main .content.sign-up-page .info-group .title:after {
+          bottom: -6px; }
+    .main .content.sign-up-page .form-horizontal .preference-validation .form-control {
+      width: calc(100% - 84px); }
+    .main .content.sign-up-page .form-group {
+      margin: 0; }
+      .main .content.sign-up-page .form-group.half-col {
+        width: 48%;
+        display: flex;
+        flex-wrap: wrap; }
+        .main .content.sign-up-page .form-group.half-col-left {
+          margin-right: 4%; }
+      .main .content.sign-up-page .form-group.has-error .control-label {
+        color: #C80013; }
+      .main .content.sign-up-page .form-group.has-error .form-control {
+        background: #FFE9EB;
+        border: 1px solid #C80013; }
+      .main .content.sign-up-page .form-group .preference-validation .captcha {
+        vertical-align: top;
+        padding: 0 0 0 6px; }
+        .main .content.sign-up-page .form-group .preference-validation .captcha img {
+          height: 30px; }
+      .main .content.sign-up-page .form-group .form-control {
+        color: #616161;
+        margin-bottom: 4px;
+        box-shadow: none; }
+        .main .content.sign-up-page .form-group .form-control[disabled] {
+          background: #F5F5F5;
+          border: 1px solid #9E9E9E; }
+      .main .content.sign-up-page .form-group .control-label {
+        width: 100%;
+        padding: 3px 0;
+        font-size: 14px;
+        line-height: 22px;
+        text-align: left;
+        margin-bottom: 1px;
+        height: 28px; }
+      .main .content.sign-up-page .form-group .col-sm-4 {
+        width: 100%;
+        padding: 0; }
+      .main .content.sign-up-page .form-group .radio-inline {
+        padding-top: 0px;
+        margin-right: 12px;
+        padding-bottom: 0; }
+        .main .content.sign-up-page .form-group .radio-inline input {
+          top: -2px;
+          width: 20px;
+          height: 20px;
+          left: 0;
+          margin-right: 0; }
+        .main .content.sign-up-page .form-group .radio-inline span {
+          font-size: 14px;
+          line-height: 22px; }
+      .main .content.sign-up-page .form-group .col-sm-9 {
+        padding: 0; }
+      .main .content.sign-up-page .form-group .field-validation-error, .main .content.sign-up-page .form-group .field-validation-valid {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        color: #C80013;
+        padding: 0;
+        margin: -1px 0 6px 0px; }
+      .main .content.sign-up-page .form-group.payment-method {
+        display: flex;
+        align-items: baseline; }
+        .main .content.sign-up-page .form-group.payment-method .control-label, .main .content.sign-up-page .form-group.payment-method .col-sm-4 {
+          width: auto; }
+        .main .content.sign-up-page .form-group.payment-method .col-sm-4 {
+          padding-left: 5px; }
+      .main .content.sign-up-page .form-group.payment-username .form-control {
+        width: 100%; }
+    .main .content.sign-up-page #websiteInfo {
+      position: relative; }
+      .main .content.sign-up-page #websiteInfo .col-sm-1 {
+        position: absolute;
+        padding: 0;
+        top: 0;
+        right: 0; }
+      .main .content.sign-up-page #websiteInfo .btn-add-web {
+        background: #FFF3ED;
+        border: 1px solid #BF4600;
+        border-radius: 4px;
+        padding: 4px;
+        width: 23px;
+        height: 23px;
+        margin: 0; }
+        .main .content.sign-up-page #websiteInfo .btn-add-web span {
+          width: 13px;
+          height: 13px; }
+          .main .content.sign-up-page #websiteInfo .btn-add-web span:before {
+            position: absolute;
+            width: 1px;
+            height: 7px;
+            border-radius: 1px;
+            content: "";
+            background: #BF4600;
+            top: 2px;
+            left: 5px; }
+          .main .content.sign-up-page #websiteInfo .btn-add-web span:after {
+            position: absolute;
+            width: 7px;
+            height: 1px;
+            border-radius: 1px;
+            content: "";
+            background: #BF4600;
+            top: 5px;
+            left: 2px; }
+    .main .content.sign-up-page .chk-agree {
+      font-size: 14px;
+      line-height: 22px; }
+      .main .content.sign-up-page .chk-agree label {
+        margin-left: 0;
+        padding: 4px 0 0 24px; }
+      .main .content.sign-up-page .chk-agree input {
+        width: 20px;
+        height: 20px;
+        top: -2px;
+        left: -4px; }
+    .main .content.sign-up-page .button-block {
+      padding: 19px 0 30px;
+      display: flex;
+      justify-content: space-between; }
+      .main .content.sign-up-page .button-block .btn {
+        width: 47.6%;
+        margin: 0; } }
 
 .carousel.slide .carousel-control {
   width: 2.5rem;
