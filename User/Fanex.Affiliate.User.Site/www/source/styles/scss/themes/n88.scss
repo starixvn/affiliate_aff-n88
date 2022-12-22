@@ -367,6 +367,10 @@ header {
     }
 }
 
+.term-condition {
+    justify-content: flex-start;
+}
+
 // Table
 .table table {
     border: 1px solid $table-border-color;

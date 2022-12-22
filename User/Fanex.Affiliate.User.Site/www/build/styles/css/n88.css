@@ -238,6 +238,9 @@ header {
   .info-group .title:after {
     background: #C7C7C7; }
 
+.term-condition {
+  justify-content: flex-start; }
+
 .table table {
   border: 1px solid #C7C7C7; }
   .table table tr {
