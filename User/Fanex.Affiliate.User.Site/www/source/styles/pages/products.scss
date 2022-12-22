@@ -1,6 +1,5 @@
 ﻿.signup-block {
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin: 24px auto;
 
     .btn-link {
         height: 40px;
@@ -19,23 +18,76 @@
     }
 }
 
-.adv img{
+.adv img {
     max-width: 100%;
 }
 
 .table {
+    border: 0;
+
     .game-list {
         tr {
             background: transparent;
 
+            @media screen and (max-width: 768px) {
+                display: flex;
+                flex-wrap: wrap;
+                padding: 0;
+            }
+
             .game-name {
-                border: 3px solid #fff;
-                width: 210px;
+                width: 200px;
+                background: #BDCFEC;
+                border: 2px solid #8A9CB9;
+                font-weight: 700;
 
                 @media (max-width: 1023px) {
                     width: 100px;
                 }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    text-align: left;
+                }
             }
         }
     }
+
+    @media (max-width: 768px) {
+        margin-bottom: 0;
+    }
+}
+
+.table-casino {
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    tr:nth-child(even) {
+        background-color: #FFF3ED;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 740px;
+        overflow: scroll;
+    }
+
+    th:first-child, td:first-child {
+        position: sticky;
+    }
+}
+
+.main-content {
+    justify-content: flex-start !important;
+}
+
+.text-block-bottom, .signup-block {
+    max-width: 91rem;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.text-block-bottom {
+    margin: 0 auto;
+    padding-top: 24px;
 }

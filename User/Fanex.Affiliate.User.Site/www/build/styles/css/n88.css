@@ -238,27 +238,34 @@ header {
   .info-group .title:after {
     background: #C7C7C7; }
 
+.info-group .title-block {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px; }
+
 .term-condition {
   justify-content: flex-start; }
 
-.table table {
+.table table tr {
+  background: #FFFFFF;
+  color: #001942; }
+  .table table tr:hover {
+    background: #F5F5F5; }
+
+.table table th, .table table td {
+  border: 1px solid #c1c1c1; }
+
+.table table th {
+  background: #001942;
+  color: #fff; }
+
+.table table td {
   border: 1px solid #C7C7C7; }
-  .table table tr {
-    background: #FFF9F3;
-    color: #001942; }
-    .table table tr:hover {
-      background: #fbe8e1; }
-  .table table th, .table table td {
+
+.table table .overview-table-header, .table table .player-detail-table-header {
+  background: #001942 !important; }
+  .table table .overview-table-header th, .table table .player-detail-table-header th {
     border: 1px solid #c1c1c1; }
-  .table table th {
-    background: #001942;
-    color: #fff; }
-  .table table td {
-    border: 1px solid #C7C7C7; }
-  .table table .overview-table-header, .table table .player-detail-table-header {
-    background: #001942 !important; }
-    .table table .overview-table-header th, .table table .player-detail-table-header th {
-      border: 1px solid #c1c1c1; }
 
 .login-dialog .modal-content .modal-logo {
   width: 154px; }
@@ -596,10 +603,6 @@ header {
 @media (max-width: 480px) {
   .carousel.slide .carousel-inner {
     height: auto; } }
-
-@media only screen and (max-width: 1365px) {
-  .hot-news {
-    padding-left: 12px !important; } }
 
 @media only screen and (max-width: 1199px) {
   .news {

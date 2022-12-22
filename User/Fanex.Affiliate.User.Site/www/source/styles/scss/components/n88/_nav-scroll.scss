@@ -14,10 +14,6 @@
         display: none;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
-        width: auto !important;
-    }
-
     @include TableAndMobile {
         width: 60%;
         margin-left: 0;

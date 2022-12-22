@@ -355,15 +355,23 @@ header {
     }
 }
 
-.info-group .title {
-    color: $group-title-color;
+.info-group {
+    .title {
+        color: $group-title-color;
 
-    &:before {
-        background: $group-title-border-before-color;
+        &:before {
+            background: $group-title-border-before-color;
+        }
+
+        &:after {
+            background: $group-title-border-after-color;
+        }
     }
 
-    &:after {
-        background: $group-title-border-after-color;
+    .title-block {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
     }
 }
 
@@ -373,8 +381,6 @@ header {
 
 // Table
 .table table {
-    border: 1px solid $table-border-color;
-
     tr {
         background: $table-bg-color;
         color: $table-color;
@@ -933,13 +939,6 @@ header {
         @media (max-width: 480px) {
             height: auto;
         }
-    }
-}
-
-
-@media only screen and (max-width: 1365px) {
-    .hot-news {
-        padding-left: 12px !important;
     }
 }
 

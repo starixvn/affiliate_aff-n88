@@ -7,6 +7,7 @@
 
 @{
     var viewName = PathHelper.GetViewPath("Product", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
+    var siteFriendlyName = Model.SiteName;
 }
 
 @section styles{
@@ -17,143 +18,176 @@
         <div class="menu" id="">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="menu-item left-menu-item active" href="#WhatWeHave">
-                        @Lang.WhatWeHave
+                    <a class="menu-item left-menu-item active" href="#SportbookProducts">
+                        @Lang.SportbookProducts
                     </a>
                     <ul class="sub-menu">
-                        <li><a href="#" class="active">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Sportsbook">
+                                @Lang.Sportsbook
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#VirtualSports">
+                                @Lang.VirtualSports
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#NumberGame">
+                                @Lang.NumberGame
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#RngKeno">
+                                @Lang.RngKeno
+                            </a>
+                        </li>
                     </ul>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#WhatWeOffer">
-                        @Lang.WhatWeOffer
+
+                    <a class="menu-item left-menu-item" href="#CasinoProducts">
+                        @Lang.CasinoProducts
                     </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#OurPlan">
-                        @Lang.WhatWeHave
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
-                        @Lang.RevenueSharePayoutExample
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#HowWePay">
-                        @Lang.HowWePay
-                    </a>
-                </li>
+                    <ul class="sub-menu">
+                        <li>
+                            <a class="menu-item left-menu-item" href="#AsiaGaming">
+                                @Lang.AsiaGaming
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#AdvantPlay">
+                                @Lang.AdvantPlay
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#AeSexy">
+                                @Lang.AeSexy
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Allbet">
+                                @Lang.Allbet
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#AstroTech">
+                                @Lang.AstroTech
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Cq9">
+                                @Lang.Cq9
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#DreamGaming">
+                                @Lang.DreamGaming
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Ebet">
+                                @Lang.Ebet
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#GamePlayInteractive">
+                                @Lang.GamePlayInteractive
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Habanero">
+                                @Lang.Habanero
+                            </a>
+                        </li>
+                        <li>
+
+                            <a class="menu-item left-menu-item" href="#ISoftBetPragmaticPlay">
+                                @Lang.ISoftBetPragmaticPlay
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Jili">
+                                @Lang.Jili
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Joker">
+                                @Lang.Joker
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#MicroGaming">
+                                @Lang.MicroGaming
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#N2Live">
+                                @Lang.N2Live
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#Playtech">
+                                @Lang.Playtech
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#RedTiger">
+                                @Lang.RedTiger
+                            </a>
+                        </li>
+                        <li>
+
+                            <a class="menu-item left-menu-item" href="#SaGaming">
+                                @Lang.SaGaming
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#SabaCasino">
+                                @Lang.SabaCasino
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#SpadeGaming">
+                                @Lang.SpadeGaming
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#WmCasino">
+                                @Lang.WmCasino
+                            </a>
+                        </li>
+                        <li>
+                            <a class="menu-item left-menu-item" href="#YggDrasil">
+                                @Lang.YggDrasil
+                            </a>
+                        </li>
+                    </ul>
             </ul>
         </div>
     </div>
+
     <div class="content product-page">
         <div class="page-title">
             <span class="text">@Lang.Product</span>
         </div>
-        @*<div class="collapse navbar-collapse menu" id="">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="menu-item left-menu-item active" href="#SportbookProducts">
-                        @Lang.SportbookProducts
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Sportsbook">
-                        @Lang.Sportsbook
-                    </a>
-                    <a class="menu-item left-menu-item" href="#VirtualSports">
-                        @Lang.VirtualSports
-                    </a>
-                    <a class="menu-item left-menu-item" href="#NumberGame">
-                        @Lang.NumberGame
-                    </a>
-                    <a class="menu-item left-menu-item" href="#RngKeno">
-                        @Lang.RngKeno
-                    </a>
-                    <a class="menu-item left-menu-item" href="#CasinoProducts">
-                        @Lang.CasinoProducts
-                    </a>
-                    <a class="menu-item left-menu-item" href="#AsiaGaming">
-                        @Lang.AsiaGaming
-                    </a>
-                    <a class="menu-item left-menu-item" href="#AdvantPlay">
-                        @Lang.AdvantPlay
-                    </a>
-                    <a class="menu-item left-menu-item" href="#AeSexy">
-                        @Lang.AeSexy
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Allbet">
-                        @Lang.Allbet
-                    </a>
-                    <a class="menu-item left-menu-item" href="#AstroTech">
-                        @Lang.AstroTech
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Cq9">
-                        @Lang.Cq9
-                    </a>
-                    <a class="menu-item left-menu-item" href="#DreamGaming">
-                        @Lang.DreamGaming
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Ebet">
-                        @Lang.Ebet
-                    </a>
-                    <a class="menu-item left-menu-item" href="#GamePlayInteractive">
-                        @Lang.GamePlayInteractive
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Habanero">
-                        @Lang.Habanero
-                    </a>
-                    <a class="menu-item left-menu-item" href="#ISoftBetPragmaticPlay">
-                        @Lang.ISoftBetPragmaticPlay
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Jili">
-                        @Lang.Jili
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Joker">
-                        @Lang.Joker
-                    </a>
-                    <a class="menu-item left-menu-item" href="#MicroGaming">
-                        @Lang.MicroGaming
-                    </a>
-                    <a class="menu-item left-menu-item" href="#N2Live">
-                        @Lang.N2Live
-                    </a>
-                    <a class="menu-item left-menu-item" href="#Playtech">
-                        @Lang.Playtech
-                    </a>
-                    <a class="menu-item left-menu-item" href="#RedTiger">
-                        @Lang.RedTiger
-                    </a>
-                    <a class="menu-item left-menu-item" href="#SaGaming">
-                        @Lang.SaGaming
-                    </a>
-                    <a class="menu-item left-menu-item" href="#SabaCasino">
-                        @Lang.SabaCasino
-                    </a>
-                    <a class="menu-item left-menu-item" href="#SpadeGaming">
-                        @Lang.SpadeGaming
-                    </a>
-                    <a class="menu-item left-menu-item" href="#WmCasino">
-                        @Lang.WmCasino
-                    </a>
-                    <a class="menu-item left-menu-item" href="#YggDrasil">
-                        @Lang.YggDrasil
-                    </a>
-                </li>
-            </ul>*@
+
         @{ Html.RenderPartial(viewName, Model.SiteFriendlyName); }
 
-        @if (!Model.IsAuthenticated)
-        {
-            <div class="col-sm-offset-3 col-sm-6 signup-block">
-                <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.ReplaceB2C(Lang.SignUpAffiliateProgramNow)</a>
-            </div>
-        }
+
         @RazorHelper.RenderMovingTopButton()
     </div>
 
 </div>
 
 @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", false); }
+
+<p class="text-block-bottom">
+    All betting products are listed in @siteFriendlyName affiliate program. We invite you to be one of our long term partners. Contribute to our brand awareness and advertising in terms of bringing customer. Together, raise your income and consistent revenue share; Join our @siteFriendlyName Affiliate Program today!
+</p>
+
+@if (!Model.IsAuthenticated)
+{
+    <div class="signup-block">
+        <a href="@Url.Content("~/SignUp")" class="btn btn-link btn-block nounderline">@SiteFriendlyNameHelper.ReplaceB2C(Lang.SignUpAffiliateProgramNow)</a>
+    </div>
+}
