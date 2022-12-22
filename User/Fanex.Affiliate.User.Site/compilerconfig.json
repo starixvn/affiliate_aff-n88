@@ -15,6 +15,7 @@
     "outputFile": "www/build/styles/css/main/n88.css",
     "inputFile": "www/source/styles/scss/main/n88.scss"
   },
+
   //{
   //  "outputFile": "www/build/styles/css/bootstrap.css",
   //  "inputFile": "www/source/styles/scss/vendors/_bootstrap.scss"
@@ -31,6 +32,11 @@
     "outputFile": "www/build/styles/css/home.css",
     "inputFile": "www/source/styles/pages/home.scss"
   },
+
+  {
+    "outputFile": "www/build/styles/css/password.css",
+    "inputFile": "www/source/styles/pages/password.scss"
+  },
   //{
   //  "outputFile": "www/build/styles/css/faq.css",
   //  "inputFile": "www/source/styles/pages/faq.scss"
@@ -39,10 +45,10 @@
   //  "outputFile": "www/build/styles/css/promotion.css",
   //  "inputFile": "www/source/styles/pages/promotion.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/revenue-structure.css",
-  //  "inputFile": "www/source/styles/pages/revenue-structure.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/revenue-structure.css",
+    "inputFile": "www/source/styles/pages/revenue-structure.scss"
+  },
   {
     "outputFile": "www/build/styles/css/contact-us.css",
     "inputFile": "www/source/styles/pages/contact-us.scss"

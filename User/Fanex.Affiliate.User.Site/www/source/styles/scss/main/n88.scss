@@ -46,6 +46,7 @@
     display: flex;
     gap: 4.6rem;
     margin-bottom: 2.4rem;
+    justify-content :center;
     @include Tablet {
         gap: 2rem;
     }

@@ -873,6 +873,10 @@
     <Content Include="www\build\styles\css\pages\payment-request.min.css">
       <DependentUpon>payment-request.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\password.css" />
+    <Content Include="www\build\styles\css\password.min.css">
+      <DependentUpon>password.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\player-transfer-balance.css" />
     <Content Include="www\build\styles\css\player-transfer-balance.min.css">
       <DependentUpon>player-transfer-balance.css</DependentUpon>

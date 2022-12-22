@@ -1,4 +1,7 @@
-﻿.banner {
+﻿.main-content {
+  justify-content: flex-start; }
+
+.banner {
   display: flex;
   justify-content: center; }
   .banner img {
