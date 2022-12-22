@@ -966,8 +966,8 @@
     <Content Include="www\build\styles\Images\contact-in-home\n8g\contact.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8g\icon-arrow.png" />
     <Content Include="www\build\styles\Images\contact-us\email.png" />
-    <Content Include="www\build\styles\Images\contact-us\goal123.jpg" />
     <Content Include="www\build\styles\Images\contact-us\bwing.png" />
+    <Content Include="www\build\styles\Images\contact-us\goal123.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\email.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\darkmode\whatsapp.png" />
