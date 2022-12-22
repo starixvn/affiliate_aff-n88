@@ -37,10 +37,10 @@
     "outputFile": "www/build/styles/css/password.css",
     "inputFile": "www/source/styles/pages/password.scss"
   },
-  //{
-  //  "outputFile": "www/build/styles/css/faq.css",
-  //  "inputFile": "www/source/styles/pages/faq.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/faq.css",
+    "inputFile": "www/source/styles/pages/faq.scss"
+  },
   //{
   //  "outputFile": "www/build/styles/css/promotion.css",
   //  "inputFile": "www/source/styles/pages/promotion.scss"
