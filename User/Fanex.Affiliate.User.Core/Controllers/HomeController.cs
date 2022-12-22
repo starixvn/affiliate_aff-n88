@@ -35,7 +35,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 PromotionB2CLink = GetPromotionLink()
             };
 
-            return View("~/Views/Home/N88/Index.cshtml", viewModel);
+            return View($"~/Views/Home/{_appSetting.SiteName}/Index.cshtml", viewModel);
         }
 
         private string GetPromotionLink()

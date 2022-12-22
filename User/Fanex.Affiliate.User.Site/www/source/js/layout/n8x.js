@@ -4,14 +4,7 @@
             _me.initEvent();
         },
         initEvent: function () {
-            $("#selectedLanguage").on("click", function () {
-                $(this).focus();
-            });
 
-            $("#languageList").on("click", ".language-item", function () {
-                var $selectedItem = $(this);
-                Site.changeLanguage($selectedItem.data('option'));
-            });
         }
     }
 

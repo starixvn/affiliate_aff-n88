@@ -89,7 +89,8 @@
 
             var url = newActualUrl + hash;
 
-            Site.redirect(url);
+            console.log(url);
+            _me.redirect(url);
         }
     };
 

@@ -1,4 +1,4 @@
-﻿"use strict";
+﻿'use strict';
 
 var LayoutN88 = (function ($) {
     var _me = {
@@ -6,25 +6,7 @@ var LayoutN88 = (function ($) {
             _me.initEvent();
             _me.openMenu();
         },
-        initEvent: function initEvent() {
-            $(".desktop").on("click", ".select-language", function () {
-                $(this).focus();
-            });
-
-            $(".mobile").on("click", ".select-language", function () {
-                $(this).focus();
-            });
-
-            $(".language-list-wrapper-desktop").on("click", ".language-item", function () {
-                var $selectedItem = $(this);
-                _me.changeLanguage($selectedItem.data('option'));
-            });
-
-            $(".language-list-wrapper-mobile").on("click", ".language-item", function () {
-                var $selectedItem = $(this);
-                _me.changeLanguage($selectedItem.data('option'));
-            });
-        },
+        initEvent: function initEvent() {},
 
         openMenu: function openMenu() {
             $('#btn-menu').click(function () {

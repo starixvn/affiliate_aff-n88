@@ -5,16 +5,7 @@ var LayoutN8x = (function ($) {
         initialize: function initialize() {
             _me.initEvent();
         },
-        initEvent: function initEvent() {
-            $("#selectedLanguage").on("click", function () {
-                $(this).focus();
-            });
-
-            $("#languageList").on("click", ".language-item", function () {
-                var $selectedItem = $(this);
-                Site.changeLanguage($selectedItem.data('option'));
-            });
-        }
+        initEvent: function initEvent() {}
     };
 
     return _me;

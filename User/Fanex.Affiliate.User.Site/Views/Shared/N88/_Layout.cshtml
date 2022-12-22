@@ -66,7 +66,7 @@
                                     <i class="caret"></i>
                                 </button>
 
-                                <div class="language-list-wrapper language-list-wrapper-desktop">
+                                <div class="language-list-wrapper" id="languageList">
                                     <ul class="list-unstyled language-list">
                                         @foreach (var language in languageList)
                                         {
@@ -186,6 +186,7 @@
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")
     @Html.InlineScripts("~/www/build/js/jquery.extension.js")
     <script src="@Url.RenderLink("~/www/build/js/site.js")"></script>
+    <script src="@Url.RenderLink("~/www/build/js/layout.js")"></script>
     <script src="@Url.RenderLink("~/www/build/js/layout/n88.js")"></script>
 
     @if (userSession != null && !settingService.IsLocal)

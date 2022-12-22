@@ -1,3 +1,5 @@
+﻿"use strict";
+
 var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
 
@@ -6,46 +8,21 @@ var Layout = (function ($) {
         //$mainBanner.carousel();
     }
 
-    function createNewUrlByLanguage(url, language) {
-        var hasQueryString = url.indexOf('?') !== -1;
-        var updatedQueryParam = 'lang=' + language;
-        var key = 'lang';
-
-        if (hasQueryString) {
-            var regex = new RegExp('([?&])' + key + '=.*?(&|$)', 'i');
-            return regex.test(url) ?
-                url.replace(regex, '$1' + key + '=' + language + '$2') :
-                url + '&' + updatedQueryParam;
-        }
-        else {
-            return url + '?' + updatedQueryParam;
-        }
-    }
-
     var _me = {
-        initialize: function () {
+        initialize: function initialize() {
             initSlider();
-            Site.isN88 && _me.renderMode();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
         },
-        initEvent: function () {
+        initEvent: function initEvent() {
             $("#selectedLanguage").on("click", function () {
                 $(this).focus();
             });
 
-            $(".desktop").on("click", ".switch-desktop", function () {
-                _me.handleSwitchMode();
-            });
-
-            $(".mobile").on("click", ".switch-mobile", function () {
-                _me.handleSwitchMode();
-            });
-
             $("#languageList").on("click", ".language-item", function () {
                 var $selectedItem = $(this);
-                _me.changeLanguage($selectedItem.data('option'));
+                Site.changeLanguage($selectedItem.data('option'));
             });
 
             $('li.parent').on('mouseover', function () {
@@ -71,53 +48,9 @@ var Layout = (function ($) {
                     $('#moveToTop').fadeOut(200);
                 }
             });
-
-            $(window).resize(function () {
-                var mode = Site.getCookie("mode");
-
-                _me.setCheckedForInput(mode);
-            });
-        },
-        renderMode: function () {
-            var mode = Site.getCookie("mode");
-
-            _me.setCheckedForInput(mode);
-
-            var n88Link = $('#n88-link');
-            n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${mode || 'lightmode'}.css?v=${window.JsVersion}`));
-
-            if (!mode) {
-                document.cookie = "mode=lightmode; path=/";
-            }
-        },
-        handleSwitchMode: function () {
-            var mode = Site.getCookie("mode");
-
-            var newMode = mode === 'lightmode' ? 'darkmode' : 'lightmode';
-            _me.setCheckedForInput(newMode);
-            Site.getImageByMode(newMode);
-
-            var n88Link = $('#n88-link');
-            n88Link.attr('href', Site.resolveRelativeUrl(`www/build/styles/css/n88-${newMode}.css?v=${window.JsVersion}`));
-
-            document.cookie = "mode=" + newMode + "; path=/";
         },
 
-        setCheckedForInput: function (mode) {
-            var isDarkMode = mode === "darkmode";
-
-            var inputDesktop = $('#switch-desktop');
-            var inputMobile = $('#switch-mobile');
-
-            if (isDarkMode) {
-                inputDesktop.addClass('dark-mode');
-                inputMobile.addClass('dark-mode');
-            } else {
-                inputDesktop.removeClass('dark-mode');
-                inputMobile.removeClass('dark-mode');
-            }
-        },
-        registerAjaxHandlerError: function () {
+        registerAjaxHandlerError: function registerAjaxHandlerError() {
             $(document).ajaxError(function (event, jqXHR) {
                 var status = jqXHR.status;
 
@@ -137,34 +70,24 @@ var Layout = (function ($) {
                 }
             });
         },
-        renderHotNews: function () {
+        renderHotNews: function renderHotNews() {
             $.ajax({
                 type: "GET",
                 url: Site.resolveRelativeUrl("News/LatestHotNews"),
                 dataType: "html",
                 cache: false,
-                success: function (response) {
+                success: function success(response) {
                     var $marquee = $("#marquee");
                     $marquee.html(response);
 
                     $marquee.css("animation-duration", DEFAULT_SPEED + "s");
                 }
             });
-        },
-
-        changeLanguage: function (selectedLanguage) {
-            var hash = window.location.hash;
-            var href = window.location.href;
-            var actualUrl = !!hash ? href.substring(0, href.indexOf(hash)) : href;
-            var newActualUrl = createNewUrlByLanguage(actualUrl, selectedLanguage);
-
-            var url = newActualUrl + hash;
-
-            Site.redirect(url);
         }
-    }
+    };
 
     return _me;
 })(jQuery);
 
 Layout.initialize();
+

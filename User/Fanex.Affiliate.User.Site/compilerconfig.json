@@ -1,5 +1,9 @@
 ﻿[
   {
+    "outputFile": "www/build/js/layout.js",
+    "inputFile": "www/source/js/layout.js"
+  },
+  {
     "outputFile": "www/build/js/layout/n88.js",
     "inputFile": "www/source/js/layout/n88.js"
   },
