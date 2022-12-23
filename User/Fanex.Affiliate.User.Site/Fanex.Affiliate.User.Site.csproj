@@ -837,6 +837,10 @@
     <Content Include="www\build\styles\css\commissionreport.min.css">
       <DependentUpon>commissionreport.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\maintenance.css" />
+    <Content Include="www\build\styles\css\maintenance.min.css">
+      <DependentUpon>maintenance.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\main\n88.css" />
     <Content Include="www\build\styles\css\main\n88.min.css">
       <DependentUpon>n88.css</DependentUpon>
@@ -999,6 +1003,8 @@
     <Content Include="www\build\styles\Images\icons\n88\dropdown.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
+    <Content Include="www\build\styles\Images\notify\maintenance-logo.png" />
+    <Content Include="www\build\styles\Images\notify\note_icon.png" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\Promotion.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\Promotion.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\N88\Promotion.id-ID.jpg" />
@@ -1496,6 +1502,7 @@
     <Content Include="Views\TermAndCondition\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\TermAndCondition\Index.cshtml" />
     <Content Include="www\source\styles\scss\components\n88\_nav-scroll.scss" />
+    <Content Include="www\source\styles\pages\maintenance.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

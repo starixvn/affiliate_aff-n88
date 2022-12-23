@@ -19,73 +19,19 @@
     <title>Under Maintenance</title>
     <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
     <link href="~/www/build/styles/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    <style type="text/css">
-        body {
-            background: -ms-linear-gradient(left, #500001, #020518);
-            background: -webkit-linear-gradient(left, #500001, #020518);
-            background: -moz-linear-gradient(left, #500001, #020518);
-            background: -o-linear-gradient(left, #500001, #020518);
-            background: linear-gradient(left, #500001, #020518);
-        }
-
-        .um-container {
-            background: #f5f0f0;
-            padding: 15px;
-            width: 100%;
-        }
-
-        .info {
-            color: #ff5a00;
-        }
-
-        .um-wrapper a:visited {
-            color: #ff5a00;
-        }
-
-        .um-wrapper a:hover {
-            color: #002aa0;
-        }
-
-        .um-wrapper h1 {
-            font-family: Arial, Helvetica;
-            font-size: 18px;
-            font-weight: bold;
-            color: #ff5a00;
-            _padding-top: 20px;
-            *padding-top: 20px;
-            line-height: 25px;
-            display: inline-block;
-        }
-
-        .um-header {
-            margin-bottom: 10px;
-        }
-
-        .um-header-top {
-            padding: 10px;
-            background: url('../../www/build/styles/Images/header-bg.png');
-        }
-
-        .logo {
-            max-width: 180px;
-        }
-    </style>
+    <link href="@Url.RenderLink("~/www/build/styles/css/maintenance.css")" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <header class="um-header-top">
-            <img class="logo" src=@(Url.Content($"~/www/build/styles/Images/themes/{siteName}.png")) alt="logo" />
-        </header>
-    </div>
-    <div class="container main-container">
+    <div class="main-container">
+        <div class="logo">
+            <img src=@(Url.Content($"~/www/build/styles/Images/notify/maintenance-logo.png")) alt="logo" />
+        </div>
         <div class="content">
             <div class="um-container">
                 @*EN*@
                 <div class="um-wrapper">
                     <div class="um-header">
-                        <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                        <h1>Under Maintenance</h1>
+                        Under Maintenance
                     </div>
 
                     <div class="message-content">
@@ -97,15 +43,12 @@
                     </div>
                 </div>
 
-                <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
-
                 @if (isN88)
                 {
                     @*Hindi*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>रखरखाव जारी</h1>
+                            रखरखाव जारी
                         </div>
 
                         <div class="message-content">
@@ -117,13 +60,10 @@
                         </div>
                     </div>
 
-                    <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
-
                     @*Indo*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>Under Maintenance</h1>
+                            Under Maintenance
                         </div>
 
                         <div class="message-content">
@@ -135,13 +75,10 @@
                         </div>
                     </div>
 
-                    <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
-
                     @*Indo*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>Di bawah penyelenggaraan</h1>
+                            Di bawah penyelenggaraan
                         </div>
 
                         <div class="message-content">
@@ -153,13 +90,10 @@
                         </div>
                     </div>
 
-                    <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
-
                     @*TH*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>ปรับปรุงระบบ</h1>
+                            ปรับปรุงระบบ
                         </div>
 
                         <div class="message-content">
@@ -171,13 +105,10 @@
                         </div>
                     </div>
 
-                    <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
-
                     @*CS*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>伺服器维护</h1>
+                            伺服器维护
                         </div>
 
                         <div class="message-content">
@@ -194,8 +125,7 @@
                     @*VN*@
                     <div class="um-wrapper">
                         <div class="um-header">
-                            <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
-                            <h1>Hệ thống bảo trì</h1>
+                            Hệ thống bảo trì
                         </div>
 
                         <div class="message-content">
@@ -207,15 +137,13 @@
                         </div>
                     </div>
                 }
-
             </div>
         </div>
-
-        <div class="footer">
-            <div class="container">
-                <div class="footer-text text-center">
-                    @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
-                </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="footer-text text-center">
+                @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
             </div>
         </div>
     </div>
