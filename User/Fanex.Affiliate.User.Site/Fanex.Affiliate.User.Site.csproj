@@ -1221,7 +1221,9 @@
     <Content Include="www\source\styles\Images\ipad-login.svg" />
     <Content Include="www\source\styles\Images\mode\darkmode.svg" />
     <Content Include="www\source\styles\Images\mode\lightmode.svg" />
+    <Content Include="www\source\styles\Images\notify\404.png" />
     <Content Include="www\source\styles\Images\notify\bgMain.jpg" />
+    <Content Include="www\source\styles\Images\notify\Error.png" />
     <Content Include="www\source\styles\Images\notify\icon.png" />
     <Content Include="www\source\styles\Images\notify\iconnf.png" />
     <Content Include="www\source\styles\Images\notify\sry.png" />

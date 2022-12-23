@@ -129,10 +129,10 @@
   //  "outputFile": "www/build/js/contactus.js",
   //  "inputFile": "www/source/js/pages/contactus.js"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/notify.css",
-  //  "inputFile": "www/source/styles/pages/notify.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/notify.css",
+    "inputFile": "www/source/styles/pages/notify.scss"
+  },
   //{
   //  "outputFile": "www/build/js/forgotpassword.js",
   //  "inputFile": "www/source/js/pages/forgotpassword.js"
