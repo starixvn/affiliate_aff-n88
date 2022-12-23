@@ -39,17 +39,25 @@
       margin-bottom: 0; } }
 
 .table-casino {
-  max-width: 1540px;
-  margin: 0 auto;
   padding: 0 10px; }
-  .table-casino tr:nth-child(even) {
-    background-color: #FFF3ED; }
-  @media (max-width: 768px) {
-    .table-casino {
-      max-width: 740px;
-      overflow: scroll; } }
-  .table-casino th:first-child, .table-casino td:first-child {
-    position: sticky; }
+  .table-casino .table-responsive {
+    max-width: 1540px;
+    margin: 0 auto; }
+    .table-casino .table-responsive tr:nth-child(even) {
+      background-color: #FFF3ED; }
+    @media (max-width: 768px) {
+      .table-casino .table-responsive {
+        max-width: 740px;
+        overflow: scroll; } }
+    .table-casino .table-responsive tbody tr > :first-child, .table-casino .table-responsive thead tr:first-child th:first-child {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 100; }
+    .table-casino .table-responsive tbody tr:nth-child(even) td:first-child {
+      background-color: #FFF3ED; }
+    .table-casino .table-responsive tbody tr:nth-child(odd) td:first-child {
+      background-color: #FFFFFF; }
 
 .main-content {
   justify-content: flex-start !important; }
@@ -62,3 +70,12 @@
 .text-block-bottom {
   margin: 0 auto;
   padding-top: 24px; }
+
+#productBanner {
+  margin-top: 24px; }
+  @media (max-width: 768px) {
+    #productBanner {
+      margin-top: 12px; } }
+
+.carousel.slide .carousel-inner {
+  max-height: 330px; }

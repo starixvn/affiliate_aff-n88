@@ -59,21 +59,37 @@
 }
 
 .table-casino {
-    max-width: 1540px;
-    margin: 0 auto;
     padding: 0 10px;
 
-    tr:nth-child(even) {
-        background-color: #FFF3ED;
-    }
+    .table-responsive {
+        max-width: 1540px;
+        margin: 0 auto;
 
-    @media (max-width: 768px) {
-        max-width: 740px;
-        overflow: scroll;
-    }
+        tr:nth-child(even) {
+            background-color: #FFF3ED;
+        }
 
-    th:first-child, td:first-child {
-        position: sticky;
+        @media (max-width: 768px) {
+            max-width: 740px;
+            overflow: scroll;
+        }
+
+        tbody tr > :first-child, thead tr:first-child th:first-child {
+            position: -webkit-sticky;
+            position: sticky;
+            left: 0;
+            z-index: 100;
+        }
+
+        tbody {
+            tr:nth-child(even) td:first-child {
+                background-color: #FFF3ED;
+            }
+
+            tr:nth-child(odd) td:first-child {
+                background-color: #FFFFFF;
+            }
+        }
     }
 }
 
@@ -90,4 +106,16 @@
 .text-block-bottom {
     margin: 0 auto;
     padding-top: 24px;
+}
+
+#productBanner {
+    margin-top: 24px;
+
+    @media (max-width: 768px) {
+        margin-top: 12px;
+    }
+}
+
+.carousel.slide .carousel-inner {
+    max-height: 330px;
 }
