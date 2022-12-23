@@ -1868,10 +1868,10 @@
     <value>3. Gắn thẻ hội viên</value>
   </data>
   <data name="RevenueSharingAndPayment" xml:space="preserve">
-    <value>4. Chia sẻ doanh thu &amp;amp; Thanh toán</value>
+    <value>4. Chia sẻ doanh thu &amp; Thanh toán</value>
   </data>
   <data name="PoliciesAndConfidentiality" xml:space="preserve">
-    <value>5. Chính sách &amp;amp; Tính bí mật</value>
+    <value>5. Chính sách &amp; Tính bí mật</value>
   </data>
   <data name="LimitedLicense" xml:space="preserve">
     <value>6. Giấy phép hạn chế</value>
@@ -1883,7 +1883,7 @@
     <value>8. Thông tin khác</value>
   </data>
   <data name="TermAndTermination" xml:space="preserve">
-    <value>9. Thời hạn &amp;amp; Chấm dứt</value>
+    <value>9. Thời hạn &amp; Chấm dứt</value>
   </data>
   <data name="RelationshipOfParties" xml:space="preserve">
     <value>10. Quan hệ của các bên</value>

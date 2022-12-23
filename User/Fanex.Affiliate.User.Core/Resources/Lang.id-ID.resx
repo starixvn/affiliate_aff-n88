@@ -1645,7 +1645,7 @@
     <value>4. Pembagian pendapatan dan pembayaran</value>
   </data>
   <data name="PoliciesAndConfidentiality" xml:space="preserve">
-    <value>5. Kebijakan &amp;amp; Kerahasiaan</value>
+    <value>5. Kebijakan &amp; Kerahasiaan</value>
   </data>
   <data name="LimitedLicense" xml:space="preserve">
     <value>6. Lisensi terbatas</value>
@@ -1657,7 +1657,7 @@
     <value>8. Lain-Lain</value>
   </data>
   <data name="TermAndTermination" xml:space="preserve">
-    <value>9. Ketentuan &amp;amp; Pengakhiran</value>
+    <value>9. Ketentuan &amp; Pengakhiran</value>
   </data>
   <data name="RelationshipOfParties" xml:space="preserve">
     <value>10. Hubungan Para Pihak</value>

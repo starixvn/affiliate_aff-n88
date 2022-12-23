@@ -14,8 +14,12 @@ var Layout = (function ($) {
             _me.renderHotNews();
         },
         initEvent: function () {
-            $("#selectedLanguage").on("click", function () {
-                $(this).focus();
+            $("#selectedLanguage").on("mousedown", function (e) {
+                e.preventDefault();
+            });
+
+            $("#selectedLanguage").on("click", function (e) {
+                $(this).is(':focus') ? $(this).blur() : $(this).focus();
             });
 
             $("#languageList").on("click", ".language-item", function () {

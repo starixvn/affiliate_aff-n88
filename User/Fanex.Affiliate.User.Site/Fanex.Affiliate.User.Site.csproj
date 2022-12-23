@@ -943,7 +943,7 @@
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.hi-IN.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.id-ID.png" />
-    <Content Include="www\build\styles\Images\apply\n88\3step.destop.ms-MY.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.ms-MY.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.th-TH.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.en-US.png" />
     <Content Include="www\build\styles\Images\apply\n8b\3step.vi-VN.png" />
@@ -978,12 +978,15 @@
     <Content Include="www\build\styles\Images\contact-us\email.png" />
     <Content Include="www\build\styles\Images\contact-us\bwing.png" />
     <Content Include="www\build\styles\Images\contact-us\goal123.jpg" />
+    <Content Include="www\build\styles\Images\contact-us\N88\email.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\telegram.png" />
     <Content Include="www\build\styles\Images\contact-us\N88\whatsapp.png" />
     <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
+    <Content Include="www\build\styles\Images\home\n88\bg-left-login.mobile.png" />
+    <Content Include="www\build\styles\Images\home\n88\bg-left-login.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-news.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-news.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.mobile.png" />
@@ -1046,6 +1049,7 @@
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
+    <Content Include="www\source\js\pages\n88\revenue-structure.js" />
     <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance.js" />
@@ -1791,7 +1795,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>56553</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56555/</IISUrl>
+          <IISUrl>http://localhost:5656/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

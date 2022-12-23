@@ -1,10 +1,12 @@
-﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 @{
     ViewBag.Title = Lang.CommissionStructure;
     Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 @{
+    var isN88 = string.Equals(Model.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
     var viewName = PathHelper.GetViewPath("CommissionStructure", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
 
     var htmlString = Html.Partial(viewName, Model).ToHtmlString();
@@ -20,43 +22,46 @@
 
 
 <div class="main-content">
-    <div class="left-panel">
-        <div class="menu" id="">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="menu-item left-menu-item active" href="#WhatWeHave">
-                        @Lang.WhatWeHave
-                    </a>
-                    <ul class="sub-menu">
-                        <li><a href="#" class="active">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
-                        <li><a href="#">Sub menu 1</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#WhatWeOffer">
-                        @Lang.WhatWeOffer
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#OurPlan">
-                        @Lang.OurPlan
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
-                        @Lang.RevenueSharePayoutExample
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#HowWePay">
-                        @Lang.HowWePay
-                    </a>
-                </li>
-            </ul>
+    @if (isN88)
+    {
+        <div class="left-panel">
+            <div class="menu" id="left-menu">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="menu-item left-menu-item active" href="#WhatWeHave">
+                            @Lang.WhatWeHave
+                        </a>
+                        @*<ul class="sub-menu">
+                            <li><a href="#" class="active">Sub menu 1</a></li>
+                            <li><a href="#">Sub menu 1</a></li>
+                            <li><a href="#">Sub menu 1</a></li>
+                            <li><a href="#">Sub menu 1</a></li>
+                        </ul>*@
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#WhatWeOffer">
+                            @Lang.WhatWeOffer
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#OurPlan">
+                            @Lang.OurPlan
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
+                            @Lang.RevenueSharePayoutExample
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#HowWePay">
+                            @Lang.HowWePay
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    }
     <div class="content">
         <div class="page-title">
             <span class="text">@Lang.CommissionStructure</span>

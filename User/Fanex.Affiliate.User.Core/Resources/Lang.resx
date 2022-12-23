@@ -2077,10 +2077,10 @@
     <value>3. Affiliate Tagging</value>
   </data>
   <data name="RevenueSharingAndPayment" xml:space="preserve">
-    <value>4. Revenue Sharing &amp;amp; Payment</value>
+    <value>4. Revenue Sharing &amp; Payment</value>
   </data>
   <data name="PoliciesAndConfidentiality" xml:space="preserve">
-    <value>5. Policies &amp;amp; Confidentiality</value>
+    <value>5. Policies &amp; Confidentiality</value>
   </data>
   <data name="LimitedLicense" xml:space="preserve">
     <value>6. Limited License</value>
@@ -2092,7 +2092,7 @@
     <value>8. Miscellaneous</value>
   </data>
   <data name="TermAndTermination" xml:space="preserve">
-    <value>9. Term &amp;amp; Termination</value>
+    <value>9. Term &amp; Termination</value>
   </data>
   <data name="RelationshipOfParties" xml:space="preserve">
     <value>10. Relationship of Parties</value>
