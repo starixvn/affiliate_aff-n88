@@ -54,10 +54,22 @@
       position: sticky;
       left: 0;
       z-index: 100; }
+    .table-casino .table-responsive thead tr:first-child th {
+      border-right: 1px solid #C7C7C7;
+      border-left: none; }
+    .table-casino .table-responsive thead tr:nth-child(2) th:first-child {
+      border-left: none; }
+    .table-casino .table-responsive tbody tr > :first-child {
+      border-right: 1px solid #C7C7C7 !important; }
+    .table-casino .table-responsive tbody tr > :nth-child(2) {
+      border-left: none; }
     .table-casino .table-responsive tbody tr:nth-child(even) td:first-child {
       background-color: #FFF3ED; }
     .table-casino .table-responsive tbody tr:nth-child(odd) td:first-child {
       background-color: #FFFFFF; }
+    .table-casino .table-responsive th {
+      border-right: none;
+      border-bottom: none; }
 
 .main-content {
   justify-content: flex-start !important; }
@@ -79,3 +91,27 @@
 
 .carousel.slide .carousel-inner {
   max-height: 330px; }
+
+.table-scroll {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto; }
+
+.table-scroll table {
+  width: 100%;
+  min-width: 128rem;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0; }
+
+.table-wrap {
+  position: relative; }
+
+.table-scroll td {
+  padding: 5px 10px;
+  background: #fff;
+  vertical-align: top;
+  border-top: none !important;
+  border-right: none !important; }
