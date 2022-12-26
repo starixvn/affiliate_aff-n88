@@ -931,11 +931,6 @@ header {
     }
 
     .carousel-inner {
-
-        @media (max-width: 767px) and (min-width: 480px) {
-            height: 150px !important;
-        }
-
         @media (max-width: 480px) {
             height: auto;
         }

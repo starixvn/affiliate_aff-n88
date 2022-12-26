@@ -596,10 +596,6 @@ header {
     width: 100%;
     padding: 10px 0; }
 
-@media (max-width: 767px) and (min-width: 480px) {
-  .carousel.slide .carousel-inner {
-    height: 150px !important; } }
-
 @media (max-width: 480px) {
   .carousel.slide .carousel-inner {
     height: auto; } }
