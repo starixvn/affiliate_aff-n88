@@ -57,6 +57,8 @@
     .table-casino .table-responsive thead tr:first-child th {
       border-right: 1px solid #C7C7C7;
       border-left: none; }
+      .table-casino .table-responsive thead tr:first-child th:last-child {
+        border-right: none; }
     .table-casino .table-responsive thead tr:nth-child(2) th:first-child {
       border-left: none; }
     .table-casino .table-responsive tbody tr > :first-child {
@@ -104,14 +106,14 @@
   min-width: 128rem;
   margin: auto;
   border-collapse: separate;
-  border-spacing: 0; }
+  border-spacing: 0;
+  border-right: 1px solid #C7C7C7; }
 
 .table-wrap {
   position: relative; }
 
 .table-scroll td {
   padding: 5px 10px;
-  background: #fff;
   vertical-align: top;
   border-top: none !important;
   border-right: none !important; }

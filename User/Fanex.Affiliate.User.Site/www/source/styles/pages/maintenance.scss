@@ -71,5 +71,11 @@
         font-size: 14px;
         line-height: 22px;
         color: #FAFAFA;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 12px;
+            line-height: 18px;
+            text-align: left;
+        }
     }
 }

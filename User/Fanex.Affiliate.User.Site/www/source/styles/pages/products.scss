@@ -87,6 +87,9 @@
                     th {
                         border-right: 1px solid #C7C7C7;
                         border-left: none;
+                        &:last-child{
+                            border-right: none;
+                        }
                     }
                 }
 
@@ -167,6 +170,7 @@
     margin: auto;
     border-collapse: separate;
     border-spacing: 0;
+    border-right: 1px solid #C7C7C7;
 }
 
 .table-wrap {
@@ -175,7 +179,6 @@
 
 .table-scroll td {
     padding: 5px 10px;
-    background: #fff;
     vertical-align: top;
     border-top: none !important;
     border-right: none !important;
