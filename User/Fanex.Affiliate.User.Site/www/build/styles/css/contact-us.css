@@ -147,9 +147,6 @@
       .form .form-group .validation-value {
         align-self: flex-end; } }
 
-.mobile-left-panel {
-  display: none !important; }
-
 .grid-contact-info {
   display: grid;
   grid-template-columns: repeat(3, 28.4rem);

@@ -6,3 +6,7 @@
 
 .main-content {
   justify-content: flex-start !important; }
+
+@media (max-width: 767px) {
+  .mobile-left-panel {
+    display: flex; } }

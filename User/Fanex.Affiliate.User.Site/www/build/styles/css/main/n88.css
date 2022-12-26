@@ -544,7 +544,8 @@ input[type="checkbox"], input[type="radio"] {
       border-color: #3ea4bd; }
     @media (max-width: 992px) {
       .user-login .text-field {
-        width: 110px; } }
+        width: 110px;
+        margin-left: 8px; } }
   .user-login .btn:last-child {
     margin-left: 6px; }
   .user-login .btn-forgot {
