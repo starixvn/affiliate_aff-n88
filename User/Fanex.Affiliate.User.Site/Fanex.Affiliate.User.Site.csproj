@@ -1051,6 +1051,7 @@
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance.js" />
     <Content Include="www\source\js\pages\promotion.js" />
     <Content Include="www\source\js\pages\statistics\marketing-statistics.js" />
+    <Content Include="www\source\styles\Images\arrrow.png" />
     <Content Include="www\source\styles\Images\bg-Terms_&amp;_conditions_banner-bwing.png" />
     <Content Include="www\build\styles\Images\bg-Terms_&amp;_conditions_banner.png" />
     <Content Include="www\build\styles\Images\contact-in-home\n8b\bg_contact.png" />
