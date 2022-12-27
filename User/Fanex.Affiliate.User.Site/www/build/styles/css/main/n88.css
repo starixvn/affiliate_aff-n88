@@ -1425,8 +1425,7 @@ body {
     padding: 8px 10px 6px !important; }
     .footer .footer-text {
       font-size: 12px;
-      line-height: 18px;
-      text-align: left; } }
+      line-height: 18px; } }
 
 .blocker {
   display: block;
