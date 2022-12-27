@@ -335,13 +335,13 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1332px;
+  max-width: 1344px;
   margin: 0 auto;
   width: 100%;
   padding: 0 12px; }
   .header-top .logo {
     display: inline-block;
-    margin-top: 12px; }
+    margin-top: 8px; }
     @media (max-width: 992px) {
       .header-top .logo {
         text-align: center;
@@ -351,6 +351,10 @@ input[type="checkbox"], input[type="radio"] {
   .header-top .logo-image {
     display: inline-block;
     width: 137px; }
+    @media only screen and (max-width: 767px) {
+      .header-top .logo-image {
+        width: 110px;
+        padding-bottom: 4px; } }
   .header-top .btn {
     margin-right: 0; }
 
@@ -366,7 +370,7 @@ input[type="checkbox"], input[type="radio"] {
   margin-bottom: 0;
   border: none; }
   .navbar .page-container {
-    max-width: 1332px;
+    max-width: 1344px;
     margin: 4px auto;
     width: 100%;
     padding: 0 12px; }
@@ -387,8 +391,13 @@ input[type="checkbox"], input[type="radio"] {
     padding-top: 0;
     padding-bottom: 0;
     float: left; }
+    @media only screen and (max-width: 375px) {
+      .navbar .navbar-toggle {
+        margin-top: 6px;
+        margin-bottom: 6px; } }
     .navbar .navbar-toggle .icon-bar {
-      background: #fff; }
+      background: #fff;
+      width: 20px; }
   .navbar.navbar-default .navbar-toggle {
     border-color: transparent; }
     .navbar.navbar-default .navbar-toggle:hover, .navbar.navbar-default .navbar-toggle:focus {
@@ -418,13 +427,21 @@ input[type="checkbox"], input[type="radio"] {
   justify-content: flex-end;
   text-align: right;
   margin-bottom: 3px; }
+  @media (max-width: 767px) {
+    .user-signup {
+      align-items: flex-end; }
+      .user-signup .language-container .flag {
+        width: 16px !important;
+        height: 16px !important; }
+      .user-signup .btn-login-mobile {
+        margin: 0 !important; } }
 
 .sign-up {
   display: inline-block;
   vertical-align: middle; }
 
 #btnLogin {
-  margin-right: 9px; }
+  margin-right: 11px; }
 
 .language-container {
   display: inline-block;
@@ -504,8 +521,7 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   align-items: center;
   text-align: right;
-  margin-top: 10px;
-  margin-bottom: 11px; }
+  margin: 12px 0; }
   .user-login .group {
     position: relative; }
     .user-login .group .mdi {
@@ -553,9 +569,7 @@ input[type="checkbox"], input[type="radio"] {
     color: #fff;
     font-size: 16px;
     padding: 0;
-    line-height: 25px;
-    margin-left: 12px;
-    margin-bottom: 3px; }
+    margin-left: 12px; }
     .user-login .btn-forgot .title-forgot {
       text-transform: capitalize;
       font-size: 14px;
@@ -571,10 +585,6 @@ input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   vertical-align: middle;
   margin-left: 12px; }
-
-@media (max-width: 992px) {
-  .login .text-field, .login .validation-value {
-    margin-bottom: 8px; } }
 
 .content-menu .menu {
   display: flex;

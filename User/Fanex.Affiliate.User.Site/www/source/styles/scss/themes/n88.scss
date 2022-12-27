@@ -15,6 +15,7 @@ body.menu-open {
 
     .header-top {
         filter: blur(2px);
+        pointer-events: none;
     }
 
     .main-container, .footer {
@@ -50,7 +51,7 @@ header {
     .select-language {
         border: 0;
         position: relative;
-        padding: 0 18px 0 28px;
+        padding: 0 19px 0 28px;
         line-height: 22px;
         font-weight: 400;
         font-size: 14px;
@@ -117,7 +118,7 @@ header {
     border-left: 1px solid #BDBDBD;
 
     .btn-signup {
-        margin-left: 12px;
+        margin-left: 10px;
         border-radius: 4px;
     }
 }
@@ -948,6 +949,10 @@ header {
     .menu .menu-item {
         padding-right: 20px;
     }
+
+    .navbar .page-container {
+        padding-left: 24px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -958,22 +963,24 @@ header {
     .navbar-collapse {
         width: 100%;
         height: 100vh;
-        background: #001332;
+        background: #001942;
+        border: 0;
     }
 
     .navbar .page-container {
         margin-left: 0;
+        padding: 0;
 
         .navbar-nav {
             margin: 16px;
         }
 
         .menu .menu-item {
-            height: 32px;
             border-bottom: 1px solid #EEEEEE;
             margin-bottom: 16px;
             font-size: 16px;
             line-height: 24px;
+            padding-bottom: 8px;
 
             &.active {
                 border-bottom: 1px solid #FF5D00;
@@ -985,13 +992,53 @@ header {
         }
     }
 
-    .user-signup {
-        flex-direction: column-reverse;
-    }
+    .header-top {
+        padding: 12px 10px 6px 12px;
 
-    .sign-up {
-        border: 0;
-        margin-bottom: 10px;
+        .user-signup {
+            flex-direction: column-reverse;
+
+            .btn-signup, .btn-login-mobile, .language-container .select-language {
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 18px;
+                height: 20px;
+            }
+
+            .language-container {
+                margin-right: 5px;
+
+                .select-language {
+                    font-weight: 400;
+                    padding: 0 16px 0 20px;
+                    top: 4px;
+
+                    .caret {
+                        top: 5px;
+                    }
+                }
+            }
+
+            .btn-signup, .btn-login-mobile {
+                padding: 1px 7px !important;
+            }
+
+            .btn-login-mobile {
+                margin: 0 !important;
+            }
+        }
+
+        .sign-up {
+            border: 0;
+        }
+
+        .language-login {
+            padding-top: 9px
+        }
+
+        .logo, .login {
+            padding: 0;
+        }
     }
 
     .hot-news {
@@ -1136,26 +1183,6 @@ header {
             .login-side {
                 padding: 14px 12px 12px;
             }
-        }
-    }
-}
-
-@media only screen and (max-width: 375px) {
-    .header-top {
-        padding: 10px;
-
-        .user-signup {
-            margin: 0;
-            align-items: flex-end;
-        }
-
-        .logo, .login {
-            padding: 0;
-        }
-
-        .btn-login-mobile {
-            margin: 0 !important;
-            padding: 0 10px !important;
         }
     }
 }
