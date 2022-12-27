@@ -756,6 +756,14 @@
     <Content Include="www\build\js\myaccount.min.js">
       <DependentUpon>myaccount.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\n88\left-menu-panel.js" />
+    <Content Include="www\build\js\n88\left-menu-panel.min.js">
+      <DependentUpon>left-menu-panel.js</DependentUpon>
+    </Content>
+    <Content Include="www\build\js\n88\product.js" />
+    <Content Include="www\build\js\n88\product.min.js">
+      <DependentUpon>product.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\overview.js" />
     <Content Include="www\build\js\overview.min.js">
       <DependentUpon>overview.js</DependentUpon>
@@ -1049,7 +1057,7 @@
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
-    <Content Include="www\source\js\pages\n88\revenue-structure.js" />
+    <Content Include="www\source\js\pages\n88\left-menu-panel.js" />
     <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance.js" />
@@ -1182,7 +1190,7 @@
     <Content Include="www\source\js\pages\account-overview\marketingbase.js" />
     <Content Include="www\source\js\pages\account-overview\mediagallery.js" />
     <Content Include="www\source\js\pages\myaccount.js" />
-    <Content Include="www\source\js\pages\revenue-structure.js" />
+    <Content Include="www\source\js\pages\n88\product.js" />
     <Content Include="www\source\js\pages\signup.js" />
     <Content Include="www\source\js\pages\statement-history.js" />
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />

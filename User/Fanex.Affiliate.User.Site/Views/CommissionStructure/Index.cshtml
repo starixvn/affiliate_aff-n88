@@ -17,22 +17,22 @@
 }
 
 @section scripts{
-    @Html.InlineScripts("~/www/build/js/revenue-structure.js")
+    @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
 }
 
 
 <div class="main-content">
     @if (isN88)
     {
-    <div class="mobile-left-panel">
-        <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
-        <span>List Category</span>
-    </div>
+        <div class="mobile-left-panel">
+            <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
+            <span>List Category</span>
+        </div>
         <div class="left-panel">
-            <div class="menu" id="left-menu">
+            <div class="menu">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="menu-item left-menu-item active" href="#WhatWeHave">
+                        <a class="left-menu-item active" href="#WhatWeHave">
                             @Lang.WhatWeHave
                         </a>
                         @*<ul class="sub-menu">
@@ -43,22 +43,22 @@
                         </ul>*@
                     </li>
                     <li>
-                        <a class="menu-item left-menu-item" href="#WhatWeOffer">
+                        <a class="left-menu-item" href="#WhatWeOffer">
                             @Lang.WhatWeOffer
                         </a>
                     </li>
                     <li>
-                        <a class="menu-item left-menu-item" href="#OurPlan">
+                        <a class="left-menu-item" href="#OurPlan">
                             @Lang.OurPlan
                         </a>
                     </li>
                     <li>
-                        <a class="menu-item left-menu-item" href="#RevenueSharePayoutExample">
+                        <a class="left-menu-item" href="#RevenueSharePayoutExample">
                             @Lang.RevenueSharePayoutExample
                         </a>
                     </li>
                     <li>
-                        <a class="menu-item left-menu-item" href="#HowWePay">
+                        <a class="left-menu-item" href="#HowWePay">
                             @Lang.HowWePay
                         </a>
                     </li>

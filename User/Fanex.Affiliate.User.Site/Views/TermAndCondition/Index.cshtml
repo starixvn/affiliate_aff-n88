@@ -1,106 +1,115 @@
-﻿@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
 @{
     ViewBag.Title = Lang.TermAndCondition;
     Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 
 @{
+    var isN88 = string.Equals(Model.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
     var viewName = PathHelper.GetViewPath("TermAndCondition", $"_Content.{Model.CurrentLanguage}", Model.SiteName); ;
 
     var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString());
 }
 
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
+}
+
 <div class="main-content term-condition">
-    <div class="mobile-left-panel">
-        <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
-        <span>List Category</span>
-    </div>
-    <div class="left-panel">
-        <div class="menu" id="">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="menu-item left-menu-item active" href="#ResponsibilitiesOfTheAffiliate">
-                        @Lang.ResponsibilitiesOfTheAffiliate
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#AffiliationGuidelines">
-                        @Lang.AffiliationGuidelines
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#AffiliateTagging">
-                        @Lang.AffiliateTagging
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#RevenueSharingAndPayment">
-                        @Lang.RevenueSharingAndPayment
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#PoliciesAndConfidentiality">
-                        @Lang.PoliciesAndConfidentiality
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#LimitedLicense">
-                        @Lang.LimitedLicense
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#LegalResponsibility">
-                        @Lang.LegalResponsibility
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#Miscellaneous">
-                        @Lang.Miscellaneous
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#TermAndTermination">
-                        @Lang.TermAndTermination
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#RelationshipOfParties">
-                        @Lang.RelationshipOfParties
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#Indemnity">
-                        @Lang.Indemnity
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#Disclaimers">
-                        @Lang.Disclaimers
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#LimitationOfLiability">
-                        @Lang.LimitationOfLiability
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#IndependentInvestigation">
-                        @Lang.IndependentInvestigation
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#GoverningLawAndArbitration">
-                        @Lang.GoverningLawAndArbitration
-                    </a>
-                </li>
-                <li>
-                    <a class="menu-item left-menu-item" href="#InWitnessWhereOf">
-                        @Lang.InWitnessWhereOf
-                    </a>
-                </li>
-            </ul>
+    @if (isN88)
+    {
+        <div class="mobile-left-panel">
+            <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
+            <span>List Category</span>
         </div>
-    </div>
+        <div class="left-panel">
+            <div class="menu" id="">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="menu-item left-menu-item active" href="#ResponsibilitiesOfTheAffiliate">
+                            @Lang.ResponsibilitiesOfTheAffiliate
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#AffiliationGuidelines">
+                            @Lang.AffiliationGuidelines
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#AffiliateTagging">
+                            @Lang.AffiliateTagging
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#RevenueSharingAndPayment">
+                            @Lang.RevenueSharingAndPayment
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#PoliciesAndConfidentiality">
+                            @Lang.PoliciesAndConfidentiality
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#LimitedLicense">
+                            @Lang.LimitedLicense
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#LegalResponsibility">
+                            @Lang.LegalResponsibility
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#Miscellaneous">
+                            @Lang.Miscellaneous
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#TermAndTermination">
+                            @Lang.TermAndTermination
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#RelationshipOfParties">
+                            @Lang.RelationshipOfParties
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#Indemnity">
+                            @Lang.Indemnity
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#Disclaimers">
+                            @Lang.Disclaimers
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#LimitationOfLiability">
+                            @Lang.LimitationOfLiability
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#IndependentInvestigation">
+                            @Lang.IndependentInvestigation
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#GoverningLawAndArbitration">
+                            @Lang.GoverningLawAndArbitration
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-item left-menu-item" href="#InWitnessWhereOf">
+                            @Lang.InWitnessWhereOf
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
     <div class="content">
         <div class="page-title">
             <span class="text">@Lang.TermAndCondition</span>
