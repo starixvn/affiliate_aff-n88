@@ -9,11 +9,6 @@
                 $(this).parent().toggleClass('menu-open');
                 $('body').toggleClass('menu-open');
             })
-
-            $('.mobile-left-panel').click(function () {
-                $('body').toggleClass('overflow-left-panel');
-                $('.left-panel').toggleClass('active');
-            })
         }
     }
 

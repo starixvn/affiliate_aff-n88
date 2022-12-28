@@ -4,10 +4,17 @@
     var _me = {
         initialize: function () {
             _me.initEvent();
-            _me.handleActiveLeftMenu();
+            window.addEventListener("load", _me.handleActiveLeftMenu);
         },
 
         initEvent: function () {
+            $('.mobile-left-panel').click(function () {
+                $('body').addClass('overflow-left-panel');
+                $('.left-panel').addClass('active');
+
+                window.setTimeout(_me.handleBinding);
+            })
+
             $('a.left-menu-item').bind('click', function (e) {
                 window.removeEventListener("scroll", _me.handleActiveLeftMenuByScroll);
                 e.preventDefault();
@@ -15,6 +22,15 @@
                 var hrefTarget = $(this).attr("href");
 
                 _me.handelAnimate(hrefTarget);
+            });
+        },
+
+        handleBinding: function () {
+            $('body.overflow-left-panel').bind("click", function () {
+                $(this).unbind("click");
+                $(this).removeClass('overflow-left-panel');
+
+                $('.left-panel').removeClass('active');
             });
         },
 

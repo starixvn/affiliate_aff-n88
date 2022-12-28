@@ -2244,7 +2244,7 @@ input[type="radio"], input[type="checkbox"] {
       border-radius: 4px;
       padding: 0.2rem 0.8rem;
       position: fixed;
-      top: 9rem;
+      top: 8.5rem;
       right: 1rem;
       z-index: 1;
       cursor: pointer; }
