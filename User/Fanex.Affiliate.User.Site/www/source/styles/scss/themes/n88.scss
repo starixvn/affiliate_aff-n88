@@ -12,6 +12,7 @@ body {
 
 body.menu-open {
     overflow: hidden;
+    background-color: #001942;
 
     .header-top {
         filter: blur(2px);
@@ -962,7 +963,7 @@ header {
 
     .navbar-collapse {
         width: 100%;
-        height: 100vh;
+        height: calc(100vh - 114px);
         background: #001942;
         border: 0;
     }
