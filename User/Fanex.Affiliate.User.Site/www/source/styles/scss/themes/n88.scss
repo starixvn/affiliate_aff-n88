@@ -565,7 +565,7 @@ header {
 
         .captcha-input {
             display: inline-block;
-            width: 131px;
+            width: calc(100% - 90px);
         }
 
         .validation-value {
@@ -646,6 +646,8 @@ header {
         border-color: $button-signup-border-color;
     }
 
+    
+
     .icon {
         color: $button-signup-color;
     }
@@ -664,6 +666,14 @@ header {
         color: $button-login-color-hover;
         background: $button-login-bg-color-hover;
         box-shadow: 0px 5px 6px rgba(65, 65, 65, 0.25);
+    }
+
+    @media screen and (max-width: 2014px) {
+        &:hover, &:focus {
+            background: $button-login-bg-color;
+            color: $button-login-color;
+            box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25);
+        }
     }
 
     .icon {
@@ -877,12 +887,17 @@ header {
 
 .login-dialog {
     .btn-signup {
-        border: 1px solid $button-signup-color;
 
         &:hover, &:focus {
             color: $button-signup-color-hover;
             background: $button-signup-bg-color-hover;
-            border-color: $button-signup-border-color;
+        }
+
+        @media screen and (max-width: 1024px) {
+            &:hover, &:focus {
+                color: $button-signup-color;
+                background: $button-signup-bg-color;
+            }
         }
     }
 }
@@ -947,6 +962,10 @@ header {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+    .news {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
     .menu .menu-item {
         padding-right: 20px;
     }
@@ -994,7 +1013,7 @@ header {
     }
 
     .header-top {
-        padding: 12px 10px 6px 12px;
+        padding: 11px 10px 6px 10px;
 
         .user-signup {
             flex-direction: column-reverse;

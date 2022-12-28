@@ -376,7 +376,7 @@ header {
       margin-top: 5px; }
   .login-dialog .modal-body .captcha-input {
     display: inline-block;
-    width: 131px; }
+    width: calc(100% - 90px); }
   .login-dialog .modal-body .validation-value img {
     height: 30px; }
   .login-dialog .modal-body .title-left {
@@ -445,6 +445,11 @@ header {
     color: #EA5500;
     background: #FFF3ED;
     box-shadow: 0px 5px 6px rgba(65, 65, 65, 0.25); }
+  @media screen and (max-width: 2014px) {
+    .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
+      background: #FF5D00;
+      color: #FAFAFA;
+      box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25); } }
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #FAFAFA; }
 
@@ -563,12 +568,14 @@ header {
   .account-overview .account-overview-content {
     background: white; }
 
-.login-dialog .btn-signup {
-  border: 1px solid #EA5500; }
+.login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
+  color: #FFF;
+  background: #FF5D00; }
+
+@media screen and (max-width: 1024px) {
   .login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
-    color: #FFF;
-    background: #FF5D00;
-    border-color: #FFFFFF; }
+    color: #EA5500;
+    background: #FFF; } }
 
 .summary-content .details-section-content .table table tr:nth-child(even) {
   background-color: #E2E2E2 !important; }
@@ -608,6 +615,9 @@ header {
     padding-right: 62px !important; } }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
+  .news {
+    padding-left: 40px !important;
+    padding-right: 40px !important; }
   .menu .menu-item {
     padding-right: 20px; }
   .navbar .page-container {
@@ -637,7 +647,7 @@ header {
     .navbar .page-container ul li:last-child .menu-item {
       border-bottom: 0; }
   .header-top {
-    padding: 12px 10px 6px 12px; }
+    padding: 11px 10px 6px 10px; }
     .header-top .user-signup {
       flex-direction: column-reverse; }
       .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .language-container .select-language {

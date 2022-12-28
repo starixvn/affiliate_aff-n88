@@ -329,7 +329,7 @@ $height-hotnew: 30px;
     background-position: right top;
     text-align: left;
     color: #333333;
-    padding: 17px 41% 26px 26px;
+    padding: 17px 32% 26px 26px;
 
     &:hover, &:focus {
         text-decoration: none;
@@ -362,6 +362,7 @@ $height-hotnew: 30px;
         font-size: 20px;
         line-height: 27px;
         color: #333333;
+        padding-right: 80px;
     }
 
     .btn {
@@ -384,8 +385,40 @@ $height-hotnew: 30px;
         }
     }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait) {
+    .adv-contact {
+        padding: 6px 27% 18px 18px;
+        background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.tablet2.png");
 
-@media only screen and (max-width: 768px) {
+        .text-1 {
+            margin-top: 13px;
+            margin-bottom: 15px;
+        }
+
+        .text-2 {
+            line-height: 34px;
+            margin-bottom: 16px;
+        }
+
+        .text-3 {
+            font-size: 20px;
+            line-height: 27px;
+            padding-right: 40px;
+        }
+    }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : landscape) {
+    .adv-contact {
+        padding: 17px 27% 26px 26px;
+        background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.tablet.png");
+
+        .text-3 {
+            padding-right: 130px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
     .hot-news {
         .title {
             font-size: 12px;
@@ -423,8 +456,7 @@ $height-hotnew: 30px;
     }
 
     .adv-contact {
-        padding: 5px 15px;
-        padding: 7px 21% 7px 7px;
+        padding: 7px 31% 7px 7px;
         background-image: url("../../../../../www/build/styles/Images/contact-in-home/n88/bg_contact.mobile.png");
 
         .text-1 {
@@ -438,14 +470,14 @@ $height-hotnew: 30px;
         .text-2 {
             font-size: 16px;
             line-height: 22px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
 
         .text-3 {
             font-size: 14px;
-            line-height: 18px;
-            padding-right: 15px;
+            line-height: 22px;
+            padding-right: 20px;
         }
 
         .btn {
@@ -454,11 +486,6 @@ $height-hotnew: 30px;
             padding: 3px 9px;
             font-size: 14px;
             line-height: 19px;
-            box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25);
-
-            &:hover {
-                box-shadow: 0px 4px 9px rgba(118, 118, 118, 0.25);
-            }
         }
     }
 
@@ -706,3 +733,4 @@ $height-hotnew: 30px;
         }
     }
 }
+ 
