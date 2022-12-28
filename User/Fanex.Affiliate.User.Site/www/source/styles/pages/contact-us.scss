@@ -1,4 +1,5 @@
 ﻿@import '../scss/abstracts/mixins';
+
 .img-support {
     width: 150px;
     /*height: 110px;*/
@@ -18,6 +19,10 @@
     }
 }
 
+.main-content {
+    justify-content: center;
+}
+
 .date-time-info {
     /*color: #fff;*/
     padding: 10px;
@@ -28,7 +33,7 @@
     }
 }
 
-.language-wrap-item{
+.language-wrap-item {
     padding: 10px 15px;
 }
 
@@ -101,6 +106,7 @@
             font-weight: 500;
             display: block;
             margin-left: 10px;
+
             .im-icon {
                 margin-right: 5px;
             }
@@ -283,8 +289,9 @@
                         font-size: 1.8rem;
                         line-height: 2.8rem;
                     }
-                    @include Tablet{
-                        font-size : 2rem;
+
+                    @include Tablet {
+                        font-size: 2rem;
                     }
                 }
 

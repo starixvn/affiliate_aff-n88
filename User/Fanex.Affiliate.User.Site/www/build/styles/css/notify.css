@@ -81,9 +81,6 @@ body {
 .main .content {
   margin-top: 0; }
 
-.mobile-left-panel {
-  display: none; }
-
 .page-notify {
   margin-top: 8rem;
   display: grid;

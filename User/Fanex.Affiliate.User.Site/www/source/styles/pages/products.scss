@@ -58,9 +58,32 @@
     }
 }
 
-.table-casino {
-    padding: 0 10px;
+.mobile-left-panel {
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+        top: 17rem;
+    }
+}
 
+.text-block-bottom, .signup-block {
+    @media only screen and (min-width: 768px) and (max-width: 992px) {
+        padding: 0 40px;
+    }
+
+    @media only screen and (max-width: 767px) {
+        padding: 0 10px;
+    }
+}
+
+.text-block-bottom, .signup-block {
+    max-width: 90rem;
+    width: 100%;
+}
+
+.text-block-bottom {
+    margin: 24px auto 0;
+}
+
+.table-casino {
     .table-responsive {
         max-width: 1540px;
         margin: 0 auto;
@@ -70,7 +93,7 @@
         }
 
         @media (max-width: 768px) {
-            max-width: 740px;
+            max-width: 688px;
             overflow: scroll;
         }
 
@@ -87,7 +110,8 @@
                     th {
                         border-right: 1px solid #C7C7C7;
                         border-left: none;
-                        &:last-child{
+
+                        &:last-child {
                             border-right: none;
                         }
                     }
@@ -127,21 +151,6 @@
             border-bottom: none;
         }
     }
-}
-
-.main-content {
-    justify-content: flex-start !important;
-}
-
-.text-block-bottom, .signup-block {
-    max-width: 91rem;
-    width: 100%;
-    padding: 0 10px;
-}
-
-.text-block-bottom {
-    margin: 0 auto;
-    padding-top: 24px;
 }
 
 #productBanner {

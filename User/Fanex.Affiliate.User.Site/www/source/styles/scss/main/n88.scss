@@ -19,13 +19,8 @@
 @import "../components/marquee";
 @import '../base/media.scss';
 @import "../components/login-dialog";
-
-
 @import '../components/n88/nav-scroll';
 @import '../components/n88/alert';
-
-
-
 
 .overflow-left-panel {
     overflow: hidden;
@@ -44,16 +39,21 @@
 
 .main-content {
     display: flex;
-    gap: 4.6rem;
-    margin-bottom: 2.4rem;
-    justify-content :center;
+    gap: 4.8rem;
+    margin: 2.4rem auto;
+    justify-content: flex-start;
+
     @include Tablet {
         gap: 2rem;
     }
 
+    @media only screen and (max-width: 1199px) {
+        justify-content: center !important;
+    }
+
     .content {
         max-width: 90rem;
-        width : 100%;
+        width: 100%;
     }
 }
 
@@ -63,21 +63,20 @@
     font-size: 2rem;
     line-height: 2rem;
     color: #333333;
-    text-align :center;
+    text-align: center;
+
     @include TableAndMobile {
         font-size: 1.4rem;
         line-height: 2.2rem;
         margin-top: 1.4rem;
-        text-align : left;
+        text-align: left;
     }
 }
-
-
 
 .page-title {
     border-top: none !important;
     text-align: center;
-    margin: 2.1rem 0 0;
+    margin: 0;
 
     @include TableAndMobile {
         margin-left: 0 !important;
@@ -105,10 +104,13 @@
 }
 
 .info-group {
+    margin-top: 25px;
+
     .title {
         font-weight: 700;
         font-size: 2rem;
         line-height: 3rem;
+        margin-bottom: 15px;
 
         @include Mobile {
             font-size: 1.6rem;
@@ -127,10 +129,12 @@
 
         .text {
             color: #EA5500;
+            text-transform: capitalize;
         }
     }
 
     ul, ol {
+            margin-left: 1.2rem;
         li {
             font-weight: 400;
             font-size: 1.6rem;
@@ -159,7 +163,6 @@
 
         tr {
             background: #FFFFFF !important;
-
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿body {
     overflow-x: hidden;
 }
+
 .main {
     display: flex;
     flex: 1 1 auto;
@@ -12,10 +13,12 @@
     flex-basis: calc(100% - 400px);
     margin: 0 auto;
 }
+
 #mainBanner {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 }
+
 .main {
     $bg-main: #660000, #00008e;
 
@@ -24,11 +27,6 @@
     }
 
     .content {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 15px;
-        margin-top: 5px;
-
         &.sign-up-page {
             padding: 0;
             margin-left: auto;
@@ -146,9 +144,9 @@
                 background: #FFF3ED;
                 border: 1px solid #BF4600;
                 border-radius: 4px;
-                padding: 6px;               
+                padding: 6px;
                 width: 30px;
-                height: 30px; 
+                height: 30px;
                 margin: 0;
 
                 span {
@@ -156,8 +154,8 @@
                     width: 16px;
                     height: 16px;
                     border: 1px solid #BF4600;
-                    border-radius: 10px;                
-                    display: block;                   
+                    border-radius: 10px;
+                    display: block;
                     top: 0;
                     left: 0;
 
@@ -336,7 +334,7 @@ $height-hotnew: 30px;
         color: #fff;
     }
 
- 
+
 
     .text-1 {
         margin-top: 10px;
@@ -385,6 +383,7 @@ $height-hotnew: 30px;
         }
     }
 }
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait) {
     .adv-contact {
         padding: 6px 27% 18px 18px;
@@ -494,8 +493,6 @@ $height-hotnew: 30px;
         &.sign-up-page {
             padding-left: 1rem;
             padding-right: 1rem;
-
-
 
             .page-title {
                 margin: 13px 0 11px;
@@ -733,4 +730,3 @@ $height-hotnew: 30px;
         }
     }
 }
- 

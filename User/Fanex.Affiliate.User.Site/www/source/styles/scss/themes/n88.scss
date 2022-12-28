@@ -377,10 +377,6 @@ header {
     }
 }
 
-.term-condition {
-    justify-content: flex-start;
-}
-
 // Table
 .table table {
     tr {
@@ -955,17 +951,32 @@ header {
 }
 
 @media only screen and (max-width: 1199px) {
-    .news {
+    .news, .table-casino {
         padding-left: 62px !important;
         padding-right: 62px !important;
+    }
+
+    .main .content {
+        margin-left: 62px !important;
+        margin-right: 62px !important;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
-    .news {
+    .news, .table-casino {
         padding-left: 40px !important;
         padding-right: 40px !important;
     }
+
+    .main .content {
+        margin: 0 40px !important;
+    }
+
+    .mobile-left-panel {
+        top: 21rem;
+        right: 4rem;
+    }
+
     .menu .menu-item {
         padding-right: 20px;
     }
@@ -976,6 +987,27 @@ header {
 }
 
 @media only screen and (max-width: 767px) {
+    .mobile-left-panel {
+        top: 8.2rem;
+        right: 1rem;
+        padding: 0.2rem 0.8rem;
+
+        span {
+            font-weight: 600;
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+    }
+
+    .main .content {
+        margin-left: 10px !important;
+        margin-right: 10px !important;
+    }
+
+    .table-casino {
+        padding: 0 10px !important;
+    }
+
     #btnLogin {
         display: none;
     }

@@ -593,9 +593,7 @@ body {
 
 .main .content {
   padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 15px;
-  margin-top: 5px; }
+  padding-right: 1rem; }
 
 .main .banner-side {
   flex-basis: 200px;
