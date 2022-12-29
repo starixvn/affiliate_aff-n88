@@ -138,3 +138,6 @@ body {
               margin-bottom: 0.4rem; } }
   .page-notify.page-notify-error {
     align-items: flex-end; }
+
+.main-content {
+  justify-content: center; }
