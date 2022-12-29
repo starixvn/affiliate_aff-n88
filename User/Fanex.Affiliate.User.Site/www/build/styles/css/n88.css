@@ -418,15 +418,15 @@ header {
     color: #001942; }
 
 .btn-signup {
-  background: #FFF;
+  background: #FFF3ED;
   color: #EA5500;
   font-size: 14px;
   font-weight: 700;
   padding: 0 20px; }
   .btn-signup:hover, .btn-signup:focus {
     color: #FFF;
-    background: #FF5D00;
-    border-color: #FFFFFF; }
+    background: #EA5500;
+    border-color: #EA5500; }
   .btn-signup .icon {
     color: #EA5500; }
 
@@ -442,11 +442,6 @@ header {
     color: #EA5500;
     background: #FFF3ED;
     box-shadow: 0px 5px 6px rgba(65, 65, 65, 0.25); }
-  @media screen and (max-width: 2014px) {
-    .btn-login:hover, .btn-login:focus, .btn-link:hover, .btn-link:focus, .btn-login-mobile:hover, .btn-login-mobile:focus {
-      background: #FF5D00;
-      color: #FAFAFA;
-      box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25); } }
   .btn-login .icon, .btn-link .icon, .btn-login-mobile .icon {
     color: #FAFAFA; }
 
@@ -567,12 +562,12 @@ header {
 
 .login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
   color: #FFF;
-  background: #FF5D00; }
+  background: #EA5500; }
 
 @media screen and (max-width: 1024px) {
   .login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
     color: #EA5500;
-    background: #FFF; } }
+    background: #FFF3ED; } }
 
 .summary-content .details-section-content .table table tr:nth-child(even) {
   background-color: #E2E2E2 !important; }
@@ -638,8 +633,8 @@ header {
       font-size: 1.2rem;
       line-height: 1.8rem; }
   .main .content {
-    margin-left: 10px !important;
-    margin-right: 10px !important; }
+    padding: 0 10px;
+    margin: 0 !important; }
   .table-casino {
     padding: 0 10px !important; }
   #btnLogin {

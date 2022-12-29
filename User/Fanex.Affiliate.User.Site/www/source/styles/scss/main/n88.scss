@@ -37,10 +37,11 @@
 }
 
 .main.after-login {
-    .main-content{
+    .main-content {
         display: block;
     }
 }
+
 .main-content {
     display: flex;
     gap: 4.8rem;
@@ -138,7 +139,8 @@
     }
 
     ul, ol {
-            margin-left: 1.2rem;
+        margin-left: 1.2rem;
+
         li {
             font-weight: 400;
             font-size: 1.6rem;
@@ -173,11 +175,11 @@
 
 .moving-block {
     .btn-move-top {
-        margin-righ: 0;
         background: #FFFFFF;
         box-shadow: 0px 6px 7px rgba(77, 77, 77, 0.25);
         width: 4rem;
         height: 4rem;
+        opacity: 1;
 
         i {
             color: #FF5D00;

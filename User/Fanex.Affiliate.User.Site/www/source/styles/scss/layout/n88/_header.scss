@@ -1,5 +1,17 @@
 ﻿@import "../../components/n88/flag";
 
+.after-login-content {
+    .header-top, .navbar .layout-page-container {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    .language-login {
+        display: flex;
+        align-items: center;
+    }
+}
+
 .header-top {
     display: flex;
     align-items: center;
@@ -39,7 +51,7 @@
 }
 
 .navbar {
-    .page-container {
+    .layout-page-container {
         max-width: 1344px;
         margin: 4px auto;
         width: 100%;
@@ -371,7 +383,8 @@
     vertical-align: middle;
     margin-left: 12px;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px){
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     .menu.navbar-collapse {
         white-space: nowrap;
         float: none;
