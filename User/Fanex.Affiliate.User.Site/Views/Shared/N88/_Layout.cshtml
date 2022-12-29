@@ -9,6 +9,7 @@
     var languageList = languageService.GetLanguageList();
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
+    var isLogin = HttpContext.Current.User.Identity.IsAuthenticated && userSession != null;
 }
 
 <!DOCTYPE html>
@@ -40,7 +41,7 @@
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
     @RenderSection("styles", required: false)
 </head>
-<body>
+<body class="@(isLogin ? "after-login-content" : "before-login-content")">
     <header>
         <div class="header-top">
             <div class="logo">
@@ -78,15 +79,19 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-login" id="btnLogin" type="button">@Lang.Login</button>
-                        @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
+                        @if (!isLogin)
                         {
-                            <a class="btn btn-login-mobile" id="mobileLogin">
-                                <span>@Lang.Login</span>
-                            </a>
+                            <button class="btn btn-login" id="btnLogin" type="button">@Lang.Login</button>
+                        }
+                        else
+                        {
+                            <div class="login-after user-login">
+                                <a href="@Url.Content("~/UserPanel/Main/#AccountOverview")" class="btn btn-signup"><span class="icon glyphicon glyphicon-user"></span>@Lang.MyAcc @sessionService.UserSession.UserName</a>
+                                <a href="@Url.Content("~/Auth/SignOut/")" class="btn btn-login">@Lang.Logout</a>
+                            </div>
                         }
                     </div>
-                    @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
+                    @if (!isLogin)
                     {
                         <div class="sign-up">
                             <a href="@Url.Content("~/Signup/Index")" class="btn btn-signup">@Lang.SignUpAffiliate</a>
