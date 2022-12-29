@@ -51,11 +51,11 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Struktur Pengagihan Keuntungan Pelbagai-Peringkat:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <strong>Bahagian Hasil Tetap:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Keuntungan Bersih Syarikat:</strong> Jumlah kerugian bersih bulanan untuk semua pemain yang dirujuk oleh anda kepada Nova88.
+                    <strong>Keuntungan Bersih:</strong> Jumlah kerugian bersih bulanan untuk semua pemain yang dirujuk oleh anda kepada Nova88.
                 </li>
                 <li class="text">
                     <strong>Pemain Aktif:</strong> ahli yang telah letak sekurang-kurang satu (1) pertaruhan dalam bulan tersebut.
@@ -70,19 +70,44 @@
                     Kos ini ditolak daripada keuntungan pada setiap bulan. Kos ini mungkin termasuk:
                     <ul class="dash">
                         <li>
-                            Caj Perbankan - Caj Deposit dan Pengeluaran yang berkait dengan pelanggan yang dirujuk.
+                            <strong>Caj Perbankan</strong> - Caj Deposit dan Pengeluaran yang berkait dengan pelanggan yang dirujuk.
                         </li>
                         <li>
-                            Caj Royalti - Caj royalti produk, iaitu 10% daripada GGR daripada produk yang dimainkan oleh pelanggan yang dirujuk.
+                            <strong>Caj Royalti</strong> - Caj royalti produk, iaitu 10% daripada GGR daripada produk yang dimainkan oleh pelanggan yang dirujuk.
                         </li>
                         <li>
-                            Bonus promosi - Bonus kewangan atau rebat yang diberikan kepada pelanggan yang dirujuk.
+                            <strong>Bonus Promosi</strong> - Bonus kewangan atau rebat yang diberikan kepada pelanggan yang dirujuk.
                         </li>
                     </ul>
                 </li>
             </ul>
+            <br />
+            <p class="text">Contoh:</p>
+            <p class="text"><i><strong>Hasil Positif</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Keuntungan Bersih = USD 18,000</p>
+                <p class="text">Bonus Member = USD 1,000</p>
+                <p class="text">Caj Transaksi = USD 180</p>
+                <p class="text">Caj Royalti = USD 1,100</p>
+                <p class="text">Komisen:</p>
+                <p class="text">(Keuntungan Bersih - Bonus Member - Caj Transaksi - Caj Royalti) x Komisen %</p>
+                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+            </div>
+
+            <p class="text"><i><strong>Hasil Negatif</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Keuntungan Bersih = - USD 8,000</p>
+                <p class="text">Bonus Member = USD 698</p>
+                <p class="text">Biaya Royalti = USD 127</p>
+                <p class="text">Komisen:</p>
+                <p class="text">(Keuntungan Bersih - Bonus Member - Caj Transaksi) x Komisen%</p>
+                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (Diteruskan ke bulan berikutnya)</p>
+            </div>
         </li>
-        <li class="text-block"><strong>Struktur Ahli Affliate:</strong> anda akan layak terima ganjaran tambahan 10% daripada pengagihan keuntungan untuk ahli affliate yang dirujuk oleh anda, dan selagi mereka ada rujuk ahli affliate yang lain, anda juga boleh dapat sebahagian pengagihan keuntungan ahli rujukan mereka!</li>
+        <li class="text-block">
+            <strong>Struktur Sub Affliate:</strong> anda akan layak terima ganjaran tambahan 10% daripada pengagihan hasil untuk ahli affliate yang dirujuk oleh anda,
+            dan selagi mereka merujuk ahli affliate yang lain, anda juga boleh dapat sebahagian pengagihan hasil ahli rujukan mereka!
+        </li>
     </ol>
 </div>
 <div class="info-group">
@@ -110,11 +135,11 @@
             = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
         </p>
         <p class="text">
-            = 7,800 USD
+            = USD 7,800
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Jumlah pengagihan keuntungan anda untuk bulan ini ialah: 58,050 + 7,800 = <strong>65,850 USD</strong>
+        <strong>=></strong> Jumlah pengagihan keuntungan anda untuk bulan ini ialah: 58,050 + 7,800 = <strong>USD 65,850</strong>
     </p>
 </div>
 <div class="info-group">

@@ -859,68 +859,6 @@ body {
   .banner-side > img {
     margin: 0; }
 
-.no-webp .banner-commission-structure {
-  background-image: url("../Images/bg-Commission-Structure_Banner.png"); }
-
-.webp .banner-commission-structure {
-  background-image: url("../Images/bg-Commission-Structure_Banner.webp"); }
-
-.banner-commission-structure {
-  display: block;
-  max-width: 600px;
-  height: 100%;
-  margin: 0 auto;
-  padding: 30px 20px 70px 30px;
-  font-family: "Myriad Pro", sans-serif;
-  background-position: center center;
-  background-repeat: no-repeat;
-  text-align: left; }
-  .banner-commission-structure .text-content {
-    font-weight: 600;
-    line-height: 1;
-    transform: rotate(-5deg); }
-    .banner-commission-structure .text-content.cn .text-small {
-      margin-left: 0; }
-    .banner-commission-structure .text-content .text-big-yellow {
-      position: relative;
-      display: inline-block;
-      margin-left: 10px;
-      font-size: 60px;
-      color: #FFFF28;
-      text-shadow: #5b450a 1px 0px 0px, #5b450a 0.5403px 0.84147px 0px, #5b450a -0.41615px 0.9093px 0px, #5b450a -0.98999px 0.14112px 0px, #5b450a -0.65364px -0.7568px 0px, #5b450a 0.28366px -0.95892px 0px, #5b450a 0.96017px -0.27942px 0px; }
-    .banner-commission-structure .text-content .text-big-white {
-      font-size: 25px;
-      color: #fff;
-      text-shadow: #5b450a 1px 0px 0px, #5b450a 0.5403px 0.84147px 0px, #5b450a -0.41615px 0.9093px 0px, #5b450a -0.98999px 0.14112px 0px, #5b450a -0.65364px -0.7568px 0px, #5b450a 0.28366px -0.95892px 0px, #5b450a 0.96017px -0.27942px 0px;
-      font-style: italic; }
-    .banner-commission-structure .text-content .text-small-white {
-      font-size: 20px;
-      color: #fff;
-      text-shadow: #5b450a 1px 0px 0px, #5b450a 0.5403px 0.84147px 0px, #5b450a -0.41615px 0.9093px 0px, #5b450a -0.98999px 0.14112px 0px, #5b450a -0.65364px -0.7568px 0px, #5b450a 0.28366px -0.95892px 0px, #5b450a 0.96017px -0.27942px 0px;
-      font-style: italic; }
-    .banner-commission-structure .text-content .text-small {
-      margin-left: 20px;
-      margin-bottom: 0; }
-    .banner-commission-structure .text-content .text-yellow {
-      position: relative;
-      display: inline-block;
-      font-size: 40px;
-      color: #FFFF28;
-      text-shadow: #5b450a 1px 0px 0px, #5b450a 0.5403px 0.84147px 0px, #5b450a -0.41615px 0.9093px 0px, #5b450a -0.98999px 0.14112px 0px, #5b450a -0.65364px -0.7568px 0px, #5b450a 0.28366px -0.95892px 0px, #5b450a 0.96017px -0.27942px 0px;
-      font-weight: 600;
-      font-style: normal; }
-  @media screen and (max-width: 767px) {
-    .banner-commission-structure {
-      padding-left: 15px; }
-      .banner-commission-structure .text-content .text-big-yellow {
-        font-size: 40px; }
-      .banner-commission-structure .text-content .text-big-white {
-        font-size: 18px; }
-      .banner-commission-structure .text-content .text-small-white {
-        font-size: 15px; }
-      .banner-commission-structure .text-content .text-yellow {
-        font-size: 30px; } }
-
 .no-webp .banner-product-sport {
   background-image: url("../Images/products/bg-sports_affiliate.jpg?v=000001"); }
 

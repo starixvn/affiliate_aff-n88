@@ -898,16 +898,6 @@ input[type=radio][disabled] + span {
     margin: 0 0 20px;
 }
 
-.webp .banner-commission-structure {
-    max-width: 100%;
-    height: 240px;
-
-    .text-content {
-        transform: rotate(0deg);
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
 //Terms And Conditions
 .webp .banner-terms-condition {
     background-size: cover;
@@ -1203,10 +1193,6 @@ input[type=radio][disabled] + span {
 
         &.home-page {
         }
-    }
-
-    .webp .banner-commission-structure {
-        height: 200px;
     }
 
     .page-title {

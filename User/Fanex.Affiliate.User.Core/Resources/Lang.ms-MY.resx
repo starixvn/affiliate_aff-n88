@@ -1253,4 +1253,19 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Peratus bahagian kumpulan produk pertama daripada berbilang kumpulan</value>
   </data>
+  <data name="QualifyingMembers" xml:space="preserve">
+    <value>&gt;= 5</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>Keuntungan Bersih (USD)</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>Jumlah Pemain Aktif</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>Komisen</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 keatas</value>
+  </data>
 </root>

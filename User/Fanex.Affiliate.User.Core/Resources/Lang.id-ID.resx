@@ -1348,7 +1348,7 @@
     <value>Username</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
+    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>Tipe Permainan</value>
@@ -1595,5 +1595,17 @@
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Percen pembagian grup produk pertama dari beberapa grup</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>Win/Loss Bersih (USD)</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>Total Member Aktif</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>Komisi</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 keatas</value>
   </data>
 </root>

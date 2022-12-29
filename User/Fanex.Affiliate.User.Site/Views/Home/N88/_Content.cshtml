@@ -1,11 +1,11 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.HomeViewModel
 
 @{
-    var rs45FileName = Url.Content($"~/www/build/styles/Images/sports-banners/N88/Revenue-Share");
+    var rs45FileName = Url.Content($"~/www/build/styles/Images/sports-banners/N88/AFF-Home-banner-SB");
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/N88/3step." + Model.Language);
 
     var orgRS45FileName = $"{rs45FileName}.{Model.Language}";
-    var mobileRS45FileName = $"{rs45FileName}-Mobile.{Model.Language}";
+    var mobileRS45FileName = $"{rs45FileName}.mobile.{Model.Language}";
 }
 
 <div class="content home-page">
@@ -88,7 +88,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="@Model.PromotionB2CLink" target="_blank" class="nounderline">
+                                <a href="@Url.Content("~/Promotion")" target="_blank" class="nounderline">
                                     <span class="news-title">@SiteFriendlyNameHelper.ReplaceB2C(Lang.WhatNewInOneTwoBetPromotion) <span class="text-red" style="text-decoration:underline;">@Lang.NewWithExclamationPoint</span></span>
                                     <span>@SiteFriendlyNameHelper.ReplaceB2C(Lang.GetToKnowHotPromotion)</span>
                                 </a>

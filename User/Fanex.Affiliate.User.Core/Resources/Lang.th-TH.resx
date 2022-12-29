@@ -1348,7 +1348,7 @@
     <value>ยูสเซอร์เนมรับค่าคอมมิชชั่น</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>มากกว่าหรือเท่ากับ&lt;br /&gt;5</value>
+    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>ประเภทการเดิมพัน</value>
@@ -1595,5 +1595,17 @@
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>ส่วนแบ่ง % การแชร์โปรดักส์แรกลงในหลายกลุ่ม</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>ยอดได้/เสียรวมของสมาชิก (USD)</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>จำนวนสมาชิกที่ใช้งาน</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>อัตราเปอร์เซ็น คอมมิชชั่น</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 ขึ้นไป</value>
   </data>
 </root>

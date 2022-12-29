@@ -1,14 +1,6 @@
 ﻿@{
     var maxCommisison = AppSetting.Instance.MaxCommission;
 }
-<div class="banner-commission-structure">
-    <div class="text-content english">
-        <p class="text-big-yellow">@maxCommisison</p>
-        <p class="text-big-white">revenue share for life</p>
-        <p class="text-small-white text-small">on</p>
-        <p class="text-small-white"><span class="text-yellow">Sports</span> and <span class="text-yellow">Casino</span></p>
-    </div>
-</div>
 
 <div class="info-group">
     <div class="title">
@@ -54,38 +46,63 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Multi-tier Revenue Share Structure:</strong>
+            <strong>Fixed Revenue Share:</strong>
             @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
-        <ul>
-            <li class="text" style="margin-top: 15px;">
-                <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to Bwing.
-            </li>
-            <li class="text">
-                <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
-            </li>
-            <li class="text">
-                Negative revenue share for any given month will be carried forward to the following month.
-            </li>
-            <li class="text">
-                All affiliates are subject to administrative and marketing costs incurred directly for the acquisition of members.
-            </li>
-            <li class="text">
-                The cost deducted from the revenue on a monthly basis. This cost may include the following:
-                <ul class="dash-style">
-                    <li>
-                        Banking Fee - Deposit and Withdrawal charges for each involving all the affiliate's customers.
-                    </li>
-                    <li>
-                        Royalty Fee - Product royalty fees incurred involving all affiliate customers.
-                    </li>
-                    <li>
-                        Promotion bonuses - Monetary bonuses or rebates given to the affiliate customers.
-                    </li>
-                </ul>
-            </li>
-        </ul>
+            <p class="text">Example:</p>
+            <p class="text"><i><strong>Positive Revenue</strong></i></p>
+            <div style="padding-left: 30px;">
+                <p class="text">Gross Revenue = VND 200,000,000</p>
+                <p class="text">Bonus Expenses = VND 20,000,000</p>
+                <p class="text">Transaction Fees = VND 12,000,000</p>
+                <p class="text">Royalty Fees = VND 20,000,000</p>
+                <p class="text">Commission = </p>
+                <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees - Royalty Fees) x Revenue Share %</p>
+                <p class="text">(200,000,000 - 20,000,000 - 12,000,000 - 20,000,000) x 50% = VND 74,000,000</p>
+            </div>
+
+            <p class="text"><i><strong>Negative Revenue</strong></i></p>
+            <div style="padding-left: 30px;">
+                <p class="text">Gross revenue = - VND 100,000,000</p>
+                <p class="text">Member’s bonus = VND 10,000,000</p>
+                <p class="text">Transaction Fees = VND 6,000,000</p>
+                <p class="text">Commission = </p>
+                <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees) x Revenue Share %</p>
+                <p class="text">(-100,000,000 - 10,000,000 - 6,000,000) x 50% = VND -58,000,000 (Carry forward to following month)</p>
+            </div> <br />
+
+            <ul style="margin-left: -10px;">
+                <li class="text">
+                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to Bwing.
+                </li>
+                <li class="text">
+                    <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
+                </li>
+                <li class="text">
+                    Negative revenue share for any given month will be carried forward to the following month.
+                </li>
+                <li class="text">
+                    All affiliates are subject to administrative and marketing costs incurred directly for the acquisition of members.
+                </li>
+                <li class="text">
+                    The cost deducted from the revenue on a monthly basis. This cost may include the following:
+                    <ul class="dash-style">
+                        <li>
+                            <strong>Banking Fee</strong> - Deposit and Withdrawal charges for each involving all the affiliate's customers.
+                        </li>
+                        <li>
+                            <strong>Royalty Fee</strong> - Product royalty fees incurred involving all affiliate customers.
+                        </li>
+                        <li>
+                            <strong>Promotion bonuses</strong> - Monetary bonuses or rebates given to the affiliate customers.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </li>
-        <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
+        <li class="text-block">
+            <strong>Sub-Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share,
+            and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!
+        </li>
     </ol>
 </div>
 <div class="info-group">
@@ -113,11 +130,11 @@
             = [0 + (1,150,000,000 + 690,000,000) * 10%)]*10% + [1,610,000,000 * 10%]
         </p>
         <p class="text">
-            = 179,400,000 VND
+            = VND 179,400,000
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Your total revenue share for the month would be: 1,236,250,000 + 179,400,000 = <strong>1,415,650,000 VND</strong>
+        <strong>=></strong> Your total revenue share for the month would be: 1,236,250,000 + 179,400,000 = <strong>VND 1,415,650,000</strong>
     </p>
 </div>
 <div class="info-group">

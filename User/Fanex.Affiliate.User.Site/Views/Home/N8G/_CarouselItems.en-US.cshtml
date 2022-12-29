@@ -8,7 +8,7 @@
 
 <div class="item active">
     <picture>
-        <source media="(max-width:480px)" srcset="@(modbileSportBannerFileName + ".jpg?v=174504")" type="image/webp" />
+        <source media="(max-width:480px)" srcset="@(modbileSportBannerFileName + ".webp?v=174504")" type="image/webp" />
         <source media="(max-width:480px)" srcset="@(modbileSportBannerFileName + ".jpg?v=174504")" type="image/jpeg" />
         <source srcset="@(sportBannerFileName + ".webp?v=174504")" type="image/webp" />
         <source srcset="@(sportBannerFileName + ".jpg?v=174504")" type="image/jpeg" />
@@ -20,10 +20,10 @@
                 <span class="txt-lang-comm">50</span><strong class="txt-lang-percent">%</strong>
             </h2>
             <div class="sub-txt-lang">
-                <h3 class="sub-txt-lang-title">
-                    @Html.Raw(Lang.RevenueShareInBanner)
+                <h3 class="sub-txt-lang-title en">
+                    @Html.Raw(Lang.CommissionInBanner)
                 </h3>
-                <span class="sub-txt-lang-sub-title">@Lang.UntilDecember</span>
+                <span class="sub-txt-lang-sub-title">@Lang.WithMonthlyReward</span>
             </div>
         </div>
         @if (!Model.IsAuthenticated)

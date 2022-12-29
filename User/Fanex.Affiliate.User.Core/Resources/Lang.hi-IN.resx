@@ -244,7 +244,7 @@
     <value>B2C प्राडक्ट के बारे में अधिक जानकारी</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5</value>
+    <value>&gt;= 5</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>कुल</value>
@@ -1849,5 +1849,17 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>पहले उत्पाद समूह की हिस्सेदारी कई समूहों का%</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>कंपनी का शुद्ध लाभ (USD)</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>कुल सक्रिय खिलाड़ी</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>आयोग दर</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 और ऊपर</value>
   </data>
 </root>

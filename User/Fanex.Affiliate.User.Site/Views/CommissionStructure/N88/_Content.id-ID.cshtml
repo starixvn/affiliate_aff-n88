@@ -51,11 +51,11 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Struktur Pembagian Hasil Multi-tier:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <strong>Bagi Hasil Tetap:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Kemenangan bersih perusahaan:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
+                    <strong>Net Win/Loss:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
                 </li>
                 <li class="text">
                     <strong>Pemain Aktif:</strong> member yang telah menempatkan setidaknya satu (1) taruhan di bulan tersebut.
@@ -70,19 +70,44 @@
                     Biaya yang di kurangi dari kemenangan bersih perusahaan adalah secara bulanan. Biaya ini meliputi:
                     <ul class="dash">
                         <li>
-                            Biaya perbankan – Biaya Deposit dan Withdrawal untuk setiap transaksi pemain yang dibawa Affiliate.
+                            <strong>Biaya perbankan</strong> – Biaya Deposit dan Withdrawal untuk setiap transaksi pemain yang dibawa Affiliate.
                         </li>
                         <li>
-                            Biaya Royalti - Biaya royalti produk, yaitu 10% dari GGR produk yang di mainkan oleh pemain yang di bawa Affiliate.
+                            <strong>Biaya Royalti</strong> - Biaya royalti produk, yaitu 10% dari GGR produk yang di mainkan oleh pemain yang di bawa Affiliate.
                         </li>
                         <li>
-                            Bonus Promosi – Bonus uang asli atau rebate yang diberkan kepada pemain yang dibawa Affiliate.
+                            <strong>Bonus Promosi</strong> – Bonus uang asli atau rebate yang diberkan kepada pemain yang dibawa Affiliate.
                         </li>
                     </ul>
                 </li>
             </ul>
+            <br />
+            <p class="text">Contoh:</p>
+            <p class="text"><i><strong>Hasil Positif</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Total keuntungan kasar = USD 18,000</p>
+                <p class="text">Bonus Member = USD 1,000</p>
+                <p class="text">Biaya Transaksi = USD 180</p>
+                <p class="text">Biaya Royalti = USD 1,100</p>
+                <p class="text">Komisi:</p>
+                <p class="text">(Keuntungan Kasar - Bonus Member - Biaya Transaksi - Biaya Royalti) x Komisi %</p>
+                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+            </div>
+
+            <p class="text"><i><strong>Hasil Negatif</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Total keuntungan kasar = - USD 8,000</p>
+                <p class="text">Bonus Member = USD 698</p>
+                <p class="text">Biaya Royalti = USD 127</p>
+                <p class="text">Komisi:</p>
+                <p class="text">(Keuntungan Kasar - Bonus Member - Biaya Transaksi) x Komisi %</p>
+                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (Lanjutkan ke bulan berikutnya)</p>
+            </div>
         </li>
-        <li class="text-block"><strong>Struktur Afiliasi:</strong> Anda berhak menerima tambahan 10% dari pembagian hasil afiliasi Anda, dan selama mereka membawa afiliasi lain, Anda juga dapat mengambil bagian dari pembagian hasil sub-afiliasi mereka juga!</li>
+        <li class="text-block">
+            <strong>Struktur Sub Afiliasi:</strong> Anda berhak menerima tambahan 10% dari pembagian hasil afiliasi Anda,
+            dan selama mereka membawa afiliasi lain, Anda juga dapat mengambil bagian dari pembagian hasil sub-afiliasi mereka juga!
+        </li>
     </ol>
 </div>
 <div class="info-group">
@@ -110,11 +135,11 @@
             = [0 + (50,000 + 30,000) * 10%)]*10% + [70,000 * 10%]
         </p>
         <p class="text">
-            = 7,800 USD
+            = USD 7,800
         </p>
     </div>
     <p class="text">
-        <strong>=></strong> Total pembagian hasil Anda untuk bulan ini adalah: 58,050 + 7,800 = <strong>65,850 USD</strong>
+        <strong>=></strong> Total pembagian hasil Anda untuk bulan ini adalah: 58,050 + 7,800 = <strong>USD 65,850</strong>
     </p>
 </div>
 <div class="info-group">
