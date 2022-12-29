@@ -238,28 +238,12 @@ select {
 .banner-center .carousel-control {
   display: none; }
 
-.banner-center .carousel-inner {
-  /*        .item {
-            &:after {
-                position: absolute;
-                z-index: 5;
-                width: 70%;
-                height: 100%;
-                content: '';
-                top: 0;
-                left: 0;
-                background: -webkit-gradient(linear, left top, right top, color-stop(28.94%, #000000), color-stop(77.18%, rgba(0, 0, 0, 0)));
-                background: -o-linear-gradient(left, #000000 28.94%, rgba(0, 0, 0, 0) 77.18%);
-                background: linear-gradient(90deg, #000000 28.94%, rgba(0, 0, 0, 0) 77.18%);
-                opacity: 0.6;
-            }
-        }*/ }
-  .banner-center .carousel-inner .carousel-inner {
-    position: relative;
-    z-index: 10; }
+.banner-center .carousel-inner .carousel-inner {
+  position: relative;
+  z-index: 10; }
 
 .banner-text {
-  left: 285px;
+  left: 15%;
   max-width: 60%;
   top: 43%; }
   .banner-text-title {
@@ -302,20 +286,7 @@ select {
     margin-left: 5px;
     font-size: 26px;
     line-height: 87%;
-    padding: 12px 30px 13px;
-    /*        &:before {
-            position: absolute;
-            content: '';
-            top: 0;
-            right: 100%;
-            background: $banner-bg-btn-bf;
-            width: 12px;
-            height: 100%;
-            z-index: -1;
-            -webkit-transform: skewX(-13deg);
-            -ms-transform: skewX(-13deg);
-            transform: skewX(-13deg);
-        }*/ }
+    padding: 12px 30px 13px; }
     .banner-text .nounderline br {
       display: none; }
     .banner-text .nounderline:after {
@@ -1087,11 +1058,6 @@ div.summary-content {
     border: 0;
     border-top: 1px solid #435068; }
   .account-overview .info-group ul li.banner-control .banner-control-button .copy-banner-code {
-    /*background: -webkit-gradient(linear, left top, left bottom, from(#E6E6E6), color-stop(85%, #9F9F9F));
-                        background: -o-linear-gradient(top, #E6E6E6 0%, #9F9F9F 85%);
-                        background: linear-gradient(180deg, #E6E6E6 0%, #9F9F9F 85%);
-                        -webkit-box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);
-                        box-shadow: inset 0px 1px 4px rgba(255, 255, 255, 0.5);*/
     border-radius: 2px;
     font-weight: 500;
     font-size: 1.4rem;
@@ -1368,7 +1334,6 @@ div.custom-panel {
 
 @media only screen and (max-width: 1536px) {
   .banner-text {
-    left: 205px;
     top: 46%; }
     .banner-text-title .txt-lang-comm {
       font-size: 160px; }
@@ -1415,29 +1380,22 @@ div.custom-panel {
     left: -100px; }
   .banner-text {
     top: 44%;
-    left: 140px; }
+    left: 10%; }
     .banner-text-title .txt-lang-comm {
       font-size: 160px; }
     .banner-text-title .txt-lang-percent {
       font-size: 42.5px; }
     .banner-text-title .sub-txt-lang {
-      padding-left: 45px;
-      /*                &-sub-title {
-                    font-size: 17px !important;
-                }*/ }
-      .banner-text-title .sub-txt-lang-title {
-        /*                    font-size: 70px;
-                    line-height: 65.15px;*/ }
-        .banner-text-title .sub-txt-lang-title.en {
-          font-size: 60px; }
+      padding-left: 45px; }
+      .banner-text-title .sub-txt-lang-title.en {
+        font-size: 60px; }
     .banner-text .nounderline {
       font-size: 22px;
       padding: 11px 28px 12px; } }
 
 @media only screen and (max-width: 1199px) {
   .banner-text {
-    left: 105px;
-    max-width: 90%;
+    left: 9%;
     width: 90%; }
     .banner-text-title .txt-lang-comm {
       font-size: 135px; }
@@ -1498,19 +1456,6 @@ div.custom-panel {
     text-align: left; }
   .main .page-container:before {
     height: 3rem; }
-  /*    .banner-center {
-        .carousel-inner {
-            height: 230px;
-
-            .item:after {
-                background: -webkit-gradient(linear, left top, right top, from(#000000), to(rgba(0, 0, 0, 0)));
-                background: -o-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0) 100%);
-                background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-                width: 100%;
-                opacity: 1;
-            }
-        }
-    }*/
   .banner-text {
     margin: 3px 0 0 0; }
     .banner-text .nounderline {
@@ -1655,7 +1600,7 @@ div.custom-panel {
 
 @media (max-width: 1023px) and (min-width: 768px) {
   .banner-text {
-    left: 115px;
+    left: 8%;
     top: 42%; }
     .banner-text-title .txt-lang-comm {
       font-size: 105px; }
@@ -1683,10 +1628,8 @@ div.custom-panel {
     padding-left: 0 !important; } }
 
 @media (max-width: 911px) and (min-width: 768px) {
-  .banner-text {
-    left: 65px; }
-    .banner-text-title .sub-txt-lang-title.en {
-      font-size: 37px; } }
+  .banner-text-title .sub-txt-lang-title.en {
+    font-size: 37px; } }
 
 @media only screen and (max-width: 767px) {
   .header-top .logo {
@@ -1709,26 +1652,24 @@ div.custom-panel {
     font-size: 20px; }
   .page-container .content .banner-faqs, .webp .banner-terms-condition {
     height: 120px; }
-  .banner-text {
-    left: 90px; }
-    .banner-text-title .txt-lang-comm {
-      font-size: 70px; }
-    .banner-text-title .txt-lang-percent {
-      top: 7px;
-      font-size: 21px; }
-    .banner-text-title .sub-txt-lang {
-      padding-top: 5px;
-      padding-left: 20px; }
-      .banner-text-title .sub-txt-lang-title {
-        font-size: 32px; }
-        .banner-text-title .sub-txt-lang-title.en {
-          font-size: 30px; }
-      .banner-text-title .sub-txt-lang-sub-title {
-        font-size: 9px !important; }
-    .banner-text .nounderline {
-      line-height: 10px;
-      font-size: 11px;
-      padding: 6px 18px !important; }
+  .banner-text-title .txt-lang-comm {
+    font-size: 70px; }
+  .banner-text-title .txt-lang-percent {
+    top: 7px;
+    font-size: 21px; }
+  .banner-text-title .sub-txt-lang {
+    padding-top: 5px;
+    padding-left: 20px; }
+    .banner-text-title .sub-txt-lang-title {
+      font-size: 32px; }
+      .banner-text-title .sub-txt-lang-title.en {
+        font-size: 30px; }
+    .banner-text-title .sub-txt-lang-sub-title {
+      font-size: 9px !important; }
+  .banner-text .nounderline {
+    line-height: 10px;
+    font-size: 11px;
+    padding: 6px 18px !important; }
   .account-overview .summary-content .dashboard-section .img-responsive {
     margin: 0 auto; }
   div.summary-content .dashboard-section span.my-account {
@@ -1869,32 +1810,31 @@ div.custom-panel {
 
 @media (max-width: 540px) {
   .banner-text {
-    left: 50px; } }
+    left: 6%; } }
 
 @media (max-width: 480px) {
   .banner-text {
-    top: 34%;
-    left: 20px; }
+    top: 29%;
+    left: 5%; }
     .banner-text-title {
       display: block; }
       .banner-text-title .txt-lang {
         font-size: 24px; }
         .banner-text-title .txt-lang-comm {
+          line-height: 0.9;
           font-size: 80px; }
         .banner-text-title .txt-lang-percent {
-          font-weight: 800;
+          top: -5px;
           font-size: 45px; }
       .banner-text-title .sub-txt-lang {
         padding: 0; }
         .banner-text-title .sub-txt-lang-title {
-          font-size: 20px;
-          /*                    background: linear-gradient(90deg, #FFEFBA 0%, #FFFFFF 100%);
-                    -webkit-background-clip: text;
-                    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);*/ }
+          font-size: 20px; }
+          .banner-text-title .sub-txt-lang-title.en {
+            font-size: 20px; }
           .banner-text-title .sub-txt-lang-title br {
             display: none; }
         .banner-text-title .sub-txt-lang-sub-title {
-          position: absolute;
           font-weight: 700;
           font-size: 13px !important; }
     .banner-text .nounderline {
@@ -1910,51 +1850,8 @@ div.custom-panel {
         border-radius: 3.61477px; } }
 
 /*@media only screen and (max-width: 399px) {
-    .banner-text {
-        &.special-text {
-            .special-text-title {
-                font-size: 1.85rem;
-
-                .special-text-yellow {
-                    font-size: 2.75rem;
-                }
-            }
-        }
-    }
 }*/
 @media only screen and (max-width: 375px) {
-  /*    .banner-text {
-        &-title {
-
-            .txt-lang {
-                //line-height: 1;
-
-                &-comm {
-                    font-size: 10rem;
-                }
-
-                &-percent {
-                    top: 1.3rem;
-                    font-size: 2rem;
-                }
-            }
-
-            .sub-txt-lang {
-                padding-top: 0.9rem;
-                padding-left: 2.5rem;
-
-                &-title {
-                    font-size: 3.5rem;
-                }
-                      &-sub-title {
-                    font-size: 1rem !important;
-                }
-            }
-        }
-            .nounderline {
-            font-size: 1.2rem;
-        }
-    }*/
   .news .item-wrapper {
     padding-left: 10px;
     padding-right: 10px; }
