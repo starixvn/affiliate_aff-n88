@@ -19,9 +19,9 @@
             <span class="txt-lang-comm">50</span><strong class="txt-lang-percent">%</strong>
         </h2>
         <h3 class="sub-txt-lang">
-            @Html.Raw(Lang.RevenueShareInBanner)
+            @Html.Raw(Lang.CommissionInBanner)
         </h3>
-        <p class="sub-title">@Lang.UntilDecember</p>
+        <p class="sub-title">@Lang.WithAttractiveReward</p>
         @if (!Model.IsAuthenticated)
         {
             <a id="sportBanner" class="nounderline" href="@Url.Content("~/Signup/Index")">@Html.Raw(Lang.StartEarningNow)</a>

@@ -1370,7 +1370,7 @@
     <value>Tên truy cập B2C</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
+    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>Loại Sản Phẩm</value>
@@ -1804,13 +1804,34 @@
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Tỷ lệ hoa hồng của nhóm sản phẩm đầu tiên</value>
   </data>
-  <data name="UntilDecember" xml:space="preserve">
-    <value>*Cho đến tháng 12 năm 2022</value>
+  <data name="WithMonthlyReward" xml:space="preserve">
+    <value>* Với phần thưởng hàng tháng!</value>
   </data>
   <data name="StartEarningNow" xml:space="preserve">
     <value>Kiếm Tiền &lt;br&gt;Ngay Nào!</value>
   </data>
-  <data name="RevenueShareInBanner" xml:space="preserve">
+  <data name="CommissionInBanner" xml:space="preserve">
     <value>Hoa Hồng</value>
+  </data>
+  <data name="WithAttractiveReward" xml:space="preserve">
+    <value>* Với phần thưởng hấp dẫn!</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>Tiền lãi ròng của công ty (₫)</value>
+  </data>
+  <data name="FiveMillionAndAbove" xml:space="preserve">
+    <value>5.000.000 trở lên</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>Tổng số thành viên hoạt động</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>Tỷ lệ hoa hồng</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>Tiền lãi ròng của công ty ($)</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 trở lên</value>
   </data>
 </root>

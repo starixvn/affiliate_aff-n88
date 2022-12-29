@@ -51,11 +51,11 @@
     </p>
     <ol type="i">
         <li class="text-block">
-            <strong>Multi-tier Revenue Share Structure:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            <strong>Fixed Revenue Share:</strong>
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Company Net Win:</strong> the monthly net loss of all players recommended by you to Nova88.
+                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to Nova88.
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
@@ -70,19 +70,44 @@
                     The cost deducted from the revenue on a monthly basis. This cost may include the following:
                     <ul class="dash">
                         <li>
-                            Banking Fee - Deposit and Withdrawal charges for each involving all the affiliate's customers.
+                            <strong>Banking Fee</strong> - Deposit and Withdrawal charges for each involving all the affiliate's customers.
                         </li>
                         <li>
-                            Royalty fee - Product royalty fee, which is 10% of GGR from product played by affiliated customers.
+                            <strong>Royalty Fee</strong> - Product royalty fees incurred involving all affiliate customers.
                         </li>
                         <li>
-                            Promotion bonuses - Monetary bonuses or rebates given to the affiliate customers.
+                            <strong>Promotion bonuses</strong> - Monetary bonuses or rebates given to the affiliate customers.
                         </li>
                     </ul>
                 </li>
             </ul>
+            <br />
+            <p class="text">Example:</p>
+            <p class="text"><i><strong>Positive Revenue</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Gross Revenue = USD 18,000</p>
+                <p class="text">Bonus Expenses = USD 1,000</p>
+                <p class="text">Transaction Fees = USD 180</p>
+                <p class="text">Royalty Fees = USD 1,100</p>
+                <p class="text">Commission = </p>
+                <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees - Royalty Fees) x Revenue Share %</p>
+                <p class="text">(18,000 - 1,000 - 180 - 1,100) x 45% = USD 7,074</p>
+            </div>
+
+            <p class="text"><i><strong>Negative Revenue</strong></i></p>
+            <div style="padding-left: 25px;">
+                <p class="text">Gross revenue = - USD 8,000</p>
+                <p class="text">Member’s bonus = USD 698</p>
+                <p class="text">Transaction Fees = USD 127</p>
+                <p class="text">Commission = </p>
+                <p class="text">(Gross Revenue - Bonus Expenses - Transaction Fees) x Revenue Share %</p>
+                <p class="text">(-8,000 - 698 - 127) x 45% = -3,971.25 (Carry forward to following month)</p>
+            </div>
         </li>
-        <li class="text-block"><strong>Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share, and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!</li>
+        <li class="text-block">
+            <strong>Sub-Affiliate Structure:</strong> you will be eligible to receive an extra 10% from your referred affiliates’ revenue share,
+            and as long as they bring other affiliates in, you can also have a share from their sub-affiliates’ revenue share either!
+        </li>
     </ol>
 </div>
 <div class="info-group">

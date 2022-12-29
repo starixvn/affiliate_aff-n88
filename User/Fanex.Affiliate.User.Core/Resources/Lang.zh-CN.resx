@@ -1353,7 +1353,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>B2C玩家账号</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
+    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>产品</value>
@@ -1612,5 +1612,17 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>首个产品于各组里的份额百分比</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>公司净利润 (美金)</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>活跃会员</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>佣金率</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 以上</value>
   </data>
 </root>

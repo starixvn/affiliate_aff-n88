@@ -1446,7 +1446,7 @@
     <value>Username</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
-    <value>≥ 5 </value>
+    <value>&gt;= 5</value>
   </data>
   <data name="ProductType" xml:space="preserve">
     <value>Product Type</value>
@@ -2013,13 +2013,34 @@
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>First product group's share% of multiple groups</value>
   </data>
-  <data name="UntilDecember" xml:space="preserve">
-    <value>*Until December 2022</value>
+  <data name="WithMonthlyReward" xml:space="preserve">
+    <value>*With monthly reward!</value>
   </data>
   <data name="StartEarningNow" xml:space="preserve">
     <value>Start Earning &lt;br&gt;Now!</value>
   </data>
-  <data name="RevenueShareInBanner" xml:space="preserve">
-    <value>Revenue&lt;br&gt; Share</value>
+  <data name="CommissionInBanner" xml:space="preserve">
+    <value>Commission</value>
+  </data>
+  <data name="WithAttractiveReward" xml:space="preserve">
+    <value>*With attractive reward!</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>Company's Net Profit (VND)</value>
+  </data>
+  <data name="FiveMillionAndAbove" xml:space="preserve">
+    <value>5,000,000 &amp; above</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>Total Active Player</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>Commission Rate</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>Company's Net Profit (USD)</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 &amp; above</value>
   </data>
 </root>

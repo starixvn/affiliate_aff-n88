@@ -529,14 +529,6 @@ input[type=radio][disabled] + span {
     background: transparent;
     margin: 0; }
 
-.webp .banner-commission-structure {
-  max-width: 100%;
-  height: 240px; }
-  .webp .banner-commission-structure .text-content {
-    transform: rotate(0deg);
-    max-width: 400px;
-    margin: 0 auto; }
-
 .webp .banner-terms-condition {
   background-size: cover;
   text-align: center;
@@ -718,8 +710,6 @@ input[type=radio][disabled] + span {
   .main .content {
     padding: 0 10px 10px;
     margin: 0 10px 20px; }
-  .webp .banner-commission-structure {
-    height: 200px; }
   .page-title {
     margin-left: -1rem;
     margin-right: -1rem; }
