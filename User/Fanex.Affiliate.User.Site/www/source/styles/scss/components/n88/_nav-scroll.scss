@@ -160,10 +160,3 @@
         }
     }
 }
-
-.page-container {
-    @include Tablet {
-        max-width: inherit;
-        flex-basis: inherit;
-    }
-}

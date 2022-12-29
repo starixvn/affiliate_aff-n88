@@ -586,6 +586,18 @@ input[type="checkbox"], input[type="radio"] {
   vertical-align: middle;
   margin-left: 12px; }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .menu.navbar-collapse {
+    white-space: nowrap;
+    float: none;
+    overflow-y: auto !important; }
+    .menu.navbar-collapse ul {
+      white-space: nowrap;
+      float: none; }
+      .menu.navbar-collapse ul li {
+        float: none;
+        display: inline-block; } }
+
 .content-menu .menu {
   display: flex;
   /*li {
@@ -2272,11 +2284,6 @@ input[type="radio"], input[type="checkbox"] {
         font-size: 1.6rem;
         line-height: 2.4rem; } }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .page-container {
-    max-width: inherit;
-    flex-basis: inherit; } }
-
 .alert {
   padding: 16px;
   font-size: 16px; }
@@ -2307,6 +2314,9 @@ input[type="radio"], input[type="checkbox"] {
     height: 100%;
     width: 100%;
     z-index: 9; }
+
+.main.after-login .main-content {
+  display: block; }
 
 .main-content {
   display: flex;

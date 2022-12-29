@@ -36,7 +36,11 @@
     }
 }
 
-
+.main.after-login {
+    .main-content{
+        display: block;
+    }
+}
 .main-content {
     display: flex;
     gap: 4.8rem;

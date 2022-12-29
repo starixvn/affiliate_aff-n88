@@ -371,3 +371,20 @@
     vertical-align: middle;
     margin-left: 12px;
 }
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .menu.navbar-collapse {
+        white-space: nowrap;
+        float: none;
+        overflow-y: auto !important;
+
+        ul {
+            white-space: nowrap;
+            float: none;
+
+            li {
+                float: none;
+                display: inline-block;
+            }
+        }
+    }
+}
