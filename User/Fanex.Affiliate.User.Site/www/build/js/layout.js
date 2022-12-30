@@ -1,5 +1,3 @@
-﻿"use strict";
-
 var Layout = (function ($) {
     var DEFAULT_SPEED = 20;
 
@@ -9,13 +7,13 @@ var Layout = (function ($) {
     }
 
     var _me = {
-        initialize: function initialize() {
+        initialize: function () {
             initSlider();
             _me.registerAjaxHandlerError();
             _me.initEvent();
             _me.renderHotNews();
         },
-        initEvent: function initEvent() {
+        initEvent: function () {
             $("#selectedLanguage").on("mousedown", function (e) {
                 e.preventDefault();
             });
@@ -54,7 +52,7 @@ var Layout = (function ($) {
             });
         },
 
-        registerAjaxHandlerError: function registerAjaxHandlerError() {
+        registerAjaxHandlerError: function () {
             $(document).ajaxError(function (event, jqXHR) {
                 var status = jqXHR.status;
 
@@ -74,13 +72,13 @@ var Layout = (function ($) {
                 }
             });
         },
-        renderHotNews: function renderHotNews() {
+        renderHotNews: function () {
             $.ajax({
                 type: "GET",
                 url: Site.resolveRelativeUrl("News/LatestHotNews"),
                 dataType: "html",
                 cache: false,
-                success: function success(response) {
+                success: function (response) {
                     var $marquee = $("#marquee");
                     $marquee.html(response);
 
@@ -88,10 +86,9 @@ var Layout = (function ($) {
                 }
             });
         }
-    };
+    }
 
     return _me;
 })(jQuery);
 
 Layout.initialize();
-

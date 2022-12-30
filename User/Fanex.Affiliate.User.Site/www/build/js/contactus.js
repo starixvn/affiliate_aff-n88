@@ -4,7 +4,6 @@ var ContactUs = (function ($) {
     var _me = {
         initialize: function initialize() {
             _me.initEvent();
-            Site.isN88 && Site.getImageByMode();
         },
 
         initEvent: function initEvent() {

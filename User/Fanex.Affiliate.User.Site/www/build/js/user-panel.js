@@ -2,38 +2,38 @@ var SUPPORT_MIN_WITDH = 716;
 var SUB_MENU_HEIGHT = 41;
 var DETAILS_SECTION_MENU_HEIGHT = 33;
 
-function handleSetTop() {
-    let isOverviewTable = $("#overview-table").length;
+//function handleSetTop() {
+//    let isOverviewTable = $("#overview-table").length;
 
-    if (isOverviewTable) {
-        let headerHeight = $('#overview-table-header').height();
-        $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight + 7}px` });
-    }
-}
+//    if (isOverviewTable) {
+//        let headerHeight = $('#overview-table-header').height();
+//        $('#overview-table-total > th').css({ top: `${SUB_MENU_HEIGHT + headerHeight + 7}px` });
+//    }
+//}
 
-function handleScroll() {
-    let isSummaryPanel = $("#summary").length;
+//function handleScroll() {
+//    let isSummaryPanel = $("#summary").length;
 
-    if (isSummaryPanel) {
-        if (window.innerWidth < SUPPORT_MIN_WITDH) {
-            $("#details-section-menu").removeClass("details-section-sticky");
-        } else {
-            let stickyPoint = $("#details-section").offset().top;
+//    if (isSummaryPanel) {
+//        if (window.innerWidth < SUPPORT_MIN_WITDH) {
+//            $("#details-section-menu").removeClass("details-section-sticky");
+//        } else {
+//            let stickyPoint = $("#details-section").offset().top;
 
-            if (window.pageYOffset >= stickyPoint) {
-                $("#details-section-menu").addClass("details-section-sticky");
-            }
-            if (window.pageYOffset < stickyPoint - DETAILS_SECTION_MENU_HEIGHT) {
-                $("#details-section-menu").removeClass("details-section-sticky");
-            }
-        }
-    }
-}
+//            if (window.pageYOffset >= stickyPoint) {
+//                $("#details-section-menu").addClass("details-section-sticky");
+//            }
+//            if (window.pageYOffset < stickyPoint - DETAILS_SECTION_MENU_HEIGHT) {
+//                $("#details-section-menu").removeClass("details-section-sticky");
+//            }
+//        }
+//    }
+//}
 
-function handleResize() {
-    handleScroll();
-    handleSetTop()
-}
+//function handleResize() {
+//    handleScroll();
+//    handleSetTop()
+//}
 
 var UserPanel = (function ($) {
     var DEFAULT_ACTION = 'AccountOverview';
@@ -105,8 +105,8 @@ var UserPanel = (function ($) {
                 _me.datepicker = [];
             }
 
-            window.removeEventListener("scroll", handleScroll);
-            window.removeEventListener("resize", handleResize);
+            //window.removeEventListener("scroll", handleScroll);
+            //window.removeEventListener("resize", handleResize);
         },
 
         getActionUrl: function (onlyAction) {

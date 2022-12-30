@@ -149,8 +149,7 @@ var SignUp = (function ($) {
                 $("#btnSubmit").prop("disabled", !this.checked);
                 if (this.checked && !_isReadTermAndCondition) {
                     _isReadTermAndCondition = true;
-                    var param = Site.isN88 ? "?mode=" + Site.getCookie("mode") : ''
-                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup" + param), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
+                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup"), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
                 }
             });
 
