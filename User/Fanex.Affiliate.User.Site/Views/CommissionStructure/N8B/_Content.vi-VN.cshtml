@@ -1,6 +1,5 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
-
 <div class="info-group">
     <div class="title">
         <span class="text">Chúng Tôi Sở Hữu</span>
@@ -71,7 +70,7 @@
 
             <ul style="margin-left: -10px;">
                 <li class="text">
-                    <strong>Tiền Lãi Ròng Của Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho Bwing.
+                    <strong>Tiền Lãi Ròng Của Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho @(Model.SiteFriendlyName).
                 </li>
                 <li class="text">
                     <strong>Người Chơi Đủ Điều Kiện:</strong> người chơi có ít nhất một (1) cược trong tháng đó.
@@ -117,7 +116,7 @@
         <i>Hình 2:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/N8G/revenue_share_hierarchy.vi-VN.png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         Tiền hoa hồng bạn nhận được:
@@ -143,7 +142,7 @@
     </div>
     <ul>
         <li class="text">
-            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại Bwing (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,300,000₫.
+            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,300,000₫.
         </li>
         <li class="text">
             Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).

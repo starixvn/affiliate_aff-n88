@@ -7,7 +7,7 @@
 }
 @{
     var isN88 = string.Equals(Model.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
-    var viewName = PathHelper.GetViewPath("CommissionStructure", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
+    var viewName = $"~/Views/CommissionStructure/{Model.SiteName}/_Content.{Model.CurrentLanguage}.cshtml";
 
     var htmlString = Html.Partial(viewName, Model).ToHtmlString();
 }
