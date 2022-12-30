@@ -4,16 +4,22 @@
     var _me = {
         initialize: function () {
             _me.initEvent();
-            window.addEventListener("load", _me.handleActiveLeftMenu);
+            window.addEventListener("load", _me.handleActiveLeftMenuByScroll);
         },
 
         initEvent: function () {
-            $('.mobile-left-panel').click(function () {
+            $('.mobile-left-panel').click(function (e) {
+                e.stopPropagation();
+
                 $('body').addClass('overflow-left-panel');
                 $('.left-panel').addClass('active');
 
-                window.setTimeout(_me.handleBinding);
             })
+
+            $(document).on('click', '.overflow-left-panel', function (e) {
+                $('body.overflow-left-panel').removeClass('overflow-left-panel');
+                $('.left-panel').removeClass('active');
+            });
 
             $('a.left-menu-item').bind('click', function (e) {
                 window.removeEventListener("scroll", _me.handleActiveLeftMenuByScroll);
@@ -25,36 +31,13 @@
             });
         },
 
-        handleBinding: function () {
-            $('body.overflow-left-panel').bind("click", function () {
-                $(this).unbind("click");
-                $(this).removeClass('overflow-left-panel');
+        handleCloseLeftMenu: function () {
+            console.log("handleCloseLeftMenu");
 
-                $('.left-panel').removeClass('active');
-            });
-        },
+            $('body.overflow-left-panel').removeClass('overflow-left-panel');
+            $('.left-panel').removeClass('active');
 
-        handleActiveLeftMenu: function () {
-            var hash = window.location.hash;
-            var actionUrl = hash.split('#')[1];
-
-            if (!actionUrl) {
-                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
-            } else {
-                let hrefTarget = `#${actionUrl}`;
-                const leftMenuItems = $("a.left-menu-item");
-
-                for (let item of leftMenuItems) {
-                    if (item.getAttribute("href") == hrefTarget) {
-                        _me.handelAnimate(hrefTarget);
-
-                        return;
-                    }
-                }
-
-                _me.handleActiveLeftMenuByScroll();
-                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
-            }
+            window.removeEventListener("click", _me.handleCloseLeftMenu);
         },
 
         handleActiveLeftMenuByScroll: function () {
@@ -72,6 +55,7 @@
                 }
 
                 _me.setActiveLeftMenu(`#${activeMenuId}`);
+                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             }
         },
 
@@ -81,15 +65,22 @@
             $('html, body').stop().animate({
                 scrollTop: $(hrefTarget).offset().top
             }, 600, function () {
-                location.hash = hrefTarget;
-
                 window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             });
         },
 
         setActiveLeftMenu: function (hrefTarget) {
+            const activeLeftMenu = $(`a.left-menu-item[href="${hrefTarget}"]`);
+
             $("a.left-menu-item.active").removeClass(activeClassName);
-            $(`a.left-menu-item[href="${hrefTarget}"]`).addClass(activeClassName);
+
+            activeLeftMenu.addClass(activeClassName);
+
+            const offsetTop = activeLeftMenu.offset().top - $(`a.left-menu-item[href="#ResponsibilitiesOfTheAffiliate"]`).offset().top;
+
+            $('#left-panel-menu').stop().animate({
+                scrollTop: (offsetTop > $('#left-panel-menu').height() / 3) ? offsetTop : 0
+            }, 400);
         }
     };
 

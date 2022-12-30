@@ -6,15 +6,20 @@ var LeftMenuPanel = (function ($) {
     var _me = {
         initialize: function initialize() {
             _me.initEvent();
-            window.addEventListener("load", _me.handleActiveLeftMenu);
+            window.addEventListener("load", _me.handleActiveLeftMenuByScroll);
         },
 
         initEvent: function initEvent() {
-            $('.mobile-left-panel').click(function () {
+            $('.mobile-left-panel').click(function (e) {
+                e.stopPropagation();
+
                 $('body').addClass('overflow-left-panel');
                 $('.left-panel').addClass('active');
+            });
 
-                window.setTimeout(_me.handleBinding);
+            $(document).on('click', '.overflow-left-panel', function (e) {
+                $('body.overflow-left-panel').removeClass('overflow-left-panel');
+                $('.left-panel').removeClass('active');
             });
 
             $('a.left-menu-item').bind('click', function (e) {
@@ -27,37 +32,33 @@ var LeftMenuPanel = (function ($) {
             });
         },
 
-        handleBinding: function handleBinding() {
-            $('body.overflow-left-panel').bind("click", function () {
-                $(this).unbind("click");
-                $(this).removeClass('overflow-left-panel');
+        handleCloseLeftMenu: function handleCloseLeftMenu() {
+            console.log("handleCloseLeftMenu");
 
-                $('.left-panel').removeClass('active');
-            });
+            $('body.overflow-left-panel').removeClass('overflow-left-panel');
+            $('.left-panel').removeClass('active');
+
+            window.removeEventListener("click", _me.handleCloseLeftMenu);
         },
 
-        handleActiveLeftMenu: function handleActiveLeftMenu() {
-            var hash = window.location.hash;
-            var actionUrl = hash.split('#')[1];
+        handleActiveLeftMenuByScroll: function handleActiveLeftMenuByScroll() {
+            var sections = $("section.info-group");
 
-            if (!actionUrl) {
-                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
-            } else {
-                var hrefTarget = "#" + actionUrl;
-                var leftMenuItems = $("a.left-menu-item");
+            if (sections.length) {
+                var activeMenuId = sections[0].getAttribute("id");
 
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
                 var _iteratorError = undefined;
 
                 try {
-                    for (var _iterator = leftMenuItems[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                        var item = _step.value;
+                    for (var _iterator = sections[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                        var section = _step.value;
 
-                        if (item.getAttribute("href") == hrefTarget) {
-                            _me.handelAnimate(hrefTarget);
+                        var sectionTop = section.offsetTop;
 
-                            return;
+                        if (window.pageYOffset >= sectionTop - window.innerHeight * 1 / 5) {
+                            activeMenuId = section.getAttribute("id");
                         }
                     }
                 } catch (err) {
@@ -75,47 +76,8 @@ var LeftMenuPanel = (function ($) {
                     }
                 }
 
-                _me.handleActiveLeftMenuByScroll();
-                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
-            }
-        },
-
-        handleActiveLeftMenuByScroll: function handleActiveLeftMenuByScroll() {
-            var sections = $("section.info-group");
-
-            if (sections.length) {
-                var activeMenuId = sections[0].getAttribute("id");
-
-                var _iteratorNormalCompletion2 = true;
-                var _didIteratorError2 = false;
-                var _iteratorError2 = undefined;
-
-                try {
-                    for (var _iterator2 = sections[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                        var section = _step2.value;
-
-                        var sectionTop = section.offsetTop;
-
-                        if (window.pageYOffset >= sectionTop - window.innerHeight * 1 / 5) {
-                            activeMenuId = section.getAttribute("id");
-                        }
-                    }
-                } catch (err) {
-                    _didIteratorError2 = true;
-                    _iteratorError2 = err;
-                } finally {
-                    try {
-                        if (!_iteratorNormalCompletion2 && _iterator2["return"]) {
-                            _iterator2["return"]();
-                        }
-                    } finally {
-                        if (_didIteratorError2) {
-                            throw _iteratorError2;
-                        }
-                    }
-                }
-
                 _me.setActiveLeftMenu("#" + activeMenuId);
+                window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             }
         },
 
@@ -125,15 +87,22 @@ var LeftMenuPanel = (function ($) {
             $('html, body').stop().animate({
                 scrollTop: $(hrefTarget).offset().top
             }, 600, function () {
-                location.hash = hrefTarget;
-
                 window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             });
         },
 
         setActiveLeftMenu: function setActiveLeftMenu(hrefTarget) {
+            var activeLeftMenu = $("a.left-menu-item[href=\"" + hrefTarget + "\"]");
+
             $("a.left-menu-item.active").removeClass(activeClassName);
-            $("a.left-menu-item[href=\"" + hrefTarget + "\"]").addClass(activeClassName);
+
+            activeLeftMenu.addClass(activeClassName);
+
+            var offsetTop = activeLeftMenu.offset().top - $("a.left-menu-item[href=\"#ResponsibilitiesOfTheAffiliate\"]").offset().top;
+
+            $('#left-panel-menu').stop().animate({
+                scrollTop: offsetTop > $('#left-panel-menu').height() / 3 ? offsetTop : 0
+            }, 400);
         }
     };
 
