@@ -2277,6 +2277,7 @@ input[type="radio"], input[type="checkbox"] {
       align-items: center;
       background: #FFFFFF;
       border: 1px solid #EA5500;
+      color: #EA5500;
       box-shadow: 0px 2px 5px rgba(162, 162, 162, 0.25);
       border-radius: 4px;
       padding: 0.4rem 1.2rem;
@@ -2421,11 +2422,16 @@ input[type="radio"], input[type="checkbox"] {
     .info-group table tr {
       background: #FFFFFF !important; }
 
-.moving-block .btn-move-top {
-  background: #FFFFFF;
-  box-shadow: 0px 6px 7px rgba(77, 77, 77, 0.25);
-  width: 4rem;
-  height: 4rem;
-  opacity: 1; }
-  .moving-block .btn-move-top i {
-    color: #FF5D00; }
+.moving-block {
+  bottom: 14.6rem; }
+  @media screen and (max-width: 1199px) {
+    .moving-block {
+      right: 0; } }
+  .moving-block .btn-move-top {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 7px rgba(77, 77, 77, 0.25);
+    width: 4rem;
+    height: 4rem;
+    opacity: 1; }
+    .moving-block .btn-move-top i {
+      color: #FF5D00; }
