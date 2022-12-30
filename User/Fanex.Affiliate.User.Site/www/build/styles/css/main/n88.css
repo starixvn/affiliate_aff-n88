@@ -20,6 +20,16 @@ ul, ol {
 p {
   margin-bottom: 5px; }
 
+.after-login-container {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin: 0 auto;
+  width: 100%; }
+  @media (max-width: 767px) {
+    .after-login-container {
+      padding-left: 10px;
+      padding-right: 10px; } }
+
 article,
 aside,
 details,
@@ -2386,7 +2396,8 @@ input[type="radio"], input[type="checkbox"] {
     z-index: 9; }
 
 .main.after-login .main-content {
-  display: block; }
+  display: block;
+  margin: 0 auto; }
 
 .main-content {
   display: flex;

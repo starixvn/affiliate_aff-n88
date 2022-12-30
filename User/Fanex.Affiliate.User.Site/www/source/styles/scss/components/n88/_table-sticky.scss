@@ -1,0 +1,57 @@
+﻿.overview-table {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin: auto;
+
+    @include TableAndMobile {
+        overflow: auto;
+        height: 600px;
+    }
+
+    table {
+        width: 100%;
+        min-width: 128rem;
+        margin: auto;
+        border-collapse: separate;
+        border-spacing: 0;
+        border-right: 1px solid #C7C7C7;
+
+        thead {
+            .overview-table-header {
+                th {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    z-index: 100;
+                    top: 67px;
+                    border-right: none;
+
+                    @include TableAndMobile {
+                        top: 0;
+                    }
+                }
+            }
+
+            .overview-table-total {
+                th {
+                    position: -webkit-sticky;
+                    position: sticky;
+                    z-index: 100;
+                    top: 124px !important;
+                    border-right: none;
+
+                    @include TableAndMobile {
+                        top: 82px !important;
+                    }
+                }
+            }
+        }
+
+        td {
+            padding: 5px 10px;
+            vertical-align: top;
+            border-top: none !important;
+            border-right: none !important;
+        }
+    }
+}

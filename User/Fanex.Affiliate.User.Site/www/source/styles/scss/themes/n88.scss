@@ -1,4 +1,6 @@
 ﻿@import "../abstracts/variables-n88";
+@import '../abstracts/mixins';
+
 
 body {
     font-family: 'Open Sans',sans-serif;
@@ -789,57 +791,95 @@ select.form-control {
     }
 }
 
-.content-menu {
-    background-color: #080308;
-
-    .menu {
-        background: $sub-nav-bg-color;
-
-        .menu-item {
-            color: $sub-nav-menu-color;
-
-            &.active, &:hover {
-                background-color: $sub-nav-menu-bg-color-active;
-                color: $sub-nav-menu-color-active;
-            }
-        }
-    }
-
-    .submenu-container {
-        background: $sub-nav-bg-color;
-    }
-}
 
 .summary-content {
     .dashboard-section {
         .group-one {
             background-color: $account-overview-group-one;
+
+            .img-icon {
+                background-color: $account-overview-img-one;
+            }
+
+            .info-panel-content {
+                background-color: $account-overview-img-one;
+            }
         }
 
         .group-two {
             background-color: $account-overview-group-two;
+
+            .img-icon {
+                background-color: $account-overview-img-two;
+            }
+
+            .info-panel-content {
+                background-color: $account-overview-img-two;
+            }
         }
 
         .group-three {
             background-color: $account-overview-group-three;
+
+            .img-icon {
+                background-color: $account-overview-img-three;
+            }
+
+            .info-panel-content {
+                background-color: $account-overview-img-three;
+            }
         }
 
         .group-four {
             background-color: $account-overview-group-four;
+
+            .img-icon {
+                background-color: $account-overview-img-four;
+            }
+
+            .info-panel-content {
+                background-color: $account-overview-img-four;
+            }
         }
     }
 
     .details-section-menu {
         .menu {
             border-bottom: 1px solid $subtab-item-bg-color-active;
+            margin: 16px 0;
+            @include Mobile{
+                margin : 12px 0 8px 0;
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            li {
+                &:last-child {
+                    .menu-item {
+                        padding: 5px 12px;
+                    }
+                }
+            }
         }
 
         .menu-item {
-            color: $tab-item-color;
+            color: #757575;
+            padding: 5px 12px;
+            border-radius: 4px 4px 0px 0px;
+
+            @include Mobile {
+                padding: 4px 8px;
+                font-size: 12px;
+                line-height: 18px;
+            }
 
             &.active, &:hover {
-                color: $tab-item-bg-color-active;
-                border-bottom: 2px solid $subtab-item-bg-color-active;
+                color: $light-color-text;
+                border-bottom: 2px solid #001942;
+                background: #F7FAFF;
+                font-weight : 600;
             }
         }
     }
@@ -854,38 +894,6 @@ select.form-control {
     }
 }
 
-.account-overview {
-    background: $account-overview-bgrd;
-    border: 1px solid #C7C7C7;
-
-    #account-overview-menu {
-        background: $tab-bg-color;
-
-        .menu {
-            &-item {
-                color: $tab-item-color;
-
-                &.active, &:hover {
-                    color: $tab-item-color-active;
-                    background-color: $tab-item-bg-color-active;
-                }
-            }
-
-            li:not(:last-child) {
-                border-right: none !important;
-            }
-        }
-    }
-
-    .bg-orange {
-        background: $tab-item-bg-color-active;
-        color: $tab-item-color-active;
-    }
-
-    .account-overview-content {
-        background: white;
-    }
-}
 
 .login-dialog {
     .btn-signup {
@@ -907,6 +915,17 @@ select.form-control {
 .summary-content .details-section-content .table table tr:nth-child(even) {
     background-color: $table-row-even-bg-color !important;
 }
+
+
+.wrapper-after-login {
+    padding: 16px;
+    border: 1px solid #bcbcbc;
+    border-top : none;
+    @include Mobile{
+        padding : 8px;
+    }
+}
+
 
 @media (min-width: 1024px) {
     .content .news {

@@ -514,62 +514,65 @@ select.form-control:focus {
       border-bottom: 18px solid #e5e5e5;
       border-right: 16px solid #e5e5e5; }
 
-.content-menu {
-  background-color: #080308; }
-  .content-menu .menu {
-    background: #FFFFFF; }
-    .content-menu .menu .menu-item {
-      color: #001942; }
-      .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
-        background-color: #001942;
-        color: #fff; }
-  .content-menu .submenu-container {
-    background: #FFFFFF; }
-
 .summary-content .dashboard-section .group-one {
-  background-color: #156e82; }
+  background-color: #EBF8FF; }
+  .summary-content .dashboard-section .group-one .img-icon {
+    background-color: #00A9C8; }
+  .summary-content .dashboard-section .group-one .info-panel-content {
+    background-color: #00A9C8; }
 
 .summary-content .dashboard-section .group-two {
-  background-color: #1c56ad; }
+  background-color: #F5F2FA; }
+  .summary-content .dashboard-section .group-two .img-icon {
+    background-color: #6051A7; }
+  .summary-content .dashboard-section .group-two .info-panel-content {
+    background-color: #6051A7; }
 
 .summary-content .dashboard-section .group-three {
-  background-color: #9e5613; }
+  background-color: #FFF2E7; }
+  .summary-content .dashboard-section .group-three .img-icon {
+    background-color: #EB7816; }
+  .summary-content .dashboard-section .group-three .info-panel-content {
+    background-color: #EB7816; }
 
 .summary-content .dashboard-section .group-four {
-  background-color: #158469; }
+  background-color: #FFEDEF; }
+  .summary-content .dashboard-section .group-four .img-icon {
+    background-color: #FF3754; }
+  .summary-content .dashboard-section .group-four .info-panel-content {
+    background-color: #FF3754; }
 
 .summary-content .details-section-menu .menu {
-  border-bottom: 1px solid #FF5D00; }
+  border-bottom: 1px solid #B5D1FF;
+  margin: 16px 0; }
+  @media (max-width: 767px) {
+    .summary-content .details-section-menu .menu {
+      margin: 12px 0 8px 0; } }
+  .summary-content .details-section-menu .menu::-webkit-scrollbar {
+    display: none; }
+  .summary-content .details-section-menu .menu li:last-child .menu-item {
+    padding: 5px 12px; }
 
 .summary-content .details-section-menu .menu-item {
-  color: #001942; }
+  color: #757575;
+  padding: 5px 12px;
+  border-radius: 4px 4px 0px 0px; }
+  @media (max-width: 767px) {
+    .summary-content .details-section-menu .menu-item {
+      padding: 4px 8px;
+      font-size: 12px;
+      line-height: 18px; } }
   .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
     color: #001942;
-    border-bottom: 2px solid #FF5D00; }
+    border-bottom: 2px solid #001942;
+    background: #F7FAFF;
+    font-weight: 600; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total {
-  background: #FFE8BC !important; }
+  background: #FFDCC8 !important; }
   .summary-content .details-section-content .table table thead tr.overview-table-total th {
-    background: #FFE8BC !important;
+    background: #FFDCC8 !important;
     color: #001942; }
-
-.account-overview {
-  background: #ffffff;
-  border: 1px solid #C7C7C7; }
-  .account-overview #account-overview-menu {
-    background: #E5E5E5; }
-    .account-overview #account-overview-menu .menu-item {
-      color: #001942; }
-      .account-overview #account-overview-menu .menu-item.active, .account-overview #account-overview-menu .menu-item:hover {
-        color: #fff;
-        background-color: #001942; }
-    .account-overview #account-overview-menu .menu li:not(:last-child) {
-      border-right: none !important; }
-  .account-overview .bg-orange {
-    background: #001942;
-    color: #fff; }
-  .account-overview .account-overview-content {
-    background: white; }
 
 .login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
   color: #FFF;
@@ -582,6 +585,14 @@ select.form-control:focus {
 
 .summary-content .details-section-content .table table tr:nth-child(even) {
   background-color: #E2E2E2 !important; }
+
+.wrapper-after-login {
+  padding: 16px;
+  border: 1px solid #bcbcbc;
+  border-top: none; }
+  @media (max-width: 767px) {
+    .wrapper-after-login {
+      padding: 8px; } }
 
 @media (min-width: 1024px) {
   .content .news {

@@ -1521,6 +1521,9 @@
     <Content Include="www\source\styles\pages\maintenance.scss" />
     <Content Include="www\source\styles\scss\components\n88\_alert.scss" />
     <Content Include="www\source\styles\scss\layout\n88\_banner.scss" />
+    <Content Include="www\source\styles\scss\components\n88\_content-menu.scss" />
+    <Content Include="www\source\styles\scss\components\n88\_overview-bg-tab.scss" />
+    <Content Include="www\source\styles\scss\components\n88\_table-sticky.scss" />
     <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
   </ItemGroup>
