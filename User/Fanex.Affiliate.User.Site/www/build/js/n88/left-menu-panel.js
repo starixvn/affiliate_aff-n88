@@ -45,7 +45,8 @@ var LeftMenuPanel = (function ($) {
             var sections = $("section.info-group");
 
             if (sections.length) {
-                var activeMenuId = sections[0].getAttribute("id");
+                var theFirstMenuId = sections[0].getAttribute("id");
+                var activeMenuId = theFirstMenuId;
 
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
@@ -91,18 +92,21 @@ var LeftMenuPanel = (function ($) {
             });
         },
 
-        setActiveLeftMenu: function setActiveLeftMenu(hrefTarget) {
+        setActiveLeftMenu: function setActiveLeftMenu(hrefTarget, theFirstMenuId) {
+            var leftMenuList = $("a.left-menu-item[href*=\"#\"]");
             var activeLeftMenu = $("a.left-menu-item[href=\"" + hrefTarget + "\"]");
 
-            $("a.left-menu-item.active").removeClass(activeClassName);
+            if (leftMenuList.length) {
+                $("a.left-menu-item.active").removeClass(activeClassName);
 
-            activeLeftMenu.addClass(activeClassName);
+                activeLeftMenu.addClass(activeClassName);
 
-            var offsetTop = activeLeftMenu.offset().top - $("a.left-menu-item[href=\"#ResponsibilitiesOfTheAffiliate\"]").offset().top;
+                var offsetTop = activeLeftMenu.offset().top - $("a.left-menu-item[href=\"" + leftMenuList[0].getAttribute("href") + "\"]").offset().top;
 
-            $('#left-panel-menu').stop().animate({
-                scrollTop: offsetTop > $('#left-panel-menu').height() / 3 ? offsetTop : 0
-            }, 400);
+                $('#left-panel-menu').stop().animate({
+                    scrollTop: offsetTop > $('#left-panel-menu').height() / 3 ? offsetTop : 0
+                }, 400);
+            }
         }
     };
 

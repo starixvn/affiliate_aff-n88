@@ -1,10 +1,12 @@
-﻿@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
+﻿@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
 @{
     ViewBag.Title = Lang.Product;
     Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin", Model.SiteName);
 }
 
 @{
+    var isN88 = string.Equals(Model.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
     var viewName = PathHelper.GetViewPath("Product", $"_Content.{Model.CurrentLanguage}", Model.SiteName);
     var siteFriendlyName = Model.SiteName;
 }
@@ -12,162 +14,170 @@
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/products.css")
 }
+
+@section scripts{
+    @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
+}
+
 <div class="main-content">
-    <div class="mobile-left-panel">
-        <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
-        <span>List Category</span>
-    </div>
-    <div class="left-panel">
-        <div class="menu" id="">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="menu-item left-menu-item active" href="#SportbookProducts">
-                        @Lang.SportbookProducts
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Sportsbook">
-                                @Lang.Sportsbook
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#VirtualSports">
-                                @Lang.VirtualSports
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#NumberGame">
-                                @Lang.NumberGame
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#RngKeno">
-                                @Lang.RngKeno
-                            </a>
-                        </li>
-                    </ul>
-
-                    <a class="menu-item left-menu-item" href="#CasinoProducts">
-                        @Lang.CasinoProducts
-                    </a>
-                    <ul class="sub-menu">
-                        <li>
-                            <a class="menu-item left-menu-item" href="#AsiaGaming">
-                                @Lang.AsiaGaming
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#AdvantPlay">
-                                @Lang.AdvantPlay
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#AeSexy">
-                                @Lang.AeSexy
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Allbet">
-                                @Lang.Allbet
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#AstroTech">
-                                @Lang.AstroTech
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Cq9">
-                                @Lang.Cq9
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#DreamGaming">
-                                @Lang.DreamGaming
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Ebet">
-                                @Lang.Ebet
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#GamePlayInteractive">
-                                @Lang.GamePlayInteractive
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Habanero">
-                                @Lang.Habanero
-                            </a>
-                        </li>
-                        <li>
-
-                            <a class="menu-item left-menu-item" href="#ISoftBetPragmaticPlay">
-                                @Lang.ISoftBetPragmaticPlay
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Jili">
-                                @Lang.Jili
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Joker">
-                                @Lang.Joker
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#MicroGaming">
-                                @Lang.MicroGaming
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#N2Live">
-                                @Lang.N2Live
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#Playtech">
-                                @Lang.Playtech
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#RedTiger">
-                                @Lang.RedTiger
-                            </a>
-                        </li>
-                        <li>
-
-                            <a class="menu-item left-menu-item" href="#SaGaming">
-                                @Lang.SaGaming
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#SabaCasino">
-                                @Lang.SabaCasino
-                            </a>
-
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#SpadeGaming">
-                                @Lang.SpadeGaming
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#WmCasino">
-                                @Lang.WmCasino
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-item left-menu-item" href="#YggDrasil">
-                                @Lang.YggDrasil
-                            </a>
-                        </li>
-                    </ul>
-            </ul>
+    @if (isN88)
+    {
+        <div class="mobile-left-panel">
+            <img src="~/www/source/styles/Images/category_list.svg" alt="category_list" />
+            <span>List Category</span>
         </div>
-    </div>
+        <div class="left-panel">
+            <div class="menu" id="">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="menu-item left-menu-item active" href="#SportbookProducts">
+                            @Lang.SportbookProducts
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Sportsbook">
+                                    @Lang.Sportsbook
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#VirtualSports">
+                                    @Lang.VirtualSports
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#NumberGame">
+                                    @Lang.NumberGame
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#RngKeno">
+                                    @Lang.RngKeno
+                                </a>
+                            </li>
+                        </ul>
+
+                        <a class="menu-item left-menu-item" href="#CasinoProducts">
+                            @Lang.CasinoProducts
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="menu-item left-menu-item" href="#AsiaGaming">
+                                    @Lang.AsiaGaming
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#AdvantPlay">
+                                    @Lang.AdvantPlay
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#AeSexy">
+                                    @Lang.AeSexy
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Allbet">
+                                    @Lang.Allbet
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#AstroTech">
+                                    @Lang.AstroTech
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Cq9">
+                                    @Lang.Cq9
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#DreamGaming">
+                                    @Lang.DreamGaming
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Ebet">
+                                    @Lang.Ebet
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#GamePlayInteractive">
+                                    @Lang.GamePlayInteractive
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Habanero">
+                                    @Lang.Habanero
+                                </a>
+                            </li>
+                            <li>
+
+                                <a class="menu-item left-menu-item" href="#ISoftBetPragmaticPlay">
+                                    @Lang.ISoftBetPragmaticPlay
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Jili">
+                                    @Lang.Jili
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Joker">
+                                    @Lang.Joker
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#MicroGaming">
+                                    @Lang.MicroGaming
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#N2Live">
+                                    @Lang.N2Live
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#Playtech">
+                                    @Lang.Playtech
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#RedTiger">
+                                    @Lang.RedTiger
+                                </a>
+                            </li>
+                            <li>
+
+                                <a class="menu-item left-menu-item" href="#SaGaming">
+                                    @Lang.SaGaming
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#SabaCasino">
+                                    @Lang.SabaCasino
+                                </a>
+
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#SpadeGaming">
+                                    @Lang.SpadeGaming
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#WmCasino">
+                                    @Lang.WmCasino
+                                </a>
+                            </li>
+                            <li>
+                                <a class="menu-item left-menu-item" href="#YggDrasil">
+                                    @Lang.YggDrasil
+                                </a>
+                            </li>
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    }
 
     <div class="content product-page">
         <div class="page-title">

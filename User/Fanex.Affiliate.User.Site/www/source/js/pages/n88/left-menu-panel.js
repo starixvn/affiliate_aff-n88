@@ -44,7 +44,8 @@
             const sections = $("section.info-group");
 
             if (sections.length) {
-                let activeMenuId = sections[0].getAttribute("id");
+                let theFirstMenuId = sections[0].getAttribute("id");
+                let activeMenuId = theFirstMenuId;
 
                 for (let section of sections) {
                     const sectionTop = section.offsetTop;
@@ -69,18 +70,21 @@
             });
         },
 
-        setActiveLeftMenu: function (hrefTarget) {
+        setActiveLeftMenu: function (hrefTarget, theFirstMenuId) {
+            const leftMenuList = $(`a.left-menu-item[href*="#"]`);
             const activeLeftMenu = $(`a.left-menu-item[href="${hrefTarget}"]`);
 
-            $("a.left-menu-item.active").removeClass(activeClassName);
+            if (leftMenuList.length) {
+                $("a.left-menu-item.active").removeClass(activeClassName);
 
-            activeLeftMenu.addClass(activeClassName);
+                activeLeftMenu.addClass(activeClassName);
 
-            const offsetTop = activeLeftMenu.offset().top - $(`a.left-menu-item[href="#ResponsibilitiesOfTheAffiliate"]`).offset().top;
+                const offsetTop = activeLeftMenu.offset().top - $(`a.left-menu-item[href="${leftMenuList[0].getAttribute("href")}"]`).offset().top;
 
-            $('#left-panel-menu').stop().animate({
-                scrollTop: (offsetTop > $('#left-panel-menu').height() / 3) ? offsetTop : 0
-            }, 400);
+                $('#left-panel-menu').stop().animate({
+                    scrollTop: (offsetTop > $('#left-panel-menu').height() / 3) ? offsetTop : 0
+                }, 400);
+            }
         }
     };
 
