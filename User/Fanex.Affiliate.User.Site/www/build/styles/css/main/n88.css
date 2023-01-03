@@ -331,13 +331,59 @@ input[type="checkbox"], input[type="radio"] {
   .flag-ms-MY {
     background-image: url("../../Images/icons/flags/Malaysia.png"); }
 
-.after-login-content .header-top, .after-login-content .navbar .layout-page-container {
+.after-login-content .header-top {
   max-width: 100%;
   padding: 0 16px; }
+  @media only screen and (max-width: 1024px) {
+    .after-login-content .header-top {
+      padding: 0 12px; } }
+  @media only screen and (max-width: 767px) {
+    .after-login-content .header-top {
+      padding: 0 10px 4px; } }
+
+.after-login-content .header-top .logo {
+  margin-top: 11px !important;
+  margin-bottom: 5px; }
+
+.after-login-content .header-top .user-signup {
+  margin-top: 2px;
+  margin-bottom: 0; }
+  .after-login-content .header-top .user-signup .btn-logout {
+    border-left: 1px solid #BDBDBD; }
+    .after-login-content .header-top .user-signup .btn-logout .btn-login {
+      margin-left: 10px; }
+  .after-login-content .header-top .user-signup .btn-signup {
+    margin-right: 12px; }
+  .after-login-content .header-top .user-signup .icon {
+    font-size: 12px; }
 
 .after-login-content .language-login {
   display: flex;
   align-items: center; }
+
+.after-login-content .hot-news .inner {
+  margin: 0; }
+
+@media (max-width: 767px) {
+  .after-login-content .user-login {
+    margin-bottom: 0;
+    align-items: flex-end;
+    flex-direction: column; }
+    .after-login-content .user-login .btn-logout {
+      border-left: 0 !important; }
+      .after-login-content .user-login .btn-logout .btn-login {
+        margin-left: 0 !important; }
+    .after-login-content .user-login .btn-signup {
+      margin-right: 0 !important;
+      margin-bottom: 12px; }
+  .after-login-content .header-top .logo {
+    margin-top: 13px !important; }
+  .after-login-content .header-top .language-container {
+    right: 8rem;
+    position: absolute;
+    top: 42px; }
+  .after-login-content .header-top .language-login {
+    padding-top: 1px; } }
 
 .header-top {
   display: flex;
@@ -545,9 +591,7 @@ input[type="checkbox"], input[type="radio"] {
       float: none;
       text-align: right; }
       .user-login.login-before {
-        display: none; }
-      .user-login.login-after {
-        margin-bottom: 5px; } }
+        display: none; } }
   .user-login .login-after {
     display: block; }
   .user-login .text-field {

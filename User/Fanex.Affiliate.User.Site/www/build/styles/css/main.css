@@ -579,7 +579,7 @@ body {
   flex: 1 1 auto;
   min-height: 1px; }
 
-.page-container {
+.layout-page-container {
   max-width: calc(100% - 400px);
   flex-basis: calc(100% - 400px);
   margin: 0 auto; }
@@ -741,7 +741,7 @@ body {
       outline: none; }
 
 @media only screen and (min-width: 1190px) and (max-width: 1366px) {
-  .page-container {
+  .layout-page-container {
     max-width: calc(100% - 200px);
     flex-basis: calc(100% - 200px); } }
 

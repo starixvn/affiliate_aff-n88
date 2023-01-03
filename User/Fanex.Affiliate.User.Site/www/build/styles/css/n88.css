@@ -623,7 +623,7 @@ header {
     right: 4rem; }
   .menu .menu-item {
     padding-right: 15px; }
-  .navbar .page-container {
+  .navbar .layout-page-container {
     padding-left: 24px; } }
 
 @media only screen and (max-width: 767px) {
@@ -647,26 +647,26 @@ header {
     height: calc(100vh - 114px);
     background: #001942;
     border: 0; }
-  .navbar .page-container {
+  .navbar .layout-page-container {
     margin-left: 0;
     padding: 0; }
-    .navbar .page-container .navbar-nav {
+    .navbar .layout-page-container .navbar-nav {
       margin: 16px; }
-    .navbar .page-container .menu .menu-item {
+    .navbar .layout-page-container .menu .menu-item {
       border-bottom: 1px solid #EEEEEE;
       margin-bottom: 16px;
       font-size: 16px;
       line-height: 24px;
       padding-bottom: 8px; }
-      .navbar .page-container .menu .menu-item.active {
+      .navbar .layout-page-container .menu .menu-item.active {
         border-bottom: 1px solid #FF5D00; }
-    .navbar .page-container ul li:last-child .menu-item {
+    .navbar .layout-page-container ul li:last-child .menu-item {
       border-bottom: 0; }
   .header-top {
     padding: 11px 10px 6px 10px; }
     .header-top .user-signup {
       flex-direction: column-reverse; }
-      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .language-container .select-language {
+      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .language-container .select-language, .header-top .user-signup .btn-login {
         font-weight: 700;
         font-size: 12px;
         line-height: 18px;
@@ -679,7 +679,7 @@ header {
           top: 4px; }
           .header-top .user-signup .language-container .select-language .caret {
             top: 5px; }
-      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile {
+      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .btn-login {
         padding: 1px 7px !important; }
       .header-top .user-signup .btn-login-mobile {
         margin: 0 !important; }

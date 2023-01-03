@@ -1,14 +1,91 @@
 ﻿@import "../../components/n88/flag";
 
 .after-login-content {
-    .header-top, .navbar .layout-page-container {
+    .header-top {
         max-width: 100%;
         padding: 0 16px;
+
+        @media only screen and (max-width: 1024px) {
+            padding: 0 12px;
+        }
+
+        @media only screen and (max-width: 767px) {
+            padding: 0 10px 4px;
+        }
+    }
+
+    .header-top {
+        .logo {
+            margin-top: 11px !important;
+            margin-bottom: 5px;
+        }
+
+        .user-signup {
+            margin-top: 2px;
+            margin-bottom: 0;
+
+            .btn-logout {
+                border-left: 1px solid #BDBDBD;
+
+                .btn-login {
+                    margin-left: 10px;
+                }
+            }
+
+            .btn-signup {
+                margin-right: 12px;
+            }
+
+            .icon {
+                font-size: 12px;
+            }
+        }
     }
 
     .language-login {
         display: flex;
         align-items: center;
+    }
+
+    .hot-news .inner {
+        margin: 0;
+    }
+
+    @include Mobile {
+        .user-login {
+            margin-bottom: 0;
+           align-items: flex-end;
+           flex-direction: column;
+
+            .btn-logout {
+                border-left: 0 !important;
+
+                .btn-login {
+                    margin-left: 0 !important;
+                }
+            }
+
+            .btn-signup {
+                margin-right: 0 !important;
+                margin-bottom: 12px;
+            }
+        }
+
+        .header-top {
+            .logo {
+                margin-top: 13px !important;
+            }
+
+            .language-container {
+                right: 8rem;
+                position: absolute;
+                top: 42px;
+            }
+
+            .language-login {
+                padding-top: 1px;
+            }
+        }
     }
 }
 
@@ -311,10 +388,6 @@
 
         &.login-before {
             display: none;
-        }
-
-        &.login-after {
-            margin-bottom: 5px;
         }
     }
 

@@ -973,7 +973,7 @@ header {
         padding-right: 15px;
     }
 
-    .navbar .page-container {
+    .navbar .layout-page-container {
         padding-left: 24px;
     }
 }
@@ -1011,7 +1011,7 @@ header {
         border: 0;
     }
 
-    .navbar .page-container {
+    .navbar .layout-page-container {
         margin-left: 0;
         padding: 0;
 
@@ -1042,7 +1042,7 @@ header {
         .user-signup {
             flex-direction: column-reverse;
 
-            .btn-signup, .btn-login-mobile, .language-container .select-language {
+            .btn-signup, .btn-login-mobile, .language-container .select-language, .btn-login {
                 font-weight: 700;
                 font-size: 12px;
                 line-height: 18px;
@@ -1063,7 +1063,7 @@ header {
                 }
             }
 
-            .btn-signup, .btn-login-mobile {
+            .btn-signup, .btn-login-mobile, .btn-login {
                 padding: 1px 7px !important;
             }
 
