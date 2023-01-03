@@ -340,22 +340,31 @@ input[type="checkbox"], input[type="radio"] {
   @media only screen and (max-width: 767px) {
     .after-login-content .header-top {
       padding: 0 10px 4px; } }
+  .after-login-content .header-top .logo {
+    margin-top: 11px !important;
+    margin-bottom: 5px; }
+  .after-login-content .header-top .user-signup {
+    margin-top: 2px;
+    margin-bottom: 0; }
+    .after-login-content .header-top .user-signup .btn-logout {
+      border-left: 1px solid #BDBDBD; }
+      .after-login-content .header-top .user-signup .btn-logout .btn-login {
+        margin-left: 10px; }
+    .after-login-content .header-top .user-signup .btn-signup {
+      margin-right: 12px; }
+    .after-login-content .header-top .user-signup .icon {
+      font-size: 12px; }
 
-.after-login-content .header-top .logo {
-  margin-top: 11px !important;
-  margin-bottom: 5px; }
-
-.after-login-content .header-top .user-signup {
-  margin-top: 2px;
-  margin-bottom: 0; }
-  .after-login-content .header-top .user-signup .btn-logout {
-    border-left: 1px solid #BDBDBD; }
-    .after-login-content .header-top .user-signup .btn-logout .btn-login {
-      margin-left: 10px; }
-  .after-login-content .header-top .user-signup .btn-signup {
-    margin-right: 12px; }
-  .after-login-content .header-top .user-signup .icon {
-    font-size: 12px; }
+.after-login-content .navbar .layout-page-container {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0 16px; }
+  @media only screen and (max-width: 1024px) {
+    .after-login-content .navbar .layout-page-container {
+      padding: 0 12px; } }
+  @media only screen and (max-width: 767px) {
+    .after-login-content .navbar .layout-page-container {
+      padding: 0; } }
 
 .after-login-content .language-login {
   display: flex;
