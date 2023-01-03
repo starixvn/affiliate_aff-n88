@@ -11,13 +11,13 @@
     var channelName = item.First().ChannelName;
 
     <tr data-id='@item.Key' class='parent-item'>
-        <td>@index</td>
+        <td class="text-center">@index</td>
         <td class="text-bold">
             <div class="flex">
                 <span class="flex-0">@channelName</span>
                 <div class="flex-middle">
-                    <button class="btn btn-transparent">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    <button class="btn btn-transparent btn-dropdown-table">
+                        @*<span class="glyphicon glyphicon-chevron-right"></span>*@
                     </button>
                 </div>
             </div>
@@ -33,11 +33,11 @@
 
 @helper RenderLinkRow(Fanex.Affiliate.User.Core.DTO.MarketingChannelLink link)
 {
-    <tr data-parent="@link.ChannelCode" class="display-none">
+    <tr data-parent="@link.ChannelCode" class="display-none parent-tr">
         <td></td>
-        <td>@link.AffMediaLink</td>
+        <td><a href="@link.AffMediaLink">@link.AffMediaLink</a></td>
         <td></td>
-        <td>@link.MarketName</td>
+        <td><a href="@link.MarketName">@link.MarketName</a></td>
     </tr>
 }
 

@@ -3,7 +3,6 @@
 @import "../scss/abstracts/mixins";
 @import "../scss/components/pager";
 @import "../scss/components/toogle-button";
-@import "../scss/components/qr_code";
 @import "../scss/base/common";
 @import '../scss/abstracts/variables-n88';
 @import '../scss/components/n88/content-menu';
@@ -145,6 +144,7 @@
                 width: 480px;
                 border-radius: 5px;
                 margin-bottom: 12px;
+                justify-content : space-between;
 
                 @include Mobile {
                     margin-bottom: 8px;
@@ -372,20 +372,6 @@
         }
     }
 }
-
-#aff-link, #media-gallery{
-    margin-left: -50px;
-    margin-right:-50px;
-    >div{
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-
-}
-.info-group > .title {
-    margin-left: 10px;
-}
-
 td {
     overflow: hidden;
     white-space: nowrap;
@@ -397,8 +383,8 @@ td {
 
 
 
-/**/
-/*@media (max-width: 1023px) {
+/*
+@media (max-width: 1023px) {
     .details-section-content {
         .table {
             overflow-x: scroll;
@@ -453,8 +439,9 @@ td {
     }
 }
 
-.summary-content{
-    @include Mobile{
-        margin-top : 12px;
+
+.summary-content {
+    @include Mobile {
+        margin-top: 12px;
     }
 }

@@ -20,7 +20,7 @@
     @RazorHelper.RenderHotNews()
     <div class="after-login-container">
         <div class="content-menu">
-            <ul class="menu list-unstyled" id="mainMenu">
+            <ul class="menu list-unstyled content-menu-pc" id="mainMenu">
                 <li><a class="menu-item" id="menuAccountOverview" href="@Url.Content("~/UserPanel/Main/#AccountOverview")">@Lang.AccOverview</a></li>
                 @if (string.Equals(groupName, CommGroupName.KoreanAgentComm))
                 {
@@ -32,7 +32,7 @@
                 @if (!sessionService.UserSession.DisabledTransfer)
                 {
                     <li class="parent">
-                        <a class="menu-item" href="javascript:;">@Lang.TransferBalanceForPlayer <i class="caret"></i></a>
+                        <a class="menu-item" href="javascript:;">@Lang.TransferBalanceForPlayer <i class="content-dropdown-icon"></i></a>
                         <ul class="menu submenu-container list-unstyled">
                             <li><a class="menu-item" id="menuPlayerTransferBalance" href="@Url.Content("~/UserPanel/Main/#PlayerTransferBalance")">@Lang.TransferBalanceForPlayer</a></li>
 
@@ -43,7 +43,7 @@
                 }
                 <li><a class="menu-item" id="menuRevenueReport" href="@Url.Content("~/UserPanel/Main/#RevenueReport")">@Lang.CommissionReport</a></li>
                 <li class="parent">
-                    <a class="menu-item" href="javascript:;">@Lang.Statistics <i class="caret"></i></a>
+                    <a class="menu-item" href="javascript:;">@Lang.Statistics <i class="content-dropdown-icon"></i></a>
                     <ul class="menu submenu-container list-unstyled">
                         <li><a class="menu-item" id="menuReferrersStatistics" href="@Url.Content("~/UserPanel/Main/#ReferrersStatistics")">@Lang.Referrals</a></li>
                         <li><a class="menu-item" id="menuLandingPageStatistics" href="@Url.Content("~/UserPanel/Main/#LandingPageStatistics")">@Lang.LandingPages</a></li>
@@ -51,6 +51,11 @@
                     </ul>
                 </li>
             </ul>
+
+            <ul class="content-menu-mobile">
+                <li></li>
+            </ul>
+
         </div>
 
         <div class="main-content">

@@ -6,7 +6,7 @@
 
     @include TableAndMobile {
         overflow: auto;
-        height: 600px;
+        max-height: 600px;
     }
 
     table {
@@ -52,6 +52,58 @@
             vertical-align: top;
             border-top: none !important;
             border-right: none !important;
+        }
+    }
+}
+
+#player-detail-table {
+    tr {
+        min-width: 1620px;
+    }
+
+    .th {
+        cursor: pointer;
+    }
+
+    .th-wrapper {
+        position: relative;
+        padding-right: 15px;
+        font-size: 13px;
+
+        .icon-container {
+            position: absolute;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            top: calc(50% - 5px);
+            right: -6px;
+
+            .caret {
+                display: block;
+                border-width: 4px;
+
+                &.current {
+                    border-top-color: #F1002A;
+                }
+            }
+
+            > .asc {
+                transform: rotate(180deg);
+                margin-bottom: 3px;
+            }
+        }
+
+        &.col-comm {
+            .info-container {
+                position: absolute;
+                display: inline-block;
+                top: calc(50% - 8px);
+                right: 11px;
+
+                > .glyphicon-info-sign {
+                    cursor: pointer;
+                }
+            }
         }
     }
 }

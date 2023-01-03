@@ -86,12 +86,11 @@ p {
 
 .pager-container {
   text-align: center;
-  padding: 3px;
+  padding: 6px 0;
   font-size: 12px;
-  background-color: #EFF3F8;
-  border-left: 1px solid #d1dae1;
-  border-right: 1px solid #d1dae1;
-  border-bottom: 1px solid #d1dae1; }
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  height: 40px; }
   .pager-container .icon {
     speak: none;
     font-style: normal;
@@ -101,33 +100,40 @@ p {
     line-height: 1;
     -webkit-font-smoothing: antialiased;
     font-size: 12px;
-    color: #4c6375;
+    color: #333333;
     cursor: pointer;
     margin-left: 5px;
-    margin-right: 5px; }
+    margin-right: 5px;
+    text-decoration: none; }
   .pager-container .disable {
-    color: #d1dae1;
+    color: #333333;
     cursor: default;
-    pointer-events: none; }
+    pointer-events: none;
+    opacity: .5; }
   .pager-container .page-input {
     display: inline-block; }
     .pager-container .page-input .text-pageInfo {
       display: inline-block;
-      min-width: 120px; }
+      min-width: 126px;
+      font-size: 16px; }
+      @media (max-width: 767px) {
+        .pager-container .page-input .text-pageInfo {
+          font-size: 14px;
+          min-width: 86px; } }
     .pager-container .page-input:after, .pager-container .page-input:before {
       content: "";
       border: 1px solid #ccc; }
-    .pager-container .page-input:after {
-      margin-left: 5px; }
-    .pager-container .page-input:before {
-      margin-right: 5px; }
   .pager-container .pagesize-select {
     height: auto;
-    font-size: inherit;
+    font-size: 14px;
     padding: 2px;
-    min-width: 65px;
-    border: 1px solid #e2d6d6;
-    margin-left: 5px; }
+    min-width: 100px;
+    margin-left: 15px;
+    border: 1px solid #9E9E9E;
+    border-radius: 4px; }
+    @media (max-width: 767px) {
+      .pager-container .pagesize-select {
+        min-width: 60px; } }
   .pager-container .page-info {
     float: right;
     padding: 3px; }
@@ -247,70 +253,6 @@ span.toggle-handle {
 
 .toggle-off.btn-mini {
   padding-left: 12px; }
-
-.qr-panel {
-  margin: -20px;
-  font-size: 14px;
-  line-height: 17px;
-  padding: 10px;
-  padding-top: 0px; }
-
-.qr-item {
-  margin: 20px; }
-  .qr-item .main-panel {
-    padding: 10px; }
-  .qr-item .toggle-btn {
-    margin-right: -30px; }
-  .qr-item .toggle, .qr-item .toggle-on, .qr-item .toggle-off {
-    border-radius: 13px;
-    height: 13px;
-    width: 27px; }
-  .qr-item .toggle-on, .qr-item .toggle-off {
-    line-height: 13px;
-    font-size: 11px; }
-  .qr-item label {
-    margin: 0px; }
-
-.qr-img img {
-  height: 100px;
-  width: 100px; }
-  .qr-img img.default {
-    display: none; }
-
-.qr-img.disabled img.default {
-  display: block; }
-
-.qr-img.disabled img.qrcode {
-  display: none; }
-
-.qr-btn-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly; }
-  .qr-btn-group button {
-    border-radius: 2px;
-    display: block;
-    width: 124px;
-    height: 30px;
-    padding: 0px;
-    border: 0px; }
-    .qr-btn-group button:disabled {
-      opacity: 0.5; }
-
-.qr-action {
-  margin-left: 10px;
-  display: flex;
-  flex-direction: column; }
-  .qr-action .qr-btn-group {
-    flex-grow: 1; }
-
-.qr-footer {
-  text-align: center;
-  margin-top: 10px; }
-  .qr-footer button {
-    border: 0px; }
-    .qr-footer button:disabled {
-      opacity: 0.3; }
 
 .blocker {
   display: block;
@@ -598,7 +540,10 @@ ul.dash-style {
       .content-menu .menu li .menu-item {
         color: #616161;
         padding: 9px 12px;
-        background: #FFFFFF; }
+        background: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; }
         .content-menu .menu li .menu-item.active, .content-menu .menu li .menu-item:hover {
           background-color: #001942;
           color: #fff; }
@@ -613,6 +558,14 @@ ul.dash-style {
         border: none; }
         .content-menu .menu li .submenu-container li:not(:last-child) {
           border-right: none; }
+  @media (max-width: 767px) {
+    .content-menu .content-menu-pc {
+      display: none; } }
+  .content-menu .content-menu-mobile {
+    display: none; }
+    @media (max-width: 767px) {
+      .content-menu .content-menu-mobile {
+        display: block; } }
   .content-menu .submenu-container {
     background: #FFFFFF; }
 
@@ -652,7 +605,7 @@ ul.dash-style {
   @media screen and (max-width: 1024px) {
     .overview-table {
       overflow: auto;
-      height: 600px; } }
+      max-height: 600px; } }
   .overview-table table {
     width: 100%;
     min-width: 128rem;
@@ -683,6 +636,39 @@ ul.dash-style {
       vertical-align: top;
       border-top: none !important;
       border-right: none !important; }
+
+#player-detail-table tr {
+  min-width: 1620px; }
+
+#player-detail-table .th {
+  cursor: pointer; }
+
+#player-detail-table .th-wrapper {
+  position: relative;
+  padding-right: 15px;
+  font-size: 13px; }
+  #player-detail-table .th-wrapper .icon-container {
+    position: absolute;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    top: calc(50% - 5px);
+    right: -6px; }
+    #player-detail-table .th-wrapper .icon-container .caret {
+      display: block;
+      border-width: 4px; }
+      #player-detail-table .th-wrapper .icon-container .caret.current {
+        border-top-color: #F1002A; }
+    #player-detail-table .th-wrapper .icon-container > .asc {
+      transform: rotate(180deg);
+      margin-bottom: 3px; }
+  #player-detail-table .th-wrapper.col-comm .info-container {
+    position: absolute;
+    display: inline-block;
+    top: calc(50% - 8px);
+    right: 11px; }
+    #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
+      cursor: pointer; }
 
 .account-overview .menu {
   display: flex;
@@ -781,7 +767,8 @@ ul.dash-style {
       display: flex;
       width: 480px;
       border-radius: 5px;
-      margin-bottom: 12px; }
+      margin-bottom: 12px;
+      justify-content: space-between; }
       @media (max-width: 767px) {
         .summary-content .dashboard-section .group {
           margin-bottom: 8px;
@@ -971,23 +958,13 @@ ul.dash-style {
       z-index: 2;
       top: 42px; }
 
-#aff-link, #media-gallery {
-  margin-left: -50px;
-  margin-right: -50px; }
-  #aff-link > div, #media-gallery > div {
-    padding-left: 50px;
-    padding-right: 50px; }
-
-.info-group > .title {
-  margin-left: 10px; }
-
 td {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
 
-/**/
-/*@media (max-width: 1023px) {
+/*
+@media (max-width: 1023px) {
     .details-section-content {
         .table {
             overflow-x: scroll;

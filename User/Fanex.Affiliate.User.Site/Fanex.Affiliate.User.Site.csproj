@@ -927,6 +927,7 @@
     </Content>
     <Content Include="www\build\styles\Images\404-illus.png" />
     <Content Include="www\build\styles\Images\account-overview\commission.png" />
+    <Content Include="www\build\styles\Images\account-overview\copy-link.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-copy.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-facebook.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-line.png" />
@@ -993,6 +994,7 @@
     <Content Include="www\build\styles\Images\contact-us\n88\whatsapp.png" />
     <Content Include="www\build\styles\Images\contact-us\phone.png" />
     <Content Include="www\build\styles\Images\contact-us\telegram.png" />
+    <Content Include="www\build\styles\Images\copy-link.png" />
     <Content Include="www\build\styles\Images\gift.svg" />
     <Content Include="www\build\styles\Images\header-bg.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-left-login.mobile.png" />
@@ -1013,6 +1015,9 @@
     <Content Include="www\build\styles\Images\icons\flags\Taiwan.png" />
     <Content Include="www\build\styles\Images\icons\flags\Thailand.png" />
     <Content Include="www\build\styles\Images\icons\flags\Vietnam.png" />
+    <Content Include="www\build\styles\Images\icons\n88\dropdown-gray.svg" />
+    <Content Include="www\build\styles\Images\icons\n88\dropdown-table.svg" />
+    <Content Include="www\build\styles\Images\icons\n88\dropdown-white.svg" />
     <Content Include="www\build\styles\Images\icons\n88\dropdown.svg" />
     <Content Include="www\build\styles\Images\ipad-login.svg" />
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />

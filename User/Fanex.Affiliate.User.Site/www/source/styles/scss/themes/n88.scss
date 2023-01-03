@@ -360,15 +360,35 @@ header {
 }
 
 .info-group {
+    margin-top: 0 !important;
+
     .title {
         color: $group-title-color;
+        margin-bottom: 16px !important;
+        @include Mobile{
+            margin-bottom : 8px !important;
+        }
 
         &:before {
-            background: $group-title-border-before-color;
+            display: none !important;
         }
 
         &:after {
-            background: $group-title-border-after-color;
+            background: #CFCFCF !important;
+            height: 1px !important;
+            width: 100% !important;
+        }
+
+        .text {
+            color: $light-color-text;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 30px;
+
+            @include Mobile {
+                font-size: 16px;
+            }
         }
     }
 
@@ -926,6 +946,35 @@ select.form-control {
     }
 }
 
+.wrapper-layout-after-login {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 24px;
+
+
+
+    @include TableAndMobile {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    @include Mobile {
+        gap: 12px;
+    }
+
+    .column {
+        width: 50%;
+
+        @include TableAndMobile {
+            width: 100%;
+        }
+    }
+}
+
+.flex-sm-boostrap {
+    justify-content: flex-end;
+}
+
 
 @media (min-width: 1024px) {
     .content .news {
@@ -1262,5 +1311,56 @@ select.form-control {
                 padding: 14px 12px 12px;
             }
         }
+    }
+}
+
+
+.qr-footer {
+    margin-top: 12px;
+
+    .btn-copy-link {
+        &:after {
+            content: "";
+            display: block;
+            background: url("../../../../build/styles/Images/account-overview/copy-link.png") no-repeat;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            height: 12px;
+            width: 12px;
+        }
+    }
+}
+
+.content-menu {
+    .menu {
+        li {
+            a {
+                .content-dropdown-icon {
+                    background: url("../../../../build/styles/Images/icons/n88/dropdown-gray.svg") no-repeat;
+                    display: inline-block;
+                    height: 12px;
+                    width: 12px;
+                    margin-left: 8px;
+                }
+
+                &:hover {
+                    .content-dropdown-icon {
+                        background: url("../../../../build/styles/Images/icons/n88/dropdown-white.svg") no-repeat;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.btn-dropdown-table {
+    background: url("../../../../build/styles/Images/icons/n88/dropdown-table.svg") no-repeat center;
+    content: "";
+    display: block;
+    transform: rotate(-90deg);
+
+    &.active {
+        transform: rotate(0);
     }
 }
