@@ -1,5 +1,6 @@
 ﻿var LeftMenuPanel = (function ($) {
     const activeClassName = "active";
+    let isOpenLeftMenuMobile = false;
 
     var _me = {
         initialize: function () {
@@ -9,17 +10,21 @@
 
         initEvent: function () {
             $('.mobile-left-panel').click(function (e) {
-                e.stopPropagation();
-
                 $('body').addClass('overflow-left-panel');
                 $('.left-panel').addClass('active');
 
+                $('body').bind('click', function (e) {
+                    if (isOpenLeftMenuMobile) {
+                        _me.handleCloseLeftMenu();
+                    } else {
+                        isOpenLeftMenuMobile = true;
+                    }
+                });
             })
 
-            $(document).on('click', '.overflow-left-panel', function (e) {
-                $('body.overflow-left-panel').removeClass('overflow-left-panel');
-                $('.left-panel').removeClass('active');
-            });
+            $('#left-panel-menu').on('scroll', function (e) {
+                e.stopPropagation();
+            })
 
             $('a.left-menu-item').bind('click', function (e) {
                 window.removeEventListener("scroll", _me.handleActiveLeftMenuByScroll);
@@ -32,12 +37,11 @@
         },
 
         handleCloseLeftMenu: function () {
-            console.log("handleCloseLeftMenu");
+            isOpenLeftMenuMobile = false;
+            $('body').unbind("click");
 
+            $('.left-panel.active').removeClass('active');
             $('body.overflow-left-panel').removeClass('overflow-left-panel');
-            $('.left-panel').removeClass('active');
-
-            window.removeEventListener("click", _me.handleCloseLeftMenu);
         },
 
         handleActiveLeftMenuByScroll: function () {
@@ -82,7 +86,7 @@
                 const offsetTop = activeLeftMenu.offset().top - $(`a.left-menu-item[href="${leftMenuList[0].getAttribute("href")}"]`).offset().top;
 
                 $('#left-panel-menu').stop().animate({
-                    scrollTop: (offsetTop > $('#left-panel-menu').height() / 3) ? offsetTop : 0
+                    scrollTop: offsetTop
                 }, 400);
             }
         }

@@ -40,6 +40,12 @@
                 WebSite.changeWebsiteOption(hasWebSite);
             });
 
+            $('select[data-val="true"]').on("change", function () {
+                var validator = $("#accountForm").validate();
+
+                validator.element($(this));
+            });
+
             $("#signupCaptcha").on("click", function () {
                 _me.refreshCaptcha();
             })

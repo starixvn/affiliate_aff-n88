@@ -2281,7 +2281,7 @@ input[type="radio"], input[type="checkbox"] {
     .left-panel.active {
       display: block;
       position: fixed;
-      z-index: 99;
+      z-index: 1042;
       height: auto;
       width: 35.5rem;
       top: 50%;
@@ -2404,7 +2404,7 @@ input[type="radio"], input[type="checkbox"] {
     background: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 100%;
-    z-index: 9; }
+    z-index: 1040; }
 
 .main.after-login .main-content {
   display: block;

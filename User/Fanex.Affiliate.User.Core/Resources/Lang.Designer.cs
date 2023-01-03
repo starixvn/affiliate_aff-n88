@@ -3895,7 +3895,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 5. Policies &amp;amp; Confidentiality.
+        ///   Looks up a localized string similar to 5. Policies &amp; Confidentiality.
         /// </summary>
         public static string PoliciesAndConfidentiality {
             get {
@@ -4255,7 +4255,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4. Revenue Sharing &amp;amp; Payment.
+        ///   Looks up a localized string similar to 4. Revenue Sharing &amp; Payment.
         /// </summary>
         public static string RevenueSharingAndPayment {
             get {
@@ -5011,7 +5011,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9. Term &amp;amp; Termination.
+        ///   Looks up a localized string similar to 9. Term &amp; Termination.
         /// </summary>
         public static string TermAndTermination {
             get {

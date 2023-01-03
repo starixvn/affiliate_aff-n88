@@ -75,7 +75,9 @@ var WebSite = (function ($) {
 
         validateWebSiteGroup: function () {
             var validator = _me.getValidator();
-            var isValidMainInfo = validator.element("#SiteUrl") && validator.element("#NoSiteDesc");
+            var isValidSiteUrl = validator.element("#SiteUrl");
+            var isValidNoSiteDesc = validator.element("#NoSiteDesc");
+            var isValidMainInfo = isValidSiteUrl && isValidNoSiteDesc;
 
             var isValidMoreUrl = true;
             var moreInputUrl = $(".urlInput");
@@ -149,6 +151,12 @@ var MyAccount = (function ($) {
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
                 WebSite.changeWebsiteOption(hasWebSite);
+            });
+
+            $('select[data-val="true"]').on("change", function () {
+                var validator = $("#accountForm").validate();
+
+                validator.element($(this));
             });
 
             $("#btnMyAccountSubmit").on("click", function () {

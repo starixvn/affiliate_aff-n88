@@ -2,6 +2,7 @@
 
 var LeftMenuPanel = (function ($) {
     var activeClassName = "active";
+    var isOpenLeftMenuMobile = false;
 
     var _me = {
         initialize: function initialize() {
@@ -11,15 +12,21 @@ var LeftMenuPanel = (function ($) {
 
         initEvent: function initEvent() {
             $('.mobile-left-panel').click(function (e) {
-                e.stopPropagation();
-
                 $('body').addClass('overflow-left-panel');
                 $('.left-panel').addClass('active');
+
+                $('body').bind('click', function (e) {
+                    if (isOpenLeftMenuMobile) {
+                        _me.handleCloseLeftMenu();
+                    } else {
+                        isOpenLeftMenuMobile = true;
+                    }
+                });
             });
 
-            $(document).on('click', '.overflow-left-panel', function (e) {
-                $('body.overflow-left-panel').removeClass('overflow-left-panel');
-                $('.left-panel').removeClass('active');
+            $('#left-panel-menu').on('scroll', function (e) {
+                console.log("left-panel-menu scroll");
+                e.stopPropagation();
             });
 
             $('a.left-menu-item').bind('click', function (e) {
@@ -33,12 +40,11 @@ var LeftMenuPanel = (function ($) {
         },
 
         handleCloseLeftMenu: function handleCloseLeftMenu() {
-            console.log("handleCloseLeftMenu");
+            isOpenLeftMenuMobile = false;
+            $('body').unbind("click");
 
+            $('.left-panel.active').removeClass('active');
             $('body.overflow-left-panel').removeClass('overflow-left-panel');
-            $('.left-panel').removeClass('active');
-
-            window.removeEventListener("click", _me.handleCloseLeftMenu);
         },
 
         handleActiveLeftMenuByScroll: function handleActiveLeftMenuByScroll() {
@@ -104,7 +110,7 @@ var LeftMenuPanel = (function ($) {
                 var offsetTop = activeLeftMenu.offset().top - $("a.left-menu-item[href=\"" + leftMenuList[0].getAttribute("href") + "\"]").offset().top;
 
                 $('#left-panel-menu').stop().animate({
-                    scrollTop: offsetTop > $('#left-panel-menu').height() / 3 ? offsetTop : 0
+                    scrollTop: offsetTop
                 }, 400);
             }
         }

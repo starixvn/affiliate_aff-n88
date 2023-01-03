@@ -1,38 +1,43 @@
 ﻿@model string
 
-<div class="row contact-icon-group">
-    <div class="col-xs-12 col-sm-4">
-        <div class="contact-icon">
-            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" alt="email icon" />
+<div class="container-fluid">
+    <div class="row contact-title">
+        <p>@Html.Raw(Lang.PleaseDirectAnyComment)</p>
+    </div>
+    <div class="row contact-icon-group">
+        <div class="col-xs-12 col-sm-4">
+            <div class="contact-icon">
+                <img class="img-responsive" src="~/www/build/styles/Images/contact-us/email.png" alt="email icon" />
+            </div>
+            <div class="text-center">
+                <strong>Email</strong>
+                <p class="intro"><a href=@("mailto:" + Model)>@Model</a></p>
+            </div>
         </div>
-        <div class="text-center">
-            <strong>Email</strong>
-            <p class="intro"><a href=@("mailto:" + Model)>@Model</a></p>
+        <div class="col-xs-12 col-sm-4">
+            <div class="contact-icon">
+                <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" alt="telegram icon" />
+            </div>
+            <div class="text-center">
+                <strong>Telegram</strong>
+                <p class="intro"><a href="https://t.me/goal123_aff">https://t.me/goal123_aff</a></p>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="contact-icon">
+                <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/goal123.jpg?v=179") alt="zalo icon" />
+            </div>
+            <div class="text-center">
+                <strong>Zalo</strong>
+                <p>(+63)9193503219</p>
+            </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="contact-icon">
-            <img class="img-responsive" src="~/www/build/styles/Images/contact-us/telegram.png" alt="telegram icon" />
-        </div>
-        <div class="text-center">
-            <strong>Telegram</strong>
-            <p class="intro"><a href="https://t.me/goal123_aff">https://t.me/goal123_aff</a></p>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="contact-icon">
-            <img class="img-responsive" src=@Url.Content("~/www/build/styles/Images/contact-us/goal123.jpg?v=179") alt="zalo icon" />
-        </div>
-        <div class="text-center">
-            <strong>Zalo</strong>
-            <p>(+63)9193503219</p>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <div class="date-time-info">
-            <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="date-time-info">
+                <p class="text-center">@Html.Raw(Lang.SupportTime)</p>
+            </div>
         </div>
     </div>
 </div>
