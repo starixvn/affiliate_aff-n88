@@ -730,3 +730,14 @@ $height-hotnew: 30px;
         }
     }
 }
+
+@media only screen and (max-width: 415px) {
+    .adv-contact {
+        padding: 7px 8% 7px 7px;
+    }
+}
+@media only screen and (max-width: 376px) {
+    .adv-contact {
+        padding: 7px 13% 7px 7px;
+    }
+}
