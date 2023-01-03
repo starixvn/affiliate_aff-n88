@@ -2349,8 +2349,6 @@ input[type="radio"], input[type="checkbox"] {
       right: 6.3rem;
       z-index: 1;
       cursor: pointer; }
-      .mobile-left-panel img {
-        margin-right: .4rem; }
       .mobile-left-panel span {
         font-weight: 600;
         font-size: 1.6rem;
@@ -2427,6 +2425,9 @@ input[type="radio"], input[type="checkbox"] {
     .page-title {
       margin-left: 0 !important;
       margin-right: 0 !important; } }
+  @media (max-width: 767px) {
+    .page-title {
+      text-align: left; } }
   .page-title .text {
     background-color: transparent !important;
     font-weight: 700;
@@ -2443,7 +2444,10 @@ input[type="radio"], input[type="checkbox"] {
       display: none; }
 
 .info-group {
-  margin-top: 25px; }
+  margin-top: 24px; }
+  @media (max-width: 767px) {
+    .info-group {
+      margin-top: 12px; } }
   .info-group .title {
     font-weight: 700;
     font-size: 2rem;
@@ -2498,3 +2502,7 @@ input[type="radio"], input[type="checkbox"] {
     opacity: 1; }
     .moving-block .btn-move-top i {
       color: #FF5D00; }
+
+@media (max-width: 767px) {
+  .term-condition .content {
+    padding-top: 20px !important; } }

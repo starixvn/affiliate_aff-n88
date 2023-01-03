@@ -88,6 +88,10 @@
         margin-right: 0 !important;
     }
 
+    @include Mobile {
+        text-align: left;
+    }
+
     .text {
         background-color: transparent !important;
         font-weight: 700;
@@ -109,7 +113,11 @@
 }
 
 .info-group {
-    margin-top: 25px;
+    margin-top: 24px;
+
+    @include Mobile {
+        margin-top: 12px;
+    }
 
     .title {
         font-weight: 700;
@@ -190,5 +198,11 @@
         i {
             color: #FF5D00;
         }
+    }
+}
+
+@include Mobile {
+    .term-condition .content {
+        padding-top: 20px !important;
     }
 }

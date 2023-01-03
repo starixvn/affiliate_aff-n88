@@ -13,6 +13,15 @@
 .adv img {
   max-width: 100%; }
 
+.main-content .page-title {
+  margin-bottom: 24px; }
+
+@media only screen and (max-width: 767px) {
+  .main-content {
+    padding-top: 20px; }
+    .main-content .page-title {
+      margin-bottom: 12px !important; } }
+
 .table {
   border: 0; }
   .table .game-list tr {
@@ -25,7 +34,6 @@
     .table .game-list tr .game-name {
       width: 200px;
       background: #BDCFEC;
-      border: 2px solid #8A9CB9;
       font-weight: 700; }
       @media (max-width: 1023px) {
         .table .game-list tr .game-name {
@@ -33,7 +41,15 @@
       @media (max-width: 768px) {
         .table .game-list tr .game-name {
           width: 100%;
-          text-align: left; } }
+          text-align: left;
+          border-top: 0;
+          border-bottom: 0; } }
+    @media (max-width: 768px) {
+      .table .game-list tr:first-child td:first-child {
+        border-top: 1px solid #8A9CB9;
+        border-bottom: 0; } }
+    .table .game-list tr td {
+      border: 1px solid #8A9CB9; }
   @media (max-width: 768px) {
     .table {
       margin-bottom: 0; } }

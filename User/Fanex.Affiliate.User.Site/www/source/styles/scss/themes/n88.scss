@@ -994,14 +994,15 @@ select.form-control {
 
 @media only screen and (max-width: 767px) {
     .mobile-left-panel {
-        top: 8.2rem;
-        right: 1rem;
+        top: 15rem;
+        right: auto;
+        left: 1rem;
         padding: 0.2rem 0.8rem;
 
         span {
             font-weight: 600;
-            font-size: 1.2rem;
-            line-height: 1.8rem;
+            font-size: 1.4rem;
+            line-height: 2.2rem;
         }
     }
 
@@ -1077,7 +1078,7 @@ select.form-control {
                 }
             }
 
-            .btn-signup, .btn-login-mobile {
+            .btn-signup, .btn-login-mobile, .btn-login {
                 padding: 1px 7px !important;
             }
 
