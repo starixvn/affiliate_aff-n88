@@ -53,6 +53,7 @@
                 margin-bottom: -6px;
 
                 &.website-info {
+
                     .radio-inline {
                         margin-left: 15px;
                     }
@@ -100,6 +101,9 @@
                 .col-sm-4 {
                     width: 38%;
                     padding: 0 17px 0 4px;
+                    &.full{
+                        width: 100%;
+                    }
                 }
 
                 .radio-inline {
@@ -140,45 +144,47 @@
                 }
             }
 
-            #websiteInfo .btn-add-web {
-                background: #FFF3ED;
-                border: 1px solid #BF4600;
-                border-radius: 4px;
-                padding: 6px;
-                width: 30px;
-                height: 30px;
-                margin: 0;
-
-                span {
-                    position: relative;
-                    width: 16px;
-                    height: 16px;
+            #websiteInfo {
+                .btn-add-web {
+                    background: #FFF3ED;
                     border: 1px solid #BF4600;
-                    border-radius: 10px;
-                    display: block;
-                    top: 0;
-                    left: 0;
+                    border-radius: 4px;
+                    padding: 6px;
+                    width: 30px;
+                    height: 30px;
+                    margin: 0;
 
-                    &:before {
-                        position: absolute;
-                        width: 1px;
-                        height: 9px;
-                        border-radius: 1px;
-                        content: "";
-                        background: #BF4600;
-                        top: 3px;
-                        left: 7px;
-                    }
+                    span {
+                        position: relative;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #BF4600;
+                        border-radius: 10px;
+                        display: block;
+                        top: 0;
+                        left: 0;
 
-                    &:after {
-                        position: absolute;
-                        width: 9px;
-                        height: 1px;
-                        border-radius: 1px;
-                        content: "";
-                        background: #BF4600;
-                        top: 7px;
-                        left: 3px;
+                        &:before {
+                            position: absolute;
+                            width: 1px;
+                            height: 9px;
+                            border-radius: 1px;
+                            content: "";
+                            background: #BF4600;
+                            top: 3px;
+                            left: 7px;
+                        }
+
+                        &:after {
+                            position: absolute;
+                            width: 9px;
+                            height: 1px;
+                            border-radius: 1px;
+                            content: "";
+                            background: #BF4600;
+                            top: 7px;
+                            left: 3px;
+                        }
                     }
                 }
             }
@@ -519,7 +525,10 @@ $height-hotnew: 30px;
                     width: 100%;
                 }
 
-                &.website-info {
+                &.website-info {                    
+                  
+                    
+
                     .radio-inline {
                         margin-left: 0;
                     }

@@ -766,6 +766,8 @@ body {
     .main .content.sign-up-page .form-group .col-sm-4 {
       width: 38%;
       padding: 0 17px 0 4px; }
+      .main .content.sign-up-page .form-group .col-sm-4.full {
+        width: 100%; }
     .main .content.sign-up-page .form-group .radio-inline {
       padding-top: 0px;
       margin-right: 12px;

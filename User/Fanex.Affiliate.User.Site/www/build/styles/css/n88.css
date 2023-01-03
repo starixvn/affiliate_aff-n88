@@ -403,6 +403,9 @@ header {
     margin-bottom: 7px;
     width: 100%; }
 
+select.form-control:focus {
+  background: inherit; }
+
 .form-control {
   border: 1px solid #9E9E9E;
   height: 30px;
