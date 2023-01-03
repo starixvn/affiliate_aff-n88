@@ -2406,11 +2406,11 @@ input[type="radio"], input[type="checkbox"] {
 .slogan {
   margin-top: 2.8rem;
   font-weight: 400;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
   color: #333333;
   text-align: center; }
-  @media screen and (max-width: 1024px) {
+  @media (max-width: 767px) {
     .slogan {
       font-size: 1.4rem;
       line-height: 2.2rem;

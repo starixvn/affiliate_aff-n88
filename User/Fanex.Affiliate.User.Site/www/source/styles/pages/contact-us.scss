@@ -249,28 +249,23 @@
         background: #FFFFFF;
         box-shadow: 0px 4px 27px 1px rgba(163, 163, 163, 0.25);
         border-radius: 8px;
-        height: 11.4rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        display: flex;
-
-        @include Mobile {
-            height: 9rem;
-        }
 
         .info-social {
             list-style: none;
-            padding-left: 2.4rem;
+            padding: 2.4rem;
             margin-bottom: 0;
 
-            @include Mobile {
-                padding-left: 1.8rem;
+            @include TableAndMobile {
+                padding: 1.6rem;
             }
 
             li {
                 display: flex;
                 align-items: center;
+
+                &:first-child {
+                    margin-bottom: 3px
+                }
 
                 img {
                     @include Mobile {
@@ -300,10 +295,13 @@
                     font-size: 1.4rem;
                     line-height: 2.2rem;
                     text-decoration: none;
+                    overflow-wrap: break-word;
+                    max-width: 24rem;
 
-                    @include Mobile {
+                    @include TableAndMobile {
                         font-size: 1.2rem;
-                        line-height: 2.2rem;
+                        line-height: 1.8rem;
+                        max-width: 19rem;
                     }
                 }
             }
