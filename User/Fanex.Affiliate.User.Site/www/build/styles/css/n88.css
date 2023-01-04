@@ -845,10 +845,36 @@ select.form-control:focus {
 .content-menu .menu li a:hover .content-dropdown-icon {
   background: url("../Images/icons/n88/dropdown-white.svg") no-repeat; }
 
+.content-menu .content-menu-mobile .show-name-menu {
+  position: relative; }
+  .content-menu .content-menu-mobile .show-name-menu:after {
+    background: url("../Images/icons/n88/dropdown-white.svg") no-repeat center;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    width: 12px;
+    height: 12px; }
+
+.content-menu .content-menu-mobile .dropdown-content-menu .parent {
+  position: relative; }
+  .content-menu .content-menu-mobile .dropdown-content-menu .parent-item i {
+    background: url("../Images/icons/n88/dropdown-gray.svg") no-repeat center;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+  .content-menu .content-menu-mobile .dropdown-content-menu .parent-item.active i {
+    background: url("../Images/icons/n88/dropdown-white.svg") no-repeat center; }
+
 .btn-dropdown-table {
   background: url("../Images/icons/n88/dropdown-table.svg") no-repeat center;
   content: "";
   display: block;
   transform: rotate(-90deg); }
-  .btn-dropdown-table.active {
+  .btn-dropdown-table.active-btn {
     transform: rotate(0); }

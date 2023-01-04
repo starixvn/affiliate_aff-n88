@@ -562,10 +562,65 @@ ul.dash-style {
     .content-menu .content-menu-pc {
       display: none; } }
   .content-menu .content-menu-mobile {
-    display: none; }
+    display: none;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    position: relative; }
     @media (max-width: 767px) {
       .content-menu .content-menu-mobile {
-        display: block; } }
+        display: inline-block; } }
+    .content-menu .content-menu-mobile .show-name-menu {
+      background: #001942;
+      border-radius: 4px;
+      padding: 6px 30px 6px 8px;
+      color: #FFFFFF; }
+    .content-menu .content-menu-mobile .dropdown-content-menu {
+      /*display: none;*/
+      list-style: none;
+      padding-left: 0;
+      background: #FFFFFF;
+      box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
+      border-radius: 4px;
+      position: absolute;
+      top: 35px;
+      width: 200px;
+      z-index: 9;
+      margin-bottom: 0; }
+      .content-menu .content-menu-mobile .dropdown-content-menu.active {
+        display: inline-block; }
+      .content-menu .content-menu-mobile .dropdown-content-menu li a {
+        font-weight: 600;
+        text-decoration: none;
+        color: #616161;
+        padding: 6px;
+        display: block;
+        border-bottom: 1px solid #F8F9FA; }
+        .content-menu .content-menu-mobile .dropdown-content-menu li a.active {
+          background: #001942;
+          color: #FFFFFF; }
+      .content-menu .content-menu-mobile .dropdown-content-menu li:first-child a {
+        border-radius: 4px 4px 0 0; }
+      .content-menu .content-menu-mobile .dropdown-content-menu li:last-child a {
+        border-bottom: none;
+        border-radius: 0 0 4px 4px; }
+      .content-menu .content-menu-mobile .dropdown-content-menu .parent {
+        position: relative; }
+        .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content {
+          position: absolute;
+          top: 0;
+          left: 100%;
+          background: #FFFFFF;
+          box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
+          border-radius: 4px;
+          width: 150px; }
+          .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li a {
+            border-bottom: 1px solid #F8F9FA; }
+          .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:first-child a {
+            border-radius: 4px 4px 0 0; }
+          .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:last-child a {
+            border-bottom: none;
+            border-radius: 0 0 4px 4px; }
   .content-menu .submenu-container {
     background: #FFFFFF; }
 

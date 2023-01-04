@@ -33,6 +33,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+
                 &.active, &:hover {
                     background-color: $sub-nav-menu-bg-color-active;
                     color: $sub-nav-menu-color-active;
@@ -64,16 +65,108 @@
         }
     }
 
-    .content-menu-pc{
-        @include Mobile{
-            display : none;
+    .content-menu-pc {
+        @include Mobile {
+            display: none;
         }
     }
 
-    .content-menu-mobile{
-        display : none;
-        @include Mobile{
-            display : block;
+    .content-menu-mobile {
+        display: none;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 18px;
+        position: relative;
+
+        @include Mobile {
+            display: inline-block;
+        }
+
+        .show-name-menu {
+            background: $light-mode-bg;
+            border-radius: 4px;
+            padding: 6px 30px 6px 8px;
+            color: #FFFFFF;
+        }
+
+        .dropdown-content-menu {
+            /*display: none;*/
+            list-style: none;
+            padding-left: 0;
+            background: #FFFFFF;
+            box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
+            border-radius: 4px;
+            position: absolute;
+            top: 35px;
+            width: 200px;
+            z-index: 9;
+            margin-bottom: 0;
+
+            &.active {
+                display: inline-block;
+            }
+
+            li {
+                a {
+                    font-weight: 600;
+                    text-decoration: none;
+                    color: #616161;
+                    padding: 6px;
+                    display: block;
+                    border-bottom: 1px solid #F8F9FA;
+
+                    &.active {
+                        background: $light-mode-bg;
+                        color: #FFFFFF;
+                    }
+                }
+
+                &:first-child {
+                    a {
+                        border-radius: 4px 4px 0 0;
+                    }
+                }
+
+                &:last-child {
+                    a {
+                        border-bottom: none;
+                        border-radius: 0 0 4px 4px;
+                    }
+                }
+            }
+
+            .parent {
+                position: relative;
+
+                .sub-menu-content {
+                    position: absolute;
+                    top: 0;
+                    left: 100%;
+                    background: #FFFFFF;
+                    box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
+                    border-radius: 4px;
+                    width: 150px;
+
+                    li {
+                        a {
+                            border-bottom: 1px solid #F8F9FA;
+                        }
+
+                        &:first-child {
+                            a {
+                                border-radius: 4px 4px 0 0;
+                            }
+                        }
+
+                        &:last-child {
+                            a {
+                                border-bottom: none;
+                                border-radius: 0 0 4px 4px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
