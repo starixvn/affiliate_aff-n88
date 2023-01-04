@@ -431,7 +431,8 @@ input[type="checkbox"], input[type="radio"] {
     margin-right: 0; }
 
 .page-content .layout-page-container {
-  padding: 0 12px; }
+  padding: 0 12px;
+  margin: 4px auto; }
 
 .navbar {
   -webkit-border-radius: 0;
@@ -447,7 +448,8 @@ input[type="checkbox"], input[type="radio"] {
   .navbar .layout-page-container {
     max-width: 1344px;
     width: 100%;
-    margin: 4px auto; }
+    margin-top: 4px;
+    margin-bottom: 4px; }
   .navbar ul li {
     line-height: 30px; }
     .navbar ul li a {

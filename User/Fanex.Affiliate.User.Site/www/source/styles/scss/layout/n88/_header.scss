@@ -141,13 +141,15 @@
 
 .page-content .layout-page-container {
     padding: 0 12px;
+    margin: 4px auto;
 }
 
 .navbar {
     .layout-page-container {
         max-width: 1344px;
         width: 100%;
-        margin: 4px auto;
+        margin-top: 4px;
+        margin-bottom: 4px;
     }
 
     @include border-radius(0);
