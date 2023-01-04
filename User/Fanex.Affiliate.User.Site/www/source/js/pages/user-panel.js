@@ -126,10 +126,48 @@ var UserPanel = (function ($) {
             var queryString = (!onlyAction && urlPartList[1]) ? '?' + urlPartList[1] : '';
 
             return actionName + queryString;
-        }
+        },
     };
 
     return _me;
 })(jQuery);
 
 UserPanel.initialize();
+
+
+var UserPanelN88 = (function ($) {
+    var _me = {
+        initialize: function () {
+            _me.initEvent();
+        },
+
+        initEvent: function () {
+            $('.show-name-menu').click(function () {
+                $('.dropdown-content-menu').toggleClass('active');
+            });
+            $('.dropdown-content-menu li a').click(function () {
+                var str = $(this).text();
+                var hasStr = $(this).parents().hasClass('parent');
+                $('.dropdown-content-menu li a').removeClass('active');
+                $(this).addClass('active');
+                if (!hasStr) {
+                    $('.show-name-menu').html(str);
+                }
+            });
+
+            $('.sub-menu-content li a').click(function () {
+                var str = $(this).text();
+                $('.show-name-menu').html(str);
+            })
+
+            $('.content-dropdown-icon').click(function () {
+                $('.parent').find('ul').removeClass('active');
+                $(this).parent().parent().find('ul').addClass('active');
+            })
+        }
+    };
+
+    return _me;
+})(jQuery);
+
+UserPanelN88.initialize();
