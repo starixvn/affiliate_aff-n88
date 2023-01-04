@@ -16,6 +16,11 @@
         border-collapse: separate;
         border-spacing: 0;
         border-right: 1px solid #C7C7C7;
+        font-size: 14px;
+
+        @include Mobile {
+            font-size: 12px;
+        }
 
         thead {
             .overview-table-header {
@@ -39,6 +44,7 @@
                     z-index: 100;
                     top: 124px !important;
                     border-right: none;
+                    font-weight: 700;
 
                     @include TableAndMobile {
                         top: 82px !important;
@@ -52,6 +58,10 @@
             vertical-align: top;
             border-top: none !important;
             border-right: none !important;
+        }
+
+        .no-info {
+            background: #FFF3ED;
         }
     }
 }

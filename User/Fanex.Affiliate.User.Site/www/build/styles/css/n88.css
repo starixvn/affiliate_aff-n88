@@ -234,7 +234,8 @@ header {
       z-index: 2; }
 
 .info-group {
-  margin-top: 0 !important; }
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
   .info-group .title {
     color: #060818;
     margin-bottom: 16px !important; }
@@ -527,12 +528,12 @@ select.form-control:focus {
   background-color: #ffffff; }
 
 .main.after-login {
-  background: #e5e5e5; }
+  background: #F8F9FA; }
   .main.after-login .page-title {
-    background: #e5e5e5; }
+    background: #F8F9FA; }
     .main.after-login .page-title .text:after {
-      border-bottom: 18px solid #e5e5e5;
-      border-right: 16px solid #e5e5e5; }
+      border-bottom: 18px solid #F8F9FA;
+      border-right: 16px solid #F8F9FA; }
 
 .summary-content .dashboard-section .group-one {
   background-color: #EBF8FF; }
@@ -576,7 +577,9 @@ select.form-control:focus {
 .summary-content .details-section-menu .menu-item {
   color: #757575;
   padding: 5px 12px;
-  border-radius: 4px 4px 0px 0px; }
+  border-radius: 4px 4px 0px 0px;
+  text-transform: capitalize;
+  font-weight: 600; }
   @media (max-width: 767px) {
     .summary-content .details-section-menu .menu-item {
       padding: 4px 8px;
@@ -585,8 +588,7 @@ select.form-control:focus {
   .summary-content .details-section-menu .menu-item.active, .summary-content .details-section-menu .menu-item:hover {
     color: #001942;
     border-bottom: 2px solid #001942;
-    background: #F7FAFF;
-    font-weight: 600; }
+    background: #F7FAFF; }
 
 .summary-content .details-section-content .table table thead tr.overview-table-total {
   background: #FFDCC8 !important; }

@@ -27,6 +27,8 @@
     }
 
     #account-overview-menu {
+        background: $bg-after-login-color;
+
         .menu {
             margin: 0 !important;
 
@@ -50,6 +52,7 @@
         .text {
             padding: 0 10px;
             color: #333333;
+
             &:not(:last-child) {
                 border-right: 1px solid #ADB5BD;
             }
@@ -144,7 +147,7 @@
                 width: 480px;
                 border-radius: 5px;
                 margin-bottom: 12px;
-                justify-content : space-between;
+                justify-content: space-between;
 
                 @include Mobile {
                     margin-bottom: 8px;
@@ -204,7 +207,7 @@
                     border-bottom: 1px solid #D4DFE6;
 
                     @include Mobile {
-                        padding: 4px;
+                        padding: 2px 4px;
                     }
 
                     &:last-child {
@@ -218,7 +221,7 @@
                         font-weight: 600;
 
                         @include Mobile {
-                            font-size: 12px;
+                            font-size: 11px;
                             line-height: 16px;
                         }
                     }
@@ -236,9 +239,9 @@
                         border-radius: 4px;
 
                         @include Mobile {
-                            font-size: 14px;
+                            font-size: 13px;
                             line-height: 18px;
-                            max-width: 85px;
+                            max-width: 115px;
                         }
                     }
                 }
@@ -264,8 +267,6 @@
                     z-index: 2;
                     top: 42px;
                 }
-
-                
                 /*.table {
                     z-index: 1;
                     margin-bottom: 10px;

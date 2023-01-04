@@ -361,7 +361,7 @@ header {
 
 .info-group {
     margin-top: 0 !important;
-
+    margin-bottom : 0 !important;
     .title {
         color: $group-title-color;
         margin-bottom: 16px !important;
@@ -902,7 +902,8 @@ select.form-control {
             color: #757575;
             padding: 5px 12px;
             border-radius: 4px 4px 0px 0px;
-
+            text-transform: capitalize;
+            font-weight: 600;
             @include Mobile {
                 padding: 4px 8px;
                 font-size: 12px;
@@ -913,7 +914,6 @@ select.form-control {
                 color: $light-color-text;
                 border-bottom: 2px solid #001942;
                 background: #F7FAFF;
-                font-weight: 600;
             }
         }
     }
