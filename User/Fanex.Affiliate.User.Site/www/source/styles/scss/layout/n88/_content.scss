@@ -261,16 +261,6 @@ $height-hotnew: 30px;
             margin: 0;
             max-width: 100%;
         }
-
-        .title {
-            margin-left: 0;
-            padding-left: 44px;
-            &:before {
-                content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge-after.png");
-                left: 0;
-                width: 30px;
-            }
-        }
     }
 }
 .hot-news {
@@ -292,18 +282,19 @@ $height-hotnew: 30px;
         height: $height-hotnew;
         line-height: $height-hotnew;
         margin-right: 35px;
-        margin-left: 33px;
+        margin-left: 0;
+        padding-left: 44px;
         text-transform: uppercase;
         font-size: 14px;
         font-weight: 700;
 
         &:before {
-            content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge.png");
-            width: 40px;
+            content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge-after.png");
+            width: 30px;
             height: 30px;
             position: absolute;
             top: 0;
-            left: -33px;
+            left: 0;
         }
 
         &:after {

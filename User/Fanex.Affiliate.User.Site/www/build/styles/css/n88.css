@@ -161,7 +161,7 @@ header {
     padding: 16px; }
 
 .news .item-wrapper:nth-child(2) {
-  margin-bottom: 43px; }
+  margin-bottom: 33px; }
   .news .item-wrapper:nth-child(2) .card-title {
     margin-bottom: 18px; }
   .news .item-wrapper:nth-child(2) .card-content .card-body {
@@ -680,6 +680,33 @@ select.form-control:focus {
     padding-right: 15px; }
   .navbar .page-container {
     padding-left: 24px; } }
+
+@media only screen and (max-width: 991px) {
+  .news-content {
+    display: block;
+    margin-bottom: 2px; }
+    .news-content li {
+      max-width: 100%;
+      padding: 15px 15px !important;
+      position: relative; }
+      .news-content li:first-child {
+        margin-bottom: 48px; }
+        .news-content li:first-child:after {
+          position: absolute;
+          width: 100%;
+          content: "";
+          height: 1px;
+          background-image: url("../Images/contact-in-home/n88/line.png");
+          bottom: -29px;
+          left: 0;
+          background-size: auto 100%;
+          background-position: left center;
+          background-repeat: repeat; }
+      .news-content li > a {
+        color: #212121; }
+      .news-content li .news-title {
+        margin-bottom: 0;
+        padding-bottom: 8px; } }
 
 @media only screen and (max-width: 767px) {
   .mobile-left-panel {

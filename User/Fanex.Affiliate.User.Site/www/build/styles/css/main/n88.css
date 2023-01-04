@@ -885,14 +885,6 @@ body {
   margin: 0;
   max-width: 100%; }
 
-.main.after-login .hot-news .title {
-  margin-left: 0;
-  padding-left: 44px; }
-  .main.after-login .hot-news .title:before {
-    content: url("../../Images/home/n88/hot-news/left-badge-after.png");
-    left: 0;
-    width: 30px; }
-
 .hot-news {
   display: flex;
   width: 100vw;
@@ -909,17 +901,18 @@ body {
     height: 30px;
     line-height: 30px;
     margin-right: 35px;
-    margin-left: 33px;
+    margin-left: 0;
+    padding-left: 44px;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 700; }
     .hot-news .title:before {
-      content: url("../../Images/home/n88/hot-news/left-badge.png");
-      width: 40px;
+      content: url("../../Images/home/n88/hot-news/left-badge-after.png");
+      width: 30px;
       height: 30px;
       position: absolute;
       top: 0;
-      left: -33px; }
+      left: 0; }
     .hot-news .title:after {
       content: url("../../Images/home/n88/hot-news/right-badge.png");
       width: 40px;
