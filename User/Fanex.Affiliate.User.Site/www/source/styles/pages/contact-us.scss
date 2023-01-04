@@ -21,6 +21,14 @@
 
 .main-content {
     justify-content: center;
+
+    @include Mobile {
+        margin-top: 12px;
+    }
+
+    .content {
+        padding-top: 0;
+    }
 }
 
 .date-time-info {

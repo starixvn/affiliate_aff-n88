@@ -15,6 +15,11 @@
 
 .main-content {
   justify-content: center; }
+  @media (max-width: 767px) {
+    .main-content {
+      margin-top: 12px; } }
+  .main-content .content {
+    padding-top: 0; }
 
 .date-time-info {
   /*color: #fff;*/

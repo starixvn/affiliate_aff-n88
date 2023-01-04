@@ -39,7 +39,7 @@
 .main.after-login {
     .main-content {
         display: block;
-        margin : 0 auto;
+        margin: 0 auto;
     }
 }
 
@@ -60,6 +60,14 @@
     .content {
         max-width: 90rem;
         width: 100%;
+
+        @include TableAndMobile {
+            padding-top: 5.6rem;
+        }
+    }
+
+    .page-title {
+        margin-bottom: 24px;
     }
 }
 
@@ -74,7 +82,10 @@
     @include Mobile {
         font-size: 1.4rem;
         line-height: 2.2rem;
-        margin-top: 1.4rem;
+        margin-top: 1.2rem;
+    }
+
+    @include TableAndMobile {
         text-align: left;
     }
 }
@@ -87,10 +98,12 @@
     @include TableAndMobile {
         margin-left: 0 !important;
         margin-right: 0 !important;
+        text-align: left;
     }
 
     @include Mobile {
         text-align: left;
+        margin-bottom: 12px !important;
     }
 
     .text {
@@ -114,7 +127,7 @@
 }
 
 .info-group {
-    margin-top: 24px;
+    margin-bottom: 24px;
 
     @include Mobile {
         margin-top: 12px;

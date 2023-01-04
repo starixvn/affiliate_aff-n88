@@ -365,14 +365,36 @@ header {
     .title {
         color: $group-title-color;
         margin-bottom: 16px !important;
-        @include Mobile{
-            margin-bottom : 8px !important;
+
+        @include Mobile {
+            margin-bottom: 8px !important;
         }
 
         &:before {
             display: none !important;
         }
 
+        &:after {
+            background: $group-title-border-after-color;
+        }
+
+        .text {
+            @include Mobile {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .title-block {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+.after-login-content .info-group {
+
+    .title {
         &:after {
             background: #CFCFCF !important;
             height: 1px !important;
@@ -385,17 +407,7 @@ header {
             font-weight: 700;
             font-size: 14px;
             line-height: 30px;
-
-            @include Mobile {
-                font-size: 16px;
-            }
         }
-    }
-
-    .title-block {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 28px;
     }
 }
 
@@ -637,6 +649,7 @@ select.form-control {
         background: inherit;
     }
 }
+
 .form-control {
     border: 1px solid $form-control-border-color;
     height: 30px;
@@ -867,8 +880,9 @@ select.form-control {
         .menu {
             border-bottom: 1px solid $subtab-item-bg-color-active;
             margin: 16px 0;
-            @include Mobile{
-                margin : 12px 0 8px 0;
+
+            @include Mobile {
+                margin: 12px 0 8px 0;
             }
 
             &::-webkit-scrollbar {
@@ -899,7 +913,7 @@ select.form-control {
                 color: $light-color-text;
                 border-bottom: 2px solid #001942;
                 background: #F7FAFF;
-                font-weight : 600;
+                font-weight: 600;
             }
         }
     }
@@ -940,9 +954,10 @@ select.form-control {
 .wrapper-after-login {
     padding: 16px;
     border: 1px solid #bcbcbc;
-    border-top : none;
-    @include Mobile{
-        padding : 8px;
+    border-top: none;
+
+    @include Mobile {
+        padding: 8px;
     }
 }
 
@@ -950,8 +965,6 @@ select.form-control {
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
-
-
 
     @include TableAndMobile {
         gap: 18px;
@@ -1046,17 +1059,12 @@ select.form-control {
         margin: 0 40px !important;
     }
 
-    .mobile-left-panel {
-        top: 21rem;
-        right: 4rem;
-    }
-
     .menu .menu-item {
         padding-right: 15px;
     }
 
-    .navbar .page-container {
-        padding-left: 24px;
+    .mobile-left-panel {
+        left: 4rem;
     }
 }
 @media only screen and (max-width: 991px) {
@@ -1132,7 +1140,7 @@ select.form-control {
         border: 0;
     }
 
-    .navbar .page-container {
+    .navbar .layout-page-container {
         margin-left: 0;
         padding: 0;
 
@@ -1157,13 +1165,15 @@ select.form-control {
         }
     }
 
-    .header-top {
+    .page-content .header-top {
         padding: 11px 10px 6px 10px;
+    }
 
+    .header-top {
         .user-signup {
             flex-direction: column-reverse;
 
-            .btn-signup, .btn-login-mobile, .language-container .select-language {
+            .btn-signup, .btn-login-mobile, .language-container .select-language, .btn-login {
                 font-weight: 700;
                 font-size: 12px;
                 line-height: 18px;

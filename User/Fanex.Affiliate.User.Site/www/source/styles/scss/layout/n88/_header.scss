@@ -10,7 +10,7 @@
         }
 
         @media only screen and (max-width: 767px) {
-            padding: 0 10px 4px;
+            padding: 0 10px 4px !important;
         }
 
         .logo {
@@ -40,7 +40,7 @@
         }
     }
 
-    .navbar .layout-page-container {
+    .layout-page-container {
         margin-left: 0;
         margin-right: 0;
         padding: 0 16px;
@@ -98,14 +98,17 @@
     }
 }
 
+.page-content .header-top {
+    max-width: 1344px;
+    padding: 0 12px;
+}
+
 .header-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1344px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 12px;
 
     .logo {
         display: inline-block;
@@ -136,12 +139,15 @@
     }
 }
 
+.page-content .layout-page-container {
+    padding: 0 12px;
+}
+
 .navbar {
     .layout-page-container {
         max-width: 1344px;
-        margin: 4px auto;
         width: 100%;
-        padding: 0 12px;
+        margin: 4px auto;
     }
 
     @include border-radius(0);

@@ -244,22 +244,26 @@ header {
     .info-group .title:before {
       display: none !important; }
     .info-group .title:after {
-      background: #CFCFCF !important;
-      height: 1px !important;
-      width: 100% !important; }
-    .info-group .title .text {
-      color: #001942;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 30px; }
-      @media (max-width: 767px) {
-        .info-group .title .text {
-          font-size: 16px; } }
+      background: #C7C7C7; }
+    @media (max-width: 767px) {
+      .info-group .title .text {
+        font-size: 16px; } }
   .info-group .title-block {
     font-weight: 700;
     font-size: 18px;
     line-height: 28px; }
+
+.after-login-content .info-group .title:after {
+  background: #CFCFCF !important;
+  height: 1px !important;
+  width: 100% !important; }
+
+.after-login-content .info-group .title .text {
+  color: #001942;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 30px; }
 
 .table table tr {
   background: #FFFFFF;
@@ -673,13 +677,10 @@ select.form-control:focus {
     padding-right: 40px !important; }
   .main .content {
     margin: 0 40px !important; }
-  .mobile-left-panel {
-    top: 21rem;
-    right: 4rem; }
   .menu .menu-item {
     padding-right: 15px; }
-  .navbar .page-container {
-    padding-left: 24px; } }
+  .mobile-left-panel {
+    left: 4rem; } }
 
 @media only screen and (max-width: 991px) {
   .news-content {
@@ -730,48 +731,48 @@ select.form-control:focus {
     height: calc(100vh - 114px);
     background: #001942;
     border: 0; }
-  .navbar .page-container {
+  .navbar .layout-page-container {
     margin-left: 0;
     padding: 0; }
-    .navbar .page-container .navbar-nav {
+    .navbar .layout-page-container .navbar-nav {
       margin: 16px; }
-    .navbar .page-container .menu .menu-item {
+    .navbar .layout-page-container .menu .menu-item {
       border-bottom: 1px solid #EEEEEE;
       margin-bottom: 16px;
       font-size: 16px;
       line-height: 24px;
       padding-bottom: 8px; }
-      .navbar .page-container .menu .menu-item.active {
+      .navbar .layout-page-container .menu .menu-item.active {
         border-bottom: 1px solid #FF5D00; }
-    .navbar .page-container ul li:last-child .menu-item {
+    .navbar .layout-page-container ul li:last-child .menu-item {
       border-bottom: 0; }
-  .header-top {
+  .page-content .header-top {
     padding: 11px 10px 6px 10px; }
-    .header-top .user-signup {
-      flex-direction: column-reverse; }
-      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .language-container .select-language {
-        font-weight: 700;
-        font-size: 12px;
-        line-height: 18px;
-        height: 20px; }
-      .header-top .user-signup .language-container {
-        margin-right: 5px; }
-        .header-top .user-signup .language-container .select-language {
-          font-weight: 400;
-          padding: 0 16px 0 20px;
-          top: 4px; }
-          .header-top .user-signup .language-container .select-language .caret {
-            top: 5px; }
-      .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .btn-login {
-        padding: 1px 7px !important; }
-      .header-top .user-signup .btn-login-mobile {
-        margin: 0 !important; }
-    .header-top .sign-up {
-      border: 0; }
-    .header-top .language-login {
-      padding-top: 9px; }
-    .header-top .logo, .header-top .login {
-      padding: 0; }
+  .header-top .user-signup {
+    flex-direction: column-reverse; }
+    .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .language-container .select-language, .header-top .user-signup .btn-login {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 18px;
+      height: 20px; }
+    .header-top .user-signup .language-container {
+      margin-right: 5px; }
+      .header-top .user-signup .language-container .select-language {
+        font-weight: 400;
+        padding: 0 16px 0 20px;
+        top: 4px; }
+        .header-top .user-signup .language-container .select-language .caret {
+          top: 5px; }
+    .header-top .user-signup .btn-signup, .header-top .user-signup .btn-login-mobile, .header-top .user-signup .btn-login {
+      padding: 1px 7px !important; }
+    .header-top .user-signup .btn-login-mobile {
+      margin: 0 !important; }
+  .header-top .sign-up {
+    border: 0; }
+  .header-top .language-login {
+    padding-top: 9px; }
+  .header-top .logo, .header-top .login {
+    padding: 0; }
   .hot-news {
     padding: 0 !important; }
   .news {
