@@ -380,9 +380,6 @@ input[type="checkbox"], input[type="radio"] {
   display: flex;
   align-items: center; }
 
-.after-login-content .hot-news .inner {
-  margin: 0; }
-
 @media (max-width: 767px) {
   .after-login-content .user-login {
     margin-bottom: 0;
@@ -883,6 +880,18 @@ body {
   max-width: 200px; }
   .main .banner-side img {
     width: 100%; }
+
+.main.after-login .hot-news .inner {
+  margin: 0;
+  max-width: 100%; }
+
+.main.after-login .hot-news .title {
+  margin-left: 0;
+  padding-left: 44px; }
+  .main.after-login .hot-news .title:before {
+    content: url("../../Images/home/n88/hot-news/left-badge-after.png");
+    left: 0;
+    width: 30px; }
 
 .hot-news {
   display: flex;

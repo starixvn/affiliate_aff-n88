@@ -16,6 +16,7 @@
 }
 
 @section classNav{page-container}
+@section classHeader{page-content}
 
 @section scripts{
     <script src="~/www/build/js/lib/jsencrypt-2.3.1.min.js"></script>
@@ -59,12 +60,12 @@
 
 <div class="modal fade login-dialog" tabindex="-1" role="dialog" id="loginDialog">
     <div class="modal-dialog" role="document">
-        <div class="modal-content"> 
+        <div class="modal-content">
             <div class="modal-main-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
-                <div class="modal-body">                   
+                <div class="modal-body">
                     <div class="left-login-side">
                         <img class="modal-logo" src=@(Url.Content($"~/www/build/styles/Images/themes/{siteName}.png")) alt="logo" />
                         <h2 class="logo-text">@Lang.AffiliateProgram</h2>

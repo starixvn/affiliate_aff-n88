@@ -1001,6 +1001,7 @@
     <Content Include="www\build\styles\Images\home\n88\bg-left-login.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-news.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\bg-news.png" />
+    <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge-after.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.mobile.png" />
@@ -1219,7 +1220,6 @@
     <Content Include="www\source\styles\fonts\myriadPro\font.css" />
     <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
-    <Content Include="www\source\styles\Images\category_list.svg" />
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_ms-MY.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />

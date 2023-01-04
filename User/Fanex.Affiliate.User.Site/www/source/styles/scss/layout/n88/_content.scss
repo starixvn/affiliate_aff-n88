@@ -255,7 +255,24 @@
 }
 
 $height-hotnew: 30px;
+.main.after-login {
+    .hot-news {
+        .inner {
+            margin: 0;
+            max-width: 100%;
+        }
 
+        .title {
+            margin-left: 0;
+            padding-left: 44px;
+            &:before {
+                content: url("../../../../../www/build/styles/Images/home/n88/hot-news/left-badge-after.png");
+                left: 0;
+                width: 30px;
+            }
+        }
+    }
+}
 .hot-news {
     display: flex;
     width: 100vw;
