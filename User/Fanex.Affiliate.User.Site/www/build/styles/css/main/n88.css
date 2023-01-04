@@ -749,8 +749,6 @@ body {
   .main .content.sign-up-page .info-group {
     margin-top: 25px;
     margin-bottom: -6px; }
-    .main .content.sign-up-page .info-group.website-info .radio-inline {
-      margin-left: 15px; }
     .main .content.sign-up-page .info-group .title {
       padding-bottom: 3px;
       margin-bottom: 16px; }
@@ -776,7 +774,7 @@ body {
       text-align: right; }
     .main .content.sign-up-page .form-group .col-sm-4 {
       width: 38%;
-      padding: 0 17px 0 4px; }
+      padding: 0 17px 0 0; }
       .main .content.sign-up-page .form-group .col-sm-4.full {
         width: 100%; }
     .main .content.sign-up-page .form-group .radio-inline {
@@ -991,6 +989,12 @@ body {
     .adv-contact .btn:focus {
       outline: none; }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .main .content.sign-up-page .form-group .control-label {
+    width: 35%; }
+  .main .content.sign-up-page .form-group .col-sm-4 {
+    width: 50%; } }
+
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   .adv-contact {
     padding: 6px 27% 18px 18px;
@@ -1058,10 +1062,10 @@ body {
       line-height: 22px;
       padding-right: 20px; }
     .adv-contact .btn {
-      margin-top: 11px;
+      margin-top: 7px;
       border-radius: 4px;
-      padding: 3px 9px;
-      font-size: 14px;
+      padding: 3px 5px;
+      font-size: 12px;
       line-height: 19px; }
   .main .content.sign-up-page {
     padding-left: 1rem;
@@ -1128,13 +1132,11 @@ body {
         width: 100%;
         padding: 0; }
       .main .content.sign-up-page .form-group .radio-inline {
-        padding-top: 0px;
-        margin-right: 12px;
-        padding-bottom: 0; }
+        margin-right: 5px; }
         .main .content.sign-up-page .form-group .radio-inline input {
           top: -2px;
-          width: 20px;
-          height: 20px;
+          width: 15px;
+          height: 15px;
           left: 0;
           margin-right: 0; }
         .main .content.sign-up-page .form-group .radio-inline span {

@@ -50,14 +50,7 @@
 
             .info-group {
                 margin-top: 25px;
-                margin-bottom: -6px;
-
-                &.website-info {
-
-                    .radio-inline {
-                        margin-left: 15px;
-                    }
-                }
+                margin-bottom: -6px; 
 
                 .title {
                     padding-bottom: 3px;
@@ -100,7 +93,7 @@
 
                 .col-sm-4 {
                     width: 38%;
-                    padding: 0 17px 0 4px;
+                    padding: 0 17px 0 0;
                     &.full{
                         width: 100%;
                     }
@@ -397,7 +390,21 @@ $height-hotnew: 30px;
         }
     }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px){
+    .main {
+        .content.sign-up-page {
+            .form-group {
+                .control-label {
+                    width: 35%;
+                }
 
+                .col-sm-4 {
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation : portrait) {
     .adv-contact {
         padding: 6px 27% 18px 18px;
@@ -494,11 +501,11 @@ $height-hotnew: 30px;
         }
 
         .btn {
-            margin-top: 11px;
+            margin-top: 7px;
             border-radius: 4px;
-            padding: 3px 9px;
-            font-size: 14px;
-            line-height: 19px;
+            padding: 3px 5px;
+            font-size: 12px;
+            line-height: 19px;       
         }
     }
 
@@ -617,15 +624,13 @@ $height-hotnew: 30px;
                     padding: 0;
                 }
 
-                .radio-inline {
-                    padding-top: 0px;
-                    margin-right: 12px;
-                    padding-bottom: 0;
+                .radio-inline {                    
+                    margin-right:5px;                     
 
                     input {
                         top: -2px;
-                        width: 20px;
-                        height: 20px;
+                        width: 15px;
+                        height: 15px;
                         left: 0;
                         margin-right: 0;
                     }
