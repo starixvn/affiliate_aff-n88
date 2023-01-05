@@ -39,48 +39,50 @@
 }
 
 <div class="info-group">
+    <div id="resultMessage" style="display: none">
+        @if (!string.IsNullOrEmpty(messageResult))
+        {
+            <p class="alert alert-danger" role="alert">@Html.Raw(messageResult)</p>
+        }
+    </div>
     <div class="title">
         <span class="text">@Lang.PaymentInfor</span>
     </div>
     <div class="payment-info">
-        <div id="resultMessage" style="display: none">
-            @if (!string.IsNullOrEmpty(messageResult))
-            {
-                <p class="alert alert-danger" role="alert">@Html.Raw(messageResult)</p>
-            }
-        </div>
-
         <form id="requestPayoutForm" class="form-horizontal">
             @Html.AntiForgeryToken()
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">@Lang.BalForward</label>
-                <div class="col-sm-3">
+                <label class="control-label">@Lang.BalForward</label>
+                <div class="control-input">
                     <p class="form-control-static">@Model.BalBroughtForward.ToStringMoneyWithSymbol()</p>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">@Lang.MinWithdraw</label>
-                <div class="col-sm-3">
+                <label class="control-label">@Lang.MinWithdraw</label>
+                <div class="control-input">
                     <p class="form-control-static">@((Model.MinAmount).ToStringMoneyWithSymbol())</p>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">@Lang.RequestAmt</label>
-                <div class="col-sm-3">
+                <label class="control-label">@Lang.RequestAmt</label>
+                <div class="control-input">
                     <input type="text" class="form-control" name="Amount" id="Amount" @(canRequest ? string.Empty : "disabled") autocomplete="off" />
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-5">
-                    @if (canRequest)
-                    {
-                        <button id="btnRequestPayout" type="submit" class="btn btn-submit disabled">@Lang.RequestPayout</button>
-                    }
-                    else
-                    {
-                        <button type="button" class="btn btn-submit disabled" disabled>@Lang.RequestPayout</button>
-                    }
+                <label class="control-label"></label>
+                <div class="control-input">
+                    <div class="btn-group">
+                        @if (canRequest)
+                        {
+                            <button id="btnRequestPayout" type="submit" class="btn btn-submit disabled">@Lang.RequestPayout</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-submit disabled" disabled>@Lang.RequestPayout</button>
+                        }
+                    </div>
                 </div>
             </div>
 

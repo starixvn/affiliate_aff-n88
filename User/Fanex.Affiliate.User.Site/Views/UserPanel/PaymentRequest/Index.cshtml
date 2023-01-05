@@ -2,14 +2,12 @@
     Layout = null;
 }
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.PaymentViewModel
-    <div class="sub-content">
-        <div class="page-title">
-            <span class="text">@Lang.PaymentRequest</span>
-        </div>
-
-        <div id="paymentRequest">
-            @{ Html.RenderPartial("~/Views/UserPanel/PaymentRequest/PaymentPartial/_Main.cshtml", Model); }
-        </div>
-
-        <script src="@Url.RenderLink("~/www/build/js/payment-request.js")"></script>
+<div class="single-after-login-page payment-request">
+    <div class="page-title">
+        <span class="text">@Lang.PaymentRequest</span>
     </div>
+    <div id="paymentRequest">
+        @{ Html.RenderPartial("~/Views/UserPanel/PaymentRequest/PaymentPartial/_Main.cshtml", Model); }
+    </div>
+    <script src="@Url.RenderLink("~/www/build/js/payment-request.js")"></script>
+</div>

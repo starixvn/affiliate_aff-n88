@@ -252,17 +252,21 @@ header {
   font-size: 18px;
   line-height: 28px; }
 
-.after-login-content .info-group .title:after {
-  background: #CFCFCF !important;
-  height: 1px !important;
-  width: 100% !important; }
-
-.after-login-content .info-group .title .text {
-  color: #001942;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 30px; }
+.after-login-container .info-group {
+  margin-top: 0;
+  margin-bottom: 0; }
+  .after-login-container .info-group .title:after {
+    background: #CFCFCF !important;
+    height: 1px !important;
+    width: 100% !important; }
+  .after-login-container .info-group .title .text {
+    color: #001942;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 30px; }
+  .after-login-container .info-group table {
+    margin-top: 0; }
 
 .table table tr {
   background: #FFFFFF;

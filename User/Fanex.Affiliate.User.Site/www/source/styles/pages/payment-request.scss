@@ -1,4 +1,51 @@
-﻿.title{
+﻿@import '../scss/base/base';
+@import "../scss/abstracts/mixins";
+@import '../scss/abstracts/variables-n88';
+@import '../scss/components/n88/content-menu';
+@import '../scss/components/n88/table-sticky';
+@import '../scss/components/n88/group-control';
+
+#requestPayoutForm {
+    .form-group {
+        margin: 0 0 16px 0;
+        align-items: center;
+        justify-content: flex-start;
+        color: #333;
+        display: flex;
+        gap: 16px;
+        max-width: 580px;
+        width: 100%;
+
+        .control-label {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 30px;
+            padding: 0;
+            width: 45%;
+        }
+
+        .control-input {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 30px;
+            width: 55%;
+
+            input {
+                margin-bottom: 0;
+            }
+        }
+
+        .btn-submit {
+            padding: 8px 24px;
+            background: #FF5D00;
+            border-radius: 4px;
+            color: #FFFFFF;
+            height : auto;
+        }
+    }
+}
+
+/*.title{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -30,4 +77,4 @@
             }
         }
     }
-}
+}*/

@@ -1531,6 +1531,7 @@
     <Content Include="www\source\styles\scss\components\n88\_table-sticky.scss" />
     <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
+    <Content Include="www\source\styles\scss\components\n88\_group-control.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

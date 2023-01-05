@@ -390,9 +390,9 @@ header {
     }
 }
 
-.after-login-content {
-    .info-group {
-
+.after-login-container .info-group {
+    margin-top: 0;
+    margin-bottom: 0;
         .title {
             &:after {
                 background: #CFCFCF !important;
@@ -407,7 +407,10 @@ header {
                 font-size: 14px;
                 line-height: 30px;
             }
-        }
+    }
+
+    table {
+        margin-top: 0;
     }
 }
 
