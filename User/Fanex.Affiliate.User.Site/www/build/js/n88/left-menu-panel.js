@@ -3,6 +3,7 @@
 var LeftMenuPanel = (function ($) {
     var activeClassName = "active";
     var isOpenLeftMenuMobile = false;
+    var lastScreenTop = 0;
 
     var _me = {
         initialize: function initialize() {
@@ -25,7 +26,6 @@ var LeftMenuPanel = (function ($) {
             });
 
             $('#left-panel-menu').on('scroll', function (e) {
-                console.log("left-panel-menu scroll");
                 e.stopPropagation();
             });
 
@@ -53,6 +53,7 @@ var LeftMenuPanel = (function ($) {
             if (sections.length) {
                 var theFirstMenuId = sections[0].getAttribute("id");
                 var activeMenuId = theFirstMenuId;
+                var currentScreenTop = lastScreenTop;
 
                 var _iteratorNormalCompletion = true;
                 var _didIteratorError = false;
@@ -66,6 +67,7 @@ var LeftMenuPanel = (function ($) {
 
                         if (window.pageYOffset >= sectionTop - window.innerHeight * 1 / 5) {
                             activeMenuId = section.getAttribute("id");
+                            currentScreenTop = sectionTop;
                         }
                     }
                 } catch (err) {
@@ -83,13 +85,13 @@ var LeftMenuPanel = (function ($) {
                     }
                 }
 
-                _me.setActiveLeftMenu("#" + activeMenuId);
+                _me.setActiveLeftMenu("#" + activeMenuId, currentScreenTop);
                 window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             }
         },
 
         handelAnimate: function handelAnimate(hrefTarget) {
-            _me.setActiveLeftMenu(hrefTarget);
+            _me.setActiveLeftMenu(hrefTarget, lastScreenTop);
 
             $('html, body').stop().animate({
                 scrollTop: $(hrefTarget).offset().top
@@ -98,20 +100,27 @@ var LeftMenuPanel = (function ($) {
             });
         },
 
-        setActiveLeftMenu: function setActiveLeftMenu(hrefTarget, theFirstMenuId) {
+        setActiveLeftMenu: function setActiveLeftMenu(hrefTarget, currentScreenTop) {
             var leftMenuList = $("a.left-menu-item[href*=\"#\"]");
             var activeLeftMenu = $("a.left-menu-item[href=\"" + hrefTarget + "\"]");
+            var leftMenuNumbers = leftMenuList.length;
 
-            if (leftMenuList.length) {
+            if (leftMenuNumbers) {
                 $("a.left-menu-item.active").removeClass(activeClassName);
-
                 activeLeftMenu.addClass(activeClassName);
 
-                var offsetTop = activeLeftMenu.offset().top - $("a.left-menu-item[href=\"" + leftMenuList[0].getAttribute("href") + "\"]").offset().top;
+                var activeIndex = leftMenuList.index(activeLeftMenu);
+                var maxScrollTop = $('#left-panel-nav').outerHeight() + 24 - $('#left-panel-menu').outerHeight();
+                var currentTop = $('#left-panel-menu').scrollTop();
+                var newTop = activeIndex / leftMenuNumbers * maxScrollTop;
 
-                $('#left-panel-menu').stop().animate({
-                    scrollTop: offsetTop
-                }, 400);
+                if (!(currentScreenTop >= lastScreenTop && newTop <= currentTop || currentScreenTop <= lastScreenTop && newTop >= currentTop)) {
+                    $('#left-panel-menu').stop().animate({
+                        scrollTop: activeIndex / leftMenuNumbers * maxScrollTop
+                    }, 400);
+                }
+
+                lastScreenTop = currentScreenTop;
             }
         }
     };

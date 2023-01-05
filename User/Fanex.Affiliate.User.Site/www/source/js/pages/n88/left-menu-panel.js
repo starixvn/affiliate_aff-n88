@@ -1,6 +1,7 @@
 ﻿var LeftMenuPanel = (function ($) {
     const activeClassName = "active";
     let isOpenLeftMenuMobile = false;
+    let lastScreenTop = 0;
 
     var _me = {
         initialize: function () {
@@ -50,22 +51,24 @@
             if (sections.length) {
                 let theFirstMenuId = sections[0].getAttribute("id");
                 let activeMenuId = theFirstMenuId;
+                let currentScreenTop = lastScreenTop;
 
                 for (let section of sections) {
                     const sectionTop = section.offsetTop;
 
                     if (window.pageYOffset >= sectionTop - (window.innerHeight * 1 / 5)) {
                         activeMenuId = section.getAttribute("id");
+                        currentScreenTop = sectionTop;
                     }
                 }
 
-                _me.setActiveLeftMenu(`#${activeMenuId}`);
+                _me.setActiveLeftMenu(`#${activeMenuId}`, currentScreenTop);
                 window.addEventListener("scroll", _me.handleActiveLeftMenuByScroll);
             }
         },
 
         handelAnimate: function (hrefTarget) {
-            _me.setActiveLeftMenu(hrefTarget);
+            _me.setActiveLeftMenu(hrefTarget, lastScreenTop);
 
             $('html, body').stop().animate({
                 scrollTop: $(hrefTarget).offset().top
@@ -74,20 +77,27 @@
             });
         },
 
-        setActiveLeftMenu: function (hrefTarget, theFirstMenuId) {
+        setActiveLeftMenu: function (hrefTarget, currentScreenTop) {
             const leftMenuList = $(`a.left-menu-item[href*="#"]`);
             const activeLeftMenu = $(`a.left-menu-item[href="${hrefTarget}"]`);
+            const leftMenuNumbers = leftMenuList.length;
 
-            if (leftMenuList.length) {
+            if (leftMenuNumbers) {
                 $("a.left-menu-item.active").removeClass(activeClassName);
-
                 activeLeftMenu.addClass(activeClassName);
 
-                const offsetTop = activeLeftMenu.offset().top - $(`a.left-menu-item[href="${leftMenuList[0].getAttribute("href")}"]`).offset().top;
+                const activeIndex = leftMenuList.index(activeLeftMenu);
+                const maxScrollTop = ($('#left-panel-nav').outerHeight() + 24) - $('#left-panel-menu').outerHeight();
+                const currentTop = $('#left-panel-menu').scrollTop();
+                const newTop = (activeIndex / leftMenuNumbers) * maxScrollTop;
 
-                $('#left-panel-menu').stop().animate({
-                    scrollTop: offsetTop
-                }, 400);
+                if (!((currentScreenTop >= lastScreenTop && newTop <= currentTop) || (currentScreenTop <= lastScreenTop && newTop >= currentTop))) {
+                    $('#left-panel-menu').stop().animate({
+                        scrollTop: (activeIndex / leftMenuNumbers) * maxScrollTop
+                    }, 400);
+                }
+
+                lastScreenTop = currentScreenTop;
             }
         }
     };
