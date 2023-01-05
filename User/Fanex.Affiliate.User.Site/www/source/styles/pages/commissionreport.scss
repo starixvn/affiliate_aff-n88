@@ -1,51 +1,11 @@
-﻿.custom-panel {
-    background-color: #F5F5F5;
-    border: 1px solid #A6A6A6;
-    border-radius: 0px;
-    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+﻿@import '../scss/base/base';
+@import "../scss/abstracts/mixins";
+@import '../scss/abstracts/variables-n88';
+@import '../scss/components/n88/content-menu';
+@import '../scss/components/n88/table-sticky';
+@import '../scss/components/n88/group-control';
 
-    .panel-body {
-        padding: 8px;
-    }
 
-    .form-inline {
-        margin-bottom: 0;
-
-        .form-control {
-            width: 150px;
-            margin-bottom: 0;
-            display: inline-block;
-        }
-
-        .btn {
-            margin-right: 0;
-        }
-
-        @media(max-width: 576px){
-            label{
-                width: 110px;
-            }
-        }
-    }
-
-}
-
-.commission-report {
-    @media screen and (max-width: 1048px) {
-        width: 100%;
-        margin-bottom: 15px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        border: 1px solid #ddd;
-
-        table {
-            table-layout: auto;
-        }
-    }
-}
 
 .table {
     .th {
@@ -99,6 +59,7 @@
             > td {
                 .row-wrapper {
                     position: relative;
+                    font-weight: 700;
 
                     .chevron {
                         cursor: pointer;
@@ -110,16 +71,25 @@
                         line-height: 11px;
                         text-align: center;
 
+                        &:before {
+                            border-width: 1px 1px 0 0;
+                        }
+
                         &.left {
                             top: 5px;
                         }
                     }
                 }
+
+                a {
+                    text-decoration: none;
+                    color: #025EB1;
+                }
             }
 
             &.sumrow {
                 > td {
-                    background: #F5EAEA;
+                    background: #EDF4FF;
                 }
             }
 
@@ -143,5 +113,26 @@
                 display: table-row;
             }
         }
+
+        .expanded {
+            .row-wrapper {
+                font-weight: 400 !important;
+                color: #000 !important;
+            }
+
+            &:nth-of-type(even) {
+                td {
+                    background: #EEEEEE;
+                }
+            }
+        }
+
+        .total {
+            td {
+                background: #FFDCC8;
+            }
+        }
     }
 }
+/**/
+
