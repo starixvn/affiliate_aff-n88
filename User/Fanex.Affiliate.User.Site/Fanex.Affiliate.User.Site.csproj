@@ -756,6 +756,10 @@
     <Content Include="www\build\js\myaccount.min.js">
       <DependentUpon>myaccount.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\n88\left-menu-panel-has-sub.js" />
+    <Content Include="www\build\js\n88\left-menu-panel-has-sub.min.js">
+      <DependentUpon>left-menu-panel-has-sub.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\n88\left-menu-panel.js" />
     <Content Include="www\build\js\n88\left-menu-panel.min.js">
       <DependentUpon>left-menu-panel.js</DependentUpon>
@@ -1071,6 +1075,7 @@
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
+    <Content Include="www\source\js\pages\n88\left-menu-panel-has-sub.js" />
     <Content Include="www\source\js\pages\n88\left-menu-panel.js" />
     <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />

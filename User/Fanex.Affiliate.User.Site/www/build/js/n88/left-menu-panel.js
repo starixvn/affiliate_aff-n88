@@ -21,6 +21,7 @@ var LeftMenuPanel = (function ($) {
                         _me.handleCloseLeftMenu();
                     } else {
                         isOpenLeftMenuMobile = true;
+                        _me.handleScrollLeftMenuInMobile();
                     }
                 });
             });
@@ -110,17 +111,33 @@ var LeftMenuPanel = (function ($) {
                 activeLeftMenu.addClass(activeClassName);
 
                 var activeIndex = leftMenuList.index(activeLeftMenu);
-                var maxScrollTop = $('#left-panel-nav').outerHeight() + 24 - $('#left-panel-menu').outerHeight();
-                var currentTop = $('#left-panel-menu').scrollTop();
-                var newTop = activeIndex / leftMenuNumbers * maxScrollTop;
+                var maxScrollTop = $('#left-panel-nav').outerHeight() + 24 - $('#left-panel-menu').outerHeight(); //24px of margin
+                var currentScrollTop = $('#left-panel-menu').scrollTop();
+                var newScrollTop = activeIndex / leftMenuNumbers * maxScrollTop;
 
-                if (!(currentScreenTop >= lastScreenTop && newTop <= currentTop || currentScreenTop <= lastScreenTop && newTop >= currentTop)) {
+                if (lastScreenTop < currentScreenTop && currentScrollTop < newScrollTop || lastScreenTop > currentScreenTop && currentScrollTop > newScrollTop) {
                     $('#left-panel-menu').stop().animate({
-                        scrollTop: activeIndex / leftMenuNumbers * maxScrollTop
+                        scrollTop: newScrollTop
                     }, 400);
                 }
 
                 lastScreenTop = currentScreenTop;
+            }
+        },
+
+        handleScrollLeftMenuInMobile: function handleScrollLeftMenuInMobile() {
+            var leftMenuList = $("a.left-menu-item[href*=\"#\"]");
+            var activeLeftMenu = $("a.left-menu-item.active");
+            var leftMenuNumbers = leftMenuList.length;
+
+            if (leftMenuNumbers) {
+                var activeIndex = leftMenuList.index(activeLeftMenu);
+                var maxScrollTop = $('#left-panel-nav').outerHeight() + 24 - $('#left-panel-menu').outerHeight();
+                var newScrollTop = activeIndex / leftMenuNumbers * maxScrollTop;
+
+                $('#left-panel-menu').stop().animate({
+                    scrollTop: newScrollTop
+                }, 400);
             }
         }
     };
