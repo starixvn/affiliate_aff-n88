@@ -359,7 +359,7 @@ header {
     }
 }
 
-.info-group {   
+.info-group {
     .title {
         color: $group-title-color;
         margin-bottom: 16px !important;
@@ -390,21 +390,23 @@ header {
     }
 }
 
-.after-login-content .info-group {
+.after-login-content {
+    .info-group {
 
-    .title {
-        &:after {
-            background: #CFCFCF !important;
-            height: 1px !important;
-            width: 100% !important;
-        }
+        .title {
+            &:after {
+                background: #CFCFCF !important;
+                height: 1px !important;
+                width: 100% !important;
+            }
 
-        .text {
-            color: $light-color-text;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 30px;
+            .text {
+                color: $light-color-text;
+                text-transform: uppercase;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 30px;
+            }
         }
     }
 }
@@ -814,6 +816,12 @@ select.form-control {
 
     .page-title {
         background: $bg-after-login-color;
+        text-align: left;
+        margin: 8px 0 24px;
+
+        @include Mobile {
+            margin: 4px 0 12px;
+        }
 
         .text:after {
             border-bottom: 18px solid $bg-after-login-color;
@@ -902,6 +910,7 @@ select.form-control {
             border-radius: 4px 4px 0px 0px;
             text-transform: capitalize;
             font-weight: 600;
+
             @include Mobile {
                 padding: 4px 8px;
                 font-size: 12px;
@@ -1070,6 +1079,7 @@ select.form-control {
         left: 4rem;
     }
 }
+
 @media only screen and (max-width: 991px) {
     .news-content {
         display: block;
@@ -1109,6 +1119,7 @@ select.form-control {
         }
     }
 }
+
 @media only screen and (max-width: 767px) {
     .mobile-left-panel {
         top: 15rem;
@@ -1446,6 +1457,7 @@ select.form-control {
         }
     }
 }
+
 .btn-dropdown-table {
     background: url("../../../../build/styles/Images/icons/n88/dropdown-table.svg") no-repeat center;
     content: "";
