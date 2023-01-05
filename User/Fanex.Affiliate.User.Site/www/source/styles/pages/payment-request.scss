@@ -12,9 +12,28 @@
         justify-content: flex-start;
         color: #333;
         display: flex;
-        gap: 16px;
+        flex-wrap: nowrap;
+        gap: 0;
         max-width: 580px;
         width: 100%;
+
+        @include Mobile {
+            margin: 0 0 8px 0;
+        }
+
+        &.flex-mobile {
+            @include Mobile {
+                flex-wrap: wrap;
+
+                .control-label {
+                    margin-bottom: 4px;
+                }
+
+                .control-input {
+                    width: 100%;
+                }
+            }
+        }
 
         .control-label {
             font-weight: 600;
@@ -22,6 +41,14 @@
             line-height: 30px;
             padding: 0;
             width: 45%;
+            margin-right: 20px;
+
+            @include Mobile {
+                font-size: 14px;
+                width: 100%;
+                margin-bottom: 0;
+                line-height: 22px;
+            }
         }
 
         .control-input {
@@ -30,51 +57,26 @@
             line-height: 30px;
             width: 55%;
 
+            p {
+                padding: 0;
+                @include Mobile {
+                    text-align: right;
+                    line-height: 22px;
+                }
+            }
+
             input {
                 margin-bottom: 0;
             }
         }
+    }
 
-        .btn-submit {
-            padding: 8px 24px;
-            background: #FF5D00;
-            border-radius: 4px;
-            color: #FFFFFF;
-            height : auto;
+    .btn-submit {
+        padding: 8px 20px;
+        margin-bottom: 24px;
+
+        @include Mobile {
+            margin-bottom: 12px;
         }
     }
 }
-
-/*.title{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    .form-inline {
-        margin-bottom: 0;
-        width: 75%;
-
-        .form-control {
-            width: 40%;
-            max-width: 150px;
-            margin-bottom: 3px;
-            display: inline-block;
-        }
-
-        .form-group {
-            margin-bottom: 0; 
-            width: 100%;
-            text-align: right;
-
-            .btn {
-                margin-left:3px;
-                margin-right: 0;
-            }
-
-            label {
-                display: inline;
-                margin-right: 2px;
-            }
-        }
-    }
-}*/

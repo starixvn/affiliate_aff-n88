@@ -149,6 +149,8 @@ p {
     .overview-table {
       overflow: auto;
       max-height: 600px; } }
+  .overview-table.reset-top thead .overview-table-header th {
+    top: 0; }
   .overview-table table {
     width: 100%;
     min-width: 128rem;
@@ -164,7 +166,7 @@ p {
       position: -webkit-sticky;
       position: sticky;
       z-index: 100;
-      top: 67px;
+      top: 0;
       border-right: none; }
       @media screen and (max-width: 1024px) {
         .overview-table table thead .overview-table-header th {
@@ -173,7 +175,7 @@ p {
       position: -webkit-sticky;
       position: sticky;
       z-index: 100;
-      top: 124px !important;
+      top: 50px !important;
       border-right: none;
       font-weight: 700; }
       @media screen and (max-width: 1024px) {
@@ -223,7 +225,57 @@ p {
 .group-control-seletct-table {
   background: #FAFAFA;
   border: 1px solid #BDBDBD;
-  padding: 8px; }
+  padding: 8px;
+  margin-bottom: 16px; }
+  .group-control-seletct-table .form-inline {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px; }
+    @media (max-width: 767px) {
+      .group-control-seletct-table .form-inline {
+        display: unset; } }
+    @media (max-width: 767px) {
+      .group-control-seletct-table .form-inline .form-group {
+        margin-bottom: 8px; } }
+    .group-control-seletct-table .form-inline .form-group .form-control {
+      padding: 4px 8px;
+      margin-bottom: 0; }
+    .group-control-seletct-table .form-inline .form-group select {
+      width: 120px;
+      background: #FFFFFF;
+      border: 1px solid #9E9E9E;
+      border-radius: 4px; }
+      @media (max-width: 767px) {
+        .group-control-seletct-table .form-inline .form-group select {
+          width: 100%; } }
+    .group-control-seletct-table .form-inline .form-group label {
+      margin-bottom: 0;
+      margin-right: 8px !important; }
+      @media (max-width: 767px) {
+        .group-control-seletct-table .form-inline .form-group label {
+          margin-bottom: 8px; } }
+
+.btn-submit {
+  padding: 3px 24px;
+  background: #FF5D00;
+  border-radius: 4px;
+  color: #FFFFFF;
+  height: auto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase; }
+  .btn-submit.disabled {
+    pointer-events: auto !important; }
+  .btn-submit:hover {
+    box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25); }
+  @media (max-width: 767px) {
+    .btn-submit {
+      padding: 8px 20px;
+      width: 100%;
+      box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
+      margin-right: 0; } }
 
 #requestPayoutForm .form-group {
   margin: 0 0 16px 0;
@@ -231,59 +283,50 @@ p {
   justify-content: flex-start;
   color: #333;
   display: flex;
-  gap: 16px;
+  flex-wrap: nowrap;
+  gap: 0;
   max-width: 580px;
   width: 100%; }
+  @media (max-width: 767px) {
+    #requestPayoutForm .form-group {
+      margin: 0 0 8px 0; } }
+  @media (max-width: 767px) {
+    #requestPayoutForm .form-group.flex-mobile {
+      flex-wrap: wrap; }
+      #requestPayoutForm .form-group.flex-mobile .control-label {
+        margin-bottom: 4px; }
+      #requestPayoutForm .form-group.flex-mobile .control-input {
+        width: 100%; } }
   #requestPayoutForm .form-group .control-label {
     font-weight: 600;
     font-size: 16px;
     line-height: 30px;
     padding: 0;
-    width: 45%; }
+    width: 45%;
+    margin-right: 20px; }
+    @media (max-width: 767px) {
+      #requestPayoutForm .form-group .control-label {
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 0;
+        line-height: 22px; } }
   #requestPayoutForm .form-group .control-input {
     font-weight: 400;
     font-size: 14px;
     line-height: 30px;
     width: 55%; }
+    #requestPayoutForm .form-group .control-input p {
+      padding: 0; }
+      @media (max-width: 767px) {
+        #requestPayoutForm .form-group .control-input p {
+          text-align: right;
+          line-height: 22px; } }
     #requestPayoutForm .form-group .control-input input {
       margin-bottom: 0; }
-  #requestPayoutForm .form-group .btn-submit {
-    padding: 8px 24px;
-    background: #FF5D00;
-    border-radius: 4px;
-    color: #FFFFFF;
-    height: auto; }
 
-/*.title{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    .form-inline {
-        margin-bottom: 0;
-        width: 75%;
-
-        .form-control {
-            width: 40%;
-            max-width: 150px;
-            margin-bottom: 3px;
-            display: inline-block;
-        }
-
-        .form-group {
-            margin-bottom: 0; 
-            width: 100%;
-            text-align: right;
-
-            .btn {
-                margin-left:3px;
-                margin-right: 0;
-            }
-
-            label {
-                display: inline;
-                margin-right: 2px;
-            }
-        }
-    }
-}*/
+#requestPayoutForm .btn-submit {
+  padding: 8px 20px;
+  margin-bottom: 24px; }
+  @media (max-width: 767px) {
+    #requestPayoutForm .btn-submit {
+      margin-bottom: 12px; } }

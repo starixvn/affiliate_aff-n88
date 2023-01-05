@@ -1,6 +1,12 @@
-﻿.alert {
+﻿@import '../../abstracts/mixins';
+.alert {
     padding: 16px;
     font-size: 16px;
+
+    @include Mobile {
+        padding: 8px;
+        font-size: 14px;
+    }
 
     p.text-center {
         color: #145A2B;

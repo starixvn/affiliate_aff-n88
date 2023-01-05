@@ -2389,6 +2389,10 @@ input[type="radio"], input[type="checkbox"] {
 .alert {
   padding: 16px;
   font-size: 16px; }
+  @media (max-width: 767px) {
+    .alert {
+      padding: 8px;
+      font-size: 14px; } }
   .alert p.text-center {
     color: #145A2B;
     font-weight: 600; }

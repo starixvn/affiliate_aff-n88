@@ -8,6 +8,15 @@
         overflow: auto;
         max-height: 600px;
     }
+    &.reset-top{
+        thead {
+            .overview-table-header {
+                th{
+                    top : 0;
+                }
+            }
+        }
+    }
 
     table {
         width: 100%;
@@ -28,7 +37,7 @@
                     position: -webkit-sticky;
                     position: sticky;
                     z-index: 100;
-                    top: 67px;
+                    top: 0;
                     border-right: none;
 
                     @include TableAndMobile {
@@ -42,7 +51,7 @@
                     position: -webkit-sticky;
                     position: sticky;
                     z-index: 100;
-                    top: 124px !important;
+                    top: 50px !important;
                     border-right: none;
                     font-weight: 700;
 

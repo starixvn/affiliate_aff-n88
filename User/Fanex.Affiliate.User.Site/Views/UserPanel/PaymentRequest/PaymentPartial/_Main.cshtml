@@ -37,8 +37,8 @@
                         <option @temp value="@i">@i</option>
                     }
                 </select>
-                <button type="submit" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
             </div>
+            <button type="submit" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
         </form>
     </div>
     @{ Html.RenderPartial("~/Views/UserPanel/PaymentRequest/PaymentPartial/_PaymentList.cshtml", Model); }

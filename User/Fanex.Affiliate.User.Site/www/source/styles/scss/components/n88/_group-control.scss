@@ -1,5 +1,73 @@
 ﻿.group-control-seletct-table {
     background: #FAFAFA;
     border: 1px solid #BDBDBD;
-    padding : 8px;
+    padding: 8px;
+    margin-bottom: 16px;
+
+    .form-inline {
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        @include Mobile {
+            display: unset;
+        }
+
+        .form-group {
+            @include Mobile {
+                margin-bottom: 8px;
+            }
+
+            .form-control {
+                padding: 4px 8px;
+                margin-bottom: 0;
+            }
+
+            select {
+                width: 120px;
+                background: #FFFFFF;
+                border: 1px solid #9E9E9E;
+                border-radius: 4px;
+
+                @include Mobile {
+                    width: 100%;
+                }
+            }
+
+            label {
+                margin-bottom: 0;
+                margin-right: 8px !important;
+
+                @include Mobile {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}
+
+.btn-submit {
+    padding: 3px 24px;
+    background: #FF5D00;
+    border-radius: 4px;
+    color: #FFFFFF;
+    height: auto;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    &.disabled{
+        pointer-events : auto !important;
+    }
+    &:hover {
+        box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
+    }
+
+    @include Mobile {
+        padding: 8px 20px;
+        width: 100%;
+        box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
+        margin-right : 0;
+    }
 }

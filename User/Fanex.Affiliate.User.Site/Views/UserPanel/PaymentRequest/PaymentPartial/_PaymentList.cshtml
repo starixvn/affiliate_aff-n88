@@ -44,10 +44,10 @@
 }
 
 
-<div class="payment-history table table-responsive" id="payment-history">
+<div class="payment-history table overview-table reset-top" id="payment-history">
     <table>
         <thead>
-            <tr>
+            <tr class="overview-table-header">
                 <th width="10%">@Lang.RefNo</th>
                 <th width="10%" class="non-transform">@Lang.DateRequest</th>
                 <th width="10%">@Lang.RequestAmount</th>
@@ -77,7 +77,7 @@
                 else
                 {
                     <tr>
-                        <td class="text-center" colspan="7">@Lang.NoInfo</td>
+                        <td class="text-center no-info" colspan="7">@Lang.NoInfo</td>
                     </tr>
                 }
             }
