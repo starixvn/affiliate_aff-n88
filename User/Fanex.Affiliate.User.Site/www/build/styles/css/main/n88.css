@@ -2294,7 +2294,7 @@ input[type="radio"], input[type="checkbox"] {
       display: block;
       position: fixed;
       z-index: 1042;
-      height: auto;
+      height: 45rem;
       width: 35.5rem;
       top: 50%;
       margin-top: 0;
@@ -2549,3 +2549,7 @@ input[type="radio"], input[type="checkbox"] {
 @media (max-width: 767px) {
   .term-condition .content {
     padding-top: 20px !important; } }
+
+@media screen and (min-width: 320px) and (max-width: 928px) and (orientation: landscape) {
+  .left-panel.active {
+    height: 29rem; } }
