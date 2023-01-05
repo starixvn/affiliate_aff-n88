@@ -957,6 +957,11 @@ select.form-control {
     @include Mobile {
         padding: 8px;
     }
+
+    .info-group {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
 }
 
 .wrapper-layout-after-login {

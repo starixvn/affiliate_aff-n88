@@ -233,7 +233,6 @@ header {
       border-color: transparent transparent #F8F9FA transparent;
       z-index: 2; }
 
-  margin-bottom: 0 !important; }
 .info-group .title {
   color: #060818;
   margin-bottom: 16px !important; }
@@ -614,6 +613,9 @@ select.form-control:focus {
   @media (max-width: 767px) {
     .wrapper-after-login {
       padding: 8px; } }
+  .wrapper-after-login .info-group {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; }
 
 .wrapper-layout-after-login {
   display: flex;

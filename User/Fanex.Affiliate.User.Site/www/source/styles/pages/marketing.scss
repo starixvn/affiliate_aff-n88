@@ -123,9 +123,10 @@
 
                     .qr-btn-group {
                         justify-content: flex-end;
-
+                        font-size: 12px;
                         button {
-                            padding: 6px 0;
+                            padding: 6px;
+                            height: auto;
                             width: 100%;
 
                             &:disabled {
@@ -195,9 +196,11 @@
 
             .qr-footer {
                 margin-top: 12px;
-                @include Mobile{
-                    margin-top : 8px;
+
+                @include Mobile {
+                    margin-top: 8px;
                 }
+
                 .btn-copy-link {
                     background: #EDF4FF;
                     border: 1px solid #025EB1;
