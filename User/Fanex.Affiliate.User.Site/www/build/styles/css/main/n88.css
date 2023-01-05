@@ -2037,10 +2037,14 @@ table + .button-group {
   display: inline-flex;
   align-items: center;
   margin-right: 30px; }
-  .form-filter .form-group label.w150 {
-    width: 150px; }
-  .form-filter .form-group label.w100 {
-    width: 100px; }
+  .form-filter .form-group label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: capitalize; }
+    .form-filter .form-group label.w150 {
+      width: 150px; }
   .form-filter .form-group .form-control {
     width: 200px; }
 
@@ -2420,6 +2424,19 @@ input[type="radio"], input[type="checkbox"] {
     height: 100%;
     width: 100%;
     z-index: 1040; }
+
+.breadcrumb {
+  background-color: #FFFFFF;
+  border: 1px solid #CED4DA;
+  margin-bottom: 24px; }
+  .breadcrumb a {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #025EB1; }
+
+#statementPager {
+  margin: 16px 0; }
 
 .main.after-login .main-content {
   display: block;

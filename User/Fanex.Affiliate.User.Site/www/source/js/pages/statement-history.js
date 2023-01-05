@@ -28,8 +28,7 @@
     }
 
     function toggleCollapseButton(btn) {
-        $(btn).children("span").toggleClass("glyphicon-chevron-right");
-        $(btn).children("span").toggleClass("glyphicon-chevron-down");
+        $(btn).toggleClass("active-btn");
     }
 
     function toggleChildrenElem(children, id) {
@@ -72,7 +71,7 @@
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
             });
 
-            $("#statementDataList").on("click", ".btn.btn-transparent", function() {
+            $("#statementDataList").on("click", ".btn.btn-transparent", function () {
                 let id = $(this).parents("tr").data("id");
                 let children = $(this).parents("tr").siblings(`tr[data-parent='${id}']`);
 

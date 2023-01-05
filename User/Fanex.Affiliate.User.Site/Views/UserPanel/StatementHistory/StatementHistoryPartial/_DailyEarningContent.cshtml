@@ -6,7 +6,7 @@
 
 <table>
     <thead>
-        <tr>
+        <tr class="overview-table-header">
             <th width="3%"></th>
             <th width="15%">@Lang.Date</th>
             <th width="10%">@Lang.Deposit</th>
@@ -52,7 +52,7 @@
         @if (Model.Data.Total != null)
         {
             var total = Model.Data.Total;
-            <tr class="total">
+            <tr class="total overview-table-total">
                 <td class="text-center" colspan="2">@Lang.Total</td>
                 <td class="text-right">@total.Deposit.ToStringMoneyWithSymbol()</td>
 

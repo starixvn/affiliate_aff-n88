@@ -18,8 +18,7 @@
                 @if (hasChildren)
                 {
                     <div class="flex-middle">
-                        <button class="btn btn-transparent">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        <button class="btn btn-transparent btn-dropdown-table">
                         </button>
                     </div>
                 }
@@ -48,10 +47,10 @@
     </tr>
 }
 
-<div class="table table-responsive">
+<div class="table table-responsive overview-table">
     <table>
         <thead>
-            <tr>
+            <tr class="overview-table-header">
                 <th width="5%"></th>
                 <th>@Lang.Date</th>
                 <th>@Lang.Type</th>

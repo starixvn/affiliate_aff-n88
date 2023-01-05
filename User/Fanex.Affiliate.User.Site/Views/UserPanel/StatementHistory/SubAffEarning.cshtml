@@ -5,12 +5,13 @@
     var selectedBaseCurrency = ViewBag.SelectedBaseCurrency;
 }
 
+@Html.InlineStyles("~/www/build/styles/css/dailyearning.css")
+
 @model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.SubAffComViewModel>
 <div class="sub-content">
     <div class="page-title">
         <span class="text">@Lang.SubAffEarning</span>
     </div>
-    <br>
     <div>
         @{
             if (breadcrumb != null)
