@@ -865,6 +865,10 @@
     <Content Include="www\build\styles\css\n88.min.css">
       <DependentUpon>n88.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\N88\verification-account.css" />
+    <Content Include="www\build\styles\css\N88\verification-account.min.css">
+      <DependentUpon>verification-account.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\n8b.css" />
     <Content Include="www\build\styles\css\n8b.min.css">
       <DependentUpon>n8b.css</DependentUpon>
@@ -1526,12 +1530,13 @@
     <Content Include="www\source\styles\pages\maintenance.scss" />
     <Content Include="www\source\styles\scss\components\n88\_alert.scss" />
     <Content Include="www\source\styles\scss\layout\n88\_banner.scss" />
+	<Content Include="www\source\styles\scss\components\n88\_group-control.scss" />
     <Content Include="www\source\styles\scss\components\n88\_content-menu.scss" />
     <Content Include="www\source\styles\scss\components\n88\_overview-bg-tab.scss" />
     <Content Include="www\source\styles\scss\components\n88\_table-sticky.scss" />
     <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
-    <Content Include="www\source\styles\scss\components\n88\_group-control.scss" />
+    <Content Include="www\source\styles\pages\N88\verification-account.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

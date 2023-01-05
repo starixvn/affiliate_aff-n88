@@ -173,6 +173,10 @@
       "inputFile": "www/source/styles/pages/verification-account.scss"
     },
     {
+      "outputFile": "www/build/styles/css/N88/verification-account.css",
+      "inputFile": "www/source/styles/pages/N88/verification-account.scss"
+    },
+    {
       "outputFile": "www/build/styles/css/n8g.css",
       "inputFile": "www/source/styles/scss/themes/n8g.scss"
     },

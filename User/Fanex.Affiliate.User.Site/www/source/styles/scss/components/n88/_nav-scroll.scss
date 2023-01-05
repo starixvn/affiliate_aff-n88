@@ -21,7 +21,8 @@
             display: block;
             position: fixed;
             z-index: 1042;
-            height: 45rem;
+            height: auto;
+            max-height: 45rem;
             width: 35.5rem;
             top: 50%;
             margin-top: 0;
@@ -93,12 +94,7 @@
 
                             &.active {
                                 color: #001942;
-                                background: #EDF4FF;
-
-                                &:hover {
-                                    border: 1px solid red;
-                                }
-
+                                background: #EDF4FF; 
                                 &:after {
                                     display: none;
                                 }
