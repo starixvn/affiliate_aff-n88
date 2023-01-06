@@ -570,6 +570,9 @@ ul.dash-style {
         border: none; }
         .content-menu .menu li .submenu-container li:not(:last-child) {
           border-right: none; }
+        .content-menu .menu li .submenu-container li:last-child {
+          border-right: none;
+          border-bottom: none; }
   @media (max-width: 767px) {
     .content-menu .content-menu-pc {
       display: none; } }
@@ -634,6 +637,7 @@ ul.dash-style {
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:first-child a {
             border-radius: 4px 4px 0 0; }
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:last-child a {
+            border-right: none;
             border-bottom: none;
             border-radius: 0 0 4px 4px; }
   .content-menu .submenu-container {

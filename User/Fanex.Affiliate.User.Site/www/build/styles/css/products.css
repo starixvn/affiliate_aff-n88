@@ -70,6 +70,9 @@
 .text-block-bottom {
   margin: 24px auto 0; }
 
+.product-page .info-group table tr {
+  background-color: #F8F9FA !important; }
+
 .table-casino {
   position: relative;
   z-index: 0; }
