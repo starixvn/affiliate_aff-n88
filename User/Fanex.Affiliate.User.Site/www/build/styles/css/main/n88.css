@@ -1112,11 +1112,11 @@ body {
     .main .content.sign-up-page .form-group {
       margin: 0; }
       .main .content.sign-up-page .form-group.half-col {
-        width: 48%;
+        width: 49%;
         display: flex;
         flex-wrap: wrap; }
         .main .content.sign-up-page .form-group.half-col-left {
-          margin-right: 4%; }
+          margin-right: 2%; }
       .main .content.sign-up-page .form-group.has-error .control-label {
         color: #C80013; }
       .main .content.sign-up-page .form-group.has-error .form-control {
@@ -1147,6 +1147,8 @@ body {
         padding: 0; }
       .main .content.sign-up-page .form-group .radio-inline {
         margin-right: 5px; }
+        .main .content.sign-up-page .form-group .radio-inline:last-child {
+          margin-right: 0; }
         .main .content.sign-up-page .form-group .radio-inline input {
           top: -2px;
           width: 15px;
@@ -2353,8 +2355,8 @@ input[type="radio"], input[type="checkbox"] {
             text-decoration: none;
             border: 1px solid #FAFAFA; }
             .left-panel .menu .navbar-nav li .sub-menu li a.active {
-              color: #001942;
-              background: #EDF4FF; }
+              background: #FFF3ED;
+              color: #EA5500; }
               .left-panel .menu .navbar-nav li .sub-menu li a.active:after {
                 display: none; }
             .left-panel .menu .navbar-nav li .sub-menu li a:hover {

@@ -581,12 +581,12 @@ $height-hotnew: 30px;
                 margin: 0;
 
                 &.half-col {
-                    width: 48%;
+                    width: 49%;
                     display: flex;
                     flex-wrap: wrap;
 
                     &-left {
-                        margin-right: 4%;
+                        margin-right: 2%;
                     }
                 }
 
@@ -639,7 +639,10 @@ $height-hotnew: 30px;
                 }
 
                 .radio-inline {                    
-                    margin-right:5px;                     
+                    margin-right:5px;
+                    &:last-child{
+                        margin-right: 0;
+                    }
 
                     input {
                         top: -2px;
