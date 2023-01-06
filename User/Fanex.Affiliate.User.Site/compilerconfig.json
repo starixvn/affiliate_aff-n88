@@ -77,10 +77,6 @@
     "inputFile": "www/source/js/lib/bootstrap.min.js"
   },
   {
-    "outputFile": "www/build/js/daily-earning.js",
-    "inputFile": "www/source/js/pages/daily-earning.js"
-  },
-  {
     "outputFile": "www/build/js/test.js",
     "inputFile": "www/source/js/pages/test.js"
   },

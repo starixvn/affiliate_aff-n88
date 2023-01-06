@@ -5,7 +5,7 @@
     var selectedBaseCurrency = ViewBag.SelectedBaseCurrency;
 }
 
-@Html.InlineStyles("~/www/build/styles/css/dailyearning.css")
+@Html.InlineStyles("~/www/build/styles/css/statement-history.css")
 
 @model IEnumerable<Fanex.Affiliate.User.Core.ViewModels.UserPanel.SubAffComViewModel>
 <div class="sub-content">
@@ -26,7 +26,7 @@
         <div class="form-inline form-filter">
             <input id="MonthDate" type="hidden" value="@ViewBag.MonthDate" />
             <div class="form-group">
-                <label class="w100">@Lang.BaseCurrency:</label>
+                <label>@Lang.BaseCurrency:</label>
                 <select class="form-control" id="base-currency">
                     @foreach (var currency in baseCurrencies)
                     {
@@ -36,7 +36,7 @@
                 </select>
             </div>
         </div>
-        <div class="table table-responsive" id="subAffEarning">
+        <div class="table table-responsive overview-table" id="subAffEarning">
             @Html.Partial("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_SubAffEarningContent.cshtml", Model)
         </div>
     </div>

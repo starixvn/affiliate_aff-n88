@@ -222,38 +222,38 @@ p {
     #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign, .commission-report .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
       cursor: pointer; }
 
-.group-control-seletct-table {
+.group-control-select-table {
   background: #FAFAFA;
   border: 1px solid #BDBDBD;
   padding: 8px;
   margin-bottom: 16px; }
-  .group-control-seletct-table .form-inline {
+  .group-control-select-table .form-inline {
     margin-bottom: 0;
     display: flex;
     align-items: center;
     gap: 20px; }
     @media (max-width: 767px) {
-      .group-control-seletct-table .form-inline {
+      .group-control-select-table .form-inline {
         display: unset; } }
     @media (max-width: 767px) {
-      .group-control-seletct-table .form-inline .form-group {
+      .group-control-select-table .form-inline .form-group {
         margin-bottom: 8px; } }
-    .group-control-seletct-table .form-inline .form-group .form-control {
+    .group-control-select-table .form-inline .form-group .form-control {
       padding: 4px 8px;
       margin-bottom: 0; }
-    .group-control-seletct-table .form-inline .form-group select {
+    .group-control-select-table .form-inline .form-group select {
       width: 120px;
       background: #FFFFFF;
       border: 1px solid #9E9E9E;
       border-radius: 4px; }
       @media (max-width: 767px) {
-        .group-control-seletct-table .form-inline .form-group select {
+        .group-control-select-table .form-inline .form-group select {
           width: 100%; } }
-    .group-control-seletct-table .form-inline .form-group label {
+    .group-control-select-table .form-inline .form-group label {
       margin-bottom: 0;
       margin-right: 8px !important; }
       @media (max-width: 767px) {
-        .group-control-seletct-table .form-inline .form-group label {
+        .group-control-select-table .form-inline .form-group label {
           margin-bottom: 8px; } }
 
 .btn-submit {
@@ -303,7 +303,7 @@ p {
     line-height: 30px;
     padding: 0;
     width: 45%;
-    margin-right: 20px; }
+    margin-right: 16px; }
     @media (max-width: 767px) {
       #requestPayoutForm .form-group .control-label {
         font-size: 14px;

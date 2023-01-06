@@ -2039,14 +2039,10 @@ table + .button-group {
   display: inline-flex;
   align-items: center;
   margin-right: 30px; }
-  .form-filter .form-group label {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-transform: capitalize; }
-    .form-filter .form-group label.w150 {
-      width: 150px; }
+  .form-filter .form-group label.w150 {
+    width: 150px; }
+  .form-filter .form-group label.w100 {
+    width: 100px; }
   .form-filter .form-group .form-control {
     width: 200px; }
 

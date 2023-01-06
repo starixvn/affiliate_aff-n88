@@ -14,3 +14,33 @@
         display: none;
     }
 }
+
+.form-inline .form-group {
+    label {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        text-transform: capitalize;
+        margin-right: 8px;
+        margin-bottom: 0;
+    }
+
+    .form-control {
+        width: 120px;
+        margin: 0;
+    }
+}
+
+a:hover {
+    text-decoration: none;
+    color: #025eb1;
+}
+
+.form-inline {
+    margin-bottom: 16px;
+}
+
+.table table tr.total {
+    background: #FFDCC8 !important;
+}

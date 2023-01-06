@@ -435,7 +435,7 @@ select.form-control:focus {
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
-  padding: 4px 7px;
+  padding: 4px 8px;
   border-radius: 4px; }
   @media only screen and (max-width: 767px) {
     .form-control {
@@ -597,9 +597,9 @@ select.form-control:focus {
     border-bottom: 2px solid #001942;
     background: #F7FAFF; }
 
-.summary-content .details-section-content .table table thead tr.overview-table-total {
+.summary-content .table table thead tr.overview-table-total {
   background: #FFDCC8 !important; }
-  .summary-content .details-section-content .table table thead tr.overview-table-total th {
+  .summary-content .table table thead tr.overview-table-total th {
     background: #FFDCC8 !important;
     color: #001942; }
 
@@ -612,7 +612,7 @@ select.form-control:focus {
     color: #EA5500;
     background: #FFF3ED; } }
 
-.summary-content .details-section-content .table table tr:nth-child(even) {
+.table table tr:nth-child(even) {
   background-color: #E2E2E2 !important; }
 
 .wrapper-after-login {

@@ -52,7 +52,7 @@
         @if (Model.Data.Total != null)
         {
             var total = Model.Data.Total;
-            <tr class="total overview-table-total">
+            <tr class="total">
                 <td class="text-center" colspan="2">@Lang.Total</td>
                 <td class="text-right">@total.Deposit.ToStringMoneyWithSymbol()</td>
 
@@ -68,9 +68,12 @@
                 <td class="text-right">@total.Rebate.ToStringMoneyWithSymbol()</td>
             </tr>
         }
+        @if (!Model.Data.MainDataList.Any() && Model.Data.Total == null)
+        {
+            <tr>
+                <td class="text-center no-info" colspan="7">@Lang.NoInfo</td>
+            </tr>
+        }
     </tbody>
 </table>
-@if(!Model.Data.MainDataList.Any() && Model.Data.Total == null)
-{
-    <p class="text-center">@Lang.NoInfo</p>
-}
+

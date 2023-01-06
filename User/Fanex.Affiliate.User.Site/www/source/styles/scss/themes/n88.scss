@@ -393,20 +393,21 @@ header {
 .after-login-container .info-group {
     margin-top: 0;
     margin-bottom: 0;
-        .title {
-            &:after {
-                background: #CFCFCF !important;
-                height: 1px !important;
-                width: 100% !important;
-            }
 
-            .text {
-                color: $light-color-text;
-                text-transform: uppercase;
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 30px;
-            }
+    .title {
+        &:after {
+            background: #CFCFCF !important;
+            height: 1px !important;
+            width: 100% !important;
+        }
+
+        .text {
+            color: $light-color-text;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 30px;
+        }
     }
 
     table {
@@ -659,7 +660,7 @@ select.form-control {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
-    padding: 4px 7px;
+    padding: 4px 8px;
     border-radius: 4px;
 
     @media only screen and (max-width: 767px) {
@@ -928,7 +929,7 @@ select.form-control {
         }
     }
 
-    .details-section-content .table table thead tr.overview-table-total {
+    .table table thead tr.overview-table-total {
         background: $table-row-total-bg-color !important;
 
         th {
@@ -956,7 +957,7 @@ select.form-control {
     }
 }
 
-.summary-content .details-section-content .table table tr:nth-child(even) {
+.table table tr:nth-child(even) {
     background-color: $table-row-even-bg-color !important;
 }
 

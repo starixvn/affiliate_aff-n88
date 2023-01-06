@@ -4,7 +4,7 @@
     var selectedBaseCurrency = Convert.ToInt32(ViewBag.SelectedBaseCurrency);
 }
 
-@Html.InlineStyles("~/www/build/styles/css/dailyearning.css")
+@Html.InlineStyles("~/www/build/styles/css/statement-history.css")
 
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.DailyEarningViewModel
 <div class="sub-content">
@@ -21,7 +21,7 @@
 
         <div class="form-inline form-filter">
             <div class="form-group">
-                <label class="w100">@Lang.ProductType:</label>
+                <label>@Lang.ProductType:</label>
                 <select class="form-control" id="ProductId">
                     <option value="0">@Lang.All</option>
 
@@ -35,7 +35,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label class="w100">@Lang.BaseCurrency:</label>
+                <label>@Lang.BaseCurrency:</label>
                 <select class="form-control" id="base-currency">
                     @foreach (var currency in baseCurrencies)
                     {
