@@ -1,4 +1,10 @@
-﻿@import "../scss/components/pager";
+﻿@import '../scss/base/base';
+@import "../scss/abstracts/mixins";
+@import '../scss/abstracts/variables-n88';
+@import '../scss/components/n88/content-menu';
+@import '../scss/components/n88/table-sticky';
+@import '../scss/components/n88/group-control';
+@import "../scss/components/pager";
 @import "../scss/components/pikaday";
 
 .transfer-info{
