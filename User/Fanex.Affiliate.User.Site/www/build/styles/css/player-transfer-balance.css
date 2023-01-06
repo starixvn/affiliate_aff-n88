@@ -584,6 +584,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   @media (max-width: 767px) {
     .form-horizontal .form-group {
       margin: 0 0 8px 0; } }
+  .form-horizontal .form-group.flex-start {
+    align-items: flex-start; }
   @media (max-width: 767px) {
     .form-horizontal .form-group.flex-mobile {
       flex-wrap: wrap; }
@@ -596,7 +598,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     font-size: 16px;
     line-height: 30px;
     padding: 0;
-    width: 45%;
+    width: 300px;
     margin-right: 8px; }
     @media (max-width: 767px) {
       .form-horizontal .form-group .control-label {
@@ -608,7 +610,10 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     font-weight: 400;
     font-size: 14px;
     line-height: 30px;
-    width: 55%; }
+    width: 321px; }
+    @media (max-width: 767px) {
+      .form-horizontal .form-group .control-input {
+        width: 100%; } }
     .form-horizontal .form-group .control-input p {
       padding: 0; }
       @media (max-width: 767px) {
@@ -617,30 +622,53 @@ http://nicolasgallagher.com/micro-clearfix-hack/
           line-height: 22px; } }
     .form-horizontal .form-group .control-input input {
       margin-bottom: 0; }
+  .form-horizontal .form-group .control-btn-text {
+    margin-left: 8px; }
+    @media (max-width: 767px) {
+      .form-horizontal .form-group .control-btn-text {
+        margin-left: 0;
+        margin-top: 8px;
+        width: 100%; } }
+    .form-horizontal .form-group .control-btn-text .btn-submit {
+      padding: 4px 20px;
+      margin-bottom: 0;
+      margin-top: 0; }
+      @media (max-width: 767px) {
+        .form-horizontal .form-group .control-btn-text .btn-submit {
+          padding: 8px 20px; } }
 
 .form-horizontal .btn-submit {
   padding: 4px 20px;
-  margin-bottom: 24px; }
+  margin-right: 0; }
   @media (max-width: 767px) {
     .form-horizontal .btn-submit {
       margin-bottom: 12px; } }
 
-/*.transfer-info{
-    >.form-group{
-        margin-top : 15px;
-        margin-bottom: 15px;
-    }
-}
-#amount {
-    width: 200px;
-}
-#exchange-player-currency {
-    margin-right: 10px;
-}
-#exchange-base-currency{
-    margin-left: 10px;
-}
+.form-horizontal .form-group {
+  max-width: 732px; }
+  @media (max-width: 767px) {
+    .form-horizontal .form-group .control-input {
+      width: 35%;
+      text-align: right; }
+    .form-horizontal .form-group .control-label {
+      width: 65%; } }
 
-#avail-bal, #transfer-limit {
-    margin-right: 15px;
-}*/
+.form-horizontal .btn-submit {
+  padding: 8px 20px;
+  margin-top: 6px; }
+
+.form-horizontal #exchangeRate {
+  display: flex;
+  width: 405px;
+  align-items: center; }
+  .form-horizontal #exchangeRate .control-btn-text {
+    width: 100px; }
+    @media (max-width: 767px) {
+      .form-horizontal #exchangeRate .control-btn-text {
+        margin-left: 8px;
+        margin-top: 0;
+        text-align: center; } }
+
+@media (max-width: 767px) {
+  .form-horizontal .flex-mobile .control-label {
+    width: 100%; } }

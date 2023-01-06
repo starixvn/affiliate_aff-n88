@@ -14,6 +14,10 @@
             margin: 0 0 8px 0;
         }
 
+        &.flex-start {
+            align-items: flex-start;
+        }
+
         &.flex-mobile {
             @include Mobile {
                 flex-wrap: wrap;
@@ -33,7 +37,7 @@
             font-size: 16px;
             line-height: 30px;
             padding: 0;
-            width: 45%;
+            width: 300px;
             margin-right: 8px;
 
             @include Mobile {
@@ -48,7 +52,11 @@
             font-weight: 400;
             font-size: 14px;
             line-height: 30px;
-            width: 55%;
+            width: 321px;
+
+            @include Mobile {
+                width: 100%;
+            }
 
             p {
                 padding: 0;
@@ -63,11 +71,31 @@
                 margin-bottom: 0;
             }
         }
+
+        .control-btn-text {
+            margin-left: 8px;
+
+            @include Mobile {
+                margin-left: 0;
+                margin-top: 8px;
+                width: 100%;
+            }
+
+            .btn-submit {
+                padding: 4px 20px;
+                margin-bottom: 0;
+                margin-top: 0;
+
+                @include Mobile {
+                    padding: 8px 20px;
+                }
+            }
+        }
     }
 
     .btn-submit {
         padding: 4px 20px;
-        margin-bottom: 24px;
+        margin-right: 0;
 
         @include Mobile {
             margin-bottom: 12px;

@@ -8,22 +8,49 @@
 @import "../scss/components/pikaday";
 @import '../scss/components/n88/form-horizontal';
 
-/*.transfer-info{
-    >.form-group{
-        margin-top : 15px;
-        margin-bottom: 15px;
+
+.form-horizontal {
+    .form-group {
+        max-width: 732px;
+
+        @include Mobile {
+            .control-input {
+                width: 35%;
+                text-align: right;
+            }
+
+            .control-label {
+                width: 65%;
+            }
+        }
+    }
+
+    .btn-submit {
+        padding: 8px 20px;
+        margin-top: 6px;
+    }
+
+    #exchangeRate {
+        display: flex;
+        width: 405px;
+        align-items: center;
+
+        .control-btn-text {
+            width: 100px;
+
+            @include Mobile {
+                margin-left: 8px;
+                margin-top : 0;
+                text-align :center;
+            }
+        }
+    }
+
+    .flex-mobile {
+        .control-label {
+            @include Mobile {
+                width: 100%;
+            }
+        }
     }
 }
-#amount {
-    width: 200px;
-}
-#exchange-player-currency {
-    margin-right: 10px;
-}
-#exchange-base-currency{
-    margin-left: 10px;
-}
-
-#avail-bal, #transfer-limit {
-    margin-right: 15px;
-}*/

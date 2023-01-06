@@ -9,5 +9,10 @@
 .form-horizontal {
     .btn-submit {
         padding: 8px 20px;
+        margin-bottom: 24px;
+        margin-top: 6px;
+        @include Mobile{
+            margin-bottom : 12px;
+        }
     }
 }
