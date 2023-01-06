@@ -2121,4 +2121,7 @@
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. CASINO PRODUCTS</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>List Category</value>
+  </data>
 </root>

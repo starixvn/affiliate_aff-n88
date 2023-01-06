@@ -1346,4 +1346,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. PRODUK KASINO</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Senarai Kategori</value>
+  </data>
 </root>

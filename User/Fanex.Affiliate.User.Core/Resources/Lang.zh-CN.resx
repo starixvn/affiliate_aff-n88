@@ -1703,4 +1703,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. 娱乐城</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>列表类别</value>
+  </data>
 </root>

@@ -1686,4 +1686,7 @@
   <data name="CasinoProducts" xml:space="preserve">
     <value>ผลิตภัณฑ์คาสิโน</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>หมวดหมู่รายชื่อ</value>
+  </data>
 </root>

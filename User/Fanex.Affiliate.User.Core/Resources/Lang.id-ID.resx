@@ -1686,4 +1686,7 @@
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. PRODUK CASINO</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Daftar Kategori</value>
+  </data>
 </root>

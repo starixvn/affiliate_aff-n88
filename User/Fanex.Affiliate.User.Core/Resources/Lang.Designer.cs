@@ -2860,6 +2860,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to List Category.
+        /// </summary>
+        public static string ListCategory {
+            get {
+                return ResourceManager.GetString("ListCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lithuania.
         /// </summary>
         public static string Lithuania {

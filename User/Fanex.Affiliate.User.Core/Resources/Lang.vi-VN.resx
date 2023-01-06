@@ -1912,4 +1912,7 @@
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. SẢN PHẨM CASINO</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Danh sách danh mục</value>
+  </data>
 </root>

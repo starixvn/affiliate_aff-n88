@@ -24,10 +24,6 @@
                 });
             })
 
-            $('#left-panel-menu').on('scroll', function (e) {
-                e.stopPropagation();
-            })
-
             $('a.left-menu-item').bind('click', function (e) {
                 window.removeEventListener("scroll", _me.handleActiveLeftMenuByScroll);
                 e.preventDefault();

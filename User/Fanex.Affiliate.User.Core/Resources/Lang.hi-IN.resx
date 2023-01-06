@@ -1940,4 +1940,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="CasinoProducts" xml:space="preserve">
     <value>2. कैसीनो प्राडक्ट</value>
   </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>सूची श्रेणी</value>
+  </data>
 </root>

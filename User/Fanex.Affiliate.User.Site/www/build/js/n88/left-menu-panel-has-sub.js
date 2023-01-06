@@ -26,10 +26,6 @@ var LeftMenuPanel = (function ($) {
                 });
             });
 
-            $('#left-panel-menu').on('scroll', function (e) {
-                e.stopPropagation();
-            });
-
             $('a.parent-menu').click(function (e) {
                 e.preventDefault();
                 $(this).blur();
