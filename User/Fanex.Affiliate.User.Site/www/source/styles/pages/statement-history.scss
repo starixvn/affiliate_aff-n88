@@ -16,6 +16,13 @@
 }
 
 .form-inline .form-group {
+
+    @include Mobile {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
     label {
         font-style: normal;
         font-weight: 600;
@@ -24,11 +31,56 @@
         text-transform: capitalize;
         margin-right: 8px;
         margin-bottom: 0;
+
+        @include Mobile {
+            font-size: 14px;
+            line-height: 22px;
+            margin-right: 0;
+            margin-bottom: 4px;
+        }
     }
 
     .form-control {
         width: 120px;
         margin: 0;
+
+        @include Mobile {
+            width: 100%;
+        }
+    }
+}
+
+@include Mobile {
+    .form-inline {
+        margin-bottom: 0 !important;
+
+        .form-group {
+            flex-direction: column;
+            width: 100%;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            margin-right: 0;
+
+            label {
+                font-size: 14px;
+                line-height: 22px;
+                margin-right: 0;
+                margin-bottom: 4px;
+            }
+
+            .form-control {
+                width: 100%;
+            }
+        }
+    }
+
+    #statementPager {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 12px;
     }
 }
 
