@@ -72,6 +72,9 @@ p {
         border: none; }
         .content-menu .menu li .submenu-container li:not(:last-child) {
           border-right: none; }
+        .content-menu .menu li .submenu-container li:last-child {
+          border-right: none;
+          border-bottom: none; }
   @media (max-width: 767px) {
     .content-menu .content-menu-pc {
       display: none; } }
@@ -136,6 +139,7 @@ p {
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:first-child a {
             border-radius: 4px 4px 0 0; }
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:last-child a {
+            border-right: none;
             border-bottom: none;
             border-radius: 0 0 4px 4px; }
   .content-menu .submenu-container {
@@ -223,38 +227,38 @@ p {
     #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign, .commission-report .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
       cursor: pointer; }
 
-.group-control-seletct-table {
+.group-control-select-table {
   background: #FAFAFA;
   border: 1px solid #BDBDBD;
   padding: 8px;
   margin-bottom: 16px; }
-  .group-control-seletct-table .form-inline {
+  .group-control-select-table .form-inline {
     margin-bottom: 0;
     display: flex;
     align-items: center;
     gap: 20px; }
     @media (max-width: 767px) {
-      .group-control-seletct-table .form-inline {
+      .group-control-select-table .form-inline {
         display: unset; } }
     @media (max-width: 767px) {
-      .group-control-seletct-table .form-inline .form-group {
+      .group-control-select-table .form-inline .form-group {
         margin-bottom: 8px; } }
-    .group-control-seletct-table .form-inline .form-group .form-control {
+    .group-control-select-table .form-inline .form-group .form-control {
       padding: 4px 8px;
       margin-bottom: 0; }
-    .group-control-seletct-table .form-inline .form-group select {
+    .group-control-select-table .form-inline .form-group select {
       width: 120px;
       background: #FFFFFF;
       border: 1px solid #9E9E9E;
       border-radius: 4px; }
       @media (max-width: 767px) {
-        .group-control-seletct-table .form-inline .form-group select {
+        .group-control-select-table .form-inline .form-group select {
           width: 100%; } }
-    .group-control-seletct-table .form-inline .form-group label {
+    .group-control-select-table .form-inline .form-group label {
       margin-bottom: 0;
       margin-right: 8px !important; }
       @media (max-width: 767px) {
-        .group-control-seletct-table .form-inline .form-group label {
+        .group-control-select-table .form-inline .form-group label {
           margin-bottom: 8px; } }
 
 .btn-submit {
@@ -567,18 +571,76 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   color: #924c4c;
   cursor: pointer; }
 
-.transfer-info > .form-group {
-  margin-top: 15px;
-  margin-bottom: 15px; }
+.form-horizontal .form-group {
+  margin: 0 0 16px 0;
+  align-items: center;
+  justify-content: flex-start;
+  color: #333;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  max-width: 580px;
+  width: 100%; }
+  @media (max-width: 767px) {
+    .form-horizontal .form-group {
+      margin: 0 0 8px 0; } }
+  @media (max-width: 767px) {
+    .form-horizontal .form-group.flex-mobile {
+      flex-wrap: wrap; }
+      .form-horizontal .form-group.flex-mobile .control-label {
+        margin-bottom: 4px; }
+      .form-horizontal .form-group.flex-mobile .control-input {
+        width: 100%; } }
+  .form-horizontal .form-group .control-label {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 0;
+    width: 45%;
+    margin-right: 8px; }
+    @media (max-width: 767px) {
+      .form-horizontal .form-group .control-label {
+        font-size: 14px;
+        width: 100%;
+        margin-bottom: 0;
+        line-height: 22px; } }
+  .form-horizontal .form-group .control-input {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 30px;
+    width: 55%; }
+    .form-horizontal .form-group .control-input p {
+      padding: 0; }
+      @media (max-width: 767px) {
+        .form-horizontal .form-group .control-input p {
+          text-align: right;
+          line-height: 22px; } }
+    .form-horizontal .form-group .control-input input {
+      margin-bottom: 0; }
 
+.form-horizontal .btn-submit {
+  padding: 4px 20px;
+  margin-bottom: 24px; }
+  @media (max-width: 767px) {
+    .form-horizontal .btn-submit {
+      margin-bottom: 12px; } }
+
+/*.transfer-info{
+    >.form-group{
+        margin-top : 15px;
+        margin-bottom: 15px;
+    }
+}
 #amount {
-  width: 200px; }
-
+    width: 200px;
+}
 #exchange-player-currency {
-  margin-right: 10px; }
-
-#exchange-base-currency {
-  margin-left: 10px; }
+    margin-right: 10px;
+}
+#exchange-base-currency{
+    margin-left: 10px;
+}
 
 #avail-bal, #transfer-limit {
-  margin-right: 15px; }
+    margin-right: 15px;
+}*/

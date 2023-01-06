@@ -71,6 +71,9 @@ p {
         border: none; }
         .content-menu .menu li .submenu-container li:not(:last-child) {
           border-right: none; }
+        .content-menu .menu li .submenu-container li:last-child {
+          border-right: none;
+          border-bottom: none; }
   @media (max-width: 767px) {
     .content-menu .content-menu-pc {
       display: none; } }
@@ -135,6 +138,7 @@ p {
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:first-child a {
             border-radius: 4px 4px 0 0; }
           .content-menu .content-menu-mobile .dropdown-content-menu .parent .sub-menu-content li:last-child a {
+            border-right: none;
             border-bottom: none;
             border-radius: 0 0 4px 4px; }
   .content-menu .submenu-container {
@@ -277,7 +281,7 @@ p {
       box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
       margin-right: 0; } }
 
-#requestPayoutForm .form-group {
+.form-horizontal .form-group {
   margin: 0 0 16px 0;
   align-items: center;
   justify-content: flex-start;
@@ -288,45 +292,48 @@ p {
   max-width: 580px;
   width: 100%; }
   @media (max-width: 767px) {
-    #requestPayoutForm .form-group {
+    .form-horizontal .form-group {
       margin: 0 0 8px 0; } }
   @media (max-width: 767px) {
-    #requestPayoutForm .form-group.flex-mobile {
+    .form-horizontal .form-group.flex-mobile {
       flex-wrap: wrap; }
-      #requestPayoutForm .form-group.flex-mobile .control-label {
+      .form-horizontal .form-group.flex-mobile .control-label {
         margin-bottom: 4px; }
-      #requestPayoutForm .form-group.flex-mobile .control-input {
+      .form-horizontal .form-group.flex-mobile .control-input {
         width: 100%; } }
-  #requestPayoutForm .form-group .control-label {
+  .form-horizontal .form-group .control-label {
     font-weight: 600;
     font-size: 16px;
     line-height: 30px;
     padding: 0;
     width: 45%;
-    margin-right: 16px; }
+    margin-right: 8px; }
     @media (max-width: 767px) {
-      #requestPayoutForm .form-group .control-label {
+      .form-horizontal .form-group .control-label {
         font-size: 14px;
         width: 100%;
         margin-bottom: 0;
         line-height: 22px; } }
-  #requestPayoutForm .form-group .control-input {
+  .form-horizontal .form-group .control-input {
     font-weight: 400;
     font-size: 14px;
     line-height: 30px;
     width: 55%; }
-    #requestPayoutForm .form-group .control-input p {
+    .form-horizontal .form-group .control-input p {
       padding: 0; }
       @media (max-width: 767px) {
-        #requestPayoutForm .form-group .control-input p {
+        .form-horizontal .form-group .control-input p {
           text-align: right;
           line-height: 22px; } }
-    #requestPayoutForm .form-group .control-input input {
+    .form-horizontal .form-group .control-input input {
       margin-bottom: 0; }
 
-#requestPayoutForm .btn-submit {
-  padding: 8px 20px;
+.form-horizontal .btn-submit {
+  padding: 4px 20px;
   margin-bottom: 24px; }
   @media (max-width: 767px) {
-    #requestPayoutForm .btn-submit {
+    .form-horizontal .btn-submit {
       margin-bottom: 12px; } }
+
+.form-horizontal .btn-submit {
+  padding: 8px 20px; }

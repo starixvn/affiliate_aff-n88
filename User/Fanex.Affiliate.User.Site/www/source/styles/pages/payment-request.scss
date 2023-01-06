@@ -4,80 +4,10 @@
 @import '../scss/components/n88/content-menu';
 @import '../scss/components/n88/table-sticky';
 @import '../scss/components/n88/group-control';
+@import '../scss/components/n88/form-horizontal';
 
-#requestPayoutForm {
-    .form-group {
-        margin: 0 0 16px 0;
-        align-items: center;
-        justify-content: flex-start;
-        color: #333;
-        display: flex;
-        flex-wrap: nowrap;
-        gap: 0;
-        max-width: 580px;
-        width: 100%;
-
-        @include Mobile {
-            margin: 0 0 8px 0;
-        }
-
-        &.flex-mobile {
-            @include Mobile {
-                flex-wrap: wrap;
-
-                .control-label {
-                    margin-bottom: 4px;
-                }
-
-                .control-input {
-                    width: 100%;
-                }
-            }
-        }
-
-        .control-label {
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 30px;
-            padding: 0;
-            width: 45%;
-            margin-right: 16px;
-
-            @include Mobile {
-                font-size: 14px;
-                width: 100%;
-                margin-bottom: 0;
-                line-height: 22px;
-            }
-        }
-
-        .control-input {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 30px;
-            width: 55%;
-
-            p {
-                padding: 0;
-
-                @include Mobile {
-                    text-align: right;
-                    line-height: 22px;
-                }
-            }
-
-            input {
-                margin-bottom: 0;
-            }
-        }
-    }
-
+.form-horizontal {
     .btn-submit {
         padding: 8px 20px;
-        margin-bottom: 24px;
-
-        @include Mobile {
-            margin-bottom: 12px;
-        }
     }
 }
