@@ -1131,6 +1131,10 @@ select.form-control {
         left: 1rem;
         padding: 0.2rem 0.8rem;
 
+        &.fixed {
+            top: 4rem;
+        }
+
         span {
             font-weight: 600;
             font-size: 1.4rem;

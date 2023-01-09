@@ -18,6 +18,15 @@ var LayoutN88 = (function ($) {
                     $('.navbar-header').toggleClass('menu-open');
                 }
             });
+            $(window).scroll(function () {
+                var aTop = 111;
+                if ($(this).scrollTop() >= aTop) {
+                    $(".mobile-left-panel").addClass("fixed");
+                }
+                else {
+                    $(".mobile-left-panel").removeClass("fixed");
+                }
+            });
         },
 
         handleBindingClickBodyEvent: function handleBindingClickBodyEvent() {

@@ -554,9 +554,9 @@ $height-hotnew: 30px;
                     width: 100%;
                 }
 
-                &.website-info {                    
-                  
-                    
+                &.website-info {
+
+
 
                     .radio-inline {
                         margin-left: 0;
@@ -581,12 +581,13 @@ $height-hotnew: 30px;
                 margin: 0;
 
                 &.half-col {
-                    width: 49%;
+                    width: 43%;
                     display: flex;
                     flex-wrap: wrap;
 
                     &-left {
                         margin-right: 2%;
+                        width: 55%;
                     }
                 }
 
@@ -638,9 +639,10 @@ $height-hotnew: 30px;
                     padding: 0;
                 }
 
-                .radio-inline {                    
-                    margin-right:5px;
-                    &:last-child{
+                .radio-inline {
+                    margin-right: 5px;
+
+                    &:last-child {
                         margin-right: 0;
                     }
 

@@ -727,6 +727,8 @@ select.form-control:focus {
     right: auto;
     left: 1rem;
     padding: 0.2rem 0.8rem; }
+    .mobile-left-panel.fixed {
+      top: 4rem; }
     .mobile-left-panel span {
       font-weight: 600;
       font-size: 1.4rem;

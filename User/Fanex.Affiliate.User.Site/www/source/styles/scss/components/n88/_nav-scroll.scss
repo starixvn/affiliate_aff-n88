@@ -146,6 +146,11 @@
         left: 6.2rem;
         z-index: 1;
         cursor: pointer;
+        transition: 0.2s;
+
+        &.fixed {
+            top: 5rem;
+        }
 
         span {
             font-weight: 600;

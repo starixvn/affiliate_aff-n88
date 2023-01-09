@@ -1112,11 +1112,12 @@ body {
     .main .content.sign-up-page .form-group {
       margin: 0; }
       .main .content.sign-up-page .form-group.half-col {
-        width: 49%;
+        width: 43%;
         display: flex;
         flex-wrap: wrap; }
         .main .content.sign-up-page .form-group.half-col-left {
-          margin-right: 2%; }
+          margin-right: 2%;
+          width: 55%; }
       .main .content.sign-up-page .form-group.has-error .control-label {
         color: #C80013; }
       .main .content.sign-up-page .form-group.has-error .form-control {
@@ -2382,7 +2383,10 @@ input[type="radio"], input[type="checkbox"] {
       right: auto;
       left: 6.2rem;
       z-index: 1;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: 0.2s; }
+      .mobile-left-panel.fixed {
+        top: 5rem; }
       .mobile-left-panel span {
         font-weight: 600;
         font-size: 1.6rem;
