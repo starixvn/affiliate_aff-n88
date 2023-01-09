@@ -104,6 +104,11 @@
 
 .text-block-bottom {
     margin: 24px auto 0;
+    font-size: 16px;
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
 }
 
 .product-page .info-group table tr {

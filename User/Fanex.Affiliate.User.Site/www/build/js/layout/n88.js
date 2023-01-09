@@ -36,7 +36,7 @@ var LayoutN88 = (function ($) {
                 $('body').unbind("click");
                 isOpenMenuMobile = false;
             } else {
-                $('body').bind('click', function () {
+                $('.overlay').click( function () {
                     if (isOpenMenuMobile) {
                         _me.handleClickOutAfterOpenMenu();
                     } else {

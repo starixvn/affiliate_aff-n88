@@ -169,7 +169,7 @@
 
             <div class="form-horizontal">
                 <div class="form-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 full">
                         <label class="radio-inline">
                             <input type="radio" name="HasWebSite" id="hasWebSite" value="True" @(string.IsNullOrEmpty(Model.AccountInformation.SiteUrl) ? string.Empty : "checked") /><span> @Lang.OwnWebsite</span>
                         </label>
@@ -237,7 +237,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-4">
+                    <div class="col-sm-4 full">
                         <label class="radio-inline">
                             <input type="radio" name="HasWebSite" id="hasNoWebSite" value="False" @(string.IsNullOrEmpty(Model.AccountInformation.SiteUrl) ? "checked" : string.Empty)><span> @Lang.NoWebsite</span>
                         </label>

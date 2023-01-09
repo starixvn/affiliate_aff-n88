@@ -50,7 +50,7 @@
 
             .info-group {
                 margin-top: 25px;
-                margin-bottom: -6px; 
+                margin-bottom: -6px;
 
                 .title {
                     padding-bottom: 3px;
@@ -94,7 +94,8 @@
                 .col-sm-4 {
                     width: 38%;
                     padding: 0 17px 0 0;
-                    &.full{
+
+                    &.full {
                         width: 100%;
                     }
                 }
@@ -138,7 +139,7 @@
             }
 
             #websiteInfo {
-                .btn-add-web {
+                .btn-submit {
                     background: #FFF3ED;
                     border: 1px solid #BF4600;
                     border-radius: 4px;
@@ -147,7 +148,7 @@
                     height: 30px;
                     margin: 0;
 
-                    span {
+                    .glyphicon-plus {
                         position: relative;
                         width: 16px;
                         height: 16px;
@@ -167,6 +168,28 @@
                             top: 3px;
                             left: 7px;
                         }
+
+                        &:after {
+                            position: absolute;
+                            width: 9px;
+                            height: 1px;
+                            border-radius: 1px;
+                            content: "";
+                            background: #BF4600;
+                            top: 7px;
+                            left: 3px;
+                        }
+                    }
+
+                    .glyphicon-minus {
+                        position: relative;
+                        width: 16px;
+                        height: 16px;
+                        border: 1px solid #BF4600;
+                        border-radius: 10px;
+                        display: block;
+                        top: 0;
+                        left: 0; 
 
                         &:after {
                             position: absolute;
@@ -579,6 +602,7 @@ $height-hotnew: 30px;
 
             .form-group {
                 margin: 0;
+                position: relative;
 
                 &.half-col {
                     width: 43%;
@@ -631,7 +655,6 @@ $height-hotnew: 30px;
                     line-height: 22px;
                     text-align: left;
                     margin-bottom: 1px;
-                    height: 28px;
                 }
 
                 .col-sm-4 {
@@ -703,7 +726,7 @@ $height-hotnew: 30px;
                     right: 0;
                 }
 
-                .btn-add-web {
+                .btn-submit {
                     background: #FFF3ED;
                     border: 1px solid #BF4600;
                     border-radius: 4px;
@@ -712,7 +735,7 @@ $height-hotnew: 30px;
                     height: 23px;
                     margin: 0;
 
-                    span {
+                    .glyphicon-plus {
                         width: 13px;
                         height: 13px;
 
@@ -734,6 +757,17 @@ $height-hotnew: 30px;
                             border-radius: 1px;
                             content: "";
                             background: #BF4600;
+                            top: 5px;
+                            left: 2px;
+                        }
+                    }
+
+                    .glyphicon-minus {
+                        width: 13px;
+                        height: 13px;
+
+                        &:after {
+                            width: 7px;                           
                             top: 5px;
                             left: 2px;
                         }

@@ -24,7 +24,7 @@
 
 .overflow-left-panel {
     overflow: hidden;
-
+    height: 100vh;
     &:after {
         content: "";
         display: block;
