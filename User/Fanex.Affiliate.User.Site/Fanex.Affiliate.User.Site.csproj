@@ -853,6 +853,10 @@
     <Content Include="www\build\styles\css\maintenance.min.css">
       <DependentUpon>maintenance.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\main\n88-after-login.css" />
+    <Content Include="www\build\styles\css\main\n88-after-login.min.css">
+      <DependentUpon>n88-after-login.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\main\n88.css" />
     <Content Include="www\build\styles\css\main\n88.min.css">
       <DependentUpon>n88.css</DependentUpon>
@@ -1543,6 +1547,7 @@
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
     <Content Include="www\source\styles\pages\N88\verification-account.scss" />
     <Content Include="www\source\styles\scss\components\n88\_form-horizontal.scss" />
+    <Content Include="www\source\styles\scss\main\n88-after-login.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
