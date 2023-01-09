@@ -144,6 +144,8 @@ var UserPanelN88 = (function ($) {
         initEvent: function () {
             $('.show-name-menu').click(function () {
                 $('.dropdown-content-menu').toggleClass('active');
+                $('.dropdown-content-menu li a').removeClass('active');
+                $('.parent ul').removeClass('active');
             });
             $('.dropdown-content-menu li a').click(function () {
                 var str = $(this).text();
@@ -156,13 +158,14 @@ var UserPanelN88 = (function ($) {
             });
 
             $('.sub-menu-content li a').click(function () {
+
                 var str = $(this).text();
                 $('.show-name-menu').html(str);
             })
 
             $('.content-dropdown-icon').click(function () {
-                $('.parent').find('ul').removeClass('active');
-                $(this).parent().parent().find('ul').addClass('active');
+                $('.parent ul').removeClass('active');
+                $(this).parent().parent().find('ul').toggleClass('active');
             })
         }
     };
