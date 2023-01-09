@@ -5,11 +5,12 @@
 @Html.InlineStyles("~/www/build/styles/css/statistics.css")
 
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics.LandingPageStatisticsViewModel
-    <div class="sub-content">
-        <div class="page-title">
-            <span class="text">@Lang.LandingPages</span>
-        </div>
-        <div class="info-group">
+<div class="sub-content">
+    <div class="page-title">
+        <span class="text">@Lang.LandingPages</span>
+    </div>
+    <div class="info-group">
+        <div class="group-control-select-table">
             <form class="form-inline form-filter">
                 <div class="form-group">
                     <label>@Lang.Device:</label>
@@ -40,9 +41,6 @@
                         }
                     </select>
                 </div>
-            </form>
-
-            <form class="form-inline form-filter">
                 <div class="form-group">
                     <label>@Lang.From:</label>
                     <div id="fromPicker" class="date-wrapper">
@@ -59,17 +57,17 @@
                 </div>
                 <button type="button" class="btn btn-submit btn-statistics" id="btnStatisticsSubmit">@Lang.Submit</button>
             </form>
+        </div>
+        <div class="report-container">
+            <div class="table table-medium overview-table" id="statisticsTable">
+                @{ Html.RenderPartial("~/Views/UserPanel/Statistics/StatisticsPartial/_LandingPageStatisticsContent.cshtml", Model); }
+            </div>
 
-            <div class="report-container">
-                <div class="table table-medium table-responsive" id="statisticsTable">
-                    @{ Html.RenderPartial("~/Views/UserPanel/Statistics/StatisticsPartial/_LandingPageStatisticsContent.cshtml", Model); }
-                </div>
-
-                <div id="statisticsDetailPager"></div>
-                <div class="table table-medium detail table-paging" id="statisticsDetailTable">
-                </div>
+            <div id="statisticsDetailPager"></div>
+            <div class="table table-medium detail table-paging overview-table" id="statisticsDetailTable">
             </div>
         </div>
-
-        <script src="@Url.RenderLink("~/www/build/js/landingpagestatistics.js")"></script>
     </div>
+
+    <script src="@Url.RenderLink("~/www/build/js/landingpagestatistics.js")"></script>
+</div>

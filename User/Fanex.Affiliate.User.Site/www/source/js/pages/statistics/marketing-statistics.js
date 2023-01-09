@@ -18,8 +18,7 @@
     }
 
     function toggleCollapseButton(btn) {
-        $(btn).children("span").toggleClass("glyphicon-chevron-right");
-        $(btn).children("span").toggleClass("glyphicon-chevron-down");
+        $(btn).toggleClass("active-btn");
     }
 
     function toggleChildrenElem(children) {

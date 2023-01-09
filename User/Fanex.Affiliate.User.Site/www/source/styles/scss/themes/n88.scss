@@ -419,7 +419,7 @@ header {
 .table table {
     tr {
         background: $table-bg-color;
-        color: $table-color;
+        color: #333333;
 
         &:hover {
             background: $table-row-bg-color-hover;

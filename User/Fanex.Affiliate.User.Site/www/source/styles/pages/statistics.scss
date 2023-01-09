@@ -1,8 +1,12 @@
 ﻿@import "../scss/components/pager";
 @import "../scss/components/pikaday";
+@import "../scss/components/pager";
+@import '../scss/base/base';
+@import '../scss/components/n88/table-sticky';
+@import '../scss/components/n88/group-control';
 
 .btn-statistics {
-    margin-bottom: 5px;
+    margin-right: 0;
 }
 
 #statisticsDetailTable {
@@ -13,21 +17,86 @@
     width: 70%;
     margin-top: 30px;
 
+    @include TableAndMobile {
+        width: 100%;
+    }
+
     & + #statisticsDetailTable {
         margin-top: 0;
     }
 }
 
-.date-wrapper {
-    display: inline-block;
+.form-filter {
+    flex-wrap: wrap;
+
+    .form-group {
+        margin-right: 0;
+
+        .date-wrapper {
+            display: flex;
+
+            .glyphicon-calendar {
+                font-size: 14px;
+                width: 30px;
+                height: 30px;
+                color: #FF5D00;
+                cursor: pointer;
+                background: #FFF3ED;
+                border-radius: 4px;
+                margin-left: 12px;
+                margin-right: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @include Mobile {
+                    margin: 0 8px;
+                }
+            }
+        }
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+
+            .date-wrapper .glyphicon-calendar {
+                margin-right: 0;
+            }
+        }
+    }
 }
 
-.form-filter {
-    .form-group {
-        width: 320px;
+.overview-table {
+    width: 70%;
+    margin: 0;
+
+    @include TableAndMobile {
+        width: 100%;
     }
 }
 
 #TrackingCode {
     width: 150px;
+}
+
+.marketing-statistics {
+    width: 100%;
+
+    table {
+        td {
+            background-color: #FFFFFF;
+        }
+
+        .parent-tr {
+            td {
+                background: #EEEEEE !important;
+                font-weight: 400;
+            }
+
+            td:nth-child(2) {
+                color: #025EB1;
+            }
+        }
+    }
 }

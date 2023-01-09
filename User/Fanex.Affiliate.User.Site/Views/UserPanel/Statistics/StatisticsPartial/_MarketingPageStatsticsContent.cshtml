@@ -15,8 +15,7 @@
             <div class="flex">
                 <span class="flex-0">@channelName</span>
                 <div class="flex-middle">
-                    <button class="btn btn-transparent">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    <button class="btn btn-transparent btn-dropdown-table">
                     </button>
                 </div>
             </div>
@@ -33,7 +32,7 @@
 
 @helper RenderLinkRow(MarketingPageStatistics link)
 {
-    <tr data-parent="@link.ChannelName" class="display-none">
+    <tr data-parent="@link.ChannelName" class="display-none parent-tr">
         <td></td>
         <td>@link.AffMediaLink</td>
         <td class="text-center">@link.MarketName</td>

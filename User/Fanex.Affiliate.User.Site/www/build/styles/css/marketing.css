@@ -295,9 +295,11 @@ p {
   @media (max-width: 767px) {
     .link-statistic table {
       font-size: 12px; } }
-  .link-statistic table td a {
-    color: #025EB1;
-    text-decoration: none; }
+  .link-statistic table td {
+    background-color: #FFFFFF; }
+    .link-statistic table td a {
+      color: #025EB1;
+      text-decoration: none; }
   .link-statistic table .parent-tr td {
     background: #EEEEEE;
     font-weight: 400; }

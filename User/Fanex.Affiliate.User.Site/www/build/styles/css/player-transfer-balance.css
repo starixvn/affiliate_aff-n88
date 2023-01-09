@@ -246,13 +246,13 @@ p {
     .group-control-select-table .form-inline .form-group .form-control {
       padding: 4px 8px;
       margin-bottom: 0; }
-    .group-control-select-table .form-inline .form-group select {
+    .group-control-select-table .form-inline .form-group select, .group-control-select-table .form-inline .form-group .date-wrapper .form-control {
       width: 120px;
       background: #FFFFFF;
       border: 1px solid #9E9E9E;
       border-radius: 4px; }
       @media (max-width: 767px) {
-        .group-control-select-table .form-inline .form-group select {
+        .group-control-select-table .form-inline .form-group select, .group-control-select-table .form-inline .form-group .date-wrapper .form-control {
           width: 100%; } }
     .group-control-select-table .form-inline .form-group label {
       margin-bottom: 0;

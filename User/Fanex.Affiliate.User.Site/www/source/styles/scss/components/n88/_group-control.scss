@@ -24,7 +24,7 @@
                 margin-bottom: 0;
             }
 
-            select {
+            select, .date-wrapper .form-control {
                 width: 120px;
                 background: #FFFFFF;
                 border: 1px solid #9E9E9E;
@@ -57,9 +57,11 @@
     font-size: 14px;
     line-height: 22px;
     text-transform: uppercase;
-    &.disabled{
-        pointer-events : auto !important;
+
+    &.disabled {
+        pointer-events: auto !important;
     }
+
     &:hover {
         box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
     }
@@ -68,6 +70,6 @@
         padding: 8px 20px;
         width: 100%;
         box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
-        margin-right : 0;
+        margin-right: 0;
     }
 }
