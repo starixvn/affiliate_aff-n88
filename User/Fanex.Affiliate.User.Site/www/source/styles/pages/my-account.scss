@@ -301,9 +301,6 @@
             }
 
             &.website-info {
-
-
-
                 .radio-inline {
                     margin-left: 0;
                 }
@@ -337,18 +334,7 @@
                     width: 55%;
                 }
             }
-
-            &.has-error {
-                .control-label {
-                    color: #C80013;
-                }
-
-                .form-control {
-                    background: #FFE9EB;
-                    border: 1px solid #C80013;
-                }
-            }
-
+                
 
             .preference-validation .captcha {
                 vertical-align: top;
@@ -363,12 +349,7 @@
             .form-control {
                 color: #616161;
                 margin-bottom: 4px;
-                box-shadow: none;
-
-                &[disabled] {
-                    background: #F5F5F5;
-                    border: 1px solid #9E9E9E;
-                }
+                box-shadow: none;               
             }
 
             .control-label {

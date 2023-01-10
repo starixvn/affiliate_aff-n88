@@ -16,6 +16,15 @@
                     $('.navbar-header').toggleClass('menu-open');
                 }
             });
+            $(window).scroll(function () {
+                var aTop = 111;
+                if ($(this).scrollTop() >= aTop) {
+                    $(".mobile-left-panel").addClass("fixed");
+                }
+                else {
+                    $(".mobile-left-panel").removeClass("fixed");
+                }
+            });
         },
 
         handleBindingClickBodyEvent: function () {
@@ -25,7 +34,7 @@
                 $('body').unbind("click");
                 isOpenMenuMobile = false;
             } else {
-                $('body').bind('click', function () {
+                $('.overlay').click(function () {
                     if (isOpenMenuMobile) {
                         _me.handleClickOutAfterOpenMenu();
                     } else {

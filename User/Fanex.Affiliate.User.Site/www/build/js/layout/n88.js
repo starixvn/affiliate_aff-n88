@@ -22,8 +22,7 @@ var LayoutN88 = (function ($) {
                 var aTop = 111;
                 if ($(this).scrollTop() >= aTop) {
                     $(".mobile-left-panel").addClass("fixed");
-                }
-                else {
+                } else {
                     $(".mobile-left-panel").removeClass("fixed");
                 }
             });
@@ -36,7 +35,7 @@ var LayoutN88 = (function ($) {
                 $('body').unbind("click");
                 isOpenMenuMobile = false;
             } else {
-                $('.overlay').click( function () {
+                $('.overlay').click(function () {
                     if (isOpenMenuMobile) {
                         _me.handleClickOutAfterOpenMenu();
                     } else {

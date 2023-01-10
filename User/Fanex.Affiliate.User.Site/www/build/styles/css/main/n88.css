@@ -2442,8 +2442,7 @@ input[type="radio"], input[type="checkbox"] {
   border: 1px solid #C80013; }
 
 .overflow-left-panel {
-  overflow: hidden;
-  height: 100vh; }
+  overflow: hidden; }
   .overflow-left-panel:after {
     content: "";
     display: block;

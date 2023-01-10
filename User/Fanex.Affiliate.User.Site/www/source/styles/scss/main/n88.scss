@@ -23,8 +23,7 @@
 @import '../components/n88/alert';
 
 .overflow-left-panel {
-    overflow: hidden;
-    height: 100vh;
+    overflow: hidden; 
     &:after {
         content: "";
         display: block;

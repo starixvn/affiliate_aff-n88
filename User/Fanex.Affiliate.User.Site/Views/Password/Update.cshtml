@@ -15,7 +15,9 @@
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
     @Html.InlineScripts("~/www/build/js/pages/changepassword.js")
 }
-
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/N88/update-password.css")
+}
 <div class="sub-content" style="padding-bottom: 30px;">
     <div class="page-title">
         <span class="text">@Lang.ChangePass</span>
@@ -39,9 +41,9 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label require">@Lang.NewPass</label>
                 <div class="col-sm-3">
-                    <input autocomplete="off" class="form-control" 
-                           data-val="true" 
-                           data-val-regex="@Lang.PassCheck" data-val-regex-pattern="^(?=.*\d+.*\d+)(?=.*[a-zA-Z].*[a-zA-Z]).{6,}$" 
+                    <input autocomplete="off" class="form-control"
+                           data-val="true"
+                           data-val-regex="@Lang.PassCheck" data-val-regex-pattern="^(?=.*\d+.*\d+)(?=.*[a-zA-Z].*[a-zA-Z]).{6,}$"
                            data-val-required="@Lang.NewPasswordisre" id="NewPassword" name="NewPassword" type="password" />
                 </div>
                 <div class="col-sm-offset-3 col-sm-9">
@@ -59,7 +61,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-5">
+                <div class="col-sm-offset-3 col-sm-5 button-block">
                     <button type="submit" id="btnSubmit" class="btn btn-submit">@Lang.Submit</button>
                     <button type="button" id="btnCancel" class="btn btn-submit">@Lang.Cancel</button>
                 </div>
