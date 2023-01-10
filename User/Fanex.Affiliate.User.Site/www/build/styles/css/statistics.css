@@ -589,10 +589,13 @@ p {
 
 #statisticsDetailPager {
   width: 70%;
-  margin-top: 30px; }
+  margin: 4rem 0 1.6rem; }
   @media screen and (max-width: 1024px) {
     #statisticsDetailPager {
       width: 100%; } }
+  @media (max-width: 767px) {
+    #statisticsDetailPager {
+      margin: 2.4rem 0 .8rem; } }
   #statisticsDetailPager + #statisticsDetailTable {
     margin-top: 0; }
 
