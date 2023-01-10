@@ -113,6 +113,29 @@ p {
     #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign, .commission-report .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
       cursor: pointer; }
 
+.marketing-table {
+  overflow-x: auto; }
+  .marketing-table .stt {
+    width: 100px; }
+    @media (max-width: 767px) {
+      .marketing-table .stt {
+        width: 50px; } }
+  .marketing-table .lang, .marketing-table .number-of-link {
+    width: 150px; }
+    @media (max-width: 767px) {
+      .marketing-table .lang, .marketing-table .number-of-link {
+        width: 100px; } }
+  .marketing-table .channel {
+    width: 500px; }
+    @media (max-width: 767px) {
+      .marketing-table .channel {
+        width: 440px; } }
+  .marketing-table tr td {
+    white-space: unset; }
+    .marketing-table tr td:last-child a {
+      display: block;
+      text-align: center; }
+
 .group-control-select-table {
   background: #FAFAFA;
   border: 1px solid #BDBDBD;

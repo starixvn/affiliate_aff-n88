@@ -209,7 +209,7 @@ p {
       gap: 8px; } }
   .qr-code .qr-panel .qr-item {
     margin: 0;
-    width: 294px; }
+    width: 291px; }
     @media (max-width: 767px) {
       .qr-code .qr-panel .qr-item {
         width: 100%; } }

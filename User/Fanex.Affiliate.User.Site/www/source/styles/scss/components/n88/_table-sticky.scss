@@ -126,3 +126,44 @@
         }
     }
 }
+
+.marketing-table {
+    overflow-x: auto;
+
+    .stt {
+        width: 100px;
+
+        @include Mobile {
+            width: 50px;
+        }
+    }
+
+    .lang, .number-of-link {
+        width: 150px;
+
+        @include Mobile {
+            width: 100px;
+        }
+    }
+
+    .channel {
+        width: 500px;
+
+        @include Mobile {
+            width: 440px;
+        }
+    }
+
+    tr {
+        td {
+            white-space: unset;
+
+            &:last-child {
+                a {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

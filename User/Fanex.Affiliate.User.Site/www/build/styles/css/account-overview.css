@@ -16,7 +16,8 @@
     top: 35px;
     font-weight: 600;
     font-size: 14px;
-    line-height: 22px; }
+    line-height: 22px;
+    overflow: hidden; }
     #monthPicker .mp-container * {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
@@ -639,6 +640,29 @@ ul.dash-style {
     #player-detail-table .th-wrapper.col-comm .info-container > .glyphicon-info-sign, .commission-report .th-wrapper.col-comm .info-container > .glyphicon-info-sign {
       cursor: pointer; }
 
+.marketing-table {
+  overflow-x: auto; }
+  .marketing-table .stt {
+    width: 100px; }
+    @media (max-width: 767px) {
+      .marketing-table .stt {
+        width: 50px; } }
+  .marketing-table .lang, .marketing-table .number-of-link {
+    width: 150px; }
+    @media (max-width: 767px) {
+      .marketing-table .lang, .marketing-table .number-of-link {
+        width: 100px; } }
+  .marketing-table .channel {
+    width: 500px; }
+    @media (max-width: 767px) {
+      .marketing-table .channel {
+        width: 440px; } }
+  .marketing-table tr td {
+    white-space: unset; }
+    .marketing-table tr td:last-child a {
+      display: block;
+      text-align: center; }
+
 .account-overview .menu {
   display: flex;
   white-space: nowrap;
@@ -670,6 +694,13 @@ ul.dash-style {
     color: #333333; }
     .account-overview .bg-orange .text:not(:last-child) {
       border-right: 1px solid #ADB5BD; }
+    @media (max-width: 767px) {
+      .account-overview .bg-orange .text:first-child {
+        width: 100%;
+        display: block;
+        border-right: none; }
+      .account-overview .bg-orange .text:nth-child(2) {
+        padding-left: 0; } }
 
 .summary .form-group {
   margin-bottom: 0; }

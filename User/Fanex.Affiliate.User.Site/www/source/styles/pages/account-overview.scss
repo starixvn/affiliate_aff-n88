@@ -55,6 +55,16 @@
             &:not(:last-child) {
                 border-right: 1px solid #ADB5BD;
             }
+            @include Mobile{
+                &:first-child{
+                    width : 100%;
+                    display : block;
+                    border-right : none;
+                }
+                &:nth-child(2){
+                    padding-left : 0;
+                }
+            }
         }
     }
 }
