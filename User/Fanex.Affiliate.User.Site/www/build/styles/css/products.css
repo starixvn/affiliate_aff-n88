@@ -84,7 +84,7 @@
     max-width: 1540px;
     margin: 0 auto; }
     .table-casino .table-responsive tr:nth-child(even) {
-      background-color: #FFF3ED; }
+      background-color: #FFF3ED !important; }
     @media (max-width: 768px) {
       .table-casino .table-responsive {
         max-width: 688px;

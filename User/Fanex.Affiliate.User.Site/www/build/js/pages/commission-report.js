@@ -105,7 +105,7 @@ var commissionReport = (function ($) {
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
             }
             else {
-                $('#reportData').html('<tr class="noInfo"><td class="text-center" colspan=' + (langResource.isMaxLevel ? "14" : "15") + '>' + langResource.noInfo + '</td></tr>');
+                $('#reportData').html('<tr class="noInfo"><td class="text-center no-info" colspan=' + (langResource.isMaxLevel ? "14" : "15") + '>' + langResource.noInfo + '</td></tr>');
             }
         },
 

@@ -26,47 +26,6 @@
     }
 }
 
-.form-filter {
-    flex-wrap: wrap;
-
-    .form-group {
-        margin-right: 0;
-
-        .date-wrapper {
-            display: flex;
-
-            .glyphicon-calendar {
-                font-size: 14px;
-                width: 30px;
-                height: 30px;
-                color: #FF5D00;
-                cursor: pointer;
-                background: #FFF3ED;
-                border-radius: 4px;
-                margin-left: 12px;
-                margin-right: 0;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                @include Mobile {
-                    margin: 0 8px;
-                }
-            }
-        }
-
-        @include Mobile {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-
-            .date-wrapper .glyphicon-calendar {
-                margin-right: 0;
-            }
-        }
-    }
-}
-
 .overview-table {
     width: 70%;
     margin: 0;

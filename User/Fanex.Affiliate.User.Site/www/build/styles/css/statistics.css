@@ -270,23 +270,63 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   content: " \25be"; }
 
 .pika-table abbr {
-  cursor: default; }
+  cursor: default;
+  text-decoration: none !important; }
 
 .is-selected .pika-button {
-  background: #bd851a;
+  background: #001942;
   box-shadow: none;
-  border-radius: 1px; }
+  border-radius: 2px; }
 
 .pika-button {
-  box-shadow: none; }
+  box-shadow: none;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  background: #FFFFFF;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 4px !important;
+  border-radius: 2px;
+  padding: 4px 6px; }
   .pika-button:hover {
-    background: #2392e1;
-    border-radius: 1px; }
+    background: #001942;
+    border-radius: 2px; }
 
 .glyphicon-calendar {
   font-size: 16px;
   color: #924c4c;
   cursor: pointer; }
+
+.pika-single.is-bound {
+  background: #FFFFFF;
+  box-shadow: 0px 3px 8px 3px rgba(164, 164, 164, 0.25);
+  border-radius: 4px;
+  border: 0; }
+  .pika-single.is-bound .pika-lendar {
+    width: 26rem;
+    margin: 12px 12px 8px;
+    font-family: 'Open Sans', sans-serif !important;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize; }
+  .pika-single.is-bound .pika-title {
+    border-bottom: 1px solid #F8F9FA;
+    margin-bottom: 12px; }
+  .pika-single.is-bound .pika-next, .pika-single.is-bound .pika-prev {
+    background-color: #FAFAFA;
+    opacity: 1; }
+  .pika-single.is-bound .pika-table th {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    color: #333;
+    padding-bottom: 12px; }
+  .pika-single.is-bound .pika-table td {
+    width: 30px;
+    height: 30px; }
 
 .pager-container {
   text-align: center;
@@ -490,6 +530,36 @@ p {
         .group-control-select-table .form-inline .form-group label {
           margin-bottom: 8px; } }
 
+.form-filter {
+  flex-wrap: wrap; }
+  .form-filter .form-group {
+    margin-right: 0; }
+    .form-filter .form-group .date-wrapper {
+      display: flex; }
+      .form-filter .form-group .date-wrapper .glyphicon-calendar {
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+        color: #FF5D00;
+        cursor: pointer;
+        background: #FFF3ED;
+        border-radius: 4px;
+        margin-left: 12px;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media (max-width: 767px) {
+          .form-filter .form-group .date-wrapper .glyphicon-calendar {
+            margin: 0 8px; } }
+    @media (max-width: 767px) {
+      .form-filter .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; }
+        .form-filter .form-group .date-wrapper .glyphicon-calendar {
+          margin-right: 0; } }
+
 .btn-submit {
   padding: 3px 24px;
   background: #FF5D00;
@@ -525,36 +595,6 @@ p {
       width: 100%; } }
   #statisticsDetailPager + #statisticsDetailTable {
     margin-top: 0; }
-
-.form-filter {
-  flex-wrap: wrap; }
-  .form-filter .form-group {
-    margin-right: 0; }
-    .form-filter .form-group .date-wrapper {
-      display: flex; }
-      .form-filter .form-group .date-wrapper .glyphicon-calendar {
-        font-size: 14px;
-        width: 30px;
-        height: 30px;
-        color: #FF5D00;
-        cursor: pointer;
-        background: #FFF3ED;
-        border-radius: 4px;
-        margin-left: 12px;
-        margin-right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        @media (max-width: 767px) {
-          .form-filter .form-group .date-wrapper .glyphicon-calendar {
-            margin: 0 8px; } }
-    @media (max-width: 767px) {
-      .form-filter .form-group {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch; }
-        .form-filter .form-group .date-wrapper .glyphicon-calendar {
-          margin-right: 0; } }
 
 .overview-table {
   width: 70%;

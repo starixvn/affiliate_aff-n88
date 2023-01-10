@@ -2,13 +2,13 @@
 @using Fanex.Affiliate.User.Core.Utilities
 @using System.Globalization
 @model Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult
-@{ 
+@{
     var decimalFormat = "#,#0.00";
 }
 
 <table>
     <thead>
-        <tr>
+        <tr class="overview-table-header">
             <th rowspan="2" width="5%">#</th>
             <th rowspan="2" width="15%">@Lang.TransactionID</th>
             <th rowspan="2" width="15%">@Lang.Date</th>
@@ -16,7 +16,7 @@
             <th rowspan="2" width="15%">@Lang.Player</th>
             <th colspan="3" width="35%">@Lang.Amount</th>
         </tr>
-        <tr>
+        <tr class="overview-table-header">
             <th colspan="2" width="20%">@Lang.InPlayerCurrency</th>
             <th width="20%">@SiteFriendlyNameHelper.ReplaceTranslateVariable(Lang.InBaseCurrency, "baseCurrency", ViewBag.BaseCurrency)</th>
         </tr>
@@ -52,7 +52,7 @@
             else
             {
                 <tr>
-                    <td class="text-center" colspan="8">@Lang.NoInfo</td>
+                    <td class="text-center no-info" colspan="8">@Lang.NoInfo</td>
                 </tr>
             }
         }

@@ -146,6 +146,36 @@ p {
         .group-control-select-table .form-inline .form-group label {
           margin-bottom: 8px; } }
 
+.form-filter {
+  flex-wrap: wrap; }
+  .form-filter .form-group {
+    margin-right: 0; }
+    .form-filter .form-group .date-wrapper {
+      display: flex; }
+      .form-filter .form-group .date-wrapper .glyphicon-calendar {
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+        color: #FF5D00;
+        cursor: pointer;
+        background: #FFF3ED;
+        border-radius: 4px;
+        margin-left: 12px;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media (max-width: 767px) {
+          .form-filter .form-group .date-wrapper .glyphicon-calendar {
+            margin: 0 8px; } }
+    @media (max-width: 767px) {
+      .form-filter .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; }
+        .form-filter .form-group .date-wrapper .glyphicon-calendar {
+          margin-right: 0; } }
+
 .btn-submit {
   padding: 3px 24px;
   background: #FF5D00;

@@ -124,7 +124,7 @@
         margin: 0 auto;
 
         tr:nth-child(even) {
-            background-color: #FFF3ED;
+            background-color: #FFF3ED !important;
         }
 
         @media (max-width: 768px) {

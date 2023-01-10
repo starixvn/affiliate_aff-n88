@@ -39,8 +39,8 @@
 
             @include Mobile {
                 margin-left: 8px;
-                margin-top : 0;
-                text-align :center;
+                margin-top: 0;
+                text-align: center;
             }
         }
     }
@@ -52,4 +52,16 @@
             }
         }
     }
+}
+
+.overview-table table thead .overview-table-header:nth-child(2) th {
+    top: 33px;
+}
+
+.overview-table table thead .overview-table-header:first-child th:last-child {
+    border-bottom: 0;
+}
+
+.form-filter .form-group .form-control {
+    width: 100%;
 }
