@@ -715,6 +715,10 @@
     <Content Include="www\build\js\layout.min.js">
       <DependentUpon>layout.js</DependentUpon>
     </Content>
+    <Content Include="www\build\js\layout\n88-after-login.js" />
+    <Content Include="www\build\js\layout\n88-after-login.min.js">
+      <DependentUpon>n88-after-login.js</DependentUpon>
+    </Content>
     <Content Include="www\build\js\layout\n88.js" />
     <Content Include="www\build\js\layout\n88.min.js">
       <DependentUpon>n88.js</DependentUpon>
@@ -1078,6 +1082,7 @@
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.mobile.jpg" />
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\build\styles\Images\themes\n88.png" />
+    <Content Include="www\source\js\layout\n88-after-login.js" />
     <Content Include="www\source\js\layout\n88.js" />
     <Content Include="www\source\js\layout\n8x.js" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />

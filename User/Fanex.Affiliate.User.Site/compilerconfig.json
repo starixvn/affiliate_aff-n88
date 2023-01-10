@@ -4,6 +4,10 @@
     "inputFile": "www/source/js/layout/n88.js"
   },
   {
+    "outputFile": "www/build/js/layout/n88-after-login.js",
+    "inputFile": "www/source/js/layout/n88-after-login.js"
+  },
+  {
     "outputFile": "www/build/js/layout/n8x.js",
     "inputFile": "www/source/js/layout/n8x.js"
   },

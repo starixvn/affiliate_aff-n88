@@ -62,6 +62,13 @@ var UserPanel = (function ($) {
             var activeClassName = "active";
             $("#mainMenu .menu-item").removeClass(activeClassName);
             $("#menu" + actionName).addClass(activeClassName);
+
+            //Only N88
+            if ($('.content-menu-mobile').length) {
+                $(".content-menu-mobile .menu-item").removeClass(activeClassName);
+                $("#menu" + actionName + "Mobile").addClass(activeClassName);
+                $('.content-menu-mobile .show-name-menu').html($("#menu" + actionName + "Mobile").html());
+            }
         },
 
         renderView: function () {
@@ -133,44 +140,3 @@ var UserPanel = (function ($) {
 })(jQuery);
 
 UserPanel.initialize();
-
-
-var UserPanelN88 = (function ($) {
-    var _me = {
-        initialize: function () {
-            _me.initEvent();
-        },
-
-        initEvent: function () {
-            $('.show-name-menu').click(function () {
-                $('.dropdown-content-menu').toggleClass('active');
-                $('.dropdown-content-menu li a').removeClass('active');
-                $('.parent ul').removeClass('active');
-            });
-            $('.dropdown-content-menu li a').click(function () {
-                var str = $(this).text();
-                var hasStr = $(this).parents().hasClass('parent');
-                $('.dropdown-content-menu li a').removeClass('active');
-                $(this).addClass('active');
-                if (!hasStr) {
-                    $('.show-name-menu').html(str);
-                }
-            });
-
-            $('.sub-menu-content li a').click(function () {
-
-                var str = $(this).text();
-                $('.show-name-menu').html(str);
-            })
-
-            $('.content-dropdown-icon').click(function () {
-                $('.parent ul').removeClass('active');
-                $(this).parent().parent().find('ul').toggleClass('active');
-            })
-        }
-    };
-
-    return _me;
-})(jQuery);
-
-UserPanelN88.initialize();
