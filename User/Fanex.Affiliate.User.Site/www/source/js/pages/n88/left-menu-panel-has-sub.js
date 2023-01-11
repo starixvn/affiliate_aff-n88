@@ -11,17 +11,7 @@
 
         initEvent: function () {
             $('.mobile-left-panel').click(function (e) {
-                $('body').addClass('overflow-left-panel');
-                $('.left-panel').addClass('active');
-
-                $('body').bind('click', function (e) {
-                    if (isOpenLeftMenuMobile) {
-                        _me.handleCloseLeftMenu();
-                    } else {
-                        isOpenLeftMenuMobile = true;
-                        _me.handleScrollLeftMenuInMobile();
-                    }
-                });
+                $("#leftmenu").modal();
             })
 
             $('a.parent-menu').click(function (e) {
@@ -40,6 +30,10 @@
                 var hrefTarget = $(this).attr("href");
 
                 _me.handelAnimate(hrefTarget);
+                setTimeout(function () {
+                    $('#leftmenu').modal('hide');
+                }, 400);
+                
             });
         },
 

@@ -14,6 +14,7 @@
 }
 
 @section styles{
+    @Html.InlineStyles("~/www/build/styles/css/products.css")
     @Html.InlineStyles("~/www/build/styles/css/faq.css")
 }
 
@@ -59,3 +60,34 @@
         @RazorHelper.RenderMovingTopButton()
     </div>
 </div>
+<div class="modal fade leftmenu-dialog" tabindex="-1" role="dialog" id="leftmenu">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-main-content">
+                <div class="modal-body">
+                    <div class="left-panel">
+                        <div class="menu">
+                            <ul class="nav navbar-nav" id="left-panel-nav">
+                                <li>
+                                    <a class="menu-item left-menu-item active" href="#General">
+                                        @Lang.General
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#MarketingAndTracking">
+                                        @Lang.MarketingAndTracking
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#RevenueSharePayment">
+                                        @Lang.RevenueSharePayment
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal-->

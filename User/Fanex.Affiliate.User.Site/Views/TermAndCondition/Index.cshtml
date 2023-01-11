@@ -11,7 +11,9 @@
 
     var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString());
 }
-
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/products.css")
+}
 @section scripts{
     @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
 }
@@ -119,3 +121,101 @@
         @RazorHelper.RenderMovingTopButton()
     </div>
 </div>
+
+
+<div class="modal fade leftmenu-dialog" tabindex="-1" role="dialog" id="leftmenu">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-main-content">
+                <div class="modal-body">
+                    <div class="left-panel">
+                        <div class="menu">
+                            <ul class="nav navbar-nav" id="left-panel-nav">
+                                <li>
+                                    <a class="menu-item left-menu-item active" href="#ResponsibilitiesOfTheAffiliate">
+                                        @Lang.ResponsibilitiesOfTheAffiliate
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#AffiliationGuidelines">
+                                        @Lang.AffiliationGuidelines
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#AffiliateTagging">
+                                        @Lang.AffiliateTagging
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#RevenueSharingAndPayment">
+                                        @Lang.RevenueSharingAndPayment
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#PoliciesAndConfidentiality">
+                                        @Lang.PoliciesAndConfidentiality
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LimitedLicense">
+                                        @Lang.LimitedLicense
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LegalResponsibility">
+                                        @Lang.LegalResponsibility
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Miscellaneous">
+                                        @Lang.Miscellaneous
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#TermAndTermination">
+                                        @Lang.TermAndTermination
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#RelationshipOfParties">
+                                        @Lang.RelationshipOfParties
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Indemnity">
+                                        @Lang.Indemnity
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#Disclaimers">
+                                        @Lang.Disclaimers
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#LimitationOfLiability">
+                                        @Lang.LimitationOfLiability
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#IndependentInvestigation">
+                                        @Lang.IndependentInvestigation
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#GoverningLawAndArbitration">
+                                        @Lang.GoverningLawAndArbitration
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="menu-item left-menu-item" href="#InWitnessWhereOf">
+                                        @Lang.InWitnessWhereOf
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal-->
