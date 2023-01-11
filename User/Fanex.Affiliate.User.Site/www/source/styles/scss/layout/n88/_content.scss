@@ -84,7 +84,7 @@
 
                 .control-label {
                     width: 27%;
-                    padding: 3px 2px;
+                    padding: 3px 10px 3px 2px;
                     font-weight: 600;
                     font-size: 16px;
                     line-height: 24px;
@@ -189,7 +189,7 @@
                         border-radius: 10px;
                         display: block;
                         top: 0;
-                        left: 0; 
+                        left: 0;
 
                         &:after {
                             position: absolute;
@@ -605,13 +605,13 @@ $height-hotnew: 30px;
                 position: relative;
 
                 &.half-col {
-                    width: 43%;
+                    width: 48%;
                     display: flex;
                     flex-wrap: wrap;
 
                     &-left {
                         margin-right: 2%;
-                        width: 55%;
+                        width: 48%;
                     }
                 }
 

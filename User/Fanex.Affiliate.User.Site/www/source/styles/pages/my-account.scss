@@ -324,16 +324,7 @@
             margin: 0;
             position: relative;
 
-            &.half-col {
-                width: 43%;
-                display: flex;
-                flex-wrap: wrap;
-
-                &-left {
-                    margin-right: 2%;
-                    width: 55%;
-                }
-            }
+            
                 
 
             .preference-validation .captcha {

@@ -215,13 +215,6 @@
   .account-information .form-group {
     margin: 0;
     position: relative; }
-    .account-information .form-group.half-col {
-      width: 43%;
-      display: flex;
-      flex-wrap: wrap; }
-      .account-information .form-group.half-col-left {
-        margin-right: 2%;
-        width: 55%; }
     .account-information .form-group .preference-validation .captcha {
       vertical-align: top;
       padding: 0 0 0 6px; }
