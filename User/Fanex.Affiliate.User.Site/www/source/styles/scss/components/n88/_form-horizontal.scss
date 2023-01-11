@@ -46,6 +46,10 @@
                 margin-bottom: 0;
                 line-height: 22px;
             }
+
+            @include Tablet {
+                width: 240px;
+            }
         }
 
         .control-input {

@@ -8,15 +8,17 @@
         margin-bottom: 0;
         display: flex;
         align-items: center;
-        gap: 20px;
 
         @include Mobile {
             display: unset;
         }
 
         .form-group {
+            margin-right: 20px;
+
             @include Mobile {
                 margin-bottom: 8px;
+                margin-right: 0;
             }
 
             .form-control {

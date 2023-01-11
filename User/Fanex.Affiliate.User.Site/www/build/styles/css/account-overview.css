@@ -606,6 +606,8 @@ ul.dash-style {
       vertical-align: top;
       border-top: none !important;
       border-right: none !important; }
+      .overview-table table td a {
+        font-size: 13px; }
     .overview-table table .no-info {
       background: #FFF3ED; }
 
@@ -644,21 +646,17 @@ ul.dash-style {
 
 .marketing-table {
   overflow-x: auto; }
+  .marketing-table table {
+    min-width: 100rem;
+    table-layout: fixed; }
   .marketing-table .stt {
-    width: 100px; }
-    @media (max-width: 767px) {
-      .marketing-table .stt {
-        width: 50px; } }
-  .marketing-table .lang, .marketing-table .number-of-link {
-    width: 150px; }
-    @media (max-width: 767px) {
-      .marketing-table .lang, .marketing-table .number-of-link {
-        width: 100px; } }
+    width: 30px; }
+  .marketing-table .number-of-link {
+    width: 60px; }
+  .marketing-table .lang {
+    width: 90px; }
   .marketing-table .channel {
-    width: 500px; }
-    @media (max-width: 767px) {
-      .marketing-table .channel {
-        width: 440px; } }
+    width: 340px; }
   .marketing-table tr td {
     white-space: unset; }
     .marketing-table tr td:last-child a {

@@ -70,6 +70,9 @@
             vertical-align: top;
             border-top: none !important;
             border-right: none !important;
+            a{
+                font-size : 13px;
+            }
         }
 
         .no-info {
@@ -133,28 +136,25 @@
 .marketing-table {
     overflow-x: auto;
 
-    .stt {
-        width: 100px;
-
-        @include Mobile {
-            width: 50px;
-        }
+    table {
+        min-width: 100rem;
+        table-layout: fixed;
     }
 
-    .lang, .number-of-link {
-        width: 150px;
+    .stt {
+        width: 30px;
+    }
 
-        @include Mobile {
-            width: 100px;
-        }
+    .number-of-link {
+        width: 60px;
+    }
+
+    .lang {
+        width: 90px;
     }
 
     .channel {
-        width: 500px;
-
-        @include Mobile {
-            width: 440px;
-        }
+        width: 340px;
     }
 
     tr {
