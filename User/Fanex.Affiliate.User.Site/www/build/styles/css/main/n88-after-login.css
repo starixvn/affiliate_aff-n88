@@ -68,7 +68,8 @@
       border-radius: 4px;
       position: absolute;
       top: 35px;
-      width: 200px;
+      min-width: 200px;
+      width: 100%;
       z-index: 9;
       margin-bottom: 0; }
       .content-menu .content-menu-mobile .dropdown-content-menu.active {
