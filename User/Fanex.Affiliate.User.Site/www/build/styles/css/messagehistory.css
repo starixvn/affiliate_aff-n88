@@ -331,7 +331,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .group-control-select-table {
   background: #FAFAFA;
   border: 1px solid #BDBDBD;
-  padding: 8px;
+  padding: 0 8px;
   margin-bottom: 16px; }
   .group-control-select-table .form-inline {
     margin-bottom: 0;
@@ -344,7 +344,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       margin-right: 20px; }
       @media (max-width: 767px) {
         .group-control-select-table .form-inline .form-group {
-          margin-bottom: 8px;
           margin-right: 0; } }
       .group-control-select-table .form-inline .form-group .form-control {
         padding: 4px 8px;
@@ -363,6 +362,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         @media (max-width: 767px) {
           .group-control-select-table .form-inline .form-group label {
             margin-bottom: 8px; } }
+    .group-control-select-table .form-inline > * {
+      margin-top: 8px !important;
+      margin-bottom: 8px !important; }
 
 .form-filter {
   flex-wrap: wrap; }

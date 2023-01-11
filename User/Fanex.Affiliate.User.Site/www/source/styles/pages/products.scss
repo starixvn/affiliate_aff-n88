@@ -125,6 +125,10 @@
 
         tr:nth-child(even) {
             background-color: #FFF3ED !important;
+
+            &:hover {
+                background: #F5F5F5 !important;
+            }
         }
 
         @media (max-width: 768px) {

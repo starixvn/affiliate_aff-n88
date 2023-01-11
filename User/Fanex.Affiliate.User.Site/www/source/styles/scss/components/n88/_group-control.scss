@@ -1,7 +1,7 @@
 ﻿.group-control-select-table {
     background: #FAFAFA;
     border: 1px solid #BDBDBD;
-    padding: 8px;
+    padding: 0 8px;
     margin-bottom: 16px;
 
     .form-inline {
@@ -17,7 +17,6 @@
             margin-right: 20px;
 
             @include Mobile {
-                margin-bottom: 8px;
                 margin-right: 0;
             }
 
@@ -45,6 +44,11 @@
                     margin-bottom: 8px;
                 }
             }
+        }
+
+        > * {
+            margin-top: 8px !important;
+            margin-bottom: 8px !important;
         }
     }
 }

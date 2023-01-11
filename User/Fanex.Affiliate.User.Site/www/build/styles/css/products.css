@@ -85,6 +85,8 @@
     margin: 0 auto; }
     .table-casino .table-responsive tr:nth-child(even) {
       background-color: #FFF3ED !important; }
+      .table-casino .table-responsive tr:nth-child(even):hover {
+        background: #F5F5F5 !important; }
     @media (max-width: 768px) {
       .table-casino .table-responsive {
         max-width: 688px;
