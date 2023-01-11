@@ -35,7 +35,7 @@
     margin: 0;
 
     @include TableAndMobile {
-        width: 100%;
+        width: 100% !important;
     }
 }
 
@@ -44,7 +44,7 @@
 }
 
 .marketing-statistics {
-    width: 100%;
+    width: 77%;
 
     table {
         td {

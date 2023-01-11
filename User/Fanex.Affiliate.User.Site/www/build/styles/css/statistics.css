@@ -631,13 +631,13 @@ p {
   margin: 0; }
   @media screen and (max-width: 1024px) {
     .overview-table {
-      width: 100%; } }
+      width: 100% !important; } }
 
 #TrackingCode {
   width: 150px; }
 
 .marketing-statistics {
-  width: 100%; }
+  width: 77%; }
   .marketing-statistics table td {
     background-color: #FFFFFF; }
   .marketing-statistics table .parent-tr td {

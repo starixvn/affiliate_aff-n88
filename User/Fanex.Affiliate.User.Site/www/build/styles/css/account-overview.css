@@ -663,6 +663,95 @@ ul.dash-style {
       display: block;
       text-align: center; }
 
+.group-control-select-table {
+  background: #FAFAFA;
+  border: 1px solid #BDBDBD;
+  padding: 0 8px;
+  margin-bottom: 16px; }
+  .group-control-select-table .form-inline {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center; }
+    @media (max-width: 767px) {
+      .group-control-select-table .form-inline {
+        display: unset; } }
+    .group-control-select-table .form-inline .form-group {
+      margin-right: 20px; }
+      @media (max-width: 767px) {
+        .group-control-select-table .form-inline .form-group {
+          margin-right: 0; } }
+      .group-control-select-table .form-inline .form-group .form-control {
+        padding: 4px 8px;
+        margin-bottom: 0; }
+      .group-control-select-table .form-inline .form-group select, .group-control-select-table .form-inline .form-group .date-wrapper .form-control {
+        width: 120px;
+        background: #FFFFFF;
+        border: 1px solid #9E9E9E;
+        border-radius: 4px; }
+        @media (max-width: 767px) {
+          .group-control-select-table .form-inline .form-group select, .group-control-select-table .form-inline .form-group .date-wrapper .form-control {
+            width: 100%; } }
+      .group-control-select-table .form-inline .form-group label {
+        margin-bottom: 0;
+        margin-right: 8px !important; }
+        @media (max-width: 767px) {
+          .group-control-select-table .form-inline .form-group label {
+            margin-bottom: 8px; } }
+    .group-control-select-table .form-inline > * {
+      margin-top: 8px !important;
+      margin-bottom: 8px !important; }
+
+.form-filter {
+  flex-wrap: wrap; }
+  .form-filter .form-group {
+    margin-right: 0; }
+    .form-filter .form-group .date-wrapper {
+      display: flex; }
+      .form-filter .form-group .date-wrapper .glyphicon-calendar {
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+        color: #FF5D00;
+        cursor: pointer;
+        background: #FFF3ED;
+        border-radius: 4px;
+        margin-left: 12px;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        @media (max-width: 767px) {
+          .form-filter .form-group .date-wrapper .glyphicon-calendar {
+            margin: 0 8px; } }
+    @media (max-width: 767px) {
+      .form-filter .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; }
+        .form-filter .form-group .date-wrapper .glyphicon-calendar {
+          margin-right: 0; } }
+
+.btn-submit {
+  padding: 3px 24px;
+  background: #FF5D00;
+  border-radius: 4px;
+  color: #FFFFFF;
+  height: auto;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  text-transform: uppercase; }
+  .btn-submit.disabled {
+    pointer-events: auto !important; }
+  .btn-submit:hover {
+    box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25); }
+  @media (max-width: 767px) {
+    .btn-submit {
+      padding: 8px 20px;
+      width: 100%;
+      box-shadow: 0px 6px 8px rgba(91, 91, 91, 0.25);
+      margin-right: 0; } }
+
 .account-overview .menu {
   display: flex;
   white-space: nowrap;
