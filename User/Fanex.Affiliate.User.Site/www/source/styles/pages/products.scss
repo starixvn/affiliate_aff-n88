@@ -81,14 +81,12 @@
     }
 }
 // popup
-.modal-dialog-centered {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    min-height: calc(100% - 1rem);
+.modal-open {
+    .leftmenu-dialog{
+        display: flex;
+        align-items: center;
+    }
 }
-
 .leftmenu-dialog {
     .modal-dialog {
         width: 100%;
@@ -112,13 +110,6 @@
         }
     }
 }
-
-@media (min-width: 576px) {
-    .modal-dialog-centered {
-        min-height: calc(100% - 3.5rem);
-    }
-}
-
 
 .mobile-left-panel {
     @media only screen and (min-width: 768px) and (max-width: 992px) {

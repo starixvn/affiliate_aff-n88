@@ -11,7 +11,7 @@
 
         initEvent: function () {
             $('.mobile-left-panel').click(function (e) {
-                $("#leftmenu").modal();
+                $("#leftmenu").modal();                 
             })
 
             $('a.left-menu-item').bind('click', function (e) {

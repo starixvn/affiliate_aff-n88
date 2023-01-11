@@ -51,12 +51,9 @@
     .table {
       margin-bottom: 0; } }
 
-.modal-dialog-centered {
-  display: -ms-flexbox;
+.modal-open .leftmenu-dialog {
   display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  min-height: calc(100% - 1rem); }
+  align-items: center; }
 
 .leftmenu-dialog .modal-dialog {
   width: 100%;
@@ -75,10 +72,6 @@
   @media only screen and (max-height: 500px) {
     .leftmenu-dialog .left-panel {
       max-height: 29rem; } }
-
-@media (min-width: 576px) {
-  .modal-dialog-centered {
-    min-height: calc(100% - 3.5rem); } }
 
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .mobile-left-panel {
