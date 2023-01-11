@@ -209,7 +209,7 @@ p {
       gap: 8px; } }
   .qr-code .qr-panel .qr-item {
     margin: 0;
-    width: 291px; }
+    width: 290px; }
     @media (max-width: 767px) {
       .qr-code .qr-panel .qr-item {
         width: 100%; } }
@@ -218,11 +218,11 @@ p {
       border: 1px solid #ADB5BD;
       border-radius: 8px;
       justify-content: space-between;
-      padding: 16px;
-      gap: 16px; }
+      padding: 16px; }
       .qr-code .qr-panel .qr-item .main-panel .qr-img img {
         height: 122px;
-        width: 122px; }
+        width: 122px;
+        margin-right: 16px; }
       .qr-code .qr-panel .qr-item .main-panel .qr-action {
         margin-left: 0;
         width: 100%; }

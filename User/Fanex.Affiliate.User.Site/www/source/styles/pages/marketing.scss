@@ -98,7 +98,7 @@
 
         .qr-item {
             margin: 0;
-            width: 291px;
+            width: 290px;
 
             @include Mobile {
                 width: 100%;
@@ -110,11 +110,11 @@
                 border-radius: 8px;
                 justify-content: space-between;
                 padding: 16px;
-                gap: 16px;
 
                 .qr-img img {
                     height: 122px;
                     width: 122px;
+                    margin-right : 16px;
                 }
 
                 .qr-action {

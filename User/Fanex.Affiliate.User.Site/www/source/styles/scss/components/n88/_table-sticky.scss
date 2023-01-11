@@ -7,8 +7,6 @@
     @include TableAndMobile {
         overflow: auto;
         max-height: 600px;
-        -webkit-overflow-scrolling: touch;
-        -ms-overflow-style: -ms-autohiding-scrollbar;
     }
 
     &.reset-top {

@@ -38,9 +38,7 @@ p {
   @media screen and (max-width: 1024px) {
     .overview-table {
       overflow: auto;
-      max-height: 600px;
-      -webkit-overflow-scrolling: touch;
-      -ms-overflow-style: -ms-autohiding-scrollbar; } }
+      max-height: 600px; } }
   .overview-table.reset-top thead .overview-table-header th {
     top: 0; }
   .overview-table table {
