@@ -56,14 +56,16 @@
             &:not(:last-child) {
                 border-right: 1px solid #ADB5BD;
             }
-            @include Mobile{
-                &:first-child{
-                    width : 100%;
-                    display : block;
-                    border-right : none;
+
+            @include Mobile {
+                &:first-child {
+                    width: 100%;
+                    display: block;
+                    border-right: none;
                 }
-                &:nth-child(2){
-                    padding-left : 0;
+
+                &:nth-child(2) {
+                    padding-left: 0;
                 }
             }
         }
@@ -108,8 +110,12 @@
                 background: #FF5D00;
                 box-shadow: 0px 2px 5px rgba(101, 101, 101, 0.25);
                 border-radius: 4px;
-                padding: 4px 20px;
                 height: 30px;
+
+                @include Mobile {
+                    width: 30%;
+                    padding: 4px 10px;
+                }
             }
         }
     }
@@ -383,6 +389,7 @@
         }
     }
 }
+
 td {
     overflow: hidden;
     white-space: nowrap;
@@ -436,16 +443,18 @@ td {
         }
     }
 }*/
-.column-account{
-    @include Mobile{
-        width : 100%;
+.column-account {
+    @include Mobile {
+        width: 100%;
     }
-    @include landscapeTablet{
-        width : 50%;
+
+    @include landscapeTablet {
+        width: 50%;
     }
-    .group{
-        &:last-child{
-            margin-bottom : 0;
+
+    .group {
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
