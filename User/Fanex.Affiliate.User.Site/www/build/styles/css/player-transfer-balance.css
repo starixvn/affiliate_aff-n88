@@ -79,6 +79,9 @@ p {
       border-right: none !important; }
       .overview-table table td a {
         font-size: 13px; }
+    .overview-table table .parent-tr td:last-child {
+      font-size: 13px;
+      text-align: center; }
     .overview-table table .no-info {
       background: #FFF3ED; }
 
@@ -125,7 +128,7 @@ p {
   .marketing-table .number-of-link {
     width: 60px; }
   .marketing-table .lang {
-    width: 90px; }
+    width: 70px; }
   .marketing-table .channel {
     width: 340px; }
   .marketing-table tr td {
@@ -641,17 +644,27 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   padding: 8px 20px;
   margin-top: 6px; }
 
+.form-horizontal .form-full-width {
+  max-width: 100%; }
+
 .form-horizontal #exchangeRate {
   display: flex;
-  width: 405px;
-  align-items: center; }
+  align-items: center;
+  width: 80%; }
+  @media (max-width: 767px) {
+    .form-horizontal #exchangeRate {
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-end; } }
   .form-horizontal #exchangeRate .control-btn-text {
-    width: 100px; }
+    width: auto; }
     @media (max-width: 767px) {
       .form-horizontal #exchangeRate .control-btn-text {
-        margin-left: 8px;
+        margin-left: 0;
         margin-top: 0;
         text-align: center; } }
+  .form-horizontal #exchangeRate input {
+    width: 321px; }
   .form-horizontal #exchangeRate span {
     margin-right: 8px; }
     @media (max-width: 767px) {

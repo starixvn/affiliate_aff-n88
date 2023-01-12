@@ -29,19 +29,31 @@
         margin-top: 6px;
     }
 
+    .form-full-width {
+        max-width: 100%;
+    }
+
     #exchangeRate {
         display: flex;
-        width: 405px;
         align-items: center;
-
+        width: 80%;
+        @include Mobile{
+            flex-wrap :wrap;
+            width : 100%;
+            justify-content : flex-end;
+        }
         .control-btn-text {
-            width: 100px;
+            width: auto;
 
             @include Mobile {
-                margin-left: 8px;
+                margin-left: 0;
                 margin-top: 0;
                 text-align: center;
             }
+        }
+
+        input {
+            width: 321px;
         }
 
         span {

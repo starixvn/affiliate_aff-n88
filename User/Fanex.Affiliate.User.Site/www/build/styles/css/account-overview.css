@@ -606,6 +606,9 @@ ul.dash-style {
       border-right: none !important; }
       .overview-table table td a {
         font-size: 13px; }
+    .overview-table table .parent-tr td:last-child {
+      font-size: 13px;
+      text-align: center; }
     .overview-table table .no-info {
       background: #FFF3ED; }
 
@@ -652,7 +655,7 @@ ul.dash-style {
   .marketing-table .number-of-link {
     width: 60px; }
   .marketing-table .lang {
-    width: 90px; }
+    width: 70px; }
   .marketing-table .channel {
     width: 340px; }
   .marketing-table tr td {
