@@ -89,19 +89,22 @@
 .qr-code {
     .qr-panel {
         padding: 0;
-        margin: 0;
-        gap: 16px;
+        margin: 0 -8px;
+
 
         @include Mobile {
-            gap: 8px;
+            margin: 0 -4px;
         }
 
         .qr-item {
             margin: 0;
             width: 290px;
+            padding: 0 8px;
 
             @include Mobile {
                 width: 100%;
+                padding: 0 4px;
+                margin-bottom: 8px;
             }
 
             .main-panel {
@@ -114,7 +117,7 @@
                 .qr-img img {
                     height: 122px;
                     width: 122px;
-                    margin-right : 16px;
+                    margin-right: 16px;
                 }
 
                 .qr-action {
@@ -124,6 +127,7 @@
                     .qr-btn-group {
                         justify-content: flex-end;
                         font-size: 12px;
+
                         button {
                             padding: 6px;
                             height: auto;
@@ -262,11 +266,8 @@
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
-            gap: 16px;
-
             @include Mobile {
                 padding: 16px;
-                gap: 8px;
                 position: relative;
 
                 &:after {
@@ -296,8 +297,6 @@
                 padding: 16px;
                 display: flex;
                 align-items: center;
-                gap: 16px;
-
                 @include Mobile {
                     padding: 0;
                     gap: 0;
@@ -309,8 +308,10 @@
                 }
 
                 .banner-code {
+                    margin-right : 16px;
                     @include Mobile {
                         margin-bottom: 10px;
+                        margin-right : 0;
                     }
 
                     @include Tablet {
@@ -374,6 +375,15 @@
                 img {
                     max-width: 100%;
                     height: auto;
+                    margin-right : 16px;
+                    @include Mobile{
+                        margin-right : 0;
+                        margin-bottom : 8px;
+                    }
+                    @include Tablet{
+                        margin-right : 0;
+                        margin-bottom : 16px;
+                    }
                 }
             }
         }

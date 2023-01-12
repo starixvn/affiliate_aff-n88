@@ -202,17 +202,19 @@ p {
 
 .qr-code .qr-panel {
   padding: 0;
-  margin: 0;
-  gap: 16px; }
+  margin: 0 -8px; }
   @media (max-width: 767px) {
     .qr-code .qr-panel {
-      gap: 8px; } }
+      margin: 0 -4px; } }
   .qr-code .qr-panel .qr-item {
     margin: 0;
-    width: 290px; }
+    width: 290px;
+    padding: 0 8px; }
     @media (max-width: 767px) {
       .qr-code .qr-panel .qr-item {
-        width: 100%; } }
+        width: 100%;
+        padding: 0 4px;
+        margin-bottom: 8px; } }
     .qr-code .qr-panel .qr-item .main-panel {
       background: #F7FAFF;
       border: 1px solid #ADB5BD;
@@ -313,12 +315,10 @@ p {
     margin-bottom: 16px;
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
-    gap: 16px; }
+    align-items: center; }
     @media (max-width: 767px) {
       .marketing-banner .list-content .banner-control {
         padding: 16px;
-        gap: 8px;
         position: relative; }
         .marketing-banner .list-content .banner-control:after {
           content: "";
@@ -342,8 +342,7 @@ p {
       border-radius: 8px;
       padding: 16px;
       display: flex;
-      align-items: center;
-      gap: 16px; }
+      align-items: center; }
       @media (max-width: 767px) {
         .marketing-banner .list-content .banner-control-button {
           padding: 0;
@@ -353,32 +352,35 @@ p {
           position: relative;
           z-index: 9;
           display: unset; } }
-      @media (max-width: 767px) {
-        .marketing-banner .list-content .banner-control-button .banner-code {
-          margin-bottom: 10px; } }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .marketing-banner .list-content .banner-control-button .banner-code {
-          width: 200px; } }
-      .marketing-banner .list-content .banner-control-button .banner-code p {
-        margin-bottom: 0; }
-      .marketing-banner .list-content .banner-control-button .banner-code a {
-        background: #EDF4FF;
-        border: 1px solid #025EB1;
-        border-radius: 4px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: #025EB1;
-        padding: 4px 16px;
-        display: flex;
-        align-items: center; }
+      .marketing-banner .list-content .banner-control-button .banner-code {
+        margin-right: 16px; }
         @media (max-width: 767px) {
-          .marketing-banner .list-content .banner-control-button .banner-code a {
-            font-size: 14px;
+          .marketing-banner .list-content .banner-control-button .banner-code {
+            margin-bottom: 10px;
+            margin-right: 0; } }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .marketing-banner .list-content .banner-control-button .banner-code {
             width: 200px; } }
-        .marketing-banner .list-content .banner-control-button .banner-code a img {
-          margin-right: 4px; }
+        .marketing-banner .list-content .banner-control-button .banner-code p {
+          margin-bottom: 0; }
+        .marketing-banner .list-content .banner-control-button .banner-code a {
+          background: #EDF4FF;
+          border: 1px solid #025EB1;
+          border-radius: 4px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 24px;
+          color: #025EB1;
+          padding: 4px 16px;
+          display: flex;
+          align-items: center; }
+          @media (max-width: 767px) {
+            .marketing-banner .list-content .banner-control-button .banner-code a {
+              font-size: 14px;
+              width: 200px; } }
+          .marketing-banner .list-content .banner-control-button .banner-code a img {
+            margin-right: 4px; }
       .marketing-banner .list-content .banner-control-button .social-media-button-group a {
         display: inline-block;
         margin: 4px 8px 4px 0; }
@@ -395,7 +397,16 @@ p {
         z-index: 9; } }
     .marketing-banner .list-content .banner-control .banner-link img {
       max-width: 100%;
-      height: auto; }
+      height: auto;
+      margin-right: 16px; }
+      @media (max-width: 767px) {
+        .marketing-banner .list-content .banner-control .banner-link img {
+          margin-right: 0;
+          margin-bottom: 8px; } }
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .marketing-banner .list-content .banner-control .banner-link img {
+          margin-right: 0;
+          margin-bottom: 16px; } }
 
 /*.list-content {
     > li {
