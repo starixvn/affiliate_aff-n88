@@ -52,6 +52,9 @@ p {
     @media (max-width: 767px) {
       .overview-table table {
         font-size: 12px; } }
+    @media screen and (max-width: 1024px) {
+      .overview-table table th {
+        font-size: 13px; } }
     .overview-table table thead .overview-table-header th {
       position: -webkit-sticky;
       position: sticky;
@@ -70,7 +73,7 @@ p {
       font-weight: 700; }
       @media screen and (max-width: 1024px) {
         .overview-table table thead .overview-table-total th {
-          top: 82px !important; } }
+          top: 57px !important; } }
     .overview-table table td {
       padding: 5px 10px;
       vertical-align: top;

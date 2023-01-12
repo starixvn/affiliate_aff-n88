@@ -32,6 +32,12 @@
             font-size: 12px;
         }
 
+        th {
+            @include TableAndMobile {
+                font-size: 13px;
+            }
+        }
+
         thead {
             .overview-table-header {
                 th {
@@ -57,7 +63,7 @@
                     font-weight: 700;
 
                     @include TableAndMobile {
-                        top: 82px !important;
+                        top: 57px !important;
                     }
                 }
             }
@@ -73,11 +79,12 @@
                 font-size: 13px;
             }
         }
-        .parent-tr{
-            td{
-                &:last-child{
-                    font-size : 13px;
-                    text-align :center;
+
+        .parent-tr {
+            td {
+                &:last-child {
+                    font-size: 13px;
+                    text-align: center;
                 }
             }
         }
