@@ -1135,7 +1135,8 @@ body {
       .main .content.sign-up-page .form-group.half-col {
         width: 48%;
         display: flex;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+        align-content: flex-start; }
         .main .content.sign-up-page .form-group.half-col-left {
           margin-right: 2%;
           width: 48%; }

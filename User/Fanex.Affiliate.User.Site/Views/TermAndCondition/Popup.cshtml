@@ -30,8 +30,10 @@
     <link href="@Url.RenderLink("~/www/build/styles/css/main/n88.css")" rel="stylesheet" />
 
     <link href="@Url.RenderLink("~/www/build/styles/css/n88.css")" rel="stylesheet" />
+    <link href="@Url.RenderLink("~/www/build/styles/css/products.css")" rel="stylesheet" />
 </head>
 <body>
+ 
     <div class="main-container">
         <div class="main">
             <div class="page-container">
@@ -254,6 +256,17 @@
                 $button.style.display = display;
             }
         }
+    </script>
+    <script>
+        $(window).scroll(function () {
+            var topPosition = 111;
+            if ($(this).scrollTop() >= topPosition) {
+                $(".mobile-left-panel").addClass("fixed");
+            }
+            else {
+                $(".mobile-left-panel").removeClass("fixed");
+            }
+        });
     </script>
 </body>
 </html>

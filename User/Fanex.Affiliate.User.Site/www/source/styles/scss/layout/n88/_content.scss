@@ -614,6 +614,7 @@ $height-hotnew: 30px;
                     width: 48%;
                     display: flex;
                     flex-wrap: wrap;
+                    align-content: flex-start;
 
                     &-left {
                         margin-right: 2%;
@@ -713,7 +714,7 @@ $height-hotnew: 30px;
                     .col-sm-4 {
                         padding-left: 5px;
                     }
-                }             
+                }
             }
 
             #websiteInfo {
@@ -767,7 +768,7 @@ $height-hotnew: 30px;
                         height: 13px;
 
                         &:after {
-                            width: 7px;                           
+                            width: 7px;
                             top: 5px;
                             left: 2px;
                         }
