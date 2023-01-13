@@ -207,7 +207,7 @@ p {
     .qr-code .qr-panel {
       margin: 0 -4px; } }
   .qr-code .qr-panel .qr-item {
-    margin: 0;
+    margin: 0 0 15px 0;
     width: 290px;
     padding: 0 8px; }
     @media (max-width: 767px) {
@@ -281,7 +281,8 @@ p {
         border: 1px solid #025EB1;
         border-radius: 4px;
         padding: 2px 12px 2px 30px;
-        position: relative; }
+        position: relative;
+        font-size: 12px; }
         .qr-code .qr-panel .qr-item .qr-footer .btn-copy-link:disabled {
           opacity: 0.4;
           cursor: no-drop; }
@@ -315,24 +316,11 @@ p {
     margin-bottom: 16px;
     display: flex;
     flex-wrap: nowrap;
-    align-items: center; }
+    align-items: flex-start; }
     @media (max-width: 767px) {
       .marketing-banner .list-content .banner-control {
-        padding: 16px;
-        position: relative; }
-        .marketing-banner .list-content .banner-control:after {
-          content: "";
-          display: block;
-          background: #FFFFFF;
-          border: 1px solid #BDBDBD;
-          border-radius: 8px;
-          height: 90%;
-          width: 95%;
-          position: absolute;
-          top: 50%;
-          right: 50%;
-          transform: translate(50%, -50%);
-          z-index: 0; } }
+        padding: 7px;
+        position: relative; } }
     @media screen and (max-width: 1024px) {
       .marketing-banner .list-content .banner-control {
         flex-wrap: wrap; } }
@@ -340,7 +328,7 @@ p {
       background: #FFFFFF;
       border: 1px solid #BDBDBD;
       border-radius: 8px;
-      padding: 16px 16px 12px 16px;
+      padding: 8px 15px 9px 15px;
       display: flex;
       align-items: center;
       width: 257px;
@@ -348,13 +336,8 @@ p {
       align-items: flex-start; }
       @media (max-width: 767px) {
         .marketing-banner .list-content .banner-control-button {
-          padding: 0;
-          gap: 0;
-          border: none;
-          background: transparent;
-          position: relative;
-          z-index: 9;
-          display: unset; } }
+          width: 100%;
+          padding: 4px 7px 0px 7px; } }
       .marketing-banner .list-content .banner-control-button .banner-code {
         margin-right: 16px;
         margin-bottom: 12px; }
@@ -385,33 +368,36 @@ p {
               width: 200px; } }
           .marketing-banner .list-content .banner-control-button .banner-code a img {
             margin-right: 4px; }
+      @media (max-width: 767px) {
+        .marketing-banner .list-content .banner-control-button .social-media-button-group {
+          padding: 0 0 0 4px; } }
       .marketing-banner .list-content .banner-control-button .social-media-button-group a {
         display: inline-block;
         margin: 4px 4px 4px 0; }
         @media (max-width: 767px) {
           .marketing-banner .list-content .banner-control-button .social-media-button-group a {
-            margin: 4px; }
-            .marketing-banner .list-content .banner-control-button .social-media-button-group a img {
-              width: 24px; } }
+            margin: 4px 16px 12px -4px; } }
         .marketing-banner .list-content .banner-control-button .social-media-button-group a:last-child {
           margin-right: 0; }
-    @media (max-width: 767px) {
-      .marketing-banner .list-content .banner-control .banner-link {
-        position: relative;
-        z-index: 9; } }
-    .marketing-banner .list-content .banner-control .banner-link img {
-      max-width: 600px;
-      width: 100%;
-      height: auto;
+    .marketing-banner .list-content .banner-control .banner-link {
+      display: block;
       margin-right: 16px; }
       @media (max-width: 767px) {
-        .marketing-banner .list-content .banner-control .banner-link img {
-          margin-right: 0;
-          margin-bottom: 8px; } }
-      @media (min-width: 768px) and (max-width: 1023px) {
-        .marketing-banner .list-content .banner-control .banner-link img {
-          margin-right: 16px;
-          margin-bottom: 16px; } }
+        .marketing-banner .list-content .banner-control .banner-link {
+          position: relative;
+          z-index: 9; } }
+      .marketing-banner .list-content .banner-control .banner-link img {
+        max-width: 600px;
+        width: 100%;
+        height: auto; }
+        @media (max-width: 767px) {
+          .marketing-banner .list-content .banner-control .banner-link img {
+            margin-right: 0;
+            margin-bottom: 8px; } }
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .marketing-banner .list-content .banner-control .banner-link img {
+            margin-right: 16px;
+            margin-bottom: 16px; } }
   .marketing-banner .list-content .social-media-list span {
     text-transform: capitalize; }
 
