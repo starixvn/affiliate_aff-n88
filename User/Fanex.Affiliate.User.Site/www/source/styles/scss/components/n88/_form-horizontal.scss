@@ -12,6 +12,7 @@
 
         @include Mobile {
             margin: 0 0 8px 0;
+            flex-wrap: wrap;
         }
 
         &.flex-start {
@@ -60,14 +61,19 @@
 
             @include Mobile {
                 width: 100%;
+                background: #FFFFFF;
+                border-radius: 4px;
+                margin-top: 4px;
             }
 
             p {
                 padding: 0;
 
                 @include Mobile {
-                    text-align: right;
-                    line-height: 22px;
+                    text-align: left;
+                    line-height: 1;
+                    display: inline;
+                    padding: 0 8px;
                 }
             }
 

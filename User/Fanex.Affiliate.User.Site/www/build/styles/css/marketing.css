@@ -208,7 +208,7 @@ p {
       margin: 0 -4px; } }
   .qr-code .qr-panel .qr-item {
     margin: 0 0 15px 0;
-    width: 290px;
+    width: 307px;
     padding: 0 8px; }
     @media (max-width: 767px) {
       .qr-code .qr-panel .qr-item {
@@ -222,8 +222,8 @@ p {
       justify-content: space-between;
       padding: 16px; }
       .qr-code .qr-panel .qr-item .main-panel .qr-img img {
-        height: 122px;
-        width: 122px;
+        height: 100px;
+        width: 100px;
         margin-right: 16px; }
       .qr-code .qr-panel .qr-item .main-panel .qr-action {
         margin-left: 0;

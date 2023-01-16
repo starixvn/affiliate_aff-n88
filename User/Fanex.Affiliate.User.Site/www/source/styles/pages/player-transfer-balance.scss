@@ -11,17 +11,6 @@
 .form-horizontal {
     .form-group {
         max-width: 732px;
-
-        @include Mobile {
-            .control-input {
-                width: 35%;
-                text-align: right;
-            }
-
-            .control-label {
-                width: 65%;
-            }
-        }
     }
 
     .btn-submit {
@@ -32,11 +21,17 @@
     .form-full-width {
         max-width: 100%;
     }
+    .padding-mobile{
+        @include Mobile{
+            padding : 0 8px;
+        }
+    }
 
     #exchangeRate {
         display: flex;
         align-items: center;
         width: 80%;
+        background : none;
         @include Mobile{
             flex-wrap :wrap;
             width : 100%;
@@ -53,7 +48,7 @@
         }
 
         input {
-            width: 321px;
+            width: 328px;
         }
 
         span {

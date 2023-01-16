@@ -124,7 +124,7 @@ p {
 .marketing-table {
   overflow-x: auto; }
   .marketing-table table {
-    min-width: 100rem;
+    min-width: 90rem;
     table-layout: fixed; }
   .marketing-table .stt {
     width: 30px; }
@@ -570,7 +570,8 @@ http://nicolasgallagher.com/micro-clearfix-hack/
   width: 100%; }
   @media (max-width: 767px) {
     .form-horizontal .form-group {
-      margin: 0 0 8px 0; } }
+      margin: 0 0 8px 0;
+      flex-wrap: wrap; } }
   .form-horizontal .form-group.flex-start {
     align-items: flex-start; }
   @media (max-width: 767px) {
@@ -603,13 +604,18 @@ http://nicolasgallagher.com/micro-clearfix-hack/
     width: 321px; }
     @media (max-width: 767px) {
       .form-horizontal .form-group .control-input {
-        width: 100%; } }
+        width: 100%;
+        background: #FFFFFF;
+        border-radius: 4px;
+        margin-top: 4px; } }
     .form-horizontal .form-group .control-input p {
       padding: 0; }
       @media (max-width: 767px) {
         .form-horizontal .form-group .control-input p {
-          text-align: right;
-          line-height: 22px; } }
+          text-align: left;
+          line-height: 1;
+          display: inline;
+          padding: 0 8px; } }
     .form-horizontal .form-group .control-input input {
       margin-bottom: 0; }
   .form-horizontal .form-group .control-btn-text {
@@ -636,12 +642,6 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 
 .form-horizontal .form-group {
   max-width: 732px; }
-  @media (max-width: 767px) {
-    .form-horizontal .form-group .control-input {
-      width: 35%;
-      text-align: right; }
-    .form-horizontal .form-group .control-label {
-      width: 65%; } }
 
 .form-horizontal .btn-submit {
   padding: 8px 20px;
@@ -650,10 +650,15 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .form-horizontal .form-full-width {
   max-width: 100%; }
 
+@media (max-width: 767px) {
+  .form-horizontal .padding-mobile {
+    padding: 0 8px; } }
+
 .form-horizontal #exchangeRate {
   display: flex;
   align-items: center;
-  width: 80%; }
+  width: 80%;
+  background: none; }
   @media (max-width: 767px) {
     .form-horizontal #exchangeRate {
       flex-wrap: wrap;
@@ -667,7 +672,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
         margin-top: 0;
         text-align: center; } }
   .form-horizontal #exchangeRate input {
-    width: 321px; }
+    width: 328px; }
   .form-horizontal #exchangeRate span {
     margin-right: 8px; }
     @media (max-width: 767px) {

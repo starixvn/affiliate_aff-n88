@@ -99,7 +99,7 @@
 
         .qr-item {
             margin: 0 0 15px 0;
-            width: 290px;
+            width: 307px;
             padding: 0 8px;
 
             @include Mobile {
@@ -116,8 +116,8 @@
                 padding: 16px;
 
                 .qr-img img {
-                    height: 122px;
-                    width: 122px;
+                    height: 100px;
+                    width: 100px;
                     margin-right: 16px;
                 }
 

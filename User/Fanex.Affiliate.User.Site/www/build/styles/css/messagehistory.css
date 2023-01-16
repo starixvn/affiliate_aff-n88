@@ -510,7 +510,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 .marketing-table {
   overflow-x: auto; }
   .marketing-table table {
-    min-width: 100rem;
+    min-width: 90rem;
     table-layout: fixed; }
   .marketing-table .stt {
     width: 30px; }
