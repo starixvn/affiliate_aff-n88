@@ -83,12 +83,13 @@
     .content-menu-mobile {
         display: none;
         font-weight: 700;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 18px;
         position: relative;
 
         @include Mobile {
             display: inline-block;
+            font-size: 12px;
         }
 
         @include Tablet {

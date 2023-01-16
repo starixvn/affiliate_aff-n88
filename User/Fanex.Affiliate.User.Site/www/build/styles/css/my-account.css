@@ -3,10 +3,11 @@
   .account-information .page-title {
     margin: 24px 0; }
   .account-information p {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
+    font-size: 1.4rem;
+    margin-bottom: 0;
     padding: 0;
-    line-height: 3rem; }
+    line-height: 2.2rem;
+    min-height: 22px; }
   .account-information a {
     color: #025EB1;
     text-decoration: underline; }
@@ -14,13 +15,13 @@
     margin-left: 2px;
     color: #C80013; }
   .account-information .info-group {
-    margin-top: 25px;
+    margin-top: 22px;
     margin-bottom: -6px; }
     .account-information .info-group .title {
       padding-bottom: 3px;
-      margin-bottom: 16px; }
+      margin-bottom: 12px !important; }
   .account-information .form-group {
-    margin: 0 0 8px 0; }
+    margin: 8px 0; }
     .account-information .form-group.has-error .control-label {
       color: #C80013; }
     .account-information .form-group.has-error .form-control {
@@ -28,16 +29,17 @@
       border: 1px solid #C80013; }
     .account-information .form-group .form-control {
       color: #616161;
-      box-shadow: none; }
+      box-shadow: none;
+      margin-bottom: 0; }
       .account-information .form-group .form-control[disabled] {
         background: #F5F5F5;
         border: 1px solid #9E9E9E; }
     .account-information .form-group .control-label {
       width: 300px;
-      padding: 3px 0;
+      padding: 0;
       font-weight: 600;
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 14px;
+      line-height: 22px;
       text-align: right; }
     .account-information .form-group .col-sm-4 {
       width: 330px;
@@ -50,8 +52,8 @@
       padding-bottom: 0;
       margin-left: 0; }
       .account-information .form-group .radio-inline input {
-        width: 24px;
-        height: 24px;
+        width: 18px;
+        height: 18px;
         position: relative;
         top: -3px;
         left: 0;
@@ -62,8 +64,8 @@
           color: #005FFB; }
       .account-information .form-group .radio-inline span {
         font-weight: 600;
-        font-size: 16px;
-        line-height: 24px; }
+        font-size: 14px;
+        line-height: 22px; }
     .account-information .form-group .field-validation-error, .account-information .form-group .field-validation-valid {
       font-weight: 400;
       font-size: 14px;
@@ -167,7 +169,10 @@
       border: 1px solid #BF4600;
       color: #BF4600; }
   .account-information .col-sm-offset-3 {
-    margin: 0; }
+    margin: 0;
+    padding-left: 295px; }
+    .account-information .col-sm-offset-3.button-block {
+      padding-left: 0; }
 
 #websiteInfo .btn-submit {
   font-size: 10px;
@@ -186,7 +191,6 @@
   .account-information .page-title {
     margin: 13px 0 11px; }
   .account-information p {
-    font-size: 14px;
     line-height: 22px;
     margin-bottom: 5px; }
   .account-information .form-control-static {
@@ -209,7 +213,7 @@
       padding-bottom: 3px;
       margin-bottom: 11px; }
       .account-information .info-group .title:after {
-        bottom: -6px; }
+        bottom: 0; }
   .account-information .form-horizontal .preference-validation .form-control {
     width: calc(100% - 84px); }
   .account-information .form-group {
@@ -227,7 +231,6 @@
     .account-information .form-group .control-label {
       width: 100%;
       padding: 3px 0;
-      font-size: 14px;
       line-height: 22px;
       text-align: left;
       margin-bottom: 1px; }

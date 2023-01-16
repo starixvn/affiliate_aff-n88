@@ -51,12 +51,13 @@
   .content-menu .content-menu-mobile {
     display: none;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 18px;
     position: relative; }
     @media (max-width: 767px) {
       .content-menu .content-menu-mobile {
-        display: inline-block; } }
+        display: inline-block;
+        font-size: 12px; } }
     @media (min-width: 768px) and (max-width: 1023px) {
       .content-menu .content-menu-mobile {
         display: inline-block; } }
