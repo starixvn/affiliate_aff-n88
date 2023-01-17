@@ -619,7 +619,6 @@ p {
   margin-top: 15px; }
 
 #statisticsDetailPager {
-  width: 70%;
   margin: 4rem 0 1.6rem; }
   @media screen and (max-width: 1024px) {
     #statisticsDetailPager {
@@ -631,7 +630,6 @@ p {
     margin-top: 0; }
 
 .overview-table {
-  width: 70%;
   margin: 0; }
   @media screen and (max-width: 1024px) {
     .overview-table {
@@ -640,12 +638,12 @@ p {
 #TrackingCode {
   width: 150px; }
 
-.marketing-statistics {
-  width: 77%; }
-  .marketing-statistics table td {
-    background-color: #FFFFFF; }
-  .marketing-statistics table .parent-tr td {
-    background: #EEEEEE !important;
-    font-weight: 400; }
-  .marketing-statistics table .parent-tr td:nth-child(2) {
-    color: #025EB1; }
+.marketing-statistics table td {
+  background-color: #FFFFFF; }
+
+.marketing-statistics table .parent-tr td {
+  background: #EEEEEE !important;
+  font-weight: 400; }
+
+.marketing-statistics table .parent-tr td:nth-child(2) {
+  color: #025EB1; }

@@ -75,8 +75,8 @@
       border-radius: 4px;
       position: absolute;
       top: 35px;
-      min-width: 200px;
       width: 100%;
+      min-width: 200px;
       z-index: 9;
       margin-bottom: 0; }
       .content-menu .content-menu-mobile .dropdown-content-menu.active {
@@ -85,7 +85,7 @@
         font-weight: 600;
         text-decoration: none;
         color: #616161;
-        padding: 6px;
+        padding: 6px 20px 6px 6px;
         display: block;
         border-bottom: 1px solid #F8F9FA; }
         .content-menu .content-menu-mobile .dropdown-content-menu li a.active {

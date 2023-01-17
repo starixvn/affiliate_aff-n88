@@ -536,9 +536,9 @@ input[type="checkbox"], input[type="radio"] {
     border-radius: 3px; }
     .language-container .select-language:hover {
       text-decoration: none; }
-    .language-container .select-language:focus, .language-container .select-language:active {
+    .language-container .select-language:focus, .language-container .select-language:active, .language-container .select-language.active {
       outline: none; }
-      .language-container .select-language:focus + .language-list-wrapper, .language-container .select-language:active + .language-list-wrapper {
+      .language-container .select-language:focus + .language-list-wrapper, .language-container .select-language:active + .language-list-wrapper, .language-container .select-language.active + .language-list-wrapper {
         display: block; }
     .language-container .select-language + .language-list-wrapper {
       display: none; }
@@ -769,7 +769,7 @@ body {
         border: 1px solid #9E9E9E; }
     .main .content.sign-up-page .form-group .control-label {
       width: 27%;
-      padding: 3px 10px 3px 2px;
+      padding: 3px 12px 3px 2px;
       font-weight: 600;
       font-size: 16px;
       line-height: 24px;

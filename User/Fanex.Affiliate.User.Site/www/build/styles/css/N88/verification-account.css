@@ -25,9 +25,8 @@
       .main-content .verification-account .form-group label {
         max-width: 23rem;
         width: 100%;
-        margin-right: 7px;
         text-align: right;
-        padding: 3px 0 0 0;
+        padding: 3px 12px 0 0;
         font-weight: 600; }
       .main-content .verification-account .form-group .form-input, .main-content .verification-account .form-group .col-sm-4 {
         max-width: 320px;
@@ -90,7 +89,7 @@
   .main-content #verificationAccountGroup {
     margin-top: -10px; }
     .main-content #verificationAccountGroup .form-group {
-      margin-bottom: 6px; }
+      margin-bottom: 16px; }
       .main-content #verificationAccountGroup .form-group .col-sm-offset-2 {
         margin: 0 -10px;
         padding: 0; }
