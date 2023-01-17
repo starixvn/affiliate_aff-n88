@@ -169,7 +169,7 @@ p {
             width: 100%; } }
       .group-control-select-table .form-inline .form-group label {
         margin-bottom: 0;
-        margin-right: 8px !important; }
+        margin-right: 12px !important; }
         @media (max-width: 767px) {
           .group-control-select-table .form-inline .form-group label {
             margin-bottom: 8px; } }
@@ -257,7 +257,7 @@ p {
     line-height: 30px;
     padding: 0;
     width: 300px;
-    margin-right: 8px; }
+    margin-right: 12px; }
     @media (max-width: 767px) {
       .form-horizontal .form-group .control-label {
         font-size: 14px;
@@ -266,7 +266,7 @@ p {
         line-height: 22px; } }
     @media (min-width: 768px) and (max-width: 1023px) {
       .form-horizontal .form-group .control-label {
-        width: 240px; } }
+        font-size: 14px; } }
   .form-horizontal .form-group .control-input {
     font-weight: 400;
     font-size: 14px;
@@ -289,14 +289,14 @@ p {
     .form-horizontal .form-group .control-input input {
       margin-bottom: 0; }
   .form-horizontal .form-group .control-btn-text {
-    margin-left: 8px; }
+    margin-left: 12px; }
     @media (max-width: 767px) {
       .form-horizontal .form-group .control-btn-text {
         margin-left: 0;
         margin-top: 8px;
         width: 100%; } }
     .form-horizontal .form-group .control-btn-text .btn-submit {
-      padding: 4px 10px;
+      padding: 4px 20px;
       margin-bottom: 0;
       margin-top: 0; }
       @media (max-width: 767px) {

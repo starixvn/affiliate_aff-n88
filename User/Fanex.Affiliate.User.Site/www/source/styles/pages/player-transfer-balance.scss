@@ -21,38 +21,56 @@
     .form-full-width {
         max-width: 100%;
     }
-    .padding-mobile{
-        @include Mobile{
-            padding : 0 8px;
+
+    .padding-mobile {
+        @include Mobile {
+            padding: 0 8px;
         }
     }
 
     #exchangeRate {
         display: flex;
         align-items: center;
-        width: 80%;
-        background : none;
-        @include Mobile{
-            flex-wrap :wrap;
-            width : 100%;
-            justify-content : flex-end;
+        width: auto;
+        background: none;
+
+        @include Mobile {
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: flex-end;
         }
+
+        @include Tablet {
+            position: relative;
+        }
+
         .control-btn-text {
             width: auto;
+
+
 
             @include Mobile {
                 margin-left: 0;
                 margin-top: 0;
                 text-align: center;
             }
+
+            @include Tablet {
+                position: absolute;
+                right: 0;
+                bottom: -30px;
+            }
         }
 
         input {
-            width: 328px;
+            width: 280px;
+            @include Mobile{
+                width : 328px;
+            }
         }
 
         span {
-            margin-right: 8px;
+            margin-right: 12px;
 
             @include Mobile {
                 margin-right: 4px;
@@ -66,6 +84,16 @@
                 width: 100%;
             }
         }
+    }
+
+    .money-spacing {
+        margin-right: 8px;
+    }
+
+    #payment-acc-label {
+        line-height: 1;
+        font-weight: 400;
+        font-size : 12px;
     }
 }
 

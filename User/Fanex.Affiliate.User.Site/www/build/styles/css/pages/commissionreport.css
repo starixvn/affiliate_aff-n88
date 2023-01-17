@@ -169,7 +169,7 @@ p {
             width: 100%; } }
       .group-control-select-table .form-inline .form-group label {
         margin-bottom: 0;
-        margin-right: 8px !important; }
+        margin-right: 12px !important; }
         @media (max-width: 767px) {
           .group-control-select-table .form-inline .form-group label {
             margin-bottom: 8px; } }
