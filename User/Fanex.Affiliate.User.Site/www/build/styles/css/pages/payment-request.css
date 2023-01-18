@@ -52,6 +52,9 @@ p {
     @media (max-width: 767px) {
       .overview-table table {
         font-size: 12px; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .overview-table table {
+        min-width: 160rem; } }
     @media screen and (max-width: 1024px) {
       .overview-table table th {
         font-size: 13px; } }
@@ -317,3 +320,17 @@ p {
   @media (max-width: 767px) {
     .form-horizontal .btn-submit {
       margin-bottom: 12px; } }
+
+.payment-pending {
+  margin-bottom: 24px; }
+  @media (max-width: 767px) {
+    .payment-pending {
+      margin-bottom: 12px; } }
+  .payment-pending .btn-submit {
+    padding: 2px 20px; }
+    @media (max-width: 767px) {
+      .payment-pending .btn-submit {
+        width: auto;
+        padding: 1px 12px; } }
+  .payment-pending table {
+    min-width: 90rem; }

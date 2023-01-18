@@ -32,6 +32,10 @@
             font-size: 12px;
         }
 
+        @include Tablet {
+            min-width: 160rem;
+        }
+
         th {
             @include TableAndMobile {
                 font-size: 13px;

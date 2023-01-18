@@ -52,6 +52,9 @@ p {
     @media (max-width: 767px) {
       .overview-table table {
         font-size: 12px; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .overview-table table {
+        min-width: 160rem; } }
     @media screen and (max-width: 1024px) {
       .overview-table table th {
         font-size: 13px; } }

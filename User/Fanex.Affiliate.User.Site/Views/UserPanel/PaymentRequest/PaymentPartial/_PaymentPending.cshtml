@@ -11,10 +11,10 @@
 
     <form id="cancelPaymentForm">
         @Html.AntiForgeryToken()
-        <div class="table payment-history table-responsive">
+        <div class="table payment-history payment-pending overview-table">
             <table>
                 <thead>
-                    <tr>
+                    <tr class="overview-table-header">
                         <th width="20%">@Lang.DateRequest</th>
                         <th width="20%">@Lang.RequestAmount</th>
                         <th width="20%">@Lang.Status</th>
