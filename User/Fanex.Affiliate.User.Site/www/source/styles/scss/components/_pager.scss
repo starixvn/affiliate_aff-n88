@@ -63,8 +63,14 @@ $colorBorderPaging: #CED4DA;
         margin-left: 15px;
         border: 1px solid #9E9E9E;
         border-radius: 4px;
-        @include Mobile{
-            min-width : 60px;
+        background: #ffffff;
+
+        &:focus {
+            background: #ffffff;
+        }
+
+        @include Mobile {
+            min-width: 60px;
         }
     }
 

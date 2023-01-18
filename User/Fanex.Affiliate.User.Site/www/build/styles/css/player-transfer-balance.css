@@ -278,7 +278,10 @@ p {
     min-width: 100px;
     margin-left: 15px;
     border: 1px solid #9E9E9E;
-    border-radius: 4px; }
+    border-radius: 4px;
+    background: #ffffff; }
+    .pager-container .pagesize-select:focus {
+      background: #ffffff; }
     @media (max-width: 767px) {
       .pager-container .pagesize-select {
         min-width: 60px; } }
