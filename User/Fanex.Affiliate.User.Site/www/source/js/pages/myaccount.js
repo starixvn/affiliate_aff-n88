@@ -3,6 +3,8 @@
         $("#websiteInfo .urlInput").last().focus();
     }
 
+    var _isClickSubmit = false;
+
     var _me = {
         initialize: function () {
             _me.initEvent();
@@ -20,7 +22,7 @@
 
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
-                WebSite.changeWebsiteOption(hasWebSite);
+                WebSite.changeWebsiteOption(hasWebSite, _isClickSubmit);
             });
 
             $('select[data-val="true"]').on("change", function () {
@@ -39,6 +41,7 @@
         },
 
         submit: function () {
+            _isClickSubmit = true;
             var $form = $("#accountForm");
             var validator = $form.validate();
             var isValidForm = validator.form();

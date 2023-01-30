@@ -389,6 +389,9 @@ label {
 .summary-content .details-section-content .table table thead tr.overview-table-total th {
   background: #0A223D !important;
   color: #d0d0d0; }
+  .summary-content .details-section-content .table table thead tr.overview-table-total th.align-right {
+    text-align: right;
+    padding: 5px 10px; }
 
 .summary-content .details-section-content .table table tbody tr:nth-child(even) {
   background: #1a1a1a; }

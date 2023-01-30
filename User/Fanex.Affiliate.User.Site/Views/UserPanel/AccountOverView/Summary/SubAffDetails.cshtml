@@ -38,10 +38,10 @@
                             <td class="text-center">@Html.Raw(item.FirstName)</td>
                             <td class="text-center">@Html.Raw(item.LastName)</td>
                             <td class="text-center">@item.ApprovedDate.ToString("dd/MM/yyyy HH:mm:ss")</td>
-                            <td class="text-center">@item.Turnover.FormatDecimal()</td>
-                            <td class="text-center">@item.GGR.FormatDecimal()</td>
-                            <td class="text-center">@item.Commission.FormatDecimal()</td>
-                            <td class="text-center">@item.ActivePlayer</td>
+                            <td class="text-right">@item.Turnover.FormatDecimal()</td>
+                            <td class="text-right">@item.GGR.FormatDecimal()</td>
+                            <td class="text-right">@item.Commission.FormatDecimal()</td>
+                            <td class="text-right">@item.ActivePlayer</td>
                         </tr>
 
                         startRowNumber++;

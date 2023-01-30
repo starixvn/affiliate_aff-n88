@@ -944,6 +944,11 @@ select.form-control {
         th {
             background: $table-row-total-bg-color !important;
             color: $table-color;
+
+            &.align-right {
+                text-align: right;
+                padding: 5px 10px;
+            }
         }
     }
 }

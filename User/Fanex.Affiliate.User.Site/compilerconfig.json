@@ -209,10 +209,6 @@
     "inputFile": "www/source/js/pages/sub-affiliate-earning.js"
   },
   {
-    "outputFile": "www/build/js/revenue-structure.js",
-    "inputFile": "www/source/js/pages/revenue-structure.js"
-  },
-  {
     "outputFile": "www/build/js/channel-link-statistic.js",
     "inputFile": "www/source/js/pages/account-overview/partial/channel-link-statistic.js"
   }

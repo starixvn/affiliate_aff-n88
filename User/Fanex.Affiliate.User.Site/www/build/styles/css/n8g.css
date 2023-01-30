@@ -1129,6 +1129,9 @@ div.custom-panel {
     #account-overview-content .table table thead tr.overview-table-total th, #paymentList .table table thead tr.overview-table-total th, .report-container .table table thead tr.overview-table-total th, #statementDataList .table table thead tr.overview-table-total th {
       background-color: #15366F;
       color: #ffffff; }
+      #account-overview-content .table table thead tr.overview-table-total th.align-right, #paymentList .table table thead tr.overview-table-total th.align-right, .report-container .table table thead tr.overview-table-total th.align-right, #statementDataList .table table thead tr.overview-table-total th.align-right {
+        text-align: right;
+        padding: 5px 10px; }
   #account-overview-content .table table tbody tr:nth-child(even), #paymentList .table table tbody tr:nth-child(even), .report-container .table table tbody tr:nth-child(even), #statementDataList .table table tbody tr:nth-child(even) {
     background-color: #182E56; }
   #account-overview-content .table table tbody tr:nth-child(odd), #paymentList .table table tbody tr:nth-child(odd), .report-container .table table tbody tr:nth-child(odd), #statementDataList .table table tbody tr:nth-child(odd) {

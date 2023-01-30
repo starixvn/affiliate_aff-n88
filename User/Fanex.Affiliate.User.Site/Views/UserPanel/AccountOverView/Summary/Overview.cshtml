@@ -27,14 +27,14 @@
                 if (hasData)
                 {
                     <tr class="overview-table-total" id="overview-table-total">
-                        <th class="text-center">@Lang.Total</th>
-                        <th class="text-center">@itemTotal.Signups</th>
-                        <th class="text-center">@itemTotal.DepositedMembers</th>
-                        <th class="text-center">@itemTotal.ActiveMembers</th>
-                        <th class="text-center">@itemTotal.Deposit.FormatDecimal()</th>
-                        <th class="text-center">@itemTotal.Turnover.FormatDecimal()</th>
-                        <th class="text-center">@itemTotal.Withdrawal.FormatDecimal()</th>
-                        <th class="text-center">@itemTotal.GGR.FormatDecimal()</th>
+                        <th>@Lang.Total</th>
+                        <th class="align-right">@itemTotal.Signups</th>
+                        <th class="align-right">@itemTotal.DepositedMembers</th>
+                        <th class="align-right">@itemTotal.ActiveMembers</th>
+                        <th class="align-right">@itemTotal.Deposit.FormatDecimal()</th>
+                        <th class="align-right">@itemTotal.Turnover.FormatDecimal()</th>
+                        <th class="align-right">@itemTotal.Withdrawal.FormatDecimal()</th>
+                        <th class="align-right">@itemTotal.GGR.FormatDecimal()</th>
                     </tr>
                 }
             }
@@ -48,13 +48,13 @@
                         var item = Model.ElementAt(i);
                         <tr>
                             <td class="text-center">@item.WinlostDate.ToString("MM/dd/yyyy")</td>
-                            <td class="text-center">@item.Signups</td>
-                            <td class="text-center">@item.DepositedMembers</td>
-                            <td class="text-center">@item.ActiveMembers</td>
-                            <td class="text-center">@item.Deposit.FormatDecimal()</td>
-                            <td class="text-center">@item.Turnover.FormatDecimal()</td>
-                            <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
-                            <td class="text-center">@item.GGR.FormatDecimal()</td>
+                            <td class="text-right">@item.Signups</td>
+                            <td class="text-right">@item.DepositedMembers</td>
+                            <td class="text-right">@item.ActiveMembers</td>
+                            <td class="text-right">@item.Deposit.FormatDecimal()</td>
+                            <td class="text-right">@item.Turnover.FormatDecimal()</td>
+                            <td class="text-right">@item.Withdrawal.FormatDecimal()</td>
+                            <td class="text-right">@item.GGR.FormatDecimal()</td>
                         </tr>
                     }
                 }

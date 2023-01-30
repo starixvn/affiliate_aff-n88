@@ -1698,6 +1698,11 @@ div.custom-panel {
                         th {
                             background-color: #15366F;
                             color: $table-color;
+
+                            &.align-right {
+                                text-align: right;
+                                padding: 5px 10px;
+                            }
                         }
                     }
                 }

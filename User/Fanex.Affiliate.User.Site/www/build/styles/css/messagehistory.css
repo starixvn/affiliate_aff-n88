@@ -474,7 +474,7 @@ http://nicolasgallagher.com/micro-clearfix-hack/
       border-right: none !important; }
       .overview-table table td a {
         font-size: 13px; }
-    .overview-table table .parent-tr td:last-child {
+    .overview-table table .parent-tr td.market-name {
       font-size: 13px;
       text-align: center; }
     .overview-table table .no-info {

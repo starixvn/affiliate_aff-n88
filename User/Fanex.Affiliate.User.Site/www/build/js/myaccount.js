@@ -89,8 +89,8 @@ var WebSite = (function ($) {
             return isValidMainInfo && isValidMoreUrl;
         },
 
-        changeWebsiteOption: function (hasWebSite) {
-            _me.validateWebSiteGroup();
+        changeWebsiteOption: function (hasWebSite, isClickSubmit) {
+            isClickSubmit && _me.validateWebSiteGroup();
             var $mainUrlInput = $("#SiteUrl");
             $mainUrlInput.prop("disabled", !hasWebSite);
             $(".websiteInput").toggle(hasWebSite);
@@ -133,6 +133,8 @@ var MyAccount = (function ($) {
         $("#websiteInfo .urlInput").last().focus();
     }
 
+    var _isClickSubmit = false;
+
     var _me = {
         initialize: function () {
             _me.initEvent();
@@ -150,7 +152,7 @@ var MyAccount = (function ($) {
 
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
-                WebSite.changeWebsiteOption(hasWebSite);
+                WebSite.changeWebsiteOption(hasWebSite, _isClickSubmit);
             });
 
             $('select[data-val="true"]').on("change", function () {
@@ -169,6 +171,7 @@ var MyAccount = (function ($) {
         },
 
         submit: function () {
+            _isClickSubmit = true;
             var $form = $("#accountForm");
             var validator = $form.validate();
             var isValidForm = validator.form();

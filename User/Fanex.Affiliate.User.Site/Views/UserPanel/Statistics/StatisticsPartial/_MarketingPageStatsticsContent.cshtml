@@ -1,5 +1,4 @@
-﻿@using Fanex.Affiliate.User.Core.Extensions
-@using Fanex.Affiliate.User.Core.DTO.UserPanel;
+﻿@using Fanex.Affiliate.User.Core.DTO.UserPanel;
 @using System.Linq;
 @model IEnumerable<IGrouping<string, MarketingPageStatistics>>
 
@@ -10,7 +9,7 @@
 
 
     <tr data-id='@item.Key' class='parent-item'>
-        <td>@index</td>
+        <td class="text-center">@index</td>
         <td class="text-bold">
             <div class="flex">
                 <span class="flex-0">@channelName</span>
@@ -21,8 +20,8 @@
             </div>
         </td>
         <td class="text-center">-</td>
-        <td class="text-center">@item.Sum(l => l.TotalClick) </td>
-        <td class="text-center">@item.Sum(l => l.UniqueClick) </td>
+        <td class="text-right">@item.Sum(l => l.TotalClick) </td>
+        <td class="text-right">@item.Sum(l => l.UniqueClick) </td>
     </tr>
     foreach (var link in item)
     {
@@ -36,8 +35,8 @@
         <td></td>
         <td>@link.AffMediaLink</td>
         <td class="text-center">@link.MarketName</td>
-        <td class="text-center">@link.TotalClick</td>
-        <td class="text-center">@link.UniqueClick</td>
+        <td class="text-right">@link.TotalClick</td>
+        <td class="text-right">@link.UniqueClick</td>
     </tr>
 }
 

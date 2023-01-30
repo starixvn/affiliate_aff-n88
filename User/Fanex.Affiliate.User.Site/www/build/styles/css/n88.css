@@ -610,6 +610,9 @@ select.form-control:focus {
   .summary-content .table table thead tr.overview-table-total th {
     background: #FFDCC8 !important;
     color: #001942; }
+    .summary-content .table table thead tr.overview-table-total th.align-right {
+      text-align: right;
+      padding: 5px 10px; }
 
 .login-dialog .btn-signup:hover, .login-dialog .btn-signup:focus {
   color: #FFF;

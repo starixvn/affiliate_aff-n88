@@ -86,7 +86,7 @@
 
         .parent-tr {
             td {
-                &:last-child {
+                &.market-name {
                     font-size: 13px;
                     text-align: center;
                 }
