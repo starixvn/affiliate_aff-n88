@@ -3,18 +3,23 @@ using System.Web.Routing;
 using System.Web.Security;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
-using ONEbook.UM.Services;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
     public class UnderMaintenanceController : Controller
     {
+        private readonly IAppSetting _appSetting;
         private readonly ISessionService _sessionService;
         protected readonly ILanguageService _languageService;
         private readonly IUnderMaintenanceService _underMaintenanceService;
-        public UnderMaintenanceController(ISessionService sessionService,
+
+        public UnderMaintenanceController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
             ILanguageService languageService, IUnderMaintenanceService underMaintenanceService)
         {
+            _appSetting = appSetting;
             _sessionService = sessionService;
             _languageService = languageService;
             _underMaintenanceService = underMaintenanceService;
@@ -46,7 +51,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
             ViewBag.UmTimeFrom = maintenanceInfo.From;
             ViewBag.UmTimeTo = maintenanceInfo.To;
 
-            return View();
+            var viewPath = PathHelper.GetViewPath("UnderMaintenance", "Index", _appSetting.SiteName);
+            return View(viewPath);
         }
     }
 }

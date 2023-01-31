@@ -19,19 +19,73 @@
     <title>Under Maintenance</title>
     <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
     <link href="~/www/build/styles/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/maintenance.css")" rel="stylesheet" />
+    <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
+    <style type="text/css">
+        body {
+            background: -ms-linear-gradient(left, #500001, #020518);
+            background: -webkit-linear-gradient(left, #500001, #020518);
+            background: -moz-linear-gradient(left, #500001, #020518);
+            background: -o-linear-gradient(left, #500001, #020518);
+            background: linear-gradient(left, #500001, #020518);
+        }
+
+        .um-container {
+            background: #f5f0f0;
+            padding: 15px;
+            width: 100%;
+        }
+
+        .info {
+            color: #ff5a00;
+        }
+
+        .um-wrapper a:visited {
+            color: #ff5a00;
+        }
+
+        .um-wrapper a:hover {
+            color: #002aa0;
+        }
+
+        .um-wrapper h1 {
+            font-family: Arial, Helvetica;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff5a00;
+            _padding-top: 20px;
+            *padding-top: 20px;
+            line-height: 25px;
+            display: inline-block;
+        }
+
+        .um-header {
+            margin-bottom: 10px;
+        }
+
+        .um-header-top {
+            padding: 10px;
+            background: url('../../www/build/styles/Images/header-bg.png');
+        }
+
+        .logo {
+            max-width: 180px;
+        }
+    </style>
 </head>
 <body>
-    <div class="main-container">
-        <div class="logo">
-            <img src=@(Url.Content($"~/www/build/styles/Images/notify/maintenance-logo.png")) alt="logo" />
-        </div>
+    <div class="container">
+        <header class="um-header-top">
+            <img class="logo" src=@(Url.Content($"~/www/build/styles/Images/themes/{siteName}.png")) alt="logo" />
+        </header>
+    </div>
+    <div class="container main-container">
         <div class="content">
             <div class="um-container">
                 @*EN*@
                 <div class="um-wrapper">
                     <div class="um-header">
-                        Under Maintenance
+                        <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
+                        <h1>Under Maintenance</h1>
                     </div>
 
                     <div class="message-content">
@@ -43,107 +97,32 @@
                     </div>
                 </div>
 
-                @if (isN88)
-                {
-                    @*Hindi*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            रखरखाव जारी
-                        </div>
+                <hr style="border-top: 1px dotted rgb(153, 153, 153);" noshade="noshade" size="1">
 
-                        <div class="message-content">
-                            <p>हम सर्वर रखरखाव कर रहे हैं, वेबसाइट तब तक अनुपलब्ध रहेगी जब तक <span class="um-time info">@to (एचके टाइम जीएमटी +8).</span></p>
-                            <p>असुविधा के लिए कृपया हमारी क्षमायाचना स्वीकार करें!</p>
-                            <p>
-                                ग्राहक सेवा तक पहुँचने के लिए, कृपया सीएसडी से संपर्क करें
-                            </p>
-                        </div>
+                @*VN*@
+                <div class="um-wrapper">
+                    <div class="um-header">
+                        <img src="~/www/build/styles/Images/notify/note_icon.gif" width="46" height="46" alt="note icon" />
+                        <h1>Hệ thống bảo trì</h1>
                     </div>
 
-                    @*Indo*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            Under Maintenance
-                        </div>
-
-                        <div class="message-content">
-                            <p>Kami sedang melakukan maintenance, silahkan kembali lagi setelah pukul <span class="um-time info">@to (GMT +8).</span></p>
-                            <p>Mohon Maaf atas ketidaknyamanan Anda!</p>
-                            <p>
-                                Silahkan hubungi Manajer Akun Affiliate Anda.
-                            </p>
-                        </div>
+                    <div class="message-content">
+                        <p>Hệ thống công ty chúng tôi đang trong thời gian bảo trì đến <span class="um-time info">@to (HK Time GMT +8).</span></p>
+                        <p>Thành thật xin lỗi những bất tiện gây ra.</p>
+                        <p>
+                            Yêu cầu dịch vụ khách hàng, xin vui lòng liên hệ bộ phận chăm sóc khách hàng.
+                        </p>
                     </div>
+                </div>
 
-                    @*Indo*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            Di bawah penyelenggaraan
-                        </div>
-
-                        <div class="message-content">
-                            <p>Kami sedang menjalankan penyelenggaraan pelayan, laman web tidak akan tersedia sehingga selesai <span class="um-time info">@to (Waktu HK GMT +8).</span></p>
-                            <p>Sila terima permohonan maaf kami atas kesulitan yang berlaku!</p>
-                            <p>
-                                Untuk menghubungi perkhidmatan pelanggan, sila hubungi CSD.
-                            </p>
-                        </div>
-                    </div>
-
-                    @*TH*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            ปรับปรุงระบบ
-                        </div>
-
-                        <div class="message-content">
-                            <p>เรากำลังดำเนินการปิดบำรุงรักษาเซิร์ฟเวอร์เว็บไซต์ ระบบจะไม่สามารถใช้งานได้จนถึง <span class="um-time info">@to (เวลา HK GMT +8).</span></p>
-                            <p>ขออภัยในความไม่สะดวกที่เกิดขึ้น!</p>
-                            <p>
-                                หากต้องการติดต่อเจ้าหน้าที่โปรดติดต่อฝ่ายบริการลูกค้า
-                            </p>
-                        </div>
-                    </div>
-
-                    @*CS*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            伺服器维护
-                        </div>
-
-                        <div class="message-content">
-                            <p>我们正在进行服务器维护，网站维护时间直到 <span class="um-time info">@to (香港时间GMT +8).</span></p>
-                            <p>给您带来的不便，我们深表歉意！</p>
-                            <p>
-                                更多详情请联系我们的在线客服。
-                            </p>
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    @*VN*@
-                    <div class="um-wrapper">
-                        <div class="um-header">
-                            Hệ thống bảo trì
-                        </div>
-
-                        <div class="message-content">
-                            <p>Hệ thống công ty chúng tôi đang trong thời gian bảo trì đến <span class="um-time info">@to (HK Time GMT +8).</span></p>
-                            <p>Thành thật xin lỗi những bất tiện gây ra.</p>
-                            <p>
-                                Yêu cầu dịch vụ khách hàng, xin vui lòng liên hệ bộ phận chăm sóc khách hàng.
-                            </p>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <div class="container">
-            <div class="footer-text text-center">
-                @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+
+        <div class="footer">
+            <div class="container">
+                <div class="footer-text text-center">
+                    @string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.Copyright), DateTime.Now.Year)
+                </div>
             </div>
         </div>
     </div>

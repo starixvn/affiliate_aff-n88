@@ -1470,4 +1470,14 @@ input[type=radio][disabled] + span {
             }
         }
     }
+
+    .user-signup {
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    #mobileLogin {
+        display: none;
+    }
 }

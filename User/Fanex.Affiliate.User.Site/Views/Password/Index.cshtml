@@ -1,42 +1,49 @@
 ﻿@{
     ViewBag.Title = Lang.ForgetPassword;
-    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin");
+    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 
 @section styles {
-    <link rel="stylesheet" href="@Url.RenderLink("~/www/build/styles/css/password.css")" />
+    <style>
+        .main {
+            min-height: calc(100vh - 282px)
+        }
+
+        .has-error > input {
+            border-color: #a94442;
+        }
+    </style>
 }
 @section scripts{
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
     @Html.InlineScripts("~/www/build/js/forgotpassword.js")
 }
 
-<div class="main-content">
-    <div class="content">
-        <div class="page-title">
-            <span class="text">@Lang.ForgetPassword</span>
-        </div>
+<div class="content">
+    <div class="page-title">
+        <span class="text">@Lang.ForgetPassword</span>
+    </div>
 
-        <div class="alert" role="alert" id="messageResult" style="display: none"></div>
-        <div id="mainContent">
-            <p class="forget-content">@Html.Raw(Lang.TitelForgetPass.Replace("{0}", Url.Content("~/ContactUs")))</p>
-            <form id="forgotPasswordForm" class="form-horizontal form-valid form-valid-pasword">
-                @Html.AntiForgeryToken()
-
-                <div id="emailInputGroup">
-                    <div class="group-form group-input-label">
-                        <label for="email">@Lang.YourEmail <span class="red-start">*</span></label>
-                        <input class="form-control" name="Email" id="Email" type="text" autocomplete="off" />
-                    </div>
-                    <p class="validation-input">
-                        <span class="help-block hide">@Lang.EmailAddressIsInvalid</span>
-                    </p>
-                    <div class="group-form group-button">
-                        <button id="btnSubmit" class="btn btn-submit" type="submit">@Lang.Submit</button>
-                        <button id="btnReset" class="btn btn-reset" type="button">@Lang.Reset</button>
-                    </div>
+    <div class="alert" role="alert" id="messageResult" style="display: none"></div>
+    <div id="mainContent">
+        <p>@Html.Raw(Lang.TitelForgetPass.Replace("{0}", Url.Content("~/ContactUs")))</p>
+        <form id="forgotPasswordForm" class="form-horizontal" style="margin-top:30px;">
+            @Html.AntiForgeryToken()
+            <div class="form-group" id="emailInputGroup">
+                <label class="col-sm-3 col-md-2 control-label require">@Lang.YourEmail</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="Email" id="Email" type="text" autocomplete="off" />
                 </div>
-            </form>
-        </div>
+                <div class="col-sm-offset-3 col-md-offset-2 col-sm-10 validation-input">
+                    <span class="help-block hide">@Lang.EmailAddressIsInvalid</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-md-offset-2 col-sm-4">
+                    <button id="btnSubmit" class="btn btn-submit" type="submit">@Lang.Submit</button>
+                    <button id="btnReset" class="btn btn-submit" type="button">@Lang.Reset</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

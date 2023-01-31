@@ -3,7 +3,3 @@
 
 .faq-group .question {
   font-weight: 700; }
-
-@media only screen and (max-width: 767px) {
-  .main .content {
-    padding-top: 20px !important; } }

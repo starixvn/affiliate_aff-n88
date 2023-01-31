@@ -18,7 +18,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View("~/Views/Promotion/Index.cshtml", GetBaseLayoutViewModel());
+            var viewPath = PathHelper.GetViewPath("Promotion", "Index", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
     }
 }

@@ -3,10 +3,10 @@
     var hasData = Model.MessageList != null && Model.MessageList.Any();
 }
 
-<div class="table overview-table">
+<div class="table">
     <table>
         <thead>
-            <tr class="overview-table-header">
+            <tr>
                 <th width="3%"></th>
                 <th width="10%">@Lang.ID</th>
                 <th width="30%">@Lang.PostDate</th>
@@ -33,7 +33,7 @@
             else
             {
                 <tr>
-                    <td class="text-center no-info" colspan="7">@Lang.NoInfo</td>
+                    <td class="text-center" colspan="7">@Lang.NoInfo</td>
                 </tr>
             }
         </tbody>

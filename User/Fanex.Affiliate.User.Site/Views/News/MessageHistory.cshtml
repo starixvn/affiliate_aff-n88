@@ -1,6 +1,6 @@
 ﻿@using Fanex.Affiliate.User.Core.Constants;
 @{
-    Layout = PathHelper.GetLayoutPath("_LayoutAfterLogin");
+    Layout = "~/Views/Shared/_LayoutAfterLogin.cshtml";
     var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0)).Date;
 }
 
@@ -20,44 +20,41 @@
     </div>
 
     <div>
-        <div class="group-control-select-table">
-            <div class="form-inline form-filter">
-                <div class="form-group">
-                    <label>@Lang.Search:</label>
-                    <select id="Search" class="form-control">
-                        <option value="">@Lang.All</option>
-                        <option value="0">@Lang.Normal</option>
-                        <option value="1">@Lang.Important</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" id="chkSearchAll" checked /> @Lang.GetAll
-                        </label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>@Lang.From:</label>
-                    <div id="fromPicker" class="d-inline-block date-wrapper">
-                        <input readonly id="FromDate" class="form-control disabled" type="text" value="@now.ToString("MM/dd/yyyy")" />
-                        <span class="glyphicon glyphicon-calendar disabled"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>@Lang.To:</label>
-                    <div id="toPicker" class="d-inline-block date-wrapper">
-                        <input readonly id="ToDate" class="form-control disabled" type="text" value="@now.ToString("MM/dd/yyyy")" />
-                        <span class="glyphicon glyphicon-calendar disabled"></span>
-                    </div>
-                </div>
-
-                <button type="button" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
+        <div class="form-inline form-filter">
+            <div class="form-group">
+                <label>@Lang.Search:</label>
+                <select id="Search" class="form-control">
+                    <option value="">@Lang.All</option>
+                    <option value="0">@Lang.Normal</option>
+                    <option value="1">@Lang.Important</option>
+                </select>
             </div>
-        </div>
 
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="chkSearchAll" checked /> @Lang.GetAll
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>@Lang.From:</label>
+                <div id="fromPicker" class="d-inline-block date-wrapper">
+                    <input readonly id="FromDate" class="form-control disabled" type="text" value="@now.ToString("MM/dd/yyyy")" />
+                    <span class="glyphicon glyphicon-calendar disabled"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>@Lang.To:</label>
+                <div id="toPicker" class="d-inline-block date-wrapper">
+                    <input readonly id="ToDate" class="form-control disabled" type="text" value="@now.ToString("MM/dd/yyyy")" />
+                    <span class="glyphicon glyphicon-calendar disabled"></span>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
+        </div>
         <div id="messagePager"></div>
         <div id="messageDataList">
             @{ Html.RenderPartial("~/Views/News/_MessageContent.cshtml", Model); }

@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = Lang.Signup;
-    Layout = PathHelper.GetLayoutPath("_LayoutBeforeLogin");
+    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 
     var sessionService = DependencyResolver.Current.GetService<ISessionService>();
     var languageService = DependencyResolver.Current.GetService<ILanguageService>();
@@ -37,7 +37,7 @@
         </div>
 
         <div class="alert alert-success" role="alert" id="messageSuccess" style="display: none;">
-            <p class="text-center"><b>@Html.Raw(Lang.UnderReview)</b></p>
+            <p class="text-center">@Html.Raw(Lang.UnderReview)</p>
             @Html.Raw(string.Format(SiteFriendlyNameHelper.ReplaceB2C(Lang.RegisSuccess), Url.Content("~/ContactUs")))
         </div>
 
@@ -57,7 +57,7 @@
                         <span class="text">@Lang.ContactInfo</span>
                     </div>
 
-                    <div class="form-group half-col half-col-left ">
+                    <div class="form-group">
                         <label class="col-sm-3 control-label require">@Lang.FName</label>
                         <div class="col-sm-4">
                             @Html.TextBoxFor(p => p.FirstName, new { @class = "form-control" })
@@ -67,7 +67,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group half-col">
+                    <div class="form-group">
                         <label class="col-sm-3 control-label require">@Lang.LName</label>
                         <div class="col-sm-4">
                             @Html.TextBoxFor(p => p.LastName, new { @class = "form-control" })
@@ -192,7 +192,7 @@
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <div class="col-sm-4 full">
+                            <div class="col-sm-4">
                                 <label class="radio-inline">
                                     <input type="radio" name="HasWebSite" value="True" checked="checked" id="hasWebSite" /> <span>@Lang.OwnWebsite</span>
                                 </label>
@@ -206,7 +206,7 @@
                                     @Html.TextBoxFor(p => p.SiteUrl, new { @class = "form-control" })
                                 </div>
                                 <div class="col-sm-1">
-                                    <button type="button" class="btn btn-submit btn-add-web" id="btnAddUrl" title="@Lang.AddUrl"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                    <button type="button" class="btn btn-submit" id="btnAddUrl" title="@Lang.AddUrl"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                                 </div>
                                 <div class="col-sm-offset-3 col-sm-9">
                                     @Html.ValidationMessageFor(p => p.SiteUrl, string.Empty, new { @class = "help-block hide" })
@@ -217,7 +217,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-sm-4 full">
+                            <div class="col-sm-4">
                                 <label class="radio-inline">
                                     <input type="radio" name="HasWebSite" value="False" /> <span>@Lang.NoWebsite</span>
                                 </label>
@@ -294,33 +294,33 @@
                         <span class="text">@Lang.PaymentInfor</span>
                     </div>
                     <div class="form-horizontal">
-                        <div class="form-group payment-method">
+                        <div class="form-group">
                             <label class="col-sm-3 control-label">@Lang.PaymentMethod</label>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
                                     <input type="radio" name="Method" checked /> <span>@(SiteFriendlyNameHelper.ReplaceB2C(Lang._B2CPlayerAcc))</span>
                                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group payment-username">
-                            <label class="col-sm-3 control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.UsernameSignUp)</label>
-                            <div class="col-sm-4 preference-validation">
-                                @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
-                            </div>
-                            <div class="col-sm-offset-3 col-sm-9">
-                                @Html.ValidationMessageFor(x => x.Player_UserName, string.Empty, new { @class = "help-block hide" })
+                                <div class="form-group payment-username col-sm-12 p-l-0">
+                                    <label class="control-label require">@SiteFriendlyNameHelper.ReplaceB2C(Lang.UsernameSignUp)</label>
+                                    <div class="">
+                                        @Html.TextBoxFor(p => p.Player_UserName, new { @class = "form-control", @autocomplete = "off" })
+                                    </div>
+                                    <div class="">
+                                        @Html.ValidationMessageFor(x => x.Player_UserName, string.Empty, new { @class = "help-block hide" })
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <div class="form-group agree-box">
-                            <div class="checkbox chk-agree">
+                            <div class="checkbox col-sm-offset-3 chk-agree">
                                 <label>
-                                    <input type="checkbox" name="Agree" id="chkAgree" />@SiteFriendlyNameHelper.ReplaceB2C(Lang.IagreetotheTerm)
+                                    <input type="checkbox" name="Agree" id="chkAgree" /> @SiteFriendlyNameHelper.ReplaceB2C(Lang.IagreetotheTerm)
                                 </label>
                             </div>
                         </div>
 
-                        <div class="button-block">
+                        <div class="col-sm-offset-3 button-block">
                             <button class="btn btn-submit" id="btnSubmit" type="submit" disabled>@Lang.Submit</button>
                             <button class="btn btn-submit" id="btnReset" type="button">@Lang.Reset</button>
                         </div>

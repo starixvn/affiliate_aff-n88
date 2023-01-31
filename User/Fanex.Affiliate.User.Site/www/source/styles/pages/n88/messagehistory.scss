@@ -1,0 +1,20 @@
+﻿@import '../../scss/abstracts/mixins';
+@import '../../scss/components/n88/group-control';
+@import '../../scss/components/n88/table-sticky';
+
+.checkbox {
+    margin: 0;
+
+    label {
+        margin: 0 !important;
+    }
+}
+
+#messagePager {
+    margin: 16px 0;
+
+    @include Mobile {
+        margin-top: 0;
+        margin-bottom: 8px;
+    }
+}

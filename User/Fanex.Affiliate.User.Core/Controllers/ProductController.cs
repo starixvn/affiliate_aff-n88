@@ -22,7 +22,7 @@
             };
             AssignBaseLayoutViewModel(viewModel);
 
-            return View("~/Views/Product/Index.cshtml", viewModel);
+            return View($"~/Views/Product/{AppSetting.SiteName}/Index.cshtml", viewModel);
         }
     }
 }

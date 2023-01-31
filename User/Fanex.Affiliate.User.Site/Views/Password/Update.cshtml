@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = PathHelper.GetLayoutPath("_LayoutAfterLogin");
+    Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 @model Fanex.Affiliate.User.Core.MetalModels.UpdatePasswordParam
 
@@ -15,9 +15,7 @@
     <script src="@Url.RenderLink("~/www/build/js/validation.js")"></script>
     @Html.InlineScripts("~/www/build/js/pages/changepassword.js")
 }
-@section styles{
-    @Html.InlineStyles("~/www/build/styles/css/N88/update-password.css")
-}
+
 <div class="sub-content" style="padding-bottom: 30px;">
     <div class="page-title">
         <span class="text">@Lang.ChangePass</span>
@@ -61,7 +59,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-5 button-block">
+                <div class="col-sm-offset-3 col-sm-5">
                     <button type="submit" id="btnSubmit" class="btn btn-submit">@Lang.Submit</button>
                     <button type="button" id="btnCancel" class="btn btn-submit">@Lang.Cancel</button>
                 </div>

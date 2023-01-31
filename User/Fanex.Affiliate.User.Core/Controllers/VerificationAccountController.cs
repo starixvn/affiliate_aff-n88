@@ -50,7 +50,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 Email = EmailHelper.HideEmailPart(userInfo.Email)
             };
 
-            return View("~/Views/VerificationAccount/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("VerificationAccount", "Index", AppSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpGet]

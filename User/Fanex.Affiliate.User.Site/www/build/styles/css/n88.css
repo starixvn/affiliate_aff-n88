@@ -1,4 +1,7 @@
-﻿body {
+﻿.btn {
+  border-radius: 4px; }
+
+body {
   font-family: 'Open Sans',sans-serif;
   color: #333333;
   background: #F8F9FA; }
@@ -100,6 +103,7 @@ header {
   color: #fff; }
 
 .news {
+  flex-direction: column;
   background: #F8F9FA url("../Images/home/n88/bg-news.png") no-repeat top 130px center/100% auto;
   width: 100vw;
   margin-left: calc(-50vw + 50%) !important;

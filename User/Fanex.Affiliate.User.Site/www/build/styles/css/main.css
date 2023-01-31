@@ -3,7 +3,7 @@
 
 body {
   font-size: 1.3rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -305,42 +305,36 @@ input[type="checkbox"], input[type="radio"] {
       align-items: center; } }
 
 .flag {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 14px;
   margin-right: 5px;
   position: relative;
   top: 1px;
   display: inline-block;
   -webkit-font-smoothing: antialiased;
-  background-size: cover;
-  vertical-align: middle;
-  /*    &-ko-KR {
-        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
-    }
-
-    &-es-ES {
-        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
-    }
-
-    &-ja-JP {
-        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
-    }*/ }
+  background-image: url("../../../source/styles/Images/bootstrap-formhelpers-countries.flags.png"); }
   .flag-en-US {
-    background-image: url("../../../../build/styles/Images/icons/flags/England.png"); }
+    background-position: -3281px 0; }
   .flag-zh-CN {
-    background-image: url("../../../../build/styles/Images/icons/flags/China.png"); }
+    background-position: -714px 0; }
   .flag-zh-TW {
-    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png"); }
+    background-position: -3213px 0; }
   .flag-id-ID {
-    background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.png"); }
+    background-position: -1496px 0; }
   .flag-vi-VN {
-    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png"); }
+    background-position: -3400px 0; }
   .flag-th-TH {
-    background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png"); }
+    background-position: -3077px 0; }
+  .flag-ko-KR {
+    background-position: -1819px 0; }
+  .flag-es-ES {
+    background-position: -986px 0; }
+  .flag-ja-JP {
+    background-position: -1683px 0; }
   .flag-hi-IN {
-    background-image: url("../../../../build/styles/Images/icons/flags/Hindi.png"); }
+    background-position: -1564px 0; }
   .flag-ms-MY {
-    background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png"); }
+    background-position: -3740px 0; }
 
 .header-top {
   display: flex;
@@ -1312,7 +1306,7 @@ ul.dash-style {
   line-height: 1;
   text-transform: uppercase;
   transition: all .2s ease;
-  border-radius: 4px;
+  border-radius: 2px;
   font-weight: 500;
   vertical-align: middle;
   margin-right: 30px; }

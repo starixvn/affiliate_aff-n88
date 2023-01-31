@@ -17,13 +17,15 @@ namespace Fanex.Affiliate.User.Core.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View($"~/Views/TermAndCondition/Index.cshtml", GetBaseLayoutViewModel());
+            var viewPath = PathHelper.GetViewPath("TermAndCondition", "Index", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
 
         [HttpGet]
         public ActionResult Popup()
         {
-            return View($"~/Views/TermAndCondition/Popup.cshtml", GetBaseLayoutViewModel());
+            var viewPath = PathHelper.GetViewPath("TermAndCondition", "Popup", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
     }
 }

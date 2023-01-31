@@ -5,15 +5,14 @@
     using BusinessService;
     using CoreService;
     using DTO;
-    using Fanex.Affiliate.User.Core.ViewModels;
     using MetalModels;
     using MetalModels.Email;
     using Resources;
     using Utilities;
 
-
-    public class ContactUsController : BaseLayoutController
+    public class ContactUsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IContactService _contactService;
         private readonly ICaptchaService _captchaService;
 
@@ -22,8 +21,9 @@
             ISessionService sessionService,
             ILanguageService languageService,
             IContactService contactService,
-            ICaptchaService captchaService) : base(appSetting, sessionService, languageService)
+            ICaptchaService captchaService) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _contactService = contactService;
             _captchaService = captchaService;
         }
@@ -31,13 +31,9 @@
         [HttpGet]
         public ActionResult Index()
         {
-            var model = new ContactUsViewModel
-            {
-                MailContact = AppSetting.GetMailContactByLanguageCode(SessionService.CurrentLanguage)
-            };
-            AssignBaseLayoutViewModel(model);
+            var mailContact = _appSetting.GetMailContactByLanguageCode(SessionService.CurrentLanguage);
 
-            return View($"~/Views/ContactUs/Index.cshtml", model);
+            return View($"~/Views/ContactUs/{_appSetting.SiteName}/Index.cshtml", model: mailContact);
         }
 
         [HttpPost]
@@ -68,13 +64,13 @@
                 param.Ip = Request.UserHostAddress;
                 param.SessionId = Session.SessionID;
                 param.Browser = Request.Browser.Browser;
-                param.SiteFriendlyName = AppSetting.SiteFriendlyName;
+                param.SiteFriendlyName = _appSetting.SiteFriendlyName;
 
                 var emailParam = new EmailBaseParam
                 {
                     User = new UserInfo { PreferredLanguage = language },
-                    MailTo = AppSetting.GetMailContactByLanguageCode(language),
-                    MailCc = AppSetting.MailCc
+                    MailTo = _appSetting.GetMailContactByLanguageCode(language),
+                    MailCc = _appSetting.MailCc
                 };
 
                 result = _contactService.SendRequest(param, emailParam);

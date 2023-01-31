@@ -2,6 +2,19 @@
 @import '../scss/base/base';
 @import '../scss/components/n88/table-sticky';
 
+.breadcrumb {
+    background-color: #FFFFFF;
+    border: 1px solid #CED4DA;
+    margin-bottom: 24px;
+
+    a {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #025EB1;
+    }
+}
+
 #statementDataList {
     .btn.btn-transparent {
         margin-right: 5px;

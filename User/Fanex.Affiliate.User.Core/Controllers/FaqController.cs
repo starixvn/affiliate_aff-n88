@@ -18,7 +18,7 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return View($"~/Views/Faq/Index.cshtml", GetBaseLayoutViewModel());
+            return View($"~/Views/Faq/{AppSetting.SiteName}/Index.cshtml", GetBaseLayoutViewModel());
         }
     }
 }

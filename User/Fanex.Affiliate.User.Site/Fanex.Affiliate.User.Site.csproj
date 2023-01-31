@@ -633,7 +633,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Promotion\Index.cshtml" />
     <Content Include="AppSetting.config">
       <SubType>Designer</SubType>
@@ -877,12 +876,48 @@
     <Content Include="www\build\styles\css\n88.min.css">
       <DependentUpon>n88.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\N88\update-password.css" />
-    <Content Include="www\build\styles\css\N88\update-password.min.css">
+    <Content Include="www\build\styles\css\n88\contact-us.css" />
+    <Content Include="www\build\styles\css\n88\contact-us.min.css">
+      <DependentUpon>contact-us.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\left-panel-menu.css" />
+    <Content Include="www\build\styles\css\n88\left-panel-menu.min.css">
+      <DependentUpon>left-panel-menu.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\maintenance.css" />
+    <Content Include="www\build\styles\css\n88\maintenance.min.css">
+      <DependentUpon>maintenance.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\marketing.css" />
+    <Content Include="www\build\styles\css\n88\marketing.min.css">
+      <DependentUpon>marketing.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\messagehistory.css" />
+    <Content Include="www\build\styles\css\n88\messagehistory.min.css">
+      <DependentUpon>messagehistory.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\notify.css" />
+    <Content Include="www\build\styles\css\n88\notify.min.css">
+      <DependentUpon>notify.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\password.css" />
+    <Content Include="www\build\styles\css\n88\password.min.css">
+      <DependentUpon>password.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\products.css" />
+    <Content Include="www\build\styles\css\n88\products.min.css">
+      <DependentUpon>products.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\promotion.css" />
+    <Content Include="www\build\styles\css\n88\promotion.min.css">
+      <DependentUpon>promotion.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\update-password.css" />
+    <Content Include="www\build\styles\css\n88\update-password.min.css">
       <DependentUpon>update-password.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\N88\verification-account.css" />
-    <Content Include="www\build\styles\css\N88\verification-account.min.css">
+    <Content Include="www\build\styles\css\n88\verification-account.css" />
+    <Content Include="www\build\styles\css\n88\verification-account.min.css">
       <DependentUpon>verification-account.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\n8b.css" />
@@ -1084,13 +1119,11 @@
     <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\source\js\layout\n88-after-login.js" />
     <Content Include="www\source\js\layout\n88.js" />
-    <Content Include="www\source\js\layout\n8x.js" />
     <Content Include="www\source\js\lib\bootstrap2-toggle.js" />
     <Content Include="www\source\js\lib\jsencrypt-2.3.1.min.js" />
     <Content Include="www\source\js\pages\account-overview\partial\channel-link-statistic.js" />
     <Content Include="www\source\js\pages\n88\left-menu-panel-has-sub.js" />
     <Content Include="www\source\js\pages\n88\left-menu-panel.js" />
-    <Content Include="www\source\js\pages\product.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance-history.js" />
     <Content Include="www\source\js\pages\PlayerTransferBalance\player-transfer-balance.js" />
     <Content Include="www\source\js\pages\promotion.js" />
@@ -1124,7 +1157,6 @@
     <Content Include="www\source\js\pages\account-overview\player-detail.js" />
     <Content Include="www\source\js\pages\account-overview\summary.js" />
     <Content Include="www\source\js\pages\commission-report.js" />
-    <Content Include="www\source\js\pages\contactus.js" />
     <Content Include="www\source\js\pages\forgotpassword.js" />
     <Content Include="www\source\js\pages\messagehistory.js" />
     <Content Include="www\source\js\pages\payment-request.js" />
@@ -1222,7 +1254,6 @@
     <Content Include="www\source\js\pages\account-overview\marketingbase.js" />
     <Content Include="www\source\js\pages\account-overview\mediagallery.js" />
     <Content Include="www\source\js\pages\myaccount.js" />
-    <Content Include="www\source\js\pages\n88\product.js" />
     <Content Include="www\source\js\pages\signup.js" />
     <Content Include="www\source\js\pages\statement-history.js" />
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />
@@ -1283,7 +1314,7 @@
     <Content Include="www\source\styles\scss\vendors\animate\animate.min.css" />
     <Content Include="www\source\styles\scss\components\_flag.scss" />
     <Content Include="www\source\styles\pages\products.scss" />
-    <Content Include="www\source\styles\pages\password.scss" />
+    <Content Include="www\source\styles\pages\n88\password.scss" />
     <Content Include="www\source\styles\scss\components\_login-dialog.scss" />
     <Content Include="www\source\styles\scss\components\_marquee.scss" />
     <Content Include="www\source\styles\fonts\materialdesignicons\materialdesignicons-webfont.woff2" />
@@ -1432,7 +1463,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="www\source\styles\scss\abstracts\_variables-n88.scss" />
-    <Content Include="www\source\styles\scss\abstracts\_variables-n88-darkmode.scss" />
     <Content Include="www\source\styles\scss\themes\n88.scss" />
     <Content Include="www\source\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
     <Content Include="www\build\styles\fonts\myriadPro\Myriad-Pro-Semibold.ttf" />
@@ -1467,7 +1497,6 @@
     <Content Include="Views\Product\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\Product\_Content.en-US.cshtml" />
     <Content Include="Views\Product\_Content.vi-VN.cshtml" />
-    <Content Include="www\source\styles\pages\revenue-structure.scss" />
     <Content Include="Views\Home\N8B\_CarouselItems.en-US.cshtml" />
     <Content Include="Views\Home\N8B\_CarouselItems.vi-VN.cshtml" />
     <Content Include="Views\Home\N8G\_CarouselItems.vi-VN.cshtml" />
@@ -1518,7 +1547,6 @@
     <Content Include="Views\Shared\N88\_LayoutAfterLogin.cshtml" />
     <Content Include="Views\Shared\N88\_LayoutBeforeLogin.cshtml" />
     <Content Include="Views\Shared\N88\_LayoutHome.cshtml" />
-    <Content Include="Views\Shared\N88\_LayoutNotify.cshtml" />
     <Content Include="www\source\styles\scss\components\n88\_flag.scss" />
     <Content Include="www\source\styles\scss\layout\n88\_header.scss" />
     <Content Include="www\source\styles\scss\layout\n88\_footer.scss" />
@@ -1528,15 +1556,9 @@
     <Content Include="Views\CommissionStructure\N88\_RevenueShareTable.cshtml" />
     <Content Include="Views\CommissionStructure\N8B\_Content.vi-VN.cshtml" />
     <Content Include="Views\CommissionStructure\N8B\_Content.en-US.cshtml" />
-    <Content Include="Views\ContactUs\N88\_Content.cshtml" />
-    <Content Include="Views\ContactUs\N8B\_Content.cshtml" />
-    <Content Include="Views\ContactUs\N8G\_Content.cshtml" />
     <Content Include="Views\Faq\_Content.en-US.cshtml" />
     <Content Include="Views\Faq\_Content.vi-VN.cshtml" />
     <Content Include="Views\Auth\AuthenticationForm.cshtml" />
-    <Content Include="Views\CommissionStructure\Index.cshtml" />
-    <Content Include="Views\ContactUs\Index.cshtml" />
-    <Content Include="Views\Faq\Index.cshtml" />
     <Content Include="Views\TermAndCondition\N88\_Content.en-US.cshtml" />
     <Content Include="Views\TermAndCondition\N88\_Content.hi-IN.cshtml" />
     <Content Include="Views\TermAndCondition\N88\_Content.id-ID.cshtml" />
@@ -1544,8 +1566,7 @@
     <Content Include="Views\TermAndCondition\N88\_Content.th-TH.cshtml" />
     <Content Include="Views\TermAndCondition\N88\_Content.zh-CN.cshtml" />
     <Content Include="Views\TermAndCondition\Index.cshtml" />
-    <Content Include="www\source\styles\scss\components\n88\_nav-scroll.scss" />
-    <Content Include="www\source\styles\pages\maintenance.scss" />
+    <Content Include="www\source\styles\pages\n88\maintenance.scss" />
     <Content Include="www\source\styles\scss\components\n88\_alert.scss" />
     <Content Include="www\source\styles\scss\layout\n88\_banner.scss" />
     <Content Include="www\source\styles\scss\components\n88\_group-control.scss" />
@@ -1554,10 +1575,42 @@
     <Content Include="www\source\styles\scss\components\n88\_table-sticky.scss" />
     <Content Include="Views\CommissionStructure\N8G\_Content.en-US.cshtml" />
     <Content Include="Views\CommissionStructure\N8G\_Content.vi-VN.cshtml" />
-    <Content Include="www\source\styles\pages\N88\verification-account.scss" />
+    <Content Include="www\source\styles\pages\n88\verification-account.scss" />
     <Content Include="www\source\styles\scss\components\n88\_form-horizontal.scss" />
     <Content Include="www\source\styles\scss\main\n88-after-login.scss" />
-    <Content Include="www\source\styles\pages\N88\update-password.scss" />
+    <Content Include="www\source\styles\pages\n88\update-password.scss" />
+    <Content Include="www\source\styles\scss\components\n88\_left-panel-menu.scss" />
+    <Content Include="Views\CommissionStructure\N88\Index.cshtml" />
+    <Content Include="Views\CommissionStructure\N8B\Index.cshtml" />
+    <Content Include="Views\CommissionStructure\N8G\Index.cshtml" />
+    <Content Include="Views\ContactUs\N88\Index.cshtml" />
+    <Content Include="www\source\styles\pages\n88\contact-us.scss" />
+    <Content Include="Views\ContactUs\N8B\Index.cshtml" />
+    <Content Include="Views\ContactUs\N8G\Index.cshtml" />
+    <Content Include="Views\Faq\N88\Index.cshtml" />
+    <Content Include="Views\Faq\N8B\Index.cshtml" />
+    <Content Include="Views\Faq\N8G\Index.cshtml" />
+    <Content Include="Views\News\N88\_MessageContent.cshtml" />
+    <Content Include="Views\News\N88\MessageHistory.cshtml" />
+    <Content Include="www\source\styles\pages\n88\messagehistory.scss" />
+    <Content Include="Views\Notify\N88\Error.cshtml" />
+    <Content Include="Views\Notify\N88\PageNotFound.cshtml" />
+    <Content Include="www\source\styles\pages\n88\notify.scss" />
+    <Content Include="Views\Password\N88\Index.cshtml" />
+    <Content Include="Views\Password\N88\Update.cshtml" />
+    <Content Include="Views\Product\N88\Index.cshtml" />
+    <Content Include="Views\Product\N8B\Index.cshtml" />
+    <Content Include="Views\Product\N8G\Index.cshtml" />
+    <Content Include="www\source\styles\pages\n88\products.scss" />
+    <Content Include="Views\Promotion\N88\Index.cshtml" />
+    <Content Include="www\source\styles\pages\n88\promotion.scss" />
+    <Content Include="Views\Signup\N88\Index.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\Index.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\Popup.cshtml" />
+    <Content Include="Views\UnderMaintenance\N88\Index.cshtml" />
+    <Content Include="Views\VerificationAccount\N88\Index.cshtml" />
+    <Content Include="Views\UserPanel\AccountOverView\AffiliateLink\N88\Index.cshtml" />
+    <Content Include="www\source\styles\pages\n88\marketing.scss" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

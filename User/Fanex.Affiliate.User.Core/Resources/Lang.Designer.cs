@@ -322,6 +322,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All betting products are listed in {0} affiliate program. We invite you to be one of our long term partners. Contribute to our brand awareness and advertising in terms of bringing customer. Together, raise your income and consistent revenue share; Join our {0} Affiliate Program today!.
+        /// </summary>
+        public static string AllBettingProducts {
+            get {
+                return ResourceManager.GetString("AllBettingProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All Products.
         /// </summary>
         public static string AllProducts {

@@ -1914,3 +1914,7 @@ div.custom-panel {
       white-space: nowrap;
       display: flex;
       overflow: scroll; } }
+
+@media (min-width: 992px) {
+  #mobileLogin {
+    display: none; } }
