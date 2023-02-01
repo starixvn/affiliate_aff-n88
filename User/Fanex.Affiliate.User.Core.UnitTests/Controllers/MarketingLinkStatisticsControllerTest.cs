@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using NSubstitute;
 using System.Collections.Generic;
@@ -14,12 +15,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
     public class MarketingLinkStatisticsControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
         private readonly IStatisticsRepository StatisticsRepository;
 
         public MarketingLinkStatisticsControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             StatisticsRepository = Substitute.For<IStatisticsRepository>();
@@ -28,7 +31,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         [Fact]
         public void Index_WhenCall_ReturnCorrectView()
         {
-            var controller = new MarketingLinkStatisticsController(SessionService, LanguageService, StatisticsRepository);
+            var controller = new MarketingLinkStatisticsController(AppSetting, SessionService, LanguageService, StatisticsRepository);
             NSubtituteMockingHelper.FakeController(controller);
 
             var result = controller.Index() as ViewResult;
@@ -42,7 +45,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void Index_Post_WhenCall_ReturnCorrectView()
         {
             StatisticsRepository.GetMarketingPageStatistics(null).ReturnsForAnyArgs(new List<MarketingPageStatistics> { new MarketingPageStatistics { ChannelName="ABC" } });
-            var controller = new MarketingLinkStatisticsController(SessionService, LanguageService, StatisticsRepository);
+            var controller = new MarketingLinkStatisticsController(AppSetting, SessionService, LanguageService, StatisticsRepository);
             NSubtituteMockingHelper.FakeController(controller);
 
             var result = controller.Index(new MarketingPageStatisticsViewModel()) as PartialViewResult;

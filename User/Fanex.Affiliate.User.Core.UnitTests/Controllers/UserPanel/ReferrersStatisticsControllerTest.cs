@@ -8,6 +8,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using Moq;
 using Xunit;
@@ -87,11 +88,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             ILanguageService languageService = null,
             IStatisticsRepository staticticsRepository = null)
         {
+            var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeStaticticsRepository = staticticsRepository ?? (new Mock<IStatisticsRepository>()).Object;
 
-            return new ReferrersStatisticsController(fakeSessionService, fakeLanguageService, fakeStaticticsRepository);
+            return new ReferrersStatisticsController(appSetting, fakeSessionService, fakeLanguageService, fakeStaticticsRepository);
         }
     }
 }

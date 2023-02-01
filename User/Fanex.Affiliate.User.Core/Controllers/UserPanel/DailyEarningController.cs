@@ -6,6 +6,7 @@
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
     using ViewModels.UserPanel;
@@ -13,15 +14,19 @@
     [CustomAuthorize]
     public class DailyEarningController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatementHistoryRepository _statementHistoryRepository;
         private readonly ICurrencyRepository _currencyRepository;
 
-        public DailyEarningController(ISessionService sessionService,
+        public DailyEarningController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
             ILanguageService languageService,
             IStatementHistoryRepository statementHistoryRepository,
             ICurrencyRepository currencyRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _statementHistoryRepository = statementHistoryRepository;
             _currencyRepository = currencyRepository;
         }
@@ -43,8 +48,8 @@
             ViewBag.MonthDate = param.MonthDate;
             ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
             ViewBag.SelectedBaseCurrency = param.BaseCurrency;
-            var viewPath = param.IsOnlyContent ? "~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_DailyEarningContent.cshtml" :
-                "~/Views/UserPanel/StatementHistory/DailyEarning.cshtml";
+            var viewPath = param.IsOnlyContent ? PathHelper.GetViewPath("UserPanel/StatementHistory/StatementHistoryPartial", "_DailyEarningContent", _appSetting.SiteName) :
+                PathHelper.GetViewPath("UserPanel/StatementHistory", "DailyEarning", _appSetting.SiteName);
 
             return View(viewPath, viewModel);
 

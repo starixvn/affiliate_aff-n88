@@ -5,11 +5,13 @@
     var now = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0));
 }
 
-<div class="wrapper-after-login summary" id="summary">
+<div class="summary" id="summary">
     <div class="form-group">
-        <div id="monthPicker" class="form-wrapper">
+        <div id="monthPicker" class="form-wrapper d-inline-block">
             <input readonly id="MonthDate" data-original-date="@now.ToString("MM/dd/yyyy")" class="form-control d-inline-block" type="text" value="@DateTime.Now.ToString("MMM-yyyy")" />
             <span class="glyphicon glyphicon-calendar" id="monthPickerTrigger"></span>
+        </div>
+        <div class="d-inline-block">
             <button class="btn btn-submit" id="statisticsSubmit" type="button">@Lang.Submit</button>
         </div>
     </div>

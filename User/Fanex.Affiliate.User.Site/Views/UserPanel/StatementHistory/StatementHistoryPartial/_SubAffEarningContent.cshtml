@@ -18,43 +18,39 @@
             <th width="13%">@Lang.SubAffEarning</th>
         </tr>
     </thead>
-    <tbody>
-        @if (Model != null)
-        {
-            var index = 1;
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td class="text-center">@index</td>
-                    <td class="text-center">@item.SubAffUserName</td>
-                    <td class="text-right">@item.Commission.ToStringMoneyWithSymbol()</td>
-                    <td class="text-right">@item.SubAffCommission.ToStringMoneyWithSymbol()</td>
-                </tr>
+    @if (Model != null)
+    {
+        <tbody>
 
-                index++;
+            @{
+                var index = 1;
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">@index</td>
+                        <td class="text-center">@item.SubAffUserName</td>
+                        <td class="text-right">@item.Commission.ToStringMoneyWithSymbol()</td>
+                        <td class="text-right">@item.SubAffCommission.ToStringMoneyWithSymbol()</td>
+                    </tr>
+
+                    index++;
+                }
             }
-        }
 
-        @if (Model.Count() > 0)
-        {
-            <tr class="total">
-                <td class="text-center" colspan="2">@Lang.Total</td>
-                <td class="text-right">@totalCom.ToStringMoneyWithSymbol()</td>
-                <td class="text-right">@totalSubCom.ToStringMoneyWithSymbol()</td>
-            </tr>
-        }
-
-        @if (Model == null || !Model.Any())
-        {
-            <tr>
-                <td class="text-center no-info" colspan="7">@Lang.NoInfo</td>
-            </tr>
-        }
-    </tbody>
-
+            @if (Model.Count() > 0)
+            {
+                <tr class="total">
+                    <td class="text-center" colspan="2">@Lang.Total</td>
+                    <td class="text-right">@totalCom.ToStringMoneyWithSymbol()</td>
+                    <td class="text-right">@totalSubCom.ToStringMoneyWithSymbol()</td>
+                </tr>
+            }
+        </tbody>
+    }
 </table>
-
-
-
+@if (Model == null || !Model.Any())
+{
+    <p class="text-center">@Lang.NoInfo</p>
+}
 
 

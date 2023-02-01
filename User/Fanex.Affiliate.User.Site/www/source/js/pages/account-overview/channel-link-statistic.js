@@ -1,8 +1,4 @@
-﻿var StatementHistory = (function ($) {
-    function toggleCollapseButton(btn) {
-        $(btn).toggleClass("active-btn");
-    }
-
+﻿var ChannelLinkStatistic = (function ($) {
     function toggleChildrenElem(children) {
         $(children).toggleClass("display-none");
     }
@@ -26,4 +22,4 @@
     return _me;
 })(jQuery);
 
-StatementHistory.initialize();
+ChannelLinkStatistic.initialize();

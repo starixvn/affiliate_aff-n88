@@ -6,6 +6,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Moq;
 using System;
@@ -158,11 +159,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
              ILanguageService languageService = null,
              ICurrencyRepository currencyRepository = null)
         {
+            var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeCurrencyRepository = currencyRepository ?? Mock.Of<ICurrencyRepository>();
             var fakeStatementHistoryRepository = statementHistoryRepository ?? Mock.Of<IStatementHistoryRepository>();
-            var controller = new DailyEarningController(fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository, fakeCurrencyRepository);
+            var controller = new DailyEarningController(appSetting, fakeSessionService, fakeLanguageService, fakeStatementHistoryRepository, fakeCurrencyRepository);
 
             return MockingHelper.FakeController(controller) as DailyEarningController;
         }

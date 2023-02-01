@@ -64,7 +64,9 @@
             ViewBag.BaseCurrencies = baseCurrencies;
             ViewBag.DefaultBaseCurrency = baseCurrencyId;
             ViewBag.IsClickBreadcumb = isClickBreadcumb.ToString();
-            return View("~/Views/UserPanel/StatementHistory/Index.cshtml", statementHistoryList);
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/StatementHistory", "Index", _appSetting.SiteName);
+            return View(viewPath, statementHistoryList);
         }
 
         [HttpPost]
@@ -79,7 +81,9 @@
             ViewBag.TotalItem = param.NRows;
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
             ViewBag.AvailableFromDate = _appSetting.StatementAvailableFrom;
-            return PartialView("~/Views/UserPanel/StatementHistory/StatementHistoryPartial/_StatementHistoryContent.cshtml", statementHistoryList);
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/StatementHistory/StatementHistoryPartial", "_StatementHistoryContent", _appSetting.SiteName);
+            return PartialView(viewPath, statementHistoryList);
         }
 
         private IEnumerable<StatementHistoryViewModel> GetStatementHistoryViewModel(StatementHistoryParam param)

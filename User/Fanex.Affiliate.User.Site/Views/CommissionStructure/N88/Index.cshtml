@@ -10,6 +10,9 @@
 
     var htmlString = Html.Partial(viewName, Model).ToHtmlString();
 }
+@section styles{
+    @Html.InlineStyles("~/www/build/styles/css/n88/revenue-sharing.css")
+}
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
@@ -24,6 +27,6 @@
 
         @Html.Raw(htmlString)
 
-        @RazorHelper.RenderMovingTopButton()
+        @RazorHelper.RenderN88MovingTopButton()
     </div>
 </div>

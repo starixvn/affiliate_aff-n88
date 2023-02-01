@@ -8,12 +8,9 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Xunit;
 
@@ -21,6 +18,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
     public class PlayerTransferBalanceHistoryControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService sessionService;
         private readonly IAccountRepository accountRepository;
         private readonly ICurrencyRepository currencyRepository;
@@ -28,6 +26,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
         public PlayerTransferBalanceHistoryControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             sessionService = NSubtituteMockingHelper.FakeSessionService();
             accountRepository = Substitute.For<IAccountRepository>();
             currencyRepository = Substitute.For<ICurrencyRepository>();
@@ -111,7 +110,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         private PlayerTransferBalanceHistoryController CreateController()
         {
 
-            var controler = new PlayerTransferBalanceHistoryController(sessionService, null, currencyRepository, playerTransferBalanceService, accountRepository);
+            var controler = new PlayerTransferBalanceHistoryController(AppSetting, sessionService, null, currencyRepository, playerTransferBalanceService, accountRepository);
 
             return MockingHelper.FakeController(controler) as PlayerTransferBalanceHistoryController;
         }

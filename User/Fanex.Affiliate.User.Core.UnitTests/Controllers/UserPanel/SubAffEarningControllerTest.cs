@@ -17,6 +17,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
     public class SubAffEarningControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ICurrencyRepository CurrencyRepository;
         private readonly ILanguageService LanguageService;
@@ -24,6 +25,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
         public SubAffEarningControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             StatementHistoryRepository = Substitute.For<IStatementHistoryRepository>();
@@ -42,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                 }
             });
 
-            var controller = new SubAffEarningController(SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
+            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
 
             //Action
             var result = controller.Index(new SubAffComParam{ MonthDate = new DateTime(2020, 12, 08)}) as ViewResult;
@@ -65,7 +67,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
                     SubAffCommission = 500m
                 }
             });
-            var controller = new SubAffEarningController(SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
+            var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
 
             //Action
             var result = controller.Index(new SubAffComParam { IsOnlyContent = true, RequestPage = "abc", MonthDate = null }) as ViewResult;

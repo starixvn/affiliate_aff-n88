@@ -20,20 +20,20 @@
         <td class="text-center break-all">@item.Username</td>
         <td class="text-center">@(item.RegisteredDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty)</td>
         <td class="text-center">@(item.FirstDepositDate?.ToString("MM/dd/yyyy HH:mm:ss") ?? string.Empty)</td>
-        <td class="text-right">@item.Turnover.FormatDecimal()</td>
-        <td class="text-right">@item.GGR.FormatDecimal()</td>
-        <td class="text-right">@item.Deposit.FormatDecimal()</td>
-        <td class="text-right">@item.Withdrawal.FormatDecimal()</td>
-        <td class="text-right">@item.Bonus.FormatDecimal()</td>
-        <td class="text-right">@item.Rebate.FormatDecimal()</td>
+        <td class="text-center">@item.Turnover.FormatDecimal()</td>
+        <td class="text-center">@item.GGR.FormatDecimal()</td>
+        <td class="text-center">@item.Deposit.FormatDecimal()</td>
+        <td class="text-center">@item.Withdrawal.FormatDecimal()</td>
+        <td class="text-center">@item.Bonus.FormatDecimal()</td>
+        <td class="text-center">@item.Rebate.FormatDecimal()</td>
         @if (isDepositFeePercent)
         {
-            <td class="text-right">@item.DepositFee.FormatDecimal()</td>
+            <td class="text-center">@item.DepositFee.FormatDecimal()</td>
         }
 
         @if (isWithdrawalFeePercent)
         {
-            <td class="text-right">@item.WithdrawalFee.FormatDecimal()</td>
+            <td class="text-center">@item.WithdrawalFee.FormatDecimal()</td>
         }
     </tr>
 
@@ -43,7 +43,7 @@
     else
     {
         <tr>
-            <td class="text-center no-info" colspan=@(10 + columnDepositFee + columnWithdrawalFee)>@Lang.NoInfo</td>
+            <td class="text-center" colspan=@(10 + columnDepositFee + columnWithdrawalFee)>@Lang.NoInfo</td>
         </tr>
     }
 }

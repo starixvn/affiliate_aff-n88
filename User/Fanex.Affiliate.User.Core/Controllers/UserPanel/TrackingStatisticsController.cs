@@ -6,6 +6,7 @@
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
     using ViewModels.UserPanel.Statistics;
@@ -13,12 +14,17 @@
     [CustomAuthorize]
     public class TrackingStatisticsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
-        public TrackingStatisticsController(ISessionService sessionService,
+
+        public TrackingStatisticsController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
             ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;
         }
 
@@ -37,7 +43,8 @@
                 CurrentLanguage = SessionService.CurrentLanguage
             };
 
-            return View("~/Views/UserPanel/Statistics/TrackingStatistics/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/TrackingStatistics", "Index", _appSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpPost]
@@ -54,7 +61,8 @@
                 CurrentLanguage = SessionService.CurrentLanguage
             };
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_TrackingStatisticsContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_TrackingStatisticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
 
 
@@ -71,7 +79,8 @@
                 IsDetail = true
             };
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_TrackingStatisticsContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_TrackingStatisticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
 
     }

@@ -17,10 +17,6 @@
         }));
     }
 
-    function toggleCollapseButton(btn) {
-        $(btn).toggleClass("active-btn");
-    }
-
     function toggleChildrenElem(children) {
         $(children).toggleClass("display-none");
     }

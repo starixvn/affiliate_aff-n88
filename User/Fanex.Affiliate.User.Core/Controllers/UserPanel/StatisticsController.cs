@@ -4,6 +4,7 @@
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
     using ViewModels.UserPanel.Statistics;
@@ -11,11 +12,17 @@
     [CustomAuthorize]
     public class StatisticsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
-        public StatisticsController(ISessionService sessionService, ILanguageService languageService,
+
+        public StatisticsController(
+            IAppSetting appSetting, 
+            ISessionService sessionService, 
+            ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;
         }
 
@@ -33,7 +40,8 @@
                 RowNumber = statisticsDetailParam.NRows
             };
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_ReferrersStatisticsContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_ReferrersStatisticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
     }
 }

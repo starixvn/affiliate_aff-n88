@@ -6,23 +6,27 @@
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
     using Filters;
 
     [CustomAuthorize]
     public class RevenueReportController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly ISessionService _sessionService;
         private readonly ICommissionReportService _commissionReportService;
         private readonly ICurrencyRepository _currencyRepository;
 
         public RevenueReportController(
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
             ICommissionReportService commissionReportService,
             ICurrencyRepository currencyRepository
           ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _sessionService = sessionService;
             _commissionReportService = commissionReportService;
             _currencyRepository = currencyRepository;
@@ -35,6 +39,8 @@
         {
             ViewBag.BaseCurrencies = _currencyRepository.GetBaseCurrencyList();
             ViewBag.DefaultBaseCurrency = baseCurrency ?? _sessionService.UserSession.BaseCurrency;
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/CommissionReport", "Index", _appSetting.SiteName);
             return View("~/Views/UserPanel/CommissionReport/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
         }
 

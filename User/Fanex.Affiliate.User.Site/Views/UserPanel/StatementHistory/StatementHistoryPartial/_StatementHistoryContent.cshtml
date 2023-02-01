@@ -11,14 +11,15 @@
     var displayClass = parentId != null ? "display-none" : "";
 
     <tr data-id='@id' data-parent='@parentId' class='@displayClass'>
-        <td class="text-center">@index</td>
+        <td>@index</td>
         <td class="text-bold">
             <div class="flex">
                 <span class="flex-0">@item.DateString</span>
                 @if (hasChildren)
                 {
                     <div class="flex-middle">
-                        <button class="btn btn-transparent btn-dropdown-table">
+                        <button class="btn btn-transparent">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
                         </button>
                     </div>
                 }
@@ -47,10 +48,10 @@
     </tr>
 }
 
-<div class="table overview-table">
+<div class="table table-responsive">
     <table>
         <thead>
-            <tr class="overview-table-header">
+            <tr>
                 <th width="5%"></th>
                 <th>@Lang.Date</th>
                 <th>@Lang.Type</th>

@@ -11,6 +11,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using System.Collections.Generic;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -125,11 +126,12 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         ILanguageService languageService = null,
         IAccountOverviewRepository accountOverviewRepository = null)
         {
+            var appSetting = Mock.Of<IAppSetting>();
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             languageService = languageService ?? Mock.Of<ILanguageService>();
             accountOverviewRepository = accountOverviewRepository ?? Mock.Of<IAccountOverviewRepository>();
 
-            return new SummaryController(sessionService, languageService, accountOverviewRepository);
+            return new SummaryController(appSetting, sessionService, languageService, accountOverviewRepository);
         }
     }
 }

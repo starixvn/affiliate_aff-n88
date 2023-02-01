@@ -32,7 +32,9 @@
         {
             var searchFormVM = GetSearchFormViewModel();
             ViewBag.SelectedLang = SessionService.UserSession.PreferredLanguage;
-            return View("~/Views/UserPanel/AccountOverview/MediaGallery/Index.cshtml", searchFormVM);
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/AccountOverview/MediaGallery", "Index", AppSetting.SiteName);
+            return View(viewPath, searchFormVM);
         }
 
         private MediaGallerySearchFormViewModel GetSearchFormViewModel()

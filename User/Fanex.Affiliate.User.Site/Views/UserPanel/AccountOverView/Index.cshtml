@@ -1,11 +1,12 @@
-﻿@{
+﻿@using Fanex.Affiliate.User.Core.Utilities
+@{
     Layout = null;
 }
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.AccountOverviewViewModel
 
-@Html.InlineStyles("~/www/build/styles/css/account-overview.min.css")
+@Html.InlineStyles(PathHelper.GetFilePathInBuildFolder("styles/css", "account-overview.min.css"))
 
-<div class="single-after-login-page account-overview">
+<div class="account-overview">
     <div class="tab-menu" id="account-overview-menu">
         <ul class="menu list-unstyled">
             <li><a href="javascript:;" data-name="Summary" class="menu-item account-overview-menu-item" id="menuSummary">@Lang.Summary</a></li>
@@ -21,4 +22,4 @@
     <div id="account-overview-content"></div>
 </div>
 
-<script src="@Url.RenderLink("~/www/build/js/account-overview.js")"></script>
+<script src="@Url.RenderLink(PathHelper.GetFilePathInBuildFolder("js", "account-overview.js"))"></script>

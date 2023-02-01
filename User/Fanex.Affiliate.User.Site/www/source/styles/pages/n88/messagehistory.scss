@@ -1,6 +1,16 @@
 ﻿@import '../../scss/abstracts/mixins';
+@import "../../scss/components/n88/pager";
+@import "../../scss/components/n88/pikaday";
 @import '../../scss/components/n88/group-control';
 @import '../../scss/components/n88/table-sticky';
+
+.btn-submit {
+    margin-bottom: 5px;
+}
+
+.form-filter {
+    margin-bottom: 30px;
+}
 
 .checkbox {
     margin: 0;

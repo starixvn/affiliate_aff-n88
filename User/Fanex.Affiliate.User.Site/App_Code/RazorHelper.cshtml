@@ -2,6 +2,15 @@
 {
     <div class="moving-block">
         <button type="button" class="btn btn-circle btn-move-top" id="moveToTop" onclick="(function (event) { window.scrollTo({ top: 0, behavior: 'smooth' }); })(event);" style="display: none;">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </button>
+    </div>
+}
+
+@helper RenderN88MovingTopButton()
+{
+    <div class="moving-block">
+        <button type="button" class="btn btn-circle btn-move-top" id="moveToTop" onclick="(function (event) { window.scrollTo({ top: 0, behavior: 'smooth' }); })(event);" style="display: none;">
             <img src="~/www/source/styles/Images/arrrow.png" alt="back-to-top" />
         </button>
     </div>
@@ -53,6 +62,16 @@
 @helper RenderHotNews()
 {
     <div class="hot-news">
+        <div class="title">@Fanex.Affiliate.User.Core.Resources.Lang.HotNews</div>
+        <div class="message">
+            <div class="marquee-container" id="marqueeContainer"><p class="marquee-content" id="marquee"></p></div>
+        </div>
+    </div>
+}
+
+@helper RenderHotN88News()
+{
+    <div class="hot-news">
         <div class="inner">
             <div class="title">@Fanex.Affiliate.User.Core.Resources.Lang.HotNews</div>
             <div class="message">
@@ -63,6 +82,29 @@
 }
 
 @helper RenderDropdownForMarketing(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAllOption = true, bool isVisible = true)
+{
+    if (dataList != null)
+    {
+        <div class="form-group flex-sm-boostrap flex-center @(isVisible ? string.Empty : "hide")">
+            <label class="col-sm-3 control-label">@label</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="@id">
+                    @if (hasAllOption)
+                    {
+                        <option value="">@Fanex.Affiliate.User.Core.Resources.Lang.All</option>
+                    }
+
+                    @foreach (var item in dataList)
+                    {
+                        <option value="@item.Value" @(item.Selected ? "selected" : string.Empty)>@item.Text</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+}
+
+@helper RenderDropdownForN88Marketing(string id, string label, IEnumerable<System.Web.Mvc.SelectListItem> dataList, bool hasAllOption = true, bool isVisible = true)
 {
     if (dataList != null)
     {

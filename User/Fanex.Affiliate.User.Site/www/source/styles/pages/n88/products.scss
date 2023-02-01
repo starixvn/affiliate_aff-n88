@@ -44,6 +44,10 @@
                 display: flex;
                 flex-wrap: wrap;
                 padding: 0;
+
+                td {
+                    width: 100%;
+                }
             }
 
             .game-name {

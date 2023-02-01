@@ -1,12 +1,8 @@
 ﻿@import "../scss/components/pager";
 @import "../scss/components/pikaday";
-@import "../scss/components/pager";
-@import '../scss/base/base';
-@import '../scss/components/n88/table-sticky';
-@import '../scss/components/n88/group-control';
 
 .btn-statistics {
-    margin-right: 0;
+    margin-bottom: 5px;
 }
 
 #statisticsDetailTable {
@@ -14,52 +10,24 @@
 }
 
 #statisticsDetailPager {
-    //width: 70%;
-    margin: 4rem 0 1.6rem;
-
-    @include TableAndMobile {
-        width: 100%;
-    }
-
-    @include Mobile {
-        margin: 2.4rem 0 .8rem;
-    }
+    width: 70%;
+    margin-top: 30px;
 
     & + #statisticsDetailTable {
         margin-top: 0;
     }
 }
 
-.overview-table {
-    //width: 70%;
-    margin: 0;
+.date-wrapper {
+    display: inline-block;
+}
 
-    @include TableAndMobile {
-        width: 100% !important;
+.form-filter {
+    .form-group {
+        width: 320px;
     }
 }
 
 #TrackingCode {
     width: 150px;
-}
-
-.marketing-statistics {
-    //width: 77%;
-
-    table {
-        td {
-            background-color: #FFFFFF;
-        }
-
-        .parent-tr {
-            td {
-                background: #EEEEEE !important;
-                font-weight: 400;
-            }
-
-            td:nth-child(2) {
-                color: #025EB1;
-            }
-        }
-    }
 }

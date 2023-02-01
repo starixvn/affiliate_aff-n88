@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using System;
 using System.Collections.Generic;
@@ -15,13 +16,18 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class SummaryController : BaseController
     {
+        private const string PARTIAL_SUMMARY_PATH = "UserPanel/AccountOverView/Summary";
+        private readonly IAppSetting _appSetting;
         private readonly IAccountOverviewRepository _accountOverviewRepository;
 
-        public SummaryController(ISessionService sessionService,
+        public SummaryController(
+            IAppSetting appSetting,
+            ISessionService sessionService,
             ILanguageService languageService,
             IAccountOverviewRepository accountOverviewRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _accountOverviewRepository = accountOverviewRepository;
         }
 
@@ -29,7 +35,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult Index()
         {
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Index.cshtml", model: SessionService.UserSession.IsMaxSubLevel);
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "Index", _appSetting.SiteName);
+
+            return PartialView(viewPath, model: SessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]
@@ -39,7 +47,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var model = _accountOverviewRepository.GetUserOverviewSummary(SessionService.UserSession.AffId, monthDate);
             model.IsMaxSubLevel = SessionService.UserSession.IsMaxSubLevel;
 
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Dashboard.cshtml", model);
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "Dashboard", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
 
         [HttpPost]
@@ -59,7 +68,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 DepositedMembers = model.Sum(item => item.DepositedMembers)
             };
 
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/Overview.cshtml", model.Concat(new List<OverviewDetail> { itemTotal }));
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "Overview", _appSetting.SiteName);
+            return PartialView(viewPath, model.Concat(new List<OverviewDetail> { itemTotal }));
         }
 
         [HttpPost]
@@ -78,7 +88,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
             };
 
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetails.cshtml", model);
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "PlayersDetails", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
 
         [HttpPost]
@@ -97,7 +108,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
             };
 
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/PlayersDetailsContent.cshtml", model);
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "PlayersDetailsContent", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
 
         [HttpPost]
@@ -107,7 +119,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             param.AffId = SessionService.UserSession.AffId;
             var model = _accountOverviewRepository.GetSubAffDetails(param);
 
-            return PartialView("~/Views/UserPanel/AccountOverView/Summary/SubAffDetails.cshtml", model);
+            var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "SubAffDetails", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
     }
 }

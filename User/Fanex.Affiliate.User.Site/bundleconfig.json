@@ -12,9 +12,21 @@
     ]
   },
   {
+    "outputFileName": "www/build/js/n88/user-panel.js",
+    "inputFiles": [
+      "www/source/js/pages/n88/user-panel.js"
+    ]
+  },
+  {
     "outputFileName": "www/build/js/account-overview.js",
     "inputFiles": [
       "www/source/js/pages/account-overview/account-overview.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/n88/account-overview.js",
+    "inputFiles": [
+      "www/source/js/pages/account-overview/n88/account-overview.js"
     ]
   },
   {
@@ -35,6 +47,12 @@
     "outputFileName": "www/build/js/overview.js",
     "inputFiles": [
       "www/source/js/pages/account-overview/overview.js"
+    ]
+  },
+  {
+    "outputFileName": "www/build/js/n88/overview.js",
+    "inputFiles": [
+      "www/source/js/pages/account-overview/n88/overview.js"
     ]
   },
   {
@@ -171,10 +189,6 @@
   {
     "outputFileName": "www/build/js/pages/commission-report.js",
     "inputFiles": [ "www/source/js/pages/commission-report.js" ]
-  },
-  {
-    "outputFileName": "www/build/js/channel-link-statistic.js",
-    "inputFiles": [ "www/source/js/pages/account-overview/partial/channel-link-statistic.js" ]
   },
   {
     "outputFileName": "www/build/styles/css/bootstrap-3.3.7.min.css",

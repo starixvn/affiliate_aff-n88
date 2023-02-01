@@ -14,6 +14,7 @@ using Moq;
 using Xunit;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -147,12 +148,14 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             IStatisticsRepository staticticsRepository = null,
             IMarketingService marketingService = null)
         {
+            var appSetting = Mock.Of<IAppSetting>();
             var fakeSessionService = sessionService ?? MockingHelper.GetSessionService();
             var fakeLanguageService = languageService ?? Mock.Of<ILanguageService>();
             var fakeStaticticsRepository = staticticsRepository ?? Mock.Of<IStatisticsRepository>();
             var fakeMarketingService = marketingService ?? Mock.Of<IMarketingService>();
 
             return new LandingPageStatisticsController(
+                appSetting,
                 fakeSessionService,
                 fakeLanguageService,
                 fakeStaticticsRepository,

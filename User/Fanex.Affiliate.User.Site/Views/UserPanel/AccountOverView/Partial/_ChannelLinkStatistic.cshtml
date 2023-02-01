@@ -11,13 +11,13 @@
     var channelName = item.First().ChannelName;
 
     <tr data-id='@item.Key' class='parent-item'>
-        <td class="text-center">@index</td>
+        <td>@index</td>
         <td class="text-bold">
             <div class="flex">
                 <span class="flex-0">@channelName</span>
                 <div class="flex-middle">
-                    <button class="btn btn-transparent btn-dropdown-table">
-                        @*<span class="glyphicon glyphicon-chevron-right"></span>*@
+                    <button class="btn btn-transparent">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
                     </button>
                 </div>
             </div>
@@ -33,23 +33,23 @@
 
 @helper RenderLinkRow(Fanex.Affiliate.User.Core.DTO.MarketingChannelLink link)
 {
-    <tr data-parent="@link.ChannelCode" class="display-none parent-tr">
+    <tr data-parent="@link.ChannelCode" class="display-none">
         <td></td>
-        <td><a href="@link.AffMediaLink">@link.AffMediaLink</a></td>
+        <td>@link.AffMediaLink</td>
         <td></td>
-        <td class="market-name">@link.MarketName</td>
+        <td>@link.MarketName</td>
     </tr>
 }
 
 
-<div id="channel-table" class="table overview-table marketing-table">
+<div id="channel-table" class="table table-responsive">
     <table>
         <thead>
-            <tr class="overview-table-header">
-                <th class="stt"></th>
-                <th class="channel">@Lang.Channel</th>
-                <th class="number-of-link text-right">@Lang.NumberOfLink </th>
-                <th class="lang">@Lang.Language</th>
+            <tr>
+                <th width="10%"></th>
+                <th width="40%">@Lang.Channel</th>
+                <th>@Lang.NumberOfLink </th>
+                <th>@Lang.Language</th>
             </tr>
         </thead>
         <tbody>

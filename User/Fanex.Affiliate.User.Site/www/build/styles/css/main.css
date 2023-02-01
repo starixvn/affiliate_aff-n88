@@ -3,7 +3,6 @@
 
 body {
   font-size: 1.3rem;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -423,6 +422,7 @@ input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   vertical-align: middle;
   text-align: left;
+  height: 26px;
   margin-left: 8px;
   position: relative; }
   .language-container #selectedLanguage {

@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Statistics;
 using System;
 using System.Linq;
@@ -14,11 +15,17 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class MarketingLinkStatisticsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
-        public MarketingLinkStatisticsController(ISessionService sessionService, ILanguageService languageService,
+
+        public MarketingLinkStatisticsController(
+            IAppSetting appSetting, 
+            ISessionService sessionService, 
+            ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;
         }
 
@@ -41,7 +48,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             ViewBag.Languages = languages;
 
-            return View("~/Views/UserPanel/Statistics/MarketingPageStatistics/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/MarketingPageStatistics", "Index", _appSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpPost]
@@ -60,7 +68,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             var model = _statisticsRepository.GetMarketingPageStatistics(param)
                 .GroupBy(s => s.ChannelName);
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_MarketingPageStatsticsContent.cshtml", model);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_MarketingPageStatsticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
     }
 }

@@ -1,29 +1,28 @@
-var StatementHistory = (function ($) {
-    function toggleCollapseButton(btn) {
-        $(btn).toggleClass("active-btn");
-    }
+﻿"use strict";
 
+var ChannelLinkStatistic = (function ($) {
     function toggleChildrenElem(children) {
         $(children).toggleClass("display-none");
     }
 
     var _me = {
-        initialize: function () {
+        initialize: function initialize() {
             _me.initEvent();
         },
 
-        initEvent: function () {
+        initEvent: function initEvent() {
             $("#channel-table").on("click", ".btn.btn-transparent", function () {
-                let parentRow = $(this).parents("tr");
-                let id = parentRow.data("id");
-                let children = parentRow.siblings(`tr[data-parent='${id}']`);
+                var parentRow = $(this).parents("tr");
+                var id = parentRow.data("id");
+                var children = parentRow.siblings("tr[data-parent='" + id + "']");
                 toggleCollapseButton(this);
                 toggleChildrenElem(children);
             });
-        },
+        }
     };
 
     return _me;
 })(jQuery);
 
-StatementHistory.initialize();
+ChannelLinkStatistic.initialize();
+

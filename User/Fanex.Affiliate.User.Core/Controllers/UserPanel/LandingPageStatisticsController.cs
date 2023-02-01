@@ -17,15 +17,19 @@
     [CustomAuthorize]
     public class LandingPageStatisticsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository StatisticsRepository;
         private readonly IMarketingService MarketingService;
 
-        public LandingPageStatisticsController(ISessionService sessionService,
+        public LandingPageStatisticsController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
             ILanguageService languageService,
             IStatisticsRepository statisticsRepository,
             IMarketingService marketingService
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             StatisticsRepository = statisticsRepository;
             MarketingService = marketingService;
         }
@@ -57,7 +61,8 @@
                 IsDetail = false
             };
 
-            return View("~/Views/UserPanel/Statistics/LandingPageStatistics/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/LandingPageStatistics", "Index", _appSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpPost]
@@ -81,7 +86,8 @@
                 IsDetail = false
             };
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_LandingPageStatisticsContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_LandingPageStatisticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
 
         private IEnumerable<LandingPageStatistics> GetLandingPageStatisticsData(LandingPageStatisticsParam landingPageParam)

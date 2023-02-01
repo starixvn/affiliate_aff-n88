@@ -1,8 +1,7 @@
-﻿@import "../../scss/components/pager";
-@import '../../scss/base/base';
-@import "../../scss/abstracts/mixins";
+﻿@import "../../scss/abstracts/mixins";
 @import '../../scss/abstracts/variables-n88';
 @import '../../scss/components/qr_code';
+@import "../../scss/components/n88/pager";
 
 .search-container {
     form {

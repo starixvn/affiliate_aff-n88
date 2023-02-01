@@ -15,37 +15,41 @@
     </div>
 
     <div class="info-group">
-        <div class="group-control-select-table">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label>@Lang.Year:</label>
-                    <select class="form-control" id="year">
+        <div class="panel custom-panel">
+            <div class="panel-body">
+                <form class="form-inline form-filter">
+                    <div class="form-group">
+                        <label>@Lang.Year:</label>
+                        <select class="form-control" id="year">
 
-                        @for (var i = currentYear; i >= 2020; i--)
-                        {
-                            var temp = i == currentYear ? "selected='selected'" : string.Empty;
-                            <option @temp value="@i">@i</option>
-                        }
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>@Lang.BaseCurrency:</label>
-                    <select class="form-control" id="base-currency">
-                        @foreach (var currency in baseCurrencies)
-                        {
-                            var selected = currency.ExchangeId == defaultBaseCurrency ? "selected='selected'" : string.Empty;
-                            <option @selected value="@currency.ExchangeId">@currency.Code</option>
-                        }
-                    </select>
-                </div>
-                <button type="button" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
-            </form>
+                            @for (var i = currentYear; i >= 2020; i--)
+                            {
+                                var temp = i == currentYear ? "selected='selected'" : string.Empty;
+                                <option @temp value="@i">@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>@Lang.BaseCurrency:</label>
+                        <select class="form-control" id="base-currency">
+                            @foreach (var currency in baseCurrencies)
+                            {
+                                var selected = currency.ExchangeId == defaultBaseCurrency ? "selected='selected'" : string.Empty;
+                                <option @selected value="@currency.ExchangeId">@currency.Code</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" style="margin-left:3px;" class="btn btn-submit" id="btnSubmit">@Lang.Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="report-container">
-            <div class="commission-report table overview-table">
+            <div class="table commission-report">
                 <table id="dataTable">
                     <thead>
-                        <tr class="overview-table-header">
+                        <tr>
                             <th width="3%" class="th">#</th>
                             <th width="10%" class="th" data-name="Month">
                                 <div class="th-wrapper">

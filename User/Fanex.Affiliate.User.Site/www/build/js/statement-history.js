@@ -265,10 +265,6 @@ var StatementHistory = (function ($) {
         });
     }
 
-    function toggleCollapseButton(btn) {
-        $(btn).toggleClass("active-btn");
-    }
-
     function toggleChildrenElem(children, id) {
         if (children.hasClass("display-none")) {
             _expandElementList.push(id);

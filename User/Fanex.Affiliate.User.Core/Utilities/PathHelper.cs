@@ -29,6 +29,18 @@ namespace Fanex.Affiliate.User.Core.Utilities
             return isInclude ? $"~/Views/{partialPath}/{validSiteName}/{fileName}.cshtml" : $"~/Views/{partialPath}/{fileName}.cshtml";
         }
 
+        public static string GetFilePathInBuildFolder(string partialPath, string fileName, string siteName = null)
+        {
+            if (string.IsNullOrWhiteSpace(partialPath))
+            {
+                return partialPath;
+            }
+
+            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
+
+            return isInclude ? $"~/www/build/{partialPath}/{validSiteName}/{fileName}" : $"~/www/build/{partialPath}/{fileName}";
+        }
+
         private static (bool, string) IsIncludeSiteName(string siteName)
         {
             var validSiteName = GetValidSiteName(siteName);

@@ -27,7 +27,9 @@
       .table .game-list tr {
         display: flex;
         flex-wrap: wrap;
-        padding: 0; } }
+        padding: 0; }
+        .table .game-list tr td {
+          width: 100%; } }
     .table .game-list tr .game-name {
       width: 200px;
       background: #BDCFEC;

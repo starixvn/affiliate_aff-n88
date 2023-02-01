@@ -3,7 +3,6 @@
 
 body {
   font-size: 1.3rem;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -2439,10 +2438,6 @@ input[type="radio"], input[type="checkbox"] {
   @media only screen and (max-height: 500px) {
     .leftmenu-dialog .left-panel {
       max-height: 29rem; } }
-
-@media only screen and (max-width: 767px) {
-  .content {
-    padding-top: 20px !important; } }
 
 .overflow-left-panel {
   overflow: hidden; }

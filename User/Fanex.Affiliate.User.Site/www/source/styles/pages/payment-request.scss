@@ -1,35 +1,33 @@
-﻿@import '../scss/base/base';
-@import "../scss/abstracts/mixins";
-@import '../scss/abstracts/variables-n88';
-@import '../scss/components/n88/table-sticky';
-@import '../scss/components/n88/group-control';
-@import '../scss/components/n88/form-horizontal';
+﻿.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 
-.form-horizontal {
-    .btn-submit {
-        padding: 8px 20px;
-        margin-bottom: 24px;
-        margin-top: 6px;
-        @include Mobile{
-            margin-bottom : 12px;
+    .form-inline {
+        margin-bottom: 0;
+        width: 75%;
+
+        .form-control {
+            width: 40%;
+            max-width: 150px;
+            margin-bottom: 3px;
+            display: inline-block;
         }
-    }
-}
 
-.payment-pending {
-    margin-bottom : 24px;
-    @include Mobile{
-        margin-bottom : 12px;
-    }
-    .btn-submit {
-        padding: 2px 20px;
+        .form-group {
+            margin-bottom: 0; 
+            width: 100%;
+            text-align: right;
 
-        @include Mobile {
-            width: auto;
-            padding: 1px 12px;
+            .btn {
+                margin-left:3px;
+                margin-right: 0;
+            }
+
+            label {
+                display: inline;
+                margin-right: 2px;
+            }
         }
-    }
-    table{
-        min-width : 90rem;
     }
 }
