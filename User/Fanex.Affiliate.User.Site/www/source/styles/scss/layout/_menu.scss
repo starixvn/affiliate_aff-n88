@@ -27,7 +27,7 @@
             & + .submenu-container {
                 display: none;
 
-                &:hover, &:focus {
+                &:focus, &.hover {
                     display: block;
                 }
             }

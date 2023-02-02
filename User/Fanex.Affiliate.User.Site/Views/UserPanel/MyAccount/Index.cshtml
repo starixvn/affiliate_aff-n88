@@ -4,7 +4,7 @@
 @using Fanex.Affiliate.User.Core.CoreService
 @model Fanex.Affiliate.User.Core.ViewModels.UserPanel.MyAccountViewModel
 
-@Html.InlineStyles("~/www/build/styles/css/my-account.css")
+@Html.InlineStyles(PathHelper.GetFilePathInBuildFolder("styles/css", "my-account.css"))
 
 <div class="account-information sub-content">
     <div class="page-title">
@@ -52,10 +52,10 @@
                     <label class="col-sm-3 control-label">@Lang.Gender</label>
                     <div class="col-sm-4">
                         <label class="radio-inline">
-                            <input type="radio" name="Gender" id="male" value="True" @(Model.AccountInformation.Gender ? "checked" : "disabled")  /><span> @Lang.Male</span>
+                            <input type="radio" name="Gender" id="male" value="True" @(Model.AccountInformation.Gender ? "checked" : "disabled") /><span> @Lang.Male</span>
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="Gender" id="female" value="False" @(!Model.AccountInformation.Gender ? "checked" : "disabled")  /><span> @Lang.Female</span>
+                            <input type="radio" name="Gender" id="female" value="False" @(!Model.AccountInformation.Gender ? "checked" : "disabled") /><span> @Lang.Female</span>
                         </label>
                     </div>
                 </div>

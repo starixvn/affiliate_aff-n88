@@ -27,12 +27,21 @@ var UserPanel = (function ($) {
                 event.stopPropagation();
                 _me.renderView();
             });
+
+            $('#mainMenu .parent .submenu-container').hover(function () {
+                $(this).addClass("hover");
+            }, function () {
+                $(this).removeClass("hover");
+            });
         },
 
         activeMenu: function (actionName) {
             var activeClassName = "active";
             $("#mainMenu .menu-item").removeClass(activeClassName);
             $("#menu" + actionName).addClass(activeClassName);
+
+            //fix issue hover after click on ipad
+            $('#mainMenu .parent .submenu-container').removeClass('hover');
 
             if ($('.content-menu-mobile').length) {
                 $(".content-menu-mobile .menu-item").removeClass(activeClassName);

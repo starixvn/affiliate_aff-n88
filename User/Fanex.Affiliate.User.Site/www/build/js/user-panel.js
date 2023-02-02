@@ -61,12 +61,22 @@ var UserPanel = (function ($) {
                 event.stopPropagation();
                 _me.renderView();
             });
+
+            //fix issue hover after click(still show dropdown menu) on ipad 12.x
+            $('#mainMenu .parent .submenu-container').hover(function () {
+                $(this).addClass("hover");
+            }, function () {
+                $(this).removeClass("hover");
+            });
         },
 
         activeMenu: function (actionName) {
             var activeClassName = "active";
             $("#mainMenu .menu-item").removeClass(activeClassName);
             $("#menu" + actionName).addClass(activeClassName);
+
+            //fix issue hover after click(still show dropdown menu) on ipad 12.x
+            $('#mainMenu .parent .hover').removeClass('hover');
         },
 
         renderView: function () {
