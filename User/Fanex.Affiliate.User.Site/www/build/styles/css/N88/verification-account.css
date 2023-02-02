@@ -23,9 +23,8 @@
       .main-content .verification-account .form-group.has-error label {
         color: #C80013; }
       .main-content .verification-account .form-group label {
-        max-width: 23rem;
+        max-width: 21rem;
         width: 100%;
-        text-align: right;
         padding: 3px 12px 0 0;
         font-weight: 600; }
       .main-content .verification-account .form-group .form-input, .main-content .verification-account .form-group .col-sm-4 {
@@ -60,9 +59,7 @@
       .main-content .verification-account .btn-sendcode {
         padding: 0 20px; }
       .main-content .verification-account .validation-value {
-        display: inline-block; }
-      .main-content .verification-account form {
-        padding-left: 10px; } }
+        display: inline-block; } }
     @media (max-width: 767px) {
       .main-content .verification-account .btn-login {
         width: 100%;
@@ -86,15 +83,14 @@
         .main-content .verification-account .form-group .btn-login {
           margin-top: 0;
           width: 100%; } }
-  .main-content #verificationAccountGroup {
-    margin-top: -10px; }
-    .main-content #verificationAccountGroup .form-group {
-      margin-bottom: 16px; }
-      .main-content #verificationAccountGroup .form-group .col-sm-offset-2 {
-        margin: 0 -10px;
-        padding: 0; }
-      .main-content #verificationAccountGroup .form-group .btn-login {
-        padding: 3px 24px !important; }
+  .main-content #verificationAccountGroup .form-group {
+    margin-bottom: 16px; }
+    .main-content #verificationAccountGroup .form-group .col-sm-offset-2 {
+      margin: 0;
+      padding: 0; }
+    .main-content #verificationAccountGroup .form-group .btn-login {
+      padding: 3px 24px !important;
+      margin-top: 0; }
 
 .help-block {
   font-size: 12px;

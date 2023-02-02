@@ -36,9 +36,8 @@
             }
 
             label {
-                max-width: 23rem;
-                width: 100%;                
-                text-align: right;
+                max-width: 21rem;
+                width: 100%;      
                 padding: 3px 12px 0 0;
                 font-weight: 600;
             }
@@ -95,10 +94,7 @@
             .validation-value {
                 display: inline-block;
             }
-
-            form {
-                padding-left: 10px;
-            }
+                       
         }
 
         @media (max-width: 767px) {
@@ -139,18 +135,18 @@
     }
 
     #verificationAccountGroup {
-        margin-top: -10px;
 
         .form-group {
             margin-bottom: 16px;
 
             .col-sm-offset-2 {
-                margin: 0 -10px;
+                margin: 0;
                 padding: 0;
             }
 
             .btn-login {
                 padding: 3px 24px !important;
+                margin-top: 0;
             }
         }
     }
