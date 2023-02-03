@@ -15,14 +15,12 @@
     @Html.InlineStyles("~/www/build/styles/css/faq.css")
 }
 
-<div class="main-content">
-    <div class="content">
-        <div class="page-title">
-            <span class="text">@Lang.Faqs</span>
-        </div>
-
-        @Html.Raw(htmlString)
-
-        @RazorHelper.RenderMovingTopButton()
+<div class="content">
+    <div class="page-title">
+        <span class="text">@Lang.Faqs</span>
     </div>
+
+    @Html.Raw(htmlString)
+
+    @RazorHelper.RenderMovingTopButton()
 </div>

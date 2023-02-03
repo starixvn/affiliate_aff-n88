@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var model = result.Model as UserSignUpParam;
 
             // Assert
-            Assert.Empty(result.ViewName);
+            Assert.NotEmpty(result.ViewName);
             Assert.True(model.IsValidParentCode);
         }
 
@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var model = result.Model as UserSignUpParam;
 
             // Assert
-            Assert.Empty(result.ViewName);
+            Assert.NotEmpty(result.ViewName);
             Assert.True(model.IsValidParentCode);
         }
 
@@ -64,7 +64,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var model = result.Model as UserSignUpParam;
 
             // Assert
-            Assert.Empty(result.ViewName);
+            Assert.NotEmpty(result.ViewName);
             Assert.True(model.IsValidParentCode);
         }
 
@@ -79,7 +79,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var model = result.Model as UserSignUpParam;
 
             // Assert
-            Assert.Empty(result.ViewName);
+            Assert.NotEmpty(result.ViewName);
             Assert.False(model.IsValidParentCode);
         }
 

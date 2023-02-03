@@ -1470,9 +1470,3 @@ input[type=radio][disabled] + span {
         margin-top: 30px;
     }
 }
-
-@media (min-width: 992px) {
-    #mobileLogin {
-        display: none;
-    }
-}

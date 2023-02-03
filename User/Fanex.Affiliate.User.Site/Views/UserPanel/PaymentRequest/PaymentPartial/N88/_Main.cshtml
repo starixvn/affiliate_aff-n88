@@ -6,7 +6,7 @@
 @{
     var currentYear = DateTimeOffset.Now.ToOffset(new TimeSpan(GMT.PlusEight, 0, 0)).Year;
 }
-@Html.InlineStyles("~/www/build/styles/css/pages/n88/payment-request.css")
+@Html.InlineStyles("~/www/build/styles/css/n88/payment-request.css")
 
 <div id="requestPayout">
     @{ Html.RenderPartial("~/Views/UserPanel/PaymentRequest/PaymentPartial/N88/_RequestPayout.cshtml", Model); }

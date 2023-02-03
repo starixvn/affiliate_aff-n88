@@ -10,14 +10,12 @@
     var htmlString = Html.Partial(viewName, Model.SiteFriendlyName);
 }
 
-<div class="main-content term-condition">
-    <div class="content">
-        <div class="page-title">
-            <span class="text">@Lang.TermAndCondition</span>
-        </div>
-
-        @Html.Raw(htmlString)
-
-        @RazorHelper.RenderMovingTopButton()
+<div class="content term-condition-page">
+    <div class="page-title">
+        <span class="text">@Lang.TermAndCondition</span>
     </div>
+
+    @Html.Raw(htmlString)
+
+    @RazorHelper.RenderMovingTopButton()
 </div>

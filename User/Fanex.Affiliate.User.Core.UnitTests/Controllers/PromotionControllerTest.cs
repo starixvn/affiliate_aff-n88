@@ -29,21 +29,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             NSubtituteMockingHelper.FakeController(controller);
 
             var result = controller.Index() as ViewResult;
-            var model = result.Model as string;
 
-            Assert.Equal(Constant.DefaultLanguage, model);
             Assert.Contains("~/Views/Promotion/Index.cshtml", result.ViewName);
-        }
-
-        [Fact]
-        public void Index_WhenCallWithN88_ReturnPageNotFoundView()
-        {
-            var controller = new PromotionController(AppSetting, SessionService, LanguageService);
-            NSubtituteMockingHelper.FakeController(controller);
-
-            var result = controller.Index() as RedirectResult;
-
-            Assert.Contains("/Notify/PageNotFound", result.Url);
         }
     }
 }

@@ -25,10 +25,11 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         [Fact]
         public void Index_WhenCall_ReturnCorrecView()
         {
+            AppSetting.SiteName.Returns("N88");
             var controller = new MainController(AppSetting, SessionService, LanguageService);
             var result = controller.Index() as ViewResult;
 
-            Assert.Contains("Main/index.cshtml", result.ViewName);
+            Assert.Contains("Main/N88/Index.cshtml", result.ViewName);
         }
     }
 }

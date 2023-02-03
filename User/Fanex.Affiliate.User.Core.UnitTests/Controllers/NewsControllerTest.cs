@@ -66,7 +66,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.ViewName;
 
             // Assert
-            Assert.Empty(result);
+            Assert.NotEmpty(result);
         }
 
         [Theory]

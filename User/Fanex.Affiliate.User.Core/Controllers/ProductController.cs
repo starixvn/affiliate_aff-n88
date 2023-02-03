@@ -22,7 +22,8 @@
             };
             AssignBaseLayoutViewModel(viewModel);
 
-            return View($"~/Views/Product/{AppSetting.SiteName}/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("Product", "Index", AppSetting.SiteName);
+            return View(viewPath, viewModel);
         }
     }
 }

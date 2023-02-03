@@ -19,16 +19,6 @@ ul, ol {
 p {
   margin-bottom: 5px; }
 
-.after-login-container {
-  padding-left: 16px;
-  padding-right: 16px;
-  margin: 0 auto;
-  width: 100%; }
-  @media (max-width: 767px) {
-    .after-login-container {
-      padding-left: 10px;
-      padding-right: 10px; } }
-
 article,
 aside,
 details,
@@ -1924,7 +1914,7 @@ ul.dash-style {
 .btn.btn-transparent :hover {
   color: cornflowerblue; }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #mobileLogin {
     display: none; } }
 

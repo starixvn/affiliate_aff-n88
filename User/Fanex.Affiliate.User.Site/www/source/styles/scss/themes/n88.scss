@@ -1494,3 +1494,9 @@ select.form-control {
         transform: rotate(0);
     }
 }
+
+@media (min-width: 768px) {
+    #mobileLogin {
+        display: none;
+    }
+}

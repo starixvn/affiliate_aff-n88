@@ -935,3 +935,7 @@ select.form-control:focus {
   transform: rotate(-90deg); }
   .btn-dropdown-table.active-btn {
     transform: rotate(0); }
+
+@media (min-width: 768px) {
+  #mobileLogin {
+    display: none; } }

@@ -14,13 +14,15 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         public void Index_WhenCall_ReturnCorrectView()
         {
             var appSetting = Substitute.For<IAppSetting>();
+            appSetting.SiteName.Returns("N88");
+
             var sessionService = Substitute.For<ISessionService>();
             var languageService = Substitute.For<ILanguageService>();
             var controller = new RevenueSharingStructureController(appSetting, sessionService, languageService);
 
             var result = controller.Index() as ViewResult;
 
-            Assert.Contains("Views/CommissionStructure/Index.cshtml", result.ViewName);
+            Assert.Contains("Views/CommissionStructure/N88/Index.cshtml", result.ViewName);
         }
     }
 }

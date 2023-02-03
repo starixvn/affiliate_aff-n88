@@ -18,7 +18,8 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return View($"~/Views/Faq/{AppSetting.SiteName}/Index.cshtml", GetBaseLayoutViewModel());
+            var viewPath = PathHelper.GetViewPath("Faq", "Index", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
     }
 }

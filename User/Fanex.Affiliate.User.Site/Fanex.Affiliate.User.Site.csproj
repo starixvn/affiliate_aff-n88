@@ -882,6 +882,10 @@
     <Content Include="www\build\styles\css\n88\account-overview.min.css">
       <DependentUpon>account-overview.css</DependentUpon>
     </Content>
+    <Content Include="www\build\styles\css\n88\commissionreport.css" />
+    <Content Include="www\build\styles\css\n88\commissionreport.min.css">
+      <DependentUpon>commissionreport.css</DependentUpon>
+    </Content>
     <Content Include="www\build\styles\css\n88\contact-us.css" />
     <Content Include="www\build\styles\css\n88\contact-us.min.css">
       <DependentUpon>contact-us.css</DependentUpon>
@@ -913,6 +917,10 @@
     <Content Include="www\build\styles\css\n88\password.css" />
     <Content Include="www\build\styles\css\n88\password.min.css">
       <DependentUpon>password.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\n88\payment-request.css" />
+    <Content Include="www\build\styles\css\n88\payment-request.min.css">
+      <DependentUpon>payment-request.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\n88\player-transfer-balance.css" />
     <Content Include="www\build\styles\css\n88\player-transfer-balance.min.css">
@@ -958,25 +966,13 @@
     <Content Include="www\build\styles\css\notify.min.css">
       <DependentUpon>notify.css</DependentUpon>
     </Content>
-    <Content Include="www\build\styles\css\pages\commissionreport.css" />
-    <Content Include="www\build\styles\css\pages\commissionreport.min.css">
-      <DependentUpon>commissionreport.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\pages\n88\commissionreport.css" />
-    <Content Include="www\build\styles\css\pages\n88\commissionreport.min.css">
-      <DependentUpon>commissionreport.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\pages\n88\payment-request.css" />
-    <Content Include="www\build\styles\css\pages\n88\payment-request.min.css">
-      <DependentUpon>payment-request.css</DependentUpon>
-    </Content>
-    <Content Include="www\build\styles\css\pages\payment-request.css" />
-    <Content Include="www\build\styles\css\pages\payment-request.min.css">
-      <DependentUpon>payment-request.css</DependentUpon>
-    </Content>
     <Content Include="www\build\styles\css\password.css" />
     <Content Include="www\build\styles\css\password.min.css">
       <DependentUpon>password.css</DependentUpon>
+    </Content>
+    <Content Include="www\build\styles\css\payment-request.css" />
+    <Content Include="www\build\styles\css\payment-request.min.css">
+      <DependentUpon>payment-request.css</DependentUpon>
     </Content>
     <Content Include="www\build\styles\css\player-transfer-balance.css" />
     <Content Include="www\build\styles\css\player-transfer-balance.min.css">
@@ -1029,7 +1025,9 @@
     <Content Include="www\build\styles\Images\account-overview\icon-weiboi.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-whatsapp.png" />
     <Content Include="www\build\styles\Images\account-overview\icon-zalo.png" />
+    <Content Include="www\build\styles\Images\account-overview\new-sign-up-n88.png" />
     <Content Include="www\build\styles\Images\account-overview\new-sign-up.png" />
+    <Content Include="www\build\styles\Images\account-overview\total-deposit-n88.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.zh-CN.png" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.en-US.png" />
@@ -1624,8 +1622,7 @@
     <Content Include="Views\ContactUs\N8B\Index.cshtml" />
     <Content Include="Views\ContactUs\N8G\Index.cshtml" />
     <Content Include="Views\Faq\N88\Index.cshtml" />
-    <Content Include="Views\Faq\N8B\Index.cshtml" />
-    <Content Include="Views\Faq\N8G\Index.cshtml" />
+    <Content Include="Views\Faq\Index.cshtml" />
     <Content Include="Views\News\N88\_MessageContent.cshtml" />
     <Content Include="Views\News\N88\MessageHistory.cshtml" />
     <Content Include="www\source\styles\pages\n88\messagehistory.scss" />
@@ -1635,8 +1632,7 @@
     <Content Include="Views\Password\N88\Index.cshtml" />
     <Content Include="Views\Password\N88\Update.cshtml" />
     <Content Include="Views\Product\N88\Index.cshtml" />
-    <Content Include="Views\Product\N8B\Index.cshtml" />
-    <Content Include="Views\Product\N8G\Index.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="www\source\styles\pages\n88\products.scss" />
     <Content Include="Views\Promotion\N88\Index.cshtml" />
     <Content Include="www\source\styles\pages\n88\promotion.scss" />
