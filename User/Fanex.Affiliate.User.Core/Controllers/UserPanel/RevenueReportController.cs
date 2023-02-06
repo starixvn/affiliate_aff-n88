@@ -41,7 +41,7 @@
             ViewBag.DefaultBaseCurrency = baseCurrency ?? _sessionService.UserSession.BaseCurrency;
 
             var viewPath = PathHelper.GetViewPath("UserPanel/CommissionReport", "Index", _appSetting.SiteName);
-            return View("~/Views/UserPanel/CommissionReport/Index.cshtml", model: _sessionService.UserSession.IsMaxSubLevel);
+            return View(viewPath, model: _sessionService.UserSession.IsMaxSubLevel);
         }
 
         [HttpPost]

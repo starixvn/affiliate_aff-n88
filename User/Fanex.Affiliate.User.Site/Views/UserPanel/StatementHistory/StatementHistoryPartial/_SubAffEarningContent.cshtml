@@ -45,12 +45,14 @@
                     <td class="text-right">@totalSubCom.ToStringMoneyWithSymbol()</td>
                 </tr>
             }
+            @if (Model == null || !Model.Any())
+            {
+                <tr>
+                    <td class="text-center" colspan="7">@Lang.NoInfo</td>
+                </tr>
+            }
         </tbody>
     }
 </table>
-@if (Model == null || !Model.Any())
-{
-    <p class="text-center">@Lang.NoInfo</p>
-}
 
 
