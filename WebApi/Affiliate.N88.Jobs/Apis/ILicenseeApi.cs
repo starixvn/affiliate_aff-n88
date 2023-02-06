@@ -33,7 +33,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);
 
         [Get("/betreport/GetDepositInfo")]
-        Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow);
+        Task<IEnumerable<DepositInfo>> GetDepositInfo(DateTime updatedTime, int id, int totalRow);
 
         [Get("/Customer/GetCustomerRegInfo")]
         Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime);

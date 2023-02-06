@@ -29,8 +29,8 @@ namespace Affiliate.N88.WebApi.Controllers
             => await dynamicRepository.FetchAsync<TpTransferInfo>(new GetTpTransferInfoCriteria(id, totalRow));
 
         [HttpGet]
-        public async Task<IEnumerable<DepositInfo>> GetDepositInfo(int id, int totalRow)
-            => await dynamicRepository.FetchAsync<DepositInfo>(new GetDepositInfoCriteria(id, totalRow));
+        public async Task<IEnumerable<DepositInfo>> GetDepositInfo(DateTime updatedTime, int id, int totalRow)
+            => await dynamicRepository.FetchAsync<DepositInfo>(new GetDepositInfoCriteria(updatedTime, id, totalRow));
 
         [HttpGet]
         public async Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount = 2000)
