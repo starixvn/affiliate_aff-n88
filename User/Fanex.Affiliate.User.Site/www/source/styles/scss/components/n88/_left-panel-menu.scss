@@ -206,3 +206,21 @@
         z-index: 1040;
     }
 }
+
+@include Mobile {
+    .main-content-left-panel {
+        padding-top: 20px;
+    }
+}
+
+.left-panel-popup {
+    .mobile-left-panel {
+        @include TableAndMobile {
+            top: 3rem;
+        }
+
+        @include Mobile {
+            top: 1rem !important;
+        }
+    }
+}

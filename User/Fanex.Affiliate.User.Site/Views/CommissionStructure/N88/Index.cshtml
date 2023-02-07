@@ -10,15 +10,12 @@
 
     var htmlString = Html.Partial(viewName, Model).ToHtmlString();
 }
-@section styles{
-    @Html.InlineStyles("~/www/build/styles/css/n88/revenue-sharing.css")
-}
 
 @section scripts{
     @Html.InlineScripts("~/www/build/js/n88/left-menu-panel.js")
 }
 
-<div class="main-content">
+<div class="main-content main-content-left-panel">
     @RazorHelper.RenderLeftPanel(Menu.RevenueSharingMenuList)
     <div class="content">
         <div class="page-title">

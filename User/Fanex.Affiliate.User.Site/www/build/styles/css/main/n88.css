@@ -2440,6 +2440,18 @@ input[type="radio"], input[type="checkbox"] {
     width: 100%;
     z-index: 1040; }
 
+@media (max-width: 767px) {
+  .main-content-left-panel {
+    padding-top: 20px; } }
+
+@media screen and (max-width: 1024px) {
+  .left-panel-popup .mobile-left-panel {
+    top: 3rem; } }
+
+@media (max-width: 767px) {
+  .left-panel-popup .mobile-left-panel {
+    top: 1rem !important; } }
+
 .alert {
   padding: 16px;
   font-size: 16px; }
@@ -2594,10 +2606,6 @@ input[type="radio"], input[type="checkbox"] {
     opacity: 1; }
     .moving-block .btn-move-top i {
       color: #FF5D00; }
-
-@media (max-width: 767px) {
-  .term-condition .content {
-    padding-top: 20px !important; } }
 
 @media screen and (min-width: 320px) and (max-width: 928px) and (orientation: landscape) {
   .left-panel.active {

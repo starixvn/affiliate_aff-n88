@@ -13,12 +13,6 @@
 .adv img {
   max-width: 100%; }
 
-@media only screen and (max-width: 767px) {
-  .main-content {
-    padding-top: 20px; }
-    .main-content .page-title {
-      margin-bottom: 12px !important; } }
-
 .table {
   border: 0; }
   .table .game-list tr {
