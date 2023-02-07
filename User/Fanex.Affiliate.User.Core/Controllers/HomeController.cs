@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
@@ -28,12 +29,13 @@ namespace Fanex.Affiliate.User.Core.Controllers
             {
                 IsAuthenticated = isAuthenticated,
                 Language = SessionService.CurrentLanguage,
+                ShortedLanguageCode = SystemLanguage.GetUppercaseShortedCode(SessionService.CurrentLanguage),
                 SignUpLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview") : Url.Content("~/SignUp"),
                 BannerLink = isAuthenticated ? Url.Content("~/UserPanel/Main/#AccountOverview#MediaGallery") : "javascript:;",
                 PromotionB2CLink = GetPromotionLink()
             };
 
-            return View(viewModel);
+            return View($"~/Views/Home/{_appSetting.SiteName}/Index.cshtml", viewModel);
         }
 
         private string GetPromotionLink()

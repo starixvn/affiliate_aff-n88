@@ -252,7 +252,6 @@
     <Compile Include="BusinessService\TwoFactorAuthService.cs" />
     <Compile Include="BusinessService\UnderMaintenanceService.cs" />
     <Compile Include="BusinessService\VerificationService.cs" />
-    <Compile Include="Constants\ActionName.cs" />
     <Compile Include="Constants\Apis\ApiConstant.cs" />
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
@@ -261,7 +260,9 @@
     <Compile Include="Constants\ControllerName.cs" />
     <Compile Include="Constants\ErrCodes.cs" />
     <Compile Include="Constants\GMT.cs" />
+    <Compile Include="Constants\Menu.cs" />
     <Compile Include="Constants\TransferBalanceStatus.cs" />
+    <Compile Include="Controllers\BaseLayoutController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingLinkStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\PlayerTransferBalanceHistoryController.cs" />
@@ -310,7 +311,6 @@
     <Compile Include="BusinessService\IMarketingService.cs" />
     <Compile Include="BusinessService\LanguageService.cs" />
     <Compile Include="BusinessService\MarketingService.cs" />
-    <Compile Include="Constants\BannerTypeName.cs" />
     <Compile Include="Constants\CacheKey.cs" />
     <Compile Include="Constants\SystemLanguage.cs" />
     <Compile Include="Constants\TemplateString.cs" />
@@ -391,7 +391,10 @@
     <Compile Include="Utilities\IFileSystem.cs" />
     <Compile Include="Utilities\IImageHandler.cs" />
     <Compile Include="Utilities\LogHelper.cs" />
-    <Compile Include="ViewModels\PopupViewModel.cs" />
+    <Compile Include="Utilities\PathHelper.cs" />
+    <Compile Include="ViewModels\BaseLayoutViewModel.cs" />
+    <Compile Include="ViewModels\ContactUsViewModel.cs" />
+    <Compile Include="ViewModels\RevenueSharingStructureViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\AccountOverviewViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\BreadcumViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Marketing\AffiliateLinkViewModel.cs" />
@@ -518,16 +521,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Error.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Error.ko-KR.Designer.cs">
-      <DependentUpon>Error.ko-KR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Resources\Error.es-ES.Designer.cs">
-      <DependentUpon>Error.es-ES.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Resources\Error.id-ID.Designer.cs">
       <DependentUpon>Error.id-ID.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -548,30 +541,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\Error.zh-TW.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Error.zh-TW.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Lang.ko-KR.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.ko-KR.resx</DependentUpon>
-    </Compile>
     <Compile Include="Resources\Lang.id-ID.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.id-ID.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Lang.es-ES.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.es-ES.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Lang.th-TH.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -587,11 +565,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.zh-CN.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Lang.zh-TW.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.zh-TW.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilities\AppSetting.cs" />
     <Compile Include="Utilities\Common.cs" />
@@ -632,14 +605,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Error.hi-IN.resx" />
-    <EmbeddedResource Include="Resources\Error.ko-KR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Error.ko-KR.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Error.es-ES.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Error.es-ES.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Error.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -661,10 +626,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Error.zh-TW.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Error.zh-TW.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx" />
     <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Lang.resx">
@@ -676,19 +637,9 @@
     <Compile Include="Controllers\UserPanel\AccountOverViewController.cs" />
     <None Include="Fanex.Affiliate.User.Core.Debug.ruleset" />
     <None Include="Fanex.Affiliate.User.Core.ruleset" />
-    <EmbeddedResource Include="Resources\Lang.es-ES.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.es-ES.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.id-ID.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.id-ID.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.ko-KR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.ko-KR.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.th-TH.resx">
@@ -704,11 +655,6 @@
     <EmbeddedResource Include="Resources\Lang.zh-CN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.zh-CN.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.zh-TW.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.zh-TW.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="packages.config" />

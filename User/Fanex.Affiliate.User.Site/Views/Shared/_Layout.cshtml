@@ -11,7 +11,6 @@
     var currentLanguage = languageList.FirstOrDefault(l => l.Code.Equals(sessionService.CurrentLanguage))?.NativeName;
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
-    var isN88 = string.Equals(settingService.SiteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
 }
 
@@ -41,39 +40,19 @@
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
+    <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
 
-    @if (isN88)
-    {
-        <link id="n88-link" rel="stylesheet" />
-    }
-    else
-    {
-        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
-    }
     @RenderSection("styles", required: false)
 </head>
 <body>
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-                @if (isN88 && sessionService.CurrentLanguage == "zh-CN")
-                {
-                    <img src=@Url.Content("~/www/build/styles/Images/themes/n88.zh-CN.png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
-                }
-                else
-                {
-                    <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
-                }
+                <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
             <div class="user-signup">
-                @if (isN88)
-                {
-                    <div class="switch-mode-theme desktop">
-                        <label id="switch-desktop" class="switch-desktop"></label>
-                    </div>
-                }
                 @if (!HttpContext.Current.User.Identity.IsAuthenticated || userSession == null)
                 {
                     <a class="btn btn-login-mobile" id="mobileLogin">
@@ -121,12 +100,6 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            @if (isN88)
-                            {
-                                <div class="switch-mode-theme mobile">
-                                    <label id="switch-mobile" class="switch-mobile"></label>
-                                </div>
-                            }
                         </div>
                         <div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -195,7 +168,6 @@
 
     <input type="hidden" id="RootUrl" value="@Url.Content("~")" />
     <input type="hidden" id="Language" value="@sessionService.CurrentLanguage" />
-    <input type="hidden" id="SiteName" value="@siteName" />
     @Html.Raw(Fanex.Logging.LogManager.RenderJavascriptLogger())
     <script src="https://cdn.ravenjs.com/3.27.0/raven.min.js" crossorigin="anonymous"></script>
     <script>

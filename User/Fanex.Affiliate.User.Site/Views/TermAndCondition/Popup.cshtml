@@ -1,20 +1,11 @@
 ﻿@{
     Layout = null;
 }
-
-@using Fanex.Affiliate.User.Core.CoreService
-@using Fanex.Affiliate.User.Core.Constants
+@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
 @{
-    var sessionService = DependencyResolver.Current.GetService<ISessionService>();
-    var userSession = sessionService.UserSession;
-}
-
-@model Fanex.Affiliate.User.Core.ViewModels.PopupViewModel
-@{
-    var viewName = "~/Views/TermAndCondition/_Content." + Model.CurrentLanguage + ".cshtml";
-    var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(viewName).ToHtmlString());
-    var siteName = AppSetting.Instance.SiteName.ToLower();
-    var isN88 = string.Equals(siteName, SiteName.N88, StringComparison.CurrentCultureIgnoreCase);
+    var viewName = $"~/Views/TermAndCondition/_Content.{Model.CurrentLanguage}.cshtml";
+    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName);
+    var siteName = Model.SiteName.ToLower();
 }
 
 <!DOCTYPE html>
@@ -26,20 +17,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@Lang.TermAndCondition</title>
     <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
+
     <link href="~/www/build/styles/css/bootstrap-3.3.7.min.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/fonts/tahoma/font.css")" rel="stylesheet" />
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    @if (isN88)
-    {
-        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName +"-" + Model.Mode + ".css")" rel="stylesheet" />
-    }
-    else
-    {
-        <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
-    }
+    <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
 </head>
 <body>
+
     <div class="main-container">
         <div class="main">
             <div class="page-container">

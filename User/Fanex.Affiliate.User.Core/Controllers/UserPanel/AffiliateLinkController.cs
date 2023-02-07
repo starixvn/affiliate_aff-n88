@@ -55,7 +55,8 @@
 
             ViewBag.SelectedLang = SessionService.UserSession.PreferredLanguage;
 
-            return View("~/Views/UserPanel/AccountOverview/AffiliateLink/Index.cshtml", vm);
+            var viewPath = PathHelper.GetViewPath("UserPanel/AccountOverview/AffiliateLink", "Index", AppSetting.SiteName);
+            return View(viewPath, vm);
         }
     }
 }

@@ -523,7 +523,7 @@
     <value>For any reason, you do not receive the email, please check your Spam box or &lt;a href='{0}'&gt;Contact Us&lt;/a&gt; and we will glad to assist you.</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Forgot your password?</value>
+    <value>Forgot your password</value>
     <comment>87923</comment>
   </data>
   <data name="France" xml:space="preserve">
@@ -1352,7 +1352,7 @@
     <comment>87923</comment>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm&lt;br&gt;(GMT +8)</value>
+    <value>&lt;strong&gt;Monday - Saturday&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
     <comment>87923</comment>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
@@ -2042,5 +2042,89 @@
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 &amp; above</value>
+  </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>What we have</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>What we offer</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Our Plan</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Revenue Share Payout Example</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>How we pay</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>Marketing &amp; Tracking</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>Revenue Share Payment</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. Responsibilities of the Affiliate</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. Affiliation Guidelines</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. Affiliate Tagging</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. Revenue Sharing &amp; Payment</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. Policies &amp; Confidentiality</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. Limited License</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. Legal Responsibility</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. Miscellaneous</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. Term &amp; Termination</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. Relationship of Parties</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. Indemnity</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. Disclaimers</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. Limitation of Liability</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. Independent Investigation</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. Governing Law and Arbitration</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. IN WITNESS WHEREOF</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. SPORTSBOOK PRODUCTS</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. CASINO PRODUCTS</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>List Category</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>All betting products are listed in {0} affiliate program. We invite you to be one of our long term partners. Contribute to our brand awareness and advertising in terms of bringing customer. Together, raise your income and consistent revenue share; Join our {0} Affiliate Program today!</value>
   </data>
 </root>

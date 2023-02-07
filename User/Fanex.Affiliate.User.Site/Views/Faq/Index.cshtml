@@ -1,25 +1,26 @@
-﻿@{
+﻿@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
+
+@{
     ViewBag.Title = Lang.Faqs;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
+}
+
+@{
+    var viewName = $"~/Views/Faq/_Content.{Model.CurrentLanguage}.cshtml";
+
+    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString();
 }
 
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/faq.css")
 }
 
-@model string
-@{
-    var contentView = "~/Views/Faq/" + AppSetting.Instance.SiteName + "/_Content." + Model + ".cshtml";
-
-     var htmlString = SiteFriendlyNameHelper.ReplaceB2C(Html.Partial(contentView).ToHtmlString());
-}
-
-    <div class="content">
-        <div class="page-title">
-            <span class="text">@Lang.Faqs</span>
-        </div>
-
-        @Html.Raw(htmlString)
-
-        @RazorHelper.RenderMovingTopButton()
+<div class="content">
+    <div class="page-title">
+        <span class="text">@Lang.Faqs</span>
     </div>
+
+    @Html.Raw(htmlString)
+
+    @RazorHelper.RenderMovingTopButton()
+</div>

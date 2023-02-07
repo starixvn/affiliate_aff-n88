@@ -1,15 +1,10 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.Resources;
-using Fanex.Affiliate.User.Core.ViewModels;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -18,13 +13,16 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class PlayerTransferBalanceController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IPlayerTransferBalanceService _playerTransferBalanceService;
 
-        public PlayerTransferBalanceController(ISessionService sessionService
-            , ILanguageService languageService
-            , IPlayerTransferBalanceService playerTransferBalanceService)
-            : base(sessionService, languageService)
+        public PlayerTransferBalanceController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
+            ILanguageService languageService,
+            IPlayerTransferBalanceService playerTransferBalanceService) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _playerTransferBalanceService = playerTransferBalanceService;
         }
 
@@ -40,7 +38,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                     action = "Index",
                 });
             }
-            return View("~/Views/UserPanel/PlayerTransferBalance/Index.cshtml");
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/PlayerTransferBalance", "Index", _appSetting.SiteName);
+            return View(viewPath);
         }
 
         [HttpPost]

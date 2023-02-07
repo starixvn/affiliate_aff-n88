@@ -1,20 +1,25 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.Utilities;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
-    public class PromotionController: BaseController
+    public class PromotionController : BaseLayoutController
     {
-        public PromotionController(ISessionService sessionService, ILanguageService languageService)
-        : base(sessionService, languageService)
+        public PromotionController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
+            ILanguageService languageService)
+        : base(appSetting, sessionService, languageService)
         {
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View("~/Views/Promotion/Index.cshtml", model: SessionService.CurrentLanguage);
+            var viewPath = PathHelper.GetViewPath("Promotion", "Index", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
     }
 }

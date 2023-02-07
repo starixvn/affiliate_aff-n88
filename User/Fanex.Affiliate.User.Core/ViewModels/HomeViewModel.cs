@@ -11,5 +11,7 @@
         public string PromotionB2CLink { get; set; }
 
         public string Language { get; set; }
+
+        public string ShortedLanguageCode { get; set; }
     }
 }

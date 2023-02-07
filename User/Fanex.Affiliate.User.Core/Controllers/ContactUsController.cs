@@ -7,34 +7,33 @@
     using DTO;
     using MetalModels;
     using MetalModels.Email;
-    using Repository.UserPanel;
     using Resources;
     using Utilities;
 
-
     public class ContactUsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IContactService _contactService;
         private readonly ICaptchaService _captchaService;
-        private readonly IAppSetting _appSetting;
 
         public ContactUsController(
-            ISessionService sessionService,
             IAppSetting appSetting,
+            ISessionService sessionService,
             ILanguageService languageService,
             IContactService contactService,
-            ICaptchaService captchaService)
-            : base(sessionService, languageService)
+            ICaptchaService captchaService) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _contactService = contactService;
             _captchaService = captchaService;
-            _appSetting = appSetting;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var mailContact = _appSetting.GetMailContactByLanguageCode(SessionService.CurrentLanguage);
+
+            return View($"~/Views/ContactUs/{_appSetting.SiteName}/Index.cshtml", model: mailContact);
         }
 
         [HttpPost]

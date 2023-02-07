@@ -280,7 +280,7 @@
     <value>E-mel</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;Isnin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 pagi - 08:00 malam&lt;br&gt;(GMT +8)</value>
+    <value>&lt;strong&gt;Isnin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 pagi - 08:00 malam (GMT +8)</value>
   </data>
   <data name="Copyright" xml:space="preserve">
     <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
@@ -319,7 +319,7 @@
     <value>Logout</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Lupa kata laluan anda?</value>
+    <value>Lupa kata laluan anda</value>
   </data>
   <data name="MyAcc" xml:space="preserve">
     <value>Akaun saya</value>
@@ -1253,6 +1253,21 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="FirstProductGroupShare" xml:space="preserve">
     <value>Peratus bahagian kumpulan produk pertama daripada berbilang kumpulan</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Kami mempunyai</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Kami tawarakan</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Pelan Kami</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Contoh Pengagihan Keuntungan</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Kaedah Pembayaran</value>
+  </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>&gt;= 5</value>
   </data>
@@ -1267,5 +1282,74 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 keatas</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>Pemasaran &amp; Pelacakan</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>Bayaran Pengagihan Keuntungan</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. Tanggungjawab Ahli Affliate</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. Garis Panduan Program Affliate</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. Penandaan Ahli Affliate</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. Pengagihan &amp; Pembayaran Keuntungan</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. Polisi Privasi</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. Lesen Terhad</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. Tanggungjawab Perundangan</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. Lain-lain</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. Tempoh &amp; Penamatan</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. Hubungan Pihak</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. Indemniti</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. Penafian</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. Had Liabiliti</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. Siasatan Bebas</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. Undang-undang Pentadbiran dan Pengadilan</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. SEBAGAI SAKSI</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. PRODUK SPORTSBOOK</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. PRODUK KASINO</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Senarai Kategori</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>Semua produk pertaruhan disenaraikan dalam program affliate {0}. Kami ajak anda untuk menjadi salah satu rakan kongsi kami untuk seumur hidup. Sumbang kepada aktiviti kesedaran jenama dan pengiklanan kami dengan bawa masuk lebih banyak pelanggan. Bersama-sama, kita tingkatkan pendapatan anda dan memastikan anda dapat pengagihan keuntungan yang konsisten; Sertai Program Affliate {0} kami hari ini!</value>
   </data>
 </root>

@@ -1,13 +1,12 @@
-﻿@{
+﻿@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
+@{
     ViewBag.Title = Lang.Product;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 
-@model Fanex.Affiliate.User.Core.ViewModels.ProductPageViewModel
-
 @{
-    var siteName = AppSetting.Instance.SiteName;
-    var viewName = $"~/Views/Product/{siteName}/_Content.{ Model.CurrentLanguage}.cshtml";
+    var viewName = $"~/Views/Product/_Content.{Model.CurrentLanguage}.cshtml";
+    var siteFriendlyName = Model.SiteFriendlyName;
 }
 
 @section styles{
@@ -19,7 +18,7 @@
         <span class="text">@Lang.Product</span>
     </div>
 
-    @{ Html.RenderPartial(viewName); }
+    @{ Html.RenderPartial(viewName, siteFriendlyName); }
 
     @if (!Model.IsAuthenticated)
     {
@@ -29,4 +28,3 @@
     }
     @RazorHelper.RenderMovingTopButton()
 </div>
-

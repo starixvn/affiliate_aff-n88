@@ -40,7 +40,8 @@
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var viewPath = PathHelper.GetViewPath("Password", "Index", _appSetting.SiteName);
+            return View(viewPath);
         }
 
         [HttpPost]
@@ -159,7 +160,8 @@
         {
             ViewBag.PublicKey = _appSetting.RsaPublicKey;
 
-            return View(new UpdatePasswordParam());
+            var viewPath = PathHelper.GetViewPath("Password", "Update", _appSetting.SiteName);
+            return View(viewPath, new UpdatePasswordParam());
         }
 
         [CustomAuthorize]

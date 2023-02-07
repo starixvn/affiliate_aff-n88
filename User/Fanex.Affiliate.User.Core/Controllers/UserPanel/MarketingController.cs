@@ -178,7 +178,9 @@
         public ActionResult RenderUsingMarketLinkPage()
         {
             var userId = SessionService.UserSession.AffId;
-            return View("~/Views/UserPanel/AccountOverview/Partial/_ChannelLinkStatistic.cshtml", MarketingService.GetUsingMarketingLinks(userId));
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/AccountOverview/Partial", "_ChannelLinkStatistic", AppSetting.SiteName);
+            return View(viewPath, MarketingService.GetUsingMarketingLinks(userId));
         }
 
         private IEnumerable<MarketingItem> GetBannerList(MarketingBannerParam bannerParam)

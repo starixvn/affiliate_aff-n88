@@ -75,7 +75,9 @@
 
         validateWebSiteGroup: function () {
             var validator = _me.getValidator();
-            var isValidMainInfo = validator.element("#SiteUrl") && validator.element("#NoSiteDesc");
+            var isValidSiteUrl = validator.element("#SiteUrl");
+            var isValidNoSiteDesc = validator.element("#NoSiteDesc");
+            var isValidMainInfo = isValidSiteUrl && isValidNoSiteDesc;
 
             var isValidMoreUrl = true;
             var moreInputUrl = $(".urlInput");
@@ -87,8 +89,8 @@
             return isValidMainInfo && isValidMoreUrl;
         },
 
-        changeWebsiteOption: function (hasWebSite) {
-            _me.validateWebSiteGroup();
+        changeWebsiteOption: function (hasWebSite, isClickSubmit) {
+            isClickSubmit && _me.validateWebSiteGroup();
             var $mainUrlInput = $("#SiteUrl");
             $mainUrlInput.prop("disabled", !hasWebSite);
             $(".websiteInput").toggle(hasWebSite);

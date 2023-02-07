@@ -68,9 +68,11 @@
                 <td class="text-right">@total.Rebate.ToStringMoneyWithSymbol()</td>
             </tr>
         }
+        @if (!Model.Data.MainDataList.Any() && Model.Data.Total == null)
+        {
+            <tr>
+                <td class="text-center" colspan="7">@Lang.NoInfo</td>
+            </tr>
+        }
     </tbody>
 </table>
-@if(!Model.Data.MainDataList.Any() && Model.Data.Total == null)
-{
-    <p class="text-center">@Lang.NoInfo</p>
-}

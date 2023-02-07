@@ -1,22 +1,23 @@
-﻿@{
-    var siteName = AppSetting.Instance.SiteFriendlyName;
+﻿@model string
+@{
+    var siteFriendlyName = Model;
 }
 @*<div class="adv text-center">
         <img src="~/www/build/styles/Images/products/N88/upper-banner.ms-MY.jpg?v=158572" alt="upper product banner"/>
     </div>*@
 @{ Html.RenderPartial("~/Views/Product/N88/_CarouselItems.cshtml", "ms-MY"); }
-<div>
+<div class="info-group">
     <p class="text-block">
         Yang paling penting, kasino dalam talian ini fokus untuk tawarkan platform pertaruhan yang selamat dan dijamin. Setiap antara muka permainan mempunyai estetika yang cantik secara visual dan elemen reka bentuk yang unik yang membenarkan pemain menikmati revolusi permainan ini.
     </p>
     <p class="text-block">
-        Kami amat gembira untuk sambut persertaan semua orang dalam program affliate @siteName. Dapatkan sebanyak keuntungan yang anda boleh daripada semua jenis produk @siteName.
+        Kami amat gembira untuk sambut persertaan semua orang dalam program affliate @siteFriendlyName. Dapatkan sebanyak keuntungan yang anda boleh daripada semua jenis produk @siteFriendlyName.
     </p>
 </div>
-<div>
-    <p class="text-bold text-uppercase title-block">1. PRODUK SPORTSBOOK</p>
+<div class="info-group">
+    <p class="text-bold text-uppercase title-block" id="SportbookProducts">1. PRODUK SPORTSBOOK</p>
     <p>
-        @siteName disukai oleh berjuta-juta pemain dari seluruh dunia kerana ia meliputi hampir semua jenis aktiviti sukan. Selepas berjaya mendaftar di laman web melalui pengiklanan
+        @siteFriendlyName disukai oleh berjuta-juta pemain dari seluruh dunia kerana ia meliputi hampir semua jenis aktiviti sukan. Selepas berjaya mendaftar di laman web melalui pengiklanan
         affliate, pemain dapat akses yang penuh kepada sukan termasuk: bola sepak, pingpong, bola keranjang, golf, tinju, bola tampar, sukan permotoran, hoki ais, besbol, bola
         baling, polo air, ragbi, dart, renang, snuker dan kriket. Pada masa sekarang, terdapat dua [2] platform sportsbook untuk memenuhi hiburan ahli. Sebahagian daripada
         pertaruhan ahli akan diambil kira sebagai bahagian pengagihan keuntungan.
@@ -25,7 +26,7 @@
         <table class="game-list">
             <tbody>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name" width="30%">
+                    <td class="text-center text-bold text-uppercase game-name" id="Sportsbook" width="30%">
                         @Lang.Sportsbook
                     </td>
                     <td>
@@ -33,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="VirtualSports">
                         @Lang.VirtualSports
                     </td>
                     <td>
@@ -41,7 +42,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="NumberGame">
                         @Lang.NumberGame
                     </td>
                     <td>
@@ -49,7 +50,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="RngKeno">
                         @Lang.RngKeno
                     </td>
                     <td>
@@ -63,10 +64,10 @@
             <img src="~/www/build/styles/Images/products/N88/lower-banner.ms-MY.jpg?v=158572" alt="lower product banner"/>
         </div>*@
 </div>
-<div>
-    <p class="text-bold text-uppercase title-block">2. PRODUK KASINO</p>
+<div class="info-group">
+    <p class="text-bold text-uppercase title-block" id="CasinoProducts">2. PRODUK KASINO</p>
     <p>
-        Di @siteName, permainan kasino akan dikategori ikut jenis perisian dan semuanya masing-masing dimasuk dalam Kelab @siteName yang berbeza. Sebagai contoh, kelab kasino batu
+        Di @siteFriendlyName, permainan kasino akan dikategori ikut jenis perisian dan semuanya masing-masing dimasuk dalam Kelab @siteFriendlyName yang berbeza. Sebagai contoh, kelab kasino batu
         permata kami mengandungi beratus-ratus kasino live, permainan meja, permainan RNG, permainan slot, dan lain-lain. Semua dimasuk ke dalam laman Kasino dan Kasino Live
         untuk kegunaan hab kasino yang terbaik diAsia.
     </p>
@@ -75,7 +76,7 @@
         <table class="game-list">
             <tbody>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="AsiaGaming">
                         @Lang.AsiaGaming
                     </td>
                     <td>
@@ -83,7 +84,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="AdvantPlay">
                         @Lang.AdvantPlay
                     </td>
                     <td>
@@ -91,7 +92,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="AeSexy">
                         @Lang.AeSexy
                     </td>
                     <td>
@@ -99,7 +100,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Allbet">
                         @Lang.Allbet
                     </td>
                     <td>
@@ -107,7 +108,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="AstroTech">
                         @Lang.AstroTech
                     </td>
                     <td>
@@ -115,7 +116,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Cq9">
                         @Lang.Cq9
                     </td>
                     <td>
@@ -123,7 +124,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold game-name">
+                    <td class="text-center text-bold game-name" id="DreamGaming">
                         @Lang.DreamGaming
                     </td>
                     <td>
@@ -131,7 +132,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Ebet">
                         @Lang.Ebet
                     </td>
                     <td>
@@ -139,7 +140,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="GamePlayInteractive">
                         @Lang.GamePlayInteractive
                     </td>
                     <td>
@@ -147,7 +148,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Habanero">
                         @Lang.Habanero
                     </td>
                     <td>
@@ -155,7 +156,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="ISoftBetPragmaticPlay">
                         @Lang.ISoftBetPragmaticPlay
                     </td>
                     <td>
@@ -164,7 +165,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Jili">
                         @Lang.Jili
                     </td>
                     <td>
@@ -172,7 +173,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Joker">
                         @Lang.Joker
                     </td>
                     <td>
@@ -180,7 +181,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="MicroGaming">
                         @Lang.MicroGaming
                     </td>
                     <td>
@@ -188,7 +189,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="N2Live">
                         @Lang.N2Live
                     </td>
                     <td>
@@ -196,7 +197,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="Playtech">
                         @Lang.Playtech
                     </td>
                     <td>
@@ -204,7 +205,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="RedTiger">
                         @Lang.RedTiger
                     </td>
                     <td>
@@ -212,7 +213,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="SaGaming">
                         @Lang.SaGaming
                     </td>
                     <td>
@@ -220,7 +221,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold game-name">
+                    <td class="text-center text-bold game-name" id="SabaCasino">
                         @Lang.SabaCasino
                     </td>
                     <td>
@@ -228,7 +229,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="SpadeGaming">
                         @Lang.SpadeGaming
                     </td>
                     <td>
@@ -236,7 +237,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold game-name">
+                    <td class="text-center text-bold game-name" id="WmCasino">
                         @Lang.WmCasino
                     </td>
                     <td>
@@ -244,7 +245,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="text-center text-bold text-uppercase game-name">
+                    <td class="text-center text-bold text-uppercase game-name" id="YggDrasil">
                         @Lang.YggDrasil
                     </td>
                     <td>
@@ -254,8 +255,4 @@
             </tbody>
         </table>
     </div>
-    @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", false); }
-    <p class="text-block">
-        Semua produk pertaruhan disenaraikan dalam program affliate @siteName. Kami ajak anda untuk menjadi salah satu rakan kongsi kami untuk seumur hidup. Sumbang kepada aktiviti kesedaran jenama dan pengiklanan kami dengan bawa masuk lebih banyak pelanggan. Bersama-sama, kita tingkatkan pendapatan anda dan memastikan anda dapat pengagihan keuntungan yang konsisten; Sertai Program Affliate @siteName kami hari ini!
-    </p>
 </div>

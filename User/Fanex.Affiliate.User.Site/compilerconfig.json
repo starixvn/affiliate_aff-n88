@@ -1,8 +1,32 @@
 ﻿[
   {
+    "outputFile": "www/build/js/layout/n88.js",
+    "inputFile": "www/source/js/layout/n88.js"
+  },
+  {
+    "outputFile": "www/build/js/layout/n88-after-login.js",
+    "inputFile": "www/source/js/layout/n88-after-login.js"
+  },
+  {
     "outputFile": "www/build/styles/css/main.css",
     "inputFile": "www/source/styles/scss/main.scss"
   },
+  {
+    "outputFile": "www/build/styles/css/main/n88.css",
+    "inputFile": "www/source/styles/scss/main/n88.scss"
+  }
+  //{
+  //  "outputFile": "www/build/styles/css/main/n88-after-login.css",
+  //  "inputFile": "www/source/styles/scss/main/n88-after-login.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/js/n88/left-menu-panel.js",
+  //  "inputFile": "www/source/js/pages/n88/left-menu-panel.js"
+  //},
+  //{
+  //  "outputFile": "www/build/js/n88/left-menu-panel-has-sub.js",
+  //  "inputFile": "www/source/js/pages/n88/left-menu-panel-has-sub.js"
+  //},
   //{
   //  "outputFile": "www/build/styles/css/bootstrap.css",
   //  "inputFile": "www/source/styles/scss/vendors/_bootstrap.scss"
@@ -28,10 +52,6 @@
   //  "inputFile": "www/source/styles/pages/promotion.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/revenue-structure.css",
-  //  "inputFile": "www/source/styles/pages/revenue-structure.scss"
-  //},
-  //{
   //  "outputFile": "www/build/styles/css/contact-us.css",
   //  "inputFile": "www/source/styles/pages/contact-us.scss"
   //},
@@ -46,10 +66,6 @@
   //{
   //  "outputFile": "www/build/js/lib/bootstrap.min.js",
   //  "inputFile": "www/source/js/lib/bootstrap.min.js"
-  //},
-  //{
-  //  "outputFile": "www/build/js/daily-earning.js",
-  //  "inputFile": "www/source/js/pages/daily-earning.js"
   //},
   //{
   //  "outputFile": "www/build/js/test.js",
@@ -84,11 +100,11 @@
   //  "inputFile": "www/source/styles/pages/account-overview.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/pages/commissionreport.css",
+  //  "outputFile": "www/build/styles/css/commissionreport.css",
   //  "inputFile": "www/source/styles/pages/commissionreport.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/pages/payment-request.css",
+  //  "outputFile": "www/build/styles/css/payment-request.css",
   //  "inputFile": "www/source/styles/pages/payment-request.scss"
   //},
   //{
@@ -102,10 +118,6 @@
   //{
   //  "outputFile": "www/build/styles/css/signup.css",
   //  "inputFile": "www/source/styles/pages/signup.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/js/contactus.js",
-  //  "inputFile": "www/source/js/pages/contactus.js"
   //},
   //{
   //  "outputFile": "www/build/styles/css/notify.css",
@@ -132,10 +144,6 @@
   //  "inputFile": "www/source/js/pages/promotion.js"
   //},
   //{
-  //  "outputFile": "www/build/js/pages/product.js",
-  //  "inputFile": "www/source/js/pages/product.js"
-  //},
-  //{
   //  "outputFile": "www/build/js/pagetracking.js",
   //  "inputFile": "www/source/js/components/pagetracking.js"
   //},
@@ -144,47 +152,92 @@
   //  "inputFile": "www/source/styles/pages/verification-account.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/theme-default.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme-default.scss"
+  //  "outputFile": "www/build/styles/css/n8g.css",
+  //  "inputFile": "www/source/styles/scss/themes/n8g.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/theme1.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme1.scss"
+  //  "outputFile": "www/build/styles/css/n8b.css",
+  //  "inputFile": "www/source/styles/scss/themes/n8b.scss"
   //},
   //{
-  //  "outputFile": "www/build/styles/css/theme2.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme2.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/theme3.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme3.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/theme4.css",
-  //  "inputFile": "www/source/styles/scss/Themes/theme4.scss"
-  //},
-  {
-    "outputFile": "www/build/styles/css/n8g.css",
-    "inputFile": "www/source/styles/scss/Themes/n8g.scss"
-  },
-  {
-    "outputFile": "www/build/styles/css/n8b.css",
-    "inputFile": "www/source/styles/scss/Themes/n8b.scss"
-  }
-  //{
-  //  "outputFile": "www/build/styles/css/n88-darkmode.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n88-darkmode.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/n88-lightmode.css",
-  //  "inputFile": "www/source/styles/scss/Themes/n88-lightmode.scss"
+  //  "outputFile": "www/build/styles/css/n88.css",
+  //  "inputFile": "www/source/styles/scss/themes/n88.scss"
   //},
   //{
   //  "outputFile": "www/build/js/sub-affiliate-earning.js",
   //  "inputFile": "www/source/js/pages/sub-affiliate-earning.js"
   //},
   //{
-  //  "outputFile": "www/build/js/revenue-structure.js",
-  //  "inputFile": "www/source/js/pages/revenue-structure.js"
+  //  "outputFile": "www/build/js/channel-link-statistic.js",
+  //  "inputFile": "www/source/js/pages/account-overview/channel-link-statistic.js"
+  //},
+  ////N88
+  //{
+  //  "outputFile": "www/build/styles/css/n88/contact-us.css",
+  //  "inputFile": "www/source/styles/pages/n88/contact-us.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/messagehistory.css",
+  //  "inputFile": "www/source/styles/pages/n88/messagehistory.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/notify.css",
+  //  "inputFile": "www/source/styles/pages/n88/notify.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/password.css",
+  //  "inputFile": "www/source/styles/pages/n88/password.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/products.css",
+  //  "inputFile": "www/source/styles/pages/n88/products.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/promotion.css",
+  //  "inputFile": "www/source/styles/pages/n88/promotion.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/maintenance.css",
+  //  "inputFile": "www/source/styles/pages/n88/maintenance.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/marketing.css",
+  //  "inputFile": "www/source/styles/pages/n88/marketing.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/account-overview.css",
+  //  "inputFile": "www/source/styles/pages/n88/account-overview.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/verification-account.css",
+  //  "inputFile": "www/source/styles/pages/n88/verification-account.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/update-password.css",
+  //  "inputFile": "www/source/styles/pages/n88/update-password.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/commissionreport.css",
+  //  "inputFile": "www/source/styles/pages/n88/commissionreport.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/statement-history.css",
+  //  "inputFile": "www/source/styles/pages/n88/statement-history.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/statistics.css",
+  //  "inputFile": "www/source/styles/pages/n88/statistics.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/my-account.css",
+  //  "inputFile": "www/source/styles/pages/n88/my-account.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/payment-request.css",
+  //  "inputFile": "www/source/styles/pages/n88/payment-request.scss"
+  //},
+  //{
+  //  "outputFile": "www/build/styles/css/n88/player-transfer-balance.css",
+  //  "inputFile": "www/source/styles/pages/n88/player-transfer-balance.scss"
   //}
 ]

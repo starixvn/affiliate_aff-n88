@@ -543,7 +543,7 @@ input[type="checkbox"], input[type="radio"] {
         display: block; }
     .content-menu .menu .menu-item + .submenu-container {
       display: none; }
-      .content-menu .menu .menu-item + .submenu-container:hover, .content-menu .menu .menu-item + .submenu-container:focus {
+      .content-menu .menu .menu-item + .submenu-container:focus, .content-menu .menu .menu-item + .submenu-container.hover {
         display: block; }
     .content-menu .menu .menu-item.active, .content-menu .menu .menu-item:hover {
       text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.32); }
@@ -1610,8 +1610,9 @@ input[type="radio"], input[type="checkbox"] {
   .news .item-wrapper {
     flex-basis: 100%;
     max-width: 100%; }
-  .user-signup {
-    margin-top: 30px; }
+  /*.user-signup {
+        margin-top: 30px;
+    }*/
   .content-menu #mainMenu {
     white-space: nowrap;
     /* [1] */

@@ -17,11 +17,6 @@
         }));
     }
 
-    function toggleCollapseButton(btn) {
-        $(btn).children("span").toggleClass("glyphicon-chevron-right");
-        $(btn).children("span").toggleClass("glyphicon-chevron-down");
-    }
-
     function toggleChildrenElem(children) {
         $(children).toggleClass("display-none");
     }

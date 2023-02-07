@@ -265,11 +265,6 @@ var StatementHistory = (function ($) {
         });
     }
 
-    function toggleCollapseButton(btn) {
-        $(btn).children("span").toggleClass("glyphicon-chevron-right");
-        $(btn).children("span").toggleClass("glyphicon-chevron-down");
-    }
-
     function toggleChildrenElem(children, id) {
         if (children.hasClass("display-none")) {
             _expandElementList.push(id);
@@ -310,7 +305,7 @@ var StatementHistory = (function ($) {
                 Site.redirect(Site.resolveRelativeUrl(`${url}?${$.param(params)}`));
             });
 
-            $("#statementDataList").on("click", ".btn.btn-transparent", function() {
+            $("#statementDataList").on("click", ".btn.btn-transparent", function () {
                 let id = $(this).parents("tr").data("id");
                 let children = $(this).parents("tr").siblings(`tr[data-parent='${id}']`);
 

@@ -1,13 +1,6 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.en-US.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
-<div class="info-group">
+<section class="info-group" id="WhatWeHave">
     <div class="title">
         <span class="text">Kami mempunyai</span>
     </div>
@@ -22,14 +15,14 @@
             Alat Pemasaran Strategik memastikan kadar penukaran dan kadar pengekalan ahli yang tinggi
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="WhatWeOffer">
     <div class="title">
         <span class="text">Kami tawarakan</span>
     </div>
     <ul>
         <li class="text">
-            Kadar pengagihan keuntungan sehingga @maxCommisison
+            Kadar pengagihan keuntungan sehingga @Model.MaxCommission
         </li>
         <li class="text">
             Tambahan sebanyak 10% – merujuk rakan untuk sertai program Affliate kami sebagai sub-affliate anda dan dapatkan ganjaran anda!
@@ -41,8 +34,8 @@
             Pasukan affliate yang mesra dan profesional sentiasa bersedia untuk membantu anda
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="OurPlan">
     <div class="title">
         <span class="text">Pelan Kami</span>
     </div>
@@ -52,7 +45,7 @@
     <ol type="i">
         <li class="text-block">
             <strong>Bahagian Hasil Tetap:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
+            @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
                     <strong>Keuntungan Bersih:</strong> Jumlah kerugian bersih bulanan untuk semua pemain yang dirujuk oleh anda kepada Nova88.
@@ -109,20 +102,20 @@
             dan selagi mereka merujuk ahli affliate yang lain, anda juga boleh dapat sebahagian pengagihan hasil ahli rujukan mereka!
         </li>
     </ol>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
         <span class="text"><i>Contoh Pengagihan Keuntungan</i></span>
     </div>
     <p class="text">
         <i>Rajah 1:</i> Contoh tunjuk kepada anda kaedah pengiraan pengagihan keuntungan yang anda perolehi daripada pemain yang dirujuk oleh anda.
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
-<p class="text">
-    <i>Rajah 2:</i> Contoh untuk tunjukkan pengiraan kepada anda cara pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk anda (dan ahli affliate mereka)
-</p>
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
+    <p class="text">
+        <i>Rajah 2:</i> Contoh untuk tunjukkan pengiraan kepada anda cara pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk anda (dan ahli affliate mereka)
+    </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         Pengagihan keuntungan anda yang diperoleh daripada ahli affliate yang dirujuk:
@@ -141,17 +134,17 @@
     <p class="text">
         <strong>=></strong> Jumlah pengagihan keuntungan anda untuk bulan ini ialah: 58,050 + 7,800 = <strong>USD 65,850</strong>
     </p>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="HowWePay">
     <div class="title">
         <span class="text">Kaedah Pembayaran</span>
     </div>
     <ul>
         <li class="text">
-            Kami akan bayar sekali setiap bulan, terus ke akaun pemain Nova88 anda (dalam mata wangUSD, THB, MYR, IDR & CNY) dan jumlah pengeluaran minimum ialah USD 100. Untuk bayaran dalam jenis mata wang yang lain, anda perlu hantar permintaan kepada Pasukan Affliate NOVA88.
+            Kami akan bayar sekali setiap bulan, terus ke akaun pemain @Model.SiteFriendlyName anda (dalam mata wangUSD, THB, MYR, IDR & CNY) dan jumlah pengeluaran minimum ialah USD 100. Untuk bayaran dalam jenis mata wang yang lain, anda perlu hantar permintaan kepada Pasukan Affliate @Model.SiteFriendlyName.
         </li>
         <li class="text">
-            Sebarang permintaan pengeluaran kali ke-dua pada bulan yang sama adalah tertakluk kepada kelulusan dari Pasukan Affliate Nova88.
+            Sebarang permintaan pengeluaran kali ke-dua pada bulan yang sama adalah tertakluk kepada kelulusan dari Pasukan Affliate @Model.SiteFriendlyName.
         </li>
     </ul>
-</div>
+</section>

@@ -1,13 +1,6 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.th-TH.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
-<div class="info-group">
+<section class="info-group" id="WhatWeHave">
     <div class="title">
         <span class="text">สิ่งที่เรามี</span>
     </div>
@@ -22,14 +15,14 @@
             การตลาดเชิงกลยุทธ์เพื่อสร้างความมั่นใจในการแลกเปลี่ยนสมาชิกและการเก็บรักษาสมาชิก
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="WhatWeOffer">
     <div class="title">
         <span class="text">สิ่งที่เราเสนอให้คือ</span>
     </div>
     <ul>
         <li class="text">
-            อัตราส่วนแบ่งรายได้สูงถึง @maxCommisison
+            อัตราส่วนแบ่งรายได้สูงถึง @Model.MaxCommission
         </li>
         <li class="text">
             รับเพิ่มอีก 10% เมื่อรับสมัครเพื่อนเพื่อเข้าร่วมโปรแกรมพันธมิตร(Affiliates)ของเราในฐานะพันธมิตรย่อยของคุณ
@@ -41,8 +34,8 @@
             ทีมพันธมิตรที่เป็นมิตรและเป็นมืออาชีพที่พร้อมที่จะให้ความช่วยเหลือคุณเสมอ
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="OurPlan">
     <div class="title">
         <span class="text">แผนของเราคือ</span>
     </div>
@@ -52,7 +45,7 @@
     <ol type="i">
         <li class="text-block">
             <strong>ส่วนแบ่งรายได้คงที่:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
+            @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
                     <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ Nova88 ในแต่ละเดีอน
@@ -109,20 +102,20 @@
             Affiliates อื่นเข้ามา คุณก็สามารถมีส่วนแบ่งรายได้จากพันธมิตร Affiliates ย่อยของพวกเขาด้วยเช่นกัน!
         </li>
     </ol>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
         <span class="text"><i>ตัวอย่างการจ่ายส่วนแบ่งรายได้</i></span>
     </div>
     <p class="text">
         <i>รูปที่ 1 :</i> ตัวอย่างเพื่อแสดงให้คุณเห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากผู้เล่นที่แนะนำของคุณ
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>รูปที่ 2:</i> ตัวอย่างเพื่อแสดงให้เห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากพันธมิตร Affiliates ของคุณ (และ บริษัท ในเครือย่อย sub-affiliates) คำนวณอย่างไร
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         ส่วนแบ่งรายได้ของคุณได้รับจากพันธมิตรที่ได้รับการแนะนำ:
@@ -141,17 +134,17 @@
     <p class="text">
         <strong>=></strong> ส่วนแบ่งรายได้รวมของคุณสำหรับเดือนนั้นคือ: 58,050 + 7,800 = <strong>USD 65,850</strong>
     </p>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="HowWePay">
     <div class="title">
         <span class="text">การจ่ายเงิน</span>
     </div>
     <ul>
         <li class="text">
-            Nova88 จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น Nova88 ของคุณ (USD, MYR, IDR, THB & CNY) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ Nova88
+            @Model.SiteFriendlyName จะทำการจ่ายเงินเดือนละครั้งผ่านบัญชีผู้เล่น @Model.SiteFriendlyName ของคุณ (USD, MYR, IDR, THB & CNY) และจำนวนการถอนขั้นต่ำคือ USD 100 (หรือในสกุลเงินเทียบเท่า) สำหรับสกุลเงินอื่นต้องทำการติดต่อจากทีมในเครือ @Model.SiteFriendlyName
         </li>
         <li class="text">
-            คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ Nova88
+            คำขอถอนเงินครั้งที่ 2 ในเดือนเดียวกันจะต้องได้รับการอนุมัติจากทีมในเครือ @Model.SiteFriendlyName
         </li>
     </ul>
-</div>
+</section>

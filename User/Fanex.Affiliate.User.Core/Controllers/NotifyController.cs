@@ -1,28 +1,35 @@
 ﻿using System.Web.Mvc;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
     public class NotifyController : BaseController
     {
+        private readonly IAppSetting _appSetting;
 
         public NotifyController(
-            ISessionService sessionService, ILanguageService languageService)
+            IAppSetting appSetting, 
+            ISessionService sessionService,
+            ILanguageService languageService)
             : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
         }
 
         [HttpGet]
         public ActionResult Error()
         {
-            return View();
+            var viewPath = PathHelper.GetViewPath("Notify", "Error", _appSetting.SiteName);
+            return View(viewPath);
         }
 
         [HttpGet]
         public ActionResult PageNotFound()
         {
-            return View();
+            var viewPath = PathHelper.GetViewPath("Notify", "PageNotFound", _appSetting.SiteName);
+            return View(viewPath);
         }
 
         public ActionResult CodeExpired()

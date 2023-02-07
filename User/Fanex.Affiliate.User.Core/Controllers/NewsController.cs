@@ -4,6 +4,7 @@ using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.Controllers
@@ -11,13 +12,16 @@ namespace Fanex.Affiliate.User.Core.Controllers
     [CustomAuthorize]
     public class NewsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly INewsService _newsService;
 
         public NewsController(
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
             INewsService newsService) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _newsService = newsService;
         }
 
@@ -40,7 +44,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             ViewBag.StartRowNumber = 1;
 
-            return View(viewModel);
+            var viewPath = PathHelper.GetViewPath("News", "MessageHistory", _appSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpGet]
@@ -59,7 +64,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
 
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
 
-            return PartialView("~/Views/News/_MessageContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("News", "_MessageContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
 
         [HttpGet]

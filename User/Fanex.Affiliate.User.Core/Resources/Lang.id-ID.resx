@@ -1608,4 +1608,88 @@
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 keatas</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Apa yang kita miliki</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Apa yang kita tawarkan</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Rencana Kami</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Contoh Pembayaran Pembagian Hasil</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Bagaimana kami melakukan pembayaran</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Umum</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>Pemasaran &amp; Pelacakan</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>Pembayaran Bagi Hasil</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. Tanggung Jawab dalam Affiliasi</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. Petunjuk Affiliasi</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. Penandaan Afiliasi</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. Pembagian pendapatan dan pembayaran</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. Kebijakan &amp; Kerahasiaan</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. Lisensi terbatas</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. Tanggung Jawab Hukum</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. Lain-Lain</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. Ketentuan &amp; Pengakhiran</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. Hubungan Para Pihak</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. Ganti Rugi</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. Penolakan</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. Batasan Tanggung Jawab</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. Investigasi Independen</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. Hukum dan Arbitrase yang Mengatur</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. SEBAGAI BUKTI</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. PRODUK SPORTSBOOK</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. PRODUK CASINO</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Daftar Kategori</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>Semua produk taruhan terdaftar dalam program afiliasi {0}. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi {0} kami hari ini!</value>
+  </data>
 </root>

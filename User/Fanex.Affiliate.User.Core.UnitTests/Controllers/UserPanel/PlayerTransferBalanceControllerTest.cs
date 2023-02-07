@@ -6,6 +6,7 @@ using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.PlayerTransferBalance;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using NSubstitute;
 using System.Threading.Tasks;
@@ -16,11 +17,13 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
     public class PlayerTransferBalanceControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService sessionService;
         private readonly IPlayerTransferBalanceService playerTransferBalanceService;
 
         public PlayerTransferBalanceControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             sessionService = NSubtituteMockingHelper.FakeSessionService();
             playerTransferBalanceService = Substitute.For<IPlayerTransferBalanceService>();
         }
@@ -98,6 +101,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         private PlayerTransferBalanceController CreateController()
-            => new PlayerTransferBalanceController(sessionService, null, playerTransferBalanceService);
+            => new PlayerTransferBalanceController(AppSetting, sessionService, null, playerTransferBalanceService);
     }
 }

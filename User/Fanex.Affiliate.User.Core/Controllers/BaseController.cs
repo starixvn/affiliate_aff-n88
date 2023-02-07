@@ -12,7 +12,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
     {
         protected readonly ILanguageService LanguageService;
 
-        protected BaseController(ISessionService sessionService,
+        public BaseController(ISessionService sessionService,
             ILanguageService languageService)
         {
             SessionService = sessionService;
@@ -47,6 +47,5 @@ namespace Fanex.Affiliate.User.Core.Controllers
             var result = RedirectToRoute(RouteName, routeDic);
             return result;
         }
-
     }
 }

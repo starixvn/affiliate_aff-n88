@@ -1,21 +1,31 @@
-﻿namespace Fanex.Affiliate.User.Core.Controllers
+﻿using System.Web.Mvc;
+using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Affiliate.User.Core.ViewModels;
+
+namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using System.Web.Mvc;
-    using CoreService;
-    using Fanex.Affiliate.User.Core.BusinessService;
-
-    public class RevenueSharingStructureController : BaseController
+    public class RevenueSharingStructureController : BaseLayoutController
     {
-
-        public RevenueSharingStructureController(ISessionService sessionService,
-            ILanguageService languageService) : base(sessionService, languageService)
+        public RevenueSharingStructureController(
+            IAppSetting appSetting,
+            ISessionService sessionService,
+            ILanguageService languageService) : base(appSetting, sessionService, languageService)
         {
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View("~/Views/CommissionStructure/Index.cshtml", model: SessionService.CurrentLanguage);
+            var model = new RevenueSharingStructureViewModel
+            {
+                DefaultCurrency = AppSetting.DefaultCurrency,
+                MaxCommission = AppSetting.MaxCommission
+            };
+            AssignBaseLayoutViewModel(model);
+
+            return View($"~/Views/CommissionStructure/{AppSetting.SiteName}/Index.cshtml", model);
         }
     }
 }

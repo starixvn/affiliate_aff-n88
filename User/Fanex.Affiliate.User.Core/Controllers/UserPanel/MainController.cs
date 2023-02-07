@@ -3,21 +3,28 @@
     using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
 
     [CustomAuthorize]
     public class MainController : BaseController
     {
-        public MainController(ISessionService sessionService,
+        private readonly IAppSetting _appSetting;
+
+        public MainController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
             ILanguageService languageService) : base(sessionService, languageService)
         {
-
+            _appSetting = appSetting;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View("~/Views/UserPanel/Main/index.cshtml");
+            var viewPath = PathHelper.GetViewPath("UserPanel/Main", "Index", _appSetting.SiteName);
+
+            return View(viewPath);
         }
     }
 }

@@ -44,6 +44,7 @@
         margin-right: 30px;
 
         label {
+
             &.w150 {
                 width: 150px;
             }
@@ -61,6 +62,7 @@
 
 .checkbox label {
     margin-bottom: 5px;
+
     &.text-bold {
         font-weight: 600;
     }
@@ -68,7 +70,7 @@
     input {
         width: 1.2em;
         height: 1.2em;
-        margin-right:10px;
+        margin-right: 10px;
     }
 }
 

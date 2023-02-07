@@ -40,9 +40,9 @@
   display: inline-flex;
   flex-wrap: wrap; }
 
-.count-down-btn {
-  margin-left: 15px; }
-
+/*.count-down-btn{
+    margin-left: 15px;
+}*/
 .count-down-item {
   padding: 0px;
   padding-left: 20px; }

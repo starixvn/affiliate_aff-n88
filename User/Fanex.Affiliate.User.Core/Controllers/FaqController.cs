@@ -3,19 +3,23 @@
     using System.Web.Mvc;
     using CoreService;
     using Fanex.Affiliate.User.Core.BusinessService;
+    using Fanex.Affiliate.User.Core.Utilities;
 
-    public class FaqController : BaseController
+    public class FaqController : BaseLayoutController
     {
 
-        public FaqController(ISessionService sessionService,ILanguageService languageService)
-            : base(sessionService, languageService)
+        public FaqController(
+            IAppSetting appSetting, 
+            ISessionService sessionService,
+            ILanguageService languageService) : base(appSetting, sessionService, languageService)
         {
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            return View("~/Views/Faq/Index.cshtml", model: SessionService.CurrentLanguage);
+            var viewPath = PathHelper.GetViewPath("Faq", "Index", AppSetting.SiteName);
+            return View(viewPath, GetBaseLayoutViewModel());
         }
     }
 }

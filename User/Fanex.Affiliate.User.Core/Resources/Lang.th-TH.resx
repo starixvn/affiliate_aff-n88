@@ -1608,4 +1608,88 @@
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 ขึ้นไป</value>
   </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>สิ่งที่เรามี</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>สิ่งที่เราเสนอให้คือ</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>แผนของเราคือ</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>ตัวอย่างการจ่ายส่วนแบ่งรายได้</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>การจ่ายเงิน</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>คำถามเรื่องทั่วไป</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>การตลาดและการตรวจสอบ</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>การได้รับเงิน</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. ความรับผิดชอบที่มีต่อโปรแกรมพันธมิตร</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. การแนะนำเกี่ยวกับพันธมิตร</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. หัวข้อต่างต่างเกี่ยวกับพันธมิตร</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. รายได้ ส่วนแบ่ง และ การจ่าย</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. นโยบาย และ สิ่งที่เป็นความลับ</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. ใบอนุญาต</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. ความรับผิดชอบเกี่ยวกับกฏหมาย</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. เรื่องอื่นๆ</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. กติกา และ การสิ้นสุด</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. ความสัมพันธ์</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. ค่าปรับ</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. การปฏิเสธความรับผิดชอบ</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. ข้อกำหนด ของหนี้สิน</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. การสืบสวนสอบสวนโดยอิสระ</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. ข้อกฏหมายที่ออกโดยรัฐบาล</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. ในการเป็นพยาน</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>ผลิตภัณฑ์กีฬา</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>ผลิตภัณฑ์คาสิโน</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>หมวดหมู่รายชื่อ</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>ประเภทการเดิมพันทั้งหมดเบื้องต้นต่างนับรายได้ในโปรแกรมพันธมิตร{0}ทั้งสิ้น เราขอเชิญคุณมาเข้าร่วมเป็นหุ้นส่วนธุรกิจนี้เรื่อยไปให้ยาวนานในการโฆษณาและทำให้แบรนด์ของเราโดดเด่นสร้างประสบการณ์เดิมพันที่เยี่ยมยอดให้ลูกค้าและทำให้รายได้ค่าคอมมิชชั่นของคุณเติบโตต่อเนื่องตลอดไปพร้อมกับแบรนด์ของเรา เพียงร่วมโปรแกรมพันธมิตรกับเราวันนี้!</value>
+  </data>
 </root>

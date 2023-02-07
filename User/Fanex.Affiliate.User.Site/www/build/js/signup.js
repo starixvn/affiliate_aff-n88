@@ -75,7 +75,9 @@ var WebSite = (function ($) {
 
         validateWebSiteGroup: function () {
             var validator = _me.getValidator();
-            var isValidMainInfo = validator.element("#SiteUrl") && validator.element("#NoSiteDesc");
+            var isValidSiteUrl = validator.element("#SiteUrl");
+            var isValidNoSiteDesc = validator.element("#NoSiteDesc");
+            var isValidMainInfo = isValidSiteUrl && isValidNoSiteDesc;
 
             var isValidMoreUrl = true;
             var moreInputUrl = $(".urlInput");
@@ -87,8 +89,8 @@ var WebSite = (function ($) {
             return isValidMainInfo && isValidMoreUrl;
         },
 
-        changeWebsiteOption: function (hasWebSite) {
-            _me.validateWebSiteGroup();
+        changeWebsiteOption: function (hasWebSite, isClickSubmit) {
+            isClickSubmit && _me.validateWebSiteGroup();
             var $mainUrlInput = $("#SiteUrl");
             $mainUrlInput.prop("disabled", !hasWebSite);
             $(".websiteInput").toggle(hasWebSite);
@@ -128,6 +130,7 @@ var WebSite = (function ($) {
 })(jQuery);
 var SignUp = (function ($) {
     var _isReadTermAndCondition = false;
+    var _isClickSubmit = false;
 
     var _me = {
         initialize: function () {
@@ -149,8 +152,7 @@ var SignUp = (function ($) {
                 $("#btnSubmit").prop("disabled", !this.checked);
                 if (this.checked && !_isReadTermAndCondition) {
                     _isReadTermAndCondition = true;
-                    var param = Site.isN88 ? "?mode=" + Site.getCookie("mode") : ''
-                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup" + param), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
+                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup"), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
                 }
             });
 
@@ -166,7 +168,13 @@ var SignUp = (function ($) {
 
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
-                WebSite.changeWebsiteOption(hasWebSite);
+                WebSite.changeWebsiteOption(hasWebSite, _isClickSubmit);
+            });
+
+            $('select[data-val="true"]').on("change", function () {
+                var validator = $("#accountForm").validate();
+
+                validator.element($(this));
             });
 
             $("#signupCaptcha").on("click", function () {
@@ -175,6 +183,7 @@ var SignUp = (function ($) {
         },
 
         submit: function () {
+            _isClickSubmit = true;
             var agree = $("#chkAgree").prop("checked");
             var $form = $("#accountForm");
             var validator = $form.validate();

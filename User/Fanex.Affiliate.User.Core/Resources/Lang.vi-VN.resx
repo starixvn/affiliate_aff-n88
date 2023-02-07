@@ -511,7 +511,7 @@
     <value>Vì bất kỳ lý do gì, bạn không nhận được email, vui lòng kiểm tra hộp Thư rác của bạn hoặc &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt; và chúng tôi sẽ sẵn sàng hỗ trợ bạn.</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>Quên Mật Khẩu?</value>
+    <value>Quên Mật Khẩu</value>
   </data>
   <data name="France" xml:space="preserve">
     <value>Pháp</value>
@@ -1833,5 +1833,89 @@
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 trở lên</value>
+  </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>Chúng Tôi Sở Hữu</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>Quyền Lợi Khi Tham Gia</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>Chương Trình Đại Lý</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>Ví dụ về cách tính tiền hoa hồng</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>Phương Thức Thanh Toán</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>Tổng quan</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>Tiếp thị &amp; Theo dõi</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>Thanh Toán Hoa Hồng</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. Trách nhiệm của hội viên</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. Nguyên tắc dành cho hội viên</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. Gắn thẻ hội viên</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. Chia sẻ doanh thu &amp; Thanh toán</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. Chính sách &amp; Tính bí mật</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. Giấy phép hạn chế</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. Trách nhiệm pháp lý</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. Thông tin khác</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. Thời hạn &amp; Chấm dứt</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. Quan hệ của các bên</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. Tiền bồi thường</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. Tuyên bố miễn trừ trách nhiệm</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. Phạm vi trách nhiệm</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. Điều tra độc lập</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. Luật và Cơ chế trọng tài chi phối</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. TRƯỚC SỰ CHỨNG KIẾN CỦA CÁC BÊN</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. SẢN PHẨM THỂ THAO</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. SẢN PHẨM CASINO</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>Danh sách danh mục</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>Tất cả các sản phẩm cá cược đều được liệt kê tại chương trình Đại Lý {0}. Hãy trở thành đối tác lâu dài với chúng tôi. Cùng nhau quảng bá thương hiệu và xây dựng mạng lưới khách hàng. Cùng nhau phát triển, tăng mức hoa hồng và thu nhập của bạn. Hãy đăng ký làm thành viên Đại Lý của {0} ngay hôm nay!</value>
   </data>
 </root>

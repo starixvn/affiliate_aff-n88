@@ -33,7 +33,8 @@
         [AjaxOnly]
         public ActionResult Index()
         {
-            return View("~/Views/UserPanel/PaymentRequest/Index.cshtml", GetViewModel(DateTime.Now.Year));
+            var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest", "Index", _appSetting.SiteName);
+            return View(viewPath, GetViewModel(DateTime.Now.Year));
         }
 
         [HttpPost]
@@ -42,13 +43,15 @@
         {
             var viewModel = year >= 2009 && year <= DateTime.Now.Year ? GetViewModel(year) : GetViewModel(DateTime.Now.Year);
 
-            return PartialView("~/Views/UserPanel/PaymentRequest/PaymentPartial/_PaymentList.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest/PaymentPartial", "_PaymentList", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
         [HttpGet]
         [AjaxOnly]
         public ActionResult PaymentRequestPartial()
         {
-            return PartialView("~/Views/UserPanel/PaymentRequest/PaymentPartial/_Main.cshtml", GetViewModel(DateTime.Now.Year));
+            var viewPath = PathHelper.GetViewPath("UserPanel/PaymentRequest/PaymentPartial", "_Main", _appSetting.SiteName);
+            return PartialView(viewPath, GetViewModel(DateTime.Now.Year));
         }
 
         [HttpPost]

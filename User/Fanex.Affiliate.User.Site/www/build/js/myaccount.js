@@ -75,7 +75,9 @@ var WebSite = (function ($) {
 
         validateWebSiteGroup: function () {
             var validator = _me.getValidator();
-            var isValidMainInfo = validator.element("#SiteUrl") && validator.element("#NoSiteDesc");
+            var isValidSiteUrl = validator.element("#SiteUrl");
+            var isValidNoSiteDesc = validator.element("#NoSiteDesc");
+            var isValidMainInfo = isValidSiteUrl && isValidNoSiteDesc;
 
             var isValidMoreUrl = true;
             var moreInputUrl = $(".urlInput");
@@ -87,8 +89,8 @@ var WebSite = (function ($) {
             return isValidMainInfo && isValidMoreUrl;
         },
 
-        changeWebsiteOption: function (hasWebSite) {
-            _me.validateWebSiteGroup();
+        changeWebsiteOption: function (hasWebSite, isClickSubmit) {
+            isClickSubmit && _me.validateWebSiteGroup();
             var $mainUrlInput = $("#SiteUrl");
             $mainUrlInput.prop("disabled", !hasWebSite);
             $(".websiteInput").toggle(hasWebSite);
@@ -131,6 +133,8 @@ var MyAccount = (function ($) {
         $("#websiteInfo .urlInput").last().focus();
     }
 
+    var _isClickSubmit = false;
+
     var _me = {
         initialize: function () {
             _me.initEvent();
@@ -148,7 +152,13 @@ var MyAccount = (function ($) {
 
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
-                WebSite.changeWebsiteOption(hasWebSite);
+                WebSite.changeWebsiteOption(hasWebSite, _isClickSubmit);
+            });
+
+            $('select[data-val="true"]').on("change", function () {
+                var validator = $("#accountForm").validate();
+
+                validator.element($(this));
             });
 
             $("#btnMyAccountSubmit").on("click", function () {
@@ -161,6 +171,7 @@ var MyAccount = (function ($) {
         },
 
         submit: function () {
+            _isClickSubmit = true;
             var $form = $("#accountForm");
             var validator = $form.validate();
             var isValidForm = validator.form();

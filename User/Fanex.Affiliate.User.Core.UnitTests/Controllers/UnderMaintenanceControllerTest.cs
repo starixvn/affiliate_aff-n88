@@ -2,9 +2,9 @@
 using Fanex.Affiliate.User.Core.Controllers;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using NSubstitute;
 using ONEbook.UM.Models;
-using ONEbook.UM.Services;
 using System;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -14,6 +14,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
 {
     public class UnderMaintenanceControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
         private readonly IUnderMaintenanceService MaintenanceService;
@@ -23,6 +24,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             SessionService = NSubtituteMockingHelper.FakeSessionService();
             LanguageService = NSubtituteMockingHelper.FakeLanguageService();
             MaintenanceService = Substitute.For<IUnderMaintenanceService>();
+            AppSetting = Substitute.For<IAppSetting>();
         }
 
         [Fact]
@@ -87,6 +89,6 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         }
 
         private UnderMaintenanceController CreateController()
-            => new UnderMaintenanceController(SessionService, LanguageService, MaintenanceService);
+            => new UnderMaintenanceController(AppSetting, SessionService, LanguageService, MaintenanceService);
     }
 }

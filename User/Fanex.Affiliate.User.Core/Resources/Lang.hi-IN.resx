@@ -169,7 +169,7 @@
     <value>व्हाट्सएप</value>
   </data>
   <data name="SupportTimeN88" xml:space="preserve">
-    <value>&lt;strong&gt;सोमवार - शनिवार&lt;/strong&gt;&lt;br&gt;11:00 पूर्वाह्न - 08:00 अपराह्न&lt;br&gt;(जीएमटी +8)</value>
+    <value>&lt;strong&gt;सोमवार - शनिवार&lt;/strong&gt;&lt;br&gt;11:00 पूर्वाह्न - 08:00 अपराह्न (जीएमटी +8)</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>अब शामिल हों!</value>
@@ -334,7 +334,7 @@
     <value>लॉग आउट</value>
   </data>
   <data name="ForgetPassword" xml:space="preserve">
-    <value>अपना पासवर्ड भूल गए?</value>
+    <value>अपना पासवर्ड भूल गए</value>
   </data>
   <data name="MyAcc" xml:space="preserve">
     <value>मेरा खाता</value>
@@ -1861,5 +1861,89 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
     <value>250 और ऊपर</value>
+  </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>हमारे पास क्या है?</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>हमारी पेशकश</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>हमारी योजना</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>रेवेन्यू शेयर पेआउट उदाहरण</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>हम कैसे भुगतान करते हैं</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>जनरल</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>मार्केटिंग और ट्रैकिंग</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>राजस्व हिस्सेदारी भुगतान</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. संबद्धता की जिम्मेदारियां</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. संबद्धता दिशानिर्देश</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. संबद्ध टैगिंग</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. रेवेन्यू शेयरिंग एवं पेमेंट</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. नीतियां और गोपनीयता</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. सीमित लाइसेंस</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. कानूनी जिम्मेदारी</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. विविध</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. टर्म एंड टर्मिनेशन</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. पार्टियों का रिश्ता</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. क्षतिपूर्ति</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. अस्वीकरण</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. दायित्व की सीमा</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. स्वतंत्र जांच</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. शासी कानून और मध्यस्थता</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. किसके साक्ष्य में</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. स्पोर्ट्सबुक प्राडक्ट</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. कैसीनो प्राडक्ट</value>
+  </data>
+  <data name="ListCategory" xml:space="preserve">
+    <value>सूची श्रेणी</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>सभी बेटिंग उत्पाद {0} एफिलिएट प्रोग्राम में सूचीबद्ध हैं। हम आपको हमारे दीर्घकालिक भागीदारों में से एक बनने के लिए आमंत्रित करते हैं। ग्राहक लाने के मामले में हमारे ब्रांड जागरूकता और विज्ञापन में योगदान करें। एक साथ, बढ़ाएँ आपकी आय और लगातार राजस्व हिस्सेदारी; आज ही हमारे {0} एफिलिएट प्रोग्राम से जुड़ें!</value>
   </data>
 </root>

@@ -1,6 +1,4 @@
-﻿@{
-    var maxCommisison = AppSetting.Instance.MaxCommission;
-}
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
     <div class="title">
@@ -24,7 +22,7 @@
     </div>
     <ul>
         <li class="text">
-            Up to @maxCommisison revenue share rate
+            Up to @Model.MaxCommission revenue share rate
         </li>
         <li class="text">
             An addition of 10% – recruit friends to join our Affiliate program as your sub-affiliate and get your reward!
@@ -47,7 +45,7 @@
     <ol type="i">
         <li class="text-block">
             <strong>Fixed Revenue Share:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <p class="text">Example:</p>
             <p class="text"><i><strong>Positive Revenue</strong></i></p>
             <div style="padding-left: 30px;">
@@ -72,7 +70,7 @@
 
             <ul style="margin-left: -10px;">
                 <li class="text">
-                    <strong>Company's Net Profit:</strong> he monthly net loss of all players recommended by you to Goal123.
+                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to @(Model.SiteFriendlyName).
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
@@ -112,7 +110,7 @@
     <p class="text">
         <i>Figure 1:</i> An example to show you how your revenue share earned from your referred players is calculated
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>Figure 2:</i> An example to show you how your revenue share earned from your referred affiliates (and their sub-affiliates) is calculated
     </p>
@@ -143,10 +141,10 @@
     </div>
     <ul>
         <li class="text">
-            Once a month, through your Goal123 player account (in VND) and the minimum withdrawal amount is VND 2,300,000.
+            Once a month, through your @(Model.SiteFriendlyName) player account (in VND) and the minimum withdrawal amount is VND 2,300,000.
         </li>
         <li class="text">
-            Any 2nd withdrawal request in the same month shall be subject to Goal123 Affiliates team’s approval.
+            Any 2nd withdrawal request in the same month shall be subject to @(Model.SiteFriendlyName) Affiliates team’s approval.
         </li>
     </ul>
 </div>

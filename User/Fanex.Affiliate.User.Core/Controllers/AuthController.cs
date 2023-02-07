@@ -49,7 +49,8 @@ namespace Fanex.Affiliate.User.Core.Controllers
                 viewModel.PublicKey = AppSetting.RsaPublicKey;
             }
 
-            return View("~/Views/Auth/AuthenticationForm.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("Auth", "AuthenticationForm", AppSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [ValidateAntiForgeryToken]

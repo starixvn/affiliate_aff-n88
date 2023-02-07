@@ -1,6 +1,4 @@
-﻿@{
-    var maxCommisison = AppSetting.Instance.MaxCommission;
-}
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
 <div class="info-group">
     <div class="title">
@@ -24,7 +22,7 @@
     </div>
     <ul>
         <li class="text">
-            Chiết khấu hoa hồng lên đến @maxCommisison
+            Chiết khấu hoa hồng lên đến @Model.MaxCommission
         </li>
         <li class="text">
             Thưởng thêm 10% - khi giới thiệu thành công bạn bè tham gia chương trình cộng tác của chúng tôi với tư cách là Đại Lý Cấp Dưới
@@ -47,7 +45,7 @@
     <ol type="i">
         <li class="text-block">
             <strong>Chia sẻ doanh thu cố định:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml"); }
+            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTable.cshtml", Model); }
             <p class="text">Ví dụ:</p>
             <p class="text"><i><strong>Doanh thu dương</strong></i></p>
             <div style="padding-left: 30px;">
@@ -72,7 +70,7 @@
 
             <ul style="margin-left: -10px;">
                 <li class="text">
-                    <strong>Tiền Lãi Ròng Của Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho Bwing.
+                    <strong>Tiền Lãi Ròng Của Công Ty:</strong> tiền lời từ những người chơi được bạn giới thiệu cho @(Model.SiteFriendlyName).
                 </li>
                 <li class="text">
                     <strong>Người Chơi Đủ Điều Kiện:</strong> người chơi có ít nhất một (1) cược trong tháng đó.
@@ -113,12 +111,12 @@
     <p class="text">
         <i>Hình 1:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ người chơi được bạn giới thiệu
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
+    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml", Model); }
     <p class="text">
         <i>Hình 2:</i> ví dụ về cách tính tiền hoa hồng bạn nhận được từ Đại Lý được bạn giới thiệu, và từ Đại Lý Cấp Dưới của họ
     </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/N8B/revenue_share_hierarchy.vi-VN.png?v=174504" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/N8G/revenue_share_hierarchy.vi-VN.png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         Tiền hoa hồng bạn nhận được:
@@ -144,10 +142,10 @@
     </div>
     <ul>
         <li class="text">
-            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại Bwing (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,300,000₫.
+            Chúng tôi sẽ trả tiền hoa hồng cho bạn mỗi tháng một lần, thông qua một tài khoản người chơi do bạn sở hữu tại @(Model.SiteFriendlyName) (bằng tiền VND) và số tiền rút tối thiểu phải tương đương 2,300,000₫.
         </li>
         <li class="text">
-            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý Bwing.
+            Bất kỳ yêu cầu rút tiền thứ 2 nào trong tháng đều phải được sự đồng ý của nhóm Đại Lý @(Model.SiteFriendlyName).
         </li>
     </ul>
 </div>

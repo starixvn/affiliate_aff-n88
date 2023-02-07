@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -47,9 +46,10 @@
                 affCode = affId;
             }
 
+            var viewPath = PathHelper.GetViewPath("Signup", "Index", _appSetting.SiteName);
             if ((string.IsNullOrEmpty(refId) || string.Equals(refId, "index", StringComparison.CurrentCultureIgnoreCase)) && string.IsNullOrEmpty(affCode))
             {
-                return View(new UserSignUpParam());
+                return View(viewPath, new UserSignUpParam());
             }
 
             var affInfo = new GeneralAffInfo();
@@ -68,10 +68,10 @@
             {
                 SetCookie(affInfo.AffCode);
 
-                return View(new UserSignUpParam());
+                return View(viewPath, new UserSignUpParam());
             }
 
-            return View(new UserSignUpParam { IsValidParentCode = false });
+            return View(viewPath, new UserSignUpParam { IsValidParentCode = false });
         }
 
         [HttpPost]

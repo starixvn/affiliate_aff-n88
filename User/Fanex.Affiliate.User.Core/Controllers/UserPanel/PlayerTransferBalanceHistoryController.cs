@@ -5,6 +5,7 @@ using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
+using Fanex.Affiliate.User.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,21 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
     [CustomAuthorize]
     public class PlayerTransferBalanceHistoryController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IPlayerTransferBalanceService _playerTransferService;
         private readonly ICurrencyRepository _currencyRepo;
         private readonly IAccountRepository _accRepository;
 
-        public PlayerTransferBalanceHistoryController(ISessionService sessionService,
+        public PlayerTransferBalanceHistoryController(
+            IAppSetting appSetting,
+            ISessionService sessionService,
             ILanguageService languageService,
             ICurrencyRepository currencyRepository,
             IPlayerTransferBalanceService playerTransferBalanceService,
             IAccountRepository accountRepository)
             : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _playerTransferService = playerTransferBalanceService;
             _currencyRepo = currencyRepository;
             _accRepository = accountRepository;
@@ -42,7 +47,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 return Redirect(Url.Content("~/Notify/PageNotFound"));
             }
 
-            return View("~/Views/UserPanel/PlayerTransferBalanceHistory/Index.cshtml");
+            var viewPath = PathHelper.GetViewPath("UserPanel/PlayerTransferBalanceHistory", "Index", _appSetting.SiteName);
+            return View(viewPath);
         }
 
         [HttpPost]
@@ -72,7 +78,9 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
             TranslateStatus(model);
 
             ViewBag.StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1;
-            return PartialView("~/Views/UserPanel/PlayerTransferBalanceHistory/_Content.cshtml", model);
+
+            var viewPath = PathHelper.GetViewPath("UserPanel/PlayerTransferBalanceHistory", "_Content", _appSetting.SiteName);
+            return PartialView(viewPath, model);
         }
 
         private static void TranslateStatus(DTO.UserPanel.PlayerTransferBalance.PlayerTransferBalanceHistoryResult model)

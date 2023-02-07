@@ -1,0 +1,52 @@
+﻿.flag {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+    position: relative;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    background-size: cover;
+    vertical-align: middle;
+
+    &-en-US {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }
+
+    &-zh-CN {
+        background-image: url("../../../../build/styles/Images/icons/flags/China.png");
+    }
+
+    &-zh-TW {
+        background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
+    }
+
+    &-id-ID {
+        background-image: url("../../../../build/styles/Images/icons/flags/Indonesia.png");
+    }
+
+    &-vi-VN {
+        background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png");
+    }
+
+    &-th-TH {
+        background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png");
+    }
+    /*    &-ko-KR {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }
+
+    &-es-ES {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }
+
+    &-ja-JP {
+        background-image: url("../../../../build/styles/Images/icons/flags/England.png");
+    }*/
+    &-hi-IN {
+        background-image: url("../../../../build/styles/Images/icons/flags/Hindi.png");
+    }
+
+    &-ms-MY {
+        background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png");
+    }
+}

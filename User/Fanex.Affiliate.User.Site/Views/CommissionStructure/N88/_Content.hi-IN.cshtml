@@ -1,13 +1,6 @@
-﻿@{
-    var appSetting = AppSetting.Instance;
-    var maxCommisison = appSetting.MaxCommission;
-    var bannerSrc = Url.Content($"~/www/build/styles/images/revenue-share-structure/N88/revenue.hi-IN.jpg?v={appSetting.JsVersion}");
-}
-@*<div class="banner">
-    <img src="@bannerSrc" alt="commission banner" />
-</div>*@
+﻿@model Fanex.Affiliate.User.Core.ViewModels.RevenueSharingStructureViewModel
 
-<div class="info-group">
+<section class="info-group" id="WhatWeHave">
     <div class="title">
         <span class="text">हमारे पास क्या है?</span>
     </div>
@@ -22,14 +15,14 @@
             उच्च सदस्य रूपांतरण और प्रतिधारण दर सुनिश्चित करने वाले सामरिक विपणन उपकरण
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="WhatWeOffer">
     <div class="title">
         <span class="text">हमारी पेशकश</span>
     </div>
     <ul>
         <li class="text">
-            @maxCommisison तक रेवनू शेयर दर
+            @Model.MaxCommission तक रेवनू शेयर दर
         </li>
         <li class="text">
             10% का अतिरिक्त - हमारे संबद्ध कार्यक्रम में अपने उप-संबद्ध के रूप में शामिल होने के लिए दोस्तों को भर्ती करें और अपना इनाम प्राप्त करें!
@@ -41,8 +34,8 @@
             मित्रवत और पेशेवर सहयोगी टीम आपकी सहायता के लिए हमेशा तैयार रहती है
         </li>
     </ul>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="OurPlan">
     <div class="title">
         <span class="text">हमारी योजना</span>
     </div>
@@ -52,7 +45,7 @@
     <ol type="i">
         <li class="text-block">
             <strong>फिक्स्ड रेवेन्यू शेयर:</strong>
-            @{ Html.RenderPartial("~/Views/CommissionStructure/_RevenueShareTableN88.cshtml"); }
+            @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
                     <strong>कंपनी का शुद्ध लाभ:</strong> आपके द्वारा नोव88 के लिए अनुशंसित सभी खिलाड़ियों का मासिक नुकसान।
@@ -109,20 +102,20 @@
             और जब तक वे अन्य सहयोगियों को इसमें लाते हैं, तब तक आप उनके उप-संबद्धों के राजस्व हिस्से से भी हिस्सा प्राप्त कर सकते हैं!
         </li>
     </ol>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
         <span class="text"><i>रेवेन्यू शेयर पेआउट उदाहरण</i></span>
     </div>
     <p class="text">
         <i>चित्र 1:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके रेफ़र किए गए खिलाड़ियों से अर्जित आपके रेवनू शेयर की गणना कैसे की जाती है
     </p>
-    @{ Html.RenderPartial("~/Views/CommissionStructure/_ExampleTable.cshtml"); }
-<p class="text">
-    <i>चित्र 2:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके संदर्भित सहयोगियों (और उनके उप-संबद्धों) से अर्जित आपकी रेवनू शेयर की गणना कैसे की जाती है
-</p>
+    @{ Html.RenderPartial($"~/Views/CommissionStructure/{Model.SiteName}/_ExampleTable.cshtml", Model); }
+    <p class="text">
+        <i>चित्र 2:</i> आपको यह दिखाने के लिए एक उदाहरण कि आपके संदर्भित सहयोगियों (और उनके उप-संबद्धों) से अर्जित आपकी रेवनू शेयर की गणना कैसे की जाती है
+    </p>
     <div class="img-support" style="max-width: 600px; margin: 15px auto;">
-        <img class="img-responsive" id="revenue_share_hierarchy" alt="hierarchy banner" />
+        <img class="img-responsive" src="~/www/build/styles/Images/revenue-share-structure/@(Model.SiteName)/revenue_share_hierarchy.@(Model.CurrentLanguage).png?v=174504" alt="hierarchy banner" />
     </div>
     <p class="text">
         संदर्भित सहयोगियों से अर्जित आपका रेवनू शेयर:
@@ -141,8 +134,8 @@
     <p class="text">
         <strong>=></strong> महीने के लिए आपका कुल रेवनू शेयर होगा: 58,050 + 7,800 = <strong>USD 65,850</strong>
     </p>
-</div>
-<div class="info-group">
+</section>
+<section class="info-group" id="HowWePay">
     <div class="title">
         <span class="text">हम कैसे भुगतान करते हैं</span>
     </div>
@@ -154,4 +147,4 @@
             उसी महीने में कोई दूसरा निकासी अनुरोध नोव88 एफिलिएट प्रोग्राम टीम के अनुमोदन के अधीन होगा।
         </li>
     </ul>
-</div>
+</section>

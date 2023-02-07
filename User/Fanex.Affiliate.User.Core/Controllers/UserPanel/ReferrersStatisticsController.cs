@@ -7,6 +7,7 @@
     using Fanex.Affiliate.User.Core.Constants;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Repository.UserPanel;
+    using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
     using ViewModels.UserPanel.Statistics;
@@ -14,11 +15,16 @@
     [CustomAuthorize]
     public class ReferrersStatisticsController : BaseController
     {
+        private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
-        public ReferrersStatisticsController(ISessionService sessionService, ILanguageService languageService,
+        public ReferrersStatisticsController(
+            IAppSetting appSetting, 
+            ISessionService sessionService, 
+            ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)
         {
+            _appSetting = appSetting;
             _statisticsRepository = statisticsRepository;
         }
 
@@ -44,7 +50,8 @@
                 ToDate = referrerStatisticsParam.ToDate
             };
 
-            return View("~/Views/UserPanel/Statistics/ReferrersStatistics/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/ReferrersStatistics", "Index", _appSetting.SiteName);
+            return View(viewPath, viewModel);
         }
 
         [HttpPost]
@@ -59,7 +66,8 @@
                 DataList = _statisticsRepository.GetReferrerStatistics(referrerStatisticsParam)
             };
 
-            return PartialView("~/Views/UserPanel/Statistics/StatisticsPartial/_ReferrersStatisticsContent.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("UserPanel/Statistics/StatisticsPartial", "_ReferrersStatisticsContent", _appSetting.SiteName);
+            return PartialView(viewPath, viewModel);
         }
 
 

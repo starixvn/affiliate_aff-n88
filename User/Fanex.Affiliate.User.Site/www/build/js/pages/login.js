@@ -74,12 +74,14 @@ var Login = (function ($) {
         },
         initLoginDialogEvent: function () {
             $('#mobileLogin').on('click', function () {
-                $("#loginDialog").modal({ backdrop: "static" });
+                // $("#loginDialog").modal({ backdrop: "static" });
+                $("#loginDialog").modal();  // remove backdrop: "static" to close popup when tap out
             });
 
             $(".mediaLoginLink").on("click", function () {
                 $('#isCLickedBannerLink').val("1");
-                $("#loginDialog").modal({ backdrop: "static" });
+                // $("#loginDialog").modal({ backdrop: "static" });
+                $("#loginDialog").modal();  // remove backdrop: "static" to close popup when tap out
             });
 
             $("#btnDialogLogin").on("click", function () {

@@ -3,12 +3,13 @@
     using System.Web.Mvc;
     using CoreService;
     using Fanex.Affiliate.User.Core.BusinessService;
+    using Fanex.Affiliate.User.Core.Utilities;
     using ViewModels;
 
-    public class ProductController : BaseController
+    public class ProductController : BaseLayoutController
     {
-        public ProductController(ISessionService sessionService, ILanguageService languageService)
-            : base(sessionService, languageService)
+        public ProductController(IAppSetting appSetting, ISessionService sessionService, ILanguageService languageService)
+            : base(appSetting, sessionService, languageService)
         {
         }
 
@@ -17,11 +18,12 @@
         {
             var viewModel = new ProductPageViewModel
             {
-                CurrentLanguage = SessionService.CurrentLanguage,
                 IsAuthenticated = HttpContext.Request.IsAuthenticated && SessionService.UserSession != null
             };
+            AssignBaseLayoutViewModel(viewModel);
 
-            return View("~/Views/Product/Index.cshtml", viewModel);
+            var viewPath = PathHelper.GetViewPath("Product", "Index", AppSetting.SiteName);
+            return View(viewPath, viewModel);
         }
     }
 }

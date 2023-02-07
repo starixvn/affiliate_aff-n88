@@ -1,24 +1,20 @@
-﻿@{
+﻿@model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
+@{
     ViewBag.Title = Lang.Promotion;
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
-
 }
 
 @section styles{
     @Html.InlineStyles("~/www/build/styles/css/promotion.css")
 }
 
-@model string
 @{
-    var appSetting = AppSetting.Instance;
-    var siteName = appSetting.SiteName;
-    var jsVer = appSetting.JsVersion;
-    var nameView = "~/Views/Promotion/" + appSetting.SiteName + "/_Content." + Model + ".cshtml";
+    var nameView = $"~/Views/Promotion/{Model.SiteName}/_Content.{Model.CurrentLanguage}.cshtml";
 
-    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{siteName}/promotion");
+    var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{Model.SiteName}/promotion");
 
-    var orgBannerSrc = $"{bannerSrc}.{Model}.jpg?v={jsVer}";
-    var mobileBannerSrc = $"{bannerSrc}.mobile.{Model}.jpg?v={jsVer}";
+    var orgBannerSrc = $"{bannerSrc}.{Model.CurrentLanguage}.jpg?v=176179";
+    var mobileBannerSrc = $"{bannerSrc}.mobile.{Model.CurrentLanguage}.jpg?v=176179";
 }
 
 <div id="promotion" class="content">
@@ -29,8 +25,8 @@
         <div class="count-down">
             @*<div class="count-down-content">
                 <div class="count-down-item day">
-                    <div class="number">0</div>
-                    <div class="count-down-text">@Lang.Day</div>
+                <div class="number">0</div>
+                <div class="count-down-text">@Lang.Day</div>
                 </div>
                 <div class="count-down-item hour">
                     <div class="number">0</div>
@@ -60,7 +56,6 @@
         <h2 class="text-bold">@Lang.TermAndCondition</h2>
         @Html.Partial(nameView)
     </div>
-
 
     @RazorHelper.RenderMovingTopButton()
 </div>

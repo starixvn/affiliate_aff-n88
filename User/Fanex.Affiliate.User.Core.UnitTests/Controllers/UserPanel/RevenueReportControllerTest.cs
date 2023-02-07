@@ -5,6 +5,7 @@ using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using NSubstitute;
 using System;
@@ -17,6 +18,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
     public class RevenueReportControllerTest
     {
+        private readonly IAppSetting AppSetting;
         private readonly ISessionService SessionService;
         private readonly ILanguageService LanguageService;
         private readonly ICommissionReportService CommissionService;
@@ -24,9 +26,10 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
         public RevenueReportControllerTest()
         {
+            AppSetting = Substitute.For<IAppSetting>();
             SessionService = NSubtituteMockingHelper.FakeSessionService();
-            LanguageService = NSubstitute.Substitute.For<ILanguageService>();
-            CommissionService = NSubstitute.Substitute.For<ICommissionReportService>();
+            LanguageService = Substitute.For<ILanguageService>();
+            CommissionService = Substitute.For<ICommissionReportService>();
             CurrencyRepo = Substitute.For<ICurrencyRepository>();
         }
 
@@ -69,7 +72,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         }
 
         private RevenueReportController CreateController()
-            => new RevenueReportController(SessionService, LanguageService, CommissionService, CurrencyRepo);
+            => new RevenueReportController(AppSetting, SessionService, LanguageService, CommissionService, CurrencyRepo);
 
     }
 }

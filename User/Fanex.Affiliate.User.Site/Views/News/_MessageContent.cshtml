@@ -1,5 +1,5 @@
 ﻿@model Fanex.Affiliate.User.Core.ViewModels.UserPanel.MessageHistoryViewModel
-@{ 
+@{
     var hasData = Model.MessageList != null && Model.MessageList.Any();
 }
 
@@ -30,13 +30,13 @@
                     index++;
                 }
             }
+            else
+            {
+                <tr>
+                    <td class="text-center" colspan="7">@Lang.NoInfo</td>
+                </tr>
+            }
         </tbody>
     </table>
-
-    @if (!hasData)
-    {
-        <p class="text-center">@Lang.NoInfo</p>
-    }
-
     <input id="TotalItem" type="hidden" value="@Model.TotalItems" />
 </div>

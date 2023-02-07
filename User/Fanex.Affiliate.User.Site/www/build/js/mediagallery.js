@@ -1537,7 +1537,8 @@ var MediaGallery = (function ($) {
 
         togglePager: function () {
             var totalItem = parseInt($("#TotalItem").val());
-            $("#marketingPager").toggle(totalItem !== 0);
+
+            $("#marketingPager").toggle(totalItem > 0);
         },
 
         submitSearch: function(){

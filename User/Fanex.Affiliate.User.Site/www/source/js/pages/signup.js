@@ -1,5 +1,6 @@
 ﻿var SignUp = (function ($) {
     var _isReadTermAndCondition = false;
+    var _isClickSubmit = false;
 
     var _me = {
         initialize: function () {
@@ -21,8 +22,7 @@
                 $("#btnSubmit").prop("disabled", !this.checked);
                 if (this.checked && !_isReadTermAndCondition) {
                     _isReadTermAndCondition = true;
-                    var param = Site.isN88 ? "?mode=" + Site.getCookie("mode") : ''
-                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup" + param), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
+                    window.open(Site.resolveRelativeUrl("TermAndCondition/Popup"), '', 'scrollbars=yes,resizable=yes,width=1280,height=800');
                 }
             });
 
@@ -38,7 +38,13 @@
 
             $("#accountForm").on("change", "input[name=HasWebSite][type=radio]", function () {
                 var hasWebSite = this.value === "True";
-                WebSite.changeWebsiteOption(hasWebSite);
+                WebSite.changeWebsiteOption(hasWebSite, _isClickSubmit);
+            });
+
+            $('select[data-val="true"]').on("change", function () {
+                var validator = $("#accountForm").validate();
+
+                validator.element($(this));
             });
 
             $("#signupCaptcha").on("click", function () {
@@ -47,6 +53,7 @@
         },
 
         submit: function () {
+            _isClickSubmit = true;
             var agree = $("#chkAgree").prop("checked");
             var $form = $("#accountForm");
             var validator = $form.validate();

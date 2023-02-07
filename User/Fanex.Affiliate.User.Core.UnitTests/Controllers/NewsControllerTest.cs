@@ -11,6 +11,7 @@ using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
+using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
 using Moq;
 using Newtonsoft.Json;
@@ -65,7 +66,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             var result = actionResult.ViewName;
 
             // Assert
-            Assert.Empty(result);
+            Assert.NotEmpty(result);
         }
 
         [Theory]
@@ -324,7 +325,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
             sessionService = sessionService ?? MockingHelper.GetSessionService();
             languageService = languageService ?? new Mock<ILanguageService>().Object;
 
-            return new NewsController(sessionService, languageService, newsService);
+            return new NewsController(new Mock<IAppSetting>().Object, sessionService, languageService, newsService);
         }
     }
 }
