@@ -1743,7 +1743,7 @@
     <value>Rebate</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
-    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8</value>
+    <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
     <comment>87923</comment>
   </data>
   <data name="PleaseDirectAnyComment" xml:space="preserve">
