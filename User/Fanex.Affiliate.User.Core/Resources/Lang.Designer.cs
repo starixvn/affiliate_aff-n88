@@ -4876,7 +4876,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;09:00 am - 06:00 pm&lt;/strong&gt;&lt;br&gt;GMT +8.
+        ///   Looks up a localized string similar to Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7.
         /// </summary>
         public static string SupportTime {
             get {
