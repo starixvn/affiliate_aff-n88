@@ -180,6 +180,12 @@ namespace Affiliate.N88.Jobs.Middlewares
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REFERRALMLOG_SETTING}")
                 );
 
+            services.AddScoped<IFetchReferralLogDataTask, FetchReferralLogDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_REFERRALLOG_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_REFERRALLOG_SETTING}")
+                );
+
             services.AddScoped<IFetchTpReport9WDataTask, FetchTpReport9WDataTask>()
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_TPREPORT_9W_SETTING,
@@ -252,6 +258,8 @@ namespace Affiliate.N88.Jobs.Middlewares
                 RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchReferralMLogDataTask>($"{typeof(IFetchReferralMLogDataTask).Name}", appSettings.PullReferralMLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+                RegisterTask<IFetchReferralLogDataTask>($"{typeof(IFetchReferralLogDataTask).Name}", appSettings.PullReferralLogSetting.PullInfoCron, job => job.FetchDataAsync());
 
                 RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
 

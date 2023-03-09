@@ -67,10 +67,10 @@ namespace Affiliate.N88.Jobs.Tests
         {
             SetUpStubConfiguration(maxTimeRange);
             var reponse = FetchBetRecordTaskTestsHelper.GenerateApiResponse();
-            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>()).Returns(reponse);
+            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(reponse);
             var fetchTask = CreateFetchTask();
             await fetchTask.FetchDataAsync(fromDate, toDate);
-            await Api.ReceivedWithAnyArgs(numberOfTimeApiCall).GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>());
+            await Api.ReceivedWithAnyArgs(numberOfTimeApiCall).GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>());
         }
 
         [Theory]
@@ -78,7 +78,7 @@ namespace Affiliate.N88.Jobs.Tests
         public async Task FetchDataAsync_WhenCallWithApiReturnNoItem_TimeTrackerNotSave(IEnumerable<TransBetRecordInfo> data)
         {
             SetUpStubConfiguration();
-            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>()).Returns(data);
+            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(data);
             var fetchTask = CreateFetchTask();
             var fromDate = new DateTime(2020, 2, 2, 0, 0, 0);
             var toDate = new DateTime(2020, 2, 2, 0, 30, 0);
@@ -95,7 +95,7 @@ namespace Affiliate.N88.Jobs.Tests
 
             SetUpStubConfiguration();
             var numberOfRepo = Settings.SupportedPrefix.Count();
-            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>()).Returns(data);
+            Api.GetBetRecordAsync(Arg.Any<DateTime>(), Arg.Any<DateTime>(), Arg.Any<int>(), Arg.Any<int>()).Returns(data);
             var fetchTask = CreateFetchTask();
 
             await fetchTask.FetchDataAsync(fromDate, toDate);
@@ -136,7 +136,6 @@ namespace Affiliate.N88.Jobs.Tests
             new object[] { new DateTime (2020, 2, 2, 0, 0, 0), new DateTime(2020, 2, 2, 1, 20, 0), 30, 2 }
         };
 
-
         public static IEnumerable<object[]> NoBetRecordItem => new List<object[]>
         {
             new object[] { null },
@@ -165,5 +164,4 @@ namespace Affiliate.N88.Jobs.Tests
             }
         }
     }
-
 }

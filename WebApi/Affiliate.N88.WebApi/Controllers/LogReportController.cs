@@ -37,5 +37,9 @@ namespace Affiliate.N88.WebApi.Controllers
         [HttpGet]
         public async Task<IEnumerable<ReferralMLogModel>> GetReferralMLogs(int id, int batchCount = 2000)
             => await Repo.FetchAsync<ReferralMLogModel>(new GetReferralMLogCriteria(id, batchCount));
+
+        [HttpGet]
+        public async Task<IEnumerable<ReferralLogModel>> GetReferralLogs(int id, int batchCount = 2000)
+            => await Repo.FetchAsync<ReferralLogModel>(new GetReferralLogCriteria(id, batchCount));
     }
 }
