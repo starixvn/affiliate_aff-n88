@@ -99,8 +99,7 @@ namespace Fanex.Affiliate.Link.Controllers
                 if (string.IsNullOrEmpty(urlReferrer) && !string.IsNullOrEmpty(Request["ref"]))
                 {
                     urlReferrer = Request["ref"];
-                    var referrerUri = new Uri(urlReferrer);
-                    domainReferrer = string.IsNullOrEmpty(referrerUri.Host) ? null : referrerUri.Host;
+                    domainReferrer = Common.GetDomainReferrer(urlReferrer);
                 }
 
                 LogService.Info(GetAllHeader(Request.ServerVariables));
