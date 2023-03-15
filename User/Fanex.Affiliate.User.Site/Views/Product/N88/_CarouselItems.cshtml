@@ -1,14 +1,14 @@
 ﻿@model string
 @{
     var filePath = Url.Content($"~/www/build/styles/Images/products/n88");
-    var desktop = $"{filePath}/desktop.png";
-    var mobile = $"{filePath}/mobile.png";
+    var desktop = $"{filePath}/product.desktop.{Model}.jpg";
+    var mobile = $"{filePath}/product.mobile.{Model}.jpg";
 }
 
 <picture>
-    <source media="(max-width:767px)" srcset="@(mobile + "?v=176179")" type="image/jpeg" />
-    <source srcset="@(desktop + "?v=174504")" type="image/jpeg" />
-    <img class="img-item img-responsive" src="@(desktop + "?v=176179")" alt="Product Banner" />
+    <source media="(max-width:767px)" srcset="@(mobile + "?v=185005v01")" type="image/jpeg" />
+    <source srcset="@(desktop + "?v=185005v01")" type="image/jpeg" />
+    <img class="img-item img-responsive" src="@(desktop + "?v=185005v01")" alt="Product Banner" />
 </picture>
 @*<div id="productBanner" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner" role="listbox">

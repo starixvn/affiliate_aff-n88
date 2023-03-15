@@ -4,6 +4,7 @@
     using System.Web;
     using System.Web.Mvc;
     using System.Web.Routing;
+    using Fanex.Affiliate.Link.Helpers;
     using Fanex.Data;
     using Fanex.Data.SqlServer;
 
@@ -39,8 +40,7 @@
                 return;
             }
 
-            //var message = exception.Message + Environment.NewLine + exception.StackTrace;
-            //LogService.Error("Affiliate Link Error!" + Environment.NewLine + message + Environment.NewLine + Request.Url);
-       }
+            LogHelper.WriteError(exception, $"Request url: {Request.Url}");
+        }
     }
 }

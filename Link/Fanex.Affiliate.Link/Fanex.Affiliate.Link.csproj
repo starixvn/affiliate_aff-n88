@@ -195,6 +195,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Common.cs" />
+    <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Impl\GeneralAffiliateInfoService.cs" />
     <Compile Include="Services\Impl\TrackingSystemService.cs" />
@@ -215,9 +216,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Web.n8b-go.master.config">
-      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8b-go.production.config">
       <DependentUpon>Web.n8b-go.local.config</DependentUpon>
     </Content>
@@ -251,30 +249,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Fanex.Affiliate.Link.ruleset" />
-    <Content Include="Web.n8b-go.backupmnl.config">
-      <DependentUpon>Web.n8b-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8b-go.local.config" />
-    <Content Include="Web.n8g-go.backupmnl.config">
-      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8g-go.local.config" />
-    <Content Include="Web.n8g-go.master.config">
-      <DependentUpon>Web.n8g-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n8g-go.production.config">
       <DependentUpon>Web.n8g-go.local.config</DependentUpon>
     </Content>
     <Content Include="Web.n8g-go.uat.config">
       <DependentUpon>Web.n8g-go.local.config</DependentUpon>
     </Content>
-    <Content Include="Web.n88-go.backupmnl.config">
-      <DependentUpon>Web.n88-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88-go.local.config" />
-    <Content Include="Web.n88-go.master.config">
-      <DependentUpon>Web.n88-go.local.config</DependentUpon>
-    </Content>
     <Content Include="Web.n88-go.production.config">
       <DependentUpon>Web.n88-go.local.config</DependentUpon>
     </Content>
