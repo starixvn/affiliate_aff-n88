@@ -56,6 +56,8 @@
 
         public FetchServiceSetting PullReferralMLogSetting { get; set; }
 
+        public FetchServiceSetting PullReferralLogSetting { get; set; }
+
         public FetchServiceSetting PullTpReport9WSetting { get; set; }
 
         public FetchServiceSetting PullTpWager9WSetting { get; set; }

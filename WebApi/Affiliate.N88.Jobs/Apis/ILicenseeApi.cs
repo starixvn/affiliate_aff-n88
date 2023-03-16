@@ -73,5 +73,8 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/LogReport/GetReferralMLogs")]
         Task<IEnumerable<ReferralMLogModel>> GetReferralMLogs(int id, int batchCount);
+
+        [Get("/LogReport/GetReferralLogs")]
+        Task<IEnumerable<ReferralLogModel>> GetReferralLogs(int id, int batchCount);
     }
 }

@@ -48,6 +48,8 @@
 
         public const string PULL_REFERRALMLOG_SETTING = "PullReferralMLogSetting";
 
+        public const string PULL_REFERRALLOG_SETTING = "PullReferralLogSetting";
+
         public const string PULL_TPREPORT_9W_SETTING = "PullTpReport9WSetting";
 
         public const string PULL_TPWAGER_9W_SETTING = "PullTpWager9WSetting";
