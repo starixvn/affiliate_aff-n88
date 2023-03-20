@@ -76,17 +76,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult PlayersDetails(PlayerDetailParam param)
         {
-            param.AffId = SessionService.UserSession.AffId;
-            var playerDetailList = _accountOverviewRepository.GetPlayerDetailList(param);
-
-            var model = new PlayerDetailViewModel
-            {
-                PlayerDetailList = playerDetailList,
-                TotalItem = param.NRows,
-                StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1,
-                IsDepositFeePercent = SessionService.UserSession.IsDepositFeePercent,
-                IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
-            };
+            var model = GetPlayerDetailViewModel(param);
 
             var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "PlayersDetails", _appSetting.SiteName);
             return PartialView(viewPath, model);
@@ -96,17 +86,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         [AjaxOnly]
         public ActionResult PlayersDetailsContent(PlayerDetailParam param)
         {
-            param.AffId = SessionService.UserSession.AffId;
-            var playerDetailList = _accountOverviewRepository.GetPlayerDetailList(param);
-
-            var model = new PlayerDetailViewModel
-            {
-                PlayerDetailList = playerDetailList,
-                TotalItem = param.NRows,
-                StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1,
-                IsDepositFeePercent = SessionService.UserSession.IsDepositFeePercent,
-                IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
-            };
+            var model = GetPlayerDetailViewModel(param);
 
             var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "PlayersDetailsContent", _appSetting.SiteName);
             return PartialView(viewPath, model);
@@ -121,6 +101,21 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 
             var viewPath = PathHelper.GetViewPath(PARTIAL_SUMMARY_PATH, "SubAffDetails", _appSetting.SiteName);
             return PartialView(viewPath, model);
+        }
+
+        private PlayerDetailViewModel GetPlayerDetailViewModel(PlayerDetailParam param)
+        {
+            param.AffId = SessionService.UserSession.AffId;
+            var playerDetailList = _accountOverviewRepository.GetPlayerDetailList(param);
+
+            return new PlayerDetailViewModel
+            {
+                PlayerDetailList = playerDetailList,
+                TotalItem = param.NRows,
+                StartRowNumber = (param.PageIndex - 1) * param.PageSize + 1,
+                IsDepositFeePercent = SessionService.UserSession.IsDepositFeePercent,
+                IsWithdrawalFeePercent = SessionService.UserSession.IsWithdrawalFeePercent
+            };
         }
     }
 }
