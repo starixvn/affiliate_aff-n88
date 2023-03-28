@@ -25,8 +25,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
                         {
                             Dsn = new Dsn(dsn),
                             Environment = env
-                        }),
-                        new EntlibLogging(new Logging.EntLib.Configuration.EntLibConfig(null, "Log"))
+                        })
                     });
             }
         }
