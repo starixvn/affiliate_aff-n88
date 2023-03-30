@@ -28,8 +28,8 @@
 
         public const string MemberEmail = "[MemberEmail]";
 
-        public const string TransferPlayerSetting = "[TransferPlayerSetting]";
+        public const string TransferPlayerSetting = "[HideTransferPlayerSetting]"; //Hide Transfer Player
 
-        public const string TransferPlayerReport = "[TransferPlayerReport]";
+        public const string TransferPlayerReport = "[HideTransferPlayerReport]"; //Hide Transfer Player
     }
 }

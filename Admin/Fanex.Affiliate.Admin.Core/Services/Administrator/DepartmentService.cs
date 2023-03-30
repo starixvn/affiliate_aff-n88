@@ -8,6 +8,7 @@ using Fanex.Data;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Extensions;
+using System.Linq;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Administrator
 {
@@ -129,7 +130,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
                 }
             }
 
-            return result;
+            return result.Where(p => !p.FunctionDescription.Contains("Transfer Balance For Player")); //Hide Transfer Player;
         }
 
         public ResultInfo UpdateRolePolicy(UpdatePolicyParam param)
