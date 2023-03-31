@@ -104,10 +104,12 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         private string GetEmailTextContent(string function, string language)
         {
             var viewPath = string.Format(TemplateString.EmailTemplatePath, function, language);
+            var viewPathBackup = string.Format(TemplateString.EmailTemplatePath, function, _appSetting.DefaultLanguageCode);
             var physicalPath = Server.MapPath(viewPath);
+            var physicalPathBackup = Server.MapPath(viewPathBackup);
             var model = GetModelByFunction(function, language);
 
-            return model == null ? string.Empty : _mailProcessor.BuildTemplateContent(physicalPath, model);
+            return model == null ? string.Empty : _mailProcessor.BuildTemplateContent(physicalPath, physicalPathBackup, model);
         }
 
         private string GetEmailHtmlContent(string content, string language)
@@ -124,8 +126,9 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 Title = "This is title " + language
             };
             var viewPath = Server.MapPath("~/Areas/Portal/Views/Shared/Email/CommonLayout.cshtml");
+            var viewPathBackup = viewPath;
 
-            return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            return _mailProcessor.BuildTemplateContent(viewPath, viewPathBackup, viewModel);
         }
 
         private object GetModelByFunction(string functionName, string languageCode)

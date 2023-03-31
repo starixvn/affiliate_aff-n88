@@ -130,7 +130,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Administrator
                 }
             }
 
-            return result.Where(p => !p.FunctionDescription.Contains("Transfer Balance For Player")); //Hide Transfer Player;
+            return result.Where(p => !p.FunctionDescription.Contains("Transfer Balance For Player")); //Hide Transfer Player
         }
 
         public ResultInfo UpdateRolePolicy(UpdatePolicyParam param)

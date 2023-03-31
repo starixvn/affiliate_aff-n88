@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_LayoutBeforeLogin.cshtml";
 }
 @{
-    var viewName = $"~/Views/CommissionStructure/N8B/_Content.{Model.CurrentLanguage}.cshtml";
-
-    var htmlString = Html.Partial(viewName, Model).ToHtmlString();
+    var htmlString = Html.RenderPartialByLanguage("~/Views/CommissionStructure/N8B/_Content", Model.CurrentLanguage, Model).ToHtmlString();
 }
 
 <div class="content">

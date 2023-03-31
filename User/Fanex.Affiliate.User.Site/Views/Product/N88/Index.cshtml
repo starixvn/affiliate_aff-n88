@@ -5,7 +5,6 @@
 }
 
 @{
-    var viewName = $"~/Views/Product/N88/_Content.{Model.CurrentLanguage}.cshtml";
     var siteFriendlyName = Model.SiteFriendlyName;
 }
 
@@ -178,7 +177,7 @@
             <span class="text">@Lang.Product</span>
         </div>
 
-        @{ Html.RenderPartial(viewName, siteFriendlyName); }
+        @Html.RenderPartialByLanguage("~/Views/Product/N88/_Content", Model.CurrentLanguage, siteFriendlyName)
 
 
         @RazorHelper.RenderN88MovingTopButton()

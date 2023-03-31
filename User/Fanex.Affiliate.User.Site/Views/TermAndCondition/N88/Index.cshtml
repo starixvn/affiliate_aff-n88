@@ -6,9 +6,7 @@
 }
 
 @{
-    var viewName = $"~/Views/TermAndCondition/N88/_Content.{Model.CurrentLanguage}.cshtml";
-
-    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName);
+    var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/N88/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
 }
 
 @section scripts{

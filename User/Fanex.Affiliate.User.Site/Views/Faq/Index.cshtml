@@ -6,9 +6,7 @@
 }
 
 @{
-    var viewName = $"~/Views/Faq/_Content.{Model.CurrentLanguage}.cshtml";
-
-    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName).ToHtmlString();
+    var htmlString = Html.RenderPartialByLanguage("~/Views/Faq/_Content", Model.CurrentLanguage, Model.SiteFriendlyName).ToHtmlString();
 }
 
 @section styles{

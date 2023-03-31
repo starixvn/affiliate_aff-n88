@@ -124,10 +124,12 @@
             var function = criteria.Function;
 
             var viewPath = string.Format(TemplateString.EmailTemplatePath, function, language);
+            var viewPathBackup = string.Format(TemplateString.EmailTemplatePath, function, _appSetting.DefaultLanguageCode);
             var physicalPath = Server.MapPath(viewPath);
+            var physicalPathBackup = Server.MapPath(viewPathBackup);
             var model = GetModelByFunction(function);
 
-            return model == null ? string.Empty : _mailProcessor.BuildTemplateContent(physicalPath, model);
+            return model == null ? string.Empty : _mailProcessor.BuildTemplateContent(physicalPath, physicalPathBackup, model);
         }
 
         private string GetEmailHtmlContent(string content, string language)
@@ -143,8 +145,9 @@
                 Title = "This is title " + language
             };
             var viewPath = Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
+            var viewPathBackup = viewPath;
 
-            return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            return _mailProcessor.BuildTemplateContent(viewPath, viewPathBackup, viewModel);
         }
 
         private static string GetSubject(string functionName)

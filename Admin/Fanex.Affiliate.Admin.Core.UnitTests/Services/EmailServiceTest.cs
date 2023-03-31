@@ -54,14 +54,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 IsHtml = true
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
 
             //Action
             var service = CreateEmailService();
             service.SendApprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
             MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
         }
 
@@ -86,7 +86,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 Language = "vi-VN"
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
 
 
             //Action
@@ -94,7 +94,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             service.SendApprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<EmailBase>());
             MailProcessor.Received().Send(mainContent, Arg.Compat.Any<string>(), Lang.EmailSubjectAffInfor, Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<int>());
         }
 
@@ -110,14 +110,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 IsHtml = true
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
 
             //Action
             var service = CreateEmailService();
             service.SendPaymentRequestUpdateEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
             MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestApproved, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
@@ -131,7 +131,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 TransId = 123
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
             LanguageService.GetLanguageList().Returns(new List<Language> { new Language { LanguageCode = "en-US"} });
 
             //Action
@@ -139,7 +139,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
             service.SendPaymentRequestUpdateEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<PaymentRequestUpdateEmail>());
             MailProcessor.Received().Send(mainContent, emailParam.MailTo, string.Format(Lang.EmailSubjectPaymentRequestRejected, emailParam.TransId), AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
@@ -153,14 +153,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 IsHtml = true
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
 
             //Action
             var service = CreateEmailService();
             service.SendDisapprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
             MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 
@@ -173,14 +173,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services
                 Language = "en-US"
             };
             var mainContent = "mail content";
-            MailProcessor.BuildTemplateContent(null, null).ReturnsForAnyArgs(mainContent);
+            MailProcessor.BuildTemplateContent(null, null, null).ReturnsForAnyArgs(mainContent);
 
             //Action
             var service = CreateEmailService();
             service.SendDisapprovedEmail(emailParam);
 
             //Assert
-            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
+            MailProcessor.Received().BuildTemplateContent(Arg.Compat.Any<string>(), Arg.Compat.Any<string>(), Arg.Compat.Any<AffInformationEmail>());
             MailProcessor.Received().Send(mainContent, emailParam.MailTo, Lang.EmailSubjectAffDisapproved, AppSetting.BccMail, AppSetting.CcMail, Arg.Compat.Any<int>());
         }
 

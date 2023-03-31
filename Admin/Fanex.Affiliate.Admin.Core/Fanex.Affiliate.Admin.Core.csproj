@@ -237,7 +237,6 @@
     <Compile Include="Constants\Deduction.cs" />
     <Compile Include="Constants\Field.cs" />
     <Compile Include="Constants\Function.cs" />
-    <Compile Include="Constants\LanguageSystem.cs" />
     <Compile Include="Constants\Money.cs" />
     <Compile Include="Constants\PaymentMethod.cs" />
     <Compile Include="Constants\DefaultValue.cs" />
