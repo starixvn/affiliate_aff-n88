@@ -28,6 +28,8 @@
 
         public FetchServiceSetting PullBonusInfoSetting { get; set; }
 
+        public FetchServiceSetting PullWeeklyBonusInfoSetting { get; set; }
+
         public FetchServiceSetting PullCustRegInfoSetting { get; set; }
 
         public FetchServiceSetting PullWithdrawalInfoSetting { get; set; }

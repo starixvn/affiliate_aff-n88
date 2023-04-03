@@ -33,8 +33,12 @@ namespace Affiliate.N88.WebApi.Controllers
             => await dynamicRepository.FetchAsync<DepositInfo>(new GetDepositInfoCriteria(updatedTime, id, totalRow));
 
         [HttpGet]
-        public async Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount = 2000)
-            => await dynamicRepository.FetchAsync<Bonus>(new GetBonusInfoCriteria(id, batchCount));
+        public async Task<IEnumerable<BonusDTO>> GetBonusInfo(int id, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<BonusDTO>(new GetBonusInfoCriteria(id, batchCount));
+
+        [HttpGet]
+        public async Task<IEnumerable<BonusDTO>> GetBonusInfoByDate(DateTime calledTime, int pageIndex, int pageSize = 2000)
+            => await dynamicRepository.FetchAsync<BonusDTO>(new GetBonusInfoByDateCriteria(calledTime, pageIndex, pageSize));
 
         [HttpGet]
         public async Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount = 2000)
