@@ -82,6 +82,7 @@ export class GridData extends Component {
                 <Cell header={true} colSpan="5">Group Details</Cell>
                 <Cell header={true} rowSpan="2" colWidth={120}>Deposit Fee</Cell>
                 <Cell header={true} rowSpan="2" colWidth={120}>Withdrawal Fee</Cell>
+                <Cell header={true} rowSpan="2" colWidth={120}>Sub-Affiliate Comm Rate</Cell>
                 <Cell header={true} rowSpan="2" colWidth={50}>Action</Cell>
             </Row>,
             <Row key="sub-theard" className="d-none">
@@ -122,14 +123,15 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee, ...group } = item;
+                const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee, SubAffComm, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const p2pDeductionRowSpan = P2pDeductionList.length;
                 const rowSpan = tierSettingRowSpan + (platformFeeRowSpan + p2pDeductionRowSpan) * 2;
 
-                const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)))
-                const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)))
+                const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)));
+                const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)));
+                const subAffCommRate = SubAffComm && `${format(SubAffComm * 100, 1)}%`
 
                 for (let iP2P = 0; iP2P < P2pDeductionList.length; iP2P++) {
                     const p2pDeduction = P2pDeductionList[iP2P];
@@ -163,6 +165,7 @@ export class GridData extends Component {
                                     <Fragment>
                                         <Cell className="text-right" rowSpan={rowSpan} title={depositFee}>{depositFee}</Cell>
                                         <Cell className="text-right" rowSpan={rowSpan} title={withdrawalFee}>{withdrawalFee}</Cell>
+                                        <Cell className="text-right" rowSpan={rowSpan} title={subAffCommRate}>{subAffCommRate}</Cell>
                                         <Cell className="text-center" rowSpan={rowSpan}>
                                             <button className="btn btn-link" onClick={(e) => this.props.onEdit(item.GroupId)}>
                                                 <span className="oi oi-pencil text-secondary"></span>
@@ -215,7 +218,7 @@ export class GridData extends Component {
         }
         else {
             rows.push(<Row>
-                <Cell className="text-center" colSpan="13">{globalResource.NoInfo}</Cell>
+                <Cell className="text-center" colSpan="14">{globalResource.NoInfo}</Cell>
             </Row>);
         }
 

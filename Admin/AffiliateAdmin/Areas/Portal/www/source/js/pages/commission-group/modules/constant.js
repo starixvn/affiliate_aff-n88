@@ -25,6 +25,24 @@ function generateCommissionValues() {
 const _commValueList = generateCommissionValues();
 
 export const commissionValueList = _commValueList;
+
+function generateSubAffCommValues() {
+    let min = 10.0,
+        max = 20.0;
+
+    const subAffCommList = { 10.0: '10.0%' };
+
+    while (min < max) {
+        min = min + 10;
+        subAffCommList[format(min / 100, 3)] = format(min, 1) + "%";
+    }
+
+    return subAffCommList;
+}
+const _subAffCommValueList = generateSubAffCommValues();
+
+export const subAffCommValueList = _subAffCommValueList;
+
 export const GGR = '| Gross Game Revenue |'
 
 export const messages = {

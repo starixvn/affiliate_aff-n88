@@ -359,6 +359,9 @@
     <Content Include="Areas\Portal\www\source\js\pages\affiliate-info\__test__\index.test.js" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\DeductedPercentageGroup.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\deduction\__test__\DeductedPercentageGroup.test.js" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\sub-aff-comm-rate\index.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\sub-aff-comm-rate\SubAffCommRateItem.jsx" />
+    <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\sub-aff-comm-rate\SubAffCommRateSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\DeductionSetting.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\FeeSettingItem.jsx" />
     <Content Include="Areas\Portal\www\source\js\pages\commission-group\components\shared\tier-deduction\index.jsx" />

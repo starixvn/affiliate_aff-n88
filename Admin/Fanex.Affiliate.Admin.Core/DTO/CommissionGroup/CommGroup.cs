@@ -20,6 +20,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.CommissionGroup
 
         public int NoAffs { get; set; }
 
+        public decimal SubAffComm { get; set; }
+
         public bool IsActivePlayerSum { get; set; }
 
         public string CreatedDateText => CreatedDate.ToString("MM/dd/yyyy HH:mm:ss");

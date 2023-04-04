@@ -11,6 +11,7 @@ import CommGroupInfo from '../shared/CommGroupInfo';
 import { messages } from '../../modules/constant';
 import { toggleLoader } from '../../../../actions/loaderAction';
 import P2pProductSetting from '../shared/p2p-deduction';
+import SubAffCommRateSetting from '../shared/sub-aff-comm-rate';
 
 export class AddGroup extends React.Component {
     constructor(props) {
@@ -84,6 +85,7 @@ export class AddGroup extends React.Component {
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
                 <CommGroupInfo />
+                <SubAffCommRateSetting />
                 <P2pProductSetting />
                 <DeductionSetting />
                 <p className="text-danger">{messages.note}</p>

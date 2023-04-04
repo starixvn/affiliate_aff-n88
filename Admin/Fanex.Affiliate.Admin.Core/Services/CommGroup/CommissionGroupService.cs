@@ -37,6 +37,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.CommGroup
                              RowIdx = c.RowIdx,
                              GroupId = c.GroupId,
                              GroupName = c.GroupName,
+                             SubAffComm = c.SubAffComm,
                              CreatedDate = c.CreatedDate,
                              Creator = c.Creator,
                              Description = c.Description,
