@@ -36,7 +36,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Bonus
         public override async Task FetchDataAsync()
         {
             var date = GetLastMonthDate();
-            await PullAndImportData(date);
+            var now = DateTime.UtcNow;
+            while (date <= now)
+            {
+                await PullAndImportData(date);
+                date = date.AddDays(1);
+            }
         }
 
         private async Task PullAndImportData(DateTime date)
