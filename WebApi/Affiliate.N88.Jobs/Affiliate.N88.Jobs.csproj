@@ -48,9 +48,6 @@
     <Content Update="appsettings.local.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="appsettings.master.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="appsettings.pro.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

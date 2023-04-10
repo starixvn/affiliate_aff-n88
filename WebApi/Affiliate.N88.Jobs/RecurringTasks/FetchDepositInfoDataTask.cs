@@ -7,6 +7,7 @@ using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
 using Fanex.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +39,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            var tracker = await _trackerService.GetTrackerAsync(TableName, t => t.CalledTime);
-            var id = string.IsNullOrWhiteSpace(tracker.KeyValue) ? 0 : int.Parse(tracker.KeyValue);
-            var queryId = GetAdjustmentId(id);
-            var data = await _licenseeApi.GetDepositInfo(queryId, MAX_ROW_COUNT);
+            var tracker = await GetAdjustmentLastTrackerAsync();
+            var data = await _licenseeApi.GetDepositInfo(tracker.UpdateTime, tracker.Id, MAX_ROW_COUNT);
             await ImportDataAsync(data);
         }
 
@@ -51,17 +50,21 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             while (importData != null && importData.Any())
             {
                 await ImportDataToMultipleRepoAsync(importData);
-                var maxId = importData.Max(d => d.DepositId);
+                var trackerItem = new TrackerItem
+                {
+                    Id = importData.Max(_ => _.DepositId),
+                    UpdateTime = importData.Max(_ => _.UpdateTime.Value),
+                };
                 await _trackerService.SaveTrackerAsync(TableName,
                     new TrackerInfo
                     {
                         CalledTime = DateTime.Now,
-                        KeyValue = maxId.ToString()
+                        KeyValue = JsonConvert.SerializeObject(trackerItem)
                     });
 
                 if (importData.Count() == MAX_ROW_COUNT)
                 {
-                    importData = await _licenseeApi.GetDepositInfo(maxId, MAX_ROW_COUNT);
+                    importData = await _licenseeApi.GetDepositInfo(trackerItem.UpdateTime, trackerItem.Id, MAX_ROW_COUNT);
                 }
                 else
                 {
@@ -70,13 +73,25 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-        private int GetAdjustmentId(int id)
-            => id - Settings.AdjustmentValue < 0 ? 0 : id - Settings.AdjustmentValue;
+        private async Task<TrackerItem> GetAdjustmentLastTrackerAsync()
+        {
+            var tracker = await _trackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var trackerItem = JsonConvert.DeserializeObject<TrackerItem>(tracker.KeyValue);
+            trackerItem.UpdateTime = trackerItem.UpdateTime.AddMinutes(Settings.AdjustmentValue);
+            return trackerItem;
+        }
 
         protected override string BuildXml(IEnumerable<DepositInfo> data)
              => XmlHelper.BuildXml(data, "root", "row");
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
             => Settings.SupportedPrefix;
+
+        private sealed class TrackerItem
+        {
+            public int Id { get; set; }
+
+            public DateTime UpdateTime { get; set; }
+        }
     }
 }
