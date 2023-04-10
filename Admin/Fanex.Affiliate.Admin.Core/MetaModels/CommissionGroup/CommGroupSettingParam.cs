@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup
         public string GroupName { get; set; }
 
         [Range(Validation.Zero, Validation.MaxPercentage, ErrorMessage = "Sub-Affiliate Commission Rate is incorrect!")]
-        public decimal SubAffComm { get; set; }
+        public decimal SubAffCommRate { get; set; }
 
         public bool IsActivePlayerSum { get; set; }
 

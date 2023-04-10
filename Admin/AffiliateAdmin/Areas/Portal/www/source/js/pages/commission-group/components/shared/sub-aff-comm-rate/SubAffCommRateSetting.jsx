@@ -11,12 +11,12 @@ export class SubAffCommRateSetting extends PureComponent {
         super(props);
 
         this.defaultItem = {
-            subAffComm: 0.1
+            subAffCommRate: 0.1
         }
     }
 
-    handleChangeCommission = (subAffComm) => {
-        this.props.setSelectedGroup({ SubAffComm: subAffComm });
+    handleChangeCommission = (subAffCommRate) => {
+        this.props.setSelectedGroup({ SubAffCommRate: subAffCommRate });
     }
 
     render() {
@@ -26,7 +26,7 @@ export class SubAffCommRateSetting extends PureComponent {
             <fieldset className="p2p-product-group">
                 <legend><h6 className="font-weight-bold">Sub-Affiliates Comm Rate</h6></legend>
                 <SubAffCommRateItem
-                    data={selectedGroup.SubAffComm}
+                    data={selectedGroup.SubAffCommRate}
                     onChangeCommission={(value) => this.handleChangeCommission(value)}
                 />
             </fieldset>

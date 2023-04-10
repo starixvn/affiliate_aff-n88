@@ -1,9 +1,10 @@
-import { deductionNameList, messages, INFINITY_AM, INFINITY_QM, regExp } from './constant';
+import { deductionNameList, messages, INFINITY_AM, INFINITY_QM, defaultSubAffCommRate, regExp } from './constant';
 
 const emptyCommGroup = {
     GroupId: 0,
     GroupName: '',
     Description: '',
+    SubAffCommRate: defaultSubAffCommRate,
     IsActivePlayerSum: true,
     TierSettingList: [],
     PlatformFeeList: [],

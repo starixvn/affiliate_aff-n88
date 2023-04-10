@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.DTO;
-using Fanex.Affiliate.Admin.Core.DTO.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.Extensions;
 using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
@@ -136,6 +135,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     PlatformFeeList = commGroup.PlatformFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
+                    SubAffCommRate = commGroup.SubAffCommRate,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum,
                     Ip = Request.UserHostAddress
                 };

@@ -138,6 +138,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     PlatformFeeList = commGroup.PlatformFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
+                    SubAffCommRate = commGroup.SubAffCommRate,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum
                 };
 
@@ -184,6 +185,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
                     PlatformFeeList = commGroup.PlatformFeeList,
                     DepositFee = commGroup.DepositFee,
                     WithdrawalFee = commGroup.WithdrawalFee,
+                    SubAffCommRate = commGroup.SubAffCommRate,
                     IsActivePlayerSum = commGroup.IsActivePlayerSum
                 };
 

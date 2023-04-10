@@ -123,7 +123,7 @@ export class GridData extends Component {
             for (let index = 0; index < gridData.length; index++) {
                 const item = gridData[index];
 
-                const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee, SubAffComm, ...group } = item;
+                const { TierSettingList, P2pDeductionList, PlatformFeeList, DepositFee, WithdrawalFee, SubAffCommRate, ...group } = item;
                 const tierSettingRowSpan = TierSettingList.length;
                 const platformFeeRowSpan = PlatformFeeList.length;
                 const p2pDeductionRowSpan = P2pDeductionList.length;
@@ -131,7 +131,7 @@ export class GridData extends Component {
 
                 const depositFee = DepositFee && (DepositFee.IsDeductedPercent ? `${format(DepositFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(DepositFee.DeductedAmount)));
                 const withdrawalFee = WithdrawalFee && (WithdrawalFee.IsDeductedPercent ? `${format(WithdrawalFee.DeductedPercentage * 100, 1)}%` : formatDecimal(Number(WithdrawalFee.DeductedAmount)));
-                const subAffCommRate = SubAffComm && `${format(SubAffComm * 100, 1)}%`
+                const subAffCommRate = SubAffCommRate && `${format(SubAffCommRate * 100, 1)}%`
 
                 for (let iP2P = 0; iP2P < P2pDeductionList.length; iP2P++) {
                     const p2pDeduction = P2pDeductionList[iP2P];

@@ -31,7 +31,10 @@ namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 
         public decimal Commission { get; set; }
         public decimal P2pCommission { get; set; }
+
         public decimal SubAffCommission { get; set; }
+
+        public decimal SubCommRate { get; set; }
 
         public int CalculatedType { get; set; }
 
