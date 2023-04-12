@@ -4255,6 +4255,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Revenue Share is calculated using your Sub-Affiliate Comm rate.
+        /// </summary>
+        public static string RevenueShareCalculation {
+            get {
+                return ResourceManager.GetString("RevenueShareCalculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Revenue Share Payment.
         /// </summary>
         public static string RevenueSharePayment {

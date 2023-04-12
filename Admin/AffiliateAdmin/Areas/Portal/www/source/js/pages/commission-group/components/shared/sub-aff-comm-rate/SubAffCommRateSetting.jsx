@@ -24,7 +24,7 @@ export class SubAffCommRateSetting extends PureComponent {
 
         return (
             <fieldset className="p2p-product-group">
-                <legend><h6 className="font-weight-bold">Sub-Affiliates Comm Rate</h6></legend>
+                <legend><h6 className="font-weight-bold">Sub-Affiliate Comm Rate</h6></legend>
                 <SubAffCommRateItem
                     data={selectedGroup.SubAffCommRate}
                     onChangeCommission={(value) => this.handleChangeCommission(value)}

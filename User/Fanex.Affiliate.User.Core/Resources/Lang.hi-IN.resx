@@ -1949,4 +1949,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="SubAffCommRate" xml:space="preserve">
     <value>उप-संबद्ध कमीशन दर</value>
   </data>
+  <data name="RevenueShareCalculation" xml:space="preserve">
+    <value>रेवेन्यू शेयर की गणना आपके सब-एफिलिएट कमीशन रेट का उपयोग करके की जाती है I</value>
+  </data>
 </root>

@@ -1712,4 +1712,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="SubAffCommRate" xml:space="preserve">
     <value>子代理佣金比例</value>
   </data>
+  <data name="RevenueShareCalculation" xml:space="preserve">
+    <value>代理收入分成是以您的子代理佣金汇率计算</value>
+  </data>
 </root>
