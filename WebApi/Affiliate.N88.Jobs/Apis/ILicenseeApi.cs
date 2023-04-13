@@ -45,7 +45,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<BonusDTO>> GetBonusInfoByDate(DateTime calledTime, int pageIndex, int pageSize);
 
         [Get("/BetReport/GetWithdrawalInfo")]
-        Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount);
+        Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(DateTime updateTime, int batchCount);
 
         [Get("/Customer/GetCustBonusRollovers")]
         Task<IEnumerable<CustBonusRolloverModel>> GetCustBonusRolloversAsync(int id, int batchCount);

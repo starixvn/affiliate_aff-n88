@@ -28,6 +28,8 @@ namespace Affiliate.N88.Models
 
         public DateTime? CreateTime { get; set; }
 
+        public DateTime? UpdateTime { get; set; }
+
         public string Memo { get; set; }
 
         public string Comment { get; set; }
