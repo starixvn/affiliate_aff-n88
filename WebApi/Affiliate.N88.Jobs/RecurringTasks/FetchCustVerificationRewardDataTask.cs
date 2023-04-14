@@ -5,7 +5,6 @@ using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
 using Affiliate.N88.Utitlities;
-using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
     {
         private readonly ITrackerService _timeTrackerService;
         private readonly ILicenseeApi _liceseeApi;
-        private readonly ILogger _logger;
 
         private const string PHONE_REWARD_FIELD = "PhoneRewardTime";
         private const string EMAIL_REWARD_FIELD = "EmailRewardTime";
@@ -28,13 +26,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public FetchCustVerificationRewardDataTask(ILicenseeApi licenseeApi,
             IThirdPartyImportRepository _thirdPartyRepo,
-            ILogger logger,
             ITrackerService timeTrackerService,
             IOptionsSnapshot<FetchServiceSetting> configuration)
             : base(_thirdPartyRepo, configuration.Get(Constants.ServiceConfigName.PULL_CUST_VERIFICATION_REWARD_SETTING))
         {
             _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _liceseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
@@ -48,13 +44,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         {
             var emailTrackerTime = await ImportAndGetEmailRewardTrackTime(fromDate);
             var phoneTrackeTime = await ImportAndGetPhoneRewardTrackTime(fromDate);
-            var maxTrackerTime = emailTrackerTime >= phoneTrackeTime ? emailTrackerTime : phoneTrackeTime;
-            if (maxTrackerTime != default)
+            var minTrackerTime = emailTrackerTime <= phoneTrackeTime ? emailTrackerTime : phoneTrackeTime;
+            if (minTrackerTime != default)
             {
                 await _timeTrackerService.SaveTrackerAsync(TableName, new TrackerInfo
                 {
                     CalledTime = DateTime.Now,
-                    KeyValue = maxTrackerTime.ToString(Format.DateTimeFormat)
+                    KeyValue = minTrackerTime.ToString(Format.DateTimeFormat)
                 });
             }
         }
@@ -88,7 +84,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task<DateTime> GetLastTrackingTimeAsync()
         {
             var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => Convert.ToDateTime(t.KeyValue));
-            return Convert.ToDateTime(tracker.KeyValue);
+            var date =  Convert.ToDateTime(tracker.KeyValue);
+            var adjustDate = date.AddMinutes(Settings.AdjustmentValue);
+            return adjustDate;
         }
 
         protected override string BuildXml(IEnumerable<CustVerificationReward> data)
