@@ -10,10 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Affiliate.N88.Jobs.RecurringTasks
+namespace Affiliate.N88.Jobs.RecurringTasks.Bonus
 {
     public interface IFetchBonusInfoDataTask : IFetchDataTask { }
-    public class FetchBonusInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<Bonus>, IFetchBonusInfoDataTask
+    public class FetchBonusInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<BonusDTO>, IFetchBonusInfoDataTask
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly ILogger _logger;
@@ -31,13 +31,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
-        protected override Task<IEnumerable<Bonus>> GetDataAsync(string trackValue, int batchCount)
+        protected override Task<IEnumerable<BonusDTO>> GetDataAsync(string trackValue, int batchCount)
         {
             var id = Convert.ToInt32(trackValue);
             return _licenseeApi.GetBonusInfo(id, batchCount);
         }
 
-        protected override string GetInsertTrackingValue(IEnumerable<Bonus> data)
+        protected override string GetInsertTrackingValue(IEnumerable<BonusDTO> data)
             => data.Max(d => d.BonusId).ToString();
 
         protected override async Task<string> GetLastTrackingValueAsync()

@@ -2,7 +2,7 @@
 
 namespace Affiliate.N88.Models
 {
-    public class Bonus
+    public class BonusDTO
     {
         public int BonusId { get; set; }
 

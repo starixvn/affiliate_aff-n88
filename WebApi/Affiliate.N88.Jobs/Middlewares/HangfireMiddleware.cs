@@ -17,6 +17,7 @@ using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Affiliate.N88.Jobs.Filter;
+using Affiliate.N88.Jobs.RecurringTasks.Bonus;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -89,6 +90,11 @@ namespace Affiliate.N88.Jobs.Middlewares
                 .Configure<FetchServiceSetting>(
                     ServiceConfigName.PULL_BONUS_INFO_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_BONUS_INFO_SETTING}"));
+
+            services.AddScoped<IFetchWeeklyBonusInfoDataTask, FetchWeeklyBonusInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.PULL_WEEKLY_BONUS_INFO_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_WEEKLY_BONUS_INFO_SETTING}"));
 
             //FetchCustRegInfoDataTask
             services.AddScoped<IFetchCustRegInfoDataTask, FetchCustRegInfoDataTask>()
@@ -229,7 +235,10 @@ namespace Affiliate.N88.Jobs.Middlewares
 
                 RegisterTask<IFetchCustRegInfoDataTask>($"{typeof(IFetchCustRegInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 
+                //Bonus Info
                 RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterTask<IFetchWeeklyBonusInfoDataTask>($"{typeof(IFetchWeeklyBonusInfoDataTask).Name}", appSettings.PullWeeklyBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
 
                 RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
 

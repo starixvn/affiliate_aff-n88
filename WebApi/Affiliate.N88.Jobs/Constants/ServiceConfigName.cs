@@ -22,6 +22,8 @@
 
         public const string PULL_BONUS_INFO_SETTING = "PullBonusInfoSetting";
 
+        public const string PULL_WEEKLY_BONUS_INFO_SETTING = "PullWeeklyBonusInfoSetting";
+
         public const string PULL_WITHDRAWAL_INFO = "PullWithdrawalInfoSetting";
 
         public const string PULL_PROMOTION_SETTING = "PullPromotionSetting";

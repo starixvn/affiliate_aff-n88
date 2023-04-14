@@ -39,7 +39,10 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<CustRegModel>> GetCustomerRegInfo(long unixTime);
 
         [Get("/BetReport/GetBonusInfo")]
-        Task<IEnumerable<Bonus>> GetBonusInfo(int id, int batchCount);
+        Task<IEnumerable<BonusDTO>> GetBonusInfo(int id, int batchCount);
+
+        [Get("/BetReport/GetBonusInfoByDate")]
+        Task<IEnumerable<BonusDTO>> GetBonusInfoByDate(DateTime calledTime, int pageIndex, int pageSize);
 
         [Get("/BetReport/GetWithdrawalInfo")]
         Task<IEnumerable<Withdrawal>> GetWithdrawalInfo(int id, int batchCount);
