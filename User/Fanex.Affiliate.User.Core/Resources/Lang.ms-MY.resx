@@ -1355,7 +1355,4 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Kadar Comm Sub-Afiliasi</value>
   </data>
-  <data name="RevenueShareCalculation" xml:space="preserve">
-    <value>Bahagian Hasil dikira menggunakan kadar Komisen Sub-Affiliate anda</value>
-  </data>
 </root>

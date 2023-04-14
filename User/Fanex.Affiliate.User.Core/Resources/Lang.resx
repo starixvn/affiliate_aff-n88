@@ -2130,7 +2130,4 @@
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Sub-Affiliate Comm Rate</value>
   </data>
-  <data name="RevenueShareCalculation" xml:space="preserve">
-    <value>Revenue Share is calculated using your Sub-Affiliate Comm rate</value>
-  </data>
 </root>
