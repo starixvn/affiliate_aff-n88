@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchVipUpgradeReviewDataTask : IFetchDataTask { }
+    public interface IFetchVipUpgradeReviewDataTask : IFetchDataTask
+    { }
 
     public class FetchVipUpgradeReviewDataTask : FetchDataForMultipleRepositoryTaskBase<VipUpgradeReviewInfo>, IFetchVipUpgradeReviewDataTask
     {
@@ -35,7 +36,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            var trackDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var trackDate = DateTime.Parse(tracker.KeyValue);
             var monthDate = new DateTime(trackDate.Year, trackDate.Month, 1);
             await FetchDataAsync(monthDate);
         }
@@ -54,7 +56,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                         await ImportDataToMultipleRepoAsync(data);
                     }
                 }
-                await _timeTrackerService.SaveTimeAsync(TableName, fromDate);
+                var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = fromDate.ToString() };
+                await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
                 fromDate = fromDate.AddMonths(1);
             }
         }
@@ -82,7 +85,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var adjustDate = monthDate.AddDays(Settings.AdjustmentValue);
             return new DateTime(adjustDate.Year, adjustDate.Month, 1);
         }
-
 
         protected override string BuildXml(IEnumerable<VipUpgradeReviewInfo> data)
             => XmlHelper.BuildXml(data, "root", "row");

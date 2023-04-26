@@ -19,6 +19,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         Task FetchDataAsync(DateTime fromDate);
     }
+
     public sealed class FetchCustomerDataTask : FetchDataForMultipleRepositoryTaskBase<CustomerInfo>, IFetchCustomerDataTask
     {
         private readonly ITrackerService _timeTrackerService;
@@ -39,7 +40,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var fromDate = DateTime.Parse(tracker.KeyValue);
             await FetchDataAsync(fromDate);
         }
 
@@ -48,7 +50,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var toDate = GetAdjustmentTime();
             var data = await _liceseeApi.GetCustomersAsync(fromDate);
             await ImportDataToMultipleRepoAsync(data);
-            await _timeTrackerService.SaveTimeAsync(TableName, toDate);
+            var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = toDate.ToString() };
+            await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
         }
 
         public async Task FetchDataDailyTask()

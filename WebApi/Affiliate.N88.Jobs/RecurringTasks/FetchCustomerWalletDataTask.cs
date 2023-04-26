@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchCustomerWalletDataTask : IFetchDataTask { }
+    public interface IFetchCustomerWalletDataTask : IFetchDataTask
+    { }
 
     public class FetchCustomerWalletDataTask : FetchDataForMultipleRepositoryTaskBase<CustWalletInfo>, IFetchCustomerWalletDataTask
     {
@@ -35,7 +36,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            var fromDate = await _trackerService.GetTimeAsync(TableName);
+            var tracker = await _trackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var fromDate = DateTime.Parse(tracker.KeyValue);
             await FetchDataAsync(fromDate);
         }
 
@@ -44,7 +46,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var toDate = GetAdjustmentTime();
             var data = await _liceseeApi.GetCustomerWalletAsync(fromDate);
             await ImportDataToMultipleRepoAsync(data);
-            await _trackerService.SaveTimeAsync(TableName, toDate);
+            var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = toDate.ToString() };
+            await _trackerService.SaveTrackerAsync(TableName, tracker);
         }
 
         private DateTime GetAdjustmentTime()

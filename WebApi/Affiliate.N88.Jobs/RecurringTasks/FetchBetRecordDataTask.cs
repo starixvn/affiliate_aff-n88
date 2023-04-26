@@ -28,6 +28,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchAllDay(int adjustHour);
     }
+
     public class FetchBetRecordDataTask : FetchDataForMultipleRepositoryTaskBase<TransBetRecordInfo>, IFetchBetRecordDataTask
     {
         private const int API_SERVER_TIME_OFFSET = 0;
@@ -51,9 +52,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-                var fromDate = await GetLastTimeFetchDateAsync();
-                var toDate = GetAdjustmentApiServerDate();
-                await FetchDataAndTrackTimeAsync(fromDate, toDate);
+            var fromDate = await GetLastTimeFetchDateAsync();
+            var toDate = GetAdjustmentApiServerDate();
+            await FetchDataAndTrackTimeAsync(fromDate, toDate);
         }
 
         public async Task FetchDataAsync(DateTime fromDate, DateTime toDate)
@@ -76,29 +77,28 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public async Task FetchLastMonthAsync()
         {
-                var now = DateTime.Now;
-                var dayLastMonth = now.AddMonths(-1);
-                var firstDayLastMonth = new DateTime(dayLastMonth.Year, dayLastMonth.Month, 1);
-                var firstDayThisMonth = new DateTime(now.Year, now.Month, 1);
-                await FetchDataAsync(firstDayLastMonth, firstDayThisMonth);
-            
+            var now = DateTime.Now;
+            var dayLastMonth = now.AddMonths(-1);
+            var firstDayLastMonth = new DateTime(dayLastMonth.Year, dayLastMonth.Month, 1);
+            var firstDayThisMonth = new DateTime(now.Year, now.Month, 1);
+            await FetchDataAsync(firstDayLastMonth, firstDayThisMonth);
         }
 
         public async Task FetchFromAdjusmentDayAsync(int day)
         {
-                var lastFetchDate = await GetLastTimeFetchDateAsync();
-                var fromDate = lastFetchDate.AddDays(-day);
-                var toDate = GetAdjustmentApiServerDate();
-                await FetchDataAsync(fromDate, toDate);
+            var lastFetchDate = await GetLastTimeFetchDateAsync();
+            var fromDate = lastFetchDate.AddDays(-day);
+            var toDate = GetAdjustmentApiServerDate();
+            await FetchDataAsync(fromDate, toDate);
         }
 
         public async Task FetchAllDay(int adjustHour)
         {
-                var lastFetchDate = await GetLastTimeFetchDateAsync();
-                var adjustDate = lastFetchDate.AddHours(-adjustHour);
-                var fromDate = new DateTime(adjustDate.Year, adjustDate.Month, adjustDate.Day);
-                var toDate = GetAdjustmentApiServerDate();
-                await FetchDataAsync(fromDate, toDate);
+            var lastFetchDate = await GetLastTimeFetchDateAsync();
+            var adjustDate = lastFetchDate.AddHours(-adjustHour);
+            var fromDate = new DateTime(adjustDate.Year, adjustDate.Month, adjustDate.Day);
+            var toDate = GetAdjustmentApiServerDate();
+            await FetchDataAsync(fromDate, toDate);
         }
 
         private async Task FetchDataAndTrackTimeAsync(DateTime fromDate, DateTime toDate)
@@ -110,7 +110,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 try
                 {
                     await FetchAndInsertDataByPageAsync(range.FromDate, range.ToDate);
-                    await _timeTrackerService.SaveTimeAsync(TableName, range.ToDate);
+                    var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = range.ToDate.ToString() };
+                    await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
                 }
                 catch (Exception ex)
                 {
@@ -141,7 +142,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             }
         }
 
-
         private TimeSpan GetApiMaxTimeRange()
         {
             return TimeSpan.FromMinutes(Settings.MaxTimeRange);
@@ -150,7 +150,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         private async Task<DateTime> GetLastTimeFetchDateAsync()
         {
             var adjustmentMin = Settings.AdjustmentValue;
-            var trackingDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var trackingDate = DateTime.Parse(tracker.KeyValue);
             var lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
 
             return lastFetchDate;

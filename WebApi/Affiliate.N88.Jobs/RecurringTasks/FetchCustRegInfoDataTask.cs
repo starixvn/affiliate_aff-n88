@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchCustRegInfoDataTask : IFetchDataTask { }
+    public interface IFetchCustRegInfoDataTask : IFetchDataTask
+    { }
 
     public class FetchCustRegInfoDataTask : FetchDataForMultipleRepositoryTaskBase<CustRegModel>, IFetchCustRegInfoDataTask
     {
@@ -35,20 +36,22 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
         public override async Task FetchDataAsync()
         {
-            var fromDate = await _timeTrackerService.GetTimeAsync(TableName);
+            var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var fromDate = DateTime.Parse(tracker.KeyValue);
             await FetchDataAsync(fromDate);
         }
 
         private async Task FetchDataAsync(DateTime fromDate)
         {
-            //Convert to number in format YYYYMMDD for argument use in UNIX_TIMESTAMP function 
+            //Convert to number in format YYYYMMDD for argument use in UNIX_TIMESTAMP function
             var unixTime = Convert.ToInt64(fromDate.ToString("yyyyMMdd"));
             var data = await _liceseeApi.GetCustomerRegInfo(unixTime);
             await ImportDataToMultipleRepoAsync(data);
             var toDate = GetAdjustmentTime(data.Max(d => d.RegTime));
             if (data.Any() && toDate != default(DateTimeOffset))
             {
-                await _timeTrackerService.SaveTimeAsync(TableName, toDate.UtcDateTime);
+                var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = toDate.UtcDateTime.ToString() };
+                await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
             }
         }
 
