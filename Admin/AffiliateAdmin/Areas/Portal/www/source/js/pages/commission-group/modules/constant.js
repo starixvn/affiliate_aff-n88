@@ -27,13 +27,13 @@ const _commValueList = generateCommissionValues();
 export const commissionValueList = _commValueList;
 
 function generateSubAffCommRateValues() {
-    let min = 5.0,
-        max = 30.0;
+    let min = 10.0,
+        max = 20.0;
 
-    const subAffCommRateList = { 0.05: '5.0%' };
+    const subAffCommRateList = { 0.1: '10.0%' };
 
     while (min < max) {
-        min = min + 5;
+        min = min + 10;
         subAffCommRateList[format(min / 100, 3)] = format(min, 1) + "%";
     }
 
