@@ -149,9 +149,11 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
             var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
+            var viewPathBackup = string.Format(TemplateString.EmailTemplatePath, templateName, _appSetting.DefaultLanguageCode);
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
+            var physicalPathBackup = HttpContext.Current.Server.MapPath(viewPathBackup);
 
-            var encodedContent = _mailProcessor.BuildTemplateContent(physicalPath, model);
+            var encodedContent = _mailProcessor.BuildTemplateContent(physicalPath, physicalPathBackup, model);
             var decodedContent = HttpUtility.HtmlDecode(encodedContent);
             return decodedContent;
         }
@@ -167,8 +169,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 Title = title
             };
             var viewPath = HttpContext.Current.Server.MapPath("~/Views/Shared/Email/CommonLayout.cshtml");
+            var viewPathBackup = viewPath;
 
-            var encodedContent = _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            var encodedContent = _mailProcessor.BuildTemplateContent(viewPath, viewPathBackup, viewModel);
             var decodedContent = HttpUtility.HtmlDecode(encodedContent);
             return decodedContent;
         }

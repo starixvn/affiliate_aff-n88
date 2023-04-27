@@ -62,9 +62,11 @@ namespace Fanex.Affiliate.Admin.Core.Services
         private string GetEmailTextContent(string templateName, string prefrerredLanguage, object model)
         {
             var viewPath = string.Format(TemplateString.EmailTemplatePath, templateName, prefrerredLanguage);
+            var viewPathBackup = string.Format(TemplateString.EmailTemplatePath, templateName, _appSetting.DefaultLanguageCode);
             var physicalPath = HttpContext.Current.Server.MapPath(viewPath);
+            var physicalPathBackup = HttpContext.Current.Server.MapPath(viewPathBackup);
 
-            return _mailProcessor.BuildTemplateContent(physicalPath, model);
+            return _mailProcessor.BuildTemplateContent(physicalPath, physicalPathBackup, model);
         }
 
         private string GetEmailHtmlContent(string content, string title, string language, string domain)
@@ -79,8 +81,9 @@ namespace Fanex.Affiliate.Admin.Core.Services
                 Title = title
             };
             var viewPath = HttpContext.Current.Server.MapPath("~/Areas/Portal/Views/Shared/Email/CommonLayout.cshtml");
+            var viewPathBackup = viewPath;
 
-            return _mailProcessor.BuildTemplateContent(viewPath, viewModel);
+            return _mailProcessor.BuildTemplateContent(viewPath, viewPathBackup, viewModel);
         }
 
         public void SendPaymentRequestUpdateEmail(PaymentRequestUpdateEmail emailParam)

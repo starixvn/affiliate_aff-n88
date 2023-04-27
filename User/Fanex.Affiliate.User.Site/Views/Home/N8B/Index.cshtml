@@ -7,7 +7,6 @@
 
 @{
     var advFileName = Url.Content($"~/www/build/styles/Images/apply/N8B/3step." + Model.Language);
-    var viewName = "~/Views/Home/N8B/_CarouselItems." + Model.Language + ".cshtml";
 }
 
 @section styles{
@@ -21,7 +20,7 @@
 <div class="content home-page">
     <div id="mainBanner" class="carousel slide banner-center" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
-            @{ Html.RenderPartial(viewName, Model); }
+            @Html.RenderPartialByLanguage($"~/Views/Home/N8B/_CarouselItems", Model.Language, Model)
         </div>
         @*<a class="left carousel-control" href="#mainBanner" role="button" data-slide="prev">
                 <span class="chevron left" aria-hidden="true"></span>

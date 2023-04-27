@@ -1692,4 +1692,7 @@
   <data name="AllBettingProducts" xml:space="preserve">
     <value>Semua produk taruhan terdaftar dalam program afiliasi {0}. Kami mengundang Anda untuk menjadi salah satu mitra jangka panjang kami. Berkontribusi untuk meningkatkan brand kami dan iklankan brand kami untuk membawa pelanggan. Bersama-sama, tingkatkan pendapatan Anda dan bagi hasil yang konsisten; Bergabunglah dengan Program Afiliasi {0} kami hari ini!</value>
   </data>
+  <data name="SubAffCommRate" xml:space="preserve">
+    <value>Rate Komisi Sub-Afiliasi </value>
+  </data>
 </root>

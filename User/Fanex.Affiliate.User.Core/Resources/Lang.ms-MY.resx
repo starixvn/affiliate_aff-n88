@@ -1352,4 +1352,7 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="AllBettingProducts" xml:space="preserve">
     <value>Semua produk pertaruhan disenaraikan dalam program affliate {0}. Kami ajak anda untuk menjadi salah satu rakan kongsi kami untuk seumur hidup. Sumbang kepada aktiviti kesedaran jenama dan pengiklanan kami dengan bawa masuk lebih banyak pelanggan. Bersama-sama, kita tingkatkan pendapatan anda dan memastikan anda dapat pengagihan keuntungan yang konsisten; Sertai Program Affliate {0} kami hari ini!</value>
   </data>
+  <data name="SubAffCommRate" xml:space="preserve">
+    <value>Kadar Comm Sub-Afiliasi</value>
+  </data>
 </root>

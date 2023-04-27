@@ -5,9 +5,7 @@
 }
 
 @{
-    var viewName = $"~/Views/TermAndCondition/_Content.{Model.CurrentLanguage}.cshtml";
-
-    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName);
+    var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
 }
 
 <div class="content term-condition-page">

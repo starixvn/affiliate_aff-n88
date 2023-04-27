@@ -9,8 +9,6 @@
 }
 
 @{
-    var nameView = "~/Views/Promotion/N88/_Content." + Model.CurrentLanguage + ".cshtml";
-
     var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{Model.SiteName}/promotion");
 
     var orgBannerSrc = $"{bannerSrc}.{Model.CurrentLanguage}.jpg?v=176179";
@@ -32,7 +30,7 @@
 
     <div class="main-content">
         <div class="text-bold">@Lang.TermAndCondition</div>
-        @Html.Partial(nameView)
+        @Html.RenderPartialByLanguage("~/Views/Promotion/N88/_Content", Model.CurrentLanguage)
         <div class="count-down">
             @*<div class="count-down-content">
                 <div class="count-down-item day">

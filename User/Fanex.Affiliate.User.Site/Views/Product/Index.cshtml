@@ -5,7 +5,6 @@
 }
 
 @{
-    var viewName = $"~/Views/Product/_Content.{Model.CurrentLanguage}.cshtml";
     var siteFriendlyName = Model.SiteFriendlyName;
 }
 
@@ -18,7 +17,7 @@
         <span class="text">@Lang.Product</span>
     </div>
 
-    @{ Html.RenderPartial(viewName, siteFriendlyName); }
+    @Html.RenderPartialByLanguage("~/Views/Product/_Content", Model.CurrentLanguage, siteFriendlyName)
 
     @if (!Model.IsAuthenticated)
     {

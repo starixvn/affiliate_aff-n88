@@ -49,6 +49,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             foreach (var item in byMonth)
             {
                 item.Data.CommissionRate = item.Data.CommissionRate * PercentageUnit;
+                item.Data.SubCommRate = item.Data.SubCommRate * PercentageUnit;
 
                 total.TurnOver += item.Data.TurnOver;
                 total.GGR += item.Data.GGR;

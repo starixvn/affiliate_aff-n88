@@ -12,6 +12,7 @@ import Loader from '../../../../components/Loader';
 import { post } from '../../../../modules/ajaxRequest';
 import { popupEventNames } from '../../../common/modules/constants/commissionGroup';
 import P2pProductSetting from '../shared/p2p-deduction';
+import SubAffCommRateSetting from '../shared/sub-aff-comm-rate';
 
 export class AssignPrivateGroup extends React.Component {
     constructor(props) {
@@ -117,6 +118,7 @@ export class AssignPrivateGroup extends React.Component {
                 <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                     <div dangerouslySetInnerHTML={{ __html: message.join('<br>') }}></div>
                 </Alert>
+                <SubAffCommRateSetting />
                 <P2pProductSetting />
                 <DeductionSetting />
                 <p className="text-danger">{messages.note}</p>

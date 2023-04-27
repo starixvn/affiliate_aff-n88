@@ -47,6 +47,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
       }
     />
   </Alert>
+  <Connect(SubAffCommRateSetting) />
   <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <p
@@ -111,6 +112,7 @@ exports[`commission group - assign private group should render correctly with is
       }
     />
   </Alert>
+  <Connect(SubAffCommRateSetting) />
   <Connect(P2pDeductionSetting) />
   <Connect(DeductionSetting) />
   <p

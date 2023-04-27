@@ -123,6 +123,15 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
     </t>
     <t
       asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={5}
+      sortable={false}
+      sorting={false}
+    />
+    <t
+      asc={true}
       className="text-center"
       header={false}
       onClick={[Function]}
@@ -406,6 +415,15 @@ exports[`commission group - GridData  _renderGroupData - render correctly with g
     </t>
     <t
       asc={true}
+      className="text-right"
+      header={false}
+      onClick={[Function]}
+      rowSpan={5}
+      sortable={false}
+      sorting={false}
+    />
+    <t
+      asc={true}
       className="text-center"
       header={false}
       onClick={[Function]}
@@ -655,6 +673,17 @@ exports[`commission group - GridData  _renderHeader - render correctly 1`] = `
     </t>
     <t
       asc={true}
+      colWidth={120}
+      header={true}
+      onClick={[Function]}
+      rowSpan="2"
+      sortable={false}
+      sorting={false}
+    >
+      Sub-Affiliate Comm Rate
+    </t>
+    <t
+      asc={true}
       colWidth={50}
       header={true}
       onClick={[Function]}
@@ -847,6 +876,15 @@ exports[`commission group - GridData  Should render correctly 1`] = `
                 >
                   10.00
                 </t>
+                <t
+                  asc={true}
+                  className="text-right"
+                  header={false}
+                  onClick={[Function]}
+                  rowSpan={5}
+                  sortable={false}
+                  sorting={false}
+                />
                 <t
                   asc={true}
                   className="text-center"
@@ -1093,6 +1131,17 @@ exports[`commission group - GridData  Should render correctly 1`] = `
             </t>
             <t
               asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Sub-Affiliate Comm Rate
+            </t>
+            <t
+              asc={true}
               colWidth={50}
               header={true}
               onClick={[Function]}
@@ -1174,7 +1223,7 @@ exports[`commission group - GridData  Should render correctly with data is null 
             <t
               asc={true}
               className="text-center"
-              colSpan="13"
+              colSpan="14"
               header={false}
               onClick={[Function]}
               sortable={false}
@@ -1274,6 +1323,17 @@ exports[`commission group - GridData  Should render correctly with data is null 
               sorting={false}
             >
               Withdrawal Fee
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Sub-Affiliate Comm Rate
             </t>
             <t
               asc={true}
@@ -1479,6 +1539,15 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
                 </t>
                 <t
                   asc={true}
+                  className="text-right"
+                  header={false}
+                  onClick={[Function]}
+                  rowSpan={5}
+                  sortable={false}
+                  sorting={false}
+                />
+                <t
+                  asc={true}
                   className="text-center"
                   header={false}
                   onClick={[Function]}
@@ -1720,6 +1789,17 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
               sorting={false}
             >
               Withdrawal Fee
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Sub-Affiliate Comm Rate
             </t>
             <t
               asc={true}
@@ -1928,6 +2008,15 @@ exports[`commission group - GridData  Should render correctly with is private gr
                 </t>
                 <t
                   asc={true}
+                  className="text-right"
+                  header={false}
+                  onClick={[Function]}
+                  rowSpan={5}
+                  sortable={false}
+                  sorting={false}
+                />
+                <t
+                  asc={true}
                   className="text-center"
                   header={false}
                   onClick={[Function]}
@@ -2169,6 +2258,17 @@ exports[`commission group - GridData  Should render correctly with is private gr
               sorting={false}
             >
               Withdrawal Fee
+            </t>
+            <t
+              asc={true}
+              colWidth={120}
+              header={true}
+              onClick={[Function]}
+              rowSpan="2"
+              sortable={false}
+              sorting={false}
+            >
+              Sub-Affiliate Comm Rate
             </t>
             <t
               asc={true}

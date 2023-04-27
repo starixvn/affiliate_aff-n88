@@ -1709,4 +1709,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="AllBettingProducts" xml:space="preserve">
     <value>所有投注产品都列在{0}会员计划中。 我们邀请您成为我们的长期合作伙伴之一。 以我们的品牌知名度贡献给您的广告以吸引客户。 共同提高您稳定的收入与更高的提成金额； 立即加入我们的{0}合营代理！</value>
   </data>
+  <data name="SubAffCommRate" xml:space="preserve">
+    <value>子代理佣金比例</value>
+  </data>
 </root>

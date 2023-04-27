@@ -4768,6 +4768,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sub-Affiliate Comm Rate.
+        /// </summary>
+        public static string SubAffCommRate {
+            get {
+                return ResourceManager.GetString("SubAffCommRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sub-Affiliate Details.
         /// </summary>
         public static string SubAffDetail {

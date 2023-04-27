@@ -1220,7 +1220,7 @@
     <value>RNG CASINO</value>
   </data>
   <data name="RevenueShare" xml:space="preserve">
-    <value>Hoa Hồng</value>
+    <value>Hoa Hồng được tính bằng việc sử dụng </value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>Tất Cả Sản Phẩm</value>
@@ -1917,5 +1917,8 @@
   </data>
   <data name="AllBettingProducts" xml:space="preserve">
     <value>Tất cả các sản phẩm cá cược đều được liệt kê tại chương trình Đại Lý {0}. Hãy trở thành đối tác lâu dài với chúng tôi. Cùng nhau quảng bá thương hiệu và xây dựng mạng lưới khách hàng. Cùng nhau phát triển, tăng mức hoa hồng và thu nhập của bạn. Hãy đăng ký làm thành viên Đại Lý của {0} ngay hôm nay!</value>
+  </data>
+  <data name="SubAffCommRate" xml:space="preserve">
+    <value>Tỷ lệ hoa hồng đại lý cấp dưới</value>
   </data>
 </root>

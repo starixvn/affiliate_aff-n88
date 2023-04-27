@@ -4,9 +4,7 @@
 @using Fanex.Affiliate.User.Core.Constants
 @model Fanex.Affiliate.User.Core.ViewModels.BaseLayoutViewModel
 @{
-    var viewName = $"~/Views/TermAndCondition/N88/_Content.{Model.CurrentLanguage}.cshtml";
-
-    var htmlString = Html.Partial(viewName, Model.SiteFriendlyName);
+    var htmlString = Html.RenderPartialByLanguage($"~/Views/TermAndCondition/N88/_Content", Model.CurrentLanguage, Model.SiteFriendlyName);
     var siteName = Model.SiteName.ToLower();
 }
 

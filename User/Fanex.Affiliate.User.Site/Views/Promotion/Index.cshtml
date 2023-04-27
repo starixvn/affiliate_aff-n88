@@ -9,8 +9,6 @@
 }
 
 @{
-    var nameView = $"~/Views/Promotion/{Model.SiteName}/_Content.{Model.CurrentLanguage}.cshtml";
-
     var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{Model.SiteName}/promotion");
 
     var orgBannerSrc = $"{bannerSrc}.{Model.CurrentLanguage}.jpg?v=176179";
@@ -54,7 +52,7 @@
 
     <div class="main-content">
         <h2 class="text-bold">@Lang.TermAndCondition</h2>
-        @Html.Partial(nameView)
+        @Html.RenderPartialByLanguage($"~/Views/Promotion/{Model.SiteName}/_Content", Model.CurrentLanguage)
     </div>
 
     @RazorHelper.RenderMovingTopButton()

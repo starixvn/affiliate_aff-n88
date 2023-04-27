@@ -186,10 +186,10 @@
   //    "www/source/js/pages/changepassword.js"
   //  ]
   //},
-  //{
-  //  "outputFileName": "www/build/js/pages/commission-report.js",
-  //  "inputFiles": [ "www/source/js/pages/commission-report.js" ]
-  //},
+  {
+    "outputFileName": "www/build/js/pages/commission-report.js",
+    "inputFiles": [ "www/source/js/pages/commission-report.js" ]
+  }
   //{
   //  "outputFileName": "www/build/styles/css/bootstrap-3.3.7.min.css",
   //  "inputFiles": [ "www/source/styles/scss/vendors/bootstrap-3.3.7.min.css" ]

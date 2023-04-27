@@ -177,6 +177,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
                     Creator = reader.ToString("Creator"),
                     Description = reader.ToString("Description"),
                     NoAffs = reader.ToInt("NoAffs"),
+                    SubAffCommRate = reader.ToDecimal("SubCommRate"),
                     IsActivePlayerSum = reader.ToBool("IsActivePlayerSum")
                 });
             }
@@ -256,6 +257,7 @@ namespace Fanex.Affiliate.Admin.Core.Repository
         {
             objectDb.SetParameterValue(Field.UserId, param.UserId);
             objectDb.SetParameterValue(Field.GroupName, param.GroupName);
+            objectDb.SetParameterValue("SubCommRate", param.SubAffCommRate);
             objectDb.SetParameterValue("Description", param.Description);
             objectDb.SetParameterValue("DeductionList", param.TierDeductionsXml);
             objectDb.SetParameterValue("StraightList", param.P2pDeductionsXml);
