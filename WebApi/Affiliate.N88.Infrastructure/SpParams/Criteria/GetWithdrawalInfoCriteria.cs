@@ -1,16 +1,17 @@
 ﻿using Fanex.Data.Repository;
+using System;
 
 namespace Affiliate.N88.SpParams.Criteria
 {
     public class GetWithdrawalInfoCriteria : CriteriaBase
     {
-        public int Id { get; }
+        public DateTime UpdateTime { get; }
 
         public int BatchCount { get; }
 
-        public GetWithdrawalInfoCriteria(int id, int batchCount)
+        public GetWithdrawalInfoCriteria(DateTime updateTime, int batchCount)
         {
-            Id = id;
+            UpdateTime = updateTime;
             BatchCount = batchCount;
         }
 

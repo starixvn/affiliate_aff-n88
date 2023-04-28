@@ -3,6 +3,7 @@ using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
+using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -11,40 +12,101 @@ using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
 {
-    public interface IFetchWithdrawalInfoDataTask : IFetchDataTask { }
+    public interface IFetchWithdrawalInfoDataTask : IFetchDataTask
+    { }
 
     public class FetchWithdrawalInfoDataTask : FetchDataByBatchForMultiRepoTaskBase<Withdrawal>, IFetchWithdrawalInfoDataTask
     {
         private ILicenseeApi Api { get; }
+        private ILogger Logger { get; }
 
-        public FetchWithdrawalInfoDataTask(IThirdPartyImportRepository thirdPartyImportRepository, 
+        private const string DateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fff";
+        private const int BatchCount = 2000;
+
+        public FetchWithdrawalInfoDataTask(IThirdPartyImportRepository thirdPartyImportRepository,
             ITrackerService trackerService,
+            ILogger logger,
             ILicenseeApi licenseeApi,
-            IOptionsSnapshot<FetchServiceSetting> configuration) 
+            IOptionsSnapshot<FetchServiceSetting> configuration)
             : base(thirdPartyImportRepository, configuration.Get(Constants.ServiceConfigName.PULL_WITHDRAWAL_INFO), trackerService)
         {
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
             Api = licenseeApi;
+        }
+
+        public override async Task FetchDataAsync()
+        {
+            try
+            {
+                var queryValue = await GetLastTrackingValueAsync();
+                var fromDate = Convert.ToDateTime(queryValue);
+
+                var data = await GetDataAsync(fromDate, BatchCount);
+
+                await ImportDataByBatchAsync(data);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex.Message, ex);
+            }
+        }
+
+        protected override async Task ImportDataByBatchAsync(IEnumerable<Withdrawal> data)
+        {
+            var importData = data;
+            while (importData != null && importData.Any())
+            {
+                await ImportDataToMultipleRepoAsync(importData);
+                var trackValue = GetInsertTrackingValue(importData);
+                var fromTime = Convert.ToDateTime(trackValue);
+
+                await _timeTrackerService.SaveTrackerAsync(TableName,
+                    new TrackerInfo
+                    {
+                        CalledTime = DateTime.Now,
+                        KeyValue = trackValue
+                    });
+
+                if (importData.Count() == BatchCount)
+                {
+                    importData = await GetDataAsync(fromTime, BatchCount);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         protected override Task<IEnumerable<Withdrawal>> GetDataAsync(string trackValue, int batchCount)
         {
-            var id = Convert.ToInt32(trackValue);
-            return Api.GetWithdrawalInfo(id, batchCount);
+            throw new NotImplementedException();
         }
 
+        private Task<IEnumerable<Withdrawal>> GetDataAsync(DateTime updateTime, int batchCount)
+            => Api.GetWithdrawalInfo(updateTime, batchCount);
+
         protected override string GetInsertTrackingValue(IEnumerable<Withdrawal> data)
-            => data.Max(d => d.WithdrawalId).ToString();
+        {
+            var trackValue = data.Max(d => d.UpdateTime);
+
+            if (trackValue.HasValue)
+            {
+                return trackValue.Value.ToString();
+            }
+            throw new ArgumentException($"Can not insert nullable DateTime Tracker Value of table {TableName}");
+        }
 
         protected override async Task<string> GetLastTrackingValueAsync()
         {
             var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
-            var id = string.IsNullOrWhiteSpace(tracker.KeyValue) ? 0 : int.Parse(tracker.KeyValue);
-            var queryId = GetAdjustmentId(id);
-            return queryId.ToString();
+            var date = string.IsNullOrWhiteSpace(tracker.KeyValue)
+                ? throw new ArgumentException($"Not valid DateTime Tracker Value {tracker.KeyValue} of table {TableName}")
+                : Convert.ToDateTime(tracker.KeyValue);
+            var query = GetAdjustmentTime(date);
+            return query.ToString(DateTimeFormat);
         }
 
-        private int GetAdjustmentId(int id)
-            => id - Settings.AdjustmentValue < 0 ? 0 : id - Settings.AdjustmentValue;
-
+        private DateTime GetAdjustmentTime(DateTime date) => date.AddMinutes(Settings.AdjustmentValue);
     }
 }
