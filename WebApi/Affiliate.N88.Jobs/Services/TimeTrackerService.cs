@@ -23,6 +23,7 @@ namespace Affiliate.N88.Jobs.Services
         private readonly ILogger _logger;
 
         private readonly TimeTrackerSetting Setting;
+
         public TimeTrackerService(ITrackerRepository timeTrackerRepository
             , IOptionsSnapshot<TimeTrackerSetting> optionsSnapshot
             , ILogger logger)
@@ -30,11 +31,7 @@ namespace Affiliate.N88.Jobs.Services
             _timeTrackerRepository = timeTrackerRepository ?? throw new ArgumentNullException(nameof(timeTrackerRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             Setting = optionsSnapshot?.Value ?? throw new ArgumentNullException($"{nameof(optionsSnapshot)}.Value");
-
         }
-
-        public async Task<DateTime> GetTimeAsync(string source)
-            => (await GetTrackerAsync(source, p => p.CalledTime)).CalledTime;
 
         public async Task<TrackerInfo> GetTrackerAsync<TKey>(string source, Func<TrackerInfo, TKey> minKeySelector)
         {
@@ -50,13 +47,6 @@ namespace Affiliate.N88.Jobs.Services
             if (!listTracker.Any())
                 throw new InvalidOperationException("Can't fetch any track time");
             return listTracker.OrderBy(minKeySelector, comparer).FirstOrDefault();
-        }
-
-        public async Task SaveTimeAsync(string source, DateTime date)
-        {
-            var tracker = new TrackerInfo { CalledTime = date, KeyValue = date.ToString()};
-            await SaveTrackerAsync(source, tracker);
-
         }
 
         public async Task SaveTrackerAsync(string source, TrackerInfo tracker)
@@ -79,7 +69,6 @@ namespace Affiliate.N88.Jobs.Services
                     throw new ImporterException(param.ErrCode, param.ErrMsg);
                 }
             }
-
         }
 
         private async Task<IEnumerable<TrackerInfo>> GetListTrackerAsync(string source)
@@ -95,11 +84,11 @@ namespace Affiliate.N88.Jobs.Services
                 try
                 {
                     var trackerInfo = await _timeTrackerRepository.GetLastedTrackerAsync(param);
-                    if(trackerInfo == null)
+                    if (trackerInfo == null)
                     {
                         await _logger.WarnAsync($"Can't get track time from {source} of DB {prefix}");
                         continue;
-                    }    
+                    }
                     lstTracker.Add(trackerInfo);
                 }
                 catch (Exception ex)

@@ -7,10 +7,6 @@ namespace Affiliate.N88.Services
 {
     public interface ITrackerService
     {
-        Task SaveTimeAsync(string source, DateTime date);
-
-        Task<DateTime> GetTimeAsync(string source);
-
         Task<TrackerInfo> GetTrackerAsync<TKey>(string source, Func<TrackerInfo, TKey> minKeySelector);
 
         Task<TrackerInfo> GetTrackerAsync<TKey>(string source, Func<TrackerInfo, TKey> minKeySelector, IComparer<TKey> comparer);

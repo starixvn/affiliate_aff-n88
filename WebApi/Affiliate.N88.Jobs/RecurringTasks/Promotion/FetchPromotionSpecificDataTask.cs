@@ -39,7 +39,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
 
         public override async Task FetchDataAsync()
         {
-            var fromDate = await TrackerService.GetTimeAsync(TableName);
+            var tracker = await TrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
+            var fromDate = DateTime.Parse(tracker.KeyValue);
             var toDate = GetAdjustmentTime();
             await FetchDataAndTrackTimeAsync(fromDate, toDate);
         }
@@ -73,7 +74,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
                 try
                 {
                     await FetchAndInsertDataAsync(range.FromDate, range.ToDate);
-                    await TrackerService.SaveTimeAsync(TableName, range.ToDate);
+                    var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = range.ToDate.ToString() };
+                    await TrackerService.SaveTrackerAsync(TableName, tracker);
                 }
                 catch
                 {
@@ -105,6 +107,5 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Promotion
             var adjustDate = date.Add(ajustmentTime);
             return adjustDate.DateTime;
         }
-
     }
 }

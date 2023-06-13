@@ -56,7 +56,7 @@ namespace Affiliate.N88.Jobs.Tests
         {
             SetUpStubConfiguration();
             var fetchTask = CreateFetchTask();
-            TimeTrackerService.When(x => x.GetTimeAsync(Arg.Any<string>())).Do(x => throw ex);
+            TimeTrackerService.When(x => x.GetTrackerAsync(Arg.Any<string>(), t => t.CalledTime)).Do(x => throw ex);
             await fetchTask.FetchDataAsync();
             Logger.Received().Error(Arg.Is<string>(m => m.Contains(ex.Message)));
         }
@@ -83,7 +83,7 @@ namespace Affiliate.N88.Jobs.Tests
             var fromDate = new DateTime(2020, 2, 2, 0, 0, 0);
             var toDate = new DateTime(2020, 2, 2, 0, 30, 0);
             await fetchTask.FetchDataAsync(fromDate, toDate);
-            await TimeTrackerService.DidNotReceiveWithAnyArgs().SaveTimeAsync(Arg.Any<string>(), Arg.Any<DateTime>());
+            await TimeTrackerService.DidNotReceiveWithAnyArgs().SaveTrackerAsync(Arg.Any<string>(), Arg.Any<TrackerInfo>());
         }
 
         [Fact]
