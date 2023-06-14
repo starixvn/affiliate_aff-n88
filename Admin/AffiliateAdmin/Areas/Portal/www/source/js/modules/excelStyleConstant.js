@@ -135,6 +135,17 @@ export const bodyCellStyle = {
     },
     percent: {
         numFmt: '#,##0.00%'
+    },
+    rightHighlight: {
+        font: {
+            color: {
+                rgb: "ff0000"
+            }
+        },
+        alignment: {
+            ...bodyTextStyle.alignment,
+            horizontal: "right"
+        }
     }
 }
 

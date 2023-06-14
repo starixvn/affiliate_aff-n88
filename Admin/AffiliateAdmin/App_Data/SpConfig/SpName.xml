@@ -7,7 +7,7 @@
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
-    <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
   <Function Name="Commission">
@@ -31,8 +31,8 @@
     <Setting Key="Aff_Logout" SpName="Aff_Logout" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
   <Function Name="Report">
-    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
-    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_AffiliateReport_Sel" SpName="Aff_Admin_AffiliateReport_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_AffiliateReport_Detail_Sel" SpName="Aff_Admin_AffiliateReport_Detail_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_PlayerReport_GGR" SpName="Aff_Admin_PlayerReport_GGR" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_TransferBalanceHistory_Sel" SpName="Aff_TransferBalanceHistory_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
@@ -48,7 +48,7 @@
     <Setting Key="Aff_PaymentMethod_Sel" SpName="Aff_PaymentMethod_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet"/>
   </Function>
   <Function Name="StatementHistory">
-    <Setting Key="Aff_Admin_StatementHistory_Sel" SpName="Aff_Admin_StatementHistory_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_StatementHistory_Sel" SpName="Aff_Admin_StatementHistory_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_DailyEarning_Sel" SpName="Aff_DailyEarning_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_DailyEarning_Detail_Sel" SpName="Aff_DailyEarning_Detail_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
@@ -71,7 +71,7 @@
     <Setting Key="Aff_Admin_AffiliateClosed_Upd" SpName="Aff_Admin_AffiliateClosed_Upd" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateAffType_Upd" SpName="Aff_Admin_AffiliateAffType_Upd" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateInfo_Upd" SpName="Aff_Admin_AffiliateInfo_Upd" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
-    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_SubAffiliate_Commission_Sel" SpName="Aff_SubAffiliate_Commission_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Sel" SpName="Aff_Admin_TransferLimit_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_TransferLimit_Upd" SpName="Aff_Admin_TransferLimit_Upd" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
@@ -150,7 +150,7 @@
   </Function>
   <Function Name="Home">
     <Setting Key="Aff_UserOnlineList" SpName="Aff_UserOnlineList" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
-    <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_GeneralInfo_Sel" SpName="Aff_Admin_GeneralInfo_Sel_xtest" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
   </Function>
   <Function Name="Currency">
     <Setting Key="Aff_Currency_Sel" SpName="Aff_Currency_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />

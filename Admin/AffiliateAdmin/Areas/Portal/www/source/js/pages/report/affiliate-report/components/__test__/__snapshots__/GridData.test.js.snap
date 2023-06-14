@@ -382,9 +382,9 @@ exports[`affiliate report - GridData  _buildDataRow - should render correctly is
     </td>
     <td
       className="text-right"
-      title="0%"
+      title="N/A"
     >
-      0%
+      N/A
     </td>
     <td
       className="text-right"
@@ -521,9 +521,9 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
     </td>
     <td
       className="text-right"
-      title="0%"
+      title="N/A"
     >
-      0%
+      N/A
     </td>
     <td
       className="text-right"
@@ -660,9 +660,9 @@ exports[`affiliate report - GridData  _renderDataSection - should render correct
     </td>
     <td
       className="text-right"
-      title="0%"
+      title="N/A"
     >
-      0%
+      N/A
     </td>
     <td
       className="text-right"

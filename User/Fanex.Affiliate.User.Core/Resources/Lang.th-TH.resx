@@ -1593,9 +1593,6 @@
   <data name="MiniGames" xml:space="preserve">
     <value>มินิเกม</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>ส่วนแบ่ง % การแชร์โปรดักส์แรกลงในหลายกลุ่ม</value>
-  </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>ยอดได้/เสียรวมของสมาชิก (USD)</value>
   </data>
@@ -1694,5 +1691,8 @@
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>เรทค่าคอมมิชชั่นพันธมิตรย่อย</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>% ส่วนแบ่งสูงสุดของหลายกลุ่ม</value>
   </data>
 </root>

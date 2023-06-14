@@ -2010,9 +2010,6 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Mini Games</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>First product group's share% of multiple groups</value>
-  </data>
   <data name="WithMonthlyReward" xml:space="preserve">
     <value>*With monthly reward!</value>
   </data>
@@ -2129,5 +2126,8 @@
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Sub-Affiliate Comm Rate</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>The highest share % of multiple groups</value>
   </data>
 </root>

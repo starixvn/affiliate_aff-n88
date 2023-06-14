@@ -1610,9 +1610,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="MiniGames" xml:space="preserve">
     <value>迷你游戏</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>首个产品于各组里的份额百分比</value>
-  </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>公司净利润 (美金)</value>
   </data>
@@ -1711,5 +1708,8 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>子代理佣金比例</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>多个组中份额最高的%</value>
   </data>
 </root>

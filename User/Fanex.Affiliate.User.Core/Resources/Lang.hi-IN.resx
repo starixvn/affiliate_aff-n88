@@ -1847,9 +1847,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="MiniGames" xml:space="preserve">
     <value>छोटे खेल</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>पहले उत्पाद समूह की हिस्सेदारी कई समूहों का%</value>
-  </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>कंपनी का शुद्ध लाभ (USD)</value>
   </data>
@@ -1948,5 +1945,8 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>उप-संबद्ध कमीशन दर</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>एकाधिक समूहों का उच्चतम शेयर %</value>
   </data>
 </root>

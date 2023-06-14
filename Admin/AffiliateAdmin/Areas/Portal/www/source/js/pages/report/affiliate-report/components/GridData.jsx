@@ -185,7 +185,7 @@ export class GridData extends PureComponent {
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
-        const commRate = isMainView && isTotalRow ? 'N/A' : dataItem.CommissionRate + '%';
+        const commRate = isTotalRow ? 'N/A' : dataItem.CommissionRate + '%';
         const subAffEarning = formatDecimal(dataItem.SubAffEarning);
         const totalEarning = formatDecimal(dataItem.TotalEarning);
         const paymentCurrency = isTotalRow ? '' : dataItem.PaymentCurrency;
@@ -210,7 +210,7 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={totalFee}>{totalFee}</td>
                 {
                     dataItem.IsMultiGroupProduct ? (
-                        <td className="text-right text-danger" title="First product group's share% of multiple groups">{commRate}</td>
+                        <td className="text-right text-danger" title="The highest share % of multiple groups">{commRate}</td>
                     ) : (
                             <td className="text-right" title={commRate}>{commRate}</td>
                         )

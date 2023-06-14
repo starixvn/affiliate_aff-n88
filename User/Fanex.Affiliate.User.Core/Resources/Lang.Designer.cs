@@ -2113,15 +2113,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First product group&apos;s share% of multiple groups.
-        /// </summary>
-        public static string FirstProductGroupShare {
-            get {
-                return ResourceManager.GetString("FirstProductGroupShare", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 5,000,000 &amp; above.
         /// </summary>
         public static string FiveMillionAndAbove {
@@ -5061,6 +5052,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string THB {
             get {
                 return ResourceManager.GetString("THB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The highest share % of multiple groups.
+        /// </summary>
+        public static string TheHighestShare {
+            get {
+                return ResourceManager.GetString("TheHighestShare", resourceCulture);
             }
         }
         
