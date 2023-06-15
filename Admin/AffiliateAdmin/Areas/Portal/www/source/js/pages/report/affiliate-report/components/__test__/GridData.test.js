@@ -19,6 +19,7 @@ describe('affiliate report - GridData ', () => {
         },
         param: {},
         productList,
+        reportCutOffDate: "06/01/2023",
         currentViewLevel: mainView
     };
 
@@ -373,6 +374,7 @@ describe('affiliate report - GridData ', () => {
             UserName: "B2CAFF002",
             Ggr: 0,
             Withdrawal: 0,
+            IsMultiGroupProduct: true
         };
         const index = 1;
 
@@ -380,7 +382,7 @@ describe('affiliate report - GridData ', () => {
         componentInstance._isMainView = jest.fn(() => true);
         componentInstance.handleViewMonthOnMonth = jest.fn();
 
-        const buildDataRow = shallow(<div>{componentInstance._buildDataRow(dataItem, 'text-right', index)}</div>);
+        const buildDataRow = shallow(<div>{componentInstance._buildDataRow(dataItem, 'text-right', index, true)}</div>);
 
         buildDataRow.find('Button').at(0).simulate('click');
 

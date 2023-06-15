@@ -11,6 +11,7 @@ const languageList = createReducer({}, {});
 const baseCurrencyList = createReducer([], {});
 const isProduction = createReducer(false, {});
 const isN8B = createReducer(false, {});
+const reportCutOffDate = createReducer('06/01/2023', {});
 
 const now = new Date();
 const defaultToday = `${now.getMonth()}/${now.getDate()}/${now.getFullYear()}`;
@@ -63,7 +64,7 @@ export default combineReducers({
     param,
     reportTitle,
     isShowLoader,
-
+    reportCutOffDate,
     productList,
     commGroupList,
     pagingOption,

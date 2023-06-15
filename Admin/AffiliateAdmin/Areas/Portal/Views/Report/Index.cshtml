@@ -1,6 +1,7 @@
 ﻿@model Fanex.Affiliate.Admin.Core.ViewModels.Report.AffiliateReportViewModel
 @{
     var appSetting = AppSetting.Instance;
+    //DateTimeOffset cutOffDateOffset = DateTime.SpecifyKind(Model.ReportCutOffDate, DateTimeKind.Utc);
 }
 @section pagecss{
     <link href="@Url.VersionedLink("~/Areas/Portal/www/dist/style/pages/report.css")" rel="stylesheet" />
@@ -12,6 +13,7 @@
             productList: @Html.Raw(Json.Encode(Model.ProductList)),
             languageList: @Html.Raw(Json.Encode(Model.LanguageList)),
             today: '@DateTimeOffset.Now.ToOffset(new TimeSpan(8, 0, 0)).ToString("MM/dd/yyyy")',
+            reportCutOffDate: '@Model.ReportCutOffDate.ToString("MM/dd/yyyy")',
             currencyList: @Html.Raw(Json.Encode(Model.CurrencyList)),
             baseCurrencyList: @Html.Raw(Json.Encode(Model.BaseCurrencyList)),
             paymentCurrencyList: @Html.Raw(Json.Encode(Model.PaymentCurrencyList)),
