@@ -226,7 +226,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
     className="table-responsive table-striped aff-info-table-container"
     style={
       Object {
-        "max-height": 443,
+        "maxHeight": 443,
       }
     }
   >
@@ -235,7 +235,7 @@ exports[`affiliate info - GridData  should render correctly 1`] = `
       responsiveTag="div"
       style={
         Object {
-          "min-width": NaN,
+          "minWidth": NaN,
         }
       }
       tag="table"
@@ -964,7 +964,7 @@ exports[`affiliate info - GridData  should render correctly with no data 1`] = `
     className="table-responsive table-striped aff-info-table-container"
     style={
       Object {
-        "max-height": 443,
+        "maxHeight": 443,
       }
     }
   >
@@ -973,7 +973,7 @@ exports[`affiliate info - GridData  should render correctly with no data 1`] = `
       responsiveTag="div"
       style={
         Object {
-          "min-width": NaN,
+          "minWidth": NaN,
         }
       }
       tag="table"

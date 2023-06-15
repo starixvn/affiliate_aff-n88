@@ -217,7 +217,7 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={withdrawalFee}>{withdrawalFee}</td>
                 <td className="text-right" title={totalFee}>{totalFee}</td>
                 {
-                    dataItem.IsMultiGroupProduct && !isMainView ? (
+                    dataItem.IsMultiGroupProduct && isMainView ? (
                         <td className="text-right text-danger" title={isBeforeCutOffDate ? "First product group's share% of multiple groups" : "The highest share % of multiple groups"}>{commRate}</td>
                     ) : (
                             <td className="text-right" title={commRate}>{commRate}</td>
@@ -307,7 +307,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive aff-report-table-container" style={{ maxHeight: maxHeight }} ref={this.tableRef}>
+                <div className="table-responsive aff-report-table-container" style={{ maxHeight }} ref={this.tableRef}>
                     <Table className="freeze-table">
                         <thead>
                             {
