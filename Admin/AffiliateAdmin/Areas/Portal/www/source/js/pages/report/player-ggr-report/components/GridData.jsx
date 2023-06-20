@@ -175,7 +175,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive ggr-report-table-container" style={{ 'max-height': maxHeight }} ref={this.tableRef}>
+                <div className="table-responsive ggr-report-table-container" style={{ maxHeight }} ref={this.tableRef}>
                     <Table className="freeze-table" style={{ minWidth: minWidth }}>
                         <thead>
                             {

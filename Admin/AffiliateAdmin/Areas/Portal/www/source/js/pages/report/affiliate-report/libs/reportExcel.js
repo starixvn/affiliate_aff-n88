@@ -29,6 +29,7 @@ const DETAIL_VIEW = {
 }
 
 const MAIN_SECTION_STYLE = 'mainSectionStyle';
+const MULTI_COMM_GROUP_SECTION_STYLE = 'multiCommGroupSectionStyle';
 const TOTAL_SECTION_STYLE = 'totalSectionStyle';
 
 const fields = {
@@ -229,7 +230,7 @@ export default class ReportExcel {
                 [fields.CommissionRate]: "N/A"
             } : {
                 [fields.MonthDateString]: totalText,
-                [fields.CommissionRate]: formatDecimal(totalData.CommissionRate) + '%'
+                [fields.CommissionRate]: "N/A"
             }
             const total = Object.assign({}, totalData, customTotalData);
 
@@ -252,7 +253,7 @@ export default class ReportExcel {
         return {
             t: Excel.getCellType(value),
             v: value,
-            s: columnConfig[sectionStyleName]
+            s: columnConfig.field == fields.CommissionRate && item.IsMultiGroupProduct ? columnConfig[MULTI_COMM_GROUP_SECTION_STYLE] : columnConfig[sectionStyleName]
         }
     }
 
@@ -420,6 +421,7 @@ export default class ReportExcel {
         {
             field: fields.CommissionRate,
             [MAIN_SECTION_STYLE]: bodyCellStyle.right,
+            [MULTI_COMM_GROUP_SECTION_STYLE]: bodyCellStyle.rightHighlight,
             [TOTAL_SECTION_STYLE]: totalCellStyle.right
         },
         {

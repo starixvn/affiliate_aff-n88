@@ -1593,9 +1593,6 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Permainan Mini</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>Percen pembagian grup produk pertama dari beberapa grup</value>
-  </data>
   <data name="CompanyNetProfitN88" xml:space="preserve">
     <value>Win/Loss Bersih (USD)</value>
   </data>
@@ -1694,5 +1691,8 @@
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Rate Komisi Sub-Afiliasi </value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>% tertinggi dari beberapa grup</value>
   </data>
 </root>

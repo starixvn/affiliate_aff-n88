@@ -298,7 +298,7 @@ describe('affiliate report - Report Excel ', () => {
     });
 
     it('_createTotalRow - should call _buildDataRow, Excel.getCellAddress with Month on Month view', () => {
-        const customTotalData = { CommissionRate: "%", MonthDateString: "Total (all pages)" };
+        const customTotalData = { CommissionRate: "N/A", MonthDateString: "Total (all pages)" };
         const instance = new ReportExcel(data, title, !isMainView);
         instance._buildDataRow = jest.fn();
         Excel.getCellAddress = jest.fn();
@@ -366,7 +366,7 @@ describe('affiliate report - Report Excel ', () => {
             { field: "DepositFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "WithdrawalFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "TotalFee", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
-            { field: "CommissionRate", mainSectionStyle: { "alignment": { horizontal: "right", vertical: "center" } }, totalSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true } } },
+            { field: "CommissionRate", mainSectionStyle: { "alignment": { horizontal: "right", vertical: "center" } }, multiCommGroupSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, font: { color: { rgb: "ff0000",} } }, totalSectionStyle: { alignment: { horizontal: "right", vertical: "center" }, fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true } } },
             { field: "Earning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "P2pEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },
             { field: "SubAffEarning", mainSectionStyle: { numFmt: "#,##0.00" }, totalSectionStyle: { fill: { fgColor: { rgb: "ffc4a8" }, patternType: "solid" }, font: { "bold": true }, numFmt: "#,##0.00" } },

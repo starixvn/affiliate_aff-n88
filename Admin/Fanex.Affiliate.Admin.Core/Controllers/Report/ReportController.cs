@@ -47,6 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Report
         {
             var viewModel = new AffiliateReportViewModel
             {
+                ReportCutOffDate = _affiliateReportService.GetReportCutOffDate(),
                 ProductList = _productRepository.GetProductList(),
                 LanguageList = _languageService.GetLanguageList(),
                 CurrencyList = _currencyRepository.GetCurrencies(),

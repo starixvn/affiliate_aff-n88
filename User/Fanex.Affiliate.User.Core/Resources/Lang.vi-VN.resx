@@ -1801,9 +1801,6 @@
   <data name="MiniGames" xml:space="preserve">
     <value>Mini Games</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>Tỷ lệ hoa hồng của nhóm sản phẩm đầu tiên</value>
-  </data>
   <data name="WithMonthlyReward" xml:space="preserve">
     <value>* Với phần thưởng hàng tháng!</value>
   </data>
@@ -1920,5 +1917,8 @@
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Tỷ lệ hoa hồng đại lý cấp dưới</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>Tỷ lệ hoa hồng cao nhất của nhiều nhóm sản phẩm</value>
   </data>
 </root>

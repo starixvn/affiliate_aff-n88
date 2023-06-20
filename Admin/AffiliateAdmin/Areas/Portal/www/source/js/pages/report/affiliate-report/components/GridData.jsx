@@ -59,6 +59,14 @@ export class GridData extends PureComponent {
         return this.props.currentViewLevel === viewLevel.main;
     }
 
+    _isBeforeCutOffDate() {
+        const { ToDate } = this.props.param;
+        const toDate = new Date(ToDate);
+        const reportCutOffDate = new Date(this.props.reportCutOffDate);
+
+        return toDate.getTime() < reportCutOffDate.getTime();
+    }
+
     async fetchData(param) {
         this._resetScroll();
         this.props.toggleLoader(true);
@@ -126,13 +134,14 @@ export class GridData extends PureComponent {
 
         if (dataList.length) {
             const { productList } = this.props;
-
+            const isMainView = this._isMainView();
+            const isBeforeCutOffDate = this._isBeforeCutOffDate();
             const isSelectedAllProducts = productList.every(p => p.checked);
             const productColumnClassName = isSelectedAllProducts ? 'text-right' : 'text-right highlight';
 
             for (let i = 0; i < dataList.length; i++) {
                 const dataItem = dataList[i];
-                dataRows.push(this._buildDataRow(dataItem, productColumnClassName, i));
+                dataRows.push(this._buildDataRow(dataItem, productColumnClassName, i, isMainView, isBeforeCutOffDate));
             }
         }
         else {
@@ -144,8 +153,7 @@ export class GridData extends PureComponent {
         return dataRows;
     }
 
-    _buildDataRow(dataItem, productColumnClassName, index) {
-        const isMainView = this._isMainView();
+    _buildDataRow(dataItem, productColumnClassName, index, isMainView, isBeforeCutOffDate) {
         const isTotalRow = isMainView ? (dataItem.AffId === 0 && dataItem.UserName === null) : (dataItem.MonthDateString === "");
         const firstColValue = isTotalRow ?
             totalText :
@@ -154,7 +162,7 @@ export class GridData extends PureComponent {
         return (
             <tr key={`dataRow-${index}`}>
                 <td className="freeze-column" title={firstColValue}>{firstColValue}</td>
-                {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView)}
+                {this._buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView, isBeforeCutOffDate)}
             </tr>
         )
     }
@@ -163,7 +171,7 @@ export class GridData extends PureComponent {
         return description ? `${monthDate} (${description})` : monthDate;
     }
 
-    _buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView) {
+    _buildCommonCell(dataItem, productColumnClassName, isTotalRow, isMainView, isBeforeCutOffDate) {
         const totalClick = format(dataItem.TotalClick);
         const uniqueClick = format(dataItem.UniqueClick);
         const signup = format(dataItem.Signup);
@@ -185,7 +193,7 @@ export class GridData extends PureComponent {
         const affWithdrawal = formatDecimal(dataItem.AffWithdrawal);
         const affAdjustment = formatDecimal(dataItem.AffAdjustment);
         const balanceBf = formatDecimal(dataItem.BalanceBf);
-        const commRate = isMainView && isTotalRow ? 'N/A' : dataItem.CommissionRate + '%';
+        const commRate = isTotalRow ? 'N/A' : dataItem.CommissionRate + '%';
         const subAffEarning = formatDecimal(dataItem.SubAffEarning);
         const totalEarning = formatDecimal(dataItem.TotalEarning);
         const paymentCurrency = isTotalRow ? '' : dataItem.PaymentCurrency;
@@ -209,8 +217,8 @@ export class GridData extends PureComponent {
                 <td className="text-right" title={withdrawalFee}>{withdrawalFee}</td>
                 <td className="text-right" title={totalFee}>{totalFee}</td>
                 {
-                    dataItem.IsMultiGroupProduct ? (
-                        <td className="text-right text-danger" title="First product group's share% of multiple groups">{commRate}</td>
+                    dataItem.IsMultiGroupProduct && isMainView ? (
+                        <td className="text-right text-danger" title={isBeforeCutOffDate ? "First product group's share% of multiple groups" : "The highest share % of multiple groups"}>{commRate}</td>
                     ) : (
                             <td className="text-right" title={commRate}>{commRate}</td>
                         )
@@ -299,7 +307,7 @@ export class GridData extends PureComponent {
 
         return gridData && (
             <Fragment>
-                <div className="table-responsive aff-report-table-container" style={{ 'max-height': maxHeight }} ref={this.tableRef}>
+                <div className="table-responsive aff-report-table-container" style={{ maxHeight }} ref={this.tableRef}>
                     <Table className="freeze-table">
                         <thead>
                             {
@@ -324,8 +332,8 @@ export class GridData extends PureComponent {
     }
 }
 
-function mapStateToProps({ pagingOption, param, currentViewLevel, productList }) {
-    return Object.assign({}, { pagingOption, param, currentViewLevel, productList });
+function mapStateToProps({ pagingOption, param, currentViewLevel, productList, reportCutOffDate }) {
+    return Object.assign({}, { pagingOption, param, currentViewLevel, productList, reportCutOffDate });
 }
 
 function mapDispatchToProps(dispatch) {

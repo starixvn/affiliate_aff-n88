@@ -14,6 +14,18 @@ namespace Fanex.Affiliate.Admin.Core.Repository.Report
     {
         private const int PercentageUnit = 100;
 
+        public DateTime GetReportCutOffDate()
+        {
+            const string SpKey = "Task_Aff_GetSetting";
+
+            using (var objectDb = GetObjectDb(SpKey))
+            {
+                objectDb.SetParameterValue("SName", "Report_CutOffDate");
+
+                return objectDb.QueryEntity<DateTime>();
+            }
+        }
+
         public EntityResult<AffiliateReport> GetMainReportData(AffiliateReportParam param)
         {
             const string SpKey = "Aff_Admin_AffiliateReport_Sel";

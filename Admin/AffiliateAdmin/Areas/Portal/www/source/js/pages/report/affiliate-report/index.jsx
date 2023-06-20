@@ -10,7 +10,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
 
-        const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, today, isN8B, commGroupList } = window.initialState;
+        const { productList, languageList, currencyList, baseCurrencyList, paymentCurrencyList, isProduction, today, isN8B, commGroupList, reportCutOffDate } = window.initialState;
 
         const language = {};
         for (let languageItem of languageList) {
@@ -31,6 +31,7 @@ export default class App extends React.Component {
             baseCurrencyList,
             paymentCurrencyList: newPaymentCurrencyList,
             isProduction,
+            reportCutOffDate,
             isN8B
         }, reducer);
 

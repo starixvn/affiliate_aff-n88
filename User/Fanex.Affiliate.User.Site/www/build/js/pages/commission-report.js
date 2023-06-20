@@ -53,6 +53,7 @@ var commissionReport = (function ($) {
                 $this.closest('.sumrow').toggleClass('active', !isExpanding)
                     .nextUntil('.sumrow').toggleClass('expanded', !isExpanding);
                 $('.sumrow.active').nextUntil('.sumrow').addClass('expanded');
+                $('.total.expanded').removeClass('expanded');
             });
 
             $('#dataTable').on('click', '.amountItem', function () {
@@ -148,7 +149,7 @@ var commissionReport = (function ($) {
             if (isSummaryRow) {
                 var commRate = dataRow.CommissionRate + '%';
                 var subCommRate = dataRow.SubCommRate + '%';
-                var commRateCell = dataRow.IsMultiGroupProduct ? '<td class="text-right text-danger" title="' + langResource.firstProductGroupShare + '">' + commRate + '</td>' : _me.buildCell(commRate);
+                var commRateCell = dataRow.IsMultiGroupProduct ? '<td class="text-right text-danger" title="' + langResource.theHighestShare + '">' + commRate + '</td>' : _me.buildCell(commRate);
 
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.PlatformFee)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.DepositFee)));
@@ -158,7 +159,7 @@ var commissionReport = (function ($) {
                 rowItems.push(commRateCell);
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.Commission)));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.P2pCommission)));
-                !langResource.isMaxLevel && rowItems.push('<td class="text-right text-danger">' + subCommRate + '</td>');
+                !langResource.isMaxLevel && rowItems.push('<td class="text-right">' + subCommRate + '</td>');
                 !langResource.isMaxLevel && rowItems.push(_me.buildSubAffCell(formatDecimal(dataRow.SubAffCommission), date));
                 rowItems.push(_me.buildCell(formatDecimal(dataRow.TotalCommission)))
             } else {

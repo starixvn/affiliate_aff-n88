@@ -1250,9 +1250,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="Cancel" xml:space="preserve">
     <value>Batalkan</value>
   </data>
-  <data name="FirstProductGroupShare" xml:space="preserve">
-    <value>Peratus bahagian kumpulan produk pertama daripada berbilang kumpulan</value>
-  </data>
   <data name="WhatWeHave" xml:space="preserve">
     <value>Kami mempunyai</value>
   </data>
@@ -1354,5 +1351,8 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="SubAffCommRate" xml:space="preserve">
     <value>Kadar Comm Sub-Afiliasi</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>% pembahagian tertinggi daripada beberapa kumpulan</value>
   </data>
 </root>

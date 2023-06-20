@@ -32,6 +32,11 @@ namespace Fanex.Affiliate.Admin.Core.Services.Report
             return _affiliateReportRepository.GetDetailReportData(param);
         }
 
+        public DateTime GetReportCutOffDate()
+        {
+            return _affiliateReportRepository.GetReportCutOffDate();
+        }
+
         private static bool IsValidParam(AffiliateReportParam param)
         {
             const int ValidMonthArrange = 5;

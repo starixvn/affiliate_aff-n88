@@ -6,7 +6,7 @@ exports[`player ggr report - GridData  should render correctly 1`] = `
     className="table-responsive ggr-report-table-container"
     style={
       Object {
-        "max-height": 418,
+        "maxHeight": 418,
       }
     }
   >
@@ -231,7 +231,7 @@ exports[`player ggr report - GridData  should render correctly with empty data 1
     className="table-responsive ggr-report-table-container"
     style={
       Object {
-        "max-height": 418,
+        "maxHeight": 418,
       }
     }
   >
