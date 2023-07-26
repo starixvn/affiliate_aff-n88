@@ -626,7 +626,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lang.bn-BD.resx" />
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx" />
+    <EmbeddedResource Include="Resources\Lang.km-KH.resx" />
     <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

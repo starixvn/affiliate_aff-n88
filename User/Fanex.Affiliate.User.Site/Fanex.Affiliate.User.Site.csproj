@@ -1701,6 +1701,32 @@
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_ReferrersStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_LandingPageStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\TrackingStatistics\N88\Index.cshtml" />
+    <Content Include="Views\Password\N88\RecoverPasswordResult.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.km-KH.cshtml" />
+    <Content Include="Views\CommissionStructure\N88\_Content.bn-BD.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.km-KH.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Faq\N88\_Content.bn-BD.cshtml" />
+    <Content Include="Views\Product\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Product\N88\_Content.bn-BD.cshtml" />
+    <Content Include="Views\Product\N88\_Content.km-KH.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.bn-BD.cshtml" />
+    <Content Include="Views\Promotion\N88\_Content.km-KH.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\_Content.vi-VN.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\_Content.km-KH.cshtml" />
+    <Content Include="Views\TermAndCondition\N88\_Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\NewPassword\Content.km-KH.cshtml" />
+    <Content Include="Views\Shared\Email\NewPassword\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentCancel\Content.km-KH.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentCancel\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentRequest\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\PaymentRequest\Content.km-KH.cshtml" />
+    <Content Include="Views\Shared\Email\RecoverPassword\Content.km-KH.cshtml" />
+    <Content Include="Views\Shared\Email\RecoverPassword\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\VerificationAccount\Content.bn-BD.cshtml" />
+    <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH%29.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

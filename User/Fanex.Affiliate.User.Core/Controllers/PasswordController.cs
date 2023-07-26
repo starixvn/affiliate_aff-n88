@@ -151,7 +151,8 @@
                 result.Message = $"{Lang.Yourlogindetail}<br>{Lang.Pleasecheckyour}<br>{Lang.ForAnyReason.Replace("{0}", Url.Content("~/ContactUs"))}";
             }
 
-            return View(result);
+            var viewPath = PathHelper.GetViewPath("Password", "RecoverPasswordResult", _appSetting.SiteName);
+            return View(viewPath, result);
         }
 
         [CustomAuthorize]
