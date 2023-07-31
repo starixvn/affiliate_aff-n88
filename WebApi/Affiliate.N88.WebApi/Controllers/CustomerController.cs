@@ -47,8 +47,8 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CustomerInfo>> GetCustomers(DateTime fromDate)
-            => await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate));
+        public async Task<IEnumerable<CustomerInfo>> GetCustomers(DateTime fromDate, int batchCount = 2000)
+            => await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate, batchCount));
 
         [HttpGet]
         public async Task<IEnumerable<CustWalletInfo>> GetCustWallets(DateTime fromDate)

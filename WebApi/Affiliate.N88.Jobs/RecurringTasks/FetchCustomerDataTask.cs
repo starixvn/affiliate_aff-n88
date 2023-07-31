@@ -9,6 +9,7 @@ using Fanex.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Affiliate.N88.Jobs.RecurringTasks
@@ -22,9 +23,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
     public sealed class FetchCustomerDataTask : FetchDataForMultipleRepositoryTaskBase<CustomerInfo>, IFetchCustomerDataTask
     {
+        private const int BATCH_COUNT = 2000;
+
         private readonly ITrackerService _timeTrackerService;
         private readonly ILicenseeApi _liceseeApi;
-        private readonly ILogger _logger;
 
         public FetchCustomerDataTask(IThirdPartyImportRepository thirdPartyImportRepository
             , ILicenseeApi licenseeApi
@@ -34,36 +36,55 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             : base(thirdPartyImportRepository, setting.Get(ServiceConfigName.PULL_CUSTOMER_SETTING))
         {
             _timeTrackerService = timeTrackerService ?? throw new ArgumentNullException(nameof(timeTrackerService));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _liceseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
         public override async Task FetchDataAsync()
         {
             var tracker = await _timeTrackerService.GetTrackerAsync(TableName, t => t.CalledTime);
-            var fromDate = DateTime.Parse(tracker.KeyValue);
+            var fromDate = GetAdjustmentTime(DateTime.Parse(tracker.KeyValue));
             await FetchDataAsync(fromDate);
         }
 
         public async Task FetchDataAsync(DateTime fromDate)
         {
-            var toDate = GetAdjustmentTime();
-            var data = await _liceseeApi.GetCustomersAsync(fromDate);
-            await ImportDataToMultipleRepoAsync(data);
-            var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = toDate.ToString() };
-            await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
+            var reqFromDate = fromDate;
+            while (true)
+            {
+                var data = await _liceseeApi.GetCustomersAsync(reqFromDate, BATCH_COUNT);
+                var toDate = data.Max(_ => _.RegTime);
+                reqFromDate = toDate.Value;
+                await ImportDataToMultipleRepoAsync(data);
+                var tracker = new TrackerInfo { CalledTime = DateTime.Now, KeyValue = toDate.Value.ToString(Format.DateTimeFormat) };
+                await _timeTrackerService.SaveTrackerAsync(TableName, tracker);
+                if(data.Count() < BATCH_COUNT)
+                {
+                    break;
+                }
+            }
         }
 
         public async Task FetchDataDailyTask()
         {
             var adjustmentDay = DateTime.Now.AddDays(-1);
-            var yesterday = new DateTime(adjustmentDay.Year, adjustmentDay.Month, adjustmentDay.Day, 0, 0, 0);
-            var data = await _liceseeApi.GetCustomersAsync(yesterday);
-            await ImportDataToMultipleRepoAsync(data);
+            var fromDate = new DateTime(adjustmentDay.Year, adjustmentDay.Month, adjustmentDay.Day, 0, 0, 0);
+            while (true)
+            {
+                var data = await _liceseeApi.GetCustomersAsync(fromDate, BATCH_COUNT);
+                var toDate = data.Max(_ => _.RegTime);
+                fromDate = toDate.Value;
+                await ImportDataToMultipleRepoAsync(data);
+                if (data.Count() < BATCH_COUNT)
+                {
+                    break;
+                }
+            }
+
         }
 
-        private DateTime GetAdjustmentTime()
-            => DateTime.Now.AddMinutes(Settings.AdjustmentValue);
+        private DateTime GetAdjustmentTime(DateTime fromDate)
+            => fromDate.AddMinutes(Settings.AdjustmentValue);
+        
 
         protected override string BuildXml(IEnumerable<CustomerInfo> data)
             => XmlHelper.BuildXml(data, "root", "row");
