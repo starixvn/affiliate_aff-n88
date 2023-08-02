@@ -355,7 +355,7 @@
     <value>Quần đảo Cook </value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>© Bản quyền {0} | Toàn bộ thuộc B2C.com | 21+</value>
+    <value>© Bản quyền {0} | Toàn bộ thuộc B2C | 21+</value>
   </data>
   <data name="CostaRica" xml:space="preserve">
     <value>Costa Rica </value>
@@ -432,7 +432,7 @@
   <data name="Email" xml:space="preserve">
     <value>Địa chỉ email</value>
   </data>
-  <data name="Email1" xml:space="preserve">
+  <data name="EmailContactUs" xml:space="preserve">
     <value>Email</value>
   </data>
   <data name="Emailaddressest" xml:space="preserve">
@@ -1820,7 +1820,7 @@
     <value>250 trở lên</value>
   </data>
   <data name="WhatWeHave" xml:space="preserve">
-    <value>Chúng tôi có gì?</value>
+    <value>Chúng Tôi Sở Hữu</value>
   </data>
   <data name="WhatWeOffer" xml:space="preserve">
     <value>Quyền Lợi Khi Tham Gia</value>

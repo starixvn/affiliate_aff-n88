@@ -1726,15 +1726,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email.
-        /// </summary>
-        public static string Email1 {
-            get {
-                return ResourceManager.GetString("Email1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Email addresses that you entered do not match..
         /// </summary>
         public static string Emailaddressest {
@@ -1758,6 +1749,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string EmailAddressIsRequired {
             get {
                 return ResourceManager.GetString("EmailAddressIsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string EmailContactUs {
+            get {
+                return ResourceManager.GetString("EmailContactUs", resourceCulture);
             }
         }
         

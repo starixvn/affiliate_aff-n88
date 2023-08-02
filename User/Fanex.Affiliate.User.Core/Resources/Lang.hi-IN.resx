@@ -159,7 +159,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>कृपया किसी भी टिप्पणी या प्रश्न को निम्नलिखित संपर्क बिंदुओं पर निर्देशित करें:</value>
   </data>
-  <data name="Email1" xml:space="preserve">
+  <data name="EmailContactUs" xml:space="preserve">
     <value>ईमेल</value>
   </data>
   <data name="Telegram" xml:space="preserve">

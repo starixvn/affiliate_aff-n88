@@ -318,4 +318,16 @@
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. যার সাক্ষী</value>
   </data>
+  <data name="EmailContactUs" xml:space="preserve">
+    <value>ইমেল</value>
+  </data>
+  <data name="EmailVerification" xml:space="preserve">
+    <value>ইমেল</value>
+  </data>
+  <data name="Telegram" xml:space="preserve">
+    <value>টেলিগ্রাম</value>
+  </data>
+  <data name="Whatsapp" xml:space="preserve">
+    <value>হোয়াটসঅ্যাপ</value>
+  </data>
 </root>

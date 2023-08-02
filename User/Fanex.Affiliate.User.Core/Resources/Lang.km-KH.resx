@@ -127,7 +127,7 @@
     <value>ទំព័រដើម</value>
   </data>
   <data name="Product" xml:space="preserve">
-    <value>ផលិតផល</value>
+    <value>កម្មវិធី</value>
   </data>
   <data name="TermAndCondition" xml:space="preserve">
     <value>រយៈពេល និងលក្ខខណ្ឌ</value>
@@ -326,5 +326,17 @@
   </data>
   <data name="InWitnessWhereOf" xml:space="preserve">
     <value>16. សក្ខីភាពបញ្ជាក់សាក្សី</value>
+  </data>
+  <data name="EmailVerification" xml:space="preserve">
+    <value>អុីម៉ែល</value>
+  </data>
+  <data name="EmailContactUs" xml:space="preserve">
+    <value>អុីម៉ែល</value>
+  </data>
+  <data name="Telegram" xml:space="preserve">
+    <value>តេឡេក្រាម</value>
+  </data>
+  <data name="Whatsapp" xml:space="preserve">
+    <value>Whatsapp</value>
   </data>
 </root>
