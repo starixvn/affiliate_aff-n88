@@ -192,9 +192,6 @@
   <data name="Commission" xml:space="preserve">
     <value>Pengagihan Keuntungan</value>
   </data>
-  <data name="CommissionBonus" xml:space="preserve">
-    <value>Pengagihan Keuntungan</value>
-  </data>
   <data name="Tier" xml:space="preserve">
     <value>Peringkat</value>
   </data>
@@ -203,9 +200,6 @@
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>Pemain Aktif</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Peratusan</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>Semua produk</value>
@@ -782,9 +776,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="P2pIncluded" xml:space="preserve">
     <value>Bahagian Hasil (termasuk P2P)</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>Pengagihan Keuntungan</value>
-  </data>
   <data name="BalForward" xml:space="preserve">
     <value>Baki Dibawa Ke Hadapan</value>
   </data>
@@ -961,9 +952,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="RoyaltyFee" xml:space="preserve">
     <value>Yuran Royalti</value>
-  </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>Yuran Operasi</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Kadar Hasil</value>
@@ -1175,10 +1163,10 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="UncalculatedMonthlyEarning" xml:space="preserve">
     <value>Pendapatan Bulanan Tidak Dikira</value>
   </data>
-  <data name="CurrentCommissionBonus" xml:space="preserve">
+  <data name="CurrentCommission" xml:space="preserve">
     <value>Bahagian Hasil Semasa</value>
   </data>
-  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+  <data name="UncalculatedCommission" xml:space="preserve">
     <value>Bahagian Hasil Tidak Dikira</value>
   </data>
   <data name="MonthlyTotal" xml:space="preserve">
@@ -1354,5 +1342,11 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>% pembahagian tertinggi daripada beberapa kumpulan</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>Keuntungan Bersih Syarikat ({0})</value>
+  </data>
+  <data name="Allbet" xml:space="preserve">
+    <value>ALLBET</value>
   </data>
 </root>

@@ -104,6 +104,10 @@ header {
                 background-image: url("../../../../build/styles/Images/icons/flags/China.png");
             }
 
+            &-zh-TW {
+                background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
+            }
+
             &.flag-th-TH {
                 background-image: url("../../../../build/styles/Images/icons/flags/Thailand.png");
             }
@@ -115,13 +119,18 @@ header {
             &.flag-ms-MY {
                 background-image: url("../../../../build/styles/Images/icons/flags/Malaysia.png");
             }
-            /*&.flag-vi-VN {
-                    background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png");
-                }
 
-                &.flag-zh-TW {
-                    background-image: url("../../../../build/styles/Images/icons/flags/Taiwan.png");
-                }*/
+            &.flag-vi-VN {
+                background-image: url("../../../../build/styles/Images/icons/flags/Vietnam.png");
+            }
+
+            &.flag-bn-BD {
+                background-image: url("../../../../build/styles/Images/icons/flags/Bangladeshi.png");
+            }
+
+            &.flag-km-KH {
+                background-image: url("../../../../build/styles/Images/icons/flags/Cambodian.png");
+            }
         }
     }
 }

@@ -1114,15 +1114,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Revenue Share.
-        /// </summary>
-        public static string CommissionBonus {
-            get {
-                return ResourceManager.GetString("CommissionBonus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Commission.
         /// </summary>
         public static string CommissionInBanner {
@@ -1155,15 +1146,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string CommissionStructure {
             get {
                 return ResourceManager.GetString("CommissionStructure", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Percentage.
-        /// </summary>
-        public static string CommPercent {
-            get {
-                return ResourceManager.GetString("CommPercent", resourceCulture);
             }
         }
         
@@ -1440,9 +1422,9 @@ namespace Fanex.Affiliate.User.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Current Revenue Share.
         /// </summary>
-        public static string CurrentCommissionBonus {
+        public static string CurrentCommission {
             get {
-                return ResourceManager.GetString("CurrentCommissionBonus", resourceCulture);
+                return ResourceManager.GetString("CurrentCommission", resourceCulture);
             }
         }
         
@@ -3328,6 +3310,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company Net Win ({0}).
+        /// </summary>
+        public static string NetWinLossN88 {
+            get {
+                return ResourceManager.GetString("NetWinLossN88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New banner is now available! .
         /// </summary>
         public static string NewBannerIsNowAvailable {
@@ -3549,15 +3540,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string OneTwoBetAffiliateNews {
             get {
                 return ResourceManager.GetString("OneTwoBetAffiliateNews", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Operational Fee.
-        /// </summary>
-        public static string OperationalFee {
-            get {
-                return ResourceManager.GetString("OperationalFee", resourceCulture);
             }
         }
         
@@ -4233,15 +4215,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string ResponsibilitiesOfTheAffiliate {
             get {
                 return ResourceManager.GetString("ResponsibilitiesOfTheAffiliate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Revenue Share.
-        /// </summary>
-        public static string RevenueShare {
-            get {
-                return ResourceManager.GetString("RevenueShare", resourceCulture);
             }
         }
         
@@ -5355,9 +5328,9 @@ namespace Fanex.Affiliate.User.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Uncalculated Revenue Share.
         /// </summary>
-        public static string UncalculatedCommissionBonus {
+        public static string UncalculatedCommission {
             get {
-                return ResourceManager.GetString("UncalculatedCommissionBonus", resourceCulture);
+                return ResourceManager.GetString("UncalculatedCommission", resourceCulture);
             }
         }
         

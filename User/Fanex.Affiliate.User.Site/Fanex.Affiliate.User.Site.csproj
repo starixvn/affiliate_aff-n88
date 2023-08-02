@@ -368,6 +368,9 @@
     <Content Include="App_Data\SpConfig\SpName.n88user-n8g.uat.xml">
       <DependentUpon>_SpName.tt</DependentUpon>
     </Content>
+    <Content Include="App_Data\SpConfig\SpName.xml">
+      <DependentUpon>_SpName.tt</DependentUpon>
+    </Content>
     <Content Include="App_Data\SpConfig\_SpName.txt">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -568,9 +571,6 @@
       <DependentUpon>n8g.local.config</DependentUpon>
     </Content>
     <Content Include="favicon-n8b.ico" />
-    <Content Include="App_Data\SpConfig\SpName.xml">
-      <DependentUpon>_SpName.tt</DependentUpon>
-    </Content>
     <Content Include="App_Data\SpConfig\_SpName.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>_SpName.txt</LastGenOutput>
@@ -1025,12 +1025,18 @@
     <Content Include="www\build\styles\Images\account-overview\new-sign-up.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit-n88.png" />
     <Content Include="www\build\styles\Images\account-overview\total-deposit.png" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.bn-BD.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.km-KH.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.desktop.vi-VN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.en-US.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.hi-IN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.id-ID.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.ms-MY.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.desktop.th-TH.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.bn-BD.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.km-KH.svg" />
+    <Content Include="www\build\styles\Images\apply\n88\3step.mobile.vi-VN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.zh-CN.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.en-US.svg" />
     <Content Include="www\build\styles\Images\apply\n88\3step.mobile.hi-IN.svg" />
@@ -1089,9 +1095,15 @@
     <Content Include="www\build\styles\Images\home\n88\hot-news\left-badge.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.mobile.png" />
     <Content Include="www\build\styles\Images\home\n88\hot-news\right-badge.png" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.bn-BD.jpg" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.en-US.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.bn-BD.jpg" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.mobile.id-ID.jpg" />
@@ -1101,7 +1113,9 @@
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.th-TH.jpg" />
     <Content Include="www\build\styles\Images\home\n88\main-banners\main.desktop.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\icons\flags\Cambodian.png" />
     <Content Include="www\build\styles\Images\icons\flags\China.png" />
+    <Content Include="www\build\styles\Images\icons\flags\Bangladeshi.png" />
     <Content Include="www\build\styles\Images\icons\flags\England.png" />
     <Content Include="www\build\styles\Images\icons\flags\Hindi.png" />
     <Content Include="www\build\styles\Images\icons\flags\Indonesia.png" />
@@ -1117,30 +1131,42 @@
     <Content Include="www\build\styles\Images\account-overview\qr-disabled.png" />
     <Content Include="www\build\styles\Images\notify\maintenance-logo.png" />
     <Content Include="www\build\styles\Images\notify\note_icon.png" />
+    <Content Include="www\build\styles\Images\products\n88\product.desktop.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\products\n88\product.desktop.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\products\n88\product.desktop.bn-BD.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.en-US.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.id-ID.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.th-TH.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.desktop.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\products\n88\product.mobile.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\products\n88\product.mobile.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\products\n88\product.mobile.bn-BD.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.hi-IN.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.id-ID.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.ms-MY.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.th-TH.jpg" />
     <Content Include="www\build\styles\Images\products\n88\product.mobile.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.en-US.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.en-US.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.hi-IN.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.id-ID.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.ms-MY.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.mobile.zh-CN.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.ms-MY.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.th-TH.jpg" />
-    <Content Include="www\build\styles\Images\promotion-banners\n88\Promotion.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.bn-BD.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.en-US.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.hi-IN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.ms-MY.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.desktop.zh-CN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.km-KH.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.bn-BD.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.en-US.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.hi-IN.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.id-ID.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.ms-MY.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.th-TH.jpg" />
+    <Content Include="www\build\styles\Images\promotion-banners\n88\promotion.mobile.zh-CN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8b\promotion.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8b\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8b\promotion.mobile.vi-VN.jpg" />
@@ -1149,6 +1175,9 @@
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.vi-VN.jpg" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.v--VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.km-KH.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.bn-BD.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.en-US.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.hi-IN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.id-ID.png" />
@@ -1325,6 +1354,9 @@
     <Content Include="www\source\styles\Images\arrow_drop_down.png" />
     <Content Include="www\source\styles\Images\bootstrap-formhelpers-countries.flags.png" />
     <Content Include="www\source\styles\Images\email\n88\banner.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_vi-VN.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_bn-BD.png" />
+    <Content Include="www\source\styles\Images\email\n88\banner_km-KH.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_ms-MY.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_en-US.png" />
     <Content Include="www\source\styles\Images\email\n88\banner_hi-IN.png" />

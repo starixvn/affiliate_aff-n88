@@ -157,7 +157,7 @@
     <value>ដាក់ពាក្យជាសមាជិកជាមួយ B2C</value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>ក្នុងនាមជាសមាជិក អ្នកនឹងទទួលបានចំណែកប្រាក់ចំណូលលើអ្នកលេងគ្រប់រូបដែលបានចុះឈ្មោះជាសមាជិកជាមួយ B2C កំឡុងពេលអ្នកមានគណនីរបស់អ្នកលេងគ្រប់រូប។ ប្រព័ន្ធអនឡាញរបស់អ្នកនឹងបម្រើអ្នក ២៤/៧ សម្រាប់ការប្រើប្រាស់។</value>
+    <value>ក្នុងនាមជាសមាជិក អ្នកនឹងទទួលបានចំណែកប្រាក់ចំណូលលើអ្នកលេងគ្រប់រូបដែលបានចុះឈ្មោះជាសមាជិកជាមួយ B2C កំឡុងពេលអ្នកមានគណនីរបស់អ្នកលេងគ្រប់រូប។ ប្រព័ន្ធអនឡាញរបស់អ្នកនឹងបម្រើអ្នក 24/7 សម្រាប់ការប្រើប្រាស់។</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>តើមានអ្វីថ្មីនៅក្នុងសម្ព័ន្ធសមាជិក</value>
@@ -167,5 +167,164 @@
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
     <value>ព័ត៌មានសមាជិករបស់ B2C</value>
+  </data>
+  <data name="NewWithExclamationPoint" xml:space="preserve">
+    <value>ថ្មី!</value>
+  </data>
+  <data name="NewBannerIsNowAvailable" xml:space="preserve">
+    <value>ឥឡូវនេះផ្ទាំងផ្សព្វផ្សាយថ្មីមានហើយ!</value>
+  </data>
+  <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
+    <value>អ្នកអាចចុះឈ្មោះគណនីជាសមាជិករបស់អ្នកឥឡូវនេះ ដើម្បីទទួលបានផ្ទាំងថ្មីៗដើម្បីផ្សព្វផ្សាយក្នុងគេហទំព័ររបស់អ្នក។"</value>
+  </data>
+  <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
+    <value>តើមានអ្វីថ្មីក្នុងប្រូម៉ូសិន B2C !</value>
+  </data>
+  <data name="GetToKnowHotPromotion" xml:space="preserve">
+    <value>មកដឹងពីការប្រូម៉ូសិនក្តៅៗក្នុងខែនេះ។  ដើម្បីបង្ហោះវានៅក្នុងគេហទំព័រ និងបណ្តាញសង្គមរបស់អ្នក​ នឹងទទួលបានអតិថិជនកាន់តែច្រើន ហើយនិងទទួលបានប្រាក់ចំណូលពីការចែករំលែក!</value>
+  </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>តើពួកយើងមានអ្វីខ្លះ</value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>តើយើងមានអ្វីដែលបានផ្តល់ជូន</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>គម្រោងរបស់ពួកយើង</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>ការចែករំលែកប្រាក់ចំណូល</value>
+  </data>
+  <data name="Tier" xml:space="preserve">
+    <value>កម្រិត</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
+    <value>ក្រុមហ៊ុនឈ្នះសុទ្ធ ({0})</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>ក្រុមហ៊ុនឈ្នះសុទ្ធ ({0})</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>អ្នកលេងមានសកម្មភាពញឹក</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>ផលិតផលទាំងអស់</value>
+  </data>
+  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
+    <value>ចុះឈ្មោះកម្មវិធីសាខាសម្ព័ន្ធ B2C ឥឡូវនេះ!</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>ផលិតផលភ្នាល់ទាំងអស់ត្រូវបានរាយបញ្ចូលក្នុងកម្មវិធីសម្ព័ន្ធ នូវ៉ា88។ យើងសូមអញ្ជើញអ្នកឱ្យក្លាយជាដៃគូរយៈពេលវែងរបស់យើង។ រួមចំណែកដល់ការយល់ដឹងអំពីម៉ាកយីហោ និងការផ្សាយពាណិជ្ជកម្មរបស់យើងទាក់ទងនឹងការនាំយកអតិថិជន។ រួមគ្នាបង្កើនប្រាក់ចំណូលរបស់អ្នក និងចំណែកប្រាក់ចំណូលស្របគ្នា។ ចូលរួមកម្មវិធីសាខាសម្ព័ន្ធ B2C របស់យើងថ្ងៃនេះ!</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>សូមផ្ដល់មតិយោបល់ ឬសំណួរទៅកាន់ចំណុចទំនាក់ទំនងខាងក្រោម៖</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>&lt;strong&gt;ថ្ងៃចន្ទ - សៅរ៍&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
+  </data>
+  <data name="AffiliateProgram" xml:space="preserve">
+    <value>កម្មវិធីសម្ព័ន្ធ</value>
+  </data>
+  <data name="SignUpToAffiliateProgram" xml:space="preserve">
+    <value>ចុះឈ្មោះចូលជាកម្មវិធីសម្ព័ន្ធ និងទទួលបានចំណែកចំណូលប្រចាំខែរហូតដល់ {0}!</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>ទីផ្សារ និង ការតាមដាន</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>ការទូទាត់ចំណែកប្រាក់ចំណូល</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© រក្សាសិទ្ធិឆ្នាំ {0} |  B2C.  រក្សាសិទ្ធិគ្រប់យ៉ាង |  21+</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>ជាទូទៅ</value>
+  </data>
+  <data name="ForgetPassword" xml:space="preserve">
+    <value>ភ្លេចពាក្យសម្ងាត់របស់អ្នក</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>ថ្ងៃ</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>ម៉ោង</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>នាទី</value>
+  </data>
+  <data name="Sec" xml:space="preserve">
+    <value>វិនាទី</value>
+  </data>
+  <data name="JoinNow" xml:space="preserve">
+    <value>ចូលរួមឥឡូវនេះ</value>
+  </data>
+  <data name="Sportsbook" xml:space="preserve">
+    <value>កញ្ចប់កីឡា</value>
+  </data>
+  <data name="VirtualSports" xml:space="preserve">
+    <value>កីឡានិម្មិត</value>
+  </data>
+  <data name="NumberGame" xml:space="preserve">
+    <value>ហ្គេមលេខ</value>
+  </data>
+  <data name="RngKeno" xml:space="preserve">
+    <value>RNG គិនូ</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. ផលិតផលកាសុីណូ</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. កម្មវិធីកញ្ចប់កីឡា</value>
+  </data>
+  <data name="Allbet" xml:space="preserve">
+    <value>ALLBET</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. ខុសត្រូវរបស់សាខាសម្ព័ន្ធ</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. សេចក្តីណែនាំអំពីទំនាក់ទំនងសាខាសម្ព័ន្</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. ការដាក់ស្លាកសាខាសម្ព័ន្ធ</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. ការចែករំលែកប្រាក់ចំណូល និងការទូទាត់</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. គោលនយោបាយ និងការសម្ងាត់</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. អាជ្ញាប័ណ្ណមានកំណត់</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. ការទទួលខុសត្រូវនៃច្បាប់</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. ផ្សេងៗ</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. លក្ខខណ្ឌ &amp; ការបញ្ចប់</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. ទំនាក់ទំនងនៃភាគី</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. សំណង</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. ការបដិសេធ</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. ដែនកំណត់នៃការទទួលខុសត្រូវ</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14. ការស៊ើបអង្កេតឯករាជ្យ</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. ច្បាប់គ្រប់គ្រង និង អាជ្ញាកណ្តាល</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. សក្ខីភាពបញ្ជាក់សាក្សី</value>
   </data>
 </root>

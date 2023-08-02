@@ -128,7 +128,7 @@ export default class AppContainer extends PureComponent {
                         </Alert>
                     </div>
 
-                    <Form tag="form" className="form-login" autocomplete="false">
+                    <Form tag="form" className="form-login" autoComplete="false">
                         <FormGroup>
                             {/* <span className="icUser">&nbsp;</span> */}
                             <Label for="userName" className="form-login-text">User Name</Label>
@@ -142,7 +142,7 @@ export default class AppContainer extends PureComponent {
                             {/* <span className="icPass">&nbsp;</span> */}
                             <Label for="passWord" className="form-login-text">Password</Label>
                             <div>
-                                <Input type="password" name="password" id="password" autocomplete="false"
+                                <Input type="password" name="password" id="password" autoComplete="false"
                                     value={password} onKeyPress={this._handlePressEnter} onChange={this._handleChange} />
                             </div>
                         </FormGroup>

@@ -147,4 +147,7 @@
   <data name="Copyright" xml:space="preserve">
     <value>© Hak Cipta {0} | B2C. Hak Cipta Terpelihara | 21+</value>
   </data>
+  <data name="Affiliate" xml:space="preserve">
+    <value>Affiliate</value>
+  </data>
 </root>

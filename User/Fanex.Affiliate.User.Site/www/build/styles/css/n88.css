@@ -70,26 +70,27 @@ header {
       vertical-align: middle;
       top: 0;
       left: 0;
-      position: absolute;
-      /*&.flag-vi-VN {
-                    background-image: url("../Images/icons/flags/Vietnam.png");
-                }
-
-                &.flag-zh-TW {
-                    background-image: url("../Images/icons/flags/Taiwan.png");
-                }*/ }
+      position: absolute; }
       .language-container .select-language .flag.flag-en-US {
         background-image: url("../Images/icons/flags/England.png"); }
       .language-container .select-language .flag.flag-id-ID {
         background-image: url("../Images/icons/flags/Indonesia.png"); }
       .language-container .select-language .flag.flag-zh-CN {
         background-image: url("../Images/icons/flags/China.png"); }
+      .language-container .select-language .flag-zh-TW {
+        background-image: url("../Images/icons/flags/Taiwan.png"); }
       .language-container .select-language .flag.flag-th-TH {
         background-image: url("../Images/icons/flags/Thailand.png"); }
       .language-container .select-language .flag.flag-hi-IN {
         background-image: url("../Images/icons/flags/Hindi.png"); }
       .language-container .select-language .flag.flag-ms-MY {
         background-image: url("../Images/icons/flags/Malaysia.png"); }
+      .language-container .select-language .flag.flag-vi-VN {
+        background-image: url("../Images/icons/flags/Vietnam.png"); }
+      .language-container .select-language .flag.flag-bn-BD {
+        background-image: url("../Images/icons/flags/Bangladeshi.png"); }
+      .language-container .select-language .flag.flag-km-KH {
+        background-image: url("../Images/icons/flags/Cambodian.png"); }
 
 .sign-up {
   position: relative;

@@ -157,7 +157,7 @@
     <value>B2C এফিলিয়েট এ আবেদন করুন </value>
   </data>
   <data name="AsAOneTwoBetYouWillEarnCommission" xml:space="preserve">
-    <value>এফিলিয়াতে হিসেবে খেলোয়াড়ের একাউন্ট লাইফ চলাকালীন সময় আপনি B2C এ উল্লেখ করা প্রতিটি খেলোয়ার থেকে রাজস্ব ভাগাভাগি করবেন।  আপনার অনলাইন সিস্টেম আপনাকে ব্যবহারের জন্য ২৪/৭ সেবা দিবে</value>
+    <value>এফিলিয়াতে হিসেবে খেলোয়াড়ের একাউন্ট লাইফ চলাকালীন সময় আপনি B2C এ উল্লেখ করা প্রতিটি খেলোয়ার থেকে রাজস্ব ভাগাভাগি করবেন।  আপনার অনলাইন সিস্টেম আপনাকে ব্যবহারের জন্য 24/7 সেবা দিবে</value>
   </data>
   <data name="WhatNewInAffiliate" xml:space="preserve">
     <value>এফিলিয়াটস  এ নতুন কি</value>
@@ -167,5 +167,155 @@
   </data>
   <data name="OneTwoBetAffiliateNews" xml:space="preserve">
     <value>B2C এফিলিয়াটস খবর</value>
+  </data>
+  <data name="NewWithExclamationPoint" xml:space="preserve">
+    <value>নতুন!</value>
+  </data>
+  <data name="NewBannerIsNowAvailable" xml:space="preserve">
+    <value>নতুন ব্যানার এখন পাওয়া যাচ্ছে।</value>
+  </data>
+  <data name="YouCanNowLogInYourAffiliateAccount" xml:space="preserve">
+    <value>আপনার ওয়েবসাইটে প্রচারের জন্য নতুন ব্যানার পেতে আপনি এখন আপনার অ্যাফিলিয়েট অ্যাকাউন্টে লগ ইন করতে পারেন৷</value>
+  </data>
+  <data name="WhatNewInOneTwoBetPromotion" xml:space="preserve">
+    <value>B2C এ নতুন প্রচার কি?</value>
+  </data>
+  <data name="GetToKnowHotPromotion" xml:space="preserve">
+    <value>এই মাসে গরম  প্রচারগুলি জানুন। আপনার ওয়েবসাইট এবং সামাজিক চ্যানেলগুলিতে আরও বেশি গ্রাহক এবং রাজস্ব ভাগ পেতে সেগুলি পোস্ট করুন</value>
+  </data>
+  <data name="WhatWeHave" xml:space="preserve">
+    <value>আমাদের যা আছে </value>
+  </data>
+  <data name="WhatWeOffer" xml:space="preserve">
+    <value>আমরা কি অফার করি</value>
+  </data>
+  <data name="OurPlan" xml:space="preserve">
+    <value>আমাদের পরিকল্পনা</value>
+  </data>
+  <data name="Commission" xml:space="preserve">
+    <value>রাজস্ব  ভাগ</value>
+  </data>
+  <data name="Tier" xml:space="preserve">
+    <value>স্তর</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
+    <value>কোম্পানির নেট উইন ({0})</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>কোম্পানির নেট উইন ({0})</value>
+  </data>
+  <data name="ActivePlayersRevenue" xml:space="preserve">
+    <value>সক্রিয় খেলোয়াড়</value>
+  </data>
+  <data name="AllProducts" xml:space="preserve">
+    <value>সকল পণ্য</value>
+  </data>
+  <data name="SportbookProducts" xml:space="preserve">
+    <value>1. স্পোর্টসবুক পণ্যসমূহ</value>
+  </data>
+  <data name="SignUpAffiliateProgramNow" xml:space="preserve">
+    <value>আপনার আয় এবং ধারাবাহিক রাজস্ব ভাগ; আজই আমাদের B2C অ্যাফিলিয়েট প্রোগ্রামে যোগ দিন!</value>
+  </data>
+  <data name="AllBettingProducts" xml:space="preserve">
+    <value>সমস্ত বেটিং পণ্য B2C অ্যাফিলিয়েট প্রোগ্রামে তালিকাভুক্ত করা হয়েছে। আমরা আপনাকে আমাদের দীর্ঘমেয়াদী অংশীদারদের একজন হতে আমন্ত্রণ জানাই। গ্রাহকদের আনার ক্ষেত্রে আমাদের ব্র্যান্ড সচেতনতা এবং বিজ্ঞাপনে অবদান রাখুন। একসাথে, উত্থাপন করুন</value>
+  </data>
+  <data name="PleaseDirectAnyComment" xml:space="preserve">
+    <value>অনুগ্রহ করে নিম্নলিখিত যোগাযোগের পয়েন্টগুলিতে কোন মন্তব্য বা প্রশ্ন করুন</value>
+  </data>
+  <data name="SupportTimeN88" xml:space="preserve">
+    <value>&lt;strong&gt;সোমবার শনিবার&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
+  </data>
+  <data name="MarketingAndTracking" xml:space="preserve">
+    <value>মার্কেটিং এবং ট্র্যাকিং</value>
+  </data>
+  <data name="RevenueSharePayment" xml:space="preserve">
+    <value>রাজস্ব ভাগ পরিশোদ</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© কপিরাইট {0} | B2C। সমস্ত অধিকার সংরক্ষিত 21+</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>সাধারণত</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>দিন</value>
+  </data>
+  <data name="Hour" xml:space="preserve">
+    <value>ঘণ্টা</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>মিনিট</value>
+  </data>
+  <data name="Sec" xml:space="preserve">
+    <value>দ্বিতীয়</value>
+  </data>
+  <data name="JoinNow" xml:space="preserve">
+    <value>এখনই যোগ দিন!</value>
+  </data>
+  <data name="Sportsbook" xml:space="preserve">
+    <value>খেলাধূলার বই</value>
+  </data>
+  <data name="VirtualSports" xml:space="preserve">
+    <value>ভার্চুয়াল খেলাধুলা</value>
+  </data>
+  <data name="NumberGame" xml:space="preserve">
+    <value>গেম আর সংখ্যা</value>
+  </data>
+  <data name="RngKeno" xml:space="preserve">
+    <value>RNG কেনো</value>
+  </data>
+  <data name="CasinoProducts" xml:space="preserve">
+    <value>2. ক্যাসিনো পণ্য</value>
+  </data>
+  <data name="Allbet" xml:space="preserve">
+    <value>অল বেট</value>
+  </data>
+  <data name="ResponsibilitiesOfTheAffiliate" xml:space="preserve">
+    <value>1. অ্যাফিলিয়েটের দায়িত্ব</value>
+  </data>
+  <data name="AffiliationGuidelines" xml:space="preserve">
+    <value>2. এফিলিয়াটস নির্দেশিকা</value>
+  </data>
+  <data name="AffiliateTagging" xml:space="preserve">
+    <value>3. অ্যাফিলিয়েট ট্যাগিং</value>
+  </data>
+  <data name="RevenueSharingAndPayment" xml:space="preserve">
+    <value>4. রাজস্ব ভাগাভাগি এবং অর্থপ্রদান</value>
+  </data>
+  <data name="PoliciesAndConfidentiality" xml:space="preserve">
+    <value>5. নীতি ও গোপনীয়তা</value>
+  </data>
+  <data name="LimitedLicense" xml:space="preserve">
+    <value>6. সীমিত লাইসেন্স</value>
+  </data>
+  <data name="LegalResponsibility" xml:space="preserve">
+    <value>7. আইনি দায়িত্ব</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>8. বিবিধ</value>
+  </data>
+  <data name="TermAndTermination" xml:space="preserve">
+    <value>9. মেয়াদ ও সমাপ্তি</value>
+  </data>
+  <data name="RelationshipOfParties" xml:space="preserve">
+    <value>10. দলগুলোর সম্পর্ক</value>
+  </data>
+  <data name="Indemnity" xml:space="preserve">
+    <value>11. ক্ষতিপূরণ</value>
+  </data>
+  <data name="Disclaimers" xml:space="preserve">
+    <value>12. দাবিত্যাগ</value>
+  </data>
+  <data name="LimitationOfLiability" xml:space="preserve">
+    <value>13. দায়বদ্ধতার সীমাবদ্ধতা</value>
+  </data>
+  <data name="IndependentInvestigation" xml:space="preserve">
+    <value>14.স্বাধীন তদন্ত</value>
+  </data>
+  <data name="GoverningLawAndArbitration" xml:space="preserve">
+    <value>15. আইন ও সালিশ পরিচালনা</value>
+  </data>
+  <data name="InWitnessWhereOf" xml:space="preserve">
+    <value>16. যার সাক্ষী</value>
   </data>
 </root>

@@ -14,7 +14,7 @@
   {
     "outputFile": "www/build/styles/css/main/n88.css",
     "inputFile": "www/source/styles/scss/main/n88.scss"
-  }
+  },
   //{
   //  "outputFile": "www/build/styles/css/main/n88-after-login.css",
   //  "inputFile": "www/source/styles/scss/main/n88-after-login.scss"
@@ -159,10 +159,10 @@
   //  "outputFile": "www/build/styles/css/n8b.css",
   //  "inputFile": "www/source/styles/scss/themes/n8b.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/n88.css",
-  //  "inputFile": "www/source/styles/scss/themes/n88.scss"
-  //},
+  {
+    "outputFile": "www/build/styles/css/n88.css",
+    "inputFile": "www/source/styles/scss/themes/n88.scss"
+  }
   //{
   //  "outputFile": "www/build/js/sub-affiliate-earning.js",
   //  "inputFile": "www/source/js/pages/sub-affiliate-earning.js"

@@ -333,9 +333,6 @@
   <data name="Colombia" xml:space="preserve">
     <value>Kolombia</value>
   </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>Persentase</value>
-  </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>Tanggal Selesai (mm/dd/yyyy)</value>
   </data>
@@ -1209,9 +1206,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>Permainan Gores/ Arcade</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>Bagi Hasil</value>
-  </data>
   <data name="AllProducts" xml:space="preserve">
     <value>Semua produk</value>
   </data>
@@ -1277,9 +1271,6 @@
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>Laporan Komisi</value>
-  </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>Operational Fee</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>Comm. Rate</value>
@@ -1564,9 +1555,6 @@
     <value>Whatsapp</value>
   </data>
   <data name="Commission" xml:space="preserve">
-    <value>Bagi Hasil</value>
-  </data>
-  <data name="CommissionBonus" xml:space="preserve">
     <value>Bagi Hasil</value>
   </data>
   <data name="SBBonus" xml:space="preserve">

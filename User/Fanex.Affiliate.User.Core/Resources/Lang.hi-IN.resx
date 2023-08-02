@@ -222,9 +222,6 @@
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>अभी साइन अप करें B2C एफिलिएट प्रोग्राम!</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>रेवनू शेयर</value>
-  </data>
   <data name="Tier" xml:space="preserve">
     <value>टीयर</value>
   </data>
@@ -233,9 +230,6 @@
   </data>
   <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>सक्रिय खिलाड़ी</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>प्रतिशत</value>
   </data>
   <data name="AllProducts" xml:space="preserve">
     <value>सारे प्राडक्ट</value>
@@ -288,9 +282,6 @@
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>इस महीने के हॉट प्रमोशन के बारे में जानें।अधिक ग्राहक और आय का हिस्सा हासिल करने के लिए उन्हें अपनी वेबसाइटों और सामाजिक चैनलों में पोस्ट करें!</value>
   </data>
-  <data name="CommissionBonus" xml:space="preserve">
-    <value>रेवनू शेयर</value>
-  </data>
   <data name="Commission" xml:space="preserve">
     <value>रेवनू शेयर</value>
   </data>
@@ -319,7 +310,7 @@
     <value>अभी तक संबद्ध सदस्य नहीं हैं?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>सहबद्ध कार्यक्रम के लिए साइन अप करें और मासिक राजस्व हिस्सेदारी का 55% तक अर्जित करें!</value>
+    <value>सहबद्ध कार्यक्रम के लिए साइन अप करें और मासिक राजस्व हिस्सेदारी का {0} तक अर्जित करें!</value>
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>वापसी पर स्वागत है!</value>
@@ -1496,9 +1487,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="RoyaltyFee" xml:space="preserve">
     <value>रॉयल्टी शुल्क</value>
   </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>परिचालन शुल्क</value>
-  </data>
   <data name="CommRate" xml:space="preserve">
     <value>रेवेनुए रेट</value>
   </data>
@@ -1703,10 +1691,10 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="UncalculatedMonthlyEarning" xml:space="preserve">
     <value>अपरिकलित मासिक आय</value>
   </data>
-  <data name="CurrentCommissionBonus" xml:space="preserve">
+  <data name="CurrentCommission" xml:space="preserve">
     <value>करंट रेवेनुए शेयर</value>
   </data>
-  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+  <data name="UncalculatedCommission" xml:space="preserve">
     <value>अपरिकलित  रेवेनुए शेयर</value>
   </data>
   <data name="MonthlyTotal" xml:space="preserve">
@@ -1948,5 +1936,8 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>एकाधिक समूहों का उच्चतम शेयर %</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>कंपनी नेट विन (यूएसडी)</value>
   </data>
 </root>
