@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = Lang.Product;
     Layout = "~/Views/Shared/N88/_LayoutBeforeLogin.cshtml";
+    var supportPgSoftProductMarkets = "id-ID,th-TH,bn-BD,km-KH,vi-VN";
 }
 
 @{
@@ -185,7 +186,7 @@
 
 </div>
 <div class="table-casino">
-    @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", false); }
+    @{ Html.RenderPartial("~/Views/Product/_CasinoProductTable.cshtml", supportPgSoftProductMarkets.Contains(Model.CurrentLanguage)); }
 </div>
 
 <p class="text-block-bottom">

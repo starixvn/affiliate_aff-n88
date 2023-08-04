@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to Nova88.
+                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to @Model.SiteFriendlyName.
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
@@ -141,7 +141,7 @@
     </div>
     <ul>
         <li class="text">
-            Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from NOVA88 Affiliate team.
+            Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from @Model.SiteFriendlyName Affiliate team.
         </li>
         <li class="text">
             Any 2nd withdrawal request in the same month shall be subject to @Model.SiteFriendlyName Affiliates team’s approval.

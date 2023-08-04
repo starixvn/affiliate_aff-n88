@@ -204,12 +204,6 @@
   <data name="NetWinLossN88" xml:space="preserve">
     <value>কোম্পানির নেট উইন ({0})</value>
   </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>সক্রিয় খেলোয়াড়</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>সকল পণ্য</value>
-  </data>
   <data name="SportbookProducts" xml:space="preserve">
     <value>1. স্পোর্টসবুক পণ্যসমূহ</value>
   </data>
@@ -329,5 +323,41 @@
   </data>
   <data name="Whatsapp" xml:space="preserve">
     <value>হোয়াটসঅ্যাপ</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="CannotGetEnough" xml:space="preserve">
+    <value>যথেষ্ট পাওয়া যাবে না !</value>
+  </data>
+  <data name="YourCurrentCommision" xml:space="preserve">
+    <value>আপনার বর্তমান রাজস্ব শেয়ার ?</value>
+  </data>
+  <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
+    <value>আপনার মাসিক রাজস্ব আয় আকর্ষনীয় হরে বাড়ানোর জন্য এফিলিয়াটস সাপোর্ট দলের সাথে যোগাযোগ করুন </value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>সক্রিয় রেফার করা খেলোয়াড়</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>মোট</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>আপনার রাজস্ব শেয়ার</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>আমরা কিভাবে পরিশোধ করব</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>মোট সক্রিয় খেলোয়াড় </value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>কমিশন হার </value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 আর বেশি </value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>কোম্পানি মোট শেয়ার (USD)</value>
   </data>
 </root>

@@ -747,9 +747,6 @@
   <data name="Netherlands" xml:space="preserve">
     <value>เนเธอแลนด์</value>
   </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
-  </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>คาเลโดเนีย ใหม่</value>
   </data>
@@ -1206,12 +1203,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>เกมส์ขูดการ์ด/เกมส์ตู้</value>
   </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>ผลิตภัณฑ์ทั้งหมด</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ B2C</value>
-  </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;วันจันทร์ - วันเสาร์&lt;/strong&gt;&lt;br&gt;เวลา 11.00 น. - 20.00 น. (เวลาไทย)</value>
   </data>
@@ -1436,9 +1427,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>ส่วนแบ่งรายได้ของคุณ</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>ผู้เล่นที่มีการใช้งาน</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
@@ -1684,6 +1672,12 @@
     <value>% ส่วนแบ่งสูงสุดของหลายกลุ่ม</value>
   </data>
   <data name="NetWinLossN88" xml:space="preserve">
+    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
     <value>รายได้ทั้งหมดของบริษัท ({0})</value>
   </data>
 </root>

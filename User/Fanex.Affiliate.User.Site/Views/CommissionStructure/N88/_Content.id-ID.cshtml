@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Net Win/Loss:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
+                    <strong>Net Win/Loss:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke @Model.SiteFriendlyName.
                 </li>
                 <li class="text">
                     <strong>Pemain Aktif:</strong> member yang telah menempatkan setidaknya satu (1) taruhan di bulan tersebut.
@@ -141,7 +141,7 @@
     </div>
     <ul>
         <li class="text">
-            Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi NOVA88.
+            Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi @Model.SiteFriendlyName.
         </li>
         <li class="text">
             Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi @Model.SiteFriendlyName.

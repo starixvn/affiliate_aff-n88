@@ -1206,12 +1206,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>Permainan Gores/ Arcade</value>
   </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>Semua produk</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Lebih lengkap tentang Produk B2C</value>
-  </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;Senin - Sabtu&lt;/strong&gt;&lt;br&gt;11:00 - 20:00 WIB</value>
   </data>
@@ -1442,9 +1436,6 @@
   </data>
   <data name="YourRevenueShare" xml:space="preserve">
     <value>Pembagian Penghasilan Anda</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>Pemain aktif</value>
   </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
@@ -1682,5 +1673,11 @@
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>% tertinggi dari beberapa grup</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>Kemenangan bersih Perusahaan ({0})</value>
   </data>
 </root>

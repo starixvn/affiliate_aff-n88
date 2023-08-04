@@ -106,15 +106,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Players.
-        /// </summary>
-        public static string ActivePlayersRevenue {
-            get {
-                return ResourceManager.GetString("ActivePlayersRevenue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Active Referred Players.
         /// </summary>
         public static string ActiveReferredPlayers {
@@ -327,15 +318,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string AllBettingProducts {
             get {
                 return ResourceManager.GetString("AllBettingProducts", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to All Products.
-        /// </summary>
-        public static string AllProducts {
-            get {
-                return ResourceManager.GetString("AllProducts", resourceCulture);
             }
         }
         
@@ -3193,15 +3175,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to More details about B2C products.
-        /// </summary>
-        public static string MoreDetailProduct {
-            get {
-                return ResourceManager.GetString("MoreDetailProduct", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Morocco .
         /// </summary>
         public static string Morocco {
@@ -5407,7 +5380,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Your account information has been updated successfully..
+        ///   Looks up a localized string similar to Your account information has been updated successfully..
         /// </summary>
         public static string UpdateAccSuccess {
             get {

@@ -1175,7 +1175,7 @@
     <value>Unknown</value>
   </data>
   <data name="UpdateAccSuccess" xml:space="preserve">
-    <value> Your account information has been updated successfully.</value>
+    <value>Your account information has been updated successfully.</value>
   </data>
   <data name="Uruguay" xml:space="preserve">
     <value>Uruguay </value>
@@ -1259,16 +1259,8 @@
     <value>Product</value>
     <comment>87923</comment>
   </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>All Products</value>
-    <comment>87923</comment>
-  </data>
   <data name="RngKeno" xml:space="preserve">
     <value>RNG KENO</value>
-    <comment>87923</comment>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>More details about B2C products</value>
     <comment>87923</comment>
   </data>
   <data name="TermAndCondition" xml:space="preserve">
@@ -1682,9 +1674,6 @@
   </data>
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>Active Referred Players</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>Active Players</value>
   </data>
   <data name="InvalidLink" xml:space="preserve">
     <value>The link you has entered is not valid.&lt;br /&gt;Please contact Customer Service Department or</value>

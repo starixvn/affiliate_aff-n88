@@ -196,19 +196,13 @@
     <value>ការចែករំលែកប្រាក់ចំណូល</value>
   </data>
   <data name="Tier" xml:space="preserve">
-    <value>កម្រិត</value>
+    <value>កម្រិតទី</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
     <value>ក្រុមហ៊ុនឈ្នះសុទ្ធ ({0})</value>
   </data>
   <data name="NetWinLossN88" xml:space="preserve">
     <value>ក្រុមហ៊ុនឈ្នះសុទ្ធ ({0})</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>អ្នកលេងមានសកម្មភាពញឹក</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>ផលិតផលទាំងអស់</value>
   </data>
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>ចុះឈ្មោះកម្មវិធីសាខាសម្ព័ន្ធ B2C ឥឡូវនេះ!</value>
@@ -338,5 +332,62 @@
   </data>
   <data name="Whatsapp" xml:space="preserve">
     <value>Whatsapp</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="UsernameSignUp" xml:space="preserve">
+    <value>ឈ្មោះ​អ្នកប្រើប្រាស់</value>
+  </data>
+  <data name="UsernameVerification" xml:space="preserve">
+    <value>ឈ្មោះ​អ្នកប្រើប្រាស់</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>ឈ្មោះ​អ្នកប្រើប្រាស់</value>
+  </data>
+  <data name="ErrmsgEntryUsername" xml:space="preserve">
+    <value>សូមបំពេញឈ្មោះអ្នកប្រើប្រាស់</value>
+  </data>
+  <data name="PasswordVerification" xml:space="preserve">
+    <value>លេខសម្ងាត់</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>លេខសម្ងាត់</value>
+  </data>
+  <data name="ErrmsgEntryPassword" xml:space="preserve">
+    <value>សូមបំពេញពាក្យសម្ងាត់</value>
+  </data>
+  <data name="CannotGetEnough" xml:space="preserve">
+    <value>មិនទាន់គ្រប់គ្រាន់ទេ!</value>
+  </data>
+  <data name="YourCurrentCommision" xml:space="preserve">
+    <value>ប្រាក់ចំណូលចែករំលែកដែលអ្នកទទួលបានបច្ចុប្បន្ន?</value>
+  </data>
+  <data name="ContactYourAffilliateSupportTeam" xml:space="preserve">
+    <value>ទាក់ទងមកក្រុមការងារគ្រាំទ្រសាខារបស់អ្នកសម្រាប់អត្រាប្រាក់ចំណូលនាំមុខគេនឹងដើម្បីកំណើនប្រាក់ចំណូលប្រចាំខែរបស់អ្នកកាន់តែច្រើន</value>
+  </data>
+  <data name="ActiveReferredPlayers" xml:space="preserve">
+    <value>យោងសកម្មភាពអ្នកលេង</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>សរុប</value>
+  </data>
+  <data name="YourRevenueShare" xml:space="preserve">
+    <value>ការចែករំលែកចំណូលរបស់អ្នក</value>
+  </data>
+  <data name="HowWePay" xml:space="preserve">
+    <value>របៀបដែលយើងបង់ប្រាក់ជូន</value>
+  </data>
+  <data name="TotalActivePlayer" xml:space="preserve">
+    <value>អ្នកលេងមានសកម្មភាពសរុប</value>
+  </data>
+  <data name="CommissionRate" xml:space="preserve">
+    <value>អត្រាកំរៃជើងសារ</value>
+  </data>
+  <data name="TwentyFiveThousandAndAbove" xml:space="preserve">
+    <value>250 និងខ្ពស់ជាងនេះ</value>
+  </data>
+  <data name="CompanyNetProfitN88" xml:space="preserve">
+    <value>ប្រាក់ចំណេញសុទ្ធរបស់ក្រុមហ៊ុន (USD)</value>
   </data>
 </root>

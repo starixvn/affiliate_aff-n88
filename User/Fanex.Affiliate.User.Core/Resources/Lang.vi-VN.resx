@@ -1216,12 +1216,6 @@
   <data name="RngCasino" xml:space="preserve">
     <value>RNG CASINO</value>
   </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>Tất Cả Sản Phẩm</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Xem Danh Sách Sản Phẩm B2C</value>
-  </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;Thứ 2 - Thứ 7&lt;/strong&gt;&lt;br&gt;11:00 am - 08:00 pm (GMT +8)</value>
   </data>
@@ -1427,7 +1421,7 @@
     <value>Mật khẩu</value>
   </data>
   <data name="PasswordIsRequired" xml:space="preserve">
-    <value>Mật khẩu bắt buộc</value>
+    <value>Mật khẩu là bắt buộc</value>
   </data>
   <data name="VerificationCode" xml:space="preserve">
     <value>Mã xác nhận</value>
@@ -1586,9 +1580,6 @@
     <value>Hoa Hồng Của Bạn</value>
   </data>
   <data name="ActiveReferredPlayers" xml:space="preserve">
-    <value>Người Chơi Đủ Điều Kiện</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
     <value>Người Chơi Đủ Điều Kiện</value>
   </data>
   <data name="InvalidLink" xml:space="preserve">
@@ -1910,7 +1901,7 @@
     <value>Tỷ lệ hoa hồng cao nhất của nhiều nhóm sản phẩm</value>
   </data>
   <data name="NetWinLossN88" xml:space="preserve">
-    <value>Lợi nhuận ròng của công ty ({0})</value>
+    <value>Lợi nhuận ròng của công ty ($)</value>
   </data>
   <data name="Day" xml:space="preserve">
     <value>Ngày</value>
@@ -1923,5 +1914,8 @@
   </data>
   <data name="Sec" xml:space="preserve">
     <value>Giây</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
   </data>
 </root>

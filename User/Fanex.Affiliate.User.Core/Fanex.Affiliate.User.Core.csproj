@@ -605,6 +605,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Error.hi-IN.resx" />
+    <EmbeddedResource Include="Resources\Error.km-KH.resx" />
     <EmbeddedResource Include="Resources\Error.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

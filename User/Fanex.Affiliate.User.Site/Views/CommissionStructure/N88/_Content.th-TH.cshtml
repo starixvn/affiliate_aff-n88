@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ Nova88 ในแต่ละเดีอน
+                    <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ @Model.SiteFriendlyName ในแต่ละเดีอน
                 </li>
                 <li class="text">
                     <strong>จำนวนผู้เล่นที่ผ่านเกณฑ์:</strong> สมาชิกที่อยู่ภายใต้พันธมิตรนั้นจะต้องมีประวัติการเดิมพันอย่างน้อย 1 ครั้ง ในเดือนนั้นๆ

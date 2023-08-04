@@ -198,15 +198,6 @@
   <data name="NetWinLoss" xml:space="preserve">
     <value>Keuntungan Bersih Syarikat ({0})</value>
   </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>Pemain Aktif</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>Semua produk</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>Maklumat lanjut mengenai produk B2C</value>
-  </data>
   <data name="ActiveReferredPlayers" xml:space="preserve">
     <value>Pemain Rujukan Yang Aktif</value>
   </data>
@@ -1357,5 +1348,8 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>SERTAI SEKARANG!</value>
+  </data>
+  <data name="PasswordIsRequired" xml:space="preserve">
+    <value>Kata laluan diperlukan</value>
   </data>
 </root>

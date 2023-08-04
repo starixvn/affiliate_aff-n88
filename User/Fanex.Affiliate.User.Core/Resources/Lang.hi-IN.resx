@@ -226,16 +226,7 @@
     <value>टीयर</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>कंपनी नेट विन (यूएसडी)</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>सक्रिय खिलाड़ी</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>सारे प्राडक्ट</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>B2C प्राडक्ट के बारे में अधिक जानकारी</value>
+    <value>कंपनी नेट विन ({0})</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>&gt;= 5</value>
