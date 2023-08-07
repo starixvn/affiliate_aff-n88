@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h3 class="title-left">@Lang.NotAffiliateMemberYet</h3>
-                            <p>@SiteFriendlyNameHelper.ReplaceB2C(string.Format(Lang.SignUpToAffiliateProgram, appSetting.MaxCommission))</p>
+                            <p>@string.Format(Lang.SignUpToAffiliateProgram, appSetting.MaxCommission)</p>
                             <a href="@Url.Content("~/Signup/Index")" role="button" class="btn btn-signup btn-block text-uppercase">@Lang.JoinNow</a>
                         </div>
 

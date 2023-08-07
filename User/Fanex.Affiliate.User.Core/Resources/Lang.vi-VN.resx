@@ -337,7 +337,7 @@
     <value>Ngày hoàn thành</value>
   </data>
   <data name="CompleteForm" xml:space="preserve">
-    <value>Vui lòng hoàn thành mẫu này để đăng ký tài khoản đại lý B2C.</value>
+    <value>Vui lòng hoàn thành biểu mẫu này để đăng ký tài khoản đại lý B2C.</value>
   </data>
   <data name="CongoRep" xml:space="preserve">
     <value>Cộng hòa Congo </value>
@@ -454,7 +454,7 @@
     <value>Bạn không được phép sử dụng chức năng này</value>
   </data>
   <data name="errContactNumberEmpty" xml:space="preserve">
-    <value>Số liên hệ trống. Vui lòng kiểm tra!</value>
+    <value>Số liên hệ là bắt buộc</value>
   </data>
   <data name="errDepositDBConnectFailed" xml:space="preserve">
     <value>Đã xảy ra lỗi khi lấy thông tin người chơi B2C. Vui lòng liên hệ với quản trị viên của bạn!</value>
@@ -895,7 +895,7 @@
     <value>Số tham chiếu</value>
   </data>
   <data name="RegisForm" xml:space="preserve">
-    <value>Mẫu đơn</value>
+    <value>Mẫu đăng ký</value>
   </data>
   <data name="RegisSuccess" xml:space="preserve">
     <value>Cảm ơn bạn đã gửi đơn.&lt;br/&gt;&lt;br/&gt;Các trang web và thông tin về đơn của bạn sẽ được nhóm B2C Affiliate xem xét để đảm bảo rằng nội dung là phù hợp để quảng cáo sản phẩm của chúng tôi.&lt;br/&gt;&lt;br/&gt;Trong vòng 5 ngày, chúng tôi sẽ có thể cung cấp cho bạn quyết định liên quan đến đơn của bạn. Nếu bạn được chấp thuận, bạn sẽ có toàn quyền truy cập vào chương trình hội viên của chúng tôi.&lt;br /&gt;&lt;br /&gt;Trân trọng!&lt;br /&gt;&lt;br /&gt;Nhóm quản lý hội viên B2C.&lt;br/&gt;&lt;br/&gt;Mọi thắc mắc và yêu cầu xin vui lòng &lt;a href='{0}'&gt;liên hệ với chúng tôi&lt;/a&gt;.</value>
@@ -1331,10 +1331,10 @@
     <value>ĐĂNG NHẬP TÀI KHOẢN ĐẠI LÝ</value>
   </data>
   <data name="NotAffiliateMemberYet" xml:space="preserve">
-    <value>Chưa là Hội Viên?</value>
+    <value>Bạn chưa là đại lý?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>Đăng ký tham gia Đại lý B2C để nhận thưởng {0} Hoa Hồng Mỗi Tháng!</value>
+    <value>Đăng ký chương trình đại lý và hưởng hoa hồng đến {0}!</value>
   </data>
   <data name="JoinNow" xml:space="preserve">
     <value>Tham gia ngay!</value>
@@ -1367,7 +1367,7 @@
     <value>Ngôn ngữ</value>
   </data>
   <data name="MetaTitle" xml:space="preserve">
-    <value>Trở thành đối tác thương mại của B2C | Chương trình Đại Lý B2C</value>
+    <value>Trở thành đối tác của B2C | Chương trình đại lý - B2C</value>
   </data>
   <data name="MetaDescription" xml:space="preserve">
     <value>Trở thành đối tác chính thức của B2C, quảng bá các trò chơi cá cược thể thao, casino trực tuyến và nhận hoa hồng hàng tháng từ những người chơi mà bạn giới thiệu.</value>
@@ -1917,5 +1917,35 @@
   </data>
   <data name="PgSoft" xml:space="preserve">
     <value>Pg Soft</value>
+  </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
   </data>
 </root>

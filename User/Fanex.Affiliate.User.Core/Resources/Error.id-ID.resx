@@ -162,4 +162,7 @@
   <data name="PaymentAccNotExist" xml:space="preserve">
     <value>Akun Pembayaran tidak terdaftar</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>Error ketika memproses permohonan Anda!</value>
+  </data>
 </root>

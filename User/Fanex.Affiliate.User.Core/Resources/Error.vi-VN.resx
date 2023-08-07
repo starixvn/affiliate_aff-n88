@@ -177,4 +177,10 @@
   <data name="PaymentAccNotExist" xml:space="preserve">
     <value>Tài Khoản Thanh Toán không tồn tại</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>Lỗi xảy ra khi bạn gửi yêu cầu.</value>
+  </data>
+  <data name="YourSessionHasExpired" xml:space="preserve">
+    <value>Phiên làm việc của bạn đã hết hạn!</value>
+  </data>
 </root>

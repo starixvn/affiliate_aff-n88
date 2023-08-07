@@ -162,4 +162,7 @@
   <data name="PaymentAccNotExist" xml:space="preserve">
     <value>ไม่มีบัญชีชำระเงิน</value>
   </data>
+  <data name="General" xml:space="preserve">
+    <value>เกิดข้อผิดพลาดขณะดำเนินการคำขอของคุณ!</value>
+  </data>
 </root>

@@ -1352,4 +1352,88 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="PasswordIsRequired" xml:space="preserve">
     <value>Kata laluan diperlukan</value>
   </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
+  </data>
+  <data name="Blackjack" xml:space="preserve">
+    <value>Blackjack</value>
+  </data>
+  <data name="Baccarat" xml:space="preserve">
+    <value>Baccarat</value>
+  </data>
+  <data name="Roulette" xml:space="preserve">
+    <value>Roulette</value>
+  </data>
+  <data name="Sicbo" xml:space="preserve">
+    <value>Sic bo</value>
+  </data>
+  <data name="AndarBahar" xml:space="preserve">
+    <value>Andar Bahar</value>
+  </data>
+  <data name="Teenpatti" xml:space="preserve">
+    <value>Teenpatti</value>
+  </data>
+  <data name="PendingTransaction" xml:space="preserve">
+    <value>Yang belum selesai</value>
+  </data>
+  <data name="Albania" xml:space="preserve">
+    <value>Albania</value>
+  </data>
+  <data name="Algeria" xml:space="preserve">
+    <value>Algeria</value>
+  </data>
+  <data name="Angola" xml:space="preserve">
+    <value>Angola</value>
+  </data>
+  <data name="Anguilla" xml:space="preserve">
+    <value>Anguilla </value>
+  </data>
+  <data name="Argentina" xml:space="preserve">
+    <value>Argentina </value>
+  </data>
+  <data name="Armenia" xml:space="preserve">
+    <value>Armenia </value>
+  </data>
+  <data name="Aruba" xml:space="preserve">
+    <value>Aruba </value>
+  </data>
+  <data name="Australia" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="Azerbaijan" xml:space="preserve">
+    <value>Azerbaijan</value>
+  </data>
+  <data name="Austria" xml:space="preserve">
+    <value>Austria </value>
+  </data>
 </root>

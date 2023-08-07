@@ -117,4 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="General" xml:space="preserve">
+    <value>កំហុសបានកើតឡើងខណៈពេលអ្នកកំពុងដំណើរការសូមផ្លល់សំណើរបស់អ្នក!</value>
+  </data>
+  <data name="YourSessionHasExpired" xml:space="preserve">
+    <value>វគ្គបន្តរបស់អ្នកបានផុតកំណត់ហើយ!</value>
+  </data>
+  <data name="PaymentAccNotExist" xml:space="preserve">
+    <value>គណនីទូទាត់មិនមានទេ</value>
+  </data>
+  <data name="PaymentAccNotActive" xml:space="preserve">
+    <value>គណនីអ្នកលេងការទូទាត់មិនដំណើរការទេ
+ សូមពិនិត្យមើលជាមួយអ្នកគ្រប់គ្រង
+គណនីរបស់អ្នក</value>
+  </data>
+  <data name="RequireIMAccount" xml:space="preserve">
+    <value>យ៉ាងហោចណាស់មួយគណនី IM ត្រូវបានទាមទារ</value>
+  </data>
 </root>

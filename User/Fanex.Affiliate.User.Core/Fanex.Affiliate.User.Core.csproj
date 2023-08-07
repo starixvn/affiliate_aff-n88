@@ -604,6 +604,7 @@
     <Compile Include="ViewModels\VerificationAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Error.bn-BD.resx" />
     <EmbeddedResource Include="Resources\Error.hi-IN.resx" />
     <EmbeddedResource Include="Resources\Error.km-KH.resx" />
     <EmbeddedResource Include="Resources\Error.ms-MY.resx" />

@@ -1694,4 +1694,37 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="NetWinLossN88" xml:space="preserve">
     <value>公司净赢额 (美元)</value>
   </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
+  </data>
 </root>
