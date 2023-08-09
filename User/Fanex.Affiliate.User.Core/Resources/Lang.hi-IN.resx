@@ -318,9 +318,6 @@
   <data name="ForgetPassword" xml:space="preserve">
     <value>अपना पासवर्ड भूल गए</value>
   </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>मेरा खाता</value>
-  </data>
   <data name="MyAccount" xml:space="preserve">
     <value>मेरा खाता</value>
   </data>
@@ -1274,9 +1271,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="BalForward" xml:space="preserve">
     <value>आगे लाया बैलेंस</value>
   </data>
-  <data name="BalanceBroughtForward" xml:space="preserve">
-    <value>आगे लाया बैलेंस</value>
-  </data>
   <data name="TotalDeposit" xml:space="preserve">
     <value>कुल जमा</value>
   </data>
@@ -1521,10 +1515,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>हाल का भुगतान</value>
   </data>
   <data name="AmtErr" xml:space="preserve">
-    <value>अमान्य अनुरोध राशि! राशि के बीच होनी चाहिए</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>और</value>
+    <value>अमान्य अनुरोध राशि! राशि के बीच होनी चाहिए {0} और {1}</value>
   </data>
   <data name="BankTransfer" xml:space="preserve">
     <value>बैंक ट्रांसफर</value>
@@ -1740,7 +1731,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>भुगतान अनुरोध अधिसूचना</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>B2C संबद्ध - नया खाता {0} अनुमोदन की प्रतीक्षा में</value>
+    <value>B2C सहयोगी - नया खाता {0} अनुमोदन की प्रतीक्षा में</value>
   </data>
   <data name="EmailTittleVerificationAccount" xml:space="preserve">
     <value>अपना खाता विवरण सत्यापित करें</value>
@@ -1963,5 +1954,74 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="YggDrasil" xml:space="preserve">
     <value>YGG DRASIL</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>खत्म</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>कंपनी का शुद्ध लाभ (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
   </data>
 </root>

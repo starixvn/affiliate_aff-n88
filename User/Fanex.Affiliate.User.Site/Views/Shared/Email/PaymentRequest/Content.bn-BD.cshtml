@@ -1,18 +1,18 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
 <div>
-    Dear @Model.User.FirstName,<br /><br />
+    প্রিয় @Model.User.FirstName,<br /><br />
 
-    Thank you for your payment request dated @Model.RequestDate.ToString("MM/dd/yyyy") for the amount of @Model.Amount @Model.DefaultCurrency .<br />
-    Your request reference number is @Model.TransId .<br /><br />
+    আপনার পেমেন্ট অনুরোধ তারিখ @Model.RequestDate.ToString("MM/dd/yyyy") এর জন্য @Model.Amount @Model.DefaultCurrency জন্য ধন্যবাদ<br />
+    আপনার অনুরোধ রেফারেন্স নম্বর হল @Model.TransId .<br /><br />
 
-    Your payment request will be processed within 15 working days. All requests are reviewed in the order in which they are received, and subject for our Compliance checking.<br /><br />
+    আপনার পেমেন্ট অনুরোধটি 15 কর্মদিবসের মধ্যে প্রক্রিয়াজাত হবে। সমস্ত অনুরোধগুলি যে ক্রমে গৃহীত হয়, সেই ক্রমে পর্যালোচনা হয়, এবং আমাদের সমন্বিতা পরীক্ষায় পরীক্ষা হয়<br /><br />
 
-    This is a system auto generated email, please do not reply to this email directly.<br />
-    Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
+    এটি একটি সিস্টেম স্বয়ংক্রিয় জেনারেট ইমেল, দয়া করে এই ইমেলে সরাসরি উত্তর দিবেন না।<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>এ যোগাযোগ করার জন্য আপনি যদি কোনও প্রশ্ন বা মন্তব্য থাকে তাহলে আমাদের সাথে যোগাযোগ করবেন।<br /><br />
 
-    Have a great day!<br /><br />
+    আপনার একটি মহান দিন হোক!<br /><br />
 
-    Best regards,<br /><br />
+    সবচেয়ে ভালো শুভেচ্ছা,<br /><br />
 
-    The team at @Model.SiteFriendlyName Affiliates
+    @Model.SiteFriendlyName অফিলিয়েটস দল
 </div>

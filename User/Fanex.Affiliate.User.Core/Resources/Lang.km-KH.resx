@@ -568,7 +568,7 @@
     <value>ឈ្មោះគណនីអ្នកប្រើប្រាស់</value>
   </data>
   <data name="PlayerCurrency" xml:space="preserve">
-    <value>{player} រូបិយប័ណ្ណរបស់</value>
+    <value>រូបិយប័ណ្ណរបស់ {player}</value>
   </data>
   <data name="AvailableBalance" xml:space="preserve">
     <value>សមតុល្យភាពដែលមាន</value>
@@ -577,52 +577,43 @@
     <value>(នៅក្នុងគណនីទូទាត់របស់អ្នក {account})</value>
   </data>
   <data name="TransferLimit" xml:space="preserve">
-    <value>ដែនកំណត់នៃការផ្ទេរ</value>
+    <value>ដែនផ្ទេរមានកំណត់</value>
   </data>
   <data name="TransferAmountTo" xml:space="preserve">
-    <value>ផ្ទេរចំនួនទឹកប្រាក់ទៅសមតុល្យភាពរបស់
- {player}</value>
+    <value>ផ្ទេរចំនួនសមតុល្យភាពទឹកប្រាក់ទៅរបស់ {player}</value>
   </data>
   <data name="InPlayerCurrency" xml:space="preserve">
-    <value>ក្នុងរូបិយប័ណ្ណរបស់អ្នកលេង</value>
+    <value>ជារូបិយប័ណ្ណរបស់អ្នកលេង</value>
   </data>
   <data name="InBaseCurrency" xml:space="preserve">
-    <value>ក្នុង {baseCurrency}</value>
+    <value>ក្នុង​ {baseCurrency}</value>
   </data>
   <data name="InvalidPlayer" xml:space="preserve">
     <value>អ្នកលេងមិនត្រឹមត្រូវ</value>
   </data>
   <data name="PlayerNotActive" xml:space="preserve">
-    <value>អ្នកលេងនេះមិនមានសកម្មភាពទេ</value>
+    <value>គណនីអ្នកលេងនេះមិនសកម្មភាព។</value>
   </data>
   <data name="DiffBetweenSearchAndUpdateName" xml:space="preserve">
-    <value>ឈ្មោះគណនីអ្នកប្រើប្រាស់ត្រូវបានផ្លាស់ប្តូររចរាល់
- សូមស្វែងរកឈ្មោះគណនីអ្នកប្រើប្រាស់ម្តង
-ទៀត</value>
+    <value>មោះគណនីអ្នកប្រើប្រាស់ត្រូវបានផ្លាស់ប្តូរ សូមស្វែងរកឈ្មោះគណនីអ្នកប្រើប្រាស់ម្តងទៀត។</value>
   </data>
   <data name="AmountMustPositiveNumber" xml:space="preserve">
-    <value>ចំនួនទឹកប្រាក់ត្រូវតែជាចំនួនវិជ្ជមាន
-ទាំងអស់</value>
+    <value>ចំនួនទឹកប្រាក់ត្រូវតែជាចំនួនវិជ្ជមានទាំងអស់។</value>
   </data>
   <data name="AmountMustNotExceedLimit" xml:space="preserve">
-    <value>ចំនួនទឹកប្រាក់មិនត្រូវឲ្យលើសពីដែន
-កំណត់នៃការផ្ទេរ</value>
+    <value>ចំនួនផ្ទេរទឹកប្រាក់មិនត្រូវឲ្យលើសពីដែនកំណត់</value>
   </data>
   <data name="ExchageRateChange" xml:space="preserve">
-    <value>អត្រាប្តូរប្រាក់ទើបតែត្រូវបានធ្វើបច្ចុប្បន្ន
-ភាព សូមដាក់ស្នើសំុម្តងទៀត</value>
+    <value>អត្រាប្តូរប្រាក់ត្រូវបានផ្លាស់ប្តូរថ្មីៗ សូមដាក់ស្នើម្តងទៀត។</value>
   </data>
   <data name="TransferSuccessful" xml:space="preserve">
-    <value>ការផ្ទេរនេះត្រូវបានទទួលដោយជោគជ័យ</value>
+    <value>ការផ្ទេរនេះត្រូវបានធ្វើដោយជោគជ័យ។</value>
   </data>
   <data name="TotalAllPage" xml:space="preserve">
     <value>សរុប (ទំព័រទាំងអស់)</value>
   </data>
   <data name="HasPendingTransaction" xml:space="preserve">
-    <value>អ្នកមានប្រតិបត្តិការដែលមិនទាន់សម្រេច។
- សូមរង់ចាំរហូតដល់ប្រតិបត្តិការដែលមិនទាន់
-សម្រេចបានបញ្ចប់សិន ហើយព្យាយាម
-ម្តងទៀត។</value>
+    <value>អ្នកមានប្រតិបត្តិការដែលមិនទាន់សម្រេច។ សូមរង់ចាំរហូតដល់ប្រតិបត្តិការដែលមិនទាន់សម្រេចបានបញ្ចប់សិន ហើយសូមព្យាយាមម្តងទៀត។</value>
   </data>
   <data name="Completed" xml:space="preserve">
     <value>បានបញ្ចប់</value>
@@ -634,9 +625,7 @@
     <value>បរាជ័យ</value>
   </data>
   <data name="ConfirmTransferBalanceSubmit" xml:space="preserve">
-    <value>តើអ្នកប្រាកដទេថាចង់ផ្ទេរសមតុល្យភាពទៅ
-អ្នកលេងដែលបានជ្រើសរើស? នៅពេលដាក់ស្នើ
- សកម្មភាពមិនអាចត្រឡប់វិញបានទេ។</value>
+    <value>តើអ្នកប្រាកដទេថាចង់ផ្ទេរសមតុល្យភាពទៅអ្នកលេងដែលបានជ្រើសរើស? នៅពេលដែលអ្នកដាក់ស្នើ សកម្មភាពមិនអាចត្រឡប់វិញបានទេ។</value>
   </data>
   <data name="Player" xml:space="preserve">
     <value>អ្នកលេង</value>
@@ -793,5 +782,1250 @@
   </data>
   <data name="Austria" xml:space="preserve">
     <value>អូទ្រីស</value>
+  </data>
+  <data name="Bahamas" xml:space="preserve">
+    <value>បាហាម៉ាស</value>
+  </data>
+  <data name="Bahrain" xml:space="preserve">
+    <value>បារ៉ែន</value>
+  </data>
+  <data name="Bangladesh" xml:space="preserve">
+    <value>បង់ក្លាដែស</value>
+  </data>
+  <data name="Barbados" xml:space="preserve">
+    <value>បាបាដូស</value>
+  </data>
+  <data name="Belarus" xml:space="preserve">
+    <value>បេឡារុស្ស</value>
+  </data>
+  <data name="Belgium" xml:space="preserve">
+    <value>បែលហ្សិក</value>
+  </data>
+  <data name="Belize" xml:space="preserve">
+    <value>បេលីស</value>
+  </data>
+  <data name="Benin" xml:space="preserve">
+    <value>បេនីន</value>
+  </data>
+  <data name="Bermuda" xml:space="preserve">
+    <value>ប៊ឺមូដា</value>
+  </data>
+  <data name="Bhutan" xml:space="preserve">
+    <value>ប៊ូតាន</value>
+  </data>
+  <data name="Bolivia" xml:space="preserve">
+    <value>បូលីវី</value>
+  </data>
+  <data name="BosniaandHerzegovina" xml:space="preserve">
+    <value>បូស្នៀ និងហឺហ្សេហ្គោវីណា</value>
+  </data>
+  <data name="Botswana" xml:space="preserve">
+    <value>បូតស្វាណា</value>
+  </data>
+  <data name="Brazil" xml:space="preserve">
+    <value>ប្រេស៊ីល</value>
+  </data>
+  <data name="BruneiDarussalam" xml:space="preserve">
+    <value>ប្រទេស​ព្រុយ​ណេ​ដា​រូ​សា​ឡឹម</value>
+  </data>
+  <data name="Bulgaria" xml:space="preserve">
+    <value>ប៊ុលហ្គារី</value>
+  </data>
+  <data name="BurkinaFaso" xml:space="preserve">
+    <value>ប៊ូគីណាហ្វាសូ</value>
+  </data>
+  <data name="Burundi" xml:space="preserve">
+    <value>ប៊ូរុនឌី</value>
+  </data>
+  <data name="Cambodia" xml:space="preserve">
+    <value>កម្ពុជា</value>
+  </data>
+  <data name="Cameroon" xml:space="preserve">
+    <value>កាមេរូន</value>
+  </data>
+  <data name="Canada" xml:space="preserve">
+    <value>ប្រទេសកាណាដា</value>
+  </data>
+  <data name="CapeVerde" xml:space="preserve">
+    <value>កាពេ វើដេ</value>
+  </data>
+  <data name="CaymanIslands" xml:space="preserve">
+    <value>កោះកៃម៉ាន</value>
+  </data>
+  <data name="CentralAfricanRep" xml:space="preserve">
+    <value>តំណាងអាហ្វ្រិកកណ្តាល</value>
+  </data>
+  <data name="Chad" xml:space="preserve">
+    <value>ឆាដ</value>
+  </data>
+  <data name="Chile" xml:space="preserve">
+    <value>ឈីលី</value>
+  </data>
+  <data name="ChinaPeoplesRep" xml:space="preserve">
+    <value>ប្រទេសចិន (តំណាងប្រជាជន)</value>
+  </data>
+  <data name="Colombia" xml:space="preserve">
+    <value>កូឡុំប៊ី</value>
+  </data>
+  <data name="CongoRep" xml:space="preserve">
+    <value>កុងហ្គោ (តំណាង)</value>
+  </data>
+  <data name="CostaRica" xml:space="preserve">
+    <value>កូស្តារីកា</value>
+  </data>
+  <data name="CotedIvoireRep" xml:space="preserve">
+    <value>កូស្តារីកាកូតឌីវ័រ (តំណាង)</value>
+  </data>
+  <data name="Croatia" xml:space="preserve">
+    <value>ក្រូអាត</value>
+  </data>
+  <data name="Cyprus" xml:space="preserve">
+    <value>ស៊ីប</value>
+  </data>
+  <data name="CzechRep" xml:space="preserve">
+    <value>ឆេក (តំណាង)</value>
+  </data>
+  <data name="DemRepofCongo" xml:space="preserve">
+    <value>Dem Rep នៃប្រទេសកុងហ្គោ</value>
+  </data>
+  <data name="Denmark" xml:space="preserve">
+    <value>ដាណឺម៉ាក</value>
+  </data>
+  <data name="DominicaCommonwealthof" xml:space="preserve">
+    <value>Dominica (Commonwealth of)</value>
+  </data>
+  <data name="DominicanRep" xml:space="preserve">
+    <value>តំណាង​ប្រទេស​ដូមីនិក</value>
+  </data>
+  <data name="Ecuador" xml:space="preserve">
+    <value>អេក្វាឌ័រ</value>
+  </data>
+  <data name="Egypt" xml:space="preserve">
+    <value>អេហ្ស៊ីប</value>
+  </data>
+  <data name="ElSalvador" xml:space="preserve">
+    <value>អែលសាល់វ៉ាឌ័រ</value>
+  </data>
+  <data name="Eritrea" xml:space="preserve">
+    <value>អេរីទ្រា</value>
+  </data>
+  <data name="Estonia" xml:space="preserve">
+    <value>អេស្តូនី</value>
+  </data>
+  <data name="Ethiopia" xml:space="preserve">
+    <value>អេត្យូពី</value>
+  </data>
+  <data name="Fiji" xml:space="preserve">
+    <value>ហ្វីជី</value>
+  </data>
+  <data name="Finland" xml:space="preserve">
+    <value>ហ្វាំងឡង់</value>
+  </data>
+  <data name="France" xml:space="preserve">
+    <value>ប្រទេសបារាំង</value>
+  </data>
+  <data name="FrenchPolynesia" xml:space="preserve">
+    <value>ប៉ូលីនេស៊ីបារាំង</value>
+  </data>
+  <data name="Gabon" xml:space="preserve">
+    <value>ហ្គាបុង</value>
+  </data>
+  <data name="Georgia" xml:space="preserve">
+    <value>ហ្សកហ្ស៊ី</value>
+  </data>
+  <data name="Germany" xml:space="preserve">
+    <value>អាល្លឺម៉ង់</value>
+  </data>
+  <data name="Ghana" xml:space="preserve">
+    <value>ហ្គាណា</value>
+  </data>
+  <data name="Gibraltar" xml:space="preserve">
+    <value>ជីកាប្រេលតា</value>
+  </data>
+  <data name="Greece" xml:space="preserve">
+    <value>ប្រទេសក្រិក</value>
+  </data>
+  <data name="Grenada" xml:space="preserve">
+    <value>ហ្គ្រេណាដា</value>
+  </data>
+  <data name="Guatemala" xml:space="preserve">
+    <value>ហ្គាតេម៉ាឡា</value>
+  </data>
+  <data name="Guinea" xml:space="preserve">
+    <value>ហ្គីណេ</value>
+  </data>
+  <data name="Guyana" xml:space="preserve">
+    <value>ហ្គីយ៉ាណា</value>
+  </data>
+  <data name="Haiti" xml:space="preserve">
+    <value>ហៃទី</value>
+  </data>
+  <data name="Honduras" xml:space="preserve">
+    <value>ហុងឌូរ៉ាស</value>
+  </data>
+  <data name="HongKong" xml:space="preserve">
+    <value>ហុងកុង</value>
+  </data>
+  <data name="Hungary" xml:space="preserve">
+    <value>ងគ្រី</value>
+  </data>
+  <data name="Iceland" xml:space="preserve">
+    <value>អ៊ីស្លង់</value>
+  </data>
+  <data name="India" xml:space="preserve">
+    <value>ប្រទេសឥណ្ឌា</value>
+  </data>
+  <data name="Indonesia" xml:space="preserve">
+    <value>ប្រទេសឥណ្ឌូនេស៊ី</value>
+  </data>
+  <data name="Iran" xml:space="preserve">
+    <value>អ៊ីរ៉ង់</value>
+  </data>
+  <data name="Iraq" xml:space="preserve">
+    <value>អ៊ីរ៉ាក់</value>
+  </data>
+  <data name="Ireland" xml:space="preserve">
+    <value>អៀរឡង់</value>
+  </data>
+  <data name="Israel" xml:space="preserve">
+    <value>អ៊ីស្រាអែល</value>
+  </data>
+  <data name="Italy" xml:space="preserve">
+    <value>ប្រទេសអ៊ីតាលី</value>
+  </data>
+  <data name="Jamaica" xml:space="preserve">
+    <value>ហ្សាម៉ាអ៊ីក</value>
+  </data>
+  <data name="Japan" xml:space="preserve">
+    <value>ជប៉ុន</value>
+  </data>
+  <data name="Jordan" xml:space="preserve">
+    <value>ហ្ស៊កដានី</value>
+  </data>
+  <data name="Kenya" xml:space="preserve">
+    <value>កេនយ៉ា</value>
+  </data>
+  <data name="KoreaRep" xml:space="preserve">
+    <value>កូរ៉េ</value>
+  </data>
+  <data name="Kuwait" xml:space="preserve">
+    <value>គុយវ៉ែត</value>
+  </data>
+  <data name="LaoPeoplesDemRep" xml:space="preserve">
+    <value>តំណាង​ប្រជាជន​ឡាវ</value>
+  </data>
+  <data name="Latvia" xml:space="preserve">
+    <value>ឡាតវី</value>
+  </data>
+  <data name="Lesotho" xml:space="preserve">
+    <value>ឡេសូតូ</value>
+  </data>
+  <data name="Liechtenstein" xml:space="preserve">
+    <value>លីចតេនស្ទីន</value>
+  </data>
+  <data name="Lithuania" xml:space="preserve">
+    <value>លីទុយអានី</value>
+  </data>
+  <data name="Luxembourg" xml:space="preserve">
+    <value>លុចសំបួរ</value>
+  </data>
+  <data name="Macao" xml:space="preserve">
+    <value>ម៉ាកាវ</value>
+  </data>
+  <data name="Macedonia" xml:space="preserve">
+    <value>ម៉ាសេដូនៀ</value>
+  </data>
+  <data name="Madagascar" xml:space="preserve">
+    <value>ម៉ាដាហ្គាស្ការ</value>
+  </data>
+  <data name="Malawi" xml:space="preserve">
+    <value>ម៉ាឡាវី</value>
+  </data>
+  <data name="Malaysia" xml:space="preserve">
+    <value>ម៉ាឡេស៊ី</value>
+  </data>
+  <data name="Maldives" xml:space="preserve">
+    <value>ម៉ាល់ឌីវ</value>
+  </data>
+  <data name="Mali" xml:space="preserve">
+    <value>ម៉ាលី</value>
+  </data>
+  <data name="Malta" xml:space="preserve">
+    <value>ម៉ាល់តា</value>
+  </data>
+  <data name="Mauritania" xml:space="preserve">
+    <value>ម៉ូរីតានី</value>
+  </data>
+  <data name="Mauritius" xml:space="preserve">
+    <value>ម៉ូរីស</value>
+  </data>
+  <data name="Mexico" xml:space="preserve">
+    <value>ម៉ិកស៊ិក</value>
+  </data>
+  <data name="Moldova" xml:space="preserve">
+    <value>ម៉ុលដាវី</value>
+  </data>
+  <data name="Mongolia" xml:space="preserve">
+    <value>ម៉ុងហ្គោលី</value>
+  </data>
+  <data name="Morocco" xml:space="preserve">
+    <value>ម៉ារ៉ុក</value>
+  </data>
+  <data name="Myanmar" xml:space="preserve">
+    <value>មីយ៉ាន់ម៉ា</value>
+  </data>
+  <data name="Namibia" xml:space="preserve">
+    <value>ណាមីប៊ី</value>
+  </data>
+  <data name="Nauru" xml:space="preserve">
+    <value>ណៅរូ</value>
+  </data>
+  <data name="Nepal" xml:space="preserve">
+    <value>នេប៉ាល់</value>
+  </data>
+  <data name="Netherlands" xml:space="preserve">
+    <value>ហូឡង់</value>
+  </data>
+  <data name="NewCaledonia" xml:space="preserve">
+    <value>កាឡេដូនៀថ្មី</value>
+  </data>
+  <data name="NewZealand" xml:space="preserve">
+    <value>នូវែលសេឡង់</value>
+  </data>
+  <data name="Niger" xml:space="preserve">
+    <value>នីហ្សេរីយ៉ា</value>
+  </data>
+  <data name="Nigeria" xml:space="preserve">
+    <value>នីហ្សេរីយ៉ា</value>
+  </data>
+  <data name="Norway" xml:space="preserve">
+    <value>ប្រទេសន័រវេស</value>
+  </data>
+  <data name="Oman" xml:space="preserve">
+    <value>អូម៉ង់</value>
+  </data>
+  <data name="Pakistan" xml:space="preserve">
+    <value>ប៉ាគីស្ថាន</value>
+  </data>
+  <data name="Panama" xml:space="preserve">
+    <value>ប៉ាណាម៉ា</value>
+  </data>
+  <data name="PapuaNewGuinea" xml:space="preserve">
+    <value>ប៉ាពួញូហ្គីណេ</value>
+  </data>
+  <data name="Paraguay" xml:space="preserve">
+    <value>ប៉ារ៉ាហ្គាយ</value>
+  </data>
+  <data name="Peru" xml:space="preserve">
+    <value>ប្រទេសប៉េរូ</value>
+  </data>
+  <data name="Philippines" xml:space="preserve">
+    <value>ហ្វីលីពីន</value>
+  </data>
+  <data name="Poland" xml:space="preserve">
+    <value>ប្រទេស​ប៉ូឡូញ</value>
+  </data>
+  <data name="Portugal" xml:space="preserve">
+    <value>ព័រទុយហ្គាល់</value>
+  </data>
+  <data name="Qatar" xml:space="preserve">
+    <value>កាតា</value>
+  </data>
+  <data name="Romania" xml:space="preserve">
+    <value>រូម៉ានី</value>
+  </data>
+  <data name="RussianFederation" xml:space="preserve">
+    <value>សហព័ន្ធរុស្ស៊ី</value>
+  </data>
+  <data name="Rwanda" xml:space="preserve">
+    <value>រវ៉ាន់ដា</value>
+  </data>
+  <data name="SaintChristopherStKittsandNevis" xml:space="preserve">
+    <value>Saint Christopher (St. Kitts) និង Nevis</value>
+  </data>
+  <data name="SaintLucia" xml:space="preserve">
+    <value>Saint Lucia</value>
+  </data>
+  <data name="SaintVincentandtheGrenadines" xml:space="preserve">
+    <value>Saint Vincent និង Grenadines</value>
+  </data>
+  <data name="SaoTomeandPrincipe" xml:space="preserve">
+    <value>Sao Tome និង Principe</value>
+  </data>
+  <data name="SaudiArabia" xml:space="preserve">
+    <value>អារ៉ាប៊ីសាអូឌីត</value>
+  </data>
+  <data name="Senegal" xml:space="preserve">
+    <value>សេណេហ្គាល់</value>
+  </data>
+  <data name="Seychelles" xml:space="preserve">
+    <value>សីស្ហែល</value>
+  </data>
+  <data name="SierraLeone" xml:space="preserve">
+    <value>សៀរ៉ាឡេអូន</value>
+  </data>
+  <data name="Singapore" xml:space="preserve">
+    <value>សិង្ហបុរី</value>
+  </data>
+  <data name="Slovakia" xml:space="preserve">
+    <value>ស្លូវ៉ាគី</value>
+  </data>
+  <data name="Slovenia" xml:space="preserve">
+    <value>ស្លូវេនី</value>
+  </data>
+  <data name="SolomonIslands" xml:space="preserve">
+    <value>កោះសាឡូម៉ូន</value>
+  </data>
+  <data name="Somalia" xml:space="preserve">
+    <value>សូម៉ាលី</value>
+  </data>
+  <data name="SouthAfrica" xml:space="preserve">
+    <value>អា​ព្រិច​ខាងត្បូង</value>
+  </data>
+  <data name="Spain" xml:space="preserve">
+    <value>អេស្ប៉ាញ</value>
+  </data>
+  <data name="SriLanka" xml:space="preserve">
+    <value>ស្រី​លង្កា</value>
+  </data>
+  <data name="Sudan" xml:space="preserve">
+    <value>ស៊ូដង់</value>
+  </data>
+  <data name="Suriname" xml:space="preserve">
+    <value>ស៊ូរីណាម</value>
+  </data>
+  <data name="Swaziland" xml:space="preserve">
+    <value>ស្វាស៊ីឡង់</value>
+  </data>
+  <data name="Sweden" xml:space="preserve">
+    <value>ស៊ុយអែត</value>
+  </data>
+  <data name="Switzerland" xml:space="preserve">
+    <value>ប្រទេស​ស្វីស</value>
+  </data>
+  <data name="Taiwan" xml:space="preserve">
+    <value>តៃវ៉ាន់</value>
+  </data>
+  <data name="Tanzania" xml:space="preserve">
+    <value>តង់ហ្សានី</value>
+  </data>
+  <data name="Thailand" xml:space="preserve">
+    <value>ប្រទេសថៃ</value>
+  </data>
+  <data name="Togo" xml:space="preserve">
+    <value>តូហ្គោ</value>
+  </data>
+  <data name="TrinidadandTobago" xml:space="preserve">
+    <value>ទ្រី​នី​ដា​ដ​និង​តូបាហ្គោ</value>
+  </data>
+  <data name="Tunisia" xml:space="preserve">
+    <value>ទុយនីស៊ី</value>
+  </data>
+  <data name="Turkey" xml:space="preserve">
+    <value>តួកគី</value>
+  </data>
+  <data name="Uganda" xml:space="preserve">
+    <value>អ៊ូហ្គង់ដា</value>
+  </data>
+  <data name="Ukraine" xml:space="preserve">
+    <value>អ៊ុយក្រែន</value>
+  </data>
+  <data name="UnitedArabEmirates" xml:space="preserve">
+    <value>សហព័ន្ធ​អារ៉ាប់រួម</value>
+  </data>
+  <data name="UnitedKingdomofGreatBritainandNorthernIreland" xml:space="preserve">
+    <value>ចក្រភពអង់គ្លេសនៃចក្រភពអង់គ្លេស</value>
+  </data>
+  <data name="UnitedStatesofAmerica" xml:space="preserve">
+    <value>សហរដ្ឋអាមេរិក</value>
+  </data>
+  <data name="Uruguay" xml:space="preserve">
+    <value>អ៊ុយរូហ្គាយ</value>
+  </data>
+  <data name="Venezuela" xml:space="preserve">
+    <value>វ៉េណេស៊ុយអេឡា</value>
+  </data>
+  <data name="VietNam" xml:space="preserve">
+    <value>វៀតណាម</value>
+  </data>
+  <data name="WesternSamoa" xml:space="preserve">
+    <value>សាម័រខាងលិច</value>
+  </data>
+  <data name="Yemen" xml:space="preserve">
+    <value>យេម៉ែន</value>
+  </data>
+  <data name="Yugoslavia" xml:space="preserve">
+    <value>យូហ្គោស្លាវី</value>
+  </data>
+  <data name="Zambia" xml:space="preserve">
+    <value>សំប៊ី</value>
+  </data>
+  <data name="Zimbabwe" xml:space="preserve">
+    <value>ហ្ស៊ីមបាវ៉េ</value>
+  </data>
+  <data name="WebsiteInfor" xml:space="preserve">
+    <value>ព័ត៌មានគេហទំព័រ</value>
+  </data>
+  <data name="OwnWebsite" xml:space="preserve">
+    <value>ខ្ញុំមានគេហទំព័រផ្ទាល់ខ្លួន</value>
+  </data>
+  <data name="WebsiteURL" xml:space="preserve">
+    <value>URL គេហទំព័រ</value>
+  </data>
+  <data name="WebsiteURLIsRequired" xml:space="preserve">
+    <value>URL គេហទំព័រ​ត្រូវ​បាន​ទាមទារ</value>
+  </data>
+  <data name="SiteUrlMaxLength" xml:space="preserve">
+    <value>URL គេហទំព័រមិនឲ្យលើសពី 100 តួអក្សរ។</value>
+  </data>
+  <data name="WebsiteUrli" xml:space="preserve">
+    <value>សូមវាយបញ្ចូល URL គេហទំព័រ {i}</value>
+  </data>
+  <data name="Del" xml:space="preserve">
+    <value>លុបចេញ</value>
+  </data>
+  <data name="NoWebsite" xml:space="preserve">
+    <value>ខ្ញុំមិនមានគេហទំព័រទេ</value>
+  </data>
+  <data name="DescWebsite" xml:space="preserve">
+    <value>សូមពណ៌នាអំពីរបៀបដែលអ្នកចង់ផ្សព្វផ្សាយ ប្រសិនបើអ្នកមិនមាន URL​គេហទំព័រ</value>
+  </data>
+  <data name="NoSiteDescMaxLength" xml:space="preserve">
+    <value>សូមពណ៌នាអំពីរបៀបដែលអ្នកចង់ផ្សព្វផ្សាយ ប្រសិនបើអ្នកមិនមាន URL គេហទំព័រមិនឲ្យលើសពី 1000 តួអក្សរ។</value>
+  </data>
+  <data name="Preference" xml:space="preserve">
+    <value>ចំណូលចិត្ត</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>ភាសា</value>
+  </data>
+  <data name="PreferLangErr" xml:space="preserve">
+    <value>សូមជ្រើសរើសភាសាដែលពេញចិត្ត</value>
+  </data>
+  <data name="lblSecureQuestion" xml:space="preserve">
+    <value>សំនួរ​សុវត្ថិភាព</value>
+  </data>
+  <data name="errSecQuestionEmpty" xml:space="preserve">
+    <value>សូមជ្រើសរើសសំណួរសុវត្ថិភាព</value>
+  </data>
+  <data name="lblYourAnswer" xml:space="preserve">
+    <value>ចម្លើយ​របស់​អ្នក</value>
+  </data>
+  <data name="errYourAnswer" xml:space="preserve">
+    <value>ចម្លើយរបស់អ្នកត្រូវតែទាមទារ</value>
+  </data>
+  <data name="AnswerMaxLength" xml:space="preserve">
+    <value>ចម្លើយរបស់អ្នកមិនឲ្យលើសពី 300 តួអក្សរ</value>
+  </data>
+  <data name="ValidationCode" xml:space="preserve">
+    <value>អ្នកបានដាក់លេខកូដ captcha មិនត្រឹមត្រូវ</value>
+  </data>
+  <data name="BETUserNameIsRequired" xml:space="preserve">
+    <value>ឈ្មោះគណនីអ្នកប្រើត្រូវបានទាមទារ</value>
+  </data>
+  <data name="UserNameMaxLength30" xml:space="preserve">
+    <value>មោះគណនីអ្នកប្រើមិនឲ្យលើសពី 30 តួអក្សរ</value>
+  </data>
+  <data name="PaymentInfor" xml:space="preserve">
+    <value>ព​ត៌​មាន​ទូទាត់ប្រាក់</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>វិធី​សា​ស្រ្ត​ទូទាត់ប្រាក់</value>
+  </data>
+  <data name="_B2CPlayerAcc" xml:space="preserve">
+    <value>គណនីអ្នកលេង B2C</value>
+  </data>
+  <data name="IagreetotheTerm" xml:space="preserve">
+    <value>ខ្ញុំយល់ស្របតាមលក្ខខណ្ឌនៃក្រុមហ៊ុន B2C នៃសមាជិកសម្ព័ន្</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>កំហុស</value>
+  </data>
+  <data name="InvalidLink" xml:space="preserve">
+    <value>លីងដែលអ្នកបានបញ្ចូលមិនត្រឹមត្រូវទេ។&lt;br /&gt;សូមទាក់ទងទៅកាន់ផ្នែកបម្រើសេវាកម្មអតិថិជន ឬក៏</value>
+  </data>
+  <data name="ClickHere" xml:space="preserve">
+    <value>ចុចនៅ​ទីនេះ</value>
+  </data>
+  <data name="UnderReview" xml:space="preserve">
+    <value>ការដាក់ពាក្យ​ស្ថិត​ក្រោម​ការត្រួត​ពិនិត្យ</value>
+  </data>
+  <data name="RegisSuccess" xml:space="preserve">
+    <value>សូមអរគុណចំពោះការដាក់ពាក្យសុំរបស់អ្នក&lt;br/&gt;&lt;br/&gt;គេហទំព័រ និង ព័ត៌មានលម្អិតនៃការដាក់ពាក្យរបស់អ្នកនឹងត្រូវបានពិនិត្យដោយក្រុមនៅ B2C សមាជិកសម្ព័ន្ធ ដើម្បីធានាថាខ្លឹមសារគឺសមរម្យសម្រាប់ការផ្សព្វផ្សាយផលិតផលរបស់យើង។&lt;br/&gt;&lt;br/&gt;ក្នុងរយៈពេល 5 ថ្ងៃ យើងគួរតែអាចផ្តល់ឱ្យអ្នកនូវការសម្រេចចិត្តទាក់ទងនឹងការដាក់ពាក្យរបស់អ្នក។ ប្រសិនបើត្រូវបានអនុញ្ញាត អ្នកនឹងអាចទទួបានការរីករាយនឹងការចូលដំណើរការពេញលេញទៅកាន់សមាជិកសម្ព័ន្ធរបស់យើង។&lt;br /&gt;&lt;br /&gt;សូមគោរព&lt;br /&gt;&lt;br /&gt;ក្រុមសមាជិកសម្ព័ន្ធ​នៅ B2C&lt;br/&gt;&lt;br/&gt;ប្រសិនបើអ្នកមានចម្ងល់ និង ទាមទារជំនួយណាមួយ សូមកុំស្ទាក់ស្ទើរក្នុងការ &lt;a href='{0}'&gt;ទាក់ទងមកកាន់ពួកយើង&lt;/a&gt;។</value>
+  </data>
+  <data name="YouDontHaveTheEmail" xml:space="preserve">
+    <value>បើអ្នកមិនមានអាសយដ្ឋានអ៊ីមែលទេ។ សូមទាក់ទងទៅកាន់អ្នកគ្រប់គ្រង!</value>
+  </data>
+  <data name="DearCustomer" xml:space="preserve">
+    <value>អតិថិជនជាទីគោរព!</value>
+  </data>
+  <data name="DueTo" xml:space="preserve">
+    <value>ដោយសារការចូលដែលបរាជ័យថ្មីៗជាច្រើន សូមផ្ទៀងផ្ទាត់ជំហានសុវត្ថិភាពបន្តមួយទៀត</value>
+  </data>
+  <data name="YourRegisterEmail" xml:space="preserve">
+    <value>អ៊ីមែលដែលបានចុះឈ្មោះរបស់អ្នកគឺ &lt;strong&gt;{0}&lt;/strong&gt; ។ សូម​បញ្ចូល​អាសយដ្ឋាន​អ៊ីមែល​ពេញ​លេញ​ក្នុង​ប្រអប់​​ខាងក្រោម ហើយ​ចុច​ផ្ញើលេខ​កូដ។</value>
+  </data>
+  <data name="EmailIsRequired" xml:space="preserve">
+    <value>អ៊ីមែលត្រូវបានទាមទារ</value>
+  </data>
+  <data name="SendCode" xml:space="preserve">
+    <value>ផ្ញើលេខកូដ</value>
+  </data>
+  <data name="AVerificationCode" xml:space="preserve">
+    <value>លេខកូដផ្ទៀងផ្ទាត់បានផ្ញើទៅកាន់អាសយដ្ឋានអ៊ីមែលរបស់អ្នក។ សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់ និងលេខសម្ងាត់ និងផ្ទៀងផ្ទាត់លេខកូដខាងក្រោមដើម្បីចូល។</value>
+  </data>
+  <data name="VerificationCode" xml:space="preserve">
+    <value>លេខកូដ​ផ្ទៀង​ផ្ទាត់</value>
+  </data>
+  <data name="VerificationCodeIsRequired" xml:space="preserve">
+    <value>លេខកូដផ្ទៀងផ្ទាត់ត្រូវបានទាមទារ</value>
+  </data>
+  <data name="ErrmsgEntryVerificationCode" xml:space="preserve">
+    <value>សូមវាយបញ្ចូលលេខកូដផ្ទៀងផ្ទាត់</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>Captcha</value>
+  </data>
+  <data name="CaptchaIsRequired" xml:space="preserve">
+    <value>Captcha ត្រូវបានទាមទារ</value>
+  </data>
+  <data name="ErrmsgEntryCaptcha" xml:space="preserve">
+    <value>សូមវាយបញ្ចូល captcha!</value>
+  </data>
+  <data name="ErrAuthorized" xml:space="preserve">
+    <value>អ្នកមិនបានអនុញ្ញាតឲ្យចូលលើមុខងារនេះទេ</value>
+  </data>
+  <data name="NotAllowOnDomain" xml:space="preserve">
+    <value>សុំទោស! អ្នកមិនត្រូវបានអនុញ្ញាតឱ្យចូលនៅលើព្រំដែននេះទេ</value>
+  </data>
+  <data name="TitelForgetPass" xml:space="preserve">
+    <value>ពាក្យសម្ងាត់ថ្មីនឹងត្រូវបានផ្ញើទៅកាន់អាសយដ្ឋានអ៊ីមែលដែលអ្នកបានផ្តល់។ &lt;br /&gt;ប្រសិនបើអ្នកកំពុងជួបប្រទះការលំបាកបន្ថែមទៀត សូម &lt;a href="{0}"&gt;ទាក់ទងមកពួកយើង&lt;/a&gt;។</value>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>អ៊ីមែល​របស់​អ្នក</value>
+  </data>
+  <data name="RePass" xml:space="preserve">
+    <value>បញ្ចូលលេខសម្ងាត់ថ្មី</value>
+  </data>
+  <data name="ReenterNewPassw" xml:space="preserve">
+    <value>បញ្ចូលលេខយសម្ងាត់ថ្មីមិនត្រឹមត្រូវទេ​ សូមបញ្ចូលម្តងទៀត</value>
+  </data>
+  <data name="ChangePass" xml:space="preserve">
+    <value>ផ្លាស់ប្តូរលេខសម្ងាត់</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="ChangePassText" xml:space="preserve">
+    <value>ប្រើទម្រង់នេះដើម្បីផ្លាស់ប្តូរលេខយសម្ងាត់របស់អ្នក។ នៅពេលដែលបានផ្លាស់ប្តូរ លេខយសម្ងាត់ថ្មីរបស់អ្នកនឹងមានប្រសិទ្ធភាពនៅពេលដែលអ្នកចូលប្រើបន្ទាប់ទៀត។</value>
+  </data>
+  <data name="PasswordIsRequired" xml:space="preserve">
+    <value>លេខសម្ងាត់​គឺ​ត្រូវ​បាន​ទាមទារ</value>
+  </data>
+  <data name="OldPass" xml:space="preserve">
+    <value>លេខសំងាត់​ចាស់</value>
+  </data>
+  <data name="OldPasswordisre" xml:space="preserve">
+    <value>លេខយសម្ងាត់ចាស់ត្រូវបានទាមទារ</value>
+  </data>
+  <data name="NewPass" xml:space="preserve">
+    <value>លេខសម្ងាត់​ថ្មី</value>
+  </data>
+  <data name="NewPasswordisre" xml:space="preserve">
+    <value>ទាមទារលេខយសម្ងាត់ថ្មី</value>
+  </data>
+  <data name="PassCheck" xml:space="preserve">
+    <value>លេខសម្ងាត់​ត្រូវ​តែ​មាន​យ៉ាង​ហោច​ណាស់ 6 តួ ដោយ​រួម​មាន​យ៉ាង​ហោច​ណាស់ ២ តួ និង​យ៉ាង​ហោច​ណាស់ ២ ខ្ទង់។ (ឧ.pass22)</value>
+  </data>
+  <data name="Yourlogindetail" xml:space="preserve">
+    <value>ព័ត៌មានលម្អិតអំពីការចូលរបស់អ្នកត្រូវបានផ្ញើហើយ</value>
+  </data>
+  <data name="ErrEmailRequire" xml:space="preserve">
+    <value>អាសយដ្ឋានអ៊ីមែល - ត្រូវបានទាមទារ</value>
+  </data>
+  <data name="ForAnyReason" xml:space="preserve">
+    <value>សម្រាប់ហេតុផលណាមួយ អ្នកមិនបានទទួលអ៊ីមែលទេ សូមពិនិត្យមើលប្រអប់សារឥតបានការរបស់អ្នក ឬ &lt;a href='{0}'&gt;ទាក់ទងពួកយើង&lt;/a&gt; ហើយយើងនឹងរីករាយក្នុងការជួយអ្នក។</value>
+  </data>
+  <data name="Pleasecheckyour" xml:space="preserve">
+    <value>សូមពិនិត្យមើលអាសយដ្ឋានអ៊ីមែលរបស់អ្នក ដើម្បីស្វែងរកឈ្មោះគណនីអ្នកប្រើប្រាស់ និងព័ត៌មានលម្អិតអំពីលេខសម្ងាត់របស់អ្នក</value>
+  </data>
+  <data name="Passwordchanged" xml:space="preserve">
+    <value>លេខសម្ងាត់បានផ្លាស់ប្តូរដោយជោគជ័យ</value>
+  </data>
+  <data name="MessageHistory" xml:space="preserve">
+    <value>សារប្រវត្តិសាស្ត្រ</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>ស្វែងរក</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>ទាំងអស់</value>
+  </data>
+  <data name="Normal" xml:space="preserve">
+    <value>ធម្មតា</value>
+  </data>
+  <data name="Important" xml:space="preserve">
+    <value>សំខាន់</value>
+  </data>
+  <data name="GetAll" xml:space="preserve">
+    <value>ទទួលបានទាំងអស់</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>ពី</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>ទៅ</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>លេខសម្គាល់</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ដាក់ស្នើ</value>
+  </data>
+  <data name="PostDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទប្រកាស</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>សារ</value>
+  </data>
+  <data name="NoInfo" xml:space="preserve">
+    <value>មិនមានព័ត៌មានទំនេរទេ</value>
+  </data>
+  <data name="Summary" xml:space="preserve">
+    <value>សង្ខេប</value>
+  </data>
+  <data name="AffilateLink" xml:space="preserve">
+    <value>លីងតំណភ្ជាប់សម្ព័ន្ធ</value>
+  </data>
+  <data name="MediaGallery" xml:space="preserve">
+    <value>រូបភាពប្រព័ន្ធផ្សព្វផ្សាយ</value>
+  </data>
+  <data name="LastLogin" xml:space="preserve">
+    <value>ការចុះចូលចុងក្រោយ៖</value>
+  </data>
+  <data name="LastLoginIpAddress" xml:space="preserve">
+    <value>អាសយដ្ឋាន IP ចុះចូលចុងក្រោយ៖</value>
+  </data>
+  <data name="AffiliateID" xml:space="preserve">
+    <value>លេខសម្គាល់សាខាសម្ព័ន្ធ</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>ទិដ្ឋភាពទូទៅ</value>
+  </data>
+  <data name="PlayersDetails" xml:space="preserve">
+    <value>ព័ត៌មានលម្អិតអំពីអ្នកលេង</value>
+  </data>
+  <data name="SubAffDetail" xml:space="preserve">
+    <value>ព័ត៌មានលម្អិតនៃសាខាសម្ព័ន្ធរង</value>
+  </data>
+  <data name="NewSignup" xml:space="preserve">
+    <value>ការចុះឈ្មោះថ្មី</value>
+  </data>
+  <data name="Deposit" xml:space="preserve">
+    <value>ដាក់លុយ</value>
+  </data>
+  <data name="ActivePlayers" xml:space="preserve">
+    <value>ចំនួនអ្នកលេងសកម្ម&lt;br/&gt;(ទាមទារអប្បបរមា)</value>
+  </data>
+  <data name="P2pIncluded" xml:space="preserve">
+    <value>ការបែងចែកប្រាក់ចំណូល (រួមបញ្ចូល P2P)</value>
+  </data>
+  <data name="BalForward" xml:space="preserve">
+    <value>សមតុល្យភាព​បាន​នាំ​មក​មុខ</value>
+  </data>
+  <data name="TotalDeposit" xml:space="preserve">
+    <value>ប្រាក់បញ្ញើសរុប</value>
+  </data>
+  <data name="SubAffiliate" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធរង</value>
+  </data>
+  <data name="SubAffDownline" xml:space="preserve">
+    <value>បន្ទាត់ក្រោមសាខាសម្ព័ន្ធរង</value>
+  </data>
+  <data name="SubAffEarning" xml:space="preserve">
+    <value>ការរកប្រាក់ចំណូលពីសាខាសម្ព័ន្ធរង</value>
+  </data>
+  <data name="SubAffCommRate" xml:space="preserve">
+    <value>អត្រាការប្រាក់នៃសាខារង</value>
+  </data>
+  <data name="SubAffiliateLink" xml:space="preserve">
+    <value>អនុវ​ សាខាសម្ព័ន្ធ។ តំណភ្ជាប់លីង</value>
+  </data>
+  <data name="Casino" xml:space="preserve">
+    <value>កាស៊ីណូ</value>
+  </data>
+  <data name="Racebook" xml:space="preserve">
+    <value>ហ្វេសបុក</value>
+  </data>
+  <data name="Basketball" xml:space="preserve">
+    <value>បាល់បោះ</value>
+  </data>
+  <data name="SBBonus" xml:space="preserve">
+    <value>ប្រាក់រង្វាន់ SB</value>
+  </data>
+  <data name="Soccer" xml:space="preserve">
+    <value>បាល់ទាត់</value>
+  </data>
+  <data name="Tennis" xml:space="preserve">
+    <value>កីឡាវាយសី</value>
+  </data>
+  <data name="CasinoBonus" xml:space="preserve">
+    <value>ប្រាក់រង្វាន់កាស៊ីណូ</value>
+  </data>
+  <data name="Slot" xml:space="preserve">
+    <value>ស្លុត</value>
+  </data>
+  <data name="THB" xml:space="preserve">
+    <value>THB​ (ថៃបាត)</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>កាលបរិច្ឆេទ</value>
+  </data>
+  <data name="DepositedPlayers" xml:space="preserve">
+    <value>អ្នកលេងដែលបានដាក់លុយ</value>
+  </data>
+  <data name="Turnover" xml:space="preserve">
+    <value>ចំណូល</value>
+  </data>
+  <data name="Withdrawal" xml:space="preserve">
+    <value>ការដកប្រាក់</value>
+  </data>
+  <data name="GGR" xml:space="preserve">
+    <value>GGR</value>
+  </data>
+  <data name="RegisteredDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទ​ចុះបញ្ចី</value>
+  </data>
+  <data name="FdmDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទ FDM</value>
+  </data>
+  <data name="Bonus" xml:space="preserve">
+    <value>ប្រាក់រង្វាន់</value>
+  </data>
+  <data name="Rebate" xml:space="preserve">
+    <value>លុយទទួលមកវិញ</value>
+  </data>
+  <data name="DepositFee" xml:space="preserve">
+    <value>តម្លៃដាក់លុយ</value>
+  </data>
+  <data name="WithdrawalFee" xml:space="preserve">
+    <value>តម្លៃដកលុយ</value>
+  </data>
+  <data name="ApprovalDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទអនុម័ត</value>
+  </data>
+  <data name="SuspensionSatus" xml:space="preserve">
+    <value>ស្ថានភាពផ្អាក</value>
+  </data>
+  <data name="SuspensionDate" xml:space="preserve">
+    <value>កាលបរិច្ឆេទផ្អាក</value>
+  </data>
+  <data name="TotalTurnover" xml:space="preserve">
+    <value>ប្រាក់ចំណូលសរុប</value>
+  </data>
+  <data name="TotalGGR" xml:space="preserve">
+    <value>GGR សរុប</value>
+  </data>
+  <data name="TotalCommission" xml:space="preserve">
+    <value>ប្រាក់ចំណូលចែកសរុប</value>
+  </data>
+  <data name="NumberOfActivePlayers" xml:space="preserve">
+    <value>លេខអ្នកលេងដែលសកម្ម</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>ដកចេញ</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>បន្ថែម​ថ្មី...</value>
+  </data>
+  <data name="AffiliateLinkType" xml:space="preserve">
+    <value>ប្រភេទតំណលីង</value>
+  </data>
+  <data name="AvailableDomains" xml:space="preserve">
+    <value>ព្រំដែនដែលមាន</value>
+  </data>
+  <data name="LinkTo" xml:space="preserve">
+    <value>ភ្ជាប់ទៅ</value>
+  </data>
+  <data name="Channel" xml:space="preserve">
+    <value>ឆានែល</value>
+  </data>
+  <data name="GenerateLink" xml:space="preserve">
+    <value>បង្កើតតំណលីង</value>
+  </data>
+  <data name="TrackingAndQrCode" xml:space="preserve">
+    <value>តាមដានតំណភ្ជាប់លីង និង QRលេខកូដ</value>
+  </data>
+  <data name="MarketingPage" xml:space="preserve">
+    <value>ទំព័រទីផ្សារ</value>
+  </data>
+  <data name="EnterChannel" xml:space="preserve">
+    <value>សូមវាយបញ្ចូលឈ្មោះឆានែល៖</value>
+  </data>
+  <data name="AddChannelSuccess" xml:space="preserve">
+    <value>បន្ថែមឆានែលបានជោគជ័យ</value>
+  </data>
+  <data name="ConfirmDeactiveLink" xml:space="preserve">
+    <value>តើអ្នកប្រាកដអំពីសកម្មភាពនេះទេ? តាមរយៈការបញ្ជាក់សកម្មភាពនេះ អ្នកនឹងបិទតំណលីងតាមដាន។</value>
+  </data>
+  <data name="ConfirmActiveLink" xml:space="preserve">
+    <value>តើអ្នកប្រាកដអំពីសកម្មភាពនេះទេ? តាមរយៈការបញ្ជាក់សកម្មភាពនេះ អ្នកនឹងសកម្មតំណលីងតាមដាន។</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>ប្រភេទ</value>
+  </data>
+  <data name="SubCategory" xml:space="preserve">
+    <value>អនុ ប្រភេទ</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>រូបិយប័ណ្ណ</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>ឧបករណ៍</value>
+  </data>
+  <data name="PCDevice" xml:space="preserve">
+    <value>កុំព្យូទ័រ/កុំព្យូទ័រយួរដៃ</value>
+  </data>
+  <data name="MobileDevice" xml:space="preserve">
+    <value>ទូរស័ព្ទចល័ត</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>ទំហំ</value>
+  </data>
+  <data name="SearchAndGenQR" xml:space="preserve">
+    <value>ស្វែងរក និង បង្កើត</value>
+  </data>
+  <data name="Banner" xml:space="preserve">
+    <value>ផ្ទាំង</value>
+  </data>
+  <data name="Dimension" xml:space="preserve">
+    <value>វិមាត្រ</value>
+  </data>
+  <data name="CopyBannerCode" xml:space="preserve">
+    <value>ចម្លងផ្ទាំងកូដ</value>
+  </data>
+  <data name="ShareBanner" xml:space="preserve">
+    <value>ចែករំលែកផ្ទាំងទៅមិត្តរបស់អ្នក</value>
+  </data>
+  <data name="NumberOfLink" xml:space="preserve">
+    <value>លេខនៃលីងតំណភ្ជាប់</value>
+  </data>
+  <data name="CopyQRCode" xml:space="preserve">
+    <value>ចម្លងQRកូដ</value>
+  </data>
+  <data name="CopyLink" xml:space="preserve">
+    <value>ចម្លងតំណលីង</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>ចម្លង</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>ឆ្នាំ</value>
+  </data>
+  <data name="BaseCurrency" xml:space="preserve">
+    <value>មូលដ្ឋាននៃរូបិយប័ណ្ណ</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>ខែ</value>
+  </data>
+  <data name="RoyaltyFee" xml:space="preserve">
+    <value>ថ្លៃសួយសារអាករ</value>
+  </data>
+  <data name="CommRate" xml:space="preserve">
+    <value>អត្រាប្រាក់ចំណូល</value>
+  </data>
+  <data name="Temporary" xml:space="preserve">
+    <value>បណ្ដោះអាសន្ន</value>
+  </data>
+  <data name="Uncalculated" xml:space="preserve">
+    <value>មិនបានគណនា</value>
+  </data>
+  <data name="P2pRevenueShare" xml:space="preserve">
+    <value>P2P Rev. ចែករំលែក</value>
+  </data>
+  <data name="TheHighestShare" xml:space="preserve">
+    <value>ការចែករំលែកដ៏ខ្ពស់បំផុត % នៃក្រុមជាច្រើន</value>
+  </data>
+  <data name="AccInfo" xml:space="preserve">
+    <value>ព​ត៌​មាន​គណនី</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>ផ្លាស់ប្តូរ</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>បោះបង់</value>
+  </data>
+  <data name="AffiliateCurrency" xml:space="preserve">
+    <value>រូបិយប័ណ្ណនៃសម្ព័ន្ធ</value>
+  </data>
+  <data name="DefaultBaseCurrency" xml:space="preserve">
+    <value>រូបិយប័ណ្ណមូលដ្ឋាននៃលំនាំដើម</value>
+  </data>
+  <data name="DefaultBaseCurrencyDetail" xml:space="preserve">
+    <value>ឯកតារូបិយប័ណ្ណបានបង្ហាញនៅក្នុងរបាយការណ៍ទាំងអស់</value>
+  </data>
+  <data name="UserNameSuspended" xml:space="preserve">
+    <value>គណនីទូទាត់ប្រាក់ដែលអ្នកបានបញ្ចូលបានផ្អាក។ សូមពិនិត្យម្តងទៀត។</value>
+  </data>
+  <data name="UserNameClosed" xml:space="preserve">
+    <value>គណនីទូទាត់ប្រាក់ដែលអ្នកបានបញ្ចូលបានបិទ។ សូមពិនិត្យម្តងទៀត។</value>
+  </data>
+  <data name="UserNameNotExist" xml:space="preserve">
+    <value>គណនីបង់ប្រាក់ដែលអ្នកបានបញ្ចូលមិនមានទេ។ សូមពិនិត្យម្តងទៀត។</value>
+  </data>
+  <data name="errDepositDBConnectFailed" xml:space="preserve">
+    <value>មានកំហុសនៅពេលទទួលបានព័ត៌មានអំពីអ្នកលេងពីB2C ។ សូមទាក់ទងទៅកាន់អ្នកគ្រប់គ្រងរបស់អ្នក!</value>
+  </data>
+  <data name="UpdateAccSuccess" xml:space="preserve">
+    <value>ព័ត៌មានគណនីរបស់អ្នកត្រូវបានបង្កើតឡើងវិញដោយជោគជ័យ</value>
+  </data>
+  <data name="RecentPayment" xml:space="preserve">
+    <value>ការទូទាត់ប្រាក់ថ្មីៗ</value>
+  </data>
+  <data name="AmtErr" xml:space="preserve">
+    <value>ចំនួនទឹកប្រាក់ស្នើសុំមិនត្រឹមត្រូវ! ចំនួនទឹកប្រាក់ត្រូវតែមានចន្លោះពី {0} ទៅ {1}</value>
+  </data>
+  <data name="BankTransfer" xml:space="preserve">
+    <value>ការផ្ទេរប្រាក់តាមធនាគារ</value>
+  </data>
+  <data name="Proccessing" xml:space="preserve">
+    <value>កំពុងដំណើរការ</value>
+  </data>
+  <data name="Approved" xml:space="preserve">
+    <value>បានអនុម័ត</value>
+  </data>
+  <data name="Cancelled" xml:space="preserve">
+    <value>បានលុបចោល</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>មិនទទួលស្គាល់</value>
+  </data>
+  <data name="Rejected" xml:space="preserve">
+    <value>បដិសេធ</value>
+  </data>
+  <data name="RefNo" xml:space="preserve">
+    <value>លេខសំគាល់</value>
+  </data>
+  <data name="DateRequest" xml:space="preserve">
+    <value>ស្នើសុំកាលបរិច្ឆេទ</value>
+  </data>
+  <data name="RequestAmount" xml:space="preserve">
+    <value>ស្នើសុំចំនួនទឹកប្រាក់</value>
+  </data>
+  <data name="CompletedDate" xml:space="preserve">
+    <value>បញ្ចប់កាលបរិច្ឆេទ</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>ស្ថានភាព</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>ការពិពណ៌នា</value>
+  </data>
+  <data name="PendingRequest" xml:space="preserve">
+    <value>សំណើដែលកំពុងរង់ចាំ</value>
+  </data>
+  <data name="CancelRequest" xml:space="preserve">
+    <value>សំណើដែលបោះបង់</value>
+  </data>
+  <data name="Err3001" xml:space="preserve">
+    <value>អ្នកមានសំណើដែលមិនទាន់សម្រេចរួច។ ដើម្បីបង្កើតសំណើថ្មី សូមលុបចោលសំណើចាស់ ឬក៏ រង់ចាំរហូតដល់ដំណើរការចាស់បញ្ចប់សិន។</value>
+  </data>
+  <data name="MinWithdraw" xml:space="preserve">
+    <value>ចំនួនទឹកប្រាក់ដកលុយអប្បបរមា</value>
+  </data>
+  <data name="RequestAmt" xml:space="preserve">
+    <value>បញ្ចូលចំនួនទឹកប្រាក់ដែលស្នើសុំ</value>
+  </data>
+  <data name="RequestPayoutSucc" xml:space="preserve">
+    <value>ការស្នើសុំទូទាត់ដោយភាពជោគជ័យ!</value>
+  </data>
+  <data name="RequestPayout" xml:space="preserve">
+    <value>ស្នើសុំការទូទាត់</value>
+  </data>
+  <data name="AConfirmationEmail" xml:space="preserve">
+    <value>អ៊ីមែលដែលបញ្ជាក់កំពុងផ្ញើទៅអ៊ីមែលរបស់អ្នកហើយ។</value>
+  </data>
+  <data name="EmailTitlePaymentCancel" xml:space="preserve">
+    <value>សំណើបង់ប្រាក់របស់អ្នកត្រូវបានលុបចោល</value>
+  </data>
+  <data name="CancelPayoutSucc" xml:space="preserve">
+    <value>សំណើបង់ប្រាក់របស់អ្នកត្រូវបានលុបចោល!</value>
+  </data>
+  <data name="TransactionID" xml:space="preserve">
+    <value>លេខ​សម្គាល់​ប្រតិ​ប​ត្ដិ​កា</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>ចំនួនទឹកប្រាក់</value>
+  </data>
+  <data name="DailyEarnings" xml:space="preserve">
+    <value>ប្រាក់ចំណូលទទួលបានប្រចាំថ្ងៃ</value>
+  </data>
+  <data name="MonthlyEarning" xml:space="preserve">
+    <value>ប្រាក់ចំណូលទទួលបានប្រចាំខែ</value>
+  </data>
+  <data name="Transaction" xml:space="preserve">
+    <value>ប្រតិបត្តិការ</value>
+  </data>
+  <data name="Adjustment" xml:space="preserve">
+    <value>ការកែតម្រូវ</value>
+  </data>
+  <data name="Current" xml:space="preserve">
+    <value>បច្ចុប្បន្នះ</value>
+  </data>
+  <data name="CurrentMonthlyEarning" xml:space="preserve">
+    <value>ប្រាក់ចំណូលទទួលបានប្រចាំខែនាពេលបច្ចុប្បន្ន</value>
+  </data>
+  <data name="CurrentMonthStatistics" xml:space="preserve">
+    <value>ស្ថិតិបច្ចុប្បន្នប្រចាំខែ</value>
+  </data>
+  <data name="UncalculatedMonth" xml:space="preserve">
+    <value>ខែដែលមិនបានគណនា</value>
+  </data>
+  <data name="UncalculatedMonthlyEarning" xml:space="preserve">
+    <value>ប្រាក់ចំណូលប្រចាំខែដែលមិនបានគណនា</value>
+  </data>
+  <data name="CurrentCommission" xml:space="preserve">
+    <value>ការបែងចែកប្រាក់ចំណេញបច្ចុប្បន្ន</value>
+  </data>
+  <data name="UncalculatedCommission" xml:space="preserve">
+    <value>ការបែងចែកប្រាក់ចំណូលដែលមិនបានគណនា</value>
+  </data>
+  <data name="MonthlyTotal" xml:space="preserve">
+    <value>សរុបប្រចាំខែ</value>
+  </data>
+  <data name="ProductType" xml:space="preserve">
+    <value>ប្រភេទ​ផលិតផល</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>ប្រភេទប្រព័ន្ធផ្សព្វផ្សាយ</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>ទំព័រ</value>
+  </data>
+  <data name="PageName" xml:space="preserve">
+    <value>ឈ្មោះទំព័រ</value>
+  </data>
+  <data name="IncludeInActiveLink" xml:space="preserve">
+    <value>រួមបញ្ចូលទំាងការតាមដានតំណលីងដែលអសកម្ម</value>
+  </data>
+  <data name="TotalClick" xml:space="preserve">
+    <value>ការចុចសរុប</value>
+  </data>
+  <data name="UniqueClick" xml:space="preserve">
+    <value>ការចុចប្លែកៗ</value>
+  </data>
+  <data name="FDM" xml:space="preserve">
+    <value>FDM</value>
+  </data>
+  <data name="none" xml:space="preserve">
+    <value>គ្មាន</value>
+  </data>
+  <data name="TrackingStatistics" xml:space="preserve">
+    <value>ស្ថិតិតាមដាន</value>
+  </data>
+  <data name="TrackingCode" xml:space="preserve">
+    <value>កូដតាមដាន</value>
+  </data>
+  <data name="SubjectForgetPass" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - ព័ត៌មានលម្អិតអំពីការចុចចូលរបស់អ្នក</value>
+  </data>
+  <data name="EmailTitleNewPassword" xml:space="preserve">
+    <value>លេខសម្ងាត់ថ្មីរបស់អ្នក</value>
+  </data>
+  <data name="SubjectNewPass" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - លេខសម្ងាត់ថ្មីរបស់អ្នក</value>
+  </data>
+  <data name="PaymentRequestCancelSubject" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - [{0}] - សំណើបង់ប្រាក់របស់អ្នកត្រូវបានលុបចោល</value>
+  </data>
+  <data name="PaymentRequestSubject" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - [{0}] - ការជូនដំណឹងអំពីសំណើទូទាត់</value>
+  </data>
+  <data name="CsdSubject" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C – គណនីថ្មី {0} កំពុងរង់ចាំការយល់ព្រម</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - ផ្ទៀងផ្ទាត់ព័ត៌មានលម្អិតអំពីគណនីរបស់អ្នក</value>
+  </data>
+  <data name="EmailTitlePayment" xml:space="preserve">
+    <value>សេចក្តីជូនដំណឹងអំពីការស្នើសុំការទូទាត់</value>
+  </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>ទៀងផ្ទាត់ព័ត៌មានលម្អិតគណនីរបស់អ្នក</value>
+  </data>
+  <data name="Thisisasystemau" xml:space="preserve">
+    <value>នេះជាអ៊ីមែលដែលគ្រប់គ្រងដោយប្រព័ន្ធស្វ័យប្រវត្តិ សូមកុំឆ្លើយតបអ៊ីមែលនេះដោយផ្ទាល់</value>
+  </data>
+  <data name="SaveQRCode" xml:space="preserve">
+    <value>រក្សាទុកQRកូដ</value>
+  </data>
+  <data name="CookIslands" xml:space="preserve">
+    <value>កោះឃុក</value>
+  </data>
+  <data name="EmailTitlePasswordRecovery" xml:space="preserve">
+    <value>ព័ត៌មានលម្អិតអំពីការចុចចូលរបស់អ្នក</value>
+  </data>
+  <data name="RngCasino" xml:space="preserve">
+    <value>RNG កាស៊ីណូ</value>
+  </data>
+  <data name="UsernameIsRequired" xml:space="preserve">
+    <value>ឈ្មោះគណនីអ្នកប្រើត្រូវបានទាមទារ</value>
+  </data>
+  <data name="QualifyingMembers" xml:space="preserve">
+    <value>&gt;= 5</value>
+  </data>
+  <data name="MyAccount" xml:space="preserve">
+    <value>គណនី​របស់អ្នក</value>
+  </data>
+  <data name="RevenueSharePayoutExample" xml:space="preserve">
+    <value>ការឧទាហរណ៍នៃចែករំលែកប្រាក់ចំណូល</value>
+  </data>
+  <data name="AddressIsRequired" xml:space="preserve">
+    <value>អាសយដ្ឋានត្រូវបានទាមទារ</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>ចប់</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>ប្រាក់ចំណេញសុទ្ធរបស់ក្រុមហ៊ុន (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
   </data>
 </root>

@@ -165,4 +165,7 @@
   <data name="General" xml:space="preserve">
     <value>处理您的请求是发生错误！</value>
   </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>无效的申请金额</value>
+  </data>
 </root>

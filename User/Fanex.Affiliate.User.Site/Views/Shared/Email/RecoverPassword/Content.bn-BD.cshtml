@@ -4,22 +4,22 @@
     var recoverUrl = Model.RootDomain + "Password/RecoverPassword?uid=" + userInfo.AffId + "&vid=" + Model.Code;
 }
 <div>
-    Dear @userInfo.FirstName,<br /><br />
+    প্রিয় @userInfo.FirstName,<br /><br />
 
-    You have requested to recover your username or password. If you did not request it, please ignore this email.<br />
-    Otherwise please visit the following link, then your new password will be emailed to you shortly:<br />
+    আপনি আপনার ব্যবহারকারীর নাম বা পাসওয়ার্ড উদ্ধার করতে অনুরোধ করেছেন। যদি আপনি এটি অনুরোধ না করেন তাহলে দয়া করে এই ইমেলটি উপেক্ষা করুন।<br />
+    অন্যথায়, দয়া করে নিম্নলিখিত লিংকে যান, তারপর আপনার নতুন পাসওয়ার্ড আপনাকে শীঘ্রই ইমেইল করা হবে:<br />
     <a href='@recoverUrl'>@recoverUrl</a><br /><br />
 
-    Please note<br />
-    * Your username is: @userInfo.UserName <br />
-    * Due to security reason, we must provide you a new password (you can change this at anytime later).<br />
-    * The above link will be expired and become useless in 24 hours time.<br /><br />
+    দয়া করে মন্তব্য করুন<br />
+    * আপনার ব্যবহারকারীর নাম হল: @userInfo.UserName <br />
+    * নিরাপত্তা কারণে, আমরা আপনাকে একটি নতুন পাসওয়ার্ড প্রদান করতে হবে (আপনি পরবর্তীতে এটি পরিবর্তন করতে পারবেন)।<br />
+    * উপরোক্ত লিংকটি 24 ঘণ্টা সময়ে মেয়াদ শেষ হবে এবং অপূর্ণ হবে।<br /><br />
 
-    Have a great day!<br /><br />
+    আপনার একটি মহান দিন হোক!<br /><br />
 
-    Best regards,<br /><br />
+    সবচেয়ে ভালো শুভেচ্ছা,<br /><br />
 
-    The team at @Model.SiteFriendlyName Affiliates<br />
+    @Model.SiteFriendlyName অফিলিয়েটস দল<br />
 
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

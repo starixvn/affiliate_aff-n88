@@ -92,12 +92,12 @@
     display: inline-block; }
     .pager-container .page-input .text-pageInfo {
       display: inline-block;
-      min-width: 126px;
+      min-width: 142px;
       font-size: 16px; }
       @media (max-width: 767px) {
         .pager-container .page-input .text-pageInfo {
           font-size: 14px;
-          min-width: 86px; } }
+          min-width: 125px; } }
     .pager-container .page-input:after, .pager-container .page-input:before {
       content: "";
       border: 1px solid #ccc; }

@@ -118,18 +118,69 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="General" xml:space="preserve">
-    <value>আপনার অনুরোধ প্রক্রিয়াকরণের সময় একটি ত্রুটি ঘটেছে!</value>
+    <value>আপনার অনুরোধ প্রক্রিয়াকরণের সময় একটি ত্রুটি ঘটেছে</value>
   </data>
   <data name="YourSessionHasExpired" xml:space="preserve">
     <value>আপনার সেশনের মেয়াদ শেষ হয়ে গেছে!</value>
   </data>
   <data name="PaymentAccNotExist" xml:space="preserve">
-    <value>পেমেন্ট অ্যাকাউন্ট অস্তিত্ব নেই</value>
+    <value>পেমেন্ট অ্যাকাউন্ট নেই।</value>
   </data>
   <data name="PaymentAccNotActive" xml:space="preserve">
-    <value>পেমেন্ট খেলোয়াড় অ্যাকাউন্ট সক্রিয় নয়, দয়া করে আপনার অ্যাকাউন্ট ম্যানেজারের সাথে যাচাই করুন।</value>
+    <value>পেমেন্ট গেমার অ্যাকাউন্ট সক্রিয় নয়, দয়া করে আপনার অ্যাকাউন্ট ম্যানেজারের সাথে যাচাই করুন।</value>
   </data>
   <data name="RequireIMAccount" xml:space="preserve">
     <value>কমপক্ষে একটি IM অ্যাকাউন্ট প্রয়োজন৷</value>
+  </data>
+  <data name="VerificationFailed" xml:space="preserve">
+    <value>অবৈধ/ মেয়াদোত্তীর্ণ যাচাইকরণ কোড, অনুগ্রহ করে আবার চেষ্টা করুন বা একটি নতুন অনুরোধ করুন।</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>অবৈধ ইমেল</value>
+  </data>
+  <data name="Wait60Seconds" xml:space="preserve">
+    <value>একটি নতুন কোড পাঠানোর আগে আপনাকে 60 সেকেন্ড অপেক্ষা করতে হবে।</value>
+  </data>
+  <data name="ForgotPassword1001" xml:space="preserve">
+    <value>আপনি একটি ইমেল ঠিকানা প্রবেশ করাননি যা আমরা চিনতে পারি। অনুগ্রহ করে আবার চেষ্টা করুন বা &lt;a href="{0}" class='err-msg'&gt;আমাদের সাথে যোগাযোগ করুন&lt;/a&gt;৷</value>
+  </data>
+  <data name="ForgotPassword1009" xml:space="preserve">
+    <value>এই ইমেল ঠিকানাটি একটি অ্যাফিলিয়েট দ্বারা ব্যবহার করা হচ্ছে যা নিষ্ক্রিয় বা অনুমোদিত নয়৷ অনুগ্রহ করে আবার চেষ্টা করুন বা &lt;a href="{0}" class='err-msg'&gt;আমাদের সাথে যোগাযোগ করুন&lt;/a&gt;৷</value>
+  </data>
+  <data name="ForgotPassword1008" xml:space="preserve">
+    <value>এই ইমেল ঠিকানাটি একটি অ্যাফিলিয়েট দ্বারা ব্যবহার করা হচ্ছে যা নিষ্ক্রিয় বা বন্ধ হয়ে গেছে। অনুগ্রহ করে আবার চেষ্টা করুন বা &lt;a href="{0}" class='err-msg'&gt;আমাদের সাথে যোগাযোগ করুন&lt;/a&gt;৷</value>
+  </data>
+  <data name="RecoverPassword1001" xml:space="preserve">
+    <value>আপনি একটি নতুন পাসওয়ার্ড অনুরোধ করার জন্য যে ঠিকানাটি ব্যবহার করেছেন সেটি বৈধ নয়৷</value>
+  </data>
+  <data name="NameToLong20" xml:space="preserve">
+    <value>চ্যানেলের নাম 20 অক্ষরের বেশি হতে পারে না। আবার চেক করুন</value>
+  </data>
+  <data name="ErrInValidAff" xml:space="preserve">
+    <value>অকার্যকর এফিলিয়েট</value>
+  </data>
+  <data name="ErrChannelExisted" xml:space="preserve">
+    <value>চ্যানেল ইতিমধ্যে বিদ্যমান। দয়া করে আবার পরীক্ষা করুন।</value>
+  </data>
+  <data name="ErrInternalError" xml:space="preserve">
+    <value>অভ্যন্তরীণ ত্রুটি। দয়া করে প্রশাসকের সাথে যোগাযোগ করুন।</value>
+  </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>অবৈধ অনুরোধ পরিমাণ</value>
+  </data>
+  <data name="PaymentMethodInvalid" xml:space="preserve">
+    <value>দুঃখিত! {0} এর মাধ্যমে পেমেন্ট উপলব্ধ নেই। বর্তমানে, কেবল 'B2C গেমার অ্যাকাউন্ট' পদ্ধতি সমর্থিত। পরিবর্তন করতে &lt;a href='{1}'&gt;এখানে ক্লিক করুন&lt;/a&gt;।</value>
+  </data>
+  <data name="PaymentBalanceInvalid" xml:space="preserve">
+    <value>আপনি পর্যাপ্ত ব্যালেন্স নেই এবং পেমেন্ট অনুরোধ করতে পারবেন না।</value>
+  </data>
+  <data name="PaymentPayoutTimeInvalid" xml:space="preserve">
+    <value>আপনি শুধুমাত্র 8 থেকে 15 তারিখ এর মধ্যে পেমেন্ট অনুরোধ করতে পারবেন।</value>
+  </data>
+  <data name="LoginWrongInfo" xml:space="preserve">
+    <value>ভুল ব্যবহারকারী নাম বা পাসওয়ার্ড.</value>
+  </data>
+  <data name="YourAccountHasBeenSuspended" xml:space="preserve">
+    <value>আপনার অ্যাকাউন্ট স্থগিত করা হয়েছে। আরও তথ্যের জন্য অনুগ্রহ করে আপনার অ্যাকাউন্ট ম্যানেজারের সাথে যোগাযোগ করুন।</value>
   </data>
 </root>

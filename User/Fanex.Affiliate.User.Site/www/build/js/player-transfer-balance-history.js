@@ -1248,15 +1248,19 @@
     var _languageCode;
     var pagingInfoText = {
         'en-US': 'Page {0} of {1}',
+        'bn-BD': 'পৃষ্ঠা {0} এর {1}',
+        'hi-IN': 'पेज {0} का {1}',
+        'km-KH': 'ទំព័រ {0} នៃ {1}',
+        'ms-MY': 'Halaman {0} dari {1}',
         'id-ID': 'Halaman {0} dari {1}',
         'zh-CN': '从 {0} 页到 {1} 页',
         'zh-TW': '從 {0} 頁到 {1} 頁',
         'th-TH': 'หน้า {0} จาก {1}',
-        'vi-VN': 'Trang {0}',
+        'vi-VN': 'Trang {0} của {1}',
         'ko-KR': '페이지 {0} 중 {1}'
     };
 
-    var defaultSupportedLangs = ['vi-VN', 'en-US'];
+    var defaultSupportedLangs = ['en-US', 'bn-BD', 'hi-IN', 'km-KH', 'ms-MY', 'id-ID', 'zh-CN', 'zh-TW', 'th-TH', 'vi-VN', 'ko-KR'];
     var defaultLang = 'en-US';
 
     var DEFAULT_PAGESIZE_LIST = [10, 20, 50, 100, 200];

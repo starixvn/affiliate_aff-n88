@@ -165,4 +165,7 @@
   <data name="General" xml:space="preserve">
     <value>เกิดข้อผิดพลาดขณะดำเนินการคำขอของคุณ!</value>
   </data>
+  <data name="PaymentAmountInvalid" xml:space="preserve">
+    <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง</value>
+  </data>
 </root>

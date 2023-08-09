@@ -286,7 +286,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Algeria .
+        ///   Looks up a localized string similar to Algeria.
         /// </summary>
         public static string Algeria {
             get {
@@ -349,20 +349,11 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid request amount! Amount must be between .
+        ///   Looks up a localized string similar to Invalid request amount! Amount must be between {0} and {1}.
         /// </summary>
         public static string AmtErr {
             get {
                 return ResourceManager.GetString("AmtErr", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to and.
-        /// </summary>
-        public static string And {
-            get {
-                return ResourceManager.GetString("And", resourceCulture);
             }
         }
         
@@ -376,7 +367,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Angola .
+        ///   Looks up a localized string similar to Angola.
         /// </summary>
         public static string Angola {
             get {
@@ -385,7 +376,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Anguilla .
+        ///   Looks up a localized string similar to Anguilla.
         /// </summary>
         public static string Anguilla {
             get {
@@ -430,7 +421,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Argentina .
+        ///   Looks up a localized string similar to Argentina.
         /// </summary>
         public static string Argentina {
             get {
@@ -439,7 +430,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Armenia .
+        ///   Looks up a localized string similar to Armenia.
         /// </summary>
         public static string Armenia {
             get {
@@ -448,7 +439,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aruba .
+        ///   Looks up a localized string similar to Aruba.
         /// </summary>
         public static string Aruba {
             get {
@@ -484,7 +475,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Australia .
+        ///   Looks up a localized string similar to Australia.
         /// </summary>
         public static string Australia {
             get {
@@ -493,7 +484,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Austria .
+        ///   Looks up a localized string similar to Austria.
         /// </summary>
         public static string Austria {
             get {
@@ -529,7 +520,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Azerbaijan .
+        ///   Looks up a localized string similar to Azerbaijan.
         /// </summary>
         public static string Azerbaijan {
             get {
@@ -547,7 +538,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bahamas .
+        ///   Looks up a localized string similar to Bahamas.
         /// </summary>
         public static string Bahamas {
             get {
@@ -556,20 +547,11 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bahrain .
+        ///   Looks up a localized string similar to Bahrain.
         /// </summary>
         public static string Bahrain {
             get {
                 return ResourceManager.GetString("Bahrain", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Balance Brought Forward.
-        /// </summary>
-        public static string BalanceBroughtForward {
-            get {
-                return ResourceManager.GetString("BalanceBroughtForward", resourceCulture);
             }
         }
         
@@ -583,7 +565,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bangladesh .
+        ///   Looks up a localized string similar to Bangladesh.
         /// </summary>
         public static string Bangladesh {
             get {
@@ -610,7 +592,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Barbados .
+        ///   Looks up a localized string similar to Barbados.
         /// </summary>
         public static string Barbados {
             get {
@@ -637,7 +619,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Belarus .
+        ///   Looks up a localized string similar to Belarus.
         /// </summary>
         public static string Belarus {
             get {
@@ -646,7 +628,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Belgium .
+        ///   Looks up a localized string similar to Belgium.
         /// </summary>
         public static string Belgium {
             get {
@@ -655,7 +637,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Belize .
+        ///   Looks up a localized string similar to Belize.
         /// </summary>
         public static string Belize {
             get {
@@ -664,7 +646,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Benin .
+        ///   Looks up a localized string similar to Benin.
         /// </summary>
         public static string Benin {
             get {
@@ -673,7 +655,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bermuda .
+        ///   Looks up a localized string similar to Bermuda.
         /// </summary>
         public static string Bermuda {
             get {
@@ -691,7 +673,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bhutan .
+        ///   Looks up a localized string similar to Bhutan.
         /// </summary>
         public static string Bhutan {
             get {
@@ -709,7 +691,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bolivia .
+        ///   Looks up a localized string similar to Bolivia.
         /// </summary>
         public static string Bolivia {
             get {
@@ -736,7 +718,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Botswana .
+        ///   Looks up a localized string similar to Botswana.
         /// </summary>
         public static string Botswana {
             get {
@@ -745,7 +727,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brazil .
+        ///   Looks up a localized string similar to Brazil.
         /// </summary>
         public static string Brazil {
             get {
@@ -763,7 +745,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bulgaria .
+        ///   Looks up a localized string similar to Bulgaria.
         /// </summary>
         public static string Bulgaria {
             get {
@@ -772,7 +754,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Burkina Faso .
+        ///   Looks up a localized string similar to Burkina Faso.
         /// </summary>
         public static string BurkinaFaso {
             get {
@@ -781,7 +763,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Burundi .
+        ///   Looks up a localized string similar to Burundi.
         /// </summary>
         public static string Burundi {
             get {
@@ -799,7 +781,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cambodia .
+        ///   Looks up a localized string similar to Cambodia.
         /// </summary>
         public static string Cambodia {
             get {
@@ -808,7 +790,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cameroon .
+        ///   Looks up a localized string similar to Cameroon.
         /// </summary>
         public static string Cameroon {
             get {
@@ -817,7 +799,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Canada .
+        ///   Looks up a localized string similar to Canada.
         /// </summary>
         public static string Canada {
             get {
@@ -961,7 +943,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cayman Islands .
+        ///   Looks up a localized string similar to Cayman Islands.
         /// </summary>
         public static string CaymanIslands {
             get {
@@ -970,7 +952,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Central African Rep .
+        ///   Looks up a localized string similar to Central African Rep.
         /// </summary>
         public static string CentralAfricanRep {
             get {
@@ -979,7 +961,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chad .
+        ///   Looks up a localized string similar to Chad.
         /// </summary>
         public static string Chad {
             get {
@@ -1024,7 +1006,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Chile .
+        ///   Looks up a localized string similar to Chile.
         /// </summary>
         public static string Chile {
             get {
@@ -1033,7 +1015,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to China (People&apos;s Rep) .
+        ///   Looks up a localized string similar to China (People&apos;s Rep).
         /// </summary>
         public static string ChinaPeoplesRep {
             get {
@@ -1213,7 +1195,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Congo(Rep) .
+        ///   Looks up a localized string similar to Congo(Rep).
         /// </summary>
         public static string CongoRep {
             get {
@@ -1267,7 +1249,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cook Islands .
+        ///   Looks up a localized string similar to Cook Islands.
         /// </summary>
         public static string CookIslands {
             get {
@@ -1321,7 +1303,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Costa Rica .
+        ///   Looks up a localized string similar to Costa Rica.
         /// </summary>
         public static string CostaRica {
             get {
@@ -1330,7 +1312,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cote d&apos;Ivoire (Rep) .
+        ///   Looks up a localized string similar to Cote d&apos;Ivoire (Rep).
         /// </summary>
         public static string CotedIvoireRep {
             get {
@@ -1366,7 +1348,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Croatia .
+        ///   Looks up a localized string similar to Croatia.
         /// </summary>
         public static string Croatia {
             get {
@@ -1375,7 +1357,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to B2C Affiliate – New account {0} awaiting approval.
+        ///   Looks up a localized string similar to B2C Affiliates – New account {0} awaiting approval.
         /// </summary>
         public static string CsdSubject {
             get {
@@ -1429,7 +1411,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cyprus .
+        ///   Looks up a localized string similar to Cyprus.
         /// </summary>
         public static string Cyprus {
             get {
@@ -1438,7 +1420,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Czech (Rep) .
+        ///   Looks up a localized string similar to Czech (Rep).
         /// </summary>
         public static string CzechRep {
             get {
@@ -1519,7 +1501,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dem Rep of Congo .
+        ///   Looks up a localized string similar to Dem Rep of Congo.
         /// </summary>
         public static string DemRepofCongo {
             get {
@@ -1528,7 +1510,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Denmark .
+        ///   Looks up a localized string similar to Denmark.
         /// </summary>
         public static string Denmark {
             get {
@@ -1618,7 +1600,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dominica (Commonwealth of) .
+        ///   Looks up a localized string similar to Dominica (Commonwealth of).
         /// </summary>
         public static string DominicaCommonwealthof {
             get {
@@ -1627,7 +1609,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dominican Rep. .
+        ///   Looks up a localized string similar to Dominican Rep..
         /// </summary>
         public static string DominicanRep {
             get {
@@ -1672,7 +1654,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ecuador .
+        ///   Looks up a localized string similar to Ecuador.
         /// </summary>
         public static string Ecuador {
             get {
@@ -1681,7 +1663,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Egypt .
+        ///   Looks up a localized string similar to Egypt.
         /// </summary>
         public static string Egypt {
             get {
@@ -1690,7 +1672,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to El Salvador .
+        ///   Looks up a localized string similar to El Salvador.
         /// </summary>
         public static string ElSalvador {
             get {
@@ -1834,7 +1816,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Eritrea .
+        ///   Looks up a localized string similar to Eritrea.
         /// </summary>
         public static string Eritrea {
             get {
@@ -1960,7 +1942,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Estonia .
+        ///   Looks up a localized string similar to Estonia.
         /// </summary>
         public static string Estonia {
             get {
@@ -1969,7 +1951,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ethiopia .
+        ///   Looks up a localized string similar to Ethiopia.
         /// </summary>
         public static string Ethiopia {
             get {
@@ -2032,7 +2014,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fiji .
+        ///   Looks up a localized string similar to Fiji.
         /// </summary>
         public static string Fiji {
             get {
@@ -2050,7 +2032,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Finland .
+        ///   Looks up a localized string similar to Finland.
         /// </summary>
         public static string Finland {
             get {
@@ -2131,7 +2113,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to French Polynesia .
+        ///   Looks up a localized string similar to French Polynesia.
         /// </summary>
         public static string FrenchPolynesia {
             get {
@@ -2149,7 +2131,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gabon .
+        ///   Looks up a localized string similar to Gabon.
         /// </summary>
         public static string Gabon {
             get {
@@ -2194,7 +2176,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Georgia .
+        ///   Looks up a localized string similar to Georgia.
         /// </summary>
         public static string Georgia {
             get {
@@ -2203,7 +2185,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Germany .
+        ///   Looks up a localized string similar to Germany.
         /// </summary>
         public static string Germany {
             get {
@@ -2239,7 +2221,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ghana .
+        ///   Looks up a localized string similar to Ghana.
         /// </summary>
         public static string Ghana {
             get {
@@ -2248,7 +2230,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gibraltar .
+        ///   Looks up a localized string similar to Gibraltar.
         /// </summary>
         public static string Gibraltar {
             get {
@@ -2275,7 +2257,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Greece .
+        ///   Looks up a localized string similar to Greece.
         /// </summary>
         public static string Greece {
             get {
@@ -2284,7 +2266,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Grenada .
+        ///   Looks up a localized string similar to Grenada.
         /// </summary>
         public static string Grenada {
             get {
@@ -2293,7 +2275,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guatemala .
+        ///   Looks up a localized string similar to Guatemala.
         /// </summary>
         public static string Guatemala {
             get {
@@ -2302,7 +2284,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guinea .
+        ///   Looks up a localized string similar to Guinea.
         /// </summary>
         public static string Guinea {
             get {
@@ -2311,7 +2293,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guyana .
+        ///   Looks up a localized string similar to Guyana.
         /// </summary>
         public static string Guyana {
             get {
@@ -2329,7 +2311,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Haiti .
+        ///   Looks up a localized string similar to Haiti.
         /// </summary>
         public static string Haiti {
             get {
@@ -2356,7 +2338,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Honduras .
+        ///   Looks up a localized string similar to Honduras.
         /// </summary>
         public static string Honduras {
             get {
@@ -2365,7 +2347,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hong Kong .
+        ///   Looks up a localized string similar to Hong Kong.
         /// </summary>
         public static string HongKong {
             get {
@@ -2401,7 +2383,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hungary .
+        ///   Looks up a localized string similar to Hungary.
         /// </summary>
         public static string Hungary {
             get {
@@ -2419,7 +2401,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iceland .
+        ///   Looks up a localized string similar to Iceland.
         /// </summary>
         public static string Iceland {
             get {
@@ -2482,7 +2464,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to India .
+        ///   Looks up a localized string similar to India.
         /// </summary>
         public static string India {
             get {
@@ -2491,7 +2473,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Indonesia .
+        ///   Looks up a localized string similar to Indonesia.
         /// </summary>
         public static string Indonesia {
             get {
@@ -2545,7 +2527,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iran .
+        ///   Looks up a localized string similar to Iran.
         /// </summary>
         public static string Iran {
             get {
@@ -2554,7 +2536,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Iraq .
+        ///   Looks up a localized string similar to Iraq.
         /// </summary>
         public static string Iraq {
             get {
@@ -2563,7 +2545,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ireland .
+        ///   Looks up a localized string similar to Ireland.
         /// </summary>
         public static string Ireland {
             get {
@@ -2581,7 +2563,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Israel .
+        ///   Looks up a localized string similar to Israel.
         /// </summary>
         public static string Israel {
             get {
@@ -2590,7 +2572,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Italy .
+        ///   Looks up a localized string similar to Italy.
         /// </summary>
         public static string Italy {
             get {
@@ -2599,7 +2581,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jamaica .
+        ///   Looks up a localized string similar to Jamaica.
         /// </summary>
         public static string Jamaica {
             get {
@@ -2608,7 +2590,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Japan .
+        ///   Looks up a localized string similar to Japan.
         /// </summary>
         public static string Japan {
             get {
@@ -2644,7 +2626,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Jordan .
+        ///   Looks up a localized string similar to Jordan.
         /// </summary>
         public static string Jordan {
             get {
@@ -2653,7 +2635,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kenya .
+        ///   Looks up a localized string similar to Kenya.
         /// </summary>
         public static string Kenya {
             get {
@@ -2662,7 +2644,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Korea (Rep) .
+        ///   Looks up a localized string similar to Korea (Rep).
         /// </summary>
         public static string KoreaRep {
             get {
@@ -2671,7 +2653,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kuwait .
+        ///   Looks up a localized string similar to Kuwait.
         /// </summary>
         public static string Kuwait {
             get {
@@ -2743,7 +2725,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Latvia .
+        ///   Looks up a localized string similar to Latvia.
         /// </summary>
         public static string Latvia {
             get {
@@ -2779,7 +2761,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lesotho .
+        ///   Looks up a localized string similar to Lesotho.
         /// </summary>
         public static string Lesotho {
             get {
@@ -2788,7 +2770,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Liechtenstein .
+        ///   Looks up a localized string similar to Liechtenstein.
         /// </summary>
         public static string Liechtenstein {
             get {
@@ -2851,7 +2833,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Name .
+        ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LName {
             get {
@@ -2878,7 +2860,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Luxembourg .
+        ///   Looks up a localized string similar to Luxembourg.
         /// </summary>
         public static string Luxembourg {
             get {
@@ -2887,7 +2869,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Macao .
+        ///   Looks up a localized string similar to Macao.
         /// </summary>
         public static string Macao {
             get {
@@ -2896,7 +2878,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Macedonia .
+        ///   Looks up a localized string similar to Macedonia.
         /// </summary>
         public static string Macedonia {
             get {
@@ -2905,7 +2887,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Madagascar .
+        ///   Looks up a localized string similar to Madagascar.
         /// </summary>
         public static string Madagascar {
             get {
@@ -2923,7 +2905,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Malawi .
+        ///   Looks up a localized string similar to Malawi.
         /// </summary>
         public static string Malawi {
             get {
@@ -2932,7 +2914,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Malaysia .
+        ///   Looks up a localized string similar to Malaysia.
         /// </summary>
         public static string Malaysia {
             get {
@@ -2941,7 +2923,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maldives .
+        ///   Looks up a localized string similar to Maldives.
         /// </summary>
         public static string Maldives {
             get {
@@ -2959,7 +2941,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mali .
+        ///   Looks up a localized string similar to Mali.
         /// </summary>
         public static string Mali {
             get {
@@ -2968,7 +2950,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Malta .
+        ///   Looks up a localized string similar to Malta.
         /// </summary>
         public static string Malta {
             get {
@@ -3004,7 +2986,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mauritania .
+        ///   Looks up a localized string similar to Mauritania.
         /// </summary>
         public static string Mauritania {
             get {
@@ -3013,7 +2995,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mauritius .
+        ///   Looks up a localized string similar to Mauritius.
         /// </summary>
         public static string Mauritius {
             get {
@@ -3067,7 +3049,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mexico .
+        ///   Looks up a localized string similar to Mexico.
         /// </summary>
         public static string Mexico {
             get {
@@ -3130,7 +3112,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moldova .
+        ///   Looks up a localized string similar to Moldova.
         /// </summary>
         public static string Moldova {
             get {
@@ -3139,7 +3121,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mongolia .
+        ///   Looks up a localized string similar to Mongolia.
         /// </summary>
         public static string Mongolia {
             get {
@@ -3175,7 +3157,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Morocco .
+        ///   Looks up a localized string similar to Morocco.
         /// </summary>
         public static string Morocco {
             get {
@@ -3204,15 +3186,6 @@ namespace Fanex.Affiliate.User.Core.Resources {
         /// <summary>
         ///   Looks up a localized string similar to My Account.
         /// </summary>
-        public static string MyAcc {
-            get {
-                return ResourceManager.GetString("MyAcc", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to My Account.
-        /// </summary>
         public static string MyAccount {
             get {
                 return ResourceManager.GetString("MyAccount", resourceCulture);
@@ -3220,7 +3193,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Myanmar .
+        ///   Looks up a localized string similar to Myanmar.
         /// </summary>
         public static string Myanmar {
             get {
@@ -3238,7 +3211,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Namibia .
+        ///   Looks up a localized string similar to Namibia.
         /// </summary>
         public static string Namibia {
             get {
@@ -3247,7 +3220,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nauru .
+        ///   Looks up a localized string similar to Nauru.
         /// </summary>
         public static string Nauru {
             get {
@@ -3256,7 +3229,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nepal .
+        ///   Looks up a localized string similar to Nepal.
         /// </summary>
         public static string Nepal {
             get {
@@ -3265,7 +3238,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Netherlands .
+        ///   Looks up a localized string similar to Netherlands.
         /// </summary>
         public static string Netherlands {
             get {
@@ -3292,7 +3265,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New banner is now available! .
+        ///   Looks up a localized string similar to New banner is now available!.
         /// </summary>
         public static string NewBannerIsNowAvailable {
             get {
@@ -3301,7 +3274,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Caledonia .
+        ///   Looks up a localized string similar to New Caledonia.
         /// </summary>
         public static string NewCaledonia {
             get {
@@ -3346,7 +3319,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Zealand .
+        ///   Looks up a localized string similar to New Zealand.
         /// </summary>
         public static string NewZealand {
             get {
@@ -3355,7 +3328,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Niger .
+        ///   Looks up a localized string similar to Niger.
         /// </summary>
         public static string Niger {
             get {
@@ -3364,7 +3337,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nigeria .
+        ///   Looks up a localized string similar to Nigeria.
         /// </summary>
         public static string Nigeria {
             get {
@@ -3400,7 +3373,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Norway .
+        ///   Looks up a localized string similar to Norway.
         /// </summary>
         public static string Norway {
             get {
@@ -3499,7 +3472,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oman .
+        ///   Looks up a localized string similar to Oman.
         /// </summary>
         public static string Oman {
             get {
@@ -3544,6 +3517,24 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 15,000.
+        /// </summary>
+        public static string P1N88 {
+            get {
+                return ResourceManager.GetString("P1N88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 29,000.
+        /// </summary>
+        public static string P2N88 {
+            get {
+                return ResourceManager.GetString("P2N88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Revenue Share (P2P included).
         /// </summary>
         public static string P2pIncluded {
@@ -3558,6 +3549,33 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string P2pRevenueShare {
             get {
                 return ResourceManager.GetString("P2pRevenueShare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 17,000.
+        /// </summary>
+        public static string P3N88 {
+            get {
+                return ResourceManager.GetString("P3N88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 45,000.
+        /// </summary>
+        public static string P4N88 {
+            get {
+                return ResourceManager.GetString("P4N88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 23,000.
+        /// </summary>
+        public static string P5N88 {
+            get {
+                return ResourceManager.GetString("P5N88", resourceCulture);
             }
         }
         
@@ -3589,7 +3607,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Panama .
+        ///   Looks up a localized string similar to Panama.
         /// </summary>
         public static string Panama {
             get {
@@ -3598,7 +3616,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Papua New Guinea .
+        ///   Looks up a localized string similar to Papua New Guinea.
         /// </summary>
         public static string PapuaNewGuinea {
             get {
@@ -3607,7 +3625,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Paraguay .
+        ///   Looks up a localized string similar to Paraguay.
         /// </summary>
         public static string Paraguay {
             get {
@@ -3733,7 +3751,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Peru .
+        ///   Looks up a localized string similar to Peru.
         /// </summary>
         public static string Peru {
             get {
@@ -3751,7 +3769,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Philippines .
+        ///   Looks up a localized string similar to Philippines.
         /// </summary>
         public static string Philippines {
             get {
@@ -3850,7 +3868,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Poland .
+        ///   Looks up a localized string similar to Poland.
         /// </summary>
         public static string Poland {
             get {
@@ -3868,7 +3886,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Portugal .
+        ///   Looks up a localized string similar to Portugal.
         /// </summary>
         public static string Portugal {
             get {
@@ -3976,7 +3994,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Qatar .
+        ///   Looks up a localized string similar to Qatar.
         /// </summary>
         public static string Qatar {
             get {
@@ -4237,7 +4255,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Romania .
+        ///   Looks up a localized string similar to Romania.
         /// </summary>
         public static string Romania {
             get {
@@ -4264,7 +4282,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Russian Federation .
+        ///   Looks up a localized string similar to Russian Federation.
         /// </summary>
         public static string RussianFederation {
             get {
@@ -4273,7 +4291,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rwanda .
+        ///   Looks up a localized string similar to Rwanda.
         /// </summary>
         public static string Rwanda {
             get {
@@ -4300,7 +4318,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saint Christopher (St. Kitts) and Nevis .
+        ///   Looks up a localized string similar to Saint Christopher (St. Kitts) and Nevis.
         /// </summary>
         public static string SaintChristopherStKittsandNevis {
             get {
@@ -4309,7 +4327,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saint Lucia .
+        ///   Looks up a localized string similar to Saint Lucia.
         /// </summary>
         public static string SaintLucia {
             get {
@@ -4318,7 +4336,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saint Vincent and the Grenadines .
+        ///   Looks up a localized string similar to Saint Vincent and the Grenadines.
         /// </summary>
         public static string SaintVincentandtheGrenadines {
             get {
@@ -4327,7 +4345,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sao Tome and Principe .
+        ///   Looks up a localized string similar to Sao Tome and Principe.
         /// </summary>
         public static string SaoTomeandPrincipe {
             get {
@@ -4336,7 +4354,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saudi Arabia .
+        ///   Looks up a localized string similar to Saudi Arabia.
         /// </summary>
         public static string SaudiArabia {
             get {
@@ -4417,7 +4435,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Senegal .
+        ///   Looks up a localized string similar to Senegal.
         /// </summary>
         public static string Senegal {
             get {
@@ -4435,7 +4453,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Seychelles .
+        ///   Looks up a localized string similar to Seychelles.
         /// </summary>
         public static string Seychelles {
             get {
@@ -4462,7 +4480,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sierra Leone .
+        ///   Looks up a localized string similar to Sierra Leone.
         /// </summary>
         public static string SierraLeone {
             get {
@@ -4507,7 +4525,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Singapore .
+        ///   Looks up a localized string similar to Singapore.
         /// </summary>
         public static string Singapore {
             get {
@@ -4525,7 +4543,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Media Size.
+        ///   Looks up a localized string similar to Size.
         /// </summary>
         public static string Size {
             get {
@@ -4552,7 +4570,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slovakia .
+        ///   Looks up a localized string similar to Slovakia.
         /// </summary>
         public static string Slovakia {
             get {
@@ -4561,7 +4579,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Slovenia .
+        ///   Looks up a localized string similar to Slovenia.
         /// </summary>
         public static string Slovenia {
             get {
@@ -4579,7 +4597,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Solomon Islands .
+        ///   Looks up a localized string similar to Solomon Islands.
         /// </summary>
         public static string SolomonIslands {
             get {
@@ -4588,7 +4606,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Somalia .
+        ///   Looks up a localized string similar to Somalia.
         /// </summary>
         public static string Somalia {
             get {
@@ -4597,7 +4615,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to South Africa .
+        ///   Looks up a localized string similar to South Africa.
         /// </summary>
         public static string SouthAfrica {
             get {
@@ -4615,7 +4633,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spain .
+        ///   Looks up a localized string similar to Spain.
         /// </summary>
         public static string Spain {
             get {
@@ -4642,7 +4660,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sri Lanka .
+        ///   Looks up a localized string similar to Sri Lanka.
         /// </summary>
         public static string SriLanka {
             get {
@@ -4804,7 +4822,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sudan .
+        ///   Looks up a localized string similar to Sudan.
         /// </summary>
         public static string Sudan {
             get {
@@ -4840,7 +4858,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Suriname .
+        ///   Looks up a localized string similar to Suriname.
         /// </summary>
         public static string Suriname {
             get {
@@ -4867,7 +4885,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Swaziland .
+        ///   Looks up a localized string similar to Swaziland.
         /// </summary>
         public static string Swaziland {
             get {
@@ -4876,7 +4894,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sweden .
+        ///   Looks up a localized string similar to Sweden.
         /// </summary>
         public static string Sweden {
             get {
@@ -4885,7 +4903,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Switzerland .
+        ///   Looks up a localized string similar to Switzerland.
         /// </summary>
         public static string Switzerland {
             get {
@@ -4903,7 +4921,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Taiwan .
+        ///   Looks up a localized string similar to Taiwan.
         /// </summary>
         public static string Taiwan {
             get {
@@ -4912,7 +4930,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tanzania .
+        ///   Looks up a localized string similar to Tanzania.
         /// </summary>
         public static string Tanzania {
             get {
@@ -4984,7 +5002,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thailand .
+        ///   Looks up a localized string similar to Thailand.
         /// </summary>
         public static string Thailand {
             get {
@@ -5047,7 +5065,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Togo .
+        ///   Looks up a localized string similar to Togo.
         /// </summary>
         public static string Togo {
             get {
@@ -5115,6 +5133,15 @@ namespace Fanex.Affiliate.User.Core.Resources {
         public static string TotalGGR {
             get {
                 return ResourceManager.GetString("TotalGGR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 129,000.
+        /// </summary>
+        public static string TotalN88 {
+            get {
+                return ResourceManager.GetString("TotalN88", resourceCulture);
             }
         }
         
@@ -5218,7 +5245,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trinidad and Tobago .
+        ///   Looks up a localized string similar to Trinidad and Tobago.
         /// </summary>
         public static string TrinidadandTobago {
             get {
@@ -5227,7 +5254,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tunisia .
+        ///   Looks up a localized string similar to Tunisia.
         /// </summary>
         public static string Tunisia {
             get {
@@ -5236,7 +5263,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turkey .
+        ///   Looks up a localized string similar to Turkey.
         /// </summary>
         public static string Turkey {
             get {
@@ -5272,7 +5299,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uganda .
+        ///   Looks up a localized string similar to Uganda.
         /// </summary>
         public static string Uganda {
             get {
@@ -5281,7 +5308,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ukraine .
+        ///   Looks up a localized string similar to Ukraine.
         /// </summary>
         public static string Ukraine {
             get {
@@ -5344,7 +5371,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to United Arab Emirates .
+        ///   Looks up a localized string similar to United Arab Emirates.
         /// </summary>
         public static string UnitedArabEmirates {
             get {
@@ -5362,7 +5389,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to United States of America .
+        ///   Looks up a localized string similar to United States of America.
         /// </summary>
         public static string UnitedStatesofAmerica {
             get {
@@ -5389,7 +5416,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uruguay .
+        ///   Looks up a localized string similar to Uruguay.
         /// </summary>
         public static string Uruguay {
             get {
@@ -5488,7 +5515,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Venezuela .
+        ///   Looks up a localized string similar to Venezuela.
         /// </summary>
         public static string Venezuela {
             get {
@@ -5533,7 +5560,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Viet Nam .
+        ///   Looks up a localized string similar to Viet Nam.
         /// </summary>
         public static string VietNam {
             get {
@@ -5596,7 +5623,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Western Samoa .
+        ///   Looks up a localized string similar to Western Samoa.
         /// </summary>
         public static string WesternSamoa {
             get {
@@ -5614,7 +5641,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to What&apos;s New in B2C Promotion ! .
+        ///   Looks up a localized string similar to What&apos;s New in B2C Promotion !.
         /// </summary>
         public static string WhatNewInOneTwoBetPromotion {
             get {
@@ -5704,7 +5731,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yemen .
+        ///   Looks up a localized string similar to Yemen.
         /// </summary>
         public static string Yemen {
             get {
@@ -5722,7 +5749,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can now log in your affiliate account to  get new banners to promote in your website. .
+        ///   Looks up a localized string similar to You can now log in your affiliate account to  get new banners to promote in your website..
         /// </summary>
         public static string YouCanNowLogInYourAffiliateAccount {
             get {
@@ -5794,7 +5821,16 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Yugoslavia .
+        ///   Looks up a localized string similar to 58,050.
+        /// </summary>
+        public static string YourRevenueShareN88 {
+            get {
+                return ResourceManager.GetString("YourRevenueShareN88", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yugoslavia.
         /// </summary>
         public static string Yugoslavia {
             get {
@@ -5803,7 +5839,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zambia .
+        ///   Looks up a localized string similar to Zambia.
         /// </summary>
         public static string Zambia {
             get {
@@ -5812,7 +5848,7 @@ namespace Fanex.Affiliate.User.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Zimbabwe .
+        ///   Looks up a localized string similar to Zimbabwe.
         /// </summary>
         public static string Zimbabwe {
             get {

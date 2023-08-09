@@ -3,21 +3,21 @@
     var userInfo = Model.User;
 }
 <div>
-    Dear @userInfo.FirstName,<br /><br />
+    প্রিয় @userInfo.FirstName,<br /><br />
 
-    As you have requested, we provide you a new password. Your new account information is as below:<br /><br />
+    আপনি যে অনুরোধ করেছেন, আমরা আপনাকে একটি নতুন পাসওয়ার্ড প্রদান করেছি। আপনার নতুন অ্যাকাউন্টের তথ্য নিম্নলিখিত:<br /><br />
 
     --------------------------------------------------------<br />
-    User Name: @userInfo.UserName<br />
-    Password: @Model.NewPassword<br />
+    ব্যবহারকারী নাম: @userInfo.UserName<br />
+    পাসওয়ার্ড: @Model.NewPassword<br />
     --------------------------------------------------------<br /><br />
 
-    However, you can visit <a href="@Model.RootDomain">@Model.RootDomain</a> to change your password at anytime<br /><br />
+    তবে, আপনি যে সময় চান, <a href="@Model.RootDomain">@Model.RootDomain</a> এ গিয়ে আপনার পাসওয়ার্ড পরিবর্তন করতে পারেন।<br /><br />
 
-    Have a great day!<br /><br />
+    আপনার একটি মহান দিন হোক!<br /><br />
 
-    Best regards,<br /><br />
+    সবচেয়ে ভালো শুভেচ্ছা,<br /><br />
 
-    The team at @Model.SiteFriendlyName Affiliates<br />
+    @Model.SiteFriendlyName অফিলিয়েটস দল<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>

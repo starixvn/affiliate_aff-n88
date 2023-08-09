@@ -154,10 +154,7 @@
     <value>จำนวนเงิน</value>
   </data>
   <data name="AmtErr" xml:space="preserve">
-    <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง  จำนวนเงินต้องอยู่ระหว่าง</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>และ</value>
+    <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง  จำนวนเงินต้องอยู่ระหว่าง {0} และ {1}</value>
   </data>
   <data name="Angola" xml:space="preserve">
     <value>แองโกล่า</value>
@@ -729,9 +726,6 @@
   <data name="Msgkickout" xml:space="preserve">
     <value>มีคนเข้าระบบหรือว่าเวลาในระบบของคุณไม่ถูกต้อง  คุณถูกบังคับให้ออกจากระบบ</value>
   </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>บัญชีของฉัน</value>
-  </data>
   <data name="Myanmar" xml:space="preserve">
     <value>พม่า</value>
   </data>
@@ -967,7 +961,7 @@
     <value>สิงคโปร์</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>ขนาดแบนเนอร์</value>
+    <value>ขนาด</value>
   </data>
   <data name="Slot" xml:space="preserve">
     <value>สล็อต</value>
@@ -1709,5 +1703,74 @@
   </data>
   <data name="YggDrasil" xml:space="preserve">
     <value>YGG DRASIL</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>ยอดได้/เสียรวมของสมาชิก (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
   </data>
 </root>

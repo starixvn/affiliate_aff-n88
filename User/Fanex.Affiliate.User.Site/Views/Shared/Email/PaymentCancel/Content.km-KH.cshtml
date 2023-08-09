@@ -1,17 +1,17 @@
 ﻿@model Fanex.Affiliate.User.Core.MetalModels.Email.PaymentEmailParam
 <div>
-    Dear @Model.User.FirstName,<br /><br />
+    សូមគោរព @Model.User.FirstName,<br /><br />
 
-    Request reference number is @Model.TransId, dated @Model.RequestDate.ToString("MM/dd/yyyy") .<br /><br />
+    ស្នើសុំលេខយោងគឺ @Model.TransId ចុះថ្ងៃទី @Model.RequestDate.ToString("MM/dd/yyyy")<br /><br />
 
-    Your payment request amount of @Model.Amount @Model.DefaultCurrency has been cancelled.<br /><br />
+    សំណើបង់ប្រាក់របស់អ្នកចំនួន @Model.Amount @Model.DefaultCurrency ត្រូវបានលុបចោល<br /><br />
 
-    This is a system auto generated email, please do not reply to this email directly.<br />
-    Do not hesitate to contact us if you have any questions or comments at <a href="mailto:@Model.MailContact">@Model.MailContact</a>.<br /><br />
+    នេះជាអ៊ីមែលដែលគ្រប់គ្រងដោយប្រព័ន្ធស្វ័យប្រវត្តិ សូមកុំឆ្លើយតបអ៊ីមែលនេះដោយផ្ទាល់<br />
+    សូមកុំស្ទាក់ស្ទើរក្នុងការទាក់ទងមកកាន់យើងខ្ញុំ <a href="mailto:@Model.MailContact">@Model.MailContact</a> ប្រសិនបើលោកអ្នកមានចម្ងល់ ឬ មតិយោបល់បន្ថែមទៀត<br /><br />
 
-    Have a great day!<br /><br />
+    សូម​ឱ្យជួបតែសំណាងល្អសម្រាប់ថ្ងៃនេះ<br /><br />
 
-    Best regards,<br /><br />
+    សូមគោរព<br /><br />
 
-    The team at @Model.SiteFriendlyName Affiliates
+    ក្រុមសាខាសម្ព័ន្ធនៅ@Model.SiteFriendlyName
 </div>

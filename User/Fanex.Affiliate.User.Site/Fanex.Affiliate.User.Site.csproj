@@ -1175,7 +1175,7 @@
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.mobile.en-US.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.mobile.vi-VN.jpg" />
     <Content Include="www\build\styles\Images\promotion-banners\n8g\promotion.vi-VN.jpg" />
-    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.v--VN.png" />
+    <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.vi-VN.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.km-KH.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.bn-BD.png" />
     <Content Include="www\build\styles\Images\revenue-share-structure\n88\revenue_share_hierarchy.en-US.png" />
@@ -1758,7 +1758,7 @@
     <Content Include="Views\Shared\Email\RecoverPassword\Content.km-KH.cshtml" />
     <Content Include="Views\Shared\Email\RecoverPassword\Content.bn-BD.cshtml" />
     <Content Include="Views\Shared\Email\VerificationAccount\Content.bn-BD.cshtml" />
-    <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH%29.cshtml" />
+    <Content Include="Views\Shared\Email\VerificationAccount\Content.km-KH.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -44,7 +44,7 @@
 
 <script type="text/javascript">
     var resourceLang = {
-        invalidRange: '@($"{Lang.AmtErr} {Model.MinAmount.ToStringMoneyWithSymbol()} {Lang.And} {Model.BalBroughtForward.ToStringMoneyWithSymbol()}")',
+        invalidRange: '@string.Format(Lang.AmtErr, Model.MinAmount.ToStringMoneyWithSymbol(), Model.BalBroughtForward.ToStringMoneyWithSymbol())',
         invalidAmount: '@Error.PaymentAmountInvalid'
     }
 </script>
