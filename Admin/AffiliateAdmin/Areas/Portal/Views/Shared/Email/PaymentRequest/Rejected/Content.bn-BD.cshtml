@@ -1,16 +1,16 @@
 ﻿@model Fanex.Affiliate.Admin.Core.DTO.Email.PaymentRequestUpdateEmail
 
-    <div>
-        Dear @Raw(Model.FirstName),  <br /><br />
+<div>
+    প্রিয় @Raw(Model.FirstName),  <br /><br />
 
-        Request reference number is @Model.TransId, dated @Model.TransDate.<br /><br />
+    অনুরোধ রেফারেন্স নম্বর হল @Model.TransId, তারিখ @Model.TransDate<br /><br />
 
-        We regret to inform you that your payment request amount of @Model.Amount @Model.DefaultCurrency has been rejected.<br /><br />
+    আমরা দুঃখিত যাত্রী, আপনার @Model.Amount @Model.DefaultCurrency পেমেন্ট অনুরোধটি প্রত্যাখ্যাত করা হয়েছে।<br /><br />
 
-        Please contact us at <a href="mailto:@Model.MailContact">@Model.MailContact</a> for assistance.<br />
-        This is a system auto generated email, please do not reply to this email directly.<br /><br />
+    সাহায্যের জন্য <a href="mailto:@Model.MailContact">@Model.MailContact</a> এ আমাদের সাথে যোগাযোগ করুন।<br />
+    এটি একটি সিস্টেম স্বয়ংক্রিয় জেনারেট ইমেল, দয়া করে এই ইমেলে সরাসরি উত্তর দিবেন না।<br />
 
-        Sincerely,<br /><br />
-        @(Model.SiteFriendlyName) Affiliates Team<br />
-        <a href="mailto:@Model.MailContact">@Model.MailContact</a>
-    </div>
+    সাদরে,<br /><br />
+    @(Model.SiteFriendlyName) অফিলিয়েট টীম<br />
+    <a href="mailto:@Model.MailContact">@Model.MailContact</a>
+</div>

@@ -1129,7 +1129,7 @@
     <value>Uruguay</value>
   </data>
   <data name="Username" xml:space="preserve">
-    <value>Tên Đăng Nhập</value>
+    <value>Tên đăng nhập</value>
   </data>
   <data name="Validation" xml:space="preserve">
     <value>Xác Thực</value>
@@ -1345,7 +1345,7 @@
     <value>Di động</value>
   </data>
   <data name="UsernameSignUp" xml:space="preserve">
-    <value>Tên truy cập B2C</value>
+    <value>Tên đăng nhập B2C</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>&gt;= 5</value>

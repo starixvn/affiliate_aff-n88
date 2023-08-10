@@ -4,22 +4,22 @@
 }
 
 <div>
-    Dear @Raw(Model.FirstName),<br /><br />
+    প্রিয় @Raw(Model.FirstName),<br /><br />
 
-    Congratulations, your application to become a @(Model.SiteFriendlyName) Affiliates has been approved!<br /><br />
+    অভিনন্দন, @(Model.SiteFriendlyName) অফিলিয়েট হওয়ার আপনার আবেদন অনুমোদিত হয়েছে!<br /><br />
 
-    We are glad to have you as part of our Affiliates family and we are looking forward to building a profitable business relationship with you.  Please use the below information to sign into your @(Model.SiteFriendlyName) affiliate account:<br /><br />
+    আমরা আপনাকে আমাদের অফিলিয়েট পরিবারে স্বাগত জানাই এবং আমরা আপনার সাথে একটি লাভজনক ব্যবসায়িক সম্পর্ক গড়তে উদ্বুদ্ধ আছি। নীচের তথ্যটি ব্যবহার করে আপনার @(Model.SiteFriendlyName) অফিলিয়েট অ্যাকাউন্টে সাইন ইন করুন:<br /><br />
 
-    Text link: @(isN88 ? "Website (Insert backlink" : "") <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a>@(isN88 ? ")" : "")<br />
-    Username: @Model.UserName<br />
-    Password: @Model.Password<br />
-    Affiliate ID: @Model.AffCode<br /><br />
+    পাঠ্য লিঙ্ক: @(isN88 ? "Website (Insert backlink" : "") <a href="@Model.UserSiteUrl">@Model.UserSiteUrl</a>@(isN88 ? ")" : "")<br />
+    ব্যবহারকারীনাম: @Model.UserName<br />
+    পাসওয়ার্ড: @Model.Password<br />
+    অ্যাফিলিয়েট আইডি: @Model.AffCode<br /><br />
 
-    In your account you will find your affiliate tracking URL as well as banners and promotional materials. Send your traffic and start earning today!<br /><br />
+    আপনার অ্যাকাউন্টে আপনি আপনার অফিলিয়েট ট্র্যাকিং ইউআরএল সহ ব্যানার এবং প্রমোশনাল উপাদান পেতে পাবেন। আপনার ট্র্যাফিক প্রেরণ করুন এবং আজই উপার্জন শুরু করুন!<br /><br />
 
-    If you have any questions and require any help please do not hesitate to contact us. <br /><br />
+    যদি আপনার কোনও প্রশ্ন থাকে এবং সাহায্য প্রয়োজন হয় তবে অনুগ্রহ করে আমাদের সাথে যোগাযোগ করতে সহজেই বিলম্ব করবেন না।<br /><br />
 
-    Sincerely,<br /><br />
-    @(Model.SiteFriendlyName) Affiliates Team<br />
+    সাদরে,<br /><br />
+    @(Model.SiteFriendlyName) অফিলিয়েট টীম<br />
     <a href="mailto:@Model.MailContact">@Model.MailContact</a>
 </div>
