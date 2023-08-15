@@ -69,11 +69,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
                         {
                             MessageId = Convert.ToInt32(reader[Field.MessageId]),
                             Important = Convert.ToBoolean(reader["Important"]),
+                            MessageContentbn = Convert.ToString(reader["message_bn"]),
                             MessageContenten = Convert.ToString(reader["message_en"]),
                             MessageContentcs = Convert.ToString(reader["message_cn"]),
                             MessageContentth = Convert.ToString(reader["message_th"]),
                             MessageContentvn = Convert.ToString(reader["message_vi"]),
                             MessageContentid = Convert.ToString(reader["message_id"]),
+                            MessageContentkh = Convert.ToString(reader["message_kh"]),
                             MessageContenthi = Convert.ToString(reader["message_hi"]),
                             MessageContentms = Convert.ToString(reader["message_ms"]),
                         };
@@ -134,11 +136,13 @@ namespace Fanex.Affiliate.Admin.Core.Services.Message
         private static void AssignParam(IObjectDb objectDb, InsertUpdateMessageParam param)
         {
             objectDb.SetParameterValue("IsImportant", param.Important);
+            objectDb.SetParameterValue("msgbn", param.MessageContentbn);
             objectDb.SetParameterValue("msgen", param.MessageContenten);
             objectDb.SetParameterValue("msgcn", param.MessageContentcs);
             objectDb.SetParameterValue("msgth", param.MessageContentth);
             objectDb.SetParameterValue("msgvi", param.MessageContentvn);
             objectDb.SetParameterValue("msgid", param.MessageContentid);
+            objectDb.SetParameterValue("msgkh", param.MessageContentkh);
             objectDb.SetParameterValue("msghi", param.MessageContenthi);
             objectDb.SetParameterValue("msgms", param.MessageContentms);
             objectDb.SetParameterValue("UserID", param.UserId);
