@@ -14,11 +14,13 @@ namespace Affiliate.N88.Jobs.Controllers
     {
         private readonly ILicenseeApi _licenseeApi;
         private readonly IFetchBetRecordDataTask _fetchBetRecordService;
+        private readonly IFetchCustomerDataTask _fetchCustomerService;
 
-        public HomeController(ILicenseeApi lincenseeApi, IFetchBetRecordDataTask fetchBetRecordService)
+        public HomeController(ILicenseeApi lincenseeApi, IFetchBetRecordDataTask fetchBetRecordService, IFetchCustomerDataTask fetchCustomerDataTask)
         {
             _licenseeApi = lincenseeApi;
             _fetchBetRecordService = fetchBetRecordService;
+            _fetchCustomerService = fetchCustomerDataTask;
         }
 
         [HttpGet]
@@ -50,6 +52,13 @@ namespace Affiliate.N88.Jobs.Controllers
         public async Task<string> PullBetRecord(DateTime fromDate, DateTime toDate)
         {
             await _fetchBetRecordService.FetchDataAsync(fromDate, toDate);
+            return "Finished Pull";
+        }
+
+        [HttpGet("PullFixedCustomer")]
+        public async Task<string> PullFixedCustomer()
+        {
+            await _fetchCustomerService.FetchFixedDataTask();
             return "Finished Pull";
         }
     }

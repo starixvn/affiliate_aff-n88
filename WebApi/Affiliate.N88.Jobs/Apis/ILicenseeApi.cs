@@ -17,6 +17,9 @@ namespace Affiliate.N88.Jobs.Apis
         [Get("/customer/GetCustomers")]
         Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate, int batchCount = 2000);
 
+        [Get("/customer/GetFixedCustomers")]
+        Task<IEnumerable<CustomerInfo>> GetFixedCustomers();
+
         [Get("/BetReport/GetBetRecord")]
         Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize);
 
