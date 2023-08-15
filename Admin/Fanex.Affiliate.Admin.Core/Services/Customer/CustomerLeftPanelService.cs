@@ -9,7 +9,14 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.Resources;
+using Fanex.Affiliate.Admin.Core.Apis;
+using Fanex.Affiliate.Admin.Core.Configurations;
+using System.Threading.Tasks;
+using Fanex.Affiliate.Admin.Core.Repository.Tracker;
+using System.Web.Helpers;
+using Newtonsoft.Json;
+using Fanex.Affiliate.Admin.Core.Exceptions;
+using Fanex.Affiliate.Admin.Core.DTO.Tracker;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Customer
 {
@@ -18,15 +25,24 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
         private readonly IEmailService _emailService;
         private readonly IAffiliateService _affiliateService;
         private readonly ICustomerLeftPanelRepository _customerLeftPanelRepository;
+        private readonly ILicenseeApi _licenseeApi;
+        private readonly IJobTrackerRepository _trackerRepository;
+        private readonly IAppSetting _appSetting;
 
         public CustomerLeftPanelService(
             IEmailService emailService,
             IAffiliateService affiliateService,
-            ICustomerLeftPanelRepository customerLeftPanelRepository)
+            ICustomerLeftPanelRepository customerLeftPanelRepository,
+            ILicenseeApi licenseeApi,
+            IJobTrackerRepository trackerRepository,
+            IAppSetting appSetting)
         {
             _emailService = emailService;
             _affiliateService = affiliateService;
             _customerLeftPanelRepository = customerLeftPanelRepository;
+            _licenseeApi = licenseeApi;
+            _appSetting = appSetting;
+            _trackerRepository = trackerRepository;
         }
         public AffiliateInfoOnLeftPanel GetAffiliateInfoOnLeftPanel(string affUserName, string accId, string accOnId, string sessionId)
         {
@@ -50,7 +66,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
         public ResultInfo UpdateTransferLimitSetting(TransferLimitSettingParam param)
         {
-            if(!param.DisabledTransfer && param.TransferLimit == 0)
+            if (!param.DisabledTransfer && param.TransferLimit == 0)
             {
                 return new ResultInfo
                 {
@@ -77,7 +93,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
             return _customerLeftPanelRepository.UpdateLanguage(param);
         }
 
-        public ResultInfo UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam)
+        public async Task<ResultInfo> UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam)
         {
             var result = _customerLeftPanelRepository.UpdateStatus(param);
 
@@ -88,7 +104,72 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
                 SendDisapprovedEmail(emailParam, affInfo);
             }
 
+            if (result.IsSuccessful && string.Equals(param.Status, AffStatus.Approved, StringComparison.InvariantCultureIgnoreCase))
+            {
+                var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
+
+                await TrackAndSendAffiliateToLicensee(affInfo);
+            }
+
             return result;
+        }
+
+        private async Task TrackAndSendAffiliateToLicensee(AffiliateBasicInfo affInfo)
+        {
+            try
+            {
+                var affiliateInfo = new DTO.Api.AffiliateInfo
+                {
+                    AffiliateCode = affInfo.AffCode,
+                    AffiliateName = affInfo.UserName,
+                    UserName = affInfo.PlayerUsername,
+                    CustId = affInfo.PlayerCustId,
+                    ParentAffiliate = affInfo.ParentAffiliateName,
+                    SiteId = _appSetting.MemberSiteId
+                };
+                var insertTrackerResult = _trackerRepository.InsertDataTracker(new InsertDataTrackerDTO
+                {
+                    PushDataInfo = JsonConvert.SerializeObject(affInfo),
+                    PushDataType = DataTrackerType.ApproveAffiliate
+                });
+                try
+                {
+                    if (insertTrackerResult.Result.IsSuccessful)
+                    {
+                        await SendAffiliateInfoToLicensee(affInfo, affiliateInfo);
+
+                        _trackerRepository.UpdateDataTracker(new UpdateDataTrackerDTO
+                        {
+                            PushTrackerId = insertTrackerResult.Id,
+                            StatusId = DataTrackerStatus.Success
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.WriteError(ex);
+                    _trackerRepository.UpdateDataTracker(new UpdateDataTrackerDTO
+                    {
+                        PushTrackerId = insertTrackerResult.Id,
+                        StatusId = DataTrackerStatus.Failure
+                    });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteError(ex);
+            }
+
+        }
+
+        private async Task SendAffiliateInfoToLicensee(AffiliateBasicInfo affInfo, DTO.Api.AffiliateInfo affiliateInfo)
+        {
+            var result = await _licenseeApi.InsertAffiliateInfo(affiliateInfo);
+            if (!result.IsSuccess)
+            {
+                throw new LicenseetException(affInfo, new ResultInfo { Code = 1, Message = result.ErrMsg });
+            }
         }
 
         private void SendDisapprovedEmail(AffInformationEmail emailParam, AffiliateBasicInfo affInfo)

@@ -112,7 +112,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Payment
                 }
                 catch (Exception ex)
                 {
-                    throw new LicenseePaymentException(paymentInfo, ex);
+                    throw new LicenseetException(paymentInfo, ex);
                 }
             }
 

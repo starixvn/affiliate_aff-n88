@@ -11,6 +11,8 @@ using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO;
 using ONEbook.UM.AspNetMVC.Filters;
 using System.Linq;
+using Fanex.Affiliate.Admin.Core.Apis;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Controllers
 {
@@ -163,7 +165,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
         [ValidateAntiForgeryHeader]
         [HttpPost]
         [FunctionAuthorize(FunctionName = Function.Affiliate, IsHost = true)]
-        public ActionResult UpdateStatus(UpdateStatusParam param)
+        public async Task<ActionResult> UpdateStatus(UpdateStatusParam param)
         {
             if (ModelState.IsValid)
             {
@@ -182,7 +184,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
 
                 return new JsonNetResult
                 {
-                    Data = _customerLeftPanelService.UpdateStatus(updateStatusParam, emailParam)
+                    Data = await _customerLeftPanelService.UpdateStatus(updateStatusParam, emailParam)
                 };
             }
             return new JsonResult

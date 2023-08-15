@@ -3,6 +3,7 @@ using Fanex.Affiliate.Admin.Core.DTO.Customer;
 using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Customer
 {
@@ -16,7 +17,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
         ResultInfo UpdateAffType(UpdateAffTypeParam param);
 
-        ResultInfo UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam);
+        Task<ResultInfo> UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam);
 
         ResultInfo UpdateClosedStatus(UpdateClosedStatusParam param);
 

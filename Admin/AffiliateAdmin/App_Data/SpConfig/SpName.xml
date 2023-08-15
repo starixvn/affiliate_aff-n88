@@ -5,7 +5,7 @@
   </Function>
   <Function Name="AffiliateInformation">
     <Setting Key="Aff_Admin_Affiliate_Approved" SpName="Aff_Admin_Affiliate_Approved" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
-    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+    <Setting Key="Aff_Admin_AffiliateInfo_Sel" SpName="Aff_Admin_AffiliateInfo_Sel_xpre" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_AffiliateUsername_SearchEx" SpName="Aff_AffiliateUsername_SearchEx" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_Statistics_Sel" SpName="Aff_Admin_Statistics_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_Admin_AffiliateOnlineList_Sel" SpName="Aff_Admin_AffiliateOnlineList_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
@@ -157,6 +157,10 @@
     <Setting Key="Aff_Currency_Sel" SpName="Aff_Currency_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_BaseCurrency_Sel" SpName="Aff_BaseCurrency_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
     <Setting Key="Aff_PaymentCurrency_Sel" SpName="Aff_PaymentCurrency_Sel" DbName="DBAFFN88.Affiliate_N88.bodbAdminNet" />
+  </Function>
+  <Function Name="DataTracker">
+    <Setting Key="Task_API_PushDataTracker_Import" SpName="Task_API_PushDataTracker_Import" DbName="DBN88.bodb_N88.bodbLicenseeNet" />
+    <Setting Key="Task_API_PushDataTracker_Upd" SpName="Task_API_PushDataTracker_Upd" DbName="DBN88.bodb_N88.bodbLicenseeNet" />
   </Function>
 </Functions>
 
