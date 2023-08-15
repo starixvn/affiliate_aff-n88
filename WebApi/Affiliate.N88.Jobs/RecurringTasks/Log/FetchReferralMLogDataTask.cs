@@ -1,5 +1,6 @@
 ﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;

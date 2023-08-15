@@ -1,4 +1,5 @@
 ﻿using Affiliate.N88.Models;
+using Affiliate.N88.Params;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,9 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/customer/GetCustWallets")]
         Task<IEnumerable<CustWalletInfo>> GetCustomerWalletAsync(DateTime fromDate);
+
+        [Post("/customer/InsertAffiliateInfo")]
+        Task<ResultInfo> InsertAffiliateInfo(AffiliateInfoParam affiliateInfo);
 
         [Get("/BetReport/GetTpTransferInfo")]
         Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);

@@ -18,6 +18,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Affiliate.N88.Jobs.Filter;
 using Affiliate.N88.Jobs.RecurringTasks.Bonus;
+using Affiliate.N88.Jobs.RecurringTasks.RetryJob;
 
 namespace Affiliate.N88.Jobs.Middlewares
 {
@@ -47,6 +48,10 @@ namespace Affiliate.N88.Jobs.Middlewares
             services.AddScoped<ITrackerRepository, TrackerRespository>();
             services.AddScoped<ITrackerService, TimeTrackerService>();
             services.Configure<TimeTrackerSetting>(configuration.GetSection($"{APPSETTING_ROOT}:TimeTrackerSetting"));
+
+            //DataTrackerService
+            services.AddScoped<IDataTrackerRepository, DataTrackerRepository>();
+            services.AddScoped<IDataTrackerService, DataTrackerService>();
 
             //FetchBetRecordDataTask
             services.AddScoped<IThirdPartyImportRepository, ThirdPartyImportRepository>();
@@ -203,6 +208,12 @@ namespace Affiliate.N88.Jobs.Middlewares
                     ServiceConfigName.PULL_TPWAGER_9W_SETTING,
                     configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.PULL_TPWAGER_9W_SETTING}")
                 );
+
+            services.AddScoped<IReInsertAffiliateInfoDataTask, ReInsertAffiliateInfoDataTask>()
+                .Configure<FetchServiceSetting>(
+                    ServiceConfigName.INSERT_AFFILIATE_SETTING,
+                    configuration.GetSection($"{APPSETTING_ROOT}:{ServiceConfigName.INSERT_AFFILIATE_SETTING}")
+                );
         }
 
         public static void UseHangfire(this IApplicationBuilder app, AppSettings appSettings)
@@ -215,65 +226,76 @@ namespace Affiliate.N88.Jobs.Middlewares
 
             if (appSettings.IsRunFetchTask)
             {
-                RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2));
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(7), job => job.FetchFromAdjusmentDayAsync(3));
-                RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
-
-                RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
-
-                RegisterTask<IFetchServerInfoDataTask>($"{typeof(IFetchServerInfoDataTask).Name}", appSettings.PullServerInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchGameTypeDataTask>($"{typeof(IFetchGameTypeDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchTpTransferInfoDataTask>($"{typeof(IFetchTpTransferInfoDataTask).Name}", appSettings.PullTpTransferInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullDepositInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchCustRegInfoDataTask>($"{typeof(IFetchCustRegInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                //Bonus Info
-                RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchWeeklyBonusInfoDataTask>($"{typeof(IFetchWeeklyBonusInfoDataTask).Name}", appSettings.PullWeeklyBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-
-                RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}", appSettings.PullPromotionSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
-
-                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}", appSettings.PullPromotionSpecificSetting.PullInfoCron, job => job.FetchDataAsync());
-                RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
-
-                RegisterTask<IFetchRebateMLogDataTask>($"{typeof(IFetchRebateMLogDataTask).Name}", appSettings.PullRebateMLogSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchCustBonusRolloverDataTask>($"{typeof(IFetchCustBonusRolloverDataTask).Name}", appSettings.PullCustBonusRolloverSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchCustClosingBalanceDataTask>($"{typeof(IFetchCustClosingBalanceDataTask).Name}", appSettings.PullCustClosingBalanceSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchAdjustmentInfoDataTask>($"{typeof(IFetchAdjustmentInfoDataTask).Name}", appSettings.PullAdjustmentInfoSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchDrawLogDataTask>($"{typeof(IFetchDrawLogDataTask).Name}", appSettings.PullDrawLogSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchEventDrawDataTask>($"{typeof(IFetchEventDrawDataTask).Name}", appSettings.PullEventDrawSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchReferralMLogDataTask>($"{typeof(IFetchReferralMLogDataTask).Name}", appSettings.PullReferralMLogSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchReferralLogDataTask>($"{typeof(IFetchReferralLogDataTask).Name}", appSettings.PullReferralLogSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
-
-                RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
+                RegisterFetchDataTask(appSettings);
+                RegisterRetryDataTask(appSettings);
             }
+        }
+
+        private static void RegisterFetchDataTask(AppSettings appSettings)
+        {
+            RegisterTask<IFetchAffCustomerDataTask>(typeof(IFetchAffCustomerDataTask).Name, appSettings.PullCustomerInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}", appSettings.PullBetRecordSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-2HourInterval", "30 0/2 ? * *", job => job.FetchAllDay(2));
+            RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Daily", Cron.Daily(7), job => job.FetchFromAdjusmentDayAsync(3));
+            RegisterTask<IFetchBetRecordDataTask>($"{typeof(IFetchBetRecordDataTask).Name}-Monthly", Cron.Monthly(4, 12, 0), job => job.FetchLastMonthAsync());
+
+            RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}", appSettings.PullCustomerSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchCustomerDataTask>($"{typeof(IFetchCustomerDataTask).Name}-Daily", Cron.Daily(5), job => job.FetchDataDailyTask());
+
+            RegisterTask<IFetchServerInfoDataTask>($"{typeof(IFetchServerInfoDataTask).Name}", appSettings.PullServerInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchGameTypeDataTask>($"{typeof(IFetchGameTypeDataTask).Name}", appSettings.PullGameTypeSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchTpTransferInfoDataTask>($"{typeof(IFetchTpTransferInfoDataTask).Name}", appSettings.PullTpTransferInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchDepositInfoDataTask>($"{typeof(IFetchDepositInfoDataTask).Name}", appSettings.PullDepositInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchCustRegInfoDataTask>($"{typeof(IFetchCustRegInfoDataTask).Name}", appSettings.PullCustRegInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            //Bonus Info
+            RegisterTask<IFetchBonusInfoDataTask>($"{typeof(IFetchBonusInfoDataTask).Name}", appSettings.PullBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchWeeklyBonusInfoDataTask>($"{typeof(IFetchWeeklyBonusInfoDataTask).Name}", appSettings.PullWeeklyBonusInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+
+            RegisterTask<IFetchWithdrawalInfoDataTask>($"{typeof(IFetchWithdrawalInfoDataTask).Name}", appSettings.PullWithdrawalInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}", appSettings.PullPromotionSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchPromotionDataTask>($"{typeof(IFetchPromotionDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
+
+            RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}", appSettings.PullPromotionSpecificSetting.PullInfoCron, job => job.FetchDataAsync());
+            RegisterTask<IFetchPromotionSpecificDataTask>($"{typeof(IFetchPromotionSpecificDataTask).Name}-Daily", Cron.Daily(6), job => job.FetchDataDailyTask());
+
+            RegisterTask<IFetchRebateMLogDataTask>($"{typeof(IFetchRebateMLogDataTask).Name}", appSettings.PullRebateMLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchCustBonusRolloverDataTask>($"{typeof(IFetchCustBonusRolloverDataTask).Name}", appSettings.PullCustBonusRolloverSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchCustClosingBalanceDataTask>($"{typeof(IFetchCustClosingBalanceDataTask).Name}", appSettings.PullCustClosingBalanceSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchAdjustmentInfoDataTask>($"{typeof(IFetchAdjustmentInfoDataTask).Name}", appSettings.PullAdjustmentInfoSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchDrawLogDataTask>($"{typeof(IFetchDrawLogDataTask).Name}", appSettings.PullDrawLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchEventDrawDataTask>($"{typeof(IFetchEventDrawDataTask).Name}", appSettings.PullEventDrawSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchVipUpgradeReviewDataTask>($"{typeof(IFetchVipUpgradeReviewDataTask).Name}", appSettings.PullVipUpgradeReviewSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchLogAdminAdjustWalletDataTask>($"{typeof(IFetchLogAdminAdjustWalletDataTask).Name}", appSettings.PullLogAdminAdjustWalletSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchCustVerificationRewardDataTask>($"{typeof(IFetchCustVerificationRewardDataTask).Name}", appSettings.PullCustVerificationRewardSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchReferralMLogDataTask>($"{typeof(IFetchReferralMLogDataTask).Name}", appSettings.PullReferralMLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchReferralLogDataTask>($"{typeof(IFetchReferralLogDataTask).Name}", appSettings.PullReferralLogSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchTpReport9WDataTask>($"{typeof(IFetchTpReport9WDataTask).Name}", appSettings.PullTpReport9WSetting.PullInfoCron, job => job.FetchDataAsync());
+
+            RegisterTask<IFetchTpWager9WDataTask>($"{typeof(IFetchTpWager9WDataTask).Name}", appSettings.PullTpWager9WSetting.PullInfoCron, job => job.FetchDataAsync());
+        }
+
+        private static void RegisterRetryDataTask(AppSettings appSettings)
+        {
+            RegisterTask<IReInsertAffiliateInfoDataTask>($"{typeof(IReInsertAffiliateInfoDataTask).Name}", appSettings.InsertAffiliateSetting.PullInfoCron, job => job.HandleAsync());
         }
 
         private static void RegisterTask<T>(string serviceId, string cronExpression, Expression<Func<T, Task>> methodCall)

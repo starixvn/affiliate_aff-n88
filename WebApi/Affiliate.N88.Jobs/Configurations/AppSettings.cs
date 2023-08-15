@@ -64,6 +64,8 @@
 
         public FetchServiceSetting PullTpWager9WSetting { get; set; }
 
+        public FetchServiceSetting InsertAffiliateSetting { get; set; }
+
         public bool IsRunFetchTask { get; set; }
 
         public bool RunAsService { get; set; }

@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Affiliate.N88.Jobs.RecurringTasks
+namespace Affiliate.N88.Jobs.RecurringTasks.Interfaces
 {
     public interface IFetchDataTask
     {

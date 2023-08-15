@@ -1,6 +1,7 @@
 ﻿using Affiliate.N88.Core;
 using Affiliate.N88.Exceptions;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Repository;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.Utitlities;

@@ -2,6 +2,7 @@
 using Affiliate.N88.DTO;
 using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
+using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Fanex.Athena.CronJobs.App.Helpers;
