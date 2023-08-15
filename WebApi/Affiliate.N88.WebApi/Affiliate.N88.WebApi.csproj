@@ -214,6 +214,7 @@
     <Compile Include="Controllers\Product9WController.cs" />
     <Compile Include="Controllers\PromotionController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="DTO\AffiliateInfo.cs" />
     <Compile Include="DTO\Promotion.cs" />
     <Compile Include="Extensions\MessageExtensions.cs" />
     <Compile Include="Extensions\ObjectDbExtensions.cs" />

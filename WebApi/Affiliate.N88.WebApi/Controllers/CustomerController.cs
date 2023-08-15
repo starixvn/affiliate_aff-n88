@@ -2,6 +2,7 @@
 using Affiliate.N88.Models;
 using Affiliate.N88.SpParams.Commands;
 using Affiliate.N88.SpParams.Criteria;
+using Affiliate.N88.WebApi.DTO;
 using Affiliate.N88.WebApi.Models;
 using Fanex.Data.Repository;
 using Fanex.Logging;
@@ -124,6 +125,32 @@ namespace Affiliate.N88.WebApi.Controllers
                 {
                     IsSuccess = true
                 };
+            }
+            catch (Exception ex)
+            {
+                return new ResultInfo
+                {
+                    IsSuccess = false,
+                    ErrMsg = ex.Message
+                };
+            }
+        }
+
+        [HttpPost]
+        public async Task<ResultInfo> InsertAffiliateInfo(AffiliateInfo affiliate)
+        {
+            try
+            {
+                await dynamicRepository.ExecuteAsync(new InsertAffiliateInfoCommand
+                {
+                    AffiliateCode = affiliate.AffiliateCode,
+                    AffiliateName = affiliate.AffiliateName,
+                    CustId = affiliate.CustId,
+                    ParentAffiliate = affiliate.ParentAffiliate,
+                    SiteId = affiliate.SiteId,
+                    UserName = affiliate.UserName
+                });
+                return new ResultInfo { IsSuccess = true };
             }
             catch (Exception ex)
             {
