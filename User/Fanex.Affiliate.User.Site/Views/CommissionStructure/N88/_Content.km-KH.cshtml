@@ -2,11 +2,11 @@
 
 <section class="info-group" id="WhatWeHave">
     <div class="title">
-        <span class="text">What we have</span>
+        <span class="text">@Lang.WhatWeHave</span>
     </div>
     <ul>
         <li class="text">
-            ហ្គេមកំពូលៗ និងកម្មវិធីភ្នាល់តាមអុីនធឺណិតដូចជា  ផ្សាយផ្ទាល់កាស៊ីណូ,Virtual Sports, Keno, ហ្គេម Slot ,  បូករួមទាំងជម្រើសហ្គេមជាច្រើន
+            ហ្គេមកំពូលៗ និងកម្មវិធីភ្នាល់តាមអុីនធឺណិតដូចជា ផ្សាយផ្ទាល់កាស៊ីណូ,Virtual Sports, Keno, ហ្គេម Slot, បូករួមទាំងជម្រើសហ្គេមជាច្រើន
         </li>
         <li class="text">
             មានការគ្រាំទ្រយ៉ាងខ្លាំងដែលមានច្រើនជាង 5 ភាសា ដូច្នេះវាកាន់តែងាយស្រួលសម្រាប់អ្នកក្នុងការទាក់ទាញសមាជិក
@@ -18,7 +18,7 @@
 </section>
 <section class="info-group" id="WhatWeOffer">
     <div class="title">
-        <span class="text">តើយើងមានអ្វីដែលបានផ្តល់ជូន</span>
+        <span class="text">@Lang.WhatWeOffer</span>
     </div>
     <ul>
         <li class="text">
@@ -37,7 +37,7 @@
 </section>
 <section class="info-group" id="OurPlan">
     <div class="title">
-        <span class="text">គម្រោងរបស់ពួកយើង</span>
+        <span class="text">@Lang.OurPlan</span>
     </div>
     <p class="text">
         ចំណែកប្រាក់ចំណូលរបស់អ្នកមានពីរផ្នែក៖ (i) ពីការចាញ់ការភ្នាល់របស់អ្នកលេងដែលបានណែនាំ និង (ii) ពីចំណែកចំណូលពីការណែនាំសាខាដោយអ្នក៖
@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>ប្រាក់ចំណេញសុទ្ធរបស់ក្រុមហ៊ុន:</strong> ការបាត់បង់សុទ្ធប្រចាំខែរបស់អ្នកលេងទាំងអស់ដែលបានណែនាំដោយអ្នកទៅកាន់ @Model.SiteFriendlyName ។
+                    <strong>ប្រាក់ចំណេញសុទ្ធរបស់ក្រុមហ៊ុន៖</strong> ការបាត់បង់សុទ្ធប្រចាំខែរបស់អ្នកលេងទាំងអស់ដែលបានណែនាំដោយអ្នកទៅកាន់ @Model.SiteFriendlyName ។
                 </li>
                 <li class="text">
                     <strong>អ្នកលេងមានសកម្មភាព៖</strong> សមាជិកដែលបានភ្នាល់យ៉ាងហោចណាស់មួយ (1) ក្នុងមួយខែ។
@@ -69,7 +69,7 @@
                             <strong>ថ្លៃសួយសារអាករ</strong> - ថ្លៃសួយសារអាករលើផលិតផលដែលពាក់ព័ន្ធនឹងអតិថិជនគ្រប់សាខាសម្ព័ន្ធ។
                         </li>
                         <li>
-                            <strong>ប្រាក់រង្វាន់លើកទឹកចិត្</strong> - ប្រាក់រង្វាន់រូបិយវត្ថុ ឬប្រាក់បង្វិលសងដែលបានផ្តល់ឱ្យទៅអតិថិជនសាខាសម្ព័ន្ធ។
+                            <strong>ប្រាក់រង្វាន់លើកទឹកចិត្ត</strong> - ប្រាក់រង្វាន់រូបិយវត្ថុ ឬប្រាក់បង្វិលសងដែលបានផ្តល់ឱ្យទៅអតិថិជនសាខាសម្ព័ន្ធ។
                         </li>
                     </ul>
                 </li>
@@ -94,7 +94,7 @@
                 <p class="text">ថ្លៃប្រតិបត្តិការ = USD 127</p>
                 <p class="text">កំរៃជើងសារ = </p>
                 <p class="text">(ចំណូលទាំងដុល - ចំណាយប្រាក់រង្វាន់ - ថ្លៃប្រតិបត្តិការ) x ចំណូល %</p>
-                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 ((អនុវត្តបន្តទៅខែបន្ទាប់)</p>
+                <p class="text">(-8,000 - 698 - 127) x 45% = USD -3,971.25 (អនុវត្តបន្តទៅខែបន្ទាប់)</p>
             </div>
         </li>
         <li class="text-block">
@@ -104,7 +104,7 @@
 </section>
 <section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
-        <span class="text"><i>ការឧទាហរណ៍នៃចែករំលែកប្រាក់ចំណូល</i></span>
+        <span class="text"><i>@Lang.RevenueSharePayoutExample</i></span>
     </div>
     <p class="text">
         <i>ទី 1៖</i> ឧទាហរណ៍មួយដើម្បីបង្ហាញអ្នកពីរបៀបដែលចំណែកប្រាក់ចំណូលរបស់អ្នកទទួលបានពីអ្នកលេងដែលត្រូវបានណែនាំរបស់អ្នកត្រូវបានគណនា
@@ -136,7 +136,7 @@
 </section>
 <section class="info-group" id="HowWePay">
     <div class="title">
-        <span class="text">How we pay</span>
+        <span class="text">@Lang.HowWePay</span>
     </div>
     <ul>
         <li class="text">
