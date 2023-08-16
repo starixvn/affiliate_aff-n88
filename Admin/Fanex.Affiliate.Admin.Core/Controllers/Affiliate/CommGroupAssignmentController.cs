@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Fanex.Affiliate.Admin.Core.Attributes;
 using Fanex.Affiliate.Admin.Core.Constants;
@@ -70,7 +71,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult AssignGroup(AssignGroupParam assignParam, AffInfoParam affInfo)
+        public async Task<ActionResult> AssignGroup(AssignGroupParam assignParam, AffInfoParam affInfo)
         {
             if (!ModelState.IsValid || assignParam.GroupId < Validation.MinId)
             {
@@ -88,7 +89,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
             return new JsonNetResult
             {
-                Data = _commGroupAssignmentService.AssignGroup(assignParam, affInfo, emailParam)
+                Data = await _commGroupAssignmentService.AssignGroup(assignParam, affInfo, emailParam)
             };
         }
 
@@ -114,7 +115,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
         [FunctionAuthorize(FunctionName = Function.RevenueGroup, IsHost = true)]
         [HttpPost]
         [ValidateAntiForgeryHeader]
-        public ActionResult AssignPrivateGroup(CommGroupSettingParam commGroup, AffInfoParam affInfo)
+        public async Task<ActionResult> AssignPrivateGroup(CommGroupSettingParam commGroup, AffInfoParam affInfo)
         {
             if (!ModelState.IsValid)
             {
@@ -147,7 +148,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.Affiliate
 
                 return new JsonNetResult
                 {
-                    Data = _commGroupAssignmentService.AssignPrivateGroup(assignParam, affInfo, emailParam)
+                    Data = await _commGroupAssignmentService.AssignPrivateGroup(assignParam, affInfo, emailParam)
                 };
             }
 

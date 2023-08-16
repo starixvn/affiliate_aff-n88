@@ -1,7 +1,7 @@
 ﻿
 namespace Fanex.Affiliate.Admin.Core.DTO.Api
 {
-    public class AffiliateInfo
+    public class ApiAffiliateInfo
     {
         public int CustId { get; set; }
 

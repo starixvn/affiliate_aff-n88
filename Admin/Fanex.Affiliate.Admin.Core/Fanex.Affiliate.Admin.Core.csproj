@@ -607,6 +607,8 @@
     <Compile Include="Services\Report\IPlayerGgrReportService.cs" />
     <Compile Include="Services\Report\TransferReportService.cs" />
     <Compile Include="Services\Report\PlayerGgrReportService.cs" />
+    <Compile Include="Services\ThirdPartyLicensee\IThirdPartyLicenseeService.cs" />
+    <Compile Include="Services\ThirdPartyLicensee\ThirdPartyLicenseeService.cs" />
     <Compile Include="Services\UnderMaintenanceService\IUnderMaintenanceService.cs" />
     <Compile Include="Services\UnderMaintenanceService\UnderMaintenanceService.cs" />
     <Compile Include="Services\UserPanel\AdjustmentService.cs" />

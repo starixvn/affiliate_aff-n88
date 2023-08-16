@@ -10,9 +10,11 @@ using Fanex.Affiliate.Admin.Core.MetaModels.Customer;
 using Fanex.Affiliate.Admin.Core.Repository.Customer;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.Customer;
+using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Xunit;
 
@@ -215,7 +217,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateStatus_WhenCallWithDisapprovedEmail_ReturnCorrectDataWithDefaultLanguage()
+        public async Task UpdateStatus_WhenCallWithDisapprovedEmail_ReturnCorrectDataWithDefaultLanguage()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -239,7 +241,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateCustomerLeftPanelService(affiliateService: affiliateService.Object, customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.UpdateStatus(param, new AffInformationEmail());
+            var result = await service.UpdateStatus(param, new AffInformationEmail());
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -247,7 +249,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateStatus_WhenCallWithDisapprovedEmail_ReturnCorrectData()
+        public async Task UpdateStatus_WhenCallWithDisapprovedEmail_ReturnCorrectData()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -271,7 +273,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateCustomerLeftPanelService(affiliateService: affiliateService.Object, customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.UpdateStatus(param, new AffInformationEmail());
+            var result = await service.UpdateStatus(param, new AffInformationEmail());
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -279,7 +281,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         }
 
         [Fact]
-        public void UpdateStatus_WhenCallWithDisapprovedEmail_ReturnError()
+        public async Task UpdateStatus_WhenCallWithDisapprovedEmail_ReturnError()
         {
             // Arrange
             var param = new UpdateStatusParam { AffId = 1271808, Status = "disapproved" };
@@ -290,7 +292,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
             var service = CreateCustomerLeftPanelService(customerLeftPanelRepository: repository.Object);
 
             // Action
-            var result = service.UpdateStatus(param, new AffInformationEmail());
+            var result = await service.UpdateStatus(param, new AffInformationEmail());
 
             // Assert
             Assert.False(result.IsSuccessful);
@@ -300,13 +302,15 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.Customer
         private static CustomerLeftPanelService CreateCustomerLeftPanelService(
             IEmailService emailService = null,
             IAffiliateService affiliateService = null,
-            ICustomerLeftPanelRepository customerLeftPanelRepository = null)
+            ICustomerLeftPanelRepository customerLeftPanelRepository = null,
+            IThirdPartyLicenseeService thirdPartyLicenseeService = null)
         {
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
             var fakeAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var fakeCustomerLeftPanelRepository = customerLeftPanelRepository ?? Mock.Of<ICustomerLeftPanelRepository>();
+            var fakeThirdPartyLicenseeService = thirdPartyLicenseeService ?? Mock.Of<IThirdPartyLicenseeService>();
 
-            return new CustomerLeftPanelService(fakeEmailService, fakeAffiliateService, fakeCustomerLeftPanelRepository);
+            return new CustomerLeftPanelService(fakeEmailService, fakeAffiliateService, fakeCustomerLeftPanelRepository, fakeThirdPartyLicenseeService);
         }
     }
 }

@@ -8,9 +8,11 @@ using Fanex.Affiliate.Admin.Core.MetaModels.CommissionGroup;
 using Fanex.Affiliate.Admin.Core.Repository;
 using Fanex.Affiliate.Admin.Core.Services;
 using Fanex.Affiliate.Admin.Core.Services.CommGroup;
+using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using Xunit;
 
@@ -45,7 +47,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
         }
 
         [Fact]
-        public void AssignGroup_WhenCallWithAssignComm_ExcuteCorrect()
+        public async Task AssignGroup_WhenCallWithAssignComm_ExcuteCorrect()
         {
             // Arrange
             var param = new AssignGroupParam();
@@ -59,14 +61,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object);
 
             // Action
-            var result = service.AssignGroup(param, affInfo, emailParam);
+            var result = await service.AssignGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.True(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignGroup_WhenCallWithApprovedComm_ExcuteUnsuccesful()
+        public async Task AssignGroup_WhenCallWithApprovedComm_ExcuteUnsuccesful()
         {
             // Arrange
             var param = new AssignGroupParam();
@@ -83,14 +85,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
 
             // Action
-            var result = service.AssignGroup(param, affInfo, emailParam);
+            var result = await service.AssignGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.False(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignGroup_WhenCallWithApprovedComm_ExcuteSuccessful()
+        public async Task AssignGroup_WhenCallWithApprovedComm_ExcuteSuccessful()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -118,14 +120,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object);
 
             // Action
-            var result = service.AssignGroup(param, affInfo, emailParam);
+            var result = await service.AssignGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.True(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteCreateCommIsFailed()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteCreateCommIsFailed()
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -144,14 +146,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupCommonService: commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.False(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteUpdateCommIsFailed()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteUpdateCommIsFailed()
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -171,14 +173,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupCommonService: commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.False(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteWithAssignGroupFail()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteWithAssignGroupFail()
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -196,14 +198,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, null, null, commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.False(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteWithApproveFaild()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteWithApproveFaild()
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -224,14 +226,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.False(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteCorrectWithCreateAndApprovedPrivateComm()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteCorrectWithCreateAndApprovedPrivateComm()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -263,14 +265,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, affiliateService.Object, null, commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.True(result.IsSuccessful);
         }
 
         [Fact]
-        public void AssignPrivateGroup_WhenCall_ExcuteCorrectWithUpdatePrivateComm()
+        public async Task AssignPrivateGroup_WhenCall_ExcuteCorrectWithUpdatePrivateComm()
         {
             // Arrange
             var param = CreateValidCreateUpdateCommissionGroupParam();
@@ -288,7 +290,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             var service = CreateCommGroupAssignmentService(commGroupRepository.Object, null, null, commGroupCommonService.Object);
 
             // Action
-            var result = service.AssignPrivateGroup(param, affInfo, emailParam);
+            var result = await service.AssignPrivateGroup(param, affInfo, emailParam);
 
             // Assert
             Assert.True(result.IsSuccessful);
@@ -298,15 +300,17 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Services.CommGroup
             ICommissionGroupRepository commGroupRepository = null,
             IAffiliateService affiliateService = null,
             IEmailService emailService = null,
-            ICommGroupCommonService commGroupCommonService = null)
+            ICommGroupCommonService commGroupCommonService = null,
+            IThirdPartyLicenseeService thirdPartyLicenseeService = null)
         {
 
             var fakeCommGroupRepository = commGroupRepository ?? Mock.Of<ICommissionGroupRepository>();
             var fakeAffiliateService = affiliateService ?? Mock.Of<IAffiliateService>();
             var fakeEmailService = emailService ?? Mock.Of<IEmailService>();
             var fakeCommGroupCommonService = commGroupCommonService ?? Mock.Of<ICommGroupCommonService>();
+            var fakeThirdPartyLicenseeservice = thirdPartyLicenseeService ?? Mock.Of<IThirdPartyLicenseeService>();
 
-            return new CommGroupAssignmentService(fakeCommGroupRepository, fakeAffiliateService, fakeEmailService, fakeCommGroupCommonService);
+            return new CommGroupAssignmentService(fakeCommGroupRepository, fakeAffiliateService, fakeEmailService, fakeCommGroupCommonService, fakeThirdPartyLicenseeservice);
         }
 
         private static CreateUpdateCommissionGroupParam CreateValidCreateUpdateCommissionGroupParam()

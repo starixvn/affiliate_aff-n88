@@ -16,6 +16,6 @@ namespace Fanex.Affiliate.Admin.Core.Apis
         Task<ApiResultInfo> UnlockUser(int[] userIds);
 
         [Post("/api/customer/InsertAffiliateInfo")]
-        Task<ApiResultInfo> InsertAffiliateInfo(AffiliateInfo affiliateInfo);
+        Task<ApiResultInfo> InsertAffiliateInfo(ApiAffiliateInfo affiliateInfo);
     }
 }
