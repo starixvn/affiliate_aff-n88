@@ -19,6 +19,8 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         bool IsLocal { get; }
 
+        bool IsDev { get; }
+
         bool IsProduction { get; }
 
         IEnumerable<string> AllowedAffiliateTypes { get; }

@@ -30,7 +30,7 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         bool IsProduction { get; }
 
-        bool IsLocal { get; }
+        bool IsDev { get; }
 
         string CcMail { get; }
 
