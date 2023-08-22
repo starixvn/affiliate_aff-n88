@@ -55,5 +55,7 @@
         public const string PULL_TPREPORT_9W_SETTING = "PullTpReport9WSetting";
 
         public const string PULL_TPWAGER_9W_SETTING = "PullTpWager9WSetting";
+
+        public const string INSERT_AFFILIATE_SETTING = "InsertAffiliateSetting";
     }
 }

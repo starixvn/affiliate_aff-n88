@@ -7,6 +7,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
 
         public string AffCode { get; set; }
 
+        public string ParentAffiliateName { get; set; }
+
         public int GroupId { get; set; }
 
         public string UserName { get; set; }
@@ -22,6 +24,8 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Affiliate
         public string PreferredLanguage { get; set; }
 
         public string PlayerUsername { get; set; }
+
+        public int PlayerCustId { get; set; }
 
         public bool IsUsingPrivateCommGroup { get; set; }
     }

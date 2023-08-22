@@ -12,6 +12,7 @@ using Fanex.Affiliate.Admin.Core.Services.Customer;
 using Fanex.Affiliate.Admin.Core.UnitTests.TestHelper;
 using Moq;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Xunit;
@@ -221,7 +222,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
-        public void UpdateStatus_WhenCallWithValidParam_ExcuteSuccessfully()
+        public async Task UpdateStatus_WhenCallWithValidParam_ExcuteSuccessfully()
         {
             // Arrange
             var appSetting = new Mock<IAppSetting>();
@@ -238,7 +239,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             var param = new UpdateStatusParam { AffId = 1271808, Status = "Approved" };
             var customerLeftPanelService = new Mock<ICustomerLeftPanelService>();
-            customerLeftPanelService.Setup(s => s.UpdateStatus(It.IsAny<UpdateStatusParam>(), It.IsAny<AffInformationEmail>())).Returns(new ResultInfo());
+            customerLeftPanelService.Setup(s => s.UpdateStatus(It.IsAny<UpdateStatusParam>(), It.IsAny<AffInformationEmail>())).Returns(Task.FromResult(new ResultInfo()));
             var controller = CreateCustomerLeftPanelController(customerLeftPanelService: customerLeftPanelService.Object);
 
             var expectedPath = "~/";
@@ -250,7 +251,7 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
 
             controller.Url = urlHelperMock.Object;
             // Action
-            var result = controller.UpdateStatus(param) as JsonNetResult;
+            var result = await controller.UpdateStatus(param) as JsonNetResult;
             var data = result.Data as ResultInfo;
 
             // Assert
@@ -258,14 +259,14 @@ namespace Fanex.Affiliate.Admin.Core.UnitTests.Controllers.Customer
         }
 
         [Fact]
-        public void UpdateStatus_WhenCallWithInvalidParam_ReturnError()
+        public async Task UpdateStatus_WhenCallWithInvalidParam_ReturnError()
         {
             // Arrange
             var controller = CreateCustomerLeftPanelController();
             controller.ModelState.AddModelError("Error01", string.Empty);
 
             // Action
-            var result = controller.UpdateStatus(new UpdateStatusParam()) as JsonResult;
+            var result = await controller.UpdateStatus(new UpdateStatusParam()) as JsonResult;
             var data = result.Data as ResultInfo;
 
             // Assert

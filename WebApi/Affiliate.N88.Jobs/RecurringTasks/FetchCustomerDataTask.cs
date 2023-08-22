@@ -1,6 +1,7 @@
 ﻿using Affiliate.N88.Jobs.Apis;
 using Affiliate.N88.Jobs.Configurations;
 using Affiliate.N88.Jobs.Constants;
+using Affiliate.N88.Jobs.RecurringTasks.Interfaces;
 using Affiliate.N88.Models;
 using Affiliate.N88.Repository;
 using Affiliate.N88.Services;
@@ -19,6 +20,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         Task FetchDataDailyTask();
 
         Task FetchDataAsync(DateTime fromDate);
+
+        Task FetchFixedDataTask();
     }
 
     public sealed class FetchCustomerDataTask : FetchDataForMultipleRepositoryTaskBase<CustomerInfo>, IFetchCustomerDataTask
@@ -80,6 +83,12 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 }
             }
 
+        }
+
+        public async Task FetchFixedDataTask()
+        {
+            var data = await _liceseeApi.GetFixedCustomers();
+            await ImportDataToMultipleRepoAsync(data);
         }
 
         private DateTime GetAdjustmentTime(DateTime fromDate)

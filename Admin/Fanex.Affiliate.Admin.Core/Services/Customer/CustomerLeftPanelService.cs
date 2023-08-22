@@ -9,7 +9,9 @@ using Fanex.Affiliate.Admin.Core.Constants;
 using Fanex.Affiliate.Admin.Core.Utilities;
 using Fanex.Affiliate.Admin.Core.DTO.Email;
 using Fanex.Affiliate.Admin.Core.DTO.Affiliate;
-using Fanex.Affiliate.Admin.Core.Resources;
+using Fanex.Affiliate.Admin.Core.Configurations;
+using System.Threading.Tasks;
+using Fanex.Affiliate.Admin.Core.Services.ThirdPartyLicensee;
 
 namespace Fanex.Affiliate.Admin.Core.Services.Customer
 {
@@ -18,15 +20,18 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
         private readonly IEmailService _emailService;
         private readonly IAffiliateService _affiliateService;
         private readonly ICustomerLeftPanelRepository _customerLeftPanelRepository;
+        private readonly IThirdPartyLicenseeService _thirdPartyLicenseeService;
 
         public CustomerLeftPanelService(
             IEmailService emailService,
             IAffiliateService affiliateService,
-            ICustomerLeftPanelRepository customerLeftPanelRepository)
+            ICustomerLeftPanelRepository customerLeftPanelRepository,
+            IThirdPartyLicenseeService thirdPartyLicenseeService)
         {
             _emailService = emailService;
             _affiliateService = affiliateService;
             _customerLeftPanelRepository = customerLeftPanelRepository;
+            _thirdPartyLicenseeService= thirdPartyLicenseeService;
         }
         public AffiliateInfoOnLeftPanel GetAffiliateInfoOnLeftPanel(string affUserName, string accId, string accOnId, string sessionId)
         {
@@ -50,7 +55,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
 
         public ResultInfo UpdateTransferLimitSetting(TransferLimitSettingParam param)
         {
-            if(!param.DisabledTransfer && param.TransferLimit == 0)
+            if (!param.DisabledTransfer && param.TransferLimit == 0)
             {
                 return new ResultInfo
                 {
@@ -77,7 +82,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
             return _customerLeftPanelRepository.UpdateLanguage(param);
         }
 
-        public ResultInfo UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam)
+        public async Task<ResultInfo> UpdateStatus(UpdateStatusParam param, AffInformationEmail emailParam)
         {
             var result = _customerLeftPanelRepository.UpdateStatus(param);
 
@@ -88,7 +93,28 @@ namespace Fanex.Affiliate.Admin.Core.Services.Customer
                 SendDisapprovedEmail(emailParam, affInfo);
             }
 
+            if (result.IsSuccessful && string.Equals(param.Status, AffStatus.Approved, StringComparison.InvariantCultureIgnoreCase))
+            {
+                var affInfo = _affiliateService.GetAffiliateBasicInfo(param.AffId);
+
+                await TrackAndSendAffiliateToLicensee(affInfo);
+            }
+
             return result;
+        }
+
+        private async Task TrackAndSendAffiliateToLicensee(AffiliateBasicInfo affInfo)
+        {
+            try
+            {
+                await _thirdPartyLicenseeService.SendAffiliateInfo(affInfo);
+
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteError(ex);
+            }
+
         }
 
         private void SendDisapprovedEmail(AffInformationEmail emailParam, AffiliateBasicInfo affInfo)

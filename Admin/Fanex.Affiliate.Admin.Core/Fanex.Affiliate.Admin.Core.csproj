@@ -232,6 +232,8 @@
     <Compile Include="Constants\Apis\CustomerStatus.cs" />
     <Compile Include="Constants\Apis\PaymentType.cs" />
     <Compile Include="Constants\CalculatedType.cs" />
+    <Compile Include="Constants\DataTrackerStatus.cs" />
+    <Compile Include="Constants\DataTrackerType.cs" />
     <Compile Include="Constants\ErrCode.cs" />
     <Compile Include="Constants\CommGroupErrorMessage.cs" />
     <Compile Include="Constants\Deduction.cs" />
@@ -291,6 +293,7 @@
     <Compile Include="DTO\Affiliate\AffiliateBasicInfo.cs" />
     <Compile Include="DTO\Affiliate\AffiliateInfo.cs" />
     <Compile Include="DTO\AffTypeInfo.cs" />
+    <Compile Include="DTO\Api\AffiliateInfo.cs" />
     <Compile Include="DTO\Api\ApiResultInfo.cs" />
     <Compile Include="DTO\Api\MemberSiteCustomerInfo.cs" />
     <Compile Include="DTO\Api\PaymentRequestInfo.cs" />
@@ -328,6 +331,8 @@
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
     <Compile Include="DTO\Report\PlayerGgrReport.cs" />
     <Compile Include="DTO\Report\TransferReport.cs" />
+    <Compile Include="DTO\Tracker\InsertDataTrackerDTO.cs" />
+    <Compile Include="DTO\Tracker\UpdateDataTrackerDTO.cs" />
     <Compile Include="DTO\UserPanel\LogType.cs" />
     <Compile Include="DTO\UserPanel\SubAffiliate.cs" />
     <Compile Include="Exceptions\LicenseePaymentException.cs" />
@@ -479,6 +484,8 @@
     <Compile Include="Repository\Report\IPlayerGgrReportRepository.cs" />
     <Compile Include="Repository\Report\TransferReportRepository.cs" />
     <Compile Include="Repository\Report\PlayerGgrReportRepository.cs" />
+    <Compile Include="Repository\Tracker\IJobTrackerRepository.cs" />
+    <Compile Include="Repository\Tracker\JobTrackerRepository.cs" />
     <Compile Include="Repository\UserPanel\ILandingPageStatisticsRepository.cs" />
     <Compile Include="Repository\UserPanel\IReferrersRepository.cs" />
     <Compile Include="Repository\UserPanel\IStatementHistoryRepository.cs" />
@@ -600,6 +607,8 @@
     <Compile Include="Services\Report\IPlayerGgrReportService.cs" />
     <Compile Include="Services\Report\TransferReportService.cs" />
     <Compile Include="Services\Report\PlayerGgrReportService.cs" />
+    <Compile Include="Services\ThirdPartyLicensee\IThirdPartyLicenseeService.cs" />
+    <Compile Include="Services\ThirdPartyLicensee\ThirdPartyLicenseeService.cs" />
     <Compile Include="Services\UnderMaintenanceService\IUnderMaintenanceService.cs" />
     <Compile Include="Services\UnderMaintenanceService\UnderMaintenanceService.cs" />
     <Compile Include="Services\UserPanel\AdjustmentService.cs" />

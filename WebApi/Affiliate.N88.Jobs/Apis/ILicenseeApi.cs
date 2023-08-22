@@ -1,4 +1,5 @@
 ﻿using Affiliate.N88.Models;
+using Affiliate.N88.Params;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,9 @@ namespace Affiliate.N88.Jobs.Apis
         [Get("/customer/GetCustomers")]
         Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate, int batchCount = 2000);
 
+        [Get("/customer/GetFixedCustomers")]
+        Task<IEnumerable<CustomerInfo>> GetFixedCustomers();
+
         [Get("/BetReport/GetBetRecord")]
         Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize);
 
@@ -28,6 +32,9 @@ namespace Affiliate.N88.Jobs.Apis
 
         [Get("/customer/GetCustWallets")]
         Task<IEnumerable<CustWalletInfo>> GetCustomerWalletAsync(DateTime fromDate);
+
+        [Post("/customer/InsertAffiliateInfo")]
+        Task<ResultInfo> InsertAffiliateInfo(AffiliateInfoParam affiliateInfo);
 
         [Get("/BetReport/GetTpTransferInfo")]
         Task<IEnumerable<TpTransferInfo>> GetTpTransferInfo(int id, int totalRow);

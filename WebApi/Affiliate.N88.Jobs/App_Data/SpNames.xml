@@ -19,4 +19,10 @@
     <Setting Key="Master_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Master_bodb_N88"/>
     <Setting Key="Slave_Task_API_TimeTracker_Import" SpName="Task_API_TimeTracker_Import" DbName="Slave_bodb_N88"/>
   </Funtion>
+  <Function Name="DataTracker">
+    <Setting Key="Master_Task_API_PushDataTracker_Sel" SpName="Task_API_PushDataTracker_Sel" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_PushDataTracker_Sel" SpName="Task_API_PushDataTracker_Sel" DbName="Slave_bodb_N88"/>
+    <Setting Key="Master_Task_API_PushDataTracker_Upd" SpName="Task_API_PushDataTracker_Upd" DbName="Master_bodb_N88"/>
+    <Setting Key="Slave_Task_API_PushDataTracker_Upd" SpName="Task_API_PushDataTracker_Upd" DbName="Slave_bodb_N88"/>
+  </Function>
 </Functions>

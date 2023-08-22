@@ -1,9 +1,5 @@
 ﻿using Fanex.Affiliate.Admin.Core.DTO.Api;
 using Refit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.Admin.Core.Apis
@@ -18,5 +14,8 @@ namespace Fanex.Affiliate.Admin.Core.Apis
 
         [Post("/api/customer/UnlockUser")]
         Task<ApiResultInfo> UnlockUser(int[] userIds);
+
+        [Post("/api/customer/InsertAffiliateInfo")]
+        Task<ApiResultInfo> InsertAffiliateInfo(ApiAffiliateInfo affiliateInfo);
     }
 }
