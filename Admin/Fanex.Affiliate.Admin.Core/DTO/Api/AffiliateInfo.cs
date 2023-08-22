@@ -9,7 +9,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.Api
 
         public string AffiliateName { get; set; }
 
-        public string ParentAffiliate { get; set; } = null;
+        public string ParentAffiliate { get; set; }
 
         public string AffiliateCode { get; set; }
 
