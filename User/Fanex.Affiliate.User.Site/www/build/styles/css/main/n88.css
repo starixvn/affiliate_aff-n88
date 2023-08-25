@@ -380,6 +380,8 @@ input[type="checkbox"], input[type="radio"] {
     right: 8rem;
     position: absolute;
     top: 42px; }
+    .after-login-content .header-top .language-container.vi-VN {
+      right: 10rem; }
   .after-login-content .header-top .language-login {
     padding-top: 1px; } }
 

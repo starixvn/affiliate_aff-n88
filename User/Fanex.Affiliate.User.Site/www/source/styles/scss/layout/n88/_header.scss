@@ -89,6 +89,10 @@
                 right: 8rem;
                 position: absolute;
                 top: 42px;
+
+                &.vi-VN {
+                    right: 10rem;
+                }
             }
 
             .language-login {
