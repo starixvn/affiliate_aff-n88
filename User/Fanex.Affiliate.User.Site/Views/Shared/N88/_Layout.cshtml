@@ -46,7 +46,7 @@
     @RenderSection("styles", required: false)
 
 </head>
-<body class="@(isLogin ? "after-login-content" : "before-login-content")">
+<body class="@(isLogin ? "after-login-content" : "before-login-content") @sessionService.CurrentLanguage">
     <header class="@RenderSection("classHeader", required: false)">
         <div class="header-top">
             <div class="logo">

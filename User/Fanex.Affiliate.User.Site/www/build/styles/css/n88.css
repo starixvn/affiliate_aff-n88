@@ -5,6 +5,8 @@ body {
   font-family: 'Open Sans',sans-serif;
   color: #333333;
   background: #F8F9FA; }
+  body.km-KH {
+    word-break: break-word; }
   body a:focus {
     outline: none !important; }
 

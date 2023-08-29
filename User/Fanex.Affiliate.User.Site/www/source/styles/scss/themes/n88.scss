@@ -10,6 +10,11 @@ body {
     color: $text-color;
     background: $bg-main-color;
 
+    //line break for firefox
+    &.km-KH {
+        word-break: break-word;
+    }
+
     a:focus {
         outline: none !important;
     }
