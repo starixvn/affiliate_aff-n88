@@ -38,7 +38,7 @@ describe('payment request - components - Filter ', () => {
 
         shallow(<Filter {...props} />);
 
-        expect(props.setParam).toHaveBeenCalledWith({ "FromDate": "6/26/2019", "IsFromHome": true, "IsGetAll": false, "SearchBy": 1, "Status": undefined, "ToDate": "6/27/2019", "Username": null });
+        expect(props.setParam).toHaveBeenCalledWith({ "FromDate": "6/26/2019", "IsFromHome": true, "IsGetAll": false, "SearchBy": 1, "Status": undefined, "ToDate": "6/27/2019", "Username": "" });
     });
 
     it('handleSearch - should be called when click Search Button', () => {
@@ -48,7 +48,7 @@ describe('payment request - components - Filter ', () => {
 
         wrapper.find('Button').simulate('click');
 
-        expect(props.setParam).toHaveBeenCalledWith({ FromDate: "6/26/2019", IsGetAll: false, SearchBy: 1, Status: undefined, ToDate: "6/27/2019", Username: null });
+        expect(props.setParam).toHaveBeenCalledWith({ FromDate: "6/26/2019", IsGetAll: false, SearchBy: 1, Status: undefined, ToDate: "6/27/2019", Username: "" });
     });
 
     it("handleChange - should be called when change Search By's value", () => {

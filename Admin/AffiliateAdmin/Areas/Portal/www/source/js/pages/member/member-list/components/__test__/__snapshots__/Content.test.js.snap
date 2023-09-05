@@ -101,7 +101,7 @@ exports[`member list - components - Content  render correctly 1`] = `
             >
               <input
                 className="mt-1"
-                disabled="true"
+                disabled={true}
                 type="checkbox"
               />
             </t>
@@ -224,7 +224,7 @@ exports[`member list - components - Content  render correctly 1`] = `
             >
               <input
                 className="mt-1"
-                disabled="true"
+                disabled={true}
                 type="checkbox"
               />
             </t>
@@ -527,7 +527,7 @@ exports[`member list - components - Content  render correctly with NotificationP
             >
               <input
                 className="mt-1"
-                disabled="true"
+                disabled={true}
                 type="checkbox"
               />
             </t>
@@ -650,7 +650,7 @@ exports[`member list - components - Content  render correctly with NotificationP
             >
               <input
                 className="mt-1"
-                disabled="true"
+                disabled={true}
                 type="checkbox"
               />
             </t>

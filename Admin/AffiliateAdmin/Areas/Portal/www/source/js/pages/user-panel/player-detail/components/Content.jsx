@@ -100,7 +100,7 @@ export class Content extends PureComponent {
         }
         else {
             const colSpan = 12 + (isDepositFeePercent ? 1 : 0) + (isWithdrawalFeePercent ? 1 : 0)
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan={colSpan}>{globalResource.NoInfo}</Cell>
             </Row>);
         }
@@ -121,7 +121,7 @@ export class Content extends PureComponent {
         const firstDepositAmount = dataItem.FirstDepositAmount == null ? '' : formatDecimal(dataItem.FirstDepositAmount);
 
         return (
-            <Row>
+            <Row key={`raw-data-${rowNumber}`}>
                 <Cell className="text-center" title={rowNumber}>{rowNumber}</Cell>
                 <Cell title={userName}>{userName}</Cell>
                 <Cell title={dataItem.IbcUserName}>{dataItem.IbcUserName}</Cell>

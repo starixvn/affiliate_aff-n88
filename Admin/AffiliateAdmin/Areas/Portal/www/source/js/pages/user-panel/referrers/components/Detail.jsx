@@ -61,7 +61,7 @@ export class Detail extends Component {
         }
         else {
             dataRows.push(
-                <Row>
+                <Row key="no-info">
                     <Cell className="text-center" colSpan="5">{globalResource.NoInfo}</Cell>
                 </Row>
             );

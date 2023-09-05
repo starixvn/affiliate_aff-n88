@@ -70,7 +70,7 @@ export class Content extends PureComponent {
             }
         }
         else {
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="6">{resource.NoInfo}</Cell>
             </Row>);
         }
@@ -84,7 +84,7 @@ export class Content extends PureComponent {
         const lastName = htmlDecode(dataItem.LastName);
         const email = htmlDecode(dataItem.Email);
         return (
-            <Row>
+            <Row key={`raw-data-${rowNumber}`}>
                 <Cell className="text-center" title={rowNumber}>{rowNumber}</Cell>
                 <Cell title={userName}>{userName}</Cell>
                 <Cell title={firstName}>{firstName}</Cell>

@@ -23,7 +23,9 @@ export class PaymentRequestUpdateForm extends PureComponent {
             isShowMessage: false,
             message: '',
             isSendingRequest: false
-        }
+        };
+
+        this.timeOutAlert = null;
     }
 
     componentDidUpdate(prevProps) {
@@ -32,6 +34,10 @@ export class PaymentRequestUpdateForm extends PureComponent {
         if (transactionId && transactionId !== prevProps.transactionId) {
             this.handleGetPaymentRequestInfo(transactionId);
         }
+    }
+
+    componentWillUnmount() {
+        this.timeOutAlert && window.clearTimeout(this.timeOutAlert);
     }
 
     handleChange = (event) => {
@@ -74,7 +80,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
                     isShowMessage: true,
                     isSuccess: result.IsSuccessful,
                     message: result.IsSuccessful ? `Transaction ID ${paymentRequestInfo.TransId} has been updated successfully!` : result.Message,
-                }, () => window.setTimeout(this.hideMessage, 3000));
+                }, this.handleTimeOut);
 
                 if (result.IsSuccessful) {
                     window.setTimeout(() => this.props.handleClosePopup(), 3000);
@@ -86,15 +92,19 @@ export class PaymentRequestUpdateForm extends PureComponent {
                     isSuccess: false,
                     isShowMessage: true,
                     message: errorList.UpdateFailed,
-                }, () => window.setTimeout(this.hideMessage, 3000));
+                }, this.handleTimeOut);
             }
         } else {
             this.setState({
                 isSuccess: false,
                 isShowMessage: true,
                 message: errorList.NotChoose,
-            }, () => window.setTimeout(this.hideMessage, 3000));
+            }, this.handleTimeOut);
         }
+    }
+
+    handleTimeOut = () => {
+        this.timeOutAlert = window.setTimeout(this.hideMessage, 3000);
     }
 
     hideMessage = () => {
@@ -242,7 +252,7 @@ export class PaymentRequestUpdateForm extends PureComponent {
         const isProcessing = originalStatus && originalStatus.toLowerCase() === processingStatus;
 
         return paymentRequestInfo && (
-            <Modal isOpen={transactionId} toggle={this.handleClosePopup} backdrop='static'>
+            <Modal isOpen={!!transactionId} toggle={this.handleClosePopup} backdrop='static'>
                 <ModalHeader toggle={this.handleClosePopup}><span className="iconpopup"></span>Trxn.ID {transactionId}</ModalHeader>
                 <ModalBody>
                     <div className="modal-body-wrapper p-0">

@@ -8,7 +8,7 @@ export const renderInputForm = (name, label, inputValue, isStatic, isRequired, c
             <Col sm={9} xl={10}>
                 {
                     isStatic ? (<p className="form-control-plaintext">{inputValue}</p>) :
-                        (<Input type="text" id={name} name={name} value={inputValue} onChange={changeHandler} />)
+                        (<Input type="text" id={name} name={name} value={inputValue || ''} onChange={changeHandler} />)
                 }
             </Col>
         </FormGroup>

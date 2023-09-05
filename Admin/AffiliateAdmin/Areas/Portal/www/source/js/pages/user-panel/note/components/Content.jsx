@@ -43,7 +43,7 @@ export class Content extends PureComponent {
             }
         }
         else {
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="5">{globalResource.NoInfo}</Cell>
             </Row>);
         }
