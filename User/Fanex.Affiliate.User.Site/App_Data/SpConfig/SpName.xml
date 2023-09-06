@@ -53,8 +53,8 @@
   </Function>
 
   <Function Name="HotNews">
-    <Setting Key="Aff_HotNewsDetail" SpName="Aff_HotNewsDetail_xtest" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNet" />
-    <Setting Key="Aff_HotNewsDetail_view" SpName="Aff_HotNewsDetail_xtest" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNetView" />
+    <Setting Key="Aff_HotNewsDetail" SpName="Aff_HotNewsDetail" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNet" />
+    <Setting Key="Aff_HotNewsDetail_view" SpName="Aff_HotNewsDetail" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNetView" />
 
     <Setting Key="Aff_HotNewsSel" SpName="Aff_HotNewsSel" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNet" />
     <Setting Key="Aff_HotNewsSel_view" SpName="Aff_HotNewsSel" DbName="DBAFFN8B.Affiliate_N8B.bodbDownlineNetView" />
