@@ -2,7 +2,7 @@
 
 <section class="info-group" id="WhatWeHave">
     <div class="title">
-        <span class="text">สิ่งที่เรามี</span>
+        <span class="text">@Lang.WhatWeHave</span>
     </div>
     <ul>
         <li class="text">
@@ -18,7 +18,7 @@
 </section>
 <section class="info-group" id="WhatWeOffer">
     <div class="title">
-        <span class="text">สิ่งที่เราเสนอให้คือ</span>
+        <span class="text">@Lang.WhatWeOffer</span>
     </div>
     <ul>
         <li class="text">
@@ -37,7 +37,7 @@
 </section>
 <section class="info-group" id="OurPlan">
     <div class="title">
-        <span class="text">แผนของเราคือ</span>
+        <span class="text">@Lang.OurPlan</span>
     </div>
     <p class="text">
         ส่วนแบ่งรายได้ของคุณประกอบด้วยสองส่วน: (i) ส่วนแรกคือจากการเสียเดิมพันของผู้เล่นที่อ้างอิง และ (ii) ส่วนที่สองจากส่วนแบ่งรายได้ของพันธมิตร(Affiliates) ของคุณ:
@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ Nova88 ในแต่ละเดีอน
+                    <strong>ยอดได้/เสียรวมของสมาชิก:</strong> คำนวณจากยอดเสียสุทธิของสมาชิกที่อยู่ภายใต้พันธมิตรของคุณที่ทำการแนะนำให้ @Model.SiteFriendlyName ในแต่ละเดีอน
                 </li>
                 <li class="text">
                     <strong>จำนวนผู้เล่นที่ผ่านเกณฑ์:</strong> สมาชิกที่อยู่ภายใต้พันธมิตรนั้นจะต้องมีประวัติการเดิมพันอย่างน้อย 1 ครั้ง ในเดือนนั้นๆ
@@ -105,7 +105,7 @@
 </section>
 <section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
-        <span class="text"><i>ตัวอย่างการจ่ายส่วนแบ่งรายได้</i></span>
+        <span class="text"><i>@Lang.RevenueSharePayoutExample</i></span>
     </div>
     <p class="text">
         <i>รูปที่ 1 :</i> ตัวอย่างเพื่อแสดงให้คุณเห็นว่าการคำนวณส่วนแบ่งรายได้ของคุณจากผู้เล่นที่แนะนำของคุณ
@@ -137,7 +137,7 @@
 </section>
 <section class="info-group" id="HowWePay">
     <div class="title">
-        <span class="text">การจ่ายเงิน</span>
+        <span class="text">@Lang.HowWePay</span>
     </div>
     <ul>
         <li class="text">

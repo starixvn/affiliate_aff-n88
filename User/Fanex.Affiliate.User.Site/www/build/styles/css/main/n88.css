@@ -301,18 +301,7 @@ input[type="checkbox"], input[type="radio"] {
   display: inline-block;
   -webkit-font-smoothing: antialiased;
   background-size: cover;
-  vertical-align: middle;
-  /*    &-ko-KR {
-        background-image: url("../../Images/icons/flags/England.png");
-    }
-
-    &-es-ES {
-        background-image: url("../../Images/icons/flags/England.png");
-    }
-
-    &-ja-JP {
-        background-image: url("../../Images/icons/flags/England.png");
-    }*/ }
+  vertical-align: middle; }
   .flag-en-US {
     background-image: url("../../Images/icons/flags/England.png"); }
   .flag-zh-CN {
@@ -325,6 +314,10 @@ input[type="checkbox"], input[type="radio"] {
     background-image: url("../../Images/icons/flags/Vietnam.png"); }
   .flag-th-TH {
     background-image: url("../../Images/icons/flags/Thailand.png"); }
+  .flag-bn-BD {
+    background-image: url("../../Images/icons/flags/Bangladeshi.png"); }
+  .flag-km-KH {
+    background-image: url("../../Images/icons/flags/Cambodian.png"); }
   .flag-hi-IN {
     background-image: url("../../Images/icons/flags/Hindi.png"); }
   .flag-ms-MY {
@@ -387,6 +380,8 @@ input[type="checkbox"], input[type="radio"] {
     right: 8rem;
     position: absolute;
     top: 42px; }
+    .after-login-content .header-top .language-container.vi-VN {
+      right: 10rem; }
   .after-login-content .header-top .language-login {
     padding-top: 1px; } }
 

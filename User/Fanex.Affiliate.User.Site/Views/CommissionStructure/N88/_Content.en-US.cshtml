@@ -2,7 +2,7 @@
 
 <section class="info-group" id="WhatWeHave">
     <div class="title">
-        <span class="text">What we have</span>
+        <span class="text">@Lang.WhatWeHave</span>
     </div>
     <ul>
         <li class="text">
@@ -18,7 +18,7 @@
 </section>
 <section class="info-group" id="WhatWeOffer">
     <div class="title">
-        <span class="text">What we offer</span>
+        <span class="text">@Lang.WhatWeOffer</span>
     </div>
     <ul>
         <li class="text">
@@ -37,7 +37,7 @@
 </section>
 <section class="info-group" id="OurPlan">
     <div class="title">
-        <span class="text">Our Plan</span>
+        <span class="text">@Lang.OurPlan</span>
     </div>
     <p class="text">
         Your revenue share consists of two parts: (i) from your referred player’s betting losses and (ii) from your referred affiliate’s revenue share:
@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to Nova88.
+                    <strong>Company's Net Profit:</strong> the monthly net loss of all players recommended by you to @Model.SiteFriendlyName.
                 </li>
                 <li class="text">
                     <strong>Active Players:</strong> members that have placed at least one (1) bet in the month.
@@ -105,7 +105,7 @@
 </section>
 <section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
-        <span class="text"><i>Revenue Share Payout Example</i></span>
+        <span class="text"><i>@Lang.RevenueSharePayoutExample</i></span>
     </div>
     <p class="text">
         <i>Figure 1:</i> An example to show you how your revenue share earned from your referred players is calculated
@@ -137,11 +137,11 @@
 </section>
 <section class="info-group" id="HowWePay">
     <div class="title">
-        <span class="text">How we pay</span>
+        <span class="text">@Lang.HowWePay</span>
     </div>
     <ul>
         <li class="text">
-            Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from NOVA88 Affiliate team.
+            Once a month, through your @Model.SiteFriendlyName player account (in USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) and the minimum withdrawal amount is USD 100. For other currencies need to request from @Model.SiteFriendlyName Affiliate team.
         </li>
         <li class="text">
             Any 2nd withdrawal request in the same month shall be subject to @Model.SiteFriendlyName Affiliates team’s approval.

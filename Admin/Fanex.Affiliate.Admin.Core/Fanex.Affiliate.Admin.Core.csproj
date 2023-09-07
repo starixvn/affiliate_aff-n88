@@ -494,11 +494,6 @@
     <Compile Include="Repository\UserPanel\ReferrersRepository.cs" />
     <Compile Include="Repository\UserPanel\StatementHistoryRepository.cs" />
     <Compile Include="Repository\UserPanel\UserAccountRepository.cs" />
-    <Compile Include="Resources\Lang.zh-TW.Designer.cs">
-      <DependentUpon>Lang.zh-TW.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Resources\Lang.zh-CN.Designer.cs">
       <DependentUpon>Lang.zh-CN.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -514,16 +509,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Resources\Lang.ko-KR.Designer.cs">
-      <DependentUpon>Lang.ko-KR.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Resources\Lang.ja-JP.Designer.cs">
-      <DependentUpon>Lang.ja-JP.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Resources\Lang.id-ID.Designer.cs">
       <DependentUpon>Lang.id-ID.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -531,11 +516,6 @@
     </Compile>
     <Compile Include="Resources\Lang.hi-IN.Designer.cs">
       <DependentUpon>Lang.hi-IN.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Resources\Lang.es-ES.Designer.cs">
-      <DependentUpon>Lang.es-ES.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -666,11 +646,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Lang.bn-BD.resx" />
+    <EmbeddedResource Include="Resources\Lang.km-KH.resx" />
     <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
-    <EmbeddedResource Include="Resources\Lang.zh-TW.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.zh-TW.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.zh-CN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.zh-CN.Designer.cs</LastGenOutput>
@@ -683,14 +661,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.th-TH.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.ko-KR.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.ko-KR.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.ja-JP.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.ja-JP.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.id-ID.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.id-ID.Designer.cs</LastGenOutput>
@@ -698,10 +668,6 @@
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.hi-IN.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.es-ES.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Lang.es-ES.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

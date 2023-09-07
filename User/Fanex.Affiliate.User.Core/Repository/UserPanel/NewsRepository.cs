@@ -63,6 +63,8 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
                 ["id-ID"] = reader[MessagePrefix + "id"]?.ToString(),
                 ["hi-IN"] = reader[MessagePrefix + "hi"]?.ToString(),
                 ["ms-MY"] = reader[MessagePrefix + "ms"]?.ToString(),
+                ["bn-BD"] = reader[MessagePrefix + "bn"]?.ToString(),
+                ["km-KH"] = reader[MessagePrefix + "kh"]?.ToString(),
             };
         }
     }

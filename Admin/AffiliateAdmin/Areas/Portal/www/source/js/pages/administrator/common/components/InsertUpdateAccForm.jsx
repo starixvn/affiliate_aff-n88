@@ -155,7 +155,7 @@ export class InsertUpdateAccForm extends PureComponent {
                             <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                                 <div dangerouslySetInnerHTML={{ __html: message }}></div>
                             </Alert>
-                            <Form tag="form" className="mb-5" autocomplete="off">
+                            <Form tag="form" className="mb-5" autoComplete="off">
                                 {
                                     isInsert && (<React.Fragment>
                                         <FormGroup row className="mb-2">
@@ -163,13 +163,13 @@ export class InsertUpdateAccForm extends PureComponent {
                                             {
                                                 isInsertExistedAcc ? (
                                                     <Col sm={8}>
-                                                        <Input type="text" name="userName" className="mt-2" autocomplete="off" maxlength="20" value={userName} onChange={this._handleChange}
+                                                        <Input type="text" name="userName" className="mt-2" autoComplete="off" maxlength="20" value={userName} onChange={this._handleChange}
                                                             onKeyPress={this._handleKeyPress} />
                                                     </Col>
                                                 ) : (
                                                         <Col sm={8} className="row-user">
                                                             <Input type="text" className="refix" disabled value="AA" />
-                                                            <Input type="text" name="userName" className="userName" autocomplete="off" maxlength="20" value={userName} onChange={this._handleChange}
+                                                            <Input type="text" name="userName" className="userName" autoComplete="off" maxlength="20" value={userName} onChange={this._handleChange}
                                                                 onKeyPress={this._handleKeyPress} />
                                                         </Col>
                                                     )
@@ -180,7 +180,7 @@ export class InsertUpdateAccForm extends PureComponent {
                                                 <FormGroup row className="mb-2">
                                                     <Label for="password" sm={4} className="required">{headerText.Password}</Label>
                                                     <Col sm={8}>
-                                                        <Input type="password" name="password" className="mt-2" maxlength="20" autocomplete="off" className="mt-2" value={password}
+                                                        <Input type="password" name="password" className="mt-2" maxlength="20" autoComplete="off" className="mt-2" value={password}
                                                             onChange={this._handleChange} onKeyPress={this._handleKeyPress} />
                                                     </Col>
                                                 </FormGroup>

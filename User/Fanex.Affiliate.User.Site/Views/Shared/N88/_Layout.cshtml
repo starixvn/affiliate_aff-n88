@@ -46,7 +46,7 @@
     @RenderSection("styles", required: false)
 
 </head>
-<body class="@(isLogin ? "after-login-content" : "before-login-content")">
+<body class="@(isLogin ? "after-login-content" : "before-login-content") @sessionService.CurrentLanguage">
     <header class="@RenderSection("classHeader", required: false)">
         <div class="header-top">
             <div class="logo">
@@ -65,7 +65,7 @@
                 @{Html.RenderAction("AuthenticationForm", "Auth", new { v = DateTime.UtcNow.Ticks });}
                 <div class="user-signup">
                     <div class="language-login">
-                        <div class="language-container desktop">
+                        <div class="language-container desktop @sessionService.CurrentLanguage">
                             <div class="language-selection">
                                 <button class="select-language" id="selectedLanguage">
                                     <span><i class="flag flag-@sessionService.CurrentLanguage"></i>@(currentLanguage)</span>
@@ -94,7 +94,7 @@
                         else
                         {
                             <div class="login-after user-login">
-                                <a href="@Url.Content("~/UserPanel/Main/#AccountOverview")" class="btn btn-signup"><span class="icon glyphicon glyphicon-user"></span>@Lang.MyAcc - @sessionService.UserSession.UserName</a>
+                                <a href="@Url.Content("~/UserPanel/Main/#AccountOverview")" class="btn btn-signup"><span class="icon glyphicon glyphicon-user"></span>@Lang.MyAccount - @sessionService.UserSession.UserName</a>
                                 <div class="btn-logout">
                                     <a href="@Url.Content("~/Auth/SignOut/")" class="btn btn-login">@Lang.Logout</a>
                                 </div>

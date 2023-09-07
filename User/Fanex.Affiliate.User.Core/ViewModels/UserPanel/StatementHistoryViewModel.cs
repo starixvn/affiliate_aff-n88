@@ -126,11 +126,11 @@ namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel
             switch (calculatedType)
             {
                 case Constants.CalculatedType.CalculatedMonth:
-                    return Resources.Lang.CommissionBonus;
+                    return Resources.Lang.Commission;
                 case Constants.CalculatedType.UnCalculatedMonth:
-                    return Resources.Lang.UncalculatedCommissionBonus;
+                    return Resources.Lang.UncalculatedCommission;
                 default:
-                    return Resources.Lang.CurrentCommissionBonus;
+                    return Resources.Lang.CurrentCommission;
             }
         }
 

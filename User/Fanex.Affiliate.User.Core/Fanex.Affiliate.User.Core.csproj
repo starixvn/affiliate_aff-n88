@@ -604,7 +604,9 @@
     <Compile Include="ViewModels\VerificationAccountViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Error.bn-BD.resx" />
     <EmbeddedResource Include="Resources\Error.hi-IN.resx" />
+    <EmbeddedResource Include="Resources\Error.km-KH.resx" />
     <EmbeddedResource Include="Resources\Error.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -626,7 +628,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lang.bn-BD.resx" />
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx" />
+    <EmbeddedResource Include="Resources\Lang.km-KH.resx" />
     <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

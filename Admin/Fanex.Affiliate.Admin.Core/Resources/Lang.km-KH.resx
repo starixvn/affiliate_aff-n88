@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Affiliate" xml:space="preserve">
+    <value>សម្ព័ន្ធសមាជិក</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© រក្សាសិទ្ធិឆ្នាំ {0} |  B2C.  រក្សាសិទ្ធិគ្រប់យ៉ាង |  21+</value>
+  </data>
+  <data name="EmailAutoNotification" xml:space="preserve">
+    <value>នេះជាអ៊ីមែលដែលគ្រប់គ្រងដោយប្រព័ន្ធស្វ័យប្រវត្តិ សូមកុំឆ្លើយតបអ៊ីមែលនេះដោយផ្ទាល់</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - [{0}] - សំណើបង់ប្រាក់របស់អ្នកត្រូវបានបដិសេធ</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - [{0}] - សំណើទូទាត់ប្រាក់របស់អ្នកត្រូវបានដាក់ដំណើរការ និងទទួលដោយជោគជ័យ</value>
+  </data>
+  <data name="EmailSubjectAffInfor" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - ព័ត៌មានសាខាសម្ព័ន្របស់អ្នក</value>
+  </data>
+  <data name="EmailSubjectAffDisapproved" xml:space="preserve">
+    <value>សាខាសម្ព័ន្ធ B2C - កម្មវិធីសម្ព័ន្ធរបស់អ្នកនៅ​B2Cត្រូវបានលុបចោល</value>
+  </data>
+  <data name="EmailTitleAffDisapproved" xml:space="preserve">
+    <value>កម្មវិធីសម្ព័ន្ធរបស់អ្នកនៅ​B2Cត្រូវបានលុបចោល</value>
+  </data>
+  <data name="EmailTitleAffInfor" xml:space="preserve">
+    <value>ព័ត៌មានសាខាសម្ព័ន្ធរបស់អ្នក</value>
+  </data>
+  <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
+    <value>សំណើទូទាត់ប្រាក់របស់អ្នកត្រូវបានដាក់ដំណើរការ និងទទួលដោយជោគជ័យ</value>
+  </data>
+  <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
+    <value>សំណើបង់ប្រាក់របស់អ្នកត្រូវបានបដិសេធ</value>
+  </data>
 </root>

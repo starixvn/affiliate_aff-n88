@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,4 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Affiliate" xml:space="preserve">
+    <value>অধিভুক্ত</value>
+  </data>
+  <data name="Copyright" xml:space="preserve">
+    <value>© কপিরাইট {0} | B2C। সমস্ত অধিকার সংরক্ষিত 21+</value>
+  </data>
+  <data name="EmailAutoNotification" xml:space="preserve">
+    <value>এটি একটি সিস্টেম স্বয়ংক্রিয় জেনারেট ইমেল, দয়া করে এই ইমেলে সরাসরি উত্তর দিবেন না।</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestRejected" xml:space="preserve">
+    <value>B2C অফিলিয়েট - [{0}] - আপনার পেমেন্ট অনুরোধটি প্রত্যাখ্যাত হয়েছে</value>
+  </data>
+  <data name="EmailSubjectPaymentRequestApproved" xml:space="preserve">
+    <value>B2C অফিলিয়েট - [{0}] - আপনার পেমেন্ট অনুরোধটি সফলভাবে প্রক্রিয়া করা হয়েছে এবং সম্পূর্ণ হয়েছে</value>
+  </data>
+  <data name="EmailSubjectAffInfor" xml:space="preserve">
+    <value>B2C অফিলিয়েট - আপনার অফিলিয়েট তথ্য</value>
+  </data>
+  <data name="EmailSubjectAffDisapproved" xml:space="preserve">
+    <value>B2C অফিলিয়েট - B2C অফিলিয়েট প্রোগ্রামে আপনার আবেদন প্রত্যাখ্যাত হয়েছে</value>
+  </data>
+  <data name="EmailTitleAffDisapproved" xml:space="preserve">
+    <value>B2C অফিলিয়েট প্রোগ্রামে আপনার আবেদন প্রত্যাখ্যাত হয়েছে</value>
+  </data>
+  <data name="EmailTitleAffInfor" xml:space="preserve">
+    <value>আপনার অফিলিয়েট তথ্য</value>
+  </data>
+  <data name="EmailTitlePaymentRequestApproved" xml:space="preserve">
+    <value>আপনার পেমেন্ট অনুরোধটি সফলভাবে প্রক্রিয়া করা হয়েছে এবং সম্পূর্ণ হয়েছে</value>
+  </data>
+  <data name="EmailTitlePaymentRequestRejected" xml:space="preserve">
+    <value>আপনার পেমেন্ট অনুরোধটি প্রত্যাখ্যাত হয়েছে</value>
+  </data>
 </root>

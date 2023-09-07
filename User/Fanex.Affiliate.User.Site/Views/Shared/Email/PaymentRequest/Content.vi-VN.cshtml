@@ -2,15 +2,17 @@
 <div>
     Kính gửi @Model.User.FirstName<br /><br />
 
-    Chúng tôi đã nhận được yêu cầu thanh toán của bạn vào ngày @Model.RequestDate.ToString("MM/dd/yyyy") với số tiền @Model.Amount @Model.DefaultCurrency.<br />
-    Yêu cầu thanh toán mang số @Model.TransId.<br /><br />
+    Chúng tôi đã nhận được yêu cầu thanh toán của bạn vào ngày @Model.RequestDate.ToString("MM/dd/yyyy") với số tiền @Model.Amount @Model.DefaultCurrency<br />
+    Yêu cầu thanh toán mang số @Model.TransId<br /><br />
 
-    Yêu cầu này sẽ được xử lý trong vòng 15 ngày làm việc theo thứ tự mà chúng tôi nhận được, và dựa kết quả kiểm tra của bộ phận Tuân thủ.<br /><br />
+    Yêu cầu thanh toán của bạn sẽ được xử lý trong 15 ngày làm việc. Theo quy định của chúng tôi, tất cả yêu cầu sẽ được xử lý theo thứ tự nhận được.<br /><br />
 
-    Đây là thư tự động do hệ thống gửi, xin vui lòng không trả lời trực tiếp thư này.<br />
-    Mọi thắc mắc xin liên hệ tới <a href="mailto:@Model.MailContact">@Model.MailContact</a><br /><br />
+    Đây là email tự động, vui lòng không trả lời email này.<br />
+    Vui lòng liên hệ <a href="mailto:@Model.MailContact">@Model.MailContact</a> nếu bạn cần hỗ trợ.<br /><br />
 
-    Xin chân thành cảm ơn.<br /><br />
+    Chúc bạn một ngày tốt lành!<br /><br />
 
-    Bộ phận liên kết @Model.SiteFriendlyName.<br /><br />
+    Thân mến,<br /><br />
+
+    Chương trình Đại lý @Model.SiteFriendlyName
 </div>

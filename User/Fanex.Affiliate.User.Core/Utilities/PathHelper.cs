@@ -7,38 +7,23 @@ namespace Fanex.Affiliate.User.Core.Utilities
     {
         public static string GetLayoutPath(string layoutName, string siteName = null)
         {
-            if (string.IsNullOrWhiteSpace(layoutName))
-            {
-                return layoutName;
-            }
+            var (isIncludeSiteName, validSiteName) = IsIncludeSiteName(siteName);
 
-            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
-
-            return isInclude ? $"~/Views/Shared/{validSiteName}/{layoutName}.cshtml" : $"~/Views/Shared/{layoutName}.cshtml";
+            return isIncludeSiteName ? $"~/Views/Shared/{validSiteName}/{layoutName}.cshtml" : $"~/Views/Shared/{layoutName}.cshtml";
         }
 
         public static string GetViewPath(string partialPath, string fileName, string siteName = null)
         {
-            if (string.IsNullOrWhiteSpace(partialPath))
-            {
-                return partialPath;
-            }
+            var (isIncludeSiteName, validSiteName) = IsIncludeSiteName(siteName);
 
-            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
-
-            return isInclude ? $"~/Views/{partialPath}/{validSiteName}/{fileName}.cshtml" : $"~/Views/{partialPath}/{fileName}.cshtml";
+            return isIncludeSiteName ? $"~/Views/{partialPath}/{validSiteName}/{fileName}.cshtml" : $"~/Views/{partialPath}/{fileName}.cshtml";
         }
 
         public static string GetFilePathInBuildFolder(string partialPath, string fileName, string siteName = null)
         {
-            if (string.IsNullOrWhiteSpace(partialPath))
-            {
-                return partialPath;
-            }
+            var (isIncludeSiteName, validSiteName) = IsIncludeSiteName(siteName);
 
-            var (isInclude, validSiteName) = IsIncludeSiteName(siteName);
-
-            return isInclude ? $"~/www/build/{partialPath}/{validSiteName}/{fileName}" : $"~/www/build/{partialPath}/{fileName}";
+            return isIncludeSiteName ? $"~/www/build/{partialPath}/{validSiteName}/{fileName}" : $"~/www/build/{partialPath}/{fileName}";
         }
 
         private static (bool, string) IsIncludeSiteName(string siteName)

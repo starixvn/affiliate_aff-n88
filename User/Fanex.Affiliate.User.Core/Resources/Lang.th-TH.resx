@@ -154,10 +154,7 @@
     <value>จำนวนเงิน</value>
   </data>
   <data name="AmtErr" xml:space="preserve">
-    <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง  จำนวนเงินต้องอยู่ระหว่าง</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>และ</value>
+    <value>จำนวนเงินที่ร้องขอไม่ถูกต้อง  จำนวนเงินต้องอยู่ระหว่าง {0} และ {1}</value>
   </data>
   <data name="Angola" xml:space="preserve">
     <value>แองโกล่า</value>
@@ -333,9 +330,6 @@
   <data name="Colombia" xml:space="preserve">
     <value>กัมพูชา</value>
   </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>เปอร์เซ็นต์</value>
-  </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>วันที่เสร็จสมบูรณ์</value>
   </data>
@@ -435,7 +429,7 @@
   <data name="Email" xml:space="preserve">
     <value>อีเมลล์แอดเดรส</value>
   </data>
-  <data name="Email1" xml:space="preserve">
+  <data name="EmailContactUs" xml:space="preserve">
     <value>อีเมล</value>
   </data>
   <data name="Emailaddressest" xml:space="preserve">
@@ -732,9 +726,6 @@
   <data name="Msgkickout" xml:space="preserve">
     <value>มีคนเข้าระบบหรือว่าเวลาในระบบของคุณไม่ถูกต้อง  คุณถูกบังคับให้ออกจากระบบ</value>
   </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>บัญชีของฉัน</value>
-  </data>
   <data name="Myanmar" xml:space="preserve">
     <value>พม่า</value>
   </data>
@@ -749,9 +740,6 @@
   </data>
   <data name="Netherlands" xml:space="preserve">
     <value>เนเธอแลนด์</value>
-  </data>
-  <data name="NetWinLoss" xml:space="preserve">
-    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>คาเลโดเนีย ใหม่</value>
@@ -973,7 +961,7 @@
     <value>สิงคโปร์</value>
   </data>
   <data name="Size" xml:space="preserve">
-    <value>ขนาดแบนเนอร์</value>
+    <value>ขนาด</value>
   </data>
   <data name="Slot" xml:space="preserve">
     <value>สล็อต</value>
@@ -1209,15 +1197,6 @@
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>เกมส์ขูดการ์ด/เกมส์ตู้</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>ส่วนแบ่งรายได้</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>ผลิตภัณฑ์ทั้งหมด</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>รายละเอียดเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ B2C</value>
-  </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>&lt;strong&gt;วันจันทร์ - วันเสาร์&lt;/strong&gt;&lt;br&gt;เวลา 11.00 น. - 20.00 น. (เวลาไทย)</value>
   </data>
@@ -1277,9 +1256,6 @@
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>รายงานค่าคอมมิชชั่น</value>
-  </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>ค่าธรรมเนียมดำเนินการ</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>เรทคอมมิชชั่น</value>
@@ -1446,9 +1422,6 @@
   <data name="YourRevenueShare" xml:space="preserve">
     <value>ส่วนแบ่งรายได้ของคุณ</value>
   </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>ผู้เล่นที่มีการใช้งาน</value>
-  </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
   </data>
@@ -1566,9 +1539,6 @@
   <data name="Commission" xml:space="preserve">
     <value>ส่วนแบ่งรายได้</value>
   </data>
-  <data name="CommissionBonus" xml:space="preserve">
-    <value>ส่วนแบ่งรายได้</value>
-  </data>
   <data name="SBBonus" xml:space="preserve">
     <value>โบนัส กีฬา</value>
   </data>
@@ -1678,10 +1648,10 @@
     <value>16. ในการเป็นพยาน</value>
   </data>
   <data name="SportbookProducts" xml:space="preserve">
-    <value>ผลิตภัณฑ์กีฬา</value>
+    <value>1. ผลิตภัณฑ์กีฬา</value>
   </data>
   <data name="CasinoProducts" xml:space="preserve">
-    <value>ผลิตภัณฑ์คาสิโน</value>
+    <value>2. ผลิตภัณฑ์คาสิโน</value>
   </data>
   <data name="ListCategory" xml:space="preserve">
     <value>หมวดหมู่รายชื่อ</value>
@@ -1694,5 +1664,113 @@
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>% ส่วนแบ่งสูงสุดของหลายกลุ่ม</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="NetWinLoss" xml:space="preserve">
+    <value>รายได้ทั้งหมดของบริษัท ({0})</value>
+  </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>ยอดได้/เสียรวมของสมาชิก (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
   </data>
 </root>

@@ -163,6 +163,8 @@ namespace Fanex.Affiliate.Admin.Core.Controllers
                 MessageContentid = Server.HtmlEncode(param.MessageContentid),
                 MessageContenthi = Server.HtmlEncode(param.MessageContenthi),
                 MessageContentms = Server.HtmlEncode(param.MessageContentms),
+                MessageContentbn = Server.HtmlEncode(param.MessageContentbn),
+                MessageContentkh = Server.HtmlEncode(param.MessageContentkh),
             };
         }
 

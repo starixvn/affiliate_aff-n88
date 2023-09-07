@@ -40,12 +40,12 @@ $colorBorderPaging: #CED4DA;
 
         .text-pageInfo {
             display: inline-block;
-            min-width: 126px;
+            min-width: 142px;
             font-size: 16px;
 
             @include Mobile {
                 font-size: 14px;
-                min-width: 86px;
+                min-width: 125px;
             }
         }
 

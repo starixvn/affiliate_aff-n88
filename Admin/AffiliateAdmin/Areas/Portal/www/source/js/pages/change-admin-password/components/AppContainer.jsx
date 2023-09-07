@@ -107,11 +107,11 @@ export default class AppContainer extends PureComponent {
                     <Alert color={isSuccess ? 'success' : 'danger'} isOpen={isShowMessage}>
                         <div dangerouslySetInnerHTML={{ __html: message }}></div>
                     </Alert>
-                    <Form tag="form" className="my-2" autocomplete="off">
+                    <Form tag="form" className="my-2" autoComplete="off">
                         <FormGroup row className="mb-2">
                             <Label for="oldPassword" sm={4} className="required text-right">Old Password</Label>
                             <Col sm={8}>
-                                <Input type="password" className="input-required mt-1" name="oldPassword" id="oldPassword" autocomplete="false"
+                                <Input type="password" className="input-required mt-1" name="oldPassword" id="oldPassword" autoComplete="false"
                                     value={oldPassword} onKeyPress={(e) => this._handlePressEnter(isValid, e)} onChange={this._handleChange} invalid={isClickedSubmit && !isValidOldPassword} />
                                 {!isValidOldPassword &&
                                     <FormFeedback><div dangerouslySetInnerHTML={{ __html: messages.RequiredOldPassword }} /></FormFeedback>}
@@ -120,7 +120,7 @@ export default class AppContainer extends PureComponent {
                         <FormGroup row className="mb-2">
                             <Label for="newPassword" sm={4} className="required text-right">New Password</Label>
                             <Col sm={8}>
-                                <Input type="password" className="input-required mt-1" name="newPassword" id="newPassword" autocomplete="false"
+                                <Input type="password" className="input-required mt-1" name="newPassword" id="newPassword" autoComplete="false"
                                     value={newPassword} onKeyPress={(e) => this._handlePressEnter(isValid, e)} onChange={this._handleChange} invalid={isClickedSubmit && !newPasswordValidation.isValid} />
                                 {newPasswordValidation.message &&
                                     <FormFeedback><div dangerouslySetInnerHTML={{ __html: newPasswordValidation.message }} /></FormFeedback>}
@@ -130,7 +130,7 @@ export default class AppContainer extends PureComponent {
                         <FormGroup row className="mb-2">
                             <Label for="confirmPassword" sm={4} className="required text-right">Confirm Password</Label>
                             <Col sm={8}>
-                                <Input type="password" className="input-required mt-1" name="confirmPassword" id="confirmPassword" autocomplete="false"
+                                <Input type="password" className="input-required mt-1" name="confirmPassword" id="confirmPassword" autoComplete="false"
                                     value={confirmPassword} onKeyPress={(e) => this._handlePressEnter(isValid, e)} onChange={this._handleChange} invalid={isClickedSubmit && !confirmPasswordValidation.isValid} />
                                 {confirmPasswordValidation.message &&
                                     <FormFeedback><div dangerouslySetInnerHTML={{ __html: confirmPasswordValidation.message }} /></FormFeedback>}

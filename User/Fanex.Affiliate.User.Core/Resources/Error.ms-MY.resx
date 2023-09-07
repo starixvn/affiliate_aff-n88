@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="General" xml:space="preserve">
-    <value>Ralat berlaku semasa memproses permintaan anda</value>
+    <value>Ralat berlaku semasa memproses permintaan anda!</value>
   </data>
   <data name="LoginWrongInfo" xml:space="preserve">
     <value>Nama pengguna atau kata laluan salah.</value>

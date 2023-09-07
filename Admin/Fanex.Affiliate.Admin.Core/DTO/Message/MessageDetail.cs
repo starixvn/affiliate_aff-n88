@@ -19,5 +19,9 @@
         public string MessageContenthi { get; set; }
 
         public string MessageContentms { get; set; }
+
+        public string MessageContentbn { get; set; }
+
+        public string MessageContentkh { get; set; }
     }
 }

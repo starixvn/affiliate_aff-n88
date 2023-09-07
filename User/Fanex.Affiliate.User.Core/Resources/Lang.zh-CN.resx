@@ -154,10 +154,7 @@
     <value>金额</value>
   </data>
   <data name="AmtErr" xml:space="preserve">
-    <value>无效的申请金额！金额必须在……之间</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>和</value>
+    <value>无效的申请金额！金额必须在……之间 {0} 和 {1}</value>
   </data>
   <data name="Angola" xml:space="preserve">
     <value>安哥拉 </value>
@@ -289,7 +286,7 @@
     <value>取消申请</value>
   </data>
   <data name="PaymentRequestSubject" xml:space="preserve">
-    <value>B2C合作伙伴 - [{0}] - 支付申请通知</value>
+    <value>B2C 合作伙伴 — [{0}] - 支付申请通知</value>
   </data>
   <data name="CapeVerde" xml:space="preserve">
     <value>维德角岛</value>
@@ -333,9 +330,6 @@
   <data name="Colombia" xml:space="preserve">
     <value>哥伦比亚</value>
   </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>百分比</value>
-  </data>
   <data name="CompletedDate" xml:space="preserve">
     <value>完成日期</value>
   </data>
@@ -376,7 +370,7 @@
     <value>克罗地亚</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>B2C合作伙伴 — 新帐户等待核准</value>
+    <value>B2C 合作伙伴 — 新帐户等待核准</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>外匯</value>
@@ -435,7 +429,7 @@
   <data name="Email" xml:space="preserve">
     <value>电邮地址</value>
   </data>
-  <data name="Email1" xml:space="preserve">
+  <data name="EmailContactUs" xml:space="preserve">
     <value>电邮</value>
   </data>
   <data name="Emailaddressest" xml:space="preserve">
@@ -732,9 +726,6 @@
   <data name="Msgkickout" xml:space="preserve">
     <value>您的帐户已在别处登录或此次登录已超时，被迫登出！</value>
   </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>我的帐户</value>
-  </data>
   <data name="Myanmar" xml:space="preserve">
     <value>缅甸</value>
   </data>
@@ -751,7 +742,7 @@
     <value>荷兰</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>公司净赢额 (美元)</value>
+    <value>公司净赢额 ({0})</value>
   </data>
   <data name="NewCaledonia" xml:space="preserve">
     <value>新喀里多尼亚</value>
@@ -1131,7 +1122,7 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>未知</value>
   </data>
   <data name="UpdateAccSuccess" xml:space="preserve">
-    <value> 您的帐户资料已成功更新</value>
+    <value>您的帐户资料已成功更新</value>
   </data>
   <data name="Uruguay" xml:space="preserve">
     <value>乌拉圭</value>
@@ -1214,15 +1205,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="ScratchArcadeGames" xml:space="preserve">
     <value>刮刮乐/大型电游</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>佣金盈利</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>所有产品</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>有关B2C产品的更多详细信息</value>
-  </data>
   <data name="SupportTimeN88" xml:space="preserve">
     <value>周一至周六上午 11 时至下午8 时（北京时间）</value>
   </data>
@@ -1282,9 +1264,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="CommissionReport" xml:space="preserve">
     <value>佣金报表</value>
-  </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>营运费</value>
   </data>
   <data name="CommRate" xml:space="preserve">
     <value>佣金比例</value>
@@ -1454,9 +1433,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   <data name="YourRevenueShare" xml:space="preserve">
     <value>您的佣金盈利</value>
   </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>活跃玩家</value>
-  </data>
   <data name="SupportTime" xml:space="preserve">
     <value>Working Time:&lt;br/&gt;Monday - Saturday | &lt;strong&gt;10:00h-19:00h&lt;/strong&gt;&lt;br&gt;GMT +7</value>
   </data>
@@ -1470,10 +1446,10 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>验证您的帐户详细信息</value>
   </data>
   <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>B2C 合营代理 - 请验证您的帐户详细信息</value>
+    <value>B2C 合作伙伴 — 请验证您的帐户详细信息</value>
   </data>
   <data name="PaymentRequestCancelSubject" xml:space="preserve">
-    <value>B2C 合营代理 [{0}] - 您的付款请求已被取消</value>
+    <value>B2C 合作伙伴 — [{0}] - 您的付款请求已被取消</value>
   </data>
   <data name="Promotion" xml:space="preserve">
     <value>优惠</value>
@@ -1581,9 +1557,6 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
     <value>Whatsapp</value>
   </data>
   <data name="Commission" xml:space="preserve">
-    <value>佣金盈利</value>
-  </data>
-  <data name="CommissionBonus" xml:space="preserve">
     <value>佣金盈利</value>
   </data>
   <data name="SBBonus" xml:space="preserve">
@@ -1711,5 +1684,110 @@ B2C合作伙伴团队。&lt;br /&gt;&lt;br /&gt;
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>多个组中份额最高的%</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>公司净赢额 (美元)</value>
+  </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>公司净利润 (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="Nova88" xml:space="preserve">
+    <value>Nova88</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
   </data>
 </root>

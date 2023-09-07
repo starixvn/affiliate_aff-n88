@@ -11,7 +11,7 @@
 @{
     var bannerSrc = Url.Content($"~/www/build/styles/images/promotion-banners/{Model.SiteName}/promotion");
 
-    var orgBannerSrc = $"{bannerSrc}.{Model.CurrentLanguage}.jpg?v=176179";
+    var orgBannerSrc = $"{bannerSrc}.desktop.{Model.CurrentLanguage}.jpg?v=176179";
     var mobileBannerSrc = $"{bannerSrc}.mobile.{Model.CurrentLanguage}.jpg?v=176179";
 }
 
@@ -24,7 +24,7 @@
         <picture>
             <source media="(max-width:480px)" srcset="@(mobileBannerSrc)" type="image/jpeg" />
             <source srcset="@(orgBannerSrc)" type="image/jpeg" />
-            <img class="img-item img-responsive" src="@(orgBannerSrc)" alt="promtion banner" />
+            <img class="img-item img-responsive" src="@(orgBannerSrc)" alt="@Lang.Promotion" />
         </picture>
     </div>
 

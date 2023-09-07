@@ -2,7 +2,7 @@
 
 <section class="info-group" id="WhatWeHave">
     <div class="title">
-        <span class="text">Apa yang kita miliki</span>
+        <span class="text">@Lang.WhatWeHave</span>
     </div>
     <ul>
         <li class="text">
@@ -18,7 +18,7 @@
 </section>
 <section class="info-group" id="WhatWeOffer">
     <div class="title">
-        <span class="text">Apa yang kita tawarkan</span>
+        <span class="text">@Lang.WhatWeOffer</span>
     </div>
     <ul>
         <li class="text">
@@ -37,7 +37,7 @@
 </section>
 <section class="info-group" id="OurPlan">
     <div class="title">
-        <span class="text">Rencana Kami</span>
+        <span class="text">@Lang.OurPlan</span>
     </div>
     <p class="text">
         Pembagian hasil Anda terdiri dari dua bagian : (i) dari kerugian taruhan pemain yang Anda referensikan dan (ii) dari pembagian hasil afiliasi yang Anda referensikan:
@@ -48,7 +48,7 @@
             @{ Html.RenderPartial("~/Views/CommissionStructure/N88/_RevenueShareTable.cshtml", Model.MaxCommission); }
             <ul>
                 <li class="text" style="margin-top: 15px;">
-                    <strong>Net Win/Loss:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke Nova88.
+                    <strong>Net Win/Loss:</strong> kekalahan bersih bulanan dari semua pemain yang Anda rekomendasikan ke @Model.SiteFriendlyName.
                 </li>
                 <li class="text">
                     <strong>Pemain Aktif:</strong> member yang telah menempatkan setidaknya satu (1) taruhan di bulan tersebut.
@@ -105,7 +105,7 @@
 </section>
 <section class="info-group" id="RevenueSharePayoutExample">
     <div class="title">
-        <span class="text"><i>Contoh Pembayaran Pembagian Hasil</i></span>
+        <span class="text"><i>@Lang.RevenueSharePayoutExample</i></span>
     </div>
     <p class="text">
         <i>Gambaran 1:</i> contoh untuk menunjukkan kepada Anda bagaimana perhitungan pembagian hasil Anda dari pemain yang Anda referensikan.
@@ -137,11 +137,11 @@
 </section>
 <section class="info-group" id="HowWePay">
     <div class="title">
-        <span class="text">Bagaimana kami melakukan pembayaran</span>
+        <span class="text">@Lang.HowWePay</span>
     </div>
     <ul>
         <li class="text">
-            Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi NOVA88.
+            Sekali dalam sebulan, melalui akun pemain @Model.SiteFriendlyName Anda (USD, THB, MYR, IDR, INR, CNY, BDT &amp; VND) dan minimum jumlah penarikan adalah 100 USD (atau dalam mata uang yang setara). Untuk mata uang yang lain perlu mengajukan ke tim Afiliasi @Model.SiteFriendlyName.
         </li>
         <li class="text">
             Setiap permintaan penarikan kedua di bulan yang sama harus tunduk pada persetujuan tim Afiliasi @Model.SiteFriendlyName.

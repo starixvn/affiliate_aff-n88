@@ -159,7 +159,7 @@
   <data name="PleaseDirectAnyComment" xml:space="preserve">
     <value>कृपया किसी भी टिप्पणी या प्रश्न को निम्नलिखित संपर्क बिंदुओं पर निर्देशित करें:</value>
   </data>
-  <data name="Email1" xml:space="preserve">
+  <data name="EmailContactUs" xml:space="preserve">
     <value>ईमेल</value>
   </data>
   <data name="Telegram" xml:space="preserve">
@@ -222,26 +222,11 @@
   <data name="SignUpAffiliateProgramNow" xml:space="preserve">
     <value>अभी साइन अप करें B2C एफिलिएट प्रोग्राम!</value>
   </data>
-  <data name="RevenueShare" xml:space="preserve">
-    <value>रेवनू शेयर</value>
-  </data>
   <data name="Tier" xml:space="preserve">
     <value>टीयर</value>
   </data>
   <data name="NetWinLoss" xml:space="preserve">
-    <value>कंपनी नेट विन (यूएसडी)</value>
-  </data>
-  <data name="ActivePlayersRevenue" xml:space="preserve">
-    <value>सक्रिय खिलाड़ी</value>
-  </data>
-  <data name="CommPercent" xml:space="preserve">
-    <value>प्रतिशत</value>
-  </data>
-  <data name="AllProducts" xml:space="preserve">
-    <value>सारे प्राडक्ट</value>
-  </data>
-  <data name="MoreDetailProduct" xml:space="preserve">
-    <value>B2C प्राडक्ट के बारे में अधिक जानकारी</value>
+    <value>कंपनी नेट विन ({0})</value>
   </data>
   <data name="QualifyingMembers" xml:space="preserve">
     <value>&gt;= 5</value>
@@ -288,9 +273,6 @@
   <data name="GetToKnowHotPromotion" xml:space="preserve">
     <value>इस महीने के हॉट प्रमोशन के बारे में जानें।अधिक ग्राहक और आय का हिस्सा हासिल करने के लिए उन्हें अपनी वेबसाइटों और सामाजिक चैनलों में पोस्ट करें!</value>
   </data>
-  <data name="CommissionBonus" xml:space="preserve">
-    <value>रेवनू शेयर</value>
-  </data>
   <data name="Commission" xml:space="preserve">
     <value>रेवनू शेयर</value>
   </data>
@@ -319,7 +301,7 @@
     <value>अभी तक संबद्ध सदस्य नहीं हैं?</value>
   </data>
   <data name="SignUpToAffiliateProgram" xml:space="preserve">
-    <value>सहबद्ध कार्यक्रम के लिए साइन अप करें और मासिक राजस्व हिस्सेदारी का 55% तक अर्जित करें!</value>
+    <value>सहबद्ध कार्यक्रम के लिए साइन अप करें और मासिक राजस्व हिस्सेदारी का {0} तक अर्जित करें!</value>
   </data>
   <data name="WelcomeBack" xml:space="preserve">
     <value>वापसी पर स्वागत है!</value>
@@ -335,9 +317,6 @@
   </data>
   <data name="ForgetPassword" xml:space="preserve">
     <value>अपना पासवर्ड भूल गए</value>
-  </data>
-  <data name="MyAcc" xml:space="preserve">
-    <value>मेरा खाता</value>
   </data>
   <data name="MyAccount" xml:space="preserve">
     <value>मेरा खाता</value>
@@ -1292,9 +1271,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="BalForward" xml:space="preserve">
     <value>आगे लाया बैलेंस</value>
   </data>
-  <data name="BalanceBroughtForward" xml:space="preserve">
-    <value>आगे लाया बैलेंस</value>
-  </data>
   <data name="TotalDeposit" xml:space="preserve">
     <value>कुल जमा</value>
   </data>
@@ -1496,9 +1472,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="RoyaltyFee" xml:space="preserve">
     <value>रॉयल्टी शुल्क</value>
   </data>
-  <data name="OperationalFee" xml:space="preserve">
-    <value>परिचालन शुल्क</value>
-  </data>
   <data name="CommRate" xml:space="preserve">
     <value>रेवेनुए रेट</value>
   </data>
@@ -1542,10 +1515,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>हाल का भुगतान</value>
   </data>
   <data name="AmtErr" xml:space="preserve">
-    <value>अमान्य अनुरोध राशि! राशि के बीच होनी चाहिए</value>
-  </data>
-  <data name="And" xml:space="preserve">
-    <value>और</value>
+    <value>अमान्य अनुरोध राशि! राशि के बीच होनी चाहिए {0} और {1}</value>
   </data>
   <data name="BankTransfer" xml:space="preserve">
     <value>बैंक ट्रांसफर</value>
@@ -1703,10 +1673,10 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="UncalculatedMonthlyEarning" xml:space="preserve">
     <value>अपरिकलित मासिक आय</value>
   </data>
-  <data name="CurrentCommissionBonus" xml:space="preserve">
+  <data name="CurrentCommission" xml:space="preserve">
     <value>करंट रेवेनुए शेयर</value>
   </data>
-  <data name="UncalculatedCommissionBonus" xml:space="preserve">
+  <data name="UncalculatedCommission" xml:space="preserve">
     <value>अपरिकलित  रेवेनुए शेयर</value>
   </data>
   <data name="MonthlyTotal" xml:space="preserve">
@@ -1761,7 +1731,7 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
     <value>भुगतान अनुरोध अधिसूचना</value>
   </data>
   <data name="CsdSubject" xml:space="preserve">
-    <value>B2C संबद्ध - नया खाता {0} अनुमोदन की प्रतीक्षा में</value>
+    <value>B2C सहयोगी - नया खाता {0} अनुमोदन की प्रतीक्षा में</value>
   </data>
   <data name="EmailTittleVerificationAccount" xml:space="preserve">
     <value>अपना खाता विवरण सत्यापित करें</value>
@@ -1948,5 +1918,110 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   </data>
   <data name="TheHighestShare" xml:space="preserve">
     <value>एकाधिक समूहों का उच्चतम शेयर %</value>
+  </data>
+  <data name="NetWinLossN88" xml:space="preserve">
+    <value>कंपनी नेट विन (यूएसडी)</value>
+  </data>
+  <data name="Joker" xml:space="preserve">
+    <value>JOKER</value>
+  </data>
+  <data name="MicroGaming" xml:space="preserve">
+    <value>Micro Gaming, Netent, Evolution Gaming</value>
+  </data>
+  <data name="RedTiger" xml:space="preserve">
+    <value>RED TIGER</value>
+  </data>
+  <data name="N2Live" xml:space="preserve">
+    <value>N2 LIVE</value>
+  </data>
+  <data name="PgSoft" xml:space="preserve">
+    <value>Pg Soft</value>
+  </data>
+  <data name="Playtech" xml:space="preserve">
+    <value>Playtech</value>
+  </data>
+  <data name="SaGaming" xml:space="preserve">
+    <value>SA GAMING</value>
+  </data>
+  <data name="SabaCasino" xml:space="preserve">
+    <value>Saba Casino</value>
+  </data>
+  <data name="SpadeGaming" xml:space="preserve">
+    <value>SPADEGAMING</value>
+  </data>
+  <data name="WmCasino" xml:space="preserve">
+    <value>WM Casino</value>
+  </data>
+  <data name="YggDrasil" xml:space="preserve">
+    <value>YGG DRASIL</value>
+  </data>
+  <data name="P1N88" xml:space="preserve">
+    <value>15,000</value>
+  </data>
+  <data name="P2N88" xml:space="preserve">
+    <value>29,000</value>
+  </data>
+  <data name="P3N88" xml:space="preserve">
+    <value>17,000</value>
+  </data>
+  <data name="P4N88" xml:space="preserve">
+    <value>45,000</value>
+  </data>
+  <data name="P5N88" xml:space="preserve">
+    <value>23,000</value>
+  </data>
+  <data name="TotalN88" xml:space="preserve">
+    <value>129,000</value>
+  </data>
+  <data name="YourRevenueShareN88" xml:space="preserve">
+    <value>58,050</value>
+  </data>
+  <data name="Habanero" xml:space="preserve">
+    <value>Habanero</value>
+  </data>
+  <data name="Finished" xml:space="preserve">
+    <value>खत्म</value>
+  </data>
+  <data name="CompanyNetProfit" xml:space="preserve">
+    <value>कंपनी का शुद्ध लाभ (VND)</value>
+  </data>
+  <data name="Cq9" xml:space="preserve">
+    <value>CQ9</value>
+  </data>
+  <data name="Ebet" xml:space="preserve">
+    <value>Ebet</value>
+  </data>
+  <data name="GamePlayInteractive" xml:space="preserve">
+    <value>Game Play Interactive</value>
+  </data>
+  <data name="Goal123" xml:space="preserve">
+    <value>Goal123</value>
+  </data>
+  <data name="Bwing" xml:space="preserve">
+    <value>Bwing</value>
+  </data>
+  <data name="TcGaming" xml:space="preserve">
+    <value>TC-GAMING</value>
+  </data>
+  <data name="AsiaGaming" xml:space="preserve">
+    <value>Asia Gaming</value>
+  </data>
+  <data name="Jili" xml:space="preserve">
+    <value>Jili</value>
+  </data>
+  <data name="DreamGaming" xml:space="preserve">
+    <value>Dream Gaming</value>
+  </data>
+  <data name="AstroTech" xml:space="preserve">
+    <value>Astro Tech</value>
+  </data>
+  <data name="ISoftBetPragmaticPlay" xml:space="preserve">
+    <value>ISoftBet, Pragmatic Play</value>
+  </data>
+  <data name="AeSexy" xml:space="preserve">
+    <value>Ae Sexy</value>
+  </data>
+  <data name="AdvantPlay" xml:space="preserve">
+    <value>Advant Play</value>
   </data>
 </root>
