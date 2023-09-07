@@ -35,10 +35,10 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public string Country { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string SiteUrl { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string MoreSiteUrls { get; set; }
         
         public string NoSiteDescription { get; set; }

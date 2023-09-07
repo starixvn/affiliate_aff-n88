@@ -291,7 +291,7 @@ exports[`payment request - components - Filter  render correctly with SearchBy U
         onChange={[Function]}
         onKeyPress={[Function]}
         type="text"
-        value={null}
+        value=""
       />
     </FormGroup>
     <Button

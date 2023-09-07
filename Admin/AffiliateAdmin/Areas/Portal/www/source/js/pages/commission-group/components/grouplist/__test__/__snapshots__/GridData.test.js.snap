@@ -24,7 +24,7 @@ exports[`commission group - GridData  _renderGroupData - render correctly 1`] = 
       rowSpan={5}
       sortable={false}
       sorting={false}
-      title={false}
+      title=""
     >
       CG22125
     </t>
@@ -775,7 +775,7 @@ exports[`commission group - GridData  Should render correctly 1`] = `
                   rowSpan={5}
                   sortable={false}
                   sorting={false}
-                  title={false}
+                  title=""
                 >
                   CG22125
                 </t>
@@ -1436,7 +1436,7 @@ exports[`commission group - GridData  Should render correctly with fees is amoun
                   rowSpan={5}
                   sortable={false}
                   sorting={false}
-                  title={false}
+                  title=""
                 >
                   CG22125
                 </t>

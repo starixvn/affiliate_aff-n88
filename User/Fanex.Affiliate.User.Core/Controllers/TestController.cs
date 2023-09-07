@@ -84,9 +84,7 @@
                 var content = GetEmailContent(criteria);
                 string Subject = GetSubject(criteria.Function);
 
-                var appMailId = Convert.ToInt32(_appSetting.GetAppMailIdByLanguageCode(criteria.Language));
-
-                _mailProcessor.Send(content, criteria.EmailAddress, Subject, appMailId: appMailId);
+                _mailProcessor.Send(content, criteria.EmailAddress, Subject, criteria.Language);
 
                 LanguageService.SetCulture(SystemLanguage.EnglishLanguageCode);
             }
@@ -293,7 +291,7 @@
 
         private bool IsValidUser()
         {
-            return _appSetting.IsLocal || SessionService.IsInternal;
+            return _appSetting.IsDev || _appSetting.IsLocal || SessionService.IsInternal;
         }
     }
 

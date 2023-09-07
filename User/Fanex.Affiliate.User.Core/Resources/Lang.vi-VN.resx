@@ -1779,6 +1779,12 @@
   <data name="CommissionInBanner" xml:space="preserve">
     <value>Hoa Hồng</value>
   </data>
+  <data name="EmailTittleVerificationAccount" xml:space="preserve">
+    <value>Xác minh chi tiết tài khoản của bạn</value>
+  </data>
+  <data name="SubjectVerificationAccount" xml:space="preserve">
+    <value>Chương trình Đại lý B2C - Xác minh chi tiết tài khoản của bạn</value>
+  </data>
   <data name="WithAttractiveReward" xml:space="preserve">
     <value>* Với phần thưởng hấp dẫn!</value>
   </data>
@@ -1997,12 +2003,6 @@
   </data>
   <data name="DefaultBaseCurrencyDetail" xml:space="preserve">
     <value>Đơn vị tiền tệ hiển thị trên tất cả báo cáo</value>
-  </data>
-  <data name="SubjectVerificationAccount" xml:space="preserve">
-    <value>Chương trình Đại lý B2C - Xác nhận thông tin tài khoản của bạn</value>
-  </data>
-  <data name="EmailTittleVerificationAccount" xml:space="preserve">
-    <value>Xác nhận thông tin tài khoản của bạn</value>
   </data>
   <data name="Habanero" xml:space="preserve">
     <value>Habanero</value>

@@ -9,12 +9,6 @@
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.sit.xml
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.sit.xml
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.sit.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.master.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.master.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.master.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.backupmnl.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.backupmnl.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.backupmnl.xml
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.production.xml
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.production.xml
 // D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.production.xml

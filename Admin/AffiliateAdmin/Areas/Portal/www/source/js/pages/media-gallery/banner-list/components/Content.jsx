@@ -67,7 +67,7 @@ export const Content = (props) => {
             }
         }
         else {
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="11">{globalResource.NoInfo}</Cell>
             </Row>);
         }
@@ -90,7 +90,7 @@ export const Content = (props) => {
         return (
             <Row key={`dataRow-${index}`}>
                 <Cell className="text-center">
-                    <input type="checkbox" checked={props.checkedBanners[bannerId]}
+                    <input type="checkbox" checked={props.checkedBanners[bannerId] || false}
                         onChange={(e) => _onCheckItem(e.target.checked, bannerId)} />
                 </Cell>
                 <Cell className="text-center" title={index}>{index}</Cell>

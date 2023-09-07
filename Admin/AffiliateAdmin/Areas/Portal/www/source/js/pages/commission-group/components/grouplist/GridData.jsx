@@ -147,7 +147,7 @@ export class GridData extends Component {
                                 {isFirstItem && (
                                     <Fragment>
                                         <Cell className="text-center" rowSpan={rowSpan}>{group.RowIdx}</Cell>
-                                        <Cell className="text-center" rowSpan={rowSpan} title={isPrivateGroup && "Private Group"}>
+                                        <Cell className="text-center" rowSpan={rowSpan} title={isPrivateGroup ? "Private Group" : ""}>
                                             {isPrivateGroup && (<span className="oi oi-person"></span>)}{htmlDecode(group.GroupName)}
                                         </Cell>
                                         <Cell className="text-center" rowSpan={rowSpan}>
@@ -217,7 +217,7 @@ export class GridData extends Component {
             }
         }
         else {
-            rows.push(<Row>
+            rows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="14">{globalResource.NoInfo}</Cell>
             </Row>);
         }

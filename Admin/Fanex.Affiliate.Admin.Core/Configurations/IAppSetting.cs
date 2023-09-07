@@ -12,18 +12,16 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         string AppMailId { get; }
 
+        string AppMailAddress { get; }
+
         string GetAppMailIdByShortedLanguageCode(string shortedLanguageCode);
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string InternalEuropeanAffiliateUrl { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string InternalAsianAffiliateUrl { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string EuropeanAffSiteUrl { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string AsianAffSiteUrl { get; }
 
         string Environment { get; }
@@ -44,7 +42,6 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         string RabbitMQConnectionString { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string BannerRootUrl { get; }
 
         string[] BannerFolders { get; }
@@ -65,19 +62,16 @@ namespace Fanex.Affiliate.Admin.Core.Configurations
 
         string DefaultCurrency { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string MemberSiteApiUrl { get; }
 
         int MemberSiteId { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string MemberSiteProxyUrl { get; }
 
         string MemberSiteApiAuthenticationKey { get; }
 
         bool IsUseMemberSiteProxy { get; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
         string AffSiteUrl { get; }
 
         [SuppressMessage("Major Code Smell", "S3995:URI return values should not be strings", Justification = "Reviewed. Suppression is OK here.")]

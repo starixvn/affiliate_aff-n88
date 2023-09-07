@@ -22,7 +22,7 @@ export class Filter extends PureComponent {
 
         this.state = {
             searchBy: param.SearchBy || searchByUserName,
-            userName: null,
+            userName: "",
             status: param.Status,
             fromDate: param.FromDate || `${yesterday.getMonth() + 1}/${yesterday.getDate()}/${yesterday.getFullYear()}`,
             toDate: this.nowString,

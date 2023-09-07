@@ -85,7 +85,7 @@ export class Content extends PureComponent {
             }
         }
         else {
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="7">{globalResource.NoInfo}</Cell>
             </Row>);
         }
@@ -102,7 +102,7 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={index}>{index}</Cell>
                 <Cell className="text-center" title={domainName}>{domainName}</Cell>
                 <Cell className="text-center">
-                    <input type="checkbox" disabled="true" checked={dataItem.IsSSL} />
+                    <input type="checkbox" disabled checked={dataItem.IsSSL} />
                 </Cell>
                 <Cell className="text-center" title={creator}>{creator}</Cell>
                 <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>

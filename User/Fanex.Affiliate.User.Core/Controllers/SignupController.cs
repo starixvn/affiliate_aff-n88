@@ -125,9 +125,7 @@
                 var mailContact = _appSetting.GetMailContactByLanguageCode(signUpParam.PreferredLanguage ?? SessionService.CurrentLanguage);
                 var emailParam = new EmailBaseParam
                 {
-                    MailCc = _appSetting.MailCc,
                     MailContact = mailContact,
-                    MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 

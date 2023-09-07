@@ -90,7 +90,7 @@ export class Content extends PureComponent {
             }
         }
         else {
-            dataRows.push(<Row>
+            dataRows.push(<Row key="no-info">
                 <Cell className="text-center" colSpan="9">{globalResource.NoInfo}</Cell>
             </Row>);
         }
@@ -112,7 +112,7 @@ export class Content extends PureComponent {
                 <Cell className="text-center" title={creator}>{creator}</Cell>
                 <Cell className="text-center" title={dataItem.CreatedDateText}>{dataItem.CreatedDateText}</Cell>
                 <Cell className="text-center">
-                    <input type="checkbox" disabled="true" checked={dataItem.IsUsed} />
+                    <input type="checkbox" disabled checked={dataItem.IsUsed} />
                 </Cell>
                 <Cell className="text-center" title="Edit Domain">
                     <Button color="link p-0" onClick={() => this._handleEditDomain(dataItem.DomainId, dataItem.MarketId, dataItem.AffDomainId, dataItem.RedirectDomainId, dataItem.IsUsed)}>

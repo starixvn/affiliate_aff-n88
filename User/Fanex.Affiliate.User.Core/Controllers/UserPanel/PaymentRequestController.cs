@@ -77,10 +77,8 @@
 
                 var emailParam = new PaymentEmailParam
                 {
-                    MailCc = _appSetting.MailCc,
                     MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
                     DefaultCurrency = _appSetting.DefaultCurrency,
-                    MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting)
                 };
 
@@ -113,10 +111,8 @@
 
                 var emailParam = new PaymentEmailParam
                 {
-                    MailCc = _appSetting.MailCc,
                     MailContact = _appSetting.GetMailContactByLanguageCode(SessionService.UserSession.PreferredLanguage),
                     DefaultCurrency = _appSetting.DefaultCurrency,
-                    MailBcc = _appSetting.MailBcc,
                     RootDomain = SiteDomainHelper.GetRootUrl(this, _appSetting),
                     Amount = cancelParam.Amount,
                     RequestDate = cancelParam.RequestDate,

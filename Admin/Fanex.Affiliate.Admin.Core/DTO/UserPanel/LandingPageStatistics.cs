@@ -16,7 +16,7 @@ namespace Fanex.Affiliate.Admin.Core.DTO.UserPanel
 
         public int Fdm { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string WebsiteUrl { get; set; }
     }
 }

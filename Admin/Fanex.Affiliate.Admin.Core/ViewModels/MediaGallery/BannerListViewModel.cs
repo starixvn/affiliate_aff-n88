@@ -28,7 +28,7 @@ namespace Fanex.Affiliate.Admin.Core.ViewModels.MediaGallery
 
         public BannerParamFromHome Param { get; set; }
 
-        [SuppressMessage("Sonar Code Smell", "S3996:UriPropertiesShouldNotBeStrings", Justification = "Reviewed. Suppression is OK here.")]
+        
         public string BannerRootUrl { get; set; }
     }
 }
