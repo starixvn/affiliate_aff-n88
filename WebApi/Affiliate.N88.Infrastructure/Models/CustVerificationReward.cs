@@ -19,5 +19,7 @@ namespace Affiliate.N88.Models
         public decimal? EmailReward { get; set; }
 
         public DateTime? EmailRewardTime { get; set; }
+
+        public int CurrencyId { get; set; }
     }
 }

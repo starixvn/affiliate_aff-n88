@@ -35,5 +35,7 @@ namespace Affiliate.N88.Models
         public string Operator { get; set; }
 
         public string Remarks { get; set; }
+
+        public int CurrencyId { get; set; }
     }
 }

@@ -23,5 +23,9 @@ namespace Affiliate.N88.Models
         public DateTime DrawEventDate { get; set; }
 
         public DateTime DrawTime { get; set; }
+
+        public int SiteId { get; set; }
+
+        public int CurrencyId { get; set; }
     }
 }
