@@ -46,7 +46,7 @@ exports[`commission group - AddGroup should render correctly with isSuccess is f
   <p
     className="text-danger"
   >
-    Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)
+    Note: Change will take effect on current month (GMT-4).
   </p>
   <button
     className="my-2 btn btn-success btn-save"
@@ -104,7 +104,7 @@ exports[`commission group - AddGroup should render correctly with isSuccess is t
   <p
     className="text-danger"
   >
-    Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)
+    Note: Change will take effect on current month (GMT-4).
   </p>
   <button
     className="my-2 btn btn-success btn-save"

@@ -53,7 +53,7 @@ exports[`commission group - assign private group should render correctly 1`] = `
   <p
     className="text-danger"
   >
-    Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)
+    Note: Change will take effect on current month (GMT-4).
   </p>
   <button
     className="my-2 btn btn-success btn-save"
@@ -118,7 +118,7 @@ exports[`commission group - assign private group should render correctly with is
   <p
     className="text-danger"
   >
-    Note: Change will only affect Monthly Calculation if it make before 1st of next month. (GMT -4)
+    Note: Change will take effect on current month (GMT-4).
   </p>
   <button
     className="my-2 btn btn-success btn-save"
