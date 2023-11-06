@@ -6,16 +6,24 @@ namespace Affiliate.Infrastructure.Helpers
 {
     public static class Generator
     {
-        private static readonly Random _random = new Random();
+        private const int ArrayByteLength = 2;
         private const string Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
         public static string GetRandomString(int length)
         {
             var stringChars = new char[length];
 
-            for (int i = 0; i < length; i++)
+            using (var rng = RandomNumberGenerator.Create())
             {
-                stringChars[i] = Chars[_random.Next(Chars.Length)];
+                for (int i = 0; i < length; i++)
+                {
+                    byte[] data = new byte[ArrayByteLength];
+                    rng.GetBytes(data);
+
+                    var charIndex = BitConverter.ToUInt16(data, 0) % Chars.Length;
+
+                    stringChars[i] = Chars[charIndex];
+                }
             }
 
             return new string(stringChars);
