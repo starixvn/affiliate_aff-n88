@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Web;
 
 namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
@@ -20,6 +19,9 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
     public class BannerListService : IBannerListService
     {
         private const int MaxLength = 50;
+        private const string RestrictedMultiInputFileNamesPattern = "[\\\\/:*?\"<>#%&+]";
+        private const string RestrictedInputFileNamePattern = "[\\\\/:*?\"<>|#%&+]";
+
         private readonly IBannerListRepository _bannerListRepository;
         private readonly IAppSetting _appSetting;
         private readonly ISystemFile _systemFile;
@@ -207,8 +209,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
                 return result;
             }
 
-            var regex = new Regex("[\\\\/:*?\"<>#%&+]");
-            if (regex.IsMatch(param.InputFileNames))
+            if (RegexHelper.IsMatch(param.InputFileNames, RestrictedMultiInputFileNamesPattern))
             {
                 return new ResultInfo
                 {
@@ -262,8 +263,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
         {
             if (!string.IsNullOrEmpty(param.InputFileNames))
             {
-                var regex = new Regex("[\\\\/:*?\"<>|#%&+]");
-                if (regex.IsMatch(param.InputFileNames))
+                if (RegexHelper.IsMatch(param.InputFileNames, RestrictedInputFileNamePattern))
                 {
                     return new ResultInfo
                     {

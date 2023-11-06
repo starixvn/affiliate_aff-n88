@@ -3,8 +3,8 @@ using Fanex.Affiliate.Admin.Core.DTO;
 using Fanex.Affiliate.Admin.Core.DTO.MediaGallery;
 using Fanex.Affiliate.Admin.Core.MetaModels.MediaGallery;
 using Fanex.Affiliate.Admin.Core.Repository.MediaGallery;
+using Fanex.Affiliate.Admin.Core.Utilities;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 {
@@ -65,7 +65,7 @@ namespace Fanex.Affiliate.Admin.Core.Services.MediaGallery
 
         private static bool HasRestrictedCharacter(string input)
         {
-            return Regex.IsMatch(input, RestrictedCharacterPattern);
+            return RegexHelper.IsMatch(input, RestrictedCharacterPattern);
         }
     }
 }
