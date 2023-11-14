@@ -21,7 +21,7 @@
             <input class="text-field validation" id="txtValidation" type="text" placeholder="@Lang.Validation" />
             <div class="validation-value"><img src="@Url.Content("~/Auth/CaptchaImage")" alt="captcha" id="captchaImg" /></div>
             <a class="btn btn-forgot" title="@Lang.ForgetPassword" href="@Url.Content("~/Password")">
-                <span class="mdi mdi-account-key"></span>
+                <span class="mdi mdi-lock-open"></span>
             </a>
             @Html.AntiForgeryToken()
             @if (!string.IsNullOrEmpty(Model.PublicKey))

@@ -62,9 +62,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         public byte[] GenerateImageBuffer(string captcha, int width, int height, bool isComplex = false)
         {
-            const int RedNumber = 62;
-            const int GreenNumber = 164;
-            const int BlueNumber = 189;
+            var RedNumber = _appSetting.RedNumberRGB;
+            var GreenNumber = _appSetting.GreenNumberRGB;
+            var BlueNumber = _appSetting.BlueNumberRGB;
 
             byte[] buffer = null;
 

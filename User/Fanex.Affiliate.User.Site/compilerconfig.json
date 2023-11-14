@@ -151,18 +151,18 @@
   //  "outputFile": "www/build/styles/css/verification-account.css",
   //  "inputFile": "www/source/styles/pages/verification-account.scss"
   //},
-  //{
-  //  "outputFile": "www/build/styles/css/n8g.css",
-  //  "inputFile": "www/source/styles/scss/themes/n8g.scss"
-  //},
-  //{
-  //  "outputFile": "www/build/styles/css/n8b.css",
-  //  "inputFile": "www/source/styles/scss/themes/n8b.scss"
-  //},
   {
-    "outputFile": "www/build/styles/css/n88.css",
-    "inputFile": "www/source/styles/scss/themes/n88.scss"
+    "outputFile": "www/build/styles/css/n8g.css",
+    "inputFile": "www/source/styles/scss/themes/n8g.scss"
+  },
+  {
+    "outputFile": "www/build/styles/css/n8b.css",
+    "inputFile": "www/source/styles/scss/themes/n8b.scss"
   }
+  //{
+  //  "outputFile": "www/build/styles/css/n88.css",
+  //  "inputFile": "www/source/styles/scss/themes/n88.scss"
+  //},
   //{
   //  "outputFile": "www/build/js/sub-affiliate-earning.js",
   //  "inputFile": "www/source/js/pages/sub-affiliate-earning.js"

@@ -94,11 +94,6 @@ select {
         }
 
         #selectedLanguage {
-            border: 0;
-            position: relative;
-            padding: 0 25px 0 28px;
-            line-height: 25px;
-
             .caret {
                 border: 0;
                 width: 16px;
@@ -107,44 +102,6 @@ select {
                 position: absolute;
                 top: 6px;
                 right: 8px;
-            }
-
-            .flag {
-                width: 24px;
-                height: 24px;
-                border-radius: 20px;
-                overflow: hidden;
-                background-position: center center;
-                background-size: cover;
-                display: inline-block;
-                vertical-align: middle;
-                top: 0;
-                left: 0;
-                position: absolute;
-
-                &.flag-vi-VN {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/Vietnam.svg");
-                }
-
-                &.flag-en-US {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/Eng.svg");
-                }
-
-                &.flag-id-ID {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/Indonesia.svg");
-                }
-
-                &.flag-zh-TW {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/Taiwan.svg");
-                }
-
-                &.flag-zh-CN {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/China.svg");
-                }
-
-                &.flag-th-TH {
-                    background-image: url("../../../../build/styles/Images/apply/n8g/Thailand.svg");
-                }
             }
         }
     }
@@ -1037,18 +994,7 @@ select.form-control {
         }
     }
 }
-// Contact Us
-.languages-item {
-    background: $languages-item-bg-color;
 
-    .info {
-        border-left: 1px solid $languages-item-border-color;
-
-        .language {
-            border-bottom: 1px solid $languages-item-border-color;
-        }
-    }
-}
 //Loading
 .dot1, .dot2 {
     background-color: $color-primary;

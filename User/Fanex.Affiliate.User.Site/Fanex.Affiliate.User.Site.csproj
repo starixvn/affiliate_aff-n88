@@ -1103,6 +1103,7 @@
     <Content Include="www\build\styles\Images\sports-banners\n8b\AFF-Home-banner-SB.mobile.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.jpg" />
     <Content Include="www\build\styles\Images\sports-banners\n8g\AFF-Home-banner-SB.mobile.jpg" />
+    <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\build\styles\Images\themes\n88.png" />
     <Content Include="www\build\styles\Images\themes\n88.zh-CN.png" />
     <Content Include="www\source\js\layout\n88-after-login.js" />
@@ -1130,7 +1131,6 @@
     <Content Include="www\build\styles\Images\notify\note_icon.gif" />
     <Content Include="www\build\styles\Images\products\bg-casino_affiliate.jpg" />
     <Content Include="www\build\styles\Images\products\bg-sports_affiliate.jpg" />
-    <Content Include="www\build\styles\Images\themes\n8b.png" />
     <Content Include="www\build\styles\Images\themes\n8g.png" />
     <Content Include="www\build\styles\Images\themes\n88-qrcode.png" />
     <Content Include="www\source\js\components\authhelper.js" />

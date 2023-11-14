@@ -58,43 +58,14 @@ select {
         padding: 8px 20px; }
         .header-top .language-container .language-list-wrapper .language-list .language-item:hover {
           background: #0B71DF; }
-  .header-top .language-container #selectedLanguage {
+  .header-top .language-container #selectedLanguage .caret {
     border: 0;
-    position: relative;
-    padding: 0 25px 0 28px;
-    line-height: 25px; }
-    .header-top .language-container #selectedLanguage .caret {
-      border: 0;
-      width: 16px;
-      height: 16px;
-      background: url("../Images/apply/n8g/Dropdown.svg");
-      position: absolute;
-      top: 6px;
-      right: 8px; }
-    .header-top .language-container #selectedLanguage .flag {
-      width: 24px;
-      height: 24px;
-      border-radius: 20px;
-      overflow: hidden;
-      background-position: center center;
-      background-size: cover;
-      display: inline-block;
-      vertical-align: middle;
-      top: 0;
-      left: 0;
-      position: absolute; }
-      .header-top .language-container #selectedLanguage .flag.flag-vi-VN {
-        background-image: url("../Images/apply/n8g/Vietnam.svg"); }
-      .header-top .language-container #selectedLanguage .flag.flag-en-US {
-        background-image: url("../Images/apply/n8g/Eng.svg"); }
-      .header-top .language-container #selectedLanguage .flag.flag-id-ID {
-        background-image: url("../Images/apply/n8g/Indonesia.svg"); }
-      .header-top .language-container #selectedLanguage .flag.flag-zh-TW {
-        background-image: url("../Images/apply/n8g/Taiwan.svg"); }
-      .header-top .language-container #selectedLanguage .flag.flag-zh-CN {
-        background-image: url("../Images/apply/n8g/China.svg"); }
-      .header-top .language-container #selectedLanguage .flag.flag-th-TH {
-        background-image: url("../Images/apply/n8g/Thailand.svg"); }
+    width: 16px;
+    height: 16px;
+    background: url("../Images/apply/n8g/Dropdown.svg");
+    position: absolute;
+    top: 6px;
+    right: 8px; }
 
 .breadcrumb-container .breadcrumb {
   background: #0B71DF; }
@@ -724,13 +695,6 @@ select.form-control {
 
 .news-content li > a {
   color: #ffffff; }
-
-.languages-item {
-  background: #fff; }
-  .languages-item .info {
-    border-left: 1px solid #e7e7e7; }
-    .languages-item .info .language {
-      border-bottom: 1px solid #e7e7e7; }
 
 .dot1, .dot2 {
   background-color: #ffffff; }

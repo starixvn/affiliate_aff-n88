@@ -15,7 +15,8 @@ body {
 // Header
 
 .header-top {
-    //background-color: $bg-main-color;
+    background: $header-bg-color;
+
     .logo {
         padding: 1rem 1rem 1.7rem 1rem;
     }
@@ -23,6 +24,14 @@ body {
     .logo-image {
         width: 180px;
         height: 65px;
+    }
+
+    .language-container .language-selection {
+        font-weight: 400;
+
+        #selectedLanguage {
+            color: $user-login-control-color;
+        }
     }
 }
 
@@ -60,12 +69,6 @@ body {
     }
 }
 
-.user-login .text-field {
-    background: $user-login-control-bg-color;
-    border: 1px solid $user-login-control-border-color;
-    color: $user-login-control-color;
-}
-
 .hot-news {
     background: rgba(255,93,0,0.5);
     //max-width: calc(100% - 400px);
@@ -89,10 +92,6 @@ body {
             border-color: $hot-news-bg-color #fff $hot-news-bg-color transparent;
         }
     }
-}
-
-.language-container .language-list-wrapper .language-list .language-item {
-    font-weight: 400;
 }
 
 .marquee-content {
@@ -294,18 +293,35 @@ body {
         }
     }
 }
+
 // form-control
 .form-control, .text-field {
-    border: 1px solid $form-control-border-color !important;
+    border: 1px solid $form-control-border-color;
     background: $background-dark-gray !important;
-    border-color: $border-color-black !important;
-    color: $color-white !important;
+    border-color: $border-color-black;
+    color: $color-white;
     font-size: 1.4rem;
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     -o-appearance: none;
     appearance: none;
+}
+
+.user-login {
+    .text-field {
+        background: $user-login-control-bg-color !important;
+        border: 1px solid $user-login-control-border-color;
+        color: $user-login-control-color;
+    }
+
+    .btn-forgot {
+        color: $footer-bg-color;
+
+        &:hover {
+            color: $user-login-control-border-color;
+        }
+    }
 }
 
 select.form-control {
@@ -350,6 +366,10 @@ label {
     .icon {
         color: $button-signup-color;
     }
+
+    &:active {
+        color: $color-white !important;
+    }
 }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
@@ -379,6 +399,10 @@ label {
 
     .icon {
         color: $button-login-color;
+    }
+
+    &:active {
+        color: $color-black;
     }
 }
 
@@ -508,18 +532,6 @@ label {
             color: $color-white !important;
             font-size: 1.4rem;
             outline: none
-        }
-    }
-}
-
-.languages-item {
-    background: $languages-item-bg-color;
-
-    .info {
-        border-left: 1px solid $languages-item-border-color;
-
-        .language {
-            border-bottom: 1px solid $languages-item-border-color;
         }
     }
 }

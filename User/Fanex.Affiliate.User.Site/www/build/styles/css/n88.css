@@ -15,7 +15,8 @@ body.menu-open {
   background-color: #001942; }
   body.menu-open .header-top {
     filter: blur(2px);
-    pointer-events: none; }
+    pointer-events: none;
+    background-color: #001942; }
   body.menu-open .main-container, body.menu-open .footer {
     display: none; }
   body.menu-open .overlay {
