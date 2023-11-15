@@ -486,7 +486,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Web.tt</DependentUpon>
     </Content>
-    <Content Include="favicon-n8b.ico" />
     <Content Include="App_Data\SpConfig\_SpName.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>_SpName.txt</LastGenOutput>
@@ -507,6 +506,7 @@
       <LastGenOutput>Web.txt</LastGenOutput>
     </Content>
     <Content Include="favicon-n88.ico" />
+    <Content Include="favicon-n8b.ico" />
     <Content Include="favicon-n8g.ico" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
