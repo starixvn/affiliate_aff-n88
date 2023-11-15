@@ -25,13 +25,13 @@ body {
         width: 180px;
         height: 65px;
     }
+}
 
-    .language-container .language-selection {
-        font-weight: 400;
+.language-container .language-selection {
+    font-weight: 400;
 
-        #selectedLanguage {
-            color: $user-login-control-color;
-        }
+    #selectedLanguage {
+        color: $user-login-control-color;
     }
 }
 
@@ -344,12 +344,12 @@ label {
 .btn-signup, .btn-submit {
     //background: $button-signup-bg-color;
     background: rgba(255,239,185,1);
-    background: -moz-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,239,185,1)), color-stop(100%, rgba(206,161,0,1)));
-    background: -webkit-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,239,185,1) 0%, rgba(206,161,0,1) 100%);
+    background: -moz-linear-gradient(180deg, #FF9900 0%, #CE6F00 85%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 153, 0, 1)), color-stop(85%, rgba(206, 111, 0, 1)));
+    background: -webkit-linear-gradient(180deg, #FF9900 0%, #CE6F00 85%);
+    background: -o-linear-gradient(180deg, #FF9900 0%, #CE6F00 85%);
+    background: -ms-linear-gradient(180deg, #FF9900 0%, #CE6F00 85%);
+    background: linear-gradient(180deg, #FF9900 0%, #CE6F00 85%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefb9', endColorstr='#cea100', GradientType=0 );
     -webkit-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
     -moz-box-shadow: inset 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
@@ -357,6 +357,10 @@ label {
     color: $button-signup-color !important;
     font-weight: 600;
     border: 0;
+
+    &:active {
+        color: $color-gray !important;
+    }
 }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
@@ -364,13 +368,13 @@ label {
 }
 
 .btn-login, .btn-link, .btn-login-mobile, .btn-login-mobile:active {
-    background: rgba(255,239,185,1);
-    background: -moz-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, #69B7FF), color-stop(100%, rgba(0,84,160,0.58)));
-    background: -webkit-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,1) 100%);
-    background: -o-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
-    background: -ms-linear-gradient(top, #69B7FF 0%, rgba(206,161,0,0.58) 100%);
-    background: linear-gradient(to bottom, #69B7FF 0%, rgba(0,84,160,0.58) 100%);
+    background: rgba(255, 255, 255, 0.5);
+    background: -moz-linear-gradient(180deg, #309BFF 0%, #0054A0 85%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(48, 155, 255, 1)), color-stop(85%, rgba(0, 84, 160, 1)));
+    background: -webkit-linear-gradient(180deg, #309BFF 0%, #0054A0 85%);
+    background: -o-linear-gradient(180deg, #309BFF 0%, #0054A0 85%);
+    background: -ms-linear-gradient(180deg, #309BFF 0%, #0054A0 85%);
+    background: linear-gradient(180deg, #309BFF 0%, #0054A0 85%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffefb9', endColorstr='#cea100', GradientType=0 );
     -webkit-box-shadow: $button-shadow-color;
     -moz-box-shadow: $button-shadow-color;
@@ -389,7 +393,7 @@ label {
     }
 
     &:active {
-        color: $color-black;
+        color: $color-gray;
     }
 }
 
