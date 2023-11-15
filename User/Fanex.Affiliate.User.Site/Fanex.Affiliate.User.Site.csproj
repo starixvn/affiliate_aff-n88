@@ -1278,14 +1278,14 @@
     <Content Include="www\source\styles\Images\email\n88\button.png" />
     <Content Include="www\source\styles\Images\email\n88\header.png" />
     <Content Include="www\source\styles\Images\email\n8b\banner.png" />
-    <Content Include="www\source\styles\Images\email\n8b\banner_vi-VN.png" />
     <Content Include="www\source\styles\Images\email\n8b\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n8b\banner_vi-VN.png" />
     <Content Include="www\source\styles\Images\email\n8b\bgMain.png" />
     <Content Include="www\source\styles\Images\email\n8b\button.png" />
     <Content Include="www\source\styles\Images\email\n8b\header.png" />
-    <Content Include="www\source\styles\Images\email\n8g\banner.png" />
-    <Content Include="www\source\styles\Images\email\n8g\banner_vi-VN.png" />
     <Content Include="www\source\styles\Images\email\n8g\banner_en-US.png" />
+    <Content Include="www\source\styles\Images\email\n8g\banner_vi-VN.png" />
+    <Content Include="www\source\styles\Images\email\n8g\banner.png" />
     <Content Include="www\source\styles\Images\email\n8g\bgMain.png" />
     <Content Include="www\source\styles\Images\email\n8g\button.png" />
     <Content Include="www\source\styles\Images\email\n8g\header.png" />
