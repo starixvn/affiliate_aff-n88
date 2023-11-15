@@ -15,8 +15,7 @@ body.menu-open {
   background-color: #001942; }
   body.menu-open .header-top {
     filter: blur(2px);
-    pointer-events: none;
-    background-color: #001942; }
+    pointer-events: none; }
   body.menu-open .main-container, body.menu-open .footer {
     display: none; }
   body.menu-open .overlay {
@@ -534,13 +533,6 @@ select.form-control:focus {
         color: #FF4F60;
         font-weight: 700;
         text-decoration: underline; }
-
-.languages-item {
-  background: #fff; }
-  .languages-item .info {
-    border-left: 1px solid #e7e7e7; }
-    .languages-item .info .language {
-      border-bottom: 1px solid #e7e7e7; }
 
 .dot1, .dot2 {
   background-color: #ffffff; }

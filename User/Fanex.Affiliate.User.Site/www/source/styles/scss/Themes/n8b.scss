@@ -18,7 +18,7 @@ body {
     background: $header-bg-color;
 
     .logo {
-        padding: 1rem 1rem 1.7rem 1rem;
+        padding: 1.8rem;
     }
 
     .logo-image {
@@ -357,19 +357,6 @@ label {
     color: $button-signup-color !important;
     font-weight: 600;
     border: 0;
-
-    &:hover, &:focus {
-        color: $button-signup-color;
-        //background: $button-signup-bg-color-hover;
-    }
-
-    .icon {
-        color: $button-signup-color;
-    }
-
-    &:active {
-        color: $color-white !important;
-    }
 }
 
 .btn-signup, .btn-login, .btn-link, .btn-login-mobile {
@@ -403,19 +390,6 @@ label {
 
     &:active {
         color: $color-black;
-    }
-}
-
-.btn-submit {
-    //background-color: $button-submit-bg-color;
-    //color: $button-submit-color;
-    &:focus {
-        color: $button-submit-color;
-        background-color: $button-submit-bg-color-hover;
-    }
-
-    .icon {
-        color: $button-submit-color;
     }
 }
 
@@ -510,28 +484,6 @@ label {
 
         > a {
             color: $home-card-content-color;
-        }
-    }
-}
-
-// Contact Us
-.btn.btn-submit[type="submit"] {
-    @extend .btn-signup;
-}
-
-.btn.btn-submit[type="reset"] {
-    @extend .btn-signup;
-}
-
-.form {
-    .form-group {
-        .field {
-            border: 1px solid $form-control-border-color !important;
-            background: $background-dark-gray !important;
-            border-color: $border-color-black !important;
-            color: $color-white !important;
-            font-size: 1.4rem;
-            outline: none
         }
     }
 }

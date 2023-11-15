@@ -1403,10 +1403,6 @@
     <Content Include="Views\UserPanel\AccountOverView\Partial\_GeneratedQrCode.cshtml" />
     <Content Include="www\source\styles\scss\base\_flex.scss" />
     <Content Include="Configurations\Web\Transform\n8b.local.config" />
-    <Content Include="www\source\styles\scss\abstracts\_variables1.scss" />
-    <Content Include="www\source\styles\scss\abstracts\_variables2.scss" />
-    <Content Include="www\source\styles\scss\abstracts\_variables3.scss" />
-    <Content Include="www\source\styles\scss\abstracts\_variables4.scss" />
     <Content Include="Configurations\AppSetting\Transform\n8b.local.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8b.local.config" />
     <Content Include="Configurations\ConnectionString\ConnectionString.n88user-n8g.local.config" />
@@ -1682,7 +1678,6 @@
     <Content Include="www\source\styles\fonts\Montserrat\Montserrat-SemiBold.woff" />
     <Content Include="www\source\styles\fonts\Montserrat\Montserrat-SemiBold.woff2" />
     <Content Include="www\source\styles\scss\abstracts\_mixins.scss" />
-    <Content Include="www\source\styles\scss\abstracts\_variables.scss" />
     <Content Include="www\source\styles\scss\base\_animations.scss" />
     <Content Include="www\source\styles\scss\base\_base.scss" />
     <Content Include="www\source\styles\scss\base\_font.scss" />

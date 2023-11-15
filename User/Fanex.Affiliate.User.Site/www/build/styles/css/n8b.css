@@ -11,7 +11,7 @@
 .header-top {
   background: #FFFFFF; }
   .header-top .logo {
-    padding: 1rem 1rem 1.7rem 1rem; }
+    padding: 1.8rem; }
   .header-top .logo-image {
     width: 180px;
     height: 65px; }
@@ -207,7 +207,7 @@ label {
   color: #ffffff !important;
   border: 0 !important; }
 
-.btn-signup, .btn.btn-submit[type="submit"], .btn.btn-submit[type="reset"], .btn-submit {
+.btn-signup, .btn-submit {
   background: #ffefb9;
   background: -moz-linear-gradient(top, #ffefb9 0%, #cea100 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, #ffefb9), color-stop(100%, #cea100));
@@ -222,14 +222,8 @@ label {
   color: #333333 !important;
   font-weight: 600;
   border: 0; }
-  .btn-signup:hover, .btn.btn-submit[type="submit"]:hover, .btn.btn-submit[type="reset"]:hover, .btn-signup:focus, .btn.btn-submit[type="submit"]:focus, .btn.btn-submit[type="reset"]:focus, .btn-submit:hover, .btn-submit:focus {
-    color: #333333; }
-  .btn-signup .icon, .btn.btn-submit[type="submit"] .icon, .btn.btn-submit[type="reset"] .icon, .btn-submit .icon {
-    color: #333333; }
-  .btn-signup:active, .btn.btn-submit[type="submit"]:active, .btn.btn-submit[type="reset"]:active, .btn-submit:active {
-    color: #ffffff !important; }
 
-.btn-signup, .btn.btn-submit[type="submit"], .btn.btn-submit[type="reset"], .btn-login, .btn-link, .btn-login-mobile {
+.btn-signup, .btn-login, .btn-link, .btn-login-mobile {
   line-height: 25px; }
 
 .btn-login, .btn-link, .btn-login-mobile, .btn-login-mobile:active {
@@ -253,13 +247,6 @@ label {
     color: #fff; }
   .btn-login:active, .btn-link:active, .btn-login-mobile:active, .btn-login-mobile:active:active {
     color: #000000; }
-
-.btn-submit:focus {
-  color: #fff;
-  background-color: #707e60; }
-
-.btn-submit .icon {
-  color: #fff; }
 
 .table .game-list tr .game-name {
   background-color: #ded5d5; }
@@ -312,14 +299,6 @@ label {
 
 .news-content li > a {
   color: #212121; }
-
-.form .form-group .field {
-  border: 1px solid #adadad !important;
-  background: #333333 !important;
-  border-color: #000000 !important;
-  color: #ffffff !important;
-  font-size: 1.4rem;
-  outline: none; }
 
 .content-menu {
   background-color: #111111; }
