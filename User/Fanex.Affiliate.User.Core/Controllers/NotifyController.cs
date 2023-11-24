@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.BusinessService;
+﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Utilities;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {
@@ -10,7 +10,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
         private readonly IAppSetting _appSetting;
 
         public NotifyController(
-            IAppSetting appSetting, 
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService)
             : base(sessionService, languageService)

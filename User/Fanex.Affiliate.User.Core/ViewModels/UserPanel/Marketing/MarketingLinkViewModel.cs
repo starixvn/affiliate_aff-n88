@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing
+﻿namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing
 {
     public class MarketingLinkViewModel
     {

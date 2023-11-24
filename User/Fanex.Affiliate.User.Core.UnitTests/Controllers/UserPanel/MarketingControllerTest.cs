@@ -1,24 +1,24 @@
 ﻿using Fanex.Affiliate.User.Core.BusinessService;
+using Fanex.Affiliate.User.Core.Controllers.UserPanel;
 using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Extensions;
+using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
-using Xunit;
-using Fanex.Affiliate.User.Core.Controllers.UserPanel;
-using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
 using System.IO;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.MetalModels;
+using System.Linq;
+using System.Web.Mvc;
+using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 {
@@ -171,7 +171,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             using (var image = Image)
             {
-                var param = new QrCodeParam {
+                var param = new QrCodeParam
+                {
                     SelectedDomainId = 1,
                     SelectedLinkType = AffiliateLinkType.AffiliateLink,
                     SelectedChannel = "ABC"

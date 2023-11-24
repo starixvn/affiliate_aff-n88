@@ -1,5 +1,4 @@
 ﻿using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
@@ -24,7 +23,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
         [SpParam(Ignored = true)]
         public int SelectedDomainId { get; set; }
 
-        [SpParam(Ignored =true)]
+        [SpParam(Ignored = true)]
         public string SelectedChannel { get; set; }
 
     }

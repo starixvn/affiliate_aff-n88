@@ -1,10 +1,5 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text.RegularExpressions;
-    using System.Web.Mvc;
-    using System.Web.Mvc.Html;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Enum;
@@ -12,6 +7,11 @@
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text.RegularExpressions;
+    using System.Web.Mvc;
+    using System.Web.Mvc.Html;
     using ViewModels.UserPanel.Marketing;
 
     public class MediaGalleryController : BaseMarketingController

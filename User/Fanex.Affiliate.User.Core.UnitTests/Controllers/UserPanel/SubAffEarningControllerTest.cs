@@ -47,7 +47,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             var controller = new SubAffEarningController(AppSetting, SessionService, LanguageService, StatementHistoryRepository, CurrencyRepository);
 
             //Action
-            var result = controller.Index(new SubAffComParam{ MonthDate = new DateTime(2020, 12, 08)}) as ViewResult;
+            var result = controller.Index(new SubAffComParam { MonthDate = new DateTime(2020, 12, 08) }) as ViewResult;
             var model = result.Model as IEnumerable<SubAffComViewModel>;
 
             //Assert

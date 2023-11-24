@@ -2,7 +2,6 @@
 using Fanex.Affiliate.User.Core.Utilities;
 using System;
 using System.Collections.Specialized;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Mvc;

@@ -1,7 +1,5 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using System;
-    using System.Web.Mvc;
     using Enum;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.Constants;
@@ -10,6 +8,8 @@
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
+    using System;
+    using System.Web.Mvc;
     using ViewModels.UserPanel.Statistics;
 
     [CustomAuthorize]
@@ -18,8 +18,8 @@
         private readonly IAppSetting _appSetting;
         private readonly IStatisticsRepository _statisticsRepository;
         public ReferrersStatisticsController(
-            IAppSetting appSetting, 
-            ISessionService sessionService, 
+            IAppSetting appSetting,
+            ISessionService sessionService,
             ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)

@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using Fanex.Affiliate.User.Core.DTO;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -110,7 +110,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string spKey = "Aff_User_AffMediaChannel_Ins";
 
-            using(var objectDb = _builder.Build(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
                 AddOutputParam(objectDb);
                 objectDb.ExecuteNonQuery(new { AffId = userId, ChannelCode = channelCode, ChannelName = channelName });

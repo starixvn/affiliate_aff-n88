@@ -2,7 +2,7 @@
 
 namespace Fanex.Affiliate.User.Core.DTO.UserPanel
 {
-   public class AffiliateCommisionByMonth
+    public class AffiliateCommisionByMonth
     {
         public int Month { get; set; }
 

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Reflection;
-using System.Web.Compilation;
-using System.Web.Mvc;
-using Autofac;
+﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
@@ -21,6 +14,13 @@ using ONEbook.UM.Helpers;
 using ONEbook.UM.NETFramework;
 using ONEbook.UM.Transport;
 using Refit;
+using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Reflection;
+using System.Web.Compilation;
+using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Site
 {

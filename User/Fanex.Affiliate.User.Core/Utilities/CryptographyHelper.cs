@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Constants;
+using System;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Text;
-using Fanex.Affiliate.User.Core.Constants;
 
 namespace Fanex.Affiliate.User.Core.Utilities
 {

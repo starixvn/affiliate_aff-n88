@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.Repository;
+using Fanex.Affiliate.User.Core.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Affiliate.User.Core.Repository;
-using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {

@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Affiliate.User.Site.App_Start;
+using Fanex.Data;
+using Fanex.Data.SqlServer;
+using System;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Fanex.Data;
-using Fanex.Affiliate.User.Site.App_Start;
-using Fanex.Data.SqlServer;
-using Fanex.Affiliate.User.Core.Utilities;
 
 namespace Fanex.Affiliate.User.Site
 {

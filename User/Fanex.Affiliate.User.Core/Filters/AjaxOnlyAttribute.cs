@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Net;
 using System.Reflection;
 using System.Web.Mvc;
-using Fanex.Affiliate.User.Core.CoreService;
 
 namespace Fanex.Affiliate.User.Core.Filters
 {

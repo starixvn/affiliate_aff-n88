@@ -19,7 +19,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         private readonly ICurrencyRepository _currencyRepository;
 
         public SubAffEarningController(
-            IAppSetting appSetting, 
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
             IStatementHistoryRepository statementHistoryRepository,
@@ -46,7 +46,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
                 SubAffUserName = s.UserName
             });
 
-            if(!Constants.RequestPage.Links.TryGetValue(requestPage, out BreadcrumbViewModel breadcrumb))
+            if (!Constants.RequestPage.Links.TryGetValue(requestPage, out BreadcrumbViewModel breadcrumb))
             {
                 breadcrumb = Constants.RequestPage.Links[Constants.RequestPage.StatementHistory];
             }

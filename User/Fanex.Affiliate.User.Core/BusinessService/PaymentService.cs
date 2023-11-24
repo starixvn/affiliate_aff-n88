@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Fanex.Affiliate.User.Core.DTO;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                     ErrMsg = paymentCreationParam.ErrMsg
                 };
 
-                resultInfo =  _paymentRepository.CreatePaymentRequest(param);
+                resultInfo = _paymentRepository.CreatePaymentRequest(param);
 
                 if (resultInfo.IsOk)
                 {

@@ -1,7 +1,7 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
-using Fanex.Affiliate.User.Core.Resources;
+﻿using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
+using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Fanex.Affiliate.User.Core.ViewModels
 {

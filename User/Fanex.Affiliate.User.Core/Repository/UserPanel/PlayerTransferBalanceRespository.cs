@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string spKey = "Aff_User_TransferBalanceInfo_Sel";
 
-            using(var objectDb = _builder.Build(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
                 return objectDb.QueryEntity<PlayerTransferBalanceInfo>(new { affId, playerName });
             }
@@ -74,7 +74,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             using (var objectDB = _builder.Build(spKey))
             {
                 AddOutputParam(objectDB);
-                objectDB.ExecuteNonQuery(new { transId, status});
+                objectDB.ExecuteNonQuery(new { transId, status });
 
                 return GetResult(objectDB);
 

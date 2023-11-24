@@ -1,5 +1,4 @@
 ﻿using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Data;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {

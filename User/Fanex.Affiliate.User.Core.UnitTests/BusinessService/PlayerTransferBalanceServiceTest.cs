@@ -80,7 +80,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         public async Task GetPlayerTransferBalanceInfoAsync_WhenCallWithInvalidPlayerWalletInfo_ReturnError()
         {
             _repo.GetPlayerTransferBalanceInfo(123, "").Returns(playerTransferBalanceInfo);
-            _api.GetCustBalanceAsync(Arg.Any<int []>()).Returns(new List<CustomerBalanceInfo> {
+            _api.GetCustBalanceAsync(Arg.Any<int[]>()).Returns(new List<CustomerBalanceInfo> {
                 new CustomerBalanceInfo
                 {
                     CustId = 123,
@@ -194,7 +194,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
 
-            var result = await service.SubmitTransferBalanceRequestAsync(new TransMoneyRequestViewModel { Amount = 0});
+            var result = await service.SubmitTransferBalanceRequestAsync(new TransMoneyRequestViewModel { Amount = 0 });
 
             Assert.False(result.IsOk);
             Assert.Equal(Lang.AmountMustPositiveNumber, result.Message);

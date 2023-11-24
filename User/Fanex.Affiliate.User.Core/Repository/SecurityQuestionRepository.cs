@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.User.Core.DTO;
-using System.Data;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Common.Extensions;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository
 {

@@ -1,9 +1,9 @@
-﻿using System.Web.Mvc;
-using System.Web.Routing;
-using Fanex.Affiliate.User.Core.BusinessService;
+﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.Utilities;
 using ONEbook.UM.AspNetMVC.Filters;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {

@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using Fanex.Affiliate.User.Core.DTO;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Common.Extensions;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -125,7 +124,7 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         {
             const string spKey = "Aff_User_Rpt_MarketingPage_Statistics";
 
-            using(var objectDb = _builder.Build(spKey))
+            using (var objectDb = _builder.Build(spKey))
             {
                 return objectDb.Query<MarketingPageStatistics>(param);
             }

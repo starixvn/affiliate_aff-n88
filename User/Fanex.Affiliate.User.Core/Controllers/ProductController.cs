@@ -1,9 +1,9 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using System.Web.Mvc;
     using CoreService;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.Utilities;
+    using System.Web.Mvc;
     using ViewModels;
 
     public class ProductController : BaseLayoutController

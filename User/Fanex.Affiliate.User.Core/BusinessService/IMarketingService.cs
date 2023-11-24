@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.MetalModels;
-using System.Linq;
-using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fanex.Affiliate.User.Core.Enum
+﻿namespace Fanex.Affiliate.User.Core.Enum
 {
     public enum AffiliateLinkType
     {

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Resources;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.Resources;
 
 namespace Fanex.Affiliate.User.Core.Utilities
 {

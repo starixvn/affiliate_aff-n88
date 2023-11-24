@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Fanex.Affiliate.User.Core.Constants;
+﻿using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Common.Extensions;
 using Fanex.Data;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {

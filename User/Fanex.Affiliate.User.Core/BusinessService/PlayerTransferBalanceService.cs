@@ -51,14 +51,14 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var result = new ResultInfo<PlayerTransferBalanceInfo>();
 
             var summaryInfo = _repo.GetPlayerTransferBalanceInfo(affId, playerName);
-            if (summaryInfo == null || summaryInfo.PaymentAccountId <=0 || summaryInfo.PlayerId <= 0)
+            if (summaryInfo == null || summaryInfo.PaymentAccountId <= 0 || summaryInfo.PlayerId <= 0)
             {
                 result.IsOk = false;
                 result.Message = Lang.InvalidPlayer;
                 return result;
             }
 
-            var accWalletInfos = await _api.GetCustBalanceAsync(new [] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
+            var accWalletInfos = await _api.GetCustBalanceAsync(new[] { summaryInfo.PaymentAccountId, summaryInfo.PlayerId });
             var affWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PaymentAccountId);
             var playerWalletInfo = accWalletInfos.FirstOrDefault(w => w.CustId == summaryInfo.PlayerId);
             result = CheckPlayerAcc(playerWalletInfo);
@@ -97,7 +97,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             {
                 return GetResultInfo(Lang.InvalidPlayer);
             }
-            if(affWalletInfo == null)
+            if (affWalletInfo == null)
             {
                 return GetResultInfo(Error.PaymentAccNotActive);
             }
@@ -154,9 +154,9 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
 
             var updResult = _repo.UpdateTransferBalanceRequest(TransId, TransferBalanceStatus.Completed);
-            if (updResult.ErrCode == 0 )
+            if (updResult.ErrCode == 0)
             {
-                if(playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS)
+                if (playerWalletInfo.ActStatus != ApiConstant.DEPOSIT_ACT_STATUS)
                 {
                     await ActiveDepositActStatusAsync(playerWalletInfo.CustId).ConfigureAwait(true);
                 }
@@ -259,7 +259,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
                 return result;
             }
 
-            if (affWalletInfo.Status != CustomerStatus.RUNNING )
+            if (affWalletInfo.Status != CustomerStatus.RUNNING)
             {
                 result.IsOk = false;
                 result.Message = Error.PaymentAccNotActive;

@@ -1,9 +1,5 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.Constants;
     using Fanex.Affiliate.User.Core.CoreService;
@@ -13,6 +9,10 @@
     using Fanex.Affiliate.User.Core.ViewModels.UserPanel;
     using Filters;
     using MetalModels.UserPanel;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
 
     [CustomAuthorize]
     public class StatementHistoryController : BaseController
@@ -90,7 +90,7 @@
         {
             var vms = new List<StatementHistoryViewModel>();
             var statementHistoryList = _statementHistoryRepository.GetStatementHistory(param);
-            if(_sessionService.UserSession.IsMaxSubLevel)
+            if (_sessionService.UserSession.IsMaxSubLevel)
             {
                 foreach (var item in statementHistoryList)
                 {

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Fanex.Affiliate.User.Core.Apis;
+﻿using Fanex.Affiliate.User.Core.Apis;
 using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.Constants.Apis;
 using Fanex.Affiliate.User.Core.DTO;
@@ -11,6 +10,7 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Fanex.Affiliate.User.Core.Utilities;
 using Moq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
@@ -240,7 +240,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
             Assert.True(result.IsOk);
         }
 
-        private static AccountService CreateAccountService(IAccountRepository repository, ILicenseeApi api = null,IEmailService emailService = null)
+        private static AccountService CreateAccountService(IAccountRepository repository, ILicenseeApi api = null, IEmailService emailService = null)
         {
             return new AccountService(repository, emailService ?? Mock.Of<IEmailService>(), api ?? Mock.Of<ILicenseeApi>(), Mock.Of<IAppSetting>());
         }

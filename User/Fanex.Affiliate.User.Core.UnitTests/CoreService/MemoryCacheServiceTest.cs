@@ -39,7 +39,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.CoreService
         public void Get_WhenCall_ReturnValue()
         {
             var service = CreateService();
-            Cache.TryGet("abc", out TestModel _).Returns(prs => {
+            Cache.TryGet("abc", out TestModel _).Returns(prs =>
+            {
                 prs[1] = new TestModel();
                 return false;
             });
