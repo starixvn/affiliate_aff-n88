@@ -2,30 +2,19 @@
 {
     using BusinessService;
     using CoreService;
-    using DTO;
-    using MetalModels;
-    using MetalModels.Email;
-    using Resources;
-    using System.Linq;
     using System.Web.Mvc;
     using Utilities;
 
     public class ContactUsController : BaseController
     {
         private readonly IAppSetting _appSetting;
-        private readonly IContactService _contactService;
-        private readonly ICaptchaService _captchaService;
 
         public ContactUsController(
             IAppSetting appSetting,
             ISessionService sessionService,
-            ILanguageService languageService,
-            IContactService contactService,
-            ICaptchaService captchaService) : base(sessionService, languageService)
+            ILanguageService languageService) : base(sessionService, languageService)
         {
             _appSetting = appSetting;
-            _contactService = contactService;
-            _captchaService = captchaService;
         }
 
         [HttpGet]
@@ -34,53 +23,6 @@
             var mailContact = _appSetting.GetMailContactByLanguageCode(SessionService.CurrentLanguage);
 
             return View($"~/Views/ContactUs/{_appSetting.SiteName}/Index.cshtml", model: mailContact);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index(ContactUsParam param)
-        {
-            var result = new ResultInfo { IsOk = false };
-
-            if (SessionService != null && SessionService.IsInternal)
-            {
-                result.Message = Lang.ErrAuthorized;
-            }
-            else if (!_captchaService.IsValid(param.Captcha, SessionService.SignUpCaptchaCode, Request.UserHostAddress))
-            {
-                result.Message = Lang.ValidationCode;
-            }
-            else if (ModelState.IsValid)
-            {
-                var isLoggedIn = SessionService.UserSession != null;
-                var language = isLoggedIn ? SessionService.UserSession.PreferredLanguage : SessionService.CurrentLanguage;
-                param.SubjectRaw = param.Subject;
-                param.Sender = Server.HtmlEncode(param.Sender);
-                param.Email = Server.HtmlEncode(param.Email);
-                param.Affiliate = Server.HtmlEncode(param.Affiliate);
-                param.Subject = Server.HtmlEncode(param.Subject);
-                param.Content = Server.HtmlEncode(param.Content);
-                param.Creator = isLoggedIn ? SessionService.UserSession.AffId : -1;
-                param.Ip = Request.UserHostAddress;
-                param.SessionId = Session.SessionID;
-                param.Browser = Request.Browser.Browser;
-                param.SiteFriendlyName = _appSetting.SiteFriendlyName;
-
-                var emailParam = new EmailBaseParam
-                {
-                    User = new UserInfo { PreferredLanguage = language },
-                    MailTo = _appSetting.GetMailContactByLanguageCode(language),
-                };
-
-                result = _contactService.SendRequest(param, emailParam);
-            }
-            else
-            {
-                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-                result.Message = string.Join("<br>", errors);
-            }
-
-            return Json(result);
         }
     }
 }

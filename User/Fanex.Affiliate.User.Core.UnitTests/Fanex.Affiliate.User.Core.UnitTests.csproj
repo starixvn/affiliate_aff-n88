@@ -152,7 +152,6 @@
     <Compile Include="BusinessService\AuthServiceTest.cs" />
     <Compile Include="BusinessService\CaptchaServiceTest.cs" />
     <Compile Include="BusinessService\CommissionReportServiceTest.cs" />
-    <Compile Include="BusinessService\ContactServiceTest.cs" />
     <Compile Include="BusinessService\CryptographyServiceTest.cs" />
     <Compile Include="BusinessService\EmailServiceTest.cs" />
     <Compile Include="BusinessService\LanguageServiceTest.cs" />
@@ -208,7 +207,6 @@
     <Compile Include="MetaModels\Attributes\RequiredByCheckedAttributeTest.cs" />
     <Compile Include="MetaModels\Attributes\RequiredReplaceB2CAttributeTest.cs" />
     <Compile Include="Repository\AuthRepositoryTest.cs" />
-    <Compile Include="Repository\EmailHistoryRepositoryTest.cs" />
     <Compile Include="Repository\GetSecurityQuestionsTest.cs" />
     <Compile Include="Repository\LanguageRepositoryTest.cs" />
     <Compile Include="Repository\RepositoryTestBase.cs" />
