@@ -98,5 +98,11 @@ namespace Fanex.Affiliate.User.Core.Utilities
 
         public string EndDatePromotion => GetValue("EndDatePromotion");
 
+        public int RedNumberRGB => Convert.ToInt32(GetValue("RedNumberRGB"));
+
+        public int GreenNumberRGB => Convert.ToInt32(GetValue("GreenNumberRGB"));
+
+        public int BlueNumberRGB => Convert.ToInt32(GetValue("BlueNumberRGB"));
+
     }
 }

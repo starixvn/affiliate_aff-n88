@@ -5,23 +5,7 @@
 
 <div class="headWrapper">
     <div class="float-left logo">
-        @if (string.Equals(appSetting.SiteName, "N8B", StringComparison.CurrentCultureIgnoreCase))
-        {
-
-            <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO1.png" />
-        }
-        else
-        {
-            if (string.Equals(appSetting.SiteName, "N8G", StringComparison.CurrentCultureIgnoreCase))
-            {
-
-                <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO2.png" />
-            }
-            else
-            {
-                <img src="~/Areas/Portal/www/dist/imgs/theme/LOGO3.png" />
-            }
-        }
+        <img src=@Url.VersionedLink("~/Areas/Portal/www/dist/imgs/theme/" + appSetting.SiteName + ".png") />
     </div>
     <div class="float-left user-info">
         <span class="font-weight-bold icon-top">

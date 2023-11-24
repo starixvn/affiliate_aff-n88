@@ -823,25 +823,12 @@ select.form-control {
     }
 }
 
-// Contact Us
-
-.languages-item {
-    background: $languages-item-bg-color;
-
-    .info {
-        border-left: 1px solid $languages-item-border-color;
-
-        .language {
-            border-bottom: 1px solid $languages-item-border-color;
-        }
-    }
-}
-
+// Loading
 .dot1, .dot2 {
     background-color: $color-primary;
 }
-// After login
 
+// After login
 .main.after-login {
     background: $bg-after-login-color;
 

@@ -534,13 +534,6 @@ select.form-control:focus {
         font-weight: 700;
         text-decoration: underline; }
 
-.languages-item {
-  background: #fff; }
-  .languages-item .info {
-    border-left: 1px solid #e7e7e7; }
-    .languages-item .info .language {
-      border-bottom: 1px solid #e7e7e7; }
-
 .dot1, .dot2 {
   background-color: #ffffff; }
 

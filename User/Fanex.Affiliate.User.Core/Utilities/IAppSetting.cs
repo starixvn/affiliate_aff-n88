@@ -90,5 +90,11 @@ namespace Fanex.Affiliate.User.Core.Utilities
         string CurrencyLabel { get; }
 
         string EndDatePromotion { get; }
+
+        int RedNumberRGB { get; }
+
+        int GreenNumberRGB { get; }
+
+        int BlueNumberRGB { get; }
     }
 }

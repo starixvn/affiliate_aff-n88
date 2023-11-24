@@ -12,6 +12,7 @@
     var siteFriendlyName = settingService.SiteFriendlyName;
     var siteName = settingService.SiteName.ToLower();
     var isN8G = string.Equals(settingService.SiteName, SiteName.N8G, StringComparison.CurrentCultureIgnoreCase);
+    var jsVersion = AppSetting.Instance.JsVersion;
 }
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@(string.IsNullOrEmpty(ViewBag.Title) ? siteFriendlyName + " " + Lang.Affiliate : ViewBag.Title)</title>
-    <link rel="icon" href=@Url.Content("~/favicon-" + siteName + ".ico")>
+    <link rel="icon" href=@Url.VersionedLink($"~/favicon-{siteName}.ico")>
 
     <meta name="google-site-verification" content="iFkj5nsimoERnX2jd-9krswREsacSaFCr3Q22CJtQe0" />
     <meta name="msvalidate.01" content="D40D4C0F9E67ABAAAFA183F5D313FEFD" />
@@ -44,7 +45,7 @@
     <link href="~/www/build/styles/fonts/myriadPro/font.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <link href="@Url.RenderLink("~/www/build/styles/css/main.css")" rel="stylesheet" />
-    <link href="@Url.RenderLink("~/www/build/styles/css/" + siteName + ".css")" rel="stylesheet" />
+    <link href="@Url.RenderLink($"~/www/build/styles/css/{siteName}.css")" rel="stylesheet" />
 
     @RenderSection("styles", required: false)
 </head>
@@ -52,7 +53,7 @@
     <div class="header-top">
         <div class="col-xs-12 col-sm-5 col-md-5 logo">
             <a href="@Url.Content("~")">
-                <img src=@Url.Content("~/www/build/styles/Images/themes/" + siteName + ".png?v=" + AppSetting.Instance.JsVersion) alt="logo" class="logo-image" />
+                <img src=@Url.VersionedLink($"~/www/build/styles/Images/themes/{siteName}.png") alt="logo" class="logo-image" />
             </a>
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 login">
@@ -178,7 +179,7 @@
         window.Lang = {
             ServerError: '@Lang.ServerError'
         };
-        window.JsVersion = '@AppSetting.Instance.JsVersion';
+        window.JsVersion = '@jsVersion';
     </script>
 
     @Html.InlineScripts("~/www/build/js/lib/modernizr-webp.js")
