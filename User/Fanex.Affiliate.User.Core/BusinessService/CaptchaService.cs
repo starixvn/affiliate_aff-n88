@@ -155,9 +155,13 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
         private bool IsValidHostAddress(string userHostAddress)
         {
-            LogHelper.WriteInfo($"IP {userHostAddress} using static Captcha to access!");
+            var forwardedIP = RequestHelper.GetClientIPAddress();
 
-            return _appSetting.IsLocal || Regex.IsMatch(userHostAddress, _appSetting.GetValue("CompanyIP"));
+            LogHelper.WriteInfo($"Client IP {userHostAddress}(forwarded IP {forwardedIP}) using static Captcha to access!");
+
+            var companyIpRegex = _appSetting.GetValue("CompanyIP");
+
+            return _appSetting.IsLocal || Regex.IsMatch(forwardedIP, companyIpRegex) || Regex.IsMatch(userHostAddress, companyIpRegex);
         }
 
         private static Color CreateRandomColor(Random random, int min, int max)
