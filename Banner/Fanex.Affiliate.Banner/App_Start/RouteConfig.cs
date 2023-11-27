@@ -1,4 +1,4 @@
-﻿namespace Affiliate.Banner.App_Start
+﻿namespace Affiliate.Banner
 {
     using System.Web.Mvc;
     using System.Web.Routing;

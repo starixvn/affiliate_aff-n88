@@ -1,4 +1,4 @@
-﻿namespace Affiliate.Banner.App_Start
+﻿namespace Affiliate.Banner
 {
     using System.Configuration;
     using Fanex.Logging;
