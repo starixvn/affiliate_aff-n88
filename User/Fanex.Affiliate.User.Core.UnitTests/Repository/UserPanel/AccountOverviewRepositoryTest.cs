@@ -82,7 +82,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             const string uSpKey = "Aff_User_Overview_Detail_Sel";
             var repo = CreateRepo();
             var db = Builder.Build(null, null);
-            db.Query<OverviewDetail>(null).ReturnsForAnyArgs(new List<OverviewDetail> { new OverviewDetail { WinlostDate = new DateTime(2020, 12, 01)} });
+            db.Query<OverviewDetail>(null).ReturnsForAnyArgs(new List<OverviewDetail> { new OverviewDetail { WinlostDate = new DateTime(2020, 12, 01) } });
 
             var result = repo.GetUserOverviewDetailList(1, DateTime.Now);
 

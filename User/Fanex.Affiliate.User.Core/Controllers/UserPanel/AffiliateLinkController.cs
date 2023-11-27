@@ -1,12 +1,12 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
-    using System.Collections.Generic;
-    using System.Web.Mvc;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using ONEbook.UM.AspNetMVC.Filters;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
     using ViewModels.UserPanel.Marketing;
 
     [CheckUMFilter]

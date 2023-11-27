@@ -1,12 +1,10 @@
-﻿using System;
-using System.Web;
-using Fanex.Affiliate.User.Core.Constants;
+﻿using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
+using System.Web;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -107,15 +105,6 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             _mailProcessor.Send(emailContent, emailParam.MailTo, subject, preferredLanguage);
 
             ResetLanguage(prevLanguage);
-        }
-
-        public void SendContactUsEmail(EmailBaseParam emailParam, ContactUsParam model)
-        {
-            const string TemplateName = "ContactUs";
-            var emailContent = GetEmailTextContent(TemplateName, SystemLanguage.EnglishLanguageCode, model);
-
-            var subject = $"{model.SiteFriendlyName} Affiliates - Contact Us - {model.SubjectRaw}";
-            _mailProcessor.Send(emailContent, emailParam.MailTo, subject, emailParam.User.PreferredLanguage);
         }
 
         public void SendVerificationEmail(VerificationAccountEmailParam emailParam)

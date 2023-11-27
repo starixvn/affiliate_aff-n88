@@ -1,12 +1,11 @@
-﻿using Fanex.Affiliate.User.Core.MetalModels;
+﻿using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
+using Fanex.Affiliate.User.Core.MetalModels;
 using Fanex.Affiliate.User.Core.Repository;
+using Fanex.Data;
 using NSubstitute;
 using System;
 using Xunit;
-using Fanex.Data;
-using System.Data;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Repository
 {

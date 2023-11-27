@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Fanex.Affiliate.User.Core.BusinessService;
+﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.Enum;
 using Fanex.Affiliate.User.Core.MetalModels.Email;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
@@ -11,8 +9,10 @@ using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using Moq;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xunit;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 {
@@ -190,7 +190,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>()))
-                .Callback<PaymentRequestInfo>(p => {
+                .Callback<PaymentRequestInfo>(p =>
+                {
                     p.TransId = param.TransId;
                     paymentRequest = p;
                 })
@@ -242,7 +243,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>()))
-                .Callback<PaymentRequestInfo>(p => {
+                .Callback<PaymentRequestInfo>(p =>
+                {
                     p.TransId = param.TransId;
                     paymentRequest = p;
                 })
@@ -284,7 +286,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
 
             var paymentRepository = new Mock<IPaymentRepository>();
             paymentRepository.Setup(p => p.CreatePaymentRequest(It.IsAny<PaymentRequestInfo>()))
-                .Callback<PaymentRequestInfo>(p => {
+                .Callback<PaymentRequestInfo>(p =>
+                {
                     p.TransId = param.TransId;
                     paymentRequest = p;
                 })
@@ -319,7 +322,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             // Arrange
             var paymentRepository = new Mock<IPaymentRepository>();
-            paymentRepository.Setup(p => p.GetPaymentMethods()).Returns((new List<PaymentMethodInfo> { new PaymentMethodInfo { PaymentId = "123", PaymentName = "Test"} }, 1));
+            paymentRepository.Setup(p => p.GetPaymentMethods()).Returns((new List<PaymentMethodInfo> { new PaymentMethodInfo { PaymentId = "123", PaymentName = "Test" } }, 1));
             var service = CreatePaymentService(paymentRepository: paymentRepository.Object);
 
             // Action

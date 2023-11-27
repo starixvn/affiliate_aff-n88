@@ -8,7 +8,7 @@ namespace Fanex.Affiliate.User.Core.Controllers
     public class PromotionController : BaseLayoutController
     {
         public PromotionController(
-            IAppSetting appSetting, 
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService)
         : base(appSetting, sessionService, languageService)

@@ -14,7 +14,7 @@
             return text.Replace("B2C", SiteFriendlyName);
         }
 
-        public static string ReplaceTranslateVariable(string orginalText,string varName, string text)
+        public static string ReplaceTranslateVariable(string orginalText, string varName, string text)
         {
             if (string.IsNullOrWhiteSpace(varName))
             {

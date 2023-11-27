@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
+﻿using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public interface ICommissionReportRepository
     {
-        IEnumerable<AffiliateCommission> GetAffiliateCommission(CommissionReportParam param);            
+        IEnumerable<AffiliateCommission> GetAffiliateCommission(CommissionReportParam param);
     }
 }

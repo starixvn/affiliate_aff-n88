@@ -2,7 +2,6 @@
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
 using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
 using NSubstitute;

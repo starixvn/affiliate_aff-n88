@@ -2,7 +2,6 @@
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
 using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Moq;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -132,7 +131,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
                 ToDate = DateTime.Now,
                 TotalPages = 1,
             };
-            var rowValue =  DBNull.Value;
+            var rowValue = DBNull.Value;
             var db = Builder.Build(uSpkey, dbMode);
             var reader = db.ExecuteReader(param);
             reader.Read().Returns(true, false);

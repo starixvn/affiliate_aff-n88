@@ -1,11 +1,11 @@
 ﻿namespace Fanex.Affiliate.User.Core.Utilities
 {
-    using System.IO;
     using Fanex.MailDeliver.MailClient;
     using Fanex.MailDeliver.MailClient.API;
     using MailDeliver.Model;
     using RazorEngine;
     using RazorEngine.Templating;
+    using System.IO;
 
     public class MailProcessor : IMailProcessor
     {

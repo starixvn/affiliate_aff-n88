@@ -17,7 +17,7 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         private readonly IPlayerTransferBalanceService _playerTransferBalanceService;
 
         public PlayerTransferBalanceController(
-            IAppSetting appSetting, 
+            IAppSetting appSetting,
             ISessionService sessionService,
             ILanguageService languageService,
             IPlayerTransferBalanceService playerTransferBalanceService) : base(sessionService, languageService)

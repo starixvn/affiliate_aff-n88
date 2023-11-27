@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.CoreService;
+using System;
 using System.Net;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Fanex.Affiliate.User.Core.CoreService;
 
 namespace Fanex.Affiliate.User.Core.Filters
 {

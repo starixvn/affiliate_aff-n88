@@ -19,8 +19,8 @@ namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
         private readonly IStatisticsRepository _statisticsRepository;
 
         public MarketingLinkStatisticsController(
-            IAppSetting appSetting, 
-            ISessionService sessionService, 
+            IAppSetting appSetting,
+            ISessionService sessionService,
             ILanguageService languageService,
             IStatisticsRepository statisticsRepository
             ) : base(sessionService, languageService)

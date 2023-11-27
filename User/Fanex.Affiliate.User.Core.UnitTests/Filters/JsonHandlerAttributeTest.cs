@@ -2,9 +2,7 @@
 using Fanex.Affiliate.User.Core.Filters;
 using Fanex.Affiliate.User.Core.Infrastructure;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using NSubstitute;
 using System.Collections.Generic;
-using System.Text;
 using System.Web.Mvc;
 using Xunit;
 

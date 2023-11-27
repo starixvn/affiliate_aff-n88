@@ -83,7 +83,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
             var result = CheckPlayerUserNameValid(cust);
             if (cust?.Status == CustomerStatus.LOCKED)
             {
-                var apiResult = await _licenseeApi.UnlockUser(new [] { cust.CustId});
+                var apiResult = await _licenseeApi.UnlockUser(new[] { cust.CustId });
                 result.IsOk = apiResult.IsSuccess;
                 result.Message = apiResult.ErrMsg;
             }

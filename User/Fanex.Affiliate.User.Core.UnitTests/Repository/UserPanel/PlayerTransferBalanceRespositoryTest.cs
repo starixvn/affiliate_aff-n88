@@ -14,7 +14,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
         public void GetPlayerTransferBalanceHistory_WhenCall_QueryPlayerTransferBalanceHistory()
         {
             const string uSpKey = "Aff_TransferBalanceHistory_Sel";
-            var param = new PlayerTransferBalanceHistoryParam {
+            var param = new PlayerTransferBalanceHistoryParam
+            {
                 PlayerName = string.Empty,
                 FromDate = DateTime.Now,
                 ToDate = DateTime.Now
@@ -74,7 +75,8 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Repository.UserPanel
             db.GetOutputParams()[Arg.Any<string>()].ReturnsForAnyArgs("123");
             var repo = CreateRepo();
 
-            var result = repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam {
+            var result = repo.InsertTransferBalanceRequest(new PlayerTransferBalanceInsParam
+            {
                 AffId = 123,
                 PaymentAccountCurrencyId = 1,
                 Amount = 1,

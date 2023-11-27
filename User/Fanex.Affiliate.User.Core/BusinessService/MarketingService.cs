@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Fanex.Affiliate.User.Core.Constants;
+using Fanex.Affiliate.User.Core.CoreService;
+using Fanex.Affiliate.User.Core.DTO;
+using Fanex.Affiliate.User.Core.DTO.UserPanel;
+using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
+using Fanex.Affiliate.User.Core.Enum;
+using Fanex.Affiliate.User.Core.Extensions;
+using Fanex.Affiliate.User.Core.MetalModels;
+using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
+using Fanex.Affiliate.User.Core.Repository.UserPanel;
+using Fanex.Affiliate.User.Core.Resources;
+using Fanex.Affiliate.User.Core.Utilities;
+using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Fanex.Affiliate.User.Core.Constants;
-using Fanex.Affiliate.User.Core.CoreService;
-using Fanex.Affiliate.User.Core.DTO.UserPanel;
-using Fanex.Affiliate.User.Core.Extensions;
-using Fanex.Affiliate.User.Core.MetalModels.UserPanel;
-using Fanex.Affiliate.User.Core.Repository.UserPanel;
-using Fanex.Affiliate.User.Core.DTO.UserPanel.MediaGallery;
-using Fanex.Affiliate.User.Core.Utilities;
-using Fanex.Affiliate.User.Core.DTO;
-using Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing;
-using Fanex.Affiliate.User.Core.MetalModels;
-using Fanex.Affiliate.User.Core.Enum;
-using Fanex.Affiliate.User.Core.Resources;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -160,7 +160,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             foreach (var text in textList)
             {
-                text.Message = HttpContext.Current.Server.HtmlDecode(text.Message.Replace("\r\n", "<br/>").Replace("\n","<br/>"));
+                text.Message = HttpContext.Current.Server.HtmlDecode(text.Message.Replace("\r\n", "<br/>").Replace("\n", "<br/>"));
                 text.ScriptSrc = $"{textParam.ScriptUrl}?textId={text.TextId}&targetId={textParam.TargetId}";
                 var language = _languageService.GetLanguageList().FirstOrDefault(l => l.EnglishName.MatchWith(text.Language));
 
@@ -198,7 +198,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
         public ResultInfo<MarketingChannel> AddMarketingChannel(int userId, string channelName)
         {
             var channelCode = NormalizeName(channelName);
-            var (Code, ErrMsg) =  _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
+            var (Code, ErrMsg) = _marketingRepository.AddMarketingChannel(userId, channelCode, channelName);
             var message = GenAddChannelErrMsg(Code);
 
             return new ResultInfo<MarketingChannel>

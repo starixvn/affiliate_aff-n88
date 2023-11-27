@@ -3,8 +3,6 @@ using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 using Fanex.Affiliate.User.Core.UnitTests.TestHelper;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using System.Web.SessionState;

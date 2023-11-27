@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using Fanex.Affiliate.User.Core.Resources;
+﻿using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
+using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Constants
 {

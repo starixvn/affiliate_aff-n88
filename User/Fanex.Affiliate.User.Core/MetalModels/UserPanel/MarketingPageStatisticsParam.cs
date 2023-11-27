@@ -1,5 +1,4 @@
-﻿using Fanex.Data;
-using System;
+﻿using System;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {

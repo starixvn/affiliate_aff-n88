@@ -1,8 +1,7 @@
-using System;
-using System.Web;
 using Fanex.Affiliate.User.Core.Constants;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
+using System.Web;
 
 namespace Fanex.Affiliate.User.Core.CoreService
 {

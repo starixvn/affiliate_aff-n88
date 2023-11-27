@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Affiliate.User.Core.Infrastructure;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Fanex.Affiliate.User.Core.Infrastructure;
 
 namespace Fanex.Affiliate.User.Site
 {
@@ -51,7 +51,7 @@ namespace Fanex.Affiliate.User.Site
                 name: "SignUpUsingAffID",
                 url: "Signup/{refId}/{action}",
                 defaults: new { controller = "Signup", action = IndexAction, refId = UrlParameter.Optional },
-                namespaces: new[] { "Fanex.Affiliate.User.Core.Controllers"}
+                namespaces: new[] { "Fanex.Affiliate.User.Core.Controllers" }
             );
 
             routes.MapRoute(

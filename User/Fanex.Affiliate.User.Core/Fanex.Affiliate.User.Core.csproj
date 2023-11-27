@@ -230,7 +230,6 @@
     <Compile Include="BusinessService\AuthService.cs" />
     <Compile Include="BusinessService\CaptchaService.cs" />
     <Compile Include="BusinessService\CommissionReportService.cs" />
-    <Compile Include="BusinessService\ContactService.cs" />
     <Compile Include="BusinessService\ICaptchaService.cs" />
     <Compile Include="BusinessService\ICommissionReportService.cs" />
     <Compile Include="BusinessService\IPlayerTransferBalanceService.cs" />
@@ -240,7 +239,6 @@
     <Compile Include="BusinessService\IUnderMaintenanceService.cs" />
     <Compile Include="BusinessService\IVerificationService.cs" />
     <Compile Include="BusinessService\EmailService.cs" />
-    <Compile Include="BusinessService\IContactService.cs" />
     <Compile Include="BusinessService\IPaymentService.cs" />
     <Compile Include="BusinessService\NewsService.cs" />
     <Compile Include="BusinessService\IAccountService.cs" />
@@ -452,7 +450,6 @@
     <Compile Include="Infrastructure\UrlSchema.cs" />
     <Compile Include="MetalModels\Attributes\RequiredByCheckedAttribute.cs" />
     <Compile Include="MetalModels\AuthResultBaseParam.cs" />
-    <Compile Include="MetalModels\ContactUsParam.cs" />
     <Compile Include="MetalModels\Email\VerificationAccountEmailParam.cs" />
     <Compile Include="MetalModels\Email\EmailBaseParam.cs" />
     <Compile Include="MetalModels\Email\NoticeEmailParam.cs" />
@@ -491,8 +488,6 @@
     <Compile Include="MetalModels\VerificationAccountParam.cs" />
     <Compile Include="MetalModels\VerificationOtpParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\EmailHistoryRepository.cs" />
-    <Compile Include="Repository\IEmailHistoryRepository.cs" />
     <Compile Include="Repository\ISecurityQuestionRepository.cs" />
     <Compile Include="Repository\IVerificationRepository.cs" />
     <Compile Include="Repository\SecurityQuestionRepository.cs" />

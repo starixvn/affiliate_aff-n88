@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Specialized;
-using System.Web;
-using System.Web.Security;
-using Fanex.Affiliate.User.Core.DTO;
+﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.Auth;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
 using Fanex.Affiliate.User.Core.MetalModels;
@@ -10,6 +6,10 @@ using Fanex.Affiliate.User.Core.Repository;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
+using System;
+using System.Collections.Specialized;
+using System.Web;
+using System.Web.Security;
 
 namespace Fanex.Affiliate.User.Core.BusinessService
 {
@@ -134,7 +134,7 @@ namespace Fanex.Affiliate.User.Core.BusinessService
 
             if (!string.Equals(Approved, user.Status, StringComparison.CurrentCultureIgnoreCase))
             {
-                if(isInternal && string.Equals(Suspended, user.Status, StringComparison.CurrentCultureIgnoreCase))
+                if (isInternal && string.Equals(Suspended, user.Status, StringComparison.CurrentCultureIgnoreCase))
                 {
                     return new LoginResultInfo { IsOk = true };
                 }

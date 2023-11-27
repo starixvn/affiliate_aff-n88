@@ -1,8 +1,4 @@
-﻿using System;
-using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.UI;
-using Fanex.Affiliate.User.Core.BusinessService;
+﻿using Fanex.Affiliate.User.Core.BusinessService;
 using Fanex.Affiliate.User.Core.CoreService;
 using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.VerificationAccount;
@@ -12,6 +8,9 @@ using Fanex.Affiliate.User.Core.Repository.UserPanel;
 using Fanex.Affiliate.User.Core.Resources;
 using Fanex.Affiliate.User.Core.Utilities;
 using Fanex.Affiliate.User.Core.ViewModels;
+using System;
+using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Fanex.Affiliate.User.Core.Controllers
 {

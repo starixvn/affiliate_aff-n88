@@ -53,7 +53,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.BusinessService
         {
             var service = CreateService();
             CacheService.Get<IEnumerable<CategoryType>>(null).ReturnsNullForAnyArgs();
-            Repo.GetCategoryList(null ,false).ReturnsNullForAnyArgs();
+            Repo.GetCategoryList(null, false).ReturnsNullForAnyArgs();
 
             var result = service.GetCategoryList(isMediaPage, AffiliateLinkType.AffiliateLink, false);
 

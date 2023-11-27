@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
 
             accountService.GetGeneralAffInfo(Arg.Any<int?>(), Arg.Any<string>()).ReturnsForAnyArgs(new GeneralAffInfo { IsMaxSubLevel = isMaxSubLevel });
 
-            var controller = new MediaGalleryController(sessionService, appSetting,languageService, marketingService, accountService);
+            var controller = new MediaGalleryController(sessionService, appSetting, languageService, marketingService, accountService);
 
             //Action
             var result = controller.Index() as ViewResult;

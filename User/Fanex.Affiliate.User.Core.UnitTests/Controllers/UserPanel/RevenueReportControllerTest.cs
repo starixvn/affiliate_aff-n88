@@ -11,7 +11,6 @@ using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Web.Razor.Text;
 using Xunit;
 
 namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
@@ -39,7 +38,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
         {
             RevenueReportController controller = CreateController();
             SessionService.UserSession.Returns(new DTO.Auth.UserSession());
-            CurrencyRepo.GetBaseCurrencyList().Returns(new List<Currency> { new Currency { Code = "USD", ExchangeId = 123 }});
+            CurrencyRepo.GetBaseCurrencyList().Returns(new List<Currency> { new Currency { Code = "USD", ExchangeId = 123 } });
 
             var result = controller.Index(null) as ViewResult;
 

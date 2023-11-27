@@ -11,7 +11,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public int BaseCurrency { get; set; }
 
-        [SpParam(Ignored =true)]
+        [SpParam(Ignored = true)]
         public string RequestPage { get; set; } = Constants.RequestPage.StatementHistory;
 
         [SpParam(Ignored = true)]

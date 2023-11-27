@@ -1,5 +1,4 @@
-﻿using Fanex.Affiliate.User.Core.Enum;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace Fanex.Affiliate.User.Core.ViewModels.UserPanel.Marketing

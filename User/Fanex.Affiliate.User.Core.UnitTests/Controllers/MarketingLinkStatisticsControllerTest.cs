@@ -44,7 +44,7 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers
         [Fact]
         public void Index_Post_WhenCall_ReturnCorrectView()
         {
-            StatisticsRepository.GetMarketingPageStatistics(null).ReturnsForAnyArgs(new List<MarketingPageStatistics> { new MarketingPageStatistics { ChannelName="ABC" } });
+            StatisticsRepository.GetMarketingPageStatistics(null).ReturnsForAnyArgs(new List<MarketingPageStatistics> { new MarketingPageStatistics { ChannelName = "ABC" } });
             var controller = new MarketingLinkStatisticsController(AppSetting, SessionService, LanguageService, StatisticsRepository);
             NSubtituteMockingHelper.FakeController(controller);
 

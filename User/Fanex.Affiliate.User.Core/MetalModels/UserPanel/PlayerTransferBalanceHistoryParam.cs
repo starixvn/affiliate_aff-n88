@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 {
@@ -18,7 +14,7 @@ namespace Fanex.Affiliate.User.Core.MetalModels.UserPanel
 
         public int BaseCurrency { get; set; }
 
-        public int  PageIndex { get; set; }
+        public int PageIndex { get; set; }
 
         public int PageSize { get; set; }
     }

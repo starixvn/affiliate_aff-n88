@@ -1,24 +1,24 @@
 ﻿namespace Fanex.Affiliate.User.Core.Controllers.UserPanel
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web.Mvc;
     using Constants;
     using DTO.UserPanel;
     using Extensions;
-    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.BusinessService;
     using Fanex.Affiliate.User.Core.CoreService;
+    using Fanex.Affiliate.User.Core.DTO;
+    using Fanex.Affiliate.User.Core.Enum;
+    using Fanex.Affiliate.User.Core.MetalModels;
+    using Fanex.Affiliate.User.Core.Resources;
     using Fanex.Affiliate.User.Core.Utilities;
     using Filters;
     using MetalModels.UserPanel;
-    using System.Drawing;
-    using ViewModels.UserPanel.Marketing;
     using System;
-    using Fanex.Affiliate.User.Core.MetalModels;
-    using Fanex.Affiliate.User.Core.Enum;
-    using Fanex.Affiliate.User.Core.DTO;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
     using System.Text.RegularExpressions;
+    using System.Web.Mvc;
+    using ViewModels.UserPanel.Marketing;
 
     [CustomAuthorize]
     public class MarketingController : BaseMarketingController

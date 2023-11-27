@@ -17,7 +17,9 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Contants
             try
             {
                 shortedCode = SystemLanguage.GetUppercaseShortedCode(languageCode);
-            } catch {
+            }
+            catch
+            {
                 shortedCode = "EN";
             }
 
