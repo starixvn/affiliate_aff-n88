@@ -10,12 +10,14 @@ namespace Fanex.Affiliate.Link.Controllers
     using Commands;
     using Fanex.Logging;
     using Helpers;
+    using ONEbook.UM.AspNetMVC.Filters;
     using Services.Impl;
     using Services.Interface;
 
     /// <summary>
     /// Home controller for affiliate link.
     /// </summary>
+    [CheckUMFilter]
     public class HomeController : Controller
     {
         #region Services

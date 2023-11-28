@@ -6,7 +6,9 @@
     using System.Web;
     using System.Web.Mvc;
     using Fanex.Data.SqlServer;
+    using ONEbook.UM.AspNetMVC.Filters;
 
+    [CheckUMFilter]
     public class HomeController : Controller
     {
         public ActionResult Index()
