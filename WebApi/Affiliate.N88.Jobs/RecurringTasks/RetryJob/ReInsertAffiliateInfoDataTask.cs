@@ -57,7 +57,9 @@ namespace Affiliate.N88.Jobs.RecurringTasks.RetryJob
                 }
                 else
                 {
-                    _logger.Error($"Insert affiliate to B2C DB fail - {result.ErrMsg}");
+                    _logger.Error($"Insert affiliate {affiliateInfo.AffiliateName}, SiteId {affiliateInfo.SiteId} to B2C DB fail:\n" +
+                        $"Item tracker: {JsonConvert.SerializeObject(item)}\n" +
+                        $"Result: {JsonConvert.SerializeObject(result)}");
                 }
             }
         }
