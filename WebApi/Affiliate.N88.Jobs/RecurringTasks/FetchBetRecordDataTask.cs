@@ -8,6 +8,7 @@ using Affiliate.N88.Utitlities;
 using Fanex.Logging;
 using Hangfire;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,7 +128,10 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             int pageIndex = 0;
             while (true)
             {
-                var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE);
+                var guid = Guid.NewGuid().ToString();
+                _logger.Info($"Fetching BetRecord from {fromDate} to {toDate} pageIndex {pageIndex} pageSize {PAGE_SIZE} with guid {guid}");
+                var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE, guid);
+                _logger.Info($"Page {pageIndex}: {JsonConvert.SerializeObject(data)}");
                 if (data == null || !data.Any())
                 {
                     return;
@@ -140,6 +144,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     return;
                 }
+                await Task.Delay(5000);
             }
         }
 

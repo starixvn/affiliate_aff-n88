@@ -22,7 +22,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<CustomerInfo>> GetFixedCustomers();
 
         [Get("/BetReport/GetBetRecord")]
-        Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize);
+        Task<IEnumerable<TransBetRecordInfo>> GetBetRecordAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize, string guid);
 
         [Get("/setting/GetServerInfo")]
         Task<IEnumerable<ServerInfo>> GetServerInfoAsync();

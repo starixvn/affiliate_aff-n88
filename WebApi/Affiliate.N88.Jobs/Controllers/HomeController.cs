@@ -42,11 +42,11 @@ namespace Affiliate.N88.Jobs.Controllers
             return await _licenseeApi.GetAffCustomerAsync(date);
         }
 
-        [HttpGet("GetBetRecord")]
-        public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize)
-        {
-            return await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, pageSize);
-        }
+        //[HttpGet("GetBetRecord")]
+        //public async Task<IEnumerable<TransBetRecordInfo>> GetBetRecord(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize)
+        //{
+        //    return await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, pageSize);
+        //}
 
         [HttpGet("PullBetRecord")]
         public async Task<string> PullBetRecord(DateTime fromDate, DateTime toDate)
