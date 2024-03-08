@@ -50,6 +50,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                     {
                         break;
                     }
+                    await Task.Delay(5000);
                 }
             }
             catch (Exception ex)

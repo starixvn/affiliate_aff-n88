@@ -32,10 +32,11 @@ namespace Affiliate.N88.Jobs.RecurringTasks.Bonus
             _licenseeApi = licenseeApi ?? throw new ArgumentNullException(nameof(licenseeApi));
         }
 
-        protected override Task<IEnumerable<BonusDTO>> GetDataAsync(string trackValue, int batchCount)
+        protected override async Task<IEnumerable<BonusDTO>> GetDataAsync(string trackValue, int batchCount)
         {
             var id = Convert.ToInt32(trackValue);
-            return _licenseeApi.GetBonusInfo(id, batchCount);
+            await Task.Delay(5000);
+            return await _licenseeApi.GetBonusInfo(id, batchCount);
         }
 
         protected override string GetInsertTrackingValue(IEnumerable<BonusDTO> data)

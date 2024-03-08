@@ -65,6 +65,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
                 if (importData.Count() == MAX_ROW_COUNT)
                 {
+                    await Task.Delay(5000);
                     importData = await _licenseeApi.GetDepositInfo(trackerItem.UpdateTime, trackerItem.Id, MAX_ROW_COUNT);
                 }
                 else

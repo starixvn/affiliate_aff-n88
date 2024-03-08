@@ -18,15 +18,15 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 {
     public interface IFetchBetRecordDataTask : IFetchDataTask, IFetchDataByTimeRange
     {
-        [DisableConcurrentExecution(60)]
+        [DisableConcurrentExecution(120)]
         [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchLastMonthAsync();
 
-        [DisableConcurrentExecution(60)]
+        [DisableConcurrentExecution(120)]
         [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchFromAdjusmentDayAsync(int day);
 
-        [DisableConcurrentExecution(60)]
+        [DisableConcurrentExecution(120)]
         [AutomaticRetry(OnAttemptsExceeded = AttemptsExceededAction.Delete, Attempts = 1)]
         Task FetchAllDay(int adjustHour);
     }
@@ -128,10 +128,8 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             int pageIndex = 0;
             while (true)
             {
-                var guid = Guid.NewGuid().ToString();
-                _logger.Info($"Fetching BetRecord from {fromDate} to {toDate} pageIndex {pageIndex} pageSize {PAGE_SIZE} with guid {guid}");
-                var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE, guid);
-                _logger.Info($"Page {pageIndex}: {JsonConvert.SerializeObject(data)}");
+                await Task.Delay(5000);
+                var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE);
                 if (data == null || !data.Any())
                 {
                     return;
@@ -144,7 +142,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     return;
                 }
-                await Task.Delay(5000);
             }
         }
 

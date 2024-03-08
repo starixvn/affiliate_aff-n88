@@ -70,6 +70,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
 
                 if (importData.Count() == BatchCount)
                 {
+                    await Task.Delay(5000);
                     importData = await GetDataAsync(fromTime, BatchCount);
                 }
                 else

@@ -64,6 +64,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     break;
                 }
+                await Task.Delay(5000);
             }
         }
 
@@ -81,6 +82,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
                 {
                     break;
                 }
+                await Task.Delay(5000);
             }
 
         }
