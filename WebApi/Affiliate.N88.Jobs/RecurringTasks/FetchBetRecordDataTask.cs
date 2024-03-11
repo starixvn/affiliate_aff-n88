@@ -128,14 +128,13 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             int pageIndex = 0;
             while (true)
             {
-                await Task.Delay(5000);
                 var data = await _licenseeApi.GetBetRecordAsync(fromDate, toDate, pageIndex, PAGE_SIZE);
                 if (data == null || !data.Any())
                 {
                     return;
                 }
-
-                await ImportDataToMultipleRepoAsync(data);
+                _logger.Info($"Page {pageIndex}: {JsonConvert.SerializeObject(data)}");
+                //await ImportDataToMultipleRepoAsync(data);
                 pageIndex++;
 
                 if (data.Count() < PAGE_SIZE)
