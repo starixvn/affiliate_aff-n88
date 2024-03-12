@@ -48,8 +48,8 @@ namespace Affiliate.N88.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CustomerInfo>> GetCustomers(DateTime fromDate, int batchCount = 2000)
-            => await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate, batchCount));
+        public async Task<IEnumerable<CustomerInfo>> GetCustomers(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000)
+            => await dynamicRepository.FetchAsync<CustomerInfo>(new GetCustomersCriteria(fromDate, toDate, pageIndex, pageSize));
 
         [HttpGet]
         public async Task<IEnumerable<CustomerInfo>> GetFixedCustomers()

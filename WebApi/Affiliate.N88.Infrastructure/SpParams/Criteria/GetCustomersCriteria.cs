@@ -5,10 +5,12 @@ namespace Affiliate.N88.SpParams.Criteria
 {
     public class GetCustomersCriteria : CriteriaBase
     {
-        public GetCustomersCriteria(DateTime fromDate, int batchCount)
+        public GetCustomersCriteria(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize)
         {
             FromDate = fromDate;
-            BatchCount = batchCount;
+            ToDate = toDate;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
         }
 
         public override string GetSettingKey() => "N88_Get_Customer";
@@ -17,6 +19,10 @@ namespace Affiliate.N88.SpParams.Criteria
 
         public DateTime FromDate { get; }
 
-        public int BatchCount { get; }
+        public DateTime ToDate { get; set; }
+
+        public int PageIndex { get; set; }
+
+        public int PageSize { get; }
     }
 }
