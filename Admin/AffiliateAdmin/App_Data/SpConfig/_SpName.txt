@@ -3,16 +3,16 @@
 
 // Generated helper templates
 // Generated items
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.local.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.local.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.local.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.sit.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.sit.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.sit.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.production.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.production.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.production.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.uat.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.uat.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.uat.xml
-// D:\Work\AFF\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.local.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.local.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.local.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.sit.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.sit.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.sit.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.production.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.production.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.production.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8g.uat.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n8b.uat.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.n88admin-n88.uat.xml
+// D:\Nexcel\aff-n88\Admin\AffiliateAdmin\App_Data\SpConfig\SpName.xml
