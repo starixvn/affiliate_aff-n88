@@ -16,7 +16,7 @@ namespace Affiliate.N88.Jobs.Apis
         Task<IEnumerable<AffCustomerModel>> GetAffCustomerAsync(DateTime fromDate);
 
         [Get("/customer/GetCustomers")]
-        Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate, int batchCount = 2000);
+        Task<IEnumerable<CustomerInfo>> GetCustomersAsync(DateTime fromDate, DateTime toDate, int pageIndex, int pageSize = 2000);
 
         [Get("/customer/GetFixedCustomers")]
         Task<IEnumerable<CustomerInfo>> GetFixedCustomers();

@@ -28,5 +28,8 @@ namespace Affiliate.N88.Utitlities
         {
             return DateTime.Compare(compareTime, endTime) > 0 ? endTime : compareTime;
         }
+
+        public static DateTime GetApiServerDateTime()
+            => DateTime.UtcNow;
     }
 }

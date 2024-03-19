@@ -54,7 +54,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         public override async Task FetchDataAsync()
         {
             var fromDate = await GetLastTimeFetchDateAsync();
-            var toDate = GetAdjustmentApiServerDate();
+            var toDate = DateTimeHelper.GetApiServerDateTime();
             await FetchDataAndTrackTimeAsync(fromDate, toDate);
         }
 
@@ -89,7 +89,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
         {
             var lastFetchDate = await GetLastTimeFetchDateAsync();
             var fromDate = lastFetchDate.AddDays(-day);
-            var toDate = GetAdjustmentApiServerDate();
+            var toDate = DateTimeHelper.GetApiServerDateTime();
             await FetchDataAsync(fromDate, toDate);
         }
 
@@ -98,7 +98,7 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var lastFetchDate = await GetLastTimeFetchDateAsync();
             var adjustDate = lastFetchDate.AddHours(-adjustHour);
             var fromDate = new DateTime(adjustDate.Year, adjustDate.Month, adjustDate.Day);
-            var toDate = GetAdjustmentApiServerDate();
+            var toDate = DateTimeHelper.GetApiServerDateTime();
             await FetchDataAsync(fromDate, toDate);
         }
 
@@ -156,12 +156,6 @@ namespace Affiliate.N88.Jobs.RecurringTasks
             var lastFetchDate = trackingDate.AddMinutes(adjustmentMin);
 
             return lastFetchDate;
-        }
-
-        private DateTime GetAdjustmentApiServerDate()
-        {
-            var date = DateTimeOffset.Now.ToOffset(TimeSpan.FromHours(API_SERVER_TIME_OFFSET));
-            return date.DateTime;
         }
 
         protected override IEnumerable<string> GetSupportedRepoPrefix()
