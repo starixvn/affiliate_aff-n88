@@ -6,9 +6,9 @@
 <#
 	var licenseeDbNameList = new System.Collections.Generic.Dictionary<string, string>
 	{
-		{"n88", "DBAFFN88.Affiliate_N88.bodbDownlineNet"},
-		{"n8b", "DBAFFN8B.Affiliate_N8B.bodbDownlineNet"},
-		{"n8g", "DBAFFN8G.Affiliate_N8G.bodbDownlineNet"},
+		{"n88", "DBAFFN88.Affiliate_N88.wsv_aff"},
+		{"n8b", "DBAFFN8B.Affiliate_N8B.wsv_aff"},
+		{"n8g", "DBAFFN8G.Affiliate_N8G.wsv_aff"},
 	};
 
 	var environments = new string[] { "uat", "production", "sit", "local" };
