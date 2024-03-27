@@ -51,7 +51,7 @@
 			var generateSpNameText = allSpNames.Replace(
 									"DbName=\"\"", "DbName=\"" + this.DbName + "\"");
 			generateSpNameText = generateSpNameText.Replace(
-								"DbName=\"view\"", "DbName=\"" + this.DbName + "View\"");
+								"DbName=\"view\"", "DbName=\"" + this.DbName + "v\"");
 
 			spConfigs = spConfigs.Where (
 					x =>

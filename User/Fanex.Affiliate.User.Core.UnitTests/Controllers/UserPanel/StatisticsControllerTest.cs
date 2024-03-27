@@ -24,16 +24,16 @@ namespace Fanex.Affiliate.User.Core.UnitTests.Controllers.UserPanel
             {
                 TotalPages = 10
             };
-            var trackingStatisticsList = new List<ReferrerStatistics> { new ReferrerStatistics() };
+            var referrerStatisticsList = new List<ReferrerStatistics> { new ReferrerStatistics() };
 
             var statisticsRepository = new Mock<IStatisticsRepository>();
-            statisticsRepository.Setup(s => s.GetStatisticsDetailBySite(param)).Returns(trackingStatisticsList);
+            statisticsRepository.Setup(s => s.GetStatisticsDetailBySite(param)).Returns(referrerStatisticsList);
 
             var controller = CreateController(staticticsRepository: statisticsRepository.Object);
 
             var expectedViewModel = new ReferrerStatisticsViewModel
             {
-                DataList = trackingStatisticsList,
+                DataList = referrerStatisticsList,
                 IsDetail = true
             };
 

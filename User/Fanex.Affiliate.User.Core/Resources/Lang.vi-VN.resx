@@ -1074,12 +1074,6 @@
   <data name="TotalDeposit" xml:space="preserve">
     <value>Tổng tiền nạp vào</value>
   </data>
-  <data name="TrackingCode" xml:space="preserve">
-    <value>Mã theo dõi</value>
-  </data>
-  <data name="TrackingStatistics" xml:space="preserve">
-    <value>Thống kê theo dõi</value>
-  </data>
   <data name="Transaction" xml:space="preserve">
     <value>Giao dịch</value>
   </data>

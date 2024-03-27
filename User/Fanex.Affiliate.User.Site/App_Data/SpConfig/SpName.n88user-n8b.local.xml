@@ -27,15 +27,6 @@
   </Function>
 
   <Function Name="Statistics">
-    <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_AffiliateSelTrackingCode_view" SpName="Aff_AffiliateSelTrackingCode" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
-
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths_view" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
-
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail_view" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
-
     <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
     <Setting Key="Aff_ClickStatisticsSelBySite_view" SpName="Aff_ClickStatisticsSelBySite" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
 
@@ -44,9 +35,6 @@
 
     <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
     <Setting Key="Aff_ClickStatisticsSelByPage_view" SpName="Aff_ClickStatisticsSelByPage" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
-
-    <Setting Key="Aff_User_StatisticsSel" SpName="Aff_User_StatisticsSel" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_User_StatisticsSel_view" SpName="Aff_User_StatisticsSel" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
 
     <Setting Key="Aff_User_Rpt_MarketingPage_Statistics" SpName="Aff_User_Rpt_MarketingPage_Statistics" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
     <Setting Key="Aff_User_Rpt_MarketingPage_Statistics_view" SpName="Aff_User_Rpt_MarketingPage_Statistics" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
@@ -79,11 +67,6 @@
     <Setting Key="Aff_SubAffiliate_Commission_Sel_view" SpName="Aff_SubAffiliate_Commission_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff"/>
   </Function>
 
-  <Function Name="Commission">
-    <Setting Key="Aff_User_CommSetting_Sel" SpName="Aff_User_CommSetting_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_User_CommSetting_Sel_view" SpName="Aff_User_CommSetting_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
-  </Function>
-
   <Function Name="Payment">
     <Setting Key="Aff_User_PaymentRequest_Sel" SpName="Aff_User_PaymentRequest_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
     <Setting Key="Aff_User_PaymentRequest_Sel_view" SpName="Aff_User_PaymentRequest_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
@@ -95,11 +78,6 @@
   <Function Name="SignUp">
     <Setting Key="Aff_User_Affiliate_Ins" SpName="Aff_User_Affiliate_Ins" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
     <Setting Key="Aff_Get_GeneralAffInfo" SpName="Aff_Get_GeneralAffInfo" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-  </Function>
-
-  <Function Name="Member">
-    <Setting Key="Aff_MemberList_Sel" SpName="Aff_MemberList_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_aff" />
-    <Setting Key="Aff_MemberList_Sel_view" SpName="Aff_MemberList_Sel" DbName="DBAFFN8B.Affiliate_N8B.wsv_affv" />
   </Function>
 
   <Function Name="CommissionReport">

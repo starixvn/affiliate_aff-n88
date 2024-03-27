@@ -1,7 +1,6 @@
 ﻿using Fanex.Affiliate.User.Core.DTO;
 using Fanex.Affiliate.User.Core.DTO.UserPanel;
 using Fanex.Affiliate.User.Core.MetalModels;
-using System.Collections.Generic;
 
 namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
@@ -22,8 +21,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
         ResultInfo CreateAffiliate(UserSignUpParam signUpParam);
 
         int CreateSecretKey(int affId, string secretKey);
-
-        IEnumerable<CommissionSetting> GetCommissionSettingList(int affId, bool isInternal);
 
         GeneralAffInfo GetGeneralAffInfo(int? affId = null, string affCode = null);
     }

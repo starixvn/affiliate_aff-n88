@@ -1706,12 +1706,6 @@ B2C सहयोगी की टीम&lt;br/&gt;&lt;br/&gt;
   <data name="FDM" xml:space="preserve">
     <value>एफडीएम</value>
   </data>
-  <data name="TrackingStatistics" xml:space="preserve">
-    <value>ट्रैकिंग सांख्यिकी</value>
-  </data>
-  <data name="TrackingCode" xml:space="preserve">
-    <value>ट्रैकिंग कोड</value>
-  </data>
   <data name="EmailTitlePasswordRecovery" xml:space="preserve">
     <value>आपका लॉगिन विवरण</value>
   </data>

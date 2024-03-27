@@ -6,12 +6,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
 {
     public interface IStatisticsRepository
     {
-        IEnumerable<string> GetTrackingCode(int affId, bool isInternal);
-
-        IEnumerable<TrackingStatistics> GetTrackingStatistics(int affId, string trackingCode, bool isInternal);
-
-        IEnumerable<TrackingStatistics> GetTrackingStatisticsDetail(TrackingStatisticsDetailParam trackingStatisticsDetailParam);
-
         IEnumerable<ReferrerStatistics> GetReferrerStatistics(ReferrerStatisticsParam referrerStatisticsParam);
 
         IEnumerable<ReferrerStatistics> GetStatisticsDetailBySite(StatisticsDetailBySiteParam statisticsDetailParam);

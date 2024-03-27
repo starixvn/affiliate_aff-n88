@@ -1170,10 +1170,6 @@
     <Content Include="www\build\js\test.min.js">
       <DependentUpon>test.js</DependentUpon>
     </Content>
-    <Content Include="www\build\js\trackingstatistics.js" />
-    <Content Include="www\build\js\trackingstatistics.min.js">
-      <DependentUpon>trackingstatistics.js</DependentUpon>
-    </Content>
     <Content Include="www\build\styles\css\account-overview.css" />
     <Content Include="www\build\styles\css\account-overview.min.css">
       <DependentUpon>account-overview.css</DependentUpon>
@@ -1248,7 +1244,6 @@
     <Content Include="www\source\js\pages\statement-history.js" />
     <Content Include="www\source\js\pages\statistics\landingpagestatistics.js" />
     <Content Include="www\source\js\pages\statistics\referrerstatistics.js" />
-    <Content Include="www\source\js\pages\statistics\trackingstatistics.js" />
     <Content Include="www\source\js\pages\sub-affiliate-earning.js" />
     <Content Include="www\source\js\pages\test.js" />
     <Content Include="www\source\js\pages\account-overview\affiliate-link.js" />
@@ -1318,7 +1313,6 @@
     <Content Include="www\source\styles\scss\components\_loader.scss" />
     <Content Include="www\source\styles\scss\components\_pager.scss" />
     <Content Include="www\source\styles\pages\statistics.scss" />
-    <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_TrackingStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_ReferrersStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\_LandingPageStatisticsContent.cshtml" />
     <Content Include="www\source\styles\scss\components\_pikaday.scss" />
@@ -1616,11 +1610,9 @@
     <Content Include="Views\UserPanel\Statistics\LandingPageStatistics\N88\Index.cshtml" />
     <Content Include="Views\UserPanel\Statistics\MarketingPageStatistics\N88\Index.cshtml" />
     <Content Include="Views\UserPanel\Statistics\ReferrersStatistics\N88\Index.cshtml" />
-    <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_TrackingStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_MarketingPageStatsticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_ReferrersStatisticsContent.cshtml" />
     <Content Include="Views\UserPanel\Statistics\StatisticsPartial\N88\_LandingPageStatisticsContent.cshtml" />
-    <Content Include="Views\UserPanel\Statistics\TrackingStatistics\N88\Index.cshtml" />
     <Content Include="Views\Password\N88\RecoverPasswordResult.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.vi-VN.cshtml" />
     <Content Include="Views\CommissionStructure\N88\_Content.km-KH.cshtml" />
@@ -1891,7 +1883,6 @@
     <Content Include="Views\UserPanel\PaymentRequest\Index.cshtml" />
     <Content Include="www\source\styles\pages\payment-request.scss" />
     <Content Include="www\source\styles\pages\marketing.scss" />
-    <Content Include="Views\UserPanel\Statistics\TrackingStatistics\Index.cshtml" />
     <Content Include="Views\UserPanel\Statistics\ReferrersStatistics\Index.cshtml" />
     <Content Include="Views\Signup\Index.cshtml" />
     <Content Include="www\source\styles\scss\base\_common.scss" />

@@ -1938,12 +1938,6 @@
   <data name="none" xml:space="preserve">
     <value>គ្មាន</value>
   </data>
-  <data name="TrackingStatistics" xml:space="preserve">
-    <value>ស្ថិតិតាមដាន</value>
-  </data>
-  <data name="TrackingCode" xml:space="preserve">
-    <value>កូដតាមដាន</value>
-  </data>
   <data name="SubjectForgetPass" xml:space="preserve">
     <value>សាខាសម្ព័ន្ធ B2C - ព័ត៌មានលម្អិតអំពីការចុចចូលរបស់អ្នក</value>
   </data>

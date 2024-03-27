@@ -116,17 +116,6 @@ namespace Fanex.Affiliate.User.Core.Repository.UserPanel
             };
         }
 
-        public IEnumerable<CommissionSetting> GetCommissionSettingList(int affId, bool isInternal)
-        {
-            const string uSpKey = "Aff_User_CommSetting_Sel";
-            var mode = isInternal ? DBMode.View : DBMode.Main;
-
-            using (var objectDb = _builder.Build(uSpKey, mode))
-            {
-                return objectDb.Query<CommissionSetting>(new { affId });
-            }
-        }
-
         public int CreateSecretKey(int affId, string secretKey)
         {
             const string uSpKey = "Aff_User_SecretKeyIns";
