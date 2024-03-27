@@ -261,7 +261,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerLeftPanelController.cs" />
     <Compile Include="Controllers\CustomerStatisticsController.cs" />
-    <Compile Include="Controllers\Affiliate\EmailHistoryController.cs" />
     <Compile Include="Controllers\Domain\DomainControlController.cs" />
     <Compile Include="Controllers\Domain\DomainController.cs" />
     <Compile Include="Controllers\Domain\SubAffDomainController.cs" />
@@ -270,8 +269,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MediaGallery\LandingPageListController.cs" />
     <Compile Include="Controllers\MediaGallery\MediaGalleryController.cs" />
-    <Compile Include="Controllers\MediaGallery\TextListController.cs" />
-    <Compile Include="Controllers\Player\ActiveMemberController.cs" />
     <Compile Include="Controllers\Player\PlayerController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\Affiliate\PaymentRequestController.cs" />
@@ -315,8 +312,6 @@
     <Compile Include="DTO\Customer\AffiliateInfoOnLeftPanel.cs" />
     <Compile Include="DTO\Customer\CustomerStatistics.cs" />
     <Compile Include="DTO\Customer\OnlineList.cs" />
-    <Compile Include="DTO\EmailHistory\EmailHistoryDetailInfo.cs" />
-    <Compile Include="DTO\EmailHistory\EmailHistoryInfo.cs" />
     <Compile Include="DTO\Email\AffInformationEmail.cs" />
     <Compile Include="DTO\Email\EmailBase.cs" />
     <Compile Include="DTO\Email\PaymentRequestUpdateEmail.cs" />
@@ -324,10 +319,7 @@
     <Compile Include="DTO\Language.cs" />
     <Compile Include="DTO\MediaGallery\Category.cs" />
     <Compile Include="DTO\MediaGallery\MediaGalleryFilterItem.cs" />
-    <Compile Include="DTO\Member\ActiveMemberInfo.cs" />
-    <Compile Include="DTO\Member\AllMemberEntities.cs" />
     <Compile Include="DTO\Member\MemberInfo.cs" />
-    <Compile Include="DTO\Member\InactiveMemberInfo.cs" />
     <Compile Include="DTO\Member\PlayerActionInfo.cs" />
     <Compile Include="DTO\Payment\PaymentMethod.cs" />
     <Compile Include="DTO\Report\PlayerGgrProductInfo.cs" />
@@ -368,7 +360,6 @@
     <Compile Include="MetaModels\MediaGallery\InsertUpdateMultipleBannersParam.cs" />
     <Compile Include="MetaModels\MediaGallery\InsertUpdateTextParam.cs" />
     <Compile Include="DTO\MediaGallery\LandingPage.cs" />
-    <Compile Include="DTO\MediaGallery\TextInfo.cs" />
     <Compile Include="DTO\Message\MessageDetail.cs" />
     <Compile Include="DTO\Message\MessageInfo.cs" />
     <Compile Include="DTO\Payment\PaymentRequest.cs" />
@@ -462,8 +453,6 @@
     <Compile Include="Repository\ICurrencyRepository.cs" />
     <Compile Include="Repository\MediaGallery\BannerListRepository.cs" />
     <Compile Include="Repository\MediaGallery\IBannerListRepository.cs" />
-    <Compile Include="Repository\Member\ActiveMemberRepository.cs" />
-    <Compile Include="Repository\Member\IActiveMemberRepository.cs" />
     <Compile Include="Repository\Member\IMemberRepository.cs" />
     <Compile Include="Repository\Member\MemberRepository.cs" />
     <Compile Include="Repository\Payment\IPaymentRequestRepository.cs" />
@@ -552,8 +541,6 @@
     <Compile Include="Services\Domain\IDomainService.cs" />
     <Compile Include="Services\Domain\ISubAffDomainService.cs" />
     <Compile Include="Services\Domain\SubAffDomainService.cs" />
-    <Compile Include="Services\EmailHistory\EmailHistoryService.cs" />
-    <Compile Include="Services\EmailHistory\IEmailHistoryService.cs" />
     <Compile Include="Services\EmailService.cs" />
     <Compile Include="Services\Home\HomeService.cs" />
     <Compile Include="Services\Home\IHomeService.cs" />
@@ -572,11 +559,7 @@
     <Compile Include="Services\MediaGallery\IBannerValidationService.cs" />
     <Compile Include="Services\MediaGallery\ICommonMediaGalleryService.cs" />
     <Compile Include="Services\MediaGallery\ILandingPageService.cs" />
-    <Compile Include="Services\MediaGallery\ITextListService.cs" />
     <Compile Include="Services\MediaGallery\LandingPageService.cs" />
-    <Compile Include="Services\MediaGallery\TextListService.cs" />
-    <Compile Include="Services\Member\ActiveMemberService.cs" />
-    <Compile Include="Services\Member\IActiveMemberService.cs" />
     <Compile Include="Services\Member\IMemberService.cs" />
     <Compile Include="Services\Member\MemberService.cs" />
     <Compile Include="Services\Message\IMessageService.cs" />
@@ -633,7 +616,6 @@
     <Compile Include="ViewModels\EmailTemplateViewModel.cs" />
     <Compile Include="ViewModels\GetCommissionGroupViewModel.cs" />
     <Compile Include="ViewModels\MediaGallery\BannerListViewModel.cs" />
-    <Compile Include="ViewModels\MediaGallery\TextListViewModel.cs" />
     <Compile Include="ViewModels\Member\MemberListViewModel.cs" />
     <Compile Include="ViewModels\Payment\PaymentMethodViewModel.cs" />
     <Compile Include="ViewModels\Report\ReportCommonViewModel.cs" />
