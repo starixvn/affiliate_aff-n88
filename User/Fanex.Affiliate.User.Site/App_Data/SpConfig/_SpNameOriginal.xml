@@ -27,15 +27,6 @@
   </Function>
 
   <Function Name="Statistics">
-    <Setting Key="Aff_AffiliateSelTrackingCode" SpName="Aff_AffiliateSelTrackingCode" DbName="" />
-    <Setting Key="Aff_AffiliateSelTrackingCode_view" SpName="Aff_AffiliateSelTrackingCode" DbName="view" />
-
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsAllMonths_view" SpName="Aff_AffiliateSelClickStatisticsAllMonths" DbName="view" />
-
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="" />
-    <Setting Key="Aff_AffiliateSelClickStatisticsMonthDetail_view" SpName="Aff_AffiliateSelClickStatisticsMonthDetail" DbName="view" />
-
     <Setting Key="Aff_ClickStatisticsSelBySite" SpName="Aff_ClickStatisticsSelBySite" DbName="" />
     <Setting Key="Aff_ClickStatisticsSelBySite_view" SpName="Aff_ClickStatisticsSelBySite" DbName="view" />
 
@@ -44,9 +35,6 @@
 
     <Setting Key="Aff_ClickStatisticsSelByPage" SpName="Aff_ClickStatisticsSelByPage" DbName="" />
     <Setting Key="Aff_ClickStatisticsSelByPage_view" SpName="Aff_ClickStatisticsSelByPage" DbName="view" />
-
-    <Setting Key="Aff_User_StatisticsSel" SpName="Aff_User_StatisticsSel" DbName="" />
-    <Setting Key="Aff_User_StatisticsSel_view" SpName="Aff_User_StatisticsSel" DbName="view" />
 
     <Setting Key="Aff_User_Rpt_MarketingPage_Statistics" SpName="Aff_User_Rpt_MarketingPage_Statistics" DbName="" />
     <Setting Key="Aff_User_Rpt_MarketingPage_Statistics_view" SpName="Aff_User_Rpt_MarketingPage_Statistics" DbName="view" />
@@ -79,11 +67,6 @@
     <Setting Key="Aff_SubAffiliate_Commission_Sel_view" SpName="Aff_SubAffiliate_Commission_Sel" DbName=""/>
   </Function>
 
-  <Function Name="Commission">
-    <Setting Key="Aff_User_CommSetting_Sel" SpName="Aff_User_CommSetting_Sel" DbName="" />
-    <Setting Key="Aff_User_CommSetting_Sel_view" SpName="Aff_User_CommSetting_Sel" DbName="view" />
-  </Function>
-
   <Function Name="Payment">
     <Setting Key="Aff_User_PaymentRequest_Sel" SpName="Aff_User_PaymentRequest_Sel" DbName="" />
     <Setting Key="Aff_User_PaymentRequest_Sel_view" SpName="Aff_User_PaymentRequest_Sel" DbName="view" />
@@ -95,11 +78,6 @@
   <Function Name="SignUp">
     <Setting Key="Aff_User_Affiliate_Ins" SpName="Aff_User_Affiliate_Ins" DbName="" />
     <Setting Key="Aff_Get_GeneralAffInfo" SpName="Aff_Get_GeneralAffInfo" DbName="" />
-  </Function>
-
-  <Function Name="Member">
-    <Setting Key="Aff_MemberList_Sel" SpName="Aff_MemberList_Sel" DbName="" />
-    <Setting Key="Aff_MemberList_Sel_view" SpName="Aff_MemberList_Sel" DbName="view" />
   </Function>
 
   <Function Name="CommissionReport">

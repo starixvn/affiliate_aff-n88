@@ -1175,12 +1175,6 @@ Jika anda mempunyai sebarang soalan dan memerlukan sebarang bantuan, sila jangan
   <data name="none" xml:space="preserve">
     <value>Tiada</value>
   </data>
-  <data name="TrackingStatistics" xml:space="preserve">
-    <value>Statistik Penjejakan</value>
-  </data>
-  <data name="TrackingCode" xml:space="preserve">
-    <value>Kod Penjejakan</value>
-  </data>
   <data name="EmailTitlePasswordRecovery" xml:space="preserve">
     <value>Butiran log masuk anda</value>
   </data>

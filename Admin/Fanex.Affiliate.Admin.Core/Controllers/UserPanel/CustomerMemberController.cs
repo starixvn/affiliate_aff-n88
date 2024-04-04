@@ -32,7 +32,7 @@ namespace Fanex.Affiliate.Admin.Core.Controllers.UserPanel
 
                 return new JsonNetResult
                 {
-                    Data = _customerMemberService.GetCustomerMember(param)
+                    Data = new { EntityResult = _customerMemberService.GetCustomerMember(param), param.CanViewMemberEmail }
                 };
             }
 

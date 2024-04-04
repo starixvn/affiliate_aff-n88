@@ -1945,12 +1945,6 @@
   <data name="none" xml:space="preserve">
     <value>কোনটি না</value>
   </data>
-  <data name="TrackingStatistics" xml:space="preserve">
-    <value>ট্র্যাকিং পরিসংখ্যান</value>
-  </data>
-  <data name="TrackingCode" xml:space="preserve">
-    <value>ট্র্যাকিং কোড</value>
-  </data>
   <data name="SubjectForgetPass" xml:space="preserve">
     <value>B2C অফিলিয়েট - আপনার লগইন বিবরণ</value>
   </data>

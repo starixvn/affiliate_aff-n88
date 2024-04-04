@@ -151,9 +151,6 @@
       <HintPath>..\..\packages\RestSharp.105.2.3\lib\net46\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=5.0.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SimpleInjector.5.3.0\lib\net461\SimpleInjector.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -298,7 +295,6 @@
     <Compile Include="Controllers\UserPanel\SubAffLinkController.cs" />
     <Compile Include="Controllers\UserPanel\SubAffMediaGalleryController.cs" />
     <Compile Include="Controllers\UserPanel\SummaryController.cs" />
-    <Compile Include="Controllers\UserPanel\TrackingStatisticsController.cs" />
     <Compile Include="Controllers\UserPanel\AffiliateLinkController.cs" />
     <Compile Include="Controllers\UserPanel\MediaGalleryController.cs" />
     <Compile Include="Controllers\UserPanel\MarketingController.cs" />
@@ -418,13 +414,11 @@
     <Compile Include="DTO\UserPanel\LandingPageStatistics.cs" />
     <Compile Include="DTO\UserPanel\MarketingItem.cs" />
     <Compile Include="DTO\UserPanel\MediaGallery\BannerType.cs" />
-    <Compile Include="DTO\UserPanel\CommissionSetting.cs" />
     <Compile Include="DTO\UserPanel\Domain.cs" />
     <Compile Include="DTO\UserPanel\MessageHistory.cs" />
     <Compile Include="DTO\UserPanel\ReferrerStatistics.cs" />
     <Compile Include="DTO\UserPanel\StatementHistory.cs" />
     <Compile Include="DTO\UserPanel\StatisticsBase.cs" />
-    <Compile Include="DTO\UserPanel\TrackingStatistics.cs" />
     <Compile Include="DTO\UserSession.cs" />
     <Compile Include="DTO\ResultInfo.cs" />
     <Compile Include="DTO\VerificationAccount\VerificationInfo.cs" />
@@ -483,7 +477,6 @@
     <Compile Include="MetalModels\UserPanel\StatisticsBySiteBaseParam.cs" />
     <Compile Include="MetalModels\UserPanel\StatisticsDetailBySiteParam.cs" />
     <Compile Include="MetalModels\UserPanel\StatisticsOverviewParam.cs" />
-    <Compile Include="MetalModels\UserPanel\TrackingStatisticsDetailParam.cs" />
     <Compile Include="MetalModels\UserSignUpParam.cs" />
     <Compile Include="MetalModels\VerificationAccountParam.cs" />
     <Compile Include="MetalModels\VerificationOtpParam.cs" />
@@ -594,7 +587,6 @@
     <Compile Include="ViewModels\UserPanel\Statistics\LandingPageStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\MarketingPageStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\Statistics\ReferrerStatisticsViewModel.cs" />
-    <Compile Include="ViewModels\UserPanel\Statistics\TrackingStatisticsViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\SubAffComViewModel.cs" />
     <Compile Include="ViewModels\UserPanel\TransMoneyRequestViewModel.cs" />
     <Compile Include="ViewModels\VerificationAccountViewModel.cs" />
@@ -624,7 +616,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Error.zh-CN.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Lang.bn-BD.resx" />
+    <EmbeddedResource Include="Resources\Lang.bn-BD.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.hi-IN.resx" />
     <EmbeddedResource Include="Resources\Lang.km-KH.resx" />
     <EmbeddedResource Include="Resources\Lang.ms-MY.resx" />
